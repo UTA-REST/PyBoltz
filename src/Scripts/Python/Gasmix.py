@@ -1,4 +1,5 @@
 from CF4 import Gas1
+from ARGON import Gas2
 import h5py
 from types import MethodType
 import multiprocessing as mp

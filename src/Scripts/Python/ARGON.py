@@ -3,9 +3,7 @@ import numpy as np
 import math
 
 
-def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, KEL, PENFRA, NC0, EC0, WK,
-         EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
-         NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):
+def Gas2(object):
     gd = h5py.File(r"gases.hdf5")
     APOL = 11.08
     LMAX = 100
@@ -28,14 +26,14 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
     AUGK = 3.39
     NION = 7
     NATT = 1
-    NIN = 44
+    object.NIN = 44
     NNULL = 0
     NBREM = 25
 
     for i in range(0, 6):
-        KEL[i] = NANISO
-    for i in range(0, NIN):
-        KIN[i] = NANISO
+        object.KEL[i] = object.NANISO
+    for i in range(0, object.NIN):
+        object.KIN[i] = object.NANISO
     NDATA = 117
     NEPSI = 217
     NIDATA = 75
@@ -74,26 +72,26 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
     PIR2 = 8.7973554297e-17
     EMASS = 9.10938291e-31
     AMU = 1.660538921e-27
-    E = [0.0, 1.0, 15.9, 0.0, 0.0, 0.0]
-    E[1] = 2.0 * EMASS / (39.948 * AMU)
+    object.E = [0.0, 1.0, 15.9, 0.0, 0.0, 0.0]
+    object.E[1] = 2.0 * EMASS / (39.948 * AMU)
     EOBY = [9.5, 18.0, 34.0, 110.0, 110.0, 150.0, 1800]
-    EION = [15.75961, 43.38928, 84.124, 248.4, 250.6, 326.3, 3205.9]
+    object.EION = [15.75961, 43.38928, 84.124, 248.4, 250.6, 326.3, 3205.9]
     LEGAS = [0, 0, 0, 1, 1, 1, 1]
     ISHELL = [0, 0, 0, 4, 3, 2, 1]
-    NC0 = [0, 1, 2, 2, 2, 3, 4]
-    EC0 = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]
+    object.NC0 = [0, 1, 2, 2, 2, 3, 4]
+    object.EC0 = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]
     WKLM = [0.0, 0.0, 0.0, 0.00147, 0.00147, 0.00147, 0.12]
-    EFL = [0.0, 0.0, 0.0, 232, 235, 310, 2957]
-    NG1 = [0, 0, 0, 1, 1, 2, 3]
-    EG1 = [0.0, 0.0, 0.0, 210.5, 202.2, 240.8, 2850]
-    NG2 = [0.0, 0.0, 0.0, 1, 1, 1, 2]
-    EG2 = [0.0, 0.0, 5.0, 5.0, 5.0, 220]
+    object.EFL = [0.0, 0.0, 0.0, 232, 235, 310, 2957]
+    object.NG1 = [0, 0, 0, 1, 1, 2, 3]
+    object.EG1 = [0.0, 0.0, 0.0, 210.5, 202.2, 240.8, 2850]
+    object.NG2 = [0.0, 0.0, 0.0, 1, 1, 1, 2]
+    object.EG2 = [0.0, 0.0, 5.0, 5.0, 5.0, 220]
 
     IOFFION = [0 for x in range(10)]
     IOFFN = [0 for x in range(44)]
     for j in range(0, NION):
         for i in range(0, 4000):
-            if EG[i] > EION[j]:
+            if object.EG[i] > object.EION[j]:
                 IOFFION[j] = i - 1
                 break
     EIN = gd['gas2/EIN']
@@ -196,19 +194,19 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
     X2S3 = gd['gas2/X2S3']
     Y2S3 = gd['gas2/Y2S3']
     YEP2S3 = gd['gas2/YEP2S3']
-    for i in range(NIN):
-        PENFRA[0][i] = 0.2
-        PENFRA[1][i] = 1.0
-        PENFRA[2][i] = 1.0
-    for i in range(NIN):
+    for i in range(object.NIN):
+        object.PENFRA[0][i] = 0.2
+        object.PENFRA[1][i] = 1.0
+        object.PENFRA[2][i] = 1.0
+    for i in range(object.NIN):
         for j in range(4000):
-            if EG[j] > EIN[i]:
+            if object.EG[j] > EIN[i]:
                 IOFFN[i] = j - 1
                 break
 
-    for I in range(0, NSTEP):
-        EN = EG[I]
-        # EN=EN+ESTEP
+    for I in range(0, object.NSTEP):
+        EN = object.EG[I]
+        # EN=EN+object.ESTEP
         if EN > EIN[0]:
             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
             GAMMA2 = GAMMA1 * GAMMA1
@@ -219,13 +217,13 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                 QELA = 7.491E-16
                 QMOM = 7.491E-16
             if EN != 0:
-                AK = np.sqrt(EN / ARY)
+                AK = np.sqrt(EN / object.ARY)
                 AK2 = AK * AK
                 AK3 = AK2 * AK
                 AK4 = AK3 * AK
                 AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * np.log(AK)) - (
                         API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
-                AN1 = (API / 15.0) * APOL * AK @ -A1 * AK3
+                AN1 = (API / 15.0) * APOL * AK - A1 * AK3
                 AN2 = API * APOL * AK2 / 105.0
                 AN0 = math.atan(AN0)
                 AN1 = math.atan(AN1)
@@ -264,16 +262,16 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
         # EPSILON = 1 - PQ2
         PQ2 = 1.0 - PQ2
         PQ = [0.5, PQ1, PQ2]
-        PEQEL[1][I] = PQ[NANISO]
-        Q[1][I] = QELA
-        if NANISO == 0:
-            Q[1][I] = QMOM
-        QION[0][I] = 0.0
-        PEQION[0][I] = 0.5
+        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.Q[1][I] = QELA
+        if object.NANISO == 0:
+            object.Q[1][I] = QMOM
+        object.QION[0][I] = 0.0
+        object.PEQION[0][I] = 0.5
 
-        if NANISO == 2:
-            PEQIN[0][I] = 0
-        if EN > EION[0]:
+        if object.NANISO == 2:
+            object.object.PEQIN[0][I] = 0
+        if EN > object.EION[0]:
             if EN <= XENI[NIDATA - 1]:
                 j = 0
                 for j in range(1, NIDATA):
@@ -281,21 +279,21 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (YENI[j] - YENI[j - 1]) / (XENI[j] - XENI[j - 1])
                 B = (XENI[j - 1] * YENI[j] - XENI[j] * YENI[j - 1]) / (XENI[j - 1] - XENI[j])
-                QION[0][I] = (A * EN + B) * 1e-16
+                object.QION[0][I] = (A * EN + B) * 1e-16
 
             else:
                 # USE BORN BETHE X-SECTION ABOVE XENI[NIDATA] EV
                 X2 = 1 / BETA2
                 X1 = X2 * np.log(BETA2 / (1 - BETA2)) - 1
-                QION[0][I] = CONST * (AM2 * (X1 - DEN[i] / 2) + C * X2) * 0.9466
-            if EN > 2 * EION[0]:
-                PEQION[0][I] = PEQEL[0][(I - IOFFION[0])]
+                object.QION[0][I] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.9466
+            if EN > 2 * object.EION[0]:
+                object.PEQION[0][I] = object.PEQEL[0][(I - IOFFION[0])]
 
-        QION[1][I] = 0.0
-        PEQION[1][I] = 0.5
-        if NANISO == 2:
-            PEQIN[1][I] = 0
-        if EN > EION[1]:
+        object.QION[1][I] = 0.0
+        object.PEQION[1][I] = 0.5
+        if object.NANISO == 2:
+            object.PEQIN[1][I] = 0
+        if EN > object.EION[1]:
             if EN <= XEN2[NION2 - 1]:
                 j = 0
                 for j in range(1, NION2):
@@ -303,22 +301,22 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (YEN2[j] - YEN2[j - 1]) / (XEN2[j] - XEN2[j - 1])
                 B = (XEN2[j - 1] * YEN2[j] - XEN2[j] * YEN2[j - 1]) / (XEN2[j - 1] - XEN2[j])
-                QION[1][I] = (A * EN + B) * 1e-16
-                if QION[1][I] < 0:
-                    QION[1][I] = 0
+                object.QION[1][I] = (A * EN + B) * 1e-16
+                if object.QION[1][I] < 0:
+                    object.QION[1][I] = 0
             else:
                 # USE BORN BETHE X-SECTION ABOVE XEN2[NION2] EV
                 X2 = 1 / BETA2
                 X1 = X2 * np.log(BETA2 / (1 - BETA2)) - 1
-                QION[1][I] = CONST * (AM2 * (X1 - DEN[i] / 2) + C * X2) * 0.04448
-            if EN > 2 * EION[1]:
-                PEQION[1][I] = PEQEL[1][(I - IOFFION[1])]
+                object.QION[1][I] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.04448
+            if EN > 2 * object.EION[1]:
+                object.PEQION[1][I] = object.PEQEL[1][(I - IOFFION[1])]
 
-        QION[2][I] = 0.0
-        PEQION[2][I] = 0.5
-        if NANISO == 2:
-            PEQIN[2][I] = 0
-        if EN > EION[2]:
+        object.QION[2][I] = 0.0
+        object.PEQION[2][I] = 0.5
+        if object.NANISO == 2:
+            object.PEQIN[2][I] = 0
+        if EN > object.EION[2]:
             if EN <= XEN3[NION3 - 1]:
                 j = 0
                 for j in range(1, NION3):
@@ -326,112 +324,112 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (YEN3[j] - YEN3[j - 1]) / (XEN3[j] - XEN3[j - 1])
                 B = (XEN3[j - 1] * YEN3[j] - XEN3[j] * YEN3[j - 1]) / (XEN3[j - 1] - XEN3[j])
-                QION[2][I] = (A * EN + B) * 1e-16
-                if QION[2][I] < 0:
-                    QION[2][I] = 0
-            else:
-                # USE BORN BETHE X-SECTION ABOVE XEN3[NION3] EV
-                X2 = 1 / BETA2
-                X1 = X2 * np.log(BETA2 / (1 - BETA2)) - 1
-                QION[2][I] = CONST * (AM2 * (X1 - DEN[I] / 2) + C * X2) * 0.00987
-            if EN > 2 * EION[2]:
-                PEQION[2][I] = PEQEL[1][(I - IOFFION[2])]
+            object.QION[2][I] = (A * EN + B) * 1e-16
+            if object.QION[2][I] < 0:
+                object.QION[2][I] = 0
+        else:
+            # USE BORN BETHE X-SECTION ABOVE XEN3[NION3] EV
+            X2 = 1 / BETA2
+            X1 = X2 * np.log(BETA2 / (1 - BETA2)) - 1
+            object.QION[2][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2) * 0.00987
+        if EN > 2 * object.EION[2]:
+            object.PEQION[2][I] = object.PEQEL[1][(I - IOFFION[2])]
         # L3 Shell ionisation
-        QION[3][i] = 0.0
-        PEQION[3][i] = 0.5
+        object.QION[3][i] = 0.0
+        object.PEQION[3][i] = 0.5
 
-        if NANISO == 2:
-            PEQION[3][i] = 0.0
+        if object.NANISO == 2:
+            object.PEQION[3][i] = 0.0
 
-        if EN > EION[3]:
+        if EN > object.EION[3]:
             for j in range(1, NL3S):
                 if EN <= XL3S[j]:
                     break
             A = (YL3S[j] - YL3S[j - 1]) / (XL3S[j] - XL3S[j - 1])
             B = (XL3S[j - 1] * YL3S[j] - XL3S[j] * YL3S[j - 1]) / (XL3S[j - 1] - XL3S[j])
-            QION[3][I] = (A * EN + B) * 1e-16
-            PEQION[3][I] = PEQEL[1][I - IOFFION[3]]
+            object.QION[3][I] = (A * EN + B) * 1e-16
+            object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]
 
         # L2 Shell ionisation
-        QION[4][i] = 0.0
-        PEQION[4][i] = 0.5
+        object.QION[4][i] = 0.0
+        object.PEQION[4][i] = 0.5
 
-        if NANISO == 2:
-            PEQION[4][i] = 0.0
+        if object.NANISO == 2:
+            object.PEQION[4][i] = 0.0
 
-        if EN > EION[4]:
+        if EN > object.EION[4]:
             for j in range(1, NL2S):
                 if EN <= XL2S[j]:
                     break
             A = (YL2S[j] - YL2S[j - 1]) / (XL2S[j] - XL2S[j - 1])
             B = (XL2S[j - 1] * YL2S[j] - XL2S[j] * YL2S[j - 1]) / (XL2S[j - 1] - XL2S[j])
-            QION[4][I] = (A * EN + B) * 1e-16
-            PEQION[4][I] = PEQEL[1][I - IOFFION[4]]
+            object.QION[4][I] = (A * EN + B) * 1e-16
+            object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]
         # L1 Shell ionisation
-        QION[5][i] = 0.0
-        PEQION[5][i] = 0.5
+        object.QION[5][i] = 0.0
+        object.PEQION[5][i] = 0.5
 
-        if NANISO == 2:
-            PEQION[5][i] = 0.0
+        if object.NANISO == 2:
+            object.PEQION[5][i] = 0.0
 
-        if EN > EION[5]:
+        if EN > object.EION[5]:
             for j in range(1, NL1S):
                 if EN <= XL1S[j]:
                     break
             A = (YL1S[j] - YL1S[j - 1]) / (XL1S[j] - XL1S[j - 1])
             B = (XL1S[j - 1] * YL1S[j] - XL1S[j] * YL1S[j - 1]) / (XL1S[j - 1] - XL1S[j])
-            QION[5][I] = (A * EN + B) * 1e-16
-            PEQION[5][I] = PEQEL[1][I - IOFFION[5]]
+            object.QION[5][I] = (A * EN + B) * 1e-16
+            object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]
 
         # K Shell ionisation
-        QION[6][i] = 0.0
-        PEQION[6][i] = 0.5
+        object.QION[6][i] = 0.0
+        object.PEQION[6][i] = 0.5
 
-        if NANISO == 2:
-            PEQION[6][i] = 0.0
+        if object.NANISO == 2:
+            object.PEQION[6][i] = 0.0
 
-        if EN > EION[6]:
+        if EN > object.EION[6]:
             for j in range(1, NKSH):
                 if EN <= XKSH[j]:
                     break
             A = (YKSH[j] - YKSH[j - 1]) / (XKSH[j] - XKSH[j - 1])
             B = (XKSH[j - 1] * YKSH[j] - XKSH[j] * YKSH[j - 1]) / (XKSH[j - 1] - XKSH[j])
-            QION[6][I] = (A * EN + B) * 1e-16
-            PEQION[6][I] = PEQEL[1][I - IOFFION[6]]
+            object.QION[6][I] = (A * EN + B) * 1e-16
+            object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]
         # ATTAchment
-        Q[3][I] = 0.0
-        QATT[0][I] = 0.0
+        object.Q[3][I] = 0.0
+        object.QATT[0][I] = 0.0
 
         # Counting ionisation
-        Q[4][I] = 0.0
-        PEQEL[4][I] = 0.5
-        if NANISO == 2:
-            PEQEL[4][I] = 0.0
-        if EN > E[2]:
+        object.Q[4][I] = 0.0
+        object.PEQEL[4][I] = 0.5
+        if object.NANISO == 2:
+            object.PEQEL[4][I] = 0.0
+        if EN > object.E[2]:
             if EN <= XENI[NIDATA]:
                 for j in range(1, NIDATA):
                     if EN <= XENI[j]:
                         break
                 A = (YENC[j] - YENC[j - 1]) / (XENI[j] - XENI[j - 1])
                 B = (XENI[j - 1] * YENC[j] - XENI[j] * YENC[j - 1]) / (XENI[j - 1] - XENI[j])
-                Q[4][I] = (A * EN + B) * 1.0e-16
+                object.Q[4][I] = (A * EN + B) * 1.0e-16
             else:
-                Q[4][I] = CONST * (AM2 * (X1 - DEN(I) / 2.0) + C * X2)
-        QTEMP = QION[3][I] + QION[4][I] + QION[5][I] + QION[6][I]
-        if Q[4][I] == 0.0:
+                object.Q[4][I] = CONST * (AM2 * (X1 - object.DEN(I) / 2.0) + C * X2)
+        QTEMP = object.QION[3][I] + object.QION[4][I] + object.QION[5][I] + object.QION[6][I]
+        if object.Q[4][I] == 0.0:
             QCORR = 1.0
         else:
-            QCORR = (Q[4][I] - QTEMP) / Q[4][I]
-        QION[0][I] = QION[0][I] * QCORR
-        QION[1][I] = QION[1][I] * QCORR
-        QION[2][I] = QION[2][I] * QCORR
+            QCORR = (Q[4][I] - QTEMP) / object.Q[4][I]
+        object.QION[0][I] = object.QION[0][I] * QCORR
+        object.QION[1][I] = object.QION[1][I] * QCORR
+        object.QION[2][I] = object.QION[2][I] * QCORR
 
-        Q[5][I] = 0.0
-        for NL in range(NIN):
-            QIN[NL][I] = 0.0
-            PEQIN[NL][I] = 0.5
-            if NANISO == 2:
-                PEQIN[NL][I] = 0.0
+        object.Q[5][I] = 0.0
+        for NL in range(object.NIN):
+            object.QIN[NL][I] = 0.0
+            object.PEQIN[NL][I] = 0.5
+            if object.NANISO == 2:
+                object.PEQIN[NL][I] = 0.0
 
         # 1S5
 
@@ -442,11 +440,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y1S5[j] - Y1S5[j - 1]) / (X1S5[j] - X1S5[j - 1])
                 B = (X1S5[j - 1] * Y1S5[j] - X1S5[j] * Y1S5[j - 1]) / (X1S5[j - 1] - X1S5[j])
-                QIN[0][I] = (A * EN + B) * 1.0e-18
+                object.QIN[0][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[0][I] = Y1S5[N1S5 - 1] * (X1S5[N1S5 - 1] / EN) ** 3 * 1.0e-18
+                object.QIN[0][I] = Y1S5[N1S5 - 1] * (X1S5[N1S5 - 1] / EN) ** 3 * 1.0e-18
             if EN > (2.0 * EIN[0]):
-                PEQIN[0][I] = PEQEL[1][I - IOFFN[0]]
+                object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
 
         if EN > EIN[1]:
             if EN <= X1S4[N1S4 - 1]:
@@ -455,13 +453,14 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y1S4[j] - Y1S4[j - 1]) / (X1S4[j] - X1S4[j - 1])
                 B = (X1S4[j - 1] * Y1S4[j] - X1S4[j] * Y1S4[j - 1]) / (X1S4[j - 1] - X1S4[j])
-                QIN[1][I] = (A * EN + B) * 1.0e-18
+                object.QIN[1][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[1][I] = 0.0580 / (EIN[1] * BETA2) * (
-                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[1])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                    EN + E[2] + EIN[1])
+                object.QIN[1][I] = 0.0580 / (EIN[1] * BETA2) * (
+                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[1])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (
+                                           EN + object.E[2] + EIN[1])
             if EN > (2.0 * EIN[1]):
-                PEQIN[1][I] = PEQEL[1][I - IOFFN[1]]
+                object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]
 
         # 1S3
         if EN > EIN[2]:
@@ -471,11 +470,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y1S3[j] - Y1S3[j - 1]) / (X1S3[j] - X1S3[j - 1])
                 B = (X1S3[j - 1] * Y1S3[j] - X1S3[j] * Y1S3[j - 1]) / (X1S3[j - 1] - X1S3[j])
-                QIN[2][I] = (A * EN + B) * 1.0e-18
+                object.QIN[2][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[2][I] = Y1S3[N1S3 - 1] * (X1S3[N1S3 - 1] / EN) ** 3 * 1.0e-18
+                object.QIN[2][I] = Y1S3[N1S3 - 1] * (X1S3[N1S3 - 1] / EN) ** 3 * 1.0e-18
             if EN > (2.0 * EIN[2]):
-                PEQIN[2][I] = PEQEL[1][I - IOFFN[2]]
+                object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
 
         # 1S2 F=0.2260
         if EN > EIN[3]:
@@ -485,13 +484,14 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y1S2[j] - Y1S2[j - 1]) / (X1S2[j] - X1S2[j - 1])
                 B = (X1S2[j - 1] * Y1S2[j] - X1S2[j] * Y1S2[j - 1]) / (X1S2[j - 1] - X1S2[j])
-                QIN[3][I] = (A * EN + B) * 1.0e-18
+                object.QIN[3][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[3][I] = 0.2260 / (EIN[3] * BETA2) * (
-                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[3])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                    EN + E[2] + EIN[3])
+                object.QIN[3][I] = 0.2260 / (EIN[3] * BETA2) * (
+                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[3])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (
+                                           EN + object.E[2] + EIN[3])
             if EN > (2.0 * EIN[3]):
-                PEQIN[3][I] = PEQEL[1][I - IOFFN[3]]
+                object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
         # P states, 2P10
         if EN > EIN[4]:
             if EN <= X2P10[N2P10 - 1]:
@@ -500,11 +500,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P10[j] - Y2P10[j - 1]) / (X2P10[j] - X2P10[j - 1])
                 B = (X2P10[j - 1] * Y2P10[j] - X2P10[j] * Y2P10[j - 1]) / (X2P10[j - 1] - X2P10[j])
-                QIN[4][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[4][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[4][I] = Y2P10[N2P10 - 1] * (X2P10[N2P10 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
+                object.QIN[4][I] = Y2P10[N2P10 - 1] * (X2P10[N2P10 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[4]):
-                PEQIN[4][I] = PEQEL[1][I - IOFFN[4]]
+                object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]
 
         # P states, 2P9
         if EN > EIN[5]:
@@ -514,11 +514,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P9[j] - Y2P9[j - 1]) / (X2P9[j] - X2P9[j - 1])
                 B = (X2P9[j - 1] * Y2P9[j] - X2P9[j] * Y2P9[j - 1]) / (X2P9[j - 1] - X2P9[j])
-                QIN[5][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[5][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[5][I] = Y2P9[N2P9 - 1] * (X2P9[N2P9 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
+                object.QIN[5][I] = Y2P9[N2P9 - 1] * (X2P9[N2P9 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[5]):
-                PEQIN[5][I] = PEQEL[1][I - IOFFN[5]]
+                object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]
 
         # P states, 2P8
         if EN > EIN[6]:
@@ -528,11 +528,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P8[j] - Y2P8[j - 1]) / (X2P8[j] - X2P8[j - 1])
                 B = (X2P8[j - 1] * Y2P8[j] - X2P8[j] * Y2P8[j - 1]) / (X2P8[j - 1] - X2P8[j])
-                QIN[6][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[6][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[6][I] = Y2P8[N2P8 - 1] * (X2P8[N2P8 - 1] / EN) * 1.0e-18 * PSCALE
+                object.QIN[6][I] = Y2P8[N2P8 - 1] * (X2P8[N2P8 - 1] / EN) * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[6]):
-                PEQIN[6][I] = PEQEL[1][I - IOFFN[6]]
+                object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]
 
         # P states, 2P7
         if EN > EIN[7]:
@@ -542,11 +542,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P7[j] - Y2P7[j - 1]) / (X2P7[j] - X2P7[j - 1])
                 B = (X2P7[j - 1] * Y2P7[j] - X2P7[j] * Y2P7[j - 1]) / (X2P7[j - 1] - X2P7[j])
-                QIN[7][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[7][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[7][I] = Y2P7[N2P7 - 1] * (X2P7[N2P7 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
+                object.QIN[7][I] = Y2P7[N2P7 - 1] * (X2P7[N2P7 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[7]):
-                PEQIN[7][I] = PEQEL[1][I - IOFFN[7]]
+                object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]
 
         # P states, 2P6
         if EN > EIN[8]:
@@ -556,11 +556,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P6[j] - Y2P6[j - 1]) / (X2P6[j] - X2P6[j - 1])
                 B = (X2P6[j - 1] * Y2P6[j] - X2P6[j] * Y2P6[j - 1]) / (X2P6[j - 1] - X2P6[j])
-                QIN[8][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[8][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[8][I] = Y2P6[N2P6 - 1] * (X2P6[N2P6 - 1] / EN) * 1.0e-18 * PSCALE
+                object.QIN[8][I] = Y2P6[N2P6 - 1] * (X2P6[N2P6 - 1] / EN) * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[8]):
-                PEQIN[8][I] = PEQEL[1][I - IOFFN[8]]
+                object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]
 
         # P states, 2P5
         if EN > EIN[9]:
@@ -570,11 +570,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P5[j] - Y2P5[j - 1]) / (X2P5[j] - X2P5[j - 1])
                 B = (X2P5[j - 1] * Y2P5[j] - X2P5[j] * Y2P5[j - 1]) / (X2P5[j - 1] - X2P5[j])
-                QIN[9][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[9][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[9][I] = Y2P5[N2P5 - 1] * (X2P5[N2P5 - 1] / EN) * 1.0e-18 * PSCALE
+                object.QIN[9][I] = Y2P5[N2P5 - 1] * (X2P5[N2P5 - 1] / EN) * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[9]):
-                PEQIN[9][I] = PEQEL[1][I - IOFFN[9]]
+                object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]
 
         # P states, 2P4
         if EN > EIN[10]:
@@ -584,11 +584,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P4[j] - Y2P4[j - 1]) / (X2P4[j] - X2P4[j - 1])
                 B = (X2P4[j - 1] * Y2P4[j] - X2P4[j] * Y2P4[j - 1]) / (X2P4[j - 1] - X2P4[j])
-                QIN[10][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[10][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[10][I] = Y2P4[N2P4 - 1] * (X2P4[N2P4 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
+                object.QIN[10][I] = Y2P4[N2P4 - 1] * (X2P4[N2P4 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[10]):
-                PEQIN[10][I] = PEQEL[1][I - IOFFN[10]]
+                object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
 
         # P states, 2P3
         if EN > EIN[11]:
@@ -598,11 +598,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P3[j] - Y2P3[j - 1]) / (X2P3[j] - X2P3[j - 1])
                 B = (X2P3[j - 1] * Y2P3[j] - X2P3[j] * Y2P3[j - 1]) / (X2P3[j - 1] - X2P3[j])
-                QIN[11][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[11][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[11][I] = Y2P3[N2P3 - 1] * (X2P3[N2P3 - 1] / EN) * 1.0e-18 * PSCALE
+                object.QIN[11][I] = Y2P3[N2P3 - 1] * (X2P3[N2P3 - 1] / EN) * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[11]):
-                PEQIN[11][I] = PEQEL[1][I - IOFFN[11]]
+                object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]
 
         # P states, 2P2
         if EN > EIN[12]:
@@ -612,11 +612,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P2[j] - Y2P2[j - 1]) / (X2P2[j] - X2P2[j - 1])
                 B = (X2P2[j - 1] * Y2P2[j] - X2P2[j] * Y2P2[j - 1]) / (X2P2[j - 1] - X2P2[j])
-                QIN[12][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[12][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[12][I] = Y2P2[N2P2 - 1] * (X2P2[N2P2 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
+                object.QIN[12][I] = Y2P2[N2P2 - 1] * (X2P2[N2P2 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[12]):
-                PEQIN[12][I] = PEQEL[1][I - IOFFN[12]]
+                object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]
 
         # P states, 2P1
         if EN > EIN[13]:
@@ -626,11 +626,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2P1[j] - Y2P1[j - 1]) / (X2P1[j] - X2P1[j - 1])
                 B = (X2P1[j - 1] * Y2P1[j] - X2P1[j] * Y2P1[j - 1]) / (X2P1[j - 1] - X2P1[j])
-                QIN[13][I] = (A * EN + B) * 1.0e-18 * PSCALE
+                object.QIN[13][I] = (A * EN + B) * 1.0e-18 * PSCALE
             else:
-                QIN[13][I] = Y2P1[N2P1 - 1] * (X2P1[N2P1 - 1] / EN) * 1.0e-18 * PSCALE
+                object.QIN[13][I] = Y2P1[N2P1 - 1] * (X2P1[N2P1 - 1] / EN) * 1.0e-18 * PSCALE
             if EN > (2.0 * EIN[13]):
-                PEQIN[13][I] = PEQEL[1][I - IOFFN[13]]
+                object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]
 
         # D states, 3D6
         if EN > EIN[14]:
@@ -640,11 +640,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3D6[j] - Y3D6[j - 1]) / (X3D6[j] - X3D6[j - 1])
                 B = (X3D6[j - 1] * Y3D6[j] - X3D6[j] * Y3D6[j - 1]) / (X3D6[j - 1] - X3D6[j])
-                QIN[14][I] = (A * EN + B) * 1.0e-18
+                object.QIN[14][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[14][I] = Y3D6[N3D6 - 1] * (X3D6[N3D6 - 1] / EN) ** 3 * 1.0e-18
+                object.QIN[14][I] = Y3D6[N3D6 - 1] * (X3D6[N3D6 - 1] / EN) ** 3 * 1.0e-18
             if EN > (2.0 * EIN[14]):
-                PEQIN[14][I] = PEQEL[1][I - IOFFN[14]]
+                object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]
 
         # D states, 3D5
         if EN > EIN[15]:
@@ -654,13 +654,14 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3D5[j] - Y3D5[j - 1]) / (X3D5[j] - X3D5[j - 1])
                 B = (X3D5[j - 1] * Y3D5[j] - X3D5[j] * Y3D5[j - 1]) / (X3D5[j - 1] - X3D5[j])
-                QIN[15][I] = (A * EN + B) * 1.0e-18
+                object.QIN[15][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[15][I] = 0.0010 / (EIN[15] * BETA2) * (
-                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[15])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                     EN + E[2] + EIN[15])
+                object.QIN[15][I] = 0.0010 / (EIN[15] * BETA2) * (
+                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[15])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (
+                                            EN + object.E[2] + EIN[15])
             if EN > (2.0 * EIN[15]):
-                PEQIN[15][I] = PEQEL[1][I - IOFFN[15]]
+                object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]
 
         # D states, 3D3
         if EN > EIN[16]:
@@ -670,11 +671,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3D3[j] - Y3D3[j - 1]) / (X3D3[j] - X3D3[j - 1])
                 B = (X3D3[j - 1] * Y3D3[j] - X3D3[j] * Y3D3[j - 1]) / (X3D3[j - 1] - X3D3[j])
-                QIN[16][I] = (A * EN + B) * 1.0e-18
+                object.QIN[16][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[16][I] = Y3D3[N3D3 - 1] * (X3D3[N3D3 - 1] / EN) ** 3 * 1.0e-18
+                object.QIN[16][I] = Y3D3[N3D3 - 1] * (X3D3[N3D3 - 1] / EN) ** 3 * 1.0e-18
             if EN > (2.0 * EIN[16]):
-                PEQIN[16][I] = PEQEL[1][I - IOFFN[16]]
+                object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]
 
         # D states, 3D4'
         if EN > EIN[17]:
@@ -684,11 +685,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3D4P[j] - Y3D4P[j - 1]) / (X3D4P[j] - X3D4P[j - 1])
                 B = (X3D4P[j - 1] * Y3D4P[j] - X3D4P[j] * Y3D4P[j - 1]) / (X3D4P[j - 1] - X3D4P[j])
-                QIN[17][I] = (A * EN + B) * 1.0e-18
+                object.QIN[17][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[17][I] = Y3D4P[N3D4P - 1] * (X3D4P[N3D4P - 1] / EN) ** 3 * 1.0e-18
+                object.QIN[17][I] = Y3D4P[N3D4P - 1] * (X3D4P[N3D4P - 1] / EN) ** 3 * 1.0e-18
             if EN > (2.0 * EIN[17]):
-                PEQIN[17][I] = PEQEL[1][I - IOFFN[17]]
+                object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]
 
         # D states, 3D4
         if EN > EIN[18]:
@@ -698,11 +699,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3D4[j] - Y3D4[j - 1]) / (X3D4[j] - X3D4[j - 1])
                 B = (X3D4[j - 1] * Y3D4[j] - X3D4[j] * Y3D4[j - 1]) / (X3D4[j - 1] - X3D4[j])
-                QIN[18][I] = (A * EN + B) * 1.0e-18
+                object.QIN[18][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[18][I] = Y3D4[N3D4 - 1] * (X3D4[N3D4 - 1] / EN) ** 2 * 1.0e-18
+                object.QIN[18][I] = Y3D4[N3D4 - 1] * (X3D4[N3D4 - 1] / EN) ** 2 * 1.0e-18
             if EN > (2.0 * EIN[18]):
-                PEQIN[18][I] = PEQEL[1][I - IOFFN[18]]
+                object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]
 
         # D states, 3D1''
         if EN > EIN[19]:
@@ -712,11 +713,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3D1PP[j] - Y3D1PP[j - 1]) / (X3D1PP[j] - X3D1PP[j - 1])
                 B = (X3D1PP[j - 1] * Y3D1PP[j] - X3D1PP[j] * Y3D1PP[j - 1]) / (X3D1PP[j - 1] - X3D1PP[j])
-                QIN[19][I] = (A * EN + B) * 1.0e-18
+                object.QIN[19][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[19][I] = Y3D1PP[N3D1PP - 1] * (X3D1PP[N3D1PP - 1] / EN) ** 2 * 1.0e-18
+                object.QIN[19][I] = Y3D1PP[N3D1PP - 1] * (X3D1PP[N3D1PP - 1] / EN) ** 2 * 1.0e-18
             if EN > (2.0 * EIN[19]):
-                PEQIN[19][I] = PEQEL[1][I - IOFFN[19]]
+                object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]
 
         # S states, 2S5
         if EN > EIN[20]:
@@ -726,21 +727,21 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2S5[j] - Y2S5[j - 1]) / (X2S5[j] - X2S5[j - 1])
                 B = (X2S5[j - 1] * Y2S5[j] - X2S5[j] * Y2S5[j - 1]) / (X2S5[j - 1] - X2S5[j])
-                QIN[20][I] = (A * EN + B) * 1.0e-18
+                object.QIN[20][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[20][I] = Y2S5[N2S5 - 1] * (X2S5[N2S5 - 1] / EN) ** 2 * 1.0e-18
+                object.QIN[20][I] = Y2S5[N2S5 - 1] * (X2S5[N2S5 - 1] / EN) ** 2 * 1.0e-18
             if EN > (2.0 * EIN[20]):
-                PEQIN[20][I] = PEQEL[1][I - IOFFN[20]]
+                object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[20]]
 
         # S states, 2S4 F=0.0257
         if EN > EIN[21]:
-            QIN[21][I] = 0.0257 / (EIN[21] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[21])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[21])
-            if QIN[21][I] < 0:
-                QIN[21][I] = 0.0
+            object.QIN[21][I] = 0.0257 / (EIN[21] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[21])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[21])
+            if object.QIN[21][I] < 0:
+                object.QIN[21][I] = 0.0
             if EN > (2.0 * EIN[21]):
-                PEQIN[21][I] = PEQEL[1][I - IOFFN[21]]
+                object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]
 
         # D states, 3D1'
         if EN > EIN[22]:
@@ -750,21 +751,21 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3D1P[j] - Y3D1P[j - 1]) / (X3D1P[j] - X3D1P[j - 1])
                 B = (X3D1P[j - 1] * Y3D1P[j] - X3D1P[j] * Y3D1P[j - 1]) / (X3D1P[j - 1] - X3D1P[j])
-                QIN[22][I] = (A * EN + B) * 1.0e-18
+                object.QIN[22][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[22][I] = Y3D1P[N3D1P - 1] * (X3D1P[N3D1P - 1] / EN) ** 2 * 1.0e-18
+                object.QIN[22][I] = Y3D1P[N3D1P - 1] * (X3D1P[N3D1P - 1] / EN) ** 2 * 1.0e-18
             if EN > (2.0 * EIN[22]):
-                PEQIN[22][I] = PEQEL[1][I - IOFFN[22]]
+                object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]
 
         # D states, 3D2 F=0.074
         if EN > EIN[23]:
-            QIN[23][I] = 0.074 / (EIN[23] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[23])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[23])
-            if QIN[23][I] < 0:
-                QIN[23][I] = 0.0
+            object.QIN[23][I] = 0.074 / (EIN[23] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[23])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[23])
+            if object.QIN[23][I] < 0:
+                object.QIN[23][I] = 0.0
             if EN > (2.0 * EIN[23]):
-                PEQIN[23][I] = PEQEL[1][I - IOFFN[23]]
+                object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]
 
         # S states, 3S1''''
         if EN > EIN[24]:
@@ -774,11 +775,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3S1PPPP[j] - Y3S1PPPP[j - 1]) / (X3S1PPPP[j] - X3S1PPPP[j - 1])
                 B = (X3S1PPPP[j - 1] * Y3S1PPPP[j] - X3S1PPPP[j] * Y3S1PPPP[j - 1]) / (X3S1PPPP[j - 1] - X3S1PPPP[j])
-                QIN[24][I] = (A * EN + B) * 1.0e-18
+                object.QIN[24][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[24][I] = Y3S1PPPP[N3S1PPPP - 1] * (X3S1PPPP[N3S1PPPP - 1] / EN) ** 3 * 1.0e-18
+                object.QIN[24][I] = Y3S1PPPP[N3S1PPPP - 1] * (X3S1PPPP[N3S1PPPP - 1] / EN) ** 3 * 1.0e-18
             if EN > (2.0 * EIN[24]):
-                PEQIN[24][I] = PEQEL[1][I - IOFFN[24]]
+                object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]
 
         # S states, 3S1''
         if EN > EIN[25]:
@@ -788,11 +789,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3S1PP[j] - Y3S1PP[j - 1]) / (X3S1PP[j] - X3S1PP[j - 1])
                 B = (X3S1PP[j - 1] * Y3S1PP[j] - X3S1PP[j] * Y3S1PP[j - 1]) / (X3S1PP[j - 1] - X3S1PP[j])
-                QIN[25][I] = (A * EN + B) * 1.0e-18
+                object.QIN[25][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[25][I] = Y3S1PP[N3S1PP - 1] * (X3S1PP[N3S1PP - 1] / EN) ** 3 * 1.0e-18
+                object.QIN[25][I] = Y3S1PP[N3S1PP - 1] * (X3S1PP[N3S1PP - 1] / EN) ** 3 * 1.0e-18
             if EN > (2.0 * EIN[25]):
-                PEQIN[25][I] = PEQEL[1][I - IOFFN[25]]
+                object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]
 
         # S states, 3S'''
         if EN > EIN[26]:
@@ -802,11 +803,11 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y3S1PPP[j] - Y3S1PPP[j - 1]) / (X3S1PPP[j] - X3S1PPP[j - 1])
                 B = (X3S1PPP[j - 1] * Y3S1PPP[j] - X3S1PPP[j] * Y3S1PPP[j - 1]) / (X3S1PPP[j - 1] - X3S1PPP[j])
-                QIN[26][I] = (A * EN + B) * 1.0e-18
+                object.QIN[26][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[26][I] = Y3S1PPP[N3S1PPP - 1] * (X3S1PPP[N3S1PPP - 1] / EN) * 1.0e-18
+                object.QIN[26][I] = Y3S1PPP[N3S1PPP - 1] * (X3S1PPP[N3S1PPP - 1] / EN) * 1.0e-18
             if EN > (2.0 * EIN[26]):
-                PEQIN[26][I] = PEQEL[1][I - IOFFN[26]]
+                object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]
 
         # S states, 2S3
         if EN > EIN[27]:
@@ -816,189 +817,189 @@ def Gas2(NGS, Q, QIN, NIN, E, EIN, KIN, QION, PEQION, EION, EOBY, PEQEL, PEQIN, 
                         break
                 A = (Y2S3[j] - Y2S3[j - 1]) / (X2S3[j] - X2S3[j - 1])
                 B = (X2S3[j - 1] * Y2S3[j] - X2S3[j] * Y2S3[j - 1]) / (X2S3[j - 1] - X2S3[j])
-                QIN[27][I] = (A * EN + B) * 1.0e-18
+                object.QIN[27][I] = (A * EN + B) * 1.0e-18
             else:
-                QIN[27][I] = Y2S3[N2S3 - 1] * (X2S3[N2S3 - 1] / EN) ** 2 * 1.0e-18
+                object.QIN[27][I] = Y2S3[N2S3 - 1] * (X2S3[N2S3 - 1] / EN) ** 2 * 1.0e-18
             if EN > (2.0 * EIN[27]):
-                PEQIN[27][I] = PEQEL[1][I - IOFFN[27]]
+                object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]
 
         # S states, 2S2 F=0.011
         if EN > EIN[28]:
-            QIN[28][I] = 0.011 / (EIN[28] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[28])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[28])
-            if QIN[28][I] < 0:
-                QIN[28][I] = 0.0
+            object.QIN[28][I] = 0.011 / (EIN[28] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[28])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[28])
+            if object.QIN[28][I] < 0:
+                object.QIN[28][I] = 0.0
             if EN > (2.0 * EIN[28]):
-                PEQIN[28][I] = PEQEL[1][I - IOFFN[28]]
+                object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]
 
         # S states, 3S1' F=0.092
         if EN > EIN[29]:
-            QIN[29][I] = 0.092 / (EIN[29] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[29])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[29])
-            if QIN[29][I] < 0:
-                QIN[29][I] = 0.0
+            object.QIN[29][I] = 0.092 / (EIN[29] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[29])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[29])
+            if object.QIN[29][I] < 0:
+                object.QIN[29][I] = 0.0
             if EN > (2.0 * EIN[29]):
-                PEQIN[29][I] = PEQEL[1][I - IOFFN[29]]
+                object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]
 
         # D states, 4D5 F=0.019
         if EN > EIN[30]:
-            QIN[30][I] = 0.019 / (EIN[30] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[30])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[30])
-            if QIN[30][I] < 0:
-                QIN[30][I] = 0.0
+            object.QIN[30][I] = 0.019 / (EIN[30] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[30])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[30])
+            if object.QIN[30][I] < 0:
+                object.QIN[30][I] = 0.0
             if EN > (2.0 * EIN[30]):
-                PEQIN[30][I] = PEQEL[1][I - IOFFN[30]]
+                object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]
 
         # S states, 3S4 F=0.0144
         if EN > EIN[31]:
-            QIN[31][I] = 0.0144 / (EIN[31] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[31])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[31])
-            if QIN[31][I] < 0:
-                QIN[31][I] = 0.0
+            object.QIN[31][I] = 0.0144 / (EIN[31] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[31])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[31])
+            if object.QIN[31][I] < 0:
+                object.QIN[31][I] = 0.0
             if EN > (2.0 * EIN[31]):
-                PEQIN[31][I] = PEQEL[1][I - IOFFN[31]]
+                object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]
 
         # D states, 4D2 F=0.0484
         if EN > EIN[32]:
-            QIN[32][I] = 0.0484 / (EIN[32] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[32])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[32])
-            if QIN[32][I] < 0:
-                QIN[32][I] = 0.0
+            object.QIN[32][I] = 0.0484 / (EIN[32] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[32])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[32])
+            if object.QIN[32][I] < 0:
+                object.QIN[32][I] = 0.0
             if EN > (2.0 * EIN[32]):
-                PEQIN[32][I] = PEQEL[1][I - IOFFN[32]]
+                object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]
 
         # S states, 4S1' F=0.0209
         if EN > EIN[33]:
-            QIN[33][I] = 0.0209 / (EIN[33] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[33])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[33])
-            if QIN[33][I] < 0:
-                QIN[33][I] = 0.0
+            object.QIN[33][I] = 0.0209 / (EIN[33] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[33])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[33])
+            if object.QIN[33][I] < 0:
+                object.QIN[33][I] = 0.0
             if EN > (2.0 * EIN[33]):
-                PEQIN[33][I] = PEQEL[1][I - IOFFN[33]]
+                object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]
 
         # S states, 3S2 F=0.022
         if EN > EIN[34]:
-            QIN[34][I] = 0.022 / (EIN[34] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[34])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[34])
-            if QIN[34][I] < 0:
-                QIN[34][I] = 0.0
+            object.QIN[34][I] = 0.022 / (EIN[34] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[34])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[34])
+            if object.QIN[34][I] < 0:
+                object.QIN[34][I] = 0.0
             if EN > (2.0 * EIN[34]):
-                PEQIN[34][I] = PEQEL[1][I - IOFFN[34]]
+                object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]
 
         # D states, 5D5 F=0.0041
         if EN > EIN[35]:
-            QIN[35][I] = 0.0041 / (EIN[35] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[35])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[35])
-            if QIN[35][I] < 0:
-                QIN[35][I] = 0.0
+            object.QIN[35][I] = 0.0041 / (EIN[35] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[35])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[35])
+            if object.QIN[35][I] < 0:
+                object.QIN[35][I] = 0.0
             if EN > (2.0 * EIN[35]):
-                PEQIN[35][I] = PEQEL[1][I - IOFFN[35]]
+                object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]
 
         # S states, 4S4 F=0.0426
         if EN > EIN[36]:
-            QIN[36][I] = 0.0426 / (EIN[36] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[36])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[36])
-            if QIN[36][I] < 0:
-                QIN[36][I] = 0.0
+            object.QIN[36][I] = 0.0426 / (EIN[36] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[36])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[36])
+            if object.QIN[36][I] < 0:
+                object.QIN[36][I] = 0.0
             if EN > (2.0 * EIN[36]):
-                PEQIN[36][I] = PEQEL[1][I - IOFFN[36]]
+                object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]
 
         # D states, 5D2 F=0.0426
         if EN > EIN[37]:
-            QIN[37][I] = 0.0426 / (EIN[37] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[37])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[37])
-            if QIN[37][I] < 0:
-                QIN[37][I] = 0.0
+            object.QIN[37][I] = 0.0426 / (EIN[37] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[37])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[37])
+            if object.QIN[37][I] < 0:
+                object.QIN[37][I] = 0.0
             if EN > (2.0 * EIN[37]):
-                PEQIN[37][I] = PEQEL[1][I - IOFFN[37]]
+                object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]
 
         # D states, 6D5 F=0.00075
         if EN > EIN[38]:
-            QIN[38][I] = 0.00075 / (EIN[38] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[38])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[38])
-            if QIN[38][I] < 0:
-                QIN[38][I] = 0.0
+            object.QIN[38][I] = 0.00075 / (EIN[38] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[38])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[38])
+            if object.QIN[38][I] < 0:
+                object.QIN[38][I] = 0.0
             if EN > (2.0 * EIN[38]):
-                PEQIN[38][I] = PEQEL[1][I - IOFFN[38]]
+                object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]
 
         # S states, 5S1' F=0.00051
         if EN > EIN[39]:
-            QIN[39][I] = 0.00051 / (EIN[39] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[39])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[39])
-            if QIN[39][I] < 0:
-                QIN[39][I] = 0.0
+            object.QIN[39][I] = 0.00051 / (EIN[39] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[39])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[39])
+            if object.QIN[39][I] < 0:
+                object.QIN[39][I] = 0.0
             if EN > (2.0 * EIN[39]):
-                PEQIN[39][I] = PEQEL[1][I - IOFFN[39]]
+                object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]
 
         # S states, 4S2 F=0.00074
         if EN > EIN[40]:
-            QIN[40][I] = 0.00074 / (EIN[40] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[40])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[40])
-            if QIN[40][I] < 0:
-                QIN[40][I] = 0.0
+            object.QIN[40][I] = 0.00074 / (EIN[40] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[40])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[40])
+            if object.QIN[40][I] < 0:
+                object.QIN[40][I] = 0.0
             if EN > (2.0 * EIN[40]):
-                PEQIN[40][I] = PEQEL[1][I - IOFFN[40]]
+                object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]
 
         # S states, 5S4 F=0.013
         if EN > EIN[41]:
-            QIN[41][I] = 0.013 / (EIN[41] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[41])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[41])
-            if QIN[41][I] < 0:
-                QIN[41][I] = 0.0
+            object.QIN[41][I] = 0.013 / (EIN[41] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[41])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[41])
+            if object.QIN[41][I] < 0:
+                object.QIN[41][I] = 0.0
             if EN > (2.0 * EIN[41]):
-                PEQIN[41][I] = PEQEL[1][I - IOFFN[41]]
+                object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]
 
         # S states, 6D2 F=0.029
         if EN > EIN[42]:
-            QIN[42][I] = 0.029 / (EIN[42] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[42])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[42])
-            if QIN[42][I] < 0:
-                QIN[42][I] = 0.0
+            object.QIN[42][I] = 0.029 / (EIN[42] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[42])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[42])
+            if object.QIN[42][I] < 0:
+                object.QIN[42][I] = 0.0
             if EN > (2.0 * EIN[42]):
-                PEQIN[42][I] = PEQEL[1][I - IOFFN[42]]
+                object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]
 
         # sum higher j=1 states f=0.1315
         if EN > EIN[43]:
-            QIN[43][I] = 0.1315 / (EIN[43] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[43])) - BETA2 - DEN[I] / 2.0) * BBCONST * EN / (
-                                 EN + E[2] + EIN[43])
-            if QIN[43][I] < 0:
-                QIN[43][I] = 0.0
+            object.QIN[43][I] = 0.1315 / (EIN[43] * BETA2) * (
+                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[43])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                                        EN + object.E[2] + EIN[43])
+            if object.QIN[43][I] < 0:
+                object.QIN[43][I] = 0.0
             if EN > (2.0 * EIN[43]):
-                PEQIN[43][I] = PEQEL[1][I - IOFFN[43]]
+                object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]
 
-        Q1SSUM = QIN[0][I] + QIN[1][I] + QIN[2][I] + QIN[3][I]
+        Q1SSUM = object.QIN[0][I] + object.QIN[1][I] + object.QIN[2][I] + object.QIN[3][I]
         QPSSUM = 0
         QDSSUM = 0
         for i in range(14, 44):
-            QDSSUM += QIN[i][I]
+            QDSSUM += object.QIN[i][I]
         for i in range(4, 14):
-            QPSSUM += QIN[i][I]
+            QPSSUM += object.QIN[i][I]
         TOTSUM = Q1SSUM + QPSSUM + QDSSUM
 
-        Q[1][I] = QELA + Q1SSUM + QPSSUM + QDSSUM
+        object.Q[1][I] = QELA + Q1SSUM + QPSSUM + QDSSUM
         for i in range(0, 7):
-            Q[1][I] += QION[i][I]
+            object.Q[1][I] += object.QION[i][I]
 
-    for J in range(0, NIN):
-        if EFINAL <= EIN[J]:
-            NIN = J - 1
+    for J in range(0, object.NIN):
+        if object.EFINAL <= EIN[J]:
+            object.NIN = J - 1
             break
-
+    return object
     gd.close()
-    print("XE")
+    print("AR")

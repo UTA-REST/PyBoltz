@@ -47,10 +47,10 @@ def Gas1(object):
     NCFF = 24
     NCF2F = 25
     NCF3F = 26
-    NION = 12
-    NATT = 1
+    object.NION = 12
+    object.NATT = 1
     object.NIN = 46
-    NNULL = 0
+    object.NNULL = 0
     NASIZE = 4000
     NBREM = 25
     object.NSTEP = 4000

@@ -45,3 +45,6 @@ class Gas:
         self.TEMPC = 0
         self.TORR = 0
         self.IPEN = 0
+        self.NION = 0
+        self.NATT =0
+        self.NNULL=0

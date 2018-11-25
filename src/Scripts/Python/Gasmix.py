@@ -17,7 +17,7 @@ class Gasmix:
     def InitWithInfo(self, NGS, Q, QIN, NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL, PEQIN, KEL, PENFRA, NC0, EC0,
                      WK,
                      EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
-                     NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):
+                     NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN,NION,NATT,NNULL):
         self.__init__()
         # First Setup
         for i in range(6):
@@ -65,6 +65,9 @@ class Gasmix:
             self.Gases[i].TEMPC = TEMPC
             self.Gases[i].TORR = TORR
             self.Gases[i].IPEN = IPEN
+            self.Gases[i].NION = NION[i]
+            self.Gases[i].NATT = NATT[i]
+            self.Gases[i].NNULL = NNULL[i]
 
     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
                    NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):

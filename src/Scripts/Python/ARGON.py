@@ -24,10 +24,10 @@ def Gas2(object):
     AUGL2 = 1.0
     AUGL1 = 2.63
     AUGK = 3.39
-    NION = 7
-    NATT = 1
+    object.NION = 7
+    object.NATT = 1
     object.NIN = 44
-    NNULL = 0
+    object.NNULL = 0
     NBREM = 25
 
     for i in range(0, 6):

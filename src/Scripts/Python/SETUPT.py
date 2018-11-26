@@ -17,11 +17,11 @@ def SETUPT(object):
     EOVM = math.sqrt(2.0 * ECHARG / EMASS) * 100.0
     ABZERO = 273.15
     ATMOS = 760.0
-    CONST1 = AWB / 2.0 * 1.0e-19
-    CONST2 = CONST1 * 1.0e-02
-    CONST3 = math.sqrt(0.2 * AWB) * 1.0e-9
-    CONST4 = CONST3 * ALOSCH * 1.0e-15
-    CONST5 = CONST3 / 2.0
+    object.CONST1 = AWB / 2.0 * 1.0e-19
+    object.CONST1 *= 1.0e-02
+    object.CONST3 = math.sqrt(0.2 * AWB) * 1.0e-9
+    object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
+    object.CONST5 = object.CONST3 / 2.0
 
     NANISO = 2
 
@@ -67,8 +67,8 @@ def SETUPT(object):
     object.AKT = (ABZERO + object.TEMPC) * BOLTZ
     object.ANN = [object.FRAC[i] * object.CORR * ALOSCH for i in range(6)]
     object.AN = 100.0 * object.CORR * ALOSCH
-    object.VANN = [object.FRAC[i] * object.CORR * CONST4 * 1e15 for i in range(6)]
-    object.VAN = 100.0 * object.CORR * CONST4 * 1.0e15
+    object.VANN = [object.FRAC[i] * object.CORR * object.CONST4 * 1e15 for i in range(6)]
+    object.VAN = 100.0 * object.CORR * object.CONST4 * 1.0e15
 
     object.WB = AWB * object.BMAG * 1e-12
 

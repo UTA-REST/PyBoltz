@@ -1,5 +1,9 @@
 from Gasmix import Gasmix
 import SETUPT
+import Gasmix
+import MIXERT
+import ELIMITT
+
 
 class Magboltz:
     def __init__(self):
@@ -72,9 +76,9 @@ class Magboltz:
         self.VANN = [0.0 for i in range(6)]
         self.AN = 0.0
         self.VAN = 0.0
-        self.QELM = [0 for i in range (4000)]
+        self.QELM = [0 for i in range(4000)]
         self.QSUM = [0 for i in range(4000)]
-        self.QION =[[0 for i in range(4000)] for j in range(6)]
+        self.QION = [[0 for i in range(4000)] for j in range(6)]
         self.QIN = [[[0 for i in range(4000)] for j in range(250)] for g in range(6)]
         self.E = [0 for i in range(4000)]
         self.EROOT = [0 for i in range(4000)]
@@ -86,51 +90,59 @@ class Magboltz:
         self.LIN = [[0 for i in range(250)] for j in range(6)]
         self.ALION = [0 for i in range(6)]
         self.ALIN = [[0 for i in range(250)] for j in range(6)]
-        self.CF = [[[0 for i in range(290)] for j in range(4000)]  for g in range(6)]
+        self.CF = [[[0 for i in range(290)] for j in range(4000)] for g in range(6)]
         self.TCF = [[0 for i in range(4000)] for j in range(6)]
-        self.EIN=[[0 for i in range(290)]for j in range(6)]
+        self.EIN = [[0 for i in range(290)] for j in range(6)]
         self.IARRY = [[0 for i in range(290)] for j in range(6)]
         self.RGAS = [[0 for i in range(290)] for j in range(6)]
-        self.IPN =[[0 for i in range(290)]for j in range(6)]
+        self.IPN = [[0 for i in range(290)] for j in range(6)]
         self.WPL = [[0 for i in range(290)] for j in range(6)]
         self.IPLAST = [0 for i in range(6)]
         self.ISIZE = [0 for i in range(6)]
-        self.PENFRA = [[[0 for i in range(290)]for j in range(3)]for g in range(6)]
+        self.PENFRA = [[[0 for i in range(290)] for j in range(3)] for g in range(6)]
         self.TCfMAX = [0 for i in range(6)]
-        self.CFN = [[[0 for i in range(10)] for j in range(4000)]  for g in range(6)]
-        self.TCFN = [[0 for i in range((4000))]for j in range(6)]
-        self.SCLENUL = [[0 for i in range(10)]for j in range(6)]
+        self.CFN = [[[0 for i in range(10)] for j in range(4000)] for g in range(6)]
+        self.TCFN = [[0 for i in range((4000))] for j in range(6)]
+        self.SCLENUL = [[0 for i in range(10)] for j in range(6)]
         self.NPLAST = [0 for i in range(6)]
-        self.PSCT = [[[0 for i in range(290)] for j in range(4000)]  for g in range(6)]
-        self.ANGCT = [[[0 for i in range(290)] for j in range(4000)]  for g in range(6)]
-        self.INDEX = [[0 for i in range(290)]  for g in range(6)]
+        self.PSCT = [[[0 for i in range(290)] for j in range(4000)] for g in range(6)]
+        self.ANGCT = [[[0 for i in range(290)] for j in range(4000)] for g in range(6)]
+        self.INDEX = [[0 for i in range(290)] for g in range(6)]
         self.NISO = 0
         self.FCION = [0 for i in range(4000)]
         self.FCATT = [0 for i in range(4000)]
-        self.NC0 =[[0 for i in range(290)]  for g in range(6)]
-        self.EC0 = [[0 for i in range(290)]  for g in range(6)]
-        self.NG1= [[0 for i in range(290)]  for g in range(6)]
-        self.EG1 = [[0 for i in range(290)]  for g in range(6)]
-        self.NG2= [[0 for i in range(290)]  for g in range(6)]
-        self.EG2 =[[0 for i in range(290)]  for g in range(6)]
-        self.WKLM =[[0 for i in range(290)]  for g in range(6)]
-        self.EFL = [[0 for i in range(290)]  for g in range(6)]
+        self.NC0 = [[0 for i in range(290)] for g in range(6)]
+        self.EC0 = [[0 for i in range(290)] for g in range(6)]
+        self.NG1 = [[0 for i in range(290)] for g in range(6)]
+        self.EG1 = [[0 for i in range(290)] for g in range(6)]
+        self.NG2 = [[0 for i in range(290)] for g in range(6)]
+        self.EG2 = [[0 for i in range(290)] for g in range(6)]
+        self.WKLM = [[0 for i in range(290)] for g in range(6)]
+        self.EFL = [[0 for i in range(290)] for g in range(6)]
         self.IFAKET = [0 for i in range(8)]
         self.IFAKED = [0 for i in range(9)]
         self.QEL = [0 for i in range(4000)]
-        self.QSATT =[0 for i in range(4000)]
+        self.QSATT = [0 for i in range(4000)]
+        self.RNMX = [0 for i in range(6)]
         self.ZTOT = 0
         self.TOTT = 0
         self.ZTOTS = 0
-
-
+        self.Mixobject = Gasmix()
+        self.CONST1 = 0.0
+        self.CONST2 = 0.0
+        self.CONST3 = 0.0
+        self.CONST4 = 0.0
+        self.CONST5 = 0.0
+        self.LAST = [0 for i in range(6)]
 
     def Start(self):
         if self.ITHRM != 0:
             self = SETUPT(self)
-        if self.EFINAL==0.0:
-            self.EFINAL= 0.5
-            EOB = self.EFIELD*(self.TEMPC+273.15)/(self.TORR*293.15)
+        if self.EFINAL == 0.0:
+            self.EFINAL = 0.5
+            EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
             if EOB > 15:
                 self.EFINAL = 8
-            self.ESTART = self.EFINAL/50
+            self.ESTART = self.EFINAL / 50
+            self = MIXERT(self)
+            if self.BMAG == 0 or self.BTHETA == 0 or math.abs(self.BTHETA) == 180:

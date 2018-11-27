@@ -61,7 +61,7 @@ def ELIMITCT(Magboltz):
             CY2 = (CY1 - EOVBR) * COSWT + CZ1 * SINWT + EOVBR
             CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
             KGAS = 0
-            R2 = random(RDUM)
+            R2 = random()
             while (Magboltz.TCFMXG[KGAS] < R2):
                 KGAS += 1
             IMBPT += 1
@@ -79,7 +79,7 @@ def ELIMITCT(Magboltz):
             IE = int(EOK / Magboltz.ESTEP) + 1
             IE = math.min(IE, 4000)
 
-            R5 = random(RDUM)
+            R5 = random()
             TLIM = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
 
         if IE == 4000:

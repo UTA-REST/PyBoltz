@@ -89,7 +89,7 @@ def Gas2(object):
 
     IOFFION = [0 for x in range(10)]
     IOFFN = [0 for x in range(44)]
-    for j in range(0, NION):
+    for j in range(0,object.NION):
         for i in range(0, 4000):
             if object.EG[i] > object.EION[j]:
                 IOFFION[j] = i - 1

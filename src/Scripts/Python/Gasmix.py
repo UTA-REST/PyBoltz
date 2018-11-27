@@ -101,4 +101,5 @@ class Gasmix:
         p.close()
         p.join()
         for i in range(6):
-            self.Gases[i]=result[i].get()
+            if self.Gases[i].NGS != 0:
+                self.Gases[i]=result[i].get()

@@ -62,11 +62,12 @@ def ELIMITBT(Magboltz):
                 Magboltz.RNMX = GERJAN(RDUM, Magboltz.API)
                 IMBPT = 0
             print(IMBPT)
-            VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
+            #TODO: CHECK THE MODULUS PART
+            VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
             IMBPT += 1
-            VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
+            VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
             IMBPT += 1
-            VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
+            VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
 
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Magboltz.ESTEP) + 1

@@ -153,7 +153,7 @@ class Magboltz:
             self.ESTART = self.EFINAL / 50
             while self.IELOW == 1:
                 self = MIXERT(self)
-                if self.BMAG == 0 or self.BTHETA == 0 or math.abs(self.BTHETA) == 180:
+                if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
                     self = ELIMITT(self)
                 elif self.BTHETA == 90:
                     self = ELIMITBT(self)

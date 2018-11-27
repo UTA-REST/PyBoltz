@@ -1,10 +1,10 @@
 import Magboltz
-import GERJAN
+from GERJAN import GERJAN
 import math
 from random import seed
 from random import random
 import numpy as np
-import SORTT
+from SORTT import SORTT
 
 
 def ELIMITT(Magboltz):

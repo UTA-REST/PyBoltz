@@ -70,7 +70,7 @@ def ELIMITBT(Magboltz):
 
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Magboltz.ESTEP) + 1
-            IE = math.min(IE, 4000)
+            IE = min(IE, 4000)
 
             R5 = random()
             TLIM = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]

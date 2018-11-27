@@ -45,9 +45,10 @@ def ELIMITT(Magboltz):
     EI = 0
     S1 = 0
     S2 = 0
+    seed(RDUM)
     for J1 in range(int(J2M)):
         while R5 > TEST1:
-            seed(RDUM)
+
             R1 = random()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T

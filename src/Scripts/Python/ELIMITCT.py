@@ -37,6 +37,7 @@ def ELIMITCT(Magboltz):
 
     R5 = 1
     TLIM = 0
+    seed(RDUM)
     for J1 in range(int(J2M)):
         IE = 0
         E1 = 0
@@ -45,7 +46,6 @@ def ELIMITCT(Magboltz):
         S1 = 0
         S2 = 0
         while R5 > TLIM:
-            seed(RDUM)
             R1 = random()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T

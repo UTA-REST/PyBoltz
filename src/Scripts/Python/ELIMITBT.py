@@ -32,7 +32,7 @@ def ELIMITBT(Magboltz):
     J2M = Magboltz.NMAX / ISAMP
     R5 = 1
     TLIM = 0
-
+    seed(RDUM)
     for J1 in range(int(J2M)):
         IE = 0
         E1 = 0
@@ -41,7 +41,7 @@ def ELIMITBT(Magboltz):
         S1 = 0
         S2 = 0
         while R5 > TLIM:
-            seed(RDUM)
+
             R1 = random()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
@@ -61,7 +61,6 @@ def ELIMITBT(Magboltz):
             if IMBPT > 5:
                 Magboltz.RNMX = GERJAN(RDUM, Magboltz.API)
                 IMBPT = 0
-            print(IMBPT)
             #TODO: CHECK THE MODULUS PART
             VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
             IMBPT += 1

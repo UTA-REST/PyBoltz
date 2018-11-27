@@ -6,8 +6,9 @@ from random import random
 
 def GERJAN(RSTART,API):
     RNMX = [0 for i in range(6)]
+    seed(RSTART)
     for J in range(0,5,2):
-        seed(RSTART)
+
         RAN1 = random()
         RAN2 = random()
         TWOPI = 2.0 *API

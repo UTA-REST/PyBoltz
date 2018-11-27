@@ -1,6 +1,7 @@
 from Gasmix import Gasmix
 import SETUPT
 import Gasmix
+import math
 import MIXERT
 import ELIMITT
 
@@ -134,6 +135,7 @@ class Magboltz:
         self.CONST4 = 0.0
         self.CONST5 = 0.0
         self.LAST = [0 for i in range(6)]
+        self.IELOW = 0
 
     def Start(self):
         if self.ITHRM != 0:
@@ -146,3 +148,4 @@ class Magboltz:
             self.ESTART = self.EFINAL / 50
             self = MIXERT(self)
             if self.BMAG == 0 or self.BTHETA == 0 or math.abs(self.BTHETA) == 180:
+                self = ELIMITT(self)

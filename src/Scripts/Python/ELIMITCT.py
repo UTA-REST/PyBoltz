@@ -6,90 +6,91 @@ from random import random
 import numpy as np
 import SORTT
 
-
-def ELIMITT(Magboltz):
-    ISAMP = 10
+def ELIMITCT(Magboltz):
+    ISAMP = 20
     SMALL = 1.0e-20
+    API = Magboltz.API
+    RTHETA = Magboltz.BTHETA*API/180.0
+    EFZ100 = Magboltz.EFIELD*100*math.sin(RTHETA)
+    EFX100 = Magboltz.EFIELD*100*math.cos(RTHETA)
+    F1 = Magboltz.EFIELD*Magboltz.CONST2*math.cos(RTHETA)
+    F4 =2*API
+    EOVBR =Magboltz.EOVB *math.sin(RTHETA)
     RDUM = Magboltz.RSTART
     E1 = Magboltz.ESTART
-    N4000 = 4000
-    TDASH = 0.0
-    CONST9 = Magboltz.CONST3 * 0.01
-    CONST10 = CONST9 * CONST9
-
-    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
+    TDASH =0.0
+    CONST9 = Magboltz.CONST3*0.01
+    CONST10 = CONST9**2
+    Magboltz.RNMX = GERJAN(RDUM,Magboltz.API)
     IMBPT = 0
 
     DCZ1 = math.cos(Magboltz.THETA)
     DCX1 = math.sin(Magboltz.THETA) * math.cos(Magboltz.PHI)
     DCY1 = math.sin(Magboltz.THETA) * math.sin(Magboltz.PHI)
 
-    BP = (Magboltz.EFIELD ** 2) * Magboltz.CONST1
-    F1 = Magboltz.EFIELD * Magboltz.CONST2
-    F2 = Magboltz.EFIELD * Magboltz.CONST3
-    F4 = 2 * math.acos(-1)
+    VTOT = CONST9 * math.sqrt(E1)
+    CX1 = DCX1 * VTOT
+    CY1 = DCY1 * VTOT
+    CZ1 = DCZ1 * VTOT
+
     J2M = Magboltz.NMAX / ISAMP
+
     R5 = 1
-    TEST1 = 0
-    R1 = 0
-    T = 0
-    TDASH = 0
-    AP = 0
-    E = 0
-    CONST6 = 0
-    DCX2 = 0
-    DCY2 = 0
-    DCZ2 = 0
-    R2 = 0
-    EOK = 0
-    EI = 0
-    S1 = 0
-    S2 = 0
+    TLIM = 0
     for J1 in range(J2M):
-        while R5 > TEST1:
+        IE = 0
+        E1 = 0
+        EOK = 0
+        EI = 0
+        S1 = 0
+        S2 = 0
+        while R5 > TLIM:
             seed(RDUM)
             R1 = random()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
-            AP = DCZ1 * F2 * math.sqrt(E1)
-            E = E1 + (AP + BP * T) * T
-            CONST6 = math.sqrt(E1 / E)
-            DCX2 = DCX1 * CONST6
-            DCY2 = DCY1 * CONST6
-            DCZ2 = DCZ1 * CONST6 + Magboltz.EFIELD * T * Magboltz.CONST5 / math.sqrt(E)
-            R2 = random()
+            WBT = Magboltz.WB * T
+            COSWT = math.cos(WBT)
+            SINWT = math.sin(WBT)
+            DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
+            DX = CX1 *T+F1*T*T
+
+            E = E1 + DZ * EFZ100+DX*EFX100
+
+            CX2 = CX1+2*F1*T
+            CY2 = (CY1 - EOVBR) * COSWT + CZ1 * SINWT + EOVBR
+            CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
             KGAS = 0
-            for KGAS in range(Magboltz.NGAS):
-                if Magboltz.TCFMXG[KGAS] >= R2:
-                    break
-            IMBPT = IMBPT + 1
+            R2 = random(RDUM)
+            while (Magboltz.TCFMXG[KGAS] < R2):
+                KGAS += 1
+            IMBPT += 1
             if IMBPT > 6:
-                Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.NGAS)
+                Magboltz.RNMX = GERJAN(RDUM, Magboltz.API)
                 IMBPT = 1
+
             VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
-            IMBPT = IMBPT + 1
+            IMBPT += 1
             VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
-            IMBPT = IMBPT + 1
+            IMBPT += 1
             VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
 
-            VEX = DCX2 * CONST9 * math.sqrt(E)
-            VEY = DCY2 * CONST9 * math.sqrt(E)
-            VEZ = DCZ2 * CONST9 * math.sqrt(E)
+            EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
+            IE = int(EOK / Magboltz.ESTEP) + 1
+            IE = math.min(IE, 4000)
 
-            EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
-            IE = np.int(EOK / Magboltz.ESTEP) + 1
-            IE = np.min(IE, N4000)
-            R5 = random()
-            TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
+            R5 = random(RDUM)
+            TLIM = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
+
         if IE == 4000:
             Magboltz.IELOW = 1
             return Magboltz
-        TDASH = 0.0
 
-        CONST11 = 1 / (CONST9 * math.sqrt(EOK))
-        DXCOM = (VEX - VGX) * CONST11
-        DYCOM = (VEY - VGY) * CONST11
-        DZCOM = (VEZ - VGZ) * CONST11
+        TDASH = 0.0
+        CONST11 = 1.0 / (CONST9 * math.sqrt(EOK))
+        DXCOM = (CX2 - VGX) * CONST11
+        DYCOM = (CY2 - VGY) * CONST11
+        DZCOM = (CZ2 - VGZ) * CONST11
 
         R2 = random()
         I = 0
@@ -111,7 +112,7 @@ def ELIMITT(Magboltz):
 
         if Magboltz.INDEX[KGAS][I] == 1:
             R31 = random()
-            F3 = random()
+            F3 = 1- R3 *Magboltz.ANGCT[KGAS][IE][I]
             if R31 > Magboltz.PSCT[KGAS][IE][I]:
                 F3 = -1 * F3
             elif Magboltz.INDEX[KGAS][I] == 2:
@@ -141,7 +142,7 @@ def ELIMITT(Magboltz):
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
         F5 = math.sin(Magboltz.THETA)
-        DZCOM = np.min(DZCOM, 1)
+        DCZ2 = np.min(DZCOM, 1)
         ARGZ = math.sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
         if ARGZ == 0:
             DCZ1 = F6
@@ -152,17 +153,15 @@ def ELIMITT(Magboltz):
             DCY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
             DCX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
         # TRANSFORM VELOCITY VECTORS TO LAB FRAME
-        CONST12 = CONST9 * math.sqrt(E1)
-        VXLAB = DCX1 * CONST12 + VGX
-        VYLAB = DCY1 * CONST12 + VGY
-        VZLAB = DCZ1 * CONST12 + VGZ
+        VTOT = CONST9 * math.sqrt(E1)
+        CX1 = DCX1 * VTOT + VGX
+        CY1 = DCY1 * VTOT + VGY
+        CZ1 = DCZ1 * VTOT + VGZ
         #  CALCULATE ENERGY AND DIRECTION COSINES IN LAB FRAME
-        E1 = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / CONST10
+        E1 = (CX1 * CX1 + CY1 * CY1 + CZ1 * CZ1) / CONST10
         CONST11 = 1.0 / (CONST9 * math.sqrt(E1))
-        DCX1 = VXLAB * CONST11
-        DCY1 = VYLAB * CONST11
-        DCZ1 = VZLAB * CONST11
+        DCX1 = CX1 * CONST11
+        DCY1 = CY1 * CONST11
+        DCZ1 = CZ1 * CONST11
 
     Magboltz.IELOW = 0
-
-    return Magboltz

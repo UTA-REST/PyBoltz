@@ -115,7 +115,6 @@ def MIXERT(Magboltz):
 
             if IE == 0:
                 RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                print(MIXOBJECT.Gases[KGAS].E[1])
                 Magboltz.AMGAS[KGAS] = 2 * EMASS / MIXOBJECT.Gases[KGAS].E[1]
                 Magboltz.RGAS[KGAS][NP] = RGAS
             L = 1
@@ -165,7 +164,7 @@ def MIXERT(Magboltz):
                             Magboltz.INDEX[KGAS][NP] = 2
 
             # ATTACHMENT
-            if EI == 0:
+            if IE == 0:
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
                     RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
                     Magboltz.RGAS[KGAS][NP] = RGAS

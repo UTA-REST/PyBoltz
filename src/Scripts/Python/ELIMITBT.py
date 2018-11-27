@@ -41,7 +41,6 @@ def ELIMITBT(Magboltz):
         S1 = 0
         S2 = 0
         while R5 > TLIM:
-
             R1 = random()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
@@ -55,7 +54,7 @@ def ELIMITBT(Magboltz):
             CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
             KGAS = 0
             R2 = random()
-            while (Magboltz.TCFMXG[KGAS] < R2):
+            while Magboltz.TCFMXG[KGAS] < R2:
                 KGAS += 1
             IMBPT += 1
             if IMBPT > 5:
@@ -71,13 +70,13 @@ def ELIMITBT(Magboltz):
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Magboltz.ESTEP) + 1
             IE = min(IE, 4000)
-
+            print("h")
             R5 = random()
             TLIM = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
         if IE == 4000:
             Magboltz.IELOW = 1
             return Magboltz
-
+        print("hh")
         TDASH = 0.0
         CONST11 = 1.0 / (CONST9 * math.sqrt(EOK))
         DXCOM = (CX2 - VGX) * CONST11

@@ -45,7 +45,7 @@ def ELIMITT(Magboltz):
     EI = 0
     S1 = 0
     S2 = 0
-    for J1 in range(J2M):
+    for J1 in range(int(J2M)):
         while R5 > TEST1:
             seed(RDUM)
             R1 = random()

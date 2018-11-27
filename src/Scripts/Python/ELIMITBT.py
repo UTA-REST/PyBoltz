@@ -33,7 +33,7 @@ def ELIMITBT(Magboltz):
     R5 = 1
     TLIM = 0
 
-    for J1 in range(J2M):
+    for J1 in range(int(J2M)):
         IE = 0
         E1 = 0
         EOK = 0

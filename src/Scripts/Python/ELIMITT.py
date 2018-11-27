@@ -63,9 +63,9 @@ def ELIMITT(Magboltz):
                 if Magboltz.TCFMXG[KGAS] >= R2:
                     break
             IMBPT = IMBPT + 1
-            if IMBPT > 6:
+            if IMBPT > 5:
                 Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.NGAS)
-                IMBPT = 1
+                IMBPT = 0
             VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
             IMBPT = IMBPT + 1
             VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]

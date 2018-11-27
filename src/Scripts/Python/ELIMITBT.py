@@ -58,9 +58,9 @@ def ELIMITBT(Magboltz):
             while (Magboltz.TCFMXG[KGAS] < R2):
                 KGAS += 1
             IMBPT += 1
-            if IMBPT > 6:
+            if IMBPT > 5:
                 Magboltz.RNMX = GERJAN(RDUM, Magboltz.API)
-                IMBPT = 1
+                IMBPT = 0
 
             VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
             IMBPT += 1

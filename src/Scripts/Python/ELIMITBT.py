@@ -61,7 +61,7 @@ def ELIMITBT(Magboltz):
             if IMBPT > 5:
                 Magboltz.RNMX = GERJAN(RDUM, Magboltz.API)
                 IMBPT = 0
-
+            print(IMBPT)
             VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
             IMBPT += 1
             VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]

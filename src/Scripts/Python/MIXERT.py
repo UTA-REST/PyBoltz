@@ -1,7 +1,7 @@
 import Magboltz
 import math
-import Gasmix
-import ANG
+from Gasmix import Gasmix
+from ANG import ANG
 
 
 def MIXERT(Magboltz):
@@ -80,24 +80,23 @@ def MIXERT(Magboltz):
                            Magboltz.DENSY, 0, Magboltz.NGAS, Magboltz.NSTEP, Magboltz.NANISO, Magboltz.ESTEP,
                            Magboltz.EFINAL, Magboltz.AKT, Magboltz.ARY, Magboltz.TEMPC, Magboltz.TORR, Magboltz.IPEN,
                            NION, NATT, NNULL)
-    if __name__ == '__main__':
-        MIXOBJECT.Run()
+    MIXOBJECT.Run()
     EMASS = 9.10938291e-31
     for IE in range(4000):
         for KGAS in range(Magboltz.NGAS):
             NP = 0
             if KGAS == 1:
-                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[0].Q[1][IE] * Magboltz.VAN[0]
+                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[0].Q[1][IE] * Magboltz.VANN[0]
             elif KGAS == 2:
-                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[1].Q[1][IE] * Magboltz.VAN[1]
+                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[1].Q[1][IE] * Magboltz.VANN[1]
             elif KGAS == 3:
-                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[2].Q[1][IE] * Magboltz.VAN[2]
+                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[2].Q[1][IE] * Magboltz.VANN[2]
             elif KGAS == 4:
-                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[3].Q[1][IE] * Magboltz.VAN[3]
+                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[3].Q[1][IE] * Magboltz.VANN[3]
             elif KGAS == 5:
-                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[4].Q[4][1][IE] * Magboltz.VAN[4]
+                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[4].Q[4][1][IE] * Magboltz.VANN[4]
             elif KGAS == 6:
-                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[5].Q[1][IE] * Magboltz.VAN[5]
+                Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[5].Q[1][IE] * Magboltz.VANN[5]
             Magboltz.PSCT[KGAS][IE][NP] = 0.5
             Magboltz.ANGCT[KGAS][IE][NP] = 1
             Magboltz.INDEX[KGAS][NP] = 0
@@ -114,9 +113,10 @@ def MIXERT(Magboltz):
                 Magboltz.PSCT[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
                 Magboltz.INDEX[KGAS][NP] = 2
 
-            if EI == 0:
+            if IE == 0:
                 RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                Magboltz.AMGAS[KGAS] = 2 * EMASS / E[KGAS]
+                print(MIXOBJECT.Gases[KGAS].E[1])
+                Magboltz.AMGAS[KGAS] = 2 * EMASS / MIXOBJECT.Gases[KGAS].E[1]
                 Magboltz.RGAS[KGAS][NP] = RGAS
             L = 1
             Magboltz.IARRY[KGAS][NP] = L
@@ -207,13 +207,13 @@ def MIXERT(Magboltz):
             if Magboltz.EFINAL >= MIXOBJECT.Gases[KGAS].E[3]:
                 if MIXOBJECT.Gases[KGAS].NATT <= 1:
                     NP = NP + 1
-                    Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].Q[3][IE] * Magboltz.VAN[KGAS]
+                    Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].Q[3][IE] * Magboltz.VANN[KGAS]
                     Magboltz.FCATT[IE] = Magboltz.FCATT[IE] + Magboltz.CF[KGAS][IE][NP]
                     Magboltz.PSCT[KGAS][IE][NP] = 0.5
                     Magboltz.ANGCT[KGAS][IE][NP] = 1.0
                 elif MIXOBJECT.Gases[KGAS].NATT > 1:
                     for JJ in range(MIXOBJECT.Gases[KGAS].NATT):
-                        Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QATT[JJ][IE] * Magboltz.VAN[KGAS]
+                        Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QATT[JJ][IE] * Magboltz.VANN[KGAS]
                         Magboltz.FCATT[IE] = Magboltz.FCATT[IE] + Magboltz.CF[KGAS][IE][NP]
                         Magboltz.PSCT[KGAS][IE][NP] = 0.5
                         Magboltz.ANGCT[KGAS][IE][NP] = 1.0
@@ -233,7 +233,7 @@ def MIXERT(Magboltz):
             if MIXOBJECT.Gases[KGAS].NIN > 0:
                 for J in range(MIXOBJECT.Gases[KGAS].NIN):
                     NP = NP + 1
-                    Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QIN[J][IE] * Magboltz.VAN[KGAS]
+                    Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QIN[J][IE] * Magboltz.VANN[KGAS]
                     Magboltz.PSCT[KGAS][IE][NP] = 0.5
                     Magboltz.ANGCT[KGAS][IE][NP] = 1.0
                     Magboltz.INDEX[KGAS][NP] = 0
@@ -296,7 +296,7 @@ def MIXERT(Magboltz):
             if Magboltz.NPLAST[i] > 0:
                 for J in range(Magboltz.NPLAST[i]):
                     Magboltz.SCLENUL[i][J] = MIXOBJECT.Gases[i].SCLN[J]
-                    Magboltz.CFN[i][J] = MIXOBJECT.Gases[i].QNULL[J] * Magboltz.VAN[i] * Magboltz.SCLENUL[i][J]
+                    Magboltz.CFN[i][J] = MIXOBJECT.Gases[i].QNULL[J] * Magboltz.VANN[i] * Magboltz.SCLENUL[i][J]
             # CALCULATE NULL COLLISION FREQUENCY FOR EACH GAS COMPONENT
 
             for KGAS in range(Magboltz.NGAS):
@@ -330,16 +330,16 @@ def MIXERT(Magboltz):
     # CALCULATE NULL COLLISION FREQUENCIES FOR EACH GAS COMPONENT
     FAKEIN = abs(Magboltz.FAKEI) / Magboltz.NGAS
     for KGAS in range(Magboltz.NGAS):
-        Magboltz.TCfMAX[KGAS] = 0.0
+        Magboltz.TCFMAX[KGAS] = 0.0
         for IE in range(4000):
-            if Magboltz.TCF[KGAS][IE] + Magboltz.TCFN[KGAS][IE] + FAKEIN > Magboltz.TCfMAX[KGAS]:
-                Magboltz.TCfMAX[KGAS] = Magboltz.TCF[KGAS][IE] + Magboltz.TCFN[KGAS][IE] + FAKEIN
+            if Magboltz.TCF[KGAS][IE] + Magboltz.TCFN[KGAS][IE] + FAKEIN > Magboltz.TCFMAX[KGAS]:
+                Magboltz.TCFMAX[KGAS] = Magboltz.TCF[KGAS][IE] + Magboltz.TCFN[KGAS][IE] + FAKEIN
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
     Magboltz.TCFMX = 0.0
     for KGAS in range(Magboltz.NGAS):
         Magboltz.TCFMX = Magboltz.TCFMX + Magboltz.TCFMAX[KGAS]
     for KGAS in range(Magboltz.NGAS):
-        Magboltz.TCFMXG = Magboltz.TCFMAX[KGAS] / Magboltz.TCFMX
+        Magboltz.TCFMXG[KGAS] = Magboltz.TCFMAX[KGAS] / Magboltz.TCFMX
     for KGAS in range(1, Magboltz.NGAS):
         Magboltz.TCFMXG[KGAS] = Magboltz.TCFMXG[KGAS] + Magboltz.TCFMXG[KGAS - 1]
 
@@ -349,28 +349,25 @@ def MIXERT(Magboltz):
         Magboltz.VTMB[KGAS] = math.sqrt(2.0 * ECHARG * Magboltz.AKT / Magboltz.AMGAS[KGAS]) * 1e-12
 
     for I in range(Magboltz.NSTEP):
-        Magboltz.QTOT[I] = Magboltz.AN[0] * MIXOBJECT.Gases[0].Q[0][I] + Magboltz.AN[1] * MIXOBJECT.Gases[1].Q[0][I] + \
-                           Magboltz.AN[2] * MIXOBJECT.Gases[2].Q[0][I] + Magboltz.AN[3] * MIXOBJECT.Gases[3].Q[0][I] + \
-                           Magboltz.AN[4] * MIXOBJECT.Gases[4].Q[0][I] + Magboltz.AN[5] * MIXOBJECT.Gases[5].Q[0][I]
-        Magboltz.QEL[I] = Magboltz.AN[0] * MIXOBJECT.Gases[0].Q[1][I] + Magboltz.AN[1] * MIXOBJECT.Gases[1].Q[1][I] + \
-                          Magboltz.AN[2] * MIXOBJECT.Gases[2].Q[1][I] + Magboltz.AN[3] * MIXOBJECT.Gases[3].Q[1][I] + \
-                          Magboltz.AN[4] * MIXOBJECT.Gases[4].Q[1][I] + Magboltz.AN[5] * MIXOBJECT.Gases[5].Q[1][I]
+        Magboltz.QTOT[I] = Magboltz.ANN[0] * MIXOBJECT.Gases[0].Q[0][I] + Magboltz.ANN[1] * MIXOBJECT.Gases[1].Q[0][I] + \
+                           Magboltz.ANN[2] * MIXOBJECT.Gases[2].Q[0][I] + Magboltz.ANN[3] * MIXOBJECT.Gases[3].Q[0][I] + \
+                           Magboltz.ANN[4] * MIXOBJECT.Gases[4].Q[0][I] + Magboltz.ANN[5] * MIXOBJECT.Gases[5].Q[0][I]
+        Magboltz.QEL[I] = Magboltz.ANN[0] * MIXOBJECT.Gases[0].Q[1][I] + Magboltz.ANN[1] * MIXOBJECT.Gases[1].Q[1][I] + \
+                          Magboltz.ANN[2] * MIXOBJECT.Gases[2].Q[1][I] + Magboltz.ANN[3] * MIXOBJECT.Gases[3].Q[1][I] + \
+                          Magboltz.ANN[4] * MIXOBJECT.Gases[4].Q[1][I] + Magboltz.ANN[5] * MIXOBJECT.Gases[5].Q[1][I]
 
         for KGAS in range(6):
-            Magboltz.QION[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[2][I] * Magboltz.AN[KGAS]
-            Magboltz.QATT[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[3][I] * Magboltz.AN[KGAS]
-        Magboltz.QREL[I]=0.0
-        Magboltz.QSATT[I]=0.0
-        Magboltz.QSUM[I]=0.0
+            Magboltz.QION[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[2][I] * Magboltz.ANN[KGAS]
+            Magboltz.QATT[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[3][I] * Magboltz.ANN[KGAS]
+        Magboltz.QREL[I] = 0.0
+        Magboltz.QSATT[I] = 0.0
+        Magboltz.QSUM[I] = 0.0
         for J in range(Magboltz.NGAS):
-            Magboltz.QSUM[I]=Magboltz.QSUM[I]+Magboltz.QION[J][I]+Magboltz.QATT[J][I]
-            Magboltz.QSATT[I] = Magboltz.QSATT[I]+Magboltz.QATT[J][I]
-            Magboltz.QREL[I]= Magboltz.QREL[I]+Magboltz.QION[J][I]+Magboltz.QATT[J][I]
+            Magboltz.QSUM[I] = Magboltz.QSUM[I] + Magboltz.QION[J][I] + Magboltz.QATT[J][I]
+            Magboltz.QSATT[I] = Magboltz.QSATT[I] + Magboltz.QATT[J][I]
+            Magboltz.QREL[I] = Magboltz.QREL[I] + Magboltz.QION[J][I] + Magboltz.QATT[J][I]
         for KGAS in range(6):
             for J in range(MIXOBJECT.Gases[KGAS].NIN):
-                Magboltz.QSUM[I]= Magboltz.QSUM[I]+MIXOBJECT.Gases[KGAS].QIN[J][I]*Magboltz.AN[KGAS]
+                Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
         Magboltz.Mixobject = MIXOBJECT
         return Magboltz
-
-
-

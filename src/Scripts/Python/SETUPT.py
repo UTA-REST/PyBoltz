@@ -1,4 +1,3 @@
-from Magboltz import Magboltz
 import math
 
 
@@ -22,12 +21,12 @@ def SETUPT(object):
     object.CONST3 = math.sqrt(0.2 * AWB) * 1.0e-9
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
-
+    object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
     NANISO = 2
 
-    NCOLM = 400000
-    NCORLN = 50000
-    NCORST = 4
+    object.NCOLM = 400000
+    object.NCORLN = 50000
+    object.NCORST = 4
     MXEKR = 0
     for IH in range(object.NGAS):
         if object.NGASN[IH] == 2 or object.NGASN[IH] == 6 or object.NGASN[IH] == 7:
@@ -36,13 +35,13 @@ def SETUPT(object):
             MXEKR = -1
     if MXEKR != -1:
         if object.NGAS == 1:
-            NCOLM = 2000000
-            NCORLN = 500000
-            NCORST = 2
+            object.NCOLM = 2000000
+            object.NCORLN = 500000
+            object.NCORST = 2
         elif object.FRAC[MXEKR] > 90.0:
-            NCOLM = 2000000
-            NCORLN = 500000
-            NCORST = 2
+            object.NCOLM = 2000000
+            object.NCORLN = 500000
+            object.NCORST = 2
     TOTFRAC = 0.0
     if object.NGAS == 0 or object.NGAS > 6:
         raise ValueError("Error in Gas Input")
@@ -63,7 +62,7 @@ def SETUPT(object):
     object.THETA = 0.785
     object.PHI = 0.1
     object.ESTART = object.EFINAL / 50.0
-    object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
+
     object.AKT = (ABZERO + object.TEMPC) * BOLTZ
     object.ANN = [object.FRAC[i] * object.CORR * ALOSCH for i in range(6)]
     object.AN = 100.0 * object.CORR * ALOSCH

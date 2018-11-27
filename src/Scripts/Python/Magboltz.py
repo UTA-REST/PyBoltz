@@ -1,9 +1,11 @@
 from Gasmix import Gasmix
-import SETUPT
-import Gasmix
+from SETUPT import SETUPT
+from Gasmix import Gasmix
 import math
-import MIXERT
-import ELIMITT
+from MIXERT import MIXERT
+from ELIMITT import ELIMITT
+from ELIMITBT import ELIMITBT
+from ELIMITCT import ELIMITCT
 
 
 class Magboltz:
@@ -101,7 +103,7 @@ class Magboltz:
         self.IPLAST = [0 for i in range(6)]
         self.ISIZE = [0 for i in range(6)]
         self.PENFRA = [[[0 for i in range(290)] for j in range(3)] for g in range(6)]
-        self.TCfMAX = [0 for i in range(6)]
+        self.TCFMAX = [0 for i in range(6)]
         self.CFN = [[[0 for i in range(10)] for j in range(4000)] for g in range(6)]
         self.TCFN = [[0 for i in range((4000))] for j in range(6)]
         self.SCLENUL = [[0 for i in range(10)] for j in range(6)]
@@ -135,7 +137,10 @@ class Magboltz:
         self.CONST4 = 0.0
         self.CONST5 = 0.0
         self.LAST = [0 for i in range(6)]
-        self.IELOW = 0
+        self.IELOW = 1
+        self.NCOLM = 0
+        self.NCORLN = 0
+        self.NCORST = 0
 
     def Start(self):
         if self.ITHRM != 0:
@@ -146,6 +151,15 @@ class Magboltz:
             if EOB > 15:
                 self.EFINAL = 8
             self.ESTART = self.EFINAL / 50
-            self = MIXERT(self)
-            if self.BMAG == 0 or self.BTHETA == 0 or math.abs(self.BTHETA) == 180:
-                self = ELIMITT(self)
+            while self.IELOW == 1:
+                self = MIXERT(self)
+                if self.BMAG == 0 or self.BTHETA == 0 or math.abs(self.BTHETA) == 180:
+                    self = ELIMITT(self)
+                elif self.BTHETA == 90:
+                    self = ELIMITBT(self)
+                else:
+                    self = ELIMITCT(self)
+                if self.IELOW == 1:
+                    # TODO: This could be the reason for missing points
+                    self.EFINAL = self.EFINAL * math.sqrt(2)
+                    self.ESTART = self.EFINAL / 50

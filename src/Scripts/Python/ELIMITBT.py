@@ -30,8 +30,8 @@ def ELIMITBT(Magboltz):
     CZ1 = DCZ1 * VTOT
     F4 = 2 * math.acos(-1)
     J2M = Magboltz.NMAX / ISAMP
-    R5 = 1
-    TLIM = 0
+    R5 = 1.0
+    TLIM = 0.0
     seed(RDUM)
     for J1 in range(int(J2M)):
         IE = 0
@@ -70,13 +70,11 @@ def ELIMITBT(Magboltz):
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Magboltz.ESTEP) + 1
             IE = min(IE, 4000)
-            print("h")
             R5 = random()
             TLIM = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
         if IE == 4000:
             Magboltz.IELOW = 1
             return Magboltz
-        print("hh")
         TDASH = 0.0
         CONST11 = 1.0 / (CONST9 * math.sqrt(EOK))
         DXCOM = (CX2 - VGX) * CONST11

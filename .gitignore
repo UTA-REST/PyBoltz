@@ -2,3 +2,4 @@ venv/*
 *.hdf5
 *.pyc
 .idea
+*~

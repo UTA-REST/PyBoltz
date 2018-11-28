@@ -1,8 +1,8 @@
 from GERJAN import GERJAN
 import numpy as np
 import math
-from random import random
-from random import seed
+from RAND48 import Rand48
+
 from SORTT import SORTT
 
 
@@ -68,11 +68,12 @@ def MONTET(Magboltz):
     F2 = Magboltz.EFIELD * Magboltz.CONST3
     F4 = 2 * math.acos(-1)
     J2M = Magboltz.NMAX / Magboltz.ITMAX
-    seed(RDUM)
+    RAND48 = Rand48()
+    RAND48.seed(RDUM)
     for J1 in range(Magboltz.ITMAX):
         for J2 in range(J2M):
             while True:
-                R1 = random()
+                R1 = RAND48.drand()
                 T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
                 TDASH = T
                 AP = DCZ1 * F2 * math.sqrt(E1)
@@ -84,7 +85,7 @@ def MONTET(Magboltz):
                 DCZ2 = DCZ1 * CONST6 + Magboltz.EFIELD * T * Magboltz.CONST5 / math.sqrt(E)
                 # FIND IDENTITY OF GAS FOR COLLISION
                 KGAS = 0
-                R2 = random()
+                R2 = RAND48.drand()
                 if Magboltz.NGAS == 1:
                     KGAS = 1
                 else:
@@ -111,7 +112,7 @@ def MONTET(Magboltz):
                 IE = min(IE, 3999)
                 # TEST FOR REAL OR NULL COLLISION
 
-                R5 = random()
+                R5 = RAND48.drand()
                 TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
 
                 if R5 > TEST1:
@@ -120,7 +121,7 @@ def MONTET(Magboltz):
                     if R5 < TEST2:
                         if Magboltz.NPLAST == 0:
                             continue
-                        R2 = random()
+                        R2 = RAND48.drand()
                         I = 0
                         while Magboltz.CFN[KGAS][IE][I] < R2:
                             I += 1
@@ -184,7 +185,7 @@ def MONTET(Magboltz):
                 Magboltz.XID = float(ID)
                 NCOL = 0
 
-            R3 = random()
+            R3 = RAND48.drand()
 
             I = SORTT(KGAS, I, R3, IE)
 
@@ -194,7 +195,7 @@ def MONTET(Magboltz):
             EI = Magboltz.EIN[KGAS][I]
 
             if Magboltz.IPN[KGAS][I] > 0:
-                R9 = random()
+                R9 = RAND48.drand()
                 EXTRA = R9 * (EOK - EI)
                 EI = EXTRA + EI
                 IEXTRA += Magboltz.NC0[KGAS][I]
@@ -206,14 +207,14 @@ def MONTET(Magboltz):
 
             if Magboltz.IPEN != 0:
                 if Magboltz.PENFRA[KGAS][0][I] != 0:
-                    RAN = random()
+                    RAN = RAND48.drand()
                     if RAN <= Magboltz.PENFRA[KGAS][0][I]:
                         IEXTRA += 1
             S2 = (S1 ** 2) / (S1 - 1.0)
 
-            R3 = random()
+            R3 = RAND48.drand()
             if Magboltz.INDEX[KGAS][I] == 1:
-                R31 = random()
+                R31 = RAND48.drand()
                 F3 = 1.0 - R3 * Magboltz.ANGCT[KGAS][IE][I]
                 if R31 > Magboltz.PSCT[KGAS][IE][I]:
                     F3 = -1 * F3
@@ -223,7 +224,7 @@ def MONTET(Magboltz):
             else:
                 F3 = 1 - 2 * R3
             THETA0 = math.acos(F3)
-            R4 = random()
+            R4 = RAND48.drand()
             PHI0 = F4 * R4
             F8 = math.sin(PHI0)
             F9 = math.cos(PHI0)

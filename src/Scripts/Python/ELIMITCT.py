@@ -1,8 +1,8 @@
 import Magboltz
 from GERJAN import GERJAN
 import math
-from random import seed
-from random import random
+
+from RAND48 import Rand48
 import numpy as np
 from SORTT import SORTT
 
@@ -37,7 +37,9 @@ def ELIMITCT(Magboltz):
 
     R5 = 1
     TLIM = 0
-    seed(RDUM)
+    RAND48 = Rand48()
+
+    RAND48.seed(RDUM)
     for J1 in range(int(J2M)):
         IE = 0
         E1 = 0
@@ -46,7 +48,7 @@ def ELIMITCT(Magboltz):
         S1 = 0
         S2 = 0
         while R5 > TLIM:
-            R1 = random()
+            R1 = RAND48.drand()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
             WBT = Magboltz.WB * T
@@ -61,7 +63,7 @@ def ELIMITCT(Magboltz):
             CY2 = (CY1 - EOVBR) * COSWT + CZ1 * SINWT + EOVBR
             CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
             KGAS = 0
-            R2 = random()
+            R2 = RAND48.drand()
             while (Magboltz.TCFMXG[KGAS] < R2):
                 KGAS += 1
             IMBPT += 1
@@ -79,7 +81,7 @@ def ELIMITCT(Magboltz):
             IE = int(EOK / Magboltz.ESTEP) + 1
             IE = min(IE, 3999)
 
-            R5 = random()
+            R5 = RAND48.drand()
             TLIM = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
 
         if IE == 3999:
@@ -92,7 +94,7 @@ def ELIMITCT(Magboltz):
         DYCOM = (CY2 - VGY) * CONST11
         DZCOM = (CZ2 - VGZ) * CONST11
 
-        R2 = random()
+        R2 = RAND48.drand()
         I = 0
         I = SORTT(KGAS, I, R2, IE, Magboltz)
         while Magboltz.CF[KGAS][IE][I] < R2:
@@ -100,17 +102,17 @@ def ELIMITCT(Magboltz):
         S1 = Magboltz.RGAS[KGAS][I]
         EI = Magboltz.EIN[KGAS][I]
         if Magboltz.IPN[KGAS][I] > 0:
-            R9 = random()
+            R9 = RAND48.drand()
             EXTRA = R9 * (EOK - EI)
             EI = EXTRA + EI
         IPT = Magboltz.IARRY[KGAS][I]
         if EOK < EI:
             EI = EOK - 0.0001
         S2 = (S1 * S1) / (S1 - 1)
-        R3 = random()
+        R3 = RAND48.drand()
 
         if Magboltz.INDEX[KGAS][I] == 1:
-            R31 = random()
+            R31 = RAND48.drand()
             F3 = 1- R3 *Magboltz.ANGCT[KGAS][IE][I]
             if R31 > Magboltz.PSCT[KGAS][IE][I]:
                 F3 = -1 * F3
@@ -120,7 +122,7 @@ def ELIMITCT(Magboltz):
             else:
                 F3 = 1 - 2 * R3
         THETA0 = math.acos(F3)
-        R4 = random()
+        R4 = RAND48.drand()
         PHI0 = F4 * R4
         F8 = math.sin(PHI0)
         F9 = math.cos(PHI0)

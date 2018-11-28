@@ -6,7 +6,7 @@ from random import random
 import numpy as np
 from SORTT import SORTT
 
-
+#TODO: RANDOM NUMBER GENERATOR KEEPS GOING OVER THE SAME SEQUENCE (INFINTE LOOP)
 def ELIMITBT(Magboltz):
     ISAMP = 20
     SMALL = 1.0e-20

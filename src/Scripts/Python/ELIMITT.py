@@ -79,10 +79,10 @@ def ELIMITT(Magboltz):
 
             EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
             IE = np.int(EOK / Magboltz.ESTEP) + 1
-            IE = np.min(IE, N4000)
+            IE = np.min(IE, 3999)
             R5 = random()
             TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
-        if IE == 4000:
+        if IE == 3999:
             Magboltz.IELOW = 1
             return Magboltz
         TDASH = 0.0
@@ -95,7 +95,6 @@ def ELIMITT(Magboltz):
         R2 = random()
         I = 0
         I = SORTT(KGAS, I, R2, IE, Magboltz)
-        I = I + 1
         while Magboltz.CF[KGAS][IE][I] < R2:
             I = I + 1
         S1 = Magboltz.RGAS[KGAS][I]

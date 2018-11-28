@@ -6,6 +6,7 @@ from MIXERT import MIXERT
 from ELIMITT import ELIMITT
 from ELIMITBT import ELIMITBT
 from ELIMITCT import ELIMITCT
+from MONTET import MONTET
 
 
 class Magboltz:
@@ -141,25 +142,41 @@ class Magboltz:
         self.NCOLM = 0
         self.NCORLN = 0
         self.NCORST = 0
+        self.NNULL = 0
+        self.TMAX1 = 0.0
+        self.DEN = 0.0
+        self.AVE = 0.0
+        self.XID = 0.0
+        self.X = 0.0
+        self.Y = 0.0
+        self.Z = 0.0
+        self.DFLER = 0.0
+        self.DFTER = 0.0
 
     def Start(self):
         if self.ITHRM != 0:
             self = SETUPT(self)
-        if self.EFINAL == 0.0:
-            self.EFINAL = 0.5
-            EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
-            if EOB > 15:
-                self.EFINAL = 8
-            self.ESTART = self.EFINAL / 50
-            while self.IELOW == 1:
+            if self.EFINAL == 0.0:
+                self.EFINAL = 0.5
+                EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
+                if EOB > 15:
+                    self.EFINAL = 8
+                self.ESTART = self.EFINAL / 50
+                while self.IELOW == 1:
+                    self = MIXERT(self)
+                    if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
+                        self = ELIMITT(self)
+                    elif self.BTHETA == 90:
+                        self = ELIMITBT(self)
+                    else:
+                        self = ELIMITCT(self)
+                    if self.IELOW == 1:
+                        # TODO: This could be the reason for missing points
+                        self.EFINAL = self.EFINAL * math.sqrt(2)
+                        self.ESTART = self.EFINAL / 50
+            else:
                 self = MIXERT(self)
-                if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                    self = ELIMITT(self)
-                elif self.BTHETA == 90:
-                    self = ELIMITBT(self)
-                else:
-                    self = ELIMITCT(self)
-                if self.IELOW == 1:
-                    # TODO: This could be the reason for missing points
-                    self.EFINAL = self.EFINAL * math.sqrt(2)
-                    self.ESTART = self.EFINAL / 50
+            # TODO: add a printing function "PRINTERT"
+
+            if self.BMAG == 0:
+                self = MONTET(self)

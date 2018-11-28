@@ -77,12 +77,12 @@ def ELIMITCT(Magboltz):
 
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Magboltz.ESTEP) + 1
-            IE = min(IE, 4000)
+            IE = min(IE, 3999)
 
             R5 = random()
             TLIM = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
 
-        if IE == 4000:
+        if IE == 3999:
             Magboltz.IELOW = 1
             return Magboltz
 
@@ -95,7 +95,6 @@ def ELIMITCT(Magboltz):
         R2 = random()
         I = 0
         I = SORTT(KGAS, I, R2, IE, Magboltz)
-        I = I + 1
         while Magboltz.CF[KGAS][IE][I] < R2:
             I = I + 1
         S1 = Magboltz.RGAS[KGAS][I]

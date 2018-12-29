@@ -128,6 +128,8 @@ def MIXERT(Magboltz):
             Magboltz.PENFRA[KGAS][2][NP] = 0.0
 
             #IONISATION
+            print(Magboltz.EFINAL)
+            print(MIXOBJECT.Gases[KGAS].E[2])
             if Magboltz.EFINAL >= MIXOBJECT.Gases[KGAS].E[2]:
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
                     NP+=1

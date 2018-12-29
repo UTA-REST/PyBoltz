@@ -268,6 +268,7 @@ def MIXERT(Magboltz):
                         Magboltz.INDEX[KGAS][NP] = 2
                     if IE == 0:
                         RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
+                        Magboltz.RGAS[KGAS][NP] = RGAS
                         Magboltz.EIN[KGAS][NP] = MIXOBJECT.Gases[KGAS].EI[J] / RGAS
                         print(NP)
                         L = 4

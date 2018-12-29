@@ -116,6 +116,7 @@ def MIXERT(Magboltz):
                 RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
                 Magboltz.AMGAS[KGAS] = 2 * EMASS / MIXOBJECT.Gases[KGAS].E[1]
                 Magboltz.RGAS[KGAS][NP] = RGAS
+                print("1st")
                 print(NP)
             L = 1
             Magboltz.IARRY[KGAS][NP] = L

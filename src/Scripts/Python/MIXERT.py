@@ -166,46 +166,46 @@ def MIXERT(Magboltz):
                             Magboltz.PSCT[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
                             Magboltz.INDEX[KGAS][NP] = 2
 
-            if IE == 0:
-                if MIXOBJECT.Gases[KGAS].NION <= 1:
-                    RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                    Magboltz.RGAS[KGAS][NP] = RGAS
-                    print(NP)
-                    Magboltz.EIN[KGAS][NP] = MIXOBJECT.Gases[KGAS].E[2] / RGAS
-                    Magboltz.WPL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EB[0]
-                    Magboltz.NC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].NC0[0]
-                    Magboltz.EC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].EC0[0]
-                    Magboltz.NG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG1[0]
-                    Magboltz.EG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].EG1[0]
-                    Magboltz.NG2[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG2[0]
-                    Magboltz.WKLM[KGAS][NP] = MIXOBJECT.Gases[KGAS].WK[1]
-                    Magboltz.IPN[KGAS][NP] = 1
-                    L = 2
-                    Magboltz.IARRY[KGAS][NP] = L
-                    Magboltz.PENFRA[KGAS][0][NP] = 0.0
-                    Magboltz.PENFRA[KGAS][1][NP] = 0.0
-                    Magboltz.PENFRA[KGAS][2][NP] = 0.0
-                elif MIXOBJECT.Gases[KGAS].NION > 1:
-                    NP = NP - MIXOBJECT.Gases[KGAS].NION
-                    for KION in range(MIXOBJECT.Gases[KGAS].NION):
-                        NP = NP + 1
+                if IE == 0:
+                    if MIXOBJECT.Gases[KGAS].NION <= 1:
                         RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
                         Magboltz.RGAS[KGAS][NP] = RGAS
                         print(NP)
-                        Magboltz.EIN[KGAS][NP] = MIXOBJECT.Gases[KGAS].EION[KION] / RGAS
-                        Magboltz.WPL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EB[KION]
-                        Magboltz.NC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].NC0[KION]
-                        Magboltz.EC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].EC0[KION]
-                        Magboltz.NG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG1[KION]
-                        Magboltz.EG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].EG1[KION]
-                        Magboltz.NG2[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG2[KION]
-                        Magboltz.WKLM[KGAS][NP] = MIXOBJECT.Gases[KGAS].WK[KION]
+                        Magboltz.EIN[KGAS][NP] = MIXOBJECT.Gases[KGAS].E[2] / RGAS
+                        Magboltz.WPL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EB[0]
+                        Magboltz.NC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].NC0[0]
+                        Magboltz.EC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].EC0[0]
+                        Magboltz.NG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG1[0]
+                        Magboltz.EG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].EG1[0]
+                        Magboltz.NG2[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG2[0]
+                        Magboltz.WKLM[KGAS][NP] = MIXOBJECT.Gases[KGAS].WK[1]
                         Magboltz.IPN[KGAS][NP] = 1
                         L = 2
                         Magboltz.IARRY[KGAS][NP] = L
                         Magboltz.PENFRA[KGAS][0][NP] = 0.0
                         Magboltz.PENFRA[KGAS][1][NP] = 0.0
                         Magboltz.PENFRA[KGAS][2][NP] = 0.0
+                    elif MIXOBJECT.Gases[KGAS].NION > 1:
+                        NP = NP - MIXOBJECT.Gases[KGAS].NION
+                        for KION in range(MIXOBJECT.Gases[KGAS].NION):
+                            NP = NP + 1
+                            RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
+                            Magboltz.RGAS[KGAS][NP] = RGAS
+                            print(NP)
+                            Magboltz.EIN[KGAS][NP] = MIXOBJECT.Gases[KGAS].EION[KION] / RGAS
+                            Magboltz.WPL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EB[KION]
+                            Magboltz.NC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].NC0[KION]
+                            Magboltz.EC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].EC0[KION]
+                            Magboltz.NG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG1[KION]
+                            Magboltz.EG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].EG1[KION]
+                            Magboltz.NG2[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG2[KION]
+                            Magboltz.WKLM[KGAS][NP] = MIXOBJECT.Gases[KGAS].WK[KION]
+                            Magboltz.IPN[KGAS][NP] = 1
+                            L = 2
+                            Magboltz.IARRY[KGAS][NP] = L
+                            Magboltz.PENFRA[KGAS][0][NP] = 0.0
+                            Magboltz.PENFRA[KGAS][1][NP] = 0.0
+                            Magboltz.PENFRA[KGAS][2][NP] = 0.0
 
 
             if Magboltz.EFINAL >= MIXOBJECT.Gases[KGAS].E[3]:

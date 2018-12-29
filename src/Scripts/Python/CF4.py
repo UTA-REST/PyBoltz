@@ -1268,7 +1268,7 @@ def Gas1(object):
 
     for J in range(10, 46):
         if object.EFINAL <= EIN[J]:
-            object.NIN = J - 1
+            object.NIN = J
             break
     return object
 

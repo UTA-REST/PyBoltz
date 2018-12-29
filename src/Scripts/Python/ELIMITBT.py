@@ -28,6 +28,9 @@ def ELIMITBT(Magboltz):
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
+    print(CX1)
+    print(CY1)
+    print(CZ1)
     F4 = 2 * math.acos(-1)
     J2M = Magboltz.NMAX / ISAMP
     R5 = 1.0
@@ -69,9 +72,7 @@ def ELIMITBT(Magboltz):
             IMBPT += 1
             VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
 
-            print(CX2)
-            print(CY2)
-            print(CZ2)
+
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Magboltz.ESTEP)
             IE = min(IE, 3999)

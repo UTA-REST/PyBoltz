@@ -28,9 +28,7 @@ def ELIMITBT(Magboltz):
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
-    print(CX1)
-    print(CY1)
-    print(CZ1)
+
     F4 = 2 * math.acos(-1)
     J2M = Magboltz.NMAX / ISAMP
     R5 = 1.0
@@ -52,6 +50,8 @@ def ELIMITBT(Magboltz):
             WBT = Magboltz.WB * T
             COSWT = math.cos(WBT)
             SINWT = math.sin(WBT)
+            print(COSWT)
+            print(SINWT)
             DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
             E = E1 + DZ * EF100
             CX2 = CX1

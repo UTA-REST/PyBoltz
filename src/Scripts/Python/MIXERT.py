@@ -250,6 +250,8 @@ def MIXERT(Magboltz):
 
             # INELASTIC AND SUPERELASTIC
             if MIXOBJECT.Gases[KGAS].NIN > 0:
+                print("NIN ====")
+                print (MIXOBJECT.Gases[KGAS].NIN)
                 for J in range(MIXOBJECT.Gases[KGAS].NIN):
                     NP = NP + 1
                     Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QIN[J][IE] * Magboltz.VANN[KGAS]

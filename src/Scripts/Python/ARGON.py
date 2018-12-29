@@ -998,7 +998,7 @@ def Gas2(object):
 
     for J in range(0, object.NIN):
         if object.EFINAL <= EIN[J]:
-            object.NIN = J 
+            object.NIN = J
             break
     return object
     gd.close()

@@ -56,7 +56,6 @@ def ELIMITBT(Magboltz):
             CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
             KGAS = 0
             R2 = RAND48.drand()
-            print(Magboltz.TCFMXG)
             while Magboltz.TCFMXG[KGAS] < R2:
                 KGAS += 1
             IMBPT += 1
@@ -64,12 +63,15 @@ def ELIMITBT(Magboltz):
                 Magboltz.RNMX = GERJAN(RDUM, Magboltz.API)
                 IMBPT = 0
             #TODO: CHECK THE MODULUS PART
-            VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
+            VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
             IMBPT += 1
-            VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
+            VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
             IMBPT += 1
-            VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT]
+            VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
 
+            print(CX2)
+            print(CY2)
+            print(CZ2)
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Magboltz.ESTEP)
             IE = min(IE, 3999)

@@ -89,8 +89,6 @@ def ELIMITBT(Magboltz):
         while Magboltz.CF[KGAS][IE][I] < R2:
             I = I + 1
         S1 = Magboltz.RGAS[KGAS][I]
-        print(I)
-        print(Magboltz.RGAS[KGAS])
         EI = Magboltz.EIN[KGAS][I]
         if Magboltz.IPN[KGAS][I] > 0:
             R9 = RAND48.drand()

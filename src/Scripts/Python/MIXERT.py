@@ -129,7 +129,7 @@ def MIXERT(Magboltz):
             #IONISATION
             if Magboltz.EFINAL >= MIXOBJECT.Gases[KGAS].E[2]:
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
-                    NP = NP + 1
+                    NP+=1
                     Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].Q[2][IE]
                     Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.CF[KGAS][IE][NP]
                     Magboltz.PSCT[KGAS][IE][NP] = 0.5
@@ -147,7 +147,7 @@ def MIXERT(Magboltz):
                         Magboltz.INDEX[KGAS][NP] = 2
                 elif MIXOBJECT.Gases[KGAS].NION > 1:
                     for KION in range(MIXOBJECT.NION[KGAS]):
-                        NP = NP + 1
+                        NP+= 1
                         Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QION[KION][IE]
                         Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.CF[KGAS][IE][NP]
                         Magboltz.PSCT[KGAS][IE][NP] = 0.5

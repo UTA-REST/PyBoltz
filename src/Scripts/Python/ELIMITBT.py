@@ -127,7 +127,7 @@ def ELIMITBT(Magboltz):
         E1 = EOK * (1 - EI / (S1 * EOK) - 2 * D / S2)
         E1 = max(E1, SMALL)
         Q = math.sqrt((EOK / E1) * ARG1) / S1
-        Q = np.min(Q, 1)
+        Q = min(Q, 1)
         Magboltz.THETA = math.asin(Q * math.sin(THETA0))
 
         F6 = math.cos(Magboltz.THETA)
@@ -137,7 +137,7 @@ def ELIMITBT(Magboltz):
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
         F5 = math.sin(Magboltz.THETA)
-        DCZ2 = np.min(DZCOM, 1)
+        DCZ2 = min(DZCOM, 1)
         ARGZ = math.sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
         if ARGZ == 0:
             DCZ1 = F6

@@ -182,7 +182,7 @@ def MIXERT(Magboltz):
                     Magboltz.PENFRA[KGAS][1][NP] = 0.0
                     Magboltz.PENFRA[KGAS][2][NP] = 0.0
                 elif MIXOBJECT.Gases[KGAS].NION > 1:
-                    NP = NP - MIXOBJECT.Gases[KGAS].NION-1
+                    NP = NP - MIXOBJECT.Gases[KGAS].NION
                     for KION in range(MIXOBJECT.Gases[KGAS].NION):
                         NP = NP + 1
                         RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2

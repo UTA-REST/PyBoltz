@@ -149,6 +149,7 @@ def MIXERT(Magboltz):
                 elif MIXOBJECT.Gases[KGAS].NION > 1:
                     for KION in range(MIXOBJECT.NION[KGAS]):
                         NP+= 1
+                        print(NP)
                         Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QION[KION][IE]
                         Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.CF[KGAS][IE][NP]
                         Magboltz.PSCT[KGAS][IE][NP] = 0.5

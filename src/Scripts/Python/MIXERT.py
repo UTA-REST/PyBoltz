@@ -116,6 +116,7 @@ def MIXERT(Magboltz):
                 RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
                 Magboltz.AMGAS[KGAS] = 2 * EMASS / MIXOBJECT.Gases[KGAS].E[1]
                 Magboltz.RGAS[KGAS][NP] = RGAS
+                print(NP)
             L = 1
             Magboltz.IARRY[KGAS][NP] = L
             Magboltz.EIN[KGAS][NP] = 0.0
@@ -167,6 +168,7 @@ def MIXERT(Magboltz):
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
                     RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
                     Magboltz.RGAS[KGAS][NP] = RGAS
+                    print(NP)
                     Magboltz.EIN[KGAS][NP] = MIXOBJECT.Gases[KGAS].E[2] / RGAS
                     Magboltz.WPL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EB[0]
                     Magboltz.NC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].NC0[0]
@@ -187,6 +189,7 @@ def MIXERT(Magboltz):
                         NP = NP + 1
                         RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
                         Magboltz.RGAS[KGAS][NP] = RGAS
+                        print(NP)
                         Magboltz.EIN[KGAS][NP] = MIXOBJECT.Gases[KGAS].EION[KION] / RGAS
                         Magboltz.WPL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EB[KION]
                         Magboltz.NC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].NC0[KION]
@@ -231,6 +234,7 @@ def MIXERT(Magboltz):
                 if IE == 0:
                     RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
                     Magboltz.RGAS[KGAS][NP] = RGAS
+                    print(NP)
                     Magboltz.EIN[KGAS][NP] = 0.0
                     Magboltz.INDEX[KGAS][NP] = 0
                     Magboltz.IPN[KGAS][NP] = -1

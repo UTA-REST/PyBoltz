@@ -46,7 +46,7 @@ def ELIMITT(Magboltz):
     EI = 0
     S1 = 0
     S2 = 0
-    RAND48 = Rand48()
+    RAND48 = Rand48(RDUM)
     RAND48.seed(RDUM)
     for J1 in range(int(J2M)):
         while R5 > TEST1:
@@ -127,11 +127,11 @@ def ELIMITT(Magboltz):
         F8 = math.sin(PHI0)
         F9 = math.cos(PHI0)
         ARG1 = 1 - S1 * EI / EOK
-        ARG1 = np.max(ARG1, SMALL)
+        ARG1 = max(ARG1, SMALL)
 
         D = 1 - F3 * math.sqrt(ARG1)
         E1 = EOK * (1 - EI / (S1 * EOK) - 2 * D / S2)
-        E1 = np.max(E1, SMALL)
+        E1 = max(E1, SMALL)
         Q = math.sqrt((EOK / E1) * ARG1) / S1
         Q = np.min(Q, 1)
         Magboltz.THETA = math.asin(Q * math.sin(THETA0))

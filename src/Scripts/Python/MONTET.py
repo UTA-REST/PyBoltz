@@ -68,7 +68,7 @@ def MONTET(Magboltz):
     F2 = Magboltz.EFIELD * Magboltz.CONST3
     F4 = 2 * math.acos(-1)
     J2M = Magboltz.NMAX / Magboltz.ITMAX
-    RAND48 = Rand48()
+    RAND48 = Rand48(RDUM)
     RAND48.seed(RDUM)
     for J1 in range(Magboltz.ITMAX):
         for J2 in range(J2M):

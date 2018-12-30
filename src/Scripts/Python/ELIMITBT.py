@@ -32,7 +32,6 @@ def ELIMITBT(Magboltz):
     J2M = Magboltz.NMAX / ISAMP
     R5 = 1.0
     TLIM = 0.0
-    Magboltz.RAND48 = Magboltz.RAND48(RDUM)
 
     Magboltz.RAND48.seed(RDUM)
     for J1 in range(int(J2M)):

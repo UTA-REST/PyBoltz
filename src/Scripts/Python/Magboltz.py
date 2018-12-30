@@ -7,7 +7,7 @@ from ELIMITT import ELIMITT
 from ELIMITBT import ELIMITBT
 from ELIMITCT import ELIMITCT
 from MONTET import MONTET
-
+from RAND48 import Rand48
 
 class Magboltz:
     def __init__(self):
@@ -152,6 +152,7 @@ class Magboltz:
         self.Z = 0.0
         self.DFLER = 0.0
         self.DFTER = 0.0
+        self.RAND48 = Rand48(self.RSTART)
 
     def Start(self):
         if self.ITHRM != 0:

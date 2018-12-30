@@ -61,7 +61,7 @@ def ELIMITBT(Magboltz):
                 KGAS += 1
             IMBPT += 1
             if IMBPT > 5:
-                Magboltz.RNMX = GERJAN(RDUM, Magboltz.API)
+                Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
                 IMBPT = 0
             #TODO: CHECK THE MODULUS PART
             VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]

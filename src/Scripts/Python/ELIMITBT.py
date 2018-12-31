@@ -46,8 +46,8 @@ def ELIMITBT(Magboltz):
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
             WBT = Magboltz.WB * T
-            COSWT = math.cos(WBT)
-            SINWT = math.sin(WBT)
+            COSWT = np.cos(WBT)
+            SINWT = np.sin(WBT)
             print(Magboltz.WB)
             print(T)
             #print(SINWT)

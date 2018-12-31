@@ -74,8 +74,9 @@ def ELIMITBT(Magboltz):
             VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
             IMBPT += 1
             VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
-            print("VTMB = " + str(Magboltz.VTMB[KGAS]))
-            print(Magboltz.RNMX)
+            print("VGX = " + str(VGX))
+            print("VGY = " + str(VGY))
+            print("VGZ = "+ str(VGZ))
 
             EOK = (math.pow(CX2 - VGX, 2) + math.pow(CY2 - VGY, 2) + math.pow(CZ2 - VGZ, 2)) / CONST10
             IE = int(EOK / Magboltz.ESTEP)

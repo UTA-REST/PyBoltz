@@ -77,7 +77,7 @@ def ELIMITBT(Magboltz):
             print("VTMB = " + str(Magboltz.VTMB[KGAS]))
             print(Magboltz.RNMX)
 
-            EOK = (math.pow(CX2 - VGX, 2) + math.pow(CY2 - VGY, 2) + math.pow(CZ2 - VGZ, 2) / CONST10
+            EOK = (math.pow(CX2 - VGX, 2) + math.pow(CY2 - VGY, 2) + math.pow(CZ2 - VGZ, 2)) / CONST10
             IE = int(EOK / Magboltz.ESTEP)
             IE = min(IE, 3999)
             R5 = Magboltz.RAND48.drand()

@@ -48,8 +48,8 @@ def ELIMITBT(Magboltz):
             WBT = Magboltz.WB * T
             COSWT = np.cos(WBT)
             SINWT = np.sin(WBT)
-            print(Magboltz.WB)
-            print(T)
+            print(COSWT)
+            print(SINWT)
             #print(SINWT)
             DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
             E = E1 + DZ * EF100

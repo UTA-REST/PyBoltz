@@ -48,14 +48,17 @@ def ELIMITBT(Magboltz):
             WBT = Magboltz.WB * T
             COSWT = np.cos(WBT)
             SINWT = np.sin(WBT)
-            print(COSWT)
-            print(SINWT)
+
             #print(SINWT)
             DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
+            print("DZ = " + str(DZ))
             E = E1 + DZ * EF100
             CX2 = CX1
+            print("CX2 = " + str(CX2))
             CY2 = (CY1 - Magboltz.EOVB) * COSWT + CZ1 * SINWT + Magboltz.EOVB
+            print("CY2 = " + str(CY2))
             CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
+            print("CZ2 = " + str(CZ2))
             KGAS = 0
             R2 = Magboltz.RAND48.drand()
             while Magboltz.TCFMXG[KGAS] < R2:
@@ -63,6 +66,7 @@ def ELIMITBT(Magboltz):
             IMBPT += 1
             if IMBPT > 5:
                 Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+
                 IMBPT = 0
             #TODO: CHECK THE MODULUS PART
             VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
@@ -70,7 +74,8 @@ def ELIMITBT(Magboltz):
             VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
             IMBPT += 1
             VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
-
+            print("VTMB = " + str(Magboltz.VTMB[KGAS]))
+            print(Magboltz.RNMX)
 
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Magboltz.ESTEP)

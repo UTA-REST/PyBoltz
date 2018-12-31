@@ -48,8 +48,9 @@ def ELIMITBT(Magboltz):
             WBT = Magboltz.WB * T
             COSWT = math.cos(WBT)
             SINWT = math.sin(WBT)
-            print(COSWT)
-            print(SINWT)
+            print(Magboltz.WB)
+            print(T)
+            #print(SINWT)
             DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
             E = E1 + DZ * EF100
             CX2 = CX1
@@ -80,7 +81,6 @@ def ELIMITBT(Magboltz):
             Magboltz.IELOW = 1
             return Magboltz
         TDASH = 0.0
-        print (CONST9)
         print("EOK")
         print(EOK)
         CONST11 = 1.0 / (CONST9 * math.sqrt(EOK))

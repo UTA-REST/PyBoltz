@@ -6,7 +6,7 @@ from RAND48 import Rand48
 from SORTT import SORTT
 
 
-def MONTET(Magboltz):
+def MONTEAT(Magboltz):
     Magboltz.WX = 0.0
     Magboltz.WY = 0.0
     Magboltz.X = 0.0
@@ -55,22 +55,27 @@ def MONTET(Magboltz):
     IMBPT = 0
     TDASH = 0.0
     TEMP = np.zeros(shape=(6, 4000))
+    Magboltz.NNULL = 0
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Magboltz.TCF[K][J] + Magboltz.TCFN[K][J]
-    ABSFAKI = 0.0
+    ABSFAKI = Magboltz.FAKEI
     Magboltz.IFAKE = 0
 
     DCZ1 = math.cos(Magboltz.THETA)
     DCX1 = math.sin(Magboltz.THETA) * math.cos(Magboltz.PHI)
     DCY1 = math.sin(Magboltz.THETA) * math.sin(Magboltz.PHI)
 
-    BP = (Magboltz.EFIELD ** 2) * Magboltz.CONST1
+    VTOT = CONST9 * math.sqrt(E1)
+    CX1 = DCX1 * VTOT
+    CY1 = DCY1 * VTOT
+    CZ1 = DCZ1 * VTOT
+    BP = Magboltz.EFIELD ** 2 * Magboltz.CONST1
     F1 = Magboltz.EFIELD * Magboltz.CONST2
     F2 = Magboltz.EFIELD * Magboltz.CONST3
     F4 = 2 * math.acos(-1)
     J2M = Magboltz.NMAX / Magboltz.ITMAX
-    Magboltz.RAND48.seed(RDUM)
+
     for J1 in range(Magboltz.ITMAX):
         for J2 in range(J2M):
             while True:
@@ -79,39 +84,35 @@ def MONTET(Magboltz):
                 TDASH = T
                 AP = DCZ1 * F2 * math.sqrt(E1)
                 E = E1 + (AP + BP * T) * T
+                WBT = Magboltz.WB * T
+                COSWT = math.cos(WBT)
+                SINWT = math.sin(WBT)
                 CONST6 = math.sqrt(E1 / E)
-                # CALCULATE DIRECTION COSINES BEFORE COLLISION
-                DCX2 = DCX1 * CONST6
-                DCY2 = DCY1 * CONST6
-                DCZ2 = DCZ1 * CONST6 + Magboltz.EFIELD * T * Magboltz.CONST5 / math.sqrt(E)
-                # FIND IDENTITY OF GAS FOR COLLISION
                 KGAS = 0
                 R2 = Magboltz.RAND48.drand()
                 if Magboltz.NGAS == 1:
                     KGAS = 0
-
                 while (Magboltz.TCFMXG[KGAS] < R2):
                     KGAS = KGAS + 1
+                CX2 = CX1 * COSWT - CY1 * SINWT
+                CY2 = CY1 * COSWT + CX1 * SINWT
+                VTOT = CONST9 * math.sqrt(E)
+                CZ2 = VTOT * (DCZ1 * CONST6 + Magboltz.EFIELD * T * Magboltz.CONST5 / math.sqrt(E))
+
                 IMBPT += 1
                 if (IMBPT > 5):
                     Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
                     IMBPT = 0
 
-                VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
+                VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
                 IMBPT += 1
-                VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
+                VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
                 IMBPT += 1
-                VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
-                # CALCULATE ELECTRON VELOCITY VECTORS VEX VEY VEZ
-                VEX = DCX2 * CONST9 * math.sqrt(E)
-                VEY = DCY2 * CONST9 * math.sqrt(E)
-                VEZ = DCZ2 * CONST9 * math.sqrt(E)
-                # CALCULATE ENERGY WITH STATIONARY GAS TARGET, EOK
+                VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
 
-                EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
+                EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
                 IE = int(EOK / Magboltz.ESTEP)
                 IE = min(IE, 3999)
-                # TEST FOR REAL OR NULL COLLISION
 
                 R5 = Magboltz.RAND48.drand()
                 TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
@@ -140,10 +141,10 @@ def MONTET(Magboltz):
                     break
             NCOL += 1
             CONST11 = 1 / (CONST9 * math.sqrt(EOK))
-            DXCOM = (VEX - VGX) * CONST11
-            DYCOM = (VEY - VGY) * CONST11
-            DZCOM = (VEZ - VGZ) * CONST11
-            # CALCULATE POSITIONS AT INSTANT BEFORE COLLISION, & UPDATE DIFFUSION AND ENERGY CALCULATIONS
+            DXCOM = (CX2 - VGX) * CONST11
+            DYCOM = (CY2 - VGY) * CONST11
+            DZCOM = (CZ2 - VGZ) * CONST11
+
             T2 = T ** 2
             if (T >= Magboltz.TMAX1):
                 Magboltz.TMAX1 = T
@@ -153,19 +154,21 @@ def MONTET(Magboltz):
             SUME2 = SUME2 + T * (E1 + A / 2.0 + B / 3.0)
             CONST7 = CONST9 * math.sqrt(E1)
             A = T * CONST7
-            CX1 = DCX1 * CONST7
-            CY1 = DCY1 * CONST7
-            Magboltz.X = Magboltz.X + DCX1 * A
-            Magboltz.Y = Magboltz.Y + DCY1 * A
-            Magboltz.Z = Magboltz.Z + DCZ1 * A + T2 * F1
-            ST = ST + T
+
+            DX = (CX1 * SINWT - CY1 * (1 - COSWT)) / Magboltz.WB
+            Magboltz.X += DX
+            DY = (CY1 * SINWT + CX1 * (1 - COSWT)) / Magboltz.WB
+            Magboltz.Y += DY
+            Magboltz.Z += DCZ1 * A + T2 * F1
+            ST += T
             IT = int(T)
             IT = min(IT, 299)
             Magboltz.TIME[IT] += 1
             Magboltz.SPEC[IE] += 1
             Magboltz.WZ = Magboltz.Z / ST
-            SUMVX = SUMVX + CX1 * CX1 * T2
-            SUMVY = SUMVY + CY1 * CY1 * T2
+            SUMVX = SUMVX + DX ** 2
+            SUMVY = SUMVY + DY ** 2
+
             if ID != 0:
                 KDUM = 0
                 for JDUM in range(Magboltz.NCORST):
@@ -188,12 +191,11 @@ def MONTET(Magboltz):
                 ID += 1
                 Magboltz.XID = float(ID)
                 NCOL = 0
+            R2 = Magboltz.RAND48.drand()
 
-            R3 = Magboltz.RAND48.drand()
+            I = SORTT(KGAS, I, R2, IE)
 
-            I = SORTT(KGAS, I, R3, IE)
-
-            while Magboltz.CF[KGAS][IE][I] < R3:
+            while Magboltz.CF[KGAS][IE][I] < R2:
                 I += 1
             S1 = Magboltz.RGAS[KGAS][I]
             EI = Magboltz.EIN[KGAS][I]
@@ -256,20 +258,19 @@ def MONTET(Magboltz):
                 DCZ1 = DZCOM * F6 + ARGZ * F5 * F8
                 DCY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
                 DCX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
-            CONST12 = CONST9 * math.sqrt(E1)
-            VXLAB = DCX1 * CONST12 + VGX
-            VYLAB = DCY1 * CONST12 + VGY
-            VZLAB = DCZ1 * CONST12 + VGZ
+            VTOT = CONST9 * math.sqrt(E1)
+            CX1 = DCX1 * VTOT + VGX
+            CY1 = DCY1 * VTOT + VGY
+            CZ1 = DCZ1 * VTOT + VGZ
 
-            E1 = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / CONST10
+            E1 = (CX1 * CX1 + CY1 * CY1 + CZ1 * CZ1) / CONST10
             CONST11 = 1 / (CONST9 * math.sqrt(E1))
-            DCX1 = VXLAB * CONST11
-            DCY1 = VYLAB * CONST11
-            DCZ1 = VZLAB * CONST11
-        # TODO: TABLE PRINT
+            DCX1 = CX1 * CONST11
+            DCY1 = CY1 * CONST11
+            DCZ1 = CZ1 * CONST11
+
         Magboltz.WZ *= 1e9
         Magboltz.AVE = SUME2 / ST
-        DIFLN = 0.0
         if Magboltz.NISO == 0:
             Magboltz.DIFXX = 5e15 * SUMVX / ST
             Magboltz.DIFYY = 5e15 * SUMVY / ST
@@ -302,17 +303,14 @@ def MONTET(Magboltz):
         SYYOLD = SUMYY
         SXXOLD = SUMXX
         SME2OLD = SUME2
-        # TODO: CONTINUE TABLE PRINTING
-
-        if Magboltz.SPEC[3999] > (1000 * float(J1)):
-            raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
     TWZST = 0.0
     TAVE = 0.0
     T2WZST = 0.0
     T2AVE = 0.0
-    TZZST = 0.0
     TYYST = 0.0
     TXXST = 0.0
+
+    TZZST=0.0
     T2ZZST = 0.0
     T2YYST = 0.0
     T2XXST = 0.0
@@ -321,10 +319,10 @@ def MONTET(Magboltz):
         TAVE = TAVE + AVEST[K]
         T2WZST = T2WZST + WZST[K] * WZST[K]
         T2AVE = T2AVE + AVEST[K] * AVEST[K]
-        TXXST = TXXST + DFXXST[K]
-        TYYST = TYYST + DFYYST[K]
-        T2YYST = T2YYST + DFYYST[K] ** 2
-        T2XXST = T2XXST + DFXXST[K] ** 2
+        TXXST+=DFXXST[K]
+        TYYST+=DFYYST[K]
+        T2XXST+=DFXXST**2
+        T2YYST+=DFYYST**2
         if K >= 2:
             TZZST = TZZST + DFZZST[K]
             T2ZZST += DFZZST[K] ** 2

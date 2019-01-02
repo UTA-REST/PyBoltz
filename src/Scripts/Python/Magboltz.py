@@ -181,3 +181,6 @@ class Magboltz:
 
             if self.BMAG == 0:
                 self = MONTET(self)
+            else:
+                if self.BTHETA == 0 or Magboltz.BTHETA ==180:
+                    self = MONTEAT(self)

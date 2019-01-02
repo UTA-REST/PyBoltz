@@ -52,14 +52,10 @@ def ELIMITBT(Magboltz):
 
             #print(SINWT)
             DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
-            print("DZ = " + str(DZ))
             E = E1 + DZ * EF100
             CX2 = CX1
-            print("CX2 = " + str(CX2))
             CY2 = (CY1 - Magboltz.EOVB) * COSWT + CZ1 * SINWT + Magboltz.EOVB
-            print("CY2 = " + str(CY2))
             CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
-            print("CZ2 = " + str(CZ2))
             KGAS = 0
             R2 = Magboltz.RAND48.drand()
             while Magboltz.TCFMXG[KGAS] < R2:
@@ -75,9 +71,7 @@ def ELIMITBT(Magboltz):
             VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
             IMBPT += 1
             VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
-            print("VGX = " + str(VGX))
-            print("VGY = " + str(VGY))
-            print("VGZ = "+ str(VGZ))
+
 
             EOK = (math.pow(CX2 - VGX, 2) + math.pow(CY2 - VGY, 2) + math.pow(CZ2 - VGZ, 2)) / CONST10
             IE = int(EOK / Magboltz.ESTEP)
@@ -88,8 +82,6 @@ def ELIMITBT(Magboltz):
             Magboltz.IELOW = 1
             return Magboltz
         TDASH = 0.0
-        print("EOK")
-        print(EOK)
         CONST11 = 1.0 / (CONST9 * math.sqrt(EOK))
         DXCOM = (CX2 - VGX) * CONST11
         DYCOM = (CY2 - VGY) * CONST11
@@ -131,9 +123,6 @@ def ELIMITBT(Magboltz):
         ARG1 = max(ARG1, SMALL)
 
         D = 1 - F3 * math.sqrt(ARG1)
-        print(S1)
-        print(S2)
-        print(EOK)
         E1 = EOK * (1 - EI / (S1 * EOK) - 2 * D / S2)
         E1 = max(E1, SMALL)
         Q = math.sqrt((EOK / E1) * ARG1) / S1

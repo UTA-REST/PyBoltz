@@ -17,7 +17,7 @@ def ELIMITT(Magboltz):
     CONST9 = Magboltz.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
 
-    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
+    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
     IMBPT = 0
 
     DCZ1 = math.cos(Magboltz.THETA)
@@ -45,11 +45,11 @@ def ELIMITT(Magboltz):
     EI = 0
     S1 = 0
     S2 = 0
-    Magboltz.RAND48 = Magboltz.RAND48(RDUM)
     Magboltz.RAND48.seed(RDUM)
     for J1 in range(int(J2M)):
+        R5 = 1
+        TEST1 = 0
         while R5 > TEST1:
-
             R1 = Magboltz.RAND48.drand()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
@@ -107,12 +107,12 @@ def ELIMITT(Magboltz):
         IPT = Magboltz.IARRY[KGAS][I]
         if EOK < EI:
             EI = EOK - 0.0001
-        S2 = (S1 * S1) / (S1 - 1)
+        S2 = (S1 * S1) / (S1 - 1.0)
         R3 = Magboltz.RAND48.drand()
 
         if Magboltz.INDEX[KGAS][I] == 1:
             R31 = Magboltz.RAND48.drand()
-            F3 = Magboltz.RAND48.drand()
+            F3 = 1.0 - R3*Magboltz.ANGCT[KGAS][IE][I]
             if R31 > Magboltz.PSCT[KGAS][IE][I]:
                 F3 = -1 * F3
             elif Magboltz.INDEX[KGAS][I] == 2:

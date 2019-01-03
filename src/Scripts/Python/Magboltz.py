@@ -9,6 +9,7 @@ from ELIMITCT import ELIMITCT
 from MONTET import MONTET
 from RAND48 import Rand48
 from MONTEAT import MONTEAT
+from MONEBT import MONTEBT
 class Magboltz:
     def __init__(self):
         self.EOVB = 0.0

@@ -354,11 +354,11 @@ def MONTET(Magboltz):
     Magboltz.ATTER = 0.0
 
     if ANCATT != 0:
-        ATTER = 100 * math.sqrt(ANCATT) / ANCATT
+        Magboltz.ATTER = 100 * math.sqrt(ANCATT) / ANCATT
     Magboltz.ATT = ANCATT / (ST * Magboltz.WZ) * 1e12
     Magboltz.ALPER = 0.0
     if ANCION != 0:
-        ALPER = 100 * math.sqrt(ANCION) / ANCION
+        Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
     Magboltz.ALPHA = ANCION / (ST * Magboltz.WZ) * 1e12
 
     return Magboltz

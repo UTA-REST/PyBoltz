@@ -8,7 +8,7 @@ from ELIMITBT import ELIMITBT
 from ELIMITCT import ELIMITCT
 from MONTET import MONTET
 from RAND48 import Rand48
-
+from MONTEAT import MONTEAT
 class Magboltz:
     def __init__(self):
         self.EOVB = 0.0
@@ -128,6 +128,7 @@ class Magboltz:
         self.QEL = [0 for i in range(4000)]
         self.QSATT = [0 for i in range(4000)]
         self.RNMX = [0 for i in range(6)]
+        self.ES = [0 for i in range(4000)]
         self.ZTOT = 0
         self.TOTT = 0
         self.ZTOTS = 0
@@ -184,3 +185,5 @@ class Magboltz:
             else:
                 if self.BTHETA == 0 or Magboltz.BTHETA ==180:
                     self = MONTEAT(self)
+                elif self.BTHETA == 90:
+                    self = MONTEBT(self)

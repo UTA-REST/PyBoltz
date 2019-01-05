@@ -2,7 +2,7 @@ import numpy as np
 import math
 from GERJAN import GERJAN
 from SORTT import SORTT
-
+from TPLANET import TPLANET
 
 def MONTEFTT(Magboltz, JPRT):
     EPRM = np.zeros(10000000)
@@ -17,7 +17,7 @@ def MONTEFTT(Magboltz, JPRT):
         Magboltz.NMAX = Magboltz.NMAXOLD
 
     S = 0.0
-    ST = 0.0
+    Magboltz.ST = 0.0
     Magboltz.X = 0.0
     Magboltz.Y = 0.0
     Magboltz.Z = 0.0
@@ -115,7 +115,7 @@ def MONTEFTT(Magboltz, JPRT):
             DCY1 = DCY100
             E1 = E100
             NCLUS += 1
-            ST = 0.0
+            Magboltz.ST = 0.0
             TSSTRT = 0.0
             ZSTRT = 0.0
             IPLANE = 0
@@ -136,26 +136,26 @@ def MONTEFTT(Magboltz, JPRT):
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
             AP = DCZ1 * F2 * math.sqrt(E1)
-            if T + ST >= TSTOP:
+            if T + Magboltz.ST >= TSTOP:
                 IPLANE += 1
                 TSTOP += Magboltz.TSTEP
                 Magboltz = TPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE)
-                while T + ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
+                while T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
                     IPLANE += 1
                     TSTOP += Magboltz.TSTEP
                     Magboltz = TPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE)
-                if T + ST >= Magboltz.TFINAL:
+                if T + Magboltz.ST >= Magboltz.TFINAL:
                     Magboltz.ZTOT += Magboltz.Z
-                    Magboltz.TTOT += ST
+                    Magboltz.TTOT += Magboltz.ST
                     Magboltz.ZTOTS += Magboltz.Z - ZSTRT
-                    Magboltz.TTOTS += ST - TSSTRT
+                    Magboltz.TTOTS += Magboltz.ST - TSSTRT
                     TSTOP = Magboltz.TSTEP
                     if NELEC == NCLUS + 1:
                         break
                     Magboltz.X = Magboltz.XS[NPONT]
                     Magboltz.Y = Magboltz.YS[NPONT]
                     Magboltz.Z = Magboltz.ZS[NPONT]
-                    ST = Magboltz.TS[NPONT]
+                    Magboltz.ST = Magboltz.TS[NPONT]
                     E1 = Magboltz.ES[NPONT]
                     DCX1 = Magboltz.DCX[NPONT]
                     DCY1 = Magboltz.DCY[NPONT]
@@ -163,7 +163,7 @@ def MONTEFTT(Magboltz, JPRT):
                     IPLANE = Magboltz.IPL[NPONT]
                     NPONT -= 1
                     ZSTRT = Magboltz.Z
-                    TSSTRT = ST
+                    TSSTRT = Magboltz.ST
                     continue
                 E = E1 + (AP + BP * T) * T
                 if E < 0:
@@ -229,7 +229,7 @@ def MONTEFTT(Magboltz, JPRT):
                                 Magboltz.X = Magboltz.XS[NPONT]
                                 Magboltz.Y = Magboltz.YS[NPONT]
                                 Magboltz.Z = Magboltz.ZS[NPONT]
-                                ST = Magboltz.TS[NPONT]
+                                Magboltz.ST = Magboltz.TS[NPONT]
                                 E1 = Magboltz.ES[NPONT]
                                 DCX1 = Magboltz.DCX[NPONT]
                                 DCY1 = Magboltz.DCY[NPONT]
@@ -237,7 +237,7 @@ def MONTEFTT(Magboltz, JPRT):
                                 IPLANE = Magboltz.IPL[NPONT]
                                 NPONT -= 1
                                 ZSTRT = Magboltz.Z
-                                TSSTRT = ST
+                                TSSTRT = Magboltz.ST
                                 continue
                         NCLUS += 1
                         NPONT += 1
@@ -248,7 +248,7 @@ def MONTEFTT(Magboltz, JPRT):
                         Magboltz.XS[NPONT] = Magboltz.X + DCX1 * A
                         Magboltz.YS[NPONT] = Magboltz.Y + DCY1 * A
                         Magboltz.ZS[NPONT] = Magboltz.Z + DCZ1 * A + T * T * F1
-                        Magboltz.TS[NPONT] = ST + T
+                        Magboltz.TS[NPONT] = Magboltz.ST + T
                         Magboltz.ES[NPONT] = E
                         Magboltz.IPL[NPONT] = IPLANE
                         Magboltz.DCX[NPONT] = DCX2
@@ -274,7 +274,7 @@ def MONTEFTT(Magboltz, JPRT):
                 Magboltz.X += DCX1 * A
                 Magboltz.Y += DCY1 * A
                 Magboltz.Z += DCZ1 * A + T2 * F1
-                ST += T
+                Magboltz.ST += T
                 IT = int(T)
                 IT = min(IT, 299)
                 Magboltz.TIME[IT] += 1
@@ -303,9 +303,9 @@ def MONTEFTT(Magboltz, JPRT):
                         IT = min(IT, 299)
                         Magboltz.TIME[IT] += 1
                         Magboltz.ZTOT += Magboltz.Z
-                        Magboltz.TTOT += ST
+                        Magboltz.TTOT += Magboltz.ST
                         Magboltz.ZTOTS += Magboltz.Z - ZSTRT
-                        Magboltz.TTOTS += ST - TSSTRT
+                        Magboltz.TTOTS += Magboltz.ST - TSSTRT
                         if NELEC == NCLUS + 1:
                             continue
                         GT1F = 1
@@ -323,7 +323,7 @@ def MONTEFTT(Magboltz, JPRT):
                     Magboltz.XS[NPONT] = Magboltz.X
                     Magboltz.YS[NPONT] = Magboltz.Y
                     Magboltz.ZS[NPONT] = Magboltz.Z
-                    Magboltz.TS[NPONT] = ST
+                    Magboltz.TS[NPONT] = Magboltz.ST
                     Magboltz.ES[NPONT] = ESEC
                     NTMPFLG = 1
                     NCLTMP = NPONT
@@ -337,7 +337,7 @@ def MONTEFTT(Magboltz, JPRT):
                             Magboltz.XS[NPONT] = Magboltz.X
                             Magboltz.YS[NPONT] = Magboltz.Y
                             Magboltz.ZS[NPONT] = Magboltz.Z
-                            Magboltz.TS[NPONT] = ST
+                            Magboltz.TS[NPONT] = Magboltz.ST
                             Magboltz.ES[NPONT] = EAVAUG
                             R3 = Magboltz.RAND48.drand()
                             F3 = 1 - 2 * R3
@@ -371,10 +371,10 @@ def MONTEFTT(Magboltz, JPRT):
                                 Magboltz.XS[NPONT] = Magboltz.X
                                 Magboltz.YS[NPONT] = Magboltz.Y
                                 Magboltz.ZS[NPONT] = Magboltz.Z
-                                TPEN = ST
+                                TPEN = Magboltz.ST
                                 if Magboltz.PENFRA[KGAS][2][I] != 0.0:
                                     RAN = Magboltz.RAND48.drand()
-                                    TPEN = ST - np.log(RAN) * Magboltz.PENFRA[KGAS][2][I]
+                                    TPEN = Magboltz.ST - np.log(RAN) * Magboltz.PENFRA[KGAS][2][I]
                                 Magboltz.TS[NPONT] = TPEN
                                 Magboltz.ES[NPONT] = 1.0
                                 Magboltz.DCX[NPONT] = DCX1

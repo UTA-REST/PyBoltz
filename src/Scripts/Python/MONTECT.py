@@ -18,7 +18,7 @@ def MONTECT(Magboltz):
     DIFYZR = 0.0
     DIFXZR = 0.0
     DIFXYR = 0.0
-    ST = 0.0
+    Magboltz.ST = 0.0
     ST1 = 0.0
     SUMXX = 0.0
     SUMYY = 0.0
@@ -174,13 +174,13 @@ def MONTECT(Magboltz):
             Magboltz.X += DX
             Magboltz.Y += EOVBR * T + ((CY1 - EOVBR) * SINWT + CZ1 * (1 - COSWT)) / Magboltz.WB
             Magboltz.Z += DZ
-            ST += T
+            Magboltz.ST += T
             IT = min(IT, 299)
             Magboltz.TIME[IT] += 1
             Magboltz.SPEC[IE] += 1
-            Magboltz.WZ = Magboltz.Z / ST
-            Magboltz.WY = Magboltz.Y / ST
-            Magboltz.WX = Magboltz.X / ST
+            Magboltz.WZ = Magboltz.Z / Magboltz.ST
+            Magboltz.WY = Magboltz.Y / Magboltz.ST
+            Magboltz.WX = Magboltz.X / Magboltz.ST
             if J1 >= 2:
                 KDUM = 0
                 for J in range(Magboltz.NCORST):
@@ -188,7 +188,7 @@ def MONTECT(Magboltz):
                     if NCOLDM > Magboltz.NCOLM:
                         NCOLDM = NCOLDM - Magboltz.NCOLM
                     ST1 += T
-                    SDIF = ST - STO[NCOLDM]
+                    SDIF = Magboltz.ST - STO[NCOLDM]
                     KDUM += Magboltz.NCORLN
                     SUMZZ += ((Magboltz.Z - ZST[NCOLDM] - Magboltz.WZ * SDIF) ** 2) * T / SDIF
                     SUMYY += ((Magboltz.Y - YST[NCOLDM] - Magboltz.WY * SDIF) ** 2) * T / SDIF
@@ -202,7 +202,7 @@ def MONTECT(Magboltz):
             XST[NCOL] = Magboltz.X
             YST[NCOL] = Magboltz.Y
             ZST[NCOL] = Magboltz.Z
-            STO[NCOL] = ST
+            STO[NCOL] = Magboltz.ST
             if NCOL >= Magboltz.NCOLM:
                 ID += 1
                 Magboltz.XID = float(ID)
@@ -302,11 +302,11 @@ def MONTECT(Magboltz):
             for KI in range(Magboltz.NGAS):
                 TCFSUM += Magboltz.TCF[KI][IK]
             EBAR += Magboltz.ES[IK] * Magboltz.SPEC[IK] / TCFSUM
-        Magboltz.AVE = EBAR / ST
-        WZST[J1] = (ZR - ZROLD) / (ST - STOLD) * 1e9
-        WYST[J1] = (YR - YROLD) / (ST - STOLD) * 1e9
-        WXST[J1] = (XR - XROLD) / (ST - STOLD) * 1e9
-        AVEST[J1] = (EBAR - EBAROLD) / (ST - STOLD)
+        Magboltz.AVE = EBAR / Magboltz.ST
+        WZST[J1] = (ZR - ZROLD) / (Magboltz.ST - STOLD) * 1e9
+        WYST[J1] = (YR - YROLD) / (Magboltz.ST - STOLD) * 1e9
+        WXST[J1] = (XR - XROLD) / (Magboltz.ST - STOLD) * 1e9
+        AVEST[J1] = (EBAR - EBAROLD) / (Magboltz.ST - STOLD)
         EBAROLD = EBAR
 
         if J1 >= 2:
@@ -346,7 +346,7 @@ def MONTECT(Magboltz):
         ZROLD = ZR
         YROLD = YR
         XROLD = XR
-        STOLD = ST
+        STOLD = Magboltz.ST
         ST1OLD = ST1
         SZZOLD = SZZR
         SYYOLD = SYYR
@@ -443,10 +443,10 @@ def MONTECT(Magboltz):
 
     if ANCATT != 0:
         Magboltz.ATTER = 100 * math.sqrt(ANCATT) / ANCATT
-    Magboltz.ATT = ANCATT / (ST * Magboltz.WZ) * 1e12
+    Magboltz.ATT = ANCATT / (Magboltz.ST * Magboltz.WZ) * 1e12
     Magboltz.ALPER = 0.0
     if ANCION != 0:
         Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
-    Magboltz.ALPHA = ANCION / (ST * Magboltz.WZ) * 1e12
+    Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
 
     return Magboltz

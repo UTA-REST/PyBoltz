@@ -12,7 +12,7 @@ def MONTEAT(Magboltz):
     Magboltz.X = 0.0
     Magboltz.Y = 0.0
     Magboltz.Z = 0.0
-    ST = 0.0
+    Magboltz.ST = 0.0
     ST1 = 0.0
     ST2 = 0.0
     SUME2 = 0.0
@@ -160,12 +160,12 @@ def MONTEAT(Magboltz):
             DY = (CY1 * SINWT + CX1 * (1 - COSWT)) / Magboltz.WB
             Magboltz.Y += DY
             Magboltz.Z += DCZ1 * A + T2 * F1
-            ST += T
+            Magboltz.ST += T
             IT = int(T)
             IT = min(IT, 299)
             Magboltz.TIME[IT] += 1
             Magboltz.SPEC[IE] += 1
-            Magboltz.WZ = Magboltz.Z / ST
+            Magboltz.WZ = Magboltz.Z / Magboltz.ST
             SUMVX = SUMVX + DX ** 2
             SUMVY = SUMVY + DY ** 2
 
@@ -176,7 +176,7 @@ def MONTEAT(Magboltz):
                     NCOLDM = NCOL + KDUM
                     if NCOLDM > Magboltz.NCOLM:
                         NCOLDM = NCOLDM - Magboltz.NCOLM
-                    SDIF = ST - STO[NCOLDM]
+                    SDIF = Magboltz.ST - STO[NCOLDM]
                     SUMXX += ((Magboltz.X - XST[NCOLDM]) ** 2) * T / SDIF
                     SUMYY += ((Magboltz.Y - YST[NCOLDM]) ** 2) * T / SDIF
                     KDUM += Magboltz.NCORLN
@@ -186,7 +186,7 @@ def MONTEAT(Magboltz):
             XST[NCOL] = Magboltz.X
             YST[NCOL] = Magboltz.Y
             ZST[NCOL] = Magboltz.Z
-            STO[NCOL] = ST
+            STO[NCOL] = Magboltz.ST
             if NCOL >= Magboltz.NCOLM:
                 ID += 1
                 Magboltz.XID = float(ID)
@@ -270,12 +270,12 @@ def MONTEAT(Magboltz):
             DCZ1 = CZ1 * CONST11
 
         Magboltz.WZ *= 1e9
-        Magboltz.AVE = SUME2 / ST
+        Magboltz.AVE = SUME2 / Magboltz.ST
         if Magboltz.NISO == 0:
-            Magboltz.DIFXX = 5e15 * SUMVX / ST
-            Magboltz.DIFYY = 5e15 * SUMVY / ST
-            DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (ST - STOLD)
-            DFYYST[J1] = 5e15 * (SUMVY - SVYOLD) / (ST - STOLD)
+            Magboltz.DIFXX = 5e15 * SUMVX / Magboltz.ST
+            Magboltz.DIFYY = 5e15 * SUMVY / Magboltz.ST
+            DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Magboltz.ST - STOLD)
+            DFYYST[J1] = 5e15 * (SUMVY - SVYOLD) / (Magboltz.ST - STOLD)
         else:
             if ST2 != 0.0:
                 Magboltz.DIFYY = 5e15 * SUMYY / ST2
@@ -291,10 +291,10 @@ def MONTEAT(Magboltz):
             DFZZST[J1] = 5e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
         else:
             DFZZST[J1] = 0.0
-        WZST[J1] = (Magboltz.Z - ZOLD) / (ST - STOLD) * 1e9
-        AVEST[J1] = (SUME2 - SME2OLD) / (ST - STOLD)
+        WZST[J1] = (Magboltz.Z - ZOLD) / (Magboltz.ST - STOLD) * 1e9
+        AVEST[J1] = (SUME2 - SME2OLD) / (Magboltz.ST - STOLD)
         ZOLD = Magboltz.Z
-        STOLD = ST
+        STOLD = Magboltz.ST
         ST1OLD = ST1
         ST2OLD = ST2
         SVXOLD = SUMVX
@@ -353,10 +353,10 @@ def MONTEAT(Magboltz):
 
     if ANCATT != 0:
         Magboltz.ATTER = 100 * math.sqrt(ANCATT) / ANCATT
-    Magboltz.ATT = ANCATT / (ST * Magboltz.WZ) * 1e12
+    Magboltz.ATT = ANCATT / (Magboltz.ST * Magboltz.WZ) * 1e12
     Magboltz.ALPER = 0.0
     if ANCION != 0:
         Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
-    Magboltz.ALPHA = ANCION / (ST * Magboltz.WZ) * 1e12
+    Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
 
     return Magboltz

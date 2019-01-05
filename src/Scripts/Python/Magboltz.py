@@ -81,11 +81,11 @@ class Magboltz:
         self.IFAKE = 0
         self.FAKEI = 0.0
         self.RSTART = 0.666
-        self.ANN = [0.0 for i in range(6)]
-        self.VANN = [0.0 for i in range(6)]
+        self.ANN = np.zeros(6)
+        self.VANN = np.zeros(6)
         self.AN = 0.0
         self.VAN = 0.0
-        self.QELM = [0 for i in range(4000)]
+        self.QELM = np.zeros(4000)
         self.QSUM = [0 for i in range(4000)]
         self.QION = [[0 for i in range(4000)] for j in range(6)]
         self.QIN = [[[0 for i in range(4000)] for j in range(250)] for g in range(6)]
@@ -223,7 +223,7 @@ class Magboltz:
         self.DCY = np.zeros(2000)
         self.DCZ = np.zeros(2000)
         self.IPL = np.zeros(2000)
-
+        self.ST = 0.0
     def Start(self):
         if self.ITHRM != 0:
             self = SETUPT(self)

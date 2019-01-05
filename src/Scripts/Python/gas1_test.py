@@ -7,8 +7,8 @@ gd = h5py.File("../hdf5_python/gases.hdf5")
 
 DEN=np.ones(4000)
 EFINAL = 0.5
-Q=[[0 for x in range(4000)] for y in range(6)]
-QIN=[[0 for x in range(4000)] for y in range(250)]
+Q=np.zeros(shape=(6,4000))
+QIN=np.zeros(shape=(250,4000))
 EIN= gd['gas1/EIN']
 
 #EIN=[0 for x in range(250)]#<=== input to this function
@@ -17,13 +17,13 @@ AMU=1.660538921e-27
 E=[0.0,1.0,15.9,0.0,0.0,0.0]
 E[1]=2.0*EMASS/(88.0043*AMU)
 EOBY=[]
-PEQEL= [[0 for x in range(4000)] for y in range(6)]
-PEQIN=[[0 for x in range(4000)] for y in range(250)]
+PEQEL= np.zeros(shape=(6,4000))
+PEQIN=np.zeros(shape=(250,4000))
 PENFRA=[]
 KEL=[]
 KIN=[]
-QION=[[0 for x in range(4000)] for y in range(30)]
-PEQION=[[0 for x in range(4000)] for y in range(30)]
+QION=np.zeros(shape=(6,4000))
+PEQION=np.zeros(shape=(30,4000))]
 EION=[15.7,21.47,29.14,34.5,34.77,36.0,40.0,41.0,43.0,63.0,285.0,685.4]
 QATT=[[0 for x in range(4000)] for y in range(8)]
 NATT=[]

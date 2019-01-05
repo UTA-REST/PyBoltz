@@ -5,7 +5,7 @@ import math
 from RAND48 import Rand48
 
 def GERJAN(RAND48,API):
-    RNMX = [0 for i in range(6)]
+    RNMX =np.zeros(6)
 
     for J in range(0,5,2):
         RAN1 = RAND48.drand()

@@ -37,22 +37,22 @@ class Magboltz:
         self.THETA = 0.0
         self.PHI = 0.0
         self.EFIELD = 0.0
-        self.DENSY = [0 for i in range(4000)]
-        self.SPEC = [0 for i in range(4000)]
-        self.TIME = [0.0 for i in range(300)]
-        self.ICOLL = [[0.0 for i in range(5)] for i in range(6)]
-        self.ICOLNN = [[0.0 for i in range(10)] for i in range(6)]
-        self.ICOLN = [[0.0 for i in range(290)] for i in range(6)]
+        self.DENSY = np.zeros(4000)
+        self.SPEC = np.zeros(4000)
+        self.TIME = np.zeros(300)
+        self.ICOLL = np.zeros(shape=(6, 5))
+        self.ICOLNN = np.zeros(shape=(6, 10))
+        self.ICOLN = np.zeros(shape=(6, 290))
         self.NMAX = 0.0
         self.ALPHA = 0.0
-        self.AMGAS = [0.0 for i in range(6)]
-        self.VTMB = [0.0 for i in range(6)]
+        self.AMGAS = np.zeros(6)
+        self.VTMB = np.zeros(6)
         self.TCFMX = 0.0
-        self.TCFMXG = [0.0 for i in range(6)]
+        self.TCFMXG = np.zeros(6)
         self.ITHRM = 0.0
-        self.NGASN = [0 for i in range(6)]
+        self.NGASN = np.zeros(6)
         self.CORR = 0.0
-        self.FRAC = [0.0 for i in range(6)]
+        self.FRAC = np.zeros(6)
         # common output blocks
         self.WX = 0.0
         self.WY = 0.0
@@ -86,54 +86,54 @@ class Magboltz:
         self.AN = 0.0
         self.VAN = 0.0
         self.QELM = np.zeros(4000)
-        self.QSUM = [0 for i in range(4000)]
-        self.QION = [[0 for i in range(4000)] for j in range(6)]
-        self.QIN = [[[0 for i in range(4000)] for j in range(250)] for g in range(6)]
-        self.E = [0 for i in range(4000)]
-        self.EROOT = [0 for i in range(4000)]
-        self.QTOT = [0 for i in range(4000)]
-        self.QREL = [0 for i in range(4000)]
-        self.QINEL = [0 for i in range(4000)]
-        self.NIN = [0 for i in range(6)]
-        self.LION = [0 for i in range(6)]
-        self.LIN = [[0 for i in range(250)] for j in range(6)]
-        self.ALION = [0 for i in range(6)]
-        self.ALIN = [[0 for i in range(250)] for j in range(6)]
-        self.CF = [[[0 for i in range(290)] for j in range(4000)] for g in range(6)]
-        self.TCF = [[0 for i in range(4000)] for j in range(6)]
-        self.EIN = [[0 for i in range(290)] for j in range(6)]
-        self.IARRY = [[0 for i in range(290)] for j in range(6)]
-        self.RGAS = [[0 for i in range(290)] for j in range(6)]
-        self.IPN = [[0 for i in range(290)] for j in range(6)]
-        self.WPL = [[0 for i in range(290)] for j in range(6)]
-        self.IPLAST = [0 for i in range(6)]
-        self.ISIZE = [0 for i in range(6)]
-        self.PENFRA = [[[0 for i in range(290)] for j in range(3)] for g in range(6)]
-        self.TCFMAX = [0 for i in range(6)]
-        self.CFN = [[[0 for i in range(10)] for j in range(4000)] for g in range(6)]
-        self.TCFN = [[0 for i in range((4000))] for j in range(6)]
-        self.SCLENUL = [[0 for i in range(10)] for j in range(6)]
-        self.NPLAST = [0 for i in range(6)]
-        self.PSCT = [[[0 for i in range(290)] for j in range(4000)] for g in range(6)]
-        self.ANGCT = [[[0 for i in range(290)] for j in range(4000)] for g in range(6)]
-        self.INDEX = [[0 for i in range(290)] for g in range(6)]
+        self.QSUM = np.zeros(4000)
+        self.QION = np.zeros(shape=(6, 4000))
+        self.QIN = np.zeros(shape=(6, 250, 4000))
+        self.E = np.zeros(4000)
+        self.EROOT = np.zeros(4000)
+        self.QTOT = np.zeros(4000)
+        self.QREL = np.zeros(4000)
+        self.QINEL = np.zeros(4000)
+        self.NIN = np.zeros(6)
+        self.LION = np.zeros(6)
+        self.LIN = np.zeros(shape=(6, 250))
+        self.ALION = np.zeros(6)
+        self.ALIN = np.zeros(shape=(6, 250))
+        self.CF = np.zeros(shape=(6, 4000, 290))
+        self.TCF = np.zeros(shape=(6, 4000))
+        self.EIN = np.zeros(shape=(6, 290))
+        self.IARRY = np.zeros(shape=(6, 290))
+        self.RGAS = np.zeros(shape=(6, 290))
+        self.IPN = np.zeros(shape=(6, 290))
+        self.WPL = np.zeros(shape=(6, 290))
+        self.IPLAST = np.zeros(6)
+        self.ISIZE = np.zeros(6)
+        self.PENFRA = np.zeros(shape=(6, 3, 290))
+        self.TCFMAX = np.zeros(6)
+        self.CFN = np.zeros(shape=(6, 4000, 10))
+        self.TCFN = np.zeros(shape=(6, 4000))
+        self.SCLENUL = np.zeros(shape=(6, 10))
+        self.NPLAST = np.zeros(6)
+        self.PSCT = np.zeros(shape=(6, 4000, 290))
+        self.ANGCT = np.zeros(shape=(6, 4000, 290))
+        self.INDEX = np.zeros(shape=(6, 290))
         self.NISO = 0
-        self.FCION = [0 for i in range(4000)]
-        self.FCATT = [0 for i in range(4000)]
-        self.NC0 = [[0 for i in range(290)] for g in range(6)]
-        self.EC0 = [[0 for i in range(290)] for g in range(6)]
-        self.NG1 = [[0 for i in range(290)] for g in range(6)]
-        self.EG1 = [[0 for i in range(290)] for g in range(6)]
-        self.NG2 = [[0 for i in range(290)] for g in range(6)]
-        self.EG2 = [[0 for i in range(290)] for g in range(6)]
-        self.WKLM = [[0 for i in range(290)] for g in range(6)]
-        self.EFL = [[0 for i in range(290)] for g in range(6)]
-        self.IFAKET = [0 for i in range(8)]
-        self.IFAKED = [0 for i in range(9)]
-        self.QEL = [0 for i in range(4000)]
-        self.QSATT = [0 for i in range(4000)]
-        self.RNMX = [0 for i in range(6)]
-        self.ES = [0 for i in range(4000)]
+        self.FCION = np.zeros(4000)
+        self.FCATT = np.zeros(4000)
+        self.NC0 = np.zeros(shape=(6, 290))
+        self.EC0 = np.zeros(shape=(6, 290))
+        self.NG1 = np.zeros(shape=(6, 290))
+        self.EG1 = np.zeros(shape=(6, 290))
+        self.NG2 = np.zeros(shape=(6, 290))
+        self.EG2 = np.zeros(shape=(6, 290))
+        self.WKLM = np.zeros(shape=(6, 290))
+        self.EFL = np.zeros(shape=(6, 290))
+        self.IFAKET = np.zeros(8)
+        self.IFAKED = np.zeros(9)
+        self.QEL = np.zeros(4000)
+        self.QSATT = np.zeros(4000)
+        self.RNMX = np.zeros(6)
+        self.ES = np.zeros(4000)
         self.ZTOT = 0
         self.TOTT = 0
         self.ZTOTS = 0
@@ -143,7 +143,7 @@ class Magboltz:
         self.CONST3 = 0.0
         self.CONST4 = 0.0
         self.CONST5 = 0.0
-        self.LAST = [0 for i in range(6)]
+        self.LAST = np.zeros(6)
         self.IELOW = 1
         self.NCOLM = 0
         self.NCORLN = 0
@@ -224,6 +224,7 @@ class Magboltz:
         self.DCZ = np.zeros(2000)
         self.IPL = np.zeros(2000)
         self.ST = 0.0
+
     def Start(self):
         if self.ITHRM != 0:
             self = SETUPT(self)

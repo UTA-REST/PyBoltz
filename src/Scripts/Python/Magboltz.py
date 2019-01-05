@@ -188,3 +188,5 @@ class Magboltz:
                     self = MONTEAT(self)
                 elif self.BTHETA == 90:
                     self = MONTEBT(self)
+                else:
+                    self =  MONTECT(self)

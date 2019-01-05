@@ -177,7 +177,7 @@ def MONTET(Magboltz):
                     SUMXX += ((Magboltz.X - XST[NCOLDM]) ** 2) * T / SDIF
                     SUMYY += ((Magboltz.Y - YST[NCOLDM]) ** 2) * T / SDIF
                     KDUM += Magboltz.NCORLN
-                    if J1 >= 3:
+                    if J1 >= 2:
                         ST1 += T
                         SUMZZ += ((Magboltz.Z - ZST[NCOLDM] - Magboltz.WZ * SDIF) ** 2) * T / SDIF
             XST[NCOL] = Magboltz.X

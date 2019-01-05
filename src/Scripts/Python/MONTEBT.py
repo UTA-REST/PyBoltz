@@ -182,7 +182,7 @@ def MONTEBT(Magboltz):
                     SDIF = ST - STO[NCOLDM]
                     SUMXX += ((Magboltz.X - XST[NCOLDM]) ** 2) * T / SDIF
                     KDUM += Magboltz.NCORLN
-                    if J1 >= 3:
+                    if J1 >= 2:
                         ST1 += T
                         SUMZZ += ((Magboltz.Z - ZST[NCOLDM] - Magboltz.WZ * SDIF) ** 2) * T / SDIF
                         SUMYY += ((Magboltz.Y - YST[NCOLDM] - Magboltz.WY * SDIF) ** 2) * T / SDIF
@@ -310,7 +310,7 @@ def MONTEBT(Magboltz):
         DFYZST[J1] = 0.0
         DFLNST[J1] = 0.0
         DFTRST[J1] = 0.0
-        if J1 > 2:
+        if J1 > 1:
             DFZZST[J1] = 5e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
             DFYYST[J1] = 5e15 * (SUMYY - SYYOLD) / (ST1 - ST1OLD)
             DFYZST[J1] = 5e15 * (SUMYZ - SYZOLD) / (ST1 - ST1OLD)

@@ -67,7 +67,7 @@ def MONTEBT(Magboltz):
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Magboltz.TCF[K][J] + Magboltz.TCFN[K][J]
-    ABSFAKI = 0.0
+    ABSFAKEI = Magboltz.FAKEI
     Magboltz.IFAKE = 0
 
     Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
@@ -142,7 +142,7 @@ def MONTEBT(Magboltz):
                         Magboltz.ICOLNN[KGAS][I] += 1
                         continue
                     else:
-                        TEST3 = (TEMP[KGAS][IE] + ABSFAKI) / Magboltz.TCFMAX[KGAS]
+                        TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / Magboltz.TCFMAX[KGAS]
                         if R5 < TEST3:
                             # FAKE IONISATION INCREMENT COUNTER
                             Magboltz.IFAKE += 1
@@ -165,7 +165,7 @@ def MONTEBT(Magboltz):
             Magboltz.Y += Magboltz.EOVB * T + ((CY1 - Magboltz.EOVB) * SINWT + CZ1 * (1 - COSWT)) / Magboltz.WB
             Magboltz.Z += DZ
             ST += T
-            IT = int(T + 1)
+            IT = int(T)
             IT = min(IT, 299)
             Magboltz.TIME[IT] += 1
             Magboltz.SPEC[IE] += 1

@@ -1,6 +1,7 @@
 from Gasmix import Gasmix
 from SETUPT import SETUPT
 from Gasmix import Gasmix
+import numpy as np
 import math
 from MIXERT import MIXERT
 from ELIMITT import ELIMITT
@@ -9,7 +10,10 @@ from ELIMITCT import ELIMITCT
 from MONTET import MONTET
 from RAND48 import Rand48
 from MONTEAT import MONTEAT
-from MONEBT import MONTEBT
+from MONTEBT import MONTEBT
+from MONTECT import MONTECT
+
+
 class Magboltz:
     def __init__(self):
         self.EOVB = 0.0
@@ -154,7 +158,71 @@ class Magboltz:
         self.Z = 0.0
         self.DFLER = 0.0
         self.DFTER = 0.0
+        self.TGAS = 0.0
+        self.ALPP = 0.0
+        self.ATTP = 0.0
+        self.SSTMIN = 0.0
         self.RAND48 = Rand48(self.RSTART)
+        self.VDOUT = 0.0
+        self.VDERR = 0.0
+        self.WSOUT = 0.0
+        self.WSERR = 0.0
+        self.DLOUT = 0.0
+        self.DLERR = 0.0
+        self.NMAXOLD = 0.0
+        self.DTOUT = 0.0
+        self.DTERR = 0.0
+        self.ALPHSST = 0.0
+        self.ETPL = np.zeros(8)
+        self.XTPL = np.zeros(8)
+        self.YTPL = np.zeros(8)
+        self.ZTPL = np.zeros(8)
+        self.TTPL = np.zeros(8)
+        self.XXTPL = np.zeros(8)
+        self.YYTPL = np.zeros(8)
+        self.ZZTPL = np.zeros(8)
+        self.VZTPL = np.zeros(8)
+        self.NETPL = np.zeros(8)
+        self.ATTOINT = 0.0
+        self.ATTERT = 0.0
+        self.AIOERT = 0.0
+        self.ALPHERR = 0.0
+        self.ATTSST = 0.0
+        self.TTOT = 0.0
+        self.ATTERR = 0.0
+        self.ZPLANE = np.zeros(8)
+        self.IZFINAL = 0.0
+        self.RALPHA = 0.0
+        self.RALPER = 0.0
+        self.TODENE = 0.0
+        self.TOFENER = 0.0
+        self.TOFWV = 0.0
+        self.TOFWVER = 0.0
+        self.TOFDL = 0.0
+        self.TOFDLER = 0.0
+        self.TOFDT = 0.0
+        self.TOFDTER = 0.0
+        self.TOFWR = 0.0
+        self.TOFWRER = 0.0
+        self.RATTOF = 0.0
+        self.RATOFER = 0.0
+        self.ALPHAST = 0.0
+        self.VDST = 0.0
+        self.TSTEP = 0.0
+        self.ZSTEP = 0.0
+        self.TFINAL = 0.0
+        self.ZFINAL = 0.0
+        self.ITFINAL = 0.0
+        self.IPRIM = 0.0
+        self.XS = np.zeros(2000)
+        self.YS = np.zeros(2000)
+        self.ZS = np.zeros(2000)
+        self.TS = np.zeros(2000)
+        self.ES = np.zeros(2000)
+        self.DCX = np.zeros(2000)
+        self.DCY = np.zeros(2000)
+        self.DCZ = np.zeros(2000)
+        self.IPL = np.zeros(2000)
 
     def Start(self):
         if self.ITHRM != 0:
@@ -184,9 +252,16 @@ class Magboltz:
             if self.BMAG == 0:
                 self = MONTET(self)
             else:
-                if self.BTHETA == 0 or Magboltz.BTHETA ==180:
+                if self.BTHETA == 0 or Magboltz.BTHETA == 180:
                     self = MONTEAT(self)
                 elif self.BTHETA == 90:
                     self = MONTEBT(self)
                 else:
-                    self =  MONTECT(self)
+                    self = MONTECT(self)
+            self.TGAS = 273.15 + self.TEMPC
+            self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
+            self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
+            self.SSTMIN = 30
+
+            if self.BMAG == 0.0:
+                self = ALPCALCT(self)

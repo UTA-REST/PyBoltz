@@ -59,7 +59,7 @@ def MONTEAT(Magboltz):
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Magboltz.TCF[K][J] + Magboltz.TCFN[K][J]
-    ABSFAKI = Magboltz.FAKEI
+    ABSFAKEI = Magboltz.FAKEI
     Magboltz.IFAKE = 0
 
     DCZ1 = math.cos(Magboltz.THETA)
@@ -131,7 +131,7 @@ def MONTEAT(Magboltz):
                         Magboltz.ICOLNN[KGAS][I] += 1
                         continue
                     else:
-                        TEST3 = (TEMP[KGAS][IE] + ABSFAKI) / Magboltz.TCFMAX[KGAS]
+                        TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / Magboltz.TCFMAX[KGAS]
                         if R5 < TEST3:
                             # FAKE IONISATION INCREMENT COUNTER
                             Magboltz.IFAKE += 1

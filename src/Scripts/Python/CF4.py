@@ -22,8 +22,8 @@ def Gas1(object):
     object.NG2 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1]
     object.EG2 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 5.0]
     object.EION = [15.7, 21.47, 29.14, 34.5, 34.77, 36.0, 40.0, 41.0, 43.0, 63.0, 285.0, 685.4]
-    IOFFION = [0 for x in range(12)]
-    IOFFN = [0 for x in range(46)]
+    IOFFION = np.zeros(12)
+    IOFFN = np.zeros(46)
     EMASS2 = 1021997.804
     API = math.acos(-1)
     A0 = 0.52917720859e-8

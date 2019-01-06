@@ -7,54 +7,54 @@ from ANG import ANG
 def MIXERT(Magboltz):
     NONE = 1
     ECHARG = 1.602176565e-19
-    KEL = [[0 for i in range(6)] for j in range(6)]
+    KEL = np.zeros(shape=(6, 6))
 
-    E = [[0 for i in range(6)] for j in range(6)]
-    Q = [[[0 for i in range(4000)] for j in range(6)] for g in range(6)]
+    E = np.zeros(shape=(6, 6))
+    Q = np.zeros(shape=(6,6,4000))
 
-    PEQEL = [[[0 for i in range(4000)] for j in range(6)] for g in range(6)]
+    PEQEL = np.zeros(shape=(6,6,4000))
 
-    EION = [[0 for i in range(30)] for j in range(6)]
+    EION = np.zeros(shape=(6,30))
 
-    EB = [[0 for i in range(30)] for j in range(6)]
+    EB = np.zeros(shape=(6,30))
 
-    EC0 = [[0 for i in range(30)] for j in range(6)]
+    EC0 = np.zeros(shape=(6,30))
 
-    EG1 = [[0 for i in range(30)] for g in range(6)]
+    EG1 = np.zeros(shape=(6,30))
 
-    EG2 = [[0 for i in range(30)] for g in range(6)]
+    EG2 = np.zeros(shape=(6,30))
 
-    WK = [[0 for i in range(30)] for g in range(6)]
+    WK = np.zeros(shape=(6,30))
 
-    EFL = [[0 for i in range(30)] for g in range(6)]
+    EFL = np.zeros(shape=(6,30))
 
-    NC0 = [[0 for i in range(30)] for g in range(6)]
+    NC0 = np.zeros(shape=(6,30))
 
-    NG1 = [[0 for i in range(30)] for g in range(6)]
+    NG1 = np.zeros(shape=(6,30))
 
-    NG2 = [[0 for i in range(30)] for g in range(6)]
+    NG2 = np.zeros(shape=(6,30))
 
-    EI = [[0 for i in range(250)] for g in range(6)]
+    EI = np.zeros(shape=(6,250))
 
-    KIN = [[0 for i in range(250)] for g in range(6)]
+    KIN = np.zeros(shape=(6,250))
 
-    NION = [0 for i in range(6)]
+    NION = np.zeros(6)
 
-    QION = [[[0 for i in range(4000)] for j in range(30)] for g in range(6)]
+    QION = np.zeros(shape=(6,30,4000))
 
-    PEQION = [[[0 for i in range(4000)] for j in range(30)] for g in range(6)]
+    PEQION = np.zeros(shape=(6,30,4000))
 
-    PEQIN = [[[0 for i in range(4000)] for j in range(250)] for g in range(6)]
+    PEQIN = np.zeros(shape=(6, 250, 4000))
 
-    QATT = [[[0 for i in range(4000)] for j in range(8)] for g in range(6)]
+    QATT = np.zeros(shape=(6,8,4000))
 
-    QNULL = [[[0 for i in range(4000)] for j in range(10)] for g in range(6)]
+    QNULL = np.zeros(shape=(6,10,4000))
 
-    SCLN = [[0 for i in range(10)] for j in range(6)]
+    SCLN = np.zeros(shape=(6, 10))
 
-    NATT = [0 for i in range(6)]
+    NATT = np.zeros(6)
 
-    NNULL = [0 for i in range(6)]
+    NNULL = np.zeros(6)
 
     Magboltz.ESTEP = Magboltz.EFINAL / Magboltz.NSTEP
 
@@ -65,12 +65,12 @@ def MIXERT(Magboltz):
         Magboltz.E[i] = EHALF + Magboltz.ESTEP * i
         Magboltz.EROOT[i] = math.sqrt(Magboltz.E[i])
     Magboltz.EROOT[0] = math.sqrt(EHALF)
-    KIN1 = [0 for i in range(250)]
-    KIN2 = [0 for i in range(250)]
-    KIN3 = [0 for i in range(250)]
-    KIN4 = [0 for i in range(250)]
-    KIN5 = [0 for i in range(250)]
-    KIN6 = [0 for i in range(250)]
+    KIN1 = np.zeros(250)
+    KIN2 = np.zeros(250)
+    KIN3 = np.zeros(250)
+    KIN4 = np.zeros(250)
+    KIN5 = np.zeros(250)
+    KIN6 = np.zeros(250)
 
     MIXOBJECT = Gasmix()
     MIXOBJECT.InitWithInfo(Magboltz.NGASN, Q, Magboltz.QIN, Magboltz.NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL,
@@ -125,11 +125,11 @@ def MIXERT(Magboltz):
             Magboltz.PENFRA[KGAS][1][NP] = 0.0
             Magboltz.PENFRA[KGAS][2][NP] = 0.0
 
-            #IONISATION
+            # IONISATION
 
             if Magboltz.EFINAL >= MIXOBJECT.Gases[KGAS].E[2]:
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
-                    NP+=1
+                    NP += 1
                     Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].Q[2][IE]
                     Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.CF[KGAS][IE][NP]
                     Magboltz.PSCT[KGAS][IE][NP] = 0.5
@@ -147,7 +147,7 @@ def MIXERT(Magboltz):
                         Magboltz.INDEX[KGAS][NP] = 2
                 elif MIXOBJECT.Gases[KGAS].NION > 1:
                     for KION in range(MIXOBJECT.NION[KGAS]):
-                        NP+= 1
+                        NP += 1
                         Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QION[KION][IE]
                         Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.CF[KGAS][IE][NP]
                         Magboltz.PSCT[KGAS][IE][NP] = 0.5
@@ -203,17 +203,16 @@ def MIXERT(Magboltz):
                             Magboltz.PENFRA[KGAS][1][NP] = 0.0
                             Magboltz.PENFRA[KGAS][2][NP] = 0.0
 
-
             if Magboltz.EFINAL >= MIXOBJECT.Gases[KGAS].E[3]:
                 if MIXOBJECT.Gases[KGAS].NATT <= 1:
-                    NP+=1
+                    NP += 1
                     Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].Q[3][IE] * Magboltz.VANN[KGAS]
                     Magboltz.FCATT[IE] = Magboltz.FCATT[IE] + Magboltz.CF[KGAS][IE][NP]
                     Magboltz.PSCT[KGAS][IE][NP] = 0.5
                     Magboltz.ANGCT[KGAS][IE][NP] = 1.0
                 elif MIXOBJECT.Gases[KGAS].NATT > 1:
                     for JJ in range(MIXOBJECT.Gases[KGAS].NATT):
-                        NP+=1
+                        NP += 1
                         Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QATT[JJ][IE] * Magboltz.VANN[KGAS]
                         Magboltz.FCATT[IE] = Magboltz.FCATT[IE] + Magboltz.CF[KGAS][IE][NP]
                         Magboltz.PSCT[KGAS][IE][NP] = 0.5

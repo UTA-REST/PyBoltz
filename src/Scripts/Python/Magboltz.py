@@ -83,6 +83,10 @@ class Magboltz:
         self.RSTART = 0.666
         self.ANN = np.zeros(6)
         self.VANN = np.zeros(6)
+        self.RI = np.zeros(8)
+        self.EPT = np.zeros(8)
+        self.VZPT = np.zeros(8)
+        self.TTEST = np.zeros(8)
         self.AN = 0.0
         self.VAN = 0.0
         self.QELM = np.zeros(4000)
@@ -196,6 +200,7 @@ class Magboltz:
         self.RALPER = 0.0
         self.TODENE = 0.0
         self.TOFENER = 0.0
+        self.TOFENE=0.0
         self.TOFWV = 0.0
         self.TOFWVER = 0.0
         self.TOFDL = 0.0
@@ -211,6 +216,7 @@ class Magboltz:
         self.TSTEP = 0.0
         self.ZSTEP = 0.0
         self.TFINAL = 0.0
+        self.RATTOFER = 0.0
         self.ZFINAL = 0.0
         self.ITFINAL = 0.0
         self.IPRIM = 0.0
@@ -224,6 +230,7 @@ class Magboltz:
         self.DCZ = np.zeros(2000)
         self.IPL = np.zeros(2000)
         self.ST = 0.0
+
     def Start(self):
         if self.ITHRM != 0:
             self = SETUPT(self)

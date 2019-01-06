@@ -1,7 +1,8 @@
 import numpy as np
 import math
 from MONTEFTT import MONTEFTT
-
+from FRIEDLANDT import FRIEDLANDT
+from PT import PT
 def ALPCALCT(Magboltz):
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
@@ -91,10 +92,11 @@ def ALPCALCT(Magboltz):
     ANET2 = ALP1 - ATT1
     Magboltz.TSTEP *= 1e12
     Magboltz.ZSTEP *= 0.01
+    #TODO: check index -1
     Magboltz.TFINAL = 7 * Magboltz.TSTEP
-    Magboltz.ITFINAL = 7
+    Magboltz.ITFINAL = 6
     Magboltz.ZFINAL = 8 * Magboltz.ZSTEP
-    Magboltz.IZFINAL = 8
+    Magboltz.IZFINAL = 7
 
     for I in range(1, 9):
         Magboltz.ZPLANE[I - 1] = I * Magboltz.ZSTEP

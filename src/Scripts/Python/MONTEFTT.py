@@ -98,13 +98,13 @@ def MONTEFTT(Magboltz, JPRT):
     IPRINT = 0
     ITER = 0
     IPLANE = 0
-    IPRIM = 0
+    Magboltz.IPRIM = 0
 
     while (True):
-        IPRIM += 1
-        if IPRIM > 1:
+        Magboltz.IPRIM += 1
+        if Magboltz.IPRIM > 1:
             if ITER > Magboltz.NMAX:
-                IPRIM -= 1
+                Magboltz.IPRIM -= 1
                 break
 
             Magboltz.X = 0.0
@@ -120,7 +120,7 @@ def MONTEFTT(Magboltz, JPRT):
             ZSTRT = 0.0
             IPLANE = 0
         # IF PRIM >10000000: TOO MANY PRIMARIES
-        EPRM[IPRIM] = E1
+        EPRM[Magboltz.IPRIM] = E1
         IDUM = int(E1)
         IDUM = min(IDUM, 99)
         IESPECP[IDUM] += 1
@@ -493,9 +493,9 @@ def MONTEFTT(Magboltz, JPRT):
             GT1F=1
             continue
     XID = float(ID)
-    if NELEC>IPRIM:
+    if NELEC>Magboltz.IPRIM:
         ANEION = float(NEION)
-        ANBT = float(NELEC-IPRIM)
+        ANBT = float(NELEC-Magboltz.IPRIM)
         ATTOINT = ANEION/ANBT
         Magboltz.ATTERT =math.sqrt(ANEION)/ANEION
         Magboltz.AIOERT = math.sqrt(ANBT)/ANBT
@@ -508,12 +508,12 @@ def MONTEFTT(Magboltz, JPRT):
         raise ValueError("TOO FEW COLLISIONS")
     EPRMBAR =0.0
     E2PRM=0.0
-    if IPRIM==1:
+    if Magboltz.IPRIM==1:
         return Magboltz
-    for I in range(IPRIM):
+    for I in range(Magboltz.IPRIM):
         E2PRM=E2PRM+EPRM[I]*EPRM[I]
         EPRMBAR+=EPRM
-    EBAR=EPRMBAR/IPRIM
-    EERR=math.sqrt(E2PRM/IPRIM-EBAR**2)
+    EBAR=EPRMBAR/Magboltz.IPRIM
+    EERR=math.sqrt(E2PRM/Magboltz.IPRIM-EBAR**2)
     #IF ITER >NMAX
     return Magboltz

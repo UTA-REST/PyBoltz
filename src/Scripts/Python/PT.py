@@ -20,4 +20,5 @@ def PT(Magboltz, JPRT):
         Magboltz.EPT[I]=Magboltz.ETPL[I]/ANTPL[I]
         Magboltz.TTEST[I]=Magboltz.TTPL[I]/ANTPL[I]
         Magboltz.VZPT[I]=1e9*Magboltz.VZTPL[I]/ANTPL[I]
+    return  Magboltz
     # print pulsed townsend results

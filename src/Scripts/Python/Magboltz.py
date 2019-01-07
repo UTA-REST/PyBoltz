@@ -33,6 +33,7 @@ class Magboltz:
         self.TMAX = 0.0
         self.SMALL = 0.0
         self.API = 0.0
+        self.NESST = np.zeros(9)
         self.ESTART = 0.0
         self.THETA = 0.0
         self.PHI = 0.0
@@ -230,7 +231,25 @@ class Magboltz:
         self.DCZ = np.zeros(2000)
         self.IPL = np.zeros(2000)
         self.ST = 0.0
-
+        self.ESPL = np.zeros(8)
+        self.XSPL = np.zeros(8)
+        self.TMSPL = np.zeros(8)
+        self.TTMSPL = np.zeros(8)
+        self.RSPL = np.zeros(8)
+        self.RRSPL = np.zeros(8)
+        self.RRSPM = np.zeros(8)
+        self.YSPL = np.zeros(8)
+        self.ZSPL = np.zeros(8)
+        self.TSPL = np.zeros(8)
+        self.XXSPL = np.zeros(8)
+        self.YYSPL = np.zeros(8)
+        self.ZZSPL = np.zeros(8)
+        self.VZSPL = np.zeros(8)
+        self.TSSUM = np.zeros(8)
+        self.TSSUM2 = np.zeros(8)
+        self.ATTOION = 0.0
+        self.ATTIOER = 0.0
+        self.ATTATER = 0.0
     def Start(self):
         if self.ITHRM != 0:
             self = SETUPT(self)

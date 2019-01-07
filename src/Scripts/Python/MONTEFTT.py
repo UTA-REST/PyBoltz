@@ -513,7 +513,7 @@ def MONTEFTT(Magboltz, JPRT):
     for I in range(Magboltz.IPRIM):
         E2PRM=E2PRM+EPRM[I]*EPRM[I]
         EPRMBAR+=EPRM
-    EBAR=EPRMBAR/Magboltz.IPRIM
-    EERR=math.sqrt(E2PRM/Magboltz.IPRIM-EBAR**2)
+    EBAR=EPRMBAR/(Magboltz.IPRIM)
+    EERR=math.sqrt(E2PRM/(Magboltz.IPRIM)-EBAR**2)
     #IF ITER >NMAX
     return Magboltz

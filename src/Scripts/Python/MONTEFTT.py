@@ -120,7 +120,7 @@ def MONTEFTT(Magboltz, JPRT):
             ZSTRT = 0.0
             IPLANE = 0
         # IF PRIM >10000000: TOO MANY PRIMARIES
-        EPRM[Magboltz.IPRIM] = E1
+        EPRM[Magboltz.IPRIM-1] = E1
         IDUM = int(E1)
         IDUM = min(IDUM, 99)
         IESPECP[IDUM] += 1

@@ -3,6 +3,8 @@ import math
 from GERJAN import GERJAN
 from SORTT import SORTT
 from TPLANET import TPLANET
+from goto import goto, label
+
 
 def MONTEFTT(Magboltz, JPRT):
     EPRM = np.zeros(10000000)
@@ -21,6 +23,7 @@ def MONTEFTT(Magboltz, JPRT):
     Magboltz.X = 0.0
     Magboltz.Y = 0.0
     Magboltz.Z = 0.0
+    I100 = 0
     Magboltz.ZTOT = 0.0
     Magboltz.ZTOTS = 0.0
     Magboltz.TTOT = 0.0
@@ -99,421 +102,415 @@ def MONTEFTT(Magboltz, JPRT):
     ITER = 0
     IPLANE = 0
     Magboltz.IPRIM = 0
+    label.L544
+    Magboltz.IPRIM += 1
+    if Magboltz.IPRIM > 1:
+        if ITER > Magboltz.NMAX:
+            Magboltz.IPRIM -= 1
+            goto.L700
 
-    while (True):
-        Magboltz.IPRIM += 1
-        if Magboltz.IPRIM > 1:
-            if ITER > Magboltz.NMAX:
-                Magboltz.IPRIM -= 1
-                break
+        Magboltz.X = 0.0
+        Magboltz.Y = 0.0
+        Magboltz.Z = 0.0
+        DCZ1 = DCZ100
+        DCX1 = DCX100
+        DCY1 = DCY100
+        E1 = E100
+        NCLUS += 1
+        Magboltz.ST = 0.0
+        TSSTRT = 0.0
+        ZSTRT = 0.0
+        IPLANE = 0
+    if Magboltz.IPRIM > 10000000:
+        goto.L700
+    EPRM[Magboltz.IPRIM - 1] = E1
+    IDUM = int(E1)
+    IDUM = min(IDUM, 99)
+    IESPECP[IDUM] += 1
 
-            Magboltz.X = 0.0
-            Magboltz.Y = 0.0
-            Magboltz.Z = 0.0
-            DCZ1 = DCZ100
-            DCX1 = DCX100
-            DCY1 = DCY100
-            E1 = E100
-            NCLUS += 1
-            Magboltz.ST = 0.0
-            TSSTRT = 0.0
-            ZSTRT = 0.0
-            IPLANE = 0
-        # IF PRIM >10000000: TOO MANY PRIMARIES
-        EPRM[Magboltz.IPRIM-1] = E1
-        IDUM = int(E1)
-        IDUM = min(IDUM, 99)
-        IESPECP[IDUM] += 1
-        GT1F = 0
-        while (True):
-            # 555
-            if GT1F == 0:
-                TDASH = 0.0
-                NELEC += 1
-                TSTOP = Magboltz.TSTEP + IPLANE * Magboltz.TSTEP
-            GT1F = 0
-            R1 = Magboltz.RAND48.drand()
-            T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
-            TDASH = T
-            AP = DCZ1 * F2 * math.sqrt(E1)
-            if T + Magboltz.ST >= TSTOP:
-                IPLANE += 1
-                TSTOP += Magboltz.TSTEP
-                Magboltz = TPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE)
-                while T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
-                    IPLANE += 1
-                    TSTOP += Magboltz.TSTEP
-                    Magboltz = TPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE)
-                if T + Magboltz.ST >= Magboltz.TFINAL:
-                    Magboltz.ZTOT += Magboltz.Z
-                    Magboltz.TTOT += Magboltz.ST
-                    Magboltz.ZTOTS += Magboltz.Z - ZSTRT
-                    Magboltz.TTOTS += Magboltz.ST - TSSTRT
-                    TSTOP = Magboltz.TSTEP
-                    if NELEC == NCLUS + 1:
-                        break
-                    Magboltz.X = Magboltz.XS[NPONT]
-                    Magboltz.Y = Magboltz.YS[NPONT]
-                    Magboltz.Z = Magboltz.ZS[NPONT]
-                    Magboltz.ST = Magboltz.TS[NPONT]
-                    E1 = Magboltz.ES[NPONT]
-                    DCX1 = Magboltz.DCX[NPONT]
-                    DCY1 = Magboltz.DCY[NPONT]
-                    DCZ1 = Magboltz.DCZ[NPONT]
-                    IPLANE = Magboltz.IPL[NPONT]
-                    NPONT -= 1
-                    ZSTRT = Magboltz.Z
-                    TSSTRT = Magboltz.ST
-                    continue
-                E = E1 + (AP + BP * T) * T
-                if E < 0:
-                    E = 0.001
+    label.L555
+    TDASH = 0.0
+    NELEC += 1
+    TSTOP = Magboltz.TSTEP + IPLANE * Magboltz.TSTEP
+    label.L1
+    R1 = Magboltz.RAND48.drand()
+    T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
+    TDASH = T
+    AP = DCZ1 * F2 * math.sqrt(E1)
+    label.L15
+    if T + Magboltz.ST >= TSTOP:
+        IPLANE += 1
+        TSTOP += Magboltz.TSTEP
+        Magboltz = TPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE)
+        if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
+            goto.L15
+        if T + Magboltz.ST >= Magboltz.TFINAL:
+            Magboltz.ZTOT += Magboltz.Z
+            Magboltz.TTOT += Magboltz.ST
+            Magboltz.ZTOTS += Magboltz.Z - ZSTRT
+            Magboltz.TTOTS += Magboltz.ST - TSSTRT
+            TSTOP = Magboltz.TSTEP
+            if NELEC == NCLUS + 1:
+                goto.L544
+            label.L20
+            Magboltz.X = Magboltz.XS[NPONT]
+            Magboltz.Y = Magboltz.YS[NPONT]
+            Magboltz.Z = Magboltz.ZS[NPONT]
+            Magboltz.ST = Magboltz.TS[NPONT]
+            E1 = Magboltz.ES[NPONT]
+            DCX1 = Magboltz.DCX[NPONT]
+            DCY1 = Magboltz.DCY[NPONT]
+            DCZ1 = Magboltz.DCZ[NPONT]
+            IPLANE = Magboltz.IPL[NPONT]
+            NPONT -= 1
+            ZSTRT = Magboltz.Z
+            TSSTRT = Magboltz.ST
+            goto.L555
+        E = E1 + (AP + BP * T) * T
+        if E < 0:
+            E = 0.001
 
+        R2 = Magboltz.RAND48.drand()
+        if Magboltz.NGAS == 1:
+            KGAS = 0
+        while (Magboltz.TCFMXG[KGAS] < R2):
+            KGAS = KGAS + 1
+
+        IMBPT += 1
+        if (IMBPT > 5):
+            Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+            IMBPT = 0
+        VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
+        IMBPT += 1
+        VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
+        IMBPT += 1
+        VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
+
+        CONST6 = math.sqrt(E1 / E)
+
+        DCX2 = DCX1 * CONST6
+        DCY2 = DCY1 * CONST6
+        DCZ2 = DCZ1 * CONST6 + Magboltz.EFIELD * T * Magboltz.CONST5 / math.sqrt(E)
+
+        VEX = DCX2 * CONST9 * math.sqrt(E)
+        VEY = DCY2 * CONST9 * math.sqrt(E)
+        VEZ = DCZ2 * CONST9 * math.sqrt(E)
+
+        EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
+        IE = np.int(EOK / Magboltz.ESTEP) + 1
+        IE = min(IE, 3999)
+        R5 = Magboltz.RAND48.drand()
+        TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
+
+        if R5 > TEST1:
+            Magboltz.NNULL += 1
+            TEST2 = TEMP[KGAS][IE] / Magboltz.TCFMAX[KGAS]
+            if R5 < TEST2:
+                if Magboltz.NPLAST == 0:
+                    goto.L1
                 R2 = Magboltz.RAND48.drand()
-                if Magboltz.NGAS == 1:
-                    KGAS = 0
-                while (Magboltz.TCFMXG[KGAS] < R2):
-                    KGAS = KGAS + 1
-
-                IMBPT += 1
-                if (IMBPT > 5):
-                    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
-                    IMBPT = 0
-                VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
-                IMBPT += 1
-                VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
-                IMBPT += 1
-                VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
-
-                CONST6 = math.sqrt(E1 / E)
-
-                DCX2 = DCX1 * CONST6
-                DCY2 = DCY1 * CONST6
-                DCZ2 = DCZ1 * CONST6 + Magboltz.EFIELD * T * Magboltz.CONST5 / math.sqrt(E)
-
-                VEX = DCX2 * CONST9 * math.sqrt(E)
-                VEY = DCY2 * CONST9 * math.sqrt(E)
-                VEZ = DCZ2 * CONST9 * math.sqrt(E)
-
-                EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
-                IE = np.int(EOK / Magboltz.ESTEP) + 1
-                IE = min(IE, 3999)
-                R5 = Magboltz.RAND48.drand()
-                TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
-
-                if R5 > TEST1:
-                    Magboltz.NNULL += 1
-                    TEST2 = TEMP[KGAS][IE] / Magboltz.TCFMAX[KGAS]
-                    if R5 < TEST2:
-                        if Magboltz.NPLAST == 0:
-                            GT1F = 1
-                            continue
-                        R2 = Magboltz.RAND48.drand()
-                        I = 0
-                        while Magboltz.CFN[KGAS][IE][I] < R2:
-                            I += 1
-
-                        Magboltz.ICOLNN[KGAS][I] += 1
-                        GT1F = 1
-                        continue
-                    else:
-                        TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / Magboltz.TCFMAX[KGAS]
-                        if R5 < TEST3:
-                            # FAKE IONISATION INCREMENT COUNTER
-                            Magboltz.IFAKE += 1
-                            Magboltz.IFAKET[IPLANE] += 1
-                            if Magboltz.FAKEI < 0.0:
-                                NEION += 1
-                                if NELEC == NCLUS + 1:
-                                    break
-                                Magboltz.X = Magboltz.XS[NPONT]
-                                Magboltz.Y = Magboltz.YS[NPONT]
-                                Magboltz.Z = Magboltz.ZS[NPONT]
-                                Magboltz.ST = Magboltz.TS[NPONT]
-                                E1 = Magboltz.ES[NPONT]
-                                DCX1 = Magboltz.DCX[NPONT]
-                                DCY1 = Magboltz.DCY[NPONT]
-                                DCZ1 = Magboltz.DCZ[NPONT]
-                                IPLANE = Magboltz.IPL[NPONT]
-                                NPONT -= 1
-                                ZSTRT = Magboltz.Z
-                                TSSTRT = Magboltz.ST
-                                continue
-                        NCLUS += 1
-                        NPONT += 1
-                        NMXADD = max(NPONT, NMXADD)
-                        if NPONT >= 2000:
-                            raise ValueError("NPONT>2000")
-                        A = T * CONST9 * math.sqrt(E1)
-                        Magboltz.XS[NPONT] = Magboltz.X + DCX1 * A
-                        Magboltz.YS[NPONT] = Magboltz.Y + DCY1 * A
-                        Magboltz.ZS[NPONT] = Magboltz.Z + DCZ1 * A + T * T * F1
-                        Magboltz.TS[NPONT] = Magboltz.ST + T
-                        Magboltz.ES[NPONT] = E
-                        Magboltz.IPL[NPONT] = IPLANE
-                        Magboltz.DCX[NPONT] = DCX2
-                        Magboltz.DCY[NPONT] = DCY2
-                        Magboltz.DCZ[NPONT] = DCZ2
-                        GT1F = 1
-                        continue
-                NCOL += 1
-                CONST11 = 1 / (CONST9 * math.sqrt(EOK))
-                DXCOM = (VEX - VGX) * CONST11
-                DYCOM = (VEY - VGY) * CONST11
-                DZCOM = (VEZ - VGZ) * CONST11
-
-                T2 = T ** 2
-
-                T2 = T ** 2
-                if (T >= Magboltz.TMAX1):
-                    Magboltz.TMAX1 = T
-                TDASH = 0.0
-
-                CONST7 = CONST9 * math.sqrt(E1)
-                A = T * CONST7
-                Magboltz.X += DCX1 * A
-                Magboltz.Y += DCY1 * A
-                Magboltz.Z += DCZ1 * A + T2 * F1
-                Magboltz.ST += T
-                IT = int(T)
-                IT = min(IT, 299)
-                Magboltz.TIME[IT] += 1
-                Magboltz.SPEC[IE] += 1
-
-                R2 = Magboltz.RAND48.drand()
-                I = SORTT(KGAS, I, R2, IE)
-
-                while Magboltz.CF[KGAS][IE][I] < R2:
+                I = 0
+                while Magboltz.CFN[KGAS][IE][I] < R2:
                     I += 1
-                S1 = Magboltz.RGAS[KGAS][I]
-                EI = Magboltz.EIN[KGAS][I]
-                if EOK < EI:
-                    EI = EOK - 0.0001
 
-                if Magboltz.IPN[KGAS][I] != 0:
-                    if Magboltz.IPN[KGAS][I] == -1:
+                Magboltz.ICOLNN[KGAS][I] += 1
+                goto.L1
+            else:
+                TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / Magboltz.TCFMAX[KGAS]
+                if R5 < TEST3:
+                    # FAKE IONISATION INCREMENT COUNTER
+                    Magboltz.IFAKE += 1
+                    Magboltz.IFAKET[IPLANE] += 1
+                    if Magboltz.FAKEI < 0.0:
                         NEION += 1
-                        IPT = Magboltz.IARRY[KGAS][I]
-                        ID += 1
-                        ITER += 1
-                        IPRINT += 1
-                        Magboltz.ICOLL[KGAS][IPT] += 1
-                        Magboltz.ICOLN[KGAS][I] += 1
-                        IT = int(T)
-                        IT = min(IT, 299)
-                        Magboltz.TIME[IT] += 1
-                        Magboltz.ZTOT += Magboltz.Z
-                        Magboltz.TTOT += Magboltz.ST
-                        Magboltz.ZTOTS += Magboltz.Z - ZSTRT
-                        Magboltz.TTOTS += Magboltz.ST - TSSTRT
                         if NELEC == NCLUS + 1:
-                            continue
-                        GT1F = 1
-                        continue
-                    EISTR = EI
-                    R9 = Magboltz.RAND48.drand()
-                    ESEC = Magboltz.WPL[KGAS][I] * math.tan(R9 * math.atan((EOK - EI) / (2 * Magboltz.WPL[KGAS][I])))
-                    ESEC = Magboltz.WPL[KGAS][I] * (ESEC / Magboltz.WPL[KGAS][I]) ** 0.9524
-                    EI = ESEC + EI
-                    NCLUS += 1
-                    NPONT += 1
-                    NMXADD = max(NPONT, NMXADD)
-                    if NPONT >= 2000:
-                        raise ValueError("NPONT>2000")
-                    Magboltz.XS[NPONT] = Magboltz.X
-                    Magboltz.YS[NPONT] = Magboltz.Y
-                    Magboltz.ZS[NPONT] = Magboltz.Z
-                    Magboltz.TS[NPONT] = Magboltz.ST
-                    Magboltz.ES[NPONT] = ESEC
-                    NTMPFLG = 1
-                    NCLTMP = NPONT
-                    Magboltz.IPL[NPONT] = IPLANE
-                    if EISTR > 30:
-                        NAUG = Magboltz.NC0[KGAS][I]
-                        EAVAUG = Magboltz.EC0[KGAS][I] / float(NAUG)
-                        for JFL in range(NAUG):
-                            NCLUS += 1
-                            NPONT += 1
-                            Magboltz.XS[NPONT] = Magboltz.X
-                            Magboltz.YS[NPONT] = Magboltz.Y
-                            Magboltz.ZS[NPONT] = Magboltz.Z
-                            Magboltz.TS[NPONT] = Magboltz.ST
-                            Magboltz.ES[NPONT] = EAVAUG
-                            R3 = Magboltz.RAND48.drand()
-                            F3 = 1 - 2 * R3
-                            THETA0 = math.acos(F3)
-                            F6 = math.cos(THETA0)
-                            F5 = math.sin(THETA0)
-                            R4 = Magboltz.RAND48.drand()
-                            PHI0 = F4 * R4
-                            F8 = math.sin(PHI0)
-                            F9 = math.cos(PHI0)
-                            Magboltz.DCX[NPONT] = F9 * F5
-                            Magboltz.DCY[NPONT] = F8 * F5
-                            Magboltz.DCZ[NPONT] = F6
-                            Magboltz.IPL[NPONT] = IPLANE
+                            goto.L544
+                        Magboltz.X = Magboltz.XS[NPONT]
+                        Magboltz.Y = Magboltz.YS[NPONT]
+                        Magboltz.Z = Magboltz.ZS[NPONT]
+                        Magboltz.ST = Magboltz.TS[NPONT]
+                        E1 = Magboltz.ES[NPONT]
+                        DCX1 = Magboltz.DCX[NPONT]
+                        DCY1 = Magboltz.DCY[NPONT]
+                        DCZ1 = Magboltz.DCZ[NPONT]
+                        IPLANE = Magboltz.IPL[NPONT]
+                        NPONT -= 1
+                        ZSTRT = Magboltz.Z
+                        TSSTRT = Magboltz.ST
+                        goto.L20
+                NCLUS += 1
+                NPONT += 1
+                NMXADD = max(NPONT, NMXADD)
+                if NPONT >= 2000:
+                    raise ValueError("NPONT>2000")
+                A = T * CONST9 * math.sqrt(E1)
+                Magboltz.XS[NPONT] = Magboltz.X + DCX1 * A
+                Magboltz.YS[NPONT] = Magboltz.Y + DCY1 * A
+                Magboltz.ZS[NPONT] = Magboltz.Z + DCZ1 * A + T * T * F1
+                Magboltz.TS[NPONT] = Magboltz.ST + T
+                Magboltz.ES[NPONT] = E
+                Magboltz.IPL[NPONT] = IPLANE
+                Magboltz.DCX[NPONT] = DCX2
+                Magboltz.DCY[NPONT] = DCY2
+                Magboltz.DCZ[NPONT] = DCZ2
+                goto.L1
+        NCOL += 1
+        CONST11 = 1 / (CONST9 * math.sqrt(EOK))
+        DXCOM = (VEX - VGX) * CONST11
+        DYCOM = (VEY - VGY) * CONST11
+        DZCOM = (VEZ - VGZ) * CONST11
+
+        T2 = T ** 2
+
+        if (T >= Magboltz.TMAX1):
+            Magboltz.TMAX1 = T
+        TDASH = 0.0
+
+        CONST7 = CONST9 * math.sqrt(E1)
+        A = T * CONST7
+        Magboltz.X += DCX1 * A
+        Magboltz.Y += DCY1 * A
+        Magboltz.Z += DCZ1 * A + T2 * F1
+        Magboltz.ST += T
+        IT = int(T)
+        IT = min(IT, 299)
+        Magboltz.TIME[IT] += 1
+        Magboltz.SPEC[IE] += 1
+
+        R2 = Magboltz.RAND48.drand()
+        I = SORTT(KGAS, I, R2, IE)
+
+        while Magboltz.CF[KGAS][IE][I] < R2:
+            I += 1
+        S1 = Magboltz.RGAS[KGAS][I]
+        EI = Magboltz.EIN[KGAS][I]
+        if EOK < EI:
+            EI = EOK - 0.0001
+
+        if Magboltz.IPN[KGAS][I] != 0:
+            if Magboltz.IPN[KGAS][I] == -1:
+                NEION += 1
                 IPT = Magboltz.IARRY[KGAS][I]
                 ID += 1
                 ITER += 1
                 IPRINT += 1
                 Magboltz.ICOLL[KGAS][IPT] += 1
                 Magboltz.ICOLN[KGAS][I] += 1
-                TPEN = 0
-                if Magboltz.IPEN != 0:
-                    if Magboltz.PENFRA[KGAS][0][I] != 0.0:
-                        RAN = Magboltz.RAND48.drand()
-                        if RAN <= Magboltz.PENFRA[KGAS][0][I]:
-                            NCLUS += 1
-                            NPONT += 1
-                            if NPONT >= 2000:
-                                raise ValueError("NPONT>2000")
-                            if Magboltz.PENFRA[KGAS][1][I] == 0.0:
-                                Magboltz.XS[NPONT] = Magboltz.X
-                                Magboltz.YS[NPONT] = Magboltz.Y
-                                Magboltz.ZS[NPONT] = Magboltz.Z
-                                TPEN = Magboltz.ST
-                                if Magboltz.PENFRA[KGAS][2][I] != 0.0:
-                                    RAN = Magboltz.RAND48.drand()
-                                    TPEN = Magboltz.ST - np.log(RAN) * Magboltz.PENFRA[KGAS][2][I]
-                                Magboltz.TS[NPONT] = TPEN
-                                Magboltz.ES[NPONT] = 1.0
-                                Magboltz.DCX[NPONT] = DCX1
-                                Magboltz.DCY[NPONT] = DCY1
-                                Magboltz.DCZ[NPONT] = DCZ1
-                                TSTOP1 = 0.0
-                                IPLANE1 = 0
-                                for KDUM in range(Magboltz.ITFINAL):
-                                    TSTOP1 += Magboltz.TSTEP
-                                    if TPEN < TSTOP1:
-                                        Magboltz.IPL[NPONT] = IPLANE1
-                                        break
-                                if TPEN >= TSTOP1:
-                                    NPONT += 1
-                                    NCLUS -= 1
-
-                S2 = (S1 ** 2) / (S1 - 1)
-                R3 = Magboltz.RAND48.drand()
-                if Magboltz.INDEX[KGAS][I] == 1:
-                    R31 = Magboltz.RAND48.drand()
-                    F3 = 1.0 - R3 * Magboltz.ANGCT[KGAS][IE][I]
-                    if R31 > Magboltz.PSCT[KGAS][IE][I]:
-                        F3 = -1 * F3
-                elif Magboltz.INDEX[KGAS][I] == 2:
-                    EPSI = Magboltz.PSCT[KGAS][IE][I]
-                    F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
-                else:
+                IT = int(T)
+                IT = min(IT, 299)
+                Magboltz.TIME[IT] += 1
+                Magboltz.ZTOT += Magboltz.Z
+                Magboltz.TTOT += Magboltz.ST
+                Magboltz.ZTOTS += Magboltz.Z - ZSTRT
+                Magboltz.TTOTS += Magboltz.ST - TSSTRT
+                if NELEC == NCLUS + 1:
+                    goto.L544
+                goto.L20
+            EISTR = EI
+            R9 = Magboltz.RAND48.drand()
+            ESEC = Magboltz.WPL[KGAS][I] * math.tan(R9 * math.atan((EOK - EI) / (2 * Magboltz.WPL[KGAS][I])))
+            ESEC = Magboltz.WPL[KGAS][I] * (ESEC / Magboltz.WPL[KGAS][I]) ** 0.9524
+            EI = ESEC + EI
+            NCLUS += 1
+            NPONT += 1
+            NMXADD = max(NPONT, NMXADD)
+            if NPONT >= 2000:
+                raise ValueError("NPONT>2000")
+            Magboltz.XS[NPONT] = Magboltz.X
+            Magboltz.YS[NPONT] = Magboltz.Y
+            Magboltz.ZS[NPONT] = Magboltz.Z
+            Magboltz.TS[NPONT] = Magboltz.ST
+            Magboltz.ES[NPONT] = ESEC
+            NTMPFLG = 1
+            NCLTMP = NPONT
+            Magboltz.IPL[NPONT] = IPLANE
+            if EISTR > 30:
+                NAUG = Magboltz.NC0[KGAS][I]
+                EAVAUG = Magboltz.EC0[KGAS][I] / float(NAUG)
+                for JFL in range(NAUG):
+                    NCLUS += 1
+                    NPONT += 1
+                    Magboltz.XS[NPONT] = Magboltz.X
+                    Magboltz.YS[NPONT] = Magboltz.Y
+                    Magboltz.ZS[NPONT] = Magboltz.Z
+                    Magboltz.TS[NPONT] = Magboltz.ST
+                    Magboltz.ES[NPONT] = EAVAUG
+                    R3 = Magboltz.RAND48.drand()
                     F3 = 1 - 2 * R3
-                THETA0 = math.acos(F3)
-                R4 = Magboltz.RAND48.drand()
-                PHI0 = F4 * R4
-                F8 = math.sin(PHI0)
-                F9 = math.cos(PHI0)
-                if EOK < EI:
-                    EI = EOK - 0.0001
-                ARG1 = 1 - S1 * EI / EOK
-                ARG1 = max(ARG1, Magboltz.SMALL)
-                D = 1 - F3 * math.sqrt(ARG1)
-                E1 = EOK * (1 - EI / (S1 * EOK) - 2 * D / S2)
-                E1 = max(E1, Magboltz.SMALL)
-                Q = math.sqrt((EOK / E1) * ARG1) / S1
-                Q = min(Q, 1)
-                Magboltz.THETA = math.asin(Q * math.sin(THETA0))
-                F6 = math.cos(Magboltz.THETA)
-                U = (S1 - 1) * (S1 - 1) / ARG1
+                    THETA0 = math.acos(F3)
+                    F6 = math.cos(THETA0)
+                    F5 = math.sin(THETA0)
+                    R4 = Magboltz.RAND48.drand()
+                    PHI0 = F4 * R4
+                    F8 = math.sin(PHI0)
+                    F9 = math.cos(PHI0)
+                    Magboltz.DCX[NPONT] = F9 * F5
+                    Magboltz.DCY[NPONT] = F8 * F5
+                    Magboltz.DCZ[NPONT] = F6
+                    Magboltz.IPL[NPONT] = IPLANE
+        IPT = Magboltz.IARRY[KGAS][I]
+        ID += 1
+        ITER += 1
+        IPRINT += 1
+        Magboltz.ICOLL[KGAS][IPT] += 1
+        Magboltz.ICOLN[KGAS][I] += 1
+        TPEN = 0
+        if Magboltz.IPEN != 0:
+            if Magboltz.PENFRA[KGAS][0][I] != 0.0:
+                RAN = Magboltz.RAND48.drand()
+                if RAN <= Magboltz.PENFRA[KGAS][0][I]:
+                    NCLUS += 1
+                    NPONT += 1
+                    if NPONT >= 2000:
+                        raise ValueError("NPONT>2000")
+                    if Magboltz.PENFRA[KGAS][1][I] == 0.0:
+                        Magboltz.XS[NPONT] = Magboltz.X
+                        Magboltz.YS[NPONT] = Magboltz.Y
+                        Magboltz.ZS[NPONT] = Magboltz.Z
+                        TPEN = Magboltz.ST
+                        if Magboltz.PENFRA[KGAS][2][I] != 0.0:
+                            RAN = Magboltz.RAND48.drand()
+                            TPEN = Magboltz.ST - np.log(RAN) * Magboltz.PENFRA[KGAS][2][I]
+                        Magboltz.TS[NPONT] = TPEN
+                        Magboltz.ES[NPONT] = 1.0
+                        Magboltz.DCX[NPONT] = DCX1
+                        Magboltz.DCY[NPONT] = DCY1
+                        Magboltz.DCZ[NPONT] = DCZ1
+                        TSTOP1 = 0.0
+                        IPLANE1 = 0
+                        for KDUM in range(Magboltz.ITFINAL):
+                            TSTOP1 += Magboltz.TSTEP
+                            if TPEN < TSTOP1:
+                                Magboltz.IPL[NPONT] = IPLANE1
+                                break
+                        if TPEN >= TSTOP1:
+                            NPONT -= 1
+                            NCLUS -= 1
 
-                CSQD = F3 * F3
-            if F3 < 0 and CSQD > U:
-                F6 = -1 * F6
-            F5 = math.sin(Magboltz.THETA)
-            DZCOM = min(DZCOM, 1)
-            ARGZ = math.sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
-            if ARGZ == 0:
-                DCZ1 = F6
-                DCX1 = F9 * F5
-                DCY1 = F8 * F5
-                if NTMPFLG == 1:
-                    F5S = F5 * math.sqrt(E1 / Magboltz.ES[NCLTMP])
-                    if F5S > 1.0:
-                        F5S = 1.0
-                    THSEC = math.asin(F5S)
-                    F5S = math.sin(THSEC)
-                    F6S = math.sin(THSEC)
-                    if F6S < 0:
-                        F6S *= -1
-                    PHIS = PHI0 + Magboltz.API
-                    if PHIS > F4:
-                        PHIS = PHI0 - F4
-                    F8S = math.sin(PHIS)
-                    F9S = math.cos(PHIS)
-                    Magboltz.DCZ[NCLTMP] = F6S
-                    Magboltz.DCX[NCLTMP] = F9S * F5S
-                    Magboltz.DCY[NCLTMP] = F8S * F5S
-                    NTMPFLG = 0
-            else:
-                DCZ1 = DZCOM * F6 + ARGZ * F5 * F8
-                DCY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
-                DCX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
-                if NTMPFLG == 1:
-                    F5S = F5 * math.sqrt(E1 / Magboltz.ES[NCLTMP])
-                    if F5S > 1.0:
-                        F5S = 1.0
-                    THSEC = math.asin(F5S)
-                    F5S = math.sin(THSEC)
-                    F6S = math.sin(THSEC)
-                    if F6S < 0:
-                        F6S *= -1
-                    PHIS = PHI0 + Magboltz.API
-                    if PHIS > F4:
-                        PHIS = PHI0 - F4
-                    F8S = math.sin(PHIS)
-                    F9S = math.cos(PHIS)
-                    Magboltz.DCZ[NCLTMP] = DZCOM * F6S + ARGZ * F5S * F8S
-                    Magboltz.DCY[NCLTMP] = DYCOM * F6S + (F5S / ARGZ) * (DXCOM * F9S - DYCOM * DZCOM * F8S)
-                    Magboltz.DCX[NCLTMP] = DXCOM * F6S - (F5S / ARGZ) * (DYCOM * F9S + DXCOM * DZCOM * F8S)
-                    NTMPFLG = 0
-            CONST12 = CONST9 * math.sqrt(E1)
-            VXLAB = DCX1 * CONST12 + VGX
-            VYLAB = DCY1 * CONST12 + VGY
-            VZLAB = DCZ1 * CONST12 + VGZ
-            I100+=1
-            if I100 == 200:
-                DCZ100=DCZ1
-                DCX100=DCX1
-                DCY100=DCY1
-                E100 = E1
-                I100 = 0
-            if IPRINT<=JPRINT:
-                GT1F=1
-                continue
-            IPRINT=0
-            W=Magboltz.ZTOTS/Magboltz.TTOTS
-            W*=1e9
-            JCT=ID/100000
-            J1+=1
-            GT1F=1
-            continue
-    XID = float(ID)
-    if NELEC>Magboltz.IPRIM:
-        ANEION = float(NEION)
-        ANBT = float(NELEC-Magboltz.IPRIM)
-        ATTOINT = ANEION/ANBT
-        Magboltz.ATTERT =math.sqrt(ANEION)/ANEION
-        Magboltz.AIOERT = math.sqrt(ANBT)/ANBT
+        S2 = (S1 ** 2) / (S1 - 1)
+        R3 = Magboltz.RAND48.drand()
+        if Magboltz.INDEX[KGAS][I] == 1:
+            R31 = Magboltz.RAND48.drand()
+            F3 = 1.0 - R3 * Magboltz.ANGCT[KGAS][IE][I]
+            if R31 > Magboltz.PSCT[KGAS][IE][I]:
+                F3 = -1 * F3
+        elif Magboltz.INDEX[KGAS][I] == 2:
+            EPSI = Magboltz.PSCT[KGAS][IE][I]
+            F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
+        else:
+            F3 = 1 - 2 * R3
+        THETA0 = math.acos(F3)
+        R4 = Magboltz.RAND48.drand()
+        PHI0 = F4 * R4
+        F8 = math.sin(PHI0)
+        F9 = math.cos(PHI0)
+        if EOK < EI:
+            EI = EOK - 0.0001
+        ARG1 = 1 - S1 * EI / EOK
+        ARG1 = max(ARG1, Magboltz.SMALL)
+        D = 1 - F3 * math.sqrt(ARG1)
+        E1 = EOK * (1 - EI / (S1 * EOK) - 2 * D / S2)
+        E1 = max(E1, Magboltz.SMALL)
+        Q = math.sqrt((EOK / E1) * ARG1) / S1
+        Q = min(Q, 1)
+        Magboltz.THETA = math.asin(Q * math.sin(THETA0))
+        F6 = math.cos(Magboltz.THETA)
+        U = (S1 - 1) * (S1 - 1) / ARG1
+
+        CSQD = F3 * F3
+    if F3 < 0 and CSQD > U:
+        F6 = -1 * F6
+    F5 = math.sin(Magboltz.THETA)
+    DZCOM = min(DZCOM, 1)
+    ARGZ = math.sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
+    if ARGZ == 0:
+        DCZ1 = F6
+        DCX1 = F9 * F5
+        DCY1 = F8 * F5
+        if NTMPFLG == 1:
+            F5S = F5 * math.sqrt(E1 / Magboltz.ES[NCLTMP])
+            if F5S > 1.0:
+                F5S = 1.0
+            THSEC = math.asin(F5S)
+            F5S = math.sin(THSEC)
+            F6S = math.sin(THSEC)
+            if F6S < 0:
+                F6S *= -1
+            PHIS = PHI0 + Magboltz.API
+            if PHIS > F4:
+                PHIS = PHI0 - F4
+            F8S = math.sin(PHIS)
+            F9S = math.cos(PHIS)
+            Magboltz.DCZ[NCLTMP] = F6S
+            Magboltz.DCX[NCLTMP] = F9S * F5S
+            Magboltz.DCY[NCLTMP] = F8S * F5S
+            NTMPFLG = 0
     else:
-        ANEION= float(NEION)
+        DCZ1 = DZCOM * F6 + ARGZ * F5 * F8
+        DCY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
+        DCX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
+        if NTMPFLG == 1:
+            F5S = F5 * math.sqrt(E1 / Magboltz.ES[NCLTMP])
+            if F5S > 1.0:
+                F5S = 1.0
+            THSEC = math.asin(F5S)
+            F5S = math.sin(THSEC)
+            F6S = math.sin(THSEC)
+            if F6S < 0:
+                F6S *= -1
+            PHIS = PHI0 + Magboltz.API
+            if PHIS > F4:
+                PHIS = PHI0 - F4
+            F8S = math.sin(PHIS)
+            F9S = math.cos(PHIS)
+            Magboltz.DCZ[NCLTMP] = DZCOM * F6S + ARGZ * F5S * F8S
+            Magboltz.DCY[NCLTMP] = DYCOM * F6S + (F5S / ARGZ) * (DXCOM * F9S - DYCOM * DZCOM * F8S)
+            Magboltz.DCX[NCLTMP] = DXCOM * F6S - (F5S / ARGZ) * (DYCOM * F9S + DXCOM * DZCOM * F8S)
+            NTMPFLG = 0
+    CONST12 = CONST9 * math.sqrt(E1)
+    VXLAB = DCX1 * CONST12 + VGX
+    VYLAB = DCY1 * CONST12 + VGY
+    VZLAB = DCZ1 * CONST12 + VGZ
+    I100 += 1
+    if I100 == 200:
+        DCZ100 = DCZ1
+        DCX100 = DCX1
+        DCY100 = DCY1
+        E100 = E1
+        I100 = 0
+    if IPRINT > JPRINT:
+        goto.L200
+    goto.L1
+    label.L200
+    IPRINT = 0
+    W = Magboltz.ZTOTS / Magboltz.TTOTS
+    W *= 1e9
+    JCT = ID / 100000
+    J1 += 1
+    goto.L1
+    label.L700
+    XID = float(ID)
+    if NELEC > Magboltz.IPRIM:
+        ANEION = float(NEION)
+        ANBT = float(NELEC - Magboltz.IPRIM)
+        ATTOINT = ANEION / ANBT
+        Magboltz.ATTERT = math.sqrt(ANEION) / ANEION
+        Magboltz.AIOERT = math.sqrt(ANBT) / ANBT
+    else:
+        ANEION = float(NEION)
         ATTOINT = -1
-        Magboltz.ATTERT=math.sqrt(ANEION)/ANEION
-    JCT=ID/100000
-    if J1 ==1:
+        Magboltz.ATTERT = math.sqrt(ANEION) / ANEION
+    JCT = ID / 100000
+    if J1 == 1:
         raise ValueError("TOO FEW COLLISIONS")
-    EPRMBAR =0.0
-    E2PRM=0.0
-    if Magboltz.IPRIM==1:
+    EPRMBAR = 0.0
+    E2PRM = 0.0
+    if Magboltz.IPRIM == 1:
         return Magboltz
     for I in range(Magboltz.IPRIM):
-        E2PRM=E2PRM+EPRM[I]*EPRM[I]
-        EPRMBAR+=EPRM
-    EBAR=EPRMBAR/(Magboltz.IPRIM)
-    EERR=math.sqrt(E2PRM/(Magboltz.IPRIM)-EBAR**2)
-    #IF ITER >NMAX
+        E2PRM = E2PRM + EPRM[I] * EPRM[I]
+        EPRMBAR += EPRM
+    EBAR = EPRMBAR / (Magboltz.IPRIM)
+    EERR = math.sqrt(E2PRM / (Magboltz.IPRIM) - EBAR ** 2)
+    # IF ITER >NMAX
     return Magboltz

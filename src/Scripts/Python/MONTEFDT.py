@@ -2,6 +2,9 @@ import numpy as np
 import math
 from GERJAN import GERJAN
 from SORTT import SORTT
+from SPLANET import SPLANET
+from TCALCT import TCALCT
+
 from goto import goto, label
 
 
@@ -15,6 +18,7 @@ def MONTEFDT(Magboltz):
     Magboltz.X = 0.0
     Magboltz.Y = 0.0
     Magboltz.Z = 0.0
+    R = np.zeros(4)
     I100 = 0
     Magboltz.ZTOT = 0.0
     Magboltz.ZTOTS = 0.0
@@ -175,7 +179,11 @@ def MONTEFDT(Magboltz):
                     NELEC += 1
                     ISOL = 1
                     goto.L18
-            Magboltz = TCALCT(Magboltz, DCZ1, E1, TZSTOP, TZSTOP1, ISOL, IZPLANE)
+            R = TCALCT(Magboltz, DCZ1, E1, TZSTOP, TZSTOP1, ISOL, IZPLANE)
+            ISOL = R[0]
+            IZPLANE = R[1]
+            TZSTOP = R[2]
+            TZSTOP1 = R[3]
             if TZSTOP == -99:
                 NELEC += 1
                 ISOL = 1
@@ -562,7 +570,11 @@ def MONTEFDT(Magboltz):
         EPOT = Magboltz.EFIELD * (Magboltz.Z - Magboltz.ZFINAL) * 100
         if E1 < EPOT:
             goto.L18
-    Magboltz = TCALCT(Magboltz, DCZ1, E1, TZSTOP, TZSTOP1, ISOL, IZPLANE)
+    R = TCALCT(Magboltz, DCZ1, E1, TZSTOP, TZSTOP1, ISOL, IZPLANE)
+    ISOL = R[0]
+    IZPLANE = R[1]
+    TZSTOP = R[2]
+    TZSTOP1 = R[3]
     if TZSTOP == -99:
         goto.L18
     if IPRINT <= JPRINT:
@@ -575,7 +587,7 @@ def MONTEFDT(Magboltz):
     J1 += 1
     goto.L1
 
-    label .L700
+    label.L700
     XID = float(ID)
     if NELEC > Magboltz.IPRIM:
         ANEION = float(NEION)

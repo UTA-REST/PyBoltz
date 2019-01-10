@@ -455,7 +455,7 @@ def MONTEFDT(Magboltz):
             Magboltz.ESS[NPONT] = 1.0
             Magboltz.DCXS[NPONT] = DCX1
             Magboltz.DCYS[NPONT] = DCY1
-            Magboltz.DCZS = DCZ1
+            Magboltz.DCZS[NPONT] = DCZ1
             IDM1 = 1 + int(Magboltz.Z / Magboltz.ZSTEP)
             if IDM1 < 1:
                 IDM1 = 1

@@ -12,7 +12,7 @@ from RAND48 import Rand48
 from MONTEAT import MONTEAT
 from MONTEBT import MONTEBT
 from MONTECT import MONTECT
-
+from ALPCALCT import ALPCALCT
 
 class Magboltz:
     def __init__(self):
@@ -298,5 +298,9 @@ class Magboltz:
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
             self.SSTMIN = 30
 
+            if abs(self.ALPP -self.ATTP)<self.SSTMIN:
+                return
             if self.BMAG == 0.0:
                 self = ALPCALCT(self)
+            elif self.BTHETA==0.0 or self.BTHETA==180:
+                self = ALPCLCAT(self)

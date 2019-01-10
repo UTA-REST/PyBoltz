@@ -2,8 +2,7 @@ import numpy as np
 import math
 from GERJAN import GERJAN
 from SORTT import SORTT
-from SPLANET import SPLANET
-from TCALCT import TCALCT
+from TPLANEAT import TPLANEAT
 
 from goto import goto, label
 

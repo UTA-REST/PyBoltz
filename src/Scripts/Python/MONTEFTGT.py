@@ -2,12 +2,11 @@ import numpy as np
 import math
 from GERJAN import GERJAN
 from SORTT import SORTT
-from TPLANEAT import TPLANEAT
-
+from TPLANEGT import TPLANEGT
 from goto import goto, label
 
 
-def MONTEFTAT(Magboltz, JPRT):
+def MONTEFTGT(Magboltz, JPRT):
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(shape=(6, 4000))
@@ -30,11 +29,13 @@ def MONTEFTAT(Magboltz, JPRT):
     Magboltz.TTOTS = 0.0
     Magboltz.SMALL = 1e-20
     Magboltz.TMAX1 = 0.0
+    YTOT = 0.0
+    YTOTS = 0.0
     RDUM = Magboltz.RSTART
     E1 = Magboltz.ESTART
     CONST9 = Magboltz.CONST3 * 0.01
     CONST10 = CONST9 ** 2
-
+    F4 = 2 * Magboltz.API
     for I in range(300):
         Magboltz.TIME[I] = 0.0
 
@@ -85,10 +86,13 @@ def MONTEFTAT(Magboltz, JPRT):
     for J in range(8):
         Magboltz.IFAKET[J] = 0
     Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+    YSTRT = 0.0
+    IMBPT = 0
     DCZ1 = math.cos(Magboltz.THETA)
     DCX1 = math.sin(Magboltz.THETA) * math.cos(Magboltz.PHI)
     DCY1 = math.sin(Magboltz.THETA) * math.sin(Magboltz.PHI)
 
+    JPRINT = Magboltz.NMAX / 10
     VTOT = CONST9 * math.sqrt(E1)
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
@@ -98,12 +102,6 @@ def MONTEFTAT(Magboltz, JPRT):
     DCZ100 = DCZ1
     DCX100 = DCX1
     DCY100 = DCY1
-    BP = Magboltz.EFIELD ** 2 * Magboltz.CONST1
-    F1 = Magboltz.EFIELD * Magboltz.CONST2
-    F2 = Magboltz.EFIELD * Magboltz.CONST3
-    Magboltz.API = math.acos(-1)
-    F4 = 2 * Magboltz.API
-    JPRINT = Magboltz.NMAX / 10
 
     IPRINT = 0
     ITER = 0
@@ -133,6 +131,7 @@ def MONTEFTAT(Magboltz, JPRT):
         TSSTRT = 0.0
         ZSTRT = 0.0
         IPLANE = 0
+        YSTRT = 0.0
     if Magboltz.IPRIM > 10000000:
         goto.L700
     EPRM[Magboltz.IPRIM - 1] = E1
@@ -148,18 +147,22 @@ def MONTEFTAT(Magboltz, JPRT):
     R1 = Magboltz.RAND48.drand()
     T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
     TDASH = T
-    AP = DCZ1 * F2 * math.sqrt(E1)
+    WBT = Magboltz.WB * T
+    COSWT = math.cos(WBT)
+    SINWT = math.sin(WBT)
     label.L15
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        Magboltz = TPLANEAT(Magboltz, T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE-1)
+        Magboltz = TPLANEGT(Magboltz, T, E1, CX1, CY1, CZ1, IPLANE-1)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:
             Magboltz.ZTOT += Magboltz.Z
             Magboltz.TTOT += Magboltz.ST
+            YTOT += Magboltz.Y
             Magboltz.ZTOTS += Magboltz.Z - ZSTRT
+            YTOTS += Magboltz.Y - YSTRT
             Magboltz.TTOTS += Magboltz.ST - TSSTRT
             TSTOP = Magboltz.TSTEP
             if NELEC == NCLUS + 1:
@@ -180,25 +183,21 @@ def MONTEFTAT(Magboltz, JPRT):
             IPLANE = Magboltz.IPL[NPONT]
             NPONT -= 1
             ZSTRT = Magboltz.Z
+            YSTRT = Magboltz.Y
             TSSTRT = Magboltz.ST
         goto.L555
-    E = E1 + (AP + BP * T) * T
+    DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
+    E = E1 + DZ * Magboltz.EFIELD * 100
     if E < 0:
         E = 0.001
-    WBT = Magboltz.WB * T
-    COSWT = math.cos(WBT)
-    SINWT = math.sin(WBT)
-    CONST6 = math.sqrt(E1 / E)
+    CX2 = CX1
+    CY2 = (CY1 - Magboltz.EOVB) * COSWT + CZ1 * SINWT + Magboltz.EOVB
+    CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
     R2 = Magboltz.RAND48.drand()
     if Magboltz.NGAS == 1:
         KGAS = 0
     while (Magboltz.TCFMXG[KGAS] < R2):
         KGAS = KGAS + 1
-
-    CX2 = CX1 * COSWT - CY1 * SINWT
-    CY2 = CY1 * COSWT + CX1 * SINWT
-    VTOT = CONST9 * math.sqrt(E)
-    CZ2 = VTOT * (DCZ1 * CONST6 + Magboltz.EFIELD * T * Magboltz.CONST5 / math.sqrt(E))
 
     IMBPT += 1
     if (IMBPT > 5):
@@ -209,13 +208,13 @@ def MONTEFTAT(Magboltz, JPRT):
     VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
     IMBPT += 1
     VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
+
     EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
 
-    IE = np.int(EOK / Magboltz.ESTEP) + 1
+    IE = int(EOK / Magboltz.ESTEP) + 1
     IE = min(IE, 3999)
     R5 = Magboltz.RAND48.drand()
     TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
-
     if R5 > TEST1:
         Magboltz.NNULL += 1
         TEST2 = TEMP[KGAS][IE] / Magboltz.TCFMAX[KGAS]
@@ -245,9 +244,10 @@ def MONTEFTAT(Magboltz, JPRT):
             NMXADD = max(NPONT, NMXADD)
             if NPONT >= 2000:
                 raise ValueError("NPONT>2000")
-            Magboltz.XS[NPONT] = Magboltz.X + (CX1 * SINWT - CY1 * (1 - COSWT)) / Magboltz.WB
-            Magboltz.YS[NPONT] = Magboltz.Y + (CY1 * SINWT + CX1 * (1 - COSWT)) / Magboltz.WB
-            Magboltz.ZS[NPONT] = Magboltz.Z + DCZ1 * T * CONST9 * math.sqrt(E1) + T * T * F1
+            Magboltz.XS[NPONT] = Magboltz.X + CX1 * T
+            Magboltz.YS[NPONT] = Magboltz.Y + Magboltz.EOVB * T + (
+                    (CY1 - Magboltz.EOVB) * SINWT + CZ1 * (1 - COSWT)) / Magboltz.WB
+            Magboltz.ZS[NPONT] = Magboltz.Z + DZ
             Magboltz.TS[NPONT] = Magboltz.ST + T
             Magboltz.ES[NPONT] = E
             Magboltz.IPL[NPONT] = IPLANE
@@ -268,13 +268,9 @@ def MONTEFTAT(Magboltz, JPRT):
         Magboltz.TMAX1 = T
     TDASH = 0.0
 
-    CONST7 = CONST9 * math.sqrt(E1)
-    A = T * CONST7
-    DX = (CX1 * SINWT - CY1 * (1 - COSWT)) / Magboltz.WB
-    Magboltz.X += DX
-    DY = (CY1 * SINWT + CX1 * (1 - COSWT)) / Magboltz.WB
-    Magboltz.Y += DY
-    Magboltz.Z += DCZ1 * A + T2 * F1
+    Magboltz.X += CX1 * T
+    Magboltz.Y += Magboltz.EOVB * T + ((CY1 - Magboltz.EOVB) * SINWT + CZ1 * (1 - COSWT)) / Magboltz.WB
+    Magboltz.Z += DZ
     Magboltz.ST += T
     IT = int(T)
     IT = min(IT, 299)
@@ -288,6 +284,7 @@ def MONTEFTAT(Magboltz, JPRT):
         I += 1
     S1 = Magboltz.RGAS[KGAS][I]
     EI = Magboltz.EIN[KGAS][I]
+
     if EOK < EI:
         EI = EOK - 0.0001
 
@@ -305,7 +302,9 @@ def MONTEFTAT(Magboltz, JPRT):
             Magboltz.TIME[IT] += 1
             Magboltz.ZTOT += Magboltz.Z
             Magboltz.TTOT += Magboltz.ST
+            YTOT += Magboltz.Y
             Magboltz.ZTOTS += Magboltz.Z - ZSTRT
+            YTOTS += Magboltz.Y - YSTRT
             Magboltz.TTOTS += Magboltz.ST - TSSTRT
             if NELEC == NCLUS + 1:
                 goto.L544
@@ -369,9 +368,9 @@ def MONTEFTAT(Magboltz, JPRT):
             if NPONT >= 2000:
                 raise ValueError("NPONT>2000")
             if Magboltz.PENFRA[KGAS][1][I] == 0.0:
-                Magboltz.XSS[NPONT] = Magboltz.X
-                Magboltz.YSS[NPONT] = Magboltz.Y
-                Magboltz.ZSS[NPONT] = Magboltz.Z
+                Magboltz.XS[NPONT] = Magboltz.X
+                Magboltz.YS[NPONT] = Magboltz.Y
+                Magboltz.ZS[NPONT] = Magboltz.Z
                 goto.L667
             ASIGN = 1.0
             RAN = Magboltz.RAND48.drand()
@@ -416,6 +415,7 @@ def MONTEFTAT(Magboltz, JPRT):
     label.L5
 
     S2 = (S1 ** 2) / (S1 - 1)
+
     R3 = Magboltz.RAND48.drand()
     if Magboltz.INDEX[KGAS][I] == 1:
         R31 = Magboltz.RAND48.drand()
@@ -517,11 +517,12 @@ def MONTEFTAT(Magboltz, JPRT):
     IPRINT = 0
     W = Magboltz.ZTOTS / Magboltz.TTOTS
     W *= 1e9
-    JCT = ID / 100000
-    J1 += 1
+    Magboltz.WY = YTOTS / Magboltz.TTOTS
+    Magboltz.WY *= 1e9
+    JCT = ID/100000
+    J1+=1
     goto.L1
 
-    label.L700
     XID = float(ID)
     if NELEC > Magboltz.IPRIM:
         ANEION = float(NEION)

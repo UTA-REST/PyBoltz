@@ -141,7 +141,7 @@ def MONTEFTT(Magboltz, JPRT):
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        Magboltz = TPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE)
+        Magboltz = TPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE - 1)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:
@@ -220,7 +220,7 @@ def MONTEFTT(Magboltz, JPRT):
             if R5 < TEST3:
                 # FAKE IONISATION INCREMENT COUNTER
                 Magboltz.IFAKE += 1
-                Magboltz.IFAKET[IPLANE] += 1
+                Magboltz.IFAKET[IPLANE - 1] += 1
                 if Magboltz.FAKEI < 0.0:
                     NEION += 1
                     if NELEC == NCLUS + 1:

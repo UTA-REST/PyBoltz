@@ -252,7 +252,7 @@ def MONTEFDT(Magboltz):
             if R5 < TEST3:
                 # FAKE IONISATION INCREMENT COUNTER
                 Magboltz.IFAKE += 1
-                Magboltz.IFAKET[IPLANE] += 1
+                Magboltz.IFAKET[IPLANE-1] += 1
                 if Magboltz.FAKEI < 0.0:
                     NEION += 1
                     if NELEC == NCLUS + 1:

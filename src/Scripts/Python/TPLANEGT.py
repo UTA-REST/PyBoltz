@@ -10,7 +10,6 @@ def TPLANEGT(Magboltz, T, E1, CX1, CY1, CZ1, IPLANE):
     WBT = Magboltz.WB * TIMLFT
     COSWT = math.cos(WBT)
     SINWT = math.sin(WBT)
-    DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
     CX2 = CX1
     CY2 = (CY1 - Magboltz.EOVB) * COSWT + CZ1 * SINWT + Magboltz.EOVB
     CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
@@ -34,6 +33,6 @@ def TPLANEGT(Magboltz, T, E1, CX1, CY1, CZ1, IPLANE):
     Magboltz.ETPL[IPLANE] += EPLANE
     Magboltz.TTPL[IPLANE] += Magboltz.ST + TIMLFT
     Magboltz.VZTPL[IPLANE] += VZPLANE
-    Magboltz.VYTPL[IPLANE] += VZPLANE
+    Magboltz.VYTPL[IPLANE] += VYPLANE
     Magboltz.NETPL[IPLANE] += 1
     return Magboltz

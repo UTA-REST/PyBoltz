@@ -2,11 +2,10 @@ import numpy as np
 import math
 from GERJAN import GERJAN
 from SORTT import SORTT
-from TPLANEGT import TPLANEGT
 from goto import goto, label
 
 
-def MONTEFTGT(Magboltz, JPRT):
+def MONTEFTHT(Magboltz, JPRT):
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(shape=(6, 4000))
@@ -33,6 +32,9 @@ def MONTEFTGT(Magboltz, JPRT):
     YTOTS = 0.0
     RDUM = Magboltz.RSTART
     E1 = Magboltz.ESTART
+    XTOT = 0.0
+    XTOTS = 0.0
+
     CONST9 = Magboltz.CONST3 * 0.01
     CONST10 = CONST9 ** 2
     F4 = 2 * Magboltz.API
@@ -63,10 +65,12 @@ def MONTEFTGT(Magboltz, JPRT):
         Magboltz.YYTPL[I] = 0.0
         Magboltz.ZZTPL[I] = 0.0
         Magboltz.YZTPL[I] = 0.0
+        Magboltz.XZTPL[I] = 0.0
+        Magboltz.XYTPL[I] = 0.0
         Magboltz.VZTPL[I] = 0.0
         Magboltz.VYTPL[I] = 0.0
+        Magboltz.VXTPL[I] = 0.0
         Magboltz.NETPL[I] = 0.0
-        Magboltz.IFAKET[I] = 0
     ID = 0
     NCOL = 0
     Magboltz.NNULL = 0
@@ -79,6 +83,10 @@ def MONTEFTGT(Magboltz, JPRT):
     J1 = 1
     ZSTRT = 0.0
     TSSTRT = 0.0
+    YSTRT = 0.0
+    XSTRT = 0.0
+    Magboltz.API = math.acos(-1)
+
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Magboltz.TCF[K][J] + Magboltz.TCFN[K][J]
@@ -87,8 +95,16 @@ def MONTEFTGT(Magboltz, JPRT):
     Magboltz.IFAKE = 0
     for J in range(8):
         Magboltz.IFAKET[J] = 0
+    RCS = math.cos((Magboltz.BTHETA - 90) * Magboltz.API / 180)
+    RSN = math.sin((Magboltz.BTHETA - 90) * Magboltz.API / 180)
+    RTHETA = Magboltz.BTHETA * Magboltz.API / 180
+    EFZ100 = Magboltz.EFIELD * 100 * math.sin(RTHETA)
+    EFX100 = Magboltz.EFIELD * 100 * math.cos(RTHETA)
+
+    F1 = Magboltz.EFIELD * Magboltz.CONST2 * math.cos(RTHETA)
+    EOVBR = Magboltz.EOVB * math.sin(RTHETA)
+
     Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
-    YSTRT = 0.0
     IMBPT = 0
     DCZ1 = math.cos(Magboltz.THETA)
     DCX1 = math.sin(Magboltz.THETA) * math.cos(Magboltz.PHI)
@@ -134,6 +150,7 @@ def MONTEFTGT(Magboltz, JPRT):
         ZSTRT = 0.0
         IPLANE = 0
         YSTRT = 0.0
+        XSTRT = 0.0
     if Magboltz.IPRIM > 10000000:
         goto.L700
     EPRM[Magboltz.IPRIM - 1] = E1
@@ -156,15 +173,17 @@ def MONTEFTGT(Magboltz, JPRT):
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        Magboltz = TPLANEGT(Magboltz, T, E1, CX1, CY1, CZ1, IPLANE - 1)
+        Magboltz = TPLANEHT(Magboltz, T, E1, CX1, CY1, CZ1, IPLANE - 1,EOVBR,F1,RCS,RSN)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:
             Magboltz.ZTOT += Magboltz.Z
             Magboltz.TTOT += Magboltz.ST
             YTOT += Magboltz.Y
+            XTOT += Magboltz.X
             Magboltz.ZTOTS += Magboltz.Z - ZSTRT
             YTOTS += Magboltz.Y - YSTRT
+            XTOTS += Magboltz.X - XSTRT
             Magboltz.TTOTS += Magboltz.ST - TSSTRT
             TSTOP = Magboltz.TSTEP
             if NELEC == NCLUS + 1:
@@ -186,15 +205,18 @@ def MONTEFTGT(Magboltz, JPRT):
             NPONT -= 1
             ZSTRT = Magboltz.Z
             YSTRT = Magboltz.Y
+            XSTRT = Magboltz.X
             TSSTRT = Magboltz.ST
         goto.L555
-    DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
-    E = E1 + DZ * Magboltz.EFIELD * 100
+    DZ = (CZ1 * SINWT + (EOVBR - CY1) * (1 - COSWT)) / Magboltz.WB
+    DX = CX1 * T + F1 * T * T
+    E = E1 + DZ * EFZ100 + DX * EFX100
     if E < 0:
         E = 0.001
-    CX2 = CX1
-    CY2 = (CY1 - Magboltz.EOVB) * COSWT + CZ1 * SINWT + Magboltz.EOVB
-    CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
+    CX2 = CX1 + 2 * F1 * T
+    CY2 = (CY1 - EOVBR) * COSWT + CZ1 * SINWT + EOVBR
+    CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
+
     R2 = Magboltz.RAND48.drand()
     if Magboltz.NGAS == 1:
         KGAS = 0
@@ -210,7 +232,6 @@ def MONTEFTGT(Magboltz, JPRT):
     VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
     IMBPT += 1
     VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
-
     EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
 
     IE = int(EOK / Magboltz.ESTEP) + 1
@@ -246,9 +267,9 @@ def MONTEFTGT(Magboltz, JPRT):
             NMXADD = max(NPONT, NMXADD)
             if NPONT >= 2000:
                 raise ValueError("NPONT>2000")
-            Magboltz.XS[NPONT] = Magboltz.X + CX1 * T
-            Magboltz.YS[NPONT] = Magboltz.Y + Magboltz.EOVB * T + (
-                    (CY1 - Magboltz.EOVB) * SINWT + CZ1 * (1 - COSWT)) / Magboltz.WB
+            Magboltz.XS[NPONT] = Magboltz.X + DX
+            Magboltz.YS[NPONT] = Magboltz.Y + EOVBR * T + (
+                    (CY1 - EOVBR) * SINWT + CZ1 * (1 - COSWT)) / Magboltz.WB
             Magboltz.ZS[NPONT] = Magboltz.Z + DZ
             Magboltz.TS[NPONT] = Magboltz.ST + T
             Magboltz.ES[NPONT] = E
@@ -270,8 +291,8 @@ def MONTEFTGT(Magboltz, JPRT):
         Magboltz.TMAX1 = T
     TDASH = 0.0
 
-    Magboltz.X += CX1 * T
-    Magboltz.Y += Magboltz.EOVB * T + ((CY1 - Magboltz.EOVB) * SINWT + CZ1 * (1 - COSWT)) / Magboltz.WB
+    Magboltz.X += DX
+    Magboltz.Y += EOVBR * T + ((CY1 - EOVBR) * SINWT + CZ1 * (1 - COSWT)) / Magboltz.WB
     Magboltz.Z += DZ
     Magboltz.ST += T
     IT = int(T)
@@ -305,8 +326,10 @@ def MONTEFTGT(Magboltz, JPRT):
             Magboltz.ZTOT += Magboltz.Z
             Magboltz.TTOT += Magboltz.ST
             YTOT += Magboltz.Y
+            XTOT += Magboltz.X
             Magboltz.ZTOTS += Magboltz.Z - ZSTRT
             YTOTS += Magboltz.Y - YSTRT
+            XTOTS += Magboltz.X - XSTRT
             Magboltz.TTOTS += Magboltz.ST - TSSTRT
             if NELEC == NCLUS + 1:
                 goto.L544
@@ -453,6 +476,7 @@ def MONTEFTGT(Magboltz, JPRT):
     F5 = math.sin(Magboltz.THETA)
     DZCOM = min(DZCOM, 1)
     ARGZ = math.sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
+
     if ARGZ == 0:
         DCZ1 = F6
         DCX1 = F9 * F5
@@ -517,10 +541,15 @@ def MONTEFTGT(Magboltz, JPRT):
     if IPRINT <= JPRINT:
         goto.L1
     IPRINT = 0
-    W = Magboltz.ZTOTS / Magboltz.TTOTS
-    W *= 1e9
+    Magboltz.WZ = Magboltz.ZTOTS / Magboltz.TTOTS
+    Magboltz.WZ *= 1e9
     Magboltz.WY = YTOTS / Magboltz.TTOTS
     Magboltz.WY *= 1e9
+    Magboltz.WX = XTOTS / Magboltz.TTOTS
+    Magboltz.WX *= 1e9
+    WZR = Magboltz.WZ * RCS - Magboltz.WX * RSN
+    WYR = Magboltz.WY
+    WXR = Magboltz.WZ * RSN + Magboltz.WX * RCS
     JCT = ID / 100000
     J1 += 1
     goto.L1

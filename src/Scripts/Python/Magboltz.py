@@ -14,6 +14,7 @@ from MONTEBT import MONTEBT
 from MONTECT import MONTECT
 from ALPCALCT import ALPCALCT
 
+
 class Magboltz:
     def __init__(self):
         self.EOVB = 0.0
@@ -191,6 +192,11 @@ class Magboltz:
         self.XTPL = np.zeros(8)
         self.YTPL = np.zeros(8)
         self.ZTPL = np.zeros(8)
+        self.YZTPL = np.zeros(8)
+        self.XZTPL = np.zeros(8)
+        self.XYTPL = np.zeros(8)
+        self.VYTPL = np.zeros(8)
+        self.VXTPL = np.zeros(8)
         self.TTPL = np.zeros(8)
         self.XXTPL = np.zeros(8)
         self.YYTPL = np.zeros(8)
@@ -210,7 +216,7 @@ class Magboltz:
         self.RALPER = 0.0
         self.TODENE = 0.0
         self.TOFENER = 0.0
-        self.TOFENE=0.0
+        self.TOFENE = 0.0
         self.TOFWV = 0.0
         self.TOFWVER = 0.0
         self.TOFDL = 0.0
@@ -258,23 +264,32 @@ class Magboltz:
         self.TSSUM2 = np.zeros(8)
         self.TOFWVZ = 0.0
         self.TOFWVZER = 0.0
+        self.TOFWVX = 0.0
+        self.TOFWVXER = 0.0
         self.TOFWVY = 0.0
         self.TOFWVYER = 0.0
-        self.TOFDZZ=0.0
-        self.TOFDZZER =0.0
+        self.TOFDZZ = 0.0
+        self.TOFDZZER = 0.0
         self.TOFDXX = 0.0
         self.TOFDXXER = 0.0
-        self.TOFDYY =0.0
+        self.TOFDYY = 0.0
         self.TOFDYYER = 0.0
         self.TOFDYZ = 0.0
         self.TOFDYZER = 0.0
+        self.TOFDXZ = 0.0
+        self.TOFDXZER = 0.0
+        self.TOFDXY = 0.0
+        self.TOFDXYER = 0.0
         self.TOFWRZ = 0.0
         self.TOFWRZER = 0.0
         self.TOFWRY = 0.0
         self.TOFWRYER = 0.0
+        self.TOFWRX = 0.0
+        self.TOFWRXER = 0.0
         self.ATTOION = 0.0
         self.ATTIOER = 0.0
         self.ATTATER = 0.0
+
     def Start(self):
         if self.ITHRM != 0:
             self = SETUPT(self)
@@ -314,9 +329,9 @@ class Magboltz:
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
             self.SSTMIN = 30
 
-            if abs(self.ALPP -self.ATTP)<self.SSTMIN:
+            if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 return
             if self.BMAG == 0.0:
                 self = ALPCALCT(self)
-            elif self.BTHETA==0.0 or self.BTHETA==180:
+            elif self.BTHETA == 0.0 or self.BTHETA == 180:
                 self = ALPCLCAT(self)

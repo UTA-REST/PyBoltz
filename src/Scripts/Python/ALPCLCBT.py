@@ -4,6 +4,7 @@ from FRIEDLANDT import FRIEDLANDT
 from MONTEFTGT import MONTEFTGT
 from PTG import PTG
 from TOFG import TOFG
+
 def ALPCLCBT(Magboltz):
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
@@ -30,7 +31,7 @@ def ALPCLCBT(Magboltz):
         elif abs(ANETP) >= 10000 and abs(ANETP) < 100000:
             ALPHAD = abs(ANET) * 0.5
         elif abs(ANETP) >= 100000 and abs(ANETP) < 2000000:
-            ALPHAD = abs(ANET) * 0.2
+            ALPHAD = abs(ANET) * 0.4
         else:
             raise ValueError("ATTACHMENT TOO LARGE PROGRAM STOPPED")
         Magboltz.VDST = (Magboltz.WZ ** 2 + Magboltz.WY ** 2) * 1e-5

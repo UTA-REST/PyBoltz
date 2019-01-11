@@ -59,6 +59,7 @@ def MONTEFDT(Magboltz):
         Magboltz.YYSPL[I] = 0.0
         Magboltz.ZZSPL[I] = 0.0
         Magboltz.TSSUM[I] = 0.0
+        Magboltz.VZSPL[I] = 0.0
         Magboltz.TSSUM2[I] = 0.0
         Magboltz.TTMSPL[I] = 0.0
         Magboltz.TMSPL[I] = 0.0

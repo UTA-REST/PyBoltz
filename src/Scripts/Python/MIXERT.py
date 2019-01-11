@@ -1,6 +1,7 @@
 import Magboltz
 import math
 from Gasmix import Gasmix
+import numpy as np
 from ANG import ANG
 
 
@@ -10,45 +11,45 @@ def MIXERT(Magboltz):
     KEL = np.zeros(shape=(6, 6))
 
     E = np.zeros(shape=(6, 6))
-    Q = np.zeros(shape=(6,6,4000))
+    Q = np.zeros(shape=(6, 6, 4000))
 
-    PEQEL = np.zeros(shape=(6,6,4000))
+    PEQEL = np.zeros(shape=(6, 6, 4000))
 
-    EION = np.zeros(shape=(6,30))
+    EION = np.zeros(shape=(6, 30))
 
-    EB = np.zeros(shape=(6,30))
+    EB = np.zeros(shape=(6, 30))
 
-    EC0 = np.zeros(shape=(6,30))
+    EC0 = np.zeros(shape=(6, 30))
 
-    EG1 = np.zeros(shape=(6,30))
+    EG1 = np.zeros(shape=(6, 30))
 
-    EG2 = np.zeros(shape=(6,30))
+    EG2 = np.zeros(shape=(6, 30))
 
-    WK = np.zeros(shape=(6,30))
+    WK = np.zeros(shape=(6, 30))
 
-    EFL = np.zeros(shape=(6,30))
+    EFL = np.zeros(shape=(6, 30))
 
-    NC0 = np.zeros(shape=(6,30))
+    NC0 = np.zeros(shape=(6, 30))
 
-    NG1 = np.zeros(shape=(6,30))
+    NG1 = np.zeros(shape=(6, 30))
 
-    NG2 = np.zeros(shape=(6,30))
+    NG2 = np.zeros(shape=(6, 30))
 
-    EI = np.zeros(shape=(6,250))
+    EI = np.zeros(shape=(6, 250))
 
-    KIN = np.zeros(shape=(6,250))
+    KIN = np.zeros(shape=(6, 250))
 
     NION = np.zeros(6)
 
-    QION = np.zeros(shape=(6,30,4000))
+    QION = np.zeros(shape=(6, 30, 4000))
 
-    PEQION = np.zeros(shape=(6,30,4000))
+    PEQION = np.zeros(shape=(6, 30, 4000))
 
     PEQIN = np.zeros(shape=(6, 250, 4000))
 
-    QATT = np.zeros(shape=(6,8,4000))
+    QATT = np.zeros(shape=(6, 8, 4000))
 
-    QNULL = np.zeros(shape=(6,10,4000))
+    QNULL = np.zeros(shape=(6, 10, 4000))
 
     SCLN = np.zeros(shape=(6, 10))
 
@@ -65,12 +66,12 @@ def MIXERT(Magboltz):
         Magboltz.E[i] = EHALF + Magboltz.ESTEP * i
         Magboltz.EROOT[i] = math.sqrt(Magboltz.E[i])
     Magboltz.EROOT[0] = math.sqrt(EHALF)
-    KIN1 = np.zeros(250)
-    KIN2 = np.zeros(250)
-    KIN3 = np.zeros(250)
-    KIN4 = np.zeros(250)
-    KIN5 = np.zeros(250)
-    KIN6 = np.zeros(250)
+    # KIN1 = np.zeros(250)
+    # KIN2 = np.zeros(250)
+    # KIN3 = np.zeros(250)
+    # KIN4 = np.zeros(250)
+    # KIN5 = np.zeros(250)
+    # KIN6 = np.zeros(250)
 
     MIXOBJECT = Gasmix()
     MIXOBJECT.InitWithInfo(Magboltz.NGASN, Q, Magboltz.QIN, Magboltz.NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL,
@@ -116,21 +117,21 @@ def MIXERT(Magboltz):
                 RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
                 Magboltz.AMGAS[KGAS] = 2 * EMASS / MIXOBJECT.Gases[KGAS].E[1]
                 Magboltz.RGAS[KGAS][NP] = RGAS
-            L = 1
-            Magboltz.IARRY[KGAS][NP] = L
-            Magboltz.EIN[KGAS][NP] = 0.0
-            Magboltz.IPN[KGAS][NP] = 0
+                L = 1
+                Magboltz.IARRY[KGAS][NP] = L
+                Magboltz.EIN[KGAS][NP] = 0.0
+                Magboltz.IPN[KGAS][NP] = 0
 
-            Magboltz.PENFRA[KGAS][0][NP] = 0.0
-            Magboltz.PENFRA[KGAS][1][NP] = 0.0
-            Magboltz.PENFRA[KGAS][2][NP] = 0.0
+                Magboltz.PENFRA[KGAS][0][NP] = 0.0
+                Magboltz.PENFRA[KGAS][1][NP] = 0.0
+                Magboltz.PENFRA[KGAS][2][NP] = 0.0
 
             # IONISATION
 
             if Magboltz.EFINAL >= MIXOBJECT.Gases[KGAS].E[2]:
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
                     NP += 1
-                    Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].Q[2][IE]
+                    Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].Q[2][IE] * Magboltz.VANN[KGAS]
                     Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.CF[KGAS][IE][NP]
                     Magboltz.PSCT[KGAS][IE][NP] = 0.5
                     Magboltz.ANGCT[KGAS][IE][NP] = 1.0
@@ -148,7 +149,7 @@ def MIXERT(Magboltz):
                 elif MIXOBJECT.Gases[KGAS].NION > 1:
                     for KION in range(MIXOBJECT.NION[KGAS]):
                         NP += 1
-                        Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QION[KION][IE]
+                        Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QION[KION][IE] * Magboltz.VANN[KGAS]
                         Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.CF[KGAS][IE][NP]
                         Magboltz.PSCT[KGAS][IE][NP] = 0.5
                         Magboltz.ANGCT[KGAS][IE][NP] = 1.0
@@ -175,7 +176,9 @@ def MIXERT(Magboltz):
                         Magboltz.NG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG1[0]
                         Magboltz.EG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].EG1[0]
                         Magboltz.NG2[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG2[0]
+                        Magboltz.EG2[KGAS][NP] = MIXOBJECT.Gases[KGAS].EG2[0]
                         Magboltz.WKLM[KGAS][NP] = MIXOBJECT.Gases[KGAS].WK[1]
+                        Magboltz.EFL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EFL[1]
                         Magboltz.IPN[KGAS][NP] = 1
                         L = 2
                         Magboltz.IARRY[KGAS][NP] = L
@@ -192,10 +195,12 @@ def MIXERT(Magboltz):
                             Magboltz.WPL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EB[KION]
                             Magboltz.NC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].NC0[KION]
                             Magboltz.EC0[KGAS][NP] = MIXOBJECT.Gases[KGAS].EC0[KION]
+                            Magboltz.EG2[KGAS][NP] = MIXOBJECT.Gases[KGAS].EG2[KION]
                             Magboltz.NG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG1[KION]
                             Magboltz.EG1[KGAS][NP] = MIXOBJECT.Gases[KGAS].EG1[KION]
                             Magboltz.NG2[KGAS][NP] = MIXOBJECT.Gases[KGAS].NG2[KION]
                             Magboltz.WKLM[KGAS][NP] = MIXOBJECT.Gases[KGAS].WK[KION]
+                            Magboltz.EFL[KGAS][NP] = MIXOBJECT.Gases[KGAS].EFL[KION]
                             Magboltz.IPN[KGAS][NP] = 1
                             L = 2
                             Magboltz.IARRY[KGAS][NP] = L

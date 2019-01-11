@@ -1,3 +1,5 @@
+import numpy as np
+
 class Gas:
     def __init__(self):
         # First Setup
@@ -25,7 +27,7 @@ class Gas:
         self.NG2 = np.zeros(30)
         self.EG2 = np.zeros(30)
         self.QATT = np.zeros(shape=(8,4000))
-        self.QNULL = np,zeros(10,4000)
+        self.QNULL = np.zeros(10,4000)
         self.SCLN = np.zeros(10)
         self.EG =np.zeros(shape=(4000))
         self.EROOT =np.zeros(shape=(4000))

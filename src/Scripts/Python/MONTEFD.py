@@ -2,7 +2,8 @@ import numpy as np
 import math
 from GERJAN import GERJAN
 from SORT import SORT
-
+from SPLANE import SPLANE
+from TCALC import TCALC
 from goto import goto, label
 
 

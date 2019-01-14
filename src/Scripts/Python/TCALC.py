@@ -2,7 +2,7 @@ import numpy as np
 import math
 
 
-def TCALCT(Magboltz, DCZ1, E1, TZSTOP, TZSTOP1, ISOL, IZPLANE):
+def TCALC(Magboltz, DCZ1, E1, TZSTOP, TZSTOP1, ISOL, IZPLANE):
     ISOL = 1
     A = Magboltz.EFIELD
     B = math.sqrt(E1) * Magboltz.CONST3 * 0.01 * DCZ1

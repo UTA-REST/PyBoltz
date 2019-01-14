@@ -1,9 +1,7 @@
-import numpy as np
 import math
-from GERJAN import GERJAN
 
 
-def TPLANEAT(Magboltz, T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE):
+def TPLANEA(Magboltz, T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE):
     TIMESP = IPLANE * Magboltz.TSTEP
     TIMLFT = TIMESP - Magboltz.ST
     T2LFT = TIMLFT ** 2

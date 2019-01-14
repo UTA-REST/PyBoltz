@@ -387,4 +387,5 @@ def MIXERT(Magboltz):
             for J in range(MIXOBJECT.Gases[KGAS].NIN):
                 Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
         Magboltz.Mixobject = MIXOBJECT
-        return Magboltz
+
+    return Magboltz

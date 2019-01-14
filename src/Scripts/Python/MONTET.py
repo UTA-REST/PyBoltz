@@ -1,7 +1,6 @@
 from GERJAN import GERJAN
 import numpy as np
 import math
-from RAND48 import Rand48
 
 from SORTT import SORTT
 
@@ -153,6 +152,7 @@ def MONTET(Magboltz):
             SUME2 = SUME2 + T * (E1 + A / 2.0 + B / 3.0)
             CONST7 = CONST9 * math.sqrt(E1)
             A = T * CONST7
+            #TODO: LIST
             CX1 = DCX1 * CONST7
             CY1 = DCY1 * CONST7
             Magboltz.X = Magboltz.X + DCX1 * A

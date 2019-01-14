@@ -347,4 +347,31 @@ def MIXER(Magboltz):
         for J in range(JLOW, JHI):
             if (Magboltz.TCF[J] + Magboltz.TCFN[J] + abs(Magboltz.FAKEI)) > Magboltz.TCFMAX[l]:
                 Magboltz.TCFMAX[l] = Magboltz.TCF[J] + Magboltz.TCFN[J] + abs(Magboltz.FAKEI)
-    
+    for I in range(Magboltz.NSTEP):
+        Magboltz.QTOT[I] = Magboltz.ANN[0] * MIXOBJECT.Gases[0].Q[0][I] + Magboltz.ANN[1] * MIXOBJECT.Gases[1].Q[0][I] + \
+                           Magboltz.ANN[2] * MIXOBJECT.Gases[2].Q[0][I] + Magboltz.ANN[3] * MIXOBJECT.Gases[3].Q[0][I] + \
+                           Magboltz.ANN[4] * MIXOBJECT.Gases[4].Q[0][I] + Magboltz.ANN[5] * MIXOBJECT.Gases[5].Q[0][I]
+        Magboltz.QEL[I] = Magboltz.ANN[0] * MIXOBJECT.Gases[0].Q[1][I] + Magboltz.ANN[1] * MIXOBJECT.Gases[1].Q[1][I] + \
+                          Magboltz.ANN[2] * MIXOBJECT.Gases[2].Q[1][I] + Magboltz.ANN[3] * MIXOBJECT.Gases[3].Q[1][I] + \
+                          Magboltz.ANN[4] * MIXOBJECT.Gases[4].Q[1][I] + Magboltz.ANN[5] * MIXOBJECT.Gases[5].Q[1][I]
+
+        for KGAS in range(Magboltz.NGAS):
+            Magboltz.QION[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[2][I] * Magboltz.ANN[KGAS]
+            QATT[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[3][I] * Magboltz.ANN[KGAS]
+            if MIXOBJECT.Gases[KGAS].NION > 1:
+                Magboltz.QION[KGAS][I] = 0.0
+                for KION in range(MIXOBJECT.Gases[KGAS].NION):
+                    Magboltz.QION[KGAS][I] += MIXOBJECT.Gases[KGAS].QION[KION][I] * Magboltz.ANN[KGAS]
+        Magboltz.QREL[I] = 0.0
+        Magboltz.QSATT[I] = 0.0
+        Magboltz.QSUM[I] = 0.0
+        for J in range(Magboltz.NGAS):
+            Magboltz.QSUM[I] = Magboltz.QSUM[I] + Magboltz.QION[J][I] + QATT[J][I]
+            Magboltz.QSATT[I] = Magboltz.QSATT[I] + QATT[J][I]
+            Magboltz.QREL[I] = Magboltz.QREL[I] + Magboltz.QION[J][I] + QATT[J][I]
+        for KGAS in range(6):
+            for J in range(MIXOBJECT.Gases[KGAS].NIN):
+                Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
+        Magboltz.Mixobject = MIXOBJECT
+
+    return Magboltz

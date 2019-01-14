@@ -33,13 +33,13 @@ def ELIMITBT(Magboltz):
     R5 = 1.0
     TLIM = 0.0
     EOK = 0
+    IE = 0
+    E1 = 0
+    EI = 0
+    S1 = 0
+    S2 = 0
     Magboltz.RAND48.seed(RDUM)
     for J1 in range(int(J2M)):
-        IE = 0
-        E1 = 0
-        EI = 0
-        S1 = 0
-        S2 = 0
         R5 = 1.0
         TLIM = 0.0
         while R5 > TLIM:

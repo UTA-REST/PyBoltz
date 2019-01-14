@@ -132,7 +132,6 @@ def MONTEFDT(Magboltz):
         Magboltz.ST = 0.0
         TSSTRT = 0.0
         ZSTRT = 0.0
-        IPLANE = 0
     # IF PRIM >10000000: TOO MANY PRIMARIES
     EPRM[Magboltz.IPRIM - 1] = E1
     IDUM = int(E1)
@@ -231,7 +230,7 @@ def MONTEFDT(Magboltz):
     VEZ = DCZ2 * VTOT
 
     EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
-    IE = np.int(EOK / Magboltz.ESTEP) + 1
+    IE = np.int(EOK / Magboltz.ESTEP)
     IE = min(IE, 3999)
     R5 = Magboltz.RAND48.drand()
     TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
@@ -253,7 +252,7 @@ def MONTEFDT(Magboltz):
             if R5 < TEST3:
                 # FAKE IONISATION INCREMENT COUNTER
                 Magboltz.IFAKE += 1
-                Magboltz.IFAKET[IPLANE-1] += 1
+                Magboltz.IFAKED[IZPLANE] += 1
                 if Magboltz.FAKEI < 0.0:
                     NEION += 1
                     if NELEC == NCLUS + 1:

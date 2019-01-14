@@ -3,6 +3,10 @@ import math
 from PT import PT
 from TOF import TOF
 from SST import SST
+from MONTEFT import MONTEFT
+from FRIEDLAND import FRIEDLAND
+
+
 def ALPCALC(Magboltz):
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:

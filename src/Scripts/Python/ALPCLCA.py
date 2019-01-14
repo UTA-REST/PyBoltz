@@ -6,7 +6,7 @@ from TOF import TOF
 from MONTEFTA import MONTEFTA
 
 
-def ALPCLCAT(Magboltz):
+def ALPCLCA(Magboltz):
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
         IMAX = 5

@@ -6,7 +6,7 @@ from TPLANEA import TPLANEA
 from goto import goto, label
 
 
-def MONTEFTAT(Magboltz, JPRT):
+def MONTEFTA(Magboltz, JPRT):
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(4000)

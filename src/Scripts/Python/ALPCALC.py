@@ -1,12 +1,9 @@
 import numpy as np
 import math
-from MONTEFTT import MONTEFTT
-from FRIEDLANDT import FRIEDLANDT
-from MONTEFDT import MONTEFDT
 from PT import PT
 from TOF import TOF
 from SST import SST
-def ALPCALCT(Magboltz):
+def ALPCALC(Magboltz):
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
         IMAX = 5
@@ -46,23 +43,24 @@ def ALPCALCT(Magboltz):
             Magboltz.TSTEP = TCUTH
         if Magboltz.TSTEP < TCUTL:
             Magboltz.TSTEP = TCUTL
-        for J in range(Magboltz.NGAS):
-            Magboltz.TCFMAX[J] += abs(Magboltz.FAKEI) / Magboltz.NGAS
+        for J in range(8):
+            Magboltz.TCFMAX[J] += abs(Magboltz.FAKEI)
 
         # CONVERT TO PICOSECONDS
         Magboltz.TSTEP *= 1e12
         Magboltz.TFINAL = 7 * Magboltz.TSTEP
         Magboltz.ITFINAL = 7
         JPRT = 0
-        Magboltz = MONTEFTT(Magboltz, JPRT)
+        Magboltz = MONTEFT(Magboltz, JPRT)
         Magboltz = PT(Magboltz, JPRT)
         Magboltz = TOF(Magboltz, JPRT)
         ALP1 = Magboltz.RALPHA / Magboltz.TOFWR * 1e7
         ALP1ER = Magboltz.RALPER * ALP1 / 100
         ATT1 = Magboltz.RATTOF / Magboltz.TOFWR * 1e7
         ATT1ER = Magboltz.RATOFER * ATT1 / 100
-        for J in range(Magboltz.NGAS):
-            Magboltz.TCFMAX[J] -= abs(Magboltz.FAKEI) / Magboltz.NGAS
+
+        for J in range(8):
+            Magboltz.TCFMAX[J] -= abs(Magboltz.FAKEI)
         ALPHAD = ATT1 * 1.2
         if ALP1 - ATT1 > 30 * Magboltz.CORR:
             ALPHAD = abs(ATT1) * 0.4
@@ -71,7 +69,6 @@ def ALPCALCT(Magboltz):
         if ALP1 - ATT1 > 100 * Magboltz.CORR:
             ALPHAD = 0.0
         Magboltz.WZ = Magboltz.TOFWR * 1e5
-
     Magboltz.VDST = Magboltz.WZ * 1e-5
     Magboltz.FAKEI = ALPHAD * Magboltz.WZ * 1e-12
     Magboltz.ALPHAST = 0.85 * abs(ALPHAD + ALP1 - ATT1)
@@ -90,12 +87,12 @@ def ALPCALCT(Magboltz):
         Magboltz.TSTEP = TCUTH
     if Magboltz.ZSTEP > ZCUTH and ALPHAD != 0.0:
         Magboltz.ZSTEP = ZCUTH
-    for J in range(Magboltz.NGAS):
-        Magboltz.TCFMAX[J] += abs(Magboltz.FAKEI) / Magboltz.NGAS
-    ANET2 = ALP1 - ATT1
+    for J in range(8):
+        Magboltz.TCFMAX[J] += abs(Magboltz.FAKEI)
+    ANET = ALP1 - ATT1
     Magboltz.TSTEP *= 1e12
     Magboltz.ZSTEP *= 0.01
-    #TODO: check index -1
+    # TODO: check index -1
     Magboltz.TFINAL = 7 * Magboltz.TSTEP
     Magboltz.ITFINAL = 7
     Magboltz.ZFINAL = 8 * Magboltz.ZSTEP
@@ -105,23 +102,23 @@ def ALPCALCT(Magboltz):
         Magboltz.ZPLANE[I - 1] = I * Magboltz.ZSTEP
     ZSTEPM = Magboltz.ZSTEP * 1e6
 
-    JPRT = 1
-    Magboltz = MONTEFDT(Magboltz)
+    Magboltz = MONTEFD(Magboltz)
     Magboltz = SST(Magboltz)
     Magboltz.ALPHA = Magboltz.ALPHSST
     Magboltz.ALPER = Magboltz.ALPHERR
     Magboltz.ATT = Magboltz.ATTSST
     Magboltz.ATTER = Magboltz.ATTERR
 
-    Magboltz = MONTEFTT(Magboltz,JPRT)
-    Magboltz = FRIEDLANDT(Magboltz)
-    Magboltz = PT(Magboltz,JPRT)
-    Magboltz = TOF(Magboltz,JPRT)
+    JPRT = 1
 
+    Magboltz = MONTEFT(Magboltz, JPRT)
+    Magboltz = FRIEDLAND(Magboltz)
+    Magboltz = PT(Magboltz, JPRT)
+    Magboltz = TOF(Magboltz, JPRT)
 
-    WRZN = Magboltz.TOFWR*1e5
-    FC1 = WRZN/(2*Magboltz.TOFDL)
-    FC2 = ((Magboltz.RALPHA-Magboltz.RATTOF)*1e12)/Magboltz.TOFDL
-    ALPTEST = FC1-math.sqrt(FC1**2-FC2)
+    WRZN = Magboltz.TOFWR * 1e5
+    FC1 = WRZN / (2 * Magboltz.TOFDL)
+    FC2 = ((Magboltz.RALPHA - Magboltz.RATTOF) * 1e12) / Magboltz.TOFDL
+    ALPTEST = FC1 - math.sqrt(FC1 ** 2 - FC2)
 
     return Magboltz

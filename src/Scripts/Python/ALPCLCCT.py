@@ -48,6 +48,7 @@ def ALPCLCCT(Magboltz):
         for J in range(Magboltz.NGAS):
             Magboltz.TCFMAX[J] += abs(Magboltz.FAKEI) / Magboltz.NGAS
 
+
         # CONVERT TO PICOSECONDS
         Magboltz.TSTEP *= 1e12
         Magboltz.TFINAL = 7 * Magboltz.TSTEP

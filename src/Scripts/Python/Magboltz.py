@@ -13,6 +13,21 @@ from MONTEAT import MONTEAT
 from MONTEBT import MONTEBT
 from MONTECT import MONTECT
 from ALPCALCT import ALPCALCT
+from ALPCLCAT import ALPCLCAT
+from ALPCLCCT import ALPCLCCT
+from ALPCLCBT import ALPCLCBT
+from MIXER import MIXER
+from ELIMIT import ELIMIT
+from ELIMITB import ELIMITB
+from ELIMITC import ELIMITC
+from MONTE import MONTE
+from MONTEA import MONTEA
+from MONTEB import MONTEB
+from MONTEC import MONTEC
+from ALPCALC import ALPCALC
+from ALPCLCA import ALPCLCA
+from ALPCLCC import ALPCLCC
+from ALPCLCB import ALPCLCB
 
 
 class Magboltz:
@@ -308,12 +323,10 @@ class Magboltz:
                     else:
                         self = ELIMITCT(self)
                     if self.IELOW == 1:
-                        # TODO: This could be the reason for missing points
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         self.ESTART = self.EFINAL / 50
             else:
                 self = MIXERT(self)
-            # TODO: add a printing function "PRINTERT"
 
             if self.BMAG == 0:
                 self = MONTET(self)
@@ -335,3 +348,54 @@ class Magboltz:
                 self = ALPCALCT(self)
             elif self.BTHETA == 0.0 or self.BTHETA == 180:
                 self = ALPCLCAT(self)
+            elif self.BTHETA == 90:
+                self = ALPCLCBT(self)
+            else:
+                self = ALPCLCCT(self)
+        else:
+            self = SETUP(self)
+            if self.EFINAL == 0.0:
+                self.EFINAL = 0.5
+                EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
+                if EOB > 15:
+                    self.EFINAL = 8
+                self.ESTART = self.EFINAL / 50
+                while self.IELOW == 1:
+                    self = MIXER(self)
+                    if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
+                        self = ELIMIT(self)
+                    elif self.BTHETA == 90:
+                        self = ELIMITB(self)
+                    else:
+                        self = ELIMITC(self)
+                    if self.IELOW == 1:
+                        self.EFINAL = self.EFINAL * math.sqrt(2)
+                        self.ESTART = self.EFINAL / 50
+            else:
+                self = MIXER(self)
+
+            if self.BMAG == 0:
+                self = MONTE(self)
+            else:
+                if self.BTHETA == 0 or Magboltz.BTHETA == 180:
+                    self = MONTEA(self)
+                elif self.BTHETA == 90:
+                    self = MONTEB(self)
+                else:
+                    self = MONTEC(self)
+            self.TGAS = 273.15 + self.TEMPC
+            self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
+            self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
+            self.SSTMIN = 30
+
+            if abs(self.ALPP - self.ATTP) < self.SSTMIN:
+                return
+            if self.BMAG == 0.0:
+                self = ALPCALC(self)
+            elif self.BTHETA == 0.0 or self.BTHETA == 180:
+                self = ALPCLCA(self)
+            elif self.BTHETA == 90:
+                self = ALPCLCB(self)
+            else:
+                self = ALPCLCC(self)
+

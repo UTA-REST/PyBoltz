@@ -37,8 +37,8 @@ def ALPCLCCT(Magboltz):
             ALPHAD = abs(ANET) * 0.4
         else:
             raise ValueError("ATTACHMENT TOO LARGE PROGRAM STOPPED")
-        Magboltz.VDST = (Magboltz.WZ ** 2 + Magboltz.WY ** 2) * 1e-5
-        Magboltz.FAKEI = ALPHAD * Magboltz.WZ * 1e-12
+        Magboltz.VDST = math.sqrt(Magboltz.WZ ** 2 + Magboltz.WY ** 2+ Magboltz.WX**2) * 1e-5
+        Magboltz.FAKEI = ALPHAD * math.sqrt(Magboltz.WZ ** 2 + Magboltz.WY ** 2+ Magboltz.WX**2) * 1e-12
         Magboltz.ALPHAST = 0.85 * abs(ALPHAD + ANET)
         Magboltz.TSTEP = np.log(3) / (Magboltz.ALPHAST * Magboltz.VDST * 1e5)
         if Magboltz.TSTEP > TCUTH:

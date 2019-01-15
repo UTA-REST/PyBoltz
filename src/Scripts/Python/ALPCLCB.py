@@ -1,15 +1,16 @@
 import numpy as np
 import math
-from FRIEDLANDT import FRIEDLANDT
-from MONTEFTGT import MONTEFTGT
+from FRIEDLAND import FRIEDLAND
+from MONTEFTG import MONTEFTG
 from PTG import PTG
 from TOFG import TOFG
 
-def ALPCLCBT(Magboltz):
+
+def ALPCLCB(Magboltz):
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
         IMAX = 5
-    Magboltz.NMAX = IMAX * 10000000
+
     Magboltz.CORR = 760 * (273.15 + Magboltz.TEMPC) / (293.15 * Magboltz.TORR)
     Magboltz.ALPP = Magboltz.ALPHA / Magboltz.CORR
     Magboltz.ATTP = Magboltz.ATT / Magboltz.CORR
@@ -17,6 +18,7 @@ def ALPCLCBT(Magboltz):
     ANET = Magboltz.ALPHA - Magboltz.ATT
     TCUTH = 1.2e-10 * Magboltz.CORR
     TCUTL = 1e-13 * Magboltz.CORR
+
     if ANETP > 30:
         ALPHAD = 0.0
         ALP1 = Magboltz.ALPHA
@@ -35,22 +37,21 @@ def ALPCLCBT(Magboltz):
         else:
             raise ValueError("ATTACHMENT TOO LARGE PROGRAM STOPPED")
         Magboltz.VDST = (Magboltz.WZ ** 2 + Magboltz.WY ** 2) * 1e-5
-        Magboltz.FAKEI = ALPHAD * Magboltz.WZ * 1e-12
+        Magboltz.FAKEI = ALPHAD * math.sqrt(Magboltz.WZ ** 2 + Magboltz.WY ** 2) * 1e-12
         Magboltz.ALPHAST = 0.85 * abs(ALPHAD + ANET)
         Magboltz.TSTEP = np.log(3) / (Magboltz.ALPHAST * Magboltz.VDST * 1e5)
         if Magboltz.TSTEP > TCUTH:
             Magboltz.TSTEP = TCUTH
         if Magboltz.TSTEP < TCUTL:
             Magboltz.TSTEP = TCUTL
-        for J in range(Magboltz.NGAS):
-            Magboltz.TCFMAX[J] += abs(Magboltz.FAKEI) / Magboltz.NGAS
-
-        # CONVERT TO PICOSECONDS
+        for J in range(8):
+            Magboltz.TCFMAX[J] += abs(Magboltz.FAKEI)
+            # CONVERT TO PICOSECONDS
         Magboltz.TSTEP *= 1e12
         Magboltz.TFINAL = 7 * Magboltz.TSTEP
         Magboltz.ITFINAL = 7
         JPRT = 0
-        Magboltz = MONTEFTGT(Magboltz, JPRT)
+        Magboltz = MONTEFTG(Magboltz, JPRT)
         Magboltz = PTG(Magboltz, JPRT)
         Magboltz = TOFG(Magboltz, JPRT)
         Magboltz.TOFWR = math.sqrt(Magboltz.TOFWRZ ** 2 + Magboltz.TOFWRY ** 2)
@@ -69,10 +70,9 @@ def ALPCLCBT(Magboltz):
             ALPHAD = 0.0
         Magboltz.WZ = Magboltz.TOFWRZ * 1e5
         Magboltz.WY = Magboltz.TOFWRY * 1e5
-
     VTOT = math.sqrt(Magboltz.WZ ** 2 + Magboltz.WY ** 2)
     Magboltz.VDST = VTOT * 1e-5
-    Magboltz.FAKEI = ALPHAD * Magboltz.WZ * 1e-12
+    Magboltz.FAKEI = ALPHAD * VTOT * 1e-12
     Magboltz.ALPHAST = 0.85 * abs(ALPHAD + ALP1 - ATT1)
 
     if ALP1 + ALPHAD > 10 * Magboltz.ALPHAST or ATT1 > 10 * Magboltz.ALPHAST:
@@ -88,13 +88,14 @@ def ALPCLCBT(Magboltz):
     for J in range(Magboltz.NGAS):
         Magboltz.TCFMAX[J] += abs(Magboltz.FAKEI) / Magboltz.NGAS
     ANET1 = ALP1 - ATT1
+
     Magboltz.TSTEP *= 1e12
     # TODO: check index -1
     Magboltz.TFINAL = 7 * Magboltz.TSTEP
     Magboltz.ITFINAL = 7
     JPRT = 1
-    Magboltz = MONTEFTGT(Magboltz, JPRT)
-    Magboltz = FRIEDLANDT(Magboltz)
+    Magboltz = MONTEFTG(Magboltz, JPRT)
+    Magboltz = FRIEDLAND(Magboltz)
     Magboltz = PTG(Magboltz, JPRT)
     Magboltz = TOFG(Magboltz, JPRT)
 

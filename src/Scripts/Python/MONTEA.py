@@ -75,8 +75,8 @@ def MONTEA(Magboltz):
     J2M = Magboltz.NMAX / Magboltz.ITMAX
     DELTAE = Magboltz.EFINAL / float(INTEM)
 
-    for J1 in range(Magboltz.ITMAX):
-        for J2 in range(J2M):
+    for J1 in range(int(Magboltz.ITMAX)):
+        for J2 in range(int(J2M)):
             while True:
                 R1 = Magboltz.RAND48.drand()
                 I = int(E1 / DELTAE) + 1
@@ -156,7 +156,7 @@ def MONTEA(Magboltz):
 
             if ID != 0:
                 KDUM = 0
-                for JDUM in range(Magboltz.NCORST):
+                for JDUM in range(int(Magboltz.NCORST)):
                     ST2 = ST2 + T
                     NCOLDM = NCOL + KDUM
                     if NCOLDM > Magboltz.NCOLM:

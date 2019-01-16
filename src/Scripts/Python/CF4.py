@@ -107,9 +107,7 @@ def Gas1(object):
     # ONLY DISSOCIATION X-SECTION (LEVEL 11) HAS ENOUGH ENERGY TO GIVE
     # POSSIBLE PENNING TRANSFER
 
-    for L in range(0, 3):
-        object.PENFRA.append(np.zeros(46))
-
+    object.PENFRA = np.zeros(shape=(3,46))
     # PENNING TRANSFER FRACTION FOR LEVEL 11
     object.PENFRA[0][45] = 0.0
     # PENNING TRANSFER DISTANCE IN MICRONS

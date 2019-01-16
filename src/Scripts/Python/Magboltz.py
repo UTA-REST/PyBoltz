@@ -1,5 +1,6 @@
 from Gasmix import Gasmix
 from SETUPT import SETUPT
+from SETUP import SETUP
 from Gasmix import Gasmix
 import numpy as np
 import math
@@ -331,7 +332,7 @@ class Magboltz:
             if self.BMAG == 0:
                 self = MONTET(self)
             else:
-                if self.BTHETA == 0 or Magboltz.BTHETA == 180:
+                if self.BTHETA == 0 or self.BTHETA == 180:
                     self = MONTEAT(self)
                 elif self.BTHETA == 90:
                     self = MONTEBT(self)
@@ -377,7 +378,7 @@ class Magboltz:
             if self.BMAG == 0:
                 self = MONTE(self)
             else:
-                if self.BTHETA == 0 or Magboltz.BTHETA == 180:
+                if self.BTHETA == 0 or self.BTHETA == 180:
                     self = MONTEA(self)
                 elif self.BTHETA == 90:
                     self = MONTEB(self)

@@ -46,7 +46,7 @@ def MIXER(Magboltz):
 
     PEQIN = np.zeros(shape=(6, 250, 4000))
 
-    QATT = np.zeros(shape=(6, 8, 4000))
+    QATT = np.zeros(shape=(6, 4000))
 
     QNULL = np.zeros(shape=(6, 10, 4000))
 
@@ -204,7 +204,7 @@ def MIXER(Magboltz):
                     Magboltz.PSCT[IE][NP] = 0.5
                     Magboltz.ANGCT[IE][NP] = 1.0
                 elif MIXOBJECT.Gases[KGAS].NATT > 1:
-                    for JJ in range(MIXOBJECT.Gases[KGAS].NATT):
+                    for JJ in range(int(MIXOBJECT.Gases[KGAS].NATT)):
                         NP += 1
                         Magboltz.CF[IE][NP] = MIXOBJECT.Gases[KGAS].QATT[JJ][IE] * Magboltz.VANN[KGAS]
                         Magboltz.FCATT[IE] = Magboltz.FCATT[IE] + Magboltz.CF[KGAS][IE][NP]
@@ -235,7 +235,7 @@ def MIXER(Magboltz):
 
             # INELASTIC AND SUPERELASTIC
             if MIXOBJECT.Gases[KGAS].NIN > 0:
-                for J in range(MIXOBJECT.Gases[KGAS].NIN):
+                for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                     NP = NP + 1
                     Magboltz.CF[IE][NP] = MIXOBJECT.Gases[KGAS].QIN[J][IE] * Magboltz.VANN[KGAS]
                     Magboltz.PSCT[IE][NP] = 0.5
@@ -272,18 +272,18 @@ def MIXER(Magboltz):
                     break
         # CALCULATION OF TOTAL COLLISION FREQUENCY FOR EACH GAS COMPONENT
         Magboltz.TCF[IE] = 0.0
-        for IF in range(Magboltz.IPLAST):
+        for IF in range(int(Magboltz.IPLAST)):
             Magboltz.TCF[IE] = Magboltz.TCF[IE] + Magboltz.CF[IE][IF]
             if Magboltz.CF[IE][IF] < 0:
                 print("WARNING NEGATIVE COLLISION FREQUENCY")
 
-        for IF in range(Magboltz.IPLAST):
+        for IF in range(int(Magboltz.IPLAST)):
             if Magboltz.TCF[IE] != 0.0:
                 Magboltz.CF[IE][IF] /= Magboltz.TCF[IE]
             else:
                 Magboltz.CF[IE][IF] = 0.0
 
-        for IF in range(1, Magboltz.IPLAST):
+        for IF in range(1, int(Magboltz.IPLAST)):
             Magboltz.CF[IE][IF] += Magboltz.CF[IE][IF - 1]
         Magboltz.FCATT[IE] *= Magboltz.EROOT[IE]
         Magboltz.FCION[IE] *= Magboltz.EROOT[IE]
@@ -303,18 +303,18 @@ def MIXER(Magboltz):
                                                Magboltz.SCLENUL[NP]
             Magboltz.NPLAST = NP
             Magboltz.TCFN[IE] = 0.0
-            for IF in range(Magboltz.NPLAST):
+            for IF in range(int(Magboltz.NPLAST)):
                 Magboltz.TCFN[IE] = Magboltz.TCFN[IE] + Magboltz.CFN[IE][IF]
                 if Magboltz.CFN[IE][IF] < 0:
                     print("WARNING NEGATIVE NULL COLLISION FREQUENCY")
 
-            for IF in range(Magboltz.NPLAST):
+            for IF in range(int(Magboltz.NPLAST)):
                 if Magboltz.TCFN[IE] != 0.0:
                     Magboltz.CFN[IE][IF] /= Magboltz.TCFN[IE]
                 else:
                     Magboltz.CFN[IE][IF] = 0.0
 
-            for IF in range(1, Magboltz.NPLAST):
+            for IF in range(1, int(Magboltz.NPLAST)):
                 Magboltz.CFN[IE][IF] += Magboltz.CFN[IE][IF - 1]
             Magboltz.TCFN[IE] *= Magboltz.EROOT[IE]
 
@@ -344,7 +344,7 @@ def MIXER(Magboltz):
         JHI = 4000 - 500 * (8 - I) + input(EHI)
         JLOW = max(JLOW, 0)
         JHI = min(JHI, 4000)
-        for J in range(JLOW, JHI):
+        for J in range(int(JLOW), int(JHI)):
             if (Magboltz.TCF[J] + Magboltz.TCFN[J] + abs(Magboltz.FAKEI)) > Magboltz.TCFMAX[l]:
                 Magboltz.TCFMAX[l] = Magboltz.TCF[J] + Magboltz.TCFN[J] + abs(Magboltz.FAKEI)
     for I in range(Magboltz.NSTEP):
@@ -370,7 +370,7 @@ def MIXER(Magboltz):
             Magboltz.QSATT[I] = Magboltz.QSATT[I] + QATT[J][I]
             Magboltz.QREL[I] = Magboltz.QREL[I] + Magboltz.QION[J][I] + QATT[J][I]
         for KGAS in range(6):
-            for J in range(MIXOBJECT.Gases[KGAS].NIN):
+            for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                 Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
         Magboltz.Mixobject = MIXOBJECT
 

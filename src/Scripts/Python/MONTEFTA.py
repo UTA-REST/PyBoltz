@@ -3,9 +3,9 @@ import math
 from SORT import SORT
 from TPLANEA import TPLANEA
 
-from goto import goto, label
+from goto import with_goto
 
-
+@with_goto
 def MONTEFTA(Magboltz, JPRT):
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
@@ -316,7 +316,7 @@ def MONTEFTA(Magboltz, JPRT):
         if EISTR > 30:
             NAUG = Magboltz.NC0[I]
             EAVAUG = Magboltz.EC0[I] / float(NAUG)
-            for JFL in range(NAUG):
+            for JFL in range(int(NAUG)):
                 NCLUS += 1
                 NPONT += 1
                 Magboltz.XS[NPONT] = Magboltz.X
@@ -390,7 +390,7 @@ def MONTEFTA(Magboltz, JPRT):
 
             TSTOP1 = 0.0
             IPLANE1 = 0
-            for KDUM in range(Magboltz.ITFINAL):
+            for KDUM in range(int(Magboltz.ITFINAL)):
                 TSTOP1 += Magboltz.TSTEP
                 if TPEN < TSTOP1:
                     Magboltz.IPL[NPONT] = IPLANE1
@@ -524,7 +524,7 @@ def MONTEFTA(Magboltz, JPRT):
     E2PRM = 0.0
     if Magboltz.IPRIM == 1:
         return Magboltz
-    for I in range(Magboltz.IPRIM):
+    for I in range(int(Magboltz.IPRIM)):
         E2PRM = E2PRM + EPRM[I] * EPRM[I]
         EPRMBAR += EPRM
     EBAR = EPRMBAR / (Magboltz.IPRIM)

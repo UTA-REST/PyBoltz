@@ -4,9 +4,9 @@ from GERJAN import GERJAN
 from SORT import SORT
 from SPLANE import SPLANE
 from TCALC import TCALC
-from goto import goto, label
+from goto import with_goto
 
-
+@with_goto
 def MONTEFD(Magboltz):
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
@@ -324,7 +324,7 @@ def MONTEFD(Magboltz):
         if EISTR > 30:
             NAUG = Magboltz.NC0[I]
             EAVAUG = Magboltz.EC0[I] / float(NAUG)
-            for JFL in range(NAUG):
+            for JFL in range(int(NAUG)):
                 NCLUS += 1
                 NPONT += 1
                 Magboltz.XSS[NPONT] = Magboltz.X
@@ -528,7 +528,7 @@ def MONTEFD(Magboltz):
     E2PRM = 0.0
     if Magboltz.IPRIM == 1:
         return Magboltz
-    for I in range(Magboltz.IPRIM):
+    for I in range(int(Magboltz.IPRIM)):
         E2PRM = E2PRM + EPRM[I] * EPRM[I]
         EPRMBAR += EPRM
     EBAR = EPRMBAR / (Magboltz.IPRIM)

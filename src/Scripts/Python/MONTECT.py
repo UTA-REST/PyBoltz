@@ -81,7 +81,7 @@ def MONTECT(Magboltz):
     TEMP = np.zeros(shape=(6, 4000))
 
     Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
-    IMBTP = 0
+    IMBPT = 0
     TDASH = 0.0
 
     for K in range(6):
@@ -99,8 +99,8 @@ def MONTECT(Magboltz):
     CZ1 = DCZ1 * VTOT
 
     J2M = Magboltz.NMAX / Magboltz.ITMAX
-    for J1 in range(Magboltz.ITMAX):
-        for J2 in range(J2M):
+    for J1 in range(int(Magboltz.ITMAX)):
+        for J2 in range(int(J2M)):
             while True:
                 R1 = Magboltz.RAND48.drand()
                 T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
@@ -184,7 +184,7 @@ def MONTECT(Magboltz):
             Magboltz.WX = Magboltz.X / Magboltz.ST
             if J1 >= 2:
                 KDUM = 0
-                for J in range(Magboltz.NCORST):
+                for J in range(int(Magboltz.NCORST)):
                     NCOLDM = NCOL + KDUM
                     if NCOLDM > Magboltz.NCOLM:
                         NCOLDM = NCOLDM - Magboltz.NCOLM

@@ -47,7 +47,7 @@ def MIXERT(Magboltz):
 
     PEQIN = np.zeros(shape=(6, 250, 4000))
 
-    QATT = np.zeros(shape=(6, 8, 4000))
+    QATT = np.zeros(shape=(6, 4000))
 
     QNULL = np.zeros(shape=(6, 10, 4000))
 
@@ -216,7 +216,7 @@ def MIXERT(Magboltz):
                     Magboltz.PSCT[KGAS][IE][NP] = 0.5
                     Magboltz.ANGCT[KGAS][IE][NP] = 1.0
                 elif MIXOBJECT.Gases[KGAS].NATT > 1:
-                    for JJ in range(MIXOBJECT.Gases[KGAS].NATT):
+                    for JJ in range(int(MIXOBJECT.Gases[KGAS].NATT)):
                         NP += 1
                         Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QATT[JJ][IE] * Magboltz.VANN[KGAS]
                         Magboltz.FCATT[IE] = Magboltz.FCATT[IE] + Magboltz.CF[KGAS][IE][NP]
@@ -247,7 +247,7 @@ def MIXERT(Magboltz):
 
             # INELASTIC AND SUPERELASTIC
             if MIXOBJECT.Gases[KGAS].NIN > 0:
-                for J in range(MIXOBJECT.Gases[KGAS].NIN):
+                for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                     NP = NP + 1
                     Magboltz.CF[KGAS][IE][NP] = MIXOBJECT.Gases[KGAS].QIN[J][IE] * Magboltz.VANN[KGAS]
                     Magboltz.PSCT[KGAS][IE][NP] = 0.5
@@ -284,18 +284,18 @@ def MIXERT(Magboltz):
                     break
             # CALCULATION OF TOTAL COLLISION FREQUENCY FOR EACH GAS COMPONENT
             Magboltz.TCF[KGAS][IE] = 0.0
-            for IF in range(Magboltz.IPLAST[KGAS]):
+            for IF in range(int(Magboltz.IPLAST[KGAS])):
                 Magboltz.TCF[KGAS][IE] = Magboltz.TCF[KGAS][IE] + Magboltz.CF[KGAS][IE][IF]
                 if Magboltz.CF[KGAS][IE][IF] < 0:
                     print("WARNING NEGATIVE COLLISION FREQUENCY")
 
-            for IF in range(Magboltz.IPLAST[KGAS]):
+            for IF in range(int(Magboltz.IPLAST[KGAS])):
                 if Magboltz.TCF[KGAS][IE] == 0:
                     Magboltz.CF[KGAS][IE][IF] = 0
                 else:
                     Magboltz.CF[KGAS][IE][IF] = Magboltz.CF[KGAS][IE][IF] / Magboltz.TCF[KGAS][IE]
 
-            for IF in range(1, Magboltz.IPLAST[KGAS]):
+            for IF in range(1, int(Magboltz.IPLAST[KGAS])):
                 Magboltz.CF[KGAS][IE][IF] = Magboltz.CF[KGAS][IE][IF] + Magboltz.CF[KGAS][IE][IF - 1]
             Magboltz.FCATT[IE] = Magboltz.FCATT[IE] + Magboltz.EROOT[IE]
             Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.EROOT[IE]
@@ -311,24 +311,24 @@ def MIXERT(Magboltz):
                 break
 
             if Magboltz.NPLAST[i] > 0:
-                for J in range(Magboltz.NPLAST[i]):
+                for J in range(int(Magboltz.NPLAST[i])):
                     Magboltz.SCLENUL[i][J] = MIXOBJECT.Gases[i].SCLN[J]
                     Magboltz.CFN[i][J] = MIXOBJECT.Gases[i].QNULL[J] * Magboltz.VANN[i] * Magboltz.SCLENUL[i][J]
             # CALCULATE NULL COLLISrION FREQUENCY FOR EACH GAS COMPONENT
 
             for KGAS in range(Magboltz.NGAS):
                 Magboltz.TCFN[KGAS][IE] = 0.0
-                for IL in range(Magboltz.NPLAST[KGAS]):
+                for IL in range(int(Magboltz.NPLAST[KGAS])):
                     Magboltz.TCFN[KGAS][IE] = Magboltz.TCFN[KGAS][IE] + Magboltz.CFN[KGAS][IE][IL]
                     if Magboltz.CFN[KGAS][IE][IL] < 0:
                         print("WARNING NEGATIVE NULL COLLISION FREQUENCY")
-                for IL in range(Magboltz.NPLAST[KGAS]):
+                for IL in range(int(Magboltz.NPLAST[KGAS])):
                     if Magboltz.TCFN[KGAS][IE] == 0:
                         Magboltz.CFN[KGAS][IE][IL] = 0.0
                     else:
                         Magboltz.CFN[KGAS][IE][IE] = Magboltz.CFN[KGAS][IE][IL] / Magboltz.TCFN[KGAS][IE]
 
-                for IL in range(1, Magboltz.NPLAST[KGAS]):
+                for IL in range(1, int(Magboltz.NPLAST[KGAS])):
                     Magboltz.CFN[KGAS][IE][IL] = Magboltz.CFN[KGAS][IE][IL] + Magboltz[KGAS][IE][IL - 1]
                 Magboltz.TCFN[KGAS][IE] = Magboltz.TCFN[KGAS][IE] * Magboltz.EROOT[IE]
     KELSUM = 0
@@ -384,7 +384,7 @@ def MIXERT(Magboltz):
             Magboltz.QSATT[I] = Magboltz.QSATT[I] + QATT[J][I]
             Magboltz.QREL[I] = Magboltz.QREL[I] + Magboltz.QION[J][I] + QATT[J][I]
         for KGAS in range(6):
-            for J in range(MIXOBJECT.Gases[KGAS].NIN):
+            for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                 Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
         Magboltz.Mixobject = MIXOBJECT
 

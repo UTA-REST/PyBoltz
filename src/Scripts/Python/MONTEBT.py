@@ -71,7 +71,7 @@ def MONTEBT(Magboltz):
     Magboltz.IFAKE = 0
 
     Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
-    IMBTP = 0
+    IMBPT = 0
     TDASH = 0.0
     F4 = 2 * math.acos(-1)
     DCZ1 = math.cos(Magboltz.THETA)
@@ -85,8 +85,8 @@ def MONTEBT(Magboltz):
 
     J2M = Magboltz.NMAX / Magboltz.ITMAX
 
-    for J1 in range(Magboltz.ITMAX):
-        for J2 in range(J2M):
+    for J1 in range(int(Magboltz.ITMAX)):
+        for J2 in range(int(J2M)):
             while True:
                 R1 = Magboltz.RAND48.drand()
                 T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
@@ -174,7 +174,7 @@ def MONTEBT(Magboltz):
             SUMVX += (CX1 ** 2) * T2
             if ID != 0:
                 KDUM = 0
-                for J in range(Magboltz.NCORST):
+                for J in range(int(Magboltz.NCORST)):
                     ST2 = ST2 + T
                     NCOLDM = NCOL + KDUM
                     if NCOLDM > Magboltz.NCOLM:

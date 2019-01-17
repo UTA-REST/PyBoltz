@@ -7,27 +7,28 @@ sys.path.append('../../src/Scripts/Python')
 
 from Magboltz import Magboltz
 
-TestObj = Magboltz()
+Magboltz = Magboltz()
 
-TestObj.NGAS =1
-TestObj.NMAX =1
-TestObj.IPEN = 0
-TestObj.ITHRM=1
-TestObj.EFINAL = 0.0
 
-TestObj.NGASN=[1,0,0,0,0,0]
+Magboltz.NGAS =1
+Magboltz.NMAX =1
+Magboltz.IPEN = 0
+Magboltz.ITHRM=1
+Magboltz.EFINAL = 0.0
 
-TestObj.FRAC=[100,0,0,0,0,0]
+Magboltz.NGASN=[1,0,0,0,0,0]
 
-TestObj.TEMPC = 20
-TestObj.TORR = 750
+Magboltz.FRAC=[100,0,0,0,0,0]
 
-TestObj.EFIELD =200
-TestObj.BMAG = 10
+Magboltz.TEMPC = 20
+Magboltz.TORR = 750
 
-TestObj.BTHETA =90
+Magboltz.EFIELD =200
+Magboltz.BMAG = 10
 
-TestObj.Start()
+Magboltz.BTHETA =90
 
-print(TestObj.EFINAL)
-print(TestObj.TCFMX)
+Magboltz.Start()
+
+print(Magboltz.EFINAL)
+print(Magboltz.TCFMX)

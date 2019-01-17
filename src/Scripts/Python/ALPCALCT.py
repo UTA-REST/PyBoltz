@@ -6,8 +6,8 @@ from MONTEFDT import MONTEFDT
 from PT import PT
 from TOF import TOF
 from SST import SST
-def ALPCALCT():
-    global Magboltz
+def ALPCALCT(Magboltz):
+
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
         IMAX = 5
@@ -55,9 +55,9 @@ def ALPCALCT():
         Magboltz.TFINAL = 7 * Magboltz.TSTEP
         Magboltz.ITFINAL = 7
         JPRT = 0
-        MONTEFTT(JPRT)
-        PT(JPRT)
-        TOF(JPRT)
+        MONTEFTT(Magboltz,JPRT)
+        PT(Magboltz,JPRT)
+        TOF(Magboltz,JPRT)
         ALP1 = Magboltz.RALPHA / Magboltz.TOFWR * 1e7
         ALP1ER = Magboltz.RALPER * ALP1 / 100
         ATT1 = Magboltz.RATTOF / Magboltz.TOFWR * 1e7
@@ -107,17 +107,17 @@ def ALPCALCT():
     ZSTEPM = Magboltz.ZSTEP * 1e6
 
     JPRT = 1
-    MONTEFDT()
-    SST()
+    MONTEFDT(Magboltz)
+    SST(Magboltz)
     Magboltz.ALPHA = Magboltz.ALPHSST
     Magboltz.ALPER = Magboltz.ALPHERR
     Magboltz.ATT = Magboltz.ATTSST
     Magboltz.ATTER = Magboltz.ATTERR
 
-    MONTEFTT(JPRT)
-    FRIEDLANDT()
-    PT(JPRT)
-    TOF(JPRT)
+    MONTEFTT(Magboltz,JPRT)
+    FRIEDLANDT(Magboltz)
+    PT(Magboltz,JPRT)
+    TOF(Magboltz,JPRT)
 
 
     WRZN = Magboltz.TOFWR*1e5

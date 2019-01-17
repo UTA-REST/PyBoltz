@@ -3,8 +3,8 @@ import math
 from COLF import COLF
 from COLFT import COLFT
 
-def TOF(JPRT):
-    global Magboltz
+def TOF(Magboltz,JPRT):
+    
     DUM = np.zeros(6)
     if Magboltz.ITHRM == 1:
         DUM = COLFT()

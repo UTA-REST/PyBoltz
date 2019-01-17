@@ -2,8 +2,8 @@ import math
 import numpy as np
 
 
-def SETUP():
-    global Magboltz
+def SETUP(Magboltz):
+    
     Magboltz.API = math.acos(-1.0)
     TWOPI = 2.0 * Magboltz.API
     Magboltz.ARY = 13.60569253
@@ -105,6 +105,6 @@ def SETUP():
     Magboltz.ISIZE = 0.0
     Magboltz.EFL = np.zeros(960)
     if Magboltz.BMAG == 0:
-        return Magboltz
+        return
     Magboltz.EOVB = Magboltz.EFIELD * 1e-9 / Magboltz.BMAG
-    return Magboltz
+    return

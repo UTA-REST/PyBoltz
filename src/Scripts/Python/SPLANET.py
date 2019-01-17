@@ -2,8 +2,8 @@ import numpy as np
 import math
 
 
-def SPLANET( T, E1, DCX1, DCY1, DCZ1, AP, BP, TIMLFT, IZPLANE):
-    global Magboltz
+def SPLANET(Magboltz,T, E1, DCX1, DCY1, DCZ1, AP, BP, TIMLFT, IZPLANE):
+    
     if IZPLANE > 8:
         return
     T2LFT = TIMLFT ** 2

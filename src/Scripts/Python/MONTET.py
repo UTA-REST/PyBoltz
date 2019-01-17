@@ -5,8 +5,8 @@ import math
 from SORTT import SORTT
 
 
-def MONTET():
-    global Magboltz
+def MONTET(Magboltz):
+    
     Magboltz.WX = 0.0
     Magboltz.WY = 0.0
     Magboltz.X = 0.0

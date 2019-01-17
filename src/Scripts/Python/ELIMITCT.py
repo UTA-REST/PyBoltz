@@ -6,8 +6,8 @@ from RAND48 import Rand48
 import numpy as np
 from SORTT import SORTT
 
-def ELIMITCT():
-    global Magboltz
+def ELIMITCT(Magboltz):
+    
     ISAMP = 20
     SMALL = 1.0e-20
     I = 0

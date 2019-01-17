@@ -6,8 +6,8 @@ from PTG import PTG
 from TOFG import TOFG
 
 
-def ALPCLCB():
-    global Magboltz
+def ALPCLCB(Magboltz):
+
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
         IMAX = 5
@@ -52,9 +52,9 @@ def ALPCLCB():
         Magboltz.TFINAL = 7 * Magboltz.TSTEP
         Magboltz.ITFINAL = 7
         JPRT = 0
-        MONTEFTG(JPRT)
-        PTG(JPRT)
-        TOFG(JPRT)
+        MONTEFTG(Magboltz,JPRT)
+        PTG(Magboltz,JPRT)
+        TOFG(Magboltz,JPRT)
         Magboltz.TOFWR = math.sqrt(Magboltz.TOFWRZ ** 2 + Magboltz.TOFWRY ** 2)
         ALP1 = Magboltz.RALPHA / Magboltz.TOFWR * 1e7
         ALP1ER = Magboltz.RALPER * ALP1 / 100
@@ -95,10 +95,10 @@ def ALPCLCB():
     Magboltz.TFINAL = 7 * Magboltz.TSTEP
     Magboltz.ITFINAL = 7
     JPRT = 1
-    MONTEFTG(JPRT)
-    FRIEDLAND()
-    PTG(JPRT)
-    TOFG(JPRT)
+    MONTEFTG(Magboltz,JPRT)
+    FRIEDLAND(Magboltz)
+    PTG(Magboltz,JPRT)
+    TOFG(Magboltz,JPRT)
 
     Magboltz.TOFWR = math.sqrt(Magboltz.TOFWRZ ** 2 + Magboltz.TOFWRY ** 2)
     WRN = Magboltz.TOFWR * 1e5

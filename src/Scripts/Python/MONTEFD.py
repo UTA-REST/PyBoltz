@@ -7,8 +7,8 @@ from TCALC import TCALC
 from goto import with_goto
 
 @with_goto
-def MONTEFD():
-    global Magboltz
+def MONTEFD(Magboltz):
+    
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(4000)
@@ -142,7 +142,7 @@ def MONTEFD():
     label.L15
     if T >= TZSTOP and TOLD < TZSTOP:
         TLFT = TZSTOP
-        SPLANE(T, E1, DCX1, DCY1, DCZ1, AP, BP, TLFT, IZPLANE)
+        SPLANE(Magboltz,T, E1, DCX1, DCY1, DCZ1, AP, BP, TLFT, IZPLANE)
         if IZPLANE >= Magboltz.IZFINAL + 1:
             label.L18
             Magboltz.ZTOT += Magboltz.Z

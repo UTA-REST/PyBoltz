@@ -4,8 +4,8 @@ from COLF import COLF
 from COLFT import COLFT
 
 
-def TOFH(JPRT):
-    global Magboltz
+def TOFH(Magboltz,JPRT):
+    
     DUM = np.zeros(6)
     if Magboltz.ITHRM == 1:
         DUM = COLFT()

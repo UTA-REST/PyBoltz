@@ -2,8 +2,8 @@ import numpy as np
 import math
 
 
-def PT(JPRT):
-    global Magboltz
+def PT(Magboltz,JPRT):
+    
     ANTPL = np.zeros(8)
     ANTPL[0] = float(Magboltz.NETPL[0])
     Magboltz.RT[0] = (np.log(ANTPL[0]) - np.log(float(Magboltz.IPRIM))) / Magboltz.TSTEP

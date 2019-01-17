@@ -3,8 +3,8 @@ import math
 from SORT import SORT
 
 
-def MONTEB():
-    global Magboltz
+def MONTEB(Magboltz):
+    
     STO = np.zeros(2000000)
     XST = np.zeros(2000000)
     YST = np.zeros(2000000)

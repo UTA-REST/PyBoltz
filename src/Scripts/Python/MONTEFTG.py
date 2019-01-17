@@ -6,8 +6,8 @@ from TPLANEG import TPLANEG
 from goto import with_goto
 
 @with_goto
-def MONTEFTG(JPRT):
-    global Magboltz
+def MONTEFTG(Magboltz,JPRT):
+    
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     E = Magboltz.E
@@ -154,7 +154,7 @@ def MONTEFTG(JPRT):
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        TPLANEG( T, E1, CX1, CY1, CZ1, IPLANE - 1)
+        TPLANEG(Magboltz,T, E1, CX1, CY1, CZ1, IPLANE - 1)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:

@@ -1,6 +1,6 @@
 # TODO: figure out Magboltz.LAST
-def SORTT(KGAS, I, R2, IE):
-    global Magboltz
+def SORTT(KGAS, I, R2, IE, Magboltz):
+    
     ISTEP = int(Magboltz.ISIZE[KGAS])
     INCR = 0
     I = 0

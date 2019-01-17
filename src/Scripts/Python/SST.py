@@ -4,8 +4,8 @@ from COLF import COLF
 from COLFT import COLFT
 
 
-def SST():
-    global Magboltz
+def SST(Magboltz):
+    
     ESST = np.zeros(8)
     VDSST = np.zeros(8)
     WSSST = np.zeros(8)

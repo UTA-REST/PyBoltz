@@ -6,8 +6,8 @@ from goto import with_goto
 from TPLANE import TPLANE
 
 @with_goto
-def MONTEFT(JPRT):
-    global Magboltz
+def MONTEFT(Magboltz,JPRT):
+    
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     E = Magboltz.E
@@ -141,7 +141,7 @@ def MONTEFT(JPRT):
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        TPLANE(T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE - 1)
+        TPLANE(Magboltz,T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE - 1)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:

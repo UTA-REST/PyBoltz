@@ -6,8 +6,8 @@ from MONTEFTH import MONTEFTH
 from TOFH import TOFH
 
 
-def ALPCLCC():
-    global Magboltz
+def ALPCLCC(Magboltz):
+
     IMAX = Magboltz.NMAX / 10000000
 
     if IMAX < 5:
@@ -55,9 +55,9 @@ def ALPCLCC():
         Magboltz.TFINAL = 7 * Magboltz.TSTEP
         Magboltz.ITFINAL = 7
         JPRT = 0
-        MONTEFTH(JPRT)
-        PTH(JPRT)
-        TOFH(JPRT)
+        MONTEFTH(Magboltz,JPRT)
+        PTH(Magboltz,JPRT)
+        TOFH(Magboltz,JPRT)
         Magboltz.TOFWR = math.sqrt(Magboltz.TOFWRZ ** 2 + Magboltz.TOFWRY ** 2 + Magboltz.TOFWRX ** 2)
         ALP1 = Magboltz.RALPHA / Magboltz.TOFWR * 1e7
         ALP1ER = Magboltz.RALPER * ALP1 / 100
@@ -99,10 +99,10 @@ def ALPCLCC():
     Magboltz.TFINAL = 7 * Magboltz.TSTEP
     Magboltz.ITFINAL = 7
     JPRT = 1
-    MONTEFTH(JPRT)
-    FRIEDLAND()
-    PTH(JPRT)
-    TOFH(JPRT)
+    MONTEFTH(Magboltz,JPRT)
+    FRIEDLAND(Magboltz)
+    PTH(Magboltz,JPRT)
+    TOFH(Magboltz,JPRT)
 
     Magboltz.TOFWR = math.sqrt(Magboltz.TOFWRZ ** 2 + Magboltz.TOFWRY ** 2 + Magboltz.TOFWRX ** 2)
     WRN = Magboltz.TOFWR * 1e5

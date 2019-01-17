@@ -3,8 +3,8 @@ import math
 from GERJAN import GERJAN
 
 
-def TPLANEHT(T, E1, CX1, CY1, CZ1, IPLANE, EOVBR, F1, RCS, RSN):
-    global Magboltz
+def TPLANEHT(Magboltz,T, E1, CX1, CY1, CZ1, IPLANE, EOVBR, F1, RCS, RSN):
+    
     TIMESP = IPLANE * Magboltz.TSTEP
     TIMLFT = TIMESP - Magboltz.ST
     T2LFT = TIMLFT ** 2

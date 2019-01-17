@@ -6,8 +6,8 @@ import numpy as np
 from SORTT import SORTT
 
 
-def ELIMITT():
-    global Magboltz
+def ELIMITT(Magboltz):
+
     I = 0
     ISAMP = 10
     SMALL = 1.0e-20

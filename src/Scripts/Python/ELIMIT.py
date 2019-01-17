@@ -4,8 +4,8 @@ import numpy as np
 from SORT import SORT
 
 
-def ELIMIT():
-    global Magboltz
+def ELIMIT(Magboltz):
+    
     ISAMP = 10
     SMALL = 1.0e-20
     I = 0

@@ -6,8 +6,8 @@ from RAND48 import Rand48
 from SORTT import SORTT
 
 
-def MONTEBT():
-    global Magboltz
+def MONTEBT(Magboltz):
+
     Magboltz.WX = 0.0
     Magboltz.DWX = 0.0
     Magboltz.X = 0.0

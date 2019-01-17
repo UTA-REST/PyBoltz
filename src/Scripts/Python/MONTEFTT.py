@@ -6,8 +6,8 @@ from TPLANET import TPLANET
 from goto import with_goto
 
 @with_goto
-def MONTEFTT(JPRT):
-    global Magboltz
+def MONTEFTT(Magboltz,JPRT):
+    
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(shape=(6, 4000))
@@ -142,7 +142,7 @@ def MONTEFTT(JPRT):
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        TPLANET(T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE - 1)
+        TPLANET(Magboltz,T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE - 1)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:

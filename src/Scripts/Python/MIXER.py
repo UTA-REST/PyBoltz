@@ -5,8 +5,8 @@ import numpy as np
 from ANG import ANG
 
 
-def MIXER():
-    global Magboltz
+def MIXER(Magboltz):
+    
     ECHARG = 1.602176565e-19
     KEL = np.zeros(shape=(6, 6))
 

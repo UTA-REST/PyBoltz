@@ -1,8 +1,6 @@
 import math
 
-
-def SETUPT():
-    global Magboltz
+def SETUPT(Magboltz):
     Magboltz.API = math.acos(-1.0)
     TWOPI = 2.0 * Magboltz.API
     Magboltz.ARY = 13.60569253
@@ -73,7 +71,6 @@ def SETUPT():
     Magboltz.WB = AWB * Magboltz.BMAG * 1e-12
 
     if Magboltz.BMAG == 0:
-        return Magboltz
+        return
     Magboltz.EOVB = Magboltz.EFIELD *1e-9/Magboltz.BMAG
-    return Magboltz
-
+    return

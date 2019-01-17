@@ -6,8 +6,8 @@ from SORT import SORT
 
 
 # TODO: RANDOM NUMBER GENERATOR KEEPS GOING OVER THE SAME SEQUENCE (INFINTE LOOP)
-def ELIMITB():
-    global Magboltz
+def ELIMITB(Magboltz):
+
     ISAMP = 20
     I = 0
     SMALL = 1.0e-20

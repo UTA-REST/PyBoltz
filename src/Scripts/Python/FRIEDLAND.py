@@ -2,8 +2,8 @@ import numpy as np
 import math
 
 
-def FRIEDLAND():
-    global Magboltz
+def FRIEDLAND(Magboltz):
+    
     FR = np.zeros(4000)
     ALFBAR = 0.0
     ATTBAR = 0.0

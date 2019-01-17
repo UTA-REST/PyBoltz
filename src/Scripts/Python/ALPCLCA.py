@@ -6,8 +6,8 @@ from TOF import TOF
 from MONTEFTA import MONTEFTA
 
 
-def ALPCLCA():
-    global Magboltz
+def ALPCLCA(Magboltz):
+    
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
         IMAX = 5
@@ -52,9 +52,9 @@ def ALPCLCA():
         Magboltz.TFINAL = 7 * Magboltz.TSTEP
         Magboltz.ITFINAL = 7
         JPRT = 0
-        MONTEFTA(JPRT)
-        PT(JPRT)
-        TOF(JPRT)
+        MONTEFTA(Magboltz,JPRT)
+        PT(Magboltz,JPRT)
+        TOF(Magboltz,JPRT)
         ALP1 = Magboltz.RALPHA / Magboltz.TOFWR * 1e7
         ALP1ER = Magboltz.RALPER * ALP1 / 100
         ATT1 = Magboltz.RATTOF / Magboltz.TOFWR * 1e7
@@ -92,10 +92,10 @@ def ALPCLCA():
     Magboltz.ITFINAL = 7
 
     JPRT = 1
-    MONTEFTA(JPRT)
-    FRIEDLAND()
-    PT(JPRT)
-    TOF(JPRT)
+    MONTEFTA(Magboltz,JPRT)
+    FRIEDLAND(Magboltz)
+    PT(Magboltz,JPRT)
+    TOF(Magboltz,JPRT)
 
     WRN = Magboltz.TOFWR * 1e5
     FC1 = WRN / (2 * Magboltz.TOFDL)

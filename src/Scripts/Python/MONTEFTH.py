@@ -3,10 +3,10 @@ import math
 from GERJAN import GERJAN
 from SORT import SORT
 from goto import with_goto
-
+from TPLANEH import TPLANEH
 @with_goto
-def MONTEFTH(JPRT):
-    global Magboltz
+def MONTEFTH(Magboltz,JPRT):
+    
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(4000)
@@ -176,7 +176,7 @@ def MONTEFTH(JPRT):
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        TPLANEH(T, E1, CX1, CY1, CZ1, IPLANE - 1, EOVBR, F1, RCS, RSN)
+        TPLANEH(Magboltz,T, E1, CX1, CY1, CZ1, IPLANE - 1, EOVBR, F1, RCS, RSN)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:

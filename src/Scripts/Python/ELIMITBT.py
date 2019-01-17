@@ -6,8 +6,8 @@ import numpy as np
 from SORTT import SORTT
 
 #TODO: RANDOM NUMBER GENERATOR KEEPS GOING OVER THE SAME SEQUENCE (INFINTE LOOP)
-def ELIMITBT():
-    global Magboltz
+def ELIMITBT(Magboltz):
+    
     ISAMP = 20
     SMALL = 1.0e-20
     EF100 = Magboltz.EFIELD * 100

@@ -4,8 +4,8 @@ import math
 from SORT import SORT
 
 
-def MONTEA():
-    global Magboltz
+def MONTEA(Magboltz):
+    
     STO = np.zeros(2000000)
     XST = np.zeros(2000000)
     YST = np.zeros(2000000)

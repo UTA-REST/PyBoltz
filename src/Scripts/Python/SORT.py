@@ -1,6 +1,6 @@
 # TODO: figure out Magboltz.LAST
-def SORT(I, R2, IE):
-    global Magboltz
+def SORT(I, R2, IE, Magboltz):
+    
     ISTEP = int(Magboltz.ISIZE)
     INCR = 0
     I = 0

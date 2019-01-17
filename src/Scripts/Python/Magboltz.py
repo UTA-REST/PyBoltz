@@ -30,7 +30,6 @@ from ALPCLCA import ALPCLCA
 from ALPCLCC import ALPCLCC
 from ALPCLCB import ALPCLCB
 
-
 class Magboltz:
     def __init__(self):
         self.EOVB = 0.0
@@ -308,7 +307,7 @@ class Magboltz:
 
     def Start(self):
         if self.ITHRM != 0:
-            SETUPT()
+            SETUPT(self)
             if self.EFINAL == 0.0:
                 self.EFINAL = 0.5
                 EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
@@ -316,28 +315,28 @@ class Magboltz:
                     self.EFINAL = 8
                 self.ESTART = self.EFINAL / 50
                 while self.IELOW == 1:
-                    MIXERT()
+                    MIXERT(self)
                     if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        ELIMITT()
+                        ELIMITT(self)
                     elif self.BTHETA == 90:
-                        ELIMITBT()
+                        ELIMITBT(self)
                     else:
-                        ELIMITCT()
+                        ELIMITCT(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         self.ESTART = self.EFINAL / 50
             else:
-                MIXERT()
+                MIXERT(self)
 
             if self.BMAG == 0:
-                MONTET()
+                MONTET(self)
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
-                    MONTEAT()
+                    MONTEAT(self)
                 elif self.BTHETA == 90:
-                    MONTEBT()
+                    MONTEBT(self)
                 else:
-                    MONTECT()
+                    MONTECT(self)
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
@@ -346,13 +345,13 @@ class Magboltz:
             if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 return
             if self.BMAG == 0.0:
-                ALPCALCT()
+                ALPCALCT(self)
             elif self.BTHETA == 0.0 or self.BTHETA == 180:
-                ALPCLCAT()
+                ALPCLCAT(self)
             elif self.BTHETA == 90:
-                ALPCLCBT()
+                ALPCLCBT(self)
             else:
-                ALPCLCCT()
+                ALPCLCCT(self)
         else:
             SETUP()
             if self.EFINAL == 0.0:

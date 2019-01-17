@@ -7,8 +7,8 @@ from goto import with_goto
 
 
 @with_goto
-def MONTEFTA(JPRT):
-    global Magboltz
+def MONTEFTA(Magboltz,JPRT):
+    
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(4000)
@@ -154,7 +154,7 @@ def MONTEFTA(JPRT):
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        TPLANEA(T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE - 1)
+        TPLANEA(Magboltz,T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE - 1)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:

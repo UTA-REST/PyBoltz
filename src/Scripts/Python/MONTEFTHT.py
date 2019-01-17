@@ -572,7 +572,7 @@ def MONTEFTHT(JPRT):
     EPRMBAR = 0.0
     E2PRM = 0.0
     if Magboltz.IPRIM == 1:
-
+        return
     for I in range(int(Magboltz.IPRIM)):
         E2PRM = E2PRM + EPRM[I] * EPRM[I]
         EPRMBAR += EPRM

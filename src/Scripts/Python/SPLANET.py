@@ -5,7 +5,7 @@ import math
 def SPLANET( T, E1, DCX1, DCY1, DCZ1, AP, BP, TIMLFT, IZPLANE):
     global Magboltz
     if IZPLANE > 8:
-
+        return
     T2LFT = TIMLFT ** 2
     A = AP * TIMLFT
     B = BP * T2LFT

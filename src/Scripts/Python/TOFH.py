@@ -4,12 +4,13 @@ from COLF import COLF
 from COLFT import COLFT
 
 
-def TOFH(Magboltz, JPRT):
+def TOFH(JPRT):
+    global Magboltz
     DUM = np.zeros(6)
     if Magboltz.ITHRM == 1:
-        DUM = COLFT(Magboltz)
+        DUM = COLFT()
     if Magboltz.ITHRM == 0:
-        DUM = COLF(Magboltz)
+        DUM = COLF()
     DZTF = np.zeros(8)
     DXTF = np.zeros(8)
     DYTF = np.zeros(8)
@@ -156,4 +157,4 @@ def TOFH(Magboltz, JPRT):
         else:
             Magboltz.RATTOFER = 0.0
 
-    return Magboltz
+

@@ -6,8 +6,9 @@ import numpy as np
 from SORTT import SORTT
 
 
-def ELIMITT(Magboltz):
-
+def ELIMITT():
+    global Magboltz
+    I = 0
     ISAMP = 10
     SMALL = 1.0e-20
     RDUM = Magboltz.RSTART
@@ -85,7 +86,7 @@ def ELIMITT(Magboltz):
             TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
         if IE == 3999:
             Magboltz.IELOW = 1
-            return Magboltz
+            
         TDASH = 0.0
 
         CONST11 = 1 / (CONST9 * math.sqrt(EOK))
@@ -166,4 +167,4 @@ def ELIMITT(Magboltz):
 
     Magboltz.IELOW = 0
 
-    return Magboltz
+    

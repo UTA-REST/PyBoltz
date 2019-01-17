@@ -6,9 +6,11 @@ from RAND48 import Rand48
 import numpy as np
 from SORTT import SORTT
 
-def ELIMITCT(Magboltz):
+def ELIMITCT():
+    global Magboltz
     ISAMP = 20
     SMALL = 1.0e-20
+    I = 0
     API = Magboltz.API
     RTHETA = Magboltz.BTHETA*API/180.0
     EFZ100 = Magboltz.EFIELD*100*math.sin(RTHETA)
@@ -86,7 +88,7 @@ def ELIMITCT(Magboltz):
 
         if IE == 3999:
             Magboltz.IELOW = 1
-            return Magboltz
+
 
         TDASH = 0.0
         CONST11 = 1.0 / (CONST9 * math.sqrt(EOK))

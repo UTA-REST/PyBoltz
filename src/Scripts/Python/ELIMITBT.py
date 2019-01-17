@@ -6,7 +6,8 @@ import numpy as np
 from SORTT import SORTT
 
 #TODO: RANDOM NUMBER GENERATOR KEEPS GOING OVER THE SAME SEQUENCE (INFINTE LOOP)
-def ELIMITBT(Magboltz):
+def ELIMITBT():
+    global Magboltz
     ISAMP = 20
     SMALL = 1.0e-20
     EF100 = Magboltz.EFIELD * 100
@@ -35,6 +36,7 @@ def ELIMITBT(Magboltz):
     EOK = 0
     IE = 0
     E1 = 0
+    I = 0
     EI = 0
     S1 = 0
     S2 = 0
@@ -80,7 +82,7 @@ def ELIMITBT(Magboltz):
             TLIM = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
         if IE == 3999:
             Magboltz.IELOW = 1
-            return Magboltz
+
         TDASH = 0.0
         CONST11 = 1.0 / (CONST9 * math.sqrt(EOK))
         DXCOM = (CX2 - VGX) * CONST11
@@ -159,5 +161,3 @@ def ELIMITBT(Magboltz):
         DCZ1 = CZ1 * CONST11
 
     Magboltz.IELOW = 0
-
-    return Magboltz

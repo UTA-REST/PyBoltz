@@ -5,7 +5,8 @@ import numpy as np
 from ANG import ANG
 
 
-def MIXERT(Magboltz):
+def MIXERT():
+    global Magboltz
     NONE = 1
     ECHARG = 1.602176565e-19
     KEL = np.zeros(shape=(6, 6))
@@ -388,4 +389,4 @@ def MIXERT(Magboltz):
                 Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
         Magboltz.Mixobject = MIXOBJECT
 
-    return Magboltz
+

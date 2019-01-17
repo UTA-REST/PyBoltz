@@ -4,9 +4,11 @@ import numpy as np
 from SORT import SORT
 
 
-def ELIMIT(Magboltz):
+def ELIMIT():
+    global Magboltz
     ISAMP = 10
     SMALL = 1.0e-20
+    I = 0
     RDUM = Magboltz.RSTART
     E1 = Magboltz.ESTART
     N4000 = 4000
@@ -49,7 +51,7 @@ def ELIMIT(Magboltz):
             TEST1 = Magboltz.TCF[IE] / TLIM
         if IE == 3999:
             Magboltz.IELOW = 1
-            return Magboltz
+
         TDASH = 0.0
         CONST6 = math.sqrt(E1 / E)
         DCX2 = DCX1 * CONST6
@@ -117,4 +119,3 @@ def ELIMIT(Magboltz):
             DCX1 = DCX2 * F6 - (F5 / ARGZ) * (DCY2 * F9 + DCX2 * DCZ2 * F8)
 
     Magboltz.IELOW = 0
-    return Magboltz

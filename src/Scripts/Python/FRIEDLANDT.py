@@ -4,7 +4,8 @@ from GERJAN import GERJAN
 from SORTT import SORTT
 
 
-def FRIEDLANDT(Magboltz):
+def FRIEDLANDT():
+    global Magboltz
     FR = np.zeros(4000)
     ALFBAR = 0.0
     ATTBAR = 0.0

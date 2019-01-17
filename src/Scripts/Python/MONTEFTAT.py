@@ -7,10 +7,12 @@ from TPLANEAT import TPLANEAT
 from goto import with_goto
 
 @with_goto
-def MONTEFTAT(Magboltz, JPRT):
+def MONTEFTAT(JPRT):
+    global Magboltz
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(shape=(6, 4000))
+    I=0
     IMBPT = 0
     if JPRT == 0:
         Magboltz.NMAX = Magboltz.NMAXOLD
@@ -153,7 +155,7 @@ def MONTEFTAT(Magboltz, JPRT):
     if T + Magboltz.ST >= TSTOP:
         IPLANE += 1
         TSTOP += Magboltz.TSTEP
-        Magboltz = TPLANEAT(Magboltz, T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE - 1)
+        TPLANEAT(T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE - 1)
         if T + Magboltz.ST >= TSTOP and TSTOP <= Magboltz.TFINAL:
             goto.L15
         if T + Magboltz.ST >= Magboltz.TFINAL:
@@ -282,7 +284,7 @@ def MONTEFTAT(Magboltz, JPRT):
     Magboltz.SPEC[IE] += 1
 
     R2 = Magboltz.RAND48.drand()
-    I = SORTT(KGAS, I, R2, IE)
+    I = SORTT(KGAS, I, R2, IE, Magboltz)
 
     while Magboltz.CF[KGAS][IE][I] < R2:
         I += 1
@@ -539,11 +541,11 @@ def MONTEFTAT(Magboltz, JPRT):
     EPRMBAR = 0.0
     E2PRM = 0.0
     if Magboltz.IPRIM == 1:
-        return Magboltz
+
     for I in range(int(Magboltz.IPRIM)):
         E2PRM = E2PRM + EPRM[I] * EPRM[I]
         EPRMBAR += EPRM
     EBAR = EPRMBAR / (Magboltz.IPRIM)
     EERR = math.sqrt(E2PRM / (Magboltz.IPRIM) - EBAR ** 2)
     # IF ITER >NMAX
-    return Magboltz
+

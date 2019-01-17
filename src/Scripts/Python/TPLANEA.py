@@ -1,7 +1,8 @@
 import math
 
 
-def TPLANEA(Magboltz, T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE):
+def TPLANEA(T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE):
+    global Magboltz
     TIMESP = IPLANE * Magboltz.TSTEP
     TIMLFT = TIMESP - Magboltz.ST
     T2LFT = TIMLFT ** 2
@@ -29,4 +30,4 @@ def TPLANEA(Magboltz, T, E1, CX1, CY1, DCZ1, AP, BP, IPLANE):
     Magboltz.VZTPL[IPLANE] += VZPLANE
     Magboltz.NETPL[IPLANE] += 1
 
-    return Magboltz
+

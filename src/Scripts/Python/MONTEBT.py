@@ -6,7 +6,8 @@ from RAND48 import Rand48
 from SORTT import SORTT
 
 
-def MONTEBT(Magboltz):
+def MONTEBT():
+    global Magboltz
     Magboltz.WX = 0.0
     Magboltz.DWX = 0.0
     Magboltz.X = 0.0
@@ -33,6 +34,7 @@ def MONTEBT(Magboltz):
     SUMYY = 0.0
     SUMZZ = 0.0
     SUMYZ = 0.0
+    I=0
     SUMLS = 0.0
     SUMTS = 0.0
     SUMVX = 0.0
@@ -205,7 +207,7 @@ def MONTEBT(Magboltz):
                 Magboltz.XID = float(ID)
                 NCOL = 0
             R2 = Magboltz.RAND48.drand()
-            I = SORTT(KGAS, I, R2, IE)
+            I = SORTT(KGAS, I, R2, IE, Magboltz)
 
             while Magboltz.CF[KGAS][IE][I] < R2:
                 I += 1
@@ -218,6 +220,7 @@ def MONTEBT(Magboltz):
                 EI = EXTRA + EI
                 IEXTRA += Magboltz.NC0[KGAS][I]
             IPT = Magboltz.IARRY[KGAS][I]
+            print(IPT)
             Magboltz.ICOLL[KGAS][IPT] += 1
             Magboltz.ICOLN[KGAS][I] += 1
             if EOK < EI:
@@ -410,4 +413,4 @@ def MONTEBT(Magboltz):
         Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
     Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
 
-    return Magboltz
+

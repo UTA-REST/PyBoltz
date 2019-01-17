@@ -6,7 +6,8 @@ from RAND48 import Rand48
 from SORTT import SORTT
 
 
-def MONTEAT(Magboltz):
+def MONTEAT():
+    global Magboltz
     Magboltz.WX = 0.0
     Magboltz.WY = 0.0
     Magboltz.X = 0.0
@@ -28,6 +29,7 @@ def MONTEAT(Magboltz):
     SZZOLD = 0.0
     SXXOLD = 0.0
     SYYOLD = 0.0
+    I=0
     SVXOLD = 0.0
     SVYOLD = 0.0
     SME2OLD = 0.0
@@ -194,7 +196,7 @@ def MONTEAT(Magboltz):
                 NCOL = 0
             R2 = Magboltz.RAND48.drand()
 
-            I = SORTT(KGAS, I, R2, IE)
+            I = SORTT(KGAS, I, R2, IE, Magboltz)
 
             while Magboltz.CF[KGAS][IE][I] < R2:
                 I += 1
@@ -360,4 +362,4 @@ def MONTEAT(Magboltz):
         Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
     Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
 
-    return Magboltz
+

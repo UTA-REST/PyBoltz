@@ -3,7 +3,8 @@ import math
 from SORT import SORT
 
 
-def MONTEC(Magboltz):
+def MONTEC():
+    global Magboltz
     STO = np.zeros(2000000)
     XST = np.zeros(2000000)
     YST = np.zeros(2000000)
@@ -14,6 +15,7 @@ def MONTEC(Magboltz):
     AVEST = np.zeros(10)
     DFZZST = np.zeros(10)
     DFXXST = np.zeros(10)
+    I=0
     DFYYST = np.zeros(10)
     DFYZST = np.zeros(10)
     DFXZST = np.zeros(10)
@@ -198,7 +200,7 @@ def MONTEC(Magboltz):
                 Magboltz.XID = float(ID)
                 NCOL = 0
             R2 = Magboltz.RAND48.drand()
-            I = SORT(I, R2, IE)
+            I = SORT(I, R2, IE, Magboltz)
 
             while Magboltz.CF[IE][I] < R2:
                 I += 1
@@ -425,4 +427,4 @@ def MONTEC(Magboltz):
         Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
     Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
 
-    return Magboltz
+    

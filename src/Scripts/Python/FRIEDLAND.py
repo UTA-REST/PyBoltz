@@ -2,7 +2,8 @@ import numpy as np
 import math
 
 
-def FRIEDLAND(Magboltz):
+def FRIEDLAND():
+    global Magboltz
     FR = np.zeros(4000)
     ALFBAR = 0.0
     ATTBAR = 0.0
@@ -20,4 +21,4 @@ def FRIEDLAND(Magboltz):
     ALFBAR /= Magboltz.TTOTS
     ATTBAR /= Magboltz.TTOTS
     # ESTIMATION USING FRIEDLAND
-    return Magboltz
+

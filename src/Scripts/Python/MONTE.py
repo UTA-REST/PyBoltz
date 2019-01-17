@@ -4,7 +4,8 @@ import math
 from SORT import SORT
 
 
-def MONTE(Magboltz):
+def MONTE():
+    global Magboltz
     STO = np.zeros(2000000)
     XST = np.zeros(2000000)
     YST = np.zeros(2000000)
@@ -29,6 +30,7 @@ def MONTE(Magboltz):
     Magboltz.ST = 0.0
     ST1 = 0.0
     ST2 = 0.0
+    I=0
     SUME2 = 0.0
     SUMXX = 0.0
     SUMYY = 0.0
@@ -170,7 +172,7 @@ def MONTE(Magboltz):
 
             R2 = Magboltz.RAND48.drand()
 
-            I = SORT(I, R2, IE)
+            I = SORT(I, R2, IE, Magboltz)
 
             while Magboltz.CF[IE][I] < R2:
                 I += 1
@@ -326,4 +328,4 @@ def MONTE(Magboltz):
         Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
     Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
 
-    return Magboltz
+    

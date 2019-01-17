@@ -308,7 +308,7 @@ class Magboltz:
 
     def Start(self):
         if self.ITHRM != 0:
-            self = SETUPT(self)
+            SETUPT()
             if self.EFINAL == 0.0:
                 self.EFINAL = 0.5
                 EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
@@ -316,28 +316,28 @@ class Magboltz:
                     self.EFINAL = 8
                 self.ESTART = self.EFINAL / 50
                 while self.IELOW == 1:
-                    self = MIXERT(self)
+                    MIXERT()
                     if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        self = ELIMITT(self)
+                        ELIMITT()
                     elif self.BTHETA == 90:
-                        self = ELIMITBT(self)
+                        ELIMITBT()
                     else:
-                        self = ELIMITCT(self)
+                        ELIMITCT()
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         self.ESTART = self.EFINAL / 50
             else:
-                self = MIXERT(self)
+                MIXERT()
 
             if self.BMAG == 0:
-                self = MONTET(self)
+                MONTET()
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
-                    self = MONTEAT(self)
+                    MONTEAT()
                 elif self.BTHETA == 90:
-                    self = MONTEBT(self)
+                    MONTEBT()
                 else:
-                    self = MONTECT(self)
+                    MONTECT()
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
@@ -346,15 +346,15 @@ class Magboltz:
             if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 return
             if self.BMAG == 0.0:
-                self = ALPCALCT(self)
+                ALPCALCT()
             elif self.BTHETA == 0.0 or self.BTHETA == 180:
-                self = ALPCLCAT(self)
+                ALPCLCAT()
             elif self.BTHETA == 90:
-                self = ALPCLCBT(self)
+                ALPCLCBT()
             else:
-                self = ALPCLCCT(self)
+                ALPCLCCT()
         else:
-            self = SETUP(self)
+            SETUP()
             if self.EFINAL == 0.0:
                 self.EFINAL = 0.5
                 EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
@@ -362,28 +362,28 @@ class Magboltz:
                     self.EFINAL = 8
                 self.ESTART = self.EFINAL / 50
                 while self.IELOW == 1:
-                    self = MIXER(self)
+                    MIXER()
                     if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        self = ELIMIT(self)
+                        ELIMIT()
                     elif self.BTHETA == 90:
-                        self = ELIMITB(self)
+                        ELIMITB()
                     else:
-                        self = ELIMITC(self)
+                        ELIMITC()
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         self.ESTART = self.EFINAL / 50
             else:
-                self = MIXER(self)
+                MIXER()
 
             if self.BMAG == 0:
-                self = MONTE(self)
+                MONTE()
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
-                    self = MONTEA(self)
+                    MONTEA()
                 elif self.BTHETA == 90:
-                    self = MONTEB(self)
+                    MONTEB()
                 else:
-                    self = MONTEC(self)
+                    MONTEC()
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
@@ -392,11 +392,11 @@ class Magboltz:
             if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 return
             if self.BMAG == 0.0:
-                self = ALPCALC(self)
+                ALPCALC()
             elif self.BTHETA == 0.0 or self.BTHETA == 180:
-                self = ALPCLCA(self)
+                ALPCLCA()
             elif self.BTHETA == 90:
-                self = ALPCLCB(self)
+                ALPCLCB()
             else:
-                self = ALPCLCC(self)
+                ALPCLCC()
 

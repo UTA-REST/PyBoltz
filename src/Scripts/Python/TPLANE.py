@@ -3,7 +3,8 @@ import math
 from GERJAN import GERJAN
 
 
-def TPLANE(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE):
+def TPLANE(T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE):
+    global Magboltz
     TIMESP = IPLANE * Magboltz.TSTEP
     TIMLFT = TIMESP - Magboltz.ST
     T2LFT = TIMLFT ** 2
@@ -29,4 +30,4 @@ def TPLANE(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE):
     Magboltz.VZTPL[IPLANE] += VZPLANE
     Magboltz.NETPL[IPLANE] += 1
 
-    return Magboltz
+    

@@ -2,7 +2,8 @@ import numpy as np
 import math
 
 
-def COLF(Magboltz):
+def COLF():
+    global Magboltz
     COLL = np.zeros(30)
     k = 0
     for I in range(6):

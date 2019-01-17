@@ -6,8 +6,10 @@ from SORT import SORT
 
 
 # TODO: RANDOM NUMBER GENERATOR KEEPS GOING OVER THE SAME SEQUENCE (INFINTE LOOP)
-def ELIMITB(Magboltz):
+def ELIMITB():
+    global Magboltz
     ISAMP = 20
+    I = 0
     SMALL = 1.0e-20
     EF100 = Magboltz.EFIELD * 100
     RDUM = Magboltz.RSTART
@@ -57,7 +59,7 @@ def ELIMITB(Magboltz):
             TEST1 = Magboltz.TCF[IE] / TLIM
         if IE == 3999:
             Magboltz.IELOW = 1
-            return Magboltz
+            
         CX2 = CX1
         CY2 = (CY1 - Magboltz.EOVB) * COSWT + CZ1 * SINWT + Magboltz.EOVB
         CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
@@ -129,4 +131,3 @@ def ELIMITB(Magboltz):
         CY1 = DCY1 * VTOT
         CZ1 = DCZ1 * VTOT
     Magboltz.IELOW = 0
-    return Magboltz

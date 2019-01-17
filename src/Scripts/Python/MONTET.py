@@ -5,13 +5,15 @@ import math
 from SORTT import SORTT
 
 
-def MONTET(Magboltz):
+def MONTET():
+    global Magboltz
     Magboltz.WX = 0.0
     Magboltz.WY = 0.0
     Magboltz.X = 0.0
     Magboltz.Y = 0.0
     Magboltz.Z = 0.0
     Magboltz.ST = 0.0
+    I=0
     ST1 = 0.0
     ST2 = 0.0
     SUME2 = 0.0
@@ -191,7 +193,7 @@ def MONTET(Magboltz):
 
             R3 = Magboltz.RAND48.drand()
 
-            I = SORTT(KGAS, I, R3, IE)
+            I = SORTT(KGAS, I, R3, IE, Magboltz)
 
             while Magboltz.CF[KGAS][IE][I] < R3:
                 I += 1
@@ -361,4 +363,4 @@ def MONTET(Magboltz):
         Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
     Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
 
-    return Magboltz
+    

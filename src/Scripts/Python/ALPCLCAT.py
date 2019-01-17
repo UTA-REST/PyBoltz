@@ -1,10 +1,13 @@
 import numpy as np
 import math
-from FRIEDLANDT import  FRIEDLANDT
+from FRIEDLANDT import FRIEDLANDT
 from PT import PT
 from MONTEFTAT import MONTEFTAT
 from TOF import TOF
-def ALPCLCAT(Magboltz):
+
+
+def ALPCLCAT():
+    global Magboltz
     IMAX = Magboltz.NMAX / 10000000
     if IMAX < 5:
         IMAX = 5
@@ -49,9 +52,9 @@ def ALPCLCAT(Magboltz):
         Magboltz.TFINAL = 7 * Magboltz.TSTEP
         Magboltz.ITFINAL = 7
         JPRT = 0
-        Magboltz = MONTEFTAT(Magboltz, JPRT)
-        Magboltz = PT(Magboltz, JPRT)
-        Magboltz = TOF(Magboltz, JPRT)
+        MONTEFTAT(JPRT)
+        PT(JPRT)
+        TOF(JPRT)
         ALP1 = Magboltz.RALPHA / Magboltz.TOFWR * 1e7
         ALP1ER = Magboltz.RALPER * ALP1 / 100
         ATT1 = Magboltz.RATTOF / Magboltz.TOFWR * 1e7
@@ -89,10 +92,10 @@ def ALPCLCAT(Magboltz):
     Magboltz.ITFINAL = 7
 
     JPRT = 1
-    Magboltz = MONTEFTAT(Magboltz, JPRT)
-    Magboltz = FRIEDLANDT(Magboltz)
-    Magboltz = PT(Magboltz, JPRT)
-    Magboltz = TOF(Magboltz, JPRT)
+    MONTEFTAT(JPRT)
+    FRIEDLANDT()
+    PT(JPRT)
+    TOF(JPRT)
 
     WRN = Magboltz.TOFWR * 1e5
     FC1 = WRN / (2 * Magboltz.TOFDL)
@@ -103,4 +106,3 @@ def ALPCLCAT(Magboltz):
     Magboltz.ALPER = Magboltz.RALPER * Magboltz.ALPHA / 100
     Magboltz.ATT = Magboltz.RATTOF / Magboltz.TOFWR * 1e7
     Magboltz.ATTER = Magboltz.RATTOFER * Magboltz.ATT / 100
-    return Magboltz

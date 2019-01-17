@@ -2,7 +2,8 @@ import numpy as np
 import math
 
 
-def PTH(Magboltz, JPRT):
+def PTH(JPRT):
+    global Magboltz
     ANTPL = np.zeros(8)
     ANTPL[0] = float(Magboltz.NETPL[0])
     Magboltz.RT[0] = (np.log(ANTPL[0]) - np.log(float(Magboltz.IPRIM))) / Magboltz.TSTEP
@@ -24,4 +25,3 @@ def PTH(Magboltz, JPRT):
         Magboltz.VYPT[I] = 1e9 * Magboltz.VYTPL[I] / ANTPL[I]
         Magboltz.VZPT[I] = 1e9 * Magboltz.VZTPL[I] / ANTPL[I]
         Magboltz.VXPT[I] = 1e9 * Magboltz.VXTPL[I] / ANTPL[I]
-    return Magboltz

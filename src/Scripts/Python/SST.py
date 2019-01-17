@@ -4,7 +4,8 @@ from COLF import COLF
 from COLFT import COLFT
 
 
-def SST(Magboltz):
+def SST():
+    global Magboltz
     ESST = np.zeros(8)
     VDSST = np.zeros(8)
     WSSST = np.zeros(8)
@@ -60,9 +61,9 @@ def SST(Magboltz):
                        2 * Magboltz.ZSTEP)
     DUM = np.zeros(6)
     if Magboltz.ITHRM == 1:
-        DUM = COLFT(Magboltz)
+        DUM = COLFT()
     if Magboltz.ITHRM == 0:
-        DUM = COLF(Magboltz)
+        DUM = COLF()
     FRION = DUM[2]
     FRATT = DUM[3]
     ATTOINT = FRATT / FRION
@@ -190,4 +191,4 @@ def SST(Magboltz):
             Magboltz.ATTERR = 100 * math.sqrt(ATER ** 2 + Magboltz.ATTATER ** 2)
         else:
             Magboltz.ATTERR = 0.0
-    return Magboltz
+    

@@ -2,9 +2,10 @@ import numpy as np
 import math
 
 
-def SPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, TIMLFT, IZPLANE):
+def SPLANET( T, E1, DCX1, DCY1, DCZ1, AP, BP, TIMLFT, IZPLANE):
+    global Magboltz
     if IZPLANE > 8:
-        return Magboltz
+
     T2LFT = TIMLFT ** 2
     A = AP * TIMLFT
     B = BP * T2LFT
@@ -33,4 +34,4 @@ def SPLANET(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, TIMLFT, IZPLANE):
     Magboltz.TSSUM[IZPLANE - 1] += WGHT
     Magboltz.TSSUM2[IZPLANE - 1] += WGHT ** 2
 
-    return Magboltz
+

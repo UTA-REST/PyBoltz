@@ -4,8 +4,10 @@ import numpy as np
 from SORT import SORT
 
 
-def ELIMITC(Magboltz):
+def ELIMITC():
+    global Magboltz
     ISAMP = 10
+    I = 0
     SMALL = 1.0e-20
     RTHETA = Magboltz.BTHETA * math.acos(-1) / 180
     EFZ100 = Magboltz.EFIELD * 100 * math.sin(RTHETA)
@@ -59,7 +61,7 @@ def ELIMITC(Magboltz):
             TEST1 = Magboltz.TCF[IE] / TLIM
         if IE == 3999:
             Magboltz.IELOW = 1
-            return Magboltz
+
         TDASH = 0.0
         CX2 = CX1 + 2 * F1 * T
         CY2 = (CY1 - EOVBR) * COSWT + CZ1 * SINWT + EOVBR
@@ -132,4 +134,4 @@ def ELIMITC(Magboltz):
         CY1 = DCY1 * VTOT
         CZ1 = DCZ1 * VTOT
     Magboltz.IELOW = 0
-    return Magboltz
+

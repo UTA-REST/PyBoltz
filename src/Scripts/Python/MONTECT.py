@@ -6,7 +6,8 @@ from RAND48 import Rand48
 from SORTT import SORTT
 
 
-def MONTECT(Magboltz):
+def MONTECT():
+    global Magboltz
     Magboltz.WX = 0.0
     Magboltz.DWX = 0.0
     Magboltz.X = 0.0
@@ -17,6 +18,7 @@ def MONTECT(Magboltz):
     DIFZZR = 0.0
     DIFYZR = 0.0
     DIFXZR = 0.0
+    I=0
     DIFXYR = 0.0
     Magboltz.ST = 0.0
     ST1 = 0.0
@@ -209,7 +211,7 @@ def MONTECT(Magboltz):
                 Magboltz.XID = float(ID)
                 NCOL = 0
             R2 = Magboltz.RAND48.drand()
-            I = SORTT(KGAS, I, R2, IE)
+            I = SORTT(KGAS, I, R2, IE, Magboltz)
 
             while Magboltz.CF[KGAS][IE][I] < R2:
                 I += 1
@@ -450,4 +452,3 @@ def MONTECT(Magboltz):
         Magboltz.ALPER = 100 * math.sqrt(ANCION) / ANCION
     Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
 
-    return Magboltz

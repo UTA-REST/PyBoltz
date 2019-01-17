@@ -2,7 +2,8 @@ import numpy as np
 import math
 
 
-def COLFT(Magboltz):
+def COLFT():
+    global Magboltz
     NINEL=0
     NELA = 0
     NATT = 0

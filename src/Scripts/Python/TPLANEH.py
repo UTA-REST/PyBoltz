@@ -1,7 +1,8 @@
 import math
 
 
-def TPLANEH(Magboltz, T, E1, CX1, CY1, CZ1, IPLANE, EOVBR, F1, RCS, RSN):
+def TPLANEH( T, E1, CX1, CY1, CZ1, IPLANE, EOVBR, F1, RCS, RSN):
+    global Magboltz
     TIMESP = IPLANE * Magboltz.TSTEP
     TIMLFT = TIMESP - Magboltz.ST
     T2LFT = TIMLFT ** 2
@@ -49,4 +50,4 @@ def TPLANEH(Magboltz, T, E1, CX1, CY1, CZ1, IPLANE, EOVBR, F1, RCS, RSN):
     Magboltz.VYTPL[IPLANE] += VYPLNER
     Magboltz.VXTPL[IPLANE] += VXPLNER
     Magboltz.NETPL[IPLANE] += 1
-    return Magboltz
+

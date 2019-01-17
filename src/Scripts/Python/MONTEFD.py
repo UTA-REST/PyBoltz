@@ -7,7 +7,8 @@ from TCALC import TCALC
 from goto import with_goto
 
 @with_goto
-def MONTEFD(Magboltz):
+def MONTEFD():
+    global Magboltz
     EPRM = np.zeros(10000000)
     IESPECP = np.zeros(100)
     TEMP = np.zeros(4000)
@@ -19,6 +20,7 @@ def MONTEFD(Magboltz):
     R = np.zeros(4)
     I100 = 0
     Magboltz.ZTOT = 0.0
+    I=0
     Magboltz.ZTOTS = 0.0
     Magboltz.TTOT = 0.0
     Magboltz.TTOTS = 0.0
@@ -140,7 +142,7 @@ def MONTEFD(Magboltz):
     label.L15
     if T >= TZSTOP and TOLD < TZSTOP:
         TLFT = TZSTOP
-        Magboltz = SPLANE(Magboltz, T, E1, DCX1, DCY1, DCZ1, AP, BP, TLFT, IZPLANE)
+        SPLANE(T, E1, DCX1, DCY1, DCZ1, AP, BP, TLFT, IZPLANE)
         if IZPLANE >= Magboltz.IZFINAL + 1:
             label.L18
             Magboltz.ZTOT += Magboltz.Z
@@ -265,7 +267,7 @@ def MONTEFD(Magboltz):
     CX1 = DCX1 * CONST7
     CY1 = DCY1 * CONST7
     R2 = Magboltz.RAND48.drand()
-    I = SORT(I, R2, IE)
+    I = SORT(I, R2, IE, Magboltz)
 
     while Magboltz.CF[IE][I] < R2:
         I += 1
@@ -527,11 +529,11 @@ def MONTEFD(Magboltz):
     EPRMBAR = 0.0
     E2PRM = 0.0
     if Magboltz.IPRIM == 1:
-        return Magboltz
+
     for I in range(int(Magboltz.IPRIM)):
         E2PRM = E2PRM + EPRM[I] * EPRM[I]
         EPRMBAR += EPRM
     EBAR = EPRMBAR / (Magboltz.IPRIM)
     EERR = math.sqrt(E2PRM / (Magboltz.IPRIM) - EBAR ** 2)
     # IF ITER >NMAX
-    return Magboltz
+

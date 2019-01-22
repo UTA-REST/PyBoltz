@@ -5,7 +5,9 @@ from RAND48 import Rand48
 
 from SORTT import SORTT
 
+from goto import with_goto
 
+@with_goto
 def MONTEBT(Magboltz):
     print ("MONTEBT ")
     Magboltz.WX = 0.0
@@ -91,71 +93,72 @@ def MONTEBT(Magboltz):
 
     for J1 in range(int(Magboltz.ITMAX)):
         for J2 in range(int(J2M)):
-            while True:
-                R1 = Magboltz.RAND48.drand()
-                T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
-                TDASH = T
-                WBT = Magboltz.WB * T
-                COSWT = math.cos(WBT)
-                SINWT = math.sin(WBT)
-                DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
+            label.L1
+            R1 = Magboltz.RAND48.drand()
+            T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
+            TDASH = T
+            WBT = Magboltz.WB * T
+            COSWT = math.cos(WBT)
+            SINWT = math.sin(WBT)
+            DZ = (CZ1 * SINWT + (Magboltz.EOVB - CY1) * (1 - COSWT)) / Magboltz.WB
 
-                E = E1 + DZ * EF100
+            E = E1 + DZ * EF100
 
-                CX2 = CX1
-                CY2 = (CY1 - Magboltz.EOVB) * COSWT + CZ1 * SINWT + Magboltz.EOVB
-                CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
+            CX2 = CX1
+            CY2 = (CY1 - Magboltz.EOVB) * COSWT + CZ1 * SINWT + Magboltz.EOVB
+            CZ2 = CZ1 * COSWT - (CY1 - Magboltz.EOVB) * SINWT
 
-                CONST6 = math.sqrt(E1 / E)
+            CONST6 = math.sqrt(E1 / E)
+            KGAS = 0
+            R2 = Magboltz.RAND48.drand()
+            if Magboltz.NGAS == 1:
                 KGAS = 0
-                R2 = Magboltz.RAND48.drand()
-                if Magboltz.NGAS == 1:
-                    KGAS = 0
+            else:
+                while (Magboltz.TCFMXG[KGAS] < R2):
+                    KGAS = KGAS + 1
+
+            IMBPT += 1
+            if (IMBPT > 5):
+                Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+                IMBPT = 0
+
+            VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
+            IMBPT += 1
+            VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
+            IMBPT += 1
+            VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
+
+            EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
+            IE = int(EOK / Magboltz.ESTEP)
+            IE = min(IE, 3999)
+
+            R5 = Magboltz.RAND48.drand()
+            TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
+            print (TEST1)
+            print ("R5 = "+str(R5))
+            if R5 > TEST1:
+                Magboltz.NNULL += 1
+                TEST2 = TEMP[KGAS][IE] / Magboltz.TCFMAX[KGAS]
+                if R5 < TEST2:
+                    if Magboltz.NPLAST == 0:
+                        goto.L1
+                    R2 = Magboltz.RAND48.drand()
+                    I = 0
+                    while Magboltz.CFN[KGAS][IE][I] < R2:
+                        I += 1
+
+                    Magboltz.ICOLNN[KGAS][I] += 1
+                    goto.L1
                 else:
-                    while (Magboltz.TCFMXG[KGAS] < R2):
-                        KGAS = KGAS + 1
-
-                IMBPT += 1
-                if (IMBPT > 5):
-                    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
-                    IMBPT = 0
-
-                VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
-                IMBPT += 1
-                VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
-                IMBPT += 1
-                VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
-
-                EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
-                IE = int(EOK / Magboltz.ESTEP)
-                IE = min(IE, 3999)
-
-                R5 = Magboltz.RAND48.drand()
-                TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
-                print (TEST1)
-                print ("R5 = "+str(R5))
-                if R5 > TEST1:
-                    Magboltz.NNULL += 1
-                    TEST2 = TEMP[KGAS][IE] / Magboltz.TCFMAX[KGAS]
-                    if R5 < TEST2:
-                        if Magboltz.NPLAST == 0:
-                            continue
-                        R2 = Magboltz.RAND48.drand()
-                        I = 0
-                        while Magboltz.CFN[KGAS][IE][I] < R2:
-                            I += 1
-
-                        Magboltz.ICOLNN[KGAS][I] += 1
-                        continue
-                    else:
-                        TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / Magboltz.TCFMAX[KGAS]
-                        if R5 < TEST3:
-                            # FAKE IONISATION INCREMENT COUNTER
-                            Magboltz.IFAKE += 1
-                            continue
-                        continue
-                else:
-                    break
+                    TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / Magboltz.TCFMAX[KGAS]
+                    if R5 < TEST3:
+                        # FAKE IONISATION INCREMENT COUNTER
+                        Magboltz.IFAKE += 1
+                        goto.L1
+                    goto.L1
+            else:
+                goto.L2
+            label.L2
             NCOL += 1
             CONST11 = 1 / (CONST9 * math.sqrt(EOK))
             DXCOM = (CX2 - VGX) * CONST11

@@ -7,7 +7,7 @@ from SORTT import SORTT
 
 
 def MONTEBT(Magboltz):
-
+    print ("MONTEBT ")
     Magboltz.WX = 0.0
     Magboltz.DWX = 0.0
     Magboltz.X = 0.0
@@ -84,6 +84,8 @@ def MONTEBT(Magboltz):
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
+    R5 = 1
+    TEST1 = 0
 
     J2M = Magboltz.NMAX / Magboltz.ITMAX
 
@@ -109,8 +111,9 @@ def MONTEBT(Magboltz):
                 R2 = Magboltz.RAND48.drand()
                 if Magboltz.NGAS == 1:
                     KGAS = 0
-                while (Magboltz.TCFMXG[KGAS] < R2):
-                    KGAS = KGAS + 1
+                else:
+                    while (Magboltz.TCFMXG[KGAS] < R2):
+                        KGAS = KGAS + 1
 
                 IMBPT += 1
                 if (IMBPT > 5):
@@ -129,7 +132,8 @@ def MONTEBT(Magboltz):
 
                 R5 = Magboltz.RAND48.drand()
                 TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
-
+                print (TEST1)
+                print ("R5 = "+str(R5))
                 if R5 > TEST1:
                     Magboltz.NNULL += 1
                     TEST2 = TEMP[KGAS][IE] / Magboltz.TCFMAX[KGAS]
@@ -181,27 +185,27 @@ def MONTEBT(Magboltz):
                     NCOLDM = NCOL + KDUM
                     if NCOLDM > Magboltz.NCOLM:
                         NCOLDM = NCOLDM - Magboltz.NCOLM
-                    SDIF = Magboltz.ST - STO[NCOLDM]
-                    SUMXX += ((Magboltz.X - XST[NCOLDM]) ** 2) * T / SDIF
+                    SDIF = Magboltz.ST - STO[NCOLDM-1]
+                    SUMXX += ((Magboltz.X - XST[NCOLDM-1]) ** 2) * T / SDIF
                     KDUM += Magboltz.NCORLN
                     if J1 >= 2:
                         ST1 += T
-                        SUMZZ += ((Magboltz.Z - ZST[NCOLDM] - Magboltz.WZ * SDIF) ** 2) * T / SDIF
-                        SUMYY += ((Magboltz.Y - YST[NCOLDM] - Magboltz.WY * SDIF) ** 2) * T / SDIF
-                        SUMYZ += (Magboltz.Z - ZST[NCOLDM] - Magboltz.WZ * SDIF) * (
-                                Magboltz.Y - YST[NCOLDM] - Magboltz.WY * SDIF) * T / SDIF
+                        SUMZZ += ((Magboltz.Z - ZST[NCOLDM-1] - Magboltz.WZ * SDIF) ** 2) * T / SDIF
+                        SUMYY += ((Magboltz.Y - YST[NCOLDM-1] - Magboltz.WY * SDIF) ** 2) * T / SDIF
+                        SUMYZ += (Magboltz.Z - ZST[NCOLDM-1] - Magboltz.WZ * SDIF) * (
+                                Magboltz.Y - YST[NCOLDM-1] - Magboltz.WY * SDIF) * T / SDIF
                         A2 = (Magboltz.WZ * SDIF) ** 2 + (Magboltz.WY * SDIF) ** 2
-                        B2 = (Magboltz.Z - Magboltz.WZ * SDIF - ZST[NCOLDM]) ** 2 + (
-                                Magboltz.Y - Magboltz.WY * SDIF - YST[NCOLDM]) ** 2
-                        C2 = (Magboltz.Z - ZST[NCOLDM]) ** 2 + (Magboltz.Y - YST[NCOLDM]) ** 2
+                        B2 = (Magboltz.Z - Magboltz.WZ * SDIF - ZST[NCOLDM-1]) ** 2 + (
+                                Magboltz.Y - Magboltz.WY * SDIF - YST[NCOLDM-1]) ** 2
+                        C2 = (Magboltz.Z - ZST[NCOLDM-1]) ** 2 + (Magboltz.Y - YST[NCOLDM-1]) ** 2
                         DL2 = (A2 + B2 - C2) ** 2 / (4 * A2)
                         DT2 = B2 - DL2
                         SUMLS += DL2 * T / SDIF
                         SUMTS += DT2 * T / SDIF
-            XST[NCOL] = Magboltz.X
-            YST[NCOL] = Magboltz.Y
-            ZST[NCOL] = Magboltz.Z
-            STO[NCOL] = Magboltz.ST
+            XST[NCOL-1] = Magboltz.X
+            YST[NCOL-1] = Magboltz.Y
+            ZST[NCOL-1] = Magboltz.Z
+            STO[NCOL-1] = Magboltz.ST
             if NCOL >= Magboltz.NCOLM:
                 ID += 1
                 Magboltz.XID = float(ID)
@@ -220,8 +224,7 @@ def MONTEBT(Magboltz):
                 EI = EXTRA + EI
                 IEXTRA += Magboltz.NC0[KGAS][I]
             IPT = Magboltz.IARRY[KGAS][I]
-            print(IPT)
-            Magboltz.ICOLL[KGAS][IPT] += 1
+            Magboltz.ICOLL[KGAS][int(IPT)] += 1
             Magboltz.ICOLN[KGAS][I] += 1
             if EOK < EI:
                 EI = EOK - 0.0001
@@ -301,7 +304,7 @@ def MONTEBT(Magboltz):
         for IK in range(4000):
             TCFSUM = 0.0
             for KI in range(Magboltz.NGAS):
-                TCFSUM += Magboltz.TCF[KI][IK]
+                TCFSUM += Magboltz.TCF[KI][IK-1]
             EBAR += Magboltz.ES[IK] * Magboltz.SPEC[IK] / TCFSUM
         Magboltz.AVE = EBAR / Magboltz.ST
         WZST[J1] = (Magboltz.Z - ZOLD) / (Magboltz.ST - STOLD) * 1e9
@@ -334,6 +337,7 @@ def MONTEBT(Magboltz):
         SYZOLD = SUMYZ
         SLNOLD = SUMLS
         STROLD = SUMTS
+        print(str(J1))
     TWZST = 0.0
     TWYST = 0.0
     TAVE = 0.0

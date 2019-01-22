@@ -57,7 +57,7 @@ def MIXERT(Magboltz):
 
     NNULL = np.zeros(6)
 
-    Magboltz.ESTEP = Magboltz.EFINAL / Magboltz.NSTEP
+    Magboltz.ESTEP = Magboltz.EFINAL / float(Magboltz.NSTEP)
 
     EHALF = Magboltz.ESTEP / 2
 
@@ -66,6 +66,7 @@ def MIXERT(Magboltz):
         Magboltz.E[i] = EHALF + Magboltz.ESTEP * i
         Magboltz.EROOT[i] = math.sqrt(Magboltz.E[i])
     Magboltz.EROOT[0] = math.sqrt(EHALF)
+    print(Magboltz.EROOT)
     # KIN1 = np.zeros(250)
     # KIN2 = np.zeros(250)
     # KIN3 = np.zeros(250)
@@ -81,6 +82,7 @@ def MIXERT(Magboltz):
                            Magboltz.EFINAL, Magboltz.AKT, Magboltz.ARY, Magboltz.TEMPC, Magboltz.TORR, Magboltz.IPEN,
                            NION, NATT, NNULL)
     MIXOBJECT.Run()
+
     EMASS = 9.10938291e-31
     for IE in range(4000):
         for KGAS in range(Magboltz.NGAS):
@@ -297,9 +299,9 @@ def MIXERT(Magboltz):
 
             for IF in range(1, int(Magboltz.IPLAST[KGAS])):
                 Magboltz.CF[KGAS][IE][IF] = Magboltz.CF[KGAS][IE][IF] + Magboltz.CF[KGAS][IE][IF - 1]
-            Magboltz.FCATT[IE] = Magboltz.FCATT[IE] + Magboltz.EROOT[IE]
-            Magboltz.FCION[IE] = Magboltz.FCION[IE] + Magboltz.EROOT[IE]
-            Magboltz.TCF[KGAS][IE] = Magboltz.TCF[KGAS][IE] + Magboltz.EROOT[IE]
+            Magboltz.FCATT[IE] = Magboltz.FCATT[IE] * Magboltz.EROOT[IE]
+            Magboltz.FCION[IE] = Magboltz.FCION[IE] * Magboltz.EROOT[IE]
+            Magboltz.TCF[KGAS][IE] = Magboltz.TCF[KGAS][IE] * Magboltz.EROOT[IE]
     # CALCULATION OF NULL COLLISION FREQUENCIES
     for IE in range(4000):
         sum = 0
@@ -329,7 +331,7 @@ def MIXERT(Magboltz):
                         Magboltz.CFN[KGAS][IE][IE] = Magboltz.CFN[KGAS][IE][IL] / Magboltz.TCFN[KGAS][IE]
 
                 for IL in range(1, int(Magboltz.NPLAST[KGAS])):
-                    Magboltz.CFN[KGAS][IE][IL] = Magboltz.CFN[KGAS][IE][IL] + Magboltz[KGAS][IE][IL - 1]
+                    Magboltz.CFN[KGAS][IE][IL] = Magboltz.CFN[KGAS][IE][IL] + Magboltz.CFN[KGAS][IE][IL - 1]
                 Magboltz.TCFN[KGAS][IE] = Magboltz.TCFN[KGAS][IE] * Magboltz.EROOT[IE]
     KELSUM = 0
 
@@ -349,7 +351,7 @@ def MIXERT(Magboltz):
     for KGAS in range(Magboltz.NGAS):
         Magboltz.TCFMAX[KGAS] = 0.0
         for IE in range(4000):
-            if Magboltz.TCF[KGAS][IE] + Magboltz.TCFN[KGAS][IE] + FAKEIN > Magboltz.TCFMAX[KGAS]:
+            if Magboltz.TCF[KGAS][IE] + Magboltz.TCFN[KGAS][IE] + FAKEIN >= Magboltz.TCFMAX[KGAS]:
                 Magboltz.TCFMAX[KGAS] = Magboltz.TCF[KGAS][IE] + Magboltz.TCFN[KGAS][IE] + FAKEIN
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
     Magboltz.TCFMX = 0.0
@@ -386,6 +388,5 @@ def MIXERT(Magboltz):
         for KGAS in range(6):
             for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                 Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
-        Magboltz.Mixobject = MIXOBJECT
 
 

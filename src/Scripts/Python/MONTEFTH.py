@@ -307,7 +307,7 @@ def MONTEFTH(Magboltz,JPRT):
             ID += 1
             ITER += 1
             IPRINT += 1
-            Magboltz.ICOLL[IPT] += 1
+            Magboltz.ICOLL[int(IPT)] += 1
             Magboltz.ICOLN[I] += 1
             IT = int(T)
             IT = min(IT, 299)
@@ -369,7 +369,7 @@ def MONTEFTH(Magboltz,JPRT):
     ID += 1
     ITER += 1
     IPRINT += 1
-    Magboltz.ICOLL[IPT] += 1
+    Magboltz.ICOLL[int(IPT)] += 1
     Magboltz.ICOLN[I] += 1
 
     if Magboltz.IPEN != 0:

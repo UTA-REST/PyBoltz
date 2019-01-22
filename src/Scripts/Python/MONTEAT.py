@@ -209,7 +209,7 @@ def MONTEAT(Magboltz):
                 EI = EXTRA + EI
                 IEXTRA += Magboltz.NC0[KGAS][I]
             IPT = Magboltz.IARRY[KGAS][I]
-            Magboltz.ICOLL[KGAS][IPT] += 1
+            Magboltz.ICOLL[KGAS][int(IPT)] += 1
             Magboltz.ICOLN[KGAS][I] += 1
             if EOK < EI:
                 EI = EOK - 0.0001

@@ -201,7 +201,7 @@ def MONTEB(Magboltz):
                 EI = EXTRA + EI
                 IEXTRA += Magboltz.NC0[I]
             IPT = Magboltz.IARRY[I]
-            Magboltz.ICOLL[IPT] += 1
+            Magboltz.ICOLL[int(IPT)] += 1
             Magboltz.ICOLN[I] += 1
             if E < EI:
                 EI = E - 0.0001

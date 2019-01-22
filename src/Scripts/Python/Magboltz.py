@@ -167,7 +167,6 @@ class Magboltz:
         self.ZTOT = 0
         self.TOTT = 0
         self.ZTOTS = 0
-        self.Mixobject = Gasmix()
         self.CONST1 = 0.0
         self.CONST2 = 0.0
         self.CONST3 = 0.0
@@ -255,7 +254,6 @@ class Magboltz:
         self.YS = np.zeros(2000)
         self.ZS = np.zeros(2000)
         self.TS = np.zeros(2000)
-        self.ES = np.zeros(2000)
         self.DCX = np.zeros(2000)
         self.DCY = np.zeros(2000)
         self.DCZ = np.zeros(2000)
@@ -337,6 +335,8 @@ class Magboltz:
                     MONTEBT(self)
                 else:
                     MONTECT(self)
+
+            print("done with montet")
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
@@ -353,7 +353,7 @@ class Magboltz:
             else:
                 ALPCLCCT(self)
         else:
-            SETUP()
+            SETUP(self)
             if self.EFINAL == 0.0:
                 self.EFINAL = 0.5
                 EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
@@ -361,28 +361,28 @@ class Magboltz:
                     self.EFINAL = 8
                 self.ESTART = self.EFINAL / 50
                 while self.IELOW == 1:
-                    MIXER()
+                    MIXER(self)
                     if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        ELIMIT()
+                        ELIMIT(self)
                     elif self.BTHETA == 90:
-                        ELIMITB()
+                        ELIMITB(self)
                     else:
-                        ELIMITC()
+                        ELIMITC(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         self.ESTART = self.EFINAL / 50
             else:
-                MIXER()
+                MIXER(self)
 
             if self.BMAG == 0:
-                MONTE()
+                MONTE(self)
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
-                    MONTEA()
+                    MONTEA(self)
                 elif self.BTHETA == 90:
-                    MONTEB()
+                    MONTEB(self)
                 else:
-                    MONTEC()
+                    MONTEC(self)
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
@@ -391,11 +391,11 @@ class Magboltz:
             if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 return
             if self.BMAG == 0.0:
-                ALPCALC()
+                ALPCALC(self)
             elif self.BTHETA == 0.0 or self.BTHETA == 180:
-                ALPCLCA()
+                ALPCLCA(self)
             elif self.BTHETA == 90:
-                ALPCLCB()
+                ALPCLCB(self)
             else:
-                ALPCLCC()
+                ALPCLCC(self)
 

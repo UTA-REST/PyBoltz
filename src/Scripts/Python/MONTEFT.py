@@ -254,7 +254,7 @@ def MONTEFT(Magboltz,JPRT):
             ID += 1
             ITER += 1
             IPRINT += 1
-            Magboltz.ICOLL[IPT] += 1
+            Magboltz.ICOLL[int(IPT)] += 1
             Magboltz.ICOLN[I] += 1
             IT = int(T)
             IT = min(IT, 299)
@@ -312,7 +312,7 @@ def MONTEFT(Magboltz,JPRT):
     ID += 1
     ITER += 1
     IPRINT += 1
-    Magboltz.ICOLL[IPT] += 1
+    Magboltz.ICOLL[int(IPT)] += 1
     Magboltz.ICOLN[I] += 1
     TPEN = 0
     if Magboltz.IPEN != 0:

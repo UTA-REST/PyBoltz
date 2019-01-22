@@ -329,7 +329,7 @@ def MONTEFDT(Magboltz):
             ID += 1
             ITER += 1
             IPRINT += 1
-            Magboltz.ICOLL[KGAS][IPT] += 1
+            Magboltz.ICOLL[KGAS][int(IPT)] += 1
             Magboltz.ICOLN[KGAS][I] += 1
             IT = int(T)
             IT = min(IT, 299)
@@ -405,7 +405,7 @@ def MONTEFDT(Magboltz):
     ID += 1
     ITER += 1
     IPRINT += 1
-    Magboltz.ICOLL[KGAS][IPT] += 1
+    Magboltz.ICOLL[KGAS][int(IPT)] += 1
     Magboltz.ICOLN[KGAS][I] += 1
 
     if Magboltz.IPEN != 0:

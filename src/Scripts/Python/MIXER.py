@@ -71,6 +71,7 @@ def MIXER(Magboltz):
                            Magboltz.EFINAL, Magboltz.AKT, Magboltz.ARY, Magboltz.TEMPC, Magboltz.TORR, Magboltz.IPEN,
                            NION, NATT, NNULL)
     MIXOBJECT.Run()
+
     EMASS = 9.10938291e-31
 
     for IE in range(4000):
@@ -373,6 +374,5 @@ def MIXER(Magboltz):
         for KGAS in range(6):
             for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                 Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
-        Magboltz.Mixobject = MIXOBJECT
 
 

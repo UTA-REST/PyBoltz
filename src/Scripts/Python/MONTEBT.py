@@ -134,8 +134,6 @@ def MONTEBT(Magboltz):
 
             R5 = Magboltz.RAND48.drand()
             TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
-            print (TEST1)
-            print ("R5 = "+str(R5))
             if R5 > TEST1:
                 Magboltz.NNULL += 1
                 TEST2 = TEMP[KGAS][IE] / Magboltz.TCFMAX[KGAS]

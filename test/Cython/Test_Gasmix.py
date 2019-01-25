@@ -10,7 +10,9 @@ t1 = time.time()
 TestObj = Gasmix()
 NGS = []
 for i in range(6):
-    NGS.append(1)
+    NGS.append(0)
+for i in range(1):
+    NGS[i]=2
 
 EROOT = [0 for  i in range(4000)]
 QT1 = [0 for  i in range(4000)]
@@ -26,7 +28,7 @@ ESTEP = 1.25e-4
 EG = [6.25e-5 + i * (ESTEP) for i in range(4000)]
 EFINAL = 0.5
 AKT = 2.6037269846599997e-2
-ARY = 0
+ARY = 1
 TEMPC = 0
 TORR = 0
 IPEN = 0
@@ -40,7 +42,7 @@ print(TestObj.Gases[1].Q[0][0])
 print(TestObj.Gases[2].Q[0][0])
 print(TestObj.Gases[3].Q[0][0])
 print(TestObj.Gases[4].Q[0][0])
-print(TestObj.Gases[0].Q[0][0])
+print(TestObj.Gases[5].Q[0][0])
 
 print("hi")
 t2 = time.time()

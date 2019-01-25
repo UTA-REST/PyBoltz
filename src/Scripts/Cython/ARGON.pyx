@@ -1,10 +1,18 @@
 import h5py
-import numpy as np
+from libc.math cimport log
+from libc.math cimport sqrt
 import math
+import sys
+from Gas cimport Gas
 
+sys.path.append('../hdf5_python')
 
-def Gas2(object):
+cpdef Gas Gas2(Gas object):
     gd = h5py.File(r"gases.hdf5")
+    cdef double APOL, AA, DD, FF, A1, EMASS2, API, A0, RY, BBCONST, CONST, AM2, C, PSCALE, AUGL3, AUGL2, AUGL1, AUGK
+    cdef int NION, NATT, NIN, NNULL, NBREM, NDATA, NEPSI, NIDATA, NION2, NION3, NKSH, NL1S, NL2S, NL3S, N1S5, NIS4, NIS3, NIS2
+    cdef int N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N2P4, N2P3, N2P2, N2P1, N3D6, N3D5, N3D3, N3D4P, N3D4, N3D1PP, N2S5, N3D1P
+    cdef int N3S1PPPP, N3S1PP, N3S1PPP, N2S3
     APOL = 11.08
     LMAX = 100
     AA = -1.459
@@ -29,6 +37,7 @@ def Gas2(object):
     object.NIN = 44
     object.NNULL = 0
     NBREM = 25
+    cdef int i = 0, j = 0
 
     for i in range(0, 6):
         object.KEL[i] = object.NANISO
@@ -74,26 +83,43 @@ def Gas2(object):
     AMU = 1.660538921e-27
     object.E = [0.0, 1.0, 15.9, 0.0, 0.0, 0.0]
     object.E[1] = 2.0 * EMASS / (39.948 * AMU)
+    cdef double EOBY[7], ISHELL[7], LEGAS[7], WKLM[7]
     EOBY = [9.5, 18.0, 34.0, 110.0, 110.0, 150.0, 1800]
-    object.EION = [15.75961, 43.38928, 84.124, 248.4, 250.6, 326.3, 3205.9]
+
+    object.EION[0:7] = [15.75961, 43.38928, 84.124, 248.4, 250.6, 326.3, 3205.9]
     LEGAS = [0, 0, 0, 1, 1, 1, 1]
     ISHELL = [0, 0, 0, 4, 3, 2, 1]
-    object.NC0 = [0, 1, 2, 2, 2, 3, 4]
-    object.EC0 = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]
+    object.NC0[0:7] = [0, 1, 2, 2, 2, 3, 4]
+    object.EC0[0:7] = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]
     WKLM = [0.0, 0.0, 0.0, 0.00147, 0.00147, 0.00147, 0.12]
-    object.EFL = [0.0, 0.0, 0.0, 232, 235, 310, 2957]
-    object.NG1 = [0, 0, 0, 1, 1, 2, 3]
-    object.EG1 = [0.0, 0.0, 0.0, 210.5, 202.2, 240.8, 2850]
-    object.NG2 = [0.0, 0.0, 0.0, 1, 1, 1, 2]
-    object.EG2 = [0.0, 0.0, 5.0, 5.0, 5.0, 220]
+    object.EFL[0:7] = [0.0, 0.0, 0.0, 232, 235, 310, 2957]
+    object.NG1[0:7] = [0, 0, 0, 1, 1, 2, 3]
+    object.EG1[0:7] = [0.0, 0.0, 0.0, 210.5, 202.2, 240.8, 2850]
+    object.NG2[0:7] = [0.0, 0.0, 0.0, 1, 1, 1, 2]
+    #TODO: typo in magboltz
+    object.EG2[0:7] = [0.0, 0.0, 0.0, 5.0, 5.0, 5.0, 220]
 
-    IOFFION = np.zeros(10)
-    IOFFN = np.zeros(44)
+    cdef int IOFFION[10]
+    IOFFION = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    cdef int IOFFN[44]
+
+    for i in range(44):
+        IOFFN[i] = 0
+
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if object.EG[i] > object.EION[j]:
-                IOFFION[j] = i - 1
+                IOFFION[j] = i
                 break
+    cdef double EIN[250],XEN[117],YSEC[117],YEL[117],XEPS[217],YEPS[217],XENI[75],YENI[75],YENC[75],YEN1[75],XEN2[47]
+    cdef double YEN2[47],XEN3[36],YEN3[36],XKSH[89],YKSH[89],XL1S[101],YL1S[101],XL2S[104],YL2S[104],XL3S[104],YL3S[104]
+    cdef double X1S5[71],Y1S5[71],YEPS1[71],X1S4[79],Y1S4[79],YEPS2[79],X1S3[70],Y1S3[70],YEPS3[70],X1S2[70],Y1S2[70]
+    cdef double YEPS4[70],X2P10[54],Y2P10[54],YEP2P10[54],X2P9[17],Y2P9[17],YEP2P9[17],X2P8[15],Y2P8[15],YEP2P8[15]
+    cdef double X2P7[17],Y2P7[17],YEP2P7[17],X2P6[16],Y2P6[16],YEP2P6[16],X2P5[17],Y2P5[17],YEP2P5[17],X2P4[17],Y2P4[17]
+    cdef double YEP2P4[17],X2P3[17],Y2P3[17],YEP2P3[17],X2P2[16],Y2P2[16],YEP2P2[16],X2P1[17],Y2P1[17],YEP2P1[17],X3D6[19]
+    cdef double Y3D6[19],YEP3D6[19],X3D5[26],Y3D5[26],YEP3D5[26],X3D4P[20],Y3D4P[20],YEP3D4P[20],X3D4[23],Y3D4[23]
+    cdef double YEP3D4[23],X3D3[20],Y3D3[20],YEP3D3[20],X3D1PP[19],Y3D1PP[19],YEP3D1PP[19],X3D1P[16],Y3D1P[16],YEP3D1P[16],X3S1PPPP[21]
+    cdef double Y3S1PPPP[21],YEP3S1PPPP[21],X3S1PPP[16],Y3S1PPP[16],YEP3S1PPP[16],X3S1PP[21],Y3S1PP[21],YEP3S1PP[21],X2S5[19],Y2S5[19],YEP2S5[19],X2S3[19],Y2S3[19],YEP2S3[19]
     EIN = gd['gas2/EIN']
     XEN = gd['gas2/XEN']
     YSEC = gd['gas2/YSEC']
@@ -201,27 +227,29 @@ def Gas2(object):
     for i in range(object.NIN):
         for j in range(4000):
             if object.EG[j] > EIN[i]:
-                IOFFN[i] = j - 1
+                IOFFN[i] = j
                 break
-
-    for I in range(0, object.NSTEP):
+    cdef int I, J
+    cdef double GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
+    cdef double QPSSUM,QDSSUM,TOTSUM,Q1SSUM
+    for I in range(4000):
         EN = object.EG[I]
         # EN=EN+object.ESTEP
         if EN > EIN[0]:
             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
             GAMMA2 = GAMMA1 * GAMMA1
-            BETA = np.sqrt(1.00 - 1.00 / GAMMA2)
+            BETA = sqrt(1.00 - 1.00 / GAMMA2)
             BETA2 = BETA * BETA
         if EN <= 1:
             if EN == 0:
                 QELA = 7.491E-16
                 QMOM = 7.491E-16
             if EN != 0:
-                AK = np.sqrt(EN / object.ARY)
+                AK = sqrt(EN / object.ARY)
                 AK2 = AK * AK
                 AK3 = AK2 * AK
                 AK4 = AK3 * AK
-                AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * np.log(AK)) - (
+                AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (
                         API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
                 AN1 = (API / 15.0) * APOL * AK - A1 * AK3
                 AN2 = API * APOL * AK2 / 105.0
@@ -256,8 +284,8 @@ def Gas2(object):
         for J in range(1, NEPSI):
             if EN < XEPS[j]:
                 break
-        A = (YEPS(J) - YEPS(J - 1)) / (XEPS(J) - XEPS(J - 1))
-        B = (XEPS(J - 1) * YEPS(J) - XEPS(J) * YEPS(J - 1)) / (XEPS(J - 1) - XEPS(J))
+        A = (YEPS[J] - YEPS[J - 1]) / (XEPS[J] - XEPS[J - 1])
+        B = (XEPS[J - 1] * YEPS[J] - XEPS[J] * YEPS[J - 1]) / (XEPS[J - 1] - XEPS[J])
         PQ2 = A * EN + B
         # EPSILON = 1 - PQ2
         PQ2 = 1.0 - PQ2
@@ -270,7 +298,7 @@ def Gas2(object):
         object.PEQION[0][I] = 0.5
 
         if object.NANISO == 2:
-            object.object.PEQIN[0][I] = 0
+            object.PEQIN[0][I] = 0
         if EN > object.EION[0]:
             if EN <= XENI[NIDATA - 1]:
                 j = 0
@@ -284,7 +312,7 @@ def Gas2(object):
             else:
                 # USE BORN BETHE X-SECTION ABOVE XENI[NIDATA] EV
                 X2 = 1 / BETA2
-                X1 = X2 * np.log(BETA2 / (1 - BETA2)) - 1
+                X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
                 object.QION[0][I] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.9466
             if EN > 2 * object.EION[0]:
                 object.PEQION[0][I] = object.PEQEL[0][(I - IOFFION[0])]
@@ -307,7 +335,7 @@ def Gas2(object):
             else:
                 # USE BORN BETHE X-SECTION ABOVE XEN2[NION2] EV
                 X2 = 1 / BETA2
-                X1 = X2 * np.log(BETA2 / (1 - BETA2)) - 1
+                X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
                 object.QION[1][I] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.04448
             if EN > 2 * object.EION[1]:
                 object.PEQION[1][I] = object.PEQEL[1][(I - IOFFION[1])]
@@ -330,7 +358,7 @@ def Gas2(object):
         else:
             # USE BORN BETHE X-SECTION ABOVE XEN3[NION3] EV
             X2 = 1 / BETA2
-            X1 = X2 * np.log(BETA2 / (1 - BETA2)) - 1
+            X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
             object.QION[2][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2) * 0.00987
         if EN > 2 * object.EION[2]:
             object.PEQION[2][I] = object.PEQEL[1][(I - IOFFION[2])]
@@ -414,12 +442,12 @@ def Gas2(object):
                 B = (XENI[j - 1] * YENC[j] - XENI[j] * YENC[j - 1]) / (XENI[j - 1] - XENI[j])
                 object.Q[4][I] = (A * EN + B) * 1.0e-16
             else:
-                object.Q[4][I] = CONST * (AM2 * (X1 - object.DEN(I) / 2.0) + C * X2)
+                object.Q[4][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2)
         QTEMP = object.QION[3][I] + object.QION[4][I] + object.QION[5][I] + object.QION[6][I]
         if object.Q[4][I] == 0.0:
             QCORR = 1.0
         else:
-            QCORR = (Q[4][I] - QTEMP) / object.Q[4][I]
+            QCORR = (object.Q[4][I] - QTEMP) / object.Q[4][I]
         object.QION[0][I] = object.QION[0][I] * QCORR
         object.QION[1][I] = object.QION[1][I] * QCORR
         object.QION[2][I] = object.QION[2][I] * QCORR
@@ -456,7 +484,7 @@ def Gas2(object):
                 object.QIN[1][I] = (A * EN + B) * 1.0e-18
             else:
                 object.QIN[1][I] = 0.0580 / (EIN[1] * BETA2) * (
-                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[1])) - BETA2 - object.DEN[
+                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[1])) - BETA2 - object.DEN[
                     I] / 2.0) * BBCONST * EN / (
                                            EN + object.E[2] + EIN[1])
             if EN > (2.0 * EIN[1]):
@@ -487,7 +515,7 @@ def Gas2(object):
                 object.QIN[3][I] = (A * EN + B) * 1.0e-18
             else:
                 object.QIN[3][I] = 0.2260 / (EIN[3] * BETA2) * (
-                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[3])) - BETA2 - object.DEN[
+                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[3])) - BETA2 - object.DEN[
                     I] / 2.0) * BBCONST * EN / (
                                            EN + object.E[2] + EIN[3])
             if EN > (2.0 * EIN[3]):
@@ -657,7 +685,7 @@ def Gas2(object):
                 object.QIN[15][I] = (A * EN + B) * 1.0e-18
             else:
                 object.QIN[15][I] = 0.0010 / (EIN[15] * BETA2) * (
-                        np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[15])) - BETA2 - object.DEN[
+                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[15])) - BETA2 - object.DEN[
                     I] / 2.0) * BBCONST * EN / (
                                             EN + object.E[2] + EIN[15])
             if EN > (2.0 * EIN[15]):
@@ -736,7 +764,7 @@ def Gas2(object):
         # S states, 2S4 F=0.0257
         if EN > EIN[21]:
             object.QIN[21][I] = 0.0257 / (EIN[21] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[21])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[21])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[21])
             if object.QIN[21][I] < 0:
                 object.QIN[21][I] = 0.0
@@ -760,7 +788,7 @@ def Gas2(object):
         # D states, 3D2 F=0.074
         if EN > EIN[23]:
             object.QIN[23][I] = 0.074 / (EIN[23] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[23])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[23])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[23])
             if object.QIN[23][I] < 0:
                 object.QIN[23][I] = 0.0
@@ -826,7 +854,7 @@ def Gas2(object):
         # S states, 2S2 F=0.011
         if EN > EIN[28]:
             object.QIN[28][I] = 0.011 / (EIN[28] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[28])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[28])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[28])
             if object.QIN[28][I] < 0:
                 object.QIN[28][I] = 0.0
@@ -836,7 +864,7 @@ def Gas2(object):
         # S states, 3S1' F=0.092
         if EN > EIN[29]:
             object.QIN[29][I] = 0.092 / (EIN[29] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[29])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[29])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[29])
             if object.QIN[29][I] < 0:
                 object.QIN[29][I] = 0.0
@@ -846,7 +874,7 @@ def Gas2(object):
         # D states, 4D5 F=0.019
         if EN > EIN[30]:
             object.QIN[30][I] = 0.019 / (EIN[30] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[30])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[30])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[30])
             if object.QIN[30][I] < 0:
                 object.QIN[30][I] = 0.0
@@ -856,7 +884,7 @@ def Gas2(object):
         # S states, 3S4 F=0.0144
         if EN > EIN[31]:
             object.QIN[31][I] = 0.0144 / (EIN[31] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[31])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[31])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[31])
             if object.QIN[31][I] < 0:
                 object.QIN[31][I] = 0.0
@@ -866,7 +894,7 @@ def Gas2(object):
         # D states, 4D2 F=0.0484
         if EN > EIN[32]:
             object.QIN[32][I] = 0.0484 / (EIN[32] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[32])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[32])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[32])
             if object.QIN[32][I] < 0:
                 object.QIN[32][I] = 0.0
@@ -876,7 +904,7 @@ def Gas2(object):
         # S states, 4S1' F=0.0209
         if EN > EIN[33]:
             object.QIN[33][I] = 0.0209 / (EIN[33] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[33])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[33])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[33])
             if object.QIN[33][I] < 0:
                 object.QIN[33][I] = 0.0
@@ -886,7 +914,7 @@ def Gas2(object):
         # S states, 3S2 F=0.022
         if EN > EIN[34]:
             object.QIN[34][I] = 0.022 / (EIN[34] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[34])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[34])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[34])
             if object.QIN[34][I] < 0:
                 object.QIN[34][I] = 0.0
@@ -896,7 +924,7 @@ def Gas2(object):
         # D states, 5D5 F=0.0041
         if EN > EIN[35]:
             object.QIN[35][I] = 0.0041 / (EIN[35] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[35])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[35])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[35])
             if object.QIN[35][I] < 0:
                 object.QIN[35][I] = 0.0
@@ -906,7 +934,7 @@ def Gas2(object):
         # S states, 4S4 F=0.0426
         if EN > EIN[36]:
             object.QIN[36][I] = 0.0426 / (EIN[36] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[36])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[36])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[36])
             if object.QIN[36][I] < 0:
                 object.QIN[36][I] = 0.0
@@ -916,7 +944,7 @@ def Gas2(object):
         # D states, 5D2 F=0.0426
         if EN > EIN[37]:
             object.QIN[37][I] = 0.0426 / (EIN[37] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[37])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[37])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[37])
             if object.QIN[37][I] < 0:
                 object.QIN[37][I] = 0.0
@@ -926,7 +954,7 @@ def Gas2(object):
         # D states, 6D5 F=0.00075
         if EN > EIN[38]:
             object.QIN[38][I] = 0.00075 / (EIN[38] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[38])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[38])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[38])
             if object.QIN[38][I] < 0:
                 object.QIN[38][I] = 0.0
@@ -936,7 +964,7 @@ def Gas2(object):
         # S states, 5S1' F=0.00051
         if EN > EIN[39]:
             object.QIN[39][I] = 0.00051 / (EIN[39] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[39])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[39])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[39])
             if object.QIN[39][I] < 0:
                 object.QIN[39][I] = 0.0
@@ -946,7 +974,7 @@ def Gas2(object):
         # S states, 4S2 F=0.00074
         if EN > EIN[40]:
             object.QIN[40][I] = 0.00074 / (EIN[40] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[40])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[40])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[40])
             if object.QIN[40][I] < 0:
                 object.QIN[40][I] = 0.0
@@ -956,7 +984,7 @@ def Gas2(object):
         # S states, 5S4 F=0.013
         if EN > EIN[41]:
             object.QIN[41][I] = 0.013 / (EIN[41] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[41])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[41])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[41])
             if object.QIN[41][I] < 0:
                 object.QIN[41][I] = 0.0
@@ -966,7 +994,7 @@ def Gas2(object):
         # S states, 6D2 F=0.029
         if EN > EIN[42]:
             object.QIN[42][I] = 0.029 / (EIN[42] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[42])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[42])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[42])
             if object.QIN[42][I] < 0:
                 object.QIN[42][I] = 0.0
@@ -976,7 +1004,7 @@ def Gas2(object):
         # sum higher j=1 states f=0.1315
         if EN > EIN[43]:
             object.QIN[43][I] = 0.1315 / (EIN[43] * BETA2) * (
-                    np.log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[43])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN[43])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + EIN[43])
             if object.QIN[43][I] < 0:
                 object.QIN[43][I] = 0.0

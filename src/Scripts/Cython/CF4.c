@@ -1433,8 +1433,8 @@ static PyObject *__pyx_tuple_;
 /* Late includes */
 
 /* "CF4.pyx":9
- * from Gas cimport Gas
  * sys.path.append('../hdf5_python')
+ * 
  * cpdef Gas Gas1(Gas object):             # <<<<<<<<<<<<<<
  *     gd = h5py.File(r"gases.hdf5", 'r')
  *     cdef double EIN[250]
@@ -1619,7 +1619,7 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
   __Pyx_RefNannySetupContext("Gas1", 0);
 
   /* "CF4.pyx":10
- * sys.path.append('../hdf5_python')
+ * 
  * cpdef Gas Gas1(Gas object):
  *     gd = h5py.File(r"gases.hdf5", 'r')             # <<<<<<<<<<<<<<
  *     cdef double EIN[250]
@@ -2464,7 +2464,7 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
  *     for j in range(0, object.NION):
  *         for i in range(0, NASIZE):             # <<<<<<<<<<<<<<
  *             if (object.EG[i] > object.EION[j]):
- *                 IOFFION[j] = i - 1
+ *                 IOFFION[j] = i
  */
     __pyx_t_21 = __pyx_v_NASIZE;
     __pyx_t_22 = __pyx_t_21;
@@ -2475,7 +2475,7 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
  *     for j in range(0, object.NION):
  *         for i in range(0, NASIZE):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
- *                 IOFFION[j] = i - 1
+ *                 IOFFION[j] = i
  *                 break
  */
       __pyx_t_24 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
@@ -2484,15 +2484,15 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
         /* "CF4.pyx":106
  *         for i in range(0, NASIZE):
  *             if (object.EG[i] > object.EION[j]):
- *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
+ *                 IOFFION[j] = i             # <<<<<<<<<<<<<<
  *                 break
  * 
  */
-        (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
+        (__pyx_v_IOFFION[__pyx_v_j]) = __pyx_v_i;
 
         /* "CF4.pyx":107
  *             if (object.EG[i] > object.EION[j]):
- *                 IOFFION[j] = i - 1
+ *                 IOFFION[j] = i
  *                 break             # <<<<<<<<<<<<<<
  * 
  *     # OFFSET ENERGY FOR DISSOCIATION ANGULAR DISTRIBUTION
@@ -2503,7 +2503,7 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
  *     for j in range(0, object.NION):
  *         for i in range(0, NASIZE):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
- *                 IOFFION[j] = i - 1
+ *                 IOFFION[j] = i
  *                 break
  */
       }
@@ -2535,7 +2535,7 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
  *     for NL in range(10, 46):
  *         for i in range(0, NASIZE):             # <<<<<<<<<<<<<<
  *             if object.EG[i] > abs(EIN[NL]):
- *                 IOFFN[NL] = i - 1
+ *                 IOFFN[NL] = i
  */
     __pyx_t_19 = __pyx_v_NASIZE;
     __pyx_t_20 = __pyx_t_19;
@@ -2546,7 +2546,7 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
  *     for NL in range(10, 46):
  *         for i in range(0, NASIZE):
  *             if object.EG[i] > abs(EIN[NL]):             # <<<<<<<<<<<<<<
- *                 IOFFN[NL] = i - 1
+ *                 IOFFN[NL] = i
  *                 break
  */
       __pyx_t_24 = (((__pyx_v_object->EG[__pyx_v_i]) > fabs((__pyx_v_EIN[__pyx_v_NL]))) != 0);
@@ -2555,15 +2555,15 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
         /* "CF4.pyx":114
  *         for i in range(0, NASIZE):
  *             if object.EG[i] > abs(EIN[NL]):
- *                 IOFFN[NL] = i - 1             # <<<<<<<<<<<<<<
+ *                 IOFFN[NL] = i             # <<<<<<<<<<<<<<
  *                 break
  * 
  */
-        (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
+        (__pyx_v_IOFFN[__pyx_v_NL]) = __pyx_v_i;
 
         /* "CF4.pyx":115
  *             if object.EG[i] > abs(EIN[NL]):
- *                 IOFFN[NL] = i - 1
+ *                 IOFFN[NL] = i
  *                 break             # <<<<<<<<<<<<<<
  * 
  *     # ENTER PENNING TRANSFER FRACTION FOR EACH LEVEL
@@ -2574,7 +2574,7 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
  *     for NL in range(10, 46):
  *         for i in range(0, NASIZE):
  *             if object.EG[i] > abs(EIN[NL]):             # <<<<<<<<<<<<<<
- *                 IOFFN[NL] = i - 1
+ *                 IOFFN[NL] = i
  *                 break
  */
       }
@@ -15819,8 +15819,8 @@ static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *_
   goto __pyx_L0;
 
   /* "CF4.pyx":9
- * from Gas cimport Gas
  * sys.path.append('../hdf5_python')
+ * 
  * cpdef Gas Gas1(Gas object):             # <<<<<<<<<<<<<<
  *     gd = h5py.File(r"gases.hdf5", 'r')
  *     cdef double EIN[250]
@@ -16389,7 +16389,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
   /* "CF4.pyx":10
- * sys.path.append('../hdf5_python')
+ * 
  * cpdef Gas Gas1(Gas object):
  *     gd = h5py.File(r"gases.hdf5", 'r')             # <<<<<<<<<<<<<<
  *     cdef double EIN[250]
@@ -16406,13 +16406,6 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 }
 
 static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
-  /* InitThreads.init */
-  #ifdef WITH_THREAD
-PyEval_InitThreads();
-#endif
-
-if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
-
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
@@ -16705,43 +16698,43 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_h5py, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "CF4.pyx":5
+  /* "CF4.pyx":4
+ * from libc.math cimport log
  * from libc.math cimport sqrt
- * from cython.parallel import prange
  * import math             # <<<<<<<<<<<<<<
  * import sys
  * from Gas cimport Gas
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_math, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_math, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_math, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_math, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "CF4.pyx":6
- * from cython.parallel import prange
+  /* "CF4.pyx":5
+ * from libc.math cimport sqrt
  * import math
  * import sys             # <<<<<<<<<<<<<<
  * from Gas cimport Gas
  * sys.path.append('../hdf5_python')
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "CF4.pyx":8
+  /* "CF4.pyx":7
  * import sys
  * from Gas cimport Gas
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
+ * 
  * cpdef Gas Gas1(Gas object):
- *     gd = h5py.File(r"gases.hdf5", 'r')
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "CF4.pyx":1

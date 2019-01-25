@@ -1,11 +1,11 @@
 import h5py
 from libc.math cimport log
 from libc.math cimport sqrt
-from cython.parallel import prange
 import math
 import sys
 from Gas cimport Gas
 sys.path.append('../hdf5_python')
+
 cpdef Gas Gas1(Gas object):
     gd = h5py.File(r"gases.hdf5", 'r')
     cdef double EIN[250]
@@ -103,7 +103,7 @@ cpdef Gas Gas1(Gas object):
     for j in range(0, object.NION):
         for i in range(0, NASIZE):
             if (object.EG[i] > object.EION[j]):
-                IOFFION[j] = i - 1
+                IOFFION[j] = i
                 break
 
     # OFFSET ENERGY FOR DISSOCIATION ANGULAR DISTRIBUTION
@@ -111,7 +111,7 @@ cpdef Gas Gas1(Gas object):
     for NL in range(10, 46):
         for i in range(0, NASIZE):
             if object.EG[i] > abs(EIN[NL]):
-                IOFFN[NL] = i - 1
+                IOFFN[NL] = i
                 break
 
     # ENTER PENNING TRANSFER FRACTION FOR EACH LEVEL

@@ -5,9 +5,21 @@ from types import MethodType
 import multiprocessing as mp
 from multiprocessing import Pool
 from cython.parallel import *
-cimport numpy
+cimport numpy as np
+import numpy as np
+from Gas cimport Gas
+np.import_array()
 
-from Gas import Gas
+cdef Gas callGASF(Gas GAS):
+
+    if GAS.getNGS() ==1:
+        GAS = Gas1(GAS)
+    elif GAS.getNGS() ==2:
+        GAS = Gas2(GAS)
+
+    return GAS
+
+
 
 class Gasmix:
     Gases = [Gas() for i in range(6)]
@@ -94,18 +106,19 @@ class Gasmix:
             self.Gases[i].IPEN = IPEN
 
     def Run(self):
-        #  result=[]
-        # p = Pool()
-        # for i in range(6):
-        #    if self.Gases[i].NGS != 0:
-        #       result.append( p.apply_async(globals()['Gas' + str(self.Gases[i].NGS)], [self.Gases[i]]))
-        # p.close()
-        # p.join()
-        # for i in range(6):
-        #   if self.Gases[i].NGS != 0:
-        #       self.Gases[i]=result[i].get()
-        cdef int NGS[6]
+        '''result=[]
+        p = Pool()
+        for i in range(6):
+           if self.Gases[i].NGS != 0:
+              result.append( p.apply_async(callGASF(), [self.Gases[i]]))
+        p.close()
+        p.join()
+        for i in range(6):
+          if self.Gases[i].NGS != 0:
+              self.Gases[i]=result[i].get()'''
         cdef int i
-        for i in prange(6,nogil=True):
-            if self.Gases[i].NGS!=0:
-                self.Gases[i] = Gas1(self.Gases[i])
+        for i in range(6):
+            self.Gases[i] = callGASF(self.Gases[i])
+
+
+

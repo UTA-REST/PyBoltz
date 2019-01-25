@@ -844,6 +844,7 @@ struct __pyx_obj_3Gas_Gas;
  */
 struct __pyx_obj_3Gas_Gas {
   PyObject_HEAD
+  struct __pyx_vtabstruct_3Gas_Gas *__pyx_vtab;
   int NGS;
   int NIN;
   int NSTEP;
@@ -893,6 +894,13 @@ struct __pyx_obj_3Gas_Gas {
   double Q[6][0xFA0];
 };
 
+
+
+struct __pyx_vtabstruct_3Gas_Gas {
+  int (*getNGS)(struct __pyx_obj_3Gas_Gas *);
+};
+static struct __pyx_vtabstruct_3Gas_Gas *__pyx_vtabptr_3Gas_Gas;
+static CYTHON_INLINE int __pyx_f_3Gas_3Gas_getNGS(struct __pyx_obj_3Gas_Gas *);
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1150,6 +1158,9 @@ enum __Pyx_ImportType_CheckSize {
 static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name, const char *class_name, size_t size, enum __Pyx_ImportType_CheckSize check_size);
 #endif
 
+/* GetVTable.proto */
+static void* __Pyx_GetVtable(PyObject *dict);
+
 /* Import.proto */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
@@ -1246,6 +1257,7 @@ static int __Pyx_check_binary_version(void);
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
+static CYTHON_INLINE int __pyx_f_3Gas_3Gas_getNGS(struct __pyx_obj_3Gas_Gas *__pyx_v_self); /* proto*/
 
 /* Module declarations from 'libc.math' */
 
@@ -1253,7 +1265,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 static PyTypeObject *__pyx_ptype_3Gas_Gas = 0;
 
 /* Module declarations from 'CF4' */
-static PyObject *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *, int __pyx_skip_dispatch); /*proto*/
+static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *, int __pyx_skip_dispatch); /*proto*/
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
 #define __Pyx_MODULE_NAME "CF4"
 extern int __pyx_module_is_main_CF4;
@@ -1336,6 +1348,7 @@ static const char __pyx_k_gas1_YVBV4[] = "gas1/YVBV4";
 static const char __pyx_k_gas1_YVIB5[] = "gas1/YVIB5";
 static const char __pyx_k_gas1_YVIB6[] = "gas1/YVIB6";
 static const char __pyx_k_gases_hdf5[] = "gases.hdf5";
+static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_hdf5_python[] = "../hdf5_python";
 static const char __pyx_k_OverflowError[] = "OverflowError";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
@@ -1409,6 +1422,7 @@ static PyObject *__pyx_n_s_math;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_path;
 static PyObject *__pyx_n_s_print;
+static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_r;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_sys;
@@ -1421,13 +1435,13 @@ static PyObject *__pyx_tuple_;
 /* "CF4.pyx":9
  * from Gas cimport Gas
  * sys.path.append('../hdf5_python')
- * cpdef Gas1(Gas object):             # <<<<<<<<<<<<<<
+ * cpdef Gas Gas1(Gas object):             # <<<<<<<<<<<<<<
  *     gd = h5py.File(r"gases.hdf5", 'r')
  *     cdef double EIN[250]
  */
 
 static PyObject *__pyx_pw_3CF4_1Gas1(PyObject *__pyx_self, PyObject *__pyx_v_object); /*proto*/
-static PyObject *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *__pyx_v_object, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static struct __pyx_obj_3Gas_Gas *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *__pyx_v_object, CYTHON_UNUSED int __pyx_skip_dispatch) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_EIN[0xFA];
   double __pyx_v_EOBY[12];
@@ -1558,7 +1572,7 @@ static PyObject *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *__pyx_v_object, CY
   double __pyx_v_VSUM;
   double __pyx_v_QIONG;
   double __pyx_v_DISTOT;
-  PyObject *__pyx_r = NULL;
+  struct __pyx_obj_3Gas_Gas *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -1606,7 +1620,7 @@ static PyObject *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *__pyx_v_object, CY
 
   /* "CF4.pyx":10
  * sys.path.append('../hdf5_python')
- * cpdef Gas1(Gas object):
+ * cpdef Gas Gas1(Gas object):
  *     gd = h5py.File(r"gases.hdf5", 'r')             # <<<<<<<<<<<<<<
  *     cdef double EIN[250]
  *     print "HERE"
@@ -15799,15 +15813,15 @@ static PyObject *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *__pyx_v_object, CY
  * 
  *     gd.close()
  */
-  __Pyx_XDECREF(__pyx_r);
+  __Pyx_XDECREF(((PyObject *)__pyx_r));
   __Pyx_INCREF(((PyObject *)__pyx_v_object));
-  __pyx_r = ((PyObject *)__pyx_v_object);
+  __pyx_r = __pyx_v_object;
   goto __pyx_L0;
 
   /* "CF4.pyx":9
  * from Gas cimport Gas
  * sys.path.append('../hdf5_python')
- * cpdef Gas1(Gas object):             # <<<<<<<<<<<<<<
+ * cpdef Gas Gas1(Gas object):             # <<<<<<<<<<<<<<
  *     gd = h5py.File(r"gases.hdf5", 'r')
  *     cdef double EIN[250]
  */
@@ -15830,7 +15844,7 @@ static PyObject *__pyx_f_3CF4_Gas1(struct __pyx_obj_3Gas_Gas *__pyx_v_object, CY
   __Pyx_XDECREF(__pyx_v_XCF2F);
   __Pyx_XDECREF(__pyx_v_YCF2F);
   __Pyx_XDECREF(__pyx_v_YCFF);
-  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_XGIVEREF((PyObject *)__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -15859,7 +15873,7 @@ static PyObject *__pyx_pf_3CF4_Gas1(CYTHON_UNUSED PyObject *__pyx_self, struct _
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("Gas1", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_3CF4_Gas1(__pyx_v_object, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_3CF4_Gas1(__pyx_v_object, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -15872,6 +15886,39 @@ static PyObject *__pyx_pf_3CF4_Gas1(CYTHON_UNUSED PyObject *__pyx_self, struct _
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "Gas.pxd":8
+ *         double PENFRA[30][250], KEL[6], PEQIN[250][4000], PEQEL[6][4000], EB[30], EION[30], PEQION[30][4000], QION[30][4000]
+ *         double KIN[250], EI[250], E[6], QIN[250][4000], Q[6][4000]
+ *     cdef inline int getNGS(self):             # <<<<<<<<<<<<<<
+ *         return self.NGS
+ */
+
+static CYTHON_INLINE int __pyx_f_3Gas_3Gas_getNGS(struct __pyx_obj_3Gas_Gas *__pyx_v_self) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("getNGS", 0);
+
+  /* "Gas.pxd":9
+ *         double KIN[250], EI[250], E[6], QIN[250][4000], Q[6][4000]
+ *     cdef inline int getNGS(self):
+ *         return self.NGS             # <<<<<<<<<<<<<<
+ */
+  __pyx_r = __pyx_v_self->NGS;
+  goto __pyx_L0;
+
+  /* "Gas.pxd":8
+ *         double PENFRA[30][250], KEL[6], PEQIN[250][4000], PEQEL[6][4000], EB[30], EION[30], PEQION[30][4000], QION[30][4000]
+ *         double KIN[250], EI[250], E[6], QIN[250][4000], Q[6][4000]
+ *     cdef inline int getNGS(self):             # <<<<<<<<<<<<<<
+ *         return self.NGS
+ */
+
+  /* function exit code */
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -16319,6 +16366,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_path, __pyx_k_path, sizeof(__pyx_k_path), 0, 0, 1, 1},
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_r, __pyx_k_r, sizeof(__pyx_k_r), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_sys, __pyx_k_sys, sizeof(__pyx_k_sys), 0, 0, 1, 1},
@@ -16342,7 +16390,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "CF4.pyx":10
  * sys.path.append('../hdf5_python')
- * cpdef Gas1(Gas object):
+ * cpdef Gas Gas1(Gas object):
  *     gd = h5py.File(r"gases.hdf5", 'r')             # <<<<<<<<<<<<<<
  *     cdef double EIN[250]
  *     print "HERE"
@@ -16421,6 +16469,7 @@ static int __Pyx_modinit_type_import_code(void) {
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_3Gas_Gas = __Pyx_ImportType(__pyx_t_1, "Gas", "Gas", sizeof(struct __pyx_obj_3Gas_Gas), __Pyx_ImportType_CheckSize_Warn);
    if (!__pyx_ptype_3Gas_Gas) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_vtabptr_3Gas_Gas = (struct __pyx_vtabstruct_3Gas_Gas*)__Pyx_GetVtable(__pyx_ptype_3Gas_Gas->tp_dict); if (unlikely(!__pyx_vtabptr_3Gas_Gas)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -16684,7 +16733,7 @@ if (!__Pyx_RefNanny) {
  * import sys
  * from Gas cimport Gas
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
- * cpdef Gas1(Gas object):
+ * cpdef Gas Gas1(Gas object):
  *     gd = h5py.File(r"gases.hdf5", 'r')
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
@@ -17367,6 +17416,26 @@ bad:
     return NULL;
 }
 #endif
+
+/* GetVTable */
+static void* __Pyx_GetVtable(PyObject *dict) {
+    void* ptr;
+    PyObject *ob = PyObject_GetItem(dict, __pyx_n_s_pyx_vtable);
+    if (!ob)
+        goto bad;
+#if PY_VERSION_HEX >= 0x02070000
+    ptr = PyCapsule_GetPointer(ob, 0);
+#else
+    ptr = PyCObject_AsVoidPtr(ob);
+#endif
+    if (!ptr && !PyErr_Occurred())
+        PyErr_SetString(PyExc_RuntimeError, "invalid vtable found for imported type");
+    Py_DECREF(ob);
+    return ptr;
+bad:
+    Py_XDECREF(ob);
+    return NULL;
+}
 
 /* Import */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {

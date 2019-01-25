@@ -6,7 +6,7 @@ import math
 import sys
 from Gas cimport Gas
 sys.path.append('../hdf5_python')
-cpdef Gas1(Gas object):
+cpdef Gas Gas1(Gas object):
     gd = h5py.File(r"gases.hdf5", 'r')
     cdef double EIN[250]
     print "HERE"

@@ -10,8 +10,8 @@ t1 = time.time()
 TestObj = Gasmix()
 NGS = []
 for i in range(6):
-    NGS.append(0)
-NGS[0]=1
+    NGS.append(1)
+
 EROOT = [0 for  i in range(4000)]
 QT1 = [0 for  i in range(4000)]
 QT2 = [0     for  i in range(4000)]

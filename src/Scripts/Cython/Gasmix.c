@@ -1112,7 +1112,9 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "Gas.pxd":1
+/* "Gas.pxd":6
+ * np.import_array()
+ * 
  * cdef class Gas:             # <<<<<<<<<<<<<<
  *     cdef public:
  *         int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
@@ -1129,11 +1131,6 @@ struct __pyx_obj_3Gas_Gas {
   int NION;
   int IPEN;
   int NGAS;
-  double QT1[0xFA0];
-  double QT2[0xFA0];
-  double QT3[0xFA0];
-  double QT4[0xFA0];
-  double DEN[0xFA0];
   double TORR;
   double TEMPC;
   double ARY;
@@ -1141,32 +1138,37 @@ struct __pyx_obj_3Gas_Gas {
   double AKT;
   double EFINAL;
   double DENS;
-  double EROOT[0xFA0];
-  double EG[0xFA0];
-  double SCLN[10];
-  double QNULL[10][0xFA0];
-  double QATT[8][0xFA0];
-  double NC0[30];
-  double EC0[30];
-  double WK[30];
-  double EFL[30];
-  double NG1[30];
-  double EG1[30];
-  double NG2[30];
-  double EG2[30];
-  double PENFRA[30][0xFA];
-  double KEL[6];
-  double PEQIN[0xFA][0xFA0];
-  double PEQEL[6][0xFA0];
-  double EB[30];
-  double EION[30];
-  double PEQION[30][0xFA0];
-  double QION[30][0xFA0];
-  double KIN[0xFA];
-  double EI[0xFA];
-  double E[6];
-  double QIN[0xFA][0xFA0];
-  double Q[6][0xFA0];
+  PyArrayObject *QIN;
+  PyArrayObject *QT1;
+  PyArrayObject *QT2;
+  PyArrayObject *QT3;
+  PyArrayObject *QT4;
+  PyArrayObject *DEN;
+  PyArrayObject *EROOT;
+  PyArrayObject *EG;
+  PyArrayObject *SCLN;
+  PyArrayObject *QNULL;
+  PyArrayObject *QATT;
+  PyArrayObject *NC0;
+  PyArrayObject *EC0;
+  PyArrayObject *WK;
+  PyArrayObject *EFL;
+  PyArrayObject *NG1;
+  PyArrayObject *EG1;
+  PyArrayObject *NG2;
+  PyArrayObject *EG2;
+  PyArrayObject *PENFRA;
+  PyArrayObject *KEL;
+  PyArrayObject *PEQIN;
+  PyArrayObject *PEQEL;
+  PyArrayObject *EB;
+  PyArrayObject *EION;
+  PyArrayObject *PEQION;
+  PyArrayObject *QION;
+  PyArrayObject *KIN;
+  PyArrayObject *EI;
+  PyArrayObject *E;
+  PyArrayObject *Q;
 };
 
 
@@ -1832,7 +1834,6 @@ static const char __pyx_k_NATT[] = "NATT";
 static const char __pyx_k_NGAS[] = "NGAS";
 static const char __pyx_k_NION[] = "NION";
 static const char __pyx_k_Pool[] = "Pool";
-static const char __pyx_k_QATT[] = "QATT";
 static const char __pyx_k_QION[] = "QION";
 static const char __pyx_k_SCLN[] = "SCLN";
 static const char __pyx_k_TORR[] = "TORR";
@@ -1940,7 +1941,6 @@ static PyObject *__pyx_n_s_PEQIN;
 static PyObject *__pyx_n_s_PEQION;
 static PyObject *__pyx_n_s_Pool;
 static PyObject *__pyx_n_s_Q;
-static PyObject *__pyx_n_s_QATT;
 static PyObject *__pyx_n_s_QIN;
 static PyObject *__pyx_n_s_QION;
 static PyObject *__pyx_n_s_QNULL;
@@ -1983,7 +1983,7 @@ static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_types;
 static PyObject *__pyx_kp_u_unknown_dtype_code_in_numpy_pxd;
 static PyObject *__pyx_pf_6Gasmix_6Gasmix___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_NGS, PyObject *__pyx_v_Q, PyObject *__pyx_v_QIN, PyObject *__pyx_v_NIN, PyObject *__pyx_v_E, PyObject *__pyx_v_EI, PyObject *__pyx_v_KIN, PyObject *__pyx_v_QION, PyObject *__pyx_v_PEQION, PyObject *__pyx_v_EION, PyObject *__pyx_v_EB, PyObject *__pyx_v_PEQEL, PyObject *__pyx_v_PEQIN, PyObject *__pyx_v_KEL, PyObject *__pyx_v_PENFRA, PyObject *__pyx_v_NC0, PyObject *__pyx_v_EC0, PyObject *__pyx_v_WK, PyObject *__pyx_v_EFL, PyObject *__pyx_v_NG1, PyObject *__pyx_v_EG1, PyObject *__pyx_v_NG2, PyObject *__pyx_v_EG2, PyObject *__pyx_v_QATT, PyObject *__pyx_v_QNULL, PyObject *__pyx_v_SCLN, PyObject *__pyx_v_EG, PyObject *__pyx_v_EROOT, PyObject *__pyx_v_QT1, PyObject *__pyx_v_QT2, PyObject *__pyx_v_QT3, PyObject *__pyx_v_QT4, PyObject *__pyx_v_DEN, PyObject *__pyx_v_DENS, PyObject *__pyx_v_NGAS, PyObject *__pyx_v_NSTEP, PyObject *__pyx_v_NANISO, PyObject *__pyx_v_ESTEP, PyObject *__pyx_v_EFINAL, PyObject *__pyx_v_AKT, PyObject *__pyx_v_ARY, PyObject *__pyx_v_TEMPC, PyObject *__pyx_v_TORR, PyObject *__pyx_v_IPEN, PyObject *__pyx_v_NION, PyObject *__pyx_v_NATT, PyObject *__pyx_v_NNULL); /* proto */
+static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_NGS, PyObject *__pyx_v_Q, PyObject *__pyx_v_QIN, PyObject *__pyx_v_NIN, PyObject *__pyx_v_E, PyObject *__pyx_v_EI, PyObject *__pyx_v_KIN, PyObject *__pyx_v_QION, PyObject *__pyx_v_PEQION, PyObject *__pyx_v_EION, PyObject *__pyx_v_EB, PyObject *__pyx_v_PEQEL, PyObject *__pyx_v_PEQIN, PyObject *__pyx_v_KEL, PyObject *__pyx_v_PENFRA, PyObject *__pyx_v_NC0, PyObject *__pyx_v_EC0, PyObject *__pyx_v_WK, PyObject *__pyx_v_EFL, PyObject *__pyx_v_NG1, PyObject *__pyx_v_EG1, PyObject *__pyx_v_NG2, PyObject *__pyx_v_EG2, PyObject *__pyx_v_QNULL, PyObject *__pyx_v_SCLN, PyObject *__pyx_v_EG, PyObject *__pyx_v_EROOT, PyObject *__pyx_v_QT1, PyObject *__pyx_v_QT2, PyObject *__pyx_v_QT3, PyObject *__pyx_v_QT4, PyObject *__pyx_v_DEN, PyObject *__pyx_v_DENS, PyObject *__pyx_v_NGAS, PyObject *__pyx_v_NSTEP, PyObject *__pyx_v_NANISO, PyObject *__pyx_v_ESTEP, PyObject *__pyx_v_EFINAL, PyObject *__pyx_v_AKT, PyObject *__pyx_v_ARY, PyObject *__pyx_v_TEMPC, PyObject *__pyx_v_TORR, PyObject *__pyx_v_IPEN, PyObject *__pyx_v_NION, PyObject *__pyx_v_NATT, PyObject *__pyx_v_NNULL); /* proto */
 static PyObject *__pyx_pf_6Gasmix_6Gasmix_4setCommons(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_NGS, PyObject *__pyx_v_EG, PyObject *__pyx_v_EROOT, PyObject *__pyx_v_QT1, PyObject *__pyx_v_QT2, PyObject *__pyx_v_QT3, PyObject *__pyx_v_QT4, PyObject *__pyx_v_DEN, PyObject *__pyx_v_DENS, PyObject *__pyx_v_NGAS, PyObject *__pyx_v_NSTEP, PyObject *__pyx_v_NANISO, PyObject *__pyx_v_ESTEP, PyObject *__pyx_v_EFINAL, PyObject *__pyx_v_AKT, PyObject *__pyx_v_ARY, PyObject *__pyx_v_TEMPC, PyObject *__pyx_v_TORR, PyObject *__pyx_v_IPEN); /* proto */
 static PyObject *__pyx_pf_6Gasmix_6Gasmix_6Run(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
@@ -2230,7 +2230,7 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix___init__(CYTHON_UNUSED PyObject *__pyx
  * 
  *     def InitWithInfo(self, NGS, Q, QIN, NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL, PEQIN, KEL, PENFRA, NC0, EC0,             # <<<<<<<<<<<<<<
  *                      WK,
- *                      EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
+ *                      EFL, NG1, EG1, NG2, EG2,  QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
  */
 
 /* Python wrapper */
@@ -2261,7 +2261,6 @@ static PyObject *__pyx_pw_6Gasmix_6Gasmix_3InitWithInfo(PyObject *__pyx_self, Py
   PyObject *__pyx_v_EG1 = 0;
   PyObject *__pyx_v_NG2 = 0;
   PyObject *__pyx_v_EG2 = 0;
-  PyObject *__pyx_v_QATT = 0;
   PyObject *__pyx_v_QNULL = 0;
   PyObject *__pyx_v_SCLN = 0;
   PyObject *__pyx_v_EG = 0;
@@ -2289,14 +2288,12 @@ static PyObject *__pyx_pw_6Gasmix_6Gasmix_3InitWithInfo(PyObject *__pyx_self, Py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("InitWithInfo (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_NGS,&__pyx_n_s_Q,&__pyx_n_s_QIN,&__pyx_n_s_NIN,&__pyx_n_s_E,&__pyx_n_s_EI,&__pyx_n_s_KIN,&__pyx_n_s_QION,&__pyx_n_s_PEQION,&__pyx_n_s_EION,&__pyx_n_s_EB,&__pyx_n_s_PEQEL,&__pyx_n_s_PEQIN,&__pyx_n_s_KEL,&__pyx_n_s_PENFRA,&__pyx_n_s_NC0,&__pyx_n_s_EC0,&__pyx_n_s_WK,&__pyx_n_s_EFL,&__pyx_n_s_NG1,&__pyx_n_s_EG1,&__pyx_n_s_NG2,&__pyx_n_s_EG2,&__pyx_n_s_QATT,&__pyx_n_s_QNULL,&__pyx_n_s_SCLN,&__pyx_n_s_EG,&__pyx_n_s_EROOT,&__pyx_n_s_QT1,&__pyx_n_s_QT2,&__pyx_n_s_QT3,&__pyx_n_s_QT4,&__pyx_n_s_DEN,&__pyx_n_s_DENS,&__pyx_n_s_NGAS,&__pyx_n_s_NSTEP,&__pyx_n_s_NANISO,&__pyx_n_s_ESTEP,&__pyx_n_s_EFINAL,&__pyx_n_s_AKT,&__pyx_n_s_ARY,&__pyx_n_s_TEMPC,&__pyx_n_s_TORR,&__pyx_n_s_IPEN,&__pyx_n_s_NION,&__pyx_n_s_NATT,&__pyx_n_s_NNULL,0};
-    PyObject* values[48] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_NGS,&__pyx_n_s_Q,&__pyx_n_s_QIN,&__pyx_n_s_NIN,&__pyx_n_s_E,&__pyx_n_s_EI,&__pyx_n_s_KIN,&__pyx_n_s_QION,&__pyx_n_s_PEQION,&__pyx_n_s_EION,&__pyx_n_s_EB,&__pyx_n_s_PEQEL,&__pyx_n_s_PEQIN,&__pyx_n_s_KEL,&__pyx_n_s_PENFRA,&__pyx_n_s_NC0,&__pyx_n_s_EC0,&__pyx_n_s_WK,&__pyx_n_s_EFL,&__pyx_n_s_NG1,&__pyx_n_s_EG1,&__pyx_n_s_NG2,&__pyx_n_s_EG2,&__pyx_n_s_QNULL,&__pyx_n_s_SCLN,&__pyx_n_s_EG,&__pyx_n_s_EROOT,&__pyx_n_s_QT1,&__pyx_n_s_QT2,&__pyx_n_s_QT3,&__pyx_n_s_QT4,&__pyx_n_s_DEN,&__pyx_n_s_DENS,&__pyx_n_s_NGAS,&__pyx_n_s_NSTEP,&__pyx_n_s_NANISO,&__pyx_n_s_ESTEP,&__pyx_n_s_EFINAL,&__pyx_n_s_AKT,&__pyx_n_s_ARY,&__pyx_n_s_TEMPC,&__pyx_n_s_TORR,&__pyx_n_s_IPEN,&__pyx_n_s_NION,&__pyx_n_s_NATT,&__pyx_n_s_NNULL,0};
+    PyObject* values[47] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
-        case 48: values[47] = PyTuple_GET_ITEM(__pyx_args, 47);
-        CYTHON_FALLTHROUGH;
         case 47: values[46] = PyTuple_GET_ITEM(__pyx_args, 46);
         CYTHON_FALLTHROUGH;
         case 46: values[45] = PyTuple_GET_ITEM(__pyx_args, 45);
@@ -2403,289 +2400,283 @@ static PyObject *__pyx_pw_6Gasmix_6Gasmix_3InitWithInfo(PyObject *__pyx_self, Py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NGS)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 1); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 1); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_Q)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 2); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 2); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QIN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 3); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 3); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NIN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 4); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 4); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_E)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 5); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 5); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EI)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 6); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 6); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_KIN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 7); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 7); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
         if (likely((values[8] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QION)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 8); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 8); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  9:
         if (likely((values[9] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_PEQION)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 9); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 9); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 10:
         if (likely((values[10] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EION)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 10); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 10); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 11:
         if (likely((values[11] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EB)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 11); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 11); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 12:
         if (likely((values[12] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_PEQEL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 12); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 12); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 13:
         if (likely((values[13] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_PEQIN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 13); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 13); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 14:
         if (likely((values[14] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_KEL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 14); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 14); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 15:
         if (likely((values[15] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_PENFRA)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 15); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 15); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 16:
         if (likely((values[16] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NC0)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 16); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 16); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 17:
         if (likely((values[17] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EC0)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 17); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 17); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 18:
         if (likely((values[18] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_WK)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 18); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 18); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 19:
         if (likely((values[19] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EFL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 19); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 19); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 20:
         if (likely((values[20] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NG1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 20); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 20); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 21:
         if (likely((values[21] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EG1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 21); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 21); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 22:
         if (likely((values[22] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NG2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 22); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 22); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 23:
         if (likely((values[23] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EG2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 23); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 23); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 24:
-        if (likely((values[24] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QATT)) != 0)) kw_args--;
+        if (likely((values[24] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QNULL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 24); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 24); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 25:
-        if (likely((values[25] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QNULL)) != 0)) kw_args--;
+        if (likely((values[25] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_SCLN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 25); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 25); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 26:
-        if (likely((values[26] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_SCLN)) != 0)) kw_args--;
+        if (likely((values[26] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EG)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 26); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 26); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 27:
-        if (likely((values[27] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EG)) != 0)) kw_args--;
+        if (likely((values[27] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EROOT)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 27); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 27); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 28:
-        if (likely((values[28] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EROOT)) != 0)) kw_args--;
+        if (likely((values[28] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 28); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 28); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 29:
-        if (likely((values[29] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT1)) != 0)) kw_args--;
+        if (likely((values[29] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 29); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 29); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 30:
-        if (likely((values[30] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT2)) != 0)) kw_args--;
+        if (likely((values[30] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT3)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 30); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 30); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 31:
-        if (likely((values[31] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT3)) != 0)) kw_args--;
+        if (likely((values[31] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT4)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 31); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 31); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 32:
-        if (likely((values[32] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT4)) != 0)) kw_args--;
+        if (likely((values[32] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_DEN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 32); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 32); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 33:
-        if (likely((values[33] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_DEN)) != 0)) kw_args--;
+        if (likely((values[33] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_DENS)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 33); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 33); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 34:
-        if (likely((values[34] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_DENS)) != 0)) kw_args--;
+        if (likely((values[34] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NGAS)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 34); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 34); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 35:
-        if (likely((values[35] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NGAS)) != 0)) kw_args--;
+        if (likely((values[35] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NSTEP)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 35); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 35); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 36:
-        if (likely((values[36] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NSTEP)) != 0)) kw_args--;
+        if (likely((values[36] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NANISO)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 36); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 36); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 37:
-        if (likely((values[37] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NANISO)) != 0)) kw_args--;
+        if (likely((values[37] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ESTEP)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 37); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 37); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 38:
-        if (likely((values[38] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ESTEP)) != 0)) kw_args--;
+        if (likely((values[38] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EFINAL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 38); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 38); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 39:
-        if (likely((values[39] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EFINAL)) != 0)) kw_args--;
+        if (likely((values[39] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_AKT)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 39); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 39); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 40:
-        if (likely((values[40] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_AKT)) != 0)) kw_args--;
+        if (likely((values[40] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ARY)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 40); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 40); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 41:
-        if (likely((values[41] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ARY)) != 0)) kw_args--;
+        if (likely((values[41] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_TEMPC)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 41); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 41); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 42:
-        if (likely((values[42] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_TEMPC)) != 0)) kw_args--;
+        if (likely((values[42] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_TORR)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 42); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 42); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 43:
-        if (likely((values[43] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_TORR)) != 0)) kw_args--;
+        if (likely((values[43] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_IPEN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 43); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 43); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 44:
-        if (likely((values[44] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_IPEN)) != 0)) kw_args--;
+        if (likely((values[44] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NION)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 44); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 44); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 45:
-        if (likely((values[45] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NION)) != 0)) kw_args--;
+        if (likely((values[45] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NATT)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 45); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 45); __PYX_ERR(0, 30, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 46:
-        if (likely((values[46] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NATT)) != 0)) kw_args--;
+        if (likely((values[46] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NNULL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 46); __PYX_ERR(0, 30, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case 47:
-        if (likely((values[47] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NNULL)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, 47); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, 46); __PYX_ERR(0, 30, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "InitWithInfo") < 0)) __PYX_ERR(0, 30, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 48) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 47) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -2735,7 +2726,6 @@ static PyObject *__pyx_pw_6Gasmix_6Gasmix_3InitWithInfo(PyObject *__pyx_self, Py
       values[44] = PyTuple_GET_ITEM(__pyx_args, 44);
       values[45] = PyTuple_GET_ITEM(__pyx_args, 45);
       values[46] = PyTuple_GET_ITEM(__pyx_args, 46);
-      values[47] = PyTuple_GET_ITEM(__pyx_args, 47);
     }
     __pyx_v_self = values[0];
     __pyx_v_NGS = values[1];
@@ -2761,47 +2751,46 @@ static PyObject *__pyx_pw_6Gasmix_6Gasmix_3InitWithInfo(PyObject *__pyx_self, Py
     __pyx_v_EG1 = values[21];
     __pyx_v_NG2 = values[22];
     __pyx_v_EG2 = values[23];
-    __pyx_v_QATT = values[24];
-    __pyx_v_QNULL = values[25];
-    __pyx_v_SCLN = values[26];
-    __pyx_v_EG = values[27];
-    __pyx_v_EROOT = values[28];
-    __pyx_v_QT1 = values[29];
-    __pyx_v_QT2 = values[30];
-    __pyx_v_QT3 = values[31];
-    __pyx_v_QT4 = values[32];
-    __pyx_v_DEN = values[33];
-    __pyx_v_DENS = values[34];
-    __pyx_v_NGAS = values[35];
-    __pyx_v_NSTEP = values[36];
-    __pyx_v_NANISO = values[37];
-    __pyx_v_ESTEP = values[38];
-    __pyx_v_EFINAL = values[39];
-    __pyx_v_AKT = values[40];
-    __pyx_v_ARY = values[41];
-    __pyx_v_TEMPC = values[42];
-    __pyx_v_TORR = values[43];
-    __pyx_v_IPEN = values[44];
-    __pyx_v_NION = values[45];
-    __pyx_v_NATT = values[46];
-    __pyx_v_NNULL = values[47];
+    __pyx_v_QNULL = values[24];
+    __pyx_v_SCLN = values[25];
+    __pyx_v_EG = values[26];
+    __pyx_v_EROOT = values[27];
+    __pyx_v_QT1 = values[28];
+    __pyx_v_QT2 = values[29];
+    __pyx_v_QT3 = values[30];
+    __pyx_v_QT4 = values[31];
+    __pyx_v_DEN = values[32];
+    __pyx_v_DENS = values[33];
+    __pyx_v_NGAS = values[34];
+    __pyx_v_NSTEP = values[35];
+    __pyx_v_NANISO = values[36];
+    __pyx_v_ESTEP = values[37];
+    __pyx_v_EFINAL = values[38];
+    __pyx_v_AKT = values[39];
+    __pyx_v_ARY = values[40];
+    __pyx_v_TEMPC = values[41];
+    __pyx_v_TORR = values[42];
+    __pyx_v_IPEN = values[43];
+    __pyx_v_NION = values[44];
+    __pyx_v_NATT = values[45];
+    __pyx_v_NNULL = values[46];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 48, 48, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 30, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("InitWithInfo", 1, 47, 47, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 30, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("Gasmix.Gasmix.InitWithInfo", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(__pyx_self, __pyx_v_self, __pyx_v_NGS, __pyx_v_Q, __pyx_v_QIN, __pyx_v_NIN, __pyx_v_E, __pyx_v_EI, __pyx_v_KIN, __pyx_v_QION, __pyx_v_PEQION, __pyx_v_EION, __pyx_v_EB, __pyx_v_PEQEL, __pyx_v_PEQIN, __pyx_v_KEL, __pyx_v_PENFRA, __pyx_v_NC0, __pyx_v_EC0, __pyx_v_WK, __pyx_v_EFL, __pyx_v_NG1, __pyx_v_EG1, __pyx_v_NG2, __pyx_v_EG2, __pyx_v_QATT, __pyx_v_QNULL, __pyx_v_SCLN, __pyx_v_EG, __pyx_v_EROOT, __pyx_v_QT1, __pyx_v_QT2, __pyx_v_QT3, __pyx_v_QT4, __pyx_v_DEN, __pyx_v_DENS, __pyx_v_NGAS, __pyx_v_NSTEP, __pyx_v_NANISO, __pyx_v_ESTEP, __pyx_v_EFINAL, __pyx_v_AKT, __pyx_v_ARY, __pyx_v_TEMPC, __pyx_v_TORR, __pyx_v_IPEN, __pyx_v_NION, __pyx_v_NATT, __pyx_v_NNULL);
+  __pyx_r = __pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(__pyx_self, __pyx_v_self, __pyx_v_NGS, __pyx_v_Q, __pyx_v_QIN, __pyx_v_NIN, __pyx_v_E, __pyx_v_EI, __pyx_v_KIN, __pyx_v_QION, __pyx_v_PEQION, __pyx_v_EION, __pyx_v_EB, __pyx_v_PEQEL, __pyx_v_PEQIN, __pyx_v_KEL, __pyx_v_PENFRA, __pyx_v_NC0, __pyx_v_EC0, __pyx_v_WK, __pyx_v_EFL, __pyx_v_NG1, __pyx_v_EG1, __pyx_v_NG2, __pyx_v_EG2, __pyx_v_QNULL, __pyx_v_SCLN, __pyx_v_EG, __pyx_v_EROOT, __pyx_v_QT1, __pyx_v_QT2, __pyx_v_QT3, __pyx_v_QT4, __pyx_v_DEN, __pyx_v_DENS, __pyx_v_NGAS, __pyx_v_NSTEP, __pyx_v_NANISO, __pyx_v_ESTEP, __pyx_v_EFINAL, __pyx_v_AKT, __pyx_v_ARY, __pyx_v_TEMPC, __pyx_v_TORR, __pyx_v_IPEN, __pyx_v_NION, __pyx_v_NATT, __pyx_v_NNULL);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_NGS, PyObject *__pyx_v_Q, PyObject *__pyx_v_QIN, PyObject *__pyx_v_NIN, PyObject *__pyx_v_E, PyObject *__pyx_v_EI, PyObject *__pyx_v_KIN, PyObject *__pyx_v_QION, PyObject *__pyx_v_PEQION, PyObject *__pyx_v_EION, PyObject *__pyx_v_EB, PyObject *__pyx_v_PEQEL, PyObject *__pyx_v_PEQIN, PyObject *__pyx_v_KEL, PyObject *__pyx_v_PENFRA, PyObject *__pyx_v_NC0, PyObject *__pyx_v_EC0, PyObject *__pyx_v_WK, PyObject *__pyx_v_EFL, PyObject *__pyx_v_NG1, PyObject *__pyx_v_EG1, PyObject *__pyx_v_NG2, PyObject *__pyx_v_EG2, PyObject *__pyx_v_QATT, PyObject *__pyx_v_QNULL, PyObject *__pyx_v_SCLN, PyObject *__pyx_v_EG, PyObject *__pyx_v_EROOT, PyObject *__pyx_v_QT1, PyObject *__pyx_v_QT2, PyObject *__pyx_v_QT3, PyObject *__pyx_v_QT4, PyObject *__pyx_v_DEN, PyObject *__pyx_v_DENS, PyObject *__pyx_v_NGAS, PyObject *__pyx_v_NSTEP, PyObject *__pyx_v_NANISO, PyObject *__pyx_v_ESTEP, PyObject *__pyx_v_EFINAL, PyObject *__pyx_v_AKT, PyObject *__pyx_v_ARY, PyObject *__pyx_v_TEMPC, PyObject *__pyx_v_TORR, PyObject *__pyx_v_IPEN, PyObject *__pyx_v_NION, PyObject *__pyx_v_NATT, PyObject *__pyx_v_NNULL) {
+static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_NGS, PyObject *__pyx_v_Q, PyObject *__pyx_v_QIN, PyObject *__pyx_v_NIN, PyObject *__pyx_v_E, PyObject *__pyx_v_EI, PyObject *__pyx_v_KIN, PyObject *__pyx_v_QION, PyObject *__pyx_v_PEQION, PyObject *__pyx_v_EION, PyObject *__pyx_v_EB, PyObject *__pyx_v_PEQEL, PyObject *__pyx_v_PEQIN, PyObject *__pyx_v_KEL, PyObject *__pyx_v_PENFRA, PyObject *__pyx_v_NC0, PyObject *__pyx_v_EC0, PyObject *__pyx_v_WK, PyObject *__pyx_v_EFL, PyObject *__pyx_v_NG1, PyObject *__pyx_v_EG1, PyObject *__pyx_v_NG2, PyObject *__pyx_v_EG2, PyObject *__pyx_v_QNULL, PyObject *__pyx_v_SCLN, PyObject *__pyx_v_EG, PyObject *__pyx_v_EROOT, PyObject *__pyx_v_QT1, PyObject *__pyx_v_QT2, PyObject *__pyx_v_QT3, PyObject *__pyx_v_QT4, PyObject *__pyx_v_DEN, PyObject *__pyx_v_DENS, PyObject *__pyx_v_NGAS, PyObject *__pyx_v_NSTEP, PyObject *__pyx_v_NANISO, PyObject *__pyx_v_ESTEP, PyObject *__pyx_v_EFINAL, PyObject *__pyx_v_AKT, PyObject *__pyx_v_ARY, PyObject *__pyx_v_TEMPC, PyObject *__pyx_v_TORR, PyObject *__pyx_v_IPEN, PyObject *__pyx_v_NION, PyObject *__pyx_v_NATT, PyObject *__pyx_v_NNULL) {
   long __pyx_v_i;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2812,7 +2801,7 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *
   __Pyx_RefNannySetupContext("InitWithInfo", 0);
 
   /* "Gasmix.pyx":34
- *                      EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
+ *                      EFL, NG1, EG1, NG2, EG2,  QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
  *                      NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN, NION, NATT, NNULL):
  *         self.__init__()             # <<<<<<<<<<<<<<
  *         # First Setup
@@ -3230,7 +3219,7 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *
  *             self.Gases[i].EG1 = EG1[i]
  *             self.Gases[i].NG2 = NG2[i]             # <<<<<<<<<<<<<<
  *             self.Gases[i].EG2 = EG2[i]
- *             self.Gases[i].QATT = QATT[i]
+ *             self.Gases[i].QNULL = QNULL[i]
  */
     __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_NG2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -3247,8 +3236,8 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *
  *             self.Gases[i].EG1 = EG1[i]
  *             self.Gases[i].NG2 = NG2[i]
  *             self.Gases[i].EG2 = EG2[i]             # <<<<<<<<<<<<<<
- *             self.Gases[i].QATT = QATT[i]
  *             self.Gases[i].QNULL = QNULL[i]
+ *             self.Gases[i].SCLN = SCLN[i]
  */
     __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_EG2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -3264,380 +3253,362 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *
     /* "Gasmix.pyx":60
  *             self.Gases[i].NG2 = NG2[i]
  *             self.Gases[i].EG2 = EG2[i]
- *             self.Gases[i].QATT = QATT[i]             # <<<<<<<<<<<<<<
- *             self.Gases[i].QNULL = QNULL[i]
+ *             self.Gases[i].QNULL = QNULL[i]             # <<<<<<<<<<<<<<
  *             self.Gases[i].SCLN = SCLN[i]
+ *             self.Gases[i].EG = EG
  */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_QATT, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_QNULL, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_QATT, __pyx_t_2) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_QNULL, __pyx_t_2) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "Gasmix.pyx":61
  *             self.Gases[i].EG2 = EG2[i]
- *             self.Gases[i].QATT = QATT[i]
- *             self.Gases[i].QNULL = QNULL[i]             # <<<<<<<<<<<<<<
- *             self.Gases[i].SCLN = SCLN[i]
+ *             self.Gases[i].QNULL = QNULL[i]
+ *             self.Gases[i].SCLN = SCLN[i]             # <<<<<<<<<<<<<<
  *             self.Gases[i].EG = EG
+ *             self.Gases[i].EROOT = EROOT
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_QNULL, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_SCLN, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_QNULL, __pyx_t_1) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_SCLN, __pyx_t_1) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "Gasmix.pyx":62
- *             self.Gases[i].QATT = QATT[i]
- *             self.Gases[i].QNULL = QNULL[i]
- *             self.Gases[i].SCLN = SCLN[i]             # <<<<<<<<<<<<<<
- *             self.Gases[i].EG = EG
- *             self.Gases[i].EROOT = EROOT
- */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_SCLN, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_SCLN, __pyx_t_3) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-    /* "Gasmix.pyx":63
  *             self.Gases[i].QNULL = QNULL[i]
  *             self.Gases[i].SCLN = SCLN[i]
  *             self.Gases[i].EG = EG             # <<<<<<<<<<<<<<
  *             self.Gases[i].EROOT = EROOT
  *             self.Gases[i].QT1 = QT1
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_EG, __pyx_v_EG) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_EG, __pyx_v_EG) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":64
+    /* "Gasmix.pyx":63
  *             self.Gases[i].SCLN = SCLN[i]
  *             self.Gases[i].EG = EG
  *             self.Gases[i].EROOT = EROOT             # <<<<<<<<<<<<<<
  *             self.Gases[i].QT1 = QT1
  *             self.Gases[i].QT2 = QT2
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_EROOT, __pyx_v_EROOT) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_EROOT, __pyx_v_EROOT) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":65
+    /* "Gasmix.pyx":64
  *             self.Gases[i].EG = EG
  *             self.Gases[i].EROOT = EROOT
  *             self.Gases[i].QT1 = QT1             # <<<<<<<<<<<<<<
  *             self.Gases[i].QT2 = QT2
  *             self.Gases[i].QT3 = QT3
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_QT1, __pyx_v_QT1) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_QT1, __pyx_v_QT1) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":66
+    /* "Gasmix.pyx":65
  *             self.Gases[i].EROOT = EROOT
  *             self.Gases[i].QT1 = QT1
  *             self.Gases[i].QT2 = QT2             # <<<<<<<<<<<<<<
  *             self.Gases[i].QT3 = QT3
  *             self.Gases[i].QT4 = QT4
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_QT2, __pyx_v_QT2) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_QT2, __pyx_v_QT2) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":67
+    /* "Gasmix.pyx":66
  *             self.Gases[i].QT1 = QT1
  *             self.Gases[i].QT2 = QT2
  *             self.Gases[i].QT3 = QT3             # <<<<<<<<<<<<<<
  *             self.Gases[i].QT4 = QT4
  *             self.Gases[i].DEN = DEN
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_QT3, __pyx_v_QT3) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_QT3, __pyx_v_QT3) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":68
+    /* "Gasmix.pyx":67
  *             self.Gases[i].QT2 = QT2
  *             self.Gases[i].QT3 = QT3
  *             self.Gases[i].QT4 = QT4             # <<<<<<<<<<<<<<
  *             self.Gases[i].DEN = DEN
  *             self.Gases[i].DENS = DENS
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 68, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_QT4, __pyx_v_QT4) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_QT4, __pyx_v_QT4) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":69
+    /* "Gasmix.pyx":68
  *             self.Gases[i].QT3 = QT3
  *             self.Gases[i].QT4 = QT4
  *             self.Gases[i].DEN = DEN             # <<<<<<<<<<<<<<
  *             self.Gases[i].DENS = DENS
  *             self.Gases[i].NGAS = NGAS
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_DEN, __pyx_v_DEN) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_DEN, __pyx_v_DEN) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":70
+    /* "Gasmix.pyx":69
  *             self.Gases[i].QT4 = QT4
  *             self.Gases[i].DEN = DEN
  *             self.Gases[i].DENS = DENS             # <<<<<<<<<<<<<<
  *             self.Gases[i].NGAS = NGAS
  *             self.Gases[i].NSTEP = NSTEP
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_DENS, __pyx_v_DENS) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_DENS, __pyx_v_DENS) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":71
+    /* "Gasmix.pyx":70
  *             self.Gases[i].DEN = DEN
  *             self.Gases[i].DENS = DENS
  *             self.Gases[i].NGAS = NGAS             # <<<<<<<<<<<<<<
  *             self.Gases[i].NSTEP = NSTEP
  *             self.Gases[i].NANISO = NANISO
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_NGAS, __pyx_v_NGAS) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_NGAS, __pyx_v_NGAS) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":72
+    /* "Gasmix.pyx":71
  *             self.Gases[i].DENS = DENS
  *             self.Gases[i].NGAS = NGAS
  *             self.Gases[i].NSTEP = NSTEP             # <<<<<<<<<<<<<<
  *             self.Gases[i].NANISO = NANISO
  *             self.Gases[i].EFINAL = EFINAL
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_NSTEP, __pyx_v_NSTEP) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_NSTEP, __pyx_v_NSTEP) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":73
+    /* "Gasmix.pyx":72
  *             self.Gases[i].NGAS = NGAS
  *             self.Gases[i].NSTEP = NSTEP
  *             self.Gases[i].NANISO = NANISO             # <<<<<<<<<<<<<<
  *             self.Gases[i].EFINAL = EFINAL
  *             self.Gases[i].AKT = AKT
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_NANISO, __pyx_v_NANISO) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_NANISO, __pyx_v_NANISO) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":74
+    /* "Gasmix.pyx":73
  *             self.Gases[i].NSTEP = NSTEP
  *             self.Gases[i].NANISO = NANISO
  *             self.Gases[i].EFINAL = EFINAL             # <<<<<<<<<<<<<<
  *             self.Gases[i].AKT = AKT
  *             self.Gases[i].ESTEP = ESTEP
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_EFINAL, __pyx_v_EFINAL) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_EFINAL, __pyx_v_EFINAL) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":75
+    /* "Gasmix.pyx":74
  *             self.Gases[i].NANISO = NANISO
  *             self.Gases[i].EFINAL = EFINAL
  *             self.Gases[i].AKT = AKT             # <<<<<<<<<<<<<<
  *             self.Gases[i].ESTEP = ESTEP
  *             self.Gases[i].ARY = ARY
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_AKT, __pyx_v_AKT) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_AKT, __pyx_v_AKT) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":76
+    /* "Gasmix.pyx":75
  *             self.Gases[i].EFINAL = EFINAL
  *             self.Gases[i].AKT = AKT
  *             self.Gases[i].ESTEP = ESTEP             # <<<<<<<<<<<<<<
  *             self.Gases[i].ARY = ARY
  *             self.Gases[i].TEMPC = TEMPC
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_ESTEP, __pyx_v_ESTEP) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_ESTEP, __pyx_v_ESTEP) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":77
+    /* "Gasmix.pyx":76
  *             self.Gases[i].AKT = AKT
  *             self.Gases[i].ESTEP = ESTEP
  *             self.Gases[i].ARY = ARY             # <<<<<<<<<<<<<<
  *             self.Gases[i].TEMPC = TEMPC
  *             self.Gases[i].TORR = TORR
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_ARY, __pyx_v_ARY) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_ARY, __pyx_v_ARY) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":78
+    /* "Gasmix.pyx":77
  *             self.Gases[i].ESTEP = ESTEP
  *             self.Gases[i].ARY = ARY
  *             self.Gases[i].TEMPC = TEMPC             # <<<<<<<<<<<<<<
  *             self.Gases[i].TORR = TORR
  *             self.Gases[i].IPEN = IPEN
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_TEMPC, __pyx_v_TEMPC) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_TEMPC, __pyx_v_TEMPC) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":79
+    /* "Gasmix.pyx":78
  *             self.Gases[i].ARY = ARY
  *             self.Gases[i].TEMPC = TEMPC
  *             self.Gases[i].TORR = TORR             # <<<<<<<<<<<<<<
  *             self.Gases[i].IPEN = IPEN
  *             self.Gases[i].NION = NION[i]
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_TORR, __pyx_v_TORR) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_TORR, __pyx_v_TORR) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":80
+    /* "Gasmix.pyx":79
  *             self.Gases[i].TEMPC = TEMPC
  *             self.Gases[i].TORR = TORR
  *             self.Gases[i].IPEN = IPEN             # <<<<<<<<<<<<<<
  *             self.Gases[i].NION = NION[i]
  *             self.Gases[i].NATT = NATT[i]
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_IPEN, __pyx_v_IPEN) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_IPEN, __pyx_v_IPEN) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":81
+    /* "Gasmix.pyx":80
  *             self.Gases[i].TORR = TORR
  *             self.Gases[i].IPEN = IPEN
  *             self.Gases[i].NION = NION[i]             # <<<<<<<<<<<<<<
  *             self.Gases[i].NATT = NATT[i]
  *             self.Gases[i].NNULL = NNULL[i]
  */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_NION, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_NION, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_NION, __pyx_t_2) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_NION, __pyx_t_3) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":82
+    /* "Gasmix.pyx":81
  *             self.Gases[i].IPEN = IPEN
  *             self.Gases[i].NION = NION[i]
  *             self.Gases[i].NATT = NATT[i]             # <<<<<<<<<<<<<<
  *             self.Gases[i].NNULL = NNULL[i]
  * 
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_NATT, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_NATT, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_NATT, __pyx_t_1) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_NATT, __pyx_t_2) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Gasmix.pyx":83
+    /* "Gasmix.pyx":82
  *             self.Gases[i].NION = NION[i]
  *             self.Gases[i].NATT = NATT[i]
  *             self.Gases[i].NNULL = NNULL[i]             # <<<<<<<<<<<<<<
  * 
  *     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
  */
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_NNULL, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_NNULL, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_NNULL, __pyx_t_3) < 0) __PYX_ERR(0, 83, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_NNULL, __pyx_t_1) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
 
   /* "Gasmix.pyx":30
@@ -3645,7 +3616,7 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *
  * 
  *     def InitWithInfo(self, NGS, Q, QIN, NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL, PEQIN, KEL, PENFRA, NC0, EC0,             # <<<<<<<<<<<<<<
  *                      WK,
- *                      EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
+ *                      EFL, NG1, EG1, NG2, EG2,  QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
  */
 
   /* function exit code */
@@ -3663,7 +3634,7 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_2InitWithInfo(CYTHON_UNUSED PyObject *
   return __pyx_r;
 }
 
-/* "Gasmix.pyx":85
+/* "Gasmix.pyx":84
  *             self.Gases[i].NNULL = NNULL[i]
  * 
  *     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,             # <<<<<<<<<<<<<<
@@ -3757,119 +3728,119 @@ static PyObject *__pyx_pw_6Gasmix_6Gasmix_5setCommons(PyObject *__pyx_self, PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NGS)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 1); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 1); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EG)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 2); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 2); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EROOT)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 3); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 3); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 4); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 4); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 5); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 5); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT3)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 6); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 6); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_QT4)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 7); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 7); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
         if (likely((values[8] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_DEN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 8); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 8); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  9:
         if (likely((values[9] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_DENS)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 9); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 9); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 10:
         if (likely((values[10] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NGAS)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 10); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 10); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 11:
         if (likely((values[11] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NSTEP)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 11); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 11); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 12:
         if (likely((values[12] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_NANISO)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 12); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 12); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 13:
         if (likely((values[13] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ESTEP)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 13); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 13); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 14:
         if (likely((values[14] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_EFINAL)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 14); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 14); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 15:
         if (likely((values[15] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_AKT)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 15); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 15); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 16:
         if (likely((values[16] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ARY)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 16); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 16); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 17:
         if (likely((values[17] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_TEMPC)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 17); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 17); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 18:
         if (likely((values[18] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_TORR)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 18); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 18); __PYX_ERR(0, 84, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 19:
         if (likely((values[19] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_IPEN)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 19); __PYX_ERR(0, 85, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, 19); __PYX_ERR(0, 84, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setCommons") < 0)) __PYX_ERR(0, 85, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setCommons") < 0)) __PYX_ERR(0, 84, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 20) {
       goto __pyx_L5_argtuple_error;
@@ -3918,7 +3889,7 @@ static PyObject *__pyx_pw_6Gasmix_6Gasmix_5setCommons(PyObject *__pyx_self, PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 85, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("setCommons", 1, 20, 20, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 84, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("Gasmix.Gasmix.setCommons", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3941,7 +3912,7 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_4setCommons(CYTHON_UNUSED PyObject *__
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("setCommons", 0);
 
-  /* "Gasmix.pyx":87
+  /* "Gasmix.pyx":86
  *     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
  *                    NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):
  *         for i in range(6):             # <<<<<<<<<<<<<<
@@ -3951,296 +3922,296 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_4setCommons(CYTHON_UNUSED PyObject *__
   for (__pyx_t_1 = 0; __pyx_t_1 < 6; __pyx_t_1+=1) {
     __pyx_v_i = __pyx_t_1;
 
-    /* "Gasmix.pyx":88
+    /* "Gasmix.pyx":87
  *                    NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):
  *         for i in range(6):
  *             self.Gases[i].NGS = NGS[i]             # <<<<<<<<<<<<<<
  *             self.Gases[i].EG = EG
  *             self.Gases[i].EROOT = EROOT
  */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_NGS, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_NGS, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_NGS, __pyx_t_2) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_NGS, __pyx_t_2) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":89
+    /* "Gasmix.pyx":88
  *         for i in range(6):
  *             self.Gases[i].NGS = NGS[i]
  *             self.Gases[i].EG = EG             # <<<<<<<<<<<<<<
  *             self.Gases[i].EROOT = EROOT
  *             self.Gases[i].QT1 = QT1
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_EG, __pyx_v_EG) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_EG, __pyx_v_EG) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":90
+    /* "Gasmix.pyx":89
  *             self.Gases[i].NGS = NGS[i]
  *             self.Gases[i].EG = EG
  *             self.Gases[i].EROOT = EROOT             # <<<<<<<<<<<<<<
  *             self.Gases[i].QT1 = QT1
  *             self.Gases[i].QT2 = QT2
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_EROOT, __pyx_v_EROOT) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_EROOT, __pyx_v_EROOT) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":91
+    /* "Gasmix.pyx":90
  *             self.Gases[i].EG = EG
  *             self.Gases[i].EROOT = EROOT
  *             self.Gases[i].QT1 = QT1             # <<<<<<<<<<<<<<
  *             self.Gases[i].QT2 = QT2
  *             self.Gases[i].QT3 = QT3
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 90, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_QT1, __pyx_v_QT1) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_QT1, __pyx_v_QT1) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":92
+    /* "Gasmix.pyx":91
  *             self.Gases[i].EROOT = EROOT
  *             self.Gases[i].QT1 = QT1
  *             self.Gases[i].QT2 = QT2             # <<<<<<<<<<<<<<
  *             self.Gases[i].QT3 = QT3
  *             self.Gases[i].QT4 = QT4
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_QT2, __pyx_v_QT2) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_QT2, __pyx_v_QT2) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":93
+    /* "Gasmix.pyx":92
  *             self.Gases[i].QT1 = QT1
  *             self.Gases[i].QT2 = QT2
  *             self.Gases[i].QT3 = QT3             # <<<<<<<<<<<<<<
  *             self.Gases[i].QT4 = QT4
  *             self.Gases[i].DEN = DEN
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_QT3, __pyx_v_QT3) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_QT3, __pyx_v_QT3) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":94
+    /* "Gasmix.pyx":93
  *             self.Gases[i].QT2 = QT2
  *             self.Gases[i].QT3 = QT3
  *             self.Gases[i].QT4 = QT4             # <<<<<<<<<<<<<<
  *             self.Gases[i].DEN = DEN
  *             self.Gases[i].DENS = DENS
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_QT4, __pyx_v_QT4) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_QT4, __pyx_v_QT4) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":95
+    /* "Gasmix.pyx":94
  *             self.Gases[i].QT3 = QT3
  *             self.Gases[i].QT4 = QT4
  *             self.Gases[i].DEN = DEN             # <<<<<<<<<<<<<<
  *             self.Gases[i].DENS = DENS
  *             self.Gases[i].NGAS = NGAS
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_DEN, __pyx_v_DEN) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_DEN, __pyx_v_DEN) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":96
+    /* "Gasmix.pyx":95
  *             self.Gases[i].QT4 = QT4
  *             self.Gases[i].DEN = DEN
  *             self.Gases[i].DENS = DENS             # <<<<<<<<<<<<<<
  *             self.Gases[i].NGAS = NGAS
  *             self.Gases[i].NSTEP = NSTEP
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_DENS, __pyx_v_DENS) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_DENS, __pyx_v_DENS) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":97
+    /* "Gasmix.pyx":96
  *             self.Gases[i].DEN = DEN
  *             self.Gases[i].DENS = DENS
  *             self.Gases[i].NGAS = NGAS             # <<<<<<<<<<<<<<
  *             self.Gases[i].NSTEP = NSTEP
  *             self.Gases[i].NANISO = NANISO
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_NGAS, __pyx_v_NGAS) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_NGAS, __pyx_v_NGAS) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":98
+    /* "Gasmix.pyx":97
  *             self.Gases[i].DENS = DENS
  *             self.Gases[i].NGAS = NGAS
  *             self.Gases[i].NSTEP = NSTEP             # <<<<<<<<<<<<<<
  *             self.Gases[i].NANISO = NANISO
  *             self.Gases[i].EFINAL = EFINAL
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_NSTEP, __pyx_v_NSTEP) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_NSTEP, __pyx_v_NSTEP) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":99
+    /* "Gasmix.pyx":98
  *             self.Gases[i].NGAS = NGAS
  *             self.Gases[i].NSTEP = NSTEP
  *             self.Gases[i].NANISO = NANISO             # <<<<<<<<<<<<<<
  *             self.Gases[i].EFINAL = EFINAL
  *             self.Gases[i].AKT = AKT
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_NANISO, __pyx_v_NANISO) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_NANISO, __pyx_v_NANISO) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":100
+    /* "Gasmix.pyx":99
  *             self.Gases[i].NSTEP = NSTEP
  *             self.Gases[i].NANISO = NANISO
  *             self.Gases[i].EFINAL = EFINAL             # <<<<<<<<<<<<<<
  *             self.Gases[i].AKT = AKT
  *             self.Gases[i].ESTEP = ESTEP
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_EFINAL, __pyx_v_EFINAL) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_EFINAL, __pyx_v_EFINAL) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":101
+    /* "Gasmix.pyx":100
  *             self.Gases[i].NANISO = NANISO
  *             self.Gases[i].EFINAL = EFINAL
  *             self.Gases[i].AKT = AKT             # <<<<<<<<<<<<<<
  *             self.Gases[i].ESTEP = ESTEP
  *             self.Gases[i].ARY = ARY
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 100, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_AKT, __pyx_v_AKT) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_AKT, __pyx_v_AKT) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":102
+    /* "Gasmix.pyx":101
  *             self.Gases[i].EFINAL = EFINAL
  *             self.Gases[i].AKT = AKT
  *             self.Gases[i].ESTEP = ESTEP             # <<<<<<<<<<<<<<
  *             self.Gases[i].ARY = ARY
  *             self.Gases[i].TEMPC = TEMPC
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_ESTEP, __pyx_v_ESTEP) < 0) __PYX_ERR(0, 102, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_ESTEP, __pyx_v_ESTEP) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":103
+    /* "Gasmix.pyx":102
  *             self.Gases[i].AKT = AKT
  *             self.Gases[i].ESTEP = ESTEP
  *             self.Gases[i].ARY = ARY             # <<<<<<<<<<<<<<
  *             self.Gases[i].TEMPC = TEMPC
  *             self.Gases[i].TORR = TORR
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_ARY, __pyx_v_ARY) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_ARY, __pyx_v_ARY) < 0) __PYX_ERR(0, 102, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":104
+    /* "Gasmix.pyx":103
  *             self.Gases[i].ESTEP = ESTEP
  *             self.Gases[i].ARY = ARY
  *             self.Gases[i].TEMPC = TEMPC             # <<<<<<<<<<<<<<
  *             self.Gases[i].TORR = TORR
  *             self.Gases[i].IPEN = IPEN
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_TEMPC, __pyx_v_TEMPC) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_TEMPC, __pyx_v_TEMPC) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Gasmix.pyx":105
+    /* "Gasmix.pyx":104
  *             self.Gases[i].ARY = ARY
  *             self.Gases[i].TEMPC = TEMPC
  *             self.Gases[i].TORR = TORR             # <<<<<<<<<<<<<<
  *             self.Gases[i].IPEN = IPEN
  * 
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_TORR, __pyx_v_TORR) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_TORR, __pyx_v_TORR) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Gasmix.pyx":106
+    /* "Gasmix.pyx":105
  *             self.Gases[i].TEMPC = TEMPC
  *             self.Gases[i].TORR = TORR
  *             self.Gases[i].IPEN = IPEN             # <<<<<<<<<<<<<<
  * 
  *     def Run(self):
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_IPEN, __pyx_v_IPEN) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_4, __pyx_n_s_IPEN, __pyx_v_IPEN) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "Gasmix.pyx":85
+  /* "Gasmix.pyx":84
  *             self.Gases[i].NNULL = NNULL[i]
  * 
  *     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,             # <<<<<<<<<<<<<<
@@ -4263,7 +4234,7 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_4setCommons(CYTHON_UNUSED PyObject *__
   return __pyx_r;
 }
 
-/* "Gasmix.pyx":108
+/* "Gasmix.pyx":107
  *             self.Gases[i].IPEN = IPEN
  * 
  *     def Run(self):             # <<<<<<<<<<<<<<
@@ -4295,7 +4266,7 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_6Run(CYTHON_UNUSED PyObject *__pyx_sel
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("Run", 0);
 
-  /* "Gasmix.pyx":120
+  /* "Gasmix.pyx":119
  *               self.Gases[i]=result[i].get()'''
  *         cdef int i
  *         for i in range(6):             # <<<<<<<<<<<<<<
@@ -4305,30 +4276,30 @@ static PyObject *__pyx_pf_6Gasmix_6Gasmix_6Run(CYTHON_UNUSED PyObject *__pyx_sel
   for (__pyx_t_1 = 0; __pyx_t_1 < 6; __pyx_t_1+=1) {
     __pyx_v_i = __pyx_t_1;
 
-    /* "Gasmix.pyx":121
+    /* "Gasmix.pyx":120
  *         cdef int i
  *         for i in range(6):
  *             self.Gases[i] = callGASF(self.Gases[i])             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_3Gas_Gas))))) __PYX_ERR(0, 121, __pyx_L1_error)
-    __pyx_t_2 = ((PyObject *)__pyx_f_6Gasmix_callGASF(((struct __pyx_obj_3Gas_Gas *)__pyx_t_3))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_3Gas_Gas))))) __PYX_ERR(0, 120, __pyx_L1_error)
+    __pyx_t_2 = ((PyObject *)__pyx_f_6Gasmix_callGASF(((struct __pyx_obj_3Gas_Gas *)__pyx_t_3))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Gases); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(__Pyx_SetItemInt(__pyx_t_3, __pyx_v_i, __pyx_t_2, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (unlikely(__Pyx_SetItemInt(__pyx_t_3, __pyx_v_i, __pyx_t_2, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
 
-  /* "Gasmix.pyx":108
+  /* "Gasmix.pyx":107
  *             self.Gases[i].IPEN = IPEN
  * 
  *     def Run(self):             # <<<<<<<<<<<<<<
@@ -6768,9 +6739,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   return __pyx_r;
 }
 
-/* "Gas.pxd":8
- *         double PENFRA[30][250], KEL[6], PEQIN[250][4000], PEQEL[6][4000], EB[30], EION[30], PEQION[30][4000], QION[30][4000]
- *         double KIN[250], EI[250], E[6], QIN[250][4000], Q[6][4000]
+/* "Gas.pxd":12
+ *         np.ndarray QIN, QT1, QT2, QT3, QT4, DEN, EROOT, EG, SCLN, QNULL, QATT, NC0, EC0, WK, EFL, NG1, EG1, NG2, EG2
+ *         np.ndarray PENFRA, KEL, PEQIN, PEQEL, EB, EION, PEQION, QION, KIN, EI, E, Q
  *     cdef inline int getNGS(self):             # <<<<<<<<<<<<<<
  *         return self.NGS
  */
@@ -6780,17 +6751,17 @@ static CYTHON_INLINE int __pyx_f_3Gas_3Gas_getNGS(struct __pyx_obj_3Gas_Gas *__p
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("getNGS", 0);
 
-  /* "Gas.pxd":9
- *         double KIN[250], EI[250], E[6], QIN[250][4000], Q[6][4000]
+  /* "Gas.pxd":13
+ *         np.ndarray PENFRA, KEL, PEQIN, PEQEL, EB, EION, PEQION, QION, KIN, EI, E, Q
  *     cdef inline int getNGS(self):
  *         return self.NGS             # <<<<<<<<<<<<<<
  */
   __pyx_r = __pyx_v_self->NGS;
   goto __pyx_L0;
 
-  /* "Gas.pxd":8
- *         double PENFRA[30][250], KEL[6], PEQIN[250][4000], PEQEL[6][4000], EB[30], EION[30], PEQION[30][4000], QION[30][4000]
- *         double KIN[250], EI[250], E[6], QIN[250][4000], Q[6][4000]
+  /* "Gas.pxd":12
+ *         np.ndarray QIN, QT1, QT2, QT3, QT4, DEN, EROOT, EG, SCLN, QNULL, QATT, NC0, EC0, WK, EFL, NG1, EG1, NG2, EG2
+ *         np.ndarray PENFRA, KEL, PEQIN, PEQEL, EB, EION, PEQION, QION, KIN, EI, E, Q
  *     cdef inline int getNGS(self):             # <<<<<<<<<<<<<<
  *         return self.NGS
  */
@@ -6900,7 +6871,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_PEQION, __pyx_k_PEQION, sizeof(__pyx_k_PEQION), 0, 0, 1, 1},
   {&__pyx_n_s_Pool, __pyx_k_Pool, sizeof(__pyx_k_Pool), 0, 0, 1, 1},
   {&__pyx_n_s_Q, __pyx_k_Q, sizeof(__pyx_k_Q), 0, 0, 1, 1},
-  {&__pyx_n_s_QATT, __pyx_k_QATT, sizeof(__pyx_k_QATT), 0, 0, 1, 1},
   {&__pyx_n_s_QIN, __pyx_k_QIN, sizeof(__pyx_k_QIN), 0, 0, 1, 1},
   {&__pyx_n_s_QION, __pyx_k_QION, sizeof(__pyx_k_QION), 0, 0, 1, 1},
   {&__pyx_n_s_QNULL, __pyx_k_QNULL, sizeof(__pyx_k_QNULL), 0, 0, 1, 1},
@@ -7052,36 +7022,36 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     def InitWithInfo(self, NGS, Q, QIN, NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL, PEQIN, KEL, PENFRA, NC0, EC0,             # <<<<<<<<<<<<<<
  *                      WK,
- *                      EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
+ *                      EFL, NG1, EG1, NG2, EG2,  QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
  */
-  __pyx_tuple__10 = PyTuple_Pack(49, __pyx_n_s_self, __pyx_n_s_NGS, __pyx_n_s_Q, __pyx_n_s_QIN, __pyx_n_s_NIN, __pyx_n_s_E, __pyx_n_s_EI, __pyx_n_s_KIN, __pyx_n_s_QION, __pyx_n_s_PEQION, __pyx_n_s_EION, __pyx_n_s_EB, __pyx_n_s_PEQEL, __pyx_n_s_PEQIN, __pyx_n_s_KEL, __pyx_n_s_PENFRA, __pyx_n_s_NC0, __pyx_n_s_EC0, __pyx_n_s_WK, __pyx_n_s_EFL, __pyx_n_s_NG1, __pyx_n_s_EG1, __pyx_n_s_NG2, __pyx_n_s_EG2, __pyx_n_s_QATT, __pyx_n_s_QNULL, __pyx_n_s_SCLN, __pyx_n_s_EG, __pyx_n_s_EROOT, __pyx_n_s_QT1, __pyx_n_s_QT2, __pyx_n_s_QT3, __pyx_n_s_QT4, __pyx_n_s_DEN, __pyx_n_s_DENS, __pyx_n_s_NGAS, __pyx_n_s_NSTEP, __pyx_n_s_NANISO, __pyx_n_s_ESTEP, __pyx_n_s_EFINAL, __pyx_n_s_AKT, __pyx_n_s_ARY, __pyx_n_s_TEMPC, __pyx_n_s_TORR, __pyx_n_s_IPEN, __pyx_n_s_NION, __pyx_n_s_NATT, __pyx_n_s_NNULL, __pyx_n_s_i); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(48, __pyx_n_s_self, __pyx_n_s_NGS, __pyx_n_s_Q, __pyx_n_s_QIN, __pyx_n_s_NIN, __pyx_n_s_E, __pyx_n_s_EI, __pyx_n_s_KIN, __pyx_n_s_QION, __pyx_n_s_PEQION, __pyx_n_s_EION, __pyx_n_s_EB, __pyx_n_s_PEQEL, __pyx_n_s_PEQIN, __pyx_n_s_KEL, __pyx_n_s_PENFRA, __pyx_n_s_NC0, __pyx_n_s_EC0, __pyx_n_s_WK, __pyx_n_s_EFL, __pyx_n_s_NG1, __pyx_n_s_EG1, __pyx_n_s_NG2, __pyx_n_s_EG2, __pyx_n_s_QNULL, __pyx_n_s_SCLN, __pyx_n_s_EG, __pyx_n_s_EROOT, __pyx_n_s_QT1, __pyx_n_s_QT2, __pyx_n_s_QT3, __pyx_n_s_QT4, __pyx_n_s_DEN, __pyx_n_s_DENS, __pyx_n_s_NGAS, __pyx_n_s_NSTEP, __pyx_n_s_NANISO, __pyx_n_s_ESTEP, __pyx_n_s_EFINAL, __pyx_n_s_AKT, __pyx_n_s_ARY, __pyx_n_s_TEMPC, __pyx_n_s_TORR, __pyx_n_s_IPEN, __pyx_n_s_NION, __pyx_n_s_NATT, __pyx_n_s_NNULL, __pyx_n_s_i); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(48, 0, 49, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Gasmix_pyx, __pyx_n_s_InitWithInfo, 30, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(47, 0, 48, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Gasmix_pyx, __pyx_n_s_InitWithInfo, 30, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 30, __pyx_L1_error)
 
-  /* "Gasmix.pyx":85
+  /* "Gasmix.pyx":84
  *             self.Gases[i].NNULL = NNULL[i]
  * 
  *     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,             # <<<<<<<<<<<<<<
  *                    NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):
  *         for i in range(6):
  */
-  __pyx_tuple__12 = PyTuple_Pack(21, __pyx_n_s_self, __pyx_n_s_NGS, __pyx_n_s_EG, __pyx_n_s_EROOT, __pyx_n_s_QT1, __pyx_n_s_QT2, __pyx_n_s_QT3, __pyx_n_s_QT4, __pyx_n_s_DEN, __pyx_n_s_DENS, __pyx_n_s_NGAS, __pyx_n_s_NSTEP, __pyx_n_s_NANISO, __pyx_n_s_ESTEP, __pyx_n_s_EFINAL, __pyx_n_s_AKT, __pyx_n_s_ARY, __pyx_n_s_TEMPC, __pyx_n_s_TORR, __pyx_n_s_IPEN, __pyx_n_s_i); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(21, __pyx_n_s_self, __pyx_n_s_NGS, __pyx_n_s_EG, __pyx_n_s_EROOT, __pyx_n_s_QT1, __pyx_n_s_QT2, __pyx_n_s_QT3, __pyx_n_s_QT4, __pyx_n_s_DEN, __pyx_n_s_DENS, __pyx_n_s_NGAS, __pyx_n_s_NSTEP, __pyx_n_s_NANISO, __pyx_n_s_ESTEP, __pyx_n_s_EFINAL, __pyx_n_s_AKT, __pyx_n_s_ARY, __pyx_n_s_TEMPC, __pyx_n_s_TORR, __pyx_n_s_IPEN, __pyx_n_s_i); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(20, 0, 21, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Gasmix_pyx, __pyx_n_s_setCommons, 85, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(20, 0, 21, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Gasmix_pyx, __pyx_n_s_setCommons, 84, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 84, __pyx_L1_error)
 
-  /* "Gasmix.pyx":108
+  /* "Gasmix.pyx":107
  *             self.Gases[i].IPEN = IPEN
  * 
  *     def Run(self):             # <<<<<<<<<<<<<<
  *         '''result=[]
  *         p = Pool()
  */
-  __pyx_tuple__14 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_i); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_i); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Gasmix_pyx, __pyx_n_s_Run, 108, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Gasmix_pyx, __pyx_n_s_Run, 107, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -7172,11 +7142,11 @@ static int __Pyx_modinit_type_import_code(void) {
   __pyx_ptype_5numpy_ufunc = __Pyx_ImportType(__pyx_t_1, "numpy", "ufunc", sizeof(PyUFuncObject), __Pyx_ImportType_CheckSize_Warn);
    if (!__pyx_ptype_5numpy_ufunc) __PYX_ERR(1, 918, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("Gas"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 1, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("Gas"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_3Gas_Gas = __Pyx_ImportType(__pyx_t_1, "Gas", "Gas", sizeof(struct __pyx_obj_3Gas_Gas), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_3Gas_Gas) __PYX_ERR(3, 1, __pyx_L1_error)
-  __pyx_vtabptr_3Gas_Gas = (struct __pyx_vtabstruct_3Gas_Gas*)__Pyx_GetVtable(__pyx_ptype_3Gas_Gas->tp_dict); if (unlikely(!__pyx_vtabptr_3Gas_Gas)) __PYX_ERR(3, 1, __pyx_L1_error)
+   if (!__pyx_ptype_3Gas_Gas) __PYX_ERR(3, 6, __pyx_L1_error)
+  __pyx_vtabptr_3Gas_Gas = (struct __pyx_vtabstruct_3Gas_Gas*)__Pyx_GetVtable(__pyx_ptype_3Gas_Gas->tp_dict); if (unlikely(!__pyx_vtabptr_3Gas_Gas)) __PYX_ERR(3, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -7579,35 +7549,35 @@ if (!__Pyx_RefNanny) {
  * 
  *     def InitWithInfo(self, NGS, Q, QIN, NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL, PEQIN, KEL, PENFRA, NC0, EC0,             # <<<<<<<<<<<<<<
  *                      WK,
- *                      EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
+ *                      EFL, NG1, EG1, NG2, EG2,  QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
  */
   __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6Gasmix_6Gasmix_3InitWithInfo, 0, __pyx_n_s_Gasmix_InitWithInfo, NULL, __pyx_n_s_Gasmix, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_InitWithInfo, __pyx_t_2) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Gasmix.pyx":85
+  /* "Gasmix.pyx":84
  *             self.Gases[i].NNULL = NNULL[i]
  * 
  *     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,             # <<<<<<<<<<<<<<
  *                    NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):
  *         for i in range(6):
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6Gasmix_6Gasmix_5setCommons, 0, __pyx_n_s_Gasmix_setCommons, NULL, __pyx_n_s_Gasmix, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6Gasmix_6Gasmix_5setCommons, 0, __pyx_n_s_Gasmix_setCommons, NULL, __pyx_n_s_Gasmix, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_setCommons, __pyx_t_2) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_setCommons, __pyx_t_2) < 0) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Gasmix.pyx":108
+  /* "Gasmix.pyx":107
  *             self.Gases[i].IPEN = IPEN
  * 
  *     def Run(self):             # <<<<<<<<<<<<<<
  *         '''result=[]
  *         p = Pool()
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6Gasmix_6Gasmix_7Run, 0, __pyx_n_s_Gasmix_Run, NULL, __pyx_n_s_Gasmix, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6Gasmix_6Gasmix_7Run, 0, __pyx_n_s_Gasmix_Run, NULL, __pyx_n_s_Gasmix, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_Run, __pyx_t_2) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_Run, __pyx_t_2) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "Gasmix.pyx":24
@@ -7633,9 +7603,9 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Gas.pxd":8
- *         double PENFRA[30][250], KEL[6], PEQIN[250][4000], PEQEL[6][4000], EB[30], EION[30], PEQION[30][4000], QION[30][4000]
- *         double KIN[250], EI[250], E[6], QIN[250][4000], Q[6][4000]
+  /* "Gas.pxd":12
+ *         np.ndarray QIN, QT1, QT2, QT3, QT4, DEN, EROOT, EG, SCLN, QNULL, QATT, NC0, EC0, WK, EFL, NG1, EG1, NG2, EG2
+ *         np.ndarray PENFRA, KEL, PEQIN, PEQEL, EB, EION, PEQION, QION, KIN, EI, E, Q
  *     cdef inline int getNGS(self):             # <<<<<<<<<<<<<<
  *         return self.NGS
  */

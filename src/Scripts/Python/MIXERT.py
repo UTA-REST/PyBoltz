@@ -1,5 +1,9 @@
 import Magboltz
 import math
+import sys
+
+sys.path.append('../../src/Scripts/Cython')
+
 from Gasmix import Gasmix
 import numpy as np
 from ANG import ANG
@@ -66,7 +70,6 @@ def MIXERT(Magboltz):
         Magboltz.E[i] = EHALF + Magboltz.ESTEP * i
         Magboltz.EROOT[i] = math.sqrt(Magboltz.E[i])
     Magboltz.EROOT[0] = math.sqrt(EHALF)
-    print(Magboltz.EROOT)
     # KIN1 = np.zeros(250)
     # KIN2 = np.zeros(250)
     # KIN3 = np.zeros(250)
@@ -76,7 +79,7 @@ def MIXERT(Magboltz):
 
     MIXOBJECT = Gasmix()
     MIXOBJECT.InitWithInfo(Magboltz.NGASN, Q, Magboltz.QIN, Magboltz.NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL,
-                           PEQIN, KEL, Magboltz.PENFRA, NC0, EC0, WK, EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN,
+                           PEQIN, KEL, Magboltz.PENFRA, NC0, EC0, WK, EFL, NG1, EG1, NG2, EG2, QNULL, SCLN,
                            Magboltz.E, Magboltz.EROOT, Magboltz.QTOT, Magboltz.QREL, Magboltz.QINEL, Magboltz.QEL,
                            Magboltz.DENSY, 0, Magboltz.NGAS, Magboltz.NSTEP, Magboltz.NANISO, Magboltz.ESTEP,
                            Magboltz.EFINAL, Magboltz.AKT, Magboltz.ARY, Magboltz.TEMPC, Magboltz.TORR, Magboltz.IPEN,
@@ -388,5 +391,3 @@ def MIXERT(Magboltz):
         for KGAS in range(6):
             for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                 Magboltz.QSUM[I] = Magboltz.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * Magboltz.ANN[KGAS]
-
-

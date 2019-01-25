@@ -1,4 +1,5 @@
-from Gasmix import Gasmix
+import sys
+sys.path.append('../../src/Scripts/Cython')
 from SETUPT import SETUPT
 from SETUP import SETUP
 from Gasmix import Gasmix
@@ -29,6 +30,8 @@ from ALPCALC import ALPCALC
 from ALPCLCA import ALPCLCA
 from ALPCLCC import ALPCLCC
 from ALPCLCB import ALPCLCB
+
+
 
 class Magboltz:
     def __init__(self):
@@ -325,7 +328,7 @@ class Magboltz:
                         self.ESTART = self.EFINAL / 50
             else:
                 MIXERT(self)
-
+            print("MONT")
             if self.BMAG == 0:
                 MONTET(self)
             else:

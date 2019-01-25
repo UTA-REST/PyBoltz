@@ -1,13 +1,13 @@
 import Magboltz
 from GERJAN import GERJAN
 import math
-
+import random
 import numpy as np
 from SORTT import SORTT
 
 
 def ELIMITT(Magboltz):
-
+    print("ELIMITT")
     I = 0
     ISAMP = 10
     SMALL = 1.0e-20
@@ -18,7 +18,7 @@ def ELIMITT(Magboltz):
     CONST9 = Magboltz.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
 
-    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
     IMBPT = 0
 
     DCZ1 = math.cos(Magboltz.THETA)
@@ -30,28 +30,14 @@ def ELIMITT(Magboltz):
     F2 = Magboltz.EFIELD * Magboltz.CONST3
     F4 = 2 * math.acos(-1)
     J2M = Magboltz.NMAX / ISAMP
-    R5 = 1
-    TEST1 = 0
-    R1 = 0
-    T = 0
     TDASH = 0
-    AP = 0
-    E = 0
-    CONST6 = 0
-    DCX2 = 0
-    DCY2 = 0
-    DCZ2 = 0
-    R2 = 0
     EOK = 0
-    EI = 0
-    S1 = 0
-    S2 = 0
-    Magboltz.RAND48.seed(RDUM)
+    random.seed(Magboltz.RSTART)
     for J1 in range(int(J2M)):
         R5 = 1
         TEST1 = 0
         while R5 > TEST1:
-            R1 = Magboltz.RAND48.drand()
+            R1 = random.random()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
             AP = DCZ1 * F2 * math.sqrt(E1)
@@ -60,32 +46,34 @@ def ELIMITT(Magboltz):
             DCX2 = DCX1 * CONST6
             DCY2 = DCY1 * CONST6
             DCZ2 = DCZ1 * CONST6 + Magboltz.EFIELD * T * Magboltz.CONST5 / math.sqrt(E)
-            R2 = Magboltz.RAND48.drand()
+            R2 = random.random()
             KGAS = 0
             for KGAS in range(Magboltz.NGAS):
                 if Magboltz.TCFMXG[KGAS] >= R2:
                     break
             IMBPT = IMBPT + 1
-            if IMBPT > 5:
+            if IMBPT > 6:
                 Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.NGAS)
-                IMBPT = 0
-            VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
+                IMBPT = 1
+            VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[(IMBPT-1)%6]
             IMBPT = IMBPT + 1
-            VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
+            VGY = Magboltz.VTMB[KGAS] * Magboltz.RNMX[(IMBPT-1)%6]
             IMBPT = IMBPT + 1
-            VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT%6]
+            VGZ = Magboltz.VTMB[KGAS] * Magboltz.RNMX[(IMBPT-1)%6]
 
             VEX = DCX2 * CONST9 * math.sqrt(E)
             VEY = DCY2 * CONST9 * math.sqrt(E)
             VEZ = DCZ2 * CONST9 * math.sqrt(E)
 
             EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
-            IE = np.int(EOK / Magboltz.ESTEP) + 1
+            IE = np.int(EOK / Magboltz.ESTEP)
             IE = min(IE, 3999)
-            R5 = Magboltz.RAND48.drand()
+            R5 = random.random()
             TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]
+
         if IE == 3999:
             Magboltz.IELOW = 1
+            return Magboltz
             
         TDASH = 0.0
 
@@ -94,7 +82,7 @@ def ELIMITT(Magboltz):
         DYCOM = (VEY - VGY) * CONST11
         DZCOM = (VEZ - VGZ) * CONST11
 
-        R2 = Magboltz.RAND48.drand()
+        R2 = random.random()
         I = 0
         I = SORTT(KGAS, I, R2, IE, Magboltz)
         while Magboltz.CF[KGAS][IE][I] < R2:
@@ -102,27 +90,27 @@ def ELIMITT(Magboltz):
         S1 = Magboltz.RGAS[KGAS][I]
         EI = Magboltz.EIN[KGAS][I]
         if Magboltz.IPN[KGAS][I] > 0:
-            R9 = Magboltz.RAND48.drand()
+            R9 = random.random()
             EXTRA = R9 * (EOK - EI)
             EI = EXTRA + EI
         IPT = Magboltz.IARRY[KGAS][I]
         if EOK < EI:
             EI = EOK - 0.0001
         S2 = (S1 * S1) / (S1 - 1.0)
-        R3 = Magboltz.RAND48.drand()
+        R3 = random.random()
 
         if Magboltz.INDEX[KGAS][I] == 1:
-            R31 = Magboltz.RAND48.drand()
+            R31 = random.random()
             F3 = 1.0 - R3*Magboltz.ANGCT[KGAS][IE][I]
             if R31 > Magboltz.PSCT[KGAS][IE][I]:
                 F3 = -1 * F3
-            elif Magboltz.INDEX[KGAS][I] == 2:
-                EPSI = Magboltz.PSCT[KGAS][IE][I]
-                F3 = 1 - (2 * R3 * (1 - EPSI)) / (1 + EPSI * (1 - 2 * R3))
-            else:
-                F3 = 1 - 2 * R3
+        elif Magboltz.INDEX[KGAS][I] == 2:
+            EPSI = Magboltz.PSCT[KGAS][IE][I]
+            F3 = 1 - (2 * R3 * (1 - EPSI)) / (1 + EPSI * (1 - 2 * R3))
+        else:
+            F3 = 1 - 2 * R3
         THETA0 = math.acos(F3)
-        R4 = Magboltz.RAND48.drand()
+        R4 = random.random()
         PHI0 = F4 * R4
         F8 = math.sin(PHI0)
         F9 = math.cos(PHI0)
@@ -166,5 +154,5 @@ def ELIMITT(Magboltz):
         DCZ1 = VZLAB * CONST11
 
     Magboltz.IELOW = 0
-
+    return Magboltz
     

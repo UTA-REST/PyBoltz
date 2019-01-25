@@ -29,7 +29,7 @@ class Gasmix:
 
     def InitWithInfo(self, NGS, Q, QIN, NIN, E, EI, KIN, QION, PEQION, EION, EB, PEQEL, PEQIN, KEL, PENFRA, NC0, EC0,
                      WK,
-                     EFL, NG1, EG1, NG2, EG2, QATT, QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
+                     EFL, NG1, EG1, NG2, EG2,  QNULL, SCLN, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
                      NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN, NION, NATT, NNULL):
         self.__init__()
         # First Setup
@@ -57,7 +57,6 @@ class Gasmix:
             self.Gases[i].EG1 = EG1[i]
             self.Gases[i].NG2 = NG2[i]
             self.Gases[i].EG2 = EG2[i]
-            self.Gases[i].QATT = QATT[i]
             self.Gases[i].QNULL = QNULL[i]
             self.Gases[i].SCLN = SCLN[i]
             self.Gases[i].EG = EG

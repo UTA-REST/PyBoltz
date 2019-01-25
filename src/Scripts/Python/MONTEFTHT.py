@@ -106,7 +106,7 @@ def MONTEFTHT(Magboltz,JPRT):
     F1 = Magboltz.EFIELD * Magboltz.CONST2 * math.cos(RTHETA)
     EOVBR = Magboltz.EOVB * math.sin(RTHETA)
 
-    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
     IMBPT = 0
     DCZ1 = math.cos(Magboltz.THETA)
     DCX1 = math.sin(Magboltz.THETA) * math.cos(Magboltz.PHI)
@@ -227,7 +227,7 @@ def MONTEFTHT(Magboltz,JPRT):
 
     IMBPT += 1
     if (IMBPT > 5):
-        Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+        Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
         IMBPT = 0
     VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
     IMBPT += 1

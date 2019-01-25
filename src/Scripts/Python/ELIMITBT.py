@@ -18,7 +18,7 @@ def ELIMITBT(Magboltz):
     CONST9 = Magboltz.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
 
-    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
     IMBPT = 0
     DCZ1 = math.cos(Magboltz.THETA)
     DCX1 = math.sin(Magboltz.THETA) * math.cos(Magboltz.PHI)
@@ -64,7 +64,7 @@ def ELIMITBT(Magboltz):
                 KGAS += 1
             IMBPT += 1
             if IMBPT > 5:
-                Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+                Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
 
                 IMBPT = 0
             #TODO: CHECK THE MODULUS PART

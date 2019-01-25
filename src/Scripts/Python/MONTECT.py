@@ -82,7 +82,7 @@ def MONTECT(Magboltz):
     IEXTRA = 0
     TEMP = np.zeros(shape=(6, 4000))
 
-    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
     IMBPT = 0
     TDASH = 0.0
 
@@ -126,7 +126,7 @@ def MONTECT(Magboltz):
 
                 IMBPT += 1
                 if (IMBPT > 5):
-                    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+                    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
                     IMBPT = 0
                 VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
                 IMBPT += 1

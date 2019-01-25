@@ -2,6 +2,8 @@ import h5py
 from libc.math cimport log
 from libc.math cimport sqrt
 import math
+import numpy as np
+cimport numpy as np
 import sys
 from Gas cimport Gas
 sys.path.append('../hdf5_python')
@@ -16,7 +18,7 @@ cpdef Gas Gas1(Gas object):
     # EIN=[0 for x in range(250)]#<=== input to this function
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27
-    object.E = [0.0, 1.0, 15.9, 0.0, 0.0, 0.0]
+    object.E = np.array([0.0, 1.0, 15.9, 0.0, 0.0, 0.0])
     object.E[1] = 2.0 * EMASS / (88.0043 * AMU)
     object.NC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0]
     object.EC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 253.0, 625.2]
@@ -199,7 +201,7 @@ cpdef Gas Gas1(Gas object):
     # EQUAL X-SEC TO THE GROUND STATE TRANSITIONS)
     APOPGS = 1.0
 
-    cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
+    cdef double EN,GAMMA1,GAMMA2,BETA,BETA2=0.00000001,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
 
     # EN=-ESTEP/2.0  #ESTEP is function input
     for i in range(object.NSTEP):

@@ -2,14 +2,15 @@ import Magboltz
 import numpy as np
 import math
 
-from RAND48 import Rand48
+import random
 
-def GERJAN(RAND48,API):
+def GERJAN(RDUM,API):
+    random.seed(RDUM)
     RNMX =np.zeros(6)
 
     for J in range(0,5,2):
-        RAN1 = RAND48.drand()
-        RAN2 = RAND48.drand()
+        RAN1 = random.random()
+        RAN2 = random.random()
         TWOPI = 2.0 *API
         RNMX[J]=math.sqrt(-np.log(RAN1))*math.cos(RAN2*TWOPI)
         RNMX[J+1] = math.sqrt(-np.log(RAN1)) * math.sin(RAN2 * TWOPI)

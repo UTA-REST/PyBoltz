@@ -17,7 +17,7 @@ class Gas:
         self.PEQEL = np.zeros(shape=(6,4000))
         self.PEQIN = np.zeros(shape=(250,4000))
         self.KEL = np.zeros(6)
-        self.PENFRA = np.zeros(shape=(30,250))
+        self.PENFRA = np.zeros(shape=(3,250))
         self.NC0 = np.zeros(30)
         self.EC0 = np.zeros(30)
         self.WK = np.zeros(30)

@@ -96,7 +96,7 @@ def MONTEFTT(Magboltz,JPRT):
     F2 = Magboltz.EFIELD * Magboltz.CONST3
     F4 = 2 * Magboltz.API
 
-    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
     IMBPT = 0
     JPRINT = Magboltz.NMAX / 10
     IPRINT = 0
@@ -179,7 +179,7 @@ def MONTEFTT(Magboltz,JPRT):
 
     IMBPT += 1
     if (IMBPT > 5):
-        Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+        Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
         IMBPT = 0
     VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
     IMBPT += 1

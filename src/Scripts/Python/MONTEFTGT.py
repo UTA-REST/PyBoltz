@@ -90,7 +90,7 @@ def MONTEFTGT(Magboltz,JPRT):
     Magboltz.IFAKE = 0
     for J in range(8):
         Magboltz.IFAKET[J] = 0
-    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
     YSTRT = 0.0
     IMBPT = 0
     DCZ1 = math.cos(Magboltz.THETA)
@@ -206,7 +206,7 @@ def MONTEFTGT(Magboltz,JPRT):
 
     IMBPT += 1
     if (IMBPT > 5):
-        Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+        Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
         IMBPT = 0
     VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]
     IMBPT += 1

@@ -74,7 +74,7 @@ def MONTEBT(Magboltz):
     ABSFAKEI = Magboltz.FAKEI
     Magboltz.IFAKE = 0
 
-    Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+    Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
     IMBPT = 0
     TDASH = 0.0
     F4 = 2 * math.acos(-1)
@@ -119,7 +119,7 @@ def MONTEBT(Magboltz):
 
             IMBPT += 1
             if (IMBPT > 5):
-                Magboltz.RNMX = GERJAN(Magboltz.RAND48, Magboltz.API)
+                Magboltz.RNMX = GERJAN(Magboltz.RSTART, Magboltz.API)
                 IMBPT = 0
 
             VGX = Magboltz.VTMB[KGAS] * Magboltz.RNMX[IMBPT % 6]

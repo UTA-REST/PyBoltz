@@ -4,6 +4,8 @@ from libc.math cimport sqrt
 import math
 import sys
 from Gas cimport Gas
+import numpy as np
+cimport numpy as np
 
 sys.path.append('../hdf5_python')
 
@@ -81,17 +83,17 @@ cpdef Gas Gas2(Gas object):
     PIR2 = 8.7973554297e-17
     EMASS = 9.10938291e-31
     AMU = 1.660538921e-27
-    object.E = [0.0, 1.0, 15.9, 0.0, 0.0, 0.0]
+    object.E = np.array([0.0, 1.0, 15.9, 0.0, 0.0, 0.0])
     object.E[1] = 2.0 * EMASS / (39.948 * AMU)
-    cdef double EOBY[7], ISHELL[7], LEGAS[7], WKLM[7]
-    EOBY = [9.5, 18.0, 34.0, 110.0, 110.0, 150.0, 1800]
+    cdef double EOBY[30], ISHELL[30], LEGAS[30], WKLM[30]
+    EOBY[0:7] = [9.5, 18.0, 34.0, 110.0, 110.0, 150.0, 1800]
 
     object.EION[0:7] = [15.75961, 43.38928, 84.124, 248.4, 250.6, 326.3, 3205.9]
-    LEGAS = [0, 0, 0, 1, 1, 1, 1]
-    ISHELL = [0, 0, 0, 4, 3, 2, 1]
+    LEGAS[0:7] = [0, 0, 0, 1, 1, 1, 1]
+    ISHELL[0:7] = [0, 0, 0, 4, 3, 2, 1]
     object.NC0[0:7] = [0, 1, 2, 2, 2, 3, 4]
     object.EC0[0:7] = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]
-    WKLM = [0.0, 0.0, 0.0, 0.00147, 0.00147, 0.00147, 0.12]
+    WKLM[0:7] = [0.0, 0.0, 0.0, 0.00147, 0.00147, 0.00147, 0.12]
     object.EFL[0:7] = [0.0, 0.0, 0.0, 232, 235, 310, 2957]
     object.NG1[0:7] = [0, 0, 0, 1, 1, 2, 3]
     object.EG1[0:7] = [0.0, 0.0, 0.0, 210.5, 202.2, 240.8, 2850]
@@ -229,11 +231,12 @@ cpdef Gas Gas2(Gas object):
             if object.EG[j] > EIN[i]:
                 IOFFN[i] = j
                 break
-    cdef int I, J
-    cdef double GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
-    cdef double QPSSUM,QDSSUM,TOTSUM,Q1SSUM
+    cdef int I
+    cdef double GAMMA1, GAMMA2, BETA, BETA2=0.00000001, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
+    cdef double QPSSUM,QDSSUM,TOTSUM,Q1SSUM,PQ1,PQ2,PQ3
     for I in range(4000):
         EN = object.EG[I]
+
         # EN=EN+object.ESTEP
         if EN > EIN[0]:
             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
@@ -260,40 +263,42 @@ cpdef Gas Gas2(Gas object):
                 SUM = (math.sin(AN0 - AN1)) ** 2
                 SUM = SUM + 2.0 * (math.sin(AN1 - AN2)) ** 2
                 SIGEL = (math.sin(AN0)) ** 2 + 3.0 * (math.sin(AN1)) ** 2
-                for J in range(2, -1, -1):
+                for j in range(2, -1, -1):
                     ANLOW = ANHIGH
-                    SUMI = 6.0 / ((2.0 * J + 5.0) * (2.0 * J + 3.0) * (2.0 * J + 1.0) * (2.0 * J - 1.0))
-                    SUM = SUM + (J + 1.0) * (math.sin(math.atan(API * APOL * AK2 * SUMI))) ** 2
-                    ANHIGH = math.atan(API * APOL * AK2 / ((2.0 * J + 5.0) * (2.0 * J + 3.0) * (2.0 * J + 1.0)))
-                    SIGEL = SIGEL + (2.0 * J + 1.0) * (math.sin(ANLOW)) ** 2
+                    SUMI = 6.0 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0) * (2.0 * j - 1.0))
+                    SUM = SUM + (j + 1.0) * (math.sin(math.atan(API * APOL * AK2 * SUMI))) ** 2
+                    ANHIGH = math.atan(API * APOL * AK2 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0)))
+                    SIGEL = SIGEL + (2.0 * j + 1.0) * (math.sin(ANLOW)) ** 2
                 QELA = SIGEL * 4.0 * PIR2 / AK2
                 QMOM = SUM * 4.0 * PIR2 / AK2
         if EN != 0:
-            for J in range(1, NDATA):
-                if EN < XEN[J]:
+            for j in range(1, NDATA):
+                if EN < XEN[j]:
                     break
 
-            A = (YEL[J] - YEL[J - 1]) / (XEN[J] - XEN[J - 1])
-            B = (XEN[J - 1] * YEL[J] - XEN[J] * YEL[J - 1]) / (XEN[J - 1] - XEN[J])
+            A = (YEL[j] - YEL[j - 1]) / (XEN[j] - XEN[j - 1])
+            B = (XEN[j - 1] * YEL[j] - XEN[j] * YEL[j - 1]) / (XEN[j - 1] - XEN[j])
             QELA = (A * EN + B) * 1.0e-16
-            A = (YSEC[J] - YSEC[J - 1]) / (XEN[J] - XEN[j - 1])
-            B = (XEN[J - 1] * YSEC[J] - XEN[J] * YSEC[J - 1]) / (XEN[J - 1] - XEN[J])
+            A = (YSEC[j] - YSEC[j - 1]) / (XEN[j] - XEN[j - 1])
+            B = (XEN[j - 1] * YSEC[j] - XEN[j] * YSEC[j - 1]) / (XEN[j - 1] - XEN[j])
             QMOM = (A * EN + B) * 1.0e-16
-        PQ1 = 0.5 + (QELA - QMOM) / QELA
 
-        for J in range(1, NEPSI):
+        PQ1 = 0.5 + (QELA - QMOM) / QELA
+        for j in range(1, NEPSI):
             if EN < XEPS[j]:
                 break
-        A = (YEPS[J] - YEPS[J - 1]) / (XEPS[J] - XEPS[J - 1])
-        B = (XEPS[J - 1] * YEPS[J] - XEPS[J] * YEPS[J - 1]) / (XEPS[J - 1] - XEPS[J])
+        A = (YEPS[j] - YEPS[j - 1]) / (XEPS[j] - XEPS[j - 1])
+        B = (XEPS[j - 1] * YEPS[j] - XEPS[j] * YEPS[j - 1]) / (XEPS[j - 1] - XEPS[j])
         PQ2 = A * EN + B
+
         # EPSILON = 1 - PQ2
         PQ2 = 1.0 - PQ2
         PQ = [0.5, PQ1, PQ2]
+
         object.PEQEL[1][I] = PQ[object.NANISO]
-        object.Q[1][I] = QELA
+        object.Q[0][I] = QELA
         if object.NANISO == 0:
-            object.Q[1][I] = QMOM
+            object.Q[0][I] = QMOM
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
 
@@ -781,7 +786,7 @@ cpdef Gas Gas2(Gas object):
                 B = (X3D1P[j - 1] * Y3D1P[j] - X3D1P[j] * Y3D1P[j - 1]) / (X3D1P[j - 1] - X3D1P[j])
                 object.QIN[22][I] = (A * EN + B) * 1.0e-18
             else:
-                object.QIN[22][I] = Y3D1P[N3D1P - 1] * (X3D1P[N3D1P - 1] / EN) ** 2 * 1.0e-18
+                object.QIN[22][I] = Y3D1P[N3D1P - 1] * (X3D1P[N3D1P - 1] / EN) * 1.0e-18
             if EN > (2.0 * EIN[22]):
                 object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]
 
@@ -1020,14 +1025,14 @@ cpdef Gas Gas2(Gas object):
             QPSSUM += object.QIN[i][I]
         TOTSUM = Q1SSUM + QPSSUM + QDSSUM
 
-        object.Q[1][I] = QELA + Q1SSUM + QPSSUM + QDSSUM
+        object.Q[0][I] = QELA + Q1SSUM + QPSSUM + QDSSUM
         for i in range(0, 7):
-            object.Q[1][I] += object.QION[i][I]
-
-    for J in range(0, object.NIN):
-        if object.EFINAL <= EIN[J]:
-            object.NIN = J
+            object.Q[0][I] += object.QION[i][I]
+    for j in range(0, object.NIN):
+        if object.EFINAL <= EIN[j]:
+            object.NIN = j
             break
-    return object
+
     gd.close()
-    print("AR")
+
+    return object

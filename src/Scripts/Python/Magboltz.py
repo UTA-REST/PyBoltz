@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../../src/Scripts/Cython')
+sys.path.append('../Cython')
 from SETUPT import SETUPT
 from SETUP import SETUP
 from Gasmix import Gasmix
@@ -328,7 +328,6 @@ class Magboltz:
                         self.ESTART = self.EFINAL / 50
             else:
                 MIXERT(self)
-            print("MONT")
             if self.BMAG == 0:
                 MONTET(self)
             else:
@@ -338,8 +337,7 @@ class Magboltz:
                     MONTEBT(self)
                 else:
                     MONTECT(self)
-
-            print("done with montet")
+            return
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)

@@ -2,7 +2,7 @@ import numpy as np
 import math
 
 
-def SPLANE(Magbolz,T, E1, DCX1, DCY1, DCZ1, AP, BP, TIMLFT, IZPLANE,Magboltz):
+def SPLANE(T, E1, DCX1, DCY1, DCZ1, AP, BP, TIMLFT, IZPLANE,Magboltz):
     
     if IZPLANE > 8:
         return

@@ -18,10 +18,10 @@ Magboltz.EFINAL = 0.0
 
 Magboltz.NGASN=[1,2,0,0,0,0]
 
-Magboltz.FRAC=[99,1,0,0,0,0]
+Magboltz.FRAC=[50,50,0,0,0,0]
 
-Magboltz.TEMPC = 20
-Magboltz.TORR = 750
+Magboltz.TEMPC = 23
+Magboltz.TORR = 5250.43
 
 Magboltz.EFIELD =200
 Magboltz.BMAG = 0

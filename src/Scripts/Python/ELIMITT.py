@@ -30,8 +30,6 @@ def ELIMITT(Magboltz):
     F2 = Magboltz.EFIELD * Magboltz.CONST3
     F4 = 2 * math.acos(-1)
     J2M = Magboltz.NMAX / ISAMP
-    TDASH = 0
-    EOK = 0
     random.seed(Magboltz.RSTART)
     for J1 in range(int(J2M)):
         R5 = 1
@@ -42,6 +40,10 @@ def ELIMITT(Magboltz):
             TDASH = T
             AP = DCZ1 * F2 * math.sqrt(E1)
             E = E1 + (AP + BP * T) * T
+            if E1/E<0:
+                R5 = 1
+                TEST1 = 0
+                continue
             CONST6 = math.sqrt(E1 / E)
             DCX2 = DCX1 * CONST6
             DCY2 = DCY1 * CONST6
@@ -83,7 +85,7 @@ def ELIMITT(Magboltz):
         DZCOM = (VEZ - VGZ) * CONST11
 
         R2 = random.random()
-        I = 0
+
         I = SORTT(KGAS, I, R2, IE, Magboltz)
         while Magboltz.CF[KGAS][IE][I] < R2:
             I = I + 1

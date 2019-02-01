@@ -2,7 +2,7 @@ import Magboltz
 import math
 import sys
 
-sys.path.append('../../src/Scripts/Cython')
+sys.path.append('../Cython')
 
 from Gasmix import Gasmix
 import numpy as np

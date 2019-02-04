@@ -35,7 +35,7 @@ def ELIMITT(Magboltz):
         R5 = 1
         TEST1 = 0
         while R5 > TEST1:
-            R1 = random.random()
+            R1 = random.uniform(RDUM)om()
             T = -1 * np.log(R1) / Magboltz.TCFMX + TDASH
             TDASH = T
             AP = DCZ1 * F2 * math.sqrt(E1)
@@ -68,7 +68,7 @@ def ELIMITT(Magboltz):
             VEZ = DCZ2 * CONST9 * math.sqrt(E)
 
             EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
-            IE = np.int(EOK / Magboltz.ESTEP)
+            IE = int(EOK / Magboltz.ESTEP)
             IE = min(IE, 3999)
             R5 = random.random()
             TEST1 = Magboltz.TCF[KGAS][IE] / Magboltz.TCFMAX[KGAS]

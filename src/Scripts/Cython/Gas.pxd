@@ -1,13 +1,6 @@
-cimport numpy as np
-import numpy as np
-
-np.import_array()
-
-cdef class Gas:
-    cdef public:
-        int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
-        double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,
-        np.ndarray QIN, QT1, QT2, QT3, QT4, DEN, EROOT, EG, SCLN, QNULL, QATT, NC0, EC0, WK, EFL, NG1, EG1, NG2, EG2
-        np.ndarray PENFRA, KEL, PEQIN, PEQEL, EB, EION, PEQION, QION, KIN, EI, E, Q
-    cdef inline int getNGS(self):
-        return self.NGS
+cdef struct Gas:
+    int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+    double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS
+    double Q[6][4000],QIN[250][4000],E[6],EIN[250],KIN[250],QION[30][4000],PEQION[30][4000],EION[30],EB[30],PEQEL[6][4000]
+    double PEQIN[250][4000],KEL[6],PENFRA[3][290],NC0[30],EC0[30],WK[30],EFL[30],NG1[30],EG1[30],NG2[30],EG2[30]
+    double QATT[8][4000],QNULL[10][4000],SCLN[10],EG[4000],EROOT[4000],QT1[4000],QT2[4000],QT3[4000],QT4[4000],DEN[4000]

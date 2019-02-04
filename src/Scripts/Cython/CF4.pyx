@@ -1,24 +1,26 @@
 import h5py
-from libc.math cimport log
-from libc.math cimport sqrt
-import math
+from libc.math cimport sin, cos, acos,asin, log,sqrt,exp
 import numpy as np
 cimport numpy as np
 import sys
 from Gas cimport Gas
 sys.path.append('../hdf5_python')
+import cython
 
-cpdef Gas Gas1(Gas object):
+@cython.cdivision(True)
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cdef void Gas1(Gas* object):
     gd = h5py.File(r"gases.hdf5", 'r')
-    cdef double EIN[250]
     print "HERE"
-    EIN = gd[r'gas1/EIN']
+    cdef int i = 0
+    object.EIN = gd[r'gas1/EIN']
     cdef double EOBY[12]
     cdef double PQ[3]
     # EIN=[0 for x in range(250)]#<=== input to this function
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27
-    object.E = np.array([0.0, 1.0, 15.9, 0.0, 0.0, 0.0])
+    object.E = [0.0, 1.0, 15.9, 0.0, 0.0, 0.0]
     object.E[1] = 2.0 * EMASS / (88.0043 * AMU)
     object.NC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0]
     object.EC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 253.0, 625.2]
@@ -33,13 +35,12 @@ cpdef Gas Gas1(Gas object):
     cdef int IOFFION[12]
     IOFFION = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     cdef int IOFFN[46]
-    cdef int i = 0
 
     for i in range(46):
         IOFFN[i] = 0
 
     EMASS2 = 1021997.804
-    cdef double API = math.acos(-1)
+    cdef double API = acos(-1)
     cdef double A0 = 0.52917720859e-8
     cdef double RY = 13.60569193
     cdef double BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
@@ -112,7 +113,7 @@ cpdef Gas Gas1(Gas object):
     cdef int NL = 10
     for NL in range(10, 46):
         for i in range(0, NASIZE):
-            if object.EG[i] > abs(EIN[NL]):
+            if object.EG[i] > abs(object.EIN[NL]):
                 IOFFN[NL] = i
                 break
 
@@ -133,10 +134,10 @@ cpdef Gas Gas1(Gas object):
     cdef double DEGV4 = 3.0,DEGV3 = 3.0,DEGV2 = 2.0,DEGV1 = 1.0
 
     # CALC VIB LEVEL POPULATIONS
-    cdef double APOPV2 = DEGV2 * math.exp(EIN[0] / object.AKT)
-    cdef double APOPV4 = DEGV4 * math.exp(EIN[2] / object.AKT)
-    cdef double APOPV1 = DEGV1 * math.exp(EIN[4] / object.AKT)
-    cdef double APOPV3 = DEGV3 * math.exp(EIN[6] / object.AKT)
+    cdef double APOPV2 = DEGV2 * exp(object.EIN[0] / object.AKT)
+    cdef double APOPV4 = DEGV4 * exp(object.EIN[2] / object.AKT)
+    cdef double APOPV1 = DEGV1 * exp(object.EIN[4] / object.AKT)
+    cdef double APOPV3 = DEGV3 * exp(object.EIN[6] / object.AKT)
     cdef double APOPGS = 1.0
     cdef double APOPSUM = APOPGS + APOPV2 + APOPV4 + APOPV1 + APOPV3
     APOPGS = 1.0 / APOPSUM
@@ -555,7 +556,7 @@ cpdef Gas Gas1(Gas object):
         object.QIN[0][i] = 0.0
         object.PEQIN[0][i] = 0.5
         if EN > 0.0:
-            EFAC = sqrt(1.0 - (EIN[0] / EN))
+            EFAC = sqrt(1.0 - (object.EIN[0] / EN))
             object.QIN[0][i] = 0.007 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[0][i] = object.QIN[0][i] * APOPV2 * 1.0e-16 / DEGV2
             if EN > 100.0:
@@ -564,8 +565,8 @@ cpdef Gas Gas1(Gas object):
         # VIBRATION V2 ISOTROPIC BELOW 100EV
         object.QIN[1][i] = 0.0
         object.PEQIN[1][i] = 0.5
-        if EN > EIN[1]:
-            EFAC = sqrt(1.0 - (EIN[1] / EN))
+        if EN > object.EIN[1]:
+            EFAC = sqrt(1.0 - (object.EIN[1] / EN))
             object.QIN[1][i] = 0.007 * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
             object.QIN[1][i] = object.QIN[1][i] * APOPGS * 1.0e-16
             if EN > 100.0:
@@ -575,17 +576,17 @@ cpdef Gas Gas1(Gas object):
         object.QIN[2][i] = 0.0
         object.PEQIN[2][i] = 0.5
         if EN > 0.0:
-            if EN - EIN[2] <= XVBV4[NVBV4 - 1]:
+            if EN - object.EIN[2] <= XVBV4[NVBV4 - 1]:
                 j = 0
                 for j in range(1, NVBV4):
-                    if EN - EIN[2] <= XVBV4[j]:
+                    if EN - object.EIN[2] <= XVBV4[j]:
                         break
                 A = (YVBV4[j] - YVBV4[j - 1]) / (XVBV4[j] - XVBV4[j - 1])
                 B = (XVBV4[j - 1] * YVBV4[j] - XVBV4[j] * YVBV4[j - 1]) / (XVBV4[j - 1] - XVBV4[j])
-                object.QIN[2][i] = (EN - EIN[2]) * (A * (EN - EIN[2]) + B) / EN
+                object.QIN[2][i] = (EN - object.EIN[2]) * (A * (EN - object.EIN[2]) + B) / EN
             else:
-                object.QIN[2][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / (EN * (EN - EIN[2])) ** 2)
-            EFAC = sqrt(1.0 - (EIN[2] / EN))
+                object.QIN[2][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / (EN * (EN - object.EIN[2])) ** 2)
+            EFAC = sqrt(1.0 - (object.EIN[2] / EN))
             object.QIN[2][i] = object.QIN[2][i] + 0.05 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[2][i] = object.QIN[2][i] * APOPV4 * 1.0e-16 / DEGV4
             if EN > 100.0:
@@ -594,7 +595,7 @@ cpdef Gas Gas1(Gas object):
         # VIBRATION V4 ANISOTROPIC
         object.QIN[3][i] = 0.0
         object.PEQIN[3][i] = 0.5
-        if EN > EIN[3]:
+        if EN > object.EIN[3]:
             if EN <= XVBV4[NVBV4 - 1]:
                 j = 0
                 for j in range(1, NVBV4):
@@ -605,9 +606,9 @@ cpdef Gas Gas1(Gas object):
                 object.QIN[3][i] = A * EN + B
             else:
                 object.QIN[3][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / EN) ** 3
-            EFAC = sqrt(1.0 - (EIN[3] / EN))
+            EFAC = sqrt(1.0 - (object.EIN[3] / EN))
             ADIP = 0.05 * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
-            ELF = EN - EIN[3]
+            ELF = EN - object.EIN[3]
             FWD = log((EN + ELF) / (EN + ELF - 2.0 * sqrt(EN * ELF)))
             BCK = log((EN + ELF + 2.0 * sqrt(EN * ELF)) / (EN + ELF))
             # RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART = RAT
@@ -622,17 +623,17 @@ cpdef Gas Gas1(Gas object):
         object.QIN[4][i] = 0.0
         object.PEQIN[4][i] = 0.5
         if EN > 0.0:
-            if EN - EIN[4] <= XVBV1[NVBV1 - 1]:
+            if EN - object.EIN[4] <= XVBV1[NVBV1 - 1]:
                 j = 0
                 for j in range(1, NVBV1):
-                    if EN - EIN[4] <= XVBV1[j]:
+                    if EN - object.EIN[4] <= XVBV1[j]:
                         break
                 A = (YVBV1[j] - YVBV1[j - 1]) / (XVBV1[j] - XVBV1[j - 1])
                 B = (XVBV1[j - 1] * YVBV1[j] - XVBV1[j] * YVBV1[j - 1]) / (XVBV1[j - 1] - XVBV1[j])
-                object.QIN[4][i] = (EN - EIN[4]) * (A * (EN - EIN[4]) + B) / EN
+                object.QIN[4][i] = (EN - object.EIN[4]) * (A * (EN - object.EIN[4]) + B) / EN
             else:
-                object.QIN[4][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / (EN * (EN - EIN[4])) ** 2)
-            EFAC = sqrt(1.0 - (EIN[4] / EN))
+                object.QIN[4][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / (EN * (EN - object.EIN[4])) ** 2)
+            EFAC = sqrt(1.0 - (object.EIN[4] / EN))
             object.QIN[4][i] = object.QIN[4][i] + 0.0224 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[4][i] = object.QIN[4][i] * APOPV1 * 1.0e-16 / DEGV1
             if EN > 100.0:
@@ -641,7 +642,7 @@ cpdef Gas Gas1(Gas object):
         # VIBRATION V1  ISOTROPIC BELOW 100EV
         object.QIN[5][i] = 0.0
         object.PEQIN[5][i] = 0.5
-        if EN > EIN[5]:
+        if EN > object.EIN[5]:
             if EN <= XVBV1[NVBV1 - 1]:
                 j = 0
                 for j in range(1, NVBV1):
@@ -652,7 +653,7 @@ cpdef Gas Gas1(Gas object):
                 object.QIN[5][i] = A * EN + B
             else:
                 object.QIN[5][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / EN) ** 3
-            EFAC = sqrt(1.0 - (EIN[5] / EN))
+            EFAC = sqrt(1.0 - (object.EIN[5] / EN))
             object.QIN[5][i] = object.QIN[5][i] + 0.0224 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
             object.QIN[5][i] = object.QIN[5][i] * APOPGS * 1.0e-16
             if EN > 100.0:
@@ -662,17 +663,17 @@ cpdef Gas Gas1(Gas object):
         object.QIN[6][i] = 0.0
         object.PEQIN[6][i] = 0.5
         if EN > 0.0:
-            if EN - EIN[6] <= XVBV3[NVBV3 - 1]:
+            if EN - object.EIN[6] <= XVBV3[NVBV3 - 1]:
                 j = 0
                 for j in range(1, NVBV3):
-                    if EN - EIN[6] <= XVBV3[j]:
+                    if EN - object.EIN[6] <= XVBV3[j]:
                         break
                 A = (YVBV3[j] - YVBV3[j - 1]) / (XVBV3[j] - XVBV3[j - 1])
                 B = (XVBV3[j - 1] * YVBV3[j] - XVBV3[j] * YVBV3[j - 1]) / (XVBV3[j - 1] - XVBV3[j])
-                object.QIN[6][i] = (EN - EIN[6]) * (A * (EN - EIN[6]) + B) / EN
+                object.QIN[6][i] = (EN - object.EIN[6]) * (A * (EN - object.EIN[6]) + B) / EN
             else:
-                object.QIN[6][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / (EN * (EN - EIN[6])) ** 2)
-            EFAC = sqrt(1.0 - (EIN[6] / EN))
+                object.QIN[6][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / (EN * (EN - object.EIN[6])) ** 2)
+            EFAC = sqrt(1.0 - (object.EIN[6] / EN))
             object.QIN[6][i] = object.QIN[6][i] + VDSC * 1.610 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
             if EN > 100.0:
@@ -680,7 +681,7 @@ cpdef Gas Gas1(Gas object):
         # VIBRATION V4 ANISOTROPIC
         object.QIN[7][i] = 0.0
         object.PEQIN[7][i] = 0.5
-        if EN > EIN[7]:
+        if EN > object.EIN[7]:
             if EN <= XVBV3[NVBV3 - 1]:
                 j = 0
                 for j in range(1, NVBV3):
@@ -691,9 +692,9 @@ cpdef Gas Gas1(Gas object):
                 object.QIN[7][i] = A * EN + B
             else:
                 object.QIN[7][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / EN) ** 3
-            EFAC = sqrt(1.0 - (EIN[7] / EN))
+            EFAC = sqrt(1.0 - (object.EIN[7] / EN))
             ADIP = VDSC * 1.610 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
-            ELF = EN - EIN[7]
+            ELF = EN - object.EIN[7]
             FWD = log((EN + ELF) / (EN + ELF - 2.0 * sqrt(EN * ELF)))
             BCK = log((EN + ELF + 2.0 * sqrt(EN * ELF)) / (EN + ELF))
             # ASSUME RATIO MOM T./ TOT X-SECT FOR RESONANCE PART = RAT
@@ -707,7 +708,7 @@ cpdef Gas Gas1(Gas object):
         # VIBRATION HARMONIC 2V3
         object.QIN[8][i] = 0.0
         object.PEQION[8][i] = 0.5
-        if EN > EIN[8]:
+        if EN > object.EIN[8]:
             if EN <= XVIB5[NVIB5 - 1]:
                 j = 0
                 for j in range(1, NVIB5):
@@ -726,7 +727,7 @@ cpdef Gas Gas1(Gas object):
         # VIBRATION HARMONIC 3V3
         object.QIN[9][i] = 0.0
         object.PEQION[9][i] = 0.5
-        if EN > EIN[9]:
+        if EN > object.EIN[9]:
             if EN <= XVIB6[NVIB6 - 1]:
                 j = 0
                 for j in range(1, NVIB6):
@@ -746,7 +747,7 @@ cpdef Gas Gas1(Gas object):
         # TRIPLET NEUTRAL DISSOCIATION ELOSS=11.5 EV
         object.QIN[10][i] = 0.0
         object.PEQIN[10][i] = 0.0
-        if EN > EIN[10]:
+        if EN > object.EIN[10]:
             if EN <= XTR1[NTR1 - 1]:
                 j = 0
                 for j in range(1, NTR1):
@@ -757,69 +758,69 @@ cpdef Gas Gas1(Gas object):
                 object.QIN[10][i] = (A * EN + B) * 1.0e-16
             else:
                 object.QIN[10][i] = YTR1[NTR1 - 1] * (XTR1[NTR1 - 1] / EN) ** 2 * 1.0e-16
-            if EN > 3 * EIN[10]:
+            if EN > 3 * object.EIN[10]:
                 object.PEQIN[10][i] = object.PEQEL[1][(i - IOFFN[10])]
         # SINGLET NEUTRAL DISSOCIATION  ELOSS=11.63 EV     F=0.0001893
         object.QIN[11][i] = 0.0
         object.PEQIN[11][i] = 0.0
-        if EN > EIN[11]:
-            object.QIN[11][i] = 0.0001893 / (EIN[11] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0
-                                                                                                * EIN[
+        if EN > object.EIN[11]:
+            object.QIN[11][i] = 0.0001893 / (object.EIN[11] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0
+                                                                                                * object.EIN[
                                                                                                     11])) - BETA2 -
                                                                  object.DEN[
                                                                      i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[11] + object.E[2]) * 1.0107
+                                        EN + object.EIN[11] + object.E[2]) * 1.0107
         if object.QIN[11][i] < 0.0:
             object.QIN[11][i] = 0
-        if EN > 3 * EIN[11]:
+        if EN > 3 * object.EIN[11]:
             object.PEQIN[11][i] = object.PEQEL[1][i - IOFFN[11]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=11.88 EV     F=0.001085
         object.QIN[12][i] = 0.0
         object.PEQIN[12][i] = 0.0
-        if EN > EIN[12]:
-            object.QIN[12][i] = 0.001085 / (EIN[12] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0
-                                                                                               * EIN[12])) - BETA2 -
+        if EN > object.EIN[12]:
+            object.QIN[12][i] = 0.001085 / (object.EIN[12] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0
+                                                                                               * object.EIN[12])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[12] + object.E[2]) * 1.0105
+                                        EN + object.EIN[12] + object.E[2]) * 1.0105
         if object.QIN[12][i] < 0.0:
             object.QIN[12][i] = 0
-        if EN > 3 * EIN[12]:
+        if EN > 3 * object.EIN[12]:
             object.PEQIN[12][i] = object.PEQEL[1][i - IOFFN[12]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=11.88 EV     F=0.004807
         object.QIN[13][i] = 0.0
         object.PEQIN[13][i] = 0.0
-        if EN > EIN[13]:
-            object.QIN[13][i] = 0.004807 / (EIN[13] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                               EIN[13])) - BETA2 -
+        if EN > object.EIN[13]:
+            object.QIN[13][i] = 0.004807 / (object.EIN[13] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                               object.EIN[13])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[13] + object.E[2]) * 1.0103
+                                        EN + object.EIN[13] + object.E[2]) * 1.0103
         if object.QIN[13][i] < 0.0:
             object.QIN[13][i] = 0
-        if EN > 3 * EIN[13]:
+        if EN > 3 * object.EIN[13]:
             object.PEQIN[13][i] = object.PEQEL[1][i - IOFFN[13]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.38 EV     F=0.008819
         object.QIN[14][i] = 0.0
         object.PEQIN[14][i] = 0.0
-        if EN > EIN[14]:
-            object.QIN[14][i] = 0.008819 / (EIN[14] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                               EIN[14])) - BETA2 -
+        if EN > object.EIN[14]:
+            object.QIN[14][i] = 0.008819 / (object.EIN[14] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                               object.EIN[14])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[14] + object.E[2]) * 1.0101
+                                        EN + object.EIN[14] + object.E[2]) * 1.0101
         if object.QIN[14][i] < 0.0:
             object.QIN[14][i] = 0
-        if EN > 3 * EIN[14]:
+        if EN > 3 * object.EIN[14]:
             object.PEQIN[14][i] = object.PEQEL[1][i - IOFFN[14]]
 
         # TRIPLET NEUTRAL DISSOCIATION ELOSS=12.5 EV
         object.QIN[15][i] = 0.0
         object.PEQIN[15][i] = 0.0
-        if EN > EIN[15]:
+        if EN > object.EIN[15]:
             if EN <= XTR2[NTR2 - 1]:
                 j = 0
                 for j in range(1, NTR2):
@@ -830,97 +831,97 @@ cpdef Gas Gas1(Gas object):
                 object.QIN[15][i] = (A * EN + B) * 1.0e-16
             else:
                 object.QIN[15][i] = YTR2[NTR2 - 1] * (XTR2[NTR2 - 1] / EN) ** 2 * 1.0e-16
-            if EN > 3 * EIN[15]:
+            if EN > 3 * object.EIN[15]:
                 object.PEQIN[15][i] = object.PEQEL[1][i - IOFFN[15]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.63 EV     F=0.008918
         object.QIN[16][i] = 0.0
         object.PEQIN[16][i] = 0.0
-        if EN > EIN[16]:
-            object.QIN[16][i] = 0.008918 / (EIN[16] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                               EIN[16])) - BETA2 -
+        if EN > object.EIN[16]:
+            object.QIN[16][i] = 0.008918 / (object.EIN[16] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                               object.EIN[16])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[16] + object.E[2]) * 1.0099
+                                        EN + object.EIN[16] + object.E[2]) * 1.0099
         if object.QIN[16][i] < 0.0:
             object.QIN[16][i] = 0
-        if EN > 3 * EIN[16]:
+        if EN > 3 * object.EIN[16]:
             object.PEQIN[16][i] = object.PEQEL[1][i - IOFFN[16]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.88 EV     F=0.008420
         object.QIN[17][i] = 0.0
         object.PEQIN[17][i] = 0.0
-        if EN > EIN[17]:
-            object.QIN[17][i] = 0.008420 / (EIN[17] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                               EIN[17])) - BETA2 -
+        if EN > object.EIN[17]:
+            object.QIN[17][i] = 0.008420 / (object.EIN[17] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                               object.EIN[17])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[17] + object.E[2]) * 1.0097
+                                        EN + object.EIN[17] + object.E[2]) * 1.0097
         if object.QIN[17][i] < 0.0:
             object.QIN[17][i] = 0
-        if EN > 3 * EIN[17]:
+        if EN > 3 * object.EIN[17]:
             object.PEQIN[17][i] = object.PEQEL[1][i - IOFFN[17]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.13 EV     F=0.02531
         object.QIN[18][i] = 0.0
         object.PEQIN[18][i] = 0.0
-        if EN > EIN[18]:
-            object.QIN[18][i] = 0.02531 / (EIN[18] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[18])) - BETA2 -
+        if EN > object.EIN[18]:
+            object.QIN[18][i] = 0.02531 / (object.EIN[18] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[18])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[18] + object.E[2]) * 1.0095
+                                        EN + object.EIN[18] + object.E[2]) * 1.0095
         if object.QIN[18][i] < 0.0:
             object.QIN[18][i] = 0
-        if EN > 3 * EIN[18]:
+        if EN > 3 * object.EIN[18]:
             object.PEQIN[18][i] = object.PEQEL[1][i - IOFFN[18]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.38 EV     F=0.09553
         object.QIN[19][i] = 0.0
         object.PEQIN[19][i] = 0.0
-        if EN > EIN[19]:
-            object.QIN[19][i] = 0.09553 / (EIN[19] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[19])) - BETA2 -
+        if EN > object.EIN[19]:
+            object.QIN[19][i] = 0.09553 / (object.EIN[19] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[19])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[19] + object.E[2]) * 1.0093
+                                        EN + object.EIN[19] + object.E[2]) * 1.0093
         if object.QIN[19][i] < 0.0:
             object.QIN[19][i] = 0
-        if EN > 3 * EIN[19]:
+        if EN > 3 * object.EIN[19]:
             object.PEQIN[19][i] = object.PEQEL[1][i - IOFFN[19]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.63 EV     F=0.11193
         object.QIN[20][i] = 0.0
         object.PEQIN[20][i] = 0.0
-        if EN > EIN[20]:
-            object.QIN[20][i] = 0.11193 / (EIN[20] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[20])) - BETA2 -
+        if EN > object.EIN[20]:
+            object.QIN[20][i] = 0.11193 / (object.EIN[20] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[20])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[20] + object.E[2]) * 1.0092
+                                        EN + object.EIN[20] + object.E[2]) * 1.0092
         if object.QIN[20][i] < 0.0:
             object.QIN[20][i] = 0
-        if EN > 3 * EIN[20]:
+        if EN > 3 * object.EIN[20]:
             object.PEQIN[20][i] = object.PEQEL[1][i - IOFFN[20]]
 
         # SINGLET NEUTRAL DISSOCIATION    ELOSS=13.88 EV     F=0.10103
         object.QIN[21][i] = 0.0
         object.PEQIN[21][i] = 0.0
-        if EN > EIN[21]:
-            object.QIN[21][i] = 0.10103 / (EIN[21] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[21])) - BETA2 -
+        if EN > object.EIN[21]:
+            object.QIN[21][i] = 0.10103 / (object.EIN[21] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[21])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[21] + object.E[2]) * 1.0090
+                                        EN + object.EIN[21] + object.E[2]) * 1.0090
         if object.QIN[21][i] < 0.0:
             object.QIN[21][i] = 0
-        if EN > 3 * EIN[21]:
+        if EN > 3 * object.EIN[21]:
             object.PEQIN[21][i] = object.PEQEL[1][i - IOFFN[21]]
 
         # TRIPLET NEUTRAL DISSOCIATION ELOSS=14.0 EV
         object.QIN[22][i] = 0.0
         object.PEQIN[22][i] = 0.0
-        if EN > EIN[22]:
+        if EN > object.EIN[22]:
             if EN <= XTR3[NTR3 - 1]:
                 j = 0
                 for j in range(1, NTR3):
@@ -931,330 +932,330 @@ cpdef Gas Gas1(Gas object):
                 object.QIN[22][i] = (A * EN + B) * 1.0e-16
             else:
                 object.QIN[22][i] = YTR3[NTR3 - 1] * (XTR3[NTR3 - 1] / EN) ** 2 * 1.0e-16
-            if EN > 3 * EIN[22]:
+            if EN > 3 * object.EIN[22]:
                 object.PEQIN[22][i] = object.PEQEL[1][i - IOFFN[22]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.13 EV     F=0.06902
         object.QIN[23][i] = 0.0
         object.PEQIN[23][i] = 0.0
-        if EN > EIN[23]:
-            object.QIN[23][i] = 0.06902 / (EIN[23] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[23])) - BETA2 -
+        if EN > object.EIN[23]:
+            object.QIN[23][i] = 0.06902 / (object.EIN[23] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[23])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[23] + object.E[2]) * 1.0088
+                                        EN + object.EIN[23] + object.E[2]) * 1.0088
         if object.QIN[23][i] < 0.0:
             object.QIN[23][i] = 0
-        if EN > 3 * EIN[23]:
+        if EN > 3 * object.EIN[23]:
             object.PEQIN[23][i] = object.PEQEL[1][i - IOFFN[23]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.38 EV     F=0.03968
         object.QIN[24][i] = 0.0
         object.PEQIN[24][i] = 0.0
-        if EN > EIN[24]:
-            object.QIN[24][i] = 0.03968 / (EIN[24] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[24])) - BETA2 -
+        if EN > object.EIN[24]:
+            object.QIN[24][i] = 0.03968 / (object.EIN[24] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[24])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[24] + object.E[2]) * 1.0087
+                                        EN + object.EIN[24] + object.E[2]) * 1.0087
         if object.QIN[24][i] < 0.0:
             object.QIN[24][i] = 0
-        if EN > 3 * EIN[24]:
+        if EN > 3 * object.EIN[24]:
             object.PEQIN[24][i] = object.PEQEL[1][i - IOFFN[24]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.63 EV     F=0.02584
         object.QIN[25][i] = 0.0
         object.PEQIN[25][i] = 0.0
-        if EN > EIN[25]:
-            object.QIN[25][i] = 0.02584 / (EIN[25] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[25])) - BETA2 -
+        if EN > object.EIN[25]:
+            object.QIN[25][i] = 0.02584 / (object.EIN[25] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[25])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[25] + object.E[2]) * 1.0085
+                                        EN + object.EIN[25] + object.E[2]) * 1.0085
         if object.QIN[25][i] < 0.0:
             object.QIN[25][i] = 0
-        if EN > 3 * EIN[25]:
+        if EN > 3 * object.EIN[25]:
             object.PEQIN[25][i] = object.PEQEL[1][i - IOFFN[25]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.88 EV     F=0.02071
         object.QIN[26][i] = 0.0
         object.PEQIN[26][i] = 0.0
-        if EN > EIN[26]:
-            object.QIN[26][i] = 0.02071 / (EIN[26] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[26])) - BETA2 -
+        if EN > object.EIN[26]:
+            object.QIN[26][i] = 0.02071 / (object.EIN[26] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[26])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[26] + object.E[2]) * 1.0084
+                                        EN + object.EIN[26] + object.E[2]) * 1.0084
         if object.QIN[26][i] < 0.0:
             object.QIN[26][i] = 0
-        if EN > 3 * EIN[26]:
+        if EN > 3 * object.EIN[26]:
             object.PEQIN[26][i] = object.PEQEL[1][i - IOFFN[26]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.13 EV     F=0.03122
         object.QIN[27][i] = 0.0
         object.PEQIN[27][i] = 0.0
-        if EN > EIN[27]:
-            object.QIN[27][i] = 0.03122 / (EIN[27] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[27])) - BETA2 -
+        if EN > object.EIN[27]:
+            object.QIN[27][i] = 0.03122 / (object.EIN[27] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[27])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[27] + object.E[2]) * 1.0083
+                                        EN + object.EIN[27] + object.E[2]) * 1.0083
         if object.QIN[27][i] < 0.0:
             object.QIN[27][i] = 0
-        if EN > 3 * EIN[27]:
+        if EN > 3 * object.EIN[27]:
             object.PEQIN[27][i] = object.PEQEL[1][i - IOFFN[27]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.38 EV     F=0.05580
         object.QIN[28][i] = 0.0
         object.PEQIN[28][i] = 0.0
-        if EN > EIN[28]:
-            object.QIN[28][i] = 0.05580 / (EIN[28] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[28])) - BETA2 -
+        if EN > object.EIN[28]:
+            object.QIN[28][i] = 0.05580 / (object.EIN[28] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[28])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[28] + object.E[2]) * 1.0081
+                                        EN + object.EIN[28] + object.E[2]) * 1.0081
         if object.QIN[28][i] < 0.0:
             object.QIN[28][i] = 0
-        if EN > 3 * EIN[28]:
+        if EN > 3 * object.EIN[28]:
             object.PEQIN[28][i] = object.PEQEL[1][i - IOFFN[28]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.63 EV     F=0.10187
         object.QIN[29][i] = 0.0
         object.PEQIN[29][i] = 0.0
-        if EN > EIN[29]:
-            object.QIN[29][i] = 0.10187 / (EIN[29] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[29])) - BETA2 -
+        if EN > object.EIN[29]:
+            object.QIN[29][i] = 0.10187 / (object.EIN[29] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[29])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[29] + object.E[2]) * 1.0080
+                                        EN + object.EIN[29] + object.E[2]) * 1.0080
         if object.QIN[29][i] < 0.0:
             object.QIN[29][i] = 0
-        if EN > 3 * EIN[29]:
+        if EN > 3 * object.EIN[29]:
             object.PEQIN[29][i] = object.PEQEL[1][i - IOFFN[29]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.88 EV     F=0.09427
         object.QIN[30][i] = 0.0
         object.PEQIN[30][i] = 0.0
-        if EN > EIN[30]:
-            object.QIN[30][i] = 0.09427 / (EIN[30] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[30])) - BETA2 -
+        if EN > object.EIN[30]:
+            object.QIN[30][i] = 0.09427 / (object.EIN[30] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[30])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[30] + object.E[2]) * 1.0079
+                                        EN + object.EIN[30] + object.E[2]) * 1.0079
         if object.QIN[30][i] < 0.0:
             object.QIN[30][i] = 0
-        if EN > 3 * EIN[30]:
+        if EN > 3 * object.EIN[30]:
             object.PEQIN[30][i] = object.PEQEL[1][i - IOFFN[30]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.13 EV     F=0.05853
         object.QIN[31][i] = 0.0
         object.PEQIN[31][i] = 0.0
-        if EN > EIN[31]:
-            object.QIN[31][i] = 0.05853 / (EIN[31] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[31])) - BETA2 -
+        if EN > object.EIN[31]:
+            object.QIN[31][i] = 0.05853 / (object.EIN[31] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[31])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[31] + object.E[2]) * 1.0077
+                                        EN + object.EIN[31] + object.E[2]) * 1.0077
         if object.QIN[31][i] < 0.0:
             object.QIN[31][i] = 0
-        if EN > 3 * EIN[31]:
+        if EN > 3 * object.EIN[31]:
             object.PEQIN[31][i] = object.PEQEL[1][i - IOFFN[31]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.38 EV     F=0.06002
         object.QIN[32][i] = 0.0
         object.PEQIN[32][i] = 0.0
-        if EN > EIN[32]:
-            object.QIN[32][i] = 0.06002 / (EIN[32] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[32])) - BETA2 -
+        if EN > object.EIN[32]:
+            object.QIN[32][i] = 0.06002 / (object.EIN[32] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[32])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[32] + object.E[2]) * 1.0076
+                                        EN + object.EIN[32] + object.E[2]) * 1.0076
         if object.QIN[32][i] < 0.0:
             object.QIN[32][i] = 0
-        if EN > 3 * EIN[32]:
+        if EN > 3 * object.EIN[32]:
             object.PEQIN[32][i] = object.PEQEL[1][i - IOFFN[32]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.63 EV     F=0.05647
         object.QIN[33][i] = 0.0
         object.PEQIN[33][i] = 0.0
-        if EN > EIN[33]:
-            object.QIN[33][i] = 0.05647 / (EIN[33] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[33])) - BETA2 -
+        if EN > object.EIN[33]:
+            object.QIN[33][i] = 0.05647 / (object.EIN[33] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[33])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[33] + object.E[2]) * 1.0075
+                                        EN + object.EIN[33] + object.E[2]) * 1.0075
         if object.QIN[33][i] < 0.0:
             object.QIN[33][i] = 0
-        if EN > 3 * EIN[33]:
+        if EN > 3 * object.EIN[33]:
             object.PEQIN[33][i] = object.PEQEL[1][i - IOFFN[33]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.88 EV     F=0.04885
         object.QIN[34][i] = 0.0
         object.PEQIN[34][i] = 0.0
-        if EN > EIN[34]:
-            object.QIN[34][i] = 0.04885 / (EIN[34] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[34])) - BETA2 -
+        if EN > object.EIN[34]:
+            object.QIN[34][i] = 0.04885 / (object.EIN[34] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[34])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[34] + object.E[2]) * 1.0074
+                                        EN + object.EIN[34] + object.E[2]) * 1.0074
         if object.QIN[34][i] < 0.0:
             object.QIN[34][i] = 0
-        if EN > 3 * EIN[34]:
+        if EN > 3 * object.EIN[34]:
             object.PEQIN[34][i] = object.PEQEL[1][i - IOFFN[34]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.13 EV     F=0.04036
         object.QIN[35][i] = 0.0
         object.PEQIN[35][i] = 0.0
-        if EN > EIN[35]:
-            object.QIN[35][i] = 0.04036 / (EIN[35] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[35])) - BETA2 -
+        if EN > object.EIN[35]:
+            object.QIN[35][i] = 0.04036 / (object.EIN[35] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[35])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[35] + object.E[2]) * 1.0073
+                                        EN + object.EIN[35] + object.E[2]) * 1.0073
         if object.QIN[35][i] < 0.0:
             object.QIN[35][i] = 0
-        if EN > 3 * EIN[35]:
+        if EN > 3 * object.EIN[35]:
             object.PEQIN[35][i] = object.PEQEL[1][i - IOFFN[35]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.38 EV     F=0.03298
         object.QIN[36][i] = 0.0
         object.PEQIN[36][i] = 0.0
-        if EN > EIN[36]:
-            object.QIN[36][i] = 0.03298 / (EIN[36] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[36])) - BETA2 -
+        if EN > object.EIN[36]:
+            object.QIN[36][i] = 0.03298 / (object.EIN[36] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[36])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[36] + object.E[2]) * 1.0072
+                                        EN + object.EIN[36] + object.E[2]) * 1.0072
         if object.QIN[36][i] < 0.0:
             object.QIN[36][i] = 0
-        if EN > 3 * EIN[36]:
+        if EN > 3 * object.EIN[36]:
             object.PEQIN[36][i] = object.PEQEL[1][i - IOFFN[36]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.63 EV     F=0.02593
         object.QIN[37][i] = 0.0
         object.PEQIN[37][i] = 0.0
-        if EN > EIN[37]:
-            object.QIN[37][i] = 0.02593 / (EIN[37] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[37])) - BETA2 -
+        if EN > object.EIN[37]:
+            object.QIN[37][i] = 0.02593 / (object.EIN[37] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[37])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[37] + object.E[2]) * 1.0071
+                                        EN + object.EIN[37] + object.E[2]) * 1.0071
         if object.QIN[37][i] < 0.0:
             object.QIN[37][i] = 0
-        if EN > 3 * EIN[37]:
+        if EN > 3 * object.EIN[37]:
             object.PEQIN[37][i] = object.PEQEL[1][i - IOFFN[37]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.88 EV     F=0.01802
         object.QIN[38][i] = 0.0
         object.PEQIN[38][i] = 0.0
-        if EN > EIN[38]:
-            object.QIN[38][i] = 0.01802 / (EIN[38] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[38])) - BETA2 -
+        if EN > object.EIN[38]:
+            object.QIN[38][i] = 0.01802 / (object.EIN[38] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[38])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[38] + object.E[2]) * 1.0070
+                                        EN + object.EIN[38] + object.E[2]) * 1.0070
         if object.QIN[38][i] < 0.0:
             object.QIN[38][i] = 0
-        if EN > 3 * EIN[38]:
+        if EN > 3 * object.EIN[38]:
             object.PEQIN[38][i] = object.PEQEL[1][i - IOFFN[38]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.13 EV     F=0.01287
         object.QIN[39][i] = 0.0
         object.PEQIN[39][i] = 0.0
-        if EN > EIN[39]:
-            object.QIN[39][i] = 0.01287 / (EIN[39] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[39])) - BETA2 -
+        if EN > object.EIN[39]:
+            object.QIN[39][i] = 0.01287 / (object.EIN[39] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[39])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[39] + object.E[2]) * 1.0069
+                                        EN + object.EIN[39] + object.E[2]) * 1.0069
         if object.QIN[39][i] < 0.0:
             object.QIN[39][i] = 0
-        if EN > 3 * EIN[39]:
+        if EN > 3 * object.EIN[39]:
             object.PEQIN[39][i] = object.PEQEL[1][i - IOFFN[39]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.38 EV     F=0.00830
         object.QIN[40][i] = 0.0
         object.PEQIN[40][i] = 0.0
-        if EN > EIN[40]:
-            object.QIN[40][i] = 0.00830 / (EIN[40] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[40])) - BETA2 -
+        if EN > object.EIN[40]:
+            object.QIN[40][i] = 0.00830 / (object.EIN[40] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[40])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[40] + object.E[2]) * 1.0068
+                                        EN + object.EIN[40] + object.E[2]) * 1.0068
         if object.QIN[40][i] < 0.0:
             object.QIN[40][i] = 0
-        if EN > 3 * EIN[40]:
+        if EN > 3 * object.EIN[40]:
             object.PEQIN[40][i] = object.PEQEL[1][i - IOFFN[40]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.63 EV     F=0.00698
         object.QIN[41][i] = 0.0
         object.PEQIN[41][i] = 0.0
-        if EN > EIN[41]:
-            object.QIN[41][i] = 0.00698 / (EIN[41] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[41])) - BETA2 -
+        if EN > object.EIN[41]:
+            object.QIN[41][i] = 0.00698 / (object.EIN[41] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[41])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[41] + object.E[2]) * 1.0067
+                                        EN + object.EIN[41] + object.E[2]) * 1.0067
         if object.QIN[41][i] < 0.0:
             object.QIN[41][i] = 0
-        if EN > 3 * EIN[41]:
+        if EN > 3 * object.EIN[41]:
             object.PEQIN[41][i] = object.PEQEL[1][i - IOFFN[41]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.88 EV     F=0.00581
         object.QIN[42][i] = 0.0
         object.PEQIN[42][i] = 0.0
-        if EN > EIN[42]:
-            object.QIN[42][i] = 0.00581 / (EIN[42] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[42])) - BETA2 -
+        if EN > object.EIN[42]:
+            object.QIN[42][i] = 0.00581 / (object.EIN[42] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[42])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[42] + object.E[2]) * 1.0066
+                                        EN + object.EIN[42] + object.E[2]) * 1.0066
         if object.QIN[42][i] < 0.0:
             object.QIN[42][i] = 0
-        if EN > 3 * EIN[42]:
+        if EN > 3 * object.EIN[42]:
             object.PEQIN[42][i] = object.PEQEL[1][i - IOFFN[42]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.13 EV     F=0.00502
         object.QIN[43][i] = 0.0
         object.PEQIN[43][i] = 0.0
-        if EN > EIN[43]:
-            object.QIN[43][i] = 0.00502 / (EIN[43] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[43])) - BETA2 -
+        if EN > object.EIN[43]:
+            object.QIN[43][i] = 0.00502 / (object.EIN[43] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[43])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[43] + object.E[2]) * 1.0065
+                                        EN + object.EIN[43] + object.E[2]) * 1.0065
         if object.QIN[43][i] < 0.0:
             object.QIN[43][i] = 0
-        if EN > 3 * EIN[43]:
+        if EN > 3 * object.EIN[43]:
             object.PEQIN[43][i] = object.PEQEL[1][i - IOFFN[43]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.38 EV     F=0.00398
         object.QIN[44][i] = 0.0
         object.PEQIN[44][i] = 0.0
-        if EN > EIN[44]:
-            object.QIN[44][i] = 0.00398 / (EIN[44] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[44])) - BETA2 -
+        if EN > object.EIN[44]:
+            object.QIN[44][i] = 0.00398 / (object.EIN[44] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[44])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[44] + object.E[2]) * 1.0064
+                                        EN + object.EIN[44] + object.E[2]) * 1.0064
         if object.QIN[44][i] < 0.0:
             object.QIN[44][i] = 0
-        if EN > 3 * EIN[44]:
+        if EN > 3 * object.EIN[44]:
             object.PEQIN[44][i] = object.PEQEL[1][i - IOFFN[44]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.63 EV     F=0.00189
         object.QIN[45][i] = 0.0
         object.PEQIN[45][i] = 0.0
-        if EN > EIN[45]:
+        if EN > object.EIN[45]:
             # magboltz code is 0.00198 while the pattern should go to 0.00189
-            object.QIN[45][i] = 0.00198 / (EIN[45] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
-                                                                                              EIN[45])) - BETA2 -
+            object.QIN[45][i] = 0.00198 / (object.EIN[45] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+                                                                                              object.EIN[45])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + EIN[45] + object.E[2]) * 1.0064
+                                        EN + object.EIN[45] + object.E[2]) * 1.0064
         if object.QIN[45][i] < 0.0:
             object.QIN[45][i] = 0
-        if EN > 3 * EIN[45]:
+        if EN > 3 * object.EIN[45]:
             object.PEQIN[45][i] = object.PEQEL[1][i - IOFFN[45]]
 
         QIONSUM = 0.0
@@ -1279,10 +1280,9 @@ cpdef Gas Gas1(Gas object):
         object.Q[0][i] = object.Q[1][i] + object.Q[3][i] + VSUM + DISTOT
 
     for J in range(10, 46):
-        if object.EFINAL <= EIN[J]:
+        if object.EFINAL <= object.EIN[J]:
             object.NIN = J
             break
-    return object
-
     gd.close()
     print("CF4")
+

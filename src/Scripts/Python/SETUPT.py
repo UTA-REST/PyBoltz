@@ -16,13 +16,12 @@ def SETUPT(Magboltz):
     ABZERO = 273.15
     ATMOS = 760.0
     Magboltz.CONST1 = AWB / 2.0 * 1.0e-19
-    Magboltz.CONST1 *= 1.0e-02
+    Magboltz.CONST2 = Magboltz.CONST1* 1.0e-02
     Magboltz.CONST3 = math.sqrt(0.2 * AWB) * 1.0e-9
     Magboltz.CONST4 = Magboltz.CONST3 * ALOSCH * 1.0e-15
     Magboltz.CONST5 = Magboltz.CONST3 / 2.0
     Magboltz.CORR = ABZERO * Magboltz.TORR / (ATMOS * (ABZERO + Magboltz.TEMPC) * 100.0)
-    NANISO = 2
-
+    Magboltz.NANISO =2
     Magboltz.NCOLM = 400000
     Magboltz.NCORLN = 50000
     Magboltz.NCORST = 4
@@ -61,6 +60,8 @@ def SETUPT(Magboltz):
     Magboltz.THETA = 0.785
     Magboltz.PHI = 0.1
     Magboltz.ESTART = Magboltz.EFINAL / 50.0
+    Magboltz.RSTART=0.666
+    Magboltz.CORR = ABZERO * Magboltz.TORR / (ATMOS * (ABZERO + Magboltz.TEMPC) * 100.0)
 
     Magboltz.AKT = (ABZERO + Magboltz.TEMPC) * BOLTZ
     Magboltz.ANN = [Magboltz.FRAC[i] * Magboltz.CORR * ALOSCH for i in range(6)]

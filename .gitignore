@@ -3,3 +3,7 @@ venv/*
 *.pyc
 .idea
 *~
+*.o
+*.c
+*.so
+*.html

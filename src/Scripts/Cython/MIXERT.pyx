@@ -12,7 +12,6 @@ import cython
 @cython.nonecheck(False)
 @cython.cdivision(True)
 cpdef MIXERT(Magboltz object):
-
     cdef double QATT[6][4000]
     cdef int  IE, KGAS, NP, p, sum, J, i, j, KION, JJ, IL, I
     cdef MIXERT_obj MIXERTOBJ = MIXERT_obj()
@@ -106,8 +105,8 @@ cpdef MIXERT(Magboltz object):
                 object.INDEX[KGAS][NP] = 2
 
             if IE == 0:
-                RGAS = 1 +MIXERTOBJ.E[KGAS][1] / 2
-                object.AMGAS[KGAS] = 2 * EMASS /MIXERTOBJ.E[KGAS][1]
+                RGAS = 1 + MIXERTOBJ.E[KGAS][1] / 2
+                object.AMGAS[KGAS] = 2 * EMASS / MIXERTOBJ.E[KGAS][1]
                 object.RGAS[KGAS][NP] = RGAS
                 L = 1
                 object.IARRY[KGAS][NP] = L
@@ -120,7 +119,7 @@ cpdef MIXERT(Magboltz object):
 
             # IONISATION
 
-            if object.EFINAL >=MIXERTOBJ.E[KGAS][2]:
+            if object.EFINAL >= MIXERTOBJ.E[KGAS][2]:
                 if MIXERTOBJ.NION[KGAS] <= 1:
                     NP += 1
                     object.CF[KGAS][IE][NP] = MIXERTOBJ.Q[KGAS][2][IE] * object.VANN[KGAS]
@@ -159,7 +158,7 @@ cpdef MIXERT(Magboltz object):
 
                 if IE == 0:
                     if MIXERTOBJ.NION[KGAS] <= 1:
-                        RGAS = 1 +MIXERTOBJ.E[KGAS][1] / 2
+                        RGAS = 1 + MIXERTOBJ.E[KGAS][1] / 2
                         object.RGAS[KGAS][NP] = RGAS
                         object.EIN[KGAS][NP] = MIXERTOBJ.E[KGAS][2] / RGAS
                         object.WPL[KGAS][NP] = MIXERTOBJ.EB[KGAS][0]
@@ -207,6 +206,18 @@ cpdef MIXERT(Magboltz object):
                     object.FCATT[IE] = object.FCATT[IE] + object.CF[KGAS][IE][NP]
                     object.PSCT[KGAS][IE][NP] = 0.5
                     object.ANGCT[KGAS][IE][NP] = 1.0
+                    if IE == 0:
+                        RGAS = 1 + MIXERTOBJ.E[KGAS][1] / 2
+                        object.RGAS[KGAS][NP] = RGAS
+                        object.EIN[KGAS][NP] = 0.0
+                        object.INDEX[KGAS][NP] = 0
+                        object.IPN[KGAS][NP] = -1
+                        L = 3
+                        object.IARRY[KGAS][NP] = L
+                        object.PENFRA[KGAS][0][NP] = 0.0
+                        object.PENFRA[KGAS][1][NP] = 0.0
+                        object.PENFRA[KGAS][2][NP] = 0.0
+
                 elif MIXERTOBJ.NATT[KGAS] > 1:
                     for JJ in range(int(MIXERTOBJ.NATT[KGAS])):
                         NP += 1
@@ -225,17 +236,6 @@ cpdef MIXERT(Magboltz object):
                             object.PENFRA[KGAS][0][NP] = 0.0
                             object.PENFRA[KGAS][1][NP] = 0.0
                             object.PENFRA[KGAS][2][NP] = 0.0
-                if IE == 0:
-                    RGAS = 1 + MIXERTOBJ.E[KGAS][1] / 2
-                    object.RGAS[KGAS][NP] = RGAS
-                    object.EIN[KGAS][NP] = 0.0
-                    object.INDEX[KGAS][NP] = 0
-                    object.IPN[KGAS][NP] = -1
-                    L = 3
-                    object.IARRY[KGAS][NP] = L
-                    object.PENFRA[KGAS][0][NP] = 0.0
-                    object.PENFRA[KGAS][1][NP] = 0.0
-                    object.PENFRA[KGAS][2][NP] = 0.0
 
             # INELASTIC AND SUPERELASTIC
             if MIXERTOBJ.NIN[KGAS] > 0:
@@ -267,6 +267,7 @@ cpdef MIXERT(Magboltz object):
                         object.PENFRA[KGAS][0][NP] = MIXERTOBJ.PENFRA[KGAS][0][J]
                         object.PENFRA[KGAS][1][NP] = MIXERTOBJ.PENFRA[KGAS][1][J] * 1.0e-16 / sqrt(3)
                         object.PENFRA[KGAS][2][NP] = MIXERTOBJ.PENFRA[KGAS][2][J]
+
             object.IPLAST[KGAS] = NP
             object.ISIZE[KGAS] = 1
             for I in range(1, 9):
@@ -374,7 +375,7 @@ cpdef MIXERT(Magboltz object):
         for J in range(object.NGAS):
             object.QSUM[I] = object.QSUM[I] + object.QION[J][I] + QATT[J][I]
             object.QSATT[I] = object.QSATT[I] + QATT[J][I]
-            object.QREL[I] = object.QREL[I] + object.QION[J][I] + QATT[J][I]
+            object.QREL[I] = object.QREL[I] + object.QION[J][I] - QATT[J][I]
         for KGAS in range(6):
             for J in range(int(MIXERTOBJ.NIN[KGAS])):
                 object.QSUM[I] = object.QSUM[I] + MIXERTOBJ.QIN[KGAS][J][I] * object.ANN[KGAS]

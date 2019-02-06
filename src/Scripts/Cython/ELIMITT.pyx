@@ -20,6 +20,7 @@ cdef double random_uniform():
 @cython.wraparound(False)
 cpdef ELIMITT(Magboltz Object):
     print("ELIMITT")
+    srand(int(Object.RSTART*1000))
     cdef long long I,ISAMP,N4000,IMBPT,J1,KGAS,IE
     cdef double SMALL, RDUM,E1,TDASH,CONST9,CONST10,DCZ1,DCX1,DCY1,BP,F1,F2,F4,J2M,R5,TEST1,R1,T,AP,E,CONST6,DCX2,DCY2,DCZ2,R2,
     cdef double VGX,VGY,VGZ,VEX,VEY,VEZ,EOK,CONST11,DXCOM,DYCOM,DZCOM,S1,EI,R9,EXTRA,IPT,S2,R3,R31,F3,RAN,EPSI,R4,PHI0,F8,F9,ARG1

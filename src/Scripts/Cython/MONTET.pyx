@@ -20,6 +20,7 @@ cdef double random_uniform():
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTET(Magboltz Object):
+    srand(int(Object.RSTART*1000))
     Object.WX = 0.0
     Object.WY = 0.0
     Object.X = 0.0

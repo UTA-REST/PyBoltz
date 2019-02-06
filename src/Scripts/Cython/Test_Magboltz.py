@@ -9,17 +9,15 @@ Object = Magboltz()
 
 import time
 t1 =time.time()
-Object.NGAS =2
+Object.NGAS =1
 Object.NMAX =1
 Object.IPEN = 0
 Object.ITHRM=1
 Object.EFINAL = 0.0
 
-Object.NGASN=[1, 2, 0, 0, 0, 0]
-Object.NGASN[0]=1
-Object.NGASN[1]=2
+Object.NGASN=[1, 0, 0, 0, 0, 0]
 
-Object.FRAC=[50, 50, 0, 0, 0, 0]
+Object.FRAC=[100, 0, 0, 0, 0, 0]
 
 
 Object.TEMPC = 23

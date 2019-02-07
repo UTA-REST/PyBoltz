@@ -1,7 +1,6 @@
 from GERJAN cimport GERJAN
 from Magboltz cimport Magboltz
 import numpy as np
-from libc.stdlib cimport rand, RAND_MAX, srand
 from libc.math cimport sin, cos, acos, asin, log, sqrt
 from libc.string cimport memset
 cimport numpy as np
@@ -9,18 +8,22 @@ from SORTT cimport SORTT
 from libc.stdlib cimport malloc, free
 import cython
 
+cdef extern from "stdlib.h":
+    double drand48()
+    void srand48(long int seedval)
+
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef double random_uniform():
-    cdef double r = rand()
-    return r / RAND_MAX
+    cdef double r = drand48()
+    return r
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTET(Magboltz Object):
-    srand(int(Object.RSTART*1000))
+    srand48(int(Object.RSTART*1000))
     Object.WX = 0.0
     Object.WY = 0.0
     Object.X = 0.0

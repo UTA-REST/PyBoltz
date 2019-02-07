@@ -79,7 +79,7 @@ cdef class Magboltz:
         self.DXZER = 0.0
         self.IFAKE = 0
         self.FAKEI = 0.0
-        self.RSTART = 0.666
+        self.RSTART = 54217137
         memset(self.ANN, 0, 6 * sizeof(double))
         memset(self.VANN, 0, 6 * sizeof(double))
         memset(self.RI, 0, 8 * sizeof(double))
@@ -351,6 +351,8 @@ cdef class Magboltz:
             else:
                MIXERT(self)
             if self.BMAG == 0:
+                print(self.EFINAL)
+                print(self.ESTART)
                 MONTET(self)
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:

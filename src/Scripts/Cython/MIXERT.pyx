@@ -383,5 +383,4 @@ cpdef MIXERT(Magboltz object):
         for KGAS in range(6):
             for J in range(int(MIXERTOBJ.NIN[KGAS])):
                 object.QSUM[I] = object.QSUM[I] + MIXERTOBJ.QIN[KGAS][J][I] * object.ANN[KGAS]
-    print(object.TCFMX)
     return

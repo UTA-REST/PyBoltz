@@ -23,19 +23,19 @@ cdef double random_uniform():
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTET(Magboltz Object):
-    srand48(int(Object.RSTART*1000))
+    srand48(Object.RSTART)
     Object.WX = 0.0
     Object.WY = 0.0
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
     Object.ST = 0.0
-    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT,JDUM,
-    cdef double ST1, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXROLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
+    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM,RDUM
+    cdef double ST1, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
-    cdef double RDUM, E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
+    cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
-    cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, DIFLN, ANCATT, ANCION, E
+    cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST,  ANCATT, ANCION, E
     I = 0
     ST1 = 0.0
     ST2 = 0.0
@@ -51,21 +51,21 @@ cpdef MONTET(Magboltz Object):
     ST1OLD = 0.0
     ST2OLD = 0.0
     SZZOLD = 0.0
-    SXXROLD = 0.0
+    SXXOLD = 0.0
     SYYOLD = 0.0
     SVXOLD = 0.0
     SVYOLD = 0.0
     SME2OLD = 0.0
-    cdef double *STO,*XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST
-    STO =<double *> malloc(2000000 * sizeof(double))
+    cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST
+    STO = <double *> malloc(2000000 * sizeof(double))
     memset(STO, 0, 2000000 * sizeof(double))
-    XST =<double *> malloc(2000000 * sizeof(double))
+    XST = <double *> malloc(2000000 * sizeof(double))
     memset(XST, 0, 2000000 * sizeof(double))
 
     YST = <double *> malloc(2000000 * sizeof(double))
     memset(YST, 0, 2000000 * sizeof(double))
 
-    ZST =<double *> malloc(2000000 * sizeof(double))
+    ZST = <double *> malloc(2000000 * sizeof(double))
     memset(ZST, 0, 2000000 * sizeof(double))
 
     WZST = <double *> malloc(10 * sizeof(double))
@@ -93,18 +93,19 @@ cpdef MONTET(Magboltz Object):
     ID = 0
     Object.XID = 0
     NCOL = 0
+    Object.NNULL = 0
     IEXTRA = 0
     GERJAN(Object.RSTART, Object.API, Object.RNMX)
     IMBPT = 0
     TDASH = 0.0
-    cdef int i =0
-    cdef double **TEMP = <double **>malloc(6 * sizeof(double *))
+    cdef int i = 0
+    cdef double ** TEMP = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
-         TEMP[i] = <double *>malloc(4000 * sizeof(double))
+        TEMP[i] = <double *> malloc(4000 * sizeof(double))
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Object.TCF[K][J] + Object.TCFN[K][J]
-    ABSFAKEI = Object.FAKEI
+    ABSFAKEI = 0.0
     Object.IFAKE = 0
 
     DCZ1 = cos(Object.THETA)
@@ -115,6 +116,7 @@ cpdef MONTET(Magboltz Object):
     F1 = Object.EFIELD * Object.CONST2
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2 * acos(-1)
+    print("F4="+str(F4))
     J2M = long(Object.NMAX / Object.ITMAX)
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
@@ -139,7 +141,7 @@ cpdef MONTET(Magboltz Object):
                         KGAS = KGAS + 1
                 IMBPT += 1
                 if (IMBPT > 6):
-                    GERJAN(Object.RSTART, Object.API,Object.RNMX)
+                    GERJAN(Object.RSTART, Object.API, Object.RNMX)
                     IMBPT = 1
                 VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1
@@ -237,7 +239,6 @@ cpdef MONTET(Magboltz Object):
             R3 = random_uniform()
 
             I = SORTT(KGAS, I, R3, IE, Object)
-
             while Object.CF[KGAS][IE][I] < R3:
                 I += 1
             S1 = Object.RGAS[KGAS][I]
@@ -314,7 +315,7 @@ cpdef MONTET(Magboltz Object):
         # TODO: TABLE PRINT
         Object.WZ *= 1e9
         Object.AVE = SUME2 / Object.ST
-        DIFLN = 0.0
+        Object.DIFLN = 0.0
         if Object.NISO == 0:
             Object.DIFXX = 5e15 * SUMVX / Object.ST
             Object.DIFYY = 5e15 * SUMVY / Object.ST
@@ -383,8 +384,8 @@ cpdef MONTET(Magboltz Object):
     Object.DXXER = Object.DXXER / sqrt(10)
     Object.DYYER = Object.DYYER / sqrt(10)
     Object.DZZER = Object.DZZER / sqrt(8)
-    DIFLN = Object.DIFZZ
-    Object.DIFTR = (Object.DIFXX + Object.DYYER) / 2
+    Object.DIFLN = Object.DIFZZ
+    Object.DIFTR = (Object.DIFXX + Object.DIFYY) / 2
     # CONVERT CM/SEC
     Object.WZ *= 1e5
     Object.DFLER = Object.DZZER

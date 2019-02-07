@@ -1,2 +1,2 @@
 cimport numpy as np
-cdef void GERJAN(double RDUM, double API,double * RNMX)
+cdef void GERJAN(long long RDUM, double API,double * RNMX)

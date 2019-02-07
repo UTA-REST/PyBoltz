@@ -4,7 +4,7 @@ cimport cython
 import math
 cimport numpy as np
 import numpy as np
-from libc.math cimport sin, cos, acos,asin, log,sqrt
+from libc.math cimport sin, cos, acos, asin, log, sqrt
 from SORTT cimport SORTT
 
 cdef extern from "stdlib.h":
@@ -22,11 +22,11 @@ cdef double random_uniform():
 @cython.wraparound(False)
 cpdef ELIMITT(Magboltz Object):
     print("ELIMITT")
-    srand48(int(Object.RSTART*1000))
-    cdef long long I,ISAMP,N4000,IMBPT,J1,KGAS,IE
-    cdef double SMALL, RDUM,E1,TDASH,CONST9,CONST10,DCZ1,DCX1,DCY1,BP,F1,F2,F4,J2M,R5,TEST1,R1,T,AP,E,CONST6,DCX2,DCY2,DCZ2,R2,
-    cdef double VGX,VGY,VGZ,VEX,VEY,VEZ,EOK,CONST11,DXCOM,DYCOM,DZCOM,S1,EI,R9,EXTRA,IPT,S2,R3,R31,F3,RAN,EPSI,R4,PHI0,F8,F9,ARG1
-    cdef double D,Q,U,CSQD,F6,F5,ARGZ,CONST12,VXLAB,VYLAB,VZLAB
+    srand48(Object.RSTART )
+    cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE,RDUM
+    cdef double SMALL,  E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
+    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB
     I = 0
     ISAMP = 10
     SMALL = 1.0e-20
@@ -37,7 +37,7 @@ cpdef ELIMITT(Magboltz Object):
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
 
-    GERJAN(Object.RSTART, Object.API,Object.RNMX)
+    GERJAN(Object.RSTART, Object.API, Object.RNMX)
     IMBPT = 0
     DCZ1 = cos(Object.THETA)
     DCX1 = sin(Object.THETA) * cos(Object.PHI)
@@ -50,11 +50,9 @@ cpdef ELIMITT(Magboltz Object):
     J2M = Object.NMAX / ISAMP
     print(J2M)
     for J1 in range(int(J2M)):
-        if J1%100000 ==0:
+        if J1 % 100000 == 0:
             print(J1)
-        R5 = 1
-        TEST1 = 0
-        while R5 > TEST1:
+        while True:
             R1 = random_uniform()
             T = -1 * log(R1) / Object.TCFMX + TDASH
             TDASH = T
@@ -71,7 +69,7 @@ cpdef ELIMITT(Magboltz Object):
                     break
             IMBPT = IMBPT + 1
             if IMBPT > 6:
-                GERJAN(Object.RSTART, Object.NGAS,Object.RNMX)
+                GERJAN(Object.RSTART, Object.NGAS, Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -88,11 +86,13 @@ cpdef ELIMITT(Magboltz Object):
             IE = min(IE, 3999)
             R5 = random_uniform()
             TEST1 = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
+            if R5<=TEST1:
+                break
 
         if IE == 3999:
             Object.IELOW = 1
             return
-            
+
         TDASH = 0.0
 
         CONST11 = 1 / (CONST9 * sqrt(EOK))
@@ -101,7 +101,6 @@ cpdef ELIMITT(Magboltz Object):
         DZCOM = (VEZ - VGZ) * CONST11
 
         R2 = random_uniform()
-
         I = SORTT(KGAS, I, R2, IE, Object)
         while Object.CF[KGAS][IE][I] < R2:
             I = I + 1
@@ -171,5 +170,6 @@ cpdef ELIMITT(Magboltz Object):
         DCY1 = VYLAB * CONST11
         DCZ1 = VZLAB * CONST11
     Object.IELOW = 0
+    print("THETAAAAAAAAA")
+    print(Object.THETA)
     return
-    

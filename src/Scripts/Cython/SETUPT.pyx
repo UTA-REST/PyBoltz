@@ -68,7 +68,6 @@ cpdef SETUPT(Magboltz object):
     object.THETA = 0.785
     object.PHI = 0.1
     object.ESTART = object.EFINAL / 50.0
-    object.RSTART=0.666
     object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
 
     object.AKT = (ABZERO + object.TEMPC) * BOLTZ

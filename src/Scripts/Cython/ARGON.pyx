@@ -235,7 +235,7 @@ cdef void Gas2(Gas *object):
                 IOFFN[i] = j
                 break
     cdef int I
-    cdef double GAMMA1, GAMMA2, BETA, BETA2=0.00000001, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
+    cdef double GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
     cdef double QPSSUM,QDSSUM,TOTSUM,Q1SSUM,PQ1,PQ2,PQ3
     for I in range(4000):
         EN = object.EG[I]

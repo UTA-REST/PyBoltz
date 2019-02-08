@@ -1,15 +1,18 @@
 from SETUPT import SETUPT
-import numpy as np
 import math
 from MIXERT import MIXERT
 from ELIMITT import ELIMITT
 from MONTET import MONTET
 from libc.string cimport memset
 
-import cython
+cdef extern from "C/RM48.h":
+    double DRAND48(double dummy)
+    void RM48(double lenv)
 
+RM48(1000)
+cdef double drand48(double dummy):
+    return DRAND48(dummy)
 cdef class Magboltz:
-
     def __init__(self):
         self.EOVB = 0.0
         self.WB = 0.0

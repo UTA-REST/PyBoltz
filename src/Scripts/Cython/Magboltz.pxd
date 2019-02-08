@@ -2,7 +2,7 @@ cimport numpy as np
 import math
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
-
+cdef double drand48(double dummy)
 cdef class Magboltz:
     cdef public:
         double EOVB, WB, BTHETA, BMAG, EFINAL, ESTEP, AKT, ARY, TEMPC, TORR, TMAX, SMALL, API, ESTART, THETA, PHI, EFIELD, NMAX, ALPHA

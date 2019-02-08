@@ -202,7 +202,7 @@ cdef void Gas1(Gas* object):
     # EQUAL X-SEC TO THE GROUND STATE TRANSITIONS)
     APOPGS = 1.0
 
-    cdef double EN,GAMMA1,GAMMA2,BETA,BETA2=0.00000001,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
+    cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
 
     # EN=-ESTEP/2.0  #ESTEP is function input
     for i in range(object.NSTEP):

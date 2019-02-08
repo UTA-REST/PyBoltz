@@ -8,30 +8,29 @@ from SORTT cimport SORTT
 from libc.stdlib cimport malloc, free
 import cython
 
-cdef extern from "stdlib.h":
-    double drand48()
-    void srand48(long int seedval)
+cdef extern from "C/RM48.h":
+    double DRAND48(double dummy)
+
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double random_uniform():
-    cdef double r = drand48()
+cdef double random_uniform(double dummy):
+    cdef double r = DRAND48(dummy)
     return r
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTET(Magboltz Object):
-    srand48(Object.RSTART)
     Object.WX = 0.0
     Object.WY = 0.0
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
     Object.ST = 0.0
-    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, RDUM
-    cdef double ST1, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
+    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM
+    cdef double ST1, RDUM,ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
@@ -121,7 +120,7 @@ cpdef MONTET(Magboltz Object):
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
-                R1 = random_uniform()
+                R1 = random_uniform(RDUM)
                 T = -1 * log(R1) / Object.TCFMX + TDASH
                 TDASH = T
                 AP = DCZ1 * F2 * sqrt(E1)
@@ -133,7 +132,7 @@ cpdef MONTET(Magboltz Object):
                 DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
                 # FIND IDENTITY OF GAS FOR COLLISION
                 KGAS = 0
-                R2 = random_uniform()
+                R2 = random_uniform(RDUM)
                 if Object.NGAS == 1:
                     KGAS = 0
                 else:
@@ -159,7 +158,7 @@ cpdef MONTET(Magboltz Object):
                 IE = min(IE, 3999)
                 # TEST FOR REAL OR NULL COLLISION
 
-                R5 = random_uniform()
+                R5 = random_uniform(RDUM)
                 TEST1 = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
 
                 if R5 > TEST1:
@@ -168,7 +167,7 @@ cpdef MONTET(Magboltz Object):
                     if R5 < TEST2:
                         if Object.NPLAST[KGAS] == 0:
                             continue
-                        R2 = random_uniform()
+                        R2 = random_uniform(RDUM)
                         I = 0
                         while Object.CFN[KGAS][IE][I] < R2:
                             I += 1
@@ -236,7 +235,7 @@ cpdef MONTET(Magboltz Object):
                 Object.XID = float(ID)
                 NCOL = 0
 
-            R3 = random_uniform()
+            R3 = random_uniform(RDUM)
 
             I = SORTT(KGAS, I, R3, IE, Object)
             while Object.CF[KGAS][IE][I] < R3:
@@ -245,7 +244,7 @@ cpdef MONTET(Magboltz Object):
             EI = Object.EIN[KGAS][I]
 
             if Object.IPN[KGAS][I] > 0:
-                R9 = random_uniform()
+                R9 = random_uniform(RDUM)
                 EXTRA = R9 * (EOK - EI)
                 EI = EXTRA + EI
                 IEXTRA += long(Object.NC0[KGAS][I])
@@ -257,14 +256,14 @@ cpdef MONTET(Magboltz Object):
 
             if Object.IPEN != 0:
                 if Object.PENFRA[KGAS][0][I] != 0:
-                    RAN = random_uniform()
+                    RAN = random_uniform(RDUM)
                     if RAN <= Object.PENFRA[KGAS][0][I]:
                         IEXTRA += 1
             S2 = (S1 ** 2) / (S1 - 1.0)
 
-            R3 = random_uniform()
+            R3 = random_uniform(RDUM)
             if Object.INDEX[KGAS][I] == 1:
-                R31 = random_uniform()
+                R31 = random_uniform(RDUM)
                 F3 = 1.0 - R3 * Object.ANGCT[KGAS][IE][I]
                 if R31 > Object.PSCT[KGAS][IE][I]:
                     F3 = -1 * F3
@@ -274,7 +273,7 @@ cpdef MONTET(Magboltz Object):
             else:
                 F3 = 1 - 2 * R3
             THETA0 = acos(F3)
-            R4 = random_uniform()
+            R4 = random_uniform(RDUM)
             PHI0 = F4 * R4
             F8 = sin(PHI0)
             F9 = cos(PHI0)

@@ -30,12 +30,12 @@ cpdef MONTET(Magboltz Object):
     Object.Y = 0.0
     Object.Z = 0.0
     Object.ST = 0.0
-    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM,RDUM
+    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, RDUM
     cdef double ST1, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
-    cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST,  ANCATT, ANCION, E
+    cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, ANCATT, ANCION, E
     I = 0
     ST1 = 0.0
     ST2 = 0.0
@@ -116,7 +116,7 @@ cpdef MONTET(Magboltz Object):
     F1 = Object.EFIELD * Object.CONST2
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2 * acos(-1)
-    print("F4="+str(F4))
+    print("F4=" + str(F4))
     J2M = long(Object.NMAX / Object.ITMAX)
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
@@ -143,11 +143,11 @@ cpdef MONTET(Magboltz Object):
                 if (IMBPT > 6):
                     GERJAN(Object.RSTART, Object.API, Object.RNMX)
                     IMBPT = 1
-                VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
                 IMBPT += 1
-                VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
                 IMBPT += 1
-                VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
                 # CALCULATE ELECTRON VELOCITY VECTORS VEX VEY VEZ
                 VEX = DCX2 * CONST9 * sqrt(E)
                 VEY = DCY2 * CONST9 * sqrt(E)
@@ -190,7 +190,7 @@ cpdef MONTET(Magboltz Object):
             DYCOM = (VEY - VGY) * CONST11
             DZCOM = (VEZ - VGZ) * CONST11
             # CALCULATE POSITIONS AT INSTANT BEFORE COLLISION, & UPDATE DIFFUSION AND ENERGY CALCULATIONS
-            T2 = T ** 2
+            T2 = T * T
             if (T >= Object.TMAX1):
                 Object.TMAX1 = T
             TDASH = 0.0

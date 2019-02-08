@@ -4,6 +4,5 @@ venv/*
 .idea
 *~
 *.o
-*.c
 *.so
 *.html

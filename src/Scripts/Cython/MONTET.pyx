@@ -1,5 +1,5 @@
 from Magboltz cimport Magboltz
-from libc.math cimport sin, cos, acos, asin, log, sqrt
+from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 from libc.string cimport memset
 from Magboltz cimport drand48
 from SORTT cimport SORTT
@@ -8,7 +8,6 @@ import cython
 
 
 
-@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef double random_uniform(double dummy):
@@ -27,7 +26,6 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 
 
 
-@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTET(Magboltz Object):
@@ -95,7 +93,7 @@ cpdef MONTET(Magboltz Object):
     RDUM = Object.RSTART
     E1 = Object.ESTART
     CONST9 = Object.CONST3 * 0.01
-    CONST10 = CONST9 ** 2
+    CONST10 = pow(CONST9 , 2)
     Object.ITMAX = 10
     ID = 0
     Object.XID = 0
@@ -119,7 +117,7 @@ cpdef MONTET(Magboltz Object):
     DCX1 = sin(Object.THETA) * cos(Object.PHI)
     DCY1 = sin(Object.THETA) * sin(Object.PHI)
 
-    BP = (Object.EFIELD ** 2) * Object.CONST1
+    BP = pow(Object.EFIELD , 2) * Object.CONST1
     F1 = Object.EFIELD * Object.CONST2
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2 * acos(-1)
@@ -161,7 +159,7 @@ cpdef MONTET(Magboltz Object):
                 VEZ = DCZ2 * CONST9 * sqrt(E)
                 # CALCULATE ENERGY WITH STATIONARY GAS TARGET, EOK
 
-                EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
+                EOK = (pow((VEX - VGX) ,2) + pow((VEY - VGY) , 2) + pow((VEZ - VGZ) , 2)) / CONST10
                 IE = int(EOK / Object.ESTEP)
                 IE = min(IE, 3999)
                 # TEST FOR REAL OR NULL COLLISION
@@ -228,12 +226,12 @@ cpdef MONTET(Magboltz Object):
                     if NCOLDM > Object.NCOLM:
                         NCOLDM = NCOLDM - Object.NCOLM
                     SDIF = Object.ST - STO[NCOLDM - 1]
-                    SUMXX += ((Object.X - XST[NCOLDM - 1]) ** 2) * T / SDIF
-                    SUMYY += ((Object.Y - YST[NCOLDM - 1]) ** 2) * T / SDIF
+                    SUMXX += pow((Object.X - XST[NCOLDM - 1]) , 2) * T / SDIF
+                    SUMYY += pow((Object.Y - YST[NCOLDM - 1]) , 2) * T / SDIF
                     KDUM += Object.NCORLN
                     if J1 >= 2:
                         ST1 += T
-                        SUMZZ += ((Object.Z - ZST[NCOLDM - 1] - Object.WZ * SDIF) ** 2) * T / SDIF
+                        SUMZZ += pow((Object.Z - ZST[NCOLDM - 1] - Object.WZ * SDIF) , 2) * T / SDIF
             XST[NCOL - 1] = Object.X
             YST[NCOL - 1] = Object.Y
             ZST[NCOL - 1] = Object.Z
@@ -267,7 +265,7 @@ cpdef MONTET(Magboltz Object):
                     RAN = random_uniform(RDUM)
                     if RAN <= Object.PENFRA[KGAS][0][I]:
                         IEXTRA += 1
-            S2 = (S1 ** 2) / (S1 - 1.0)
+            S2 = pow(S1 , 2) / (S1 - 1.0)
 
             R3 = random_uniform(RDUM)
             if Object.INDEX[KGAS][I] == 1:
@@ -376,11 +374,11 @@ cpdef MONTET(Magboltz Object):
         T2AVE = T2AVE + AVEST[K] * AVEST[K]
         TXXST = TXXST + DFXXST[K]
         TYYST = TYYST + DFYYST[K]
-        T2YYST = T2YYST + DFYYST[K] ** 2
-        T2XXST = T2XXST + DFXXST[K] ** 2
+        T2YYST = T2YYST + pow(DFYYST[K] , 2)
+        T2XXST = T2XXST + pow(DFXXST[K] ,2)
         if K >= 2:
             TZZST = TZZST + DFZZST[K]
-            T2ZZST += DFZZST[K] ** 2
+            T2ZZST += pow(DFZZST[K] , 2)
     Object.DWZ = 100 * sqrt((T2WZST - TWZST * TWZST / 10.0) / 9.0) / Object.WZ
     Object.DEN = 100 * sqrt((T2AVE - TAVE * TAVE / 10.0) / 9.0) / Object.AVE
     Object.DXXER = 100 * sqrt((T2XXST - TXXST * TXXST / 10.0) / 9.0) / Object.DIFXX

@@ -10,7 +10,6 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-@cython.cdivision(True)
 cpdef MIXERT(Magboltz object):
     cdef double QATT[6][4000]
     cdef int  IE, KGAS, NP, p, sum, J, i, j, KION, JJ, IL, I

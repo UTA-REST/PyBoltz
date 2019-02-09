@@ -1,5 +1,5 @@
 import h5py
-from libc.math cimport sin, cos, acos,asin, log,sqrt,exp
+from libc.math cimport sin, cos, acos,asin, log,sqrt,exp,pow
 import numpy as np
 cimport numpy as np
 import sys
@@ -7,7 +7,6 @@ from Gas cimport Gas
 sys.path.append('../hdf5_python')
 import cython
 
-@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef void Gas1(Gas* object):
@@ -29,7 +28,7 @@ cdef void Gas1(Gas* object):
     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 273.0, 668.0]
     object.NG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 2]
     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 253.0, 625.2]
-    object.NG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1]
+    object.NG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0,     0.0, 0.0, 0.0, 0.0, 0.0, 1, 1]
     object.EG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 5.0]
     object.EION[0:12] = [15.7, 21.47, 29.14, 34.5, 34.77, 36.0, 40.0, 41.0, 43.0, 63.0, 285.0, 685.4]
     cdef int IOFFION[12]
@@ -585,7 +584,7 @@ cdef void Gas1(Gas* object):
                 B = (XVBV4[j - 1] * YVBV4[j] - XVBV4[j] * YVBV4[j - 1]) / (XVBV4[j - 1] - XVBV4[j])
                 object.QIN[2][i] = (EN - object.EIN[2]) * (A * (EN - object.EIN[2]) + B) / EN
             else:
-                object.QIN[2][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / (EN * (EN - object.EIN[2])) ** 2)
+                object.QIN[2][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / (EN * pow((EN - object.EIN[2]) ,2)))
             EFAC = sqrt(1.0 - (object.EIN[2] / EN))
             object.QIN[2][i] = object.QIN[2][i] + 0.05 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[2][i] = object.QIN[2][i] * APOPV4 * 1.0e-16 / DEGV4
@@ -605,7 +604,7 @@ cdef void Gas1(Gas* object):
                 B = (XVBV4[j - 1] * YVBV4[j] - XVBV4[j] * YVBV4[j - 1]) / (XVBV4[j - 1] - XVBV4[j])
                 object.QIN[3][i] = A * EN + B
             else:
-                object.QIN[3][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / EN) ** 3
+                object.QIN[3][i] = YVBV4[NVBV4 - 1] *pow((XVBV4[NVBV4 - 1] / EN) , 3)
             EFAC = sqrt(1.0 - (object.EIN[3] / EN))
             ADIP = 0.05 * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
             ELF = EN - object.EIN[3]
@@ -632,7 +631,7 @@ cdef void Gas1(Gas* object):
                 B = (XVBV1[j - 1] * YVBV1[j] - XVBV1[j] * YVBV1[j - 1]) / (XVBV1[j - 1] - XVBV1[j])
                 object.QIN[4][i] = (EN - object.EIN[4]) * (A * (EN - object.EIN[4]) + B) / EN
             else:
-                object.QIN[4][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / (EN * (EN - object.EIN[4])) ** 2)
+                object.QIN[4][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / (EN * pow((EN - object.EIN[4]) , 2)))
             EFAC = sqrt(1.0 - (object.EIN[4] / EN))
             object.QIN[4][i] = object.QIN[4][i] + 0.0224 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[4][i] = object.QIN[4][i] * APOPV1 * 1.0e-16 / DEGV1
@@ -652,7 +651,7 @@ cdef void Gas1(Gas* object):
                 B = (XVBV1[j - 1] * YVBV1[j] - XVBV1[j] * YVBV1[j - 1]) / (XVBV1[j - 1] - XVBV1[j])
                 object.QIN[5][i] = A * EN + B
             else:
-                object.QIN[5][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / EN) ** 3
+                object.QIN[5][i] = YVBV1[NVBV1 - 1] * pow((XVBV1[NVBV1 - 1] / EN) , 3)
             EFAC = sqrt(1.0 - (object.EIN[5] / EN))
             object.QIN[5][i] = object.QIN[5][i] + 0.0224 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
             object.QIN[5][i] = object.QIN[5][i] * APOPGS * 1.0e-16
@@ -672,7 +671,7 @@ cdef void Gas1(Gas* object):
                 B = (XVBV3[j - 1] * YVBV3[j] - XVBV3[j] * YVBV3[j - 1]) / (XVBV3[j - 1] - XVBV3[j])
                 object.QIN[6][i] = (EN - object.EIN[6]) * (A * (EN - object.EIN[6]) + B) / EN
             else:
-                object.QIN[6][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / (EN * (EN - object.EIN[6])) ** 2)
+                object.QIN[6][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / (EN * pow((EN - object.EIN[6]) , 2)))
             EFAC = sqrt(1.0 - (object.EIN[6] / EN))
             object.QIN[6][i] = object.QIN[6][i] + VDSC * 1.610 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
@@ -691,7 +690,7 @@ cdef void Gas1(Gas* object):
                 B = (XVBV3[j - 1] * YVBV3[j] - XVBV3[j] * YVBV3[j - 1]) / (XVBV3[j - 1] - XVBV3[j])
                 object.QIN[7][i] = A * EN + B
             else:
-                object.QIN[7][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / EN) ** 3
+                object.QIN[7][i] = YVBV3[NVBV3 - 1] * pow((XVBV3[NVBV3 - 1] / EN) , 3)
             EFAC = sqrt(1.0 - (object.EIN[7] / EN))
             ADIP = VDSC * 1.610 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
             ELF = EN - object.EIN[7]
@@ -757,7 +756,7 @@ cdef void Gas1(Gas* object):
                 B = (XTR1[j - 1] * YTR1[j] - XTR1[j] * YTR1[j - 1]) / (XTR1[j - 1] - XTR1[j])
                 object.QIN[10][i] = (A * EN + B) * 1.0e-16
             else:
-                object.QIN[10][i] = YTR1[NTR1 - 1] * (XTR1[NTR1 - 1] / EN) ** 2 * 1.0e-16
+                object.QIN[10][i] = YTR1[NTR1 - 1] * pow((XTR1[NTR1 - 1] / EN) , 2) * 1.0e-16
             if EN > 3 * object.EIN[10]:
                 object.PEQIN[10][i] = object.PEQEL[1][(i - IOFFN[10])]
         # SINGLET NEUTRAL DISSOCIATION  ELOSS=11.63 EV     F=0.0001893
@@ -830,7 +829,7 @@ cdef void Gas1(Gas* object):
                 B = (XTR2[j - 1] * YTR2[j] - XTR2[j] * YTR2[j - 1]) / (XTR2[j - 1] - XTR2[j])
                 object.QIN[15][i] = (A * EN + B) * 1.0e-16
             else:
-                object.QIN[15][i] = YTR2[NTR2 - 1] * (XTR2[NTR2 - 1] / EN) ** 2 * 1.0e-16
+                object.QIN[15][i] = YTR2[NTR2 - 1] * pow((XTR2[NTR2 - 1] / EN) , 2) * 1.0e-16
             if EN > 3 * object.EIN[15]:
                 object.PEQIN[15][i] = object.PEQEL[1][i - IOFFN[15]]
 
@@ -931,7 +930,7 @@ cdef void Gas1(Gas* object):
                 B = (XTR3[j - 1] * YTR3[j] - XTR3[j] * YTR3[j - 1]) / (XTR3[j - 1] - XTR3[j])
                 object.QIN[22][i] = (A * EN + B) * 1.0e-16
             else:
-                object.QIN[22][i] = YTR3[NTR3 - 1] * (XTR3[NTR3 - 1] / EN) ** 2 * 1.0e-16
+                object.QIN[22][i] = YTR3[NTR3 - 1] * pow((XTR3[NTR3 - 1] / EN) , 2) * 1.0e-16
             if EN > 3 * object.EIN[22]:
                 object.PEQIN[22][i] = object.PEQEL[1][i - IOFFN[22]]
 

@@ -1,7 +1,7 @@
 from Magboltz cimport Magboltz
 cimport cython
 from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log, sqrt
+from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 from SORTT cimport SORTT
 
 cdef void GERJAN(double RDUM, double API,double *RNMX):
@@ -16,7 +16,6 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 
 
 
-@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef double random_uniform(double dummy):
@@ -25,7 +24,6 @@ cdef double random_uniform(double dummy):
 
 
 
-@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef ELIMITT(Magboltz Object):
@@ -49,16 +47,14 @@ cpdef ELIMITT(Magboltz Object):
     DCX1 = sin(Object.THETA) * cos(Object.PHI)
     DCY1 = sin(Object.THETA) * sin(Object.PHI)
 
-    BP = (Object.EFIELD ** 2) * Object.CONST1
+    BP = pow(Object.EFIELD , 2) * Object.CONST1
     F1 = Object.EFIELD * Object.CONST2
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2 * acos(-1)
 
     J2M = Object.NMAX / ISAMP
     print(J2M)
-    print("hwere")
-    print(Object.CF[0][0])
-    raise ValueError("WAIt")
+
     for J1 in range(int(J2M)):
         if J1 % 100000 == 0:
             print(J1)
@@ -91,7 +87,7 @@ cpdef ELIMITT(Magboltz Object):
             VEY = DCY2 * CONST9 * sqrt(E)
             VEZ = DCZ2 * CONST9 * sqrt(E)
 
-            EOK = ((VEX - VGX) ** 2 + (VEY - VGY) ** 2 + (VEZ - VGZ) ** 2) / CONST10
+            EOK = (pow((VEX - VGX) ,2) + pow((VEY - VGY) , 2) + pow((VEZ - VGZ) , 2)) / CONST10
             IE = int(EOK / Object.ESTEP)
             IE = min(IE, 3999)
             R5 = random_uniform(RDUM)
@@ -117,6 +113,7 @@ cpdef ELIMITT(Magboltz Object):
 
         S1 = Object.RGAS[KGAS][I]
         EI = Object.EIN[KGAS][I]
+
         if Object.IPN[KGAS][I] > 0:
             R9 = random_uniform(RDUM)
             EXTRA = R9 * (EOK - EI)
@@ -154,7 +151,7 @@ cpdef ELIMITT(Magboltz Object):
 
         F6 = cos(Object.THETA)
         U = (S1 - 1) * (S1 - 1) / ARG1
-        CSQD = F3 ** 2
+        CSQD = pow(F3 , 2)
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
@@ -180,6 +177,10 @@ cpdef ELIMITT(Magboltz Object):
         DCX1 = VXLAB * CONST11
         DCY1 = VYLAB * CONST11
         DCZ1 = VZLAB * CONST11
+        print(DCX1)
+        print (DCY1)
+        print(DCZ1)
+        raise ValueError("STOP")
     Object.IELOW = 0
     print("THETAAAAAAAAA")
     print(Object.THETA)

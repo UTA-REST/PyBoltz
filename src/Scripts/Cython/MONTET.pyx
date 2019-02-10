@@ -7,7 +7,7 @@ from libc.stdlib cimport malloc, free
 import cython
 
 
-
+@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef double random_uniform(double dummy):
@@ -25,7 +25,7 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
         RNMX[J + 1] = sqrt(-1*log(RAN1)) * sin(RAN2 * TWOPI)
 
 
-
+@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTET(Magboltz Object):

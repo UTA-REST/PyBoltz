@@ -59,8 +59,8 @@ cpdef SETUPT(Magboltz object):
     if abs(TOTFRAC - 100) >= 1e-6:
         raise ValueError("Error in Gas Input")
     object.TMAX = 100.0
-    NSCALE = 40000000
-    object.NMAX = object.NMAX * NSCALE
+    object.NSCALE = 40000000
+    object.NMAX = object.NMAX * object.NSCALE
 
     if object.NMAX < 0:
         raise ValueError("NMAX value is too large - overflow")

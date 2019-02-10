@@ -1,12 +1,14 @@
 import h5py
 from libc.math cimport sin, cos, acos,asin, log,sqrt,exp,pow
+cimport libc.math
 import numpy as np
 cimport numpy as np
 import sys
 from Gas cimport Gas
+from cython.parallel cimport prange
 sys.path.append('../hdf5_python')
 import cython
-
+@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef void Gas1(Gas* object):
@@ -38,7 +40,7 @@ cdef void Gas1(Gas* object):
     for i in range(46):
         IOFFN[i] = 0
 
-    EMASS2 = 1021997.804
+    cdef double EMASS2 = 1021997.804
     cdef double API = acos(-1)
     cdef double A0 = 0.52917720859e-8
     cdef double RY = 13.60569193
@@ -113,13 +115,15 @@ cdef void Gas1(Gas* object):
     for NL in range(10, 46):
         for i in range(0, NASIZE):
             if object.EG[i] > abs(object.EIN[NL]):
-                IOFFN[NL] = i
+                IOFFN[NL] = i-1
                 break
 
     # ENTER PENNING TRANSFER FRACTION FOR EACH LEVEL
     # ONLY DISSOCIATION X-SECTION (LEVEL 11) HAS ENOUGH ENERGY TO GIVE
     # POSSIBLE PENNING TRANSFER
-
+    for NL in range(3):
+        for i in range(46):
+            object.PENFRA[NL][46]=0.0
     # PENNING TRANSFER FRACTION FOR LEVEL 11
     object.PENFRA[0][45] = 0.0
     # PENNING TRANSFER DISTANCE IN MICRONS
@@ -130,7 +134,7 @@ cdef void Gas1(Gas* object):
     # PRINT
 
     # VIBRATIONAL DEGENERACY
-    cdef double DEGV4 = 3.0,DEGV3 = 3.0,DEGV2 = 2.0,DEGV1 = 1.0
+    cdef float DEGV4 = 3.0,DEGV3 = 3.0,DEGV2 = 2.0,DEGV1 = 1.0
 
     # CALC VIB LEVEL POPULATIONS
     cdef double APOPV2 = DEGV2 * exp(object.EIN[0] / object.AKT)
@@ -147,7 +151,8 @@ cdef void Gas1(Gas* object):
     cdef double XEN[163], YELM[163], YELT[163], YEPS[163], XVBV4[11], YVBV4[11], XVBV1[11], YVBV1[11], XVBV3[11], YVBV3[11], XVIB5[12]
     cdef double YVIB5[12],XVIB6[12],YVIB6[12],XTR1[12],YTR1[12],XTR2[11],YTR2[11],XTR3[11],YTR3[11],XCF3[37],YCF3[37]
     cdef double XCF2[31],YCF2[31],XCF1[28],YCF1[28],XCF32[25],YCF32[25],XCF0[27],YCF0[27],XCF22[25],YCF22[25],XCF[22]
-    cdef double YCF[22],XCFF[24],XATT[11],YATT[11],XKSHC[81],YKSHC[81],XKSHF[79],YKSHF[79]
+    cdef double YCF[22],XCFF[24],XATT[11],YATT[11],XKSHC[81],YKSHC[81],XKSHF[79],YKSHF[79],XC0F[27],YC0F[27],XCF2F[25],YCF2F[25]
+    cdef double YCFF[24],XCF3F[26],YCF3F[26]
     XEN = gd['gas1/XEN']
     YELM = gd['gas1/YELM']
     YELT = gd['gas1/YELT']
@@ -202,9 +207,8 @@ cdef void Gas1(Gas* object):
     APOPGS = 1.0
 
     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
-
     # EN=-ESTEP/2.0  #ESTEP is function input
-    for i in range(object.NSTEP):
+    for i in prange(object.NSTEP,nogil=True):
         EN = object.EG[i]
         # EN=EN+ESTEP
         GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
@@ -231,11 +235,14 @@ cdef void Gas1(Gas* object):
         # ^^^^^^EPS CORRECTED FOR 1-EPS^^^^^^^^
         object.PEQEL[1][i] = PQ[object.NANISO]
         object.Q[1][i] = QELA
+
+        X2 = 1.0 / BETA2
+        X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0
         # DISSOCIATIVE IONISATION
         # ION  =  CF3 +
         if object.NANISO == 0:
             object.Q[1][i] = QMOM
-        object.QION[0][i] = 0
+        object.QION[0][i] = 0.0
         object.PEQION[0][i] = 0.5
 
         if object.NANISO == 2:
@@ -252,10 +259,8 @@ cdef void Gas1(Gas* object):
                 object.QION[0][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF3([NCF3] EV
-                X2 = 1 / BETA2
-                X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[0][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.7344
-            if EN > 2 * object.EION[0]:
+                object.QION[0][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.7344
+            if EN > 2.0 * object.EION[0]:
                 object.PEQION[0][i] = object.PEQEL[1][(i - IOFFION[0])]
 
         # ION = CF2 +
@@ -276,10 +281,8 @@ cdef void Gas1(Gas* object):
                 object.QION[1][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF2[NCF2] EV
-                X2 = 1 / BETA2
-                X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[1][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0534
-            if EN > 2 * object.EION[1]:
+                object.QION[1][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0534
+            if EN > 2.0 * object.EION[1]:
                 object.PEQION[1][i] = object.PEQEL[1][(i - IOFFION[1])]
 
         #  ION = CF +
@@ -302,8 +305,8 @@ cdef void Gas1(Gas* object):
                 # USE BORN BETHE X-SECTION ABOVE XCF1[NCF1] EV
                 X2 = 1 / BETA2
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[2][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0386
-            if EN > 2 * object.EION[2]:
+                object.QION[2][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0386
+            if EN > 2.0 * object.EION[2]:
                 object.PEQION[2][i] = object.PEQEL[1][(i - IOFFION[2])]
 
         # ION = F +
@@ -326,8 +329,8 @@ cdef void Gas1(Gas* object):
                 # USE BORN BETHE X-SECTION ABOVE XC0F[NC0F] EV
                 X2 = 1 / BETA2
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[3][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0799
-            if EN > 2 * object.EION[3]:
+                object.QION[3][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0799
+            if EN > 2.0 * object.EION[3]:
                 object.PEQION[3][i] = object.PEQEL[1][(i - IOFFION[3])]
 
         # ION = C +
@@ -348,10 +351,8 @@ cdef void Gas1(Gas* object):
                 object.QION[4][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF0[NCF0] EV
-                X2 = 1 / BETA2
-                X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[4][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0422
-            if EN > 2 * object.EION[4]:
+                object.QION[4][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0422
+            if EN > 2.0 * object.EION[4]:
                 object.PEQION[4][i] = object.PEQEL[1][(i - IOFFION[4])]
 
         # DOUBLE IONS  CF3 +  AND F +
@@ -372,10 +373,8 @@ cdef void Gas1(Gas* object):
                 object.QION[5][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF3F[NCF3F] EV
-                X2 = 1 / BETA2
-                X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[5][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0058
-            if EN > 2 * object.EION[5]:
+                object.QION[5][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0058
+            if EN > 2.0 * object.EION[5]:
                 object.PEQION[5][i] = object.PEQEL[1][(i - IOFFION[5])]
         # DOUBLE IONS  CF2 +  AND F +
         object.QION[6][i] = 0.0
@@ -395,10 +394,8 @@ cdef void Gas1(Gas* object):
                 object.QION[6][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF2F[NCF2F] EV
-                X2 = 1 / BETA2
-                X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[6][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0073
-            if EN > 2 * object.EION[6]:
+                object.QION[6][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0073
+            if EN > 2.0 * object.EION[6]:
                 object.PEQION[6][i] = object.PEQEL[1][(i - IOFFION[6])]
 
         # DOUBLE CHARGED ION  CF3 ++
@@ -555,6 +552,7 @@ cdef void Gas1(Gas* object):
         object.QIN[0][i] = 0.0
         object.PEQIN[0][i] = 0.5
         if EN > 0.0:
+
             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
             object.QIN[0][i] = 0.007 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[0][i] = object.QIN[0][i] * APOPV2 * 1.0e-16 / DEGV2

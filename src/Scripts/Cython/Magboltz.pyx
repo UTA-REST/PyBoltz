@@ -9,7 +9,6 @@ cdef extern from "C/RM48.h":
     double DRAND48(double dummy)
     void RM48(double lenv)
 
-RM48(1000)
 cdef double drand48(double dummy):
     return DRAND48(dummy)
 cdef class Magboltz:
@@ -28,6 +27,7 @@ cdef class Magboltz:
         self.TEMPC = 0.0
         self.TORR = 0.0
         self.IPEN = 0
+        self.NSCALE = 0
         self.TMAX = 0.0
         self.SMALL = 0.0
         self.API = 0.0
@@ -331,6 +331,7 @@ cdef class Magboltz:
 
     def Start(self):
         cdef double EOB
+
         if self.ITHRM != 0:
             SETUPT(self)
             if self.EFINAL == 0.0:

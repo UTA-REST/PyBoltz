@@ -20,7 +20,7 @@ Object.NGASN=[1, 0, 0, 0, 0, 0]
 Object.FRAC=[100, 0, 0, 0, 0, 0]
 
 
-Object.TEMPC = 23
+Object.TEMPC = float(23)
 Object.TORR = 750.062
 
 Object.EFIELD =200

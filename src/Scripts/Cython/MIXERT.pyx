@@ -7,6 +7,7 @@ from ANG cimport ANG
 
 import cython
 
+@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
@@ -347,7 +348,6 @@ cpdef MIXERT(Magboltz object):
         for IE in range(4000):
             if object.TCF[KGAS][IE] + object.TCFN[KGAS][IE] + FAKEIN >= object.TCFMAX[KGAS]:
                 object.TCFMAX[KGAS] = object.TCF[KGAS][IE] + object.TCFN[KGAS][IE] + FAKEIN
-    print(object.TCFMAX)
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
     object.TCFMX = 0.0
     for KGAS in range(object.NGAS):

@@ -1,35 +1,32 @@
 from Magboltz cimport Magboltz
 cimport cython
 from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
+from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from SORTT cimport SORTT
 
-cdef void GERJAN(double RDUM, double API,double *RNMX):
+cdef void GERJAN(double RDUM, double API, double *RNMX):
     cdef double RAN1, RAN2, TWOPI
     for J in range(0, 5, 2):
         RAN1 = random_uniform(RDUM)
         RAN2 = random_uniform(RDUM)
         TWOPI = 2.0 * API
-        RNMX[J] = sqrt(-1*log(RAN1)) * cos(RAN2 * TWOPI)
-        RNMX[J + 1] = sqrt(-1*log(RAN1)) * sin(RAN2 * TWOPI)
+        RNMX[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
+        RNMX[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
 
-
-
-
+@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
 
-
-
+@cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef ELIMITT(Magboltz Object):
     print("ELIMITT")
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE
-    cdef double SMALL,RDUM,  E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
+    cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB
 
@@ -47,7 +44,7 @@ cpdef ELIMITT(Magboltz Object):
     DCX1 = sin(Object.THETA) * cos(Object.PHI)
     DCY1 = sin(Object.THETA) * sin(Object.PHI)
 
-    BP = pow(Object.EFIELD , 2) * Object.CONST1
+    BP = pow(Object.EFIELD, 2) * Object.CONST1
     F1 = Object.EFIELD * Object.CONST2
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2 * acos(-1)
@@ -77,22 +74,22 @@ cpdef ELIMITT(Magboltz Object):
             if IMBPT > 6:
                 GERJAN(Object.RSTART, Object.NGAS, Object.RNMX)
                 IMBPT = 1
-            VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) ]
+            VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
-            VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) ]
+            VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
-            VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) ]
+            VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
 
             VEX = DCX2 * CONST9 * sqrt(E)
             VEY = DCY2 * CONST9 * sqrt(E)
             VEZ = DCZ2 * CONST9 * sqrt(E)
 
-            EOK = (pow((VEX - VGX) ,2) + pow((VEY - VGY) , 2) + pow((VEZ - VGZ) , 2)) / CONST10
+            EOK = (pow((VEX - VGX), 2) + pow((VEY - VGY), 2) + pow((VEZ - VGZ), 2)) / CONST10
             IE = int(EOK / Object.ESTEP)
             IE = min(IE, 3999)
             R5 = random_uniform(RDUM)
             TEST1 = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
-            if R5<=TEST1:
+            if R5 <= TEST1:
                 break
 
         if IE == 3999:
@@ -150,14 +147,14 @@ cpdef ELIMITT(Magboltz Object):
         Object.THETA = asin(Q * sin(THETA0))
 
         F6 = cos(Object.THETA)
-        U = (S1 - 1) * (S1 - 1) / ARG1
-        CSQD = pow(F3 , 2)
+        U = (S1 - 1.0) * (S1 - 1.0) / ARG1
+        CSQD = pow(F3, 2)
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
-        F5 = sin(Object.THETA)
-        DZCOM = min(DZCOM, 1)
-        ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
+        F5=sin(Object.THETA)
+        DZCOM=min(DZCOM,1.0e0)
+        ARGZ=sqrt(DXCOM*DXCOM+DYCOM*DYCOM)
         if ARGZ == 0:
             DCZ1 = F6
             DCX1 = F9 * F5
@@ -177,11 +174,7 @@ cpdef ELIMITT(Magboltz Object):
         DCX1 = VXLAB * CONST11
         DCY1 = VYLAB * CONST11
         DCZ1 = VZLAB * CONST11
-        print(DCX1)
-        print (DCY1)
-        print(DCZ1)
-        raise ValueError("STOP")
+
     Object.IELOW = 0
-    print("THETAAAAAAAAA")
-    print(Object.THETA)
+
     return

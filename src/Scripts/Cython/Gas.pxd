@@ -1,4 +1,4 @@
-cdef struct Gas:
+ctypedef struct Gas:
     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS
     double Q[6][4000],QIN[250][4000],E[6],EIN[250],KIN[250],QION[30][4000],PEQION[30][4000],EION[30],EB[30],PEQEL[6][4000]

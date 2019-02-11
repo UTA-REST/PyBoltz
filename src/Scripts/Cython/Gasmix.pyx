@@ -1,5 +1,6 @@
 from ARGON cimport Gas2
 from CF4 cimport Gas1
+from libc.string cimport memset
 
 from Gas cimport Gas
 
@@ -12,13 +13,16 @@ cdef void callGASF(Gas* GAS):
 
 cdef class Gasmix:
     def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
-                     NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):
+                     NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN,PIR2):
         # First Setup
+        cdef int i,j;
         for i in range(6):
             self.Gases[i].NGS = NGS[i]
-            self.Gases[i].QIN = QIN[i]
+            for j in range(250):
+                self.Gases[i].QIN[j][:] = QIN[i][j]
             self.Gases[i].NIN = NIN[i]
-            self.Gases[i].PENFRA = PENFRA[i]
+            for j in range(3):
+                self.Gases[i].PENFRA[j][:] = PENFRA[i][j]
             self.Gases[i].EG = EG
             self.Gases[i].EROOT = EROOT
             self.Gases[i].QT1 = QT1
@@ -37,9 +41,20 @@ cdef class Gasmix:
             self.Gases[i].TEMPC = TEMPC
             self.Gases[i].TORR = TORR
             self.Gases[i].IPEN = IPEN
+            self.Gases[i].PIR2 = PIR2
+            memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
+            memset(self.Gases[i].QION, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].PEQION, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].QATT, 0, 8*4000 * sizeof(double))
+            memset(self.Gases[i].QNULL, 0, 10*4000 * sizeof(double))
+
+
+
+
+
 
     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
-                   NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN):
+                   NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN,PIR2):
         for i in range(6):
             self.Gases[i].NGS = NGS[i]
             self.Gases[i].EG[:] = EG[:]
@@ -60,6 +75,11 @@ cdef class Gasmix:
             self.Gases[i].TEMPC = TEMPC
             self.Gases[i].TORR = TORR
             self.Gases[i].IPEN = IPEN
+            memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
+            memset(self.Gases[i].QION, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].PEQION, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].QATT, 0, 8*4000 * sizeof(double))
+            memset(self.Gases[i].QNULL, 0, 10*4000 * sizeof(double))
     def Run(self):
         '''result=[]
         p = Pool()

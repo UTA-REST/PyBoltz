@@ -31,7 +31,7 @@ cpdef MIXERT(Magboltz object):
     MIXOBJECT.InitWithInfo(object.NGASN, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
                            object.DENSY, 0, object.NGAS, object.NSTEP, object.NANISO, object.ESTEP,
-                           object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN)
+                           object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN,object.PIR2)
     MIXOBJECT.Run()
 
     for i in range(6):
@@ -73,7 +73,6 @@ cpdef MIXERT(Magboltz object):
             MIXERTOBJ.QNULL[i][j][:] = MIXOBJECT.Gases[i].QNULL[j][:]
         print(i)
     EMASS = 9.10938291e-31
-
 
     for IE in range(4000):
         for KGAS in range(object.NGAS):

@@ -15,6 +15,7 @@ cdef class Magboltz:
     def __init__(self):
         self.EOVB = 0.0
         self.WB = 0.0
+        self.PIR2 = 0.0
         self.BTHETA = 0.0
         self.BMAG = 0.0
         self.NGAS = 0

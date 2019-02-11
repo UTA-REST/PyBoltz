@@ -39,6 +39,8 @@ print("now")
 if __name__ == '__main__':
     TestObj.Run()
 
+print(TestObj.Gases[0].Q[0][0])
+
 print("hi")
 t2 = time.time()
 print("time:")

@@ -31,11 +31,13 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 cpdef MONTET(Magboltz Object):
     Object.WX = 0.0
     Object.WY = 0.0
+    Object.DWX = 0.0
+    Object.DWY = 0.0
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
     Object.ST = 0.0
-    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM
+    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM,NCOLDM
     cdef double ST1, RDUM,ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
@@ -120,15 +122,16 @@ cpdef MONTET(Magboltz Object):
     BP = pow(Object.EFIELD , 2) * Object.CONST1
     F1 = Object.EFIELD * Object.CONST2
     F2 = Object.EFIELD * Object.CONST3
-    F4 = 2 * acos(-1)
+    F4 = 2.0 * acos(-1)
     print("F4=" + str(F4))
-    J2M = long(Object.NMAX / Object.ITMAX)
+    J2M = <long long>(Object.NMAX / Object.ITMAX)
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
                 R1 = random_uniform(RDUM)
-                T = -1 * log(R1) / Object.TCFMX + TDASH
+                T = -log(R1) / Object.TCFMX + TDASH
                 TDASH = T
+
                 AP = DCZ1 * F2 * sqrt(E1)
                 E = E1 + (AP + BP * T) * T
                 CONST6 = sqrt(E1 / E)
@@ -148,11 +151,11 @@ cpdef MONTET(Magboltz Object):
                 if (IMBPT > 6):
                     GERJAN(Object.RSTART, Object.API, Object.RNMX)
                     IMBPT = 1
-                VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+                VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1
-                VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+                VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1
-                VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+                VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
                 # CALCULATE ELECTRON VELOCITY VECTORS VEX VEY VEZ
                 VEX = DCX2 * CONST9 * sqrt(E)
                 VEY = DCY2 * CONST9 * sqrt(E)
@@ -190,7 +193,7 @@ cpdef MONTET(Magboltz Object):
                 else:
                     break
             NCOL += 1
-            CONST11 = 1 / (CONST9 * sqrt(EOK))
+            CONST11 = 1.0 / (CONST9 * sqrt(EOK))
             DXCOM = (VEX - VGX) * CONST11
             DYCOM = (VEY - VGY) * CONST11
             DZCOM = (VEZ - VGZ) * CONST11
@@ -221,13 +224,13 @@ cpdef MONTET(Magboltz Object):
             if ID != 0:
                 KDUM = 0
                 for JDUM in range(int(Object.NCORST)):
-                    ST2 = ST2 + T
+                    ST2 += T
                     NCOLDM = NCOL + KDUM
                     if NCOLDM > Object.NCOLM:
                         NCOLDM = NCOLDM - Object.NCOLM
                     SDIF = Object.ST - STO[NCOLDM - 1]
-                    SUMXX += pow((Object.X - XST[NCOLDM - 1]) , 2) * T / SDIF
-                    SUMYY += pow((Object.Y - YST[NCOLDM - 1]) , 2) * T / SDIF
+                    SUMXX =SUMXX+ pow((Object.X - XST[NCOLDM - 1]) , 2) * T / SDIF
+                    SUMYY = SUMYY+pow((Object.Y - YST[NCOLDM - 1]) , 2) * T / SDIF
                     KDUM += Object.NCORLN
                     if J1 >= 2:
                         ST1 += T
@@ -253,9 +256,9 @@ cpdef MONTET(Magboltz Object):
                 R9 = random_uniform(RDUM)
                 EXTRA = R9 * (EOK - EI)
                 EI = EXTRA + EI
-                IEXTRA += long(Object.NC0[KGAS][I])
-            IPT = long(Object.IARRY[KGAS][I])
-            Object.ICOLL[KGAS][int(IPT) - 1] += 1
+                IEXTRA += <long long>Object.NC0[KGAS][I]
+            IPT = <long long>Object.IARRY[KGAS][I]
+            Object.ICOLL[KGAS][<int>IPT - 1] += 1
             Object.ICOLN[KGAS][I] += 1
             if EOK < EI:
                 EI = EOK - 0.0001
@@ -272,21 +275,21 @@ cpdef MONTET(Magboltz Object):
                 R31 = random_uniform(RDUM)
                 F3 = 1.0 - R3 * Object.ANGCT[KGAS][IE][I]
                 if R31 > Object.PSCT[KGAS][IE][I]:
-                    F3 = -1 * F3
+                    F3 = -1.0 * F3
             elif Object.INDEX[KGAS][I] == 2:
                 EPSI = Object.PSCT[KGAS][IE][I]
-                F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
+                F3 = 1.0 - (2.0 * R3 * (1.0 - EPSI) / (1.0 + EPSI * (1.0 - 2.0 * R3)))
             else:
-                F3 = 1 - 2 * R3
+                F3 = 1.0 - 2.0 * R3
             THETA0 = acos(F3)
             R4 = random_uniform(RDUM)
             PHI0 = F4 * R4
             F8 = sin(PHI0)
             F9 = cos(PHI0)
-            ARG1 = 1 - S1 * EI / EOK
+            ARG1 = 1.0 - S1 * EI / EOK
             ARG1 = max(ARG1, Object.SMALL)
-            D = 1 - F3 * sqrt(ARG1)
-            E1 = EOK * (1 - EI / (S1 * EOK) - 2 * D / S2)
+            D = 1.0 - F3 * sqrt(ARG1)
+            E1 = EOK * (1.0 - EI / (S1 * EOK) - 2.0 * D / S2)
             E1 = max(E1, Object.SMALL)
             Q = sqrt((EOK / E1) * ARG1) / S1
             Q = min(Q, 1)
@@ -297,7 +300,7 @@ cpdef MONTET(Magboltz Object):
             if F3 < 0 and CSQD > U:
                 F6 = -1 * F6
             F5 = sin(Object.THETA)
-            DZCOM = min(DZCOM, 1)
+            DZCOM = min(DZCOM, 1.0)
             ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
             if ARGZ == 0:
                 DCZ1 = F6
@@ -318,30 +321,30 @@ cpdef MONTET(Magboltz Object):
             DCY1 = VYLAB * CONST11
             DCZ1 = VZLAB * CONST11
         # TODO: TABLE PRINT
-        Object.WZ *= 1e9
+        Object.WZ *= 1.0e9
         Object.AVE = SUME2 / Object.ST
         Object.DIFLN = 0.0
         if Object.NISO == 0:
-            Object.DIFXX = 5e15 * SUMVX / Object.ST
-            Object.DIFYY = 5e15 * SUMVY / Object.ST
-            DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Object.ST - STOLD)
-            DFYYST[J1] = 5e15 * (SUMVY - SVYOLD) / (Object.ST - STOLD)
+            Object.DIFXX = 5.0e15 * SUMVX / Object.ST
+            Object.DIFYY = 5.0e15 * SUMVY / Object.ST
+            DFXXST[J1] = 5.0e15 * (SUMVX - SVXOLD) / (Object.ST - STOLD)
+            DFYYST[J1] = 5.0e15 * (SUMVY - SVYOLD) / (Object.ST - STOLD)
         else:
             if ST2 != 0.0:
-                Object.DIFYY = 5e15 * SUMYY / ST2
-                Object.DIFXX = 5e15 * SUMXX / ST2
-                DFXXST[J1] = 5e15 * (SUMXX - SXXOLD) / (ST2 - ST2OLD)
-                DFYYST[J1] = 5e15 * (SUMYY - SYYOLD) / (ST2 - ST2OLD)
+                Object.DIFYY = 5.0e15 * SUMYY / ST2
+                Object.DIFXX = 5.0e15 * SUMXX / ST2
+                DFXXST[J1] = 5.0e15 * (SUMXX - SXXOLD) / (ST2 - ST2OLD)
+                DFYYST[J1] = 5.0e15 * (SUMYY - SYYOLD) / (ST2 - ST2OLD)
             else:
                 DFXXST[J1] = 0.0
                 DFYYST[J1] = 0.0
 
         if ST1 != 0.0:
-            Object.DIFZZ = 5e15 * SUMZZ / ST1
-            DFZZST[J1] = 5e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
+            Object.DIFZZ = 5.0e15 * SUMZZ / ST1
+            DFZZST[J1] = 5.0e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
         else:
             DFZZST[J1] = 0.0
-        WZST[J1] = (Object.Z - ZOLD) / (Object.ST - STOLD) * 1e9
+        WZST[J1] = (Object.Z - ZOLD) / (Object.ST - STOLD) * 1.0e9
         AVEST[J1] = (SUME2 - SME2OLD) / (Object.ST - STOLD)
         ZOLD = Object.Z
         STOLD = Object.ST
@@ -357,6 +360,7 @@ cpdef MONTET(Magboltz Object):
         print(J1)
         if Object.SPEC[3999] > (1000 * float(J1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
+
     TWZST = 0.0
     TAVE = 0.0
     T2WZST = 0.0

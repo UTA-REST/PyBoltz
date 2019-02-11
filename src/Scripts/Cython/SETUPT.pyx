@@ -13,7 +13,7 @@ cpdef SETUPT(Magboltz object):
     object.API = acos(-1.0)
     TWOPI = 2.0 * object.API
     object.ARY = 13.60569253
-    PIR2 = 8.7973554297e-17
+    object.PIR2 = 8.7973554297e-17
     ECHARG = 1.602176565e-19
     EMASS = 9.10938291e-31
     AMU = 1.660538921e-27

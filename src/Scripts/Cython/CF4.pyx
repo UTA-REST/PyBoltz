@@ -5,12 +5,15 @@ import numpy as np
 cimport numpy as np
 import sys
 from Gas cimport Gas
-from cython.parallel cimport prange
+from cython.parallel import prange
+
 sys.path.append('../hdf5_python')
 import cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
+@cython.fast_getattr(True)
+
 cdef void Gas1(Gas* object):
     gd = h5py.File(r"gases.hdf5", 'r')
     print "HERE"
@@ -115,7 +118,7 @@ cdef void Gas1(Gas* object):
     for NL in range(10, 46):
         for i in range(0, NASIZE):
             if object.EG[i] > abs(object.EIN[NL]):
-                IOFFN[NL] = i-1
+                IOFFN[NL] = i
                 break
 
     # ENTER PENNING TRANSFER FRACTION FOR EACH LEVEL
@@ -208,7 +211,7 @@ cdef void Gas1(Gas* object):
 
     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
     # EN=-ESTEP/2.0  #ESTEP is function input
-    for i in prange(object.NSTEP,nogil=True):
+    for i in range(object.NSTEP):
         EN = object.EG[i]
         # EN=EN+ESTEP
         GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2

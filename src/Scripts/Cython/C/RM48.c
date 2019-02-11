@@ -131,9 +131,36 @@ extern double DRAND48(double dummy){
 
 
 int main(){
-  for (int i=0;i<200000;++i){
+  for (int i=0;i<400000000;++i){
     DRAND48(0.666);
   }
-  printf("%lf\n",DRAND48(0.666));
-  printf("%lf\n",DRAND48(0.666));
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  for (int i=0;i<400000000;++i){
+    DRAND48(0.666);
+  }
+  printf("%.20f\n",DRAND48(0.666));
+  printf("%.20f\n",DRAND48(0.666));
 }

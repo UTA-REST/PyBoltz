@@ -15,7 +15,7 @@ import cython
 cdef void Gas2(Gas *object):
     gd = h5py.File(r"gases.hdf5")
     cdef double APOL, AA, DD, FF, A1, EMASS2, API, A0, RY, BBCONST, CONST, AM2, C, PSCALE, AUGL3, AUGL2, AUGL1, AUGK
-    cdef int NION, NATT, NIN, NNULL, NBREM, NDATA, NEPSI, NIDATA, NION2, NION3, NKSH, NL1S, NL2S, NL3S, N1S5, NIS4, NIS3, NIS2
+    cdef int NION, NATT, NIN, NNULL, NBREM, NDATA, NEPSI, NIDATA, NION2, NION3, NKSH, NL1S, NL2S, NL3S, N1S5, NIS4, NIS3, NIS2,N1S4=79,N1S3=70,N1S2=70
     cdef int N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N2P4, N2P3, N2P2, N2P1, N3D6, N3D5, N3D3, N3D4P, N3D4, N3D1PP, N2S5, N3D1P
     cdef int N3S1PPPP, N3S1PP, N3S1PPP, N2S3
     APOL = 11.08
@@ -83,7 +83,6 @@ cdef void Gas2(Gas *object):
     N3S1PP = 21
     N3S1PPP = 16
     N2S3 = 19
-    PIR2 = 8.7973554297e-17
     EMASS = 9.10938291e-31
     AMU = 1.660538921e-27
     object.E = [0.0, 1.0, 15.9, 0.0, 0.0, 0.0]
@@ -237,6 +236,7 @@ cdef void Gas2(Gas *object):
     cdef int I
     cdef double GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
     cdef double QPSSUM,QDSSUM,TOTSUM,Q1SSUM,PQ1,PQ2,PQ3
+    BETA2=0.0
     for I in range(4000):
         EN = object.EG[I]
 
@@ -248,8 +248,8 @@ cdef void Gas2(Gas *object):
             BETA2 = BETA * BETA
         if EN <= 1:
             if EN == 0:
-                QELA = 7.491E-16
-                QMOM = 7.491E-16
+                QELA = 7.491e-16
+                QMOM = 7.491e-16
             if EN != 0:
                 AK = sqrt(EN / object.ARY)
                 AK2 = AK * AK
@@ -257,7 +257,7 @@ cdef void Gas2(Gas *object):
                 AK4 = AK3 * AK
                 AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (
                         API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
-                AN1 = (API / 15.0) * APOL * AK - A1 * AK3
+                AN1 = (API / 15.0) * APOL * AK2 - A1 * AK3
                 AN2 = API * APOL * AK2 / 105.0
                 AN0 = atan(AN0)
                 AN1 = atan(AN1)
@@ -266,14 +266,14 @@ cdef void Gas2(Gas *object):
                 SUM = (sin(AN0 - AN1)) ** 2
                 SUM = SUM + 2.0 * (sin(AN1 - AN2)) ** 2
                 SIGEL = (sin(AN0)) ** 2 + 3.0 * (sin(AN1)) ** 2
-                for j in range(2, -1, -1):
+                for j in range(2, LMAX):
                     ANLOW = ANHIGH
                     SUMI = 6.0 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0) * (2.0 * j - 1.0))
                     SUM = SUM + (j + 1.0) * (sin(atan(API * APOL * AK2 * SUMI))) ** 2
                     ANHIGH = atan(API * APOL * AK2 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0)))
                     SIGEL = SIGEL + (2.0 * j + 1.0) * (sin(ANLOW)) ** 2
-                QELA = SIGEL * 4.0 * PIR2 / AK2
-                QMOM = SUM * 4.0 * PIR2 / AK2
+                QELA = SIGEL * 4.0 * object.PIR2 / AK2
+                QMOM = SUM * 4.0 * object.PIR2 / AK2
         if EN != 0:
             for j in range(1, NDATA):
                 if EN < XEN[j]:
@@ -299,9 +299,9 @@ cdef void Gas2(Gas *object):
         PQ = [0.5, PQ1, PQ2]
 
         object.PEQEL[1][I] = PQ[object.NANISO]
-        object.Q[0][I] = QELA
+        object.Q[1][I] = QELA
         if object.NANISO == 0:
-            object.Q[0][I] = QMOM
+            object.Q[1][I] = QMOM
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
 
@@ -342,9 +342,9 @@ cdef void Gas2(Gas *object):
                     object.QION[1][I] = 0
             else:
                 # USE BORN BETHE X-SECTION ABOVE XEN2[NION2] EV
-                X2 = 1 / BETA2
-                X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[1][I] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.04448
+                X2 = 1.0 / BETA2
+                X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0
+                object.QION[1][I] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.04448
             if EN > 2 * object.EION[1]:
                 object.PEQION[1][I] = object.PEQEL[1][(I - IOFFION[1])]
 
@@ -1035,6 +1035,5 @@ cdef void Gas2(Gas *object):
         if object.EFINAL <= object.EIN[j]:
             object.NIN = j
             break
-
     gd.close()
     print("ARGON")

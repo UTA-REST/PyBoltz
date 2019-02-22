@@ -15,7 +15,7 @@ Object.IPEN = 0
 Object.ITHRM=1
 Object.EFINAL = 0.0
 
-Object.NGASN=[2, 0, 0, 0, 0, 0]
+Object.NGASN=[7, 0, 0, 0, 0, 0]
 
 Object.FRAC=[100, 0, 0, 0, 0, 0]
 

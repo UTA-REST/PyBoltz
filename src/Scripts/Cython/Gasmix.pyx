@@ -1,5 +1,6 @@
 from ARGON cimport Gas2
 from CF4 cimport Gas1
+from XENON cimport Gas7
 from libc.string cimport memset
 
 from Gas cimport Gas
@@ -9,6 +10,8 @@ cdef void callGASF(Gas* GAS):
         Gas1(GAS)
     elif GAS.NGS == 2:
         Gas2(GAS)
+    elif GAS.NGS == 7:
+        Gas7(GAS)
 
 
 cdef class Gasmix:

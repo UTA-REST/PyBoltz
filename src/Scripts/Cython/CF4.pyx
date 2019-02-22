@@ -15,7 +15,7 @@ import cython
 @cython.fast_getattr(True)
 
 cdef void Gas1(Gas* object):
-    gd = h5py.File(r"gases.hdf5", 'r')
+    gd = h5py.File(r"gases.hdf5",'r', libver='latest', swmr=True)
     print "HERE"
     cdef int i = 0
     object.EIN = gd[r'gas1/EIN']
@@ -30,6 +30,7 @@ cdef void Gas1(Gas* object):
     object.EC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 253.0, 625.2]
     cdef double WKLM[12]
     WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0026, 0.01]
+    object.WK[0:12]=WKLM
     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 273.0, 668.0]
     object.NG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 2]
     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 253.0, 625.2]

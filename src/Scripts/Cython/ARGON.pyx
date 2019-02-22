@@ -13,7 +13,7 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef void Gas2(Gas *object):
-    gd = h5py.File(r"gases.hdf5")
+    gd = h5py.File(r"gases.hdf5",'r', libver='latest', swmr=True)
     cdef double APOL, AA, DD, FF, A1, EMASS2, API, A0, RY, BBCONST, CONST, AM2, C, PSCALE, AUGL3, AUGL2, AUGL1, AUGK
     cdef int NION, NATT, NIN, NNULL, NBREM, NDATA, NEPSI, NIDATA, NION2, NION3, NKSH, NL1S, NL2S, NL3S, N1S5, NIS4, NIS3, NIS2,N1S4=79,N1S3=70,N1S2=70
     cdef int N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N2P4, N2P3, N2P2, N2P1, N3D6, N3D5, N3D3, N3D4P, N3D4, N3D1PP, N2S5, N3D1P
@@ -96,6 +96,7 @@ cdef void Gas2(Gas *object):
     object.NC0[0:7] = [0, 1, 2, 2, 2, 3, 4]
     object.EC0[0:7] = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]
     WKLM[0:7] = [0.0, 0.0, 0.0, 0.00147, 0.00147, 0.00147, 0.12]
+    object.WK=WKLM
     object.EFL[0:7] = [0.0, 0.0, 0.0, 232, 235, 310, 2957]
     object.NG1[0:7] = [0, 0, 0, 1, 1, 2, 3]
     object.EG1[0:7] = [0.0, 0.0, 0.0, 210.5, 202.2, 240.8, 2850]

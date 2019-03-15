@@ -30,7 +30,6 @@ cpdef SETUPT(Magboltz object):
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
     object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
-    object.NANISO =2
     object.NCOLM = 400000
     object.NCORLN = 50000
     object.NCORST = 4

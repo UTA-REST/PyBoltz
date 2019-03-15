@@ -30,7 +30,7 @@ extern void RM48(double LENV){
   long long KALLED,NTOTIN,NTOT2N,I,J,K,L,M,NOW,IJ,KL;
   static double CD, CM, TWOM24,TWOM49 ,ONE, ZERO;
   static long long IJKL=0,NTOT=-1, NTOT2=0;
-
+  int II,JJ,I24,LOOP2,IDUM;
 
 
   if(NTOT>=0) goto L50;
@@ -48,10 +48,10 @@ extern void RM48(double LENV){
   ONE = 1.;
   HALF = 0.5;
   ZERO = 0.;
-  for(int II= 1;II<= 97;++II){
+  for( II= 1;II<= 97;++II){
   S = 0.;
   T = HALF;
-  for(int JJ= 1;JJ<= 48;++JJ){
+  for(JJ= 1;JJ<= 48;++JJ){
     M = MOD(MOD(I*J,179)*K, 179);
     I = J;
     J = K;
@@ -64,7 +64,7 @@ extern void RM48(double LENV){
 }
 TWOM49 = T;
 TWOM24 = ONE;
-for(int I24= 1;I24<= 24;++I24){
+for(I24= 1;I24<= 24;++I24){
  TWOM24 = HALF*TWOM24;
 }
 C  =   362436.*TWOM24;
@@ -73,11 +73,11 @@ CM = 16777213.*TWOM24;
 I97 = 97;
 J97 = 33;
 
-for(int LOOP2 = 1;LOOP2<=NTOT2+1;++LOOP2){
+for(LOOP2 = 1;LOOP2<=NTOT2+1;++LOOP2){
   NOW = MODCNS;
   if (LOOP2 == NTOT2+1)  NOW=NTOT;
   if (NOW > 0)  {
-      for(int IDUM = 1;IDUM<= NTOT;++IDUM){
+      for(IDUM = 1;IDUM<= NTOT;++IDUM){
       UNI = U[I97]-U[J97];
       if (UNI < ZERO)  UNI=UNI+ONE;
       U[I97] = UNI;
@@ -128,39 +128,7 @@ extern double DRAND48(double dummy){
   }
   return RVEC[IVEC];
 }
-
-
 int main(){
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  for (int i=0;i<400000000;++i){
-    DRAND48(0.666);
-  }
-  printf("%.20f\n",DRAND48(0.666));
-  printf("%.20f\n",DRAND48(0.666));
+return 0;
 }
+

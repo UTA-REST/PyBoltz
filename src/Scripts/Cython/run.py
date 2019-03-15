@@ -1,6 +1,7 @@
 import sys
 import warnings
 import time
+import numpy as np
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 sys.path.append('../../src/Scripts/Python')
@@ -8,51 +9,59 @@ sys.path.append('../../src/Scripts/Python')
 from Magboltz import Magboltz
 
 obj = Magboltz()
-E = [50,100,150,200,250,300,350,400]
-f = open("output.txt", "w")
+
+EMTY=[]
+EMTX=[]
+EATY=[]
+EATX =[]
 for i in range(8):
     obj.__init__()
     obj.NGAS =1
-    obj.NMAX = 10
+    obj.NMAX = 1
     obj.IPEN = 0
     obj.ITHRM=1
-    obj.EFINAL = 0.0
+    obj.EFINAL = 2
     obj.NGASN=[7,0,0,0,0,0]
     obj.FRAC=[100,0,0,0,0,0]
     obj.TEMPC = 23
+    obj.NANISO = 0 #<<<<<<<< THIS IS IT
     obj.TORR = 750.062
-    obj.EFIELD = E[i]
+    obj.EFIELD = float(input("Enter EFIELD:"))
+    obj.A = -6.09
+    obj.D = 490
+    obj.F = -650
+    obj.A1 = 7
+    obj.Lambda = 3
+    obj.EV0 = 0.75
     obj.BMAG = 0
     obj.BTHETA = 90
-    try:
-        obj.Start()
-        f.write(str((obj.FRAC[0]))) #CF4per
-        f.write(str(("\n")))
-        f.write(str((obj.FRAC[1]))) #ARper
-        f.write(str(("\n")))
-        f.write(str((obj.TEMPC)))   #TEMP
-        f.write(str(("\n")))
-        f.write(str((obj.TORR)))    #press
-        f.write(str(("\n")))
-        f.write(str((obj.EFIELD)))  #EFIELD
-        f.write(str(("\n")))
-        f.write(str(((obj.WZ*1e-5))))      #ZDRIFT
-        f.write(str(("\n")))
-        f.write(str((obj.DWZ)))     #ZERR
-        f.write(str(("\n")))
-        f.write(str((obj.DIFTR)))   #TDIFF
-        f.write(str(("\n")))
-        f.write(str((obj.DFTER)))  #TERR
-        f.write(str(("\n")))
-        f.write(str((obj.DIFLN)))   #LDIFF
-        f.write(str(("\n")))
-        f.write(str((obj.DFLER)))  #LERR
-        f.write(str(("\n")))
-        f.write(str((obj.AVE)))     #MELE
-        f.write(str(("\n")))
-        f.write(str((obj.DEN)))     #MERR
-        f.write(str(("\n")))
-    except ValueError:
-        print("didnt work at i =" +str(i))
-f.close()
+    obj.Start()
+    print(str((obj.FRAC[0]))) #CF4per
+    print(str(("\n")))
+    print(str((obj.FRAC[1]))) #ARper
+    print(str(("\n")))
+    print(str((obj.TEMPC)))   #TEMP
+    print(str(("\n")))
+    print(str((obj.TORR)))    #press
+    print(str(("\n")))
+    print(str((obj.EFIELD)))  #EFIELD
+    print(str(("\n")))
+    print(str(((obj.WZ*1e-5))))      #ZDRIFT
+    print(str(("\n")))
+    print(str((obj.DWZ)))     #ZERR
+    print(str(("\n")))
+    print(str((obj.DIFTR)))   #TDIFF
+    print(str(("\n")))
+    print(str((obj.DFTER)))  #TERR
+    print(str(("\n")))
+    print(str((obj.DIFLN)))   #LDIFF
+    print(str(("\n")))
+    print(str((obj.DFLER)))  #LERR
+    print(str(("\n")))
+    print(str((obj.AVE)))     #MELE
+    print(str(("\n")))
+    print(str((obj.DEN)))     #MERR
+    print(str(("\n")))
+    print(str(obj.DTOVMB))
+
 

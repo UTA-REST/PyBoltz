@@ -14,9 +14,12 @@ cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
 
-
+@cython.cdivision(True)
+@cython.boundscheck(False)
+@cython.wraparound(False)
 cdef void GERJAN(double RDUM, double API,double *RNMX):
     cdef double RAN1, RAN2, TWOPI
+    cdef int J
     for J in range(0, 5, 2):
         RAN1 = random_uniform(RDUM)
         RAN2 = random_uniform(RDUM)
@@ -29,6 +32,8 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTET(Magboltz Object):
+    #TODO: change number of steps from 10 to something else
+    #TODO: print similar ouput (on new lines).
     Object.WX = 0.0
     Object.WY = 0.0
     Object.DWX = 0.0
@@ -84,7 +89,7 @@ cpdef MONTET(Magboltz Object):
     DFZZST = <double *> malloc(10 * sizeof(double))
     memset(DFZZST, 0, 10 * sizeof(double))
 
-    DFYYST = <double *> malloc(10 * sizeof(double))
+    DFYYST = <double *> malloc(10 * sizeof(double))       
     memset(DFYYST, 0, 10 * sizeof(double))
 
     DFXXST = <double *> malloc(10 * sizeof(double))

@@ -14,58 +14,60 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.fast_getattr(True)
-cdef void Gas3(Gas*object):
+cdef void Gas4(Gas*object):
     gd = np.load('gases.npy').item()
     cdef double XEN[144], YEM[144], YEL[144], YEPS[144], XION[90], YION[90], YINC[90], X23S[139], Y23S[139], X21S[128], Y21S[128], X23P[128], Y23P[128]
     cdef double X21P[125], Y21P[125], X33S[106], Y33S[106], X31S[87], Y31S[87], X33P[91], Y33P[91], X33D[108], Y33D[108], X31D[94], Y31D[94]
     cdef double X31P[114], Y31P[114], X43S[59], Y43S[59], X41S[55], Y41S[55], X43P[76], Y43P[76], X43D[65], Y43D[65], X41D[53], Y41D[53]
-    cdef double X43F[40], Y43F[40], X41F[57], Y41F[57], X41P[96], Y41P[96],  Z2T[25], EBRM[25],EOBY[2]
+    cdef double X43F[40], Y43F[40], X41F[57], Y41F[57], X41P[96], Y41P[96], Z2T[25], EBRM[25], EOBY[2]
     cdef int IOFFN[49], IOFFION[2]
-    XEN = gd['gas3/XEN']
-    YEM = gd['gas3/YEM']
-    YEL = gd['gas3/YEL']
-    YEPS = gd['gas3/YEPS']
-    XION = gd['gas3/XION']
-    YION = gd['gas3/YION']
-    YINC = gd['gas3/YINC']
-    X23S = gd['gas3/X23S']
-    Y23S = gd['gas3/Y23S']
-    X21S = gd['gas3/X21S']
-    Y21S = gd['gas3/Y21S']
-    X23P = gd['gas3/X23P']
-    Y23P = gd['gas3/Y23P']
-    X21P = gd['gas3/X21P']
-    Y21P = gd['gas3/Y21P']
-    X33S = gd['gas3/X33S']
-    Y33S = gd['gas3/Y33S']
-    X31S = gd['gas3/X31S']
-    Y31S = gd['gas3/Y31S']
-    X33P = gd['gas3/X33P']
-    Y33P = gd['gas3/Y33P']
-    X33D = gd['gas3/X33D']
-    Y33D = gd['gas3/Y33D']
-    X31D = gd['gas3/X31D']
-    Y31D = gd['gas3/Y31D']
-    X31P = gd['gas3/X31P']
-    Y31P = gd['gas3/Y31P']
-    X43S = gd['gas3/X43S']
-    Y43S = gd['gas3/Y43S']
-    X41S = gd['gas3/X41S']
-    Y41S = gd['gas3/Y41S']
-    X43P = gd['gas3/X43P']
-    Y43P = gd['gas3/Y43P']
-    X43D = gd['gas3/X43D']
-    Y43D = gd['gas3/Y43D']
-    X41D = gd['gas3/X41D']
-    Y41D = gd['gas3/Y41D']
-    X43F = gd['gas3/X43F']
-    Y43F = gd['gas3/Y43F']
-    X41F = gd['gas3/X41F']
-    Y41F = gd['gas3/Y41F']
-    X41P = gd['gas3/X41P']
-    Y41P = gd['gas3/Y41P']
-    Z2T = gd['gas3/Z2T']
-    EBRM = gd['gas3/EBRM']
+    XEN = gd['gas4/XEN']
+    YEM = gd['gas4/YEM']
+    YEL = gd['gas4/YEL']
+    YEPS = gd['gas4/YEPS']
+    XION = gd['gas4/XION']
+    YION = gd['gas4/YION']
+    YINC = gd['gas4/YINC']
+    X23S = gd['gas4/X23S']
+    Y23S = gd['gas4/Y23S']
+    X21S = gd['gas4/X21S']
+    Y21S = gd['gas4/Y21S']
+    X23P = gd['gas4/X23P']
+    Y23P = gd['gas4/Y23P']
+    X21P = gd['gas4/X21P']
+    Y21P = gd['gas4/Y21P']
+    X33S = gd['gas4/X33S']
+    Y33S = gd['gas4/Y33S']
+    X31S = gd['gas4/X31S']
+    Y31S = gd['gas4/Y31S']
+    X33P = gd['gas4/X33P']
+    Y33P = gd['gas4/Y33P']
+    X33D = gd['gas4/X33D']
+    Y33D = gd['gas4/Y33D']
+    X31D = gd['gas4/X31D']
+    Y31D = gd['gas4/Y31D']
+    X31P = gd['gas4/X31P']
+    Y31P = gd['gas4/Y31P']
+    X43S = gd['gas4/X43S']
+    Y43S = gd['gas4/Y43S']
+    X41S = gd['gas4/X41S']
+    Y41S = gd['gas4/Y41S']
+    X43P = gd['gas4/X43P']
+    Y43P = gd['gas4/Y43P']
+    X43D = gd['gas4/X43D']
+    Y43D = gd['gas4/Y43D']
+    X41D = gd['gas4/X41D']
+    Y41D = gd['gas4/Y41D']
+    X43F = gd['gas4/X43F']
+    Y43F = gd['gas4/Y43F']
+    X41F = gd['gas4/X41F']
+    Y41F = gd['gas4/Y41F']
+    X41P = gd['gas4/X41P']
+    Y41P = gd['gas4/Y41P']
+    IOFFN = gd['gas4/IOFFN']
+    IOFFION = gd['gas4/IOFFION']
+    Z2T = gd['gas4/Z2T']
+    EBRM = gd['gas4/EBRM']
 
     cdef double EMASS2 = 1021997.804
     cdef double API = acos(-1)
@@ -84,11 +86,18 @@ cdef void Gas3(Gas*object):
     object.NNULL = 0
     cdef int NBREM = 25, NDATA = 144, NIOND = 90, N23S = 139, N21S = 128, N23P = 128, N21P = 125, N33S = 106, N31S = 87, N33P = 91, N33D = 108, N31D = 94
     cdef int N31P = 114, N43S = 59, N41S = 55, N43P = 76, N43D = 65, N41D = 53, N43F = 40, N41F = 57, N41P = 96
-    object.E = [0.0, 2.0 * EMASS / (4.00260 * AMU), 24.58739, 0.5841e-19, 0.1271e-18, 10.5]
+    cdef int I, i, j
+    object.E = [0.0, 2.0 * EMASS / (3.0160 * AMU), 24.58739, 0.0, 0.0, 0.0]
+
+    for i in range(6):
+        object.KEL = object.NANISO
+    for i in range(object.NIN):
+        object.KIN = object.NANISO
+
     #IONISATION ENERGIES
     object.EION[0] = 24.58739
     object.EION[1] = 79.00515
-    # EOBY AT LOW ENERGY
+
     EOBY[0] = 12.0
     EOBY[1] = 65.0
     cdef double WKLM[2]
@@ -109,26 +118,18 @@ cdef void Gas3(Gas*object):
     object.EG1[1] = 0.0
     object.NG2[1] = 0
     object.EG2[1] = 0.0
-    cdef int I, j, i
-    for i in range(6):
-        object.KEL = object.NANISO
-    for i in range(object.NIN):
-        object.KIN = object.NANISO
+
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):
                 IOFFION[j] = i - 1
                 break
     object.EIN[0:50] = [19.81961, 20.61577, 20.96409, 21.21802, 22.71847, 22.92032, 23.00707, 23.07365, 23.07407,
-                        23.08702,
-                        23.59396, 23.67357, 23.70789, 23.73609, 23.73633, 23.73701, 23.73701, 23.74207, 23.97197,
-                        24.01121,
-                        24.02822, 24.04266, 24.04280, 24.04315, 24.04315, 24.04580, 24.16900, 24.19116, 24.20081,
-                        24.20916,
-                        24.20925, 24.21100, 24.28456, 24.29828, 24.30429, 24.30954, 24.30960, 24.31071, 24.35810,
-                        24.36718,
-                        24.37116, 24.37468, 24.37472, 24.37547, 24.41989, 24.45168, 24.47518, 24.49308, 24.50708, 0.0]
-
+                        23.08702, 23.59396, 23.67357, 23.70789, 23.73609, 23.73633, 23.73701, 23.73701, 23.74207,
+                        23.97197, 24.01121, 24.02822, 24.04266, 24.04280, 24.04315, 24.04315, 24.04580, 24.16900,
+                        24.19116, 24.20081, 24.20916, 24.20925, 24.21100, 24.28456, 24.29828, 24.30429, 24.30954,
+                        24.30960, 24.31071, 24.35810, 24.36718, 24.37116, 24.37468, 24.37472, 24.37547, 24.41989,
+                        24.45168, 24.47518, 24.49308, 24.50708, 0.0]
     for I in range(50, 250):
         object.EIN[I] = 0.0
 
@@ -488,7 +489,6 @@ cdef void Gas3(Gas*object):
                                                                       object.EIN[37], object.E[2], 0.02986)
         if EN > (2 * object.EIN[37]):
             object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]
-
         #SUM 3S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 3S
         if EN > object.EIN[38]:
             ER = object.EIN[38] / object.EIN[10]
@@ -588,7 +588,6 @@ cdef void Gas3(Gas*object):
                                                                       object.EIN[48], object.E[2], 0.02986)
         if EN > (2 * object.EIN[48]):
             object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]
-
         QMET = object.QIN[0][I] + object.QIN[1][I]
         QDIP = object.QIN[3][I] + object.QIN[9][I] + object.QIN[17][I] + object.QIN[25][I] + object.QIN[31][I] + \
                object.QIN[37][I] + object.QIN[43][I] + object.QIN[44][I] + object.QIN[45][I] + object.QIN[46][I] + \

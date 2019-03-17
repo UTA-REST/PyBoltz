@@ -1,4 +1,3 @@
-import h5py
 from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
 cimport GasUtil
 cimport libc.math

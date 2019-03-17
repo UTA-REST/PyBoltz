@@ -20,19 +20,13 @@ for i in range(8):
     obj.NMAX = 1
     obj.IPEN = 0
     obj.ITHRM=1
-    obj.EFINAL = 2
-    obj.NGASN=[7,0,0,0,0,0]
+    obj.EFINAL = 0.0
+    obj.NGASN=[3,0,0,0,0,0]
     obj.FRAC=[100,0,0,0,0,0]
     obj.TEMPC = 23
-    obj.NANISO = 0 #<<<<<<<< THIS IS IT
+    obj.NANISO = 2 #<<<<<<<< THIS IS IT
     obj.TORR = 750.062
     obj.EFIELD = float(input("Enter EFIELD:"))
-    obj.A = -6.09
-    obj.D = 490
-    obj.F = -650
-    obj.A1 = 7
-    obj.Lambda = 3
-    obj.EV0 = 0.75
     obj.BMAG = 0
     obj.BTHETA = 90
     obj.Start()

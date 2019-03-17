@@ -78,3 +78,19 @@ cdef double CALQIN(double EN, int n, double Y[], double X[]):
         B = (X[J - 1] * Y[J] - X[J] * Y[J - 1]) / (X[J - 1] - X[J])
         return (A * EN + B) * 1.0e-18
     return 0.0
+
+cdef double CALQINBEF(double EN, int n, double Y[], double X[], double BETA2, double GAMMA2, double EMASS2, double DEN,
+                      double BBCONST, double EIN, double E, double SCA):
+    cdef double A, B, X1, X2
+    cdef int J
+    if EN <= X[n - 1]:
+        for J in range(1, n):
+            if EN <= X[J]:
+                break
+        A = (Y[J] - Y[J - 1]) / (X[J] - X[J - 1])
+        B = (X[J - 1] * Y[J] - X[J] * Y[J - 1]) / (X[J - 1] - X[J])
+        return (A * EN + B) * 1.0e-18
+    else:
+        return SCA / (EIN * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN)) - BETA2 - DEN / 2.0) * BBCONST * EN / (
+                    EN + EIN + E)
+    return 0.0

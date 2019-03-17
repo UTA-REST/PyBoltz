@@ -25,26 +25,19 @@ def SETUP(Magboltz):
     Magboltz.CONST5 = Magboltz.CONST3 / 2.0
     Magboltz.CORR = ABZERO * Magboltz.TORR / (ATMOS * (ABZERO + Magboltz.TEMPC) * 100.0)
     NANISO = 2
-
-    Magboltz.NCOLM = 400000
-    Magboltz.NCORLN = 50000
-    Magboltz.NCORST = 4
-
+    Magboltz.NCOLM = 2000000
+    Magboltz.NCORLN = 500000
+    Magboltz.NCORST = 2
+    FRACM = 0.0
     MXEKR = 0
     for IH in range(Magboltz.NGAS):
-        if Magboltz.NGASN[IH] == 2 or Magboltz.NGASN[IH] == 6 or Magboltz.NGASN[IH] == 7:
-            MXEKR = IH
-        if Magboltz.EFIELD > (10 / Magboltz.CORR):
-            MXEKR = -1
-    if MXEKR != -1:
-        if Magboltz.NGAS == 1:
-            Magboltz.NCOLM = 2000000
-            Magboltz.NCORLN = 500000
-            Magboltz.NCORST = 2
-        elif Magboltz.FRAC[MXEKR] > 90.0:
-            Magboltz.NCOLM = 2000000
-            Magboltz.NCORLN = 500000
-            Magboltz.NCORST = 2
+        if Magboltz.NGASN[IH] != 2 and Magboltz.NGASN[IH] != 6 and Magboltz.NGASN[IH] == 7 and Magboltz.NGASN[IH] != 3 and \
+                Magboltz.NGASN[IH] != 4 and Magboltz.NGASN[IH] != 5:
+            FRACM += Magboltz.FRAC[IH]
+    if Magboltz.EFIELD > (10 / Magboltz.CORR) or FRACM>3:
+            Magboltz.NCOLM = 400000
+            Magboltz.NCORLN = 50000
+            Magboltz.NCORST = 4
     TOTFRAC = 0.0
     if Magboltz.NGAS == 0 or Magboltz.NGAS > 6:
         raise ValueError("Error in Gas Input")

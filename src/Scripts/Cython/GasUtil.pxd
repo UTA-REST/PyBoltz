@@ -9,3 +9,6 @@ cdef double CALQION(double EN,int n, double Y[],double X[])
 cdef double CALQINP(double EN, int n, double Y[],double X[],double pow)
 
 cdef double CALQIN(double EN, int n, double Y[],double X[])
+
+cdef double CALQINBEF(double EN, int n, double Y[], double X[], double BETA2, double GAMMA2, double EMASS2, double DEN,
+                      double BBCONST, double EIN, double E, double SCA)

@@ -29,7 +29,7 @@ cpdef MIXERT(Magboltz object):
     MIXOBJECT.InitWithInfo(object.NGASN, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
                            object.DENSY, 0, object.NGAS, object.NSTEP, object.NANISO, object.ESTEP,
-                           object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN,object.PIR2,object.EMTY,object.ETY,object.EATY)
+                           object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN,object.PIR2)
     MIXOBJECT.Run()
 
 

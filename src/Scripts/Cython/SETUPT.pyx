@@ -6,9 +6,9 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef SETUPT(Magboltz object):
-    cdef double TWOPI,PIR2,ECHARG,EMASS,AMU,BOLTZ,BOLTZJ,AWB,ALOSCH,EOVM,ABZERO,ATMOS,TOTFRAC
+    cdef double TWOPI, PIR2, ECHARG, EMASS, AMU, BOLTZ, BOLTZJ, AWB, ALOSCH, EOVM, ABZERO, ATMOS, TOTFRAC
 
-    cdef long long MXEKR,IH,NSCALE,i
+    cdef long long MXEKR, IH, NSCALE, i
 
     object.API = acos(-1.0)
     TWOPI = 2.0 * object.API
@@ -30,24 +30,19 @@ cpdef SETUPT(Magboltz object):
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
     object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
-    object.NCOLM = 400000
-    object.NCORLN = 50000
-    object.NCORST = 4
+    object.NCOLM = 2000000
+    object.NCORLN = 500000
+    object.NCORST = 2
+    cdef double FRACM = 0.0
     MXEKR = 0
     for IH in range(object.NGAS):
-        if object.NGASN[IH] == 2 or object.NGASN[IH] == 6 or object.NGASN[IH] == 7:
-            MXEKR = IH
-        if object.EFIELD > (10 / object.CORR):
-            MXEKR = -1
-    if MXEKR != -1:
-        if object.NGAS == 1:
-            object.NCOLM = 2000000
-            object.NCORLN = 500000
-            object.NCORST = 2
-        elif object.FRAC[MXEKR] > 90.0:
-            object.NCOLM = 2000000
-            object.NCORLN = 500000
-            object.NCORST = 2
+        if object.NGASN[IH] != 2 and object.NGASN[IH] != 6 and object.NGASN[IH] == 7 and object.NGASN[IH] != 3 and \
+                object.NGASN[IH] != 4 and object.NGASN[IH] != 5:
+            FRACM += object.FRAC[IH]
+    if object.EFIELD > (10 / object.CORR) or FRACM>3:
+            object.NCOLM = 400000
+            object.NCORLN = 50000
+            object.NCORST = 4
     TOTFRAC = 0.0
     if object.NGAS == 0 or object.NGAS > 6:
         raise ValueError("Error in Gas Input")

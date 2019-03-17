@@ -1,17 +1,25 @@
+from ARGON cimport Gas2
+from CF4 cimport Gas1
 from XENON cimport Gas7
+from HELIUM4 cimport Gas3
 from libc.string cimport memset
 
 from Gas cimport Gas
 
 cdef void callGASF(Gas* GAS):
-
-    if GAS.NGS == 7:
+    if GAS.NGS == 1:
+        Gas1(GAS)
+    elif GAS.NGS == 2:
+        Gas2(GAS)
+    elif GAS.NGS == 3:
+        Gas3(GAS)
+    elif GAS.NGS == 7:
         Gas7(GAS)
 
 
 cdef class Gasmix:
     def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
-                     NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN,PIR2,EMT,ET,EAT):
+                     NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN,PIR2):
         # First Setup
         cdef int i,j;
         for i in range(6):
@@ -40,9 +48,6 @@ cdef class Gasmix:
             self.Gases[i].TORR = TORR
             self.Gases[i].IPEN = IPEN
             self.Gases[i].PIR2 = PIR2
-            self.Gases[i].EMT = EMT
-            self.Gases[i].ET = ET
-            self.Gases[i].EAT = EAT
             memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
             memset(self.Gases[i].QION, 0, 30*4000 * sizeof(double))
             memset(self.Gases[i].PEQION, 0, 30*4000 * sizeof(double))

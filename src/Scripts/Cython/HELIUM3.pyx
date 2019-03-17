@@ -90,9 +90,9 @@ cdef void Gas4(Gas*object):
     object.E = [0.0, 2.0 * EMASS / (3.0160 * AMU), 24.58739, 0.0, 0.0, 0.0]
 
     for i in range(6):
-        object.KEL = object.NANISO
+        object.KEL[i] = object.NANISO
     for i in range(object.NIN):
-        object.KIN = object.NANISO
+        object.KIN[i] = object.NANISO
 
     #IONISATION ENERGIES
     object.EION[0] = 24.58739

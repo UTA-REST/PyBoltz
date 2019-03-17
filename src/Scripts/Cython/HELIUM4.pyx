@@ -111,9 +111,9 @@ cdef void Gas3(Gas*object):
     object.EG2[1] = 0.0
     cdef int I, j, i
     for i in range(6):
-        object.KEL = object.NANISO
+        object.KEL[i] = object.NANISO
     for i in range(object.NIN):
-        object.KIN = object.NANISO
+        object.KIN[i] = object.NANISO
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):

@@ -15,7 +15,7 @@ cdef void callGASF(Gas* GAS):
     elif GAS.NGS == 3:
         Gas3(GAS)
     elif GAS.NGS == 4:
-        Gas3(GAS)
+        Gas4(GAS)
     elif GAS.NGS == 7:
         Gas7(GAS)
 

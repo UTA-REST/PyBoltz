@@ -185,7 +185,7 @@ cdef void Gas3(Gas*object):
 
         #ATTACHMENT
         object.Q[3][I] = 0.0
-        object.QATT[0][i] = 0.0
+        object.QATT[0][i] = object.Q[3][I]
 
         #COUNTING IONISATION
         object.Q[4][i] = 0.0

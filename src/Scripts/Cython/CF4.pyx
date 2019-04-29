@@ -125,7 +125,7 @@ cdef void Gas1(Gas* object):
     # POSSIBLE PENNING TRANSFER
     for NL in range(3):
         for i in range(46):
-            object.PENFRA[NL][46]=0.0
+            object.PENFRA[NL][i]=0.0
     # PENNING TRANSFER FRACTION FOR LEVEL 11
     object.PENFRA[0][45] = 0.0
     # PENNING TRANSFER DISTANCE IN MICRONS
@@ -1282,4 +1282,3 @@ cdef void Gas1(Gas* object):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J
             break
-    print("CF4")

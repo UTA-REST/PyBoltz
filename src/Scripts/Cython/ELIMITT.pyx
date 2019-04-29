@@ -14,9 +14,12 @@ cdef double random_uniform(double dummy):
     return r
 
 
-
+@cython.cdivision(True)
+@cython.boundscheck(False)
+@cython.wraparound(False)
 cdef void GERJAN(double RDUM, double API, double *RNMX):
     cdef double RAN1, RAN2, TWOPI
+    cdef int J
     for J in range(0, 5, 2):
         RAN1 = random_uniform(RDUM)
         RAN2 = random_uniform(RDUM)
@@ -28,7 +31,6 @@ cdef void GERJAN(double RDUM, double API, double *RNMX):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef ELIMITT(Magboltz Object):
-    print("ELIMITT")
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
@@ -54,10 +56,9 @@ cpdef ELIMITT(Magboltz Object):
     F4 = 2 * acos(-1)
 
     J2M = Object.NMAX / ISAMP
-    print(J2M)
 
     for J1 in range(int(J2M)):
-        if J1 % 100000 == 0:
+        if J1%100000 ==0:
             print(J1)
         while True:
             R1 = random_uniform(RDUM)

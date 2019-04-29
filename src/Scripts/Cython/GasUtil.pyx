@@ -92,5 +92,68 @@ cdef double CALQINBEF(double EN, int n, double Y[], double X[], double BETA2, do
         return (A * EN + B) * 1.0e-18
     else:
         return SCA / (EIN * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 * EIN)) - BETA2 - DEN / 2.0) * BBCONST * EN / (
-                    EN + EIN + E)
+                EN + EIN + E)
     return 0.0
+
+cdef double CALQINVISO(double EN, int n, double Y[], double X[], double APOP, double EIN2, double DEG, double EIN1,
+                    double CONST):
+    cdef double A, B, X1, X2, EFAC, temp
+    cdef int J
+    if EN + EIN2 <= X[n - 1]:
+        for J in range(1, n):
+            if EN <= X[J]:
+                break
+        A = (Y[J] - Y[J - 1]) / (X[J] - X[J - 1])
+        B = (X[J - 1] * Y[J] - X[J] * Y[J - 1]) / (X[J - 1] - X[J])
+        temp = (EN + EIN2) * (A * (EN + EIN2) + B) / EN
+    else:
+        temp = Y[n - 1] * (X[n - 1] / (EN + EIN2)) ** 2
+    EFAC = sqrt(1.0 - (EIN1 / EN))
+    temp = temp + CONST * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
+    temp = temp * APOP * 1.0e-16
+    temp = temp / DEG
+    return temp
+
+cdef double CALQINVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST):
+    cdef double A, B, X1, X2, EFAC, temp,ADIP,FWD,BCK,XMT,ELF
+    cdef int J
+    if EN <= X[n-1]:
+        for J in range(1, n):
+            if EN <= X[J]:
+                break
+        A = (Y[J] - Y[J - 1]) / (X[J] - X[J - 1])
+        B = (X[J - 1] * Y[J] - X[J] * Y[J - 1]) / (X[J - 1] - X[J])
+        temp =  A * EN + B
+    else:
+        temp = Y[n-1]*(X[n-1]/EN)**2
+    EFAC = sqrt(1.0 - (EIN/EN))
+    ADIP = CONST * log((EFAC + 1.0) / (1.0-EFAC)) / EN
+    ELF = EN -EIN
+    FWD = log((EN+ELF)/(EN+ELF-2.0*sqrt(EN*ELF)))
+    BCK = log((EN+ELF+2.0*sqrt(EN*ELF))/(EN+ELF))
+    XMT = ((1.5-FWD/(FWD+BCK))*ADIP+RAT*temp)*APOP*1.0e-16
+    temp = (temp+ADIP)*APOP*1.0e-16
+
+    return temp
+
+cdef double CALXMTVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST):
+    cdef double A, B, X1, X2, EFAC, temp,ADIP,FWD,BCK,XMT,ELF
+    cdef int J
+    if EN <= X[n-1]:
+        for J in range(1, n):
+            if EN <= X[J]:
+                break
+        A = (Y[J] - Y[J - 1]) / (X[J] - X[J - 1])
+        B = (X[J - 1] * Y[J] - X[J] * Y[J - 1]) / (X[J - 1] - X[J])
+        temp =  A * EN + B
+    else:
+        temp = Y[n-1]*(X[n-1]/EN)**2
+    EFAC = sqrt(1.0 - (EIN/EN))
+    ADIP = CONST * log((EFAC + 1.0) / (1.0-EFAC)) / EN
+    ELF = EN -EIN
+    FWD = log((EN+ELF)/(EN+ELF-2.0*sqrt(EN*ELF)))
+    BCK = log((EN+ELF+2.0*sqrt(EN*ELF))/(EN+ELF))
+
+    XMT = ((1.5-FWD/(FWD+BCK))*ADIP+RAT*temp)*APOP*1.0e-16
+    temp = (temp+ADIP)*APOP*1.0e-16
+    return XMT

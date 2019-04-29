@@ -1,5 +1,6 @@
 from ARGON cimport Gas2
 from CF4 cimport Gas1
+from CH4 cimport Gas8
 from XENON cimport Gas7
 from HELIUM4 cimport Gas3
 from HELIUM3 cimport Gas4
@@ -18,6 +19,8 @@ cdef void callGASF(Gas* GAS):
         Gas4(GAS)
     elif GAS.NGS == 7:
         Gas7(GAS)
+    elif GAS.NGS == 8:
+        Gas8(GAS)
 
 
 cdef class Gasmix:

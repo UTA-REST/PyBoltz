@@ -56,7 +56,6 @@ cpdef ELIMITT(Magboltz Object):
     F4 = 2 * acos(-1)
 
     J2M = Object.NMAX / ISAMP
-
     for J1 in range(int(J2M)):
         if J1%100000 ==0:
             print(J1)

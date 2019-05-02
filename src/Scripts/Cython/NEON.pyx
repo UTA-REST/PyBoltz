@@ -14,7 +14,7 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.fast_getattr(True)
-cdef void Gas5(Gas*object):
+cdef void Gas5(Gas* object):
     gd = np.load('gases.npy').item()
     cdef double XEN[125], YXSEC[125], XEL[120], YEL[120], XEPS[196], YEPS[196], XION[74], YION[74], YINC[74], YIN1[74]
     cdef double XIN2[49], YIN2[49], XIN3[41], YIN3[41], XKSH[99], YKSH[99], X1S5[111], Y1S5[111], X1S4[137], Y1S4[137], X1S3[117], Y1S3[117]
@@ -181,7 +181,7 @@ cdef void Gas5(Gas*object):
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):
-                IOFFION[j] = i - 1
+                IOFFION[j] = i -1
                 break
     for NL in range(object.NIN):
         object.PENFRA[0][NL] = 0.5
@@ -190,12 +190,12 @@ cdef void Gas5(Gas*object):
 
     for NL in range(object.NIN):
         for i in range(4000):
-            if object.EG[i] > abs(object.EIN[NL]):
-                IOFFN[NL] = i - 1
+            if object.EG[i] > object.EIN[NL]:
+                IOFFN[NL] = i -1
                 break
     cdef int LMAX
     cdef double APOL, AA, DD, FF, A1, B1, A2, EN, GAMMA1, GAMMA2, BETA, BETA2, AK, AK2, AK3, AK4
-    cdef double AK5, AN0, AN1, AN2, ANHIGH, SUM, SIGEL, ANLOW, SUMI, QELA, QMOM, PQ[3], QCORR,QINEL,
+    cdef double AK5, AN0, AN1, AN2,  ANHIGH, SUM, SIGEL, ANLOW, SUMI, QELA, QMOM, PQ[3], QCORR, QINEL,
     # PARAMETERS OF PHASE SHIFT ANALYSIS
     APOL = 2.672
     LMAX = 100
@@ -204,7 +204,9 @@ cdef void Gas5(Gas*object):
     FF = -2.656
     A1 = 1.846
     B1 = 3.29
+    A2 = -0.037
     object.NSTEP = 4000
+
     for I in range(object.NSTEP):
         EN = object.EG[I]
         if EN > object.EIN[0]:
@@ -221,8 +223,7 @@ cdef void Gas5(Gas*object):
             AK3 = AK2 * AK
             AK4 = AK3 * AK
             AK5 = AK4 * AK
-            AN0 = -1 * AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (
-                        API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
+            AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
             AN1 = ((API / 15.0) * APOL * AK2 - A1 * AK3) / (1.0 + B1 * AK2)
             AN2 = API * APOL * AK2 / 105.0 - A2 * AK5
             ANHIGH = AN2
@@ -231,7 +232,7 @@ cdef void Gas5(Gas*object):
             SIGEL = (sin(AN0)) ** 2 + 3.0 * (sin(AN1)) ** 2
             for J in range(2, LMAX):
                 ANLOW = ANHIGH
-                ANHIGH = API * APOL * AK2 / ((2.0 * J + 5.0) * (2.0 * J + 3.0) * (2.0 * J + 1.0))
+                ANHIGH = API * APOL * AK2 / ((2. * J + 5.0) * (2. * J + 3.0) * (2. * J + 1.0))
                 SUMI = 6.0 / ((2.0 * J + 5.0) * (2.0 * J + 3.0) * (2.0 * J + 1.0) * (2.0 * J - 1.0))
                 SUM = SUM + (J + 1.0) * (sin(API * APOL * AK2 * SUMI)) ** 2
                 SIGEL = SIGEL + (2.0 * J + 1.0) * (sin(ANLOW)) ** 2
@@ -243,6 +244,7 @@ cdef void Gas5(Gas*object):
         PQ[1] = 0.5 + (QELA - QMOM) / QELA
         PQ[0] = 0.5
         PQ[2] = GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)
+        PQ[2] = 1-PQ[2]
         object.PEQEL[1][I] = PQ[object.NANISO]
         object.Q[1][I] = QELA
         if object.NANISO == 0:
@@ -427,8 +429,8 @@ cdef void Gas5(Gas*object):
         #2S4  BEF SCALING
         if EN > object.EIN[15]:
             object.QIN[15][I] = 0.0128 / (object.EIN[15] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[15])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[15] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[15])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[15] + object.E[2])
             object.QIN[15][I] = abs(object.QIN[15][I])
         if EN > 2 * object.EIN[15]:
             object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]
@@ -442,8 +444,8 @@ cdef void Gas5(Gas*object):
         #2S2  BEF SCALING
         if EN > object.EIN[17]:
             object.QIN[17][I] = 0.0166 / (object.EIN[17] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[17])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[17] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[17])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[17] + object.E[2])
             object.QIN[17][I] = abs(object.QIN[17][I])
         if EN > 2 * object.EIN[17]:
             object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]
@@ -457,8 +459,8 @@ cdef void Gas5(Gas*object):
         #3D5  BEF SCALING
         if EN > object.EIN[19]:
             object.QIN[19][I] = 0.0048 / (object.EIN[19] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[19])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[19] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[19])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[19] + object.E[2])
             object.QIN[19][I] = abs(object.QIN[19][I])
         if EN > 2 * object.EIN[19]:
             object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]
@@ -484,8 +486,8 @@ cdef void Gas5(Gas*object):
         #3D2  BEF SCALING
         if EN > object.EIN[23]:
             object.QIN[23][I] = 0.0146 / (object.EIN[23] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[23])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[23] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[23])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[23] + object.E[2])
             object.QIN[23][I] = abs(object.QIN[23][I])
         if EN > 2 * object.EIN[23]:
             object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]
@@ -520,12 +522,11 @@ cdef void Gas5(Gas*object):
         if EN > 2 * object.EIN[28]:
             object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]
 
-
         #3S1!  BEF SCALING
         if EN > object.EIN[29]:
             object.QIN[29][I] = 0.00676 / (object.EIN[29] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[29])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[29] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[29])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[29] + object.E[2])
             object.QIN[29][I] = abs(object.QIN[29][I])
         if EN > 2 * object.EIN[29]:
             object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]
@@ -551,8 +552,8 @@ cdef void Gas5(Gas*object):
         #3S4  BEF SCALING
         if EN > object.EIN[33]:
             object.QIN[33][I] = 0.00635 / (object.EIN[33] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[33])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[33] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[33])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[33] + object.E[2])
             object.QIN[33][I] = abs(object.QIN[33][I])
         if EN > 2 * object.EIN[33]:
             object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]
@@ -560,8 +561,8 @@ cdef void Gas5(Gas*object):
         #3S2  BEF SCALING
         if EN > object.EIN[34]:
             object.QIN[34][I] = 0.00440 / (object.EIN[34] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[34])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[34] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[34])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[34] + object.E[2])
             object.QIN[34][I] = abs(object.QIN[34][I])
         if EN > 2 * object.EIN[34]:
             object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]
@@ -569,8 +570,8 @@ cdef void Gas5(Gas*object):
         #4D5  BEF SCALING
         if EN > object.EIN[35]:
             object.QIN[35][I] = 0.00705 / (object.EIN[35] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[35])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[35] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[35])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[35] + object.E[2])
             object.QIN[35][I] = abs(object.QIN[35][I])
         if EN > 2 * object.EIN[35]:
             object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]
@@ -578,8 +579,8 @@ cdef void Gas5(Gas*object):
         #4D2  BEF SCALING
         if EN > object.EIN[36]:
             object.QIN[36][I] = 0.00235 / (object.EIN[36] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[36])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[36] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[36])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[36] + object.E[2])
             object.QIN[36][I] = abs(object.QIN[36][I])
         if EN > 2 * object.EIN[36]:
             object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]
@@ -587,8 +588,8 @@ cdef void Gas5(Gas*object):
         #4S1!  BEF SCALING
         if EN > object.EIN[37]:
             object.QIN[37][I] = 0.00435 / (object.EIN[37] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
             object.QIN[37][I] = abs(object.QIN[37][I])
         if EN > 2 * object.EIN[37]:
             object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]
@@ -596,8 +597,8 @@ cdef void Gas5(Gas*object):
         #4S4  BEF SCALING
         if EN > object.EIN[38]:
             object.QIN[38][I] = 0.00325 / (object.EIN[38] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[38])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[38] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[38])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[38] + object.E[2])
             object.QIN[38][I] = abs(object.QIN[38][I])
         if EN > 2 * object.EIN[38]:
             object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]
@@ -605,8 +606,8 @@ cdef void Gas5(Gas*object):
         #5D5 BEF SCALING
         if EN > object.EIN[39]:
             object.QIN[39][I] = 0.00383 / (object.EIN[39] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[39])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[39] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[39])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[39] + object.E[2])
             object.QIN[39][I] = abs(object.QIN[39][I])
         if EN > 2 * object.EIN[39]:
             object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]
@@ -614,8 +615,8 @@ cdef void Gas5(Gas*object):
         #5D2 BEF SCALING
         if EN > object.EIN[40]:
             object.QIN[40][I] = 0.00127 / (object.EIN[40] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[40])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[40] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[40])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[40] + object.E[2])
             object.QIN[40][I] = abs(object.QIN[40][I])
         if EN > 2 * object.EIN[40]:
             object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]
@@ -623,8 +624,8 @@ cdef void Gas5(Gas*object):
         #4S2 BEF SCALING
         if EN > object.EIN[41]:
             object.QIN[41][I] = 0.00165 / (object.EIN[41] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[41])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[41] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[41])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[41] + object.E[2])
             object.QIN[41][I] = abs(object.QIN[41][I])
         if EN > 2 * object.EIN[41]:
             object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]
@@ -632,8 +633,8 @@ cdef void Gas5(Gas*object):
         #5S1! BEF SCALING
         if EN > object.EIN[42]:
             object.QIN[42][I] = 0.00250 / (object.EIN[42] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[42])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[42] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[42])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[42] + object.E[2])
             object.QIN[42][I] = abs(object.QIN[42][I])
         if EN > 2 * object.EIN[42]:
             object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]
@@ -641,8 +642,8 @@ cdef void Gas5(Gas*object):
         #SUM HIGHER RESONANCE S STATES
         if EN > object.EIN[43]:
             object.QIN[43][I] = 0.00962 / (object.EIN[43] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[43])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[43] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[43])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[43] + object.E[2])
             object.QIN[43][I] = abs(object.QIN[43][I])
         if EN > 2 * object.EIN[43]:
             object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]
@@ -650,22 +651,26 @@ cdef void Gas5(Gas*object):
         #SUM HIGHER RESONANCE S STATES
         if EN > object.EIN[44]:
             object.QIN[44][I] = 0.01695 / (object.EIN[44] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[44])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[44] + object.E[2])
+                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[44])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EIN[44] + object.E[2])
             object.QIN[44][I] = abs(object.QIN[44][I])
         if EN > 2 * object.EIN[44]:
             object.PEQIN[44][I] = object.PEQEL[1][I - IOFFN[44]]
 
+        QINEL = 0
         for J in range(object.NIN):
-            QINEL+=object.QIN[J][I]
+            QINEL += object.QIN[J][I]
 
-        object.Q[0][I] = QELA+object.QION[0][I]+object.QION[1][I]+object.QION[2][I]+object.QION[3][I]+QINEL
-
+        object.Q[0][I] = QELA + object.QION[0][I] + object.QION[1][I] + object.QION[2][I] + object.QION[3][I] + QINEL
+       # for J in range(object.NIN):
+       #     print(object.PEQEL[1][J])
+        #print(PQ)
+       # while(1):
+        #    I+=1
+         #   I-=1
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J
             break
+    print(object.PEQEL  )
     return
-
-
-

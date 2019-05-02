@@ -213,7 +213,7 @@ cdef void Gas8(Gas*object):
     F[0:18] = [0.0271,0.0442,0.0859,0.0906,0.0841,0.1036,0.1460,0.1548,0.1927,0.1981,0.1628,0.10930,0.0628,0.0297,0.0074,0.5,0.0045,0.0045]
     CON[0:18] = [1.029,1.027,1.026,1.024,1.023,1.022,1.021,1.020,1.020,1.019,1.018,1.018,1.017,1.016,1.016,1,1.037,1.034]
     #CALC LEVEL POPULATIONS
-    APOPV4 = DEGV4 * exp(object.EIN[1] / object.AKT)
+    APOPV4 = DEGV4 * exp(object.EIN[0] / object.AKT)
     APOPV2 = DEGV2 * exp(object.EIN[2] / object.AKT)
     APOPGS = 1.0
     APOPSUM = APOPGS + APOPV4 + APOPV2
@@ -382,7 +382,7 @@ cdef void Gas8(Gas*object):
         if EN > 0.0:
             object.QIN[0][I] = GasUtil.CALQINVISO(EN, NVIBV4, YVBV4, XVBV4, APOPV4, object.EIN[1], DEGV4, object.EIN[0],
                                                   0.076)
-
+        print(object.QIN[0][I])
         #V4 ANISOTROPIC
         object.QIN[1][I] = 0.0
         object.PEQIN[1][I] = 0.5
@@ -556,6 +556,7 @@ cdef void Gas8(Gas*object):
         if EN>1000:
             object.QIN[34][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z6T, EBRM)*1e-8
             object.QIN[35][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z1T, EBRM)*4e-8
+
         #skipped the QSUP,QVIB,QDATT,QSING,QTRIP,QEXC,QTTT,QWINT,QINEL,QIONS as they are not used later one.
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:

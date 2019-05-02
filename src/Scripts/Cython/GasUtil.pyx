@@ -99,9 +99,10 @@ cdef double CALQINVISO(double EN, int n, double Y[], double X[], double APOP, do
                     double CONST):
     cdef double A, B, X1, X2, EFAC, temp
     cdef int J
-    if EN + EIN2 <= X[n - 1]:
+    print (EIN2)
+    if (EN + EIN2) <= X[n - 1]:
         for J in range(1, n):
-            if EN <= X[J]:
+            if (EN + EIN2) <= X[J]:
                 break
         A = (Y[J] - Y[J - 1]) / (X[J] - X[J - 1])
         B = (X[J - 1] * Y[J] - X[J] * Y[J - 1]) / (X[J - 1] - X[J])
@@ -110,8 +111,11 @@ cdef double CALQINVISO(double EN, int n, double Y[], double X[], double APOP, do
         temp = Y[n - 1] * (X[n - 1] / (EN + EIN2)) ** 2
     EFAC = sqrt(1.0 - (EIN1 / EN))
     temp = temp + CONST * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
+    print(temp)
     temp = temp * APOP * 1.0e-16
+    print(temp)
     temp = temp / DEG
+    print(temp)
     return temp
 
 cdef double CALQINVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST):

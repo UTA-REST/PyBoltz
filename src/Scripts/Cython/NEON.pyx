@@ -239,8 +239,8 @@ cdef void Gas5(Gas* object):
             QELA = SIGEL * 4.0 * object.PIR2 / AK2
             QMOM = SUM * 4.0 * object.PIR2 / AK2
         else:
-            QELA = GasUtil.CALQION(EN, NEL, YEL, XEL)
-            QMOM = GasUtil.CALQION(EN, NDATA, YXSEC, XEN)
+            QELA = GasUtil.CALQIONREG(EN, NEL, YEL, XEL)
+            QMOM = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)
         PQ[1] = 0.5 + (QELA - QMOM) / QELA
         PQ[0] = 0.5
         PQ[2] = GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)
@@ -290,7 +290,7 @@ cdef void Gas5(Gas* object):
         if object.NANISO == 2:
             object.PEQION[3][I] = 0.0
         if EN > object.EION[3]:
-            object.QION[3][I] = GasUtil.CALQION(EN, NKSH, YKSH, XKSH)
+            object.QION[3][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
             object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]
 
         # ATTACHMENT

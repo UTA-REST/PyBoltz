@@ -352,7 +352,7 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[8][I] = 0
         if EN >= object.EION[8]:
-            object.QION[8][I] = GasUtil.CALQION(EN, NKSH, YKSH, XKSH)
+            object.QION[8][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
         if EN > 2 * object.EION[8]:
             object.PEQION[8][I] = object.PEQEL[1][I - IOFFION[8]]
 

@@ -374,7 +374,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[3][I] = 0
         if EN >= object.EION[3]:
-            object.QION[3][I] = GasUtil.CALQION(EN, NIONM5, YM5S, XM5S)
+            object.QION[3][I] = GasUtil.CALQIONREG(EN, NIONM5, YM5S, XM5S)
             object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]
 
         #M4-SHELL IONISATION
@@ -383,7 +383,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[4][I] = 0
         if EN >= object.EION[4]:
-            object.QION[4][I] = GasUtil.CALQION(EN, NIONM4, YM4S, XM4S)
+            object.QION[4][I] = GasUtil.CALQIONREG(EN, NIONM4, YM4S, XM4S)
             object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]
 
         #M3-SHELL IONISATION
@@ -392,7 +392,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[5][I] = 0
         if EN >= object.EION[5]:
-            object.QION[5][I] = GasUtil.CALQION(EN, NIONM3, YM3S, XM3S)
+            object.QION[5][I] = GasUtil.CALQIONREG(EN, NIONM3, YM3S, XM3S)
             object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]
 
         #M2-SHELL IONISATION
@@ -401,7 +401,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[6][I] = 0
         if EN >= object.EION[6]:
-            object.QION[6][I] = GasUtil.CALQION(EN, NIONM2, YM2S, XM2S)
+            object.QION[6][I] = GasUtil.CALQIONREG(EN, NIONM2, YM2S, XM2S)
             object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]
 
         #M1-SHELL IONISATION
@@ -410,7 +410,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[7][I] = 0
         if EN >= object.EION[7]:
-            object.QION[7][I] = GasUtil.CALQION(EN, NIONM1, YM1S, XM1S)
+            object.QION[7][I] = GasUtil.CALQIONREG(EN, NIONM1, YM1S, XM1S)
             object.PEQION[7][I] = object.PEQEL[1][I - IOFFION[7]]
 
         #L3-SHELL IONISATION
@@ -419,7 +419,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[8][I] = 0
         if EN >= object.EION[8]:
-            object.QION[8][I] = GasUtil.CALQION(EN, NIONL3, YL3S, XL3S)
+            object.QION[8][I] = GasUtil.CALQIONREG(EN, NIONL3, YL3S, XL3S)
             object.PEQION[8][I] = object.PEQEL[1][I - IOFFION[8]]
 
         #L2-SHELL IONISATION
@@ -428,7 +428,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[9][I] = 0
         if EN >= object.EION[9]:
-            object.QION[9][I] = GasUtil.CALQION(EN, NIONL2, YL2S, XL2S)
+            object.QION[9][I] = GasUtil.CALQIONREG(EN, NIONL2, YL2S, XL2S)
             object.PEQION[9][I] = object.PEQEL[1][I - IOFFION[9]]
 
         #L1-SHELL IONISATION
@@ -437,7 +437,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[10][I] = 0
         if EN >= object.EION[10]:
-            object.QION[10][I] = GasUtil.CALQION(EN, NIONL1, YL1S, XL1S)
+            object.QION[10][I] = GasUtil.CALQIONREG(EN, NIONL1, YL1S, XL1S)
             object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]
 
         #K-SHELL IONISATION
@@ -446,7 +446,7 @@ cdef void Gas7(Gas*object):
         if object.NANISO == 2:
             object.PEQION[11][I] = 0
         if EN >= object.EION[11]:
-            object.QION[11][I] = GasUtil.CALQION(EN, NIONK, YKSH, XKSH)
+            object.QION[11][I] = GasUtil.CALQIONREG(EN, NIONK, YKSH, XKSH)
             object.PEQION[11][I] = object.PEQEL[1][I - IOFFION[11]]
 
         # ATTACHMENT

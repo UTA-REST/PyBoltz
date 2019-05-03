@@ -156,8 +156,8 @@ cdef void Gas4(Gas*object):
             GAMMA2 = GAMMA1 * GAMMA1
             BETA = sqrt(1.0 - 1.0 / GAMMA2)
             BETA2 = BETA * BETA
-        QELA = GasUtil.CALQION(EN, NDATA, YEL, XEN)
-        QMOM = GasUtil.CALQION(EN, NDATA, YEM, XEN)
+        QELA = GasUtil.CALQIONREG(EN, NDATA, YEL, XEN)
+        QMOM = GasUtil.CALQIONREG(EN, NDATA, YEM, XEN)
 
         TEMP = GasUtil.CALPQ3(EN, NDATA, YEPS, XEN)
         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - TEMP]

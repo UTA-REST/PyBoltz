@@ -271,10 +271,6 @@ cdef void Gas5(Gas* object):
             object.PEQION[1][I] = 0.0
         if EN > object.EION[1]:
             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, 0.0388, CONST, object.DEN[I], C, AM2)
-        #USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTON FOR
-        #ENERGIES ABOVE 2 * IONISATION ENERGY
-        # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
-        # THE IONISATION ENERGY
         if EN > 2 * object.EION[1]:
             object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]
 
@@ -285,10 +281,6 @@ cdef void Gas5(Gas* object):
             object.PEQION[2][I] = 0.0
         if EN > object.EION[2]:
             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, 0.00215, CONST, object.DEN[I], C, AM2)
-        #USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTON FOR
-        #ENERGIES ABOVE 2 * IONISATION ENERGY
-        # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
-        # THE IONISATION ENERGY
         if EN > 2 * object.EION[2]:
             object.PEQION[2][I] = object.PEQEL[1][I - IOFFION[2]]
 
@@ -662,15 +654,9 @@ cdef void Gas5(Gas* object):
             QINEL += object.QIN[J][I]
 
         object.Q[0][I] = QELA + object.QION[0][I] + object.QION[1][I] + object.QION[2][I] + object.QION[3][I] + QINEL
-       # for J in range(object.NIN):
-       #     print(object.PEQEL[1][J])
-        #print(PQ)
-       # while(1):
-        #    I+=1
-         #   I-=1
+
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J
             break
-    print(object.PEQEL  )
     return

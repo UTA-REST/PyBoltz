@@ -1,10 +1,11 @@
-from ARGON cimport Gas2
 from CF4 cimport Gas1
-from CH4 cimport Gas8
-from XENON cimport Gas7
+from ARGON cimport Gas2
 from HELIUM4 cimport Gas3
 from HELIUM3 cimport Gas4
 from NEON cimport Gas5
+from KRYPTON cimport Gas6
+from XENON cimport Gas7
+from CH4 cimport Gas8
 from libc.string cimport memset
 
 from Gas cimport Gas
@@ -20,6 +21,8 @@ cdef void callGASF(Gas* GAS):
         Gas4(GAS)
     elif GAS.NGS == 5:
         Gas5(GAS)
+    elif GAS.NGS == 6:
+        Gas6(GAS)
     elif GAS.NGS == 7:
         Gas7(GAS)
     elif GAS.NGS == 8:

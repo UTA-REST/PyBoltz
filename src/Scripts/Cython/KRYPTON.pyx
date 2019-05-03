@@ -66,10 +66,6 @@ cdef void Gas6(Gas*object):
     YM4S = gd['gas6/YM4S']
     XM5S = gd['gas6/XM5S']
     YM5S = gd['gas6/YM5S']
-    XEXC1 = gd['gas6/XEXC1']
-    YEXC1 = gd['gas6/YEXC1']
-    XEXC2 = gd['gas6/XEXC2']
-    YEXC2 = gd['gas6/YEXC2']
     X1S5 = gd['gas6/X1S5']
     Y1S5 = gd['gas6/Y1S5']
     YP1S5 = gd['gas6/YP1S5']
@@ -334,7 +330,7 @@ cdef void Gas6(Gas*object):
                 IOFFN[NL] = i -1
                 break
     cdef double F[11]
-    cdef double FI
+    cdef int FI
 
     F = [0.082,0.154,0.0140,0.0435,0.0105,0.0970,0.0808,0.0015,0.0439,0.0203,0.1680]
 

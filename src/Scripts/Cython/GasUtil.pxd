@@ -18,3 +18,5 @@ cdef double CALQINVISO(double EN, int n, double Y[], double X[],double APOP,doub
 cdef double CALXMTVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST)
 
 cdef double CALQINVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST)
+
+cdef double CALQIONREG(double EN, int n, double Y[], double X[])

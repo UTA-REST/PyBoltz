@@ -6,6 +6,7 @@ from NEON cimport Gas5
 from KRYPTON cimport Gas6
 from XENON cimport Gas7
 from CH4 cimport Gas8
+from ETHANE cimport Gas9
 from libc.string cimport memset
 
 from Gas cimport Gas
@@ -27,7 +28,8 @@ cdef void callGASF(Gas* GAS):
         Gas7(GAS)
     elif GAS.NGS == 8:
         Gas8(GAS)
-
+    elif GAS.NGS == 9:
+        Gas9(GAS)
 
 cdef class Gasmix:
     def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,

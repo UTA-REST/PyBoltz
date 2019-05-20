@@ -19,4 +19,7 @@ cdef double CALXMTVANISO(double EN, int n, double Y[], double X[],double EIN, do
 
 cdef double CALQINVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST)
 
+cdef double CALQINVISELA(double EN, int n, double Y[], double X[], double APOP, double EIN2, double DEG, double EIN1,
+                    double CONST,int EFACFLAG)
+
 cdef double CALQIONREG(double EN, int n, double Y[], double X[])

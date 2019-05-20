@@ -124,6 +124,29 @@ cdef double CALQINVISO(double EN, int n, double Y[], double X[], double APOP, do
     temp = temp / DEG
     return temp
 
+cdef double CALQINVISELA(double EN, int n, double Y[], double X[], double APOP, double EIN2, double DEG, double EIN1,
+                    double CONST,int EFACFLAG):
+    cdef double A, B, X1, X2, EFAC, temp
+    cdef int J
+    if (EN + EIN2) <= X[n - 1]:
+        for J in range(1, n):
+            if (EN + EIN2) <= X[J]:
+                break
+        A = (Y[J] - Y[J - 1]) / (X[J] - X[J - 1])
+        B = (X[J - 1] * Y[J] - X[J] * Y[J - 1]) / (X[J - 1] - X[J])
+        temp = (EN + EIN2) * (A * (EN + EIN2) + B) / EN
+    else:
+        temp = Y[n - 1] * X[n - 1] * (EN + EIN2) /(EN*EN)
+    EFAC = sqrt(1.0 - (EIN1 / EN))
+    if EFACFLAG ==0:
+        temp = temp + CONST * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
+    else:
+        temp = temp + CONST * log((EFAC + 1.0) / (1.0-EFAC)) / EN
+    temp = temp * APOP * 1.0e-16
+    temp = temp / DEG
+    return temp
+
+
 cdef double CALQINVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST):
     cdef double A, B, X1, X2, EFAC, temp,ADIP,FWD,BCK,XMT,ELF
     cdef int J

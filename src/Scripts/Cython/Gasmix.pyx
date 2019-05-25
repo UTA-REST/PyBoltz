@@ -10,6 +10,7 @@ from ETHANE cimport Gas9
 from PROPANE cimport Gas10
 from ISOBUTANE cimport Gas11
 from CO2 cimport Gas12
+from DEUTERIUM cimport Gas22
 from DME cimport Gas25
 from libc.string cimport memset
 
@@ -40,6 +41,8 @@ cdef void callGASF(Gas* GAS):
         Gas11(GAS)
     elif GAS.NGS == 12:
         Gas12(GAS)
+    elif GAS.NGS == 22:
+        Gas22(GAS)
     elif GAS.NGS == 25:
         Gas25(GAS)
 

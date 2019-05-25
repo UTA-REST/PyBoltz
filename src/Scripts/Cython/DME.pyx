@@ -146,8 +146,8 @@ cdef void Gas25(Gas*object):
 
         for J in range(8):
             object.Q[0][I]+=object.QIN[J][I]
-    for J in range(8):
-        print(object.QIN[J][3999])
+
+
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J

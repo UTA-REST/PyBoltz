@@ -805,8 +805,6 @@ cdef void Gas12(Gas*object):
 
         object.Q[0][I] = QELA + object.Q[3][I] + SUMV + SUME + SUMTRP + SUMION
 
-    for J in range(6):
-        print(str(object.Q[J][3999]) + " " + str(J))
 
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:

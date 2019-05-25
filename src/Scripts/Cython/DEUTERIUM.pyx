@@ -183,6 +183,7 @@ cdef void Gas22(Gas*object):
         if EN>object.EIN[8]:
             object.QIN[8][I] = GasUtil.CALQIONREG(EN, NROT5, YROT5, XROT5)*(FROT[5]+FROT[7])
 
+
         object.QIN[9][I] = 0.0
         if EN>object.EIN[9]:
             object.QIN[9][I] = GasUtil.CALQIONREG(EN, NVIB1, YVIB1, XVIB1)

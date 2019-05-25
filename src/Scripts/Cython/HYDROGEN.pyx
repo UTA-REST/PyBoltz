@@ -74,7 +74,7 @@ cdef void Gas21(Gas*object):
     EBRM = gd['gas21/EBRM']
 
     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C,
-    cdef int NBREM, i, j, I, J, NL
+    cdef int NBREM, i, j, I, J
     A0 = 0.52917720859e-08
     RY = 13.60569193
     CONST = 1.873884e-20
@@ -156,7 +156,7 @@ cdef void Gas21(Gas*object):
     object.EIN = gd['gas21/EIN']
 
     for J in range(5):
-        BEF = object.E[2]
+        BEF[J] = object.E[2]
 
     # ATTACHMENT THRESHOLD EV FOR 2 SIGMAu
     EATTTH = 3.723

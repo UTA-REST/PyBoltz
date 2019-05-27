@@ -382,7 +382,7 @@ cdef void Gas16(Gas*object):
         # IONISATION TO ALL CHANNELS WITH N2+
         QN2PTOT = 0.0
         if EN > object.EION[0]:
-            GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, 0.7973, CONST, object.DEN[I], C, AM2)
+            QN2PTOT = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, 0.7973, CONST, object.DEN[I], C, AM2)
 
         object.QION[0][I] = QN2PTOT
 
@@ -1154,11 +1154,10 @@ cdef void Gas16(Gas*object):
 
         object.Q[0][I] = object.Q[1][I] + object.Q[4][I] + object.QION[1][I] + SUMR + SUMV + SUMEX + SUMEX1
 
-    for I in range(object.NIN):
+    for I in range(1,128):
         J = 128 - I - 1
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J
-            break
     if object.NIN < 77:
         object.NIN = 77
     return

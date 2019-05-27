@@ -768,6 +768,8 @@ cdef void Gas12(Gas*object):
             FI += 1
             CONI += 1
 
+            if EN>60:
+                object.QIN[143][I]*=sqrt(60/EN)
         #LOAD BREMSSTRAHLUNG X-SECTIONS
         object.QIN[144][I] = 0.0
         object.QIN[145][I] = 0.0
@@ -806,8 +808,9 @@ cdef void Gas12(Gas*object):
         object.Q[0][I] = QELA + object.Q[3][I] + SUMV + SUME + SUMTRP + SUMION
 
 
-    for J in range(object.NIN):
-        if object.EFINAL <= object.EIN[J]:
-            object.NIN = J
+    for J in range(1,74):
+        I = (145-J)-1
+        if object.EFINAL <= object.EIN[I]:
+            object.NIN = I
             break
     return

@@ -11,6 +11,7 @@ from PROPANE cimport Gas10
 from ISOBUTANE cimport Gas11
 from CO2 cimport Gas12
 from H2O cimport Gas14
+from OXYGEN cimport Gas15
 from NITROGEN cimport Gas16
 from HYDROGEN cimport Gas21
 from DEUTERIUM cimport Gas22
@@ -46,6 +47,8 @@ cdef void callGASF(Gas* GAS):
         Gas12(GAS)
     elif GAS.NGS == 14:
         Gas14(GAS)
+    elif GAS.NGS == 15:
+        Gas15(GAS)
     elif GAS.NGS == 16:
         Gas16(GAS)
     elif GAS.NGS == 21:

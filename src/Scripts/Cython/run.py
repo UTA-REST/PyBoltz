@@ -21,14 +21,14 @@ for i in range(8):
     obj.IPEN = 0
     obj.ITHRM=1
     obj.EFINAL = 0.0
-    obj.NGASN=[15,0,0,0,0,0]
+    obj.NGASN=[1,0,0,0,0,0]
     obj.FRAC=[100,0,0,0,0,0]
     obj.TEMPC = 23
     obj.NANISO = 2 #<<<<<<<< THIS IS IT
     obj.TORR = 750.062
     obj.EFIELD = float(input("Enter EFIELD:"))
-    obj.BMAG = 0
-    obj.BTHETA = 90
+    obj.BMAG = 100
+    obj.BTHETA = 0
     obj.Start()
     print(str((obj.FRAC[0]))) #CF4per
     print(str(("\n")))

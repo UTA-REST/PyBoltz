@@ -2,13 +2,14 @@ from SETUPT import SETUPT
 import math
 from MIXERT import MIXERT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
-import numpy as np
-cimport numpy as np
 from ELIMITT import ELIMITT
-import numpy as np
+from ELIMITBT import ELIMITBT
+from ELIMITCT import ELIMITCT
 from MONTET import MONTET
+from MONTEAT import MONTEAT
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
+
 cdef extern from "C/RM48.h":
     double DRAND48(double dummy)
     void RM48(double lenv)
@@ -357,9 +358,11 @@ cdef class Magboltz:
                         print("ELIMITT")
                         ELIMITT(self)
                     elif self.BTHETA == 90:
-                        print("")
+                        print("ELIMITBT")
+                        ELIMITBT(self)
                     else:
-                        print("")
+                        print("ELIMITCT")
+                        ELIMITCT(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         print("Calculated the final energy = "+str(self.EFINAL))
@@ -368,11 +371,12 @@ cdef class Magboltz:
             else:
                 MIXERT(self)
             if self.BMAG == 0:
-                print("MONTE")
+                print("MONTET")
                 MONTET(self)
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
-                    print("")
+                    print("MONTEAT")
+                    MONTEAT(self)
                 elif self.BTHETA == 90:
                     print("")
                 else:

@@ -6,6 +6,25 @@ warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 from Magboltz import Magboltz
 import numpy as np
 
+CF4 = 1
+He4 = 3
+He3 = 4
+Ne  = 5
+Kr  = 6
+Xe  = 7
+CH4 = 8
+ETHANE = 9
+PROPANE = 10
+ISOBUTANE = 11
+CO2 = 12
+H2 = 21
+DEUTERIUM = 22
+DME = 24
+
+GASES = [np.nan, 'CF4', 'ARGON', 'HELIUM4', 'HELIUM3', 'NEON', 'KRYPTON', 'XENON', 'CH4', 'ETHANE', 'PROPANE'
+         , 'ISOBUTANE', 'CO2', np.nan, 'H2O', np.nan, np.nan, np.nan, np.nan, np.nan, np.nan
+         , 'HYDROGEN', 'DEUTERIUM', np.nan, np.nan, 'DME']
+
 Object = Magboltz()
 
 import time
@@ -21,7 +40,7 @@ Object.IPEN = 0
 Object.ITHRM=1
 Object.EFINAL = 0.0
 # Set the gas's with there given number
-Object.NGASN=[7, 0, 0, 0, 0, 0]
+Object.NGASN=[Xe, 0, 0, 0, 0, 0]
 # Set the gas fractions
 Object.FRAC=[100, 0, 0, 0, 0, 0]
 # Set the tempature
@@ -44,10 +63,11 @@ print("*****         Here are the outputs         *****")
 print("************************************************ \n")
 print("run time [s]= ",round(t2-t1,3))
 
-print("Gas1")
-print(str((Object.FRAC[0]))) #Gas1 Percentage
-print("Gas2")    
-print(str((Object.FRAC[1]))) #Gas2 Percentage
+print("Percentage of "+GASES[Xe]+" = ",  (Object.FRAC[0])))
+#print("Gas1")
+#print(str((Object.FRAC[0]))) #Gas1 Percentage
+#print("Gas2")    
+#print(str((Object.FRAC[1]))) #Gas2 Percentage
 
 print("Tempature [C]         = ", Object.TEMPC)
 print("Pressure [torr]       = ", Object.TORR)

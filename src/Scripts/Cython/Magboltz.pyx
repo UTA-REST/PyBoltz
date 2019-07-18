@@ -381,6 +381,7 @@ cdef class Magboltz:
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
             self.SSTMIN = 40
+            self.end()
             return
             if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 self.end()

@@ -21,7 +21,7 @@ for i in range(8):
     obj.IPEN = 0
     obj.ITHRM=1
     obj.EFINAL = 0.0
-    obj.NGASN=[15,0,0,0,0,0]
+    obj.NGASN=[2,0,0,0,0,0]
     obj.FRAC=[100,0,0,0,0,0]
     obj.TEMPC = 23
     obj.NANISO = 2 #<<<<<<<< THIS IS IT

@@ -128,7 +128,6 @@ cpdef MONTET(Magboltz Object):
     F1 = Object.EFIELD * Object.CONST2
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2.0 * acos(-1)
-    print("F4=" + str(F4))
     J2M = <long long>(Object.NMAX / Object.ITMAX)
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):

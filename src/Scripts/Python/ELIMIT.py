@@ -22,7 +22,17 @@ def ELIMIT(Magboltz):
     DCX1 = math.sin(Magboltz.THETA) * math.cos(Magboltz.PHI)
     DCY1 = math.sin(Magboltz.THETA) * math.sin(Magboltz.PHI)
 
-    BP = (Magboltz.EFIELD ** 2) * Magboltz.CONST1
+    BP = (Magboltz.EFI
+    E1 = Magboltz.ESTART
+    N4000 = 4000
+    TDASH = 0.0
+    INTEM = 8
+    TEMP = np.zeros(4000)
+    for J in range(N4000):
+        TEMP[J] = Magboltz.TCFN[J] + Magboltz.TCF[J]
+
+    DCZ1 = math.cos(Magboltz.THETA)
+    DCX1 = math.sin(Magboltz.THETA) * math.ELD ** 2) * Magboltz.CONST1
     F1 = Magboltz.EFIELD * Magboltz.CONST2
     F2 = Magboltz.EFIELD * Magboltz.CONST3
     F4 = 2 * math.acos(-1)

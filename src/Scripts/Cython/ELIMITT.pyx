@@ -1,7 +1,7 @@
 from Magboltz cimport Magboltz
 cimport cython
 from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
+from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, log10
 from SORTT cimport SORTT
 
 
@@ -56,10 +56,11 @@ cpdef ELIMITT(Magboltz Object):
     F4 = 2 * acos(-1)
 
     J2M = Object.NMAX / ISAMP
-
+    print("Finding the upper limit of electron energy")
     for J1 in range(int(J2M)):
-        if J1%100000 ==0:
-            print(J1)
+
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]):
+            print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
             T = -1 * log(R1) / Object.TCFMX + TDASH

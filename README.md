@@ -16,8 +16,9 @@ and run
 
 source setup.sh
 
-this should compile all of the Cython and add the path to your PYTHONPATH so you can access the libaries for anywhere. 
-once compiled run the template Test-Magboltz.py
+This should compile all of the Cython and add the path to your PYTHONPATH so you can access the libaries for anywhere. 
+This will take a few minuets the first time.
+Once compiled run the template Test-Magboltz.py
 
 python Test-Magboltz.py
 

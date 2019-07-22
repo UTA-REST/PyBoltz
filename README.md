@@ -1,7 +1,11 @@
 # MAGBOLTZ-py
 This software package is a translation of the Fortran based Magboltz.
-It is optimized to un using Cython and you will need python and cython > version 3
+It is optimized to un using Cython and you will need python and cython
 installed in order for it to compule and run.
+during our development we used the following versions
+
+Python 3.7.2
+Cython version 0.29.6
 
 to compile and setup the enviorment go to the directory 
 
@@ -16,3 +20,5 @@ once compiled run the template Test-Magboltz.py
 
 python Test-Magboltz.py
 
+
+This template includes the gas list and current output paramaters.

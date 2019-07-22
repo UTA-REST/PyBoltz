@@ -5,6 +5,7 @@ installed in order for it to compule and run.
 during our development we used the following versions
 
 Python 3.7.2
+
 Cython version 0.29.6
 
 to compile and setup the enviorment go to the directory 

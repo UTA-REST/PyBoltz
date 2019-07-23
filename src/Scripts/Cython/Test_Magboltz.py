@@ -63,7 +63,7 @@ print("*****         Here are the outputs         *****")
 print("************************************************ \n")
 print("run time [s]= ",round(t2-t1,3))
 
-print("Percentage of "+GASES[Xe]+" = ",  (Object.FRAC[0])))
+print("Percentage of "+GASES[Xe]+" = ",  Object.FRAC[0])
 #print("Gas1")
 #print(str((Object.FRAC[0]))) #Gas1 Percentage
 #print("Gas2")    

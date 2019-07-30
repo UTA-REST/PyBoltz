@@ -7,6 +7,7 @@ from ELIMITBT import ELIMITBT
 from ELIMITCT import ELIMITCT
 from MONTET import MONTET
 from MONTEAT import MONTEAT
+from MONTEBT import MONTEBT
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
 
@@ -378,7 +379,8 @@ cdef class Magboltz:
                     print("MONTEAT")
                     MONTEAT(self)
                 elif self.BTHETA == 90:
-                    print("")
+                    print("MONTEBT")
+                    MONTEBT(self)
                 else:
                     print("")
             self.TGAS = 273.15 + self.TEMPC

@@ -28,7 +28,7 @@ for i in range(8):
     obj.TORR = 750.062
     obj.EFIELD = float(input("Enter EFIELD:"))
     obj.BMAG = 100
-    obj.BTHETA = 0
+    obj.BTHETA = 90
     obj.Start()
     print(str((obj.FRAC[0]))) #CF4per
     print(str(("\n")))

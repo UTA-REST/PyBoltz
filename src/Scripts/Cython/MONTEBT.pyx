@@ -45,8 +45,8 @@ cpdef MONTEBT(Magboltz Object):
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, ANCATT, ANCION, E,SUMYZ,SUMLS,SUMTS
-    cdef double SYZOLD,SLNOLD,STROLD,EBAROLD,EF100
-    cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST,*DFYZST,*DFLNST,*DFTRNST,*WYZST
+    cdef double SYZOLD,SLNOLD,STROLD,EBAROLD,EF100, EBAR
+    cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST,*DFYZST,*DFLNST,*DFTRNST,*WYZST, *DFTRST
     STO = <double *> malloc(2000000 * sizeof(double))
     memset(STO, 0, 2000000 * sizeof(double))
     XST = <double *> malloc(2000000 * sizeof(double))
@@ -84,6 +84,9 @@ cpdef MONTEBT(Magboltz Object):
 
     DFTRNST = <double *> malloc(10 * sizeof(double))
     memset(DFTRNST, 0, 10 * sizeof(double))
+
+    DFTRST  = <double *> malloc(10 * sizeof(double))
+    memset(DFTRST, 0, 10 * sizeof(double))
 
     Object.DXZER = 0.0
     Object.DXYER = 0.0
@@ -145,8 +148,8 @@ cpdef MONTEBT(Magboltz Object):
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
-
-    J2M = Object.NMAX / Object.ITMAX
+    RDUM = Object.RSTART
+    J2M = <long long>(Object.NMAX / Object.ITMAX)
 
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
@@ -298,10 +301,10 @@ cpdef MONTEBT(Magboltz Object):
                 EXTRA = R9 * (EOK - EI)
                 EI = EXTRA + EI
                 # IF FLOUORESCENCE OR AUGER ADD EXTRA ELECTRONS
-                IEXTRA += Object.NC0[KGAS][I]
+                IEXTRA += <long long>Object.NC0[KGAS][I]
             #  GENERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
             #   COLLISION ALSO UPDATE ENERGY OF ELECTRON.
-            IPT = Object.IARRY[KGAS][I]
+            IPT = <long long>Object.IARRY[KGAS][I]
             Object.ICOLL[KGAS][int(IPT)] += 1
             Object.ICOLN[KGAS][I] += 1
             if EOK < EI:
@@ -373,6 +376,8 @@ cpdef MONTEBT(Magboltz Object):
             DCY1 = CY1 * CONST11
             DCZ1 = CZ1 * CONST11
 
+        print(J1)
+
         Object.WZ *= 1e9
         Object.WY *= 1e9
         if ST2 != 0.0:
@@ -380,7 +385,7 @@ cpdef MONTEBT(Magboltz Object):
         if ST1 != 0.0:
             Object.DIFZZ = 5e15 * SUMZZ / ST1
             Object.DIFYY = 5e15 * SUMYY / ST1
-            Object.DIFYZ = 5e15 * SUMYZ / ST1
+            Object.DIFYZ = -5e15 * SUMYZ / ST1
             Object.DIFLN = 5e15 * SUMLS / ST1
             Object.DIFTR = 5e15 * SUMTS / ST1
         if Object.NISO == 0:
@@ -389,8 +394,8 @@ cpdef MONTEBT(Magboltz Object):
         for IK in range(4000):
             TCFSUM = 0.0
             for KI in range(Object.NGAS):
-                TCFSUM += Object.TCF[KI][IK-1]
-            EBAR += Object.ES[IK] * Object.SPEC[IK] / TCFSUM
+                TCFSUM += Object.TCF[KI][IK]
+            EBAR += Object.E[IK] * Object.SPEC[IK] / TCFSUM
         Object.AVE = EBAR / Object.ST
         WZST[J1] = (Object.Z - ZOLD) / (Object.ST - STOLD) * 1e9
         WYST[J1] = (Object.Y - YOLD) / (Object.ST - STOLD) * 1e9
@@ -422,7 +427,6 @@ cpdef MONTEBT(Magboltz Object):
         SYZOLD = SUMYZ
         SLNOLD = SUMLS
         STROLD = SUMTS
-        print(str(J1))
     TWZST = 0.0
     TWYST = 0.0
     TAVE = 0.0
@@ -450,7 +454,7 @@ cpdef MONTEBT(Magboltz Object):
         T2WYST = T2WYST + WYST[K] * WYST[K]
         T2AVE = T2AVE + AVEST[K] * AVEST[K]
         TXXST += DFXXST[K]
-        T2XXST += DFXXST ** 2
+        T2XXST += DFXXST[K] ** 2
         if K >= 2:
             TZZST = TZZST + DFZZST[K]
             TYYST = TYYST + DFYYST[K]
@@ -466,7 +470,7 @@ cpdef MONTEBT(Magboltz Object):
     Object.DWY = 100 * sqrt((T2WYST - TWYST * TWYST / 10.0) / 9.0) / abs(Object.WY)
     Object.DEN = 100 * sqrt((T2AVE - TAVE * TAVE / 10.0) / 9.0) / Object.AVE
     Object.DXXER = 100 * sqrt((T2XXST - TXXST * TXXST / 10.0) / 9.0) / Object.DIFXX
-    Object.DYYER = 100 * sqrt((T2YYST - TYYST * TYYST / 10.0) / 9.0) / Object.DIFYY
+    Object.DYYER = 100 * sqrt((T2YYST - TYYST * TYYST / 8.0) / 7.0) / Object.DIFYY
     Object.DZZER = 100 * sqrt((T2ZZST - TZZST * TZZST / 8.0) / 7.0) / Object.DIFZZ
     Object.DYZER = 100 * sqrt((T2YZST - TYZST * TYZST / 8.0) / 7.0) / abs(Object.DIFYZ)
     Object.DFLER = 100 * sqrt((T2LNST - TLNST * TLNST / 8.0) / 7.0) / Object.DIFLN
@@ -476,30 +480,30 @@ cpdef MONTEBT(Magboltz Object):
     Object.DEN = Object.DEN / sqrt(10)
     Object.DXXER = Object.DXXER / sqrt(10)
     Object.DYYER = Object.DYYER / sqrt(8)
-    Object.DZZER = Magboltz.DZZER / sqrt(8)
-    Magboltz.DYZER = Magboltz.DYZER / sqrt(8)
-    Magboltz.DFLER = Magboltz.DFLER / sqrt(8)
-    Magboltz.DFTER = Magboltz.DFTER / sqrt(8)
+    Object.DZZER = Object.DZZER / sqrt(8)
+    Object.DYZER = Object.DYZER / sqrt(8)
+    Object.DFLER = Object.DFLER / sqrt(8)
+    Object.DFTER = Object.DFTER / sqrt(8)
 
     # CONVERT CM/SEC
 
-    Magboltz.WZ *= 1e5
-    Magboltz.WY *= 1e5
+    Object.WZ *= 1e5
+    Object.WY *= 1e5
 
     ANCATT = 0.0
     ANCION = 0.0
-    for I in range(Magboltz.NGAS):
-        ANCATT += Magboltz.ICOLL[I][2]
-        ANCION += Magboltz.ICOLL[I][1]
+    for I in range(Object.NGAS):
+        ANCATT += Object.ICOLL[I][2]
+        ANCION += Object.ICOLL[I][1]
     ANCION += IEXTRA
-    Magboltz.ATTER = 0.0
+    Object.ATTER = 0.0
 
     if ANCATT != 0:
-        Magboltz.ATTER = 100 * sqrt(ANCATT) / ANCATT
-    Magboltz.ATT = ANCATT / (Magboltz.ST * Magboltz.WZ) * 1e12
-    Magboltz.ALPER = 0.0
+        Object.ATTER = 100 * sqrt(ANCATT) / ANCATT
+    Object.ATT = ANCATT / (Object.ST * Object.WZ) * 1e12
+    Object.ALPER = 0.0
     if ANCION != 0:
-        Magboltz.ALPER = 100 * sqrt(ANCION) / ANCION
-    Magboltz.ALPHA = ANCION / (Magboltz.ST * Magboltz.WZ) * 1e12
+        Object.ALPER = 100 * sqrt(ANCION) / ANCION
+    Object.ALPHA = ANCION / (Object.ST * Object.WZ) * 1e12
 
 

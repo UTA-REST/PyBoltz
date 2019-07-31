@@ -9,6 +9,7 @@ from MONTET import MONTET
 from MONTEAT import MONTEAT
 from MONTEBT import MONTEBT
 from MONTECT import MONTECT
+from SETUP import SETUP
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
 
@@ -21,6 +22,31 @@ cdef double drand48(double dummy):
 
 cdef class Magboltz:
     def __init__(self):
+        # NO THERMAL DATA
+        memset(self.CF1, 0, 4000 * 960 * sizeof(double))
+        memset(self.EIN1, 0, 960 * sizeof(double))
+        memset(self.TCF1, 0, 4000 * sizeof(double))
+        memset(self.IARRY1, 0, 960 * sizeof(double))
+        memset(self.RGAS1, 0, 960 * sizeof(double))
+        memset(self.IPN1, 0, 960 * sizeof(double))
+        memset(self.PENFRA1, 0, 3*960 * sizeof(double))
+        memset(self.WPL1, 0, 960 * sizeof(double))
+        memset(self.TCFMAX1, 0, 8 * sizeof(double))
+        memset(self.CFN1, 0, 4000*60 * sizeof(double))
+        memset(self.TCFN1, 0, 4000 * sizeof(double))
+        memset(self.SCLENUL1, 0, 60 * sizeof(double))
+        memset(self.PSCT1, 0, 4000* 960 * sizeof(double))
+        memset(self.ANGCT1, 0, 4000* 960 * sizeof(double))
+        memset(self.INDEX1, 0, 960 * sizeof(double))
+        memset(self.NC01, 0, 960 * sizeof(double))
+        memset(self.EC01, 0, 960 * sizeof(double))
+        memset(self.NG11, 0, 960 * sizeof(double))
+        memset(self.EG11, 0, 960 * sizeof(double))
+        memset(self.NG21, 0, 960 * sizeof(double))
+        memset(self.EG21, 0, 960 * sizeof(double))
+        memset(self.WKLM1, 0, 960 * sizeof(double))
+        memset(self.EFL1, 0, 960 * sizeof(double))
+
         self.EOVB = 0.0
         self.WB = 0.0
         self.PIR2 = 0.0
@@ -367,9 +393,9 @@ cdef class Magboltz:
                         ELIMITCT(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
-                        print("Calculated the final energy = "+str(self.EFINAL))
+                        print("Calculated the final energy = " + str(self.EFINAL))
                         self.ESTART = self.EFINAL / 50
-                print("Calculated the final energy = "+str(self.EFINAL))
+                print("Calculated the final energy = " + str(self.EFINAL))
             else:
                 MIXERT(self)
             if self.BMAG == 0:
@@ -406,7 +432,7 @@ cdef class Magboltz:
             self.end()
             return
         else:
-            print("")
+            SETUP(self)
             if self.EFINAL == 0.0:
                 self.EFINAL = 0.5
                 EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)

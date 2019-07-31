@@ -8,6 +8,7 @@ from ELIMITCT import ELIMITCT
 from MONTET import MONTET
 from MONTEAT import MONTEAT
 from MONTEBT import MONTEBT
+from MONTECT import MONTECT
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
 
@@ -382,7 +383,8 @@ cdef class Magboltz:
                     print("MONTEBT")
                     MONTEBT(self)
                 else:
-                    print("")
+                    print("MONTECT")
+                    MONTECT(self)
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)

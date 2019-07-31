@@ -32,7 +32,6 @@ cpdef MIXERT(Magboltz object):
                            object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN,object.PIR2)
     MIXOBJECT.Run()
 
-
     EMASS = 9.10938291e-31
 
     for IE in range(4000):

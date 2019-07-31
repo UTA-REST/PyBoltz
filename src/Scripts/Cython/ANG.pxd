@@ -1,3 +1,3 @@
 cdef class ANG:
     cdef public:
-        double ANGC,PSCT1,PSCT2
+        double ANGC,PSCT1,PSCT2mixe

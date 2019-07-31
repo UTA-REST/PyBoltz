@@ -77,7 +77,6 @@ cpdef SETUP(Magboltz object):
 
     object.WB = AWB * object.BMAG * 1e-12
 
-    print(len(object.EFL1))
     if object.BMAG == 0:
         return
     object.EOVB = object.EFIELD * 1e-9 / object.BMAG

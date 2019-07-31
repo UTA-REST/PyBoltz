@@ -9,6 +9,7 @@ from MONTET import MONTET
 from MONTEAT import MONTEAT
 from MONTEBT import MONTEBT
 from MONTECT import MONTECT
+from MIXER import MIXER
 from SETUP import SETUP
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
@@ -432,7 +433,9 @@ cdef class Magboltz:
             self.end()
             return
         else:
+            print("HERE")
             SETUP(self)
+            return
             if self.EFINAL == 0.0:
                 self.EFINAL = 0.5
                 EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
@@ -440,7 +443,10 @@ cdef class Magboltz:
                     self.EFINAL = 8
                 self.ESTART = self.EFINAL / 50
                 while self.IELOW == 1:
-                    print("")
+                    print("MIXER")
+                    MIXER(self)
+                    self.IELOW = 0
+                    continue
                     if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
                         print("")
                     elif self.BTHETA == 90:

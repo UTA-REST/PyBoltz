@@ -19,7 +19,7 @@ for i in range(8):
     obj.NGAS =1
     obj.NMAX = 1
     obj.IPEN = 0
-    obj.ITHRM=1
+    obj.ITHRM=0
     obj.EFINAL = 0.0
     obj.NGASN=[1,0,0,0,0,0]
     obj.FRAC=[100,0,0,0,0,0]
@@ -30,6 +30,7 @@ for i in range(8):
     obj.BMAG = 100
     obj.BTHETA = 45
     obj.Start()
+    raise ValueError("")
     print(str((obj.FRAC[0]))) #CF4per
     print(str(("\n")))
     print(str((obj.FRAC[1]))) #ARper

@@ -28,7 +28,6 @@ cpdef SETUP(Magboltz object):
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
     object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
-    NANISO = 2
     object.NCOLM = 2000000
     object.NCORLN = 500000
     object.NCORST = 2

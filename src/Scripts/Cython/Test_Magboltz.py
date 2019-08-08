@@ -33,14 +33,14 @@ t1 =time.time()
 # Set the number of gases
 Object.NGAS =1
 # Set the number of collisons 
-Object.NMAX =4
+Object.NMAX =1
 # Set penning
 Object.IPEN = 0
 # Calculate the electron energy
-Object.ITHRM=1
+Object.ITHRM=0
 Object.EFINAL = 0.0
 # Set the gas's with there given number
-Object.NGASN=[Xe, 0, 0, 0, 0, 0]
+Object.NGASN=[3, 0, 0, 0, 0, 0]
 # Set the gas fractions
 Object.FRAC=[100, 0, 0, 0, 0, 0]
 # Set the tempature
@@ -48,7 +48,7 @@ Object.TEMPC = float(23)
 # Set the pressure
 Object.TORR = 750.062
 # Set the eletric field
-Object.EFIELD =200
+Object.EFIELD =1000
 # Set the magnetic field and angle 
 Object.BMAG = 0
 Object.BTHETA =0
@@ -99,3 +99,4 @@ print("Mean electron energy error [%]       = ", round(Object.DEN,3))
 print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")
+

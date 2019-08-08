@@ -3,6 +3,7 @@ import math
 from MIXERT import MIXERT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from ELIMITT import ELIMITT
+from ELIMIT import ELIMIT
 from ELIMITBT import ELIMITBT
 from ELIMITCT import ELIMITCT
 from MONTET import MONTET
@@ -433,9 +434,7 @@ cdef class Magboltz:
             self.end()
             return
         else:
-            print("HERE")
             SETUP(self)
-            return
             if self.EFINAL == 0.0:
                 self.EFINAL = 0.5
                 EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
@@ -445,10 +444,9 @@ cdef class Magboltz:
                 while self.IELOW == 1:
                     print("MIXER")
                     MIXER(self)
-                    self.IELOW = 0
-                    continue
                     if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        print("")
+                        print("ELIMIT")
+                        ELIMIT(self)
                     elif self.BTHETA == 90:
                         print("")
                     else:
@@ -456,6 +454,8 @@ cdef class Magboltz:
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         self.ESTART = self.EFINAL / 50
+                print(self.EFINAL)
+                return
             else:
                 print("")
 

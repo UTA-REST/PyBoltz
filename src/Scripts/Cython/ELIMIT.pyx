@@ -1,10 +1,10 @@
 from Magboltz cimport Magboltz
 cimport cython
 from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
+from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
-from SORTT cimport SORTT
+from SORT cimport SORT
 
 
 
@@ -50,7 +50,7 @@ cpdef ELIMIT(Magboltz Object):
     TDASH = 0.0
     INTEM = 8
     for J in range(N4000):
-        TEMP[J] = Object.TCFN[J] + Object.TCF[J]
+        TEMP[J] = Object.TCFN1[J] + Object.TCF1[J]
 
     # INITIAL DIRECTION COSINES
     DCZ1 = cos(Object.THETA)
@@ -64,82 +64,89 @@ cpdef ELIMIT(Magboltz Object):
     DELTAE = Object.EFINAL/float(INTEM)
     E1 = Object.ESTART
     J2M = Object.NMAX / ISAMP
-
     for J1 in range(int(J2M)):
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]):
+            print('* Num analyzed collisions: {}'.format(J1))
+        print("HERE")
+        print(IE)
+        print(I)
         while True:
             R1 = random_uniform(RDUM)
             I = int(E1 / DELTAE) + 1
             I = min(I, INTEM) - 1
-            TLIM = Object.TCFMAX[I]
+            TLIM = Object.TCFMAX1[I]
             T = -1 * log(R1) / TLIM + TDASH
             TDASH = T
-            AP = DCZ1d * F2 * math.sqrt(E1)
+            AP = DCZ1 * F2 * sqrt(E1)
             E = E1 + (AP + BP * T) * T
             IE = int(E / Object.ESTEP)
             IE = min(IE, 3999)
             if TEMP[IE] > TLIM:
-                TDASH += np.log(R1) / TLIM
-                Object.TCFMAX[I] *= 1.05
+                TDASH += log(R1) / TLIM
+                Object.TCFMAX1[I] *= 1.05
                 continue
 
             # TEST FOR NULL COLLISIONS
-            R5 = Object.RAND48.drand()
-            TEST1 = Object.TCF[IE] / TLIM
-            if R5> TEST1:
-                continue
+            R5 = random_uniform(RDUM)
+            TEST1 = Object.TCF1[IE] / TLIM
+            if R5<=TEST1:
+                break
 
-
+        print(IE)
+        print(I)
         if IE == 3999:
             Object.IELOW = 1
             return
 
         # CALCULATE DIRECTION COSINES AT INSTANT BEFORE COLLISION
         TDASH = 0.0
-        CONST6 = math.sqrt(E1 / E)
+        CONST6 = sqrt(E1 / E)
         DCX2 = DCX1 * CONST6
         DCY2 = DCY1 * CONST6
-        DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / math.sqrt(E)
-        R2 = random_uniform(RDU)
-        I = 0
+        DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
+        R2 = random_uniform(RDUM)
+
+
         I = SORT(I, R2, IE, Object)
-        while Object.CF[IE][I] < R2:
+        while Object.CF1[IE][I] < R2:
             I = I + 1
-        S1 = Object.RGAS[I]
-        EI = Object.EIN[I]
-        if Object.IPN[I] > 0:
-            R9 = Object.RAND48.drand()
+
+        S1 = Object.RGAS1[I]
+        EI = Object.EIN1[I]
+        if Object.IPN1[I] > 0:
+            R9 = random_uniform(RDUM)
             EXTRA = R9 * (E - EI)
             EI = EXTRA + EI
-        IPT = Object.IARRY[I]
+        IPT = Object.IARRY1[I]
         if E < EI:
             EI = E - 0.0001
         S2 = (S1 * S1) / (S1 - 1.0)
-        R3 = Object.RAND48.drand()
+        R3 = random_uniform(RDUM)
 
-        if Object.INDEX[I] == 1:
-            R31 = Object.RAND48.drand()
-            F3 = 1.0 - R3 * Object.ANGCT[IE][I]
-            if R31 > Object.PSCT[IE][I]:
+        if Object.INDEX1[I] == 1:
+            R31 = random_uniform(RDUM)
+            F3 = 1.0 - R3 * Object.ANGCT1[IE][I]
+            if R31 > Object.PSCT1[IE][I]:
                 F3 = -1 * F3
-            elif Object.INDEX[I] == 2:
-                EPSI = Object.PSCT[IE][I]
-                F3 = 1 - (2 * R3 * (1 - EPSI)) / (1 + EPSI * (1 - 2 * R3))
-            else:
-                F3 = 1 - 2 * R3
-        THETA0 = math.acos(F3)
-        R4 = Object.RAND48.drand()
+        elif Object.INDEX1[I] == 2:
+            EPSI = Object.PSCT1[IE][I]
+            F3 = 1 - (2 * R3 * (1 - EPSI)) / (1 + EPSI * (1 - 2 * R3))
+        else:
+            F3 = 1 - 2 * R3
+        THETA0 = acos(F3)
+        R4 = random_uniform(RDUM)
         PHI0 = F4 * R4
         F8 = sin(PHI0)
         F9 = cos(PHI0)
         ARG1 = 1 - S1 * EI / E
         ARG1 = max(ARG1, SMALL)
 
-        D = 1 - F3 * math.sqrt(ARG1)
+        D = 1 - F3 * sqrt(ARG1)
         E1 = E * (1 - EI / (S1 * E) - 2 * D / S2)
         E1 = max(E1, SMALL)
-        Q = math.sqrt((E / E1) * ARG1) / S1
+        Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.THETA = math.asin(Q * sin(THETA0))
+        Object.THETA = asin(Q * sin(THETA0))
 
         F6 = cos(Object.THETA)
         U = (S1 - 1) * (S1 - 1) / ARG1
@@ -150,7 +157,7 @@ cpdef ELIMIT(Magboltz Object):
 
         F5 = sin(Object.THETA)
         DCZ2 = min(DCZ2, 1)
-        ARGZ = math.sqrt(DCX2 * DCX2 + DCY2 * DCY2)
+        ARGZ = sqrt(DCX2 * DCX2 + DCY2 * DCY2)
         if ARGZ == 0:
             DCZ1 = F6
             DCX1 = F9 * F5

@@ -39,18 +39,8 @@ cpdef MIXERT(Magboltz object):
             object.FCION[IE] = 0.0
             object.FCATT[IE] = 0.0
             NP = 1
-            if KGAS == 0:
-                object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[0].Q[1][IE] * object.VANN[0]
-            elif KGAS == 1:
-                object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[1].Q[1][IE] * object.VANN[1]
-            elif KGAS == 2:
-                object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[2].Q[1][IE] * object.VANN[2]
-            elif KGAS == 3:
-                object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[3].Q[1][IE] * object.VANN[3]
-            elif KGAS == 4:
-                object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[4].Q[1][IE] * object.VANN[4]
-            elif KGAS == 5:
-                object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[5].Q[1][IE] * object.VANN[5]
+
+            object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].Q[1][IE] * object.VANN[KGAS]
             object.PSCT[KGAS][IE][NP - 1] = 0.5
             object.ANGCT[KGAS][IE][NP - 1] = 1
             object.INDEX[KGAS][NP - 1] = 0

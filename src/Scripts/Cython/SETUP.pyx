@@ -23,7 +23,7 @@ cpdef SETUP(Magboltz object):
     ABZERO = 273.15
     ATMOS = 760.0
     object.CONST1 = AWB / 2.0 * 1.0e-19
-    object.CONST1 *= 1.0e-02
+    object.CONST2 = object.CONST1* 1.0e-02
     object.CONST3 = sqrt(0.2 * AWB) * 1.0e-9
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0

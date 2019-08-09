@@ -37,10 +37,10 @@ Object.NMAX =1
 # Set penning
 Object.IPEN = 0
 # Calculate the electron energy
-Object.ITHRM=0
+Object.ITHRM=1
 Object.EFINAL = 0.0
 # Set the gas's with there given number
-Object.NGASN=[3, 0, 0, 0, 0, 0]
+Object.NGASN=[4, 0, 0, 0, 0, 0]
 # Set the gas fractions
 Object.FRAC=[100, 0, 0, 0, 0, 0]
 # Set the tempature

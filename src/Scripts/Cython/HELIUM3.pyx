@@ -64,8 +64,6 @@ cdef void Gas4(Gas*object):
     Y41F = gd['gas4/Y41F']
     X41P = gd['gas4/X41P']
     Y41P = gd['gas4/Y41P']
-    IOFFN = gd['gas4/IOFFN']
-    IOFFION = gd['gas4/IOFFION']
     Z2T = gd['gas4/Z2T']
     EBRM = gd['gas4/EBRM']
 

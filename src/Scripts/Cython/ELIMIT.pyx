@@ -5,8 +5,11 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
 from SORT cimport SORT
-
-
+@cython.cdivision(True)
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cdef int isNaN(double num):
+    return num != num
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -67,9 +70,6 @@ cpdef ELIMIT(Magboltz Object):
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]):
             print('* Num analyzed collisions: {}'.format(J1))
-        print("HERE")
-        print(IE)
-        print(I)
         while True:
             R1 = random_uniform(RDUM)
             I = int(E1 / DELTAE) + 1
@@ -92,8 +92,6 @@ cpdef ELIMIT(Magboltz Object):
             if R5<=TEST1:
                 break
 
-        print(IE)
-        print(I)
         if IE == 3999:
             Object.IELOW = 1
             return
@@ -143,6 +141,7 @@ cpdef ELIMIT(Magboltz Object):
 
         D = 1 - F3 * sqrt(ARG1)
         E1 = E * (1 - EI / (S1 * E) - 2 * D / S2)
+
         E1 = max(E1, SMALL)
         Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
@@ -168,3 +167,4 @@ cpdef ELIMIT(Magboltz Object):
             DCX1 = DCX2 * F6 - (F5 / ARGZ) * (DCY2 * F9 + DCX2 * DCZ2 * F8)
 
     Object.IELOW = 0
+    return

@@ -37,7 +37,7 @@ Object.NMAX =1
 # Set penning
 Object.IPEN = 0
 # Calculate the electron energy
-Object.ITHRM=1
+Object.ITHRM=0
 Object.EFINAL = 0.0
 # Set the gas's with there given number
 Object.NGASN=[4, 0, 0, 0, 0, 0]

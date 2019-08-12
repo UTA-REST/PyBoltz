@@ -220,7 +220,7 @@ cpdef MIXER(Magboltz object):
 
             NP += 1
 
-        object.IPLAST1 = NP+1
+        object.IPLAST1 = NP
         object.ISIZE1 = 1
         for I in range(1, 9):
             if object.IPLAST1 >= 2 ** I:
@@ -331,3 +331,4 @@ cpdef MIXER(Magboltz object):
         for KGAS in range(6):
             for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                 object.QSUM[I] = object.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * object.ANN[KGAS]
+

@@ -133,7 +133,7 @@ cpdef ELIMITT(Magboltz Object):
                 F3 = -1 * F3
         elif Object.INDEX[KGAS][I] == 2:
             EPSI = Object.PSCT[KGAS][IE][I]
-            F3 = 1 - (2 * R3 * (1 - EPSI)) / (1 + EPSI * (1 - 2 * R3))
+            F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
             F3 = 1 - 2 * R3
         THETA0 = acos(F3)

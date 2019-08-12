@@ -35,60 +35,68 @@ cdef void GERJAN(double RDUM, double API, double *RNMX):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef ELIMIT(Magboltz Object):
-
+cpdef ELIMITB(Magboltz Object):
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE, INTEM
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EF100
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
 
-    ISAMP = 10
-    SMALL = 1.0e-20
-    I = 0
+    Object.SMALL =  1.0e-20
+    ISAMP = 20
+    EF100 = Object.EFIELD * 100
     RDUM = Object.RSTART
     E1 = Object.ESTART
-    N4000 = 4000
-    TDASH = 0.0
+
     INTEM = 8
-    for J in range(N4000):
-        TEMP[J] = Object.TCFN1[J] + Object.TCF1[J]
+    TDASH = 0.0
+    CONST9 = Object.CONST3 * 0.01
 
     # INITIAL DIRECTION COSINES
     DCZ1 = cos(Object.THETA)
     DCX1 = sin(Object.THETA) * cos(Object.PHI)
     DCY1 = sin(Object.THETA) * sin(Object.PHI)
 
-    BP = (Object.EFIELD**2)*Object.CONST1
-    F1 = Object.EFIELD * Object.CONST2
-    F2 = Object.EFIELD * Object.CONST3
+    for J in range(4000):
+        TEMP[J] = Object.TCFN1[J] + Object.TCF1[J]
+
+    VTOT = CONST9 * sqrt(E1)
+    CX1 = DCX1 * VTOT
+    CY1 = DCY1 * VTOT
+    CZ1 = DCZ1 * VTOT
+
     F4 = 2 * acos(-1)
-    DELTAE = Object.EFINAL/float(INTEM)
-    E1 = Object.ESTART
+
+    DELTAE = Object.EFINAL / float(INTEM)
+
     J2M = Object.NMAX / ISAMP
+
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]):
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
-            I = int(E1 / DELTAE) + 1
+            I = int(E1 / DELTAE)+1
             I = min(I, INTEM) - 1
             TLIM = Object.TCFMAX1[I]
             T = -1 * log(R1) / TLIM + TDASH
             TDASH = T
-            AP = DCZ1 * F2 * sqrt(E1)
-            E = E1 + (AP + BP * T) * T
+            WBT = Object.WB * T
+            COSWT = cos(WBT)
+            SINWT = sin(WBT)
+            DZ = (CZ1 * SINWT + (Object.EOVB - CY1) * (1 - COSWT)) / Object.WB
+            E = E1 + DZ * EF100
             IE = int(E / Object.ESTEP)
             IE = min(IE, 3999)
             if TEMP[IE] > TLIM:
                 TDASH += log(R1) / TLIM
                 Object.TCFMAX1[I] *= 1.05
                 continue
-
-            # TEST FOR NULL COLLISIONS
             R5 = random_uniform(RDUM)
             TEST1 = Object.TCF1[IE] / TLIM
+
+            # TEST FOR REAL OR NULL COLLISION
             if R5<=TEST1:
                 break
 
@@ -96,15 +104,19 @@ cpdef ELIMIT(Magboltz Object):
             Object.IELOW = 1
             return
 
-        # CALCULATE DIRECTION COSINES AT INSTANT BEFORE COLLISION
         TDASH = 0.0
-        CONST6 = sqrt(E1 / E)
-        DCX2 = DCX1 * CONST6
-        DCY2 = DCY1 * CONST6
-        DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
+        CX2 = CX1
+        CY2 = (CY1 - Object.EOVB) * COSWT + CZ1 * SINWT + Object.EOVB
+        CZ2 = CZ1 * COSWT - (CY1 - Object.EOVB) * SINWT
+        VTOT = sqrt(CX2 ** 2 + CY2 ** 2 + CZ2 ** 2)
+        DCX2 = CX2 / VTOT
+        DCY2 = CY2 / VTOT
+        DCZ2 = CZ2 / VTOT
+
+        # DETERMINATION OF REAL COLLISION TYPE
         R2 = random_uniform(RDUM)
 
-
+        # FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
         I = SORT(I, R2, IE, Object)
         while Object.CF1[IE][I] < R2:
             I = I + 1
@@ -115,6 +127,9 @@ cpdef ELIMIT(Magboltz Object):
             R9 = random_uniform(RDUM)
             EXTRA = R9 * (E - EI)
             EI = EXTRA + EI
+
+        # GENERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
+        # COLLISION ALSO UPDATE ENERGY OF ELECTRON.
         IPT = Object.IARRY1[I]
         if E < EI:
             EI = E - 0.0001
@@ -141,7 +156,6 @@ cpdef ELIMIT(Magboltz Object):
 
         D = 1 - F3 * sqrt(ARG1)
         E1 = E * (1 - EI / (S1 * E) - 2 * D / S2)
-
         E1 = max(E1, SMALL)
         Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
@@ -153,9 +167,9 @@ cpdef ELIMIT(Magboltz Object):
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
-
         F5 = sin(Object.THETA)
         DCZ2 = min(DCZ2, 1)
+        VTOT = CONST9 * sqrt(E1)
         ARGZ = sqrt(DCX2 * DCX2 + DCY2 * DCY2)
         if ARGZ == 0:
             DCZ1 = F6
@@ -165,6 +179,9 @@ cpdef ELIMIT(Magboltz Object):
             DCZ1 = DCZ2 * F6 + ARGZ * F5 * F8
             DCY1 = DCY2 * F6 + (F5 / ARGZ) * (DCX2 * F9 - DCY2 * DCZ2 * F8)
             DCX1 = DCX2 * F6 - (F5 / ARGZ) * (DCY2 * F9 + DCX2 * DCZ2 * F8)
+        CX1 = DCX1 * VTOT
+        CY1 = DCY1 * VTOT
+        CZ1 = DCZ1 * VTOT
 
     Object.IELOW = 0
     return

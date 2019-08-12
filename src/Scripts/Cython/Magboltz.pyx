@@ -4,6 +4,8 @@ from MIXERT import MIXERT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from ELIMITT import ELIMITT
 from ELIMIT import ELIMIT
+from ELIMITB import ELIMITB
+from ELIMITC import ELIMITC
 from ELIMITBT import ELIMITBT
 from ELIMITCT import ELIMITCT
 from MONTET import MONTET
@@ -448,9 +450,11 @@ cdef class Magboltz:
                         print("ELIMIT")
                         ELIMIT(self)
                     elif self.BTHETA == 90:
-                        print("")
+                        print("ELIMITB")
+                        ELIMITB(self)
                     else:
-                        print("")
+                        print("ELIMITC")
+                        ELIMITC(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         self.ESTART = self.EFINAL / 50

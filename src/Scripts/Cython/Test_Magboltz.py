@@ -48,10 +48,10 @@ Object.TEMPC = float(23)
 # Set the pressure
 Object.TORR = 750.062
 # Set the eletric field
-Object.EFIELD =1000
+Object.EFIELD =100
 # Set the magnetic field and angle 
-Object.BMAG = 0
-Object.BTHETA =0
+Object.BMAG = 90
+Object.BTHETA =45
 
 Object.Start()
 

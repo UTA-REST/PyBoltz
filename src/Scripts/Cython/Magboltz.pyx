@@ -2,10 +2,12 @@ from SETUPT import SETUPT
 import math
 from MIXERT import MIXERT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
-from ELIMITT import ELIMITT
+
 from ELIMIT import ELIMIT
 from ELIMITB import ELIMITB
 from ELIMITC import ELIMITC
+from MONTE import MONTE
+from ELIMITT import ELIMITT
 from ELIMITBT import ELIMITBT
 from ELIMITCT import ELIMITCT
 from MONTET import MONTET
@@ -80,9 +82,12 @@ cdef class Magboltz:
         memset(self.SPEC, 0, 4000 * sizeof(double))
         memset(self.TIME, 0, 300 * sizeof(double))
         memset(self.ICOLL, 0, 6 * 5 * sizeof(double))
+        memset(self.ICOLL1, 0, 30 * sizeof(double))
+
         memset(self.ICOLNN, 0, 6 * 10 * sizeof(double))
         memset(self.ICOLN, 0, 6 * 290 * sizeof(double))
-
+        memset(self.ICOLNN1, 0, 60  * sizeof(double))
+        memset(self.ICOLN1, 0, 960 * sizeof(double))
         self.NMAX = 0.0
         self.ALPHA = 0.0
         memset(self.AMGAS, 0, 6 * sizeof(double))
@@ -399,8 +404,9 @@ cdef class Magboltz:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         print("Calculated the final energy = " + str(self.EFINAL))
                         self.ESTART = self.EFINAL / 50
-                print("Calculated the final energy = " + str(self.EFINAL))
+
             else:
+                print("MIXERT")
                 MIXERT(self)
             if self.BMAG == 0:
                 print("MONTET")
@@ -457,14 +463,14 @@ cdef class Magboltz:
                         ELIMITC(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
+                        print("Calculated the final energy = " + str(self.EFINAL))
                         self.ESTART = self.EFINAL / 50
-                print(self.EFINAL)
-                return
             else:
-                print("")
-
+                print("MIXER")
+                MIXER(self)
             if self.BMAG == 0:
-                print("")
+                print("MONTE")
+                MONTE(self)
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
                     print("")

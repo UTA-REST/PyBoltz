@@ -2,11 +2,13 @@ from SETUPT import SETUPT
 import math
 from MIXERT import MIXERT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
-
 from ELIMIT import ELIMIT
 from ELIMITB import ELIMITB
 from ELIMITC import ELIMITC
 from MONTE import MONTE
+from MONTEA import MONTEA
+from MONTEB import MONTEB
+from MONTEC import MONTEC
 from ELIMITT import ELIMITT
 from ELIMITBT import ELIMITBT
 from ELIMITCT import ELIMITCT
@@ -404,6 +406,8 @@ cdef class Magboltz:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         print("Calculated the final energy = " + str(self.EFINAL))
                         self.ESTART = self.EFINAL / 50
+                print("Calculated the final energy = " + str(self.EFINAL))
+
 
             else:
                 print("MIXERT")
@@ -465,6 +469,8 @@ cdef class Magboltz:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         print("Calculated the final energy = " + str(self.EFINAL))
                         self.ESTART = self.EFINAL / 50
+                print("Calculated the final energy = " + str(self.EFINAL))
+
             else:
                 print("MIXER")
                 MIXER(self)
@@ -473,11 +479,14 @@ cdef class Magboltz:
                 MONTE(self)
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
-                    print("")
+                    print("MONTEA")
+                    MONTEA(self)
                 elif self.BTHETA == 90:
-                    print("")
+                    print("MONTEB")
+                    MONTEB(self)
                 else:
-                    print("")
+                    print("MONTEC")
+                    MONTEC(self)
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)

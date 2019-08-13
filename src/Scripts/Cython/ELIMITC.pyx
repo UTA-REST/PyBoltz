@@ -71,6 +71,8 @@ cpdef ELIMITC(Magboltz Object):
     RDUM = Object.RSTART
 
     for J1 in range(int(J2M)):
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]):
+            print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
             I = int(E1 / DELTAE) + 1

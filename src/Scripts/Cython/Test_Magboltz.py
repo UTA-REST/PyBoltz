@@ -3,7 +3,7 @@ import warnings
 import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
-sys.path.append('./')
+print(sys.path)
 from Magboltz import Magboltz
 import numpy as np
 
@@ -51,8 +51,8 @@ Object.TORR = 750.062
 # Set the eletric field
 Object.EFIELD =100
 # Set the magnetic field and angle 
-Object.BMAG = 0
-Object.BTHETA =0
+Object.BMAG = 10
+Object.BTHETA =45
 
 Object.Start()
 
@@ -100,4 +100,3 @@ print("Mean electron energy error [%]       = ", round(Object.DEN,3))
 print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")
-

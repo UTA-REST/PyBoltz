@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas15(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for Oxygen gas.
+    """
     gd = np.load('gases.npy').item()
     cdef double XELA[153], YELA[153], YMOM[153], YEPS[153], XROT13[63], YROT13[63], XROT35[55], YROT35[55], XROT57[55], YROT57[55],
     cdef double XROT79[50], YROT79[50], XROT911[48], YROT911[48], XROT1113[46], YROT1113[46], XROT1315[45], YROT1315[45], XROT1517[44], YROT1517[44],

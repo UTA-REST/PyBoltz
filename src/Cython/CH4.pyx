@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas8(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for CH4 gas.
+    """
     gd = np.load('gases.npy').item()
     cdef double XEN[153], YELM[153], YELT[153], YEPS[153], XATT[6], YATT[6], XVBV4[26], YVBV4[26], XVBV2[29], YVBV2[29], XVBV1[30], YVBV1[30],
     cdef double XVBV3[25], YVBV3[25], XVBH1[14], YVBH1[14], XVBH2[14], YVBH2[14], XION[70], YION[70], YINC[70], XINF[70], YINF[70], XINF1[68], YINF1[68],

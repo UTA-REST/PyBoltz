@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas21(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for Hydrogen gas.
+    """
     gd = np.load('gases.npy').item()
 
     cdef double XELM[172], YELM[172], YELT[172], YEPS[172], XROT0[53], YROT0[53], XROT1[43], YROT1[43], XROT2[28], YROT2[28],

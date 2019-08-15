@@ -33,8 +33,7 @@ cdef void GERJAN(double RDUM, double API, double *RNMX):
 cpdef ELIMITCT(Magboltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value.
-    This function is used when the magnetic field angle is > 0 and < 90 degrees. 
+    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value. 
     
     The object parameter is the Magboltz object to be setup and used in the simulation.
     

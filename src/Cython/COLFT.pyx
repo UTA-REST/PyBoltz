@@ -7,6 +7,9 @@ cimport cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef double* COLFT(Magboltz object):
+    """
+    This function calculates real collision frequencies for event types.
+    """
     cdef double NINEL, NELA,NATT,NION
     cdef int J
     NINEL=0

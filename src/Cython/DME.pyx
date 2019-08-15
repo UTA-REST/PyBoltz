@@ -15,7 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas25(Gas*object):
-
+    """
+    This function is used to calculate the needed momentum cross sections for DME gas.
+    """
     gd = np.load('gases.npy').item()
     cdef double XEN[54],YXSEC[54],XION[29],YION[29],XATT[16],YATT[16],XVIB3[19],YVIB3[19],XVIB4[28],YVIB4[28],XVIB5[25]
     cdef double XVIB6[19],YVIB6[19],XEXC[27],YEXC[27],XEXC1[35],YEXC1[35],YVIB5[25]

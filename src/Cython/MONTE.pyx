@@ -32,8 +32,15 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTE(Magboltz Object):
-    #TODO: change number of steps from 10 to something else
-    #TODO: print similar ouput (on new lines).
+    """
+    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  tempc.
+
+    This function is used when there is no magnetic field.     
+    
+    Electric field in z direction.
+
+    The object parameter is the Magboltz object to have the output results and to be used in the simulation.
+    """
 
     cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM,NCOLDM
     cdef double ST1, RDUM,ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
@@ -162,13 +169,14 @@ cpdef MONTE(Magboltz Object):
                     Object.NNULL += 1
                     TEST2 = TEMP[IE] / TLIM
                     if R5 < TEST2:
+                        # Test for null levels
                         if Object.NPLASTNT == 0:
                             continue
                         R2 = random_uniform(RDUM)
                         I = 0
                         while Object.CFNNT[IE][I] < R2:
                             I += 1
-
+                        # Increment null scatter ssum
                         Object.ICOLNNNT[I] += 1
                         continue
                     else:
@@ -180,7 +188,8 @@ cpdef MONTE(Magboltz Object):
                         continue
                 else:
                     break
-
+            #  CALCULATE POSITIONS AT INSTANT BEFORE COLLISION
+            #    ALSO UPDATE DIFFUSION  AND ENERGY CALCULATIONS.
             T2 = T ** 2
             if (T >= Object.TMAX1):
                 Object.TMAX1 = T
@@ -232,8 +241,9 @@ cpdef MONTE(Magboltz Object):
                 Object.XID = float(ID)
                 NCOL = 0
 
+            # Determination of real collision type
             R2 = random_uniform(RDUM)
-
+            # Find location within 4 units in collision array
             I = SORT(I, R2, IE, Object)
             while Object.CFNT[IE][I] < R2:
                 I = I + 1
@@ -241,23 +251,31 @@ cpdef MONTE(Magboltz Object):
             S1 = Object.RGASNT[I]
             EI = Object.EINNT[I]
             if Object.IPNNT[I] > 0:
+                # Use flat distributioon of electron energy between E-EION and 0.0 EV, same as in Boltzmann
                 R9 = random_uniform(RDUM)
                 EXTRA = R9 * (E - EI)
                 EI = EXTRA + EI
+                # Add extra ionisation collision
                 IEXTRA += <long long>Object.NC0NT[I]
+
+            # Generate scattering angles and update laboratory cosines after collision also update energy of electron
             IPT = <long long>Object.IARRYNT[I]
             Object.ICOLLNT[int(IPT) - 1] += 1
             Object.ICOLNNT[I] += 1
             if E < EI:
                 EI = E - 0.0001
 
+            # IF EXCITATION THEN ADD PROBABILITY ,PENFRA(1,I), OF TRANSFER TO
+            # IONISATION OF THE OTHER GASES IN MIXTURE
             if Object.IPEN != 0:
                 if Object.PENFRANT[0][I] != 0:
                     RAN = random_uniform(RDUM)
                     if RAN <= Object.PENFRANT[0][I]:
+                        # add extra ionisation collision
                         IEXTRA += 1
             S2 = (S1 ** 2) / (S1 - 1.0)
 
+            # Anisotropic scattering
             R3 = random_uniform(RDUM)
             if Object.INDEXNT[I] == 1:
                 R31 = random_uniform(RDUM)
@@ -268,6 +286,7 @@ cpdef MONTE(Magboltz Object):
                 EPSI = Object.PSCTNT[IE][I]
                 F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
             else:
+                # Isotropic scattering
                 F3 = 1 - 2 * R3
             THETA0 = acos(F3)
             R4 = random_uniform(RDUM)
@@ -336,6 +355,7 @@ cpdef MONTE(Magboltz Object):
         print(J1)
         if Object.SPEC[3999] > (1000 * float(J1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
+    # Calculate errors and check averages
     TWZST = 0.0
     TAVE = 0.0
     T2WZST = 0.0
@@ -375,7 +395,7 @@ cpdef MONTE(Magboltz Object):
     Object.DFLER = Object.DZZER
     Object.DFTER = (Object.DXXER + Object.DYYER) / 2.0
 
-
+    # Calculate Townsend coeficients and errors
     ANCATT = 0.0
     ANCION = 0.0
     for I in range(Object.NGAS):

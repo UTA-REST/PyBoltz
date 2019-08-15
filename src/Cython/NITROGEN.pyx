@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas16(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for Nitrogen gas.
+    """
     gd = np.load('gases.npy').item()
 
     cdef double XELA[216], YELA[216], YMOM[216], YEPS[216], XROT[70], YROT[70], XVB1[87], YVB1[87], XVB2[69], YVB2[69], XVB3[70], YVB3[70],

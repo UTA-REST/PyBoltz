@@ -33,7 +33,13 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 @cython.wraparound(False)
 cpdef MONTET(Magboltz Object):
     """
-    EXAMPLE COMMENT
+    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  tempc.
+
+    This function is used when there is no magnetic field.     
+    
+    Electric field in z direction.
+
+    The object parameter is the Magboltz object to have the output results and to be used in the simulation.
     """
     #TODO: change number of steps from 10 to something else
     #TODO: print similar ouput (on new lines).
@@ -110,6 +116,8 @@ cpdef MONTET(Magboltz Object):
     NCOL = 0
     Object.NNULL = 0
     IEXTRA = 0
+
+    # Generate initial random maxwell boltzman numbers
     GERJAN(Object.RSTART, Object.API, Object.RNMX)
     IMBPT = 0
     TDASH = 0.0
@@ -123,6 +131,7 @@ cpdef MONTET(Magboltz Object):
     ABSFAKEI = 0.0
     Object.IFAKE = 0
 
+    # Initial direction cosines
     DCZ1 = cos(Object.THETA)
     DCX1 = sin(Object.THETA) * cos(Object.PHI)
     DCY1 = sin(Object.THETA) * sin(Object.PHI)
@@ -203,6 +212,8 @@ cpdef MONTET(Magboltz Object):
                     break
             NCOL += 1
             CONST11 = 1.0 / (CONST9 * sqrt(EOK))
+
+            # Calculate direction cosines of electron in 0 kelvin frame
             DXCOM = (VEX - VGX) * CONST11
             DYCOM = (VEY - VGY) * CONST11
             DZCOM = (VEZ - VGZ) * CONST11
@@ -216,7 +227,6 @@ cpdef MONTET(Magboltz Object):
             SUME2 = SUME2 + T * (E1 + A / 2.0 + B / 3.0)
             CONST7 = CONST9 * sqrt(E1)
             A = T * CONST7
-            #TODO: LIST
             CX1 = DCX1 * CONST7
             CY1 = DCY1 * CONST7
             Object.X = Object.X + DCX1 * A
@@ -225,7 +235,10 @@ cpdef MONTET(Magboltz Object):
             Object.ST = Object.ST + T
             IT = int(T)
             IT = min(IT, 299)
+
+
             Object.TIME[IT] += 1
+            # Energy spectrum for 0 kelvin frame
             Object.SPEC[IE] += 1
             Object.WZ = Object.Z / Object.ST
             SUMVX = SUMVX + CX1 * CX1 * T2
@@ -253,8 +266,9 @@ cpdef MONTET(Magboltz Object):
                 Object.XID = float(ID)
                 NCOL = 0
 
+            # Determination of real collision type
             R3 = random_uniform(RDUM)
-
+            # Find location within 4 units in collision array
             I = SORTT(KGAS, I, R3, IE, Object)
             while Object.CF[KGAS][IE][I] < R3:
                 I += 1
@@ -262,16 +276,23 @@ cpdef MONTET(Magboltz Object):
             EI = Object.EIN[KGAS][I]
 
             if Object.IPN[KGAS][I] > 0:
+                # Use flat distributioon of electron energy between E-EION and 0.0 EV, same as in Boltzmann
                 R9 = random_uniform(RDUM)
                 EXTRA = R9 * (EOK - EI)
                 EI = EXTRA + EI
+                # If Auger ot fluorescence add extra ionisation collisions
                 IEXTRA += <long long>Object.NC0[KGAS][I]
+
+            # Generate scattering angles and update laboratory cosines after collision also update energy of electron
             IPT = <long long>Object.IARRY[KGAS][I]
             Object.ICOLL[KGAS][<int>IPT - 1] += 1
             Object.ICOLN[KGAS][I] += 1
             if EOK < EI:
                 EI = EOK - 0.0001
 
+
+            # IF EXCITATION THEN ADD PROBABILITY ,PENFRA(1,I), OF TRANSFER TO
+            # IONISATION OF THE OTHER GASES IN MIXTURE
             if Object.IPEN != 0:
                 if Object.PENFRA[KGAS][0][I] != 0:
                     RAN = random_uniform(RDUM)
@@ -279,6 +300,7 @@ cpdef MONTET(Magboltz Object):
                         IEXTRA += 1
             S2 = pow(S1 , 2) / (S1 - 1.0)
 
+            # Anisotropic scattering
             R3 = random_uniform(RDUM)
             if Object.INDEX[KGAS][I] == 1:
                 R31 = random_uniform(RDUM)
@@ -289,6 +311,7 @@ cpdef MONTET(Magboltz Object):
                 EPSI = Object.PSCT[KGAS][IE][I]
                 F3 = 1.0 - (2.0 * R3 * (1.0 - EPSI) / (1.0 + EPSI * (1.0 - 2.0 * R3)))
             else:
+                # Isotropic scattering
                 F3 = 1.0 - 2.0 * R3
             THETA0 = acos(F3)
             R4 = random_uniform(RDUM)
@@ -319,11 +342,12 @@ cpdef MONTET(Magboltz Object):
                 DCZ1 = DZCOM * F6 + ARGZ * F5 * F8
                 DCY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
                 DCX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
+            # Transform velocity vectors to lab frame
             CONST12 = CONST9 * sqrt(E1)
             VXLAB = DCX1 * CONST12 + VGX
             VYLAB = DCY1 * CONST12 + VGY
             VZLAB = DCZ1 * CONST12 + VGZ
-
+            # Calculate energy and direction cosines in lab frame
             E1 = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / CONST10
             CONST11 = 1 / (CONST9 * sqrt(E1))
             DCX1 = VXLAB * CONST11
@@ -365,11 +389,12 @@ cpdef MONTET(Magboltz Object):
         SYYOLD = SUMYY
         SXXOLD = SUMXX
         SME2OLD = SUME2
-        # TODO: CONTINUE TABLE PRINTING
+
         print(J1)
         if Object.SPEC[3999] > (1000 * float(J1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
 
+    # Calculate errors and check averages
     TWZST = 0.0
     TAVE = 0.0
     T2WZST = 0.0
@@ -417,6 +442,7 @@ cpdef MONTET(Magboltz Object):
     ANCION += IEXTRA
     Object.ATTER = 0.0
 
+    # CALCULATE TOWNSEND COEFICIENTS AND ERRORS
     if ANCATT != 0:
         Object.ATTER = 100 * sqrt(ANCATT) / ANCATT
     Object.ATT = ANCATT / (Object.ST * Object.WZ) * 1e12

@@ -14,6 +14,9 @@ import cython
 @cython.fast_getattr(True)
 
 cdef void Gas1(Gas* object):
+    """
+    This function is used to calculate the needed momentum cross sections for CF4 gas.
+    """
     gd = np.load('gases.npy').item()
     cdef int i = 0
     object.EIN = gd['gas1/EIN']

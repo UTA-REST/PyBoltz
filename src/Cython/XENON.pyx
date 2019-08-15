@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas7(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for Xenon gas.
+    """
     print("XENON")
     gd = np.load('gases.npy').item()
     cdef double EN, GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, A, B, X1, X2, C, PQ[3], TEMP, Q456, QCORR, QTEMP,QEXC

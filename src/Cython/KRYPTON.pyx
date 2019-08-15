@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas6(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for Krypton gas.
+    """
     gd = np.load('gases.npy').item()
     cdef double XEN[162], YXSEC[162], XEL[151], YEL[151], XEPS[186], YEPS[186], XION[65], YION[65], YINC[65], YIN1[65], XIN2[41]
     cdef double YIN2[41], XIN3[35], YIN3[35], XIN4[32], YIN4[32], XKSH[74], YKSH[74], XL1S[83], YL1S[83], XL2S[82], YL2S[82], XL3S[84], YL3S[84]

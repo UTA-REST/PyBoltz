@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas5(Gas* object):
+    """
+    This function is used to calculate the needed momentum cross sections for Neon gas.
+    """
     gd = np.load('gases.npy').item()
     cdef double XEN[125], YXSEC[125], XEL[120], YEL[120], XEPS[196], YEPS[196], XION[74], YION[74], YINC[74], YIN1[74]
     cdef double XIN2[49], YIN2[49], XIN3[41], YIN3[41], XKSH[99], YKSH[99], X1S5[111], Y1S5[111], X1S4[137], Y1S4[137], X1S3[117], Y1S3[117]

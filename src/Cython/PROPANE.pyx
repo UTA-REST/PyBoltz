@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas10(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for Propane gas.
+    """
     gd = np.load('gases.npy').item()
 
     cdef double XEN[166], YMT[166], YEL[166], YEPS[166], XION[45], YIONG[45], YIONC[45], XION1[45], YION1[45], XION2[45], YION2[45]

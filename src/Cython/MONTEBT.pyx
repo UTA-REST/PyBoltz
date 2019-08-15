@@ -32,6 +32,13 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef MONTEBT(Magboltz Object):
+    """
+    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  tempc.
+
+    This function is used when the magnetic field is perpendicular to the electric field in the z direction.    
+    
+    The object parameter is the Magboltz object to have the output results and to be used in the simulation.
+    """
     Object.WX = 0.0
     Object.DWX = 0.0
     Object.X = 0.0
@@ -427,6 +434,8 @@ cpdef MONTEBT(Magboltz Object):
         SYZOLD = SUMYZ
         SLNOLD = SUMLS
         STROLD = SUMTS
+
+    # Calculate errors and check averages
     TWZST = 0.0
     TWYST = 0.0
     TAVE = 0.0

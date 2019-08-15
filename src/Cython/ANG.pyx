@@ -1,7 +1,9 @@
 import math
 
 cdef class ANG:
-
+    """
+    This object is used to set angle cuts on angular distribution and renormalise forward scattering probability.
+    """
     def __init__(self):
         self.ANGC = 0.0
         self.PSCT1=0.0

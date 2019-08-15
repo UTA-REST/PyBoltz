@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas14(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for H2O gas.
+    """
     gd = np.load('gases.npy').item()
 
     cdef double XEL[159], YEL[159], XMT[156], YMT[156], XEPS[156], YEPS[156], XVIB1[17], YVIB1[17], XVIB2[18], YVIB2[18], XVIB3[12], YVIB3[12],

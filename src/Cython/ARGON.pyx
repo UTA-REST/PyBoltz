@@ -12,6 +12,9 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef void Gas2(Gas *object):
+    """
+    This function is used to calculate the needed momentum cross sections for Argon gas.
+    """
     gd = np.load('gases.npy').item()
     cdef double APOL, AA, DD, FF, A1, EMASS2, API, A0, RY, BBCONST, CONST, AM2, C, PSCALE, AUGL3, AUGL2, AUGL1, AUGK
     cdef int NION, NATT, NIN, NNULL, NBREM, NDATA, NEPSI, NIDATA, NION2, NION3, NKSH, NL1S, NL2S, NL3S, N1S5, NIS4, NIS3, NIS2,N1S4=79,N1S3=70,N1S2=70

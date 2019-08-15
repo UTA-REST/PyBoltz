@@ -15,6 +15,9 @@ import cython
 @cython.wraparound(False)
 @cython.fast_getattr(True)
 cdef void Gas11(Gas*object):
+    """
+    This function is used to calculate the needed momentum cross sections for Isobutane gas.
+    """
     gd = np.load('gases.npy').item()
     cdef double XEN[157], YELM[157], YELT[157], YEPS[157], XION[42], YION[42], YINC[42], XATT[10], YATT[10], XKSH[83], YKSH[83]
     cdef double XVIB1[30], YVIB1[30], XVIB2[24], YVIB2[24], XVIB3[24], YVIB3[24], XVIB4[29], YVIB4[29], XVIB5[15], YVIB5[15]

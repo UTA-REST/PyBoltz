@@ -10,6 +10,12 @@ import cython
 @cython.wraparound(False)
 @cython.nonecheck(False)
 cpdef MIXERT(Magboltz object):
+    """
+    This function sets up the given Magboltz object with the right values for the requested gas mixture. It uses the Gasmix object
+    to get the momentum cross sections and all the needed values.
+
+    The object parameter is the Magboltz object to be setup.
+    """
     cdef double QATT[6][4000]
     cdef Gasmix MIXOBJECT
     cdef int  IE, KGAS, NP, p, sum, J, i, j, KION, JJ, IL, I

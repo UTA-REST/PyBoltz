@@ -6,8 +6,12 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef SETUPT(Magboltz object):
+    """
+    This function sets up the given Magboltz object. It fills the values of the main constants. 
+    
+    The object parameter is the Magboltz object to be setup.
+    """
     cdef double TWOPI, PIR2, ECHARG, EMASS, AMU, BOLTZ, BOLTZJ, AWB, ALOSCH, EOVM, ABZERO, ATMOS, TOTFRAC
-
     cdef long long MXEKR, IH, NSCALE, i
 
     object.API = acos(-1.0)
@@ -30,20 +34,27 @@ cpdef SETUPT(Magboltz object):
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
     object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
+    # Set long decorrelation length and step
     object.NCOLM = 2000000
     object.NCORLN = 500000
     object.NCORST = 2
+
+    # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     cdef double FRACM = 0.0
     MXEKR = 0
     for IH in range(object.NGAS):
         if object.NGASN[IH] != 2 and object.NGASN[IH] != 6 and object.NGASN[IH] == 7 and object.NGASN[IH] != 3 and \
                 object.NGASN[IH] != 4 and object.NGASN[IH] != 5:
+            # Molecular gas sum total fraction
             FRACM += object.FRAC[IH]
+
+    # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
     if object.EFIELD > (10 / object.CORR) or FRACM>3:
             object.NCOLM = 400000
             object.NCORLN = 50000
             object.NCORST = 4
     TOTFRAC = 0.0
+
     if object.NGAS == 0 or object.NGAS > 6:
         raise ValueError("Error in Gas Input")
     for J in range(object.NGAS):
@@ -52,6 +63,8 @@ cpdef SETUPT(Magboltz object):
         TOTFRAC += object.FRAC[J]
     if abs(TOTFRAC - 100) >= 1e-6:
         raise ValueError("Error in Gas Input")
+
+
     object.TMAX = 100.0
     object.NSCALE = 40000000
     object.NMAX = object.NMAX * object.NSCALE
@@ -72,9 +85,12 @@ cpdef SETUPT(Magboltz object):
         object.VANN[i] = object.FRAC[i] * object.CORR * object.CONST4 * 1e15
     object.VAN = 100.0 * object.CORR * object.CONST4 * 1.0e15
 
+    # Radians per picosecond
     object.WB = AWB * object.BMAG * 1e-12
+
 
     if object.BMAG == 0:
         return
+    # Metres per picosecond
     object.EOVB = object.EFIELD * 1e-9 / object.BMAG
     return

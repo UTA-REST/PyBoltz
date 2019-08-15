@@ -8,6 +8,11 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef SETUP(Magboltz object):
+    """
+    This function sets up the given Magboltz object. It fills the values of the main constants. 
+        
+    The object parameter is the Magboltz object to be setup.
+    """
     object.API = acos(-1.0)
     TWOPI = 2.0 * object.API
     object.ARY = 13.60569253
@@ -28,15 +33,22 @@ cpdef SETUP(Magboltz object):
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
     object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
+
+    # Set long decorrelation length and step
     object.NCOLM = 2000000
     object.NCORLN = 500000
     object.NCORST = 2
     FRACM = 0.0
     MXEKR = 0
+
+    # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     for IH in range(object.NGAS):
         if object.NGASN[IH] != 2 and object.NGASN[IH] != 6 and object.NGASN[IH] == 7 and object.NGASN[IH] != 3 and \
                 object.NGASN[IH] != 4 and object.NGASN[IH] != 5:
+            # Molecular gas sum total fraction
             FRACM += object.FRAC[IH]
+
+    # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
     if object.EFIELD > (10 / object.CORR) or FRACM>3:
             object.NCOLM = 400000
             object.NCORLN = 50000
@@ -74,9 +86,12 @@ cpdef SETUP(Magboltz object):
         object.VANN[i] = object.FRAC[i] * object.CORR * object.CONST4 * 1e15
     object.VAN = 100.0 * object.CORR * object.CONST4 * 1.0e15
 
+    # Radians per picosecond
     object.WB = AWB * object.BMAG * 1e-12
 
     if object.BMAG == 0:
         return
+
+    # Metres per picosecond
     object.EOVB = object.EFIELD * 1e-9 / object.BMAG
     return

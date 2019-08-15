@@ -128,16 +128,6 @@ cdef class Gasmix:
             memset(self.Gases[i].QATT, 0, 8*4000 * sizeof(double))
             memset(self.Gases[i].QNULL, 0, 10*4000 * sizeof(double))
     def Run(self):
-        '''result=[]
-        p = Pool()
-        for i in range(6):
-           if self.Gases[i].NGS != 0:
-              result.append( p.apply_async(callGASF(), [self.Gases[i]]))
-        p.close()
-        p.join()
-        for i in range(6):
-          if self.Gases[i].NGS != 0:
-              self.Gases[i]=result[i].get()'''
         cdef int i
         cdef Gas temp
         for i in range(6):

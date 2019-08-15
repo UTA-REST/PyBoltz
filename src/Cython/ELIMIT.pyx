@@ -36,6 +36,17 @@ cdef void GERJAN(double RDUM, double API, double *RNMX):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef ELIMIT(Magboltz Object):
+    """
+    This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
+    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value.
+    This function is used when there is no magnetic field. 
+
+    The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
+    
+    Electric field in z direction.
+
+    The object parameter is the Magboltz object to be setup and used in the simulation.
+    """
 
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE, INTEM
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
@@ -93,6 +104,7 @@ cpdef ELIMIT(Magboltz Object):
                 break
 
         if IE == 3999:
+            # Electron energy is out of limits
             Object.IELOW = 1
             return
 
@@ -105,7 +117,9 @@ cpdef ELIMIT(Magboltz Object):
         R2 = random_uniform(RDUM)
 
 
+        # Determination of real collision type
         I = SORT(I, R2, IE, Object)
+        # Find the location within 4 units in collision array
         while Object.CFNT[IE][I] < R2:
             I = I + 1
 
@@ -115,6 +129,9 @@ cpdef ELIMIT(Magboltz Object):
             R9 = random_uniform(RDUM)
             EXTRA = R9 * (E - EI)
             EI = EXTRA + EI
+
+
+        # Generate scattering angles and update laboratory cosines after collision also update energy of electron
         IPT = Object.IARRYNT[I]
         if E < EI:
             EI = E - 0.0001

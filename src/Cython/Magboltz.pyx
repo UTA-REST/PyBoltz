@@ -29,6 +29,17 @@ cdef double drand48(double dummy):
     return DRAND48(dummy)
 
 cdef class Magboltz:
+    """
+
+    This is the main object used to start the simulation, as well as store the information of the simulation.
+    It has most of the needed arrays, and variables.
+
+    More about Magboltz:
+
+    `Magboltz_Documentation <http://cyclo.mit.edu/drift/www/aboutMagboltz.html/>`_
+    """
+
+
     def __init__(self):
         '''
         Fill all the variables needed with zeros.This function uses memset as it is fast.
@@ -56,103 +67,69 @@ cdef class Magboltz:
         memset(self.EG2NT, 0, 960 * sizeof(double))
         memset(self.WKLMNT, 0, 960 * sizeof(double))
         memset(self.EFLNT, 0, 960 * sizeof(double))
-        '''
-        Variables used when ITHRM is set to 0 (thermal motion not included).
-        .. code-block:: python
-
-        double CFNT[4000][960],EINNT[960],TCFNT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PENFRANT[3][960],TCFMAXNT[8]
-        double CFNNT[4000][60],TCFNNT[4000],SCLENULNT[60],PSCTNT[4000][960],ANGCTNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]
-        double NG1NT[960],EG1NT[960],NG2NT[960],EG2NT[960],WKLMNT[960],EFLNT[960]
-        double ICOLLNT[30],ICOLNNT[960],ICOLNNNT[60]
-        double NPLASTNT
-        '''
-        self.EOVB = 0.0
-        self.WB = 0.0
-        self.PIR2 = 0.0
-        self.BTHETA = 0.0
-        self.BMAG = 0.0
-        self.NGAS = 0
-        self.NSTEP = 0
-        self.NANISO = 0
-        self.EFINAL = 0.0
-        self.ESTEP = 0
-        self.AKT = 0.0
-        self.ARY = 0.0
-        self.TEMPC = 0.0
-        self.TORR = 0.0
-        self.IPEN = 0
-        self.NSCALE = 0
-        self.TMAX = 0.0
-        self.SMALL = 0.0
-        self.API = 0.0
+        memset(self.ETPL, 0, 8 * sizeof(double))
+        memset(self.XTPL, 0, 8 * sizeof(double))
+        memset(self.YTPL, 0, 8 * sizeof(double))
+        memset(self.ZTPL, 0, 8 * sizeof(double))
+        memset(self.YZTPL, 0, 8 * sizeof(double))
+        memset(self.XZTPL, 0, 8 * sizeof(double))
+        memset(self.XYTPL, 0, 8 * sizeof(double))
+        memset(self.VYTPL, 0, 8 * sizeof(double))
+        memset(self.VXTPL, 0, 8 * sizeof(double))
+        memset(self.TTPL, 0, 8 * sizeof(double))
+        memset(self.XXTPL, 0, 8 * sizeof(double))
+        memset(self.YYTPL, 0, 8 * sizeof(double))
+        memset(self.ZZTPL, 0, 8 * sizeof(double))
+        memset(self.VZTPL, 0, 8 * sizeof(double))
+        memset(self.NETPL, 0, 8 * sizeof(double))
         memset(self.NESST, 0, 9 * sizeof(double))
-
-        self.ESTART = 0.0
-        self.THETA = 0.0
-        self.PHI = 0.0
-        self.EFIELD = 0.0
         memset(self.DENSY, 0, 4000 * sizeof(double))
         memset(self.SPEC, 0, 4000 * sizeof(double))
         memset(self.TIME, 0, 300 * sizeof(double))
         memset(self.ICOLL, 0, 6 * 5 * sizeof(double))
         memset(self.ICOLLNT, 0, 30 * sizeof(double))
-
         memset(self.ICOLNN, 0, 6 * 10 * sizeof(double))
         memset(self.ICOLN, 0, 6 * 290 * sizeof(double))
         memset(self.ICOLNNNT, 0, 60  * sizeof(double))
         memset(self.ICOLNNT, 0, 960 * sizeof(double))
-        self.NMAX = 0.0
-        self.ALPHA = 0.0
         memset(self.AMGAS, 0, 6 * sizeof(double))
         memset(self.VTMB, 0, 6 * sizeof(double))
-        self.TCFMX = 0.0
         memset(self.TCFMXG, 0, 6 * sizeof(double))
-        self.ITHRM = 0.0
-        self.ITMAX = 0
         memset(self.NGASN, 0, 6 * sizeof(double))
-        self.CORR = 0.0
         memset(self.FRAC, 0, 6 * sizeof(double))
-        # common output blocks
-        self.WX = 0.0
-        self.WY = 0.0
-        self.WZ = 0.0
-        self.DWX = 0.0
-        self.DWY = 0.0
-        self.DWZ = 0.0
-        self.TTOTS = 0.0
-        self.ATT = 0.0
-        self.ALPER = 0.0
-        self.ATTER = 0.0
-        self.DIFLN = 0.0
-        self.DIFTR = 0.0
-        self.DIFXX = 0.0
-        self.DIFYY = 0.0
-        self.DIFZZ = 0.0
-        self.DIFYZ = 0.0
-        self.DIFXY = 0.0
-        self.DIFXZ = 0.0
-        self.DXXER = 0.0
-        self.DYYER = 0.0
-        self.DZZER = 0.0
-        self.DYZER = 0.0
-        self.DXYER = 0.0
-        self.DXZER = 0.0
-        self.IFAKE = 0
-        self.FAKEI = 0.0
-        self.RSTART = 0.666
         memset(self.ANN, 0, 6 * sizeof(double))
         memset(self.VANN, 0, 6 * sizeof(double))
         memset(self.RI, 0, 8 * sizeof(double))
         memset(self.EPT, 0, 8 * sizeof(double))
         memset(self.VZPT, 0, 8 * sizeof(double))
         memset(self.TTEST, 0, 8 * sizeof(double))
-        self.AN = 0.0
-        self.VAN = 0.0
+        memset(self.XS, 0, 2000 * sizeof(double))
+        memset(self.YS, 0, 2000 * sizeof(double))
+        memset(self.ZS, 0, 2000 * sizeof(double))
+        memset(self.TS, 0, 2000 * sizeof(double))
+        memset(self.DCX, 0, 2000 * sizeof(double))
+        memset(self.DCY, 0, 2000 * sizeof(double))
+        memset(self.DCZ, 0, 2000 * sizeof(double))
+        memset(self.IPL, 0, 2000 * sizeof(double))
+        memset(self.ESPL, 0, 8 * sizeof(double))
+        memset(self.XSPL, 0, 8 * sizeof(double))
+        memset(self.TMSPL, 0, 8 * sizeof(double))
+        memset(self.TTMSPL, 0, 8 * sizeof(double))
+        memset(self.RSPL, 0, 8 * sizeof(double))
+        memset(self.RRSPL, 0, 8 * sizeof(double))
+        memset(self.RRSPM, 0, 8 * sizeof(double))
+        memset(self.YSPL, 0, 8 * sizeof(double))
+        memset(self.ZSPL, 0, 8 * sizeof(double))
+        memset(self.TSPL, 0, 8 * sizeof(double))
+        memset(self.XXSPL, 0, 8 * sizeof(double))
+        memset(self.YYSPL, 0, 8 * sizeof(double))
+        memset(self.ZZSPL, 0, 8 * sizeof(double))
+        memset(self.VZSPL, 0, 8 * sizeof(double))
+        memset(self.TSSUM, 0, 8 * sizeof(double))
+        memset(self.TSSUM2, 0, 8 * sizeof(double))
         memset(self.QELM, 0, 4000 * sizeof(double))
         memset(self.QSUM, 0, 4000 * sizeof(double))
-
         memset(self.QION, 0, 6 * 4000 * sizeof(double))
-
         memset(self.QIN, 0, 6 * 250 * 4000 * sizeof(double))
         memset(self.E, 0, 4000 * sizeof(double))
         memset(self.EROOT, 0, 4000 * sizeof(double))
@@ -161,67 +138,37 @@ cdef class Magboltz:
         memset(self.QINEL, 0, 4000 * sizeof(double))
         memset(self.NIN, 0, 6 * sizeof(double))
         memset(self.LION, 0, 6 * sizeof(double))
-
         memset(self.LIN, 0, 6 * 250 * sizeof(double))
-
         memset(self.ALION, 0, 6 * sizeof(double))
-
         memset(self.ALIN, 0, 6 * 250 * sizeof(double))
-
         memset(self.CF, 0, 6 * 290 * 4000 * sizeof(double))
-
         memset(self.TCF, 0, 6 * 4000 * sizeof(double))
-
         memset(self.EIN, 0, 6 * 290 * sizeof(double))
-
         memset(self.IARRY, 0, 6 * 290 * sizeof(double))
-
         memset(self.RGAS, 0, 6 * 290 * sizeof(double))
-
         memset(self.IPN, 0, 6 * 290 * sizeof(double))
-
         memset(self.WPL, 0, 6 * 290 * sizeof(double))
-
         memset(self.IPLAST, 0, 6 * sizeof(double))
         memset(self.ISIZE, 0, 6 * sizeof(double))
         memset(self.PENFRA, 0, 6 * 290 * 3 * sizeof(double))
-
         memset(self.TCFMAX, 0, 6 * sizeof(double))
-
         memset(self.CFN, 0, 6 * 10 * 4000 * sizeof(double))
-
         memset(self.TCFN, 0, 6 * 4000 * sizeof(double))
-
         memset(self.SCLENUL, 0, 6 * 10 * sizeof(double))
-
         memset(self.NPLAST, 0, 6 * sizeof(double))
-
         memset(self.PSCT, 0, 6 * 290 * 4000 * sizeof(double))
-
         memset(self.ANGCT, 0, 6 * 290 * 4000 * sizeof(double))
-
         memset(self.INDEX, 0, 6 * 290 * sizeof(double))
-
-        self.NISO = 0
         memset(self.FCION, 0, 4000 * sizeof(double))
         memset(self.FCATT, 0, 4000 * sizeof(double))
-
         memset(self.NC0, 0, 6 * 290 * sizeof(double))
-
         memset(self.EC0, 0, 6 * 290 * sizeof(double))
-
         memset(self.NG1, 0, 6 * 290 * sizeof(double))
-
         memset(self.EG1, 0, 6 * 290 * sizeof(double))
-
         memset(self.NG2, 0, 6 * 290 * sizeof(double))
-
         memset(self.EG2, 0, 6 * 290 * sizeof(double))
-
         memset(self.WKLM, 0, 6 * 290 * sizeof(double))
-
         memset(self.EFL, 0, 6 * 290 * sizeof(double))
-
         memset(self.XSS, 0, 2000 * sizeof(double))
         memset(self.YSS, 0, 2000 * sizeof(double))
         memset(self.ZSS, 0, 2000 * sizeof(double))
@@ -237,6 +184,8 @@ cdef class Magboltz:
         memset(self.QSATT, 0, 4000 * sizeof(double))
         memset(self.RNMX, 0, 6 * sizeof(double))
         memset(self.ES, 0, 4000 * sizeof(double))
+        memset(self.ZPLANE, 0, 8 * sizeof(double))
+        memset(self.LAST, 0, 6 * sizeof(double))
         self.ZTOT = 0.0
         self.ZTOTS = 0.0
         self.CONST1 = 0.0
@@ -244,7 +193,9 @@ cdef class Magboltz:
         self.CONST3 = 0.0
         self.CONST4 = 0.0
         self.CONST5 = 0.0
-        memset(self.LAST, 0, 6 * sizeof(double))
+        self.AN = 0.0
+        self.VAN = 0.0
+        self.NISO = 0
         self.IELOW = 1
         self.NCOLM = 0
         self.NCORLN = 0
@@ -273,21 +224,35 @@ cdef class Magboltz:
         self.DTOUT = 0.0
         self.DTERR = 0.0
         self.ALPHSST = 0.0
-        memset(self.ETPL, 0, 8 * sizeof(double))
-        memset(self.XTPL, 0, 8 * sizeof(double))
-        memset(self.YTPL, 0, 8 * sizeof(double))
-        memset(self.ZTPL, 0, 8 * sizeof(double))
-        memset(self.YZTPL, 0, 8 * sizeof(double))
-        memset(self.XZTPL, 0, 8 * sizeof(double))
-        memset(self.XYTPL, 0, 8 * sizeof(double))
-        memset(self.VYTPL, 0, 8 * sizeof(double))
-        memset(self.VXTPL, 0, 8 * sizeof(double))
-        memset(self.TTPL, 0, 8 * sizeof(double))
-        memset(self.XXTPL, 0, 8 * sizeof(double))
-        memset(self.YYTPL, 0, 8 * sizeof(double))
-        memset(self.ZZTPL, 0, 8 * sizeof(double))
-        memset(self.VZTPL, 0, 8 * sizeof(double))
-        memset(self.NETPL, 0, 8 * sizeof(double))
+        self.EOVB = 0.0
+        self.WB = 0.0
+        self.PIR2 = 0.0
+        self.BTHETA = 0.0
+        self.BMAG = 0.0
+        self.NGAS = 0
+        self.NSTEP = 0
+        self.NANISO = 0
+        self.EFINAL = 0.0
+        self.ESTEP = 0
+        self.AKT = 0.0
+        self.ARY = 0.0
+        self.TEMPC = 0.0
+        self.TORR = 0.0
+        self.IPEN = 0
+        self.NSCALE = 0
+        self.TMAX = 0.0
+        self.SMALL = 0.0
+        self.API = 0.0
+        self.ESTART = 0.0
+        self.THETA = 0.0
+        self.PHI = 0.0
+        self.EFIELD = 0.0
+        self.NMAX = 0.0
+        self.ALPHA = 0.0
+        self.TCFMX = 0.0
+        self.ITHRM = 0.0
+        self.ITMAX = 0
+        self.CORR = 0.0
         self.ATTOINT = 0.0
         self.ATTERT = 0.0
         self.AIOERT = 0.0
@@ -295,7 +260,6 @@ cdef class Magboltz:
         self.ATTSST = 0.0
         self.TTOT = 0.0
         self.ATTERR = 0.0
-        memset(self.ZPLANE, 0, 8 * sizeof(double))
         self.IZFINAL = 0.0
         self.RALPHA = 0.0
         self.RALPER = 0.0
@@ -321,31 +285,7 @@ cdef class Magboltz:
         self.ZFINAL = 0.0
         self.ITFINAL = 0.0
         self.IPRIM = 0.0
-        memset(self.XS, 0, 2000 * sizeof(double))
-        memset(self.YS, 0, 2000 * sizeof(double))
-        memset(self.ZS, 0, 2000 * sizeof(double))
-        memset(self.TS, 0, 2000 * sizeof(double))
-        memset(self.DCX, 0, 2000 * sizeof(double))
-        memset(self.DCY, 0, 2000 * sizeof(double))
-        memset(self.DCZ, 0, 2000 * sizeof(double))
-        memset(self.IPL, 0, 2000 * sizeof(double))
         self.ST = 0.0
-        memset(self.ESPL, 0, 8 * sizeof(double))
-        memset(self.XSPL, 0, 8 * sizeof(double))
-        memset(self.TMSPL, 0, 8 * sizeof(double))
-        memset(self.TTMSPL, 0, 8 * sizeof(double))
-        memset(self.RSPL, 0, 8 * sizeof(double))
-        memset(self.RRSPL, 0, 8 * sizeof(double))
-        memset(self.RRSPM, 0, 8 * sizeof(double))
-        memset(self.YSPL, 0, 8 * sizeof(double))
-        memset(self.ZSPL, 0, 8 * sizeof(double))
-        memset(self.TSPL, 0, 8 * sizeof(double))
-        memset(self.XXSPL, 0, 8 * sizeof(double))
-        memset(self.YYSPL, 0, 8 * sizeof(double))
-        memset(self.ZZSPL, 0, 8 * sizeof(double))
-        memset(self.VZSPL, 0, 8 * sizeof(double))
-        memset(self.TSSUM, 0, 8 * sizeof(double))
-        memset(self.TSSUM2, 0, 8 * sizeof(double))
         self.TOFWVZ = 0.0
         self.TOFWVZER = 0.0
         self.TOFWVX = 0.0
@@ -379,7 +319,40 @@ cdef class Magboltz:
         self.DLOVMB = 0.0
         self.DLMN = 0.0
         self.DFLER1 = 0.0
+        # common output blocks
+        self.WX = 0.0
+        self.WY = 0.0
+        self.WZ = 0.0
+        self.DWX = 0.0
+        self.DWY = 0.0
+        self.DWZ = 0.0
+        self.TTOTS = 0.0
+        self.ATT = 0.0
+        self.ALPER = 0.0
+        self.ATTER = 0.0
+        self.DIFLN = 0.0
+        self.DIFTR = 0.0
+        self.DIFXX = 0.0
+        self.DIFYY = 0.0
+        self.DIFZZ = 0.0
+        self.DIFYZ = 0.0
+        self.DIFXY = 0.0
+        self.DIFXZ = 0.0
+        self.DXXER = 0.0
+        self.DYYER = 0.0
+        self.DZZER = 0.0
+        self.DYZER = 0.0
+        self.DXYER = 0.0
+        self.DXZER = 0.0
+        self.IFAKE = 0
+        self.FAKEI = 0.0
+        self.RSTART = 0.666
+
+
     def end(self):
+        """
+        This function is used to convert some of the output values into different units.
+        """
         if self.WZ != 0:
             self.DTOVMB = self.DIFTR * self.EFIELD / self.WZ
             self.DTMN = sqrt(2.0 * self.DIFTR / self.WZ) * 10000.0
@@ -390,7 +363,22 @@ cdef class Magboltz:
             self.DLMN = sqrt(2.0 * self.DIFLN / self.WZ) * 10000.0
             self.DFLER1 = sqrt(self.DFLER ** 2 + self.DWZ ** 2)
             self.DFLER1 = self.DFLER1 / 2.0
+
+
     def Start(self):
+        """
+        This is the main function that starts the magboltz simulation/calculation.
+
+        The simulation starts by calculating the momentum cross section values for the requested gas mixture. If EFINAL
+        is equal to 0.0 it will then keep calling the ELIMIT functions and the MIXER functions to find the electron
+        Integration limit.
+
+        Finally Magboltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
+        in the the parent object of this function.
+
+        For more info on the main output variables check the git repository readme:
+        `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
+        """
         cdef double EOB
         cdef int i = 0
         if self.ITHRM != 0:
@@ -502,7 +490,8 @@ cdef class Magboltz:
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
             self.SSTMIN = 40
-
+            self.end()
+            return
             if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 return
             if self.BMAG == 0.0:

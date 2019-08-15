@@ -36,6 +36,15 @@ cdef void GERJAN(double RDUM, double API, double *RNMX):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef ELIMITB(Magboltz Object):
+    """
+    This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
+    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value.
+    This function is used when the magnetic field angle is 90 degrees to the electric field. 
+
+    The object parameter is the Magboltz object to be setup and used in the simulation.
+    
+    The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
+    """
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE, INTEM
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
@@ -101,6 +110,7 @@ cpdef ELIMITB(Magboltz Object):
                 break
 
         if IE == 3999:
+            # Electron energy out of range
             Object.IELOW = 1
             return
 

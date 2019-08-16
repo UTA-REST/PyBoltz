@@ -277,7 +277,7 @@ cdef void Gas2(Gas *object):
                     SIGEL = SIGEL + (2.0 * j + 1.0) * (sin(ANLOW)) ** 2
                 QELA = SIGEL * 4.0 * object.PIR2 / AK2
                 QMOM = SUM * 4.0 * object.PIR2 / AK2
-        if EN != 0:
+        if EN >1:
             for j in range(1, NDATA):
                 if EN < XEN[j]:
                     break
@@ -1038,4 +1038,3 @@ cdef void Gas2(Gas *object):
         if object.EFINAL <= object.EIN[j]:
             object.NIN = j
             break
-    print("ARGON")

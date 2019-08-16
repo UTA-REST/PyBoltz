@@ -32,27 +32,29 @@ import time
 t1 =time.time()
 
 # Set the number of gases
-Object.NGAS =1
+Object.NGAS =2
 # Set the number of collisons 
-Object.NMAX =1
+Object.NMAX =3
 # Set penning
 Object.IPEN = 0
 # Calculate the electron energy
-Object.ITHRM=0
+Object.ITHRM=1
 Object.EFINAL = 0.0
 # Set the gas's with there given number
-Object.NGASN=[4, 0, 0, 0, 0, 0]
+Object.NGASN=[2, 1, 0, 0, 0, 0]
 # Set the gas fractions
-Object.FRAC=[100, 0, 0, 0, 0, 0]
+Object.FRAC=[90, 10, 0, 0, 0, 0]
 # Set the tempature
 Object.TEMPC = float(23)
 # Set the pressure
 Object.TORR = 750.062
 # Set the eletric field
-Object.EFIELD =100
-# Set the magnetic field and angle 
-Object.BMAG = 10
-Object.BTHETA =45
+Object.EFIELD =50
+# Set the magnetic field and angle
+Object.BMAG = 0
+Object.BTHETA =0
+
+Object.NANISO = 2
 
 Object.Start()
 

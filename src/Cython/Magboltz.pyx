@@ -231,7 +231,7 @@ cdef class Magboltz:
         self.BMAG = 0.0
         self.NGAS = 0
         self.NSTEP = 0
-        self.NANISO = 0
+        self.NANISO = 2
         self.EFINAL = 0.0
         self.ESTEP = 0
         self.AKT = 0.0

@@ -121,8 +121,8 @@ cpdef MIXER(Magboltz object):
                         object.EG1NT[NP] = MIXOBJECT.Gases[KGAS].EG1[0]
                         object.EG2NT[NP] = MIXOBJECT.Gases[KGAS].EG2[0]
                         object.NG2NT[NP] = MIXOBJECT.Gases[KGAS].NG2[0]
-                        object.EFLNT[NP] = MIXOBJECT.Gases[KGAS].EFL[1]
-                        object.WKLMNT[NP] = MIXOBJECT.Gases[KGAS].WK[1]
+                        object.EFLNT[NP] = MIXOBJECT.Gases[KGAS].EFL[0]
+                        object.WKLMNT[NP] = MIXOBJECT.Gases[KGAS].WK[0]
                         object.IPNNT[NP] = 1
                         L = 2
                         object.IARRYNT[NP] = L

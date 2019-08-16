@@ -38,6 +38,16 @@ cpdef MIXERT(Magboltz object):
                            object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN,object.PIR2)
     MIXOBJECT.Run()
 
+    #-----------------------------------------------------------------
+    #     CALCULATION OF COLLISION FREQUENCIES FOR AN ARRAY OF
+    #     ELECTRON ENERGIES IN THE RANGE ZERO TO EFINAL
+    #
+    #     L=1      ELASTIC NTH GAS
+    #     L=2      IONISATION NTH GAS
+    #     L=3      ATTACHMENT NTH GAS
+    #     L=4      INELASTIC NTH GAS
+    #     L=5      SUPERELASTIC NTH GAS
+    #---------------------------------------------------------------
     EMASS = 9.10938291e-31
 
     for IE in range(4000):
@@ -45,14 +55,13 @@ cpdef MIXERT(Magboltz object):
             object.FCION[IE] = 0.0
             object.FCATT[IE] = 0.0
             NP = 1
-
             object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].Q[1][IE] * object.VANN[KGAS]
             object.PSCT[KGAS][IE][NP - 1] = 0.5
             object.ANGCT[KGAS][IE][NP - 1] = 1
             object.INDEX[KGAS][NP - 1] = 0
             ANGOBJECT = ANG()
 
-            if MIXOBJECT.Gases[KGAS].KEL[KGAS] == 1:
+            if MIXOBJECT.Gases[KGAS].KEL[1] == 1:
                 PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
                 ANGOBJECT.PSCT1 = PSCT1
                 ANGOBJECT.ANGCUT()
@@ -77,7 +86,6 @@ cpdef MIXERT(Magboltz object):
                 object.PENFRA[KGAS][2][NP - 1] = 0.0
 
             # IONISATION
-
             if object.EFINAL >= MIXOBJECT.Gases[KGAS].E[2]:
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
                     NP += 1
@@ -114,7 +122,6 @@ cpdef MIXERT(Magboltz object):
                         elif MIXOBJECT.Gases[0].KEL[2] == 2:
                             object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
                             object.INDEX[KGAS][NP - 1] = 2
-
                 if IE == 0:
                     if MIXOBJECT.Gases[KGAS].NION <= 1:
                         RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
@@ -127,8 +134,8 @@ cpdef MIXERT(Magboltz object):
                         object.EG1[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EG1[0]
                         object.NG2[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].NG2[0]
                         object.EG2[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EG2[0]
-                        object.WKLM[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].WK[1]
-                        object.EFL[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EFL[1]
+                        object.WKLM[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].WK[0]
+                        object.EFL[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EFL[0]
                         object.IPN[KGAS][NP - 1] = 1
                         L = 2
                         object.IARRY[KGAS][NP - 1] = L
@@ -157,7 +164,7 @@ cpdef MIXERT(Magboltz object):
                             object.PENFRA[KGAS][0][NP - 1] = 0.0
                             object.PENFRA[KGAS][1][NP - 1] = 0.0
                             object.PENFRA[KGAS][2][NP - 1] = 0.0
-
+            # ATTACHMENT
             if object.EFINAL >= MIXOBJECT.Gases[KGAS].E[3]:
                 if MIXOBJECT.Gases[KGAS].NATT <= 1:
                     NP += 1
@@ -195,7 +202,6 @@ cpdef MIXERT(Magboltz object):
                             object.PENFRA[KGAS][0][NP - 1] = 0.0
                             object.PENFRA[KGAS][1][NP - 1] = 0.0
                             object.PENFRA[KGAS][2][NP - 1] = 0.0
-
             # INELASTIC AND SUPERELASTIC
             if MIXOBJECT.Gases[KGAS].NIN > 0:
                 for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
@@ -239,7 +245,7 @@ cpdef MIXERT(Magboltz object):
             for p in range(int(object.IPLAST[KGAS])):
                 object.TCF[KGAS][IE] = object.TCF[KGAS][IE] + object.CF[KGAS][IE][p]
                 if object.CF[KGAS][IE][p] < 0:
-                    print "WARNING NEGATIVE COLLISION FREQUENCY"
+                    print ("WARNING NEGATIVE COLLISION FREQUENCY at gas " +str(object.CF[KGAS][IE][p])+"  "+ str(IE))
 
             for p in range(int(object.IPLAST[KGAS])):
                 if object.TCF[KGAS][IE] == 0:

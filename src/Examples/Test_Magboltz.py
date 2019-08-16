@@ -41,7 +41,7 @@ Object.IPEN = 0
 Object.ITHRM=1
 Object.EFINAL = 0.0
 # Set the gas's with there given number
-Object.NGASN=[2, 1, 0, 0, 0, 0]
+Object.NGASN=[5, 12, 0, 0, 0, 0]
 # Set the gas fractions
 Object.FRAC=[90, 10, 0, 0, 0, 0]
 # Set the tempature

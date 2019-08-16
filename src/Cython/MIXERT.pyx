@@ -55,6 +55,7 @@ cpdef MIXERT(Magboltz object):
             object.FCION[IE] = 0.0
             object.FCATT[IE] = 0.0
             NP = 1
+
             object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].Q[1][IE] * object.VANN[KGAS]
             object.PSCT[KGAS][IE][NP - 1] = 0.5
             object.ANGCT[KGAS][IE][NP - 1] = 1
@@ -207,6 +208,8 @@ cpdef MIXERT(Magboltz object):
                 for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                     NP = NP + 1
                     object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].QIN[J][IE] * object.VANN[KGAS]
+                    if (MIXOBJECT.Gases[KGAS].QIN[J][IE] !=MIXOBJECT.Gases[KGAS].QIN[J][IE] ):
+                        print(J)
                     object.PSCT[KGAS][IE][NP - 1] = 0.5
                     object.ANGCT[KGAS][IE][NP - 1] = 1.0
                     object.INDEX[KGAS][NP - 1] = 0
@@ -344,4 +347,5 @@ cpdef MIXERT(Magboltz object):
         for KGAS in range(6):
             for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
                 object.QSUM[I] = object.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * object.ANN[KGAS]
+
     return

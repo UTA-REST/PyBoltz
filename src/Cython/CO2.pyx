@@ -364,13 +364,11 @@ cdef void Gas12(Gas*object):
         if object.NANISO == 0:
             object.PEQEL[1][I] = 0.5
             object.Q[1][I] = QMOM
-
         for J in range(11):
             object.QION[J][I] = 0.0
             object.PEQION[J][I] = 0.5
             if object.NANISO == 2:
                 object.PEQION[J][I] = 0.0
-
         # IONISATION CO2+
         if EN > object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, 0.67716, CONST, object.DEN[I], C, AM2)
@@ -541,7 +539,10 @@ cdef void Gas12(Gas*object):
             object.PEQIN[64][I] = 0.0
         if EN > 0.0:
             object.QIN[64][I] = GasUtil.CALQINVISELA(EN, NV1, YV1, XV1, APOPV1, object.EIN[65], DEGV1, object.EIN[63],
-                                                     0,1)
+                                                     0,0)
+            # check if nan
+            if object.QIN[64][I]!=object.QIN[64][I]:
+                object.QIN[64][I] = 0.0
         if EN > 3 * abs(object.EIN[64]):
             if object.NANISO > 0:
                 object.PEQIN[64][I] = object.PEQEL[1][I - IOFFN[64]]
@@ -564,7 +565,10 @@ cdef void Gas12(Gas*object):
             object.PEQIN[66][I] = 0.0
         if EN > 0.0:
             object.QIN[66][I] = GasUtil.CALQINVISELA(EN, N3V2, Y3V2, X3V2, APOP3V2, object.EIN[67], DEG3V2,
-                                                     object.EIN[63], 0,1)
+                                                 object.EIN[63], 0,0)
+            # check if nan
+            if object.QIN[66][I]!=object.QIN[66][I]:
+                object.QIN[66][I] = 0.0
         if EN > 3 * abs(object.EIN[67]):
             if object.NANISO > 0:
                 object.PEQIN[66][I] = object.PEQEL[1][I - IOFFN[66]]

@@ -40,7 +40,7 @@ To run the code, you will need to import Magboltz and instantiate an instance of
 * **Magboltz.NGASN** - Array of six elements that has the number of each gas in the mixture.
 * **Magboltz.FRAC** - Array of six elements that has the percentage of each gas in the mixture.
 * **Magboltz.TEMPC** - The tempreture in degrees centigrade.
-* **Magboltz.TORR** - The pressire \[torr\].
+* **Magboltz.TORR** - The pressure \[torr\].
 * **Magboltz.EFIELD** - The electric field in the chamber \[Volts/Cm\].
 * **Magboltz.BMAG** - The magnitude of the magentic field \[Tesla\].
 * **Magboltz.BTHETA** - The angle between the magentic field and the electric field. 

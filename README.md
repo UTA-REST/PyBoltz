@@ -81,7 +81,27 @@ Please note that the following are only the main output parameters. One can stil
 * **Magboltz.DIFXZ** - Diffusion in the XZ plane.
 * **Magboltz.DXZER** - Error for the Magboltz.DIFXZ value (+- Magboltz.DIFXZ * Magboltz.DXZER).
 
+## Gas list.
+The current PyBoltz version has the following gases. Please note that the number of the gas is used as an indicator to that gas in the code. 
 
-###[Documentaion](https://uta-rest.github.io/PyBoltz-Documentation/html/).
+* **CF4** - Gas # 1.
+* **Argon** Gas # 2.
+* **Helium-4** Gas # 3.
+* **Helium-3** Gas # 4.
+* **Neon** Gas # 5.
+* **Krypton** Gas #6.
+* **Xenon** Gas # 7.
+* **CH4** Gas # 8.
+* **Ethane** Gas # 9.
+* **Propane** Gas # 10.
+* **Isobutane** Gas # 11.
+* **CO2** Gas # 12.
+* **H2O** Gas # 14.
+* **Oxygen** Gas # 15.
+* **Nitrogen** Gas # 16.
+* **Hydrogen** Gas # 21.
+* **Deuterium** Gas # 22.
+* **DME** Gas # 25.
 
 
+[Documentaion...](https://uta-rest.github.io/PyBoltz-Documentation/html/).

@@ -26,6 +26,7 @@ Please note that you might need to change the commands inside the setup.sh file 
 
 ### Running PyBoltz.
 To run the code, you will need to import Magboltz and instantiate an instance of the Magboltz object, fill in the input parameters and calling the Magboltz.Start() function. 
+#### Input parameters.
 
 
 to compile and setup the enviorment go to the directory 

@@ -29,7 +29,7 @@ $ source setup.sh
 Please note that you might need to change the commands inside the setup.sh file to match your python version.
 
 ### Running PyBoltz.
-To run the code, you will need to import Magboltz and instantiate an instance of the Magboltz object, fill in the input parameters and calling the Magboltz.Start() function. There are also examples in the Examples directory to how to use PyBoltz.
+To run the code, you will need to import Magboltz and instantiate an instance of the Magboltz object, fill in the input parameters and call the Magboltz.Start() function. There are examples in the Examples directory on to how to use PyBoltz. The main example is the Test_Magboltz.py code. This example also has a list of the gases in PyBoltz.
 
 #### Input parameters.
 * **Magboltz.NGAS** - The number of gases in the mixture (goes up to 6).
@@ -82,20 +82,6 @@ Please note that the following are only the main output parameters. One can stil
 * **Magboltz.DXZER** - Error for the Magboltz.DIFXZ value (+- Magboltz.DIFXZ * Magboltz.DXZER).
 
 
+###[Documentaion](https://uta-rest.github.io/PyBoltz-Documentation/html/).
 
 
-to compile and setup the enviorment go to the directory 
-
-MAGBOLTZ-py/src/Scripts/Cython
-
-and run 
-
-source setup.sh
-
-
-Once compiled run the template Test-Magboltz.py
-
-python Test-Magboltz.py
-
-
-This template includes the gas list and current output paramaters.

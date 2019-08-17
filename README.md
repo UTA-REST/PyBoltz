@@ -25,9 +25,18 @@ $ source setup.sh
 Please note that you might need to change the commands inside the setup.sh file to match your python version.
 
 ### Running PyBoltz.
-To run the code, you will need to import Magboltz and instantiate an instance of the Magboltz object, fill in the input parameters and calling the Magboltz.Start() function. 
+To run the code, you will need to import Magboltz and instantiate an instance of the Magboltz object, fill in the input parameters and calling the Magboltz.Start() function. There are also examples in the Examples directory to how to use PyBoltz.
 #### Input parameters.
-
+* **Magboltz.NGAS** - The number of gases in the mixture (goes up to 6).
+* **Magboltz.NMAX** - The number of simulated events / 2*10E7.
+* **Magboltz.IPEN** - Penning effects included (0 or 1).
+* **Magboltz.ITHRM** - Thermal motion included (0 or 1).
+* **Magboltz.EFINAL** - Upper limit of electron energy integration (0.0 to automatically calculate this value).
+* **Magboltz.NGASN** - Array of six elements that has the number of each gas in the mixture.
+* **Magboltz.FRAC** - Array of six elements that has the percentage of each gas in the mixture.
+* **Magboltz.TEMPC** - The tempreture in degrees centigrade.
+* **Magboltz.TORR** - The pressire \[torr\].
+* **Magboltz.EFIELD** - The electric field in the chamber \[volts/cm\]
 
 to compile and setup the enviorment go to the directory 
 

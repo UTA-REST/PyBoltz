@@ -36,7 +36,13 @@ To run the code, you will need to import Magboltz and instantiate an instance of
 * **Magboltz.FRAC** - Array of six elements that has the percentage of each gas in the mixture.
 * **Magboltz.TEMPC** - The tempreture in degrees centigrade.
 * **Magboltz.TORR** - The pressire \[torr\].
-* **Magboltz.EFIELD** - The electric field in the chamber \[volts/cm\]
+* **Magboltz.EFIELD** - The electric field in the chamber \[Volts/Cm\].
+* **Magboltz.BMAG** - The magnitude of the magentic field \[Tesla\].
+* **Magboltz.BTHETA** - The angle between the magentic field and the electric field. 
+* **Magboltz.NANISO** - This variable is used to fix the angular distrubtions to one of the following types. 
+  - OKHRIMVOSKKY TYPE - Magboltz.NANISO = 2.
+  - CAPITELLI LONGO TYPE - Magboltz.NANISO = 1.
+  - ISOTROPIC SCATTERING - Magboltz.NANISO = 0.
 
 to compile and setup the enviorment go to the directory 
 

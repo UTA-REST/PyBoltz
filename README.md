@@ -40,9 +40,9 @@ To run the code, you will need to import Magboltz and instantiate an instance of
 * **Magboltz.BMAG** - The magnitude of the magentic field \[Tesla\].
 * **Magboltz.BTHETA** - The angle between the magentic field and the electric field. 
 * **Magboltz.NANISO** - This variable is used to fix the angular distrubtions to one of the following types. 
-  - OKHRIMVOSKKY TYPE - Magboltz.NANISO = 2.
-  - CAPITELLI LONGO TYPE - Magboltz.NANISO = 1.
-  - ISOTROPIC SCATTERING - Magboltz.NANISO = 0.
+  - Okhrimvoskky Type - Magboltz.NANISO = 2 (default value).
+  - Capitelli Longo Type - Magboltz.NANISO = 1.
+  - Isotropic Scattering - Magboltz.NANISO = 0.
 
 to compile and setup the enviorment go to the directory 
 

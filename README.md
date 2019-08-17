@@ -52,33 +52,33 @@ To run the code, you will need to import Magboltz and instantiate an instance of
 #### Output parameters.
 Please note that the following are only the main output parameters. One can still get any value from the parameters within the Magboltz class.
 
-* **Magboltz.WZ** - Drift velocity in the Z direction.
-* **Magboltz.WY** - Drift velocity in the Y direction.
-* **Magboltz.WX** - Drift velocity in the X direction.
+* **Magboltz.WZ** - Drift velocity in the Z direction \[mm/mus\].
+* **Magboltz.WY** - Drift velocity in the Y direction \[mm/mus\].
+* **Magboltz.WX** - Drift velocity in the X direction \[mm/mus\].
 * **Magboltz.DWZ** - Error for the Magboltz.WZ value (+- Magboltz.DWZ * Magboltz.WZ).
 * **Magboltz.DWY** - Error for the Magboltz.WY value (+- Magboltz.DWY * Magboltz.WY).
 * **Magboltz.DWX** - Error for the Magboltz.WX value (+- Magboltz.DWX * Magboltz.WX).
-* **Magboltz.DIFTR** - Transverse diffusion.
+* **Magboltz.DIFTR** - Transverse diffusion \[cm^2/s\].
 * **Magboltz.DFTER** - Error for the Magboltz.DIFTR value (+- Magboltz.DFTER * Magboltz.DIFTR).
-* **Magboltz.DIFLN** - Longitudinal diffusion.
+* **Magboltz.DIFLN** - Longitudinal diffusion \[cm^2/s\]..
 * **Magboltz.DFLER** - Error for the Magboltz.DIFLN value (+- Magboltz.DFLER * Magboltz.DIFLN).
-* **Magboltz.DTMN** - Transverse diffusion.
+* **Magboltz.DTMN** - Transverse diffusion \[mum/cm^0.5\].
 * **Magboltz.DFTER1** - Error for the Magboltz.DTMN value (+- Magboltz.DTMN * Magboltz.DFTER1).
-* **Magboltz.DLMN** - Longitudinal diffusion.
+* **Magboltz.DLMN** - Longitudinal diffusion \[mum/cm^0.5\].
 * **Magboltz.DFLER1** - Error for the Magboltz.DLMN vlaue (+- Magboltz.DLMN * Magboltz.DFLER1).
-* **Magboltz.AVE** - Mean electron energy.
+* **Magboltz.AVE** - Mean electron energy \[eV\].
 * **Magboltz.DEN** - Error for the Magboltz.AVE value (+- Magboltz.AVE * Magboltz.DEN).
-* **Magboltz.DIFXX** - Diffusion in the X plane.
+* **Magboltz.DIFXX** - Diffusion in the X plane \[cm^2/s\].
 * **Magboltz.DXXER** - Error for the Magboltz.DIFXX value (+- Magboltz.DIFXX * Magboltz.DXXER).
-* **Magboltz.DIFYY** - Diffusion in the Y plane.
+* **Magboltz.DIFYY** - Diffusion in the Y plane \[cm^2/s\].
 * **Magboltz.DYYER** - Error for the Magboltz.DIFYY value (+- Magboltz.DIFYY * Magboltz.DYYER).
-* **Magboltz.DIFZZ** - Diffusion in the Z plane.
+* **Magboltz.DIFZZ** - Diffusion in the Z plane \[cm^2/s\].
 * **Magboltz.DZZER** - Error for the Magboltz.DIFZZ value (+- Magboltz.DIFZZ * Magboltz.DZZER).
-* **Magboltz.DIFYZ** - Diffusion in the YZ plane.
+* **Magboltz.DIFYZ** - Diffusion in the YZ plane \[cm^2/s\].
 * **Magboltz.DYZER** - Error for the Magboltz.DIFYZ value (+- Magboltz.DIFYZ * Magboltz.DYZER).
-* **Magboltz.DIFXY** - Diffusion in the XY plane.
+* **Magboltz.DIFXY** - Diffusion in the XY plane \[cm^2/s\].
 * **Magboltz.DXYER** - Error for the Magboltz.DIFXY value (+- Magboltz.DIFXY * Magboltz.DXYER).
-* **Magboltz.DIFXZ** - Diffusion in the XZ plane.
+* **Magboltz.DIFXZ** - Diffusion in the XZ plane \[cm^2/s\].
 * **Magboltz.DXZER** - Error for the Magboltz.DIFXZ value (+- Magboltz.DIFXZ * Magboltz.DXZER).
 
 ## Gas list.

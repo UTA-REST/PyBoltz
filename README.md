@@ -15,7 +15,7 @@ Cython's static typing improves the speed of python code by about a hundred time
 To be able to run this project you will need python3+, cython, and numpy installed. The setup that we use has python 3.6.7, Cython 0.29.3, and numpy 1.16.1. 
 
 ### Gases cross section database.
-Before building the code make sure to run the following commands in the Cython directory to get the gases.npy file made, as this file has all the cross section values.
+Before building the code make sure to run the following command in the Cython directory to get the gases.npy file made, as this file has all the cross section values.
 ```
 $ python3 Setup_npy.py
 ```

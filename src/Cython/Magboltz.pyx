@@ -37,6 +37,10 @@ cdef class Magboltz:
     More about Magboltz:
 
     `Magboltz_Documentation <http://cyclo.mit.edu/drift/www/aboutMagboltz.html/>`_
+
+    .. note::
+        If the variable has a "NT" at the end, that variable has the same function as its counterpart without a "NT" at the end.
+
     """
 
 
@@ -127,7 +131,6 @@ cdef class Magboltz:
         memset(self.VZSPL, 0, 8 * sizeof(double))
         memset(self.TSSUM, 0, 8 * sizeof(double))
         memset(self.TSSUM2, 0, 8 * sizeof(double))
-        memset(self.QELM, 0, 4000 * sizeof(double))
         memset(self.QSUM, 0, 4000 * sizeof(double))
         memset(self.QION, 0, 6 * 4000 * sizeof(double))
         memset(self.QIN, 0, 6 * 250 * 4000 * sizeof(double))
@@ -240,7 +243,7 @@ cdef class Magboltz:
         self.TORR = 0.0
         self.IPEN = 0
         self.NSCALE = 0
-        self.TMAX = 0.0
+        self.TMAX = 100.0
         self.SMALL = 0.0
         self.API = 0.0
         self.ESTART = 0.0
@@ -363,6 +366,9 @@ cdef class Magboltz:
             self.DLMN = sqrt(2.0 * self.DIFLN / self.WZ) * 10000.0
             self.DFLER1 = sqrt(self.DFLER ** 2 + self.DWZ ** 2)
             self.DFLER1 = self.DFLER1 / 2.0
+            self.WZ *=1e-5
+            self.WY *=1e-5
+            self.WX *=1e-5
 
 
     def Start(self):

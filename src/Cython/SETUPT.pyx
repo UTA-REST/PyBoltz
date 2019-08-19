@@ -65,7 +65,6 @@ cpdef SETUPT(Magboltz object):
         raise ValueError("Error in Gas Input")
 
 
-    object.TMAX = 100.0
     object.NSCALE = 40000000
     object.NMAX = object.NMAX * object.NSCALE
 

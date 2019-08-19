@@ -37,14 +37,14 @@ t1 =time.time()
 # Set the number of gases
 Object.NGAS =2
 # Set the number of collisons 
-Object.NMAX =1
+Object.NMAX =3
 # Set penning
 Object.IPEN = 0
 # Calculate the electron energy
 Object.ITHRM=1
 Object.EFINAL = 0.0
 # Set the gas's with there given number
-Object.NGASN=[Ne, CO2, 0, 0, 0, 0]
+Object.NGASN=[2, 8, 0, 0, 0, 0]
 # Set the gas fractions
 Object.FRAC=[90, 10, 0, 0, 0, 0]
 # Set the tempature
@@ -52,7 +52,7 @@ Object.TEMPC = float(23)
 # Set the pressure
 Object.TORR = 750.062
 # Set the eletric field
-Object.EFIELD =50
+Object.EFIELD =100
 # Set the magnetic field and angle
 Object.BMAG = 0
 Object.BTHETA =0
@@ -76,7 +76,7 @@ print("Tempature [C]         = ", Object.TEMPC)
 print("Pressure [torr]       = ", Object.TORR)
 print("Eletric field [V/cm]  = ", Object.EFIELD)
 print("----------------------------------------------------")
-print("Drift velocity [mm/mus]              = ", round(Object.Wz,3))
+print("Drift velocity [mm/mus]              = ", round(Object.WZ,3))
 print("----------------------------------------------------")
 print("Drift velocity error [%]             = ", round(Object.DWZ,3))
 print("----------------------------------------------------")

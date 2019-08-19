@@ -217,6 +217,8 @@ cdef void Gas21(Gas*object):
     for I in range(2, 7, 2):
         PJ[I - 1] = (2 * I + 1) * exp(-1 * ERLVL[I - 1] / object.AKT)
 
+    for I in range(7):
+        SUM+=PJ[I]
     FROT[0] = 1.0 / SUM
 
     for I in range(1, 8):

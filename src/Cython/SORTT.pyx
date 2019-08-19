@@ -17,12 +17,12 @@ cdef long long SORTT(int KGAS, int I, double R2, int IE,Magboltz Object):
     ISTEP = long(Object.ISIZE[KGAS])
     INCR = 0
     for K in range(12):
-        I = INCR
+        I = INCR -1
         if ISTEP == 2:
             return I
-        I = INCR + ISTEP
+        I = INCR + ISTEP -1
         if I <= Object.IPLAST[KGAS]:
-            if Object.CF[KGAS][IE][I-1] < R2:
+            if Object.CF[KGAS][IE][I] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
 

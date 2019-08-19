@@ -385,7 +385,6 @@ cdef void Gas8(Gas*object):
         if EN > 0.0:
             object.QIN[0][I] = GasUtil.CALQINVISO(EN, NVIBV4, YVBV4, XVBV4, APOPV4, object.EIN[1], DEGV4, object.EIN[0],
                                                   0.076)
-        print(object.QIN[0][I])
         #V4 ANISOTROPIC
         object.QIN[1][I] = 0.0
         object.PEQIN[1][I] = 0.5

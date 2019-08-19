@@ -18,12 +18,12 @@ cdef long long SORT(int I, double R2, int IE,Magboltz Object):
     ISTEP = long(Object.ISIZENT)
     INCR = 0
     for K in range(12):
-        I = INCR
+        I = INCR - 1
         if ISTEP == 2:
             return I
-        I = INCR + ISTEP
+        I = INCR + ISTEP - 1
         if I <= Object.IPLASTNT:
-            if Object.CFNT[IE][I - 1] < R2:
+            if Object.CFNT[IE][I] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
 

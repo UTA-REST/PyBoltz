@@ -13,7 +13,6 @@ import cython
 cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
-
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -26,7 +25,6 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
         TWOPI = 2.0 * API
         RNMX[J] = sqrt(-1*log(RAN1)) * cos(RAN2 * TWOPI)
         RNMX[J + 1] = sqrt(-1*log(RAN1)) * sin(RAN2 * TWOPI)
-
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -116,7 +114,6 @@ cpdef MONTET(Magboltz Object):
     NCOL = 0
     Object.NNULL = 0
     IEXTRA = 0
-
     # Generate initial random maxwell boltzman numbers
     GERJAN(Object.RSTART, Object.API, Object.RNMX)
     IMBPT = 0
@@ -157,21 +154,24 @@ cpdef MONTET(Magboltz Object):
                 DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
                 # FIND IDENTITY OF GAS FOR COLLISION
                 KGAS = 0
-                R2 = random_uniform(RDUM)
                 if Object.NGAS == 1:
+                    R2 = random_uniform(RDUM)
                     KGAS = 0
                 else:
+                    R2 = random_uniform(RDUM)
                     while (Object.TCFMXG[KGAS] < R2):
                         KGAS = KGAS + 1
+
+
                 IMBPT += 1
                 if (IMBPT > 6):
                     GERJAN(Object.RSTART, Object.API, Object.RNMX)
                     IMBPT = 1
-                VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
                 IMBPT += 1
-                VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
                 IMBPT += 1
-                VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
                 # CALCULATE ELECTRON VELOCITY VECTORS VEX VEY VEZ
                 VEX = DCX2 * CONST9 * sqrt(E)
                 VEY = DCY2 * CONST9 * sqrt(E)
@@ -236,11 +236,11 @@ cpdef MONTET(Magboltz Object):
             IT = int(T)
             IT = min(IT, 299)
 
-
             Object.TIME[IT] += 1
             # Energy spectrum for 0 kelvin frame
             Object.SPEC[IE] += 1
             Object.WZ = Object.Z / Object.ST
+
             SUMVX = SUMVX + CX1 * CX1 * T2
             SUMVY = SUMVY + CY1 * CY1 * T2
             if ID != 0:
@@ -251,15 +251,17 @@ cpdef MONTET(Magboltz Object):
                     if NCOLDM > Object.NCOLM:
                         NCOLDM = NCOLDM - Object.NCOLM
                     SDIF = Object.ST - STO[NCOLDM - 1]
-                    SUMXX =SUMXX+ pow((Object.X - XST[NCOLDM - 1]) , 2) * T / SDIF
-                    SUMYY = SUMYY+pow((Object.Y - YST[NCOLDM - 1]) , 2) * T / SDIF
-                    KDUM += Object.NCORLN
+                    SUMXX =SUMXX+  ((Object.X - XST[NCOLDM - 1]) **2) * T / SDIF
+                    SUMYY = SUMYY+ ((Object.Y - YST[NCOLDM - 1]) ** 2) * T / SDIF
                     if J1 >= 2:
                         ST1 += T
-                        SUMZZ += pow((Object.Z - ZST[NCOLDM - 1] - Object.WZ * SDIF) , 2) * T / SDIF
+                        SUMZZ = SUMZZ + ((Object.Z - ZST[NCOLDM - 1] - Object.WZ * SDIF) ** 2) * T / SDIF
+                    KDUM += Object.NCORLN
+
             XST[NCOL - 1] = Object.X
             YST[NCOL - 1] = Object.Y
             ZST[NCOL - 1] = Object.Z
+
             STO[NCOL - 1] = Object.ST
             if NCOL >= Object.NCOLM:
                 ID += 1
@@ -324,11 +326,12 @@ cpdef MONTET(Magboltz Object):
             E1 = EOK * (1.0 - EI / (S1 * EOK) - 2.0 * D / S2)
             E1 = max(E1, Object.SMALL)
             Q = sqrt((EOK / E1) * ARG1) / S1
-            Q = min(Q, 1)
+            Q = min(Q, 1.0)
             Object.THETA = asin(Q * sin(THETA0))
             F6 = cos(Object.THETA)
             U = (S1 - 1) * (S1 - 1) / ARG1
             CSQD = F3 * F3
+
             if F3 < 0 and CSQD > U:
                 F6 = -1 * F6
             F5 = sin(Object.THETA)
@@ -342,6 +345,8 @@ cpdef MONTET(Magboltz Object):
                 DCZ1 = DZCOM * F6 + ARGZ * F5 * F8
                 DCY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
                 DCX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
+
+
             # Transform velocity vectors to lab frame
             CONST12 = CONST9 * sqrt(E1)
             VXLAB = DCX1 * CONST12 + VGX
@@ -349,10 +354,12 @@ cpdef MONTET(Magboltz Object):
             VZLAB = DCZ1 * CONST12 + VGZ
             # Calculate energy and direction cosines in lab frame
             E1 = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / CONST10
-            CONST11 = 1 / (CONST9 * sqrt(E1))
+            CONST11 = 1.0 / (CONST9 * sqrt(E1))
             DCX1 = VXLAB * CONST11
             DCY1 = VYLAB * CONST11
             DCZ1 = VZLAB * CONST11
+
+
         # TODO: TABLE PRINT
         Object.WZ *= 1.0e9
         Object.AVE = SUME2 / Object.ST
@@ -389,7 +396,6 @@ cpdef MONTET(Magboltz Object):
         SYYOLD = SUMYY
         SXXOLD = SUMXX
         SME2OLD = SUME2
-
         print(J1)
         if Object.SPEC[3999] > (1000 * float(J1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
@@ -412,6 +418,7 @@ cpdef MONTET(Magboltz Object):
         T2AVE = T2AVE + AVEST[K] * AVEST[K]
         TXXST = TXXST + DFXXST[K]
         TYYST = TYYST + DFYYST[K]
+
         T2YYST = T2YYST + pow(DFYYST[K] , 2)
         T2XXST = T2XXST + pow(DFXXST[K] ,2)
         if K >= 2:
@@ -430,7 +437,7 @@ cpdef MONTET(Magboltz Object):
     Object.DIFLN = Object.DIFZZ
     Object.DIFTR = (Object.DIFXX + Object.DIFYY) / 2
     # CONVERT CM/SEC
-    Object.WZ *= 1e5
+    Object.WZ *= 1.0e5
     Object.DFLER = Object.DZZER
     Object.DFTER = (Object.DXXER + Object.DYYER) / 2.0
 

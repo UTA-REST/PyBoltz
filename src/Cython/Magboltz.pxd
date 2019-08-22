@@ -262,7 +262,7 @@ cdef class Magboltz:
         '''Energy ar each energy step.'''
         double EROOT[4000]
         '''The square root of each energy step.'''
-        double QTOT[4000], QREL[4000], QINEL[4000], FCION[4000], FCATT[4000], IFAKET[8], IFAKED[9], RNMX[6], LAST[6]
+        double QTOT[4000], QREL[4000], QINEL[4000], FCION[4000], FCATT[4000], IFAKET[8], IFAKED[9], RNMX[9], LAST[6]
         double NIN[6]
         '''Number of momentum cross section data points for types other than attachment and ionisation.'''
         double LION[6], ALION[6]

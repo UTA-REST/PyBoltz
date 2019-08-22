@@ -43,7 +43,7 @@ cpdef SETUP(Magboltz object):
 
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     for IH in range(object.NGAS):
-        if object.NGASN[IH] != 2 and object.NGASN[IH] != 6 and object.NGASN[IH] == 7 and object.NGASN[IH] != 3 and \
+        if object.NGASN[IH] != 2 and object.NGASN[IH] != 6 and object.NGASN[IH] != 7 and object.NGASN[IH] != 3 and \
                 object.NGASN[IH] != 4 and object.NGASN[IH] != 5:
             # Molecular gas sum total fraction
             FRACM += object.FRAC[IH]

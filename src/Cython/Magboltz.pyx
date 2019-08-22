@@ -185,7 +185,7 @@ cdef class Magboltz:
         memset(self.IFAKED, 0, 9 * sizeof(double))
         memset(self.QEL, 0, 4000 * sizeof(double))
         memset(self.QSATT, 0, 4000 * sizeof(double))
-        memset(self.RNMX, 0, 6 * sizeof(double))
+        memset(self.RNMX, 0, 9 * sizeof(double))
         memset(self.ES, 0, 4000 * sizeof(double))
         memset(self.ZPLANE, 0, 8 * sizeof(double))
         memset(self.LAST, 0, 6 * sizeof(double))

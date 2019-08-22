@@ -54,8 +54,8 @@ cdef void Gas25(Gas*object):
     object.NATT = 1
     object.NIN = 8
     object.NNULL = 0
-    AVIB1=0.06
-    AVIB2=0.35
+    AVIB1=<float>(0.06)
+    AVIB2=<float>(0.35)
     for J in range(6):
         object.KEL[J] = 0
 
@@ -75,15 +75,15 @@ cdef void Gas25(Gas*object):
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27,EOBY
 
-    object.E = [0.0, 1.0, 10.04, 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (46.06904 * AMU)
+    object.E = [0.0, 1.0, <float>(10.04), 0.0, 0.0, 0.0]
+    object.E[1] = <float>(2.0) * EMASS / (<float>(46.06904) * AMU)
 
-    EOBY = 10.04
+    EOBY = <float>(10.04)
 
     cdef double APOP, EN,EFAC
     APOP = exp(object.EIN[0]/object.AKT)
 
-    EN = -1*object.ESTEP/2.0
+    EN = -1*object.ESTEP/<float>(2.0)
     for I in range(4000):
         EN+=object.ESTEP
 
@@ -107,20 +107,20 @@ cdef void Gas25(Gas*object):
         object.QIN[0][I] = 0.0
         if EN != 0.0:
             EFAC = sqrt(1.0 - (object.EIN[0]/EN))
-            object.QIN[0][I] = AVIB1 *log((EFAC+1.0)/(EFAC-1.0))/EN
-            object.QIN[0][I]  = object.QIN[0][I] * APOP/(1.0+APOP)*1e-16
+            object.QIN[0][I] = AVIB1 *log((EFAC+<float>(1.0))/(EFAC-<float>(1.0)))/EN
+            object.QIN[0][I]  = object.QIN[0][I] * APOP/(<float>(1.0)+APOP)*1e-16
 
         object.QIN[1][I] = 0.0
         if EN >object.EIN[1]:
-            EFAC = sqrt(1.0 - (object.EIN[1]/EN))
-            object.QIN[1][I] = AVIB1 *log((EFAC+1.0)/(1.0-EFAC))/EN
-            object.QIN[1][I]  = object.QIN[1][I] * 1/(1.0+APOP)*1e-16
+            EFAC = sqrt(<float>(1.0) - (object.EIN[1]/EN))
+            object.QIN[1][I] = AVIB1 *log((EFAC+<float>(1.0))/(<float>(1.0)-EFAC))/EN
+            object.QIN[1][I]  = object.QIN[1][I] * 1/(<float>(1.0)+APOP)*1e-16
 
         object.QIN[2][I] = 0.0
         if EN >object.EIN[2]:
             object.QIN[2][I] = GasUtil.CALPQ3(EN, NVIB3, YVIB3, XVIB3)
             EFAC = sqrt(1.0 - (object.EIN[2]/EN))
-            object.QIN[2][I] = (object.QIN[2][I]+ AVIB2 *log((EFAC+1.0)/(1.0-EFAC))/EN)*1e-16
+            object.QIN[2][I] = (object.QIN[2][I]+ AVIB2 *log((EFAC+<float>(1.0))/(<float>(1.0)-EFAC))/EN)*1e-16
 
         object.QIN[3][I] = 0.0
         if EN >object.EIN[3]:

@@ -16,7 +16,7 @@ cpdef SETUPT(Magboltz object):
 
     object.API = acos(-1.0)
     TWOPI = 2.0 * object.API
-    object.ARY = 13.60569253
+    object.ARY = <float>(13.60569253)
     object.PIR2 = 8.7973554297e-17
     ECHARG = 1.602176565e-19
     EMASS = 9.10938291e-31
@@ -34,6 +34,7 @@ cpdef SETUPT(Magboltz object):
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
     object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
+
     # Set long decorrelation length and step
     object.NCOLM = 2000000
     object.NCORLN = 500000
@@ -43,13 +44,12 @@ cpdef SETUPT(Magboltz object):
     cdef double FRACM = 0.0
     MXEKR = 0
     for IH in range(object.NGAS):
-        if object.NGASN[IH] != 2 and object.NGASN[IH] != 6 and object.NGASN[IH] == 7 and object.NGASN[IH] != 3 and \
+        if object.NGASN[IH] != 2 and object.NGASN[IH] != 6 and object.NGASN[IH] != 7 and object.NGASN[IH] != 3 and \
                 object.NGASN[IH] != 4 and object.NGASN[IH] != 5:
             # Molecular gas sum total fraction
             FRACM += object.FRAC[IH]
-
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
-    if object.EFIELD > (10 / object.CORR) or FRACM>3:
+    if (object.EFIELD > (10.0 / object.CORR)) or (FRACM>3):
             object.NCOLM = 400000
             object.NCORLN = 50000
             object.NCORST = 4

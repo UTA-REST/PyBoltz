@@ -54,7 +54,7 @@ cpdef ELIMITBT(Magboltz Object):
     TDASH = 0.0
 
     # GENRATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GERJAN(Object.RSTART, Object.NGAS, Object.RNMX)
+    GERJAN(Object.RSTART, Object.API, Object.RNMX)
     IMBPT = 0
 
 

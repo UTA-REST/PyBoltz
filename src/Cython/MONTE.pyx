@@ -353,7 +353,7 @@ cpdef MONTE(Magboltz Object):
         SXXOLD = SUMXX
         SME2OLD = SUME2
         print(J1)
-        if Object.SPEC[3999] > (1000 * float(J1)):
+        if Object.SPEC[3999] > (1000 * float(J1+1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
     # Calculate errors and check averages
     TWZST = 0.0

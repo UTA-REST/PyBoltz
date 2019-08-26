@@ -397,7 +397,8 @@ cpdef MONTET(Magboltz Object):
         SXXOLD = SUMXX
         SME2OLD = SUME2
         print(J1)
-        if Object.SPEC[3999] > (1000 * float(J1)):
+        print(str(Object.DIFXX)+" "+str(Object.DIFYY)+" "+str(Object.DIFZZ)+" ")
+        if Object.SPEC[3999] > (1000 * float(J1+1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
 
     # Calculate errors and check averages

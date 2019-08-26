@@ -25,8 +25,8 @@ cdef void Gas1(Gas* object):
     # EIN=[0 for x in range(250)]#<=== input to this function
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27
-    object.E = [0.0, 1.0, 15.9, 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (88.0043 * AMU)
+    object.E = [0.0, 1.0, <float>(15.9), 0.0, 0.0, 0.0]
+    object.E[1] = <float>(2.0) * EMASS / (<float>(88.0043) * AMU)
     object.NC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0]
     object.EC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 253.0, 625.2]
     cdef double WKLM[12]
@@ -37,7 +37,7 @@ cdef void Gas1(Gas* object):
     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 253.0, 625.2]
     object.NG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0,     0.0, 0.0, 0.0, 0.0, 0.0, 1, 1]
     object.EG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 5.0]
-    object.EION[0:12] = [15.7, 21.47, 29.14, 34.5, 34.77, 36.0, 40.0, 41.0, 43.0, 63.0, 285.0, 685.4]
+    object.EION[0:12] = [<float>(15.7), <float>(21.47), <float>(29.14), <float>(34.5), <float>(34.77), 36.0, 40.0, 41.0, 43.0, 63.0, 285.0, <float>(685.4)]
     cdef int IOFFION[12]
     IOFFION = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     cdef int IOFFN[46]
@@ -45,16 +45,16 @@ cdef void Gas1(Gas* object):
     for i in range(46):
         IOFFN[i] = 0
 
-    cdef double EMASS2 = 1021997.804
+    cdef double EMASS2 = <float>(1021997.804)
     cdef double API = acos(-1)
     cdef double A0 = 0.52917720859e-8
-    cdef double RY = 13.60569193
+    cdef double RY = <float>(13.60569193)
     cdef double BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
 
     # BORN BETHE VALUES FOR IONISATION
     cdef double CONST = 1.873884e-20
-    cdef double AM2 = 9.5
-    cdef double C = 100.9
+    cdef double AM2 = <float>(9.5)
+    cdef double C = <float>(100.9)
 
     # number of array elements
     cdef int NCF3 = 37
@@ -264,7 +264,7 @@ cdef void Gas1(Gas* object):
                 object.QION[0][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF3([NCF3] EV
-                object.QION[0][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.7344
+                object.QION[0][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.7344)
             if EN > 2.0 * object.EION[0]:
                 object.PEQION[0][i] = object.PEQEL[1][(i - IOFFION[0])]
 
@@ -286,7 +286,7 @@ cdef void Gas1(Gas* object):
                 object.QION[1][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF2[NCF2] EV
-                object.QION[1][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0534
+                object.QION[1][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0534)
             if EN > 2.0 * object.EION[1]:
                 object.PEQION[1][i] = object.PEQEL[1][(i - IOFFION[1])]
 
@@ -310,7 +310,7 @@ cdef void Gas1(Gas* object):
                 # USE BORN BETHE X-SECTION ABOVE XCF1[NCF1] EV
                 X2 = 1 / BETA2
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[2][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0386
+                object.QION[2][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0386)
             if EN > 2.0 * object.EION[2]:
                 object.PEQION[2][i] = object.PEQEL[1][(i - IOFFION[2])]
 
@@ -334,7 +334,7 @@ cdef void Gas1(Gas* object):
                 # USE BORN BETHE X-SECTION ABOVE XC0F[NC0F] EV
                 X2 = 1 / BETA2
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[3][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0799
+                object.QION[3][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0799)
             if EN > 2.0 * object.EION[3]:
                 object.PEQION[3][i] = object.PEQEL[1][(i - IOFFION[3])]
 
@@ -356,7 +356,7 @@ cdef void Gas1(Gas* object):
                 object.QION[4][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF0[NCF0] EV
-                object.QION[4][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0422
+                object.QION[4][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0422)
             if EN > 2.0 * object.EION[4]:
                 object.PEQION[4][i] = object.PEQEL[1][(i - IOFFION[4])]
 
@@ -378,7 +378,7 @@ cdef void Gas1(Gas* object):
                 object.QION[5][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF3F[NCF3F] EV
-                object.QION[5][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0058
+                object.QION[5][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0058)
             if EN > 2.0 * object.EION[5]:
                 object.PEQION[5][i] = object.PEQEL[1][(i - IOFFION[5])]
         # DOUBLE IONS  CF2 +  AND F +
@@ -399,7 +399,7 @@ cdef void Gas1(Gas* object):
                 object.QION[6][i] = (A * EN + B) * 1e-16
             else:
                 # USE BORN BETHE X-SECTION ABOVE XCF2F[NCF2F] EV
-                object.QION[6][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * 0.0073
+                object.QION[6][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0073)
             if EN > 2.0 * object.EION[6]:
                 object.PEQION[6][i] = object.PEQEL[1][(i - IOFFION[6])]
 
@@ -423,7 +423,7 @@ cdef void Gas1(Gas* object):
                 # USE BORN BETHE X-SECTION ABOVE XCF32[NCF32] EV
                 X2 = 1 / BETA2
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[7][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0031
+                object.QION[7][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0031)
             if EN > 2 * object.EION[7]:
                 object.PEQION[7][i] = object.PEQEL[1][(i - IOFFION[7])]
 
@@ -442,7 +442,7 @@ cdef void Gas1(Gas* object):
                 # USE BORN BETHE X-SECTION ABOVE XCF22[NCF22] EV
                 X2 = 1 / BETA2
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[7][i] = object.QION[7][i] + CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0077
+                object.QION[7][i] = object.QION[7][i] + CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0077)
 
         # DOUBLE IONS    CF +  AND F +
         object.QION[8][i] = 0.0
@@ -464,7 +464,7 @@ cdef void Gas1(Gas* object):
                 # USE BORN BETHE X-SECTION ABOVE XCFF[NCFF] EV
                 X2 = 1 / BETA2
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[8][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0189
+                object.QION[8][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0189)
             if EN > 2 * object.EION[8]:
                 object.PEQION[8][i] = object.PEQEL[1][(i - IOFFION[8])]
 
@@ -488,7 +488,7 @@ cdef void Gas1(Gas* object):
                 # USE BORN BETHE X-SECTION ABOVE XCF[NCF] EV
                 X2 = 1 / BETA2
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
-                object.QION[9][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * 0.0087
+                object.QION[9][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0087)
             if EN > 2 * object.EION[9]:
                 object.PEQION[9][i] = object.PEQEL[1][(i - IOFFION[9])]
 
@@ -548,18 +548,18 @@ cdef void Gas1(Gas* object):
         # SCALE FACTOR FOR VIBRATIONAL DIPOLE V3 ABOVE 0.4EV
 
         VDSC = 1.0
-        if EN > 0.4:
+        if EN > <float>(0.4):
             EPR = EN
             if EN > 5.0:
                 EPR = 5.0
-            VDSC = (14.4 - EPR) / 14.0
+            VDSC = (<float>(14.4) - EPR) / 14.0
         # SUPERELASTIC OF VIBRATION V2 ISOTROPIC  BELOW 100EV
         object.QIN[0][i] = 0.0
         object.PEQIN[0][i] = 0.5
         if EN > 0.0:
 
             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
-            object.QIN[0][i] = 0.007 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
+            object.QIN[0][i] = <float>(0.007) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[0][i] = object.QIN[0][i] * APOPV2 * 1.0e-16 / DEGV2
             if EN > 100.0:
                 object.PEQIN[0][i] = PQ[1]
@@ -569,7 +569,7 @@ cdef void Gas1(Gas* object):
         object.PEQIN[1][i] = 0.5
         if EN > object.EIN[1]:
             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
-            object.QIN[1][i] = 0.007 * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
+            object.QIN[1][i] = <float>(0.007) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
             object.QIN[1][i] = object.QIN[1][i] * APOPGS * 1.0e-16
             if EN > 100.0:
                 object.PEQIN[1][i] = PQ[1]
@@ -589,7 +589,7 @@ cdef void Gas1(Gas* object):
             else:
                 object.QIN[2][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / (EN * pow((EN - object.EIN[2]) ,2)))
             EFAC = sqrt(1.0 - (object.EIN[2] / EN))
-            object.QIN[2][i] = object.QIN[2][i] + 0.05 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
+            object.QIN[2][i] = object.QIN[2][i] + <float>(0.05) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[2][i] = object.QIN[2][i] * APOPV4 * 1.0e-16 / DEGV4
             if EN > 100.0:
                 object.PEQIN[2][i] = PQ[1]
@@ -609,7 +609,7 @@ cdef void Gas1(Gas* object):
             else:
                 object.QIN[3][i] = YVBV4[NVBV4 - 1] *pow((XVBV4[NVBV4 - 1] / EN) , 3)
             EFAC = sqrt(1.0 - (object.EIN[3] / EN))
-            ADIP = 0.05 * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
+            ADIP = <float>(0.05) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
             ELF = EN - object.EIN[3]
             FWD = log((EN + ELF) / (EN + ELF - 2.0 * sqrt(EN * ELF)))
             BCK = log((EN + ELF + 2.0 * sqrt(EN * ELF)) / (EN + ELF))
@@ -636,7 +636,7 @@ cdef void Gas1(Gas* object):
             else:
                 object.QIN[4][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / (EN * pow((EN - object.EIN[4]) , 2)))
             EFAC = sqrt(1.0 - (object.EIN[4] / EN))
-            object.QIN[4][i] = object.QIN[4][i] + 0.0224 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
+            object.QIN[4][i] = object.QIN[4][i] + <float>(0.0224) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[4][i] = object.QIN[4][i] * APOPV1 * 1.0e-16 / DEGV1
             if EN > 100.0:
                 object.PEQIN[4][i] = PQ[1]
@@ -656,7 +656,7 @@ cdef void Gas1(Gas* object):
             else:
                 object.QIN[5][i] = YVBV1[NVBV1 - 1] * pow((XVBV1[NVBV1 - 1] / EN) , 3)
             EFAC = sqrt(1.0 - (object.EIN[5] / EN))
-            object.QIN[5][i] = object.QIN[5][i] + 0.0224 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
+            object.QIN[5][i] = object.QIN[5][i] + <float>(0.0224) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
             object.QIN[5][i] = object.QIN[5][i] * APOPGS * 1.0e-16
             if EN > 100.0:
                 object.PEQIN[5][i] = PQ[1]
@@ -676,7 +676,7 @@ cdef void Gas1(Gas* object):
             else:
                 object.QIN[6][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / (EN * pow((EN - object.EIN[6]) , 2)))
             EFAC = sqrt(1.0 - (object.EIN[6] / EN))
-            object.QIN[6][i] = object.QIN[6][i] + VDSC * 1.610 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
+            object.QIN[6][i] = object.QIN[6][i] + VDSC * <float>(1.610) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
             if EN > 100.0:
                 object.PEQIN[6][i] = PQ[1]
@@ -695,7 +695,7 @@ cdef void Gas1(Gas* object):
             else:
                 object.QIN[7][i] = YVBV3[NVBV3 - 1] * pow((XVBV3[NVBV3 - 1] / EN) , 3)
             EFAC = sqrt(1.0 - (object.EIN[7] / EN))
-            ADIP = VDSC * 1.610 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
+            ADIP = VDSC * <float>(1.610) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
             ELF = EN - object.EIN[7]
             FWD = log((EN + ELF) / (EN + ELF - 2.0 * sqrt(EN * ELF)))
             BCK = log((EN + ELF + 2.0 * sqrt(EN * ELF)) / (EN + ELF))
@@ -766,12 +766,12 @@ cdef void Gas1(Gas* object):
         object.QIN[11][i] = 0.0
         object.PEQIN[11][i] = 0.0
         if EN > object.EIN[11]:
-            object.QIN[11][i] = 0.0001893 / (object.EIN[11] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0
+            object.QIN[11][i] = <float>(0.0001893) / (object.EIN[11] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0
                                                                                                 * object.EIN[
                                                                                                     11])) - BETA2 -
                                                                  object.DEN[
                                                                      i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[11] + object.E[2]) * 1.0107
+                                        EN + object.EIN[11] + object.E[2]) * <float>(1.0107)
         if object.QIN[11][i] < 0.0:
             object.QIN[11][i] = 0
         if EN > 3 * object.EIN[11]:
@@ -781,11 +781,11 @@ cdef void Gas1(Gas* object):
         object.QIN[12][i] = 0.0
         object.PEQIN[12][i] = 0.0
         if EN > object.EIN[12]:
-            object.QIN[12][i] = 0.001085 / (object.EIN[12] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0
+            object.QIN[12][i] = <float>(0.001085) / (object.EIN[12] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0
                                                                                                * object.EIN[12])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[12] + object.E[2]) * 1.0105
+                                        EN + object.EIN[12] + object.E[2]) * <float>(1.0105)
         if object.QIN[12][i] < 0.0:
             object.QIN[12][i] = 0
         if EN > 3 * object.EIN[12]:
@@ -795,11 +795,11 @@ cdef void Gas1(Gas* object):
         object.QIN[13][i] = 0.0
         object.PEQIN[13][i] = 0.0
         if EN > object.EIN[13]:
-            object.QIN[13][i] = 0.004807 / (object.EIN[13] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[13][i] = <float>(0.004807) / (object.EIN[13] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                                object.EIN[13])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[13] + object.E[2]) * 1.0103
+                                        EN + object.EIN[13] + object.E[2]) * <float>(1.0103)
         if object.QIN[13][i] < 0.0:
             object.QIN[13][i] = 0
         if EN > 3 * object.EIN[13]:
@@ -809,11 +809,11 @@ cdef void Gas1(Gas* object):
         object.QIN[14][i] = 0.0
         object.PEQIN[14][i] = 0.0
         if EN > object.EIN[14]:
-            object.QIN[14][i] = 0.008819 / (object.EIN[14] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[14][i] = <float>(0.008819) / (object.EIN[14] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                                object.EIN[14])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[14] + object.E[2]) * 1.0101
+                                        EN + object.EIN[14] + object.E[2]) * <float>(1.0101)
         if object.QIN[14][i] < 0.0:
             object.QIN[14][i] = 0
         if EN > 3 * object.EIN[14]:
@@ -840,11 +840,11 @@ cdef void Gas1(Gas* object):
         object.QIN[16][i] = 0.0
         object.PEQIN[16][i] = 0.0
         if EN > object.EIN[16]:
-            object.QIN[16][i] = 0.008918 / (object.EIN[16] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[16][i] = <float>(0.008918) / (object.EIN[16] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                                object.EIN[16])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[16] + object.E[2]) * 1.0099
+                                        EN + object.EIN[16] + object.E[2]) * <float>(1.0099)
         if object.QIN[16][i] < 0.0:
             object.QIN[16][i] = 0
         if EN > 3 * object.EIN[16]:
@@ -854,11 +854,11 @@ cdef void Gas1(Gas* object):
         object.QIN[17][i] = 0.0
         object.PEQIN[17][i] = 0.0
         if EN > object.EIN[17]:
-            object.QIN[17][i] = 0.008420 / (object.EIN[17] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[17][i] = <float>(0.008420) / (object.EIN[17] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                                object.EIN[17])) - BETA2 -
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[17] + object.E[2]) * 1.0097
+                                        EN + object.EIN[17] + object.E[2]) * <float>(1.0097)
         if object.QIN[17][i] < 0.0:
             object.QIN[17][i] = 0
         if EN > 3 * object.EIN[17]:
@@ -868,11 +868,11 @@ cdef void Gas1(Gas* object):
         object.QIN[18][i] = 0.0
         object.PEQIN[18][i] = 0.0
         if EN > object.EIN[18]:
-            object.QIN[18][i] = 0.02531 / (object.EIN[18] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[18][i] = <float>(0.02531) / (object.EIN[18] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[18])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[18] + object.E[2]) * 1.0095
+                                        EN + object.EIN[18] + object.E[2]) * <float>(1.0095)
         if object.QIN[18][i] < 0.0:
             object.QIN[18][i] = 0
         if EN > 3 * object.EIN[18]:
@@ -882,11 +882,11 @@ cdef void Gas1(Gas* object):
         object.QIN[19][i] = 0.0
         object.PEQIN[19][i] = 0.0
         if EN > object.EIN[19]:
-            object.QIN[19][i] = 0.09553 / (object.EIN[19] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[19][i] = <float>(0.09553) / (object.EIN[19] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[19])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[19] + object.E[2]) * 1.0093
+                                        EN + object.EIN[19] + object.E[2]) * <float>(1.0093)
         if object.QIN[19][i] < 0.0:
             object.QIN[19][i] = 0
         if EN > 3 * object.EIN[19]:
@@ -896,11 +896,11 @@ cdef void Gas1(Gas* object):
         object.QIN[20][i] = 0.0
         object.PEQIN[20][i] = 0.0
         if EN > object.EIN[20]:
-            object.QIN[20][i] = 0.11193 / (object.EIN[20] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[20][i] = <float>(0.11193) / (object.EIN[20] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[20])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[20] + object.E[2]) * 1.0092
+                                        EN + object.EIN[20] + object.E[2]) * <float>(1.0092)
         if object.QIN[20][i] < 0.0:
             object.QIN[20][i] = 0
         if EN > 3 * object.EIN[20]:
@@ -910,11 +910,11 @@ cdef void Gas1(Gas* object):
         object.QIN[21][i] = 0.0
         object.PEQIN[21][i] = 0.0
         if EN > object.EIN[21]:
-            object.QIN[21][i] = 0.10103 / (object.EIN[21] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[21][i] = <float>(0.10103) / (object.EIN[21] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[21])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[21] + object.E[2]) * 1.0090
+                                        EN + object.EIN[21] + object.E[2]) * <float>(1.0090)
         if object.QIN[21][i] < 0.0:
             object.QIN[21][i] = 0
         if EN > 3 * object.EIN[21]:
@@ -941,11 +941,11 @@ cdef void Gas1(Gas* object):
         object.QIN[23][i] = 0.0
         object.PEQIN[23][i] = 0.0
         if EN > object.EIN[23]:
-            object.QIN[23][i] = 0.06902 / (object.EIN[23] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[23][i] = <float>(0.06902) / (object.EIN[23] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[23])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[23] + object.E[2]) * 1.0088
+                                        EN + object.EIN[23] + object.E[2]) * <float>(1.0088)
         if object.QIN[23][i] < 0.0:
             object.QIN[23][i] = 0
         if EN > 3 * object.EIN[23]:
@@ -955,11 +955,11 @@ cdef void Gas1(Gas* object):
         object.QIN[24][i] = 0.0
         object.PEQIN[24][i] = 0.0
         if EN > object.EIN[24]:
-            object.QIN[24][i] = 0.03968 / (object.EIN[24] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[24][i] = <float>(0.03968) / (object.EIN[24] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[24])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[24] + object.E[2]) * 1.0087
+                                        EN + object.EIN[24] + object.E[2]) * <float>(1.0087)
         if object.QIN[24][i] < 0.0:
             object.QIN[24][i] = 0
         if EN > 3 * object.EIN[24]:
@@ -969,11 +969,11 @@ cdef void Gas1(Gas* object):
         object.QIN[25][i] = 0.0
         object.PEQIN[25][i] = 0.0
         if EN > object.EIN[25]:
-            object.QIN[25][i] = 0.02584 / (object.EIN[25] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[25][i] = <float>(0.02584) / (object.EIN[25] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[25])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[25] + object.E[2]) * 1.0085
+                                        EN + object.EIN[25] + object.E[2]) * <float>(1.0085)
         if object.QIN[25][i] < 0.0:
             object.QIN[25][i] = 0
         if EN > 3 * object.EIN[25]:
@@ -983,11 +983,11 @@ cdef void Gas1(Gas* object):
         object.QIN[26][i] = 0.0
         object.PEQIN[26][i] = 0.0
         if EN > object.EIN[26]:
-            object.QIN[26][i] = 0.02071 / (object.EIN[26] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[26][i] = <float>(0.02071) / (object.EIN[26] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[26])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[26] + object.E[2]) * 1.0084
+                                        EN + object.EIN[26] + object.E[2]) * <float>(1.0084)
         if object.QIN[26][i] < 0.0:
             object.QIN[26][i] = 0
         if EN > 3 * object.EIN[26]:
@@ -997,11 +997,11 @@ cdef void Gas1(Gas* object):
         object.QIN[27][i] = 0.0
         object.PEQIN[27][i] = 0.0
         if EN > object.EIN[27]:
-            object.QIN[27][i] = 0.03122 / (object.EIN[27] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[27][i] = <float>(0.03122) / (object.EIN[27] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[27])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[27] + object.E[2]) * 1.0083
+                                        EN + object.EIN[27] + object.E[2]) * <float>(1.0083)
         if object.QIN[27][i] < 0.0:
             object.QIN[27][i] = 0
         if EN > 3 * object.EIN[27]:
@@ -1011,11 +1011,11 @@ cdef void Gas1(Gas* object):
         object.QIN[28][i] = 0.0
         object.PEQIN[28][i] = 0.0
         if EN > object.EIN[28]:
-            object.QIN[28][i] = 0.05580 / (object.EIN[28] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[28][i] = <float>(0.05580) / (object.EIN[28] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[28])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[28] + object.E[2]) * 1.0081
+                                        EN + object.EIN[28] + object.E[2]) * <float>(1.0081)
         if object.QIN[28][i] < 0.0:
             object.QIN[28][i] = 0
         if EN > 3 * object.EIN[28]:
@@ -1025,11 +1025,11 @@ cdef void Gas1(Gas* object):
         object.QIN[29][i] = 0.0
         object.PEQIN[29][i] = 0.0
         if EN > object.EIN[29]:
-            object.QIN[29][i] = 0.10187 / (object.EIN[29] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[29][i] = <float>(0.10187) / (object.EIN[29] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[29])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[29] + object.E[2]) * 1.0080
+                                        EN + object.EIN[29] + object.E[2]) * <float>(1.0080)
         if object.QIN[29][i] < 0.0:
             object.QIN[29][i] = 0
         if EN > 3 * object.EIN[29]:
@@ -1039,11 +1039,11 @@ cdef void Gas1(Gas* object):
         object.QIN[30][i] = 0.0
         object.PEQIN[30][i] = 0.0
         if EN > object.EIN[30]:
-            object.QIN[30][i] = 0.09427 / (object.EIN[30] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[30][i] = <float>(0.09427) / (object.EIN[30] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[30])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[30] + object.E[2]) * 1.0079
+                                        EN + object.EIN[30] + object.E[2]) * <float>(1.0079)
         if object.QIN[30][i] < 0.0:
             object.QIN[30][i] = 0
         if EN > 3 * object.EIN[30]:
@@ -1053,11 +1053,11 @@ cdef void Gas1(Gas* object):
         object.QIN[31][i] = 0.0
         object.PEQIN[31][i] = 0.0
         if EN > object.EIN[31]:
-            object.QIN[31][i] = 0.05853 / (object.EIN[31] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[31][i] = <float>(0.05853) / (object.EIN[31] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[31])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[31] + object.E[2]) * 1.0077
+                                        EN + object.EIN[31] + object.E[2]) * <float>(1.0077)
         if object.QIN[31][i] < 0.0:
             object.QIN[31][i] = 0
         if EN > 3 * object.EIN[31]:
@@ -1067,11 +1067,11 @@ cdef void Gas1(Gas* object):
         object.QIN[32][i] = 0.0
         object.PEQIN[32][i] = 0.0
         if EN > object.EIN[32]:
-            object.QIN[32][i] = 0.06002 / (object.EIN[32] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[32][i] = <float>(0.06002) / (object.EIN[32] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[32])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[32] + object.E[2]) * 1.0076
+                                        EN + object.EIN[32] + object.E[2]) * <float>(1.0076)
         if object.QIN[32][i] < 0.0:
             object.QIN[32][i] = 0
         if EN > 3 * object.EIN[32]:
@@ -1081,11 +1081,11 @@ cdef void Gas1(Gas* object):
         object.QIN[33][i] = 0.0
         object.PEQIN[33][i] = 0.0
         if EN > object.EIN[33]:
-            object.QIN[33][i] = 0.05647 / (object.EIN[33] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[33][i] = <float>(0.05647) / (object.EIN[33] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[33])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[33] + object.E[2]) * 1.0075
+                                        EN + object.EIN[33] + object.E[2]) * <float>(1.0075)
         if object.QIN[33][i] < 0.0:
             object.QIN[33][i] = 0
         if EN > 3 * object.EIN[33]:
@@ -1095,11 +1095,11 @@ cdef void Gas1(Gas* object):
         object.QIN[34][i] = 0.0
         object.PEQIN[34][i] = 0.0
         if EN > object.EIN[34]:
-            object.QIN[34][i] = 0.04885 / (object.EIN[34] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[34][i] = <float>(0.04885) / (object.EIN[34] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[34])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[34] + object.E[2]) * 1.0074
+                                        EN + object.EIN[34] + object.E[2]) * <float>(1.0074)
         if object.QIN[34][i] < 0.0:
             object.QIN[34][i] = 0
         if EN > 3 * object.EIN[34]:
@@ -1109,11 +1109,11 @@ cdef void Gas1(Gas* object):
         object.QIN[35][i] = 0.0
         object.PEQIN[35][i] = 0.0
         if EN > object.EIN[35]:
-            object.QIN[35][i] = 0.04036 / (object.EIN[35] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[35][i] = <float>(0.04036) / (object.EIN[35] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[35])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[35] + object.E[2]) * 1.0073
+                                        EN + object.EIN[35] + object.E[2]) * <float>(1.0073)
         if object.QIN[35][i] < 0.0:
             object.QIN[35][i] = 0
         if EN > 3 * object.EIN[35]:
@@ -1123,11 +1123,11 @@ cdef void Gas1(Gas* object):
         object.QIN[36][i] = 0.0
         object.PEQIN[36][i] = 0.0
         if EN > object.EIN[36]:
-            object.QIN[36][i] = 0.03298 / (object.EIN[36] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[36][i] = <float>(0.03298) / (object.EIN[36] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[36])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[36] + object.E[2]) * 1.0072
+                                        EN + object.EIN[36] + object.E[2]) * <float>(1.0072)
         if object.QIN[36][i] < 0.0:
             object.QIN[36][i] = 0
         if EN > 3 * object.EIN[36]:
@@ -1137,11 +1137,11 @@ cdef void Gas1(Gas* object):
         object.QIN[37][i] = 0.0
         object.PEQIN[37][i] = 0.0
         if EN > object.EIN[37]:
-            object.QIN[37][i] = 0.02593 / (object.EIN[37] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[37][i] = <float>(0.02593) / (object.EIN[37] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[37])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[37] + object.E[2]) * 1.0071
+                                        EN + object.EIN[37] + object.E[2]) * <float>(1.0071)
         if object.QIN[37][i] < 0.0:
             object.QIN[37][i] = 0
         if EN > 3 * object.EIN[37]:
@@ -1151,11 +1151,11 @@ cdef void Gas1(Gas* object):
         object.QIN[38][i] = 0.0
         object.PEQIN[38][i] = 0.0
         if EN > object.EIN[38]:
-            object.QIN[38][i] = 0.01802 / (object.EIN[38] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[38][i] = <float>(0.01802) / (object.EIN[38] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[38])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[38] + object.E[2]) * 1.0070
+                                        EN + object.EIN[38] + object.E[2]) * <float>(1.0070)
         if object.QIN[38][i] < 0.0:
             object.QIN[38][i] = 0
         if EN > 3 * object.EIN[38]:
@@ -1165,11 +1165,11 @@ cdef void Gas1(Gas* object):
         object.QIN[39][i] = 0.0
         object.PEQIN[39][i] = 0.0
         if EN > object.EIN[39]:
-            object.QIN[39][i] = 0.01287 / (object.EIN[39] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[39][i] = <float>(0.01287) / (object.EIN[39] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[39])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[39] + object.E[2]) * 1.0069
+                                        EN + object.EIN[39] + object.E[2]) * <float>(1.0069)
         if object.QIN[39][i] < 0.0:
             object.QIN[39][i] = 0
         if EN > 3 * object.EIN[39]:
@@ -1179,11 +1179,11 @@ cdef void Gas1(Gas* object):
         object.QIN[40][i] = 0.0
         object.PEQIN[40][i] = 0.0
         if EN > object.EIN[40]:
-            object.QIN[40][i] = 0.00830 / (object.EIN[40] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[40][i] = <float>(0.00830) / (object.EIN[40] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[40])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[40] + object.E[2]) * 1.0068
+                                        EN + object.EIN[40] + object.E[2]) * <float>(1.0068)
         if object.QIN[40][i] < 0.0:
             object.QIN[40][i] = 0
         if EN > 3 * object.EIN[40]:
@@ -1193,11 +1193,11 @@ cdef void Gas1(Gas* object):
         object.QIN[41][i] = 0.0
         object.PEQIN[41][i] = 0.0
         if EN > object.EIN[41]:
-            object.QIN[41][i] = 0.00698 / (object.EIN[41] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[41][i] = <float>(0.00698) / (object.EIN[41] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[41])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[41] + object.E[2]) * 1.0067
+                                        EN + object.EIN[41] + object.E[2]) * <float>(1.0067)
         if object.QIN[41][i] < 0.0:
             object.QIN[41][i] = 0
         if EN > 3 * object.EIN[41]:
@@ -1207,11 +1207,11 @@ cdef void Gas1(Gas* object):
         object.QIN[42][i] = 0.0
         object.PEQIN[42][i] = 0.0
         if EN > object.EIN[42]:
-            object.QIN[42][i] = 0.00581 / (object.EIN[42] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[42][i] = <float>(0.00581) / (object.EIN[42] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[42])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[42] + object.E[2]) * 1.0066
+                                        EN + object.EIN[42] + object.E[2]) * <float>(1.0066)
         if object.QIN[42][i] < 0.0:
             object.QIN[42][i] = 0
         if EN > 3 * object.EIN[42]:
@@ -1221,11 +1221,11 @@ cdef void Gas1(Gas* object):
         object.QIN[43][i] = 0.0
         object.PEQIN[43][i] = 0.0
         if EN > object.EIN[43]:
-            object.QIN[43][i] = 0.00502 / (object.EIN[43] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[43][i] = <float>(0.00502) / (object.EIN[43] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[43])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[43] + object.E[2]) * 1.0065
+                                        EN + object.EIN[43] + object.E[2]) * <float>(1.0065)
         if object.QIN[43][i] < 0.0:
             object.QIN[43][i] = 0
         if EN > 3 * object.EIN[43]:
@@ -1235,11 +1235,11 @@ cdef void Gas1(Gas* object):
         object.QIN[44][i] = 0.0
         object.PEQIN[44][i] = 0.0
         if EN > object.EIN[44]:
-            object.QIN[44][i] = 0.00398 / (object.EIN[44] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[44][i] = <float>(0.00398) / (object.EIN[44] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[44])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[44] + object.E[2]) * 1.0064
+                                        EN + object.EIN[44] + object.E[2]) * <float>(1.0064)
         if object.QIN[44][i] < 0.0:
             object.QIN[44][i] = 0
         if EN > 3 * object.EIN[44]:
@@ -1250,11 +1250,11 @@ cdef void Gas1(Gas* object):
         object.PEQIN[45][i] = 0.0
         if EN > object.EIN[45]:
             # magboltz code is 0.00198 while the pattern should go to 0.00189
-            object.QIN[45][i] = 0.00198 / (object.EIN[45] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
+            object.QIN[45][i] = <float>(0.00198) / (object.EIN[45] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *
                                                                                               object.EIN[45])) - BETA2 -
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
-                                        EN + object.EIN[45] + object.E[2]) * 1.0064
+                                        EN + object.EIN[45] + object.E[2]) * <float>(1.0064)
         if object.QIN[45][i] < 0.0:
             object.QIN[45][i] = 0
         if EN > 3 * object.EIN[45]:

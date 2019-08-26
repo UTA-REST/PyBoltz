@@ -9,925 +9,2299 @@ gd = {'data': 'file'}
 
 gd['gas1/Sym'] = "CF4"
 
-XENG1 = np.array(
-    [0.0, .001, .002, .003, .004, .005, .006, .007, .008, .009, 0.01, .012, .014, .016, .018, 0.02, .025, 0.03, .035,
-     0.04, .045, 0.05, .055, 0.06, .065, 0.07, .075, 0.08, .085, 0.09, 0.10, 0.12, 0.14, 0.17, 0.20, 0.24, 0.30, 0.40,
-     0.50, 0.60, 0.80, 1.00, 1.20, 1.40, 1.70, 2.00, 3.00, 5.00, 6.00, 7.00, 8.00, 9.00, 10.0, 12.0, 15.0, 20.0, 25.0,
-     30.0, 40.0, 50.0, 60.0, 80.0, 100., 125., 150., 200., 250., 300., 400., 500., 600., 700., 800., 1000., 1250.,
-     1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000., 6000., 7000., 8000., 9000., 10000., 1.25e4, 1.50e4, 1.75e4,
-     2.0e4, 2.5e4, 3.0e4, 3.5e4, 4.0e4, 4.5e4, 5.0e4, 6.0e4, 7.0e4, 8.0e4, 9.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5,
-     2.5e5, 3.0e5, 3.5e5, 4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6, 1.5e6, 1.75e6, 2.0e6, 2.5e6,
-     3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6, 7.0e6, 8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7,
-     3.5e7, 4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8, 1.5e8, 1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8,
-     4.0e8, 4.5e8, 5.0e8, 6.0e8, 7.0e8, 8.0e8, 9.0e8, 1.0e9], dtype='d')
-gd['gas1/XEN'] = XENG1
-
+XENG1 = [np.float32(0.0), np.float32(.001), np.float32(.002), np.float32(.003), np.float32(.004), np.float32(.005),
+         np.float32(.006), np.float32(.007), np.float32(.008), np.float32(.009),
+         np.float32(0.01), np.float32(.012), np.float32(.014), np.float32(.016), np.float32(.018), np.float32(0.02),
+         np.float32(.025), np.float32(0.03), np.float32(.035), np.float32(0.04),
+         np.float32(.045), np.float32(0.05), np.float32(.055), np.float32(0.06), np.float32(.065), np.float32(0.07),
+         np.float32(.075), np.float32(0.08), np.float32(.085), np.float32(0.09),
+         np.float32(0.10), np.float32(0.12), np.float32(0.14), np.float32(0.17), np.float32(0.20), np.float32(0.24),
+         np.float32(0.30), np.float32(0.40), np.float32(0.50), np.float32(0.60),
+         np.float32(0.80), np.float32(1.00), np.float32(1.20), np.float32(1.40), np.float32(1.70), np.float32(2.00),
+         np.float32(3.00), np.float32(5.00), np.float32(6.00), np.float32(7.00),
+         np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(12.0), np.float32(15.0), np.float32(20.0),
+         np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0),
+         np.float32(60.0), np.float32(80.0), np.float32(100.), np.float32(125.), np.float32(150.), np.float32(200.),
+         np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+         np.float32(600.), np.float32(700.), np.float32(800.), np.float32(1000.), np.float32(1250.), np.float32(1500.),
+         np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+         np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(7000.),
+         np.float32(8000.), np.float32(9000.), np.float32(10000.), 1.25e4, 1.50e4,
+         1.75e4, 2.0e4, 2.5e4, 3.0e4, 3.5e4, 4.0e4, 4.5e4, 5.0e4, 6.0e4, 7.0e4,
+         8.0e4, 9.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5, 3.5e5,
+         4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6, 1.5e6,
+         1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6, 7.0e6,
+         8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7, 3.5e7,
+         4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8, 1.5e8,
+         1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8, 7.0e8,
+         8.0e8, 9.0e8, 1.0e9,
+         ]
 # ELASTIC MOMENTUM TRANSFER X-SECTION
-YELMG1 = np.array(
-    [12.5, 8.70, 7.00, 5.95, 5.20, 4.70, 4.30, 3.95, 3.65, 3.40, 3.20, 2.85, 2.58, 2.37, 2.19, 2.04, 1.77, 1.57, 1.41,
-     1.30, 1.20, 1.12, 1.05, 0.99, 0.93, 0.88, 0.84, 0.80, 0.76, 0.72, 0.65, 0.48, 0.35, 0.29, 0.29, 0.34, 0.47, 0.87,
-     1.35, 1.85, 2.95, 4.00, 4.75, 5.15, 5.45, 5.65, 5.80, 6.00, 6.10, 6.30, 6.50, 6.80, 7.20, 8.30, 9.50, 10.1, 9.60,
-     8.80, 7.85, 6.72, 5.90, 5.06, 4.16, 3.57, 2.99, 1.92, 1.53, 1.20, 0.88, 0.66, .525, 0.43, 0.37, 0.30, .228, .169,
-     .131, .104, .0711, .0519, .0397, .0314, .0212, .0153, .0117, .00918, .00743, .00615, .00412, .00297, 2.25e-3,
-     1.77e-3, 1.18e-3, 8.51e-4, 6.45e-4, 5.08e-4, 4.12e-4, 3.41e-4, 2.47e-4, 1.88e-4, 1.49e-4, 1.21e-4, 1.01e-4,
-     6.88e-5, 5.05e-5, 3.90e-5, 3.13e-5, 2.17e-5, 1.62e-5, 1.27e-5, 1.03e-5, 8.56e-6, 7.27e-6, 5.49e-6, 4.34e-6,
-     3.54e-6, 2.96e-6, 2.52e-6, 1.81e-6, 1.36e-6, 1.07e-6, 8.68e-7, 6.08e-7, 4.53e-7, 3.51e-7, 2.82e-7, 2.31e-7,
-     1.93e-7, 1.42e-7, 1.08e-7, 8.59e-8, 6.98e-8, 5.79e-8, 3.89e-8, 2.80e-8, 2.12e-8, 1.66e-8, 1.10e-8, 7.86e-9,
-     5.90e-9, 4.59e-9, 3.68e-9, 3.01e-9, 2.13e-9, 1.58e-9, 1.22e-9, 9.75e-10, 7.92e-10, 5.10e-10, 3.56e-10, 2.62e-10,
-     2.01e-10, 1.29e-10, 8.95e-11, 6.58e-11, 5.04e-11, 3.98e-11, 3.23e-11, 2.24e-11, 1.65e-11, 1.26e-11, 9.96e-12,
-     8.07e-12], dtype='d')
-gd['gas1/YELM'] = YELMG1
 
+YELMG1 = [np.float32(12.5), np.float32(8.70), np.float32(7.00), np.float32(5.95), np.float32(5.20), np.float32(4.70),
+          np.float32(4.30), np.float32(3.95), np.float32(3.65), np.float32(3.40),
+          np.float32(3.20), np.float32(2.85), np.float32(2.58), np.float32(2.37), np.float32(2.19), np.float32(2.04),
+          np.float32(1.77), np.float32(1.57), np.float32(1.41), np.float32(1.30),
+          np.float32(1.20), np.float32(1.12), np.float32(1.05), np.float32(0.99), np.float32(0.93), np.float32(0.88),
+          np.float32(0.84), np.float32(0.80), np.float32(0.76), np.float32(0.72),
+          np.float32(0.65), np.float32(0.48), np.float32(0.35), np.float32(0.29), np.float32(0.29), np.float32(0.34),
+          np.float32(0.47), np.float32(0.87), np.float32(1.35), np.float32(1.85),
+          np.float32(2.95), np.float32(4.00), np.float32(4.75), np.float32(5.15), np.float32(5.45), np.float32(5.65),
+          np.float32(5.80), np.float32(6.00), np.float32(6.10), np.float32(6.30),
+          np.float32(6.50), np.float32(6.80), np.float32(7.20), np.float32(8.30), np.float32(9.50), np.float32(10.1),
+          np.float32(9.60), np.float32(8.80), np.float32(7.85), np.float32(6.72),
+          np.float32(5.90), np.float32(5.06), np.float32(4.16), np.float32(3.57), np.float32(2.99), np.float32(1.92),
+          np.float32(1.53), np.float32(1.20), np.float32(0.88), np.float32(0.66),
+          np.float32(.525), np.float32(0.43), np.float32(0.37), np.float32(0.30), np.float32(.228), np.float32(.169),
+          np.float32(.131), np.float32(.104), np.float32(.0711), np.float32(.0519),
+          np.float32(.0397), np.float32(.0314), np.float32(.0212), np.float32(.0153), np.float32(.0117),
+          np.float32(.00918), np.float32(.00743), np.float32(.00615), np.float32(.00412), np.float32(.00297),
+          2.25e-3, 1.77e-3, 1.18e-3, 8.51e-4, 6.45e-4, 5.08e-4, 4.12e-4, 3.41e-4,
+          2.47e-4, 1.88e-4,
+          1.49e-4, 1.21e-4, 1.01e-4, 6.88e-5, 5.05e-5, 3.90e-5, 3.13e-5, 2.17e-5,
+          1.62e-5, 1.27e-5,
+          1.03e-5, 8.56e-6, 7.27e-6, 5.49e-6, 4.34e-6, 3.54e-6, 2.96e-6, 2.52e-6,
+          1.81e-6, 1.36e-6,
+          1.07e-6, 8.68e-7, 6.08e-7, 4.53e-7, 3.51e-7, 2.82e-7, 2.31e-7, 1.93e-7,
+          1.42e-7, 1.08e-7,
+          8.59e-8, 6.98e-8, 5.79e-8, 3.89e-8, 2.80e-8, 2.12e-8, 1.66e-8, 1.10e-8,
+          7.86e-9, 5.90e-9,
+          4.59e-9, 3.68e-9, 3.01e-9, 2.13e-9, 1.58e-9, 1.22e-9, 9.75e-10, 7.92e-10,
+          5.10e-10, 3.56e-10,
+          2.62e-10, 2.01e-10, 1.29e-10, 8.95e-11, 6.58e-11, 5.04e-11, 3.98e-11,
+          3.23e-11, 2.24e-11, 1.65e-11,
+          1.26e-11, 9.96e-12, 8.07e-12,
+          ]
 # ELASTIC X-SECTION ASSUMED ISOTROPIC BELOW 0.6 EV
-YELTG1 = np.array(
-    [12.5, 8.70, 7.00, 5.95, 5.20, 4.70, 4.30, 3.95, 3.65, 3.40, 3.20, 2.85, 2.58, 2.37, 2.19, 2.04, 1.77, 1.57, 1.41,
-     1.30, 1.20, 1.12, 1.05, 0.99, 0.93, 0.88, 0.84, 0.80, 0.76, 0.72, 0.65, 0.48, 0.35, 0.29, 0.29, 0.34, 0.47, 0.87,
-     1.35, 1.85, 3.77, 4.89, 5.66, 6.43, 7.43, 8.34, 10.6, 12.5, 11.6, 11.0, 11.0, 11.7, 12.9, 14.5, 16.8, 17.6, 18.1,
-     17.2, 15.9, 14.9, 14.3, 13.0, 11.7, 10.5, 9.65, 8.10, 6.83, 6.02, 5.02, 4.36, 3.83, 3.40, 3.08, 2.65, 2.17, 1.89,
-     1.55, 1.40, 1.19, 1.11, .921, .822, .696, .568, .492, .435, .390, .353, .286, .241, .209, .185, .150, .127, .111,
-     .0984, .0888, .0810, .0694, .0611, .0522, .050, .0461, .0391, .0344, .0311, .0287, .0253, .0230, .0214, .0202,
-     .0193, .0186, .0176, .0169, .0164, .0160, .0157, .0152, .0148, .0146, .0145, .0143, .0142, .0141, .0141, .0140,
-     .0140, .0140, .0139, .0139, .0139, .0139, .0139, .01389, .01389, .01389], dtype='d')
-for i in range(0, 26):
-    YELTG1 = np.append(YELTG1, 0.01388)
-gd['gas1/YELT'] = YELTG1
 
+YELTG1 = [np.float32(12.5), np.float32(8.70), np.float32(7.00), np.float32(5.95), np.float32(5.20), np.float32(4.70),
+          np.float32(4.30), np.float32(3.95), np.float32(3.65), np.float32(3.40),
+          np.float32(3.20), np.float32(2.85), np.float32(2.58), np.float32(2.37), np.float32(2.19), np.float32(2.04),
+          np.float32(1.77), np.float32(1.57), np.float32(1.41), np.float32(1.30),
+          np.float32(1.20), np.float32(1.12), np.float32(1.05), np.float32(0.99), np.float32(0.93), np.float32(0.88),
+          np.float32(0.84), np.float32(0.80), np.float32(0.76), np.float32(0.72),
+          np.float32(0.65), np.float32(0.48), np.float32(0.35), np.float32(0.29), np.float32(0.29), np.float32(0.34),
+          np.float32(0.47), np.float32(0.87), np.float32(1.35), np.float32(1.85),
+          np.float32(3.77), np.float32(4.89), np.float32(5.66), np.float32(6.43), np.float32(7.43), np.float32(8.34),
+          np.float32(10.6), np.float32(12.5), np.float32(11.6), np.float32(11.0),
+          np.float32(11.0), np.float32(11.7), np.float32(12.9), np.float32(14.5), np.float32(16.8), np.float32(17.6),
+          np.float32(18.1), np.float32(17.2), np.float32(15.9), np.float32(14.9),
+          np.float32(14.3), np.float32(13.0), np.float32(11.7), np.float32(10.5), np.float32(9.65), np.float32(8.10),
+          np.float32(6.83), np.float32(6.02), np.float32(5.02), np.float32(4.36),
+          np.float32(3.83), np.float32(3.40), np.float32(3.08), np.float32(2.65), np.float32(2.17), np.float32(1.89),
+          np.float32(1.55), np.float32(1.40), np.float32(1.19), np.float32(1.11),
+          np.float32(.921), np.float32(.822), np.float32(.696), np.float32(.568), np.float32(.492), np.float32(.435),
+          np.float32(.390), np.float32(.353), np.float32(.286), np.float32(.241),
+          np.float32(.209), np.float32(.185), np.float32(.150), np.float32(.127), np.float32(.111), np.float32(.0984),
+          np.float32(.0888), np.float32(.0810), np.float32(.0694), np.float32(.0611),
+          np.float32(.0522), np.float32(.050), np.float32(.0461), np.float32(.0391), np.float32(.0344),
+          np.float32(.0311), np.float32(.0287), np.float32(.0253), np.float32(.0230), np.float32(.0214),
+          np.float32(.0202), np.float32(.0193), np.float32(.0186), np.float32(.0176), np.float32(.0169),
+          np.float32(.0164), np.float32(.0160), np.float32(.0157), np.float32(.0152), np.float32(.0148),
+          np.float32(.0146), np.float32(.0145), np.float32(.0143), np.float32(.0142), np.float32(.0141),
+          np.float32(.0141), np.float32(.0140), np.float32(.0140), np.float32(.0140), np.float32(.0139),
+          np.float32(.0139), np.float32(.0139), np.float32(.0139), np.float32(.0139), np.float32(.01389),
+          np.float32(.01389), np.float32(.01389), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          ]
 # EPSILON FOR ELASTIC ANGULAR DISTRIBUTION
+
 # EPSILON =1-YEPS
-YEPSG1 = np.array([1.0], dtype='d')
-for i in range(0, 39):
-    YEPSG1 = np.append(YEPSG1, 1.0)
-YEPSG1 = np.append(YEPSG1,
-                   np.array(
-                       [.68056, .73101, .76161, .70664, .61270, .53797, .37888, .30604, .35505, .40830, .42979, .41826,
-                        .39140, .40794,
-                        .39986, .40963, .36006, .33951, .32037, .27671, .23985, .21859, .18948, .17666, .15292, .10180,
-                        .09358, .07880,
-                        .06538, .05301, .04608, .04117, .03833, .03532, .03188, .02561, .02374, .019986, .015005,
-                        .010925, .009845,
-                        .008442, .006348, .005446, .004667, .004028, .003554, .003186, .002530, .002096, .001783,
-                        .001549, .001228,
-                        .001016, .000859, .000749, .000661, .000590, .000486, .000411, 3.53e-4, 3.12e-4, 2.78e-4,
-                        2.17e-4, 1.76e-4,
-                        1.47e-4, 1.26e-4, 9.61e-5, 7.68e-5, 6.32e-5, 5.32e-5, 4.56e-5, 3.97e-5, 3.10e-5, 2.30e-5,
-                        2.07e-5, 1.74e-5,
-                        1.49e-5, 1.07e-5, 8.04e-6, 6.28e-6, 5.05e-6, 3.47e-6, 2.54e-6, 1.94e-6, 1.53e-6, 1.24e-6,
-                        1.02e-6, 7.33e-7,
-                        5.51e-7, 4.30e-7, 3.44e-7, 2.82e-7, 1.84e-7, 1.30e-7, 9.62e-8, 7.42e-8, 4.80e-8, 3.35e-8,
-                        2.47e-8, 1.89e-8,
-                        1.50e-8, 1.21e-8, 8.388e-9, 6.133e-9, 4.669e-9, 3.666e-9, 2.950e-9, 1.858e-9, 1.271e-9,
-                        9.21e-10, 6.97e-10,
-                        4.37e-10, 2.98e-10, 2.16e-10, 1.63e-10, 1.28e-10, 1.02e-10, 7.00e-11, 5.10e-11, 3.80e-11,
-                        3.00e-11, 2.40e-11], dtype='d'))
-gd['gas1/YEPS'] = YEPSG1
 
-# VIBRATION V4 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
-XVBV4G1 = np.array([0.0783, 4.00, 5.00, 6.00, 7.00, 8.00, 9.00, 10.0, 15.0, 20.0, 50.0], dtype='d')
-YVBV4G1 = np.array([0.0, 0.0, 0.05, 0.35, 1.06, 1.40, 1.26, 0.97, 0.07, .022, 1.e-3], dtype='d')
-gd['gas1/XVBV4'] = XVBV4G1
-gd['gas1/YVBV4'] = YVBV4G1
+YEPSG1 = [np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(.68056), np.float32(.73101), np.float32(.76161), np.float32(.70664), np.float32(.61270),
+          np.float32(.53797), np.float32(.37888), np.float32(.30604), np.float32(.35505),
+          np.float32(.40830),
+          np.float32(.42979), np.float32(.41826), np.float32(.39140), np.float32(.40794), np.float32(.39986),
+          np.float32(.40963), np.float32(.36006), np.float32(.33951), np.float32(.32037),
+          np.float32(.27671),
+          np.float32(.23985), np.float32(.21859), np.float32(.18948), np.float32(.17666), np.float32(.15292),
+          np.float32(.10180), np.float32(.09358), np.float32(.07880), np.float32(.06538),
+          np.float32(.05301),
+          np.float32(.04608), np.float32(.04117), np.float32(.03833), np.float32(.03532), np.float32(.03188),
+          np.float32(.02561), np.float32(.02374), np.float32(.019986), np.float32(.015005),
+          np.float32(.010925),
+          np.float32(.009845), np.float32(.008442), np.float32(.006348), np.float32(.005446), np.float32(.004667),
+          np.float32(.004028), np.float32(.003554), np.float32(.003186),
+          np.float32(.002530), np.float32(.002096),
+          np.float32(.001783), np.float32(.001549), np.float32(.001228), np.float32(.001016), np.float32(.000859),
+          np.float32(.000749), np.float32(.000661), np.float32(.000590),
+          np.float32(.000486), np.float32(.000411),
+          3.53e-4, 3.12e-4, 2.78e-4, 2.17e-4, 1.76e-4, 1.47e-4, 1.26e-4, 9.61e-5,
+          7.68e-5, 6.32e-5,
+          5.32e-5, 4.56e-5, 3.97e-5, 3.10e-5, 2.30e-5, 2.07e-5, 1.74e-5, 1.49e-5,
+          1.07e-5, 8.04e-6,
+          6.28e-6, 5.05e-6, 3.47e-6, 2.54e-6, 1.94e-6, 1.53e-6, 1.24e-6, 1.02e-6,
+          7.33e-7, 5.51e-7,
+          4.30e-7, 3.44e-7, 2.82e-7, 1.84e-7, 1.30e-7, 9.62e-8, 7.42e-8, 4.80e-8,
+          3.35e-8, 2.47e-8,
+          1.89e-8, 1.50e-8, 1.21e-8, 8.388e-9, 6.133e-9, 4.669e-9, 3.666e-9,
+          2.950e-9, 1.858e-9, 1.271e-9,
+          9.21e-10, 6.97e-10, 4.37e-10, 2.98e-10, 2.16e-10, 1.63e-10, 1.28e-10,
+          1.02e-10, 7.00e-11, 5.10e-11,
+          3.80e-11, 3.00e-11, 2.40e-11,
+          ]
+#  VIBRATION V4 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
 
-# VIBRATION V1 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
-XVBV1G1 = np.array([0.1126, 4.00, 5.00, 6.00, 7.00, 8.00, 9.00, 10.0, 15.0, 20.0, 50.0], dtype='d')
-YVBV1G1 = np.array([0.0, 0.0, .016, .118, 0.36, 0.47, 0.42, 0.33, .023, .007, 3.e-4], dtype='d')
-gd['gas1/XVBV1'] = XVBV1G1
-gd['gas1/YVBV1'] = YVBV1G1
+XVBV4G1 = [np.float32(0.0783), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(8.00),
+           np.float32(9.00), np.float32(10.0), np.float32(15.0), np.float32(20.0),
+           np.float32(50.0),
+           ]
+YVBV4G1 = [np.float32(0.0), np.float32(0.0), np.float32(0.05), np.float32(0.35), np.float32(1.06), np.float32(1.40),
+           np.float32(1.26), np.float32(0.97), np.float32(0.07), np.float32(.022),
+           1.e-3,
+           ]
+#  VIBRATION V1 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
 
-# VIBRATION V3 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
-XVBV3G1 = np.array([0.1588, 4.00, 5.00, 6.00, 7.00, 8.00, 9.00, 10.0, 15.0, 20.0, 50.0], dtype='d')
-YVBV3G1 = np.array([0.0, 0.0, 0.15, 1.05, 3.19, 4.20, 3.78, 2.90, 0.20, .067, 3.e-3], dtype='d')
-gd['gas1/XVBV3'] = XVBV3G1
-gd['gas1/YVBV3'] = YVBV3G1
+XVBV1G1 = [np.float32(0.1126), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(8.00),
+           np.float32(9.00), np.float32(10.0), np.float32(15.0), np.float32(20.0),
+           np.float32(50.0),
+           ]
+YVBV1G1 = [np.float32(0.0), np.float32(0.0), np.float32(.016), np.float32(.118), np.float32(0.36), np.float32(0.47),
+           np.float32(0.42), np.float32(0.33), np.float32(.023), np.float32(.007),
+           3.e-4,
+           ]
+#  VIBRATION V3 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
 
-# VIBRATION HARMONIC 2(V3) SCALED BY 1/E ABOVE 50EV
-XVIB5G1 = np.array([0.3176, 1.00, 4.00, 5.00, 6.00, 7.00, 8.00, 9.00, 10.0, 15.0, 20.0, 50.0], dtype='d')
-YVIB5G1 = np.array([0.0, .001, 0.01, .031, 0.23, 0.67, 0.87, 0.79, 0.60, .042, .014, .0006], dtype='d')
-gd['gas1/XVIB5'] = XVIB5G1
-gd['gas1/YVIB5'] = YVIB5G1
+XVBV3G1 = [np.float32(0.1588), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(8.00),
+           np.float32(9.00), np.float32(10.0), np.float32(15.0), np.float32(20.0),
+           np.float32(50.0),
+           ]
+YVBV3G1 = [np.float32(0.0), np.float32(0.0), np.float32(0.15), np.float32(1.05), np.float32(3.19), np.float32(4.20),
+           np.float32(3.78), np.float32(2.90), np.float32(0.20), np.float32(.067),
+           3.e-3,
+           ]
+#  VIBRATION HARMONIC 2(V3) SCALED BY 1/E ABOVE 50EV
 
+XVIB5G1 = [np.float32(0.3176), np.float32(1.00), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00),
+           np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(15.0),
+           np.float32(20.0), np.float32(50.0),
+           ]
+YVIB5G1 = [np.float32(0.0), np.float32(.001), np.float32(0.01), np.float32(.031), np.float32(0.23), np.float32(0.67),
+           np.float32(0.87), np.float32(0.79), np.float32(0.60), np.float32(.042),
+           np.float32(.014), np.float32(.0006),
+           ]
 # VIBRATION HARMONIC (3(V3) + ALL OTHER HARMONICS)
-# SCALED BY 1/E ABOVE 50 EV
-XVIB6G1 = np.array([0.4764, 1.00, 4.00, 5.00, 6.00, 7.00, 8.00, 9.00, 10.0, 15.0, 20.0, 50.0], dtype='d')
-YVIB6G1 = np.array([0.0, .0009, .045, .117, .774, 2.32, 3.06, 2.75, 2.12, .138, .037, .0018], dtype='d')
-gd['gas1/XVIB6'] = XVIB6G1
-gd['gas1/YVIB6'] = YVIB6G1
 
-# DISSOCATIVE IONISATION :
-# WEIGHTED AVERAGE OF SIEGLAFF AND NISHIMURA FOR SINGLE IONISATION AND
-# DOUBLE IONISATION.
-# FOR DOUBLE IONISATION WITH BREAKUP :  BRUCE ET AL CPL 190(1992)285
-# NB.  (USED NISHIMURA ONLY BELOW 30EV)
+#  SCALED BY 1/E ABOVE 50 EV
+
+XVIB6G1 = [np.float32(0.4764), np.float32(1.00), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00),
+           np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(15.0),
+           np.float32(20.0), np.float32(50.0),
+           ]
+YVIB6G1 = [np.float32(0.0), np.float32(.0009), np.float32(.045), np.float32(.117), np.float32(.774), np.float32(2.32),
+           np.float32(3.06), np.float32(2.75), np.float32(2.12), np.float32(.138),
+           np.float32(.037), np.float32(.0018),
+           ]
+#
+
+#  DISSOCATIVE IONISATION :
+
+#  WEIGHTED AVERAGE OF SIEGLAFF AND NISHIMURA FOR SINGLE IONISATION AND
+
+#  DOUBLE IONISATION.
+
+#  FOR DOUBLE IONISATION WITH BREAKUP :  BRUCE ET AL CPL 190(1992)285
+
+#  NB.  (USED NISHIMURA ONLY BELOW 30EV)
+
+#
 
 # CF3 +
-XCF3G1 = np.array(
-    [15.7, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 24.0, 26.0, 28.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0,
-     90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500., 600., 800., 1000., 1250., 1500., 1750., 2000.,
-     2500., 3000.], dtype='d')
-YCF3G1 = np.array(
-    [0.0, .032, .075, .128, .191, .276, .448, .610, .866, 1.08, 1.26, 1.72, 2.05, 2.35, 2.62, 2.94, 3.13, 3.24,
-     3.32, 3.35, 3.38, 3.34, 3.27, 3.17, 3.00, 2.81, 2.54, 2.28, 2.09, 1.77, 1.56, 1.32, 1.15, 1.05, .937, .804,
-     .692], dtype='d')
-gd['gas1/XCF3'] = XCF3G1
-gd['gas1/YCF3'] = YCF3G1
 
+XCF3G1 = [np.float32(15.7), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(19.0), np.float32(20.0),
+          np.float32(22.0), np.float32(24.0), np.float32(26.0), np.float32(28.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YCF3G1 = [np.float32(0.0), np.float32(.032), np.float32(.075), np.float32(.128), np.float32(.191), np.float32(.276),
+          np.float32(.448), np.float32(.610), np.float32(.866), np.float32(1.08),
+          np.float32(1.26), np.float32(1.72), np.float32(2.05), np.float32(2.35), np.float32(2.62), np.float32(2.94),
+          np.float32(3.13), np.float32(3.24), np.float32(3.32), np.float32(3.35),
+          np.float32(3.38), np.float32(3.34), np.float32(3.27), np.float32(3.17), np.float32(3.00), np.float32(2.81),
+          np.float32(2.54), np.float32(2.28), np.float32(2.09), np.float32(1.77),
+          np.float32(1.56), np.float32(1.32), np.float32(1.15), np.float32(1.05), np.float32(.937), np.float32(.804),
+          np.float32(.692),
+          ]
 # CF2+
-XCF2G1 = np.array(
-    [21.47, 24.0, 26.0, 28.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200.,
-     250., 300., 400., 500., 600., 800., 1000., 1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YCF2G1 = np.array(
-    [0.00, .003, .010, .032, .060, .131, .148, .162, .192, .221, .234, .243, .256, .263, .266, .260, .257, .240,
-     .233, .212, .186, .169, .152, .131, .113, .0961, .0834, .0763, .0681, .0585, .0503], dtype='d')
-gd['gas1/XCF2'] = XCF2G1
-gd['gas1/YCF2'] = YCF2G1
 
+XCF2G1 = [np.float32(21.47), np.float32(24.0), np.float32(26.0), np.float32(28.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YCF2G1 = [np.float32(0.00), np.float32(.003), np.float32(.010), np.float32(.032),
+          np.float32(.060), np.float32(.131), np.float32(.148), np.float32(.162), np.float32(.192), np.float32(.221),
+          np.float32(.234), np.float32(.243), np.float32(.256), np.float32(.263),
+          np.float32(.266), np.float32(.260), np.float32(.257), np.float32(.240), np.float32(.233), np.float32(.212),
+          np.float32(.186), np.float32(.169), np.float32(.152), np.float32(.131),
+          np.float32(.113), np.float32(.0961), np.float32(.0834), np.float32(.0763), np.float32(.0681),
+          np.float32(.0585), np.float32(.0503),
+          ]
 # CF+
-XCF1G1 = np.array(
-    [29.14, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400.,
-     500., 600., 800., 1000., 1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YCF1G1 = np.array(
-    [0.00, .0024, .0145, .0583, .107, .156, .185, .226, .239, .238, .266, .274, .259, .261, .234, .227, .186, .146,
-     .122, .113, .0909, .0820, .0695, .0603, .0552, .0493, .0423, .0364], dtype='d')
-gd['gas1/XCF1'] = XCF1G1
-gd['gas1/YCF1'] = YCF1G1
 
-# CF3 2+
-XCF32G1 = np.array(
-    [41.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500., 600., 800.,
-     1000., 1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YCF32G1 = np.array(
-    [0.00, .0053, .0083, .0104, .0135, .0154, .0164, .0187, .0208, .0198, .0208, .0198, .0187, .0167, .0135,
-     .0114, .0101, .0079, .0065, .0055, .0048, .0044, .0039, .0033, .0029], dtype='d')
-gd['gas1/XCF32'] = XCF32G1
-gd['gas1/YCF32'] = YCF32G1
+XCF1G1 = [np.float32(29.14),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YCF1G1 = [np.float32(0.00),
+          np.float32(.0024), np.float32(.0145), np.float32(.0583), np.float32(.107), np.float32(.156), np.float32(.185),
+          np.float32(.226), np.float32(.239), np.float32(.238), np.float32(.266),
+          np.float32(.274), np.float32(.259), np.float32(.261), np.float32(.234), np.float32(.227), np.float32(.186),
+          np.float32(.146), np.float32(.122), np.float32(.113), np.float32(.0909),
+          np.float32(.0820), np.float32(.0695), np.float32(.0603), np.float32(.0552), np.float32(.0493),
+          np.float32(.0423), np.float32(.0364),
+          ]
+# DATA CF3 2+
 
+XCF32G1 = [np.float32(41.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+           np.float32(90.0), np.float32(100.), np.float32(120.), np.float32(140.),
+           np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+           np.float32(600.), np.float32(800.), np.float32(1000.), np.float32(1250.),
+           np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+           ]
+YCF32G1 = [np.float32(0.00), np.float32(.0053), np.float32(.0083), np.float32(.0104), np.float32(.0135),
+           np.float32(.0154), np.float32(.0164), np.float32(.0187), np.float32(.0208),
+           np.float32(.0198),
+           np.float32(.0208), np.float32(.0198), np.float32(.0187), np.float32(.0167), np.float32(.0135),
+           np.float32(.0114), np.float32(.0101), np.float32(.0079), np.float32(.0065), np.float32(.0055),
+           np.float32(.0048), np.float32(.0044), np.float32(.0039), np.float32(.0033), np.float32(.0029),
+           ]
 # C+
-XCF0G1 = np.array(
-    [34.77, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500.,
-     600., 800., 1000., 1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YCF0G1 = np.array(
-    [0.0, .0005, .0093, .0426, .0884, .134, .172, .193, .207, .228, .245, .246, .249, .236, .222, .191, .166, .144,
-     .134, .104, .0895, .0759, .0658, .0602, .0538, .0462, .0397], dtype='d')
-gd['gas1/XCF0'] = XCF0G1
-gd['gas1/YCF0'] = YCF0G1
 
+XCF0G1 = [np.float32(34.77), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YCF0G1 = [np.float32(0.0), np.float32(.0005), np.float32(.0093), np.float32(.0426), np.float32(.0884), np.float32(.134),
+          np.float32(.172), np.float32(.193), np.float32(.207), np.float32(.228),
+          np.float32(.245), np.float32(.246), np.float32(.249), np.float32(.236), np.float32(.222), np.float32(.191),
+          np.float32(.166), np.float32(.144), np.float32(.134), np.float32(.104),
+          np.float32(.0895), np.float32(.0759), np.float32(.0658), np.float32(.0602), np.float32(.0538),
+          np.float32(.0462), np.float32(.0397),
+          ]
 # F+
-XC0FG1 = np.array(
-    [34.5, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500.,
-     600., 800., 1000., 1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YC0FG1 = np.array([
-    0.0, .0019, .0085, .0271, .0561, .1051, .154, .1937, .212, .289, .363, .408, .439, .461, .440, .378, .316, .264,
-    .227, .174, .170, .144, .125, .114, .102, .0874, .0753], dtype='d')
-gd['gas1/XC0F'] = XC0FG1
-gd['gas1/YC0F'] = YC0FG1
 
+XC0FG1 = [np.float32(34.5), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YC0FG1 = [np.float32(0.0), np.float32(.0019), np.float32(.0085), np.float32(.0271), np.float32(.0561),
+          np.float32(.1051), np.float32(.154), np.float32(.1937), np.float32(.212), np.float32(.289),
+          np.float32(.363), np.float32(.408), np.float32(.439), np.float32(.461), np.float32(.440), np.float32(.378),
+          np.float32(.316), np.float32(.264), np.float32(.227), np.float32(.174),
+          np.float32(.170), np.float32(.144), np.float32(.125), np.float32(.114), np.float32(.102), np.float32(.0874),
+          np.float32(.0753),
+          ]
 # CF2 2+
-XCF22G1 = np.array(
-    [42.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500., 600., 800.,
-     1000., 1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YCF22G1 = np.array(
-    [0.0, .0002, .0033, .0095, .0194, .0287, .0348, .0409, .0483, .0521, .0522, .0517, .0467, .0458, .0367, .0303,
-     .0280, .0218, .0164, .0139, .0120, .0110, .0098, .0084, .0073], dtype='d')
-gd['gas1/XCF22'] = XCF22G1
-gd['gas1/YCF22'] = YCF22G1
 
-# ION PAIRS
-# C+ F+
-XCFG1 = np.array(
-    [63.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500., 600., 800., 1000., 1250., 1500.,
-     1750., 2000., 2500., 3000.], dtype='d')
-YCFG1 = np.array(
-    [0.0, .002, .009, .020, .025, .038, .048, .056, .062, .059, .068, .049, .043, .036, .025, .019, .016, .014,
-     .012, .011, .0096, .0082], dtype='d')
-gd['gas1/XCF'] = XCFG1
-gd['gas1/YCF'] = YCFG1
+XCF22G1 = [np.float32(42.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+           np.float32(90.0), np.float32(100.), np.float32(120.), np.float32(140.),
+           np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+           np.float32(600.), np.float32(800.), np.float32(1000.), np.float32(1250.),
+           np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+           ]
+YCF22G1 = [np.float32(0.0), np.float32(.0002), np.float32(.0033), np.float32(.0095), np.float32(.0194),
+           np.float32(.0287), np.float32(.0348), np.float32(.0409), np.float32(.0483),
+           np.float32(.0521),
+           np.float32(.0522), np.float32(.0517), np.float32(.0467), np.float32(.0458), np.float32(.0367),
+           np.float32(.0303), np.float32(.0280), np.float32(.0218), np.float32(.0164), np.float32(.0139),
+           np.float32(.0120), np.float32(.0110), np.float32(.0098), np.float32(.0084), np.float32(.0073),
+           ]
+# ION PAIRS:
 
-# CF+ F+
-XCFFG1 = np.array(
-    [43.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500., 600., 800., 1000.,
-     1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YCFFG1 = np.array(
-    [0.0, .001, .009, .028, .049, .077, .084, .111, .125, .136, .139, .126, .133, .109, .095, .078, .059, .040,
-     .034, .030, .027, .024, .021, .018], dtype='d')
-gd['gas1/XCFF'] = XCFFG1
-gd['gas1/YCFF'] = YCFFG1
+#   (C+ , F+)
 
-# CF2+ F+
-XCF2FG1 = np.array(
-    [40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500., 600., 800.,
-     1000., 1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YCF2FG1 = np.array(
-    [0.0, .001, .004, .013, .024, .034, .043, .046, .053, .054, .057, .056, .049, .050, .042, .036, .030, .023,
-     .015, .013, .011, .0104, .0093, .0080, .0069], dtype='d')
-gd['gas1/XCF2F'] = XCF2FG1
-gd['gas1/YCF2F'] = YCF2FG1
+XCFG1 = [np.float32(63.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(120.),
+         np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.),
+         np.float32(300.), np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.), np.float32(1000.),
+         np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+         np.float32(2500.), np.float32(3000.),
+         ]
+YCFG1 = [np.float32(0.0), np.float32(.002), np.float32(.009), np.float32(.020), np.float32(.025), np.float32(.038),
+         np.float32(.048), np.float32(.056), np.float32(.062), np.float32(.059),
+         np.float32(.068), np.float32(.049), np.float32(.043), np.float32(.036), np.float32(.025), np.float32(.019),
+         np.float32(.016), np.float32(.014), np.float32(.012), np.float32(.011),
+         np.float32(.0096), np.float32(.0082),
+         ]
+#   (CF+ , F+)
 
-# CF3+ F+
-XCF3FG1 = np.array(
-    [36.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 120., 140., 160., 200., 250., 300., 400., 500., 600.,
-     800., 1000., 1250., 1500., 1750., 2000., 2500., 3000.], dtype='d')
-YCF3FG1 = np.array(
-    [0.0, .001, .003, .006, .014, .023, .030, .037, .038, .042, .041, .044, .045, .040, .038, .033, .028, .023,
-     .018, .012, .0105, .0091, .0083, .0074, .0064, .0055], dtype='d')
-gd['gas1/XCF3F'] = XCF3FG1
-gd['gas1/YCF3F'] = YCF3FG1
+XCFFG1 = [np.float32(43.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+          np.float32(100.), np.float32(120.), np.float32(140.), np.float32(160.),
+          np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.), np.float32(600.),
+          np.float32(800.), np.float32(1000.), np.float32(1250.), np.float32(1500.),
+          np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+          ]
+YCFFG1 = [np.float32(0.0), np.float32(.001), np.float32(.009), np.float32(.028), np.float32(.049), np.float32(.077),
+          np.float32(.084), np.float32(.111), np.float32(.125), np.float32(.136),
+          np.float32(.139), np.float32(.126), np.float32(.133), np.float32(.109), np.float32(.095), np.float32(.078),
+          np.float32(.059), np.float32(.040), np.float32(.034), np.float32(.030),
+          np.float32(.027), np.float32(.024), np.float32(.021), np.float32(.018),
+          ]
+#   (CF2 + , F+)
 
+XCF2FG1 = [np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+           np.float32(90.0), np.float32(100.), np.float32(120.), np.float32(140.),
+           np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+           np.float32(600.), np.float32(800.), np.float32(1000.), np.float32(1250.),
+           np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+           ]
+YCF2FG1 = [np.float32(0.0), np.float32(.001), np.float32(.004), np.float32(.013), np.float32(.024), np.float32(.034),
+           np.float32(.043), np.float32(.046), np.float32(.053), np.float32(.054),
+           np.float32(.057), np.float32(.056), np.float32(.049), np.float32(.050), np.float32(.042), np.float32(.036),
+           np.float32(.030), np.float32(.023), np.float32(.015), np.float32(.013),
+           np.float32(.011), np.float32(.0104), np.float32(.0093), np.float32(.0080), np.float32(.0069),
+           ]
+#   (CF3 + , F+)
+
+XCF3FG1 = [np.float32(36.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+           np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(120.),
+           np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.),
+           np.float32(500.), np.float32(600.), np.float32(800.), np.float32(1000.),
+           np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+           np.float32(3000.),
+           ]
+YCF3FG1 = [np.float32(0.0), np.float32(.001), np.float32(.003), np.float32(.006), np.float32(.014), np.float32(.023),
+           np.float32(.030), np.float32(.037), np.float32(.038), np.float32(.042),
+           np.float32(.041), np.float32(.044), np.float32(.045), np.float32(.040), np.float32(.038), np.float32(.033),
+           np.float32(.028), np.float32(.023), np.float32(.018), np.float32(.012),
+           np.float32(.0105), np.float32(.0091), np.float32(.0083), np.float32(.0074), np.float32(.0064),
+           np.float32(.0055),
+           ]
 # CARBON K-SHELL IONISATION X-SECTION
-XKSHCG1 = np.array(
-    [285., 298., 307., 316., 325., 335., 345., 365., 398., 422., 447., 473., 501., 531., 613., 668., 708., 750.,
-     817., 917., 1000., 1122., 1296., 1496., 1679., 1884., 2054., 2238., 2512., 2985., 3981., 5012., 7079., 1.0e4,
-     1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4, 5.01e4, 6.13e4, 7.08e4, 8.18e4, 1.0e5, 1.54e5, 2.05e5, 2.99e5,
-     4.10e5, 5.01e5, 6.13e5, 7.08e5, 8.18e5, 1.0e6, 1.25e6, 1.5e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6, 6.13e6, 7.08e6,
-     8.18e6, 1.0e7, 1.5e7, 2.05e7, 3.07e7, 4.10e7, 5.01e7, 6.13e7, 7.08e7, 8.18e7, 1.0e8, 1.5e8, 2.05e8, 3.07e8,
-     4.10e8, 5.01e8, 6.13e8, 7.08e8, 8.18e8, 1.0e9], dtype='d')
-YKSHCG1 = np.array(
-    [0.00, 1.66e-4, 3.48e-4, 5.25e-4, 6.96e-4, 8.63e-4, 1.02e-3, 1.33e-3, 1.75e-3, 2.01e-3, 2.24e-3, 2.46e-3,
-     2.66e-3, 2.84e-3, 3.21e-3, 3.38e-3, 3.47e-3, 3.55e-3, 3.65e-3, 3.72e-3, 3.75e-3, 3.74e-3, 3.68e-3, 3.57e-3,
-     3.45e-3, 3.31e-3, 3.19e-3, 3.07e-3, 2.91e-3, 2.66e-3, 2.25e-3, 1.95e-3, 1.55e-3, 1.21e-3, 8.97e-4, 7.07e-4,
-     6.07e-4, 5.21e-4, 4.21e-4, 3.63e-4, 3.14e-4, 2.84e-4, 2.57e-4, 2.25e-4, 1.74e-4, 1.50e-4, 1.28e-4, 1.15e-4,
-     1.09e-4, 1.05e-4, 1.03e-4, 1.02e-4, 1.01e-4, 1.005e-4, 1.01e-4, 1.03e-4, 1.07e-4, 1.11e-4, 1.14e-4, 1.17e-4,
-     1.20e-4, 1.22e-4, 1.25e-4, 1.32e-4, 1.38e-4, 1.45e-4, 1.50e-4, 1.54e-4, 1.58e-4, 1.60e-4, 1.63e-4, 1.67e-4,
-     1.74e-4, 1.80e-4, 1.87e-4, 1.92e-4, 1.96e-4, 2.00e-4, 2.02e-4, 2.05e-4, 2.09e-4], dtype='d')
-gd['gas1/XKSHC'] = XKSHCG1
-gd['gas1/YKSHC'] = YKSHCG1
 
+XKSHCG1 = [np.float32(285.), np.float32(298.), np.float32(307.), np.float32(316.), np.float32(325.), np.float32(335.),
+           np.float32(345.), np.float32(365.), np.float32(398.), np.float32(422.),
+           np.float32(447.), np.float32(473.), np.float32(501.), np.float32(531.), np.float32(613.), np.float32(668.),
+           np.float32(708.), np.float32(750.), np.float32(817.), np.float32(917.),
+           np.float32(1000.), np.float32(1122.), np.float32(1296.), np.float32(1496.), np.float32(1679.),
+           np.float32(1884.), np.float32(2054.), np.float32(2238.), np.float32(2512.), np.float32(2985.),
+           np.float32(3981.), np.float32(5012.), np.float32(7079.), 1.0e4, 1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4,
+           5.01e4,
+           6.13e4, 7.08e4, 8.18e4, 1.0e5, 1.54e5, 2.05e5, 2.99e5, 4.10e5, 5.01e5,
+           6.13e5,
+           7.08e5, 8.18e5, 1.0e6, 1.25e6, 1.5e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6,
+           6.13e6,
+           7.08e6, 8.18e6, 1.0e7, 1.5e7, 2.05e7, 3.07e7, 4.10e7, 5.01e7, 6.13e7,
+           7.08e7,
+           8.18e7, 1.0e8, 1.5e8, 2.05e8, 3.07e8, 4.10e8, 5.01e8, 6.13e8, 7.08e8,
+           8.18e8,
+           1.0e9,
+           ]
+YKSHCG1 = [np.float32(0.00), 1.66e-4, 3.48e-4, 5.25e-4, 6.96e-4, 8.63e-4, 1.02e-3,
+           1.33e-3, 1.75e-3, 2.01e-3,
+           2.24e-3, 2.46e-3, 2.66e-3, 2.84e-3, 3.21e-3, 3.38e-3, 3.47e-3, 3.55e-3,
+           3.65e-3, 3.72e-3,
+           3.75e-3, 3.74e-3, 3.68e-3, 3.57e-3, 3.45e-3, 3.31e-3, 3.19e-3, 3.07e-3,
+           2.91e-3, 2.66e-3,
+           2.25e-3, 1.95e-3, 1.55e-3, 1.21e-3, 8.97e-4, 7.07e-4, 6.07e-4, 5.21e-4,
+           4.21e-4, 3.63e-4,
+           3.14e-4, 2.84e-4, 2.57e-4, 2.25e-4, 1.74e-4, 1.50e-4, 1.28e-4, 1.15e-4,
+           1.09e-4, 1.05e-4,
+           1.03e-4, 1.02e-4, 1.01e-4, 1.005e-4, 1.01e-4, 1.03e-4, 1.07e-4, 1.11e-4,
+           1.14e-4, 1.17e-4,
+           1.20e-4, 1.22e-4, 1.25e-4, 1.32e-4, 1.38e-4, 1.45e-4, 1.50e-4, 1.54e-4,
+           1.58e-4, 1.60e-4,
+           1.63e-4, 1.67e-4, 1.74e-4, 1.80e-4, 1.87e-4, 1.92e-4, 1.96e-4, 2.00e-4,
+           2.02e-4, 2.05e-4,
+           2.09e-4,
+           ]
 # FLUORINE K-SHELL IONISATION X-SECTION
-XKSHFG1 = np.array(
-    [685.4, 705., 726., 747., 770., 792., 816., 840., 865., 890., 916., 944., 1000., 1090., 1188., 1296., 1496.,
-     1679., 1884., 2054., 2238., 2512., 2985., 3758., 4467., 5158., 5957., 7079., 1.0e4, 1.26e4, 1.50e4, 2.05e4,
-     2.51e4, 3.07e4, 4.10e4, 5.01e4, 6.13e4, 7.08e4, 8.18e4, 1.0e5, 1.50e5, 2.05e5, 2.99e5, 4.10e5, 5.01e5,
-     6.13e5, 7.08e5, 8.18e5, 1.00e6, 1.26e6, 1.50e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6, 6.13e6, 7.08e6, 8.18e6,
-     1.00e7, 1.26e7, 1.50e7, 2.05e7, 3.07e7, 4.10e7, 5.01e7, 6.13e7, 7.08e7, 8.18e7, 1.00e8, 1.26e8, 1.50e8,
-     2.05e8, 3.07e8, 4.10e8, 5.01e8, 6.13e8, 7.08e8, 8.18e8, 1.00e9], dtype='d')
-YKSHFG1 = np.array(
-    [0.00, 3.39e-5, 6.77e-5, 1.00e-4, 1.32e-4, 1.63e-4, 1.92e-4, 2.21e-4, 2.48e-4, 2.75e-4, 3.00e-4, 3.25e-4,
-     3.71e-4, 4.33e-4, 4.87e-4, 5.34e-4, 5.96e-4, 6.32e-4, 6.57e-4, 6.69e-4, 6.77e-4, 6.79e-4, 6.68e-4, 6.33e-4,
-     5.97e-4, 5.62e-4, 5.25e-4, 4.80e-4, 3.93e-4, 3.41e-4, 3.04e-4, 2.45e-4, 2.13e-4, 1.85e-4, 1.51e-4, 1.31e-4,
-     1.14e-4, 1.04e-4, 9.46e-5, 8.32e-5, 6.58e-5, 5.60e-5, 4.80e-5, 4.35e-5, 4.15e-5, 4.00e-5, 3.93e-5, 3.89e-5,
-     3.85e-5, 3.86e-5, 3.89e-5, 3.98e-5, 4.17e-5, 4.33e-5, 4.45e-5, 4.58e-5, 4.68e-5, 4.78e-5, 4.92e-5, 5.09e-5,
-     5.21e-5, 5.45e-5, 5.75e-5, 5.96e-5, 6.12e-5, 6.27e-5, 6.38e-5, 6.49e-5, 6.64e-5, 6.82e-5, 6.95e-5, 7.19e-5,
-     7.50e-5, 7.72e-5, 7.88e-5, 8.03e-5, 8.14e-5, 8.25e-5, 8.40e-5], dtype='d')
-gd['gas1/XKSHF'] = XKSHFG1
-gd['gas1/YKSHF'] = YKSHFG1
 
+XKSHFG1 = [np.float32(685.4), np.float32(705.), np.float32(726.), np.float32(747.), np.float32(770.), np.float32(792.),
+           np.float32(816.), np.float32(840.), np.float32(865.), np.float32(890.),
+           np.float32(916.), np.float32(944.), np.float32(1000.), np.float32(1090.), np.float32(1188.),
+           np.float32(1296.), np.float32(1496.), np.float32(1679.), np.float32(1884.), np.float32(2054.),
+           np.float32(2238.), np.float32(2512.), np.float32(2985.), np.float32(3758.), np.float32(4467.),
+           np.float32(5158.), np.float32(5957.), np.float32(7079.), 1.0e4, 1.26e4,
+           1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4, 5.01e4, 6.13e4, 7.08e4, 8.18e4,
+           1.0e5,
+           1.50e5, 2.05e5, 2.99e5, 4.10e5, 5.01e5, 6.13e5, 7.08e5, 8.18e5, 1.00e6,
+           1.26e6,
+           1.50e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6, 6.13e6, 7.08e6, 8.18e6, 1.00e7,
+           1.26e7,
+           1.50e7, 2.05e7, 3.07e7, 4.10e7, 5.01e7, 6.13e7, 7.08e7, 8.18e7, 1.00e8,
+           1.26e8,
+           1.50e8, 2.05e8, 3.07e8, 4.10e8, 5.01e8, 6.13e8, 7.08e8, 8.18e8, 1.00e9,
+           ]
+YKSHFG1 = [np.float32(0.00), 3.39e-5, 6.77e-5, 1.00e-4, 1.32e-4, 1.63e-4, 1.92e-4,
+           2.21e-4, 2.48e-4, 2.75e-4,
+           3.00e-4, 3.25e-4, 3.71e-4, 4.33e-4, 4.87e-4, 5.34e-4, 5.96e-4, 6.32e-4,
+           6.57e-4, 6.69e-4,
+           6.77e-4, 6.79e-4, 6.68e-4, 6.33e-4, 5.97e-4, 5.62e-4, 5.25e-4, 4.80e-4,
+           3.93e-4, 3.41e-4,
+           3.04e-4, 2.45e-4, 2.13e-4, 1.85e-4, 1.51e-4, 1.31e-4, 1.14e-4, 1.04e-4,
+           9.46e-5, 8.32e-5,
+           6.58e-5, 5.60e-5, 4.80e-5, 4.35e-5, 4.15e-5, 4.00e-5, 3.93e-5, 3.89e-5,
+           3.85e-5, 3.86e-5,
+           3.89e-5, 3.98e-5, 4.17e-5, 4.33e-5, 4.45e-5, 4.58e-5, 4.68e-5, 4.78e-5,
+           4.92e-5, 5.09e-5,
+           5.21e-5, 5.45e-5, 5.75e-5, 5.96e-5, 6.12e-5, 6.27e-5, 6.38e-5, 6.49e-5,
+           6.64e-5, 6.82e-5,
+           6.95e-5, 7.19e-5, 7.50e-5, 7.72e-5, 7.88e-5, 8.03e-5, 8.14e-5, 8.25e-5,
+           8.40e-5,
+           ]
 # ATTACHMENT
-XATTG1 = np.array([4.00, 4.10, 5.00, 6.00, 7.00, 8.00, 9.00, 10.0, 11.0, 12.0, 100.
-                   ], dtype='d')
-YATTG1 = np.array([.0, .00001, .00087, .0062, .0125, .0134, .0047, .0009, .0004, .00001, .0000001
-                   ], dtype='d')
-gd['gas1/XATT'] = XATTG1
-gd['gas1/YATT'] = YATTG1
+
+XATTG1 = [np.float32(4.00), np.float32(4.10), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(8.00),
+          np.float32(9.00), np.float32(10.0), np.float32(11.0),
+          np.float32(12.0), np.float32(100.),
+          ]
+YATTG1 = [np.float32(.0), np.float32(.00001), np.float32(.00087), np.float32(.0062), np.float32(.0125),
+          np.float32(.0134), np.float32(.0047), np.float32(.0009), np.float32(.0004),
+          np.float32(.00001), np.float32(.0000001),
+          ]
+#
 
 #  NEUTRAL DISSOCIATION
+
 #      DIPOLE NEUTRAL DISSOCIATION GIVEN ANALYTICALLY
+
 #      NON-DIPOLE  NEUTRAL DISSOCIATION :
-XTR1G1 = np.array([11.5, 12.5, 14.0, 15.0, 16.0, 17.0, 19.0, 21.0, 24.0, 27.0, 31.0, 34.0
-                   ], dtype='d')
-YTR1G1 = np.array([0.00, .005, .017, .026, .029, .031, .035, .035, .031, .026, .019, .015
-                   ], dtype='d')
+
+XTR1G1 = [np.float32(11.5), np.float32(12.5), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0),
+          np.float32(19.0), np.float32(21.0), np.float32(24.0), np.float32(27.0),
+          np.float32(31.0), np.float32(34.0),
+          ]
+YTR1G1 = [np.float32(0.00), np.float32(.005), np.float32(.017), np.float32(.026), np.float32(.029), np.float32(.031),
+          np.float32(.035), np.float32(.035), np.float32(.031), np.float32(.026),
+          np.float32(.019), np.float32(.015),
+          ]
+XTR2G1 = [np.float32(12.5), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(19.0),
+          np.float32(21.0), np.float32(24.0), np.float32(27.0), np.float32(31.0),
+          np.float32(34.0),
+          ]
+YTR2G1 = [np.float32(0.00), np.float32(.030), np.float32(.056), np.float32(.064), np.float32(.068), np.float32(.075),
+          np.float32(.077), np.float32(.068), np.float32(.057), np.float32(.042),
+          np.float32(.033),
+          ]
+XTR3G1 = [np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(19.0), np.float32(21.0),
+          np.float32(24.0), np.float32(27.0), np.float32(31.0), np.float32(34.0),
+          np.float32(39.0),
+          ]
+YTR3G1 = [np.float32(0.00), np.float32(.087), np.float32(.180), np.float32(.210), np.float32(.237), np.float32(.250),
+          np.float32(.250), np.float32(.237), np.float32(.187), np.float32(.145),
+          np.float32(.107),
+          ]
+# BREMSTRAHLUNG X-SECTION WITH CUT OFF
+
+Z6TG1 = [np.float32(298.), np.float32(178.), np.float32(85.2), np.float32(47.5), np.float32(26.3), np.float32(12.2),
+         np.float32(7.06), np.float32(4.45), np.float32(3.06), np.float32(2.82),
+         np.float32(2.89), np.float32(2.99), np.float32(3.08), np.float32(3.13), np.float32(3.18), np.float32(3.25),
+         np.float32(3.31), np.float32(3.39), np.float32(3.44), np.float32(3.49),
+         np.float32(3.52), np.float32(3.54), np.float32(3.55), np.float32(3.57), np.float32(3.57),
+         ]
+Z9TG1 = [np.float32(573.), np.float32(358.), np.float32(179.), np.float32(101.6), np.float32(57.3), np.float32(26.5),
+         np.float32(15.4), np.float32(9.63), np.float32(6.52), np.float32(5.92),
+         np.float32(6.01), np.float32(6.18), np.float32(6.35), np.float32(6.43), np.float32(6.52), np.float32(6.65),
+         np.float32(6.75), np.float32(6.87), np.float32(6.95), np.float32(7.02),
+         np.float32(7.07), np.float32(7.10), np.float32(7.12), np.float32(7.13), np.float32(7.14),
+         ]
+EBRMG1 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.E4), np.float32(2.E4), np.float32(5.E4),
+          np.float32(1.E5), np.float32(2.E5), np.float32(5.E5), np.float32(1.E6),
+          np.float32(2.E6), np.float32(3.E6), np.float32(4.E6), np.float32(5.E6), np.float32(6.E6), np.float32(8.E6),
+          np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
+          np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
+          ]
+XENG1 = [np.float32(0.0), np.float32(.001), np.float32(.002), np.float32(.003), np.float32(.004), np.float32(.005),
+         np.float32(.006), np.float32(.007), np.float32(.008), np.float32(.009),
+         np.float32(0.01), np.float32(.012), np.float32(.014), np.float32(.016), np.float32(.018), np.float32(0.02),
+         np.float32(.025), np.float32(0.03), np.float32(.035), np.float32(0.04),
+         np.float32(.045), np.float32(0.05), np.float32(.055), np.float32(0.06), np.float32(.065), np.float32(0.07),
+         np.float32(.075), np.float32(0.08), np.float32(.085), np.float32(0.09),
+         np.float32(0.10), np.float32(0.12), np.float32(0.14), np.float32(0.17), np.float32(0.20), np.float32(0.24),
+         np.float32(0.30), np.float32(0.40), np.float32(0.50), np.float32(0.60),
+         np.float32(0.80), np.float32(1.00), np.float32(1.20), np.float32(1.40), np.float32(1.70), np.float32(2.00),
+         np.float32(3.00), np.float32(5.00), np.float32(6.00), np.float32(7.00),
+         np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(12.0), np.float32(15.0), np.float32(20.0),
+         np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0),
+         np.float32(60.0), np.float32(80.0), np.float32(100.), np.float32(125.), np.float32(150.), np.float32(200.),
+         np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+         np.float32(600.), np.float32(700.), np.float32(800.), np.float32(1000.), np.float32(1250.), np.float32(1500.),
+         np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+         np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(7000.),
+         np.float32(8000.), np.float32(9000.), np.float32(10000.), 1.25e4, 1.50e4,
+         1.75e4, 2.0e4, 2.5e4, 3.0e4, 3.5e4, 4.0e4, 4.5e4, 5.0e4, 6.0e4, 7.0e4,
+         8.0e4, 9.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5, 3.5e5,
+         4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6, 1.5e6,
+         1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6, 7.0e6,
+         8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7, 3.5e7,
+         4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8, 1.5e8,
+         1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8, 7.0e8,
+         8.0e8, 9.0e8, 1.0e9,
+         ]
+# ELASTIC MOMENTUM TRANSFER X-SECTION
+
+YELMG1 = [np.float32(12.5), np.float32(8.70), np.float32(7.00), np.float32(5.95), np.float32(5.20), np.float32(4.70),
+          np.float32(4.30), np.float32(3.95), np.float32(3.65), np.float32(3.40),
+          np.float32(3.20), np.float32(2.85), np.float32(2.58), np.float32(2.37), np.float32(2.19), np.float32(2.04),
+          np.float32(1.77), np.float32(1.57), np.float32(1.41), np.float32(1.30),
+          np.float32(1.20), np.float32(1.12), np.float32(1.05), np.float32(0.99), np.float32(0.93), np.float32(0.88),
+          np.float32(0.84), np.float32(0.80), np.float32(0.76), np.float32(0.72),
+          np.float32(0.65), np.float32(0.48), np.float32(0.35), np.float32(0.29), np.float32(0.29), np.float32(0.34),
+          np.float32(0.47), np.float32(0.87), np.float32(1.35), np.float32(1.85),
+          np.float32(2.95), np.float32(4.00), np.float32(4.75), np.float32(5.15), np.float32(5.45), np.float32(5.65),
+          np.float32(5.80), np.float32(6.00), np.float32(6.10), np.float32(6.30),
+          np.float32(6.50), np.float32(6.80), np.float32(7.20), np.float32(8.30), np.float32(9.50), np.float32(10.1),
+          np.float32(9.60), np.float32(8.80), np.float32(7.85), np.float32(6.72),
+          np.float32(5.90), np.float32(5.06), np.float32(4.16), np.float32(3.57), np.float32(2.99), np.float32(1.92),
+          np.float32(1.53), np.float32(1.20), np.float32(0.88), np.float32(0.66),
+          np.float32(.525), np.float32(0.43), np.float32(0.37), np.float32(0.30), np.float32(.228), np.float32(.169),
+          np.float32(.131), np.float32(.104), np.float32(.0711), np.float32(.0519),
+          np.float32(.0397), np.float32(.0314), np.float32(.0212), np.float32(.0153), np.float32(.0117),
+          np.float32(.00918), np.float32(.00743), np.float32(.00615), np.float32(.00412), np.float32(.00297),
+          2.25e-3, 1.77e-3, 1.18e-3, 8.51e-4, 6.45e-4, 5.08e-4, 4.12e-4, 3.41e-4,
+          2.47e-4, 1.88e-4,
+          1.49e-4, 1.21e-4, 1.01e-4, 6.88e-5, 5.05e-5, 3.90e-5, 3.13e-5, 2.17e-5,
+          1.62e-5, 1.27e-5,
+          1.03e-5, 8.56e-6, 7.27e-6, 5.49e-6, 4.34e-6, 3.54e-6, 2.96e-6, 2.52e-6,
+          1.81e-6, 1.36e-6,
+          1.07e-6, 8.68e-7, 6.08e-7, 4.53e-7, 3.51e-7, 2.82e-7, 2.31e-7, 1.93e-7,
+          1.42e-7, 1.08e-7,
+          8.59e-8, 6.98e-8, 5.79e-8, 3.89e-8, 2.80e-8, 2.12e-8, 1.66e-8, 1.10e-8,
+          7.86e-9, 5.90e-9,
+          4.59e-9, 3.68e-9, 3.01e-9, 2.13e-9, 1.58e-9, 1.22e-9, 9.75e-10, 7.92e-10,
+          5.10e-10, 3.56e-10,
+          2.62e-10, 2.01e-10, 1.29e-10, 8.95e-11, 6.58e-11, 5.04e-11, 3.98e-11,
+          3.23e-11, 2.24e-11, 1.65e-11,
+          1.26e-11, 9.96e-12, 8.07e-12,
+          ]
+# ELASTIC X-SECTION ASSUMED ISOTROPIC BELOW 0.6 EV
+
+YELTG1 = [np.float32(12.5), np.float32(8.70), np.float32(7.00), np.float32(5.95), np.float32(5.20), np.float32(4.70),
+          np.float32(4.30), np.float32(3.95), np.float32(3.65), np.float32(3.40),
+          np.float32(3.20), np.float32(2.85), np.float32(2.58), np.float32(2.37), np.float32(2.19), np.float32(2.04),
+          np.float32(1.77), np.float32(1.57), np.float32(1.41), np.float32(1.30),
+          np.float32(1.20), np.float32(1.12), np.float32(1.05), np.float32(0.99), np.float32(0.93), np.float32(0.88),
+          np.float32(0.84), np.float32(0.80), np.float32(0.76), np.float32(0.72),
+          np.float32(0.65), np.float32(0.48), np.float32(0.35), np.float32(0.29), np.float32(0.29), np.float32(0.34),
+          np.float32(0.47), np.float32(0.87), np.float32(1.35), np.float32(1.85),
+          np.float32(3.77), np.float32(4.89), np.float32(5.66), np.float32(6.43), np.float32(7.43), np.float32(8.34),
+          np.float32(10.6), np.float32(12.5), np.float32(11.6), np.float32(11.0),
+          np.float32(11.0), np.float32(11.7), np.float32(12.9), np.float32(14.5), np.float32(16.8), np.float32(17.6),
+          np.float32(18.1), np.float32(17.2), np.float32(15.9), np.float32(14.9),
+          np.float32(14.3), np.float32(13.0), np.float32(11.7), np.float32(10.5), np.float32(9.65), np.float32(8.10),
+          np.float32(6.83), np.float32(6.02), np.float32(5.02), np.float32(4.36),
+          np.float32(3.83), np.float32(3.40), np.float32(3.08), np.float32(2.65), np.float32(2.17), np.float32(1.89),
+          np.float32(1.55), np.float32(1.40), np.float32(1.19), np.float32(1.11),
+          np.float32(.921), np.float32(.822), np.float32(.696), np.float32(.568), np.float32(.492), np.float32(.435),
+          np.float32(.390), np.float32(.353), np.float32(.286), np.float32(.241),
+          np.float32(.209), np.float32(.185), np.float32(.150), np.float32(.127), np.float32(.111), np.float32(.0984),
+          np.float32(.0888), np.float32(.0810), np.float32(.0694), np.float32(.0611),
+          np.float32(.0522), np.float32(.050), np.float32(.0461), np.float32(.0391), np.float32(.0344),
+          np.float32(.0311), np.float32(.0287), np.float32(.0253), np.float32(.0230), np.float32(.0214),
+          np.float32(.0202), np.float32(.0193), np.float32(.0186), np.float32(.0176), np.float32(.0169),
+          np.float32(.0164), np.float32(.0160), np.float32(.0157), np.float32(.0152), np.float32(.0148),
+          np.float32(.0146), np.float32(.0145), np.float32(.0143), np.float32(.0142), np.float32(.0141),
+          np.float32(.0141), np.float32(.0140), np.float32(.0140), np.float32(.0140), np.float32(.0139),
+          np.float32(.0139), np.float32(.0139), np.float32(.0139), np.float32(.0139), np.float32(.01389),
+          np.float32(.01389), np.float32(.01389), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          np.float32(.01388), np.float32(.01388), np.float32(.01388),
+          ]
+# EPSILON FOR ELASTIC ANGULAR DISTRIBUTION
+
+# EPSILON =1-YEPS
+
+YEPSG1 = [np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(.68056), np.float32(.73101), np.float32(.76161), np.float32(.70664), np.float32(.61270),
+          np.float32(.53797), np.float32(.37888), np.float32(.30604), np.float32(.35505),
+          np.float32(.40830),
+          np.float32(.42979), np.float32(.41826), np.float32(.39140), np.float32(.40794), np.float32(.39986),
+          np.float32(.40963), np.float32(.36006), np.float32(.33951), np.float32(.32037),
+          np.float32(.27671),
+          np.float32(.23985), np.float32(.21859), np.float32(.18948), np.float32(.17666), np.float32(.15292),
+          np.float32(.10180), np.float32(.09358), np.float32(.07880), np.float32(.06538),
+          np.float32(.05301),
+          np.float32(.04608), np.float32(.04117), np.float32(.03833), np.float32(.03532), np.float32(.03188),
+          np.float32(.02561), np.float32(.02374), np.float32(.019986), np.float32(.015005),
+          np.float32(.010925),
+          np.float32(.009845), np.float32(.008442), np.float32(.006348), np.float32(.005446), np.float32(.004667),
+          np.float32(.004028), np.float32(.003554), np.float32(.003186),
+          np.float32(.002530), np.float32(.002096),
+          np.float32(.001783), np.float32(.001549), np.float32(.001228), np.float32(.001016), np.float32(.000859),
+          np.float32(.000749), np.float32(.000661), np.float32(.000590),
+          np.float32(.000486), np.float32(.000411),
+          3.53e-4, 3.12e-4, 2.78e-4, 2.17e-4, 1.76e-4, 1.47e-4, 1.26e-4, 9.61e-5,
+          7.68e-5, 6.32e-5,
+          5.32e-5, 4.56e-5, 3.97e-5, 3.10e-5, 2.30e-5, 2.07e-5, 1.74e-5, 1.49e-5,
+          1.07e-5, 8.04e-6,
+          6.28e-6, 5.05e-6, 3.47e-6, 2.54e-6, 1.94e-6, 1.53e-6, 1.24e-6, 1.02e-6,
+          7.33e-7, 5.51e-7,
+          4.30e-7, 3.44e-7, 2.82e-7, 1.84e-7, 1.30e-7, 9.62e-8, 7.42e-8, 4.80e-8,
+          3.35e-8, 2.47e-8,
+          1.89e-8, 1.50e-8, 1.21e-8, 8.388e-9, 6.133e-9, 4.669e-9, 3.666e-9,
+          2.950e-9, 1.858e-9, 1.271e-9,
+          9.21e-10, 6.97e-10, 4.37e-10, 2.98e-10, 2.16e-10, 1.63e-10, 1.28e-10,
+          1.02e-10, 7.00e-11, 5.10e-11,
+          3.80e-11, 3.00e-11, 2.40e-11,
+          ]
+#  VIBRATION V4 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
+
+XVBV4G1 = [np.float32(0.0783), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(8.00),
+           np.float32(9.00), np.float32(10.0), np.float32(15.0), np.float32(20.0),
+           np.float32(50.0),
+           ]
+YVBV4G1 = [np.float32(0.0), np.float32(0.0), np.float32(0.05), np.float32(0.35), np.float32(1.06), np.float32(1.40),
+           np.float32(1.26), np.float32(0.97), np.float32(0.07), np.float32(.022),
+           1.e-3,
+           ]
+#  VIBRATION V1 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
+
+XVBV1G1 = [np.float32(0.1126), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(8.00),
+           np.float32(9.00), np.float32(10.0), np.float32(15.0), np.float32(20.0),
+           np.float32(50.0),
+           ]
+YVBV1G1 = [np.float32(0.0), np.float32(0.0), np.float32(.016), np.float32(.118), np.float32(0.36), np.float32(0.47),
+           np.float32(0.42), np.float32(0.33), np.float32(.023), np.float32(.007),
+           3.e-4,
+           ]
+#  VIBRATION V3 (RESONANCE ONLY) SCALED BY 1/E**3 ABOVE 50EV
+
+XVBV3G1 = [np.float32(0.1588), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(8.00),
+           np.float32(9.00), np.float32(10.0), np.float32(15.0), np.float32(20.0),
+           np.float32(50.0),
+           ]
+YVBV3G1 = [np.float32(0.0), np.float32(0.0), np.float32(0.15), np.float32(1.05), np.float32(3.19), np.float32(4.20),
+           np.float32(3.78), np.float32(2.90), np.float32(0.20), np.float32(.067),
+           3.e-3,
+           ]
+#  VIBRATION HARMONIC 2(V3) SCALED BY 1/E ABOVE 50EV
+
+XVIB5G1 = [np.float32(0.3176), np.float32(1.00), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00),
+           np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(15.0),
+           np.float32(20.0), np.float32(50.0),
+           ]
+YVIB5G1 = [np.float32(0.0), np.float32(.001), np.float32(0.01), np.float32(.031), np.float32(0.23), np.float32(0.67),
+           np.float32(0.87), np.float32(0.79), np.float32(0.60), np.float32(.042),
+           np.float32(.014), np.float32(.0006),
+           ]
+# VIBRATION HARMONIC (3(V3) + ALL OTHER HARMONICS)
+
+#  SCALED BY 1/E ABOVE 50 EV
+
+XVIB6G1 = [np.float32(0.4764), np.float32(1.00), np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00),
+           np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(15.0),
+           np.float32(20.0), np.float32(50.0),
+           ]
+YVIB6G1 = [np.float32(0.0), np.float32(.0009), np.float32(.045), np.float32(.117), np.float32(.774), np.float32(2.32),
+           np.float32(3.06), np.float32(2.75), np.float32(2.12), np.float32(.138),
+           np.float32(.037), np.float32(.0018),
+           ]
+#
+
+#  DISSOCATIVE IONISATION :
+
+#  WEIGHTED AVERAGE OF SIEGLAFF AND NISHIMURA FOR SINGLE IONISATION AND
+
+#  DOUBLE IONISATION.
+
+#  FOR DOUBLE IONISATION WITH BREAKUP :  BRUCE ET AL CPL 190(1992)285
+
+#  NB.  (USED NISHIMURA ONLY BELOW 30EV)
+
+#
+
+# CF3 +
+
+XCF3G1 = [np.float32(15.7), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(19.0), np.float32(20.0),
+          np.float32(22.0), np.float32(24.0), np.float32(26.0), np.float32(28.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YCF3G1 = [np.float32(0.0), np.float32(.032), np.float32(.075), np.float32(.128), np.float32(.191), np.float32(.276),
+          np.float32(.448), np.float32(.610), np.float32(.866), np.float32(1.08),
+          np.float32(1.26), np.float32(1.72), np.float32(2.05), np.float32(2.35), np.float32(2.62), np.float32(2.94),
+          np.float32(3.13), np.float32(3.24), np.float32(3.32), np.float32(3.35),
+          np.float32(3.38), np.float32(3.34), np.float32(3.27), np.float32(3.17), np.float32(3.00), np.float32(2.81),
+          np.float32(2.54), np.float32(2.28), np.float32(2.09), np.float32(1.77),
+          np.float32(1.56), np.float32(1.32), np.float32(1.15), np.float32(1.05), np.float32(.937), np.float32(.804),
+          np.float32(.692),
+          ]
+# CF2+
+
+XCF2G1 = [np.float32(21.47), np.float32(24.0), np.float32(26.0), np.float32(28.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YCF2G1 = [np.float32(0.00), np.float32(.003), np.float32(.010), np.float32(.032),
+          np.float32(.060), np.float32(.131), np.float32(.148), np.float32(.162), np.float32(.192), np.float32(.221),
+          np.float32(.234), np.float32(.243), np.float32(.256), np.float32(.263),
+          np.float32(.266), np.float32(.260), np.float32(.257), np.float32(.240), np.float32(.233), np.float32(.212),
+          np.float32(.186), np.float32(.169), np.float32(.152), np.float32(.131),
+          np.float32(.113), np.float32(.0961), np.float32(.0834), np.float32(.0763), np.float32(.0681),
+          np.float32(.0585), np.float32(.0503),
+          ]
+# CF+
+
+XCF1G1 = [np.float32(29.14),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YCF1G1 = [np.float32(0.00),
+          np.float32(.0024), np.float32(.0145), np.float32(.0583), np.float32(.107), np.float32(.156), np.float32(.185),
+          np.float32(.226), np.float32(.239), np.float32(.238), np.float32(.266),
+          np.float32(.274), np.float32(.259), np.float32(.261), np.float32(.234), np.float32(.227), np.float32(.186),
+          np.float32(.146), np.float32(.122), np.float32(.113), np.float32(.0909),
+          np.float32(.0820), np.float32(.0695), np.float32(.0603), np.float32(.0552), np.float32(.0493),
+          np.float32(.0423), np.float32(.0364),
+          ]
+# DATA CF3 2+
+
+XCF32G1 = [np.float32(41.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+           np.float32(90.0), np.float32(100.), np.float32(120.), np.float32(140.),
+           np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+           np.float32(600.), np.float32(800.), np.float32(1000.), np.float32(1250.),
+           np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+           ]
+YCF32G1 = [np.float32(0.00), np.float32(.0053), np.float32(.0083), np.float32(.0104), np.float32(.0135),
+           np.float32(.0154), np.float32(.0164), np.float32(.0187), np.float32(.0208),
+           np.float32(.0198),
+           np.float32(.0208), np.float32(.0198), np.float32(.0187), np.float32(.0167), np.float32(.0135),
+           np.float32(.0114), np.float32(.0101), np.float32(.0079), np.float32(.0065), np.float32(.0055),
+           np.float32(.0048), np.float32(.0044), np.float32(.0039), np.float32(.0033), np.float32(.0029),
+           ]
+# C+
+
+XCF0G1 = [np.float32(34.77), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YCF0G1 = [np.float32(0.0), np.float32(.0005), np.float32(.0093), np.float32(.0426), np.float32(.0884), np.float32(.134),
+          np.float32(.172), np.float32(.193), np.float32(.207), np.float32(.228),
+          np.float32(.245), np.float32(.246), np.float32(.249), np.float32(.236), np.float32(.222), np.float32(.191),
+          np.float32(.166), np.float32(.144), np.float32(.134), np.float32(.104),
+          np.float32(.0895), np.float32(.0759), np.float32(.0658), np.float32(.0602), np.float32(.0538),
+          np.float32(.0462), np.float32(.0397),
+          ]
+# F+
+
+XC0FG1 = [np.float32(34.5), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          np.float32(120.), np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.),
+          np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.),
+          ]
+YC0FG1 = [np.float32(0.0), np.float32(.0019), np.float32(.0085), np.float32(.0271), np.float32(.0561),
+          np.float32(.1051), np.float32(.154), np.float32(.1937), np.float32(.212), np.float32(.289),
+          np.float32(.363), np.float32(.408), np.float32(.439), np.float32(.461), np.float32(.440), np.float32(.378),
+          np.float32(.316), np.float32(.264), np.float32(.227), np.float32(.174),
+          np.float32(.170), np.float32(.144), np.float32(.125), np.float32(.114), np.float32(.102), np.float32(.0874),
+          np.float32(.0753),
+          ]
+# CF2 2+
+
+XCF22G1 = [np.float32(42.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+           np.float32(90.0), np.float32(100.), np.float32(120.), np.float32(140.),
+           np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+           np.float32(600.), np.float32(800.), np.float32(1000.), np.float32(1250.),
+           np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+           ]
+YCF22G1 = [np.float32(0.0), np.float32(.0002), np.float32(.0033), np.float32(.0095), np.float32(.0194),
+           np.float32(.0287), np.float32(.0348), np.float32(.0409), np.float32(.0483),
+           np.float32(.0521),
+           np.float32(.0522), np.float32(.0517), np.float32(.0467), np.float32(.0458), np.float32(.0367),
+           np.float32(.0303), np.float32(.0280), np.float32(.0218), np.float32(.0164), np.float32(.0139),
+           np.float32(.0120), np.float32(.0110), np.float32(.0098), np.float32(.0084), np.float32(.0073),
+           ]
+# ION PAIRS:
+
+#   (C+ , F+)
+
+XCFG1 = [np.float32(63.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(120.),
+         np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.),
+         np.float32(300.), np.float32(400.), np.float32(500.), np.float32(600.), np.float32(800.), np.float32(1000.),
+         np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+         np.float32(2500.), np.float32(3000.),
+         ]
+YCFG1 = [np.float32(0.0), np.float32(.002), np.float32(.009), np.float32(.020), np.float32(.025), np.float32(.038),
+         np.float32(.048), np.float32(.056), np.float32(.062), np.float32(.059),
+         np.float32(.068), np.float32(.049), np.float32(.043), np.float32(.036), np.float32(.025), np.float32(.019),
+         np.float32(.016), np.float32(.014), np.float32(.012), np.float32(.011),
+         np.float32(.0096), np.float32(.0082),
+         ]
+#   (CF+ , F+)
+
+XCFFG1 = [np.float32(43.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+          np.float32(100.), np.float32(120.), np.float32(140.), np.float32(160.),
+          np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.), np.float32(600.),
+          np.float32(800.), np.float32(1000.), np.float32(1250.), np.float32(1500.),
+          np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+          ]
+YCFFG1 = [np.float32(0.0), np.float32(.001), np.float32(.009), np.float32(.028), np.float32(.049), np.float32(.077),
+          np.float32(.084), np.float32(.111), np.float32(.125), np.float32(.136),
+          np.float32(.139), np.float32(.126), np.float32(.133), np.float32(.109), np.float32(.095), np.float32(.078),
+          np.float32(.059), np.float32(.040), np.float32(.034), np.float32(.030),
+          np.float32(.027), np.float32(.024), np.float32(.021), np.float32(.018),
+          ]
+#   (CF2 + , F+)
+
+XCF2FG1 = [np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+           np.float32(90.0), np.float32(100.), np.float32(120.), np.float32(140.),
+           np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+           np.float32(600.), np.float32(800.), np.float32(1000.), np.float32(1250.),
+           np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+           ]
+YCF2FG1 = [np.float32(0.0), np.float32(.001), np.float32(.004), np.float32(.013), np.float32(.024), np.float32(.034),
+           np.float32(.043), np.float32(.046), np.float32(.053), np.float32(.054),
+           np.float32(.057), np.float32(.056), np.float32(.049), np.float32(.050), np.float32(.042), np.float32(.036),
+           np.float32(.030), np.float32(.023), np.float32(.015), np.float32(.013),
+           np.float32(.011), np.float32(.0104), np.float32(.0093), np.float32(.0080), np.float32(.0069),
+           ]
+#   (CF3 + , F+)
+
+XCF3FG1 = [np.float32(36.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+           np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(120.),
+           np.float32(140.), np.float32(160.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.),
+           np.float32(500.), np.float32(600.), np.float32(800.), np.float32(1000.),
+           np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+           np.float32(3000.),
+           ]
+YCF3FG1 = [np.float32(0.0), np.float32(.001), np.float32(.003), np.float32(.006), np.float32(.014), np.float32(.023),
+           np.float32(.030), np.float32(.037), np.float32(.038), np.float32(.042),
+           np.float32(.041), np.float32(.044), np.float32(.045), np.float32(.040), np.float32(.038), np.float32(.033),
+           np.float32(.028), np.float32(.023), np.float32(.018), np.float32(.012),
+           np.float32(.0105), np.float32(.0091), np.float32(.0083), np.float32(.0074), np.float32(.0064),
+           np.float32(.0055),
+           ]
+# CARBON K-SHELL IONISATION X-SECTION
+
+XKSHCG1 = [np.float32(285.), np.float32(298.), np.float32(307.), np.float32(316.), np.float32(325.), np.float32(335.),
+           np.float32(345.), np.float32(365.), np.float32(398.), np.float32(422.),
+           np.float32(447.), np.float32(473.), np.float32(501.), np.float32(531.), np.float32(613.), np.float32(668.),
+           np.float32(708.), np.float32(750.), np.float32(817.), np.float32(917.),
+           np.float32(1000.), np.float32(1122.), np.float32(1296.), np.float32(1496.), np.float32(1679.),
+           np.float32(1884.), np.float32(2054.), np.float32(2238.), np.float32(2512.), np.float32(2985.),
+           np.float32(3981.), np.float32(5012.), np.float32(7079.), 1.0e4, 1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4,
+           5.01e4,
+           6.13e4, 7.08e4, 8.18e4, 1.0e5, 1.54e5, 2.05e5, 2.99e5, 4.10e5, 5.01e5,
+           6.13e5,
+           7.08e5, 8.18e5, 1.0e6, 1.25e6, 1.5e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6,
+           6.13e6,
+           7.08e6, 8.18e6, 1.0e7, 1.5e7, 2.05e7, 3.07e7, 4.10e7, 5.01e7, 6.13e7,
+           7.08e7,
+           8.18e7, 1.0e8, 1.5e8, 2.05e8, 3.07e8, 4.10e8, 5.01e8, 6.13e8, 7.08e8,
+           8.18e8,
+           1.0e9,
+           ]
+YKSHCG1 = [np.float32(0.00), 1.66e-4, 3.48e-4, 5.25e-4, 6.96e-4, 8.63e-4, 1.02e-3,
+           1.33e-3, 1.75e-3, 2.01e-3,
+           2.24e-3, 2.46e-3, 2.66e-3, 2.84e-3, 3.21e-3, 3.38e-3, 3.47e-3, 3.55e-3,
+           3.65e-3, 3.72e-3,
+           3.75e-3, 3.74e-3, 3.68e-3, 3.57e-3, 3.45e-3, 3.31e-3, 3.19e-3, 3.07e-3,
+           2.91e-3, 2.66e-3,
+           2.25e-3, 1.95e-3, 1.55e-3, 1.21e-3, 8.97e-4, 7.07e-4, 6.07e-4, 5.21e-4,
+           4.21e-4, 3.63e-4,
+           3.14e-4, 2.84e-4, 2.57e-4, 2.25e-4, 1.74e-4, 1.50e-4, 1.28e-4, 1.15e-4,
+           1.09e-4, 1.05e-4,
+           1.03e-4, 1.02e-4, 1.01e-4, 1.005e-4, 1.01e-4, 1.03e-4, 1.07e-4, 1.11e-4,
+           1.14e-4, 1.17e-4,
+           1.20e-4, 1.22e-4, 1.25e-4, 1.32e-4, 1.38e-4, 1.45e-4, 1.50e-4, 1.54e-4,
+           1.58e-4, 1.60e-4,
+           1.63e-4, 1.67e-4, 1.74e-4, 1.80e-4, 1.87e-4, 1.92e-4, 1.96e-4, 2.00e-4,
+           2.02e-4, 2.05e-4,
+           2.09e-4,
+           ]
+# FLUORINE K-SHELL IONISATION X-SECTION
+
+XKSHFG1 = [np.float32(685.4), np.float32(705.), np.float32(726.), np.float32(747.), np.float32(770.), np.float32(792.),
+           np.float32(816.), np.float32(840.), np.float32(865.), np.float32(890.),
+           np.float32(916.), np.float32(944.), np.float32(1000.), np.float32(1090.), np.float32(1188.),
+           np.float32(1296.), np.float32(1496.), np.float32(1679.), np.float32(1884.), np.float32(2054.),
+           np.float32(2238.), np.float32(2512.), np.float32(2985.), np.float32(3758.), np.float32(4467.),
+           np.float32(5158.), np.float32(5957.), np.float32(7079.), 1.0e4, 1.26e4,
+           1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4, 5.01e4, 6.13e4, 7.08e4, 8.18e4,
+           1.0e5,
+           1.50e5, 2.05e5, 2.99e5, 4.10e5, 5.01e5, 6.13e5, 7.08e5, 8.18e5, 1.00e6,
+           1.26e6,
+           1.50e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6, 6.13e6, 7.08e6, 8.18e6, 1.00e7,
+           1.26e7,
+           1.50e7, 2.05e7, 3.07e7, 4.10e7, 5.01e7, 6.13e7, 7.08e7, 8.18e7, 1.00e8,
+           1.26e8,
+           1.50e8, 2.05e8, 3.07e8, 4.10e8, 5.01e8, 6.13e8, 7.08e8, 8.18e8, 1.00e9,
+           ]
+YKSHFG1 = [np.float32(0.00), 3.39e-5, 6.77e-5, 1.00e-4, 1.32e-4, 1.63e-4, 1.92e-4,
+           2.21e-4, 2.48e-4, 2.75e-4,
+           3.00e-4, 3.25e-4, 3.71e-4, 4.33e-4, 4.87e-4, 5.34e-4, 5.96e-4, 6.32e-4,
+           6.57e-4, 6.69e-4,
+           6.77e-4, 6.79e-4, 6.68e-4, 6.33e-4, 5.97e-4, 5.62e-4, 5.25e-4, 4.80e-4,
+           3.93e-4, 3.41e-4,
+           3.04e-4, 2.45e-4, 2.13e-4, 1.85e-4, 1.51e-4, 1.31e-4, 1.14e-4, 1.04e-4,
+           9.46e-5, 8.32e-5,
+           6.58e-5, 5.60e-5, 4.80e-5, 4.35e-5, 4.15e-5, 4.00e-5, 3.93e-5, 3.89e-5,
+           3.85e-5, 3.86e-5,
+           3.89e-5, 3.98e-5, 4.17e-5, 4.33e-5, 4.45e-5, 4.58e-5, 4.68e-5, 4.78e-5,
+           4.92e-5, 5.09e-5,
+           5.21e-5, 5.45e-5, 5.75e-5, 5.96e-5, 6.12e-5, 6.27e-5, 6.38e-5, 6.49e-5,
+           6.64e-5, 6.82e-5,
+           6.95e-5, 7.19e-5, 7.50e-5, 7.72e-5, 7.88e-5, 8.03e-5, 8.14e-5, 8.25e-5,
+           8.40e-5,
+           ]
+# ATTACHMENT
+
+XATTG1 = [np.float32(4.00), np.float32(4.10), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(8.00),
+          np.float32(9.00), np.float32(10.0), np.float32(11.0),
+          np.float32(12.0), np.float32(100.),
+          ]
+YATTG1 = [np.float32(.0), np.float32(.00001), np.float32(.00087), np.float32(.0062), np.float32(.0125),
+          np.float32(.0134), np.float32(.0047), np.float32(.0009), np.float32(.0004),
+          np.float32(.00001), np.float32(.0000001),
+          ]
+#
+
+#  NEUTRAL DISSOCIATION
+
+#      DIPOLE NEUTRAL DISSOCIATION GIVEN ANALYTICALLY
+
+#      NON-DIPOLE  NEUTRAL DISSOCIATION :
+
+XTR1G1 = [np.float32(11.5), np.float32(12.5), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0),
+          np.float32(19.0), np.float32(21.0), np.float32(24.0), np.float32(27.0),
+          np.float32(31.0), np.float32(34.0),
+          ]
+YTR1G1 = [np.float32(0.00), np.float32(.005), np.float32(.017), np.float32(.026), np.float32(.029), np.float32(.031),
+          np.float32(.035), np.float32(.035), np.float32(.031), np.float32(.026),
+          np.float32(.019), np.float32(.015),
+          ]
+XTR2G1 = [np.float32(12.5), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(19.0),
+          np.float32(21.0), np.float32(24.0), np.float32(27.0), np.float32(31.0),
+          np.float32(34.0),
+          ]
+YTR2G1 = [np.float32(0.00), np.float32(.030), np.float32(.056), np.float32(.064), np.float32(.068), np.float32(.075),
+          np.float32(.077), np.float32(.068), np.float32(.057), np.float32(.042),
+          np.float32(.033),
+          ]
+XTR3G1 = [np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(19.0), np.float32(21.0),
+          np.float32(24.0), np.float32(27.0), np.float32(31.0), np.float32(34.0),
+          np.float32(39.0),
+          ]
+YTR3G1 = [np.float32(0.00), np.float32(.087), np.float32(.180), np.float32(.210), np.float32(.237), np.float32(.250),
+          np.float32(.250), np.float32(.237), np.float32(.187), np.float32(.145),
+          np.float32(.107),
+          ]
+# BREMSTRAHLUNG X-SECTION WITH CUT OFF
+
+Z6TG1 = [np.float32(298.), np.float32(178.), np.float32(85.2), np.float32(47.5), np.float32(26.3), np.float32(12.2),
+         np.float32(7.06), np.float32(4.45), np.float32(3.06), np.float32(2.82),
+         np.float32(2.89), np.float32(2.99), np.float32(3.08), np.float32(3.13), np.float32(3.18), np.float32(3.25),
+         np.float32(3.31), np.float32(3.39), np.float32(3.44), np.float32(3.49),
+         np.float32(3.52), np.float32(3.54), np.float32(3.55), np.float32(3.57), np.float32(3.57),
+         ]
+Z9TG1 = [np.float32(573.), np.float32(358.), np.float32(179.), np.float32(101.6), np.float32(57.3), np.float32(26.5),
+         np.float32(15.4), np.float32(9.63), np.float32(6.52), np.float32(5.92),
+         np.float32(6.01), np.float32(6.18), np.float32(6.35), np.float32(6.43), np.float32(6.52), np.float32(6.65),
+         np.float32(6.75), np.float32(6.87), np.float32(6.95), np.float32(7.02),
+         np.float32(7.07), np.float32(7.10), np.float32(7.12), np.float32(7.13), np.float32(7.14),
+         ]
+EBRMG1 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.E4), np.float32(2.E4), np.float32(5.E4),
+          np.float32(1.E5), np.float32(2.E5), np.float32(5.E5), np.float32(1.E6),
+          np.float32(2.E6), np.float32(3.E6), np.float32(4.E6), np.float32(5.E6), np.float32(6.E6), np.float32(8.E6),
+          np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
+          np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
+          ]
+gd['gas1/XEN'] = XENG1
+gd['gas1/YELM'] = YELMG1
+gd['gas1/YELT'] = YELTG1
+gd['gas1/YEPS'] = YEPSG1
+gd['gas1/XVBV4'] = XVBV4G1
+gd['gas1/YVBV4'] = YVBV4G1
+gd['gas1/XVBV1'] = XVBV1G1
+gd['gas1/YVBV1'] = YVBV1G1
+gd['gas1/XVBV3'] = XVBV3G1
+gd['gas1/YVBV3'] = YVBV3G1
+gd['gas1/XVIB5'] = XVIB5G1
+gd['gas1/YVIB5'] = YVIB5G1
+gd['gas1/XVIB6'] = XVIB6G1
+gd['gas1/YVIB6'] = YVIB6G1
 gd['gas1/XTR1'] = XTR1G1
 gd['gas1/YTR1'] = YTR1G1
-
-XTR2G1 = np.array([12.5, 14.0, 15.0, 16.0, 17.0, 19.0, 21.0, 24.0, 27.0, 31.0, 34.0
-                   ], dtype='d')
-YTR2G1 = np.array([0.00, .030, .056, .064, .068, .075, .077, .068, .057, .042, .033
-                   ], dtype='d')
 gd['gas1/XTR2'] = XTR2G1
 gd['gas1/YTR2'] = YTR2G1
-
-XTR3G1 = np.array([14.0, 15.0, 16.0, 17.0, 19.0, 21.0, 24.0, 27.0, 31.0, 34.0, 39.0
-                   ], dtype='d')
-YTR3G1 = np.array([0.00, .087, .180, .210, .237, .250, .250, .237, .187, .145, .107
-                   ], dtype='d')
 gd['gas1/XTR3'] = XTR3G1
 gd['gas1/YTR3'] = YTR3G1
-
-# BREMSTRAHLUNG X-SECTION WITH CUT OFF
-Z6TG1 = np.array(
-    [298., 178., 85.2, 47.5, 26.3, 12.2, 7.06, 4.45, 3.06, 2.82, 2.89, 2.99, 3.08, 3.13, 3.18, 3.25, 3.31, 3.39,
-     3.44, 3.49, 3.52, 3.54, 3.55, 3.57, 3.57], dtype='d')
-Z9TG1 = np.array(
-    [573., 358., 179., 101.6, 57.3, 26.5, 15.4, 9.63, 6.52, 5.92, 6.01, 6.18, 6.35, 6.43, 6.52, 6.65, 6.75, 6.87,
-     6.95, 7.02, 7.07, 7.10, 7.12, 7.13, 7.14
-     ], dtype='d')
-EBRMG1 = np.array(
-    [1000., 2000., 5000., 1.e4, 2.e4, 5.e4, 1.e5, 2.e5, 5.e5, 1.e6, 2.e6, 3.e6, 4.e6, 5.e6, 6.e6, 8.e6, 1.e7,
-     1.5e7, 2.e7, 3.e7, 4.e7, 5.e7, 6.e7, 8.e7, 1.e8
-     ], dtype='d')
+gd['gas1/XCF3'] = XCF3G1
+gd['gas1/YCF3'] = YCF3G1
+gd['gas1/XCF2'] = XCF2G1
+gd['gas1/YCF2'] = YCF2G1
+gd['gas1/XCF1'] = XCF1G1
+gd['gas1/YCF1'] = YCF1G1
+gd['gas1/XCF32'] = XCF32G1
+gd['gas1/YCF32'] = YCF32G1
+gd['gas1/XCF0'] = XCF0G1
+gd['gas1/YCF0'] = YCF0G1
+gd['gas1/XC0F'] = XC0FG1
+gd['gas1/YC0F'] = YC0FG1
+gd['gas1/XCF22'] = XCF22G1
+gd['gas1/YCF22'] = YCF22G1
+gd['gas1/XCF'] = XCFG1
+gd['gas1/YCF'] = YCFG1
+gd['gas1/XCFF'] = XCFFG1
+gd['gas1/YCFF'] = YCFFG1
+gd['gas1/XCF2F'] = XCF2FG1
+gd['gas1/YCF2F'] = YCF2FG1
+gd['gas1/XCF3F'] = XCF3FG1
+gd['gas1/YCF3F'] = YCF3FG1
+gd['gas1/XATT'] = XATTG1
+gd['gas1/YATT'] = YATTG1
+gd['gas1/XKSHC'] = XKSHCG1
+gd['gas1/YKSHC'] = YKSHCG1
+gd['gas1/XKSHF'] = XKSHFG1
+gd['gas1/YKSHF'] = YKSHFG1
 gd['gas1/Z6T'] = Z6TG1
 gd['gas1/Z9T'] = Z9TG1
 gd['gas1/EBRM'] = EBRMG1
 
-EIN = np.array(
-    [-0.0539, 0.0539, -0.0783, 0.0783, -0.1126, 0.1126, -0.1588, 0.1588, 0.3176, 0.4764, 11.5, 11.63, 11.88, 12.13,
-     12.38, 12.50, 12.63, 12.88, 13.13, 13.38, 13.63, 13.88, 14.00, 14.13, 14.38, 14.63, 14.88, 15.13, 15.38, 15.63,
-     15.88, 16.13, 16.38, 16.63, 16.88, 17.13, 17.38, 17.63, 17.88, 18.13, 18.38, 18.63, 18.88, 19.13, 19.38, 19.63,
-     0.0, 0.0], dtype='d')
+EIN = [np.float32(-0.0539), np.float32(0.0539), np.float32(-0.0783), np.float32(0.0783), np.float32(-0.1126),
+       np.float32(0.1126), np.float32(-0.1588), np.float32(0.1588), np.float32(0.3176), np.float32(0.4764),
+       np.float32(11.5), np.float32(11.63), np.float32(11.88), np.float32(12.13), np.float32(12.38), np.float32(12.50),
+       np.float32(12.63), np.float32(12.88), np.float32(13.13), np.float32(13.38), np.float32(13.63), np.float32(13.88),
+       np.float32(14.00), np.float32(14.13), np.float32(14.38), np.float32(14.63), np.float32(14.88), np.float32(15.13),
+       np.float32(15.38), np.float32(15.63), np.float32(15.88), np.float32(16.13), np.float32(16.38), np.float32(16.63),
+       np.float32(16.88), np.float32(17.13), np.float32(17.38), np.float32(17.63), np.float32(17.88), np.float32(18.13),
+       np.float32(18.38), np.float32(18.63), np.float32(18.88), np.float32(19.13), np.float32(19.38), np.float32(19.63),
+       np.float32(0.0), np.float32(0.0)]
 for i in range(0, 250 - 48):
     EIN = np.append(EIN, 0.0)
+
 gd['gas1/EIN'] = EIN
+#  ENERGY
 
-# XEN1
-XENG2 = [1.00, 1.20, 1.50, 1.70, 2.00, 2.50, 3.00, 4.00, 5.00, 6.00,
-         7.00, 8.00, 9.00, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0,
-         18.0, 20.0, 25.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0,
-         100., 125., 150., 200., 250., 300., 350., 400., 500., 600.,
-         700., 800., 1000., 1500., 2000., 3000., 4000., 5000., 6000., 8000.,
-         10000., 15000., 20000., 40000., 60000., 80000., 1.E5, 1.25E5, 1.5E5,
-         1.75E5,
-         2.E5, 2.5E5, 3.E5, 3.5E5, 4.E5, 4.5E5, 5.0E5, 6.0E5, 7.0E5, 8.0E5,
-         9.0E5, 1.0E6, 1.25E6, 1.5E6, 1.75E6, 2.0E6, 2.5E6, 3.0E6, 3.5E6, 4.0E6,
-         4.5E6, 5.0E6, 6.0E6, 7.0E6, 8.0E6, 9.0E6, 1.0E7, 1.25E7, 1.5E7, 1.75E7,
-         2.0E7, 2.5E7, 3.0E7, 3.5E7, 4.0E7, 4.5E7, 5.0E7, 6.0E7, 7.0E7, 8.0E7,
-         9.0E7, 1.0E8, 1.25E8, 1.5E8, 1.75E8, 2.0E8, 2.5E8, 3.0E8, 3.5E8, 4.0E8,
-         4.5E8, 5.0E8, 6.0E8, 7.0E8, 8.0E8, 9.0E8, 1.0E9]
-XENG2 = [np.float32(i) for i in XENG2]
-gd['gas2/XEN'] =XENG2
-
+XENG2 = [np.float32(1.00), np.float32(1.20), np.float32(1.50), np.float32(1.70), np.float32(2.00), np.float32(2.50),
+         np.float32(3.00), np.float32(4.00), np.float32(5.00), np.float32(6.00),
+         np.float32(7.00), np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(11.0), np.float32(12.0),
+         np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(16.0),
+         np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0),
+         np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+         np.float32(100.), np.float32(125.), np.float32(150.), np.float32(200.), np.float32(250.), np.float32(300.),
+         np.float32(350.), np.float32(400.), np.float32(500.), np.float32(600.),
+         np.float32(700.), np.float32(800.), np.float32(1000.), np.float32(1500.), np.float32(2000.), np.float32(3000.),
+         np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(8000.),
+         np.float32(10000.), np.float32(15000.), np.float32(20000.), np.float32(40000.), np.float32(60000.),
+         np.float32(80000.), 1.e5, 1.25e5, 1.5e5,
+         1.75e5,
+         2.e5, 2.5e5, 3.e5, 3.5e5, 4.e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5,
+         9.0e5, 1.0e6, 1.25e6, 1.5e6, 1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6,
+         4.5e6, 5.0e6, 6.0e6, 7.0e6, 8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7,
+         2.0e7, 2.5e7, 3.0e7, 3.5e7, 4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7,
+         9.0e7, 1.0e8, 1.25e8, 1.5e8, 1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8,
+         4.5e8, 5.0e8, 6.0e8, 7.0e8, 8.0e8, 9.0e8, 1.0e9,
+         ]
 # ELASTIC MOMENTUM TRANSFER
-YSECG2 =[1.3913, 1.66, 2.05, 2.33, 2.70, 3.43, 4.20, 5.70, 7.60, 9.60,
-                   11.5, 13.1, 14.7, 16.2, 16.8, 16.6, 15.9, 15.1, 14.2, 13.3,
-                   11.5, 10.0, 7.75, 6.25, 4.45, 3.50, 2.80, 2.25, 2.00, 1.70,
-                   1.50, 1.22, 1.00, 0.78, 0.64, 0.55, 0.48, 0.43, .355, 0.30,
-                   0.26, 0.22, 0.16, .095, .063, .033, .021, .0146, .0108, .00708,
-                   .00484, .00240, .00145, 4.3E-4, 2.1E-4, 1.26E-4, 8.64E-5, 5.91E-5,
-                   4.35E-5, 3.36E-5,
-                   2.70E-5, 1.88E-5, 1.41E-5, 1.10E-5, 8.94E-6, 7.45E-6, 6.34E-6, 4.80E-6,
-                   3.80E-6, 3.10E-6,
-                   2.59E-6, 2.21E-6, 1.56E-6, 1.18E-6, 9.32E-7, 7.56E-7, 5.30E-7, 3.95E-7,
-                   3.07E-7, 2.46E-7,
-                   2.02E-7, 1.69E-7, 1.24E-7, 9.49E-8, 7.52E-8, 6.12E-8, 5.08E-8, 3.41E-8,
-                   2.46E-8, 1.86E-8,
-                   1.46E-8, 9.65E-9, 6.88E-9, 5.16E-9, 4.01E-9, 3.21E-9, 2.62E-9, 1.85E-9,
-                   1.37E-9, 1.06E-9,
-                   8.37E-10, 6.80E-10, 4.37E-10, 3.04E-10, 2.23E-10, 1.71E-10, 1.10E-10,
-                   7.61E-11, 5.59E-11, 4.28E-11,
-                   3.38E-11, 2.74E-11, 1.90E-11, 1.40E-11, 1.07E-11, 8.45E-12, 6.84E-12]
-YSECG2 = [np.float32(i) for i in YSECG2]
-gd['gas2/YSEC'] = YSECG2
+
+YSECG2 = [np.float32(1.3913), np.float32(1.66), np.float32(2.05), np.float32(2.33), np.float32(2.70), np.float32(3.43),
+          np.float32(4.20), np.float32(5.70), np.float32(7.60), np.float32(9.60),
+          np.float32(11.5), np.float32(13.1), np.float32(14.7), np.float32(16.2), np.float32(16.8), np.float32(16.6),
+          np.float32(15.9), np.float32(15.1), np.float32(14.2), np.float32(13.3),
+          np.float32(11.5), np.float32(10.0), np.float32(7.75), np.float32(6.25), np.float32(4.45), np.float32(3.50),
+          np.float32(2.80), np.float32(2.25), np.float32(2.00), np.float32(1.70),
+          np.float32(1.50), np.float32(1.22), np.float32(1.00), np.float32(0.78), np.float32(0.64), np.float32(0.55),
+          np.float32(0.48), np.float32(0.43), np.float32(.355), np.float32(0.30),
+          np.float32(0.26), np.float32(0.22), np.float32(0.16), np.float32(.095), np.float32(.063), np.float32(.033),
+          np.float32(.021), np.float32(.0146), np.float32(.0108), np.float32(.00708),
+          np.float32(.00484), np.float32(.00240), np.float32(.00145), 4.3e-4, 2.1e-4, 1.26e-4, 8.64e-5, 5.91e-5,
+          4.35e-5, 3.36e-5,
+          2.70e-5, 1.88e-5, 1.41e-5, 1.10e-5, 8.94e-6, 7.45e-6, 6.34e-6, 4.80e-6,
+          3.80e-6, 3.10e-6,
+          2.59e-6, 2.21e-6, 1.56e-6, 1.18e-6, 9.32e-7, 7.56e-7, 5.30e-7, 3.95e-7,
+          3.07e-7, 2.46e-7,
+          2.02e-7, 1.69e-7, 1.24e-7, 9.49e-8, 7.52e-8, 6.12e-8, 5.08e-8, 3.41e-8,
+          2.46e-8, 1.86e-8,
+          1.46e-8, 9.65e-9, 6.88e-9, 5.16e-9, 4.01e-9, 3.21e-9, 2.62e-9, 1.85e-9,
+          1.37e-9, 1.06e-9,
+          8.37e-10, 6.80e-10, 4.37e-10, 3.04e-10, 2.23e-10, 1.71e-10, 1.10e-10,
+          7.61e-11, 5.59e-11, 4.28e-11,
+          3.38e-11, 2.74e-11, 1.90e-11, 1.40e-11, 1.07e-11, 8.45e-12, 6.84e-12,
+          ]
 # ELASTIC
 
-YEL1G7 = [1.4945, 1.80, 2.25, 2.63, 3.20, 4.15, 5.10, 7.05, 8.90, 11.1,
-          13.4, 15.8, 18.1, 20.3, 21.9, 23.0, 23.4, 23.5, 23.2, 22.2,
-          19.4, 17.0, 13.3, 11.0, 8.44, 7.16, 6.28, 5.78, 5.25, 4.89,
-          4.50, 3.95, 3.51, 3.03, 2.70, 2.48, 2.30, 2.10, 1.90, 1.72,
-          1.58, 1.47, 1.27, 0.98, .818, .620, .510, .434, .380, .313,
-          .250, .180, .138, .076, .056, .045, .0378, .0322, .0284, .0257,
-          .0237, .0209, .0190, .0177, .0168, .0160, .0155, .0146, .0140, .0136,
-          .0132, .0130, .0126, .0123, .0121, .0120, .0119, .0118, .0117, .0117,
-          .0116, .0116, .0116, .0116, .0116, .0116, .0115, .0115, .0115, .0115]
-for i in range(0, 27):
-    YEL1G7.append(0.0115)
-YEL1G7 = [np.float32(i) for i in YEL1G7]
+YELG2 = [np.float32(1.4945), np.float32(1.80), np.float32(2.25), np.float32(2.63), np.float32(3.20), np.float32(4.15),
+         np.float32(5.10), np.float32(7.05), np.float32(8.90), np.float32(11.1),
+         np.float32(13.4), np.float32(15.8), np.float32(18.1), np.float32(20.3), np.float32(21.9), np.float32(23.0),
+         np.float32(23.4), np.float32(23.5), np.float32(23.2), np.float32(22.2),
+         np.float32(19.4), np.float32(17.0), np.float32(13.3), np.float32(11.0), np.float32(8.44), np.float32(7.16),
+         np.float32(6.28), np.float32(5.78), np.float32(5.25), np.float32(4.89),
+         np.float32(4.50), np.float32(3.95), np.float32(3.51), np.float32(3.03), np.float32(2.70), np.float32(2.48),
+         np.float32(2.30), np.float32(2.10), np.float32(1.90), np.float32(1.72),
+         np.float32(1.58), np.float32(1.47), np.float32(1.27), np.float32(0.98), np.float32(.818), np.float32(.620),
+         np.float32(.510), np.float32(.434), np.float32(.380), np.float32(.313),
+         np.float32(.250), np.float32(.180), np.float32(.138), np.float32(.076), np.float32(.056), np.float32(.045),
+         np.float32(.0378), np.float32(.0322), np.float32(.0284), np.float32(.0257),
+         np.float32(.0237), np.float32(.0209), np.float32(.0190), np.float32(.0177), np.float32(.0168),
+         np.float32(.0160), np.float32(.0155), np.float32(.0146), np.float32(.0140), np.float32(.0136),
+         np.float32(.0132), np.float32(.0130), np.float32(.0126), np.float32(.0123), np.float32(.0121),
+         np.float32(.0120), np.float32(.0119), np.float32(.0118), np.float32(.0117), np.float32(.0117),
+         np.float32(.0116), np.float32(.0116), np.float32(.0116), np.float32(.0116), np.float32(.0116),
+         np.float32(.0116), np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115),
+         np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115),
+         np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115),
+         np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115),
+         np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115),
+         np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115), np.float32(.0115),
+         np.float32(.0115), np.float32(.0115),
+         ]
+# EPSILON FOR ELASTIC ANGULAR DISTRIBUTION
 
-gd['gas2/YEL'] = YEL1G7
-
-# EPSILON FOR ELASTIC ANGULAR EISTRIBUTION
-XEPSG2 = [.0, .0001, .0002, .0003, .0004, .0006, .0008, .001, .0012, .0014,
-                   .0017, .002, .0025, .003, .004, .005, .006, .008, .010, .012,
-                   .014, .017, .020, .025, .030, .035, .040, .045, .050, .055,
-                   .060, .065, .070, .075, .080, .085, .090, .095, .100, .110,
-                   0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.20, 0.21,
-                   0.22, 0.23, 0.24, 0.25, 0.26, 0.27, 0.28, 0.29, 0.30, 0.31,
-                   0.32, 0.33, 0.34, 0.35, 0.36, 0.37, 0.38, 0.39, 0.40, 0.41,
-                   0.42, 0.43, 0.44, 0.45, 0.46, 0.47, 0.48, 0.49, 0.50, 0.51,
-                   0.52, 0.53, 0.54, 0.55, 0.56, 0.57, 0.58, 0.59, 0.60, 0.61,
-                   0.62, 0.63, 0.65, 0.67, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95,
-                   1.00, 1.20, 1.50, 1.70, 2.00, 2.50, 3.00, 4.00, 5.00, 6.00,
-                   7.00, 8.00, 9.00, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0,
-                   18.0, 20.0, 25.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0,
-                   100., 125., 150., 200., 250., 300., 350., 400., 500., 600.,
-                   700., 800., 1000., 1500., 2000., 3000., 4000., 5000., 6000., 8000.,
-                   10000., 15000., 20000., 40000., 60000., 80000., 1.E5, 1.25E5, 1.5E5,
-                   1.75E5,
-                   2.0E5, 2.5E5, 3.0E5, 3.5E5, 4.0E5, 4.5E5, 5.0E5, 6.0E5, 7.0E5, 8.0E5,
-                   9.0E5, 1.0E6, 1.25E6, 1.5E6, 1.75E6, 2.0E6, 2.5E6, 3.0E6, 3.5E6, 4.0E6,
-                   4.5E6, 5.0E6, 6.0E6, 7.0E6, 8.0E6, 9.0E6, 1.0E7, 1.25E7, 1.5E7, 1.75E7,
-                   2.0E7, 2.5E7, 3.0E7, 3.5E7, 4.0E7, 4.5E7, 5.0E7, 6.0E7, 7.0E7, 8.0E7,
-                   9.0E7, 1.0E8, 1.25E8, 1.5E8, 1.75E8, 2.0E8, 2.5E8, 3.0E8, 3.5E8, 4.0E8,
-                   4.5E8, 5.0E8, 6.0E8, 7.0E8, 8.0E8, 9.0E8, 1.0E9]
-XEPSG2 = [np.float32(i) for i in XEPSG2]
-gd['gas2/XEPS'] = XEPSG2
+XEPSG2 = [np.float32(.0), np.float32(.0001), np.float32(.0002), np.float32(.0003), np.float32(.0004), np.float32(.0006),
+          np.float32(.0008), np.float32(.001), np.float32(.0012), np.float32(.0014),
+          np.float32(.0017), np.float32(.002), np.float32(.0025), np.float32(.003), np.float32(.004), np.float32(.005),
+          np.float32(.006), np.float32(.008), np.float32(.010), np.float32(.012),
+          np.float32(.014), np.float32(.017), np.float32(.020), np.float32(.025), np.float32(.030), np.float32(.035),
+          np.float32(.040), np.float32(.045), np.float32(.050), np.float32(.055),
+          np.float32(.060), np.float32(.065), np.float32(.070), np.float32(.075), np.float32(.080), np.float32(.085),
+          np.float32(.090), np.float32(.095), np.float32(.100), np.float32(.110),
+          np.float32(0.12), np.float32(0.13), np.float32(0.14), np.float32(0.15), np.float32(0.16), np.float32(0.17),
+          np.float32(0.18), np.float32(0.19), np.float32(0.20), np.float32(0.21),
+          np.float32(0.22), np.float32(0.23), np.float32(0.24), np.float32(0.25), np.float32(0.26), np.float32(0.27),
+          np.float32(0.28), np.float32(0.29), np.float32(0.30), np.float32(0.31),
+          np.float32(0.32), np.float32(0.33), np.float32(0.34), np.float32(0.35), np.float32(0.36), np.float32(0.37),
+          np.float32(0.38), np.float32(0.39), np.float32(0.40), np.float32(0.41),
+          np.float32(0.42), np.float32(0.43), np.float32(0.44), np.float32(0.45), np.float32(0.46), np.float32(0.47),
+          np.float32(0.48), np.float32(0.49), np.float32(0.50), np.float32(0.51),
+          np.float32(0.52), np.float32(0.53), np.float32(0.54), np.float32(0.55), np.float32(0.56), np.float32(0.57),
+          np.float32(0.58), np.float32(0.59), np.float32(0.60), np.float32(0.61),
+          np.float32(0.62), np.float32(0.63), np.float32(0.65), np.float32(0.67), np.float32(0.70), np.float32(0.75),
+          np.float32(0.80), np.float32(0.85), np.float32(0.90), np.float32(0.95),
+          np.float32(1.00), np.float32(1.20), np.float32(1.50), np.float32(1.70), np.float32(2.00), np.float32(2.50),
+          np.float32(3.00), np.float32(4.00), np.float32(5.00), np.float32(6.00),
+          np.float32(7.00), np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(11.0), np.float32(12.0),
+          np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(16.0),
+          np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0),
+          np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+          np.float32(100.), np.float32(125.), np.float32(150.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(350.), np.float32(400.), np.float32(500.), np.float32(600.),
+          np.float32(700.), np.float32(800.), np.float32(1000.), np.float32(1500.), np.float32(2000.),
+          np.float32(3000.), np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(8000.),
+          np.float32(10000.), np.float32(15000.), np.float32(20000.), np.float32(40000.), np.float32(60000.),
+          np.float32(80000.), 1.e5, 1.25e5, 1.5e5,
+          1.75e5,
+          2.0e5, 2.5e5, 3.0e5, 3.5e5, 4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5,
+          9.0e5, 1.0e6, 1.25e6, 1.5e6, 1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6,
+          4.5e6, 5.0e6, 6.0e6, 7.0e6, 8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7,
+          2.0e7, 2.5e7, 3.0e7, 3.5e7, 4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7,
+          9.0e7, 1.0e8, 1.25e8, 1.5e8, 1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8,
+          4.5e8, 5.0e8, 6.0e8, 7.0e8, 8.0e8, 9.0e8, 1.0e9,
+          ]
 # EPSILON =1-YEPS
-gd['gas2/YEPS'] = [1.0, .987, .9814, .977, .9734, .9673, .9619, .9572, .9530, .9492,
-                   .9433, .9384, .9304, .9234, .9103, .8988, .8879, .8681, .8501, .8332,
-                   .8173, .7947, .7727, .7395, .7071, .6770, .6469, .6187, .5909, .5642,
-                   .5379, .5119, .4866, .4623, .4384, .4154, .3932, .3716, .3505, .3108,
-                   .2745, .2414, .2118, .1859, .1637, .1452, .1304, .1195, .1123, .1089,
-                   .1093, .1140, .1231, .1369, .1559, .1802, .2104, .2465, .2882, .3353,
-                   .3872, .4434, .5019, .5620, .6222, .6818, .7400, .7957, .8477, .8970,
-                   .9414, .982, 1.019, 1.0521, 1.0812, 1.107, 1.1293, 1.1487, 1.1654, 1.1796,
-                   1.191, 1.2014, 1.208, 1.2137, 1.2179, 1.2205, 1.222, 1.222, 1.2213, 1.2194,
-                   1.2165, 1.213, 1.2035, 1.192, 1.171, 1.1296, 1.0836, 1.0358, .9876, .9411,
-                   .8966, .8836, .8671, .8299, .7682, .7432, .7390, .7174, .7830, .7989,
-                   .7892, .7470, .7226, .7025, .6590, .5967, .5406, .4932, .4554, .4396,
-                   .4320, .4266, .4200, .4030, .3564, .3152, .3716, .2186, .2113, .1829,
-                   .1713, .1522, .1344, .1152, .1018, .0922, .0843, .0820, .0717, .0649,
-                   .0597, .0522, .0409, .0286, .0210, .0129, .0093, .0072, .0058, .0044,
-                   .0035, .0023, .00173, 8.3E-4, 5.1E-4, 3.73E-4, 2.919E-4, 2.274E-4,
-                   1.847E-4, 1.546E-4,
-                   1.322E-4, 1.012E-4, 8.095E-5, 6.673E-5, 5.621E-5, 4.823E-5, 4.197E-5,
-                   3.279E-5, 2.647E-5, 2.191E-5,
-                   1.848E-5, 1.582E-5, 1.123E-5, 8.449E-6, 7.602E-6, 5.315E-6, 3.660E-6,
-                   2.682E-6, 2.050E-6, 1.617E-6,
-                   1.310E-6, 1.083E-6, 7.762E-7, 5.840E-7, 4.551E-7, 3.648E-7, 2.990E-7,
-                   2.254E-7, 1.376E-7, 1.021E-7,
-                   7.88E-8, 5.08E-8, 3.55E-8, 2.61E-8, 2.00E-8, 1.58E-8, 1.28E-8, 8.79E-9,
-                   6.41E-9, 4.86E-9,
-                   3.81E-9, 3.06E-9, 1.92E-9, 1.31E-9, 9.50E-10, 7.2E-10, 4.5E-10, 3.1E-10,
-                   2.2E-10, 1.7E-10,
-                   1.31E-10, 1.05E-10, 7.2E-11, 5.2E-11, 3.9E-11, 3.1E-11, 2.5E-11]
-gd['gas2/YEPS'] = [np.float32(i) for i in gd['gas2/YEPS']]
-# IONISATION ( VALUES ABOVE 20KEV GENERATEE BY BORN BETHE IN SUB)
-gd['gas2/XENI'] = [15.75961, 16.0, 16.5, 17.0, 17.5, 18.0, 18.5, 19.0, 19.5, 20.0,
-                   20.5, 21.0, 21.5, 22.0, 22.5, 23.0, 23.5, 24.0, 24.5, 25.0,
-                   25.5, 26.0, 28.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 45.0,
-                   50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
-                   100., 110., 120., 130., 140., 150., 160., 180., 200., 250.,
-                   300., 350., 400., 450., 500., 600., 700., 800., 900., 1000.,
-                   1200., 1400., 1600., 1800., 2000., 2500., 3000., 3500., 4000., 5000.,
-                   6000., 8000., 10000., 14000., 20000.]
-gd['gas2/XENI'] = [np.float32(i) for i in gd['gas2/XENI']]
 
+YEPSG2 = [np.float32(1.0), np.float32(.987), np.float32(.9814), np.float32(.977), np.float32(.9734), np.float32(.9673),
+          np.float32(.9619), np.float32(.9572), np.float32(.9530), np.float32(.9492),
+          np.float32(.9433), np.float32(.9384), np.float32(.9304), np.float32(.9234), np.float32(.9103),
+          np.float32(.8988), np.float32(.8879), np.float32(.8681), np.float32(.8501), np.float32(.8332),
+          np.float32(.8173), np.float32(.7947), np.float32(.7727), np.float32(.7395), np.float32(.7071),
+          np.float32(.6770), np.float32(.6469), np.float32(.6187), np.float32(.5909), np.float32(.5642),
+          np.float32(.5379), np.float32(.5119), np.float32(.4866), np.float32(.4623), np.float32(.4384),
+          np.float32(.4154), np.float32(.3932), np.float32(.3716), np.float32(.3505), np.float32(.3108),
+          np.float32(.2745), np.float32(.2414), np.float32(.2118), np.float32(.1859), np.float32(.1637),
+          np.float32(.1452), np.float32(.1304), np.float32(.1195), np.float32(.1123), np.float32(.1089),
+          np.float32(.1093), np.float32(.1140), np.float32(.1231), np.float32(.1369), np.float32(.1559),
+          np.float32(.1802), np.float32(.2104), np.float32(.2465), np.float32(.2882), np.float32(.3353),
+          np.float32(.3872), np.float32(.4434), np.float32(.5019), np.float32(.5620), np.float32(.6222),
+          np.float32(.6818), np.float32(.7400), np.float32(.7957), np.float32(.8477), np.float32(.8970),
+          np.float32(.9414), np.float32(.982), np.float32(1.019), np.float32(1.0521), np.float32(1.0812),
+          np.float32(1.107), np.float32(1.1293), np.float32(1.1487), np.float32(1.1654), np.float32(1.1796),
+          np.float32(1.191), np.float32(1.2014), np.float32(1.208), np.float32(1.2137), np.float32(1.2179),
+          np.float32(1.2205), np.float32(1.222), np.float32(1.222), np.float32(1.2213), np.float32(1.2194),
+          np.float32(1.2165), np.float32(1.213), np.float32(1.2035), np.float32(1.192), np.float32(1.171),
+          np.float32(1.1296), np.float32(1.0836), np.float32(1.0358), np.float32(.9876), np.float32(.9411),
+          np.float32(.8966), np.float32(.8836), np.float32(.8671), np.float32(.8299), np.float32(.7682),
+          np.float32(.7432), np.float32(.7390), np.float32(.7174), np.float32(.7830), np.float32(.7989),
+          np.float32(.7892), np.float32(.7470), np.float32(.7226), np.float32(.7025), np.float32(.6590),
+          np.float32(.5967), np.float32(.5406), np.float32(.4932), np.float32(.4554), np.float32(.4396),
+          np.float32(.4320), np.float32(.4266), np.float32(.4200), np.float32(.4030), np.float32(.3564),
+          np.float32(.3152), np.float32(.3716), np.float32(.2186), np.float32(.2113), np.float32(.1829),
+          np.float32(.1713), np.float32(.1522), np.float32(.1344), np.float32(.1152), np.float32(.1018),
+          np.float32(.0922), np.float32(.0843), np.float32(.0820), np.float32(.0717), np.float32(.0649),
+          np.float32(.0597), np.float32(.0522), np.float32(.0409), np.float32(.0286), np.float32(.0210),
+          np.float32(.0129), np.float32(.0093), np.float32(.0072), np.float32(.0058), np.float32(.0044),
+          np.float32(.0035), np.float32(.0023), np.float32(.00173), 8.3e-4, 5.1e-4, 3.73e-4, 2.919e-4, 2.274e-4,
+          1.847e-4, 1.546e-4,
+          1.322e-4, 1.012e-4, 8.095e-5, 6.673e-5, 5.621e-5, 4.823e-5, 4.197e-5,
+          3.279e-5, 2.647e-5, 2.191e-5,
+          1.848e-5, 1.582e-5, 1.123e-5, 8.449e-6, 7.602e-6, 5.315e-6, 3.660e-6,
+          2.682e-6, 2.050e-6, 1.617e-6,
+          1.310e-6, 1.083e-6, 7.762e-7, 5.840e-7, 4.551e-7, 3.648e-7, 2.990e-7,
+          2.254e-7, 1.376e-7, 1.021e-7,
+          7.88e-8, 5.08e-8, 3.55e-8, 2.61e-8, 2.00e-8, 1.58e-8, 1.28e-8, 8.79e-9,
+          6.41e-9, 4.86e-9,
+          3.81e-9, 3.06e-9, 1.92e-9, 1.31e-9, 9.50e-10, 7.2e-10, 4.5e-10, 3.1e-10,
+          2.2e-10, 1.7e-10,
+          1.31e-10, 1.05e-10, 7.2e-11, 5.2e-11, 3.9e-11, 3.1e-11, 2.5e-11,
+          ]
+# IONISATION ( VALUES ABOVE 20KEV GENERATED BY BORN BETHE IN SUB)
+
+XENIG2 = [np.float32(15.75961), np.float32(16.0), np.float32(16.5), np.float32(17.0), np.float32(17.5),
+          np.float32(18.0), np.float32(18.5), np.float32(19.0), np.float32(19.5), np.float32(20.0),
+          np.float32(20.5), np.float32(21.0), np.float32(21.5), np.float32(22.0), np.float32(22.5), np.float32(23.0),
+          np.float32(23.5), np.float32(24.0), np.float32(24.5), np.float32(25.0),
+          np.float32(25.5), np.float32(26.0), np.float32(28.0), np.float32(30.0), np.float32(32.0), np.float32(34.0),
+          np.float32(36.0), np.float32(38.0), np.float32(40.0), np.float32(45.0),
+          np.float32(50.0), np.float32(55.0), np.float32(60.0), np.float32(65.0), np.float32(70.0), np.float32(75.0),
+          np.float32(80.0), np.float32(85.0), np.float32(90.0), np.float32(95.0),
+          np.float32(100.), np.float32(110.), np.float32(120.), np.float32(130.), np.float32(140.), np.float32(150.),
+          np.float32(160.), np.float32(180.), np.float32(200.), np.float32(250.),
+          np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.),
+          np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+          np.float32(1200.), np.float32(1400.), np.float32(1600.), np.float32(1800.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.),
+          np.float32(6000.), np.float32(8000.), np.float32(10000.), np.float32(14000.), np.float32(20000.),
+          ]
 # GROSS IONISATION
-gd['gas2/YENI'] = [0.00, .031, .094, .163, .235, .310, .386, .465, .546, .627,
-                   .713, .787, .858, .933, .994, 1.06, 1.12, 1.18, 1.24, 1.30,
-                   1.35, 1.41, 1.60, 1.80, 1.96, 2.11, 2.24, 2.33, 2.39, 2.49,
-                   2.53, 2.60, 2.66, 2.73, 2.77, 2.82, 2.84, 2.85, 2.86, 2.86,
-                   2.85, 2.83, 2.81, 2.76, 2.73, 2.68, 2.62, 2.52, 2.39, 2.17,
-                   1.97, 1.80, 1.67, 1.54, 1.44, 1.28, 1.15, 1.04, .971, .898,
-                   .768, .688, .638, .576, .526, .446, .384, .340, .302, .255,
-                   .220, .172, .144, .110, .0825]
-gd['gas2/YENI'] = [np.float32(i) for i in gd['gas2/YENI']]
+
+YENIG2 = [np.float32(0.00), np.float32(.031), np.float32(.094), np.float32(.163), np.float32(.235), np.float32(.310),
+          np.float32(.386), np.float32(.465), np.float32(.546), np.float32(.627),
+          np.float32(.713), np.float32(.787), np.float32(.858), np.float32(.933), np.float32(.994), np.float32(1.06),
+          np.float32(1.12), np.float32(1.18), np.float32(1.24), np.float32(1.30),
+          np.float32(1.35), np.float32(1.41), np.float32(1.60), np.float32(1.80), np.float32(1.96), np.float32(2.11),
+          np.float32(2.24), np.float32(2.33), np.float32(2.39), np.float32(2.49),
+          np.float32(2.53), np.float32(2.60), np.float32(2.66), np.float32(2.73), np.float32(2.77), np.float32(2.82),
+          np.float32(2.84), np.float32(2.85), np.float32(2.86), np.float32(2.86),
+          np.float32(2.85), np.float32(2.83), np.float32(2.81), np.float32(2.76), np.float32(2.73), np.float32(2.68),
+          np.float32(2.62), np.float32(2.52), np.float32(2.39), np.float32(2.17),
+          np.float32(1.97), np.float32(1.80), np.float32(1.67), np.float32(1.54), np.float32(1.44), np.float32(1.28),
+          np.float32(1.15), np.float32(1.04), np.float32(.971), np.float32(.898),
+          np.float32(.768), np.float32(.688), np.float32(.638), np.float32(.576), np.float32(.526), np.float32(.446),
+          np.float32(.384), np.float32(.340), np.float32(.302), np.float32(.255),
+          np.float32(.220), np.float32(.172), np.float32(.144), np.float32(.110), np.float32(.0825),
+          ]
 # COUNTING IONISATION
-gd['gas2/YENC'] = [0.00, .031, .094, .163, .235, .310, .386, .465, .546, .627,
-                   .713, .787, .858, .933, .994, 1.06, 1.12, 1.18, 1.24, 1.30,
-                   1.35, 1.41, 1.60, 1.80, 1.96, 2.11, 2.24, 2.33, 2.39, 2.49,
-                   2.52, 2.56, 2.58, 2.62, 2.63, 2.67, 2.68, 2.68, 2.69, 2.69,
-                   2.68, 2.66, 2.64, 2.59, 2.56, 2.52, 2.46, 2.37, 2.24, 2.04,
-                   1.85, 1.69, 1.57, 1.45, 1.35, 1.21, 1.08, .981, .912, .843,
-                   .721, .646, .599, .540, .494, .419, .361, .319, .283, .239,
-                   .206, .162, .136, .104, .0775]
-gd['gas2/YENC'] = [np.float32(i) for i in gd['gas2/YENC']]
+
+YENCG2 = [np.float32(0.00), np.float32(.031), np.float32(.094), np.float32(.163), np.float32(.235), np.float32(.310),
+          np.float32(.386), np.float32(.465), np.float32(.546), np.float32(.627),
+          np.float32(.713), np.float32(.787), np.float32(.858), np.float32(.933), np.float32(.994), np.float32(1.06),
+          np.float32(1.12), np.float32(1.18), np.float32(1.24), np.float32(1.30),
+          np.float32(1.35), np.float32(1.41), np.float32(1.60), np.float32(1.80), np.float32(1.96), np.float32(2.11),
+          np.float32(2.24), np.float32(2.33), np.float32(2.39), np.float32(2.49),
+          np.float32(2.52), np.float32(2.56), np.float32(2.58), np.float32(2.62), np.float32(2.63), np.float32(2.67),
+          np.float32(2.68), np.float32(2.68), np.float32(2.69), np.float32(2.69),
+          np.float32(2.68), np.float32(2.66), np.float32(2.64), np.float32(2.59), np.float32(2.56), np.float32(2.52),
+          np.float32(2.46), np.float32(2.37), np.float32(2.24), np.float32(2.04),
+          np.float32(1.85), np.float32(1.69), np.float32(1.57), np.float32(1.45), np.float32(1.35), np.float32(1.21),
+          np.float32(1.08), np.float32(.981), np.float32(.912), np.float32(.843),
+          np.float32(.721), np.float32(.646), np.float32(.599), np.float32(.540), np.float32(.494), np.float32(.419),
+          np.float32(.361), np.float32(.319), np.float32(.283), np.float32(.239),
+          np.float32(.206), np.float32(.162), np.float32(.136), np.float32(.104), np.float32(.0775),
+          ]
 # IONISATION FOR CHARGE STATE = 1
-gd['gas2/YEN1'] = [0.00, .031, .094, .163, .235, .310, .386, .465, .546, .627,
-                   .713, .787, .858, .933, .994, 1.06, 1.12, 1.18, 1.24, 1.30,
-                   1.35, 1.41, 1.60, 1.80, 1.96, 2.11, 2.24, 2.33, 2.39, 2.49,
-                   2.51, 2.52, 2.50, 2.50, 2.50, 2.52, 2.52, 2.52, 2.52, 2.50,
-                   2.49, 2.47, 2.45, 2.41, 2.38, 2.33, 2.29, 2.20, 2.10, 1.91,
-                   1.74, 1.59, 1.48, 1.37, 1.28, 1.14, 1.02, .925, .863, .798,
-                   .682, .612, .567, .511, .468, .397, .342, .302, .268, .226,
-                   .195, .153, .129, .0984, .0734]
-gd['gas2/YEN1'] = [np.float32(i) for i in gd['gas2/YEN1']]
+
+YEN1G2 = [np.float32(0.00), np.float32(.031), np.float32(.094), np.float32(.163), np.float32(.235), np.float32(.310),
+          np.float32(.386), np.float32(.465), np.float32(.546), np.float32(.627),
+          np.float32(.713), np.float32(.787), np.float32(.858), np.float32(.933), np.float32(.994), np.float32(1.06),
+          np.float32(1.12), np.float32(1.18), np.float32(1.24), np.float32(1.30),
+          np.float32(1.35), np.float32(1.41), np.float32(1.60), np.float32(1.80), np.float32(1.96), np.float32(2.11),
+          np.float32(2.24), np.float32(2.33), np.float32(2.39), np.float32(2.49),
+          np.float32(2.51), np.float32(2.52), np.float32(2.50), np.float32(2.50), np.float32(2.50), np.float32(2.52),
+          np.float32(2.52), np.float32(2.52), np.float32(2.52), np.float32(2.50),
+          np.float32(2.49), np.float32(2.47), np.float32(2.45), np.float32(2.41), np.float32(2.38), np.float32(2.33),
+          np.float32(2.29), np.float32(2.20), np.float32(2.10), np.float32(1.91),
+          np.float32(1.74), np.float32(1.59), np.float32(1.48), np.float32(1.37), np.float32(1.28), np.float32(1.14),
+          np.float32(1.02), np.float32(.925), np.float32(.863), np.float32(.798),
+          np.float32(.682), np.float32(.612), np.float32(.567), np.float32(.511), np.float32(.468), np.float32(.397),
+          np.float32(.342), np.float32(.302), np.float32(.268), np.float32(.226),
+          np.float32(.195), np.float32(.153), np.float32(.129), np.float32(.0984), np.float32(.0734),
+          ]
 # IONISATION FOR CHARGE STATE = 2
-gd['gas2/XEN2'] = [43.38928, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0,
-                   90.0, 95.0, 100., 110., 120., 130., 140., 150., 160., 180.,
-                   200., 250., 300., 350., 400., 450., 500., 600., 700., 800.,
-                   900., 1000., 1200., 1400., 1600., 1800., 2000., 2500., 3000., 3500.,
-                   4000., 5000., 6000., 8000., 10000., 14000., 20000.]
-gd['gas2/XEN2'] = [np.float32(i) for i in gd['gas2/XEN2']]
-gd['gas2/YEN2'] = [0.00, .00045, .012, .0391, .0803, .114, .136, .148, .159, .165,
-                   .172, .175, .179, .180, .180, .176, .172, .167, .161, .153,
-                   .138, .121, .106, .093, .085, .076, .0667, .0568, .0518, .0453,
-                   .0418, .0375, .0321, .0287, .0266, .0240, .0234, .0186, .0161, .0142,
-                   .0126, .0106, .00916, .00681, .00574, .00438, .00326]
-gd['gas2/YEN2'] = [np.float32(i) for i in gd['gas2/YEN2']]
+
+XEN2G2 = [np.float32(43.38928), np.float32(45.0), np.float32(50.0), np.float32(55.0), np.float32(60.0),
+          np.float32(65.0), np.float32(70.0), np.float32(75.0), np.float32(80.0), np.float32(85.0),
+          np.float32(90.0), np.float32(95.0), np.float32(100.), np.float32(110.), np.float32(120.), np.float32(130.),
+          np.float32(140.), np.float32(150.), np.float32(160.), np.float32(180.),
+          np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+          np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.),
+          np.float32(900.), np.float32(1000.), np.float32(1200.), np.float32(1400.), np.float32(1600.),
+          np.float32(1800.), np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.),
+          np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(8000.), np.float32(10000.),
+          np.float32(14000.), np.float32(20000.),
+          ]
+YEN2G2 = [np.float32(0.00), np.float32(.00045), np.float32(.012), np.float32(.0391), np.float32(.0803),
+          np.float32(.114), np.float32(.136), np.float32(.148), np.float32(.159), np.float32(.165),
+          np.float32(.172), np.float32(.175), np.float32(.179), np.float32(.180), np.float32(.180), np.float32(.176),
+          np.float32(.172), np.float32(.167), np.float32(.161), np.float32(.153),
+          np.float32(.138), np.float32(.121), np.float32(.106), np.float32(.093), np.float32(.085), np.float32(.076),
+          np.float32(.0667), np.float32(.0568), np.float32(.0518), np.float32(.0453),
+          np.float32(.0418), np.float32(.0375), np.float32(.0321), np.float32(.0287), np.float32(.0266),
+          np.float32(.0240), np.float32(.0234), np.float32(.0186), np.float32(.0161), np.float32(.0142),
+          np.float32(.0126), np.float32(.0106), np.float32(.00916), np.float32(.00681), np.float32(.00574),
+          np.float32(.00438), np.float32(.00326),
+          ]
 # IONISATION FOR CHARGE STATE =3
-gd['gas2/XEN3'] = [84.124, 100., 110., 120., 130., 140., 150., 160., 180., 200.,
-                   250., 300., 350., 400., 450., 500., 600., 700., 800., 900.,
-                   1000., 1200., 1400., 1600., 1800., 2000., 2500., 3000., 3500., 4000.,
-                   5000., 6000., 8000., 10000., 14000., 20000.]
-gd['gas2/XEN3'] = [np.float32(i) for i in gd['gas2/XEN3']]
-gd['gas2/YEN3'] = [0.0, .000972, .00209, .00311, .00400, .00481, .00520, .00541,
-                   .00552, .00532,
-                   .00504, .00489, .00607, .00673, .00751, .00823, .00903, .00890, .00887,
-                   .00825,
-                   .00832, .00711, .00636, .00590, .00532, .00486, .00413, .00355, .00314,
-                   .00278,
-                   .00236, .00203, .00160, .00134, .001024, .000764]
-gd['gas2/YEN3'] = [np.float32(i) for i in gd['gas2/YEN3']]
+
+XEN3G2 = [np.float32(84.124), np.float32(100.), np.float32(110.), np.float32(120.), np.float32(130.), np.float32(140.),
+          np.float32(150.), np.float32(160.), np.float32(180.), np.float32(200.),
+          np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+          np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+          np.float32(1000.), np.float32(1200.), np.float32(1400.), np.float32(1600.), np.float32(1800.),
+          np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.),
+          np.float32(5000.), np.float32(6000.), np.float32(8000.), np.float32(10000.), np.float32(14000.),
+          np.float32(20000.),
+          ]
+YEN3G2 = [np.float32(0.0), np.float32(.000972), np.float32(.00209), np.float32(.00311), np.float32(.00400),
+          np.float32(.00481), np.float32(.00520), np.float32(.00541),
+          np.float32(.00552), np.float32(.00532),
+          np.float32(.00504), np.float32(.00489), np.float32(.00607), np.float32(.00673), np.float32(.00751),
+          np.float32(.00823), np.float32(.00903), np.float32(.00890), np.float32(.00887),
+          np.float32(.00825),
+          np.float32(.00832), np.float32(.00711), np.float32(.00636), np.float32(.00590), np.float32(.00532),
+          np.float32(.00486), np.float32(.00413), np.float32(.00355), np.float32(.00314),
+          np.float32(.00278),
+          np.float32(.00236), np.float32(.00203), np.float32(.00160), np.float32(.00134), np.float32(.001024),
+          np.float32(.000764),
+          ]
 # K-SHELL IONISATION
-gd['gas2/XKSH'] = [3205.9, 3283., 3378., 3475., 3576., 3680., 3786., 3896., 4009.,
-                   4125.,
-                   4368., 4625., 4898., 5186., 5492., 5816., 6159., 6522., 6907., 7314.,
-                   7971., 8688., 9468., 1.03E4, 1.09E4, 1.19E4, 1.30E4, 1.42E4, 1.54E4,
-                   1.68E4,
-                   1.89E4, 2.12E4, 2.37E4, 2.66E4, 2.99E4, 3.45E4, 3.98E4, 4.60E4, 5.31E4,
-                   6.13E4,
-                   7.29E4, 8.66E4, 1.00E5, 1.19E5, 1.41E5, 1.68E5, 2.00E5, 2.37E5, 2.82E5,
-                   3.35E5,
-                   4.10E5, 5.01E5, 6.13E5, 7.50E5, 8.91E5, 1.00E6, 1.22E6, 1.50E6, 1.83E6,
-                   2.30E6,
-                   2.90E6, 3.65E6, 4.60E6, 5.79E6, 7.50E6, 8.66E6, 1.00E7, 1.22E7, 1.50E7,
-                   1.83E7,
-                   2.24E7, 2.74E7, 3.55E7, 4.60E7, 5.79E7, 7.50E7, 8.66E7, 1.00E8, 1.22E8,
-                   1.50E8,
-                   1.83E8, 2.24E8, 2.74E8, 3.55E8, 4.60E7, 5.79E8, 7.50E8, 8.66E8, 1.00E9]
-gd['gas2/XKSH'] = [np.float32(i) for i in gd['gas2/XKSH']]
-gd['gas2/YKSH'] = [0.0, 1.59E-6, 3.44E-6, 5.20E-6, 6.89E-6, 8.51E-6, 1.01E-5,
-                   1.15E-5, 1.29E-5, 1.43E-5,
-                   1.68E-5, 1.91E-5, 2.11E-5, 2.30E-5, 2.46E-5, 2.61E-5, 2.74E-5, 2.85E-5,
-                   2.95E-5, 3.04E-5,
-                   3.14E-5, 3.21E-5, 3.25E-5, 3.27E-5, 3.27E-5, 3.26E-5, 3.23E-5, 3.18E-5,
-                   3.12E-5, 3.04E-5,
-                   2.93E-5, 2.81E-5, 2.68E-5, 2.54E-5, 2.40E-5, 2.23E-5, 2.07E-5, 1.92E-5,
-                   1.77E-5, 1.63E-5,
-                   1.48E-5, 1.39E-5, 1.24E-5, 1.13E-5, 1.04E-5, 9.53E-6, 8.82E-6, 8.22E-6,
-                   7.72E-6, 7.32E-6,
-                   6.94E-6, 6.67E-6, 6.48E-6, 6.37E-6, 6.33E-6, 6.33E-6, 6.36E-6, 6.45E-6,
-                   6.57E-6, 6.75E-6,
-                   6.97E-6, 7.21E-6, 7.47E-6, 7.75E-6, 8.08E-6, 8.27E-6, 8.46E-6, 8.73E-6,
-                   9.01E-6, 9.28E-6,
-                   9.56E-6, 9.85E-6, 1.02E-5, 1.06E-5, 1.09E-5, 1.13E-5, 1.15E-5, 1.17E-5,
-                   1.20E-5, 1.23E-5,
-                   1.25E-5, 1.28E-5, 1.31E-5, 1.35E-5, 1.39E-5, 1.42E-5, 1.46E-5, 1.48E-5,
-                   1.50E-5]
-gd['gas2/YKSH'] = [np.float32(i) for i in gd['gas2/YKSH']]
+
+XKSHG2 = [np.float32(3205.9), np.float32(3283.), np.float32(3378.), np.float32(3475.), np.float32(3576.),
+          np.float32(3680.), np.float32(3786.), np.float32(3896.), np.float32(4009.),
+          np.float32(4125.),
+          np.float32(4368.), np.float32(4625.), np.float32(4898.), np.float32(5186.), np.float32(5492.),
+          np.float32(5816.), np.float32(6159.), np.float32(6522.), np.float32(6907.), np.float32(7314.),
+          np.float32(7971.), np.float32(8688.), np.float32(9468.), 1.03e4, 1.09e4, 1.19e4, 1.30e4, 1.42e4, 1.54e4,
+          1.68e4,
+          1.89e4, 2.12e4, 2.37e4, 2.66e4, 2.99e4, 3.45e4, 3.98e4, 4.60e4, 5.31e4,
+          6.13e4,
+          7.29e4, 8.66e4, 1.00e5, 1.19e5, 1.41e5, 1.68e5, 2.00e5, 2.37e5, 2.82e5,
+          3.35e5,
+          4.10e5, 5.01e5, 6.13e5, 7.50e5, 8.91e5, 1.00e6, 1.22e6, 1.50e6, 1.83e6,
+          2.30e6,
+          2.90e6, 3.65e6, 4.60e6, 5.79e6, 7.50e6, 8.66e6, 1.00e7, 1.22e7, 1.50e7,
+          1.83e7,
+          2.24e7, 2.74e7, 3.55e7, 4.60e7, 5.79e7, 7.50e7, 8.66e7, 1.00e8, 1.22e8,
+          1.50e8,
+          1.83e8, 2.24e8, 2.74e8, 3.55e8, 4.60e7, 5.79e8, 7.50e8, 8.66e8, 1.00e9,
+          ]
+YKSHG2 = [np.float32(0.0), 1.59e-6, 3.44e-6, 5.20e-6, 6.89e-6, 8.51e-6, 1.01e-5,
+          1.15e-5, 1.29e-5, 1.43e-5,
+          1.68e-5, 1.91e-5, 2.11e-5, 2.30e-5, 2.46e-5, 2.61e-5, 2.74e-5, 2.85e-5,
+          2.95e-5, 3.04e-5,
+          3.14e-5, 3.21e-5, 3.25e-5, 3.27e-5, 3.27e-5, 3.26e-5, 3.23e-5, 3.18e-5,
+          3.12e-5, 3.04e-5,
+          2.93e-5, 2.81e-5, 2.68e-5, 2.54e-5, 2.40e-5, 2.23e-5, 2.07e-5, 1.92e-5,
+          1.77e-5, 1.63e-5,
+          1.48e-5, 1.39e-5, 1.24e-5, 1.13e-5, 1.04e-5, 9.53e-6, 8.82e-6, 8.22e-6,
+          7.72e-6, 7.32e-6,
+          6.94e-6, 6.67e-6, 6.48e-6, 6.37e-6, 6.33e-6, 6.33e-6, 6.36e-6, 6.45e-6,
+          6.57e-6, 6.75e-6,
+          6.97e-6, 7.21e-6, 7.47e-6, 7.75e-6, 8.08e-6, 8.27e-6, 8.46e-6, 8.73e-6,
+          9.01e-6, 9.28e-6,
+          9.56e-6, 9.85e-6, 1.02e-5, 1.06e-5, 1.09e-5, 1.13e-5, 1.15e-5, 1.17e-5,
+          1.20e-5, 1.23e-5,
+          1.25e-5, 1.28e-5, 1.31e-5, 1.35e-5, 1.39e-5, 1.42e-5, 1.46e-5, 1.48e-5,
+          1.50e-5,
+          ]
 # L1 SHELL IONISATION
-gd['gas2/XL1S'] = [326.3, 329.0, 338.3, 347.8, 357.5, 367.6, 378.0, 388.6, 399.6,
-                   410.9,
-                   422.5, 447., 473., 500., 529., 559., 592., 626., 662., 701.,
-                   742., 807., 879., 957., 1013., 1103., 1203., 1313., 1423., 1553.,
-                   1693., 1893., 2123., 2383., 2673., 3003., 3463., 3993., 4613., 5323.,
-                   6143., 7303., 8673., 1.00E4, 1.19E4, 1.41E4, 1.68E4, 2.00E4, 2.37E4,
-                   2.82E4,
-                   3.35E4, 4.10E4, 5.01E4, 6.13E4, 7.50E4, 8.91E4, 1.00E5, 1.22E5, 1.50E5,
-                   1.83E5,
-                   2.30E5, 2.90E5, 3.65E5, 4.60E5, 5.79E5, 7.50E5, 8.66E5, 1.00E6, 1.22E6,
-                   1.50E6,
-                   1.83E6, 2.30E6, 2.90E6, 3.65E6, 4.60E6, 5.79E6, 7.50E6, 8.66E6, 1.00E7,
-                   1.22E7,
-                   1.50E7, 1.83E7, 2.30E7, 2.90E7, 3.65E7, 4.60E7, 5.79E7, 7.50E7, 8.66E7,
-                   1.00E8,
-                   1.22E8, 1.50E8, 1.83E8, 2.30E8, 2.90E8, 3.65E8, 4.60E8, 5.79E8, 7.50E8,
-                   8.66E8,
-                   1.00E9]
-gd['gas2/XL1S'] = [np.float32(i) for i in gd['gas2/XL1S']]
-gd['gas2/YL1S'] = [0.0, 5.83E-5, 2.39E-4, 4.07E-4, 5.63E-4, 7.08E-4, 8.43E-4,
-                   9.71E-4, 1.09E-3, 1.20E-3,
-                   1.31E-3, 1.50E-3, 1.68E-3, 1.84E-3, 1.98E-3, 2.11E-3, 2.22E-3, 2.32E-3,
-                   2.41E-3, 2.49E-3,
-                   2.55E-3, 2.63E-3, 2.68E-3, 2.72E-3, 2.73E-3, 2.72E-3, 2.71E-3, 2.67E-3,
-                   2.62E-3, 2.56E-3,
-                   2.49E-3, 2.38E-3, 2.27E-3, 2.14E-3, 2.02E-3, 1.89E-3, 1.74E-3, 1.59E-3,
-                   1.44E-3, 1.31E-3,
-                   1.19E-3, 1.05E-3, 9.22E-4, 8.28E-4, 7.26E-4, 6.36E-4, 5.57E-4, 4.87E-4,
-                   4.26E-4, 3.72E-4,
-                   3.26E-4, 2.79E-4, 2.40E-4, 2.07E-4, 1.79E-4, 1.59E-4, 1.48E-4, 1.30E-4,
-                   1.15E-4, 1.03E-4,
-                   9.19E-5, 8.32E-5, 7.66E-5, 7.16E-5, 6.81E-5, 6.55E-5, 6.45E-5, 6.40E-5,
-                   6.36E-5, 6.38E-5,
-                   6.44E-5, 6.54E-5, 6.67E-5, 6.84E-5, 7.02E-5, 7.22E-5, 7.45E-5, 7.59E-5,
-                   7.72E-5, 7.92E-5,
-                   8.12E-5, 8.32E-5, 8.55E-5, 8.79E-5, 9.03E-5, 9.26E-5, 9.50E-5, 9.77E-5,
-                   9.92E-5, 1.01E-4,
-                   1.03E-4, 1.05E-4, 1.07E-4, 1.09E-4, 1.12E-4, 1.14E-4, 1.17E-4, 1.19E-4,
-                   1.22E-4, 1.23E-4,
-                   1.25E-4]
-gd['gas2/YL1S'] = [np.float32(i) for i in gd['gas2/YL1S']]
+
+XL1SG2 = [np.float32(326.3), np.float32(329.0), np.float32(338.3), np.float32(347.8), np.float32(357.5),
+          np.float32(367.6), np.float32(378.0), np.float32(388.6), np.float32(399.6),
+          np.float32(410.9),
+          np.float32(422.5), np.float32(447.), np.float32(473.), np.float32(500.), np.float32(529.), np.float32(559.),
+          np.float32(592.), np.float32(626.), np.float32(662.), np.float32(701.),
+          np.float32(742.), np.float32(807.), np.float32(879.), np.float32(957.), np.float32(1013.), np.float32(1103.),
+          np.float32(1203.), np.float32(1313.), np.float32(1423.), np.float32(1553.),
+          np.float32(1693.), np.float32(1893.), np.float32(2123.), np.float32(2383.), np.float32(2673.),
+          np.float32(3003.), np.float32(3463.), np.float32(3993.), np.float32(4613.), np.float32(5323.),
+          np.float32(6143.), np.float32(7303.), np.float32(8673.), 1.00e4, 1.19e4, 1.41e4, 1.68e4, 2.00e4, 2.37e4,
+          2.82e4,
+          3.35e4, 4.10e4, 5.01e4, 6.13e4, 7.50e4, 8.91e4, 1.00e5, 1.22e5, 1.50e5,
+          1.83e5,
+          2.30e5, 2.90e5, 3.65e5, 4.60e5, 5.79e5, 7.50e5, 8.66e5, 1.00e6, 1.22e6,
+          1.50e6,
+          1.83e6, 2.30e6, 2.90e6, 3.65e6, 4.60e6, 5.79e6, 7.50e6, 8.66e6, 1.00e7,
+          1.22e7,
+          1.50e7, 1.83e7, 2.30e7, 2.90e7, 3.65e7, 4.60e7, 5.79e7, 7.50e7, 8.66e7,
+          1.00e8,
+          1.22e8, 1.50e8, 1.83e8, 2.30e8, 2.90e8, 3.65e8, 4.60e8, 5.79e8, 7.50e8,
+          8.66e8,
+          1.00e9,
+          ]
+YL1SG2 = [np.float32(0.0), 5.83e-5, 2.39e-4, 4.07e-4, 5.63e-4, 7.08e-4, 8.43e-4,
+          9.71e-4, 1.09e-3, 1.20e-3,
+          1.31e-3, 1.50e-3, 1.68e-3, 1.84e-3, 1.98e-3, 2.11e-3, 2.22e-3, 2.32e-3,
+          2.41e-3, 2.49e-3,
+          2.55e-3, 2.63e-3, 2.68e-3, 2.72e-3, 2.73e-3, 2.72e-3, 2.71e-3, 2.67e-3,
+          2.62e-3, 2.56e-3,
+          2.49e-3, 2.38e-3, 2.27e-3, 2.14e-3, 2.02e-3, 1.89e-3, 1.74e-3, 1.59e-3,
+          1.44e-3, 1.31e-3,
+          1.19e-3, 1.05e-3, 9.22e-4, 8.28e-4, 7.26e-4, 6.36e-4, 5.57e-4, 4.87e-4,
+          4.26e-4, 3.72e-4,
+          3.26e-4, 2.79e-4, 2.40e-4, 2.07e-4, 1.79e-4, 1.59e-4, 1.48e-4, 1.30e-4,
+          1.15e-4, 1.03e-4,
+          9.19e-5, 8.32e-5, 7.66e-5, 7.16e-5, 6.81e-5, 6.55e-5, 6.45e-5, 6.40e-5,
+          6.36e-5, 6.38e-5,
+          6.44e-5, 6.54e-5, 6.67e-5, 6.84e-5, 7.02e-5, 7.22e-5, 7.45e-5, 7.59e-5,
+          7.72e-5, 7.92e-5,
+          8.12e-5, 8.32e-5, 8.55e-5, 8.79e-5, 9.03e-5, 9.26e-5, 9.50e-5, 9.77e-5,
+          9.92e-5, 1.01e-4,
+          1.03e-4, 1.05e-4, 1.07e-4, 1.09e-4, 1.12e-4, 1.14e-4, 1.17e-4, 1.19e-4,
+          1.22e-4, 1.23e-4,
+          1.25e-4,
+          ]
 # L2 SHELL IONISATION
-gd['gas2/XL2S'] = [250.6, 252.3, 260.3, 267.3, 275.3, 283.3, 291.3, 300.3, 308.3,
-                   317.3,
-                   326.3, 346.3, 366.3, 388.3, 411.3, 435.3, 461.3, 488.3, 517.3, 547.3,
-                   580.3, 614.3, 650.3, 689.3, 751.3, 819.3, 892.3, 1001., 1121., 1261.,
-                   1411., 1581., 1781., 1941., 2181., 2441., 2741., 3071., 3451., 3871.,
-                   4471., 5161., 5961., 6881., 7941., 8911., 1.00E4, 1.19E4, 1.41E4, 1.68E4,
-                   2.05E4, 2.44E4, 2.90E4, 3.45E4, 4.10E4, 4.87E4, 5.79E4, 6.88E4, 8.18E4,
-                   1.00E5,
-                   1.22E5, 1.50E5, 1.83E5, 2.24E5, 2.74E5, 3.35E5, 4.10E5, 5.01E5, 6.13E5,
-                   7.50E5,
-                   1.00E6, 1.22E6, 1.50E6, 1.83E6, 2.30E6, 2.90E6, 3.65E6, 4.60E6, 5.79E6,
-                   7.50E6,
-                   8.66E6, 1.00E7, 1.22E7, 1.50E7, 1.83E7, 2.30E7, 2.90E7, 3.65E7, 4.60E7,
-                   5.79E7,
-                   7.50E7, 8.66E7, 1.00E8, 1.22E8, 1.50E8, 1.83E8, 2.30E8, 2.90E8, 3.65E8,
-                   4.60E8,
-                   5.79E8, 7.50E8, 8.66E8, 1.00E9]
-gd['gas2/XL2S'] = [np.float32(i) for i in gd['gas2/XL2S']]
-gd['gas2/YL2S'] = [0.00, 9.77E-5, 4.86E-4, 8.50E-4, 1.19E-3, 1.51E-3, 1.81E-3,
-                   2.10E-3, 2.36E-3, 2.62E-3,
-                   2.85E-3, 3.29E-3, 3.67E-3, 4.01E-3, 4.32E-3, 4.59E-3, 4.83E-3, 5.04E-3,
-                   5.22E-3, 5.38E-3,
-                   5.52E-3, 5.63E-3, 5.72E-3, 5.79E-3, 5.86E-3, 5.89E-3, 5.88E-3, 5.82E-3,
-                   5.70E-3, 5.55E-3,
-                   5.36E-3, 5.14E-3, 4.90E-3, 4.72E-3, 4.46E-3, 4.21E-3, 3.95E-3, 3.70E-3,
-                   3.47E-3, 3.24E-3,
-                   2.96E-3, 2.70E-3, 2.46E-3, 2.23E-3, 2.01E-3, 1.86E-3, 1.71E-3, 1.51E-3,
-                   1.33E-3, 1.17E-3,
-                   1.01E-3, 8.83E-4, 7.77E-4, 6.83E-4, 6.02E-4, 5.31E-4, 4.69E-4, 4.16E-4,
-                   3.70E-4, 3.25E-4,
-                   2.87E-4, 2.56E-4, 2.30E-4, 2.09E-4, 1.92E-4, 1.78E-4, 1.68E-4, 1.60E-4,
-                   1.54E-4, 1.50E-4,
-                   1.48E-4, 1.48E-4, 1.49E-4, 1.51E-4, 1.54E-4, 1.58E-4, 1.63E-4, 1.68E-4,
-                   1.73E-4, 1.80E-4,
-                   1.83E-4, 1.87E-4, 1.93E-4, 1.98E-4, 2.04E-4, 2.10E-4, 2.16E-4, 2.23E-4,
-                   2.29E-4, 2.36E-4,
-                   2.43E-4, 2.47E-4, 2.52E-4, 2.57E-4, 2.63E-4, 2.69E-4, 2.75E-4, 2.82E-4,
-                   2.89E-4, 2.95E-4,
-                   3.02E-4, 3.09E-4, 3.13E-4, 3.17E-4]
-gd['gas2/YL2S'] = [np.float32(i) for i in gd['gas2/YL2S']]
+
+XL2SG2 = [np.float32(250.6), np.float32(252.3), np.float32(260.3), np.float32(267.3), np.float32(275.3),
+          np.float32(283.3), np.float32(291.3), np.float32(300.3), np.float32(308.3),
+          np.float32(317.3),
+          np.float32(326.3), np.float32(346.3), np.float32(366.3), np.float32(388.3), np.float32(411.3),
+          np.float32(435.3), np.float32(461.3), np.float32(488.3), np.float32(517.3), np.float32(547.3),
+          np.float32(580.3), np.float32(614.3), np.float32(650.3), np.float32(689.3), np.float32(751.3),
+          np.float32(819.3), np.float32(892.3), np.float32(1001.), np.float32(1121.), np.float32(1261.),
+          np.float32(1411.), np.float32(1581.), np.float32(1781.), np.float32(1941.), np.float32(2181.),
+          np.float32(2441.), np.float32(2741.), np.float32(3071.), np.float32(3451.), np.float32(3871.),
+          np.float32(4471.), np.float32(5161.), np.float32(5961.), np.float32(6881.), np.float32(7941.),
+          np.float32(8911.), 1.00e4, 1.19e4, 1.41e4, 1.68e4,
+          2.05e4, 2.44e4, 2.90e4, 3.45e4, 4.10e4, 4.87e4, 5.79e4, 6.88e4, 8.18e4,
+          1.00e5,
+          1.22e5, 1.50e5, 1.83e5, 2.24e5, 2.74e5, 3.35e5, 4.10e5, 5.01e5, 6.13e5,
+          7.50e5,
+          1.00e6, 1.22e6, 1.50e6, 1.83e6, 2.30e6, 2.90e6, 3.65e6, 4.60e6, 5.79e6,
+          7.50e6,
+          8.66e6, 1.00e7, 1.22e7, 1.50e7, 1.83e7, 2.30e7, 2.90e7, 3.65e7, 4.60e7,
+          5.79e7,
+          7.50e7, 8.66e7, 1.00e8, 1.22e8, 1.50e8, 1.83e8, 2.30e8, 2.90e8, 3.65e8,
+          4.60e8,
+          5.79e8, 7.50e8, 8.66e8, 1.00e9,
+          ]
+YL2SG2 = [np.float32(0.00), 9.77e-5, 4.86e-4, 8.50e-4, 1.19e-3, 1.51e-3, 1.81e-3,
+          2.10e-3, 2.36e-3, 2.62e-3,
+          2.85e-3, 3.29e-3, 3.67e-3, 4.01e-3, 4.32e-3, 4.59e-3, 4.83e-3, 5.04e-3,
+          5.22e-3, 5.38e-3,
+          5.52e-3, 5.63e-3, 5.72e-3, 5.79e-3, 5.86e-3, 5.89e-3, 5.88e-3, 5.82e-3,
+          5.70e-3, 5.55e-3,
+          5.36e-3, 5.14e-3, 4.90e-3, 4.72e-3, 4.46e-3, 4.21e-3, 3.95e-3, 3.70e-3,
+          3.47e-3, 3.24e-3,
+          2.96e-3, 2.70e-3, 2.46e-3, 2.23e-3, 2.01e-3, 1.86e-3, 1.71e-3, 1.51e-3,
+          1.33e-3, 1.17e-3,
+          1.01e-3, 8.83e-4, 7.77e-4, 6.83e-4, 6.02e-4, 5.31e-4, 4.69e-4, 4.16e-4,
+          3.70e-4, 3.25e-4,
+          2.87e-4, 2.56e-4, 2.30e-4, 2.09e-4, 1.92e-4, 1.78e-4, 1.68e-4, 1.60e-4,
+          1.54e-4, 1.50e-4,
+          1.48e-4, 1.48e-4, 1.49e-4, 1.51e-4, 1.54e-4, 1.58e-4, 1.63e-4, 1.68e-4,
+          1.73e-4, 1.80e-4,
+          1.83e-4, 1.87e-4, 1.93e-4, 1.98e-4, 2.04e-4, 2.10e-4, 2.16e-4, 2.23e-4,
+          2.29e-4, 2.36e-4,
+          2.43e-4, 2.47e-4, 2.52e-4, 2.57e-4, 2.63e-4, 2.69e-4, 2.75e-4, 2.82e-4,
+          2.89e-4, 2.95e-4,
+          3.02e-4, 3.09e-4, 3.13e-4, 3.17e-4,
+          ]
 # L3 SHELL IONISATION
-gd['gas2/XL3S'] = [248.4, 252.5, 260.5, 267.5, 275.5, 283.5, 291.5, 300.5, 308.5,
-                   317.5,
-                   326.5, 346.5, 366.5, 388.5, 411.5, 435.5, 461.5, 488.5, 517.5, 547.5,
-                   580.5, 614.5, 650.5, 689.5, 751.5, 819.5, 892.5, 1001., 1121., 1261.,
-                   1411., 1581., 1781., 1941., 2181., 2441., 2741., 3071., 3451., 3871.,
-                   4471., 5161., 5961., 6881., 7941., 8911., 1.00E4, 1.19E4, 1.41E4, 1.68E4,
-                   2.05E4, 2.44E4, 2.90E4, 3.45E4, 4.10E4, 4.87E4, 5.79E4, 6.88E4, 8.18E4,
-                   1.00E5,
-                   1.22E5, 1.50E5, 1.83E5, 2.24E5, 2.74E5, 3.35E5, 4.10E5, 5.01E5, 6.13E5,
-                   7.50E5,
-                   1.00E6, 1.22E6, 1.50E6, 1.83E6, 2.30E6, 2.90E6, 3.65E6, 4.60E6, 5.79E6,
-                   7.50E6,
-                   8.66E6, 1.00E7, 1.22E7, 1.50E7, 1.83E7, 2.30E7, 2.90E7, 3.65E7, 4.60E7,
-                   5.79E7,
-                   7.50E7, 8.66E7, 1.00E8, 1.22E8, 1.50E8, 1.83E8, 2.30E8, 2.90E8, 3.65E8,
-                   4.60E8,
-                   5.79E8, 7.50E8, 8.66E8, 1.00E9]
-gd['gas2/XL3S'] = [np.float32(i) for i in gd['gas2/XL3S']]
-gd['gas2/YL3S'] = [0.0, 4.71E-4, 1.25E-3, 1.98E-3, 2.67E-3, 3.31E-3, 3.92E-3,
-                   4.48E-3, 5.02E-3, 5.52E-3,
-                   6.00E-3, 6.86E-3, 7.63E-3, 8.32E-3, 8.93E-3, 9.47E-3, 9.95E-3, 1.04E-2,
-                   1.07E-2, 1.10E-2,
-                   1.13E-2, 1.15E-2, 1.17E-2, 1.18E-2, 1.20E-2, 1.20E-2, 1.20E-2, 1.19E-2,
-                   1.16E-2, 1.13E-2,
-                   1.09E-2, 1.05E-2, 9.97E-3, 9.59E-3, 9.07E-3, 8.55E-3, 8.03E-3, 7.53E-3,
-                   7.04E-3, 6.58E-3,
-                   6.02E-3, 5.49E-3, 4.99E-3, 4.52E-3, 4.09E-3, 3.77E-3, 3.47E-3, 3.06E-3,
-                   2.69E-3, 2.37E-3,
-                   2.04E-3, 1.79E-3, 1.58E-3, 1.39E-3, 1.22E-3, 1.08E-3, 9.52E-4, 8.44E-4,
-                   7.51E-4, 6.59E-4,
-                   5.82E-4, 5.19E-4, 4.66E-4, 4.23E-4, 3.89E-4, 3.61E-4, 3.40E-4, 3.24E-4,
-                   3.12E-4, 3.05E-4,
-                   3.00E-4, 3.00E-4, 3.02E-4, 3.06E-4, 3.12E-4, 3.20E-4, 3.30E-4, 3.40E-4,
-                   3.51E-4, 3.64E-4,
-                   3.72E-4, 3.79E-4, 3.90E-4, 4.01E-4, 4.13E-4, 4.25E-4, 4.39E-4, 4.52E-4,
-                   4.65E-4, 4.78E-4,
-                   4.93E-4, 5.01E-4, 5.10E-4, 5.21E-4, 5.33E-4, 5.45E-4, 5.58E-4, 5.71E-4,
-                   5.85E-4, 5.98E-4,
-                   6.11E-4, 6.26E-4, 6.35E-4, 6.43E-4]
-gd['gas2/YL3S'] = [np.float32(i) for i in gd['gas2/YL3S']]
-# 1S5 METASTABLE SCALE BY 1E**3 ABOVE 100 EV
-gd['gas2/X1S5'] = [11.548, 11.60, 11.63, 11.64, 11.66, 11.70, 11.75, 11.80, 11.82,
-                   11.83,
-                   11.84, 11.86, 11.88, 11.90, 11.93, 12.00, 12.10, 12.20, 12.30, 12.40,
-                   12.50, 12.60, 12.70, 12.80, 12.83, 12.86, 12.90, 12.91, 12.93, 12.96,
-                   13.00, 13.03, 13.05, 13.08, 13.10, 13.12, 13.15, 13.18, 13.20, 13.26,
-                   13.28, 13.29, 13.35, 13.40, 13.45, 13.47, 13.50, 13.60, 13.70, 13.80,
-                   14.0, 14.5, 15.0, 16.0, 17.0, 18.0, 20.0, 22.0, 24.0, 26.0,
-                   28.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0,
-                   100.]
-gd['gas2/X1S5'] = [np.float32(i) for i in gd['gas2/X1S5']]
+
+XL3SG2 = [np.float32(248.4), np.float32(252.5), np.float32(260.5), np.float32(267.5), np.float32(275.5),
+          np.float32(283.5), np.float32(291.5), np.float32(300.5), np.float32(308.5),
+          np.float32(317.5),
+          np.float32(326.5), np.float32(346.5), np.float32(366.5), np.float32(388.5), np.float32(411.5),
+          np.float32(435.5), np.float32(461.5), np.float32(488.5), np.float32(517.5), np.float32(547.5),
+          np.float32(580.5), np.float32(614.5), np.float32(650.5), np.float32(689.5), np.float32(751.5),
+          np.float32(819.5), np.float32(892.5), np.float32(1001.), np.float32(1121.), np.float32(1261.),
+          np.float32(1411.), np.float32(1581.), np.float32(1781.), np.float32(1941.), np.float32(2181.),
+          np.float32(2441.), np.float32(2741.), np.float32(3071.), np.float32(3451.), np.float32(3871.),
+          np.float32(4471.), np.float32(5161.), np.float32(5961.), np.float32(6881.), np.float32(7941.),
+          np.float32(8911.), 1.00e4, 1.19e4, 1.41e4, 1.68e4,
+          2.05e4, 2.44e4, 2.90e4, 3.45e4, 4.10e4, 4.87e4, 5.79e4, 6.88e4, 8.18e4,
+          1.00e5,
+          1.22e5, 1.50e5, 1.83e5, 2.24e5, 2.74e5, 3.35e5, 4.10e5, 5.01e5, 6.13e5,
+          7.50e5,
+          1.00e6, 1.22e6, 1.50e6, 1.83e6, 2.30e6, 2.90e6, 3.65e6, 4.60e6, 5.79e6,
+          7.50e6,
+          8.66e6, 1.00e7, 1.22e7, 1.50e7, 1.83e7, 2.30e7, 2.90e7, 3.65e7, 4.60e7,
+          5.79e7,
+          7.50e7, 8.66e7, 1.00e8, 1.22e8, 1.50e8, 1.83e8, 2.30e8, 2.90e8, 3.65e8,
+          4.60e8,
+          5.79e8, 7.50e8, 8.66e8, 1.00e9,
+          ]
+YL3SG2 = [np.float32(0.0), 4.71e-4, 1.25e-3, 1.98e-3, 2.67e-3, 3.31e-3, 3.92e-3,
+          4.48e-3, 5.02e-3, 5.52e-3,
+          6.00e-3, 6.86e-3, 7.63e-3, 8.32e-3, 8.93e-3, 9.47e-3, 9.95e-3, 1.04e-2,
+          1.07e-2, 1.10e-2,
+          1.13e-2, 1.15e-2, 1.17e-2, 1.18e-2, 1.20e-2, 1.20e-2, 1.20e-2, 1.19e-2,
+          1.16e-2, 1.13e-2,
+          1.09e-2, 1.05e-2, 9.97e-3, 9.59e-3, 9.07e-3, 8.55e-3, 8.03e-3, 7.53e-3,
+          7.04e-3, 6.58e-3,
+          6.02e-3, 5.49e-3, 4.99e-3, 4.52e-3, 4.09e-3, 3.77e-3, 3.47e-3, 3.06e-3,
+          2.69e-3, 2.37e-3,
+          2.04e-3, 1.79e-3, 1.58e-3, 1.39e-3, 1.22e-3, 1.08e-3, 9.52e-4, 8.44e-4,
+          7.51e-4, 6.59e-4,
+          5.82e-4, 5.19e-4, 4.66e-4, 4.23e-4, 3.89e-4, 3.61e-4, 3.40e-4, 3.24e-4,
+          3.12e-4, 3.05e-4,
+          3.00e-4, 3.00e-4, 3.02e-4, 3.06e-4, 3.12e-4, 3.20e-4, 3.30e-4, 3.40e-4,
+          3.51e-4, 3.64e-4,
+          3.72e-4, 3.79e-4, 3.90e-4, 4.01e-4, 4.13e-4, 4.25e-4, 4.39e-4, 4.52e-4,
+          4.65e-4, 4.78e-4,
+          4.93e-4, 5.01e-4, 5.10e-4, 5.21e-4, 5.33e-4, 5.45e-4, 5.58e-4, 5.71e-4,
+          5.85e-4, 5.98e-4,
+          6.11e-4, 6.26e-4, 6.35e-4, 6.43e-4,
+          ]
+# 1S5 METASTABLE SCALE BY 1/E**3 ABOVE 100 EV
+
+X1S5G2 = [np.float32(11.548), np.float32(11.60), np.float32(11.63), np.float32(11.64), np.float32(11.66),
+          np.float32(11.70), np.float32(11.75), np.float32(11.80), np.float32(11.82),
+          np.float32(11.83),
+          np.float32(11.84), np.float32(11.86), np.float32(11.88), np.float32(11.90), np.float32(11.93),
+          np.float32(12.00), np.float32(12.10), np.float32(12.20), np.float32(12.30), np.float32(12.40),
+          np.float32(12.50), np.float32(12.60), np.float32(12.70), np.float32(12.80), np.float32(12.83),
+          np.float32(12.86), np.float32(12.90), np.float32(12.91), np.float32(12.93), np.float32(12.96),
+          np.float32(13.00), np.float32(13.03), np.float32(13.05), np.float32(13.08), np.float32(13.10),
+          np.float32(13.12), np.float32(13.15), np.float32(13.18), np.float32(13.20), np.float32(13.26),
+          np.float32(13.28), np.float32(13.29), np.float32(13.35), np.float32(13.40), np.float32(13.45),
+          np.float32(13.47), np.float32(13.50), np.float32(13.60), np.float32(13.70), np.float32(13.80),
+          np.float32(14.0), np.float32(14.5), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0),
+          np.float32(20.0), np.float32(22.0), np.float32(24.0), np.float32(26.0),
+          np.float32(28.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+          np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+          np.float32(100.),
+          ]
 # UNITS 10-18 CM**2
-gd['gas2/Y1S5'] = [0.00, 0.70, 1.22, 1.22, 1.01, 0.88, 0.83, 0.90, 1.13, 1.69,
-                   2.27, 1.64, 1.13, 1.04, 0.99, 1.10, 1.31, 1.64, 2.05, 2.47,
-                   2.86, 3.20, 3.40, 3.40, 3.33, 3.19, 2.77, 3.28, 2.56, 2.27,
-                   2.27, 3.89, 5.20, 3.89, 2.72, 2.14, 1.75, 1.96, 1.69, 1.53,
-                   2.03, 1.76, 1.94, 2.09, 2.18, 2.52, 2.36, 2.56, 2.80, 3.10,
-                   3.85, 4.40, 4.94, 5.58, 6.16, 6.44, 6.20, 4.90, 3.80, 3.20,
-                   2.50, 2.00, 1.15, 0.80, 0.52, 0.37, 0.24, .135, .088, .060,
-                   .042]
-gd['gas2/Y1S5']=[np.float32(i) for i in gd['gas2/Y1S5']]
-gd['gas2/YEPS1'] = np.zeros(71)
-gd['gas2/YEPS1'] = [np.float32(i) for i in gd['gas2/YEPS1']]
-# 1S4 RESONANCE RAEIATION 106.66 NM WAVELENGTH
+
+Y1S5G2 = [np.float32(0.00), np.float32(0.70), np.float32(1.22), np.float32(1.22), np.float32(1.01), np.float32(0.88),
+          np.float32(0.83), np.float32(0.90), np.float32(1.13), np.float32(1.69),
+          np.float32(2.27), np.float32(1.64), np.float32(1.13), np.float32(1.04), np.float32(0.99), np.float32(1.10),
+          np.float32(1.31), np.float32(1.64), np.float32(2.05), np.float32(2.47),
+          np.float32(2.86), np.float32(3.20), np.float32(3.40), np.float32(3.40), np.float32(3.33), np.float32(3.19),
+          np.float32(2.77), np.float32(3.28), np.float32(2.56), np.float32(2.27),
+          np.float32(2.27), np.float32(3.89), np.float32(5.20), np.float32(3.89), np.float32(2.72), np.float32(2.14),
+          np.float32(1.75), np.float32(1.96), np.float32(1.69), np.float32(1.53),
+          np.float32(2.03), np.float32(1.76), np.float32(1.94), np.float32(2.09), np.float32(2.18), np.float32(2.52),
+          np.float32(2.36), np.float32(2.56), np.float32(2.80), np.float32(3.10),
+          np.float32(3.85), np.float32(4.40), np.float32(4.94), np.float32(5.58), np.float32(6.16), np.float32(6.44),
+          np.float32(6.20), np.float32(4.90), np.float32(3.80), np.float32(3.20),
+          np.float32(2.50), np.float32(2.00), np.float32(1.15), np.float32(0.80), np.float32(0.52), np.float32(0.37),
+          np.float32(0.24), np.float32(.135), np.float32(.088), np.float32(.060),
+          np.float32(.042),
+          ]
+YEPS1G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
+# 1S4 RESONANCE RADIATION 106.66 NM WAVELENGTH
+
 # USE BEF SCALING ABOVE 1000EV  F=0.058
-gd['gas2/X1S4'] = [11.624, 11.65, 11.66, 11.67, 11.68, 11.69, 11.70, 11.74, 11.75,
-                   11.77,
-                   11.79, 11.82, 11.84, 11.87, 11.88, 11.90, 11.95, 12.00, 12.05, 12.10,
-                   12.20, 12.30, 12.40, 12.50, 12.60, 12.70, 12.80, 12.85, 12.90, 12.905,
-                   12.91, 12.93, 12.97, 13.00, 13.03, 13.05, 13.06, 13.07, 13.09, 13.10,
-                   13.15, 13.18, 13.20, 13.21, 13.23, 13.26, 13.30, 13.35, 13.40, 13.45,
-                   13.47, 13.49, 13.60, 13.70, 13.80, 14.0, 15.0, 16.0, 17.0, 18.0,
-                   19.0, 20.0, 24.0, 27.0, 30.0, 40.0, 50.0, 60.0, 80.0, 100.,
-                   140., 200., 250., 300., 400., 500., 600., 800., 1000.]
-gd['gas2/X1S4'] = [np.float32(i) for i in gd['gas2/X1S4']]
+
+X1S4G2 = [np.float32(11.624), np.float32(11.65), np.float32(11.66), np.float32(11.67), np.float32(11.68),
+          np.float32(11.69), np.float32(11.70), np.float32(11.74), np.float32(11.75),
+          np.float32(11.77),
+          np.float32(11.79), np.float32(11.82), np.float32(11.84), np.float32(11.87), np.float32(11.88),
+          np.float32(11.90), np.float32(11.95), np.float32(12.00), np.float32(12.05), np.float32(12.10),
+          np.float32(12.20), np.float32(12.30), np.float32(12.40), np.float32(12.50), np.float32(12.60),
+          np.float32(12.70), np.float32(12.80), np.float32(12.85), np.float32(12.90), np.float32(12.905),
+          np.float32(12.91), np.float32(12.93), np.float32(12.97), np.float32(13.00), np.float32(13.03),
+          np.float32(13.05), np.float32(13.06), np.float32(13.07), np.float32(13.09), np.float32(13.10),
+          np.float32(13.15), np.float32(13.18), np.float32(13.20), np.float32(13.21), np.float32(13.23),
+          np.float32(13.26), np.float32(13.30), np.float32(13.35), np.float32(13.40), np.float32(13.45),
+          np.float32(13.47), np.float32(13.49), np.float32(13.60), np.float32(13.70), np.float32(13.80),
+          np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0),
+          np.float32(19.0), np.float32(20.0), np.float32(24.0), np.float32(27.0), np.float32(30.0), np.float32(40.0),
+          np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          np.float32(140.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
+          np.float32(600.), np.float32(800.), np.float32(1000.),
+          ]
 # UNITS 10**-18 CM**2
-gd['gas2/Y1S4'] = [0.00, 0.90, 1.48, 1.57, 1.57, 1.55, 1.48, 1.10, 1.05, 1.14,
-                   1.22, 1.30, 1.42, 0.90, 0.81, .742, .761, .788, 0.86, 0.92,
-                   1.12, 1.55, 1.64, 1.91, 2.16, 2.32, 2.38, 2.34, 2.12, 2.02,
-                   2.29, 2.00, 1.87, 1.93, 2.38, 3.28, 3.49, 3.20, 2.21, 2.05,
-                   1.76, 2.27, 2.11, 2.36, 2.11, 1.98, 1.89, 1.82, 1.87, 1.94,
-                   2.16, 2.07, 2.23, 2.40, 2.55, 2.90, 5.02, 6.23, 6.86, 7.43,
-                   8.00, 8.05, 8.05, 8.00, 7.80, 7.30, 6.80, 6.30, 5.60, 5.00,
-                   4.30, 3.60, 3.30, 3.00, 2.50, 2.15, 1.92, 1.60, 1.41]
-gd['gas2/Y1S4'] = [np.float32(i) for i in gd['gas2/Y1S4']]
-gd['gas2/YEPS2'] = np.zeros(79)
-# 1S3 METASTABLE SCALE BY 1E**3 ABOVE 100 EV
-gd['gas2/X1S3'] = [11.723, 11.75, 11.76, 11.78, 11.79, 11.80, 11.84, 11.86, 11.90,
-                   11.95,
-                   12.00, 12.10, 12.20, 12.30, 12.40, 12.50, 12.60, 12.70, 12.80, 12.85,
-                   12.90, 12.91, 12.92, 12.94, 12.98, 12.99, 13.00, 13.01, 13.04, 13.05,
-                   13.06, 13.08, 13.10, 13.15, 13.18, 13.20, 13.21, 13.23, 13.25, 13.27,
-                   13.30, 13.35, 13.40, 13.45, 13.47, 13.49, 13.60, 13.70, 13.80, 14.0,
-                   14.5, 15.0, 16.0, 17.0, 18.0, 20.0, 22.0, 24.0, 26.0, 28.0,
-                   30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.]
-gd['gas2/X1S3'] = [np.float32(i) for i in gd['gas2/X1S3']]
+
+Y1S4G2 = [np.float32(0.00), np.float32(0.90), np.float32(1.48), np.float32(1.57), np.float32(1.57), np.float32(1.55),
+          np.float32(1.48), np.float32(1.10), np.float32(1.05), np.float32(1.14),
+          np.float32(1.22), np.float32(1.30), np.float32(1.42), np.float32(0.90), np.float32(0.81), np.float32(.742),
+          np.float32(.761), np.float32(.788), np.float32(0.86), np.float32(0.92),
+          np.float32(1.12), np.float32(1.55), np.float32(1.64), np.float32(1.91), np.float32(2.16), np.float32(2.32),
+          np.float32(2.38), np.float32(2.34), np.float32(2.12), np.float32(2.02),
+          np.float32(2.29), np.float32(2.00), np.float32(1.87), np.float32(1.93), np.float32(2.38), np.float32(3.28),
+          np.float32(3.49), np.float32(3.20), np.float32(2.21), np.float32(2.05),
+          np.float32(1.76), np.float32(2.27), np.float32(2.11), np.float32(2.36), np.float32(2.11), np.float32(1.98),
+          np.float32(1.89), np.float32(1.82), np.float32(1.87), np.float32(1.94),
+          np.float32(2.16), np.float32(2.07), np.float32(2.23), np.float32(2.40), np.float32(2.55), np.float32(2.90),
+          np.float32(5.02), np.float32(6.23), np.float32(6.86), np.float32(7.43),
+          np.float32(8.00), np.float32(8.05), np.float32(8.05), np.float32(8.00), np.float32(7.80), np.float32(7.30),
+          np.float32(6.80), np.float32(6.30), np.float32(5.60), np.float32(5.00),
+          np.float32(4.30), np.float32(3.60), np.float32(3.30), np.float32(3.00), np.float32(2.50), np.float32(2.15),
+          np.float32(1.92), np.float32(1.60), np.float32(1.41),
+          ]
+YEPS2G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0),
+           ]
+# 1S3 METASTABLE SCALE BY 1/E**3 ABOVE 100 EV
+
+X1S3G2 = [np.float32(11.723), np.float32(11.75), np.float32(11.76), np.float32(11.78), np.float32(11.79),
+          np.float32(11.80), np.float32(11.84), np.float32(11.86), np.float32(11.90),
+          np.float32(11.95),
+          np.float32(12.00), np.float32(12.10), np.float32(12.20), np.float32(12.30), np.float32(12.40),
+          np.float32(12.50), np.float32(12.60), np.float32(12.70), np.float32(12.80), np.float32(12.85),
+          np.float32(12.90), np.float32(12.91), np.float32(12.92), np.float32(12.94), np.float32(12.98),
+          np.float32(12.99), np.float32(13.00), np.float32(13.01), np.float32(13.04), np.float32(13.05),
+          np.float32(13.06), np.float32(13.08), np.float32(13.10), np.float32(13.15), np.float32(13.18),
+          np.float32(13.20), np.float32(13.21), np.float32(13.23), np.float32(13.25), np.float32(13.27),
+          np.float32(13.30), np.float32(13.35), np.float32(13.40), np.float32(13.45), np.float32(13.47),
+          np.float32(13.49), np.float32(13.60), np.float32(13.70), np.float32(13.80), np.float32(14.0),
+          np.float32(14.5), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(20.0),
+          np.float32(22.0), np.float32(24.0), np.float32(26.0), np.float32(28.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          ]
 # UNITS 10**-18 CM**2
-gd['gas2/Y1S3'] = [0.00, .176, 0.38, 0.45, 0.45, 0.43, 0.23, 0.23, .176, .155,
-                   .155, .171, .211, .259, .317, .389, .454, .509, .542, .535,
-                   .479, .373, .567, .486, .437, .639, .518, .461, .518, .752,
-                   .979, .873, .706, .535, .535, .826, 1.12, .891, .720, .616,
-                   .461, .236, .243, .252, .445, .356, .405, .454, .486, 0.56,
-                   0.80, 0.99, 1.12, 1.23, 1.29, 1.24, 0.98, 0.76, 0.64, 0.50,
-                   0.40, 0.23, 0.16, .104, .074, .048, .027, .0176, .0120, .0084]
-gd['gas2/Y1S3'] = [np.float32(i) for i in gd['gas2/Y1S3']]
-gd['gas2/YEPS3'] = np.zeros(70)
-# 1S2 RESONANCE RAEIATION 104.82 NM WAVELENGTH
+
+Y1S3G2 = [np.float32(0.00), np.float32(.176), np.float32(0.38), np.float32(0.45), np.float32(0.45), np.float32(0.43),
+          np.float32(0.23), np.float32(0.23), np.float32(.176), np.float32(.155),
+          np.float32(.155), np.float32(.171), np.float32(.211), np.float32(.259), np.float32(.317), np.float32(.389),
+          np.float32(.454), np.float32(.509), np.float32(.542), np.float32(.535),
+          np.float32(.479), np.float32(.373), np.float32(.567), np.float32(.486), np.float32(.437), np.float32(.639),
+          np.float32(.518), np.float32(.461), np.float32(.518), np.float32(.752),
+          np.float32(.979), np.float32(.873), np.float32(.706), np.float32(.535), np.float32(.535), np.float32(.826),
+          np.float32(1.12), np.float32(.891), np.float32(.720), np.float32(.616),
+          np.float32(.461), np.float32(.236), np.float32(.243), np.float32(.252), np.float32(.445), np.float32(.356),
+          np.float32(.405), np.float32(.454), np.float32(.486), np.float32(0.56),
+          np.float32(0.80), np.float32(0.99), np.float32(1.12), np.float32(1.23), np.float32(1.29), np.float32(1.24),
+          np.float32(0.98), np.float32(0.76), np.float32(0.64), np.float32(0.50),
+          np.float32(0.40), np.float32(0.23), np.float32(0.16), np.float32(.104), np.float32(.074), np.float32(.048),
+          np.float32(.027), np.float32(.0176), np.float32(.0120), np.float32(.0084),
+          ]
+YEPS3G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
+# 1S2 RESONANCE RADIATION 104.82 NM WAVELENGTH
+
 # USE BEF SCALING ABOVE 400 EV F=0.2214
-gd['gas2/X1S2'] = [11.828, 11.85, 11.86, 11.88, 11.90, 11.93, 11.96, 12.00, 12.05,
-                   12.10,
-                   12.20, 12.30, 12.40, 12.50, 12.60, 12.70, 12.80, 12.85, 12.90, 12.91,
-                   12.93, 12.95, 13.00, 13.02, 13.06, 13.10, 13.13, 13.15, 13.17, 13.20,
-                   13.21, 13.23, 13.25, 13.27, 13.30, 13.35, 13.40, 13.45, 13.46, 13.48,
-                   13.50, 13.60, 13.70, 13.80, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0,
-                   20.0, 22.0, 24.0, 26.0, 28.0, 30.0, 35.0, 40.0, 50.0, 60.0,
-                   80.0, 100., 120., 140., 170., 200., 250., 300., 350., 400.]
-gd['gas2/X1S2'] = [np.float32(i) for i in gd['gas2/X1S2']]
+
+X1S2G2 = [np.float32(11.828), np.float32(11.85), np.float32(11.86), np.float32(11.88), np.float32(11.90),
+          np.float32(11.93), np.float32(11.96), np.float32(12.00), np.float32(12.05),
+          np.float32(12.10),
+          np.float32(12.20), np.float32(12.30), np.float32(12.40), np.float32(12.50), np.float32(12.60),
+          np.float32(12.70), np.float32(12.80), np.float32(12.85), np.float32(12.90), np.float32(12.91),
+          np.float32(12.93), np.float32(12.95), np.float32(13.00), np.float32(13.02), np.float32(13.06),
+          np.float32(13.10), np.float32(13.13), np.float32(13.15), np.float32(13.17), np.float32(13.20),
+          np.float32(13.21), np.float32(13.23), np.float32(13.25), np.float32(13.27), np.float32(13.30),
+          np.float32(13.35), np.float32(13.40), np.float32(13.45), np.float32(13.46), np.float32(13.48),
+          np.float32(13.50), np.float32(13.60), np.float32(13.70), np.float32(13.80), np.float32(14.0),
+          np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(22.0), np.float32(24.0), np.float32(26.0), np.float32(28.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
+          np.float32(80.0), np.float32(100.), np.float32(120.), np.float32(140.), np.float32(170.), np.float32(200.),
+          np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.),
+          ]
 # UNITS 10**-18 CM**2
-gd['gas2/Y1S2'] = [0.00, 1.55, 1.94, 1.76, 1.58, 1.37, 1.24, 1.19, 1.19, 1.21,
-                   1.30, 1.44, 1.64, 1.91, 2.25, 2.52, 2.75, 2.83, 2.86, 3.46,
-                   3.04, 2.95, 2.93, 3.08, 4.18, 3.29, 3.17, 3.02, 2.99, 3.60,
-                   4.21, 3.78, 3.53, 3.17, 3.02, 2.74, 2.92, 3.29, 3.40, 3.24,
-                   3.33, 3.71, 3.94, 4.20, 4.80, 7.20, 9.43, 11.7, 14.0, 16.0,
-                   17.2, 18.8, 19.8, 20.6, 21.3, 22.0, 23.6, 24.7, 25.5, 25.3,
-                   24.0, 22.3, 20.7, 19.3, 17.5, 16.0, 14.0, 12.5, 11.3, 10.3]
-gd['gas2/Y1S2'] = [np.float32(i) for i in gd['gas2/Y1S2']]
-gd['gas2/YEPS4'] = np.zeros(70)
-# 2P10 J=1  SCALEE BY 1E**2 ABOVE 100 EV
-gd['gas2/X2P10'] = [12.907, 12.912, 12.922, 12.934, 12.949, 12.966, 13.00, 13.012,
-                    13.035, 13.042,
-                    13.053, 13.064, 13.068, 13.075, 13.089, 13.107, 13.141, 13.154, 13.162,
-                    13.170,
-                    13.180, 13.190, 13.202, 13.214, 13.220, 13.234, 13.239, 13.265, 13.271,
-                    13.276,
-                    13.300, 13.400, 13.445, 13.458, 13.467, 13.480, 13.50, 13.60, 14.0, 15.0,
-                    16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0, 30.0, 35.0, 40.0,
-                    50.0, 60.0, 80.0, 100.]
-gd['gas2/X2P10'] = [np.float32(i) for i in gd['gas2/X2P10']]
-gd['gas2/Y2P10'] = [0.00, 0.76, 0.40, 0.57, 0.53, 0.61, 0.95, 1.40, 1.78, 1.88,
-                    1.74, 1.18, 0.70, 0.34, 0.13, 0.21, 0.39, 0.70, 1.01, 1.07,
-                    1.33, 1.17, 1.43, 0.70, 0.36, 0.14, 0.11, 0.11, 0.25, 0.18,
-                    0.19, 0.21, 0.22, 0.34, 0.51, 0.34, 0.32, 0.31, 0.39, 0.77,
-                    1.13, 1.82, 2.03, 2.16, 2.20, 2.17, 1.89, 1.20, 0.81, 0.58,
-                    0.33, 0.21, 0.11, .065]
-gd['gas2/Y2P10'] = [np.float32(i) for i in gd['gas2/Y2P10']]
-gd['gas2/YEP2P10'] = np.zeros(54)
-# 2P9 J=3  SCALEE BY 1E**2 ABOVE 100 EV
-gd['gas2/X2P9'] = [13.076, 14.0, 15.0, 16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/X2P9'] = [np.float32(i) for i in gd['gas2/X2P9']]
-gd['gas2/Y2P9'] = [0.00, 0.55, 1.23, 1.90, 2.75, 2.94, 3.00, 2.98, 2.92, 2.55,
-                   1.73, 1.19, 0.85, 0.50, 0.32, 0.17, 0.11]
-gd['gas2/YEP2P9'] = np.zeros(17)
-# 2P8 J=2  SCALEE BY 1E ABOVE 100 EV
-gd['gas2/X2P8'] = [13.095, 14.0, 15.0, 16.0, 18.0, 20.0, 22.0, 25.0, 30.0, 35.0,
-                   40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y2P8'] = [0.00, 0.38, 0.85, 1.25, 1.85, 2.10, 2.30, 2.35, 2.40, 2.36,
-                   2.20, 1.80, 1.50, 1.13, 0.90]
-gd['gas2/YEP2P8'] = np.zeros(15)
-# 2P7 J=1  SCALEE BY 1E**2 ABOVE 100 EV
-gd['gas2/X2P7'] = [13.153, 14.0, 15.0, 16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y2P7'] = [0.00, 0.20, 0.56, 0.92, 1.56, 1.74, 1.81, 1.81, 1.76, 1.60,
-                   1.25, 1.00, 0.84, 0.61, 0.44, 0.27, 0.19]
-gd['gas2/YEP2P7'] = np.zeros(17)
-# 2P6 J=2  SCALEE BY 1E ABOVE 100 E
-gd['gas2/X2P6'] = [13.172, 14.0, 15.0, 16.0, 18.0, 19.0, 20.0, 22.0, 25.0, 30.0,
-                   35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y2P6'] = [0.00, 0.36, 0.81, 1.24, 1.84, 2.04, 2.10, 2.20, 2.18, 1.95,
-                   1.80, 1.65, 1.42, 1.27, 1.04, 0.87]
-gd['gas2/YEP2P6'] = np.zeros(16)
-# 2P5 J=0  SCALEE BY 1E ABOVE 100 EV
-gd['gas2/X2P5'] = [13.273, 14.0, 15.0, 16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y2P5'] = [0.00, 0.09, 0.28, 0.47, 0.83, 0.97, 1.08, 1.16, 1.20, 1.26,
-                   1.25, 1.23, 1.20, 1.08, 0.96, 0.75, 0.60]
-gd['gas2/YEP2P5'] = np.zeros(17)
-# 2P4 J=1  SCALEE BY 1E**2 ABOVE 100 EV
-gd['gas2/X2P4'] = [13.283, 14.0, 15.0, 16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y2P4'] = [0.00, 0.18, 0.55, 0.90, 1.53, 1.71, 1.77, 1.77, 1.72, 1.57,
-                   1.23, 0.98, 0.82, 0.60, 0.43, 0.26, 0.18]
-gd['gas2/YEP2P4'] = np.zeros(17)
-# 2P3 J=2  SCALEE BY 1E ABOVE 100 EV
-gd['gas2/X2P3'] = [13.302, 14.0, 15.0, 16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y2P3'] = [0.00, .155, 0.39, 0.62, 1.11, 1.34, 1.51, 1.62, 1.70, 1.82,
-                   1.85, 1.76, 1.62, 1.33, 1.10, 0.82, 0.66]
-gd['gas2/YEP2P3'] = np.zeros(17)
-# 2P2 J=1  SCALEE BY 1E**2 ABOVE 100 EV
-gd['gas2/X2P2'] = [13.328, 14.0, 15.0, 16.0, 18.0, 19.0, 20.0, 22.0, 25.0, 30.0,
-                   35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y2P2'] = [0.00, 0.20, 0.46, 0.60, 0.74, 0.77, .785, 0.78, 0.73, 0.62,
-                   0.53, 0.44, 0.33, 0.25, 0.15, 0.10]
-gd['gas2/YEP2P2'] = np.zeros(16)
-# 2P1 J=0  SCALEE BY 1E ABOVE 100 EV
-gd['gas2/X2P1'] = [13.480, 14.0, 15.0, 16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y2P1'] = [0.00, 0.29, 0.94, 1.58, 2.75, 3.22, 3.60, 3.85, 4.00, 4.20,
-                   4.15, 4.10, 4.00, 3.60, 3.20, 2.50, 2.00]
-gd['gas2/YEP2P1'] = np.zeros(17)
-# 3E6 J=0 SCALEE BY 1E**3 ABOVE 100 EV
-gd['gas2/X3D6'] = [13.845, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 100.]
-gd['gas2/Y3D6'] = [.00, 0.11, 0.64, 0.92, 1.05, 1.10, 1.10, 1.07, 0.97, 0.79,
-                   0.56, 0.39, 0.28, 0.21, 0.16, .099, .065, .045, .024]
-gd['gas2/YEP3D6'] = np.zeros(19)
-# 3E5 J=1 EIPOLE ALLOWEE BEF SCALING USE BEF ABOVE 400EV F=0.0010
-gd['gas2/X3D5'] = [13.864, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 100., 120.,
-                   140., 170., 200., 250., 300., 400.]
-# gd['gas2/Y3D5']=[0.00,0.40,3.00,4.50,5.25,5.50,5.50,5.35,4.90,4.00,
-#    2.80,2.05,1.50,1.15,0.98,0.65,0.46,0.35,0.19,0.14,
-#    .115,.095,.077,.065,.054,.037
-gd['gas2/Y3D5'] = [0.00, 0.32, 2.40, 3.60, 4.20, 4.40, 4.40, 4.28, 3.92, 3.20,
-                   2.24, 1.64, 1.20, 0.92, 0.78, 0.52, 0.37, 0.28, 0.15, .112,
-                   .092, .076, .062, .052, .045, .037]
-gd['gas2/YEP3D5'] = np.zeros(26)
-# 3E4' J=4 SCALEE BY 1E**3 ABOVE 100 EV
-gd['gas2/X3D4P'] = [13.979, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 25.0, 30.0,
-                    35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 70.0, 80.0, 90.0, 100.]
-gd['gas2/Y3D4P'] = [0.00, 2.16, 3.31, 3.88, 4.11, 4.14, 4.04, 3.68, 3.03, 2.12,
-                    1.50, 1.09, .813, .619, .482, .381, .251, .173, .125, .092]
-gd['gas2/YEP3D4P'] = np.zeros(20)
-# 3E4  J=3  SCALEE BY 1E**2 ABOVE 100 EV
-gd['gas2/X3D4'] = [14.013, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0,
-                   80.0, 90.0, 100.]
-gd['gas2/Y3D4'] = [0.00, 0.63, 1.05, 1.31, 1.48, 1.57, 1.62, 1.63, 1.62, 1.52,
-                   1.28, 1.06, 0.88, 0.73, 0.62, 0.53, 0.46, 0.40, 0.35, 0.31,
-                   0.28, .225, .186]
-gd['gas2/YEP3D4'] = np.zeros(23)
-# 3E3 J=2 SCALE BY 1E**3 ABOVE 100 EV
-gd['gas2/X3D3'] = [13.903, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 25.0,
-                   30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.]
-gd['gas2/Y3D3'] = [0.00, 0.15, 1.60, 3.00, 3.70, 4.30, 4.50, 4.40, 4.20, 3.60,
-                   2.63, 1.86, 1.35, 1.00, 0.76, 0.47, 0.31, 0.21, 0.15, .114]
-gd['gas2/YEP3D3'] = np.zeros(20)
-# 3E1'' J=2 (ALSO 2S5 J=1 ) SCALE BY 1E**2 ABOVE 100 EV
-gd['gas2/X3D1PP'] = [14.063, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 25.0, 30.0,
-                     35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.]
-gd['gas2/Y3D1PP'] = [0.00, 0.60, 1.10, 1.50, 1.70, 1.80, 1.85, 1.85, 1.65, 1.35,
-                     1.00, 0.73, 0.57, 0.45, 0.32, 0.23, 0.18, .145, .120]
-gd['gas2/YEP3D1PP'] = np.zeros(19)
-# 3E1'  J=3 SCALE BY 1E ABOVE 100 EV
-gd['gas2/X3D1P'] = [14.099, 15.0, 16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0, 30.0,
-                    35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y3D1P'] = [0.00, 0.08, 0.18, 0.33, 0.40, 0.45, 0.48, 0.50, 0.54, 0.55,
-                    0.52, 0.48, 0.40, 0.33, 0.24, 0.20]
-gd['gas2/YEP3D1P'] = np.zeros(16)
-# 3S1''''  J=2  SCALE BY 1E**3 ABOVE 100 EV
-gd['gas2/X3S1PPPP'] = [14.214, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 24.0, 27.0,
-                       30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 70.0, 80.0, 90.0,
-                       100.]
-gd['gas2/Y3S1PPPP'] = [0.00, 0.80, 1.65, 2.10, 2.30, 2.35, 2.32, 2.15, 1.89, 1.54,
-                       1.25, 0.89, 0.65, 0.48, 0.37, 0.29, 0.23, 0.15, .103, .074,
-                       .055]
-gd['gas2/YEP3S1PPPP'] = np.zeros(21)
-# 3S1'''  J=3  SCALE BY 1E ABOVE 100 EV
-gd['gas2/X3S1PPP'] = [14.236, 15.0, 16.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0, 30.0,
-                      35.0, 40.0, 50.0, 60.0, 80.0, 100.]
-gd['gas2/Y3S1PPP'] = [0.00, 0.12, 0.27, 0.50, 0.60, 0.68, 0.72, 0.75, 0.81, 0.82,
-                      0.78, 0.72, 0.60, 0.52, 0.36, 0.30]
-gd['gas2/YEP3S1PPP'] = np.zeros(16)
-# 3S1''  J=2  SCALE BY 1E**3 ABOVE 100 EV
-gd['gas2/X3S1PP'] = [14.234, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 25.0,
-                     30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 70.0, 80.0, 90.0,
-                     100.]
-gd['gas2/Y3S1PP'] = [0.00, 0.55, 1.06, 1.31, 1.42, 1.44, 1.42, 1.37, 1.31, 1.09,
-                     0.77, 0.55, 0.40, 0.30, 0.23, 0.18, 0.14, .0918, .0635, .0456,
-                     .0339]
-gd['gas2/YEP3S1PP'] = np.zeros(21)
-# 2S5  J=2  SCALE BY 1E**2  ABOVE 100 EV
-gd['gas2/X2S5'] = [14.068, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 25.0, 30.0,
-                   35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.]
-gd['gas2/Y2S5'] = [0.00, 0.60, 1.10, 1.50, 1.70, 1.80, 1.85, 1.85, 1.65, 1.35,
-                   1.00, 0.73, 0.57, 0.45, 0.32, 0.23, 0.18, .145, .120]
-gd['gas2/YEP2S5'] = np.zeros(19)
-# 2S3  J=0  SCALE BY 1E**2  ABOVE 100 EV
-gd['gas2/X2S3'] = [14.241, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 22.0, 25.0, 30.0,
-                   35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.]
-gd['gas2/Y2S3'] = [0.00, 0.12, 0.22, 0.30, 0.34, 0.36, 0.37, 0.37, 0.33, 0.27,
-                   0.20, .146, .114, .090, .064, .046, .036, .029, .024]
-gd['gas2/YEP2S3'] = np.zeros(19)
+
+Y1S2G2 = [np.float32(0.00), np.float32(1.55), np.float32(1.94), np.float32(1.76), np.float32(1.58), np.float32(1.37),
+          np.float32(1.24), np.float32(1.19), np.float32(1.19), np.float32(1.21),
+          np.float32(1.30), np.float32(1.44), np.float32(1.64), np.float32(1.91), np.float32(2.25), np.float32(2.52),
+          np.float32(2.75), np.float32(2.83), np.float32(2.86), np.float32(3.46),
+          np.float32(3.04), np.float32(2.95), np.float32(2.93), np.float32(3.08), np.float32(4.18), np.float32(3.29),
+          np.float32(3.17), np.float32(3.02), np.float32(2.99), np.float32(3.60),
+          np.float32(4.21), np.float32(3.78), np.float32(3.53), np.float32(3.17), np.float32(3.02), np.float32(2.74),
+          np.float32(2.92), np.float32(3.29), np.float32(3.40), np.float32(3.24),
+          np.float32(3.33), np.float32(3.71), np.float32(3.94), np.float32(4.20), np.float32(4.80), np.float32(7.20),
+          np.float32(9.43), np.float32(11.7), np.float32(14.0), np.float32(16.0),
+          np.float32(17.2), np.float32(18.8), np.float32(19.8), np.float32(20.6), np.float32(21.3), np.float32(22.0),
+          np.float32(23.6), np.float32(24.7), np.float32(25.5), np.float32(25.3),
+          np.float32(24.0), np.float32(22.3), np.float32(20.7), np.float32(19.3), np.float32(17.5), np.float32(16.0),
+          np.float32(14.0), np.float32(12.5), np.float32(11.3), np.float32(10.3),
+          ]
+YEPS4G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
+# 2P10 J=1  SCALED BY 1/E**2 ABOVE 100 EV
+
+X2P10G2 = [np.float32(12.907), np.float32(12.912), np.float32(12.922), np.float32(12.934), np.float32(12.949),
+           np.float32(12.966), np.float32(13.00), np.float32(13.012),
+           np.float32(13.035), np.float32(13.042),
+           np.float32(13.053), np.float32(13.064), np.float32(13.068), np.float32(13.075), np.float32(13.089),
+           np.float32(13.107), np.float32(13.141), np.float32(13.154), np.float32(13.162),
+           np.float32(13.170),
+           np.float32(13.180), np.float32(13.190), np.float32(13.202), np.float32(13.214), np.float32(13.220),
+           np.float32(13.234), np.float32(13.239), np.float32(13.265), np.float32(13.271),
+           np.float32(13.276),
+           np.float32(13.300), np.float32(13.400), np.float32(13.445), np.float32(13.458), np.float32(13.467),
+           np.float32(13.480), np.float32(13.50), np.float32(13.60), np.float32(14.0), np.float32(15.0),
+           np.float32(16.0), np.float32(18.0), np.float32(19.0), np.float32(20.0), np.float32(21.0), np.float32(22.0),
+           np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0),
+           np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+           ]
+Y2P10G2 = [np.float32(0.00), np.float32(0.76), np.float32(0.40), np.float32(0.57), np.float32(0.53), np.float32(0.61),
+           np.float32(0.95), np.float32(1.40), np.float32(1.78), np.float32(1.88),
+           np.float32(1.74), np.float32(1.18), np.float32(0.70), np.float32(0.34), np.float32(0.13), np.float32(0.21),
+           np.float32(0.39), np.float32(0.70), np.float32(1.01), np.float32(1.07),
+           np.float32(1.33), np.float32(1.17), np.float32(1.43), np.float32(0.70), np.float32(0.36), np.float32(0.14),
+           np.float32(0.11), np.float32(0.11), np.float32(0.25), np.float32(0.18),
+           np.float32(0.19), np.float32(0.21), np.float32(0.22), np.float32(0.34), np.float32(0.51), np.float32(0.34),
+           np.float32(0.32), np.float32(0.31), np.float32(0.39), np.float32(0.77),
+           np.float32(1.13), np.float32(1.82), np.float32(2.03), np.float32(2.16), np.float32(2.20), np.float32(2.17),
+           np.float32(1.89), np.float32(1.20), np.float32(0.81), np.float32(0.58),
+           np.float32(0.33), np.float32(0.21), np.float32(0.11), np.float32(.065),
+           ]
+YEP2P10G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             ]
+# 2P9 J=3  SCALED BY 1/E**2 ABOVE 100 EV
+
+X2P9G2 = [np.float32(13.076), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0),
+          np.float32(100.),
+          ]
+Y2P9G2 = [np.float32(0.00), np.float32(0.55), np.float32(1.23), np.float32(1.90), np.float32(2.75), np.float32(2.94),
+          np.float32(3.00), np.float32(2.98), np.float32(2.92), np.float32(2.55),
+          np.float32(1.73), np.float32(1.19), np.float32(0.85), np.float32(0.50), np.float32(0.32), np.float32(0.17),
+          np.float32(0.11),
+          ]
+YEP2P9G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 2P8 J=2  SCALED BY 1/E ABOVE 100 EV
+
+X2P8G2 = [np.float32(13.095), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0),
+          np.float32(22.0), np.float32(25.0), np.float32(30.0), np.float32(35.0),
+          np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y2P8G2 = [np.float32(0.00), np.float32(0.38), np.float32(0.85), np.float32(1.25), np.float32(1.85), np.float32(2.10),
+          np.float32(2.30), np.float32(2.35), np.float32(2.40), np.float32(2.36),
+          np.float32(2.20), np.float32(1.80), np.float32(1.50), np.float32(1.13), np.float32(0.90),
+          ]
+YEP2P8G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 2P7 J=1  SCALED BY 1/E**2 ABOVE 100 EV
+
+X2P7G2 = [np.float32(13.153), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0),
+          np.float32(100.),
+          ]
+Y2P7G2 = [np.float32(0.00), np.float32(0.20), np.float32(0.56), np.float32(0.92), np.float32(1.56), np.float32(1.74),
+          np.float32(1.81), np.float32(1.81), np.float32(1.76), np.float32(1.60),
+          np.float32(1.25), np.float32(1.00), np.float32(0.84), np.float32(0.61), np.float32(0.44), np.float32(0.27),
+          np.float32(0.19),
+          ]
+YEP2P7G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 2P6 J=2  SCALED BY 1/E ABOVE 100 EV
+
+X2P6G2 = [np.float32(13.172), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y2P6G2 = [np.float32(0.00), np.float32(0.36), np.float32(0.81), np.float32(1.24), np.float32(1.84), np.float32(2.04),
+          np.float32(2.10), np.float32(2.20), np.float32(2.18), np.float32(1.95),
+          np.float32(1.80), np.float32(1.65), np.float32(1.42), np.float32(1.27), np.float32(1.04), np.float32(0.87),
+          ]
+YEP2P6G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 2P5 J=0  SCALED BY 1/E ABOVE 100 EV
+
+X2P5G2 = [np.float32(13.273), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0),
+          np.float32(100.),
+          ]
+Y2P5G2 = [np.float32(0.00), np.float32(0.09), np.float32(0.28), np.float32(0.47), np.float32(0.83), np.float32(0.97),
+          np.float32(1.08), np.float32(1.16), np.float32(1.20), np.float32(1.26),
+          np.float32(1.25), np.float32(1.23), np.float32(1.20), np.float32(1.08), np.float32(0.96), np.float32(0.75),
+          np.float32(0.60),
+          ]
+YEP2P5G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 2P4 J=1  SCALED BY 1/E**2 ABOVE 100 EV
+
+X2P4G2 = [np.float32(13.283), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0),
+          np.float32(100.),
+          ]
+Y2P4G2 = [np.float32(0.00), np.float32(0.18), np.float32(0.55), np.float32(0.90), np.float32(1.53), np.float32(1.71),
+          np.float32(1.77), np.float32(1.77), np.float32(1.72), np.float32(1.57),
+          np.float32(1.23), np.float32(0.98), np.float32(0.82), np.float32(0.60), np.float32(0.43), np.float32(0.26),
+          np.float32(0.18),
+          ]
+YEP2P4G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 2P3 J=2  SCALED BY 1/E ABOVE 100 EV
+
+X2P3G2 = [np.float32(13.302), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0),
+          np.float32(100.),
+          ]
+Y2P3G2 = [np.float32(0.00), np.float32(.155), np.float32(0.39), np.float32(0.62), np.float32(1.11), np.float32(1.34),
+          np.float32(1.51), np.float32(1.62), np.float32(1.70), np.float32(1.82),
+          np.float32(1.85), np.float32(1.76), np.float32(1.62), np.float32(1.33), np.float32(1.10), np.float32(0.82),
+          np.float32(0.66),
+          ]
+YEP2P3G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 2P2 J=1  SCALED BY 1/E**2 ABOVE 100 EV
+
+X2P2G2 = [np.float32(13.328), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y2P2G2 = [np.float32(0.00), np.float32(0.20), np.float32(0.46), np.float32(0.60), np.float32(0.74), np.float32(0.77),
+          np.float32(.785), np.float32(0.78), np.float32(0.73), np.float32(0.62),
+          np.float32(0.53), np.float32(0.44), np.float32(0.33), np.float32(0.25), np.float32(0.15), np.float32(0.10),
+          ]
+YEP2P2G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 2P1 J=0  SCALED BY 1/E ABOVE 100 EV
+
+X2P1G2 = [np.float32(13.480), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0),
+          np.float32(100.),
+          ]
+Y2P1G2 = [np.float32(0.00), np.float32(0.29), np.float32(0.94), np.float32(1.58), np.float32(2.75), np.float32(3.22),
+          np.float32(3.60), np.float32(3.85), np.float32(4.00), np.float32(4.20),
+          np.float32(4.15), np.float32(4.10), np.float32(4.00), np.float32(3.60), np.float32(3.20), np.float32(2.50),
+          np.float32(2.00),
+          ]
+YEP2P1G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 3D6 J=0 SCALED BY 1/E**3 ABOVE 100 EV
+
+X3D6G2 = [np.float32(13.845), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0),
+          np.float32(19.0), np.float32(20.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(100.),
+          ]
+Y3D6G2 = [np.float32(0.00), np.float32(0.11), np.float32(0.64), np.float32(0.92), np.float32(1.05), np.float32(1.10),
+          np.float32(1.10), np.float32(1.07), np.float32(0.97), np.float32(0.79),
+          np.float32(0.56), np.float32(0.39), np.float32(0.28), np.float32(0.21), np.float32(0.16), np.float32(.099),
+          np.float32(.065), np.float32(.045), np.float32(.024),
+          ]
+YEP3D6G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0),
+            ]
+# 3D5 J=1 DIPOLE ALLOWED BEF SCALING USE BEF ABOVE 400EV F=0.0010
+
+X3D5G2 = [np.float32(13.864), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0),
+          np.float32(19.0), np.float32(20.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(100.), np.float32(120.),
+          np.float32(140.), np.float32(170.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(400.),
+          ]
+#     DATA Y3D5/0.00,0.40,3.00,4.50,5.25,5.50,5.50,5.35,4.90,4.00,
+
+#    /2.80,2.05,1.50,1.15,0.98,0.65,0.46,0.35,0.19,0.14,
+
+#    /.115,.095,.077,.065,.054,.037/
+
+Y3D5G2 = [np.float32(0.00), np.float32(0.32), np.float32(2.40), np.float32(3.60), np.float32(4.20), np.float32(4.40),
+          np.float32(4.40), np.float32(4.28), np.float32(3.92), np.float32(3.20),
+          np.float32(2.24), np.float32(1.64), np.float32(1.20), np.float32(0.92), np.float32(0.78), np.float32(0.52),
+          np.float32(0.37), np.float32(0.28), np.float32(0.15), np.float32(.112),
+          np.float32(.092), np.float32(.076), np.float32(.062), np.float32(.052), np.float32(.045), np.float32(.037),
+          ]
+YEP3D5G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0),
+            ]
+# 3D4' J=4 SCALED BY 1/E**3 ABOVE 100 EV
+
+X3D4PG2 = [np.float32(13.979), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(19.0),
+           np.float32(20.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+           np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(55.0), np.float32(60.0),
+           np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+           ]
+Y3D4PG2 = [np.float32(0.00), np.float32(2.16), np.float32(3.31), np.float32(3.88), np.float32(4.11), np.float32(4.14),
+           np.float32(4.04), np.float32(3.68), np.float32(3.03), np.float32(2.12),
+           np.float32(1.50), np.float32(1.09), np.float32(.813), np.float32(.619), np.float32(.482), np.float32(.381),
+           np.float32(.251), np.float32(.173), np.float32(.125), np.float32(.092),
+           ]
+YEP3D4PG2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0),
+             ]
+# 3D4  J=3  SCALED BY 1/E**2 ABOVE 100 EV
+
+X3D4G2 = [np.float32(14.013), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(55.0),
+          np.float32(60.0), np.float32(65.0), np.float32(70.0), np.float32(75.0),
+          np.float32(80.0), np.float32(90.0), np.float32(100.),
+          ]
+Y3D4G2 = [np.float32(0.00), np.float32(0.63), np.float32(1.05), np.float32(1.31), np.float32(1.48), np.float32(1.57),
+          np.float32(1.62), np.float32(1.63), np.float32(1.62), np.float32(1.52),
+          np.float32(1.28), np.float32(1.06), np.float32(0.88), np.float32(0.73), np.float32(0.62), np.float32(0.53),
+          np.float32(0.46), np.float32(0.40), np.float32(0.35), np.float32(0.31),
+          np.float32(0.28), np.float32(.225), np.float32(.186),
+          ]
+YEP3D4G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
+# 3D3 J=2 SCALE BY 1/E**3 ABOVE 100 EV
+
+X3D3G2 = [np.float32(13.903), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0),
+          np.float32(19.0), np.float32(20.0), np.float32(22.0), np.float32(25.0),
+          np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+          ]
+Y3D3G2 = [np.float32(0.00), np.float32(0.15), np.float32(1.60), np.float32(3.00), np.float32(3.70), np.float32(4.30),
+          np.float32(4.50), np.float32(4.40), np.float32(4.20), np.float32(3.60),
+          np.float32(2.63), np.float32(1.86), np.float32(1.35), np.float32(1.00), np.float32(0.76), np.float32(0.47),
+          np.float32(0.31), np.float32(0.21), np.float32(0.15), np.float32(.114),
+          ]
+YEP3D3G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0),
+            ]
+# 3D1'' J=2 (ALSO 2S5 J=1 ) SCALE BY 1/E**2 ABOVE 100 EV
+
+X3D1PPG2 = [np.float32(14.063), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0),
+            np.float32(19.0), np.float32(20.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+            np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+            np.float32(80.0), np.float32(90.0), np.float32(100.),
+            ]
+Y3D1PPG2 = [np.float32(0.00), np.float32(0.60), np.float32(1.10), np.float32(1.50), np.float32(1.70), np.float32(1.80),
+            np.float32(1.85), np.float32(1.85), np.float32(1.65), np.float32(1.35),
+            np.float32(1.00), np.float32(0.73), np.float32(0.57), np.float32(0.45), np.float32(0.32), np.float32(0.23),
+            np.float32(0.18), np.float32(.145), np.float32(.120),
+            ]
+YEP3D1PPG2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+              np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+              np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+              np.float32(0.0),
+              ]
+# 3D1'  J=3 SCALE BY 1/E ABOVE 100 EV
+
+X3D1PG2 = [np.float32(14.099), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0), np.float32(20.0),
+           np.float32(21.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+           np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+           ]
+Y3D1PG2 = [np.float32(0.00), np.float32(0.08), np.float32(0.18), np.float32(0.33), np.float32(0.40), np.float32(0.45),
+           np.float32(0.48), np.float32(0.50), np.float32(0.54), np.float32(0.55),
+           np.float32(0.52), np.float32(0.48), np.float32(0.40), np.float32(0.33), np.float32(0.24), np.float32(0.20),
+           ]
+YEP3D1PG2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             ]
+# 3S1''''  J=2  SCALE BY 1/E**3 ABOVE 100 EV
+
+X3S1PPPPG2 = [np.float32(14.214), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0),
+              np.float32(19.0), np.float32(20.0), np.float32(22.0), np.float32(24.0), np.float32(27.0),
+              np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+              np.float32(55.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+              np.float32(100.),
+              ]
+Y3S1PPPPG2 = [np.float32(0.00), np.float32(0.80), np.float32(1.65), np.float32(2.10), np.float32(2.30),
+              np.float32(2.35), np.float32(2.32), np.float32(2.15), np.float32(1.89), np.float32(1.54),
+              np.float32(1.25), np.float32(0.89), np.float32(0.65), np.float32(0.48), np.float32(0.37),
+              np.float32(0.29), np.float32(0.23), np.float32(0.15), np.float32(.103), np.float32(.074),
+              np.float32(.055),
+              ]
+YEP3S1PPPPG2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+                np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+                np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+                np.float32(0.0), np.float32(0.0), np.float32(0.0),
+                ]
+# 3S1'''  J=3  SCALE BY 1/E ABOVE 100 EV
+
+X3S1PPPG2 = [np.float32(14.236), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(19.0),
+             np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+             np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+             ]
+Y3S1PPPG2 = [np.float32(0.00), np.float32(0.12), np.float32(0.27), np.float32(0.50), np.float32(0.60), np.float32(0.68),
+             np.float32(0.72), np.float32(0.75), np.float32(0.81), np.float32(0.82),
+             np.float32(0.78), np.float32(0.72), np.float32(0.60), np.float32(0.52), np.float32(0.36), np.float32(0.30),
+             ]
+YEP3S1PPPG2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+               np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+               np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+               ]
+# 3S1''  J=2  SCALE BY 1/E**3 ABOVE 100 EV
+
+X3S1PPG2 = [np.float32(14.234), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0),
+            np.float32(19.0), np.float32(20.0), np.float32(21.0), np.float32(22.0), np.float32(25.0),
+            np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(55.0),
+            np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+            np.float32(100.),
+            ]
+Y3S1PPG2 = [np.float32(0.00), np.float32(0.55), np.float32(1.06), np.float32(1.31), np.float32(1.42), np.float32(1.44),
+            np.float32(1.42), np.float32(1.37), np.float32(1.31), np.float32(1.09),
+            np.float32(0.77), np.float32(0.55), np.float32(0.40), np.float32(0.30), np.float32(0.23), np.float32(0.18),
+            np.float32(0.14), np.float32(.0918), np.float32(.0635), np.float32(.0456),
+            np.float32(.0339),
+            ]
+YEP3S1PPG2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+              np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+              np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+              np.float32(0.0), np.float32(0.0), np.float32(0.0),
+              ]
+# 2S5  J=2  SCALE BY 1/E**2  ABOVE 100 EV
+
+X2S5G2 = [np.float32(14.068), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+          np.float32(80.0), np.float32(90.0), np.float32(100.),
+          ]
+Y2S5G2 = [np.float32(0.00), np.float32(0.60), np.float32(1.10), np.float32(1.50), np.float32(1.70), np.float32(1.80),
+          np.float32(1.85), np.float32(1.85), np.float32(1.65), np.float32(1.35),
+          np.float32(1.00), np.float32(0.73), np.float32(0.57), np.float32(0.45), np.float32(0.32), np.float32(0.23),
+          np.float32(0.18), np.float32(.145), np.float32(.120),
+          ]
+YEP2S5G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0),
+            ]
+# 2S3  J=0  SCALE BY 1/E**2  ABOVE 100 EV
+
+X2S3G2 = [np.float32(14.241), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+          np.float32(80.0), np.float32(90.0), np.float32(100.),
+          ]
+Y2S3G2 = [np.float32(0.00), np.float32(0.12), np.float32(0.22), np.float32(0.30), np.float32(0.34), np.float32(0.36),
+          np.float32(0.37), np.float32(0.37), np.float32(0.33), np.float32(0.27),
+          np.float32(0.20), np.float32(.146), np.float32(.114), np.float32(.090), np.float32(.064), np.float32(.046),
+          np.float32(.036), np.float32(.029), np.float32(.024),
+          ]
+YEP2S3G2 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0),
+            ]
 # BREMSSTRAHLUNG X-SECTION WITH CUT OFF
+
 # UNITS 10**-24 CM**2
-gd['gas2/Z18T'] = [1518., 1035., 582., 355., 207., 99.5, 58.9, 37.1, 24.7, 21.9,
-                   21.9, 22.3, 22.6, 22.9, 23.1, 23.4, 23.7, 24.0, 24.2, 24.4,
-                   24.6, 24.7, 24.7, 24.8, 24.9]
-gd['gas2/EBRM'] = [1000., 2000., 5000., 1.E4, 2.E4, 5.E4, 1.E5, 2.E5, 5.E5, 1.E6,
-                   2.E6, 3.E6, 4.E6, 5.E6, 6.E6, 8.E6, 1.E7, 1.5E7, 2.E7, 3.E7,
-                   4.E7, 5.E7, 6.E7, 8.E7, 1.E8]
-EING2 = [11.548, 11.624, 11.723, 11.828, 12.907, 13.076, 13.095, 13.153, 13.172, 13.273, 13.283, 13.302, 13.328, 13.480,
-         13.845,
-         13.864, 13.903, 13.979,
-         14.013, 14.063, 14.068, 14.090, 14.099, 14.153, 14.214, 14.234, 14.236, 14.241, 14.255, 14.304, 14.711, 14.848,
-         14.859, 15.004, 15.022, 15.118,
-         15.186, 15.190, 15.308, 15.351, 15.360, 15.366, 15.374, 15.660, 0.0]
+
+Z18TG2 = [np.float32(1518.), np.float32(1035.), np.float32(582.), np.float32(355.), np.float32(207.), np.float32(99.5),
+          np.float32(58.9), np.float32(37.1), np.float32(24.7), np.float32(21.9),
+          np.float32(21.9), np.float32(22.3), np.float32(22.6), np.float32(22.9), np.float32(23.1), np.float32(23.4),
+          np.float32(23.7), np.float32(24.0), np.float32(24.2), np.float32(24.4),
+          np.float32(24.6), np.float32(24.7), np.float32(24.7), np.float32(24.8), np.float32(24.9),
+          ]
+EBRMG2 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.E4), np.float32(2.E4), np.float32(5.E4),
+          np.float32(1.E5), np.float32(2.E5), np.float32(5.E5), np.float32(1.E6),
+          np.float32(2.E6), np.float32(3.E6), np.float32(4.E6), np.float32(5.E6), np.float32(6.E6), np.float32(8.E6),
+          np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
+          np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
+          ]
+EING2 = [np.float32(11.548), np.float32(11.624), np.float32(11.723), np.float32(11.828), np.float32(12.907),
+         np.float32(13.076), np.float32(13.095), np.float32(13.153), np.float32(13.172), np.float32(13.273),
+         np.float32(13.283), np.float32(13.302), np.float32(13.328), np.float32(13.480), np.float32(13.845),
+         np.float32(13.864), np.float32(13.903), np.float32(13.979), np.float32(14.013), np.float32(14.063),
+         np.float32(14.068), np.float32(14.090), np.float32(14.099), np.float32(14.153), np.float32(14.214),
+         np.float32(14.234), np.float32(14.236), np.float32(14.241), np.float32(14.255), np.float32(14.304),
+         np.float32(14.711), np.float32(14.848), np.float32(14.859), np.float32(15.004), np.float32(15.022),
+         np.float32(15.118), np.float32(15.186), np.float32(15.190), np.float32(15.308), np.float32(15.351),
+         np.float32(15.360), np.float32(15.366), np.float32(15.374), np.float32(15.660), np.float32(0.0)]
 for i in range(0, 250 - 45):
     EING2.append(0.0)
 gd['gas2/EIN'] = EING2
-
+gd['gas2/XEN'] = XENG2
+gd['gas2/YSEC'] = YSECG2
+gd['gas2/YEL'] = YELG2
+gd['gas2/XEPS'] = XEPSG2
+gd['gas2/YEPS'] = YEPSG2
+gd['gas2/XENI'] = XENIG2
+gd['gas2/YENI'] = YENIG2
+gd['gas2/YENC'] = YENCG2
+gd['gas2/YEN1'] = YEN1G2
+gd['gas2/XEN2'] = XEN2G2
+gd['gas2/YEN2'] = YEN2G2
+gd['gas2/XEN3'] = XEN3G2
+gd['gas2/YEN3'] = YEN3G2
+gd['gas2/XKSH'] = XKSHG2
+gd['gas2/YKSH'] = YKSHG2
+gd['gas2/XL1S'] = XL1SG2
+gd['gas2/YL1S'] = YL1SG2
+gd['gas2/XL2S'] = XL2SG2
+gd['gas2/YL2S'] = YL2SG2
+gd['gas2/XL3S'] = XL3SG2
+gd['gas2/YL3S'] = YL3SG2
+gd['gas2/X1S5'] = X1S5G2
+gd['gas2/Y1S5'] = Y1S5G2
+gd['gas2/YEPS1'] = YEPS1G2
+gd['gas2/X1S4'] = X1S4G2
+gd['gas2/Y1S4'] = Y1S4G2
+gd['gas2/YEPS2'] = YEPS2G2
+gd['gas2/X1S3'] = X1S3G2
+gd['gas2/Y1S3'] = Y1S3G2
+gd['gas2/YEPS3'] = YEPS3G2
+gd['gas2/X1S2'] = X1S2G2
+gd['gas2/Y1S2'] = Y1S2G2
+gd['gas2/YEPS4'] = YEPS4G2
+gd['gas2/X2P10'] = X2P10G2
+gd['gas2/Y2P10'] = Y2P10G2
+gd['gas2/YEP2P10'] = YEP2P10G2
+gd['gas2/X2P9'] = X2P9G2
+gd['gas2/Y2P9'] = Y2P9G2
+gd['gas2/YEP2P9'] = YEP2P9G2
+gd['gas2/X2P8'] = X2P8G2
+gd['gas2/Y2P8'] = Y2P8G2
+gd['gas2/YEP2P8'] = YEP2P8G2
+gd['gas2/X2P7'] = X2P7G2
+gd['gas2/Y2P7'] = Y2P7G2
+gd['gas2/YEP2P7'] = YEP2P7G2
+gd['gas2/X2P6'] = X2P6G2
+gd['gas2/Y2P6'] = Y2P6G2
+gd['gas2/YEP2P6'] = YEP2P6G2
+gd['gas2/X2P5'] = X2P5G2
+gd['gas2/Y2P5'] = Y2P5G2
+gd['gas2/YEP2P5'] = YEP2P5G2
+gd['gas2/X2P4'] = X2P4G2
+gd['gas2/Y2P4'] = Y2P4G2
+gd['gas2/YEP2P4'] = YEP2P4G2
+gd['gas2/X2P3'] = X2P3G2
+gd['gas2/Y2P3'] = Y2P3G2
+gd['gas2/YEP2P3'] = YEP2P3G2
+gd['gas2/X2P2'] = X2P2G2
+gd['gas2/Y2P2'] = Y2P2G2
+gd['gas2/YEP2P2'] = YEP2P2G2
+gd['gas2/X2P1'] = X2P1G2
+gd['gas2/Y2P1'] = Y2P1G2
+gd['gas2/YEP2P1'] = YEP2P1G2
+gd['gas2/X3D6'] = X3D6G2
+gd['gas2/Y3D6'] = Y3D6G2
+gd['gas2/YEP3D6'] = YEP3D6G2
+gd['gas2/X3D5'] = X3D5G2
+gd['gas2/Y3D5'] = Y3D5G2
+gd['gas2/YEP3D5'] = YEP3D5G2
+gd['gas2/X3D4P'] = X3D4PG2
+gd['gas2/Y3D4P'] = Y3D4PG2
+gd['gas2/YEP3D4P'] = YEP3D4PG2
+gd['gas2/X3D4'] = X3D4G2
+gd['gas2/Y3D4'] = Y3D4G2
+gd['gas2/YEP3D4'] = YEP3D4G2
+gd['gas2/X3D3'] = X3D3G2
+gd['gas2/Y3D3'] = Y3D3G2
+gd['gas2/YEP3D3'] = YEP3D3G2
+gd['gas2/X3D1PP'] = X3D1PPG2
+gd['gas2/Y3D1PP'] = Y3D1PPG2
+gd['gas2/YEP3D1PP'] = YEP3D1PPG2
+gd['gas2/X3D1P'] = X3D1PG2
+gd['gas2/Y3D1P'] = Y3D1PG2
+gd['gas2/YEP3D1P'] = YEP3D1PG2
+gd['gas2/X3S1PPPP'] = X3S1PPPPG2
+gd['gas2/Y3S1PPPP'] = Y3S1PPPPG2
+gd['gas2/YEP3S1PPPP'] = YEP3S1PPPPG2
+gd['gas2/X3S1PPP'] = X3S1PPPG2
+gd['gas2/Y3S1PPP'] = Y3S1PPPG2
+gd['gas2/YEP3S1PPP'] = YEP3S1PPPG2
+gd['gas2/X3S1PP'] = X3S1PPG2
+gd['gas2/Y3S1PP'] = Y3S1PPG2
+gd['gas2/YEP3S1PP'] = YEP3S1PPG2
+gd['gas2/X2S5'] = X2S5G2
+gd['gas2/Y2S5'] = Y2S5G2
+gd['gas2/YEP2S5'] = YEP2S5G2
+gd['gas2/X2S3'] = X2S3G2
+gd['gas2/Y2S3'] = Y2S3G2
+gd['gas2/YEP2S3'] = YEP2S3G2
+gd['gas2/Z18T'] = Z18TG2
+gd['gas2/EBRM'] = EBRMG2
 # XENON gas7
 # ELASTIC MOMENTUM TRANSFER
 XENG7 = [0.00, .001, .005, .007, 0.01, .015, 0.02, .025, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.10, 0.12, 0.14, 0.17,
@@ -9520,13 +10894,19 @@ EING15[24] = -1 * EIN[0]
 for J in range(2, 25):
     EING15[J + 24 - 1] = EING15[24] + J * 8.0 * B0
     EING15[J - 1] = -1 * EING15[J + 24 - 1]
-EING15[48:148] = [-0.193, 0.193, 0.385, 0.568, 0.749, 0.929, 0.977, 1.108, 1.282, 1.458, 1.627, 1.629, 1.798, 1.965, 2.127,
-            2.283, 2.430, 2.585, 2.739, 2.883, 3.023, 3.168, 3.316, 3.46, 5.50, 6.00, 6.50, 6.98, 7.08, 7.25, 7.35,
-            7.45, 7.55, 7.65, 7.75, 7.85, 7.95, 8.05, 8.15, 8.20, 8.25, 8.35, 8.45, 8.55, 8.65, 8.75, 8.85, 8.95, 9.05,
-            9.15, 9.25, 9.35, 9.45, 9.55, 9.675, 9.972, 10.288, 10.570, 10.60, 10.665, 10.760, 10.915, 11.05, 11.25,
-            11.46, 11.56, 11.65, 11.83, 11.98, 12.2, 12.4, 12.6, 12.8, 13.0, 13.1, 13.2, 13.4, 13.6, 13.8, 14.0, 14.2,
-            14.4, 14.6, 14.8, 15.0, 15.2, 15.4, 15.6, 15.8, 16.0, 16.2, 16.4, 16.6, 16.8, 17.0, 17.2, 17.4, 17.6, 17.8,
-            18.0]
+EING15[48:148] = [-0.193, 0.193, 0.385, 0.568, 0.749, 0.929, 0.977, 1.108, 1.282, 1.458, 1.627, 1.629, 1.798, 1.965,
+                  2.127,
+                  2.283, 2.430, 2.585, 2.739, 2.883, 3.023, 3.168, 3.316, 3.46, 5.50, 6.00, 6.50, 6.98, 7.08, 7.25,
+                  7.35,
+                  7.45, 7.55, 7.65, 7.75, 7.85, 7.95, 8.05, 8.15, 8.20, 8.25, 8.35, 8.45, 8.55, 8.65, 8.75, 8.85, 8.95,
+                  9.05,
+                  9.15, 9.25, 9.35, 9.45, 9.55, 9.675, 9.972, 10.288, 10.570, 10.60, 10.665, 10.760, 10.915, 11.05,
+                  11.25,
+                  11.46, 11.56, 11.65, 11.83, 11.98, 12.2, 12.4, 12.6, 12.8, 13.0, 13.1, 13.2, 13.4, 13.6, 13.8, 14.0,
+                  14.2,
+                  14.4, 14.6, 14.8, 15.0, 15.2, 15.4, 15.6, 15.8, 16.0, 16.2, 16.4, 16.6, 16.8, 17.0, 17.2, 17.4, 17.6,
+                  17.8,
+                  18.0]
 gd['gas15/XELA'] = XELAG15
 gd['gas15/YELA'] = YELAG15
 gd['gas15/YMOM'] = YMOMG15
@@ -11313,7 +12693,7 @@ YVIB5G25 = [0.00, 0.35, 0.43, 0.47, 0.48, 0.48, 0.46, 0.43, 0.43, 0.47,
             0.69, 1.00, 1.30, 1.75, 1.90, 1.60, 1.20, 0.72, 0.30, 0.17,
             0.10, 0.02, .002, .0002, .00002
             ]
-YVIB5G25 =[np.float32(i) for i in YVIB5G25]
+YVIB5G25 = [np.float32(i) for i in YVIB5G25]
 XVIB6G25 = [.529, 1.00, 1.50, 2.00, 3.00, 4.00, 5.00, 6.00, 7.50, 8.50,
             10.0, 15.0, 20.0, 30.0, 40.0, 100., 1000., 10000., 100000.
             ]
@@ -11342,7 +12722,7 @@ YEXC1G25 = [0.00, 0.077, 0.16, 0.23, 0.29, 0.34, 0.42, 0.64, 0.97, 1.43,
             1.99, 2.91, 3.79, 4.07, 4.73, 5.50, 5.94, 6.16, 6.44, 6.60,
             6.82, 6.82, 6.77, 6.44, 4.79, 3.91, 2.86, 2.20, 1.87, 1.65,
             1.16, 0.68, 0.40, 0.20, .038]
-YEXC1G25 = [np.float(i) for i in YEXC1G25]
+YEXC1G25 = [np.float32(i) for i in YEXC1G25]
 EING25 = [-0.051, 0.051, 0.137, 0.180, 0.349, 0.529, 7.70, 8.5, ]
 EING25 = [np.float32(i) for i in EING25]
 for J in range(250 - 8):

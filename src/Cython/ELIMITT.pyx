@@ -65,7 +65,6 @@ cpdef ELIMITT(Magboltz Object):
     F1 = Object.EFIELD * Object.CONST2
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2 * acos(-1)
-
     J2M = Object.NMAX / ISAMP
     print("Finding the upper limit of electron energy")
     for J1 in range(int(J2M)):
@@ -86,16 +85,16 @@ cpdef ELIMITT(Magboltz Object):
             for KGAS in range(Object.NGAS):
                 if Object.TCFMXG[KGAS] >= R2:
                     break
-            IMBPT = IMBPT + 1
-            if IMBPT > 6:
-                GERJAN(Object.RSTART, Object.NGAS, Object.RNMX)
+            IMBPT += 1
+            if (IMBPT > 6):
+                GERJAN(Object.RSTART, Object.API, Object.RNMX)
                 IMBPT = 1
-            VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
-            IMBPT = IMBPT + 1
-            VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
-            IMBPT = IMBPT + 1
-            VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
-
+            VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+            IMBPT += 1
+            VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+            IMBPT += 1
+            VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+            # CALCULATE ELECTRON VELOCITY VECTORS VEX VEY VEZ
             VEX = DCX2 * CONST9 * sqrt(E)
             VEY = DCY2 * CONST9 * sqrt(E)
             VEZ = DCZ2 * CONST9 * sqrt(E)
@@ -119,11 +118,12 @@ cpdef ELIMITT(Magboltz Object):
         DYCOM = (VEY - VGY) * CONST11
         DZCOM = (VEZ - VGZ) * CONST11
 
-        R2 = random_uniform(RDUM)
-        I = SORTT(KGAS, I, R2, IE, Object)
-        while Object.CF[KGAS][IE][I] < R2:
-            I = I + 1
-
+        # Determination of real collision type
+        R3 = random_uniform(RDUM)
+        # Find location within 4 units in collision array
+        I = SORTT(KGAS, I, R3, IE, Object)
+        while Object.CF[KGAS][IE][I] < R3:
+            I += 1
         S1 = Object.RGAS[KGAS][I]
         EI = Object.EIN[KGAS][I]
 
@@ -134,19 +134,22 @@ cpdef ELIMITT(Magboltz Object):
         IPT = Object.IARRY[KGAS][I]
         if EOK < EI:
             EI = EOK - 0.0001
-        S2 = (S1 * S1) / (S1 - 1.0)
-        R3 = random_uniform(RDUM)
+        S2 = pow(S1 , 2) / (S1 - 1.0)
 
+        # Anisotropic scattering
+        R3 = random_uniform(RDUM)
         if Object.INDEX[KGAS][I] == 1:
             R31 = random_uniform(RDUM)
             F3 = 1.0 - R3 * Object.ANGCT[KGAS][IE][I]
             if R31 > Object.PSCT[KGAS][IE][I]:
-                F3 = -1 * F3
+                F3 = -1.0 * F3
         elif Object.INDEX[KGAS][I] == 2:
             EPSI = Object.PSCT[KGAS][IE][I]
-            F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
+            F3 = 1.0 - (2.0 * R3 * (1.0 - EPSI) / (1.0 + EPSI * (1.0 - 2.0 * R3)))
         else:
-            F3 = 1 - 2 * R3
+            # Isotropic scattering
+            F3 = 1.0 - 2.0 * R3
+
         THETA0 = acos(F3)
         R4 = random_uniform(RDUM)
         PHI0 = F4 * R4
@@ -168,9 +171,9 @@ cpdef ELIMITT(Magboltz Object):
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
-        F5=sin(Object.THETA)
-        DZCOM=min(DZCOM,1.0e0)
-        ARGZ=sqrt(DXCOM*DXCOM+DYCOM*DYCOM)
+        F5 = sin(Object.THETA)
+        DZCOM = min(DZCOM, 1.0)
+        ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
         if ARGZ == 0:
             DCZ1 = F6
             DCX1 = F9 * F5
@@ -179,12 +182,14 @@ cpdef ELIMITT(Magboltz Object):
             DCZ1 = DZCOM * F6 + ARGZ * F5 * F8
             DCY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
             DCX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
-        # TRANSFORM VELOCITY VECTORS TO LAB FRAME
+
+
+        # Transform velocity vectors to lab frame
         CONST12 = CONST9 * sqrt(E1)
         VXLAB = DCX1 * CONST12 + VGX
         VYLAB = DCY1 * CONST12 + VGY
         VZLAB = DCZ1 * CONST12 + VGZ
-        #  CALCULATE ENERGY AND DIRECTION COSINES IN LAB FRAME
+        # Calculate energy and direction cosines in lab frame
         E1 = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / CONST10
         CONST11 = 1.0 / (CONST9 * sqrt(E1))
         DCX1 = VXLAB * CONST11

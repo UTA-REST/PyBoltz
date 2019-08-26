@@ -35,18 +35,18 @@ import time
 t1 =time.time()
 
 # Set the number of gases
-Object.NGAS =2
+Object.NGAS =1
 # Set the number of collisons 
-Object.NMAX =3
+Object.NMAX =1
 # Set penning
 Object.IPEN = 0
 # Calculate the electron energy
 Object.ITHRM=1
-Object.EFINAL = 0.0
+Object.EFINAL = 5.66
 # Set the gas's with there given number
-Object.NGASN=[2, 8, 0, 0, 0, 0]
+Object.NGASN=[2, 0, 0, 0, 0, 0]
 # Set the gas fractions
-Object.FRAC=[90, 10, 0, 0, 0, 0]
+Object.FRAC=[100, 0, 0, 0, 0, 0]
 # Set the tempature
 Object.TEMPC = float(23)
 # Set the pressure

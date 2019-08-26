@@ -418,6 +418,7 @@ cdef class Magboltz:
                 print("MIXERT")
                 MIXERT(self)
             if self.BMAG == 0:
+                print(self.THETA)
                 print("MONTET")
                 MONTET(self)
             else:

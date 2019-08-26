@@ -2302,6 +2302,1298 @@ gd['gas2/Y2S3'] = Y2S3G2
 gd['gas2/YEP2S3'] = YEP2S3G2
 gd['gas2/Z18T'] = Z18TG2
 gd['gas2/EBRM'] = EBRMG2
+
+# ELASTIC
+
+XENG3 = [np.float32(0.00),np.float32(.008),np.float32(.009),np.float32(0.01),np.float32(.013),np.float32(.017),np.float32(.020),np.float32(.025),np.float32(0.03),np.float32(0.04),
+np.float32(0.05),np.float32(0.06),np.float32(0.07),np.float32(0.08),np.float32(0.09),np.float32(0.10),np.float32(0.12),np.float32(0.15),np.float32(0.18),np.float32(0.20),
+np.float32(0.25),np.float32(0.30),np.float32(0.40),np.float32(0.50),np.float32(0.60),np.float32(0.70),np.float32(0.80),np.float32(0.90),np.float32(1.00),np.float32(1.20),
+np.float32(1.50),np.float32(1.80),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(4.00),np.float32(5.00),np.float32(6.00),np.float32(7.00),np.float32(8.00),
+np.float32(9.00),np.float32(10.0),np.float32(11.0),np.float32(12.0),np.float32(14.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),
+np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),
+np.float32(200.),np.float32(250.),np.float32(300.),np.float32(400.),np.float32(500.),np.float32(600.),np.float32(800.),np.float32(1000.),np.float32(1500.),np.float32(2000.),
+np.float32(3000.),np.float32(4000.),np.float32(6000.),np.float32(8000.),np.float32(10000.),1.25e4,1.5e4,2.0e4,2.5e4,3.0e4,
+4.0e4,6.0e4,8.0e4,1.0e5,1.25e5,1.5e5,1.75e5,2.0e5,2.5e5,3.0e5,
+3.5e5,4.0e5,4.5e5,5.0e5,6.0e5,7.0e5,8.0e5,9.0e5,1.0e6,1.25e6,
+1.5e6,1.75e6,2.0e6,2.5e6,3.0e6,3.5e6,4.0e6,4.5e6,5.0e6,6.0e6,
+7.0e6,8.0e6,9.0e6,1.0e7,1.25e7,1.5e7,1.75e7,2.0e7,2.5e7,3.0e7,
+3.5e7,4.0e7,4.5e7,5.0e7,6.0e7,7.0e7,8.0e7,9.0e7,1.0e8,1.25e8,
+1.5e8,1.75e8,2.0e8,2.5e8,3.0e8,3.5e8,4.0e8,4.5e8,5.0e8,6.0e8,
+7.0e8,8.0e8,9.0e8,1.0e9,
+]
+# ELASTIC MOMENTUM TRANSFER
+
+YEMG3 = [np.float32(4.89),np.float32(5.18),np.float32(5.19),np.float32(5.21),np.float32(5.26),np.float32(5.31),np.float32(5.35),np.float32(5.41),np.float32(5.46),np.float32(5.54),
+np.float32(5.62),np.float32(5.68),np.float32(5.74),np.float32(5.79),np.float32(5.83),np.float32(5.86),np.float32(5.94),np.float32(6.04),np.float32(6.12),np.float32(6.16),
+np.float32(6.27),np.float32(6.35),np.float32(6.49),np.float32(6.59),np.float32(6.66),np.float32(6.73),np.float32(6.77),np.float32(6.82),np.float32(6.85),np.float32(6.91),
+np.float32(6.96),np.float32(6.98),np.float32(6.99),np.float32(6.96),np.float32(6.89),np.float32(6.62),np.float32(6.31),np.float32(6.00),np.float32(5.68),np.float32(5.35),
+np.float32(5.03),np.float32(4.72),np.float32(4.45),np.float32(4.20),np.float32(3.68),np.float32(3.28),np.float32(2.95),np.float32(2.64),np.float32(2.05),np.float32(1.63),
+np.float32(1.33),np.float32(1.09),np.float32(.785),np.float32(.590),np.float32(.465),np.float32(.375),np.float32(.309),np.float32(.262),np.float32(.179),np.float32(.132),
+np.float32(.0807),np.float32(.0549),np.float32(.0400),np.float32(.0242),np.float32(.0164),np.float32(.0119),np.float32(.00716),np.float32(.00482),np.float32(.00234),np.float32(.0014),
+np.float32(.000676),4.03e-4,1.93e-4,1.15e-4,7.65e-5,5.10e-5,3.66e-5,2.17e-5,
+1.45e-5,1.04e-5,
+6.18e-6,2.99e-6,1.71e-6,1.21e-6,8.26e-7,6.05e-7,4.66e-7,3.73e-7,
+2.58e-7,1.92e-7,
+1.50e-7,1.22e-7,1.01e-7,8.59e-8,6.48e-8,5.11e-8,4.17e-8,3.48e-8,
+2.96e-8,2.10e-8,
+1.58e-8,1.24e-8,1.01e-8,7.05e-9,5.24e-9,4.07e-9,3.25e-9,2.67e-9,
+2.23e-9,1.63e-9,
+1.25e-9,9.89e-10,8.04e-10,6.67e-10,4.47e-10,3.22e-10,2.43e-10,
+1.91e-10,1.27e-10,9.04e-11,
+6.79e-11,5.29e-11,4.24e-11,3.48e-11,2.46e-11,1.84e-11,1.42e-11,
+1.13e-11,9.26e-12,6.00e-12,
+4.20e-12,3.10e-12,2.38e-12,1.53e-12,1.06e-12,7.82e-13,5.99e-13,
+4.74e-13,3.84e-13,2.67e-13,
+1.96e-13,1.50e-13,1.19e-13,9.62e-14,
+]
+# ELASTIC TOTAL
+
+YELG3 = [np.float32(4.89),np.float32(5.19),np.float32(5.20),np.float32(5.21),np.float32(5.26),np.float32(5.29),np.float32(5.33),np.float32(5.37),np.float32(5.41),np.float32(5.47),
+np.float32(5.53),np.float32(5.58),np.float32(5.62),np.float32(5.66),np.float32(5.69),np.float32(5.70),np.float32(5.76),np.float32(5.83),np.float32(5.88),np.float32(5.90),
+np.float32(5.96),np.float32(6.01),np.float32(6.08),np.float32(6.12),np.float32(6.14),np.float32(6.16),np.float32(6.16),np.float32(6.17),np.float32(6.16),np.float32(6.16),
+np.float32(6.14),np.float32(6.11),np.float32(6.09),np.float32(6.01),np.float32(5.90),np.float32(5.60),np.float32(5.36),np.float32(5.10),np.float32(4.91),np.float32(4.70),
+np.float32(4.51),np.float32(4.32),np.float32(4.21),np.float32(4.10),np.float32(3.75),np.float32(3.49),np.float32(3.27),np.float32(3.03),np.float32(2.54),np.float32(2.14),
+np.float32(1.83),np.float32(1.61),np.float32(1.27),np.float32(1.06),np.float32(.884),np.float32(.746),np.float32(.652),np.float32(.580),np.float32(.460),np.float32(.355),
+np.float32(.244),np.float32(.194),np.float32(.150),np.float32(.117),np.float32(.087),np.float32(.071),np.float32(.052),np.float32(.041),np.float32(.028),np.float32(.022),
+np.float32(.014),np.float32(.0108),np.float32(.00722),np.float32(.00544),np.float32(.00437),np.float32(.00352),np.float32(.00295),np.float32(.00224),np.float32(.00182),
+np.float32(.00154),
+np.float32(.00118),np.float32(.000830),np.float32(.000654),np.float32(.000550),np.float32(.000466),np.float32(.000411),np.float32(.000371),np.float32(.000342),
+np.float32(.000301),np.float32(.000274),
+np.float32(.000255),np.float32(.000241),np.float32(.000230),np.float32(.000222),np.float32(.000209),np.float32(.000201),np.float32(.000195),np.float32(.000190),
+np.float32(.000186),np.float32(.000180),
+np.float32(.000177),np.float32(.000174),np.float32(.000172),np.float32(.000170),np.float32(.000169),np.float32(.000168),np.float32(.000167),np.float32(.000167),
+np.float32(.000167),np.float32(.000166),
+np.float32(.000166),np.float32(.000166),np.float32(.000166),np.float32(.000166),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),np.float32(.000165),
+]
+# ANGULAR DISTRIBUTION PARAMETER EPSILON
+
+# EPSILON = 1.0-YEPS
+
+YEPSG3 = [np.float32(1.0),np.float32(.99711),np.float32(.99712),np.float32(1.0),np.float32(1.0),np.float32(1.00562),np.float32(1.00565),np.float32(1.01118),
+np.float32(1.01386),np.float32(1.01920),
+np.float32(1.02440),np.float32(1.02688),np.float32(1.03202),np.float32(1.03445),np.float32(1.03689),np.float32(1.04209),np.float32(1.04686),np.float32(1.05400),
+np.float32(1.06119),np.float32(1.06604),
+np.float32(1.07792),np.float32(1.08474),np.float32(1.10094),np.float32(1.11490),np.float32(1.12663),np.float32(1.13826),np.float32(1.14789),np.float32(1.15724),
+np.float32(1.16707),np.float32(1.18142),
+np.float32(1.19873),np.float32(1.21165),np.float32(1.21951),np.float32(1.23447),np.float32(1.24855),np.float32(1.26918),np.float32(1.26215),np.float32(1.26104),
+np.float32(1.23265),np.float32(1.20568),
+np.float32(1.17192),np.float32(1.13835),np.float32(1.08539),np.float32(1.03657),np.float32(.97200),np.float32(.90989),np.float32(.85384),np.float32(.80836),
+np.float32(.71541),np.float32(.65146),
+np.float32(.60355),np.float32(.53739),np.float32(.46277),np.float32(.38963),np.float32(.35522),np.float32(.32989),np.float32(.29979),np.float32(.27742),
+np.float32(.21850),np.float32(.20332),
+np.float32(.16921),np.float32(.13304),np.float32(.12155),np.float32(.08318),np.float32(.07263),np.float32(.06130),np.float32(.04637),np.float32(.03720),
+np.float32(.02338),np.float32(.016295),
+np.float32(.011386),np.float32(.008195),np.float32(.005394),np.float32(.004037),np.float32(.003205),np.float32(.002548),np.float32(.002113),np.float32(.001572),
+np.float32(.001246),np.float32(.001044),
+7.61e-4,4.925e-4,3.404e-4,2.803e-4,2.179e-4,1.766e-4,1.475e-4,
+1.258e-4,9.60e-5,7.65e-5,
+6.29e-5,5.29e-5,4.53e-5,3.93e-5,3.07e-5,2.47e-5,2.04e-5,1.72e-5,
+1.47e-5,1.05e-5,
+7.84e-6,6.12e-6,4.91e-6,3.373e-6,2.463e-6,1.881e-6,1.483e-6,
+1.200e-6,9.91e-7,7.09e-7,
+5.322e-7,4.146e-7,3.319e-7,2.718e-7,1.775e-7,1.249e-7,9.27e-8,
+7.15e-8,4.62e-8,3.23e-8,
+2.382e-8,1.828e-8,1.447e-8,1.173e-8,8.14e-9,5.97e-9,4.56e-9,
+3.59e-9,2.90e-9,1.83e-9,
+1.26e-9,9.10e-10,6.90e-10,4.40e-10,3.00e-10,2.16e-10,1.63e-10,
+1.27e-10,1.02e-10,7.0e-11,
+5.1e-11,3.8e-11,3.0e-11,2.4e-11,
+]
+#  IONISATION (VALUES ABOVE 20KEV GENERATED BY BORN-BETHE IN SUB)
+
+XIONG3 = [np.float32(24.58739),np.float32(25.0),np.float32(25.5),np.float32(26.0),np.float32(26.5),np.float32(27.0),np.float32(27.5),np.float32(28.0),np.float32(28.5),np.float32(29.0),
+np.float32(29.5),np.float32(30.0),np.float32(30.5),np.float32(31.0),np.float32(31.5),np.float32(32.0),np.float32(32.5),np.float32(33.0),np.float32(33.5),np.float32(34.0),
+np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(55.0),np.float32(60.0),np.float32(65.0),np.float32(70.0),np.float32(75.0),
+np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(105.),np.float32(110.),np.float32(115.),np.float32(120.),np.float32(125.),
+np.float32(130.),np.float32(135.),np.float32(140.),np.float32(145.),np.float32(150.),np.float32(160.),np.float32(170.),np.float32(180.),np.float32(190.),np.float32(200.),
+np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+np.float32(650.),np.float32(700.),np.float32(750.),np.float32(800.),np.float32(850.),np.float32(900.),np.float32(950.),np.float32(1000.),np.float32(1200.),np.float32(1400.),
+np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2500.),np.float32(3000.),np.float32(3500.),np.float32(4000.),np.float32(4500.),np.float32(5000.),np.float32(5500.),
+np.float32(6000.),np.float32(7000.),np.float32(8000.),np.float32(9000.),1.0e4,1.2e4,1.4e4,1.6e4,1.8e4,2.0e4,
+]
+# GROSS IONISATION
+
+YIONG3 = [np.float32(.0),np.float32(.0038),np.float32(.0094),np.float32(.0155),np.float32(.0218),np.float32(.0279),np.float32(.0336),np.float32(.0392),np.float32(.0446),
+np.float32(.0504),
+np.float32(.0561),np.float32(.0612),np.float32(.0667),np.float32(.0722),np.float32(.0773),np.float32(.0826),np.float32(.0878),np.float32(.0929),np.float32(.0981),np.float32(.103),
+np.float32(.121),np.float32(.138),np.float32(.154),np.float32(.188),np.float32(.219),np.float32(.242),np.float32(.262),np.float32(.276),np.float32(.290),np.float32(.301),
+np.float32(.311),np.float32(.319),np.float32(.326),np.float32(.333),np.float32(.336),np.float32(.338),np.float32(.340),np.float32(.341),np.float32(.342),np.float32(.342),
+np.float32(.343),np.float32(.342),np.float32(.341),np.float32(.340),np.float32(.338),np.float32(.335),np.float32(.332),np.float32(.326),np.float32(.322),np.float32(.316),
+np.float32(.302),np.float32(.290),np.float32(.279),np.float32(.268),np.float32(.246),np.float32(.231),np.float32(.216),np.float32(.203),np.float32(.191),np.float32(.180),
+np.float32(.171),np.float32(.163),np.float32(.155),np.float32(.148),np.float32(.142),np.float32(.136),np.float32(.130),np.float32(.125),np.float32(.109),np.float32(.097),
+np.float32(.0872),np.float32(.0795),np.float32(.0729),np.float32(.0608),np.float32(.0524),np.float32(.0458),np.float32(.0410),np.float32(.0368),np.float32(.0336),np.float32(.0311),
+np.float32(.0293),np.float32(.0255),np.float32(.0229),np.float32(.0206),np.float32(.0192),np.float32(.0164),np.float32(.0147),np.float32(.0130),np.float32(.0119),np.float32(.0108),
+]
+# COUNTING IONISATION
+
+YINCG3 = [np.float32(.0),np.float32(.0038),np.float32(.0094),np.float32(.0155),np.float32(.0218),np.float32(.0279),np.float32(.0336),np.float32(.0392),np.float32(.0446),
+np.float32(.0504),
+np.float32(.0561),np.float32(.0612),np.float32(.0667),np.float32(.0722),np.float32(.0773),np.float32(.0826),np.float32(.0878),np.float32(.0929),np.float32(.0981),np.float32(.103),
+np.float32(.121),np.float32(.138),np.float32(.154),np.float32(.188),np.float32(.219),np.float32(.242),np.float32(.262),np.float32(.276),np.float32(.290),np.float32(.301),
+np.float32(.311),np.float32(.319),np.float32(.326),np.float32(.333),np.float32(.336),np.float32(.338),np.float32(.340),np.float32(.341),np.float32(.341),np.float32(.341),
+np.float32(.342),np.float32(.341),np.float32(.340),np.float32(.339),np.float32(.337),np.float32(.334),np.float32(.331),np.float32(.325),np.float32(.321),np.float32(.315),
+np.float32(.301),np.float32(.289),np.float32(.278),np.float32(.267),np.float32(.245),np.float32(.230),np.float32(.215),np.float32(.202),np.float32(.190),np.float32(.179),
+np.float32(.170),np.float32(.162),np.float32(.154),np.float32(.147),np.float32(.141),np.float32(.135),np.float32(.129),np.float32(.124),np.float32(.108),np.float32(.096),
+np.float32(.0867),np.float32(.0791),np.float32(.0725),np.float32(.0605),np.float32(.0522),np.float32(.0456),np.float32(.0408),np.float32(.0367),np.float32(.0335),np.float32(.0310),
+np.float32(.0292),np.float32(.0254),np.float32(.0228),np.float32(.0205),np.float32(.0191),np.float32(.0163),np.float32(.0146),np.float32(.0129),np.float32(.0118),np.float32(.0107),
+]
+#  ALL EXCITATIONS IN UNITS OF 10**-18
+
+#  2 3S J=1 METASTABLE
+
+X23SG3 = [np.float32(19.81961),np.float32(19.83),np.float32(19.85),np.float32(19.88),np.float32(19.9),np.float32(19.95),np.float32(20.0),np.float32(20.05),np.float32(20.1),
+np.float32(20.15),
+np.float32(20.2),np.float32(20.25),np.float32(20.3),np.float32(20.35),np.float32(20.4),np.float32(20.45),np.float32(20.50),np.float32(20.55),np.float32(20.6),np.float32(20.63),
+np.float32(20.66),np.float32(20.7),np.float32(20.75),np.float32(20.8),np.float32(20.85),np.float32(20.90),np.float32(20.94),np.float32(20.97),np.float32(21.0),np.float32(21.05),
+np.float32(21.1),np.float32(21.15),np.float32(21.2),np.float32(21.25),np.float32(21.3),np.float32(21.4),np.float32(21.5),np.float32(22.0),np.float32(22.2),np.float32(22.25),
+np.float32(22.3),np.float32(22.35),np.float32(22.4),np.float32(22.42),np.float32(22.44),np.float32(22.46),np.float32(22.48),np.float32(22.5),np.float32(22.52),np.float32(22.55),
+np.float32(22.6),np.float32(22.62),np.float32(22.64),np.float32(22.66),np.float32(22.68),np.float32(22.7),np.float32(22.71),np.float32(22.72),np.float32(22.75),np.float32(22.8),
+np.float32(22.85),np.float32(22.88),np.float32(22.9),np.float32(22.95),np.float32(22.97),np.float32(23.0),np.float32(23.05),np.float32(23.1),np.float32(23.3),np.float32(23.4),
+np.float32(23.5),np.float32(23.6),np.float32(23.8),np.float32(24.0),np.float32(24.5),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),
+np.float32(30.0),np.float32(31.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),
+np.float32(48.0),np.float32(50.0),np.float32(55.0),np.float32(60.0),np.float32(65.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),
+np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),
+np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(340.),np.float32(380.),np.float32(420.),np.float32(460.),np.float32(500.),np.float32(550.),
+np.float32(600.),np.float32(650.),np.float32(700.),np.float32(750.),np.float32(800.),np.float32(850.),np.float32(900.),np.float32(950.),np.float32(1000.),np.float32(1100.),
+np.float32(1200.),np.float32(1300.),np.float32(1400.),np.float32(1500.),np.float32(1600.),np.float32(1700.),np.float32(1800.),np.float32(1900.),np.float32(2000.),
+]
+Y23SG3 = [np.float32(0.00),np.float32(.780),np.float32(1.16),np.float32(1.64),np.float32(1.98),np.float32(2.81),np.float32(3.53),np.float32(4.13),np.float32(4.61),np.float32(4.96),
+np.float32(5.20),np.float32(5.35),np.float32(5.41),np.float32(5.36),np.float32(5.21),np.float32(4.95),np.float32(4.63),np.float32(4.23),np.float32(3.66),np.float32(3.16),
+np.float32(3.04),np.float32(3.13),np.float32(3.41),np.float32(3.77),np.float32(4.14),np.float32(4.44),np.float32(4.54),np.float32(4.43),np.float32(4.27),np.float32(3.96),
+np.float32(3.69),np.float32(3.48),np.float32(3.32),np.float32(3.21),np.float32(3.15),np.float32(3.08),np.float32(3.06),np.float32(3.09),np.float32(3.08),np.float32(3.04),
+np.float32(2.97),np.float32(2.84),np.float32(2.25),np.float32(1.58),np.float32(1.83),np.float32(4.91),np.float32(4.45),np.float32(4.13),np.float32(3.95),np.float32(3.79),
+np.float32(3.60),np.float32(3.51),np.float32(3.07),np.float32(2.45),np.float32(2.61),np.float32(2.67),np.float32(2.36),np.float32(2.97),np.float32(3.01),np.float32(2.96),
+np.float32(2.87),np.float32(2.61),np.float32(3.04),np.float32(2.75),np.float32(3.16),np.float32(3.06),np.float32(2.90),np.float32(2.79),np.float32(2.81),np.float32(2.86),
+np.float32(2.75),np.float32(2.80),np.float32(2.71),np.float32(2.65),np.float32(2.58),np.float32(2.48),np.float32(2.39),np.float32(2.30),np.float32(2.19),np.float32(2.09),
+np.float32(1.98),np.float32(1.84),np.float32(1.73),np.float32(1.53),np.float32(1.36),np.float32(1.22),np.float32(1.09),np.float32(.985),np.float32(.892),np.float32(.812),
+np.float32(.742),np.float32(.680),np.float32(.555),np.float32(.461),np.float32(.389),np.float32(.332),np.float32(.287),np.float32(.250),np.float32(.220),np.float32(.194),
+np.float32(.154),np.float32(.125),np.float32(.103),np.float32(.0861),np.float32(.0726),np.float32(.0617),np.float32(.0529),np.float32(.0397),np.float32(.0305),np.float32(.0239),
+np.float32(.0191),np.float32(.0154),np.float32(.0126),np.float32(.0105),np.float32(.00740),np.float32(.00542),np.float32(.00407),np.float32(.00314),np.float32(.00247),np.float32(.00187),
+np.float32(.00145),np.float32(.00115),9.23e-4,7.53e-4,6.22e-4,5.20e-4,4.39e-4,3.74e-4,
+3.21e-4,2.42e-4,
+1.86e-4,1.47e-4,1.18e-4,9.57e-5,7.89e-5,6.58e-5,5.54e-5,4.71e-5,
+4.04e-5,
+]
+# 2 1S J=0 METASTABLE
+
+X21SG3 = [np.float32(20.61577),np.float32(20.62),np.float32(20.63),np.float32(20.65),np.float32(20.67),np.float32(20.69),np.float32(20.72),np.float32(20.75),
+np.float32(20.80),np.float32(20.85),
+np.float32(20.90),np.float32(20.96),np.float32(20.98),np.float32(21.0),np.float32(21.05),np.float32(21.1),np.float32(21.15),np.float32(21.2),np.float32(21.22),np.float32(21.25),
+np.float32(21.3),np.float32(21.4),np.float32(21.5),np.float32(21.6),np.float32(21.7),np.float32(21.8),np.float32(21.9),np.float32(22.0),np.float32(22.1),np.float32(22.2),
+np.float32(22.25),np.float32(22.3),np.float32(22.35),np.float32(22.4),np.float32(22.42),np.float32(22.44),np.float32(22.46),np.float32(22.48),np.float32(22.5),np.float32(22.55),
+np.float32(22.59),np.float32(22.6),np.float32(22.61),np.float32(22.62),np.float32(22.63),np.float32(22.64),np.float32(22.65),np.float32(22.68),np.float32(22.7),np.float32(22.71),
+np.float32(22.72),np.float32(22.73),np.float32(22.75),np.float32(22.78),np.float32(22.8),np.float32(22.85),np.float32(22.87),np.float32(22.88),np.float32(22.89),np.float32(22.9),
+np.float32(22.91),np.float32(22.92),np.float32(22.93),np.float32(22.94),np.float32(22.95),np.float32(22.96),np.float32(22.97),np.float32(22.98),np.float32(22.99),np.float32(23.0),
+np.float32(23.01),np.float32(23.05),np.float32(23.1),np.float32(23.2),np.float32(23.3),np.float32(23.4),np.float32(23.5),np.float32(23.6),np.float32(23.8),np.float32(24.0),
+np.float32(24.2),np.float32(24.4),np.float32(24.7),np.float32(25.0),np.float32(26.0),np.float32(28.0),np.float32(30.0),np.float32(32.0),np.float32(35.0),np.float32(40.0),
+np.float32(45.0),np.float32(50.0),np.float32(55.0),np.float32(60.0),np.float32(65.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(110.),
+np.float32(120.),np.float32(140.),np.float32(170.),np.float32(200.),np.float32(240.),np.float32(280.),np.float32(320.),np.float32(360.),np.float32(400.),np.float32(450.),
+np.float32(500.),np.float32(550.),np.float32(600.),np.float32(650.),np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1100.),np.float32(1200.),
+np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2200.),np.float32(2400.),np.float32(2700.),np.float32(3000.),
+]
+Y21SG3 = [np.float32(0.00),np.float32(.406),np.float32(.477),np.float32(.664),np.float32(.820),np.float32(.946),np.float32(1.10),np.float32(1.24),np.float32(1.47),np.float32(1.72),
+np.float32(2.03),np.float32(2.52),np.float32(2.40),np.float32(2.39),np.float32(2.39),np.float32(2.42),np.float32(2.46),np.float32(2.53),np.float32(2.55),np.float32(2.53),
+np.float32(2.52),np.float32(2.53),np.float32(2.57),np.float32(2.59),np.float32(2.62),np.float32(2.64),np.float32(2.65),np.float32(2.65),np.float32(2.65),np.float32(2.62),
+np.float32(2.59),np.float32(2.53),np.float32(2.42),np.float32(2.14),np.float32(1.86),np.float32(2.17),np.float32(3.35),np.float32(3.01),np.float32(2.79),np.float32(2.34),
+np.float32(1.80),np.float32(1.88),np.float32(2.53),np.float32(3.37),np.float32(3.64),np.float32(3.55),np.float32(3.42),np.float32(3.23),np.float32(2.95),np.float32(2.45),
+np.float32(1.84),np.float32(2.32),np.float32(2.49),np.float32(2.60),np.float32(2.62),np.float32(2.57),np.float32(2.40),np.float32(2.57),np.float32(2.59),np.float32(2.32),
+np.float32(1.73),np.float32(2.55),np.float32(2.36),np.float32(2.35),np.float32(2.32),np.float32(2.23),np.float32(2.50),np.float32(2.64),np.float32(2.61),np.float32(1.86),
+np.float32(2.28),np.float32(2.53),np.float32(2.35),np.float32(2.39),np.float32(2.44),np.float32(2.51),np.float32(2.48),np.float32(2.45),np.float32(2.44),np.float32(2.49),
+np.float32(2.57),np.float32(2.63),np.float32(2.56),np.float32(2.54),np.float32(2.53),np.float32(2.51),np.float32(2.45),np.float32(2.35),np.float32(2.21),np.float32(2.05),
+np.float32(1.88),np.float32(1.75),np.float32(1.65),np.float32(1.56),np.float32(1.48),np.float32(1.41),np.float32(1.30),np.float32(1.21),np.float32(1.14),np.float32(1.08),
+np.float32(1.03),np.float32(.948),np.float32(.850),np.float32(.771),np.float32(.686),np.float32(.617),np.float32(.560),np.float32(.512),np.float32(.471),np.float32(.428),
+np.float32(.392),np.float32(.361),np.float32(.335),np.float32(.312),np.float32(.292),np.float32(.259),np.float32(.233),np.float32(.211),np.float32(.193),np.float32(.178),
+np.float32(.154),np.float32(.136),np.float32(.121),np.float32(.109),np.float32(.0997),np.float32(.0916),np.float32(.0817),np.float32(.0737),
+]
+# 2 3P J=2,1,0
+
+X23PG3 = [np.float32(20.96409),np.float32(20.97),np.float32(21.0),np.float32(21.05),np.float32(21.1),np.float32(21.15),np.float32(21.2),np.float32(21.25),np.float32(21.3),
+np.float32(21.35),
+np.float32(21.4),np.float32(21.5),np.float32(21.6),np.float32(21.7),np.float32(21.8),np.float32(21.9),np.float32(22.0),np.float32(22.1),np.float32(22.2),np.float32(22.3),
+np.float32(22.4),np.float32(22.45),np.float32(22.5),np.float32(22.55),np.float32(22.6),np.float32(22.61),np.float32(22.62),np.float32(22.63),np.float32(22.64),np.float32(22.65),
+np.float32(22.66),np.float32(22.67),np.float32(22.68),np.float32(22.69),np.float32(22.7),np.float32(22.71),np.float32(22.72),np.float32(22.73),np.float32(22.75),np.float32(22.77),
+np.float32(22.8),np.float32(22.85),np.float32(22.88),np.float32(22.9),np.float32(22.91),np.float32(22.92),np.float32(22.93),np.float32(22.96),np.float32(22.97),np.float32(22.99),
+np.float32(23.0),np.float32(23.04),np.float32(23.06),np.float32(23.07),np.float32(23.08),np.float32(23.1),np.float32(23.2),np.float32(23.3),np.float32(23.4),np.float32(23.5),
+np.float32(23.6),np.float32(23.7),np.float32(23.8),np.float32(23.9),np.float32(24.0),np.float32(24.2),np.float32(24.4),np.float32(24.6),np.float32(25.0),np.float32(26.0),
+np.float32(27.0),np.float32(28.0),np.float32(29.0),np.float32(30.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),
+np.float32(44.0),np.float32(46.0),np.float32(48.0),np.float32(50.0),np.float32(55.0),np.float32(60.0),np.float32(65.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),
+np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),
+np.float32(170.),np.float32(180.),np.float32(190.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(340.),
+np.float32(380.),np.float32(420.),np.float32(460.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),
+np.float32(1200.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2300.),np.float32(2600.),np.float32(3000.),
+]
+Y23PG3 = [np.float32(0.00),np.float32(.0936),np.float32(.241),np.float32(.442),np.float32(.611),np.float32(.761),np.float32(.912),np.float32(1.03),np.float32(1.10),np.float32(1.17),
+np.float32(1.23),np.float32(1.32),np.float32(1.40),np.float32(1.47),np.float32(1.54),np.float32(1.60),np.float32(1.66),np.float32(1.73),np.float32(1.80),np.float32(1.87),
+np.float32(1.94),np.float32(2.05),np.float32(2.07),np.float32(2.09),np.float32(2.22),np.float32(2.48),np.float32(2.68),np.float32(2.60),np.float32(2.27),np.float32(1.78),
+np.float32(1.45),np.float32(1.43),np.float32(1.52),np.float32(1.59),np.float32(1.60),np.float32(1.45),np.float32(1.47),np.float32(1.70),np.float32(1.83),np.float32(1.91),
+np.float32(1.95),np.float32(1.93),np.float32(2.32),np.float32(1.98),np.float32(1.72),np.float32(2.23),np.float32(2.09),np.float32(2.12),np.float32(2.07),np.float32(2.17),
+np.float32(1.82),np.float32(2.18),np.float32(1.80),np.float32(1.82),np.float32(1.94),np.float32(1.94),np.float32(1.90),np.float32(1.88),np.float32(1.89),np.float32(2.00),
+np.float32(2.16),np.float32(2.21),np.float32(2.14),np.float32(2.08),np.float32(2.09),np.float32(2.03),np.float32(2.16),np.float32(2.26),np.float32(2.29),np.float32(2.41),
+np.float32(2.47),np.float32(2.48),np.float32(2.47),np.float32(2.43),np.float32(2.30),np.float32(2.15),np.float32(2.00),np.float32(1.84),np.float32(1.69),np.float32(1.55),
+np.float32(1.43),np.float32(1.31),np.float32(1.21),np.float32(1.11),np.float32(.907),np.float32(.748),np.float32(.622),np.float32(.522),np.float32(.441),np.float32(.375),
+np.float32(.322),np.float32(.277),np.float32(.241),np.float32(.210),np.float32(.162),np.float32(.127),np.float32(.101),np.float32(.0812),np.float32(.0663),np.float32(.0547),
+np.float32(.0455),np.float32(.0382),np.float32(.0324),np.float32(.0277),np.float32(.0206),np.float32(.0156),np.float32(.0121),np.float32(.00961),np.float32(.00772),np.float32(.00518),
+np.float32(.00363),np.float32(.00264),np.float32(.00197),np.float32(.00151),np.float32(.00118),8.48e-4,5.21e-4,3.42e-4,
+2.37e-4,1.70e-4,
+9.65e-5,5.99e-5,3.96e-5,2.76e-5,2.00e-5,1.30e-5,8.94e-6,5.78e-6,
+]
+# 2 1P RESONANCE RADIATION J=1   58.434 NM       OSC STRENGTH F=0.27608
+
+X21PG3 = [np.float32(21.21802),np.float32(21.23),np.float32(21.25),np.float32(21.3),np.float32(21.4),np.float32(21.5),np.float32(21.6),np.float32(21.7),np.float32(21.8),np.float32(21.9),
+np.float32(22.0),np.float32(22.1),np.float32(22.2),np.float32(22.3),np.float32(22.35),np.float32(22.4),np.float32(22.42),np.float32(22.44),np.float32(22.46),np.float32(22.48),
+np.float32(22.5),np.float32(22.55),np.float32(22.57),np.float32(22.59),np.float32(22.6),np.float32(22.61),np.float32(22.62),np.float32(22.63),np.float32(22.64),np.float32(22.65),
+np.float32(22.66),np.float32(22.68),np.float32(22.7),np.float32(22.71),np.float32(22.72),np.float32(22.73),np.float32(22.75),np.float32(22.8),np.float32(22.85),np.float32(22.87),
+np.float32(22.88),np.float32(22.9),np.float32(22.91),np.float32(22.94),np.float32(22.96),np.float32(22.97),np.float32(22.98),np.float32(22.99),np.float32(23.0),np.float32(23.01),
+np.float32(23.05),np.float32(23.1),np.float32(23.2),np.float32(23.3),np.float32(23.4),np.float32(23.5),np.float32(23.6),np.float32(23.7),np.float32(23.8),np.float32(23.9),
+np.float32(24.0),np.float32(24.2),np.float32(24.4),np.float32(24.6),np.float32(24.8),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),
+np.float32(30.0),np.float32(31.0),np.float32(32.0),np.float32(33.0),np.float32(34.0),np.float32(35.0),np.float32(36.0),np.float32(37.0),np.float32(38.0),np.float32(39.0),
+np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),np.float32(48.0),np.float32(50.0),np.float32(52.0),np.float32(54.0),np.float32(56.0),np.float32(58.0),
+np.float32(60.0),np.float32(64.0),np.float32(68.0),np.float32(72.0),np.float32(76.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),
+np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(240.),np.float32(280.),np.float32(320.),
+np.float32(360.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(650.),np.float32(700.),np.float32(800.),np.float32(900.),
+np.float32(1000.),np.float32(1100.),np.float32(1200.),np.float32(1300.),np.float32(1400.),
+]
+Y21PG3 = [np.float32(0.00),np.float32(.0519),np.float32(.0884),np.float32(.163),np.float32(.290),np.float32(.397),np.float32(.493),np.float32(.582),np.float32(.666),np.float32(.748),
+np.float32(.831),np.float32(.914),np.float32(.994),np.float32(1.06),np.float32(1.09),np.float32(1.10),np.float32(1.10),np.float32(1.36),np.float32(1.46),np.float32(1.35),
+np.float32(1.32),np.float32(1.30),np.float32(1.28),np.float32(1.19),np.float32(1.07),np.float32(.943),np.float32(.922),np.float32(.941),np.float32(.872),np.float32(.751),
+np.float32(.737),np.float32(.959),np.float32(1.13),np.float32(1.17),np.float32(.920),np.float32(1.03),np.float32(1.12),np.float32(1.23),np.float32(1.35),np.float32(1.27),
+np.float32(1.18),np.float32(1.22),np.float32(1.03),np.float32(1.14),np.float32(1.12),np.float32(1.38),np.float32(1.29),np.float32(1.25),np.float32(1.38),np.float32(1.24),
+np.float32(1.12),np.float32(1.13),np.float32(1.11),np.float32(1.12),np.float32(1.16),np.float32(1.30),np.float32(1.41),np.float32(1.44),np.float32(1.41),np.float32(1.37),
+np.float32(1.39),np.float32(1.42),np.float32(1.52),np.float32(1.70),np.float32(1.80),np.float32(1.89),np.float32(2.16),np.float32(2.42),np.float32(2.69),np.float32(2.96),
+np.float32(3.24),np.float32(3.53),np.float32(3.82),np.float32(4.12),np.float32(4.42),np.float32(4.71),np.float32(5.00),np.float32(5.29),np.float32(5.57),np.float32(5.85),
+np.float32(6.12),np.float32(6.63),np.float32(7.10),np.float32(7.53),np.float32(7.93),np.float32(8.28),np.float32(8.61),np.float32(8.90),np.float32(9.16),np.float32(9.39),
+np.float32(9.60),np.float32(9.95),np.float32(10.2),np.float32(10.4),np.float32(10.6),np.float32(10.7),np.float32(10.7),np.float32(10.8),np.float32(10.8),np.float32(10.7),
+np.float32(10.6),np.float32(10.4),np.float32(10.2),np.float32(10.0),np.float32(9.57),np.float32(9.13),np.float32(8.71),np.float32(7.96),np.float32(7.33),np.float32(6.79),
+np.float32(6.32),np.float32(5.92),np.float32(5.50),np.float32(5.13),np.float32(4.82),np.float32(4.54),np.float32(4.30),np.float32(4.08),np.float32(3.72),np.float32(3.41),
+np.float32(3.16),np.float32(2.95),np.float32(2.76),np.float32(2.60),np.float32(2.46),
+]
+# 3 3S J=1
+
+X33SG3 = [np.float32(22.71847),np.float32(22.72),np.float32(22.73),np.float32(22.74),np.float32(22.75),np.float32(22.78),np.float32(22.8),np.float32(22.83),np.float32(22.85),
+np.float32(22.86),
+np.float32(22.87),np.float32(22.88),np.float32(22.89),np.float32(22.9),np.float32(22.91),np.float32(22.912),np.float32(22.914),np.float32(22.916),np.float32(22.92),np.float32(22.94),
+np.float32(22.96),np.float32(22.98),np.float32(23.0),np.float32(23.02),np.float32(23.05),np.float32(23.1),np.float32(23.2),np.float32(23.25),np.float32(23.3),np.float32(23.35),
+np.float32(23.4),np.float32(23.44),np.float32(23.48),np.float32(23.52),np.float32(23.57),np.float32(23.59),np.float32(23.62),np.float32(23.65),np.float32(23.7),np.float32(23.75),
+np.float32(23.82),np.float32(23.89),np.float32(23.93),np.float32(24.0),np.float32(24.4),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),
+np.float32(30.0),np.float32(31.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),
+np.float32(48.0),np.float32(50.0),np.float32(54.0),np.float32(58.0),np.float32(62.0),np.float32(66.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),np.float32(85.0),
+np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(170.),
+np.float32(180.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(340.),np.float32(380.),np.float32(420.),
+np.float32(460.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(650.),np.float32(700.),np.float32(750.),np.float32(800.),np.float32(850.),np.float32(900.),
+np.float32(950.),np.float32(1000.),np.float32(1100.),np.float32(1200.),np.float32(1300.),np.float32(1400.),
+]
+Y33SG3 = [np.float32(0.00),np.float32(.800),np.float32(1.15),np.float32(1.03),np.float32(.985),np.float32(.854),np.float32(.812),np.float32(.752),np.float32(.644),np.float32(.503),
+np.float32(.277),np.float32(1.79),np.float32(1.17),np.float32(1.06),np.float32(1.32),np.float32(1.51),np.float32(1.57),np.float32(1.37),np.float32(.896),np.float32(.848),
+np.float32(.907),np.float32(.816),np.float32(.838),np.float32(.656),np.float32(.872),np.float32(.859),np.float32(.890),np.float32(.900),np.float32(.860),np.float32(.750),
+np.float32(.620),np.float32(.810),np.float32(.770),np.float32(.960),np.float32(.870),np.float32(.870),np.float32(.730),np.float32(.710),np.float32(.710),np.float32(.730),
+np.float32(.770),np.float32(.690),np.float32(.760),np.float32(.742),np.float32(.725),np.float32(.694),np.float32(.665),np.float32(.635),np.float32(.605),np.float32(.577),
+np.float32(.550),np.float32(.524),np.float32(.499),np.float32(.452),np.float32(.409),np.float32(.370),np.float32(.336),np.float32(.305),np.float32(.278),np.float32(.253),
+np.float32(.231),np.float32(.212),np.float32(.178),np.float32(.151),np.float32(.130),np.float32(.112),np.float32(.0968),np.float32(.0817),np.float32(.0696),np.float32(.0597),
+np.float32(.0516),np.float32(.0449),np.float32(.0393),np.float32(.0306),np.float32(.0242),np.float32(.0195),np.float32(.0160),np.float32(.0132),np.float32(.0111),np.float32(.00938),
+np.float32(.00800),np.float32(.00596),np.float32(.00456),np.float32(.00356),np.float32(.00284),np.float32(.00230),np.float32(.00188),np.float32(.00131),9.53e-4,
+7.13e-4,
+5.47e-4,4.29e-4,3.25e-4,2.52e-4,1.99e-4,1.60e-4,1.31e-4,1.08e-4,
+9.02e-5,7.62e-5,
+6.49e-5,5.58e-5,4.20e-5,3.25e-5,2.56e-5,2.06e-5,
+]
+# 3 1S J=0
+
+X31SG3 = [np.float32(22.92032),np.float32(22.96),np.float32(22.985),np.float32(23.02),np.float32(23.05),np.float32(23.07),np.float32(23.1),np.float32(23.15),np.float32(23.2),
+np.float32(23.25),
+np.float32(23.3),np.float32(23.33),np.float32(23.36),np.float32(23.39),np.float32(23.41),np.float32(23.45),np.float32(23.48),np.float32(23.51),np.float32(23.54),np.float32(23.56),
+np.float32(23.59),np.float32(23.62),np.float32(23.65),np.float32(23.68),np.float32(23.73),np.float32(23.82),np.float32(23.88),np.float32(23.94),np.float32(24.0),np.float32(25.0),
+np.float32(26.0),np.float32(28.0),np.float32(30.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(44.0),np.float32(48.0),
+np.float32(52.0),np.float32(56.0),np.float32(60.0),np.float32(65.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(110.),
+np.float32(120.),np.float32(130.),np.float32(140.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(280.),
+np.float32(300.),np.float32(340.),np.float32(380.),np.float32(420.),np.float32(460.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(650.),np.float32(700.),
+np.float32(750.),np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1100.),np.float32(1200.),np.float32(1300.),np.float32(1400.),np.float32(1500.),np.float32(1600.),
+np.float32(1800.),np.float32(2000.),np.float32(2400.),np.float32(2800.),np.float32(3200.),np.float32(3600.),np.float32(4000.),
+]
+Y31SG3 = [np.float32(0.00),np.float32(.535),np.float32(.457),np.float32(.587),np.float32(.490),np.float32(.490),np.float32(.478),np.float32(.491),np.float32(.506),np.float32(.512),
+np.float32(.501),np.float32(.470),np.float32(.418),np.float32(.374),np.float32(.351),np.float32(.371),np.float32(.520),np.float32(.681),np.float32(.520),np.float32(.467),
+np.float32(.496),np.float32(.410),np.float32(.442),np.float32(.429),np.float32(.416),np.float32(.455),np.float32(.377),np.float32(.444),np.float32(.422),np.float32(.426),
+np.float32(.428),np.float32(.429),np.float32(.425),np.float32(.419),np.float32(.412),np.float32(.402),np.float32(.396),np.float32(.387),np.float32(.370),np.float32(.354),
+np.float32(.338),np.float32(.324),np.float32(.311),np.float32(.296),np.float32(.283),np.float32(.271),np.float32(.260),np.float32(.242),np.float32(.226),np.float32(.213),
+np.float32(.203),np.float32(.193),np.float32(.185),np.float32(.172),np.float32(.161),np.float32(.152),np.float32(.144),np.float32(.137),np.float32(.131),np.float32(.125),
+np.float32(.120),np.float32(.111),np.float32(.103),np.float32(.0957),np.float32(.0894),np.float32(.0839),np.float32(.0778),np.float32(.0725),np.float32(.0678),np.float32(.0636),
+np.float32(.0599),np.float32(.0566),np.float32(.0509),np.float32(.0462),np.float32(.0423),np.float32(.0389),np.float32(.0361),np.float32(.0336),np.float32(.0315),np.float32(.0296),
+np.float32(.0264),np.float32(.0238),np.float32(.0199),np.float32(.0171),np.float32(.0150),np.float32(.0133),np.float32(.0120),
+]
+# 3 3P J=2,1,0
+
+X33PG3 = [np.float32(23.00707),np.float32(23.02),np.float32(23.03),np.float32(23.04),np.float32(23.05),np.float32(23.06),np.float32(23.07),np.float32(23.08),np.float32(23.1),
+np.float32(23.2),
+np.float32(23.3),np.float32(23.4),np.float32(23.5),np.float32(23.55),np.float32(23.6),np.float32(23.65),np.float32(23.7),np.float32(23.8),np.float32(23.9),np.float32(24.0),
+np.float32(24.1),np.float32(24.2),np.float32(24.3),np.float32(24.4),np.float32(24.6),np.float32(24.8),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),
+np.float32(30.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(44.0),np.float32(48.0),np.float32(52.0),np.float32(56.0),
+np.float32(60.0),np.float32(64.0),np.float32(68.0),np.float32(72.0),np.float32(76.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),
+np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(170.),np.float32(180.),np.float32(200.),np.float32(220.),
+np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(340.),np.float32(380.),np.float32(420.),np.float32(460.),np.float32(500.),np.float32(550.),
+np.float32(600.),np.float32(650.),np.float32(700.),np.float32(750.),np.float32(800.),np.float32(850.),np.float32(900.),np.float32(950.),np.float32(1000.),np.float32(1100.),
+np.float32(1200.),np.float32(1300.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2200.),np.float32(2400.),np.float32(2600.),np.float32(2800.),
+np.float32(3000.),
+]
+Y33PG3 = [np.float32(0.00),np.float32(.387),np.float32(.410),np.float32(.179),np.float32(.148),np.float32(.335),np.float32(.381),np.float32(.282),np.float32(.280),np.float32(.309),
+np.float32(.332),np.float32(.359),np.float32(.411),np.float32(.416),np.float32(.405),np.float32(.448),np.float32(.438),np.float32(.467),np.float32(.485),np.float32(.493),
+np.float32(.500),np.float32(.515),np.float32(.517),np.float32(.513),np.float32(.503),np.float32(.508),np.float32(.512),np.float32(.516),np.float32(.515),np.float32(.524),
+np.float32(.544),np.float32(.539),np.float32(.523),np.float32(.500),np.float32(.474),np.float32(.446),np.float32(.392),np.float32(.342),np.float32(.297),np.float32(.259),
+np.float32(.226),np.float32(.197),np.float32(.173),np.float32(.152),np.float32(.134),np.float32(.118),np.float32(.102),np.float32(.0878),np.float32(.0762),np.float32(.0665),
+np.float32(.0512),np.float32(.0401),np.float32(.0318),np.float32(.0255),np.float32(.0208),np.float32(.0171),np.float32(.0142),np.float32(.0119),np.float32(.00854),np.float32(.00632),
+np.float32(.00479),np.float32(.00371),np.float32(.00292),np.float32(.00234),np.float32(.00157),np.float32(.00109),7.93e-4,5.92e-4,4.53e-4,
+3.34e-4,
+2.53e-4,1.96e-4,1.55e-4,1.24e-4,1.01e-4,8.37e-5,6.99e-5,5.89e-5,
+5.02e-5,3.72e-5,
+2.83e-5,2.21e-5,1.75e-5,1.16e-5,8.05e-6,5.82e-6,4.34e-6,3.32e-6,
+2.60e-6,2.07e-6,
+1.68e-6,
+]
+# 3 3D J=3,2,1
+
+X33DG3 = [np.float32(23.07365),np.float32(23.1),np.float32(23.15),np.float32(23.2),np.float32(23.25),np.float32(23.3),np.float32(23.35),np.float32(23.4),np.float32(23.45),
+np.float32(23.5),
+np.float32(23.55),np.float32(23.6),np.float32(23.66),np.float32(23.7),np.float32(23.75),np.float32(23.8),np.float32(23.85),np.float32(23.9),np.float32(23.95),np.float32(24.0),
+np.float32(24.05),np.float32(24.1),np.float32(24.15),np.float32(24.2),np.float32(24.25),np.float32(24.3),np.float32(24.35),np.float32(24.4),np.float32(24.45),np.float32(24.5),
+np.float32(24.55),np.float32(24.6),np.float32(24.65),np.float32(24.7),np.float32(24.8),np.float32(24.9),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),
+np.float32(29.0),np.float32(30.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),
+np.float32(48.0),np.float32(50.0),np.float32(52.0),np.float32(54.0),np.float32(56.0),np.float32(58.0),np.float32(60.0),np.float32(64.0),np.float32(68.0),np.float32(72.0),
+np.float32(76.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),
+np.float32(150.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(320.),
+np.float32(340.),np.float32(360.),np.float32(380.),np.float32(400.),np.float32(440.),np.float32(480.),np.float32(520.),np.float32(560.),np.float32(600.),np.float32(650.),
+np.float32(700.),np.float32(750.),np.float32(800.),np.float32(850.),np.float32(900.),np.float32(1000.),np.float32(1100.),np.float32(1200.),np.float32(1300.),np.float32(1400.),
+np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2200.),np.float32(2400.),np.float32(2600.),np.float32(2800.),np.float32(3000.),
+]
+Y33DG3 = [np.float32(0.00),np.float32(.00956),np.float32(.0236),np.float32(.0401),np.float32(.0602),np.float32(.0861),np.float32(.120),np.float32(.166),np.float32(.222),np.float32(.229),
+np.float32(.238),np.float32(.197),np.float32(.123),np.float32(.118),np.float32(.110),np.float32(.112),np.float32(.104),np.float32(.110),np.float32(.099),np.float32(.0985),
+np.float32(.113),np.float32(.107),np.float32(.109),np.float32(.114),np.float32(.118),np.float32(.119),np.float32(.118),np.float32(.116),np.float32(.113),np.float32(.105),
+np.float32(.112),np.float32(.116),np.float32(.118),np.float32(.119),np.float32(.120),np.float32(.120),np.float32(.119),np.float32(.115),np.float32(.118),np.float32(.121),
+np.float32(.121),np.float32(.120),np.float32(.113),np.float32(.105),np.float32(.0958),np.float32(.0867),np.float32(.0780),np.float32(.0701),np.float32(.0628),np.float32(.0563),
+np.float32(.0505),np.float32(.0453),np.float32(.0407),np.float32(.0366),np.float32(.0330),np.float32(.0298),np.float32(.0269),np.float32(.0221),np.float32(.0183),np.float32(.0152),
+np.float32(.0127),np.float32(.0107),np.float32(.00868),np.float32(.00712),np.float32(.00588),np.float32(.00490),np.float32(.00347),np.float32(.00252),np.float32(.00188),
+np.float32(.00142),
+np.float32(.00110),8.64e-4,5.56e-4,3.76e-4,2.64e-4,1.92e-4,1.44e-4,1.10e-4,
+8.60e-5,6.84e-5,
+5.53e-5,4.53e-5,3.76e-5,3.15e-5,2.28e-5,1.70e-5,1.30e-5,1.02e-5,
+8.12e-6,6.25e-6,
+4.92e-6,3.94e-6,3.21e-6,2.64e-6,2.21e-6,1.58e-6,1.17e-6,8.95e-7,
+6.98e-7,5.55e-7,
+3.67e-7,2.56e-7,1.85e-7,1.38e-7,1.06e-7,8.32e-8,6.64e-8,5.38e-8,
+]
+# 3 1D J=2
+
+X31DG3 = [np.float32(23.07407),np.float32(23.08),np.float32(23.1),np.float32(23.15),np.float32(23.2),np.float32(23.25),np.float32(23.3),np.float32(23.35),np.float32(23.4),
+np.float32(23.45),
+np.float32(23.5),np.float32(23.55),np.float32(23.6),np.float32(23.66),np.float32(23.7),np.float32(23.75),np.float32(23.8),np.float32(23.85),np.float32(23.9),np.float32(23.95),
+np.float32(24.0),np.float32(24.05),np.float32(24.1),np.float32(24.15),np.float32(24.2),np.float32(24.25),np.float32(24.3),np.float32(24.35),np.float32(24.4),np.float32(24.45),
+np.float32(24.5),np.float32(24.6),np.float32(24.7),np.float32(24.8),np.float32(25.0),np.float32(26.0),np.float32(28.0),np.float32(30.0),np.float32(32.0),np.float32(34.0),
+np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),np.float32(48.0),np.float32(50.0),np.float32(54.0),np.float32(58.0),
+np.float32(62.0),np.float32(66.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(140.),
+np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(320.),np.float32(340.),
+np.float32(370.),np.float32(400.),np.float32(440.),np.float32(480.),np.float32(520.),np.float32(560.),np.float32(600.),np.float32(650.),np.float32(700.),np.float32(800.),
+np.float32(900.),np.float32(1000.),np.float32(1100.),np.float32(1200.),np.float32(1300.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2200.),
+np.float32(2400.),np.float32(2600.),np.float32(2800.),np.float32(3000.),
+]
+Y31DG3 = [np.float32(0.00),np.float32(.097),np.float32(.0973),np.float32(.110),np.float32(.126),np.float32(.148),np.float32(.175),np.float32(.200),np.float32(.221),np.float32(.237),
+np.float32(.235),np.float32(.198),np.float32(.185),np.float32(.192),np.float32(.168),np.float32(.181),np.float32(.189),np.float32(.172),np.float32(.193),np.float32(.184),
+np.float32(.190),np.float32(.209),np.float32(.206),np.float32(.211),np.float32(.214),np.float32(.215),np.float32(.212),np.float32(.206),np.float32(.199),np.float32(.191),
+np.float32(.174),np.float32(.177),np.float32(.179),np.float32(.180),np.float32(.181),np.float32(.180),np.float32(.180),np.float32(.188),np.float32(.198),np.float32(.209),
+np.float32(.217),np.float32(.224),np.float32(.229),np.float32(.232),np.float32(.234),np.float32(.235),np.float32(.234),np.float32(.233),np.float32(.228),np.float32(.222),
+np.float32(.215),np.float32(.207),np.float32(.199),np.float32(.190),np.float32(.180),np.float32(.163),np.float32(.148),np.float32(.135),np.float32(.124),np.float32(.105),
+np.float32(.0913),np.float32(.0803),np.float32(.0715),np.float32(.0643),np.float32(.0584),np.float32(.0534),np.float32(.0492),np.float32(.0456),np.float32(.0424),np.float32(.0397),
+np.float32(.0361),np.float32(.0332),np.float32(.0299),np.float32(.0272),np.float32(.0249),np.float32(.0230),np.float32(.0213),np.float32(.0196),np.float32(.0181),np.float32(.0156),
+np.float32(.0138),np.float32(.0124),np.float32(.0112),np.float32(.0102),np.float32(.00938),np.float32(.00868),np.float32(.00756),np.float32(.00669),np.float32(.00600),np.float32(.00544),
+np.float32(.00497),np.float32(.00458),np.float32(.00425),np.float32(.00396),
+]
+# 3 1P  RESONANCE RADIATION J=1  53.703 NM     OSC STRENGTH F=0.07342
+
+X31PG3 = [np.float32(23.08702),np.float32(23.1),np.float32(23.15),np.float32(23.2),np.float32(23.25),np.float32(23.3),np.float32(23.35),np.float32(23.4),np.float32(23.45),
+np.float32(23.5),
+np.float32(23.54),np.float32(23.56),np.float32(23.60),np.float32(23.64),np.float32(23.68),np.float32(23.7),np.float32(23.75),np.float32(23.80),np.float32(23.88),np.float32(23.9),
+np.float32(23.95),np.float32(24.0),np.float32(24.05),np.float32(24.1),np.float32(24.15),np.float32(24.2),np.float32(24.3),np.float32(24.4),np.float32(24.5),np.float32(24.6),
+np.float32(24.7),np.float32(24.8),np.float32(25.0),np.float32(25.2),np.float32(25.4),np.float32(25.6),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),
+np.float32(30.0),np.float32(31.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),
+np.float32(48.0),np.float32(50.0),np.float32(52.0),np.float32(54.0),np.float32(56.0),np.float32(58.0),np.float32(60.0),np.float32(65.0),np.float32(70.0),np.float32(75.0),
+np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(160.),
+np.float32(180.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(340.),np.float32(380.),np.float32(420.),
+np.float32(460.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(650.),np.float32(700.),np.float32(750.),np.float32(800.),np.float32(900.),np.float32(1000.),
+np.float32(1100.),np.float32(1200.),np.float32(1300.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2200.),np.float32(2400.),np.float32(2600.),
+np.float32(2800.),np.float32(3000.),np.float32(3400.),np.float32(3800.),np.float32(4200.),np.float32(4600.),np.float32(5000.),np.float32(5500.),np.float32(6000.),np.float32(6500.),
+np.float32(7000.),np.float32(8000.),np.float32(9000.),np.float32(10000.),
+]
+Y31PG3 = [np.float32(0.00),np.float32(.114),np.float32(.129),np.float32(.137),np.float32(.137),np.float32(.134),np.float32(.131),np.float32(.130),np.float32(.128),np.float32(.129),
+np.float32(.117),np.float32(.127),np.float32(.122),np.float32(.163),np.float32(.146),np.float32(.150),np.float32(.191),np.float32(.180),np.float32(.226),np.float32(.224),
+np.float32(.218),np.float32(.230),np.float32(.245),np.float32(.253),np.float32(.265),np.float32(.274),np.float32(.294),np.float32(.308),np.float32(.330),np.float32(.360),
+np.float32(.373),np.float32(.382),np.float32(.397),np.float32(.409),np.float32(.418),np.float32(.423),np.float32(.434),np.float32(.469),np.float32(.516),np.float32(.577),
+np.float32(.648),np.float32(.723),np.float32(.808),np.float32(.941),np.float32(1.07),np.float32(1.20),np.float32(1.32),np.float32(1.43),np.float32(1.54),np.float32(1.64),
+np.float32(1.74),np.float32(1.82),np.float32(1.90),np.float32(1.97),np.float32(2.04),np.float32(2.10),np.float32(2.15),np.float32(2.27),np.float32(2.35),np.float32(2.42),
+np.float32(2.47),np.float32(2.50),np.float32(2.52),np.float32(2.53),np.float32(2.53),np.float32(2.52),np.float32(2.50),np.float32(2.47),np.float32(2.42),np.float32(2.33),
+np.float32(2.24),np.float32(2.14),np.float32(2.06),np.float32(1.97),np.float32(1.90),np.float32(1.82),np.float32(1.76),np.float32(1.64),np.float32(1.53),np.float32(1.44),
+np.float32(1.36),np.float32(1.29),np.float32(1.21),np.float32(1.15),np.float32(1.08),np.float32(1.03),np.float32(.982),np.float32(.938),np.float32(.862),np.float32(.799),
+np.float32(.745),np.float32(.699),np.float32(.658),np.float32(.623),np.float32(.563),np.float32(.514),np.float32(.474),np.float32(.440),np.float32(.411),np.float32(.386),
+np.float32(.364),np.float32(.344),np.float32(.312),np.float32(.285),np.float32(.263),np.float32(.244),np.float32(.228),np.float32(.211),np.float32(.197),np.float32(.184),
+np.float32(.173),np.float32(.155),np.float32(.140),np.float32(.128),
+]
+# 4 3S J=1
+
+X43SG3 = [np.float32(23.59396),np.float32(23.62),np.float32(23.65),np.float32(23.7),np.float32(23.8),np.float32(23.9),np.float32(24.0),np.float32(25.0),np.float32(26.0),np.float32(27.0),
+np.float32(28.0),np.float32(30.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),
+np.float32(48.0),np.float32(50.0),np.float32(52.0),np.float32(54.0),np.float32(56.0),np.float32(58.0),np.float32(60.0),np.float32(64.0),np.float32(68.0),np.float32(72.0),
+np.float32(76.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),
+np.float32(150.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(320.),
+np.float32(340.),np.float32(360.),np.float32(380.),np.float32(400.),np.float32(440.),np.float32(480.),np.float32(520.),np.float32(560.),np.float32(600.),
+]
+Y43SG3 = [np.float32(0.0),np.float32(.314),np.float32(.304),np.float32(.292),np.float32(.276),np.float32(.266),np.float32(.260),np.float32(.243),np.float32(.238),np.float32(.234),
+np.float32(.227),np.float32(.212),np.float32(.195),np.float32(.178),np.float32(.162),np.float32(.147),np.float32(.133),np.float32(.121),np.float32(.110),np.float32(.100),
+np.float32(.0911),np.float32(.0832),np.float32(.0761),np.float32(.0697),np.float32(.0640),np.float32(.0589),np.float32(.0543),np.float32(.0464),np.float32(.0399),np.float32(.0346),
+np.float32(.0301),np.float32(.0264),np.float32(.0225),np.float32(.0194),np.float32(.0168),np.float32(.0147),np.float32(.0113),np.float32(.00894),np.float32(.00718),np.float32(.00585),
+np.float32(.00483),np.float32(.00403),np.float32(.00289),np.float32(.00214),np.float32(.00164),np.float32(.00127),np.float32(.00101),8.17e-4,6.69e-4,
+5.55e-4,
+4.66e-4,3.94e-4,3.37e-4,2.90e-4,2.19e-4,1.70e-4,1.34e-4,1.08e-4,
+8.81e-5,
+]
+# 4 1S J=0
+
+X41SG3 = [np.float32(23.67357),np.float32(23.7),np.float32(23.8),np.float32(23.9),np.float32(24.0),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),
+np.float32(30.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(44.0),np.float32(48.0),np.float32(52.0),np.float32(56.0),
+np.float32(60.0),np.float32(65.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),
+np.float32(140.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(250.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),
+np.float32(600.),np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1200.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),
+np.float32(2200.),np.float32(2400.),np.float32(2600.),np.float32(2800.),np.float32(3000.),
+]
+Y41SG3 = [np.float32(0.0),np.float32(.109),np.float32(.110),np.float32(.111),np.float32(.112),np.float32(.121),np.float32(.128),np.float32(.133),np.float32(.138),np.float32(.141),
+np.float32(.143),np.float32(.146),np.float32(.148),np.float32(.147),np.float32(.146),np.float32(.144),np.float32(.139),np.float32(.134),np.float32(.129),np.float32(.123),
+np.float32(.118),np.float32(.113),np.float32(.108),np.float32(.103),np.float32(.0990),np.float32(.0922),np.float32(.0868),np.float32(.0823),np.float32(.0786),np.float32(.0753),
+np.float32(.0725),np.float32(.0677),np.float32(.0636),np.float32(.0601),np.float32(.0527),np.float32(.0469),np.float32(.0422),np.float32(.0382),np.float32(.0349),np.float32(.0322),
+np.float32(.0277),np.float32(.0243),np.float32(.0216),np.float32(.0195),np.float32(.0177),np.float32(.0150),np.float32(.0130),np.float32(.0114),np.float32(.0102),np.float32(.00925),
+np.float32(.00845),np.float32(.00777),np.float32(.00719),np.float32(.00669),np.float32(.00626),
+]
+# 4 3P J=2,1,0
+
+X43PG3 = [np.float32(23.70789),np.float32(23.75),np.float32(23.8),np.float32(24.0),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),np.float32(30.0),
+np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),np.float32(48.0),np.float32(50.0),
+np.float32(54.0),np.float32(58.0),np.float32(62.0),np.float32(66.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),
+np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(170.),np.float32(180.),np.float32(190.),
+np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(320.),np.float32(340.),np.float32(360.),np.float32(380.),
+np.float32(400.),np.float32(440.),np.float32(480.),np.float32(520.),np.float32(560.),np.float32(600.),np.float32(650.),np.float32(700.),np.float32(750.),np.float32(800.),
+np.float32(850.),np.float32(900.),np.float32(950.),np.float32(1000.),np.float32(1100.),np.float32(1200.),np.float32(1300.),np.float32(1400.),np.float32(1600.),np.float32(1800.),
+np.float32(2000.),np.float32(2200.),np.float32(2400.),np.float32(2600.),np.float32(2800.),np.float32(3000.),
+]
+Y43PG3 = [np.float32(0.0),np.float32(.085),np.float32(.110),np.float32(.118),np.float32(.152),np.float32(.177),np.float32(.194),np.float32(.205),np.float32(.211),np.float32(.215),
+np.float32(.215),np.float32(.209),np.float32(.200),np.float32(.189),np.float32(.178),np.float32(.167),np.float32(.156),np.float32(.146),np.float32(.136),np.float32(.127),
+np.float32(.110),np.float32(.0962),np.float32(.0840),np.float32(.0736),np.float32(.0647),np.float32(.0553),np.float32(.0475),np.float32(.0410),np.float32(.0356),np.float32(.0310),
+np.float32(.0271),np.float32(.0210),np.float32(.0165),np.float32(.0132),np.float32(.0106),np.float32(.00865),np.float32(.00713),np.float32(.00593),np.float32(.00498),np.float32(.00421),
+np.float32(.00359),np.float32(.00266),np.float32(.00202),np.float32(.00156),np.float32(.00123),9.88e-4,8.03e-4,6.60e-4,
+5.49e-4,4.61e-4,
+3.90e-4,2.87e-4,2.17e-4,1.67e-4,1.32e-4,1.06e-4,8.18e-5,6.46e-5,
+5.18e-5,4.22e-5,
+3.48e-5,2.90e-5,2.45e-5,2.08e-5,1.54e-5,1.17e-5,9.13e-6,7.25e-6,
+4.78e-6,3.32e-6,
+2.39e-6,1.78e-6,1.36e-6,1.07e-6,8.50e-7,6.88e-7,
+]
+# 4 3D J=3,2,1
+
+X43DG3 = [np.float32(23.73609),np.float32(23.8),np.float32(23.9),np.float32(24.0),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),np.float32(30.0),
+np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),np.float32(48.0),np.float32(50.0),
+np.float32(54.0),np.float32(58.0),np.float32(62.0),np.float32(66.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),
+np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),
+np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(340.),np.float32(380.),np.float32(420.),np.float32(460.),np.float32(500.),np.float32(550.),
+np.float32(600.),np.float32(650.),np.float32(700.),np.float32(750.),np.float32(800.),np.float32(850.),np.float32(900.),np.float32(950.),np.float32(1000.),np.float32(1100.),
+np.float32(1200.),np.float32(1300.),np.float32(1400.),np.float32(1500.),np.float32(1600.),
+]
+Y43DG3 = [np.float32(.0),np.float32(.0288),np.float32(.0363),np.float32(.0407),np.float32(.0575),np.float32(.0646),np.float32(.0681),np.float32(.0692),np.float32(.069),np.float32(.0675),
+np.float32(.0629),np.float32(.0573),np.float32(.0516),np.float32(.0461),np.float32(.0411),np.float32(.0365),np.float32(.0325),np.float32(.0290),np.float32(.0258),np.float32(.0231),
+np.float32(.0186),np.float32(.0151),np.float32(.0123),np.float32(.0102),np.float32(.00847),np.float32(.00681),np.float32(.00554),np.float32(.00455),np.float32(.00378),np.float32(.00316),
+np.float32(.00267),np.float32(.00194),np.float32(.00145),np.float32(.00111),8.61e-4,6.81e-4,5.47e-4,3.66e-4,
+2.55e-4,1.84e-4,
+1.37e-4,1.04e-4,8.08e-5,6.39e-5,4.18e-5,2.87e-5,2.05e-5,1.51e-5,
+1.14e-5,8.32e-6,
+6.24e-6,4.79e-6,3.75e-6,3.00e-6,2.43e-6,1.99e-6,1.65e-6,1.39e-6,
+1.18e-6,8.66e-7,
+6.55e-7,5.08e-7,4.01e-7,3.22e-7,2.63e-7,
+]
+# 4 1D J=2
+
+X41DG3 = [np.float32(23.73633),np.float32(23.8),np.float32(24.0),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),np.float32(30.0),np.float32(32.0),
+np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(44.0),np.float32(48.0),np.float32(52.0),np.float32(56.0),np.float32(60.0),np.float32(64.0),
+np.float32(68.0),np.float32(72.0),np.float32(76.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(110.),np.float32(120.),
+np.float32(130.),np.float32(140.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),np.float32(300.),np.float32(340.),
+np.float32(380.),np.float32(420.),np.float32(460.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(650.),np.float32(700.),np.float32(800.),np.float32(900.),
+np.float32(1000.),np.float32(1100.),np.float32(1200.),
+]
+Y41DG3 = [np.float32(0.0),np.float32(.0791),np.float32(.0799),np.float32(.0846),np.float32(.0902),np.float32(.0959),np.float32(.102),np.float32(.107),np.float32(.112),np.float32(.120),
+np.float32(.127),np.float32(.131),np.float32(.134),np.float32(.136),np.float32(.136),np.float32(.134),np.float32(.131),np.float32(.126),np.float32(.121),np.float32(.116),
+np.float32(.112),np.float32(.107),np.float32(.102),np.float32(.0978),np.float32(.0927),np.float32(.0880),np.float32(.0836),np.float32(.0796),np.float32(.0724),np.float32(.0663),
+np.float32(.0610),np.float32(.0564),np.float32(.0489),np.float32(.0430),np.float32(.0384),np.float32(.0346),np.float32(.0314),np.float32(.0288),np.float32(.0246),np.float32(.0215),
+np.float32(.0190),np.float32(.0171),np.float32(.0155),np.float32(.0142),np.float32(.0128),np.float32(.0117),np.float32(.0107),np.float32(.00990),np.float32(.00860),np.float32(.00760),
+np.float32(.00681),np.float32(.00616),np.float32(.00563),
+]
+# 4 3F J=3,4,2
+
+X43FG3 = [np.float32(23.73701),np.float32(23.8),np.float32(23.9),np.float32(24.0),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),np.float32(30.0),
+np.float32(31.0),np.float32(32.0),np.float32(33.0),np.float32(34.0),np.float32(35.0),np.float32(36.0),np.float32(37.0),np.float32(38.0),np.float32(39.0),np.float32(40.0),
+np.float32(42.0),np.float32(44.0),np.float32(46.0),np.float32(48.0),np.float32(50.0),np.float32(54.0),np.float32(58.0),np.float32(62.0),np.float32(66.0),np.float32(70.0),
+np.float32(75.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),
+]
+Y43FG3 = [np.float32(0.0),np.float32(.0357),np.float32(.0318),np.float32(.0289),np.float32(.0161),np.float32(.0117),np.float32(.00922),np.float32(.00760),np.float32(.00642),
+np.float32(.00550),
+np.float32(.00478),np.float32(.00418),np.float32(.00369),np.float32(.00327),np.float32(.00291),np.float32(.00261),np.float32(.00234),np.float32(.00211),np.float32(.00191),
+np.float32(.00173),
+np.float32(.00144),np.float32(.00121),np.float32(.00102),8.68e-4,7.44e-4,5.57e-4,4.25e-4,3.30e-4,
+2.61e-4,2.09e-4,
+1.61e-4,1.26e-4,9.98e-5,8.03e-5,6.53e-5,5.36e-5,3.72e-5,2.66e-5,
+1.96e-5,1.47e-5,
+]
+# 4 1F J=3
+
+X41FG3 = [np.float32(23.73701),np.float32(23.8),np.float32(24.0),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),np.float32(30.0),np.float32(31.0),
+np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(38.0),np.float32(40.0),np.float32(42.0),np.float32(44.0),np.float32(46.0),np.float32(48.0),np.float32(50.0),
+np.float32(54.0),np.float32(58.0),np.float32(62.0),np.float32(66.0),np.float32(70.0),np.float32(75.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),
+np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),
+np.float32(240.),np.float32(260.),np.float32(280.),np.float32(300.),np.float32(340.),np.float32(380.),np.float32(420.),np.float32(460.),np.float32(500.),np.float32(550.),
+np.float32(600.),np.float32(650.),np.float32(700.),np.float32(750.),np.float32(800.),np.float32(900.),np.float32(1000.),
+]
+Y41FG3 = [np.float32(0.0),np.float32(.0175),np.float32(.0172),np.float32(.0160),np.float32(.0149),np.float32(.0139),np.float32(.0130),np.float32(.0122),np.float32(.0114),
+np.float32(.0108),
+np.float32(.0102),np.float32(.00909),np.float32(.00819),np.float32(.00742),np.float32(.00677),np.float32(.00619),np.float32(.00569),np.float32(.00525),np.float32(.00487),
+np.float32(.00452),
+np.float32(.00393),np.float32(.00346),np.float32(.00307),np.float32(.00274),np.float32(.00246),np.float32(.00217),np.float32(.00193),np.float32(.00173),np.float32(.00156),
+np.float32(.00142),
+np.float32(.00129),np.float32(.00108),9.24e-4,7.99e-4,6.99e-4,6.17e-4,5.50e-4,4.47e-4,
+3.73e-4,3.19e-4,
+2.77e-4,2.45e-4,2.19e-4,1.99e-4,1.67e-4,1.45e-4,1.28e-4,1.15e-4,
+1.04e-4,9.39e-5,
+8.55e-5,7.86e-5,7.27e-5,6.78e-5,6.35e-5,5.63e-5,5.07e-5,
+]
+# 4 1P RESONANCE RADIATION J=1   52.222 NM    OSC STRENGTH F=0.02986
+
+X41PG3 = [np.float32(23.74207),np.float32(23.8),np.float32(23.9),np.float32(24.0),np.float32(25.0),np.float32(26.0),np.float32(27.0),np.float32(28.0),np.float32(29.0),np.float32(30.0),
+np.float32(31.0),np.float32(32.0),np.float32(33.0),np.float32(34.0),np.float32(35.0),np.float32(36.0),np.float32(37.0),np.float32(38.0),np.float32(39.0),np.float32(40.0),
+np.float32(42.0),np.float32(44.0),np.float32(46.0),np.float32(48.0),np.float32(50.0),np.float32(52.0),np.float32(54.0),np.float32(56.0),np.float32(58.0),np.float32(60.0),
+np.float32(64.0),np.float32(68.0),np.float32(72.0),np.float32(76.0),np.float32(80.0),np.float32(85.0),np.float32(90.0),np.float32(95.0),np.float32(100.),np.float32(110.),
+np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(220.),np.float32(240.),np.float32(260.),
+np.float32(280.),np.float32(300.),np.float32(320.),np.float32(340.),np.float32(360.),np.float32(380.),np.float32(400.),np.float32(440.),np.float32(480.),np.float32(520.),
+np.float32(560.),np.float32(600.),np.float32(640.),np.float32(680.),np.float32(720.),np.float32(760.),np.float32(800.),np.float32(850.),np.float32(900.),np.float32(950.),
+np.float32(1000.),np.float32(1100.),np.float32(1200.),np.float32(1300.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2200.),np.float32(2400.),
+np.float32(2600.),np.float32(2800.),np.float32(3000.),np.float32(3400.),np.float32(3800.),np.float32(4200.),np.float32(4600.),np.float32(5000.),np.float32(5500.),np.float32(6000.),
+np.float32(6500.),np.float32(7000.),np.float32(7500.),np.float32(8000.),np.float32(9000.),np.float32(10000.),
+]
+Y41PG3 = [np.float32(0.00),np.float32(.0147),np.float32(.0242),np.float32(.0334),np.float32(.107),np.float32(.158),np.float32(.196),np.float32(.227),np.float32(.255),np.float32(.281),
+np.float32(.307),np.float32(.333),np.float32(.360),np.float32(.387),np.float32(.414),np.float32(.442),np.float32(.470),np.float32(.498),np.float32(.526),np.float32(.553),
+np.float32(.606),np.float32(.657),np.float32(.704),np.float32(.748),np.float32(.789),np.float32(.826),np.float32(.860),np.float32(.891),np.float32(.919),np.float32(.944),
+np.float32(.986),np.float32(1.02),np.float32(1.05),np.float32(1.06),np.float32(1.08),np.float32(1.09),np.float32(1.10),np.float32(1.10),np.float32(1.10),np.float32(1.09),
+np.float32(1.07),np.float32(1.05),np.float32(1.03),np.float32(1.01),np.float32(.985),np.float32(.939),np.float32(.896),np.float32(.855),np.float32(.817),np.float32(.783),
+np.float32(.751),np.float32(.722),np.float32(.695),np.float32(.670),np.float32(.646),np.float32(.625),np.float32(.605),np.float32(.569),np.float32(.537),np.float32(.509),
+np.float32(.484),np.float32(.461),np.float32(.441),np.float32(.423),np.float32(.406),np.float32(.390),np.float32(.376),np.float32(.360),np.float32(.345),np.float32(.332),
+np.float32(.320),np.float32(.298),np.float32(.279),np.float32(.263),np.float32(.248),np.float32(.224),np.float32(.205),np.float32(.189),np.float32(.175),np.float32(.163),
+np.float32(.153),np.float32(.145),np.float32(.137),np.float32(.124),np.float32(.113),np.float32(.104),np.float32(.0969),np.float32(.0905),np.float32(.0837),np.float32(.0779),
+np.float32(.0729),np.float32(.0686),np.float32(.0648),np.float32(.0614),np.float32(.0556),np.float32(.0510),
+]
+# 5 1P RESONANCE  RADIATION J=1  51.562 NM      F=0.01504
+
+# 6 1P RESONANCE  RADIATION J=1  51.210 NM      F=0.00863
+
+# 7 1P RESONANCE  RADIATION J=1  51.000 NM      F=0.00540
+
+# 8 1P RESONANCE  RADIATION J=1  50.865 NM      F=0.00362
+
+# 9 1P RESONANCE  RADIATION J=1  50.772 NM      F=0.00253
+
+# 10 1P RESONANCE RADIATION J=1  50.706 NM      F=0.00184
+
+# 11 1P RESONANCE RADIATION J=1  50.657 NM      F=0.00138
+
+# 12 1P RESONANCE RADIATION J=1  50.620 NM      F=0.00106
+
+# SUM HIGHER 1P LEVELS RESONANCE RADIATION J=1  F=0.00440
+
+# TOTAL SUM OSCILLATOR STRENGTH = 0.42326
+
+#
+
+# BREMSSTRAHLUNG X-SECTION WITH CUT OFF
+
+Z2TG3 = [np.float32(42.1),np.float32(23.5),np.float32(10.7),np.float32(5.88),np.float32(3.25),np.float32(1.50),np.float32(.886),np.float32(.582),np.float32(.437),np.float32(.429),
+np.float32(.460),np.float32(.484),np.float32(.502),np.float32(.515),np.float32(.525),np.float32(.540),np.float32(.550),np.float32(.566),np.float32(.575),np.float32(.585),
+np.float32(.592),np.float32(.596),np.float32(.597),np.float32(.598),np.float32(.598),
+]
+# UNITS 10**-24
+
+EBRMG3 = [np.float32(1000.),np.float32(2000.),np.float32(5000.),np.float32(1.E4),np.float32(2.E4),np.float32(5.E4),np.float32(1.E5),np.float32(2.E5),np.float32(5.E5),np.float32(1.E6),
+np.float32(2.E6),np.float32(3.E6),np.float32(4.E6),np.float32(5.E6),np.float32(6.E6),np.float32(8.E6),np.float32(1.E7),np.float32(1.5E7),np.float32(2.E7),np.float32(3.E7),
+np.float32(4.E7),np.float32(5.E7),np.float32(6.E7),np.float32(8.E7),np.float32(1.E8),
+]
+
+gd['gas3/XEN'] = XENG3
+gd['gas3/YEM'] = YEMG3
+gd['gas3/YEL'] = YELG3
+gd['gas3/YEPS'] = YEPSG3
+gd['gas3/XION'] = XIONG3
+gd['gas3/YION'] = YIONG3
+gd['gas3/YINC'] = YINCG3
+gd['gas3/X23S'] = X23SG3
+gd['gas3/Y23S'] = Y23SG3
+gd['gas3/X21S'] = X21SG3
+gd['gas3/Y21S'] = Y21SG3
+gd['gas3/X23P'] = X23PG3
+gd['gas3/Y23P'] = Y23PG3
+gd['gas3/X21P'] = X21PG3
+gd['gas3/Y21P'] = Y21PG3
+gd['gas3/X33S'] = X33SG3
+gd['gas3/Y33S'] = Y33SG3
+gd['gas3/X31S'] = X31SG3
+gd['gas3/Y31S'] = Y31SG3
+gd['gas3/X33P'] = X33PG3
+gd['gas3/Y33P'] = Y33PG3
+gd['gas3/X33D'] = X33DG3
+gd['gas3/Y33D'] = Y33DG3
+gd['gas3/X31D'] = X31DG3
+gd['gas3/Y31D'] = Y31DG3
+gd['gas3/X31P'] = X31PG3
+gd['gas3/Y31P'] = Y31PG3
+gd['gas3/X43S'] = X43SG3
+gd['gas3/Y43S'] = Y43SG3
+gd['gas3/X41S'] = X41SG3
+gd['gas3/Y41S'] = Y41SG3
+gd['gas3/X43P'] = X43PG3
+gd['gas3/Y43P'] = Y43PG3
+gd['gas3/X43D'] = X43DG3
+gd['gas3/Y43D'] = Y43DG3
+gd['gas3/X41D'] = X41DG3
+gd['gas3/Y41D'] = Y41DG3
+gd['gas3/X43F'] = X43FG3
+gd['gas3/Y43F'] = Y43FG3
+gd['gas3/X41F'] = X41FG3
+gd['gas3/Y41F'] = Y41FG3
+gd['gas3/X41P'] = X41PG3
+gd['gas3/Y41P'] = Y41PG3
+gd['gas3/Z2T'] = Z2TG3
+gd['gas3/EBRM'] = EBRMG3
+
+# ELASTIC
+
+XENG4 = [0.00, .008, .009, 0.01, .013, .017, .020, .025, 0.03, 0.04,
+         0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.12, 0.15, 0.18, 0.20,
+         0.25, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00, 1.20,
+         1.50, 1.80, 2.00, 2.50, 3.00, 4.00, 5.00, 6.00, 7.00, 8.00,
+         9.00, 10.0, 11.0, 12.0, 14.0, 16.0, 18.0, 20.0, 25.0, 30.0,
+         35.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150.,
+         200., 250., 300., 400., 500., 600., 800., 1000., 1500., 2000.,
+         3000., 4000., 6000., 8000., 10000., 1.25e4, 1.5e4, 2.0e4, 2.5e4, 3.0e4,
+         4.0e4, 6.0e4, 8.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5,
+         3.5e5, 4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6,
+         1.5e6, 1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6,
+         7.0e6, 8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7,
+         3.5e7, 4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8,
+         1.5e8, 1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8,
+         7.0e8, 8.0e8, 9.0e8, 1.0e9]
+# ELASTIC MOMENTUM TRANSFER
+
+YEMG4 = [4.89, 5.18, 5.19, 5.21, 5.26, 5.31, 5.35, 5.41, 5.46, 5.54,
+         5.62, 5.68, 5.74, 5.79, 5.83, 5.86, 5.94, 6.04, 6.12, 6.16,
+         6.27, 6.35, 6.49, 6.59, 6.66, 6.73, 6.77, 6.82, 6.85, 6.91,
+         6.96, 6.98, 6.99, 6.96, 6.89, 6.62, 6.31, 6.00, 5.68, 5.35,
+         5.03, 4.72, 4.45, 4.20, 3.68, 3.28, 2.95, 2.64, 2.05, 1.63,
+         1.33, 1.09, .785, .590, .465, .375, .309, .262, .179, .132,
+         .0807, .0549, .0400, .0242, .0164, .0119, .00716, .00482, .00234, .0014,
+         .000676, 4.03e-4, 1.93e-4, 1.15e-4, 7.65e-5, 5.10e-5, 3.66e-5, 2.17e-5,
+         1.45e-5, 1.04e-5,
+         6.18e-6, 2.99e-6, 1.71e-6, 1.21e-6, 8.26e-7, 6.05e-7, 4.66e-7, 3.73e-7,
+         2.58e-7, 1.92e-7,
+         1.50e-7, 1.22e-7, 1.01e-7, 8.59e-8, 6.48e-8, 5.11e-8, 4.17e-8, 3.48e-8,
+         2.96e-8, 2.10e-8,
+         1.58e-8, 1.24e-8, 1.01e-8, 7.05e-9, 5.24e-9, 4.07e-9, 3.25e-9, 2.67e-9,
+         2.23e-9, 1.63e-9,
+         1.25e-9, 9.89e-10, 8.04e-10, 6.67e-10, 4.47e-10, 3.22e-10, 2.43e-10,
+         1.91e-10, 1.27e-10, 9.04e-11,
+         6.79e-11, 5.29e-11, 4.24e-11, 3.48e-11, 2.46e-11, 1.84e-11, 1.42e-11,
+         1.13e-11, 9.26e-12, 6.00e-12,
+         4.20e-12, 3.10e-12, 2.38e-12, 1.53e-12, 1.06e-12, 7.82e-13, 5.99e-13,
+         4.74e-13, 3.84e-13, 2.67e-13,
+         1.96e-13, 1.50e-13, 1.19e-13, 9.62e-14]
+# ELASTIC TOTAL
+
+YELG4 = [4.89, 5.19, 5.20, 5.21, 5.26, 5.29, 5.33, 5.37, 5.41, 5.47,
+         5.53, 5.58, 5.62, 5.66, 5.69, 5.70, 5.76, 5.83, 5.88, 5.90,
+         5.96, 6.01, 6.08, 6.12, 6.14, 6.16, 6.16, 6.17, 6.16, 6.16,
+         6.14, 6.11, 6.09, 6.01, 5.90, 5.60, 5.36, 5.10, 4.91, 4.70,
+         4.51, 4.32, 4.21, 4.10, 3.75, 3.49, 3.27, 3.03, 2.54, 2.14,
+         1.83, 1.61, 1.27, 1.06, .884, .746, .652, .580, .460, .355,
+         .244, .194, .150, .117, .087, .071, .052, .041, .028, .022,
+         .014, .0108, .00722, .00544, .00437, .00352, .00295, .00224, .00182,
+         .00154,
+         .00118, .000830, .000654, .000550, .000466, .000411, .000371, .000342,
+         .000301, .000274,
+         .000255, .000241, .000230, .000222, .000209, .000201, .000195, .000190,
+         .000186, .000180,
+         .000177, .000174, .000172, .000170, .000169, .000168, .000167, .000167,
+         .000167, .000166,
+         .000166, .000166, .000166, .000166]
+# ANGULAR DISTRIBUTION PARAMETER EPSILON
+# EPSILON = 1.0-YEPS
+
+YEPSG4 = [1.0, .99711, .99712, 1.0, 1.0, 1.00562, 1.00565, 1.01118,
+          1.01386, 1.01920,
+          1.02440, 1.02688, 1.03202, 1.03445, 1.03689, 1.04209, 1.04686, 1.05400,
+          1.06119, 1.06604,
+          1.07792, 1.08474, 1.10094, 1.11490, 1.12663, 1.13826, 1.14789, 1.15724,
+          1.16707, 1.18142,
+          1.19873, 1.21165, 1.21951, 1.23447, 1.24855, 1.26918, 1.26215, 1.26104,
+          1.23265, 1.20568,
+          1.17192, 1.13835, 1.08539, 1.03657, .97200, .90989, .85384, .80836,
+          .71541, .65146,
+          .60355, .53739, .46277, .38963, .35522, .32989, .29979, .27742,
+          .21850, .20332,
+          .16921, .13304, .12155, .08318, .07263, .06130, .04637, .03720,
+          .02338, .016295,
+          .011386, .008195, .005394, .004037, .003205, .002548, .002113, .001572,
+          .001246, .001044,
+          7.61e-4, 4.925e-4, 3.404e-4, 2.803e-4, 2.179e-4, 1.766e-4, 1.475e-4,
+          1.258e-4, 9.60e-5, 7.65e-5,
+          6.29e-5, 5.29e-5, 4.53e-5, 3.93e-5, 3.07e-5, 2.47e-5, 2.04e-5, 1.72e-5,
+          1.47e-5, 1.05e-5,
+          7.84e-6, 6.12e-6, 4.91e-6, 3.373e-6, 2.463e-6, 1.881e-6, 1.483e-6,
+          1.200e-6, 9.91e-7, 7.09e-7,
+          5.322e-7, 4.146e-7, 3.319e-7, 2.718e-7, 1.775e-7, 1.249e-7, 9.27e-8,
+          7.15e-8, 4.62e-8, 3.23e-8,
+          2.382e-8, 1.828e-8, 1.447e-8, 1.173e-8, 8.14e-9, 5.97e-9, 4.56e-9,
+          3.59e-9, 2.90e-9, 1.83e-9,
+          1.26e-9, 9.10e-10, 6.90e-10, 4.40e-10, 3.00e-10, 2.16e-10, 1.63e-10,
+          1.27e-10, 1.02e-10, 7.0e-11,
+          5.1e-11, 3.8e-11, 3.0e-11, 2.4e-11]
+#  IONISATION (VALUES ABOVE 20KEV GENERATEe BY BORN-BETHE IN SUB)
+
+XIONG4 = [24.58739, 25.0, 25.5, 26.0, 26.5, 27.0, 27.5, 28.0, 28.5, 29.0,
+          29.5, 30.0, 30.5, 31.0, 31.5, 32.0, 32.5, 33.0, 33.5, 34.0,
+          36.0, 38.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0,
+          80.0, 85.0, 90.0, 95.0, 100., 105., 110., 115., 120., 125.,
+          130., 135., 140., 145., 150., 160., 170., 180., 190., 200.,
+          225., 250., 275., 300., 350., 400., 450., 500., 550., 600.,
+          650., 700., 750., 800., 850., 900., 950., 1000., 1200., 1400.,
+          1600., 1800., 2000., 2500., 3000., 3500., 4000., 4500., 5000., 5500.,
+          6000., 7000., 8000., 9000., 1.0e4, 1.2e4, 1.4e4, 1.6e4, 1.8e4, 2.0e4]
+# GROSS IONISATION
+
+YIONG4 = [.0, .0038, .0094, .0155, .0218, .0279, .0336, .0392, .0446,
+          .0504,
+          .0561, .0612, .0667, .0722, .0773, .0826, .0878, .0929, .0981, .103,
+          .121, .138, .154, .188, .219, .242, .262, .276, .290, .301,
+          .311, .319, .326, .333, .336, .338, .340, .341, .342, .342,
+          .343, .342, .341, .340, .338, .335, .332, .326, .322, .316,
+          .302, .290, .279, .268, .246, .231, .216, .203, .191, .180,
+          .171, .163, .155, .148, .142, .136, .130, .125, .109, .097,
+          .0872, .0795, .0729, .0608, .0524, .0458, .0410, .0368, .0336, .0311,
+          .0293, .0255, .0229, .0206, .0192, .0164, .0147, .0130, .0119, .0108]
+# COUNTING IONISATION
+
+YINCG4 = [.0, .0038, .0094, .0155, .0218, .0279, .0336, .0392, .0446,
+          .0504,
+          .0561, .0612, .0667, .0722, .0773, .0826, .0878, .0929, .0981, .103,
+          .121, .138, .154, .188, .219, .242, .262, .276, .290, .301,
+          .311, .319, .326, .333, .336, .338, .340, .341, .341, .341,
+          .342, .341, .340, .339, .337, .334, .331, .325, .321, .315,
+          .301, .289, .278, .267, .245, .230, .215, .202, .190, .179,
+          .170, .162, .154, .147, .141, .135, .129, .124, .108, .096,
+          .0867, .0791, .0725, .0605, .0522, .0456, .0408, .0367, .0335, .0310,
+          .0292, .0254, .0228, .0205, .0191, .0163, .0146, .0129, .0118, .0107]
+#  ALL EXCITATIONS IN UNITS OF 10**-18
+#  2 3S J=1 METASTABLE
+
+X23SG4 = [19.81961, 19.83, 19.85, 19.88, 19.9, 19.95, 20.0, 20.05, 20.1,
+          20.15,
+          20.2, 20.25, 20.3, 20.35, 20.4, 20.45, 20.50, 20.55, 20.6, 20.63,
+          20.66, 20.7, 20.75, 20.8, 20.85, 20.90, 20.94, 20.97, 21.0, 21.05,
+          21.1, 21.15, 21.2, 21.25, 21.3, 21.4, 21.5, 22.0, 22.2, 22.25,
+          22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48, 22.5, 22.52, 22.55,
+          22.6, 22.62, 22.64, 22.66, 22.68, 22.7, 22.71, 22.72, 22.75, 22.8,
+          22.85, 22.88, 22.9, 22.95, 22.97, 23.0, 23.05, 23.1, 23.3, 23.4,
+          23.5, 23.6, 23.8, 24.0, 24.5, 25.0, 26.0, 27.0, 28.0, 29.0,
+          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
+          48.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0,
+          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
+          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
+          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
+          1200., 1300., 1400., 1500., 1600., 1700., 1800., 1900., 2000.
+          ]
+Y23SG4 = [0.00, .780, 1.16, 1.64, 1.98, 2.81, 3.53, 4.13, 4.61, 4.96,
+          5.20, 5.35, 5.41, 5.36, 5.21, 4.95, 4.63, 4.23, 3.66, 3.16,
+          3.04, 3.13, 3.41, 3.77, 4.14, 4.44, 4.54, 4.43, 4.27, 3.96,
+          3.69, 3.48, 3.32, 3.21, 3.15, 3.08, 3.06, 3.09, 3.08, 3.04,
+          2.97, 2.84, 2.25, 1.58, 1.83, 4.91, 4.45, 4.13, 3.95, 3.79,
+          3.60, 3.51, 3.07, 2.45, 2.61, 2.67, 2.36, 2.97, 3.01, 2.96,
+          2.87, 2.61, 3.04, 2.75, 3.16, 3.06, 2.90, 2.79, 2.81, 2.86,
+          2.75, 2.80, 2.71, 2.65, 2.58, 2.48, 2.39, 2.30, 2.19, 2.09,
+          1.98, 1.84, 1.73, 1.53, 1.36, 1.22, 1.09, .985, .892, .812,
+          .742, .680, .555, .461, .389, .332, .287, .250, .220, .194,
+          .154, .125, .103, .0861, .0726, .0617, .0529, .0397, .0305, .0239,
+          .0191, .0154, .0126, .0105, .00740, .00542, .00407, .00314, .00247, .00187,
+          .00145, .00115, 9.23e-4, 7.53e-4, 6.22e-4, 5.20e-4, 4.39e-4, 3.74e-4,
+          3.21e-4, 2.42e-4,
+          1.86e-4, 1.47e-4, 1.18e-4, 9.57e-5, 7.89e-5, 6.58e-5, 5.54e-5, 4.71e-5,
+          4.04e-5]
+# 2 1S J=0 METASTABLE
+
+X21SG4 = [20.61577, 20.62, 20.63, 20.65, 20.67, 20.69, 20.72, 20.75,
+          20.80, 20.85,
+          20.90, 20.96, 20.98, 21.0, 21.05, 21.1, 21.15, 21.2, 21.22, 21.25,
+          21.3, 21.4, 21.5, 21.6, 21.7, 21.8, 21.9, 22.0, 22.1, 22.2,
+          22.25, 22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48, 22.5, 22.55,
+          22.59, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65, 22.68, 22.7, 22.71,
+          22.72, 22.73, 22.75, 22.78, 22.8, 22.85, 22.87, 22.88, 22.89, 22.9,
+          22.91, 22.92, 22.93, 22.94, 22.95, 22.96, 22.97, 22.98, 22.99, 23.0,
+          23.01, 23.05, 23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.8, 24.0,
+          24.2, 24.4, 24.7, 25.0, 26.0, 28.0, 30.0, 32.0, 35.0, 40.0,
+          45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 80.0, 90.0, 100., 110.,
+          120., 140., 170., 200., 240., 280., 320., 360., 400., 450.,
+          500., 550., 600., 650., 700., 800., 900., 1000., 1100., 1200.,
+          1400., 1600., 1800., 2000., 2200., 2400., 2700., 3000.
+          ]
+Y21SG4 = [0.00, .406, .477, .664, .820, .946, 1.10, 1.24, 1.47, 1.72,
+          2.03, 2.52, 2.40, 2.39, 2.39, 2.42, 2.46, 2.53, 2.55, 2.53,
+          2.52, 2.53, 2.57, 2.59, 2.62, 2.64, 2.65, 2.65, 2.65, 2.62,
+          2.59, 2.53, 2.42, 2.14, 1.86, 2.17, 3.35, 3.01, 2.79, 2.34,
+          1.80, 1.88, 2.53, 3.37, 3.64, 3.55, 3.42, 3.23, 2.95, 2.45,
+          1.84, 2.32, 2.49, 2.60, 2.62, 2.57, 2.40, 2.57, 2.59, 2.32,
+          1.73, 2.55, 2.36, 2.35, 2.32, 2.23, 2.50, 2.64, 2.61, 1.86,
+          2.28, 2.53, 2.35, 2.39, 2.44, 2.51, 2.48, 2.45, 2.44, 2.49,
+          2.57, 2.63, 2.56, 2.54, 2.53, 2.51, 2.45, 2.35, 2.21, 2.05,
+          1.88, 1.75, 1.65, 1.56, 1.48, 1.41, 1.30, 1.21, 1.14, 1.08,
+          1.03, .948, .850, .771, .686, .617, .560, .512, .471, .428,
+          .392, .361, .335, .312, .292, .259, .233, .211, .193, .178,
+          .154, .136, .121, .109, .0997, .0916, .0817, .0737]
+# 2 3P J=2,1,0
+
+X23PG4 = [20.96409, 20.97, 21.0, 21.05, 21.1, 21.15, 21.2, 21.25, 21.3,
+          21.35,
+          21.4, 21.5, 21.6, 21.7, 21.8, 21.9, 22.0, 22.1, 22.2, 22.3,
+          22.4, 22.45, 22.5, 22.55, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65,
+          22.66, 22.67, 22.68, 22.69, 22.7, 22.71, 22.72, 22.73, 22.75, 22.77,
+          22.8, 22.85, 22.88, 22.9, 22.91, 22.92, 22.93, 22.96, 22.97, 22.99,
+          23.0, 23.04, 23.06, 23.07, 23.08, 23.1, 23.2, 23.3, 23.4, 23.5,
+          23.6, 23.7, 23.8, 23.9, 24.0, 24.2, 24.4, 24.6, 25.0, 26.0,
+          27.0, 28.0, 29.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0,
+          44.0, 46.0, 48.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0,
+          85.0, 90.0, 95.0, 100., 110., 120., 130., 140., 150., 160.,
+          170., 180., 190., 200., 220., 240., 260., 280., 300., 340.,
+          380., 420., 460., 500., 550., 600., 700., 800., 900., 1000.,
+          1200., 1400., 1600., 1800., 2000., 2300., 2600., 3000.
+          ]
+Y23PG4 = [0.00, .0936, .241, .442, .611, .761, .912, 1.03, 1.10, 1.17,
+          1.23, 1.32, 1.40, 1.47, 1.54, 1.60, 1.66, 1.73, 1.80, 1.87,
+          1.94, 2.05, 2.07, 2.09, 2.22, 2.48, 2.68, 2.60, 2.27, 1.78,
+          1.45, 1.43, 1.52, 1.59, 1.60, 1.45, 1.47, 1.70, 1.83, 1.91,
+          1.95, 1.93, 2.32, 1.98, 1.72, 2.23, 2.09, 2.12, 2.07, 2.17,
+          1.82, 2.18, 1.80, 1.82, 1.94, 1.94, 1.90, 1.88, 1.89, 2.00,
+          2.16, 2.21, 2.14, 2.08, 2.09, 2.03, 2.16, 2.26, 2.29, 2.41,
+          2.47, 2.48, 2.47, 2.43, 2.30, 2.15, 2.00, 1.84, 1.69, 1.55,
+          1.43, 1.31, 1.21, 1.11, .907, .748, .622, .522, .441, .375,
+          .322, .277, .241, .210, .162, .127, .101, .0812, .0663, .0547,
+          .0455, .0382, .0324, .0277, .0206, .0156, .0121, .00961, .00772, .00518,
+          .00363, .00264, .00197, .00151, .00118, 8.48e-4, 5.21e-4, 3.42e-4,
+          2.37e-4, 1.70e-4,
+          9.65e-5, 5.99e-5, 3.96e-5, 2.76e-5, 2.00e-5, 1.30e-5, 8.94e-6, 5.78e-6]
+# 2 1P RESONANCE RAeIATION J=1   58.434 NM       OSC STRENGTH F=0.27608
+
+X21PG4 = [21.21802, 21.23, 21.25, 21.3, 21.4, 21.5, 21.6, 21.7, 21.8, 21.9,
+          22.0, 22.1, 22.2, 22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48,
+          22.5, 22.55, 22.57, 22.59, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65,
+          22.66, 22.68, 22.7, 22.71, 22.72, 22.73, 22.75, 22.8, 22.85, 22.87,
+          22.88, 22.9, 22.91, 22.94, 22.96, 22.97, 22.98, 22.99, 23.0, 23.01,
+          23.05, 23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.7, 23.8, 23.9,
+          24.0, 24.2, 24.4, 24.6, 24.8, 25.0, 26.0, 27.0, 28.0, 29.0,
+          30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0,
+          40.0, 42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0, 58.0,
+          60.0, 64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100.,
+          110., 120., 130., 140., 160., 180., 200., 240., 280., 320.,
+          360., 400., 450., 500., 550., 600., 650., 700., 800., 900.,
+          1000., 1100., 1200., 1300., 1400.
+          ]
+Y21PG4 = [0.00, .0519, .0884, .163, .290, .397, .493, .582, .666, .748,
+          .831, .914, .994, 1.06, 1.09, 1.10, 1.10, 1.36, 1.46, 1.35,
+          1.32, 1.30, 1.28, 1.19, 1.07, .943, .922, .941, .872, .751,
+          .737, .959, 1.13, 1.17, .920, 1.03, 1.12, 1.23, 1.35, 1.27,
+          1.18, 1.22, 1.03, 1.14, 1.12, 1.38, 1.29, 1.25, 1.38, 1.24,
+          1.12, 1.13, 1.11, 1.12, 1.16, 1.30, 1.41, 1.44, 1.41, 1.37,
+          1.39, 1.42, 1.52, 1.70, 1.80, 1.89, 2.16, 2.42, 2.69, 2.96,
+          3.24, 3.53, 3.82, 4.12, 4.42, 4.71, 5.00, 5.29, 5.57, 5.85,
+          6.12, 6.63, 7.10, 7.53, 7.93, 8.28, 8.61, 8.90, 9.16, 9.39,
+          9.60, 9.95, 10.2, 10.4, 10.6, 10.7, 10.7, 10.8, 10.8, 10.7,
+          10.6, 10.4, 10.2, 10.0, 9.57, 9.13, 8.71, 7.96, 7.33, 6.79,
+          6.32, 5.92, 5.50, 5.13, 4.82, 4.54, 4.30, 4.08, 3.72, 3.41,
+          3.16, 2.95, 2.76, 2.60, 2.46]
+# 3 3S J=1
+
+X33SG4 = [22.71847, 22.72, 22.73, 22.74, 22.75, 22.78, 22.8, 22.83, 22.85,
+          22.86,
+          22.87, 22.88, 22.89, 22.9, 22.91, 22.912, 22.914, 22.916, 22.92, 22.94,
+          22.96, 22.98, 23.0, 23.02, 23.05, 23.1, 23.2, 23.25, 23.3, 23.35,
+          23.4, 23.44, 23.48, 23.52, 23.57, 23.59, 23.62, 23.65, 23.7, 23.75,
+          23.82, 23.89, 23.93, 24.0, 24.4, 25.0, 26.0, 27.0, 28.0, 29.0,
+          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
+          48.0, 50.0, 54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0,
+          90.0, 95.0, 100., 110., 120., 130., 140., 150., 160., 170.,
+          180., 200., 220., 240., 260., 280., 300., 340., 380., 420.,
+          460., 500., 550., 600., 650., 700., 750., 800., 850., 900.,
+          950., 1000., 1100., 1200., 1300., 1400.
+          ]
+Y33SG4 = [0.00, .800, 1.15, 1.03, .985, .854, .812, .752, .644, .503,
+          .277, 1.79, 1.17, 1.06, 1.32, 1.51, 1.57, 1.37, .896, .848,
+          .907, .816, .838, .656, .872, .859, .890, .900, .860, .750,
+          .620, .810, .770, .960, .870, .870, .730, .710, .710, .730,
+          .770, .690, .760, .742, .725, .694, .665, .635, .605, .577,
+          .550, .524, .499, .452, .409, .370, .336, .305, .278, .253,
+          .231, .212, .178, .151, .130, .112, .0968, .0817, .0696, .0597,
+          .0516, .0449, .0393, .0306, .0242, .0195, .0160, .0132, .0111, .00938,
+          .00800, .00596, .00456, .00356, .00284, .00230, .00188, .00131, 9.53e-4,
+          7.13e-4,
+          5.47e-4, 4.29e-4, 3.25e-4, 2.52e-4, 1.99e-4, 1.60e-4, 1.31e-4, 1.08e-4,
+          9.02e-5, 7.62e-5,
+          6.49e-5, 5.58e-5, 4.20e-5, 3.25e-5, 2.56e-5, 2.06e-5]
+# 3 1S J=0
+
+X31SG4 = [22.92032, 22.96, 22.985, 23.02, 23.05, 23.07, 23.1, 23.15, 23.2,
+          23.25,
+          23.3, 23.33, 23.36, 23.39, 23.41, 23.45, 23.48, 23.51, 23.54, 23.56,
+          23.59, 23.62, 23.65, 23.68, 23.73, 23.82, 23.88, 23.94, 24.0, 25.0,
+          26.0, 28.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0,
+          52.0, 56.0, 60.0, 65.0, 70.0, 75.0, 80.0, 90.0, 100., 110.,
+          120., 130., 140., 160., 180., 200., 220., 240., 260., 280.,
+          300., 340., 380., 420., 460., 500., 550., 600., 650., 700.,
+          750., 800., 900., 1000., 1100., 1200., 1300., 1400., 1500., 1600.,
+          1800., 2000., 2400., 2800., 3200., 3600., 4000.
+          ]
+Y31SG4 = [0.00, .535, .457, .587, .490, .490, .478, .491, .506, .512,
+          .501, .470, .418, .374, .351, .371, .520, .681, .520, .467,
+          .496, .410, .442, .429, .416, .455, .377, .444, .422, .426,
+          .428, .429, .425, .419, .412, .402, .396, .387, .370, .354,
+          .338, .324, .311, .296, .283, .271, .260, .242, .226, .213,
+          .203, .193, .185, .172, .161, .152, .144, .137, .131, .125,
+          .120, .111, .103, .0957, .0894, .0839, .0778, .0725, .0678, .0636,
+          .0599, .0566, .0509, .0462, .0423, .0389, .0361, .0336, .0315, .0296,
+          .0264, .0238, .0199, .0171, .0150, .0133, .0120]
+# 3 3P J=2,1,0
+
+X33PG4 = [23.00707, 23.02, 23.03, 23.04, 23.05, 23.06, 23.07, 23.08, 23.1,
+          23.2,
+          23.3, 23.4, 23.5, 23.55, 23.6, 23.65, 23.7, 23.8, 23.9, 24.0,
+          24.1, 24.2, 24.3, 24.4, 24.6, 24.8, 25.0, 26.0, 27.0, 28.0,
+          30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0,
+          60.0, 64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100.,
+          110., 120., 130., 140., 150., 160., 170., 180., 200., 220.,
+          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
+          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
+          1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400., 2600., 2800.,
+          3000.
+          ]
+Y33PG4 = [0.00, .387, .410, .179, .148, .335, .381, .282, .280, .309,
+          .332, .359, .411, .416, .405, .448, .438, .467, .485, .493,
+          .500, .515, .517, .513, .503, .508, .512, .516, .515, .524,
+          .544, .539, .523, .500, .474, .446, .392, .342, .297, .259,
+          .226, .197, .173, .152, .134, .118, .102, .0878, .0762, .0665,
+          .0512, .0401, .0318, .0255, .0208, .0171, .0142, .0119, .00854, .00632,
+          .00479, .00371, .00292, .00234, .00157, .00109, 7.93e-4, 5.92e-4, 4.53e-4,
+          3.34e-4,
+          2.53e-4, 1.96e-4, 1.55e-4, 1.24e-4, 1.01e-4, 8.37e-5, 6.99e-5, 5.89e-5,
+          5.02e-5, 3.72e-5,
+          2.83e-5, 2.21e-5, 1.75e-5, 1.16e-5, 8.05e-6, 5.82e-6, 4.34e-6, 3.32e-6,
+          2.60e-6, 2.07e-6,
+          1.68e-6]
+# 3 3e J=3,2,1
+
+X33DG4 = [23.07365, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4, 23.45,
+          23.5,
+          23.55, 23.6, 23.66, 23.7, 23.75, 23.8, 23.85, 23.9, 23.95, 24.0,
+          24.05, 24.1, 24.15, 24.2, 24.25, 24.3, 24.35, 24.4, 24.45, 24.5,
+          24.55, 24.6, 24.65, 24.7, 24.8, 24.9, 25.0, 26.0, 27.0, 28.0,
+          29.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
+          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 64.0, 68.0, 72.0,
+          76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.,
+          150., 160., 180., 200., 220., 240., 260., 280., 300., 320.,
+          340., 360., 380., 400., 440., 480., 520., 560., 600., 650.,
+          700., 750., 800., 850., 900., 1000., 1100., 1200., 1300., 1400.,
+          1600., 1800., 2000., 2200., 2400., 2600., 2800., 3000.
+          ]
+Y33DG4 = [0.00, .00956, .0236, .0401, .0602, .0861, .120, .166, .222, .229,
+          .238, .197, .123, .118, .110, .112, .104, .110, .099, .0985,
+          .113, .107, .109, .114, .118, .119, .118, .116, .113, .105,
+          .112, .116, .118, .119, .120, .120, .119, .115, .118, .121,
+          .121, .120, .113, .105, .0958, .0867, .0780, .0701, .0628, .0563,
+          .0505, .0453, .0407, .0366, .0330, .0298, .0269, .0221, .0183, .0152,
+          .0127, .0107, .00868, .00712, .00588, .00490, .00347, .00252, .00188,
+          .00142,
+          .00110, 8.64e-4, 5.56e-4, 3.76e-4, 2.64e-4, 1.92e-4, 1.44e-4, 1.10e-4,
+          8.60e-5, 6.84e-5,
+          5.53e-5, 4.53e-5, 3.76e-5, 3.15e-5, 2.28e-5, 1.70e-5, 1.30e-5, 1.02e-5,
+          8.12e-6, 6.25e-6,
+          4.92e-6, 3.94e-6, 3.21e-6, 2.64e-6, 2.21e-6, 1.58e-6, 1.17e-6, 8.95e-7,
+          6.98e-7, 5.55e-7,
+          3.67e-7, 2.56e-7, 1.85e-7, 1.38e-7, 1.06e-7, 8.32e-8, 6.64e-8, 5.38e-8]
+# 3 1e J=2
+
+X31DG4 = [23.07407, 23.08, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4,
+          23.45,
+          23.5, 23.55, 23.6, 23.66, 23.7, 23.75, 23.8, 23.85, 23.9, 23.95,
+          24.0, 24.05, 24.1, 24.15, 24.2, 24.25, 24.3, 24.35, 24.4, 24.45,
+          24.5, 24.6, 24.7, 24.8, 25.0, 26.0, 28.0, 30.0, 32.0, 34.0,
+          36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0, 54.0, 58.0,
+          62.0, 66.0, 70.0, 75.0, 80.0, 90.0, 100., 110., 120., 140.,
+          160., 180., 200., 220., 240., 260., 280., 300., 320., 340.,
+          370., 400., 440., 480., 520., 560., 600., 650., 700., 800.,
+          900., 1000., 1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200.,
+          2400., 2600., 2800., 3000.
+          ]
+Y31DG4 = [0.00, .097, .0973, .110, .126, .148, .175, .200, .221, .237,
+          .235, .198, .185, .192, .168, .181, .189, .172, .193, .184,
+          .190, .209, .206, .211, .214, .215, .212, .206, .199, .191,
+          .174, .177, .179, .180, .181, .180, .180, .188, .198, .209,
+          .217, .224, .229, .232, .234, .235, .234, .233, .228, .222,
+          .215, .207, .199, .190, .180, .163, .148, .135, .124, .105,
+          .0913, .0803, .0715, .0643, .0584, .0534, .0492, .0456, .0424, .0397,
+          .0361, .0332, .0299, .0272, .0249, .0230, .0213, .0196, .0181, .0156,
+          .0138, .0124, .0112, .0102, .00938, .00868, .00756, .00669, .00600, .00544,
+          .00497, .00458, .00425, .00396]
+# 3 1P  RESONANCE RAeIATION J=1  53.703 NM     OSC STRENGTH F=0.07342
+
+X31PG4 = [23.08702, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4, 23.45,
+          23.5,
+          23.54, 23.56, 23.60, 23.64, 23.68, 23.7, 23.75, 23.80, 23.88, 23.9,
+          23.95, 24.0, 24.05, 24.1, 24.15, 24.2, 24.3, 24.4, 24.5, 24.6,
+          24.7, 24.8, 25.0, 25.2, 25.4, 25.6, 26.0, 27.0, 28.0, 29.0,
+          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
+          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 65.0, 70.0, 75.0,
+          80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140., 160.,
+          180., 200., 220., 240., 260., 280., 300., 340., 380., 420.,
+          460., 500., 550., 600., 650., 700., 750., 800., 900., 1000.,
+          1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400., 2600.,
+          2800., 3000., 3400., 3800., 4200., 4600., 5000., 5500., 6000., 6500.,
+          7000., 8000., 9000., 10000.
+          ]
+Y31PG4 = [0.00, .114, .129, .137, .137, .134, .131, .130, .128, .129,
+          .117, .127, .122, .163, .146, .150, .191, .180, .226, .224,
+          .218, .230, .245, .253, .265, .274, .294, .308, .330, .360,
+          .373, .382, .397, .409, .418, .423, .434, .469, .516, .577,
+          .648, .723, .808, .941, 1.07, 1.20, 1.32, 1.43, 1.54, 1.64,
+          1.74, 1.82, 1.90, 1.97, 2.04, 2.10, 2.15, 2.27, 2.35, 2.42,
+          2.47, 2.50, 2.52, 2.53, 2.53, 2.52, 2.50, 2.47, 2.42, 2.33,
+          2.24, 2.14, 2.06, 1.97, 1.90, 1.82, 1.76, 1.64, 1.53, 1.44,
+          1.36, 1.29, 1.21, 1.15, 1.08, 1.03, .982, .938, .862, .799,
+          .745, .699, .658, .623, .563, .514, .474, .440, .411, .386,
+          .364, .344, .312, .285, .263, .244, .228, .211, .197, .184,
+          .173, .155, .140, .128]
+# 4 3S J=1
+
+X43SG4 = [23.59396, 23.62, 23.65, 23.7, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0,
+          28.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
+          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 64.0, 68.0, 72.0,
+          76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.,
+          150., 160., 180., 200., 220., 240., 260., 280., 300., 320.,
+          340., 360., 380., 400., 440., 480., 520., 560., 600.
+          ]
+Y43SG4 = [0.0, .314, .304, .292, .276, .266, .260, .243, .238, .234,
+          .227, .212, .195, .178, .162, .147, .133, .121, .110, .100,
+          .0911, .0832, .0761, .0697, .0640, .0589, .0543, .0464, .0399, .0346,
+          .0301, .0264, .0225, .0194, .0168, .0147, .0113, .00894, .00718, .00585,
+          .00483, .00403, .00289, .00214, .00164, .00127, .00101, 8.17e-4, 6.69e-4,
+          5.55e-4,
+          4.66e-4, 3.94e-4, 3.37e-4, 2.90e-4, 2.19e-4, 1.70e-4, 1.34e-4, 1.08e-4,
+          8.81e-5]
+# 4 1S J=0
+
+X41SG4 = [23.67357, 23.7, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0,
+          30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0,
+          60.0, 65.0, 70.0, 75.0, 80.0, 90.0, 100., 110., 120., 130.,
+          140., 160., 180., 200., 250., 300., 350., 400., 450., 500.,
+          600., 700., 800., 900., 1000., 1200., 1400., 1600., 1800., 2000.,
+          2200., 2400., 2600., 2800., 3000.
+          ]
+Y41SG4 = [0.0, .109, .110, .111, .112, .121, .128, .133, .138, .141,
+          .143, .146, .148, .147, .146, .144, .139, .134, .129, .123,
+          .118, .113, .108, .103, .0990, .0922, .0868, .0823, .0786, .0753,
+          .0725, .0677, .0636, .0601, .0527, .0469, .0422, .0382, .0349, .0322,
+          .0277, .0243, .0216, .0195, .0177, .0150, .0130, .0114, .0102, .00925,
+          .00845, .00777, .00719, .00669, .00626]
+# 4 3P J=2,1,0
+
+X43PG4 = [23.70789, 23.75, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
+          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
+          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
+          100., 110., 120., 130., 140., 150., 160., 170., 180., 190.,
+          200., 220., 240., 260., 280., 300., 320., 340., 360., 380.,
+          400., 440., 480., 520., 560., 600., 650., 700., 750., 800.,
+          850., 900., 950., 1000., 1100., 1200., 1300., 1400., 1600., 1800.,
+          2000., 2200., 2400., 2600., 2800., 3000.
+          ]
+Y43PG4 = [0.0, .085, .110, .118, .152, .177, .194, .205, .211, .215,
+          .215, .209, .200, .189, .178, .167, .156, .146, .136, .127,
+          .110, .0962, .0840, .0736, .0647, .0553, .0475, .0410, .0356, .0310,
+          .0271, .0210, .0165, .0132, .0106, .00865, .00713, .00593, .00498, .00421,
+          .00359, .00266, .00202, .00156, .00123, 9.88e-4, 8.03e-4, 6.60e-4,
+          5.49e-4, 4.61e-4,
+          3.90e-4, 2.87e-4, 2.17e-4, 1.67e-4, 1.32e-4, 1.06e-4, 8.18e-5, 6.46e-5,
+          5.18e-5, 4.22e-5,
+          3.48e-5, 2.90e-5, 2.45e-5, 2.08e-5, 1.54e-5, 1.17e-5, 9.13e-6, 7.25e-6,
+          4.78e-6, 3.32e-6,
+          2.39e-6, 1.78e-6, 1.36e-6, 1.07e-6, 8.50e-7, 6.88e-7]
+# 4 3e J=3,2,1
+
+X43DG4 = [23.73609, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
+          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
+          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
+          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
+          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
+          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
+          1200., 1300., 1400., 1500., 1600.
+          ]
+Y43DG4 = [.0, .0288, .0363, .0407, .0575, .0646, .0681, .0692, .069, .0675,
+          .0629, .0573, .0516, .0461, .0411, .0365, .0325, .0290, .0258, .0231,
+          .0186, .0151, .0123, .0102, .00847, .00681, .00554, .00455, .00378, .00316,
+          .00267, .00194, .00145, .00111, 8.61e-4, 6.81e-4, 5.47e-4, 3.66e-4,
+          2.55e-4, 1.84e-4,
+          1.37e-4, 1.04e-4, 8.08e-5, 6.39e-5, 4.18e-5, 2.87e-5, 2.05e-5, 1.51e-5,
+          1.14e-5, 8.32e-6,
+          6.24e-6, 4.79e-6, 3.75e-6, 3.00e-6, 2.43e-6, 1.99e-6, 1.65e-6, 1.39e-6,
+          1.18e-6, 8.66e-7,
+          6.55e-7, 5.08e-7, 4.01e-7, 3.22e-7, 2.63e-7]
+# 4 1e J=2
+
+X41DG4 = [23.73633, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 32.0,
+          34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0, 60.0, 64.0,
+          68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120.,
+          130., 140., 160., 180., 200., 220., 240., 260., 300., 340.,
+          380., 420., 460., 500., 550., 600., 650., 700., 800., 900.,
+          1000., 1100., 1200.
+          ]
+Y41DG4 = [0.0, .0791, .0799, .0846, .0902, .0959, .102, .107, .112, .120,
+          .127, .131, .134, .136, .136, .134, .131, .126, .121, .116,
+          .112, .107, .102, .0978, .0927, .0880, .0836, .0796, .0724, .0663,
+          .0610, .0564, .0489, .0430, .0384, .0346, .0314, .0288, .0246, .0215,
+          .0190, .0171, .0155, .0142, .0128, .0117, .0107, .00990, .00860, .00760,
+          .00681, .00616, .00563]
+# 4 3F J=3,4,2
+
+X43FG4 = [23.73701, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
+          31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0,
+          42.0, 44.0, 46.0, 48.0, 50.0, 54.0, 58.0, 62.0, 66.0, 70.0,
+          75.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.
+          ]
+Y43FG4 = [0.0, .0357, .0318, .0289, .0161, .0117, .00922, .00760, .00642,
+          .00550,
+          .00478, .00418, .00369, .00327, .00291, .00261, .00234, .00211, .00191,
+          .00173,
+          .00144, .00121, .00102, 8.68e-4, 7.44e-4, 5.57e-4, 4.25e-4, 3.30e-4,
+          2.61e-4, 2.09e-4,
+          1.61e-4, 1.26e-4, 9.98e-5, 8.03e-5, 6.53e-5, 5.36e-5, 3.72e-5, 2.66e-5,
+          1.96e-5, 1.47e-5]
+# 4 1F J=3
+
+X41FG4 = [23.73701, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0,
+          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
+          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
+          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
+          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
+          600., 650., 700., 750., 800., 900., 1000.]
+
+Y41FG4 = [0.0, .0175, .0172, .0160, .0149, .0139, .0130, .0122, .0114,
+          .0108,
+          .0102, .00909, .00819, .00742, .00677, .00619, .00569, .00525, .00487,
+          .00452,
+          .00393, .00346, .00307, .00274, .00246, .00217, .00193, .00173, .00156,
+          .00142,
+          .00129, .00108, 9.24e-4, 7.99e-4, 6.99e-4, 6.17e-4, 5.50e-4, 4.47e-4,
+          3.73e-4, 3.19e-4,
+          2.77e-4, 2.45e-4, 2.19e-4, 1.99e-4, 1.67e-4, 1.45e-4, 1.28e-4, 1.15e-4,
+          1.04e-4, 9.39e-5,
+          8.55e-5, 7.86e-5, 78.27e-5, 6.78e-5, 6.35e-5, 5.63e-5, 5.07e-5]
+# 4 1P RESONANCE RAeIATION J=1   52.222 NM    OSC STRENGTH F=0.02986
+
+X41PG4 = [23.74207, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
+          31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0,
+          42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0,
+          64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100., 110.,
+          120., 130., 140., 150., 160., 180., 200., 220., 240., 260.,
+          280., 300., 320., 340., 360., 380., 400., 440., 480., 520.,
+          560., 600., 640., 680., 720., 760., 800., 850., 900., 950.,
+          1000., 1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400.,
+          2600., 2800., 3000., 3400., 3800., 4200., 4600., 5000., 5500., 6000.,
+          6500., 7000., 7500., 8000., 9000., 10000.
+          ]
+Y41PG4 = [0.00, .0147, .0242, .0334, .107, .158, .196, .227, .255, .281,
+          .307, .333, .360, .387, .414, .442, .470, .498, .526, .553,
+          .606, .657, .704, .748, .789, .826, .860, .891, .919, .944,
+          .986, 1.02, 1.05, 1.06, 1.08, 1.09, 1.10, 1.10, 1.10, 1.09,
+          1.07, 1.05, 1.03, 1.01, .985, .939, .896, .855, .817, .783,
+          .751, .722, .695, .670, .646, .625, .605, .569, .537, .509,
+          .484, .461, .441, .423, .406, .390, .376, .360, .345, .332,
+          .320, .298, .279, .263, .248, .224, .205, .189, .175, .163,
+          .153, .145, .137, .124, .113, .104, .0969, .0905, .0837, .0779,
+          .0729, .0686, .0648, .0614, .0556, .0510
+          # 5 1P RESONANCE  RAeIATION J=1  51.562 NM      F=0.01504
+          # 6 1P RESONANCE  RAeIATION J=1  51.210 NM      F=0.00863
+          # 7 1P RESONANCE  RAeIATION J=1  51.000 NM      F=0.00540
+          # 8 1P RESONANCE  RAeIATION J=1  50.865 NM      F=0.00362
+          # 9 1P RESONANCE  RAeIATION J=1  50.772 NM      F=0.00253
+          # 10 1P RESONANCE RAeIATION J=1  50.706 NM      F=0.00184
+          # 11 1P RESONANCE RAeIATION J=1  50.657 NM      F=0.00138
+          # 12 1P RESONANCE RAeIATION J=1  50.620 NM      F=0.00106
+          # SUM HIGHER 1P LEVELS RESONANCE RAeIATION J=1  F=0.00440
+          # TOTAL SUM OSCILLATOR STRENGTH = 0.42326
+          #
+          # BREMSSTRAHLUNG X-SECTION WITH CUT OFF
+          ]
+Z2TG4 = [42.1, 23.5, 10.7, 5.88, 3.25, 1.50, .886, .582, .437, .429,
+         .460, .484, .502, .515, .525, .540, .550, .566, .575, .585,
+         .592, .596, .597, .598, .598]
+# UNITS 10**-24
+
+EBRMG4 = [1000., 2000., 5000., 1.E4, 2.E4, 5.E4, 1.E5, 2.E5, 5.E5, 1.E6,
+          2.E6, 3.E6, 4.E6, 5.E6, 6.E6, 8.E6, 1.E7, 1.5E7, 2.E7, 3.E7,
+          4.E7, 5.E7, 6.E7, 8.E7, 1.E8]
+for i in range(30):
+    YELG4.append(.000165)
+gd['gas4/XEN'] = XENG4
+gd['gas4/YEM'] = YEMG4
+gd['gas4/YEL'] = YELG4
+gd['gas4/YEPS'] = YEPSG4
+gd['gas4/XION'] = XIONG4
+gd['gas4/YION'] = YIONG4
+gd['gas4/YINC'] = YINCG4
+gd['gas4/X23S'] = X23SG4
+gd['gas4/Y23S'] = Y23SG4
+gd['gas4/X21S'] = X21SG4
+gd['gas4/Y21S'] = Y21SG4
+gd['gas4/X23P'] = X23PG4
+gd['gas4/Y23P'] = Y23PG4
+gd['gas4/X21P'] = X21PG4
+gd['gas4/Y21P'] = Y21PG4
+gd['gas4/X33S'] = X33SG4
+gd['gas4/Y33S'] = Y33SG4
+gd['gas4/X31S'] = X31SG4
+gd['gas4/Y31S'] = Y31SG4
+gd['gas4/X33P'] = X33PG4
+gd['gas4/Y33P'] = Y33PG4
+gd['gas4/X33D'] = X33DG4
+gd['gas4/Y33D'] = Y33DG4
+gd['gas4/X31D'] = X31DG4
+gd['gas4/Y31D'] = Y31DG4
+gd['gas4/X31P'] = X31PG4
+gd['gas4/Y31P'] = Y31PG4
+gd['gas4/X43S'] = X43SG4
+gd['gas4/Y43S'] = Y43SG4
+gd['gas4/X41S'] = X41SG4
+gd['gas4/Y41S'] = Y41SG4
+gd['gas4/X43P'] = X43PG4
+gd['gas4/Y43P'] = Y43PG4
+gd['gas4/X43D'] = X43DG4
+gd['gas4/Y43D'] = Y43DG4
+gd['gas4/X41D'] = X41DG4
+gd['gas4/Y41D'] = Y41DG4
+gd['gas4/X43F'] = X43FG4
+gd['gas4/Y43F'] = Y43FG4
+gd['gas4/X41F'] = X41FG4
+gd['gas4/Y41F'] = Y41FG4
+gd['gas4/X41P'] = X41PG4
+gd['gas4/Y41P'] = Y41PG4
+gd['gas4/Z2T'] = Z2TG4
+gd['gas4/EBRM'] = EBRMG4
+
 # XENON gas7
 # ELASTIC MOMENTUM TRANSFER
 XENG7 = [0.00, .001, .005, .007, 0.01, .015, 0.02, .025, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.10, 0.12, 0.14, 0.17,
@@ -3167,1257 +4459,6 @@ gd['gas7/YP2P1'] = YP2P1G7
 gd['gas7/Z54T'] = Z54TG7
 gd['gas7/EBRM'] = EBRMG7
 
-# ELASTIC
-
-XENG3 = [0.00, .008, .009, 0.01, .013, .017, .020, .025, 0.03, 0.04,
-         0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.12, 0.15, 0.18, 0.20,
-         0.25, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00, 1.20,
-         1.50, 1.80, 2.00, 2.50, 3.00, 4.00, 5.00, 6.00, 7.00, 8.00,
-         9.00, 10.0, 11.0, 12.0, 14.0, 16.0, 18.0, 20.0, 25.0, 30.0,
-         35.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150.,
-         200., 250., 300., 400., 500., 600., 800., 1000., 1500., 2000.,
-         3000., 4000., 6000., 8000., 10000., 1.25e4, 1.5e4, 2.0e4, 2.5e4, 3.0e4,
-         4.0e4, 6.0e4, 8.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5,
-         3.5e5, 4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6,
-         1.5e6, 1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6,
-         7.0e6, 8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7,
-         3.5e7, 4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8,
-         1.5e8, 1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8,
-         7.0e8, 8.0e8, 9.0e8, 1.0e9]
-# ELASTIC MOMENTUM TRANSFER
-
-YEMG3 = [4.89, 5.18, 5.19, 5.21, 5.26, 5.31, 5.35, 5.41, 5.46, 5.54,
-         5.62, 5.68, 5.74, 5.79, 5.83, 5.86, 5.94, 6.04, 6.12, 6.16,
-         6.27, 6.35, 6.49, 6.59, 6.66, 6.73, 6.77, 6.82, 6.85, 6.91,
-         6.96, 6.98, 6.99, 6.96, 6.89, 6.62, 6.31, 6.00, 5.68, 5.35,
-         5.03, 4.72, 4.45, 4.20, 3.68, 3.28, 2.95, 2.64, 2.05, 1.63,
-         1.33, 1.09, .785, .590, .465, .375, .309, .262, .179, .132,
-         .0807, .0549, .0400, .0242, .0164, .0119, .00716, .00482, .00234, .0014,
-         .000676, 4.03e-4, 1.93e-4, 1.15e-4, 7.65e-5, 5.10e-5, 3.66e-5, 2.17e-5,
-         1.45e-5, 1.04e-5,
-         6.18e-6, 2.99e-6, 1.71e-6, 1.21e-6, 8.26e-7, 6.05e-7, 4.66e-7, 3.73e-7,
-         2.58e-7, 1.92e-7,
-         1.50e-7, 1.22e-7, 1.01e-7, 8.59e-8, 6.48e-8, 5.11e-8, 4.17e-8, 3.48e-8,
-         2.96e-8, 2.10e-8,
-         1.58e-8, 1.24e-8, 1.01e-8, 7.05e-9, 5.24e-9, 4.07e-9, 3.25e-9, 2.67e-9,
-         2.23e-9, 1.63e-9,
-         1.25e-9, 9.89e-10, 8.04e-10, 6.67e-10, 4.47e-10, 3.22e-10, 2.43e-10,
-         1.91e-10, 1.27e-10, 9.04e-11,
-         6.79e-11, 5.29e-11, 4.24e-11, 3.48e-11, 2.46e-11, 1.84e-11, 1.42e-11,
-         1.13e-11, 9.26e-12, 6.00e-12,
-         4.20e-12, 3.10e-12, 2.38e-12, 1.53e-12, 1.06e-12, 7.82e-13, 5.99e-13,
-         4.74e-13, 3.84e-13, 2.67e-13,
-         1.96e-13, 1.50e-13, 1.19e-13, 9.62e-14]
-# ELASTIC TOTAL
-
-YELG3 = [4.89, 5.19, 5.20, 5.21, 5.26, 5.29, 5.33, 5.37, 5.41, 5.47,
-         5.53, 5.58, 5.62, 5.66, 5.69, 5.70, 5.76, 5.83, 5.88, 5.90,
-         5.96, 6.01, 6.08, 6.12, 6.14, 6.16, 6.16, 6.17, 6.16, 6.16,
-         6.14, 6.11, 6.09, 6.01, 5.90, 5.60, 5.36, 5.10, 4.91, 4.70,
-         4.51, 4.32, 4.21, 4.10, 3.75, 3.49, 3.27, 3.03, 2.54, 2.14,
-         1.83, 1.61, 1.27, 1.06, .884, .746, .652, .580, .460, .355,
-         .244, .194, .150, .117, .087, .071, .052, .041, .028, .022,
-         .014, .0108, .00722, .00544, .00437, .00352, .00295, .00224, .00182,
-         .00154,
-         .00118, .000830, .000654, .000550, .000466, .000411, .000371, .000342,
-         .000301, .000274,
-         .000255, .000241, .000230, .000222, .000209, .000201, .000195, .000190,
-         .000186, .000180,
-         .000177, .000174, .000172, .000170, .000169, .000168, .000167, .000167,
-         .000167, .000166,
-         .000166, .000166, .000166, .000166]
-for i in range(30):
-    YELG3.append(.000165)
-# ANGULAR DISTRIBUTION PARAMETER EPSILON
-# EPSILON = 1.0-YEPS
-
-YEPSG3 = [1.0, .99711, .99712, 1.0, 1.0, 1.00562, 1.00565, 1.01118,
-          1.01386, 1.01920,
-          1.02440, 1.02688, 1.03202, 1.03445, 1.03689, 1.04209, 1.04686, 1.05400,
-          1.06119, 1.06604,
-          1.07792, 1.08474, 1.10094, 1.11490, 1.12663, 1.13826, 1.14789, 1.15724,
-          1.16707, 1.18142,
-          1.19873, 1.21165, 1.21951, 1.23447, 1.24855, 1.26918, 1.26215, 1.26104,
-          1.23265, 1.20568,
-          1.17192, 1.13835, 1.08539, 1.03657, .97200, .90989, .85384, .80836,
-          .71541, .65146,
-          .60355, .53739, .46277, .38963, .35522, .32989, .29979, .27742,
-          .21850, .20332,
-          .16921, .13304, .12155, .08318, .07263, .06130, .04637, .03720,
-          .02338, .016295,
-          .011386, .008195, .005394, .004037, .003205, .002548, .002113, .001572,
-          .001246, .001044,
-          7.61e-4, 4.925e-4, 3.404e-4, 2.803e-4, 2.179e-4, 1.766e-4, 1.475e-4,
-          1.258e-4, 9.60e-5, 7.65e-5,
-          6.29e-5, 5.29e-5, 4.53e-5, 3.93e-5, 3.07e-5, 2.47e-5, 2.04e-5, 1.72e-5,
-          1.47e-5, 1.05e-5,
-          7.84e-6, 6.12e-6, 4.91e-6, 3.373e-6, 2.463e-6, 1.881e-6, 1.483e-6,
-          1.200e-6, 9.91e-7, 7.09e-7,
-          5.322e-7, 4.146e-7, 3.319e-7, 2.718e-7, 1.775e-7, 1.249e-7, 9.27e-8,
-          7.15e-8, 4.62e-8, 3.23e-8,
-          2.382e-8, 1.828e-8, 1.447e-8, 1.173e-8, 8.14e-9, 5.97e-9, 4.56e-9,
-          3.59e-9, 2.90e-9, 1.83e-9,
-          1.26e-9, 9.10e-10, 6.90e-10, 4.40e-10, 3.00e-10, 2.16e-10, 1.63e-10,
-          1.27e-10, 1.02e-10, 7.0e-11,
-          5.1e-11, 3.8e-11, 3.0e-11, 2.4e-11]
-#  IONISATION (VALUES ABOVE 20KEV GENERATEe BY BORN-BETHE IN SUB)
-
-XIONG3 = [24.58739, 25.0, 25.5, 26.0, 26.5, 27.0, 27.5, 28.0, 28.5, 29.0,
-          29.5, 30.0, 30.5, 31.0, 31.5, 32.0, 32.5, 33.0, 33.5, 34.0,
-          36.0, 38.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0,
-          80.0, 85.0, 90.0, 95.0, 100., 105., 110., 115., 120., 125.,
-          130., 135., 140., 145., 150., 160., 170., 180., 190., 200.,
-          225., 250., 275., 300., 350., 400., 450., 500., 550., 600.,
-          650., 700., 750., 800., 850., 900., 950., 1000., 1200., 1400.,
-          1600., 1800., 2000., 2500., 3000., 3500., 4000., 4500., 5000., 5500.,
-          6000., 7000., 8000., 9000., 1.0e4, 1.2e4, 1.4e4, 1.6e4, 1.8e4, 2.0e4]
-# GROSS IONISATION
-
-YIONG3 = [.0, .0038, .0094, .0155, .0218, .0279, .0336, .0392, .0446,
-          .0504,
-          .0561, .0612, .0667, .0722, .0773, .0826, .0878, .0929, .0981, .103,
-          .121, .138, .154, .188, .219, .242, .262, .276, .290, .301,
-          .311, .319, .326, .333, .336, .338, .340, .341, .342, .342,
-          .343, .342, .341, .340, .338, .335, .332, .326, .322, .316,
-          .302, .290, .279, .268, .246, .231, .216, .203, .191, .180,
-          .171, .163, .155, .148, .142, .136, .130, .125, .109, .097,
-          .0872, .0795, .0729, .0608, .0524, .0458, .0410, .0368, .0336, .0311,
-          .0293, .0255, .0229, .0206, .0192, .0164, .0147, .0130, .0119, .0108]
-# COUNTING IONISATION
-
-YINCG3 = [.0, .0038, .0094, .0155, .0218, .0279, .0336, .0392, .0446,
-          .0504,
-          .0561, .0612, .0667, .0722, .0773, .0826, .0878, .0929, .0981, .103,
-          .121, .138, .154, .188, .219, .242, .262, .276, .290, .301,
-          .311, .319, .326, .333, .336, .338, .340, .341, .341, .341,
-          .342, .341, .340, .339, .337, .334, .331, .325, .321, .315,
-          .301, .289, .278, .267, .245, .230, .215, .202, .190, .179,
-          .170, .162, .154, .147, .141, .135, .129, .124, .108, .096,
-          .0867, .0791, .0725, .0605, .0522, .0456, .0408, .0367, .0335, .0310,
-          .0292, .0254, .0228, .0205, .0191, .0163, .0146, .0129, .0118, .0107]
-#  ALL EXCITATIONS IN UNITS OF 10**-18
-#  2 3S J=1 METASTABLE
-
-X23SG3 = [19.81961, 19.83, 19.85, 19.88, 19.9, 19.95, 20.0, 20.05, 20.1,
-          20.15,
-          20.2, 20.25, 20.3, 20.35, 20.4, 20.45, 20.50, 20.55, 20.6, 20.63,
-          20.66, 20.7, 20.75, 20.8, 20.85, 20.90, 20.94, 20.97, 21.0, 21.05,
-          21.1, 21.15, 21.2, 21.25, 21.3, 21.4, 21.5, 22.0, 22.2, 22.25,
-          22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48, 22.5, 22.52, 22.55,
-          22.6, 22.62, 22.64, 22.66, 22.68, 22.7, 22.71, 22.72, 22.75, 22.8,
-          22.85, 22.88, 22.9, 22.95, 22.97, 23.0, 23.05, 23.1, 23.3, 23.4,
-          23.5, 23.6, 23.8, 24.0, 24.5, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0,
-          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
-          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
-          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
-          1200., 1300., 1400., 1500., 1600., 1700., 1800., 1900., 2000.]
-
-Y23SG3 = [0.00, .780, 1.16, 1.64, 1.98, 2.81, 3.53, 4.13, 4.61, 4.96,
-          5.20, 5.35, 5.41, 5.36, 5.21, 4.95, 4.63, 4.23, 3.66, 3.16,
-          3.04, 3.13, 3.41, 3.77, 4.14, 4.44, 4.54, 4.43, 4.27, 3.96,
-          3.69, 3.48, 3.32, 3.21, 3.15, 3.08, 3.06, 3.09, 3.08, 3.04,
-          2.97, 2.84, 2.25, 1.58, 1.83, 4.91, 4.45, 4.13, 3.95, 3.79,
-          3.60, 3.51, 3.07, 2.45, 2.61, 2.67, 2.36, 2.97, 3.01, 2.96,
-          2.87, 2.61, 3.04, 2.75, 3.16, 3.06, 2.90, 2.79, 2.81, 2.86,
-          2.75, 2.80, 2.71, 2.65, 2.58, 2.48, 2.39, 2.30, 2.19, 2.09,
-          1.98, 1.84, 1.73, 1.53, 1.36, 1.22, 1.09, .985, .892, .812,
-          .742, .680, .555, .461, .389, .332, .287, .250, .220, .194,
-          .154, .125, .103, .0861, .0726, .0617, .0529, .0397, .0305, .0239,
-          .0191, .0154, .0126, .0105, .00740, .00542, .00407, .00314, .00247, .00187,
-          .00145, .00115, 9.23e-4, 7.53e-4, 6.22e-4, 5.20e-4, 4.39e-4, 3.74e-4,
-          3.21e-4, 2.42e-4,
-          1.86e-4, 1.47e-4, 1.18e-4, 9.57e-5, 7.89e-5, 6.58e-5, 5.54e-5, 4.71e-5,
-          4.04e-5]
-# 2 1S J=0 METASTABLE
-
-X21SG3 = [20.61577, 20.62, 20.63, 20.65, 20.67, 20.69, 20.72, 20.75,
-          20.80, 20.85,
-          20.90, 20.96, 20.98, 21.0, 21.05, 21.1, 21.15, 21.2, 21.22, 21.25,
-          21.3, 21.4, 21.5, 21.6, 21.7, 21.8, 21.9, 22.0, 22.1, 22.2,
-          22.25, 22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48, 22.5, 22.55,
-          22.59, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65, 22.68, 22.7, 22.71,
-          22.72, 22.73, 22.75, 22.78, 22.8, 22.85, 22.87, 22.88, 22.89, 22.9,
-          22.91, 22.92, 22.93, 22.94, 22.95, 22.96, 22.97, 22.98, 22.99, 23.0,
-          23.01, 23.05, 23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.8, 24.0,
-          24.2, 24.4, 24.7, 25.0, 26.0, 28.0, 30.0, 32.0, 35.0, 40.0,
-          45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 80.0, 90.0, 100., 110.,
-          120., 140., 170., 200., 240., 280., 320., 360., 400., 450.,
-          500., 550., 600., 650., 700., 800., 900., 1000., 1100., 1200.,
-          1400., 1600., 1800., 2000., 2200., 2400., 2700., 3000.
-          ]
-Y21SG3 = [0.00, .406, .477, .664, .820, .946, 1.10, 1.24, 1.47, 1.72,
-          2.03, 2.52, 2.40, 2.39, 2.39, 2.42, 2.46, 2.53, 2.55, 2.53,
-          2.52, 2.53, 2.57, 2.59, 2.62, 2.64, 2.65, 2.65, 2.65, 2.62,
-          2.59, 2.53, 2.42, 2.14, 1.86, 2.17, 3.35, 3.01, 2.79, 2.34,
-          1.80, 1.88, 2.53, 3.37, 3.64, 3.55, 3.42, 3.23, 2.95, 2.45,
-          1.84, 2.32, 2.49, 2.60, 2.62, 2.57, 2.40, 2.57, 2.59, 2.32,
-          1.73, 2.55, 2.36, 2.35, 2.32, 2.23, 2.50, 2.64, 2.61, 1.86,
-          2.28, 2.53, 2.35, 2.39, 2.44, 2.51, 2.48, 2.45, 2.44, 2.49,
-          2.57, 2.63, 2.56, 2.54, 2.53, 2.51, 2.45, 2.35, 2.21, 2.05,
-          1.88, 1.75, 1.65, 1.56, 1.48, 1.41, 1.30, 1.21, 1.14, 1.08,
-          1.03, .948, .850, .771, .686, .617, .560, .512, .471, .428,
-          .392, .361, .335, .312, .292, .259, .233, .211, .193, .178,
-          .154, .136, .121, .109, .0997, .0916, .0817, .0737]
-# 2 3P J=2,1,0
-
-X23PG3 = [20.96409, 20.97, 21.0, 21.05, 21.1, 21.15, 21.2, 21.25, 21.3,
-          21.35,
-          21.4, 21.5, 21.6, 21.7, 21.8, 21.9, 22.0, 22.1, 22.2, 22.3,
-          22.4, 22.45, 22.5, 22.55, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65,
-          22.66, 22.67, 22.68, 22.69, 22.7, 22.71, 22.72, 22.73, 22.75, 22.77,
-          22.8, 22.85, 22.88, 22.9, 22.91, 22.92, 22.93, 22.96, 22.97, 22.99,
-          23.0, 23.04, 23.06, 23.07, 23.08, 23.1, 23.2, 23.3, 23.4, 23.5,
-          23.6, 23.7, 23.8, 23.9, 24.0, 24.2, 24.4, 24.6, 25.0, 26.0,
-          27.0, 28.0, 29.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0,
-          44.0, 46.0, 48.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0,
-          85.0, 90.0, 95.0, 100., 110., 120., 130., 140., 150., 160.,
-          170., 180., 190., 200., 220., 240., 260., 280., 300., 340.,
-          380., 420., 460., 500., 550., 600., 700., 800., 900., 1000.,
-          1200., 1400., 1600., 1800., 2000., 2300., 2600., 3000.
-          ]
-Y23PG3 = [0.00, .0936, .241, .442, .611, .761, .912, 1.03, 1.10, 1.17,
-          1.23, 1.32, 1.40, 1.47, 1.54, 1.60, 1.66, 1.73, 1.80, 1.87,
-          1.94, 2.05, 2.07, 2.09, 2.22, 2.48, 2.68, 2.60, 2.27, 1.78,
-          1.45, 1.43, 1.52, 1.59, 1.60, 1.45, 1.47, 1.70, 1.83, 1.91,
-          1.95, 1.93, 2.32, 1.98, 1.72, 2.23, 2.09, 2.12, 2.07, 2.17,
-          1.82, 2.18, 1.80, 1.82, 1.94, 1.94, 1.90, 1.88, 1.89, 2.00,
-          2.16, 2.21, 2.14, 2.08, 2.09, 2.03, 2.16, 2.26, 2.29, 2.41,
-          2.47, 2.48, 2.47, 2.43, 2.30, 2.15, 2.00, 1.84, 1.69, 1.55,
-          1.43, 1.31, 1.21, 1.11, .907, .748, .622, .522, .441, .375,
-          .322, .277, .241, .210, .162, .127, .101, .0812, .0663, .0547,
-          .0455, .0382, .0324, .0277, .0206, .0156, .0121, .00961, .00772, .00518,
-          .00363, .00264, .00197, .00151, .00118, 8.48e-4, 5.21e-4, 3.42e-4,
-          2.37e-4, 1.70e-4,
-          9.65e-5, 5.99e-5, 3.96e-5, 2.76e-5, 2.00e-5, 1.30e-5, 8.94e-6, 5.78e-6]
-# 2 1P RESONANCE RAeIATION J=1   58.434 NM       OSC STRENGTH F=0.27608
-
-X21PG3 = [21.21802, 21.23, 21.25, 21.3, 21.4, 21.5, 21.6, 21.7, 21.8, 21.9,
-          22.0, 22.1, 22.2, 22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48,
-          22.5, 22.55, 22.57, 22.59, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65,
-          22.66, 22.68, 22.7, 22.71, 22.72, 22.73, 22.75, 22.8, 22.85, 22.87,
-          22.88, 22.9, 22.91, 22.94, 22.96, 22.97, 22.98, 22.99, 23.0, 23.01,
-          23.05, 23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.7, 23.8, 23.9,
-          24.0, 24.2, 24.4, 24.6, 24.8, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0,
-          40.0, 42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0, 58.0,
-          60.0, 64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100.,
-          110., 120., 130., 140., 160., 180., 200., 240., 280., 320.,
-          360., 400., 450., 500., 550., 600., 650., 700., 800., 900.,
-          1000., 1100., 1200., 1300., 1400.
-          ]
-Y21PG3 = [0.00, .0519, .0884, .163, .290, .397, .493, .582, .666, .748,
-          .831, .914, .994, 1.06, 1.09, 1.10, 1.10, 1.36, 1.46, 1.35,
-          1.32, 1.30, 1.28, 1.19, 1.07, .943, .922, .941, .872, .751,
-          .737, .959, 1.13, 1.17, .920, 1.03, 1.12, 1.23, 1.35, 1.27,
-          1.18, 1.22, 1.03, 1.14, 1.12, 1.38, 1.29, 1.25, 1.38, 1.24,
-          1.12, 1.13, 1.11, 1.12, 1.16, 1.30, 1.41, 1.44, 1.41, 1.37,
-          1.39, 1.42, 1.52, 1.70, 1.80, 1.89, 2.16, 2.42, 2.69, 2.96,
-          3.24, 3.53, 3.82, 4.12, 4.42, 4.71, 5.00, 5.29, 5.57, 5.85,
-          6.12, 6.63, 7.10, 7.53, 7.93, 8.28, 8.61, 8.90, 9.16, 9.39,
-          9.60, 9.95, 10.2, 10.4, 10.6, 10.7, 10.7, 10.8, 10.8, 10.7,
-          10.6, 10.4, 10.2, 10.0, 9.57, 9.13, 8.71, 7.96, 7.33, 6.79,
-          6.32, 5.92, 5.50, 5.13, 4.82, 4.54, 4.30, 4.08, 3.72, 3.41,
-          3.16, 2.95, 2.76, 2.60, 2.46]
-# 3 3S J=1
-
-X33SG3 = [22.71847, 22.72, 22.73, 22.74, 22.75, 22.78, 22.8, 22.83, 22.85,
-          22.86,
-          22.87, 22.88, 22.89, 22.9, 22.91, 22.912, 22.914, 22.916, 22.92, 22.94,
-          22.96, 22.98, 23.0, 23.02, 23.05, 23.1, 23.2, 23.25, 23.3, 23.35,
-          23.4, 23.44, 23.48, 23.52, 23.57, 23.59, 23.62, 23.65, 23.7, 23.75,
-          23.82, 23.89, 23.93, 24.0, 24.4, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0,
-          90.0, 95.0, 100., 110., 120., 130., 140., 150., 160., 170.,
-          180., 200., 220., 240., 260., 280., 300., 340., 380., 420.,
-          460., 500., 550., 600., 650., 700., 750., 800., 850., 900.,
-          950., 1000., 1100., 1200., 1300., 1400.
-          ]
-Y33SG3 = [0.00, .800, 1.15, 1.03, .985, .854, .812, .752, .644, .503,
-          .277, 1.79, 1.17, 1.06, 1.32, 1.51, 1.57, 1.37, .896, .848,
-          .907, .816, .838, .656, .872, .859, .890, .900, .860, .750,
-          .620, .810, .770, .960, .870, .870, .730, .710, .710, .730,
-          .770, .690, .760, .742, .725, .694, .665, .635, .605, .577,
-          .550, .524, .499, .452, .409, .370, .336, .305, .278, .253,
-          .231, .212, .178, .151, .130, .112, .0968, .0817, .0696, .0597,
-          .0516, .0449, .0393, .0306, .0242, .0195, .0160, .0132, .0111, .00938,
-          .00800, .00596, .00456, .00356, .00284, .00230, .00188, .00131, 9.53e-4,
-          7.13e-4,
-          5.47e-4, 4.29e-4, 3.25e-4, 2.52e-4, 1.99e-4, 1.60e-4, 1.31e-4, 1.08e-4,
-          9.02e-5, 7.62e-5,
-          6.49e-5, 5.58e-5, 4.20e-5, 3.25e-5, 2.56e-5, 2.06e-5]
-# 3 1S J=0
-
-X31SG3 = [22.92032, 22.96, 22.985, 23.02, 23.05, 23.07, 23.1, 23.15, 23.2,
-          23.25,
-          23.3, 23.33, 23.36, 23.39, 23.41, 23.45, 23.48, 23.51, 23.54, 23.56,
-          23.59, 23.62, 23.65, 23.68, 23.73, 23.82, 23.88, 23.94, 24.0, 25.0,
-          26.0, 28.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0,
-          52.0, 56.0, 60.0, 65.0, 70.0, 75.0, 80.0, 90.0, 100., 110.,
-          120., 130., 140., 160., 180., 200., 220., 240., 260., 280.,
-          300., 340., 380., 420., 460., 500., 550., 600., 650., 700.,
-          750., 800., 900., 1000., 1100., 1200., 1300., 1400., 1500., 1600.,
-          1800., 2000., 2400., 2800., 3200., 3600., 4000.
-          ]
-Y31SG3 = [0.00, .535, .457, .587, .490, .490, .478, .491, .506, .512,
-          .501, .470, .418, .374, .351, .371, .520, .681, .520, .467,
-          .496, .410, .442, .429, .416, .455, .377, .444, .422, .426,
-          .428, .429, .425, .419, .412, .402, .396, .387, .370, .354,
-          .338, .324, .311, .296, .283, .271, .260, .242, .226, .213,
-          .203, .193, .185, .172, .161, .152, .144, .137, .131, .125,
-          .120, .111, .103, .0957, .0894, .0839, .0778, .0725, .0678, .0636,
-          .0599, .0566, .0509, .0462, .0423, .0389, .0361, .0336, .0315, .0296,
-          .0264, .0238, .0199, .0171, .0150, .0133, .0120]
-# 3 3P J=2,1,0
-
-X33PG3 = [23.00707, 23.02, 23.03, 23.04, 23.05, 23.06, 23.07, 23.08, 23.1,
-          23.2,
-          23.3, 23.4, 23.5, 23.55, 23.6, 23.65, 23.7, 23.8, 23.9, 24.0,
-          24.1, 24.2, 24.3, 24.4, 24.6, 24.8, 25.0, 26.0, 27.0, 28.0,
-          30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0,
-          60.0, 64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100.,
-          110., 120., 130., 140., 150., 160., 170., 180., 200., 220.,
-          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
-          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
-          1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400., 2600., 2800.,
-          3000.]
-
-Y33PG3 = [0.00, .387, .410, .179, .148, .335, .381, .282, .280, .309,
-          .332, .359, .411, .416, .405, .448, .438, .467, .485, .493,
-          .500, .515, .517, .513, .503, .508, .512, .516, .515, .524,
-          .544, .539, .523, .500, .474, .446, .392, .342, .297, .259,
-          .226, .197, .173, .152, .134, .118, .102, .0878, .0762, .0665,
-          .0512, .0401, .0318, .0255, .0208, .0171, .0142, .0119, .00854, .00632,
-          .00479, .00371, .00292, .00234, .00157, .00109, 7.93e-4, 5.92e-4, 4.53e-4,
-          3.34e-4,
-          2.53e-4, 1.96e-4, 1.55e-4, 1.24e-4, 1.01e-4, 8.37e-5, 6.99e-5, 5.89e-5,
-          5.02e-5, 3.72e-5,
-          2.83e-5, 2.21e-5, 1.75e-5, 1.16e-5, 8.05e-6, 5.82e-6, 4.34e-6, 3.32e-6,
-          2.60e-6, 2.07e-6,
-          1.68e-6]
-# 3 3e J=3,2,1
-
-X33DG3 = [23.07365, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4, 23.45,
-          23.5,
-          23.55, 23.6, 23.66, 23.7, 23.75, 23.8, 23.85, 23.9, 23.95, 24.0,
-          24.05, 24.1, 24.15, 24.2, 24.25, 24.3, 24.35, 24.4, 24.45, 24.5,
-          24.55, 24.6, 24.65, 24.7, 24.8, 24.9, 25.0, 26.0, 27.0, 28.0,
-          29.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 64.0, 68.0, 72.0,
-          76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.,
-          150., 160., 180., 200., 220., 240., 260., 280., 300., 320.,
-          340., 360., 380., 400., 440., 480., 520., 560., 600., 650.,
-          700., 750., 800., 850., 900., 1000., 1100., 1200., 1300., 1400.,
-          1600., 1800., 2000., 2200., 2400., 2600., 2800., 3000.
-          ]
-Y33DG3 = [0.00, .00956, .0236, .0401, .0602, .0861, .120, .166, .222, .229,
-          .238, .197, .123, .118, .110, .112, .104, .110, .099, .0985,
-          .113, .107, .109, .114, .118, .119, .118, .116, .113, .105,
-          .112, .116, .118, .119, .120, .120, .119, .115, .118, .121,
-          .121, .120, .113, .105, .0958, .0867, .0780, .0701, .0628, .0563,
-          .0505, .0453, .0407, .0366, .0330, .0298, .0269, .0221, .0183, .0152,
-          .0127, .0107, .00868, .00712, .00588, .00490, .00347, .00252, .00188,
-          .00142,
-          .00110, 8.64e-4, 5.56e-4, 3.76e-4, 2.64e-4, 1.92e-4, 1.44e-4, 1.10e-4,
-          8.60e-5, 6.84e-5,
-          5.53e-5, 4.53e-5, 3.76e-5, 3.15e-5, 2.28e-5, 1.70e-5, 1.30e-5, 1.02e-5,
-          8.12e-6, 6.25e-6,
-          4.92e-6, 3.94e-6, 3.21e-6, 2.64e-6, 2.21e-6, 1.58e-6, 1.17e-6, 8.95e-7,
-          6.98e-7, 5.55e-7,
-          3.67e-7, 2.56e-7, 1.85e-7, 1.38e-7, 1.06e-7, 8.32e-8, 6.64e-8, 5.38e-8]
-# 3 1e J=2
-
-X31DG3 = [23.07407, 23.08, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4,
-          23.45,
-          23.5, 23.55, 23.6, 23.66, 23.7, 23.75, 23.8, 23.85, 23.9, 23.95,
-          24.0, 24.05, 24.1, 24.15, 24.2, 24.25, 24.3, 24.35, 24.4, 24.45,
-          24.5, 24.6, 24.7, 24.8, 25.0, 26.0, 28.0, 30.0, 32.0, 34.0,
-          36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0, 54.0, 58.0,
-          62.0, 66.0, 70.0, 75.0, 80.0, 90.0, 100., 110., 120., 140.,
-          160., 180., 200., 220., 240., 260., 280., 300., 320., 340.,
-          370., 400., 440., 480., 520., 560., 600., 650., 700., 800.,
-          900., 1000., 1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200.,
-          2400., 2600., 2800., 3000.]
-
-Y31DG3 = [0.00, .097, .0973, .110, .126, .148, .175, .200, .221, .237,
-          .235, .198, .185, .192, .168, .181, .189, .172, .193, .184,
-          .190, .209, .206, .211, .214, .215, .212, .206, .199, .191,
-          .174, .177, .179, .180, .181, .180, .180, .188, .198, .209,
-          .217, .224, .229, .232, .234, .235, .234, .233, .228, .222,
-          .215, .207, .199, .190, .180, .163, .148, .135, .124, .105,
-          .0913, .0803, .0715, .0643, .0584, .0534, .0492, .0456, .0424, .0397,
-          .0361, .0332, .0299, .0272, .0249, .0230, .0213, .0196, .0181, .0156,
-          .0138, .0124, .0112, .0102, .00938, .00868, .00756, .00669, .00600, .00544,
-          .00497, .00458, .00425, .00396]
-# 3 1P  RESONANCE RAeIATION J=1  53.703 NM     OSC STRENGTH F=0.07342
-
-X31PG3 = [23.08702, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4, 23.45,
-          23.5,
-          23.54, 23.56, 23.60, 23.64, 23.68, 23.7, 23.75, 23.80, 23.88, 23.9,
-          23.95, 24.0, 24.05, 24.1, 24.15, 24.2, 24.3, 24.4, 24.5, 24.6,
-          24.7, 24.8, 25.0, 25.2, 25.4, 25.6, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 65.0, 70.0, 75.0,
-          80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140., 160.,
-          180., 200., 220., 240., 260., 280., 300., 340., 380., 420.,
-          460., 500., 550., 600., 650., 700., 750., 800., 900., 1000.,
-          1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400., 2600.,
-          2800., 3000., 3400., 3800., 4200., 4600., 5000., 5500., 6000., 6500.,
-          7000., 8000., 9000., 10000.]
-
-Y31PG3 = [0.00, .114, .129, .137, .137, .134, .131, .130, .128, .129,
-          .117, .127, .122, .163, .146, .150, .191, .180, .226, .224,
-          .218, .230, .245, .253, .265, .274, .294, .308, .330, .360,
-          .373, .382, .397, .409, .418, .423, .434, .469, .516, .577,
-          .648, .723, .808, .941, 1.07, 1.20, 1.32, 1.43, 1.54, 1.64,
-          1.74, 1.82, 1.90, 1.97, 2.04, 2.10, 2.15, 2.27, 2.35, 2.42,
-          2.47, 2.50, 2.52, 2.53, 2.53, 2.52, 2.50, 2.47, 2.42, 2.33,
-          2.24, 2.14, 2.06, 1.97, 1.90, 1.82, 1.76, 1.64, 1.53, 1.44,
-          1.36, 1.29, 1.21, 1.15, 1.08, 1.03, .982, .938, .862, .799,
-          .745, .699, .658, .623, .563, .514, .474, .440, .411, .386,
-          .364, .344, .312, .285, .263, .244, .228, .211, .197, .184,
-          .173, .155, .140, .128]
-# 4 3S J=1
-
-X43SG3 = [23.59396, 23.62, 23.65, 23.7, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0,
-          28.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 64.0, 68.0, 72.0,
-          76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.,
-          150., 160., 180., 200., 220., 240., 260., 280., 300., 320.,
-          340., 360., 380., 400., 440., 480., 520., 560., 600.
-          ]
-Y43SG3 = [0.0, .314, .304, .292, .276, .266, .260, .243, .238, .234,
-          .227, .212, .195, .178, .162, .147, .133, .121, .110, .100,
-          .0911, .0832, .0761, .0697, .0640, .0589, .0543, .0464, .0399, .0346,
-          .0301, .0264, .0225, .0194, .0168, .0147, .0113, .00894, .00718, .00585,
-          .00483, .00403, .00289, .00214, .00164, .00127, .00101, 8.17e-4, 6.69e-4,
-          5.55e-4,
-          4.66e-4, 3.94e-4, 3.37e-4, 2.90e-4, 2.19e-4, 1.70e-4, 1.34e-4, 1.08e-4,
-          8.81e-5]
-# 4 1S J=0
-
-X41SG3 = [23.67357, 23.7, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0,
-          60.0, 65.0, 70.0, 75.0, 80.0, 90.0, 100., 110., 120., 130.,
-          140., 160., 180., 200., 250., 300., 350., 400., 450., 500.,
-          600., 700., 800., 900., 1000., 1200., 1400., 1600., 1800., 2000.,
-          2200., 2400., 2600., 2800., 3000.
-          ]
-Y41SG3 = [0.0, .109, .110, .111, .112, .121, .128, .133, .138, .141,
-          .143, .146, .148, .147, .146, .144, .139, .134, .129, .123,
-          .118, .113, .108, .103, .0990, .0922, .0868, .0823, .0786, .0753,
-          .0725, .0677, .0636, .0601, .0527, .0469, .0422, .0382, .0349, .0322,
-          .0277, .0243, .0216, .0195, .0177, .0150, .0130, .0114, .0102, .00925,
-          .00845, .00777, .00719, .00669, .00626]
-# 4 3P J=2,1,0
-
-X43PG3 = [23.70789, 23.75, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
-          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
-          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
-          100., 110., 120., 130., 140., 150., 160., 170., 180., 190.,
-          200., 220., 240., 260., 280., 300., 320., 340., 360., 380.,
-          400., 440., 480., 520., 560., 600., 650., 700., 750., 800.,
-          850., 900., 950., 1000., 1100., 1200., 1300., 1400., 1600., 1800.,
-          2000., 2200., 2400., 2600., 2800., 3000.]
-
-Y43PG3 = [0.0, .085, .110, .118, .152, .177, .194, .205, .211, .215,
-          .215, .209, .200, .189, .178, .167, .156, .146, .136, .127,
-          .110, .0962, .0840, .0736, .0647, .0553, .0475, .0410, .0356, .0310,
-          .0271, .0210, .0165, .0132, .0106, .00865, .00713, .00593, .00498, .00421,
-          .00359, .00266, .00202, .00156, .00123, 9.88e-4, 8.03e-4, 6.60e-4,
-          5.49e-4, 4.61e-4,
-          3.90e-4, 2.87e-4, 2.17e-4, 1.67e-4, 1.32e-4, 1.06e-4, 8.18e-5, 6.46e-5,
-          5.18e-5, 4.22e-5,
-          3.48e-5, 2.90e-5, 2.45e-5, 2.08e-5, 1.54e-5, 1.17e-5, 9.13e-6, 7.25e-6,
-          4.78e-6, 3.32e-6,
-          2.39e-6, 1.78e-6, 1.36e-6, 1.07e-6, 8.50e-7, 6.88e-7]
-# 4 3e J=3,2,1
-
-X43DG3 = [23.73609, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
-          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
-          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
-          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
-          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
-          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
-          1200., 1300., 1400., 1500., 1600.
-          ]
-Y43DG3 = [.0, .0288, .0363, .0407, .0575, .0646, .0681, .0692, .069, .0675,
-          .0629, .0573, .0516, .0461, .0411, .0365, .0325, .0290, .0258, .0231,
-          .0186, .0151, .0123, .0102, .00847, .00681, .00554, .00455, .00378, .00316,
-          .00267, .00194, .00145, .00111, 8.61e-4, 6.81e-4, 5.47e-4, 3.66e-4,
-          2.55e-4, 1.84e-4,
-          1.37e-4, 1.04e-4, 8.08e-5, 6.39e-5, 4.18e-5, 2.87e-5, 2.05e-5, 1.51e-5,
-          1.14e-5, 8.32e-6,
-          6.24e-6, 4.79e-6, 3.75e-6, 3.00e-6, 2.43e-6, 1.99e-6, 1.65e-6, 1.39e-6,
-          1.18e-6, 8.66e-7,
-          6.55e-7, 5.08e-7, 4.01e-7, 3.22e-7, 2.63e-7]
-# 4 1e J=2
-
-X41DG3 = [23.73633, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 32.0,
-          34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0, 60.0, 64.0,
-          68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120.,
-          130., 140., 160., 180., 200., 220., 240., 260., 300., 340.,
-          380., 420., 460., 500., 550., 600., 650., 700., 800., 900.,
-          1000., 1100., 1200.
-          ]
-Y41DG3 = [0.0, .0791, .0799, .0846, .0902, .0959, .102, .107, .112, .120,
-          .127, .131, .134, .136, .136, .134, .131, .126, .121, .116,
-          .112, .107, .102, .0978, .0927, .0880, .0836, .0796, .0724, .0663,
-          .0610, .0564, .0489, .0430, .0384, .0346, .0314, .0288, .0246, .0215,
-          .0190, .0171, .0155, .0142, .0128, .0117, .0107, .00990, .00860, .00760,
-          .00681, .00616, .00563]
-# 4 3F J=3,4,2
-
-X43FG3 = [23.73701, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
-          31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0,
-          42.0, 44.0, 46.0, 48.0, 50.0, 54.0, 58.0, 62.0, 66.0, 70.0,
-          75.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.
-          ]
-Y43FG3 = [0.0, .0357, .0318, .0289, .0161, .0117, .00922, .00760, .00642,
-          .00550,
-          .00478, .00418, .00369, .00327, .00291, .00261, .00234, .00211, .00191,
-          .00173,
-          .00144, .00121, .00102, 8.68e-4, 7.44e-4, 5.57e-4, 4.25e-4, 3.30e-4,
-          2.61e-4, 2.09e-4,
-          1.61e-4, 1.26e-4, 9.98e-5, 8.03e-5, 6.53e-5, 5.36e-5, 3.72e-5, 2.66e-5,
-          1.96e-5, 1.47e-5]
-# 4 1F J=3
-
-X41FG3 = [23.73701, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0,
-          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
-          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
-          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
-          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
-          600., 650., 700., 750., 800., 900., 1000.
-          ]
-Y41FG3 = [0.0, .0175, .0172, .0160, .0149, .0139, .0130, .0122, .0114,
-          .0108,
-          .0102, .00909, .00819, .00742, .00677, .00619, .00569, .00525, .00487,
-          .00452,
-          .00393, .00346, .00307, .00274, .00246, .00217, .00193, .00173, .00156,
-          .00142,
-          .00129, .00108, 9.24e-4, 7.99e-4, 6.99e-4, 6.17e-4, 5.50e-4, 4.47e-4,
-          3.73e-4, 3.19e-4,
-          2.77e-4, 2.45e-4, 2.19e-4, 1.99e-4, 1.67e-4, 1.45e-4, 1.28e-4, 1.15e-4,
-          1.04e-4, 9.39e-5,
-          8.55e-5, 7.86e-5, 7.27e-5, 6.78e-5, 6.35e-5, 5.63e-5, 5.07e-5]
-# 4 1P RESONANCE RAeIATION J=1   52.222 NM    OSC STRENGTH F=0.02986
-
-X41PG3 = [23.74207, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
-          31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0,
-          42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0,
-          64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100., 110.,
-          120., 130., 140., 150., 160., 180., 200., 220., 240., 260.,
-          280., 300., 320., 340., 360., 380., 400., 440., 480., 520.,
-          560., 600., 640., 680., 720., 760., 800., 850., 900., 950.,
-          1000., 1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400.,
-          2600., 2800., 3000., 3400., 3800., 4200., 4600., 5000., 5500., 6000.,
-          6500., 7000., 7500., 8000., 9000., 10000.
-          ]
-Y41PG3 = [0.00, .0147, .0242, .0334, .107, .158, .196, .227, .255, .281,
-          .307, .333, .360, .387, .414, .442, .470, .498, .526, .553,
-          .606, .657, .704, .748, .789, .826, .860, .891, .919, .944,
-          .986, 1.02, 1.05, 1.06, 1.08, 1.09, 1.10, 1.10, 1.10, 1.09,
-          1.07, 1.05, 1.03, 1.01, .985, .939, .896, .855, .817, .783,
-          .751, .722, .695, .670, .646, .625, .605, .569, .537, .509,
-          .484, .461, .441, .423, .406, .390, .376, .360, .345, .332,
-          .320, .298, .279, .263, .248, .224, .205, .189, .175, .163,
-          .153, .145, .137, .124, .113, .104, .0969, .0905, .0837, .0779,
-          .0729, .0686, .0648, .0614, .0556, .0510]
-# 5 1P RESONANCE  RAeIATION J=1  51.562 NM      F=0.01504
-# 6 1P RESONANCE  RAeIATION J=1  51.210 NM      F=0.00863
-# 7 1P RESONANCE  RAeIATION J=1  51.000 NM      F=0.00540
-# 8 1P RESONANCE  RAeIATION J=1  50.865 NM      F=0.00362
-# 9 1P RESONANCE  RAeIATION J=1  50.772 NM      F=0.00253
-# 10 1P RESONANCE RAeIATION J=1  50.706 NM      F=0.00184
-# 11 1P RESONANCE RAeIATION J=1  50.657 NM      F=0.00138
-# 12 1P RESONANCE RAeIATION J=1  50.620 NM      F=0.00106
-# SUM HIGHER 1P LEVELS RESONANCE RAeIATION J=1  F=0.00440
-# TOTAL SUM OSCILLATOR STRENGTH = 0.42326
-#
-# BREMSSTRAHLUNG X-SECTION WITH CUT OFF
-
-Z2TG3 = [42.1, 23.5, 10.7, 5.88, 3.25, 1.50, .886, .582, .437, .429,
-         .460, .484, .502, .515, .525, .540, .550, .566, .575, .585,
-         .592, .596, .597, .598, .598]
-# UNITS 10**-24
-
-EBRMG3 = [1000., 2000., 5000., 1.E4, 2.E4, 5.E4, 1.E5, 2.E5, 5.E5, 1.E6,
-          2.E6, 3.E6, 4.E6, 5.E6, 6.E6, 8.E6, 1.E7, 1.5E7, 2.E7, 3.E7,
-          4.E7, 5.E7, 6.E7, 8.E7, 1.E8]
-gd['gas3/XEN'] = XENG3
-gd['gas3/YEM'] = YEMG3
-gd['gas3/YEL'] = YELG3
-gd['gas3/YEPS'] = YEPSG3
-gd['gas3/XION'] = XIONG3
-gd['gas3/YION'] = YIONG3
-gd['gas3/YINC'] = YINCG3
-gd['gas3/X23S'] = X23SG3
-gd['gas3/Y23S'] = Y23SG3
-gd['gas3/X21S'] = X21SG3
-gd['gas3/Y21S'] = Y21SG3
-gd['gas3/X23P'] = X23PG3
-gd['gas3/Y23P'] = Y23PG3
-gd['gas3/X21P'] = X21PG3
-gd['gas3/Y21P'] = Y21PG3
-gd['gas3/X33S'] = X33SG3
-gd['gas3/Y33S'] = Y33SG3
-gd['gas3/X31S'] = X31SG3
-gd['gas3/Y31S'] = Y31SG3
-gd['gas3/X33P'] = X33PG3
-gd['gas3/Y33P'] = Y33PG3
-gd['gas3/X33D'] = X33DG3
-gd['gas3/Y33D'] = Y33DG3
-gd['gas3/X31D'] = X31DG3
-gd['gas3/Y31D'] = Y31DG3
-gd['gas3/X31P'] = X31PG3
-gd['gas3/Y31P'] = Y31PG3
-gd['gas3/X43S'] = X43SG3
-gd['gas3/Y43S'] = Y43SG3
-gd['gas3/X41S'] = X41SG3
-gd['gas3/Y41S'] = Y41SG3
-gd['gas3/X43P'] = X43PG3
-gd['gas3/Y43P'] = Y43PG3
-gd['gas3/X43D'] = X43DG3
-gd['gas3/Y43D'] = Y43DG3
-gd['gas3/X41D'] = X41DG3
-gd['gas3/Y41D'] = Y41DG3
-gd['gas3/X43F'] = X43FG3
-gd['gas3/Y43F'] = Y43FG3
-gd['gas3/X41F'] = X41FG3
-gd['gas3/Y41F'] = Y41FG3
-gd['gas3/X41P'] = X41PG3
-gd['gas3/Y41P'] = Y41PG3
-gd['gas3/Z2T'] = Z2TG3
-gd['gas3/EBRM'] = EBRMG3
-
-# ELASTIC
-
-XENG4 = [0.00, .008, .009, 0.01, .013, .017, .020, .025, 0.03, 0.04,
-         0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.12, 0.15, 0.18, 0.20,
-         0.25, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00, 1.20,
-         1.50, 1.80, 2.00, 2.50, 3.00, 4.00, 5.00, 6.00, 7.00, 8.00,
-         9.00, 10.0, 11.0, 12.0, 14.0, 16.0, 18.0, 20.0, 25.0, 30.0,
-         35.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150.,
-         200., 250., 300., 400., 500., 600., 800., 1000., 1500., 2000.,
-         3000., 4000., 6000., 8000., 10000., 1.25e4, 1.5e4, 2.0e4, 2.5e4, 3.0e4,
-         4.0e4, 6.0e4, 8.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5,
-         3.5e5, 4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6,
-         1.5e6, 1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6,
-         7.0e6, 8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7,
-         3.5e7, 4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8,
-         1.5e8, 1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8,
-         7.0e8, 8.0e8, 9.0e8, 1.0e9]
-# ELASTIC MOMENTUM TRANSFER
-
-YEMG4 = [4.89, 5.18, 5.19, 5.21, 5.26, 5.31, 5.35, 5.41, 5.46, 5.54,
-         5.62, 5.68, 5.74, 5.79, 5.83, 5.86, 5.94, 6.04, 6.12, 6.16,
-         6.27, 6.35, 6.49, 6.59, 6.66, 6.73, 6.77, 6.82, 6.85, 6.91,
-         6.96, 6.98, 6.99, 6.96, 6.89, 6.62, 6.31, 6.00, 5.68, 5.35,
-         5.03, 4.72, 4.45, 4.20, 3.68, 3.28, 2.95, 2.64, 2.05, 1.63,
-         1.33, 1.09, .785, .590, .465, .375, .309, .262, .179, .132,
-         .0807, .0549, .0400, .0242, .0164, .0119, .00716, .00482, .00234, .0014,
-         .000676, 4.03e-4, 1.93e-4, 1.15e-4, 7.65e-5, 5.10e-5, 3.66e-5, 2.17e-5,
-         1.45e-5, 1.04e-5,
-         6.18e-6, 2.99e-6, 1.71e-6, 1.21e-6, 8.26e-7, 6.05e-7, 4.66e-7, 3.73e-7,
-         2.58e-7, 1.92e-7,
-         1.50e-7, 1.22e-7, 1.01e-7, 8.59e-8, 6.48e-8, 5.11e-8, 4.17e-8, 3.48e-8,
-         2.96e-8, 2.10e-8,
-         1.58e-8, 1.24e-8, 1.01e-8, 7.05e-9, 5.24e-9, 4.07e-9, 3.25e-9, 2.67e-9,
-         2.23e-9, 1.63e-9,
-         1.25e-9, 9.89e-10, 8.04e-10, 6.67e-10, 4.47e-10, 3.22e-10, 2.43e-10,
-         1.91e-10, 1.27e-10, 9.04e-11,
-         6.79e-11, 5.29e-11, 4.24e-11, 3.48e-11, 2.46e-11, 1.84e-11, 1.42e-11,
-         1.13e-11, 9.26e-12, 6.00e-12,
-         4.20e-12, 3.10e-12, 2.38e-12, 1.53e-12, 1.06e-12, 7.82e-13, 5.99e-13,
-         4.74e-13, 3.84e-13, 2.67e-13,
-         1.96e-13, 1.50e-13, 1.19e-13, 9.62e-14]
-# ELASTIC TOTAL
-
-YELG4 = [4.89, 5.19, 5.20, 5.21, 5.26, 5.29, 5.33, 5.37, 5.41, 5.47,
-         5.53, 5.58, 5.62, 5.66, 5.69, 5.70, 5.76, 5.83, 5.88, 5.90,
-         5.96, 6.01, 6.08, 6.12, 6.14, 6.16, 6.16, 6.17, 6.16, 6.16,
-         6.14, 6.11, 6.09, 6.01, 5.90, 5.60, 5.36, 5.10, 4.91, 4.70,
-         4.51, 4.32, 4.21, 4.10, 3.75, 3.49, 3.27, 3.03, 2.54, 2.14,
-         1.83, 1.61, 1.27, 1.06, .884, .746, .652, .580, .460, .355,
-         .244, .194, .150, .117, .087, .071, .052, .041, .028, .022,
-         .014, .0108, .00722, .00544, .00437, .00352, .00295, .00224, .00182,
-         .00154,
-         .00118, .000830, .000654, .000550, .000466, .000411, .000371, .000342,
-         .000301, .000274,
-         .000255, .000241, .000230, .000222, .000209, .000201, .000195, .000190,
-         .000186, .000180,
-         .000177, .000174, .000172, .000170, .000169, .000168, .000167, .000167,
-         .000167, .000166,
-         .000166, .000166, .000166, .000166]
-# ANGULAR DISTRIBUTION PARAMETER EPSILON
-# EPSILON = 1.0-YEPS
-
-YEPSG4 = [1.0, .99711, .99712, 1.0, 1.0, 1.00562, 1.00565, 1.01118,
-          1.01386, 1.01920,
-          1.02440, 1.02688, 1.03202, 1.03445, 1.03689, 1.04209, 1.04686, 1.05400,
-          1.06119, 1.06604,
-          1.07792, 1.08474, 1.10094, 1.11490, 1.12663, 1.13826, 1.14789, 1.15724,
-          1.16707, 1.18142,
-          1.19873, 1.21165, 1.21951, 1.23447, 1.24855, 1.26918, 1.26215, 1.26104,
-          1.23265, 1.20568,
-          1.17192, 1.13835, 1.08539, 1.03657, .97200, .90989, .85384, .80836,
-          .71541, .65146,
-          .60355, .53739, .46277, .38963, .35522, .32989, .29979, .27742,
-          .21850, .20332,
-          .16921, .13304, .12155, .08318, .07263, .06130, .04637, .03720,
-          .02338, .016295,
-          .011386, .008195, .005394, .004037, .003205, .002548, .002113, .001572,
-          .001246, .001044,
-          7.61e-4, 4.925e-4, 3.404e-4, 2.803e-4, 2.179e-4, 1.766e-4, 1.475e-4,
-          1.258e-4, 9.60e-5, 7.65e-5,
-          6.29e-5, 5.29e-5, 4.53e-5, 3.93e-5, 3.07e-5, 2.47e-5, 2.04e-5, 1.72e-5,
-          1.47e-5, 1.05e-5,
-          7.84e-6, 6.12e-6, 4.91e-6, 3.373e-6, 2.463e-6, 1.881e-6, 1.483e-6,
-          1.200e-6, 9.91e-7, 7.09e-7,
-          5.322e-7, 4.146e-7, 3.319e-7, 2.718e-7, 1.775e-7, 1.249e-7, 9.27e-8,
-          7.15e-8, 4.62e-8, 3.23e-8,
-          2.382e-8, 1.828e-8, 1.447e-8, 1.173e-8, 8.14e-9, 5.97e-9, 4.56e-9,
-          3.59e-9, 2.90e-9, 1.83e-9,
-          1.26e-9, 9.10e-10, 6.90e-10, 4.40e-10, 3.00e-10, 2.16e-10, 1.63e-10,
-          1.27e-10, 1.02e-10, 7.0e-11,
-          5.1e-11, 3.8e-11, 3.0e-11, 2.4e-11]
-#  IONISATION (VALUES ABOVE 20KEV GENERATEe BY BORN-BETHE IN SUB)
-
-XIONG4 = [24.58739, 25.0, 25.5, 26.0, 26.5, 27.0, 27.5, 28.0, 28.5, 29.0,
-          29.5, 30.0, 30.5, 31.0, 31.5, 32.0, 32.5, 33.0, 33.5, 34.0,
-          36.0, 38.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0,
-          80.0, 85.0, 90.0, 95.0, 100., 105., 110., 115., 120., 125.,
-          130., 135., 140., 145., 150., 160., 170., 180., 190., 200.,
-          225., 250., 275., 300., 350., 400., 450., 500., 550., 600.,
-          650., 700., 750., 800., 850., 900., 950., 1000., 1200., 1400.,
-          1600., 1800., 2000., 2500., 3000., 3500., 4000., 4500., 5000., 5500.,
-          6000., 7000., 8000., 9000., 1.0e4, 1.2e4, 1.4e4, 1.6e4, 1.8e4, 2.0e4]
-# GROSS IONISATION
-
-YIONG4 = [.0, .0038, .0094, .0155, .0218, .0279, .0336, .0392, .0446,
-          .0504,
-          .0561, .0612, .0667, .0722, .0773, .0826, .0878, .0929, .0981, .103,
-          .121, .138, .154, .188, .219, .242, .262, .276, .290, .301,
-          .311, .319, .326, .333, .336, .338, .340, .341, .342, .342,
-          .343, .342, .341, .340, .338, .335, .332, .326, .322, .316,
-          .302, .290, .279, .268, .246, .231, .216, .203, .191, .180,
-          .171, .163, .155, .148, .142, .136, .130, .125, .109, .097,
-          .0872, .0795, .0729, .0608, .0524, .0458, .0410, .0368, .0336, .0311,
-          .0293, .0255, .0229, .0206, .0192, .0164, .0147, .0130, .0119, .0108]
-# COUNTING IONISATION
-
-YINCG4 = [.0, .0038, .0094, .0155, .0218, .0279, .0336, .0392, .0446,
-          .0504,
-          .0561, .0612, .0667, .0722, .0773, .0826, .0878, .0929, .0981, .103,
-          .121, .138, .154, .188, .219, .242, .262, .276, .290, .301,
-          .311, .319, .326, .333, .336, .338, .340, .341, .341, .341,
-          .342, .341, .340, .339, .337, .334, .331, .325, .321, .315,
-          .301, .289, .278, .267, .245, .230, .215, .202, .190, .179,
-          .170, .162, .154, .147, .141, .135, .129, .124, .108, .096,
-          .0867, .0791, .0725, .0605, .0522, .0456, .0408, .0367, .0335, .0310,
-          .0292, .0254, .0228, .0205, .0191, .0163, .0146, .0129, .0118, .0107]
-#  ALL EXCITATIONS IN UNITS OF 10**-18
-#  2 3S J=1 METASTABLE
-
-X23SG4 = [19.81961, 19.83, 19.85, 19.88, 19.9, 19.95, 20.0, 20.05, 20.1,
-          20.15,
-          20.2, 20.25, 20.3, 20.35, 20.4, 20.45, 20.50, 20.55, 20.6, 20.63,
-          20.66, 20.7, 20.75, 20.8, 20.85, 20.90, 20.94, 20.97, 21.0, 21.05,
-          21.1, 21.15, 21.2, 21.25, 21.3, 21.4, 21.5, 22.0, 22.2, 22.25,
-          22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48, 22.5, 22.52, 22.55,
-          22.6, 22.62, 22.64, 22.66, 22.68, 22.7, 22.71, 22.72, 22.75, 22.8,
-          22.85, 22.88, 22.9, 22.95, 22.97, 23.0, 23.05, 23.1, 23.3, 23.4,
-          23.5, 23.6, 23.8, 24.0, 24.5, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0,
-          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
-          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
-          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
-          1200., 1300., 1400., 1500., 1600., 1700., 1800., 1900., 2000.
-          ]
-Y23SG4 = [0.00, .780, 1.16, 1.64, 1.98, 2.81, 3.53, 4.13, 4.61, 4.96,
-          5.20, 5.35, 5.41, 5.36, 5.21, 4.95, 4.63, 4.23, 3.66, 3.16,
-          3.04, 3.13, 3.41, 3.77, 4.14, 4.44, 4.54, 4.43, 4.27, 3.96,
-          3.69, 3.48, 3.32, 3.21, 3.15, 3.08, 3.06, 3.09, 3.08, 3.04,
-          2.97, 2.84, 2.25, 1.58, 1.83, 4.91, 4.45, 4.13, 3.95, 3.79,
-          3.60, 3.51, 3.07, 2.45, 2.61, 2.67, 2.36, 2.97, 3.01, 2.96,
-          2.87, 2.61, 3.04, 2.75, 3.16, 3.06, 2.90, 2.79, 2.81, 2.86,
-          2.75, 2.80, 2.71, 2.65, 2.58, 2.48, 2.39, 2.30, 2.19, 2.09,
-          1.98, 1.84, 1.73, 1.53, 1.36, 1.22, 1.09, .985, .892, .812,
-          .742, .680, .555, .461, .389, .332, .287, .250, .220, .194,
-          .154, .125, .103, .0861, .0726, .0617, .0529, .0397, .0305, .0239,
-          .0191, .0154, .0126, .0105, .00740, .00542, .00407, .00314, .00247, .00187,
-          .00145, .00115, 9.23e-4, 7.53e-4, 6.22e-4, 5.20e-4, 4.39e-4, 3.74e-4,
-          3.21e-4, 2.42e-4,
-          1.86e-4, 1.47e-4, 1.18e-4, 9.57e-5, 7.89e-5, 6.58e-5, 5.54e-5, 4.71e-5,
-          4.04e-5]
-# 2 1S J=0 METASTABLE
-
-X21SG4 = [20.61577, 20.62, 20.63, 20.65, 20.67, 20.69, 20.72, 20.75,
-          20.80, 20.85,
-          20.90, 20.96, 20.98, 21.0, 21.05, 21.1, 21.15, 21.2, 21.22, 21.25,
-          21.3, 21.4, 21.5, 21.6, 21.7, 21.8, 21.9, 22.0, 22.1, 22.2,
-          22.25, 22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48, 22.5, 22.55,
-          22.59, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65, 22.68, 22.7, 22.71,
-          22.72, 22.73, 22.75, 22.78, 22.8, 22.85, 22.87, 22.88, 22.89, 22.9,
-          22.91, 22.92, 22.93, 22.94, 22.95, 22.96, 22.97, 22.98, 22.99, 23.0,
-          23.01, 23.05, 23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.8, 24.0,
-          24.2, 24.4, 24.7, 25.0, 26.0, 28.0, 30.0, 32.0, 35.0, 40.0,
-          45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 80.0, 90.0, 100., 110.,
-          120., 140., 170., 200., 240., 280., 320., 360., 400., 450.,
-          500., 550., 600., 650., 700., 800., 900., 1000., 1100., 1200.,
-          1400., 1600., 1800., 2000., 2200., 2400., 2700., 3000.
-          ]
-Y21SG4 = [0.00, .406, .477, .664, .820, .946, 1.10, 1.24, 1.47, 1.72,
-          2.03, 2.52, 2.40, 2.39, 2.39, 2.42, 2.46, 2.53, 2.55, 2.53,
-          2.52, 2.53, 2.57, 2.59, 2.62, 2.64, 2.65, 2.65, 2.65, 2.62,
-          2.59, 2.53, 2.42, 2.14, 1.86, 2.17, 3.35, 3.01, 2.79, 2.34,
-          1.80, 1.88, 2.53, 3.37, 3.64, 3.55, 3.42, 3.23, 2.95, 2.45,
-          1.84, 2.32, 2.49, 2.60, 2.62, 2.57, 2.40, 2.57, 2.59, 2.32,
-          1.73, 2.55, 2.36, 2.35, 2.32, 2.23, 2.50, 2.64, 2.61, 1.86,
-          2.28, 2.53, 2.35, 2.39, 2.44, 2.51, 2.48, 2.45, 2.44, 2.49,
-          2.57, 2.63, 2.56, 2.54, 2.53, 2.51, 2.45, 2.35, 2.21, 2.05,
-          1.88, 1.75, 1.65, 1.56, 1.48, 1.41, 1.30, 1.21, 1.14, 1.08,
-          1.03, .948, .850, .771, .686, .617, .560, .512, .471, .428,
-          .392, .361, .335, .312, .292, .259, .233, .211, .193, .178,
-          .154, .136, .121, .109, .0997, .0916, .0817, .0737]
-# 2 3P J=2,1,0
-
-X23PG4 = [20.96409, 20.97, 21.0, 21.05, 21.1, 21.15, 21.2, 21.25, 21.3,
-          21.35,
-          21.4, 21.5, 21.6, 21.7, 21.8, 21.9, 22.0, 22.1, 22.2, 22.3,
-          22.4, 22.45, 22.5, 22.55, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65,
-          22.66, 22.67, 22.68, 22.69, 22.7, 22.71, 22.72, 22.73, 22.75, 22.77,
-          22.8, 22.85, 22.88, 22.9, 22.91, 22.92, 22.93, 22.96, 22.97, 22.99,
-          23.0, 23.04, 23.06, 23.07, 23.08, 23.1, 23.2, 23.3, 23.4, 23.5,
-          23.6, 23.7, 23.8, 23.9, 24.0, 24.2, 24.4, 24.6, 25.0, 26.0,
-          27.0, 28.0, 29.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0,
-          44.0, 46.0, 48.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0,
-          85.0, 90.0, 95.0, 100., 110., 120., 130., 140., 150., 160.,
-          170., 180., 190., 200., 220., 240., 260., 280., 300., 340.,
-          380., 420., 460., 500., 550., 600., 700., 800., 900., 1000.,
-          1200., 1400., 1600., 1800., 2000., 2300., 2600., 3000.
-          ]
-Y23PG4 = [0.00, .0936, .241, .442, .611, .761, .912, 1.03, 1.10, 1.17,
-          1.23, 1.32, 1.40, 1.47, 1.54, 1.60, 1.66, 1.73, 1.80, 1.87,
-          1.94, 2.05, 2.07, 2.09, 2.22, 2.48, 2.68, 2.60, 2.27, 1.78,
-          1.45, 1.43, 1.52, 1.59, 1.60, 1.45, 1.47, 1.70, 1.83, 1.91,
-          1.95, 1.93, 2.32, 1.98, 1.72, 2.23, 2.09, 2.12, 2.07, 2.17,
-          1.82, 2.18, 1.80, 1.82, 1.94, 1.94, 1.90, 1.88, 1.89, 2.00,
-          2.16, 2.21, 2.14, 2.08, 2.09, 2.03, 2.16, 2.26, 2.29, 2.41,
-          2.47, 2.48, 2.47, 2.43, 2.30, 2.15, 2.00, 1.84, 1.69, 1.55,
-          1.43, 1.31, 1.21, 1.11, .907, .748, .622, .522, .441, .375,
-          .322, .277, .241, .210, .162, .127, .101, .0812, .0663, .0547,
-          .0455, .0382, .0324, .0277, .0206, .0156, .0121, .00961, .00772, .00518,
-          .00363, .00264, .00197, .00151, .00118, 8.48e-4, 5.21e-4, 3.42e-4,
-          2.37e-4, 1.70e-4,
-          9.65e-5, 5.99e-5, 3.96e-5, 2.76e-5, 2.00e-5, 1.30e-5, 8.94e-6, 5.78e-6]
-# 2 1P RESONANCE RAeIATION J=1   58.434 NM       OSC STRENGTH F=0.27608
-
-X21PG4 = [21.21802, 21.23, 21.25, 21.3, 21.4, 21.5, 21.6, 21.7, 21.8, 21.9,
-          22.0, 22.1, 22.2, 22.3, 22.35, 22.4, 22.42, 22.44, 22.46, 22.48,
-          22.5, 22.55, 22.57, 22.59, 22.6, 22.61, 22.62, 22.63, 22.64, 22.65,
-          22.66, 22.68, 22.7, 22.71, 22.72, 22.73, 22.75, 22.8, 22.85, 22.87,
-          22.88, 22.9, 22.91, 22.94, 22.96, 22.97, 22.98, 22.99, 23.0, 23.01,
-          23.05, 23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.7, 23.8, 23.9,
-          24.0, 24.2, 24.4, 24.6, 24.8, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0,
-          40.0, 42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0, 58.0,
-          60.0, 64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100.,
-          110., 120., 130., 140., 160., 180., 200., 240., 280., 320.,
-          360., 400., 450., 500., 550., 600., 650., 700., 800., 900.,
-          1000., 1100., 1200., 1300., 1400.
-          ]
-Y21PG4 = [0.00, .0519, .0884, .163, .290, .397, .493, .582, .666, .748,
-          .831, .914, .994, 1.06, 1.09, 1.10, 1.10, 1.36, 1.46, 1.35,
-          1.32, 1.30, 1.28, 1.19, 1.07, .943, .922, .941, .872, .751,
-          .737, .959, 1.13, 1.17, .920, 1.03, 1.12, 1.23, 1.35, 1.27,
-          1.18, 1.22, 1.03, 1.14, 1.12, 1.38, 1.29, 1.25, 1.38, 1.24,
-          1.12, 1.13, 1.11, 1.12, 1.16, 1.30, 1.41, 1.44, 1.41, 1.37,
-          1.39, 1.42, 1.52, 1.70, 1.80, 1.89, 2.16, 2.42, 2.69, 2.96,
-          3.24, 3.53, 3.82, 4.12, 4.42, 4.71, 5.00, 5.29, 5.57, 5.85,
-          6.12, 6.63, 7.10, 7.53, 7.93, 8.28, 8.61, 8.90, 9.16, 9.39,
-          9.60, 9.95, 10.2, 10.4, 10.6, 10.7, 10.7, 10.8, 10.8, 10.7,
-          10.6, 10.4, 10.2, 10.0, 9.57, 9.13, 8.71, 7.96, 7.33, 6.79,
-          6.32, 5.92, 5.50, 5.13, 4.82, 4.54, 4.30, 4.08, 3.72, 3.41,
-          3.16, 2.95, 2.76, 2.60, 2.46]
-# 3 3S J=1
-
-X33SG4 = [22.71847, 22.72, 22.73, 22.74, 22.75, 22.78, 22.8, 22.83, 22.85,
-          22.86,
-          22.87, 22.88, 22.89, 22.9, 22.91, 22.912, 22.914, 22.916, 22.92, 22.94,
-          22.96, 22.98, 23.0, 23.02, 23.05, 23.1, 23.2, 23.25, 23.3, 23.35,
-          23.4, 23.44, 23.48, 23.52, 23.57, 23.59, 23.62, 23.65, 23.7, 23.75,
-          23.82, 23.89, 23.93, 24.0, 24.4, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0,
-          90.0, 95.0, 100., 110., 120., 130., 140., 150., 160., 170.,
-          180., 200., 220., 240., 260., 280., 300., 340., 380., 420.,
-          460., 500., 550., 600., 650., 700., 750., 800., 850., 900.,
-          950., 1000., 1100., 1200., 1300., 1400.
-          ]
-Y33SG4 = [0.00, .800, 1.15, 1.03, .985, .854, .812, .752, .644, .503,
-          .277, 1.79, 1.17, 1.06, 1.32, 1.51, 1.57, 1.37, .896, .848,
-          .907, .816, .838, .656, .872, .859, .890, .900, .860, .750,
-          .620, .810, .770, .960, .870, .870, .730, .710, .710, .730,
-          .770, .690, .760, .742, .725, .694, .665, .635, .605, .577,
-          .550, .524, .499, .452, .409, .370, .336, .305, .278, .253,
-          .231, .212, .178, .151, .130, .112, .0968, .0817, .0696, .0597,
-          .0516, .0449, .0393, .0306, .0242, .0195, .0160, .0132, .0111, .00938,
-          .00800, .00596, .00456, .00356, .00284, .00230, .00188, .00131, 9.53e-4,
-          7.13e-4,
-          5.47e-4, 4.29e-4, 3.25e-4, 2.52e-4, 1.99e-4, 1.60e-4, 1.31e-4, 1.08e-4,
-          9.02e-5, 7.62e-5,
-          6.49e-5, 5.58e-5, 4.20e-5, 3.25e-5, 2.56e-5, 2.06e-5]
-# 3 1S J=0
-
-X31SG4 = [22.92032, 22.96, 22.985, 23.02, 23.05, 23.07, 23.1, 23.15, 23.2,
-          23.25,
-          23.3, 23.33, 23.36, 23.39, 23.41, 23.45, 23.48, 23.51, 23.54, 23.56,
-          23.59, 23.62, 23.65, 23.68, 23.73, 23.82, 23.88, 23.94, 24.0, 25.0,
-          26.0, 28.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0,
-          52.0, 56.0, 60.0, 65.0, 70.0, 75.0, 80.0, 90.0, 100., 110.,
-          120., 130., 140., 160., 180., 200., 220., 240., 260., 280.,
-          300., 340., 380., 420., 460., 500., 550., 600., 650., 700.,
-          750., 800., 900., 1000., 1100., 1200., 1300., 1400., 1500., 1600.,
-          1800., 2000., 2400., 2800., 3200., 3600., 4000.
-          ]
-Y31SG4 = [0.00, .535, .457, .587, .490, .490, .478, .491, .506, .512,
-          .501, .470, .418, .374, .351, .371, .520, .681, .520, .467,
-          .496, .410, .442, .429, .416, .455, .377, .444, .422, .426,
-          .428, .429, .425, .419, .412, .402, .396, .387, .370, .354,
-          .338, .324, .311, .296, .283, .271, .260, .242, .226, .213,
-          .203, .193, .185, .172, .161, .152, .144, .137, .131, .125,
-          .120, .111, .103, .0957, .0894, .0839, .0778, .0725, .0678, .0636,
-          .0599, .0566, .0509, .0462, .0423, .0389, .0361, .0336, .0315, .0296,
-          .0264, .0238, .0199, .0171, .0150, .0133, .0120]
-# 3 3P J=2,1,0
-
-X33PG4 = [23.00707, 23.02, 23.03, 23.04, 23.05, 23.06, 23.07, 23.08, 23.1,
-          23.2,
-          23.3, 23.4, 23.5, 23.55, 23.6, 23.65, 23.7, 23.8, 23.9, 24.0,
-          24.1, 24.2, 24.3, 24.4, 24.6, 24.8, 25.0, 26.0, 27.0, 28.0,
-          30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0,
-          60.0, 64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100.,
-          110., 120., 130., 140., 150., 160., 170., 180., 200., 220.,
-          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
-          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
-          1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400., 2600., 2800.,
-          3000.
-          ]
-Y33PG4 = [0.00, .387, .410, .179, .148, .335, .381, .282, .280, .309,
-          .332, .359, .411, .416, .405, .448, .438, .467, .485, .493,
-          .500, .515, .517, .513, .503, .508, .512, .516, .515, .524,
-          .544, .539, .523, .500, .474, .446, .392, .342, .297, .259,
-          .226, .197, .173, .152, .134, .118, .102, .0878, .0762, .0665,
-          .0512, .0401, .0318, .0255, .0208, .0171, .0142, .0119, .00854, .00632,
-          .00479, .00371, .00292, .00234, .00157, .00109, 7.93e-4, 5.92e-4, 4.53e-4,
-          3.34e-4,
-          2.53e-4, 1.96e-4, 1.55e-4, 1.24e-4, 1.01e-4, 8.37e-5, 6.99e-5, 5.89e-5,
-          5.02e-5, 3.72e-5,
-          2.83e-5, 2.21e-5, 1.75e-5, 1.16e-5, 8.05e-6, 5.82e-6, 4.34e-6, 3.32e-6,
-          2.60e-6, 2.07e-6,
-          1.68e-6]
-# 3 3e J=3,2,1
-
-X33DG4 = [23.07365, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4, 23.45,
-          23.5,
-          23.55, 23.6, 23.66, 23.7, 23.75, 23.8, 23.85, 23.9, 23.95, 24.0,
-          24.05, 24.1, 24.15, 24.2, 24.25, 24.3, 24.35, 24.4, 24.45, 24.5,
-          24.55, 24.6, 24.65, 24.7, 24.8, 24.9, 25.0, 26.0, 27.0, 28.0,
-          29.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 64.0, 68.0, 72.0,
-          76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.,
-          150., 160., 180., 200., 220., 240., 260., 280., 300., 320.,
-          340., 360., 380., 400., 440., 480., 520., 560., 600., 650.,
-          700., 750., 800., 850., 900., 1000., 1100., 1200., 1300., 1400.,
-          1600., 1800., 2000., 2200., 2400., 2600., 2800., 3000.
-          ]
-Y33DG4 = [0.00, .00956, .0236, .0401, .0602, .0861, .120, .166, .222, .229,
-          .238, .197, .123, .118, .110, .112, .104, .110, .099, .0985,
-          .113, .107, .109, .114, .118, .119, .118, .116, .113, .105,
-          .112, .116, .118, .119, .120, .120, .119, .115, .118, .121,
-          .121, .120, .113, .105, .0958, .0867, .0780, .0701, .0628, .0563,
-          .0505, .0453, .0407, .0366, .0330, .0298, .0269, .0221, .0183, .0152,
-          .0127, .0107, .00868, .00712, .00588, .00490, .00347, .00252, .00188,
-          .00142,
-          .00110, 8.64e-4, 5.56e-4, 3.76e-4, 2.64e-4, 1.92e-4, 1.44e-4, 1.10e-4,
-          8.60e-5, 6.84e-5,
-          5.53e-5, 4.53e-5, 3.76e-5, 3.15e-5, 2.28e-5, 1.70e-5, 1.30e-5, 1.02e-5,
-          8.12e-6, 6.25e-6,
-          4.92e-6, 3.94e-6, 3.21e-6, 2.64e-6, 2.21e-6, 1.58e-6, 1.17e-6, 8.95e-7,
-          6.98e-7, 5.55e-7,
-          3.67e-7, 2.56e-7, 1.85e-7, 1.38e-7, 1.06e-7, 8.32e-8, 6.64e-8, 5.38e-8]
-# 3 1e J=2
-
-X31DG4 = [23.07407, 23.08, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4,
-          23.45,
-          23.5, 23.55, 23.6, 23.66, 23.7, 23.75, 23.8, 23.85, 23.9, 23.95,
-          24.0, 24.05, 24.1, 24.15, 24.2, 24.25, 24.3, 24.35, 24.4, 24.45,
-          24.5, 24.6, 24.7, 24.8, 25.0, 26.0, 28.0, 30.0, 32.0, 34.0,
-          36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0, 54.0, 58.0,
-          62.0, 66.0, 70.0, 75.0, 80.0, 90.0, 100., 110., 120., 140.,
-          160., 180., 200., 220., 240., 260., 280., 300., 320., 340.,
-          370., 400., 440., 480., 520., 560., 600., 650., 700., 800.,
-          900., 1000., 1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200.,
-          2400., 2600., 2800., 3000.
-          ]
-Y31DG4 = [0.00, .097, .0973, .110, .126, .148, .175, .200, .221, .237,
-          .235, .198, .185, .192, .168, .181, .189, .172, .193, .184,
-          .190, .209, .206, .211, .214, .215, .212, .206, .199, .191,
-          .174, .177, .179, .180, .181, .180, .180, .188, .198, .209,
-          .217, .224, .229, .232, .234, .235, .234, .233, .228, .222,
-          .215, .207, .199, .190, .180, .163, .148, .135, .124, .105,
-          .0913, .0803, .0715, .0643, .0584, .0534, .0492, .0456, .0424, .0397,
-          .0361, .0332, .0299, .0272, .0249, .0230, .0213, .0196, .0181, .0156,
-          .0138, .0124, .0112, .0102, .00938, .00868, .00756, .00669, .00600, .00544,
-          .00497, .00458, .00425, .00396]
-# 3 1P  RESONANCE RAeIATION J=1  53.703 NM     OSC STRENGTH F=0.07342
-
-X31PG4 = [23.08702, 23.1, 23.15, 23.2, 23.25, 23.3, 23.35, 23.4, 23.45,
-          23.5,
-          23.54, 23.56, 23.60, 23.64, 23.68, 23.7, 23.75, 23.80, 23.88, 23.9,
-          23.95, 24.0, 24.05, 24.1, 24.15, 24.2, 24.3, 24.4, 24.5, 24.6,
-          24.7, 24.8, 25.0, 25.2, 25.4, 25.6, 26.0, 27.0, 28.0, 29.0,
-          30.0, 31.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 65.0, 70.0, 75.0,
-          80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140., 160.,
-          180., 200., 220., 240., 260., 280., 300., 340., 380., 420.,
-          460., 500., 550., 600., 650., 700., 750., 800., 900., 1000.,
-          1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400., 2600.,
-          2800., 3000., 3400., 3800., 4200., 4600., 5000., 5500., 6000., 6500.,
-          7000., 8000., 9000., 10000.
-          ]
-Y31PG4 = [0.00, .114, .129, .137, .137, .134, .131, .130, .128, .129,
-          .117, .127, .122, .163, .146, .150, .191, .180, .226, .224,
-          .218, .230, .245, .253, .265, .274, .294, .308, .330, .360,
-          .373, .382, .397, .409, .418, .423, .434, .469, .516, .577,
-          .648, .723, .808, .941, 1.07, 1.20, 1.32, 1.43, 1.54, 1.64,
-          1.74, 1.82, 1.90, 1.97, 2.04, 2.10, 2.15, 2.27, 2.35, 2.42,
-          2.47, 2.50, 2.52, 2.53, 2.53, 2.52, 2.50, 2.47, 2.42, 2.33,
-          2.24, 2.14, 2.06, 1.97, 1.90, 1.82, 1.76, 1.64, 1.53, 1.44,
-          1.36, 1.29, 1.21, 1.15, 1.08, 1.03, .982, .938, .862, .799,
-          .745, .699, .658, .623, .563, .514, .474, .440, .411, .386,
-          .364, .344, .312, .285, .263, .244, .228, .211, .197, .184,
-          .173, .155, .140, .128]
-# 4 3S J=1
-
-X43SG4 = [23.59396, 23.62, 23.65, 23.7, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0,
-          28.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0,
-          48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 64.0, 68.0, 72.0,
-          76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.,
-          150., 160., 180., 200., 220., 240., 260., 280., 300., 320.,
-          340., 360., 380., 400., 440., 480., 520., 560., 600.
-          ]
-Y43SG4 = [0.0, .314, .304, .292, .276, .266, .260, .243, .238, .234,
-          .227, .212, .195, .178, .162, .147, .133, .121, .110, .100,
-          .0911, .0832, .0761, .0697, .0640, .0589, .0543, .0464, .0399, .0346,
-          .0301, .0264, .0225, .0194, .0168, .0147, .0113, .00894, .00718, .00585,
-          .00483, .00403, .00289, .00214, .00164, .00127, .00101, 8.17e-4, 6.69e-4,
-          5.55e-4,
-          4.66e-4, 3.94e-4, 3.37e-4, 2.90e-4, 2.19e-4, 1.70e-4, 1.34e-4, 1.08e-4,
-          8.81e-5]
-# 4 1S J=0
-
-X41SG4 = [23.67357, 23.7, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0,
-          30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0,
-          60.0, 65.0, 70.0, 75.0, 80.0, 90.0, 100., 110., 120., 130.,
-          140., 160., 180., 200., 250., 300., 350., 400., 450., 500.,
-          600., 700., 800., 900., 1000., 1200., 1400., 1600., 1800., 2000.,
-          2200., 2400., 2600., 2800., 3000.
-          ]
-Y41SG4 = [0.0, .109, .110, .111, .112, .121, .128, .133, .138, .141,
-          .143, .146, .148, .147, .146, .144, .139, .134, .129, .123,
-          .118, .113, .108, .103, .0990, .0922, .0868, .0823, .0786, .0753,
-          .0725, .0677, .0636, .0601, .0527, .0469, .0422, .0382, .0349, .0322,
-          .0277, .0243, .0216, .0195, .0177, .0150, .0130, .0114, .0102, .00925,
-          .00845, .00777, .00719, .00669, .00626]
-# 4 3P J=2,1,0
-
-X43PG4 = [23.70789, 23.75, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
-          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
-          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
-          100., 110., 120., 130., 140., 150., 160., 170., 180., 190.,
-          200., 220., 240., 260., 280., 300., 320., 340., 360., 380.,
-          400., 440., 480., 520., 560., 600., 650., 700., 750., 800.,
-          850., 900., 950., 1000., 1100., 1200., 1300., 1400., 1600., 1800.,
-          2000., 2200., 2400., 2600., 2800., 3000.
-          ]
-Y43PG4 = [0.0, .085, .110, .118, .152, .177, .194, .205, .211, .215,
-          .215, .209, .200, .189, .178, .167, .156, .146, .136, .127,
-          .110, .0962, .0840, .0736, .0647, .0553, .0475, .0410, .0356, .0310,
-          .0271, .0210, .0165, .0132, .0106, .00865, .00713, .00593, .00498, .00421,
-          .00359, .00266, .00202, .00156, .00123, 9.88e-4, 8.03e-4, 6.60e-4,
-          5.49e-4, 4.61e-4,
-          3.90e-4, 2.87e-4, 2.17e-4, 1.67e-4, 1.32e-4, 1.06e-4, 8.18e-5, 6.46e-5,
-          5.18e-5, 4.22e-5,
-          3.48e-5, 2.90e-5, 2.45e-5, 2.08e-5, 1.54e-5, 1.17e-5, 9.13e-6, 7.25e-6,
-          4.78e-6, 3.32e-6,
-          2.39e-6, 1.78e-6, 1.36e-6, 1.07e-6, 8.50e-7, 6.88e-7]
-# 4 3e J=3,2,1
-
-X43DG4 = [23.73609, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
-          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
-          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
-          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
-          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
-          600., 650., 700., 750., 800., 850., 900., 950., 1000., 1100.,
-          1200., 1300., 1400., 1500., 1600.
-          ]
-Y43DG4 = [.0, .0288, .0363, .0407, .0575, .0646, .0681, .0692, .069, .0675,
-          .0629, .0573, .0516, .0461, .0411, .0365, .0325, .0290, .0258, .0231,
-          .0186, .0151, .0123, .0102, .00847, .00681, .00554, .00455, .00378, .00316,
-          .00267, .00194, .00145, .00111, 8.61e-4, 6.81e-4, 5.47e-4, 3.66e-4,
-          2.55e-4, 1.84e-4,
-          1.37e-4, 1.04e-4, 8.08e-5, 6.39e-5, 4.18e-5, 2.87e-5, 2.05e-5, 1.51e-5,
-          1.14e-5, 8.32e-6,
-          6.24e-6, 4.79e-6, 3.75e-6, 3.00e-6, 2.43e-6, 1.99e-6, 1.65e-6, 1.39e-6,
-          1.18e-6, 8.66e-7,
-          6.55e-7, 5.08e-7, 4.01e-7, 3.22e-7, 2.63e-7]
-# 4 1e J=2
-
-X41DG4 = [23.73633, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 32.0,
-          34.0, 36.0, 38.0, 40.0, 44.0, 48.0, 52.0, 56.0, 60.0, 64.0,
-          68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120.,
-          130., 140., 160., 180., 200., 220., 240., 260., 300., 340.,
-          380., 420., 460., 500., 550., 600., 650., 700., 800., 900.,
-          1000., 1100., 1200.
-          ]
-Y41DG4 = [0.0, .0791, .0799, .0846, .0902, .0959, .102, .107, .112, .120,
-          .127, .131, .134, .136, .136, .134, .131, .126, .121, .116,
-          .112, .107, .102, .0978, .0927, .0880, .0836, .0796, .0724, .0663,
-          .0610, .0564, .0489, .0430, .0384, .0346, .0314, .0288, .0246, .0215,
-          .0190, .0171, .0155, .0142, .0128, .0117, .0107, .00990, .00860, .00760,
-          .00681, .00616, .00563]
-# 4 3F J=3,4,2
-
-X43FG4 = [23.73701, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
-          31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0,
-          42.0, 44.0, 46.0, 48.0, 50.0, 54.0, 58.0, 62.0, 66.0, 70.0,
-          75.0, 80.0, 85.0, 90.0, 95.0, 100., 110., 120., 130., 140.
-          ]
-Y43FG4 = [0.0, .0357, .0318, .0289, .0161, .0117, .00922, .00760, .00642,
-          .00550,
-          .00478, .00418, .00369, .00327, .00291, .00261, .00234, .00211, .00191,
-          .00173,
-          .00144, .00121, .00102, 8.68e-4, 7.44e-4, 5.57e-4, 4.25e-4, 3.30e-4,
-          2.61e-4, 2.09e-4,
-          1.61e-4, 1.26e-4, 9.98e-5, 8.03e-5, 6.53e-5, 5.36e-5, 3.72e-5, 2.66e-5,
-          1.96e-5, 1.47e-5]
-# 4 1F J=3
-
-X41FG4 = [23.73701, 23.8, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0,
-          32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0,
-          54.0, 58.0, 62.0, 66.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0,
-          100., 110., 120., 130., 140., 150., 160., 180., 200., 220.,
-          240., 260., 280., 300., 340., 380., 420., 460., 500., 550.,
-          600., 650., 700., 750., 800., 900., 1000.]
-
-Y41FG4 = [0.0, .0175, .0172, .0160, .0149, .0139, .0130, .0122, .0114,
-          .0108,
-          .0102, .00909, .00819, .00742, .00677, .00619, .00569, .00525, .00487,
-          .00452,
-          .00393, .00346, .00307, .00274, .00246, .00217, .00193, .00173, .00156,
-          .00142,
-          .00129, .00108, 9.24e-4, 7.99e-4, 6.99e-4, 6.17e-4, 5.50e-4, 4.47e-4,
-          3.73e-4, 3.19e-4,
-          2.77e-4, 2.45e-4, 2.19e-4, 1.99e-4, 1.67e-4, 1.45e-4, 1.28e-4, 1.15e-4,
-          1.04e-4, 9.39e-5,
-          8.55e-5, 7.86e-5, 78.27e-5, 6.78e-5, 6.35e-5, 5.63e-5, 5.07e-5]
-# 4 1P RESONANCE RAeIATION J=1   52.222 NM    OSC STRENGTH F=0.02986
-
-X41PG4 = [23.74207, 23.8, 23.9, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0,
-          31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0,
-          42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0,
-          64.0, 68.0, 72.0, 76.0, 80.0, 85.0, 90.0, 95.0, 100., 110.,
-          120., 130., 140., 150., 160., 180., 200., 220., 240., 260.,
-          280., 300., 320., 340., 360., 380., 400., 440., 480., 520.,
-          560., 600., 640., 680., 720., 760., 800., 850., 900., 950.,
-          1000., 1100., 1200., 1300., 1400., 1600., 1800., 2000., 2200., 2400.,
-          2600., 2800., 3000., 3400., 3800., 4200., 4600., 5000., 5500., 6000.,
-          6500., 7000., 7500., 8000., 9000., 10000.
-          ]
-Y41PG4 = [0.00, .0147, .0242, .0334, .107, .158, .196, .227, .255, .281,
-          .307, .333, .360, .387, .414, .442, .470, .498, .526, .553,
-          .606, .657, .704, .748, .789, .826, .860, .891, .919, .944,
-          .986, 1.02, 1.05, 1.06, 1.08, 1.09, 1.10, 1.10, 1.10, 1.09,
-          1.07, 1.05, 1.03, 1.01, .985, .939, .896, .855, .817, .783,
-          .751, .722, .695, .670, .646, .625, .605, .569, .537, .509,
-          .484, .461, .441, .423, .406, .390, .376, .360, .345, .332,
-          .320, .298, .279, .263, .248, .224, .205, .189, .175, .163,
-          .153, .145, .137, .124, .113, .104, .0969, .0905, .0837, .0779,
-          .0729, .0686, .0648, .0614, .0556, .0510
-          # 5 1P RESONANCE  RAeIATION J=1  51.562 NM      F=0.01504
-          # 6 1P RESONANCE  RAeIATION J=1  51.210 NM      F=0.00863
-          # 7 1P RESONANCE  RAeIATION J=1  51.000 NM      F=0.00540
-          # 8 1P RESONANCE  RAeIATION J=1  50.865 NM      F=0.00362
-          # 9 1P RESONANCE  RAeIATION J=1  50.772 NM      F=0.00253
-          # 10 1P RESONANCE RAeIATION J=1  50.706 NM      F=0.00184
-          # 11 1P RESONANCE RAeIATION J=1  50.657 NM      F=0.00138
-          # 12 1P RESONANCE RAeIATION J=1  50.620 NM      F=0.00106
-          # SUM HIGHER 1P LEVELS RESONANCE RAeIATION J=1  F=0.00440
-          # TOTAL SUM OSCILLATOR STRENGTH = 0.42326
-          #
-          # BREMSSTRAHLUNG X-SECTION WITH CUT OFF
-          ]
-Z2TG4 = [42.1, 23.5, 10.7, 5.88, 3.25, 1.50, .886, .582, .437, .429,
-         .460, .484, .502, .515, .525, .540, .550, .566, .575, .585,
-         .592, .596, .597, .598, .598]
-# UNITS 10**-24
-
-EBRMG4 = [1000., 2000., 5000., 1.E4, 2.E4, 5.E4, 1.E5, 2.E5, 5.E5, 1.E6,
-          2.E6, 3.E6, 4.E6, 5.E6, 6.E6, 8.E6, 1.E7, 1.5E7, 2.E7, 3.E7,
-          4.E7, 5.E7, 6.E7, 8.E7, 1.E8]
-for i in range(30):
-    YELG4.append(.000165)
-gd['gas4/XEN'] = XENG4
-gd['gas4/YEM'] = YEMG4
-gd['gas4/YEL'] = YELG4
-gd['gas4/YEPS'] = YEPSG4
-gd['gas4/XION'] = XIONG4
-gd['gas4/YION'] = YIONG4
-gd['gas4/YINC'] = YINCG4
-gd['gas4/X23S'] = X23SG4
-gd['gas4/Y23S'] = Y23SG4
-gd['gas4/X21S'] = X21SG4
-gd['gas4/Y21S'] = Y21SG4
-gd['gas4/X23P'] = X23PG4
-gd['gas4/Y23P'] = Y23PG4
-gd['gas4/X21P'] = X21PG4
-gd['gas4/Y21P'] = Y21PG4
-gd['gas4/X33S'] = X33SG4
-gd['gas4/Y33S'] = Y33SG4
-gd['gas4/X31S'] = X31SG4
-gd['gas4/Y31S'] = Y31SG4
-gd['gas4/X33P'] = X33PG4
-gd['gas4/Y33P'] = Y33PG4
-gd['gas4/X33D'] = X33DG4
-gd['gas4/Y33D'] = Y33DG4
-gd['gas4/X31D'] = X31DG4
-gd['gas4/Y31D'] = Y31DG4
-gd['gas4/X31P'] = X31PG4
-gd['gas4/Y31P'] = Y31PG4
-gd['gas4/X43S'] = X43SG4
-gd['gas4/Y43S'] = Y43SG4
-gd['gas4/X41S'] = X41SG4
-gd['gas4/Y41S'] = Y41SG4
-gd['gas4/X43P'] = X43PG4
-gd['gas4/Y43P'] = Y43PG4
-gd['gas4/X43D'] = X43DG4
-gd['gas4/Y43D'] = Y43DG4
-gd['gas4/X41D'] = X41DG4
-gd['gas4/Y41D'] = Y41DG4
-gd['gas4/X43F'] = X43FG4
-gd['gas4/Y43F'] = Y43FG4
-gd['gas4/X41F'] = X41FG4
-gd['gas4/Y41F'] = Y41FG4
-gd['gas4/X41P'] = X41PG4
-gd['gas4/Y41P'] = Y41PG4
-gd['gas4/Z2T'] = Z2TG4
-gd['gas4/EBRM'] = EBRMG4
 
 XENG8 = [0.00, .0001, .001, .002, .004, .007, 0.01, .012, .014, .017,
          0.02, .025, 0.03, .035, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,

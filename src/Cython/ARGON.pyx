@@ -89,7 +89,7 @@ cdef void Gas2(Gas *object):
     EMASS = 9.10938291e-31
     AMU = 1.660538921e-27
     object.E = [0.0, 1.0, <float>(15.75961), 0.0, 0.0, <float>(15.0)]
-    object.E[1] = <float>(2.0 * EMASS / (<float>(39.948) * AMU))
+    object.E[1] = <float>(2.0) * EMASS / ((39.948) * AMU)
     cdef double EOBY[30], ISHELL[30], LEGAS[30], WKLM[30]
     EOBY[0:7] = [<float>(9.5), <float>(18.0), <float>(34.0), <float>(110.0), <float>(110.0), <float>(150.0), <float>(1800)]
 
@@ -237,11 +237,9 @@ cdef void Gas2(Gas *object):
             if object.EG[j] > object.EIN[i]:
                 IOFFN[i] = j -1
                 break
-    print(IOFFION[0])
     cdef int I
     cdef double GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
     cdef double QPSSUM,QDSSUM,TOTSUM,Q1SSUM,PQ1,PQ2,PQ3
-    BETA2=0.0
     for I in range(4000):
         EN = object.EG[I]
 
@@ -1037,8 +1035,7 @@ cdef void Gas2(Gas *object):
         for i in range(0, 7):
             object.Q[0][I] += object.QION[i][I]
 
-    print(object.PEQEL[1])
-
+    print(object.NC0[0])
 
     for j in range(0, object.NIN):
         if object.EFINAL <= object.EIN[j]:

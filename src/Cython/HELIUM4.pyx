@@ -22,7 +22,7 @@ cdef void Gas3(Gas*object):
     cdef double XEN[144], YEM[144], YEL[144], YEPS[144], XION[90], YION[90], YINC[90], X23S[139], Y23S[139], X21S[128], Y21S[128], X23P[128], Y23P[128]
     cdef double X21P[125], Y21P[125], X33S[106], Y33S[106], X31S[87], Y31S[87], X33P[91], Y33P[91], X33D[108], Y33D[108], X31D[94], Y31D[94]
     cdef double X31P[114], Y31P[114], X43S[59], Y43S[59], X41S[55], Y41S[55], X43P[76], Y43P[76], X43D[65], Y43D[65], X41D[53], Y41D[53]
-    cdef double X43F[40], Y43F[40], X41F[57], Y41F[57], X41P[96], Y41P[96],  Z2T[25], EBRM[25],EOBY[2]
+    cdef double X43F[40], Y43F[40], X41F[57], Y41F[57], X41P[96], Y41P[96], Z2T[25], EBRM[25], EOBY[2]
     cdef int IOFFN[49], IOFFION[2]
     XEN = gd['gas3/XEN']
     YEM = gd['gas3/YEM']
@@ -70,27 +70,28 @@ cdef void Gas3(Gas*object):
     Z2T = gd['gas3/Z2T']
     EBRM = gd['gas3/EBRM']
 
-    cdef double EMASS2 = 1021997.804
+    cdef double EMASS2 = <float> (1021997.804)
     cdef double API = acos(-1)
     cdef double A0 = 0.52917720859e-8
-    cdef double RY = 13.60569193
+    cdef double RY = <float> (13.60569193)
     cdef double BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27
     # BORN BETHE VALUES FOR IONISATION
     cdef double CONST = 1.873884e-20
-    cdef double AM2 = 0.489
-    cdef double C = 5.50
+    cdef double AM2 = <float> (0.489)
+    cdef double C = <float> (5.50)
     object.NION = 2
     object.NATT = 1
     object.NIN = 49
     object.NNULL = 0
     cdef int NBREM = 25, NDATA = 144, NIOND = 90, N23S = 139, N21S = 128, N23P = 128, N21P = 125, N33S = 106, N31S = 87, N33P = 91, N33D = 108, N31D = 94
     cdef int N31P = 114, N43S = 59, N41S = 55, N43P = 76, N43D = 65, N41D = 53, N43F = 40, N41F = 57, N41P = 96
-    object.E = [0.0, 2.0 * EMASS / (4.00260 * AMU), 24.58739, 0.5841e-19, 0.1271e-18, 10.5]
+    object.E = [0.0, <float> (2.0) * EMASS / (<float> (4.00260) * AMU), <float> (24.58739), 0.5841e-19, 0.1271e-18,
+                <float> (10.5)]
     #IONISATION ENERGIES
-    object.EION[0] = 24.58739
-    object.EION[1] = 79.00515
+    object.EION[0] = <float> (24.58739)
+    object.EION[1] = <float> (79.00515)
     # EOBY AT LOW ENERGY
     EOBY[0] = 12.0
     EOBY[1] = 65.0
@@ -122,15 +123,19 @@ cdef void Gas3(Gas*object):
             if (object.EG[i] > object.EION[j]):
                 IOFFION[j] = i - 1
                 break
-    object.EIN[0:50] = [19.81961, 20.61577, 20.96409, 21.21802, 22.71847, 22.92032, 23.00707, 23.07365, 23.07407,
-                        23.08702,
-                        23.59396, 23.67357, 23.70789, 23.73609, 23.73633, 23.73701, 23.73701, 23.74207, 23.97197,
-                        24.01121,
-                        24.02822, 24.04266, 24.04280, 24.04315, 24.04315, 24.04580, 24.16900, 24.19116, 24.20081,
-                        24.20916,
-                        24.20925, 24.21100, 24.28456, 24.29828, 24.30429, 24.30954, 24.30960, 24.31071, 24.35810,
-                        24.36718,
-                        24.37116, 24.37468, 24.37472, 24.37547, 24.41989, 24.45168, 24.47518, 24.49308, 24.50708, 0.0]
+    object.EIN[0:50] = [np.float32(19.81961), np.float32(20.61577), np.float32(20.96409), np.float32(21.21802),
+                        np.float32(22.71847), np.float32(22.92032), np.float32(23.00707), np.float32(23.07365),
+                        np.float32(23.07407), np.float32(23.08702), np.float32(23.59396), np.float32(23.67357),
+                        np.float32(23.70789), np.float32(23.73609), np.float32(23.73633), np.float32(23.73701),
+                        np.float32(23.73701), np.float32(23.74207), np.float32(23.97197), np.float32(24.01121),
+                        np.float32(24.02822), np.float32(24.04266), np.float32(24.04280), np.float32(24.04315),
+                        np.float32(24.04315), np.float32(24.04580), np.float32(24.16900), np.float32(24.19116),
+                        np.float32(24.20081), np.float32(24.20916), np.float32(24.20925), np.float32(24.21100),
+                        np.float32(24.28456), np.float32(24.29828), np.float32(24.30429), np.float32(24.30954),
+                        np.float32(24.30960), np.float32(24.31071), np.float32(24.35810), np.float32(24.36718),
+                        np.float32(24.37116), np.float32(24.37468), np.float32(24.37472), np.float32(24.37547),
+                        np.float32(24.41989), np.float32(24.45168), np.float32(24.47518), np.float32(24.49308),
+                        np.float32(24.50708), np.float32(0.0)]
 
     for I in range(50, 250):
         object.EIN[I] = 0.0
@@ -178,7 +183,7 @@ cdef void Gas3(Gas*object):
         if object.NANISO == 2:
             object.PEQION[0][I] = 0
         if EN >= object.EION[0]:
-            object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION, XION, BETA2, 1 / 0.995, CONST, object.DEN[I], C, AM2)
+            object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION, XION, BETA2, 1 / <float>(0.995), CONST, object.DEN[I], C, AM2)
         # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
         # ENERGIES ABOVE 2 * IONISATION ENERGY
         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
@@ -273,7 +278,7 @@ cdef void Gas3(Gas*object):
         #3 1P
         if EN > object.EIN[9]:
             object.QIN[9][I] = GasUtil.CALQINBEF(EN, N31P, Y31P, X31P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
-                                                 object.EIN[9], object.E[2], 0.07342)
+                                                 object.EIN[9], object.E[2], <float>(0.07342))
         if EN > (2 * object.EIN[9]):
             object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]
 
@@ -338,7 +343,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[19]:
             ER = object.EIN[19] / object.EIN[11]
             ENP = EN / ER
-            object.QIN[19][I] = 0.512 * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
+            object.QIN[19][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
         if EN > (2 * object.EIN[19]):
             object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]
 
@@ -346,7 +351,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[20]:
             ER = object.EIN[20] / object.EIN[12]
             ENP = EN / ER
-            object.QIN[20][I] = 0.512 * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
+            object.QIN[20][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
         if EN > (2 * object.EIN[20]):
             object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[20]]
 
@@ -354,7 +359,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[21]:
             ER = object.EIN[21] / object.EIN[13]
             ENP = EN / ER
-            object.QIN[21][I] = 0.512 * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
+            object.QIN[21][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
         if EN > (2 * object.EIN[21]):
             object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]
 
@@ -362,7 +367,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[22]:
             ER = object.EIN[22] / object.EIN[14]
             ENP = EN / ER
-            object.QIN[22][I] = 0.512 * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
+            object.QIN[22][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
         if EN > (2 * object.EIN[22]):
             object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]
 
@@ -370,7 +375,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[23]:
             ER = object.EIN[23] / object.EIN[15]
             ENP = EN / ER
-            object.QIN[23][I] = 0.512 * GasUtil.CALQINP(ENP, N43F, Y43F, X43F, 4)
+            object.QIN[23][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43F, Y43F, X43F, 4)
         if EN > (2 * object.EIN[23]):
             object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]
 
@@ -378,7 +383,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[24]:
             ER = object.EIN[24] / object.EIN[16]
             ENP = EN / ER
-            object.QIN[24][I] = 0.512 * GasUtil.CALQINP(ENP, N41F, Y41F, X41F, 1)
+            object.QIN[24][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41F, Y41F, X41F, 1)
         if EN > (2 * object.EIN[24]):
             object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]
 
@@ -386,9 +391,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[25]:
             ER = object.EIN[25] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[25][I] = 0.01504 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[25][I] = <float>(0.01504) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[25], object.E[2], 0.02986)
+                                                                      object.EIN[25], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[25]):
             object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]
 
@@ -396,7 +401,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[26]:
             ER = object.EIN[26] / object.EIN[10]
             ENP = EN / ER
-            object.QIN[26][I] = 0.296 * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
+            object.QIN[26][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
         if EN > (2 * object.EIN[26]):
             object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]
 
@@ -404,7 +409,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[27]:
             ER = object.EIN[27] / object.EIN[11]
             ENP = EN / ER
-            object.QIN[27][I] = 0.296 * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
+            object.QIN[27][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
         if EN > (2 * object.EIN[27]):
             object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]
 
@@ -412,7 +417,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[28]:
             ER = object.EIN[28] / object.EIN[12]
             ENP = EN / ER
-            object.QIN[28][I] = 0.296 * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
+            object.QIN[28][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
         if EN > (2 * object.EIN[28]):
             object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]
 
@@ -420,7 +425,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[29]:
             ER = object.EIN[29] / object.EIN[13]
             ENP = EN / ER
-            object.QIN[29][I] = 0.296 * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
+            object.QIN[29][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
         if EN > (2 * object.EIN[29]):
             object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]
 
@@ -428,7 +433,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[30]:
             ER = object.EIN[30] / object.EIN[14]
             ENP = EN / ER
-            object.QIN[30][I] = 0.296 * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
+            object.QIN[30][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
         if EN > (2 * object.EIN[30]):
             object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]
 
@@ -436,9 +441,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[31]:
             ER = object.EIN[31] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[31][I] = 0.00863 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[31][I] = <float>(0.00863) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[31], object.E[2], 0.02986)
+                                                                      object.EIN[31], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[31]):
             object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]
 
@@ -446,7 +451,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[32]:
             ER = object.EIN[32] / object.EIN[10]
             ENP = EN / ER
-            object.QIN[32][I] = 0.187 * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
+            object.QIN[32][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
         if EN > (2 * object.EIN[32]):
             object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]
 
@@ -454,7 +459,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[33]:
             ER = object.EIN[33] / object.EIN[11]
             ENP = EN / ER
-            object.QIN[33][I] = 0.187 * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
+            object.QIN[33][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
         if EN > (2 * object.EIN[33]):
             object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]
 
@@ -462,7 +467,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[34]:
             ER = object.EIN[34] / object.EIN[12]
             ENP = EN / ER
-            object.QIN[34][I] = 0.187 * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
+            object.QIN[34][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
         if EN > (2 * object.EIN[34]):
             object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]
 
@@ -470,7 +475,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[35]:
             ER = object.EIN[35] / object.EIN[13]
             ENP = EN / ER
-            object.QIN[35][I] = 0.187 * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
+            object.QIN[35][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
         if EN > (2 * object.EIN[35]):
             object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]
 
@@ -478,7 +483,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[36]:
             ER = object.EIN[36] / object.EIN[14]
             ENP = EN / ER
-            object.QIN[36][I] = 0.187 * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
+            object.QIN[36][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
         if EN > (2 * object.EIN[36]):
             object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]
 
@@ -486,9 +491,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[37]:
             ER = object.EIN[37] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[37][I] = 0.00540 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[37][I] = <float>(0.00540) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[37], object.E[2], 0.02986)
+                                                                      object.EIN[37], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[37]):
             object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]
 
@@ -496,7 +501,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[38]:
             ER = object.EIN[38] / object.EIN[10]
             ENP = EN / ER
-            object.QIN[38][I] = 0.553 * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
+            object.QIN[38][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
         if EN > (2 * object.EIN[38]):
             object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]
 
@@ -504,7 +509,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[39]:
             ER = object.EIN[39] / object.EIN[11]
             ENP = EN / ER
-            object.QIN[39][I] = 0.553 * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
+            object.QIN[39][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
         if EN > (2 * object.EIN[39]):
             object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]
 
@@ -512,7 +517,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[40]:
             ER = object.EIN[40] / object.EIN[12]
             ENP = EN / ER
-            object.QIN[40][I] = 0.553 * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
+            object.QIN[40][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
         if EN > (2 * object.EIN[40]):
             object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]
 
@@ -520,7 +525,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[41]:
             ER = object.EIN[41] / object.EIN[13]
             ENP = EN / ER
-            object.QIN[41][I] = 0.553 * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
+            object.QIN[41][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
         if EN > (2 * object.EIN[41]):
             object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]
 
@@ -528,7 +533,7 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[42]:
             ER = object.EIN[42] / object.EIN[14]
             ENP = EN / ER
-            object.QIN[42][I] = 0.553 * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
+            object.QIN[42][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
         if EN > (2 * object.EIN[42]):
             object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]
 
@@ -536,9 +541,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[43]:
             ER = object.EIN[43] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[43][I] = 0.00362 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[43][I] = <float>(0.00362) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[43], object.E[2], 0.02986)
+                                                                      object.EIN[43], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[43]):
             object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]
 
@@ -546,9 +551,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[44]:
             ER = object.EIN[44] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[44][I] = 0.00253 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[44][I] = <float>(0.00253) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[44], object.E[2], 0.02986)
+                                                                      object.EIN[44], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[44]):
             object.PEQIN[44][I] = object.PEQEL[1][I - IOFFN[44]]
 
@@ -556,9 +561,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[45]:
             ER = object.EIN[45] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[45][I] = 0.00184 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[45][I] = <float>(0.00184) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[45], object.E[2], 0.02986)
+                                                                      object.EIN[45], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[45]):
             object.PEQIN[45][I] = object.PEQEL[1][I - IOFFN[45]]
 
@@ -566,9 +571,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[46]:
             ER = object.EIN[46] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[46][I] = 0.00138 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[46][I] = <float>(0.00138) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[46], object.E[2], 0.02986)
+                                                                      object.EIN[46], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[46]):
             object.PEQIN[46][I] = object.PEQEL[1][I - IOFFN[46]]
 
@@ -576,9 +581,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[47]:
             ER = object.EIN[47] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[47][I] = 0.00106 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[47][I] = <float>(0.00106) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[47], object.E[2], 0.02986)
+                                                                      object.EIN[47], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[47]):
             object.PEQIN[47][I] = object.PEQEL[1][I - IOFFN[47]]
 
@@ -586,9 +591,9 @@ cdef void Gas3(Gas*object):
         if EN > object.EIN[48]:
             ER = object.EIN[48] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[48][I] = 0.00440 / 0.02986 * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
+            object.QIN[48][I] = <float>(0.00440) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
                                                                       object.DEN[I], BBCONST,
-                                                                      object.EIN[48], object.E[2], 0.02986)
+                                                                      object.EIN[48], object.E[2], <float>(0.02986))
         if EN > (2 * object.EIN[48]):
             object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]
 

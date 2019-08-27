@@ -112,7 +112,7 @@ cdef void Gas1(Gas* object):
     for j in range(0, object.NION):
         for i in range(0, NASIZE):
             if (object.EG[i] > object.EION[j]):
-                IOFFION[j] = i -1
+                IOFFION[j] = i
                 break
 
     # OFFSET ENERGY FOR DISSOCIATION ANGULAR DISTRIBUTION
@@ -120,7 +120,7 @@ cdef void Gas1(Gas* object):
     for NL in range(10, 46):
         for i in range(0, NASIZE):
             if object.EG[i] > abs(object.EIN[NL]):
-                IOFFN[NL] = i -1
+                IOFFN[NL] = i
                 break
 
     # ENTER PENNING TRANSFER FRACTION FOR EACH LEVEL

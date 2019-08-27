@@ -42,9 +42,9 @@ Object.NMAX =1
 Object.IPEN = 0
 # Calculate the electron energy
 Object.ITHRM=1
-Object.EFINAL = 20.0
+Object.EFINAL = 1000.0
 # Set the gas's with there given number
-Object.NGASN=[8, 0, 0, 0, 0, 0]
+Object.NGASN=[1, 0, 0, 0, 0, 0]
 # Set the gas fractions
 Object.FRAC=[100, 0, 0, 0, 0, 0]
 # Set the tempature

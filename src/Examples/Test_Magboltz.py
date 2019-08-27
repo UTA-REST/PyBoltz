@@ -42,7 +42,7 @@ Object.NMAX =1
 Object.IPEN = 0
 # Calculate the electron energy
 Object.ITHRM=1
-Object.EFINAL = 0.0
+Object.EFINAL = 20.0
 # Set the gas's with there given number
 Object.NGASN=[8, 0, 0, 0, 0, 0]
 # Set the gas fractions
@@ -52,7 +52,7 @@ Object.TEMPC = float(23)
 # Set the pressure
 Object.TORR = 750.062
 # Set the eletric field
-Object.EFIELD =100
+Object.EFIELD =1000
 # Set the magnetic field and angle
 Object.BMAG = 0
 Object.BTHETA =0

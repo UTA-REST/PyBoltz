@@ -92,6 +92,8 @@ cdef void Gas8(Gas*object):
         object.KEL[J] = object.NANISO
         #SUPERELASTIC, V2 V1 AND HARMONIC VIBRATIONS ASSUMED ISOTROPIC
         object.KIN[J] = 0
+    object.KIN[6]=0.0
+    object.KIN[7]=0.0
     #V4 AND V3 VIBRATIONS ANISOTROPIC ( CAPITELLI-LONGO)
     object.KIN[1] = 1
     object.KIN[5] = 1
@@ -162,7 +164,7 @@ cdef void Gas8(Gas*object):
     cdef double AMU = 1.660538921e-27
 
     object.E = [0.0, 1.0, <float> (12.65), 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (<float> (16.0426) * AMU)
+    object.E[1] = <float>(2.0) * EMASS / (<float> (16.0426) * AMU)
     object.EION[0:9] = [<float> (12.65), <float> (14.25), <float> (15.2), <float> (22.2), <float> (23.5),
                         <float> (25.2), <float> (27.0), <float> (27.9), <float> (285.0)]
     #OPAL BEATY
@@ -245,7 +247,7 @@ cdef void Gas8(Gas*object):
             QMOM = 26.7e-16
             PQ[2] = 0.0
         else:
-            for J in range(2, NDATA):
+            for J in range(1, NDATA):
                 if EN <= XEN[J]:
                     break
             YXJ = log(YELT[J])
@@ -374,11 +376,11 @@ cdef void Gas8(Gas*object):
 
         # CORRECT IONISATION FOR SPLIT INTO K-SHELL
         QSUN = 0.0
-        for i in range(8):
+        for i in range(9):
             QSUM += object.QION[i][I]
         if QSUM != 0:
-            FAC = (QSUM - object.QION[8][I] / QSUM)
-            for i in range(8):
+            FAC = (QSUM - object.QION[8][I])/ QSUM
+            for i in range(9):
                 object.QION[i][I] = object.QION[i][I] * FAC
 
         #ATTACHMENT
@@ -397,7 +399,7 @@ cdef void Gas8(Gas*object):
         object.PEQIN[0][I] = 0.5
         if EN > 0.0:
             object.QIN[0][I] = GasUtil.CALQINVISO(EN, NVIBV4, YVBV4, XVBV4, APOPV4, object.EIN[1], DEGV4, object.EIN[0],
-                                                  0.076)
+                                                   <float> (0.076))
         #V4 ANISOTROPIC
         object.QIN[1][I] = 0.0
         object.PEQIN[1][I] = 0.5
@@ -405,7 +407,7 @@ cdef void Gas8(Gas*object):
             object.QIN[1][I] = GasUtil.CALQINVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT,
                                                     <float> (0.076))
             #RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART =RAT
-            XMT = GasUtil.CALXMTVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT, 0.076)
+            XMT = GasUtil.CALXMTVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT, <float>(0.076))
             object.PEQIN[1][I] = 0.5 + (object.QIN[1][I] - XMT) / object.QIN[1][I]
 
         #V2  SUPERELASTIC ISOTROPIC
@@ -480,8 +482,8 @@ cdef void Gas8(Gas*object):
             object.PEQIN[J][I] = 0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
+                        log(BETA2 * GAMMA2 * EMASS2 / (<float>(4.0) * object.EIN[J])) - BETA2 - object.DEN[
+                    I] / <float>(2.0)) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
             if EN > 3 * object.EIN[J]:
                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
             FI += 1
@@ -501,8 +503,8 @@ cdef void Gas8(Gas*object):
             object.PEQIN[J][I] = 0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
+                        log(BETA2 * GAMMA2 * EMASS2 / (<float>(4.0) * object.EIN[J])) - BETA2 - object.DEN[
+                    I] / <float>(2.0)) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
             if EN > 3 * object.EIN[J]:
                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
             FI += 1
@@ -530,8 +532,8 @@ cdef void Gas8(Gas*object):
             object.PEQIN[J][I] = 0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
+                        log(BETA2 * GAMMA2 * EMASS2 / (<float>(4.0) * object.EIN[J])) - BETA2 - object.DEN[
+                    I] / <float>(2.0)) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
             if EN > 3 * object.EIN[J]:
                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
             FI += 1
@@ -559,8 +561,8 @@ cdef void Gas8(Gas*object):
             object.PEQIN[J][I] = 0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
+                        log(BETA2 * GAMMA2 * EMASS2 / (<float>(4.0) * object.EIN[J])) - BETA2 - object.DEN[
+                    I] / <float>(2.0)) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
             if EN > 3 * object.EIN[J]:
                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
             FI += 1
@@ -574,6 +576,8 @@ cdef void Gas8(Gas*object):
             object.QIN[35][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z1T, EBRM) * 4e-8
 
         #skipped the QSUP,QVIB,QDATT,QSING,QTRIP,QEXC,QTTT,QWINT,QINEL,QIONS as they are not used later one.
+    for J in range(6):
+        print(object.Q[J][0])
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J

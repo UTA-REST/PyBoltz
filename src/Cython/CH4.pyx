@@ -84,11 +84,10 @@ cdef void Gas8(Gas*object):
     Z6T = gd['gas8/Z6T']
     EBRM = gd['gas8/EBRM']
 
-
     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AM2EXC, CEXC, RAT, DEGV4, DEGV3, DEGV2, DEGV1
     cdef int J, I, i, j, NBREM, NDATA, NVIBV4, NVIBV2, NVIBV1, NVIBV3, NVIBH1, NVIBH2, NIOND, NIONF, NIONF1, NIONF2
     cdef int NIONF3, NIONF4, NIONF5, NIONF6, NIONPP, NKSH, NATT1, NDET, NTRP1, NTRP2, NTRP3, NCHD, NCHB, NHAL, NHBE
-    cdef int NASIZE=4000
+    cdef int NASIZE = 4000
     for J in range(6):
         object.KEL[J] = object.NANISO
         #SUPERELASTIC, V2 V1 AND HARMONIC VIBRATIONS ASSUMED ISOTROPIC
@@ -108,17 +107,17 @@ cdef void Gas8(Gas*object):
     RAT = 1.0
     #BORN BETHE CONSTANTS
     A0 = 0.52917720859e-08
-    RY = 13.60569193
+    RY = <float> (13.60569193)
     CONST = 1.873884e-20
-    EMASS2 = 1021997.804
+    EMASS2 = <float> (1021997.804)
     API = acos(-1.0e0)
     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
     #BORN BETHE VALUES FOR IONISATION
-    AM2 = 3.75
-    C = 42.5
+    AM2 = <float> (3.75)
+    C = <float> (42.5)
     #BORN BETHE FOR EXCITATION
-    AM2EXC = 1.40
-    CEXC = 19.0
+    AM2EXC = <float> (1.40)
+    CEXC = <float> (19.0)
     #ARRAY SIZE
     NASIZE = 4000
     object.NION = 9
@@ -162,14 +161,15 @@ cdef void Gas8(Gas*object):
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27
 
-    object.E = [0.0, 1.0, 12.65, 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (16.0426 * AMU)
-    object.EION[0:9] = [12.65, 14.25, 15.2, 22.2, 23.5, 25.2, 27.0, 27.9, 285.0]
+    object.E = [0.0, 1.0, <float> (12.65), 0.0, 0.0, 0.0]
+    object.E[1] = 2.0 * EMASS / (<float> (16.0426) * AMU)
+    object.EION[0:9] = [<float> (12.65), <float> (14.25), <float> (15.2), <float> (22.2), <float> (23.5),
+                        <float> (25.2), <float> (27.0), <float> (27.9), <float> (285.0)]
     #OPAL BEATY
-    cdef double SCLOBY = 0.475, EOBY[9]
+    cdef double SCLOBY = <float> (0.475), EOBY[9]
     for j in range(9):
         EOBY[J] = object.EION[J] * SCLOBY
-    EOBY[8] = object.EION[8] * 0.63
+    EOBY[8] = object.EION[8] * <float> (0.63)
     for J in range(8):
         object.NC0[J] = 0.0
         object.EC0[J] = 0.0
@@ -185,7 +185,7 @@ cdef void Gas8(Gas*object):
     #FLUORESCENCE DATA
     object.NC0[8] = 2
     object.EC0[8] = 253
-    object.WK[8] = 0.0026
+    object.WK[8] = <float> (0.0026)
     object.EFL[8] = 273
     object.NG1[8] = 1
     object.EG1[8] = 253
@@ -211,10 +211,15 @@ cdef void Gas8(Gas*object):
             object.PENFRA[NL][i] = 0.0
 
     cdef double APOPV4, APOPV2, APOPGS, APOPSUM, EN, GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, PQ[3], YXJ, XNJ, YXJ1, XNJ1, A, B, X2, X1, QSUM, FAC
-    cdef double XMT,CON[18],F[18],QSUP,QVIB,QDATT,QSING,QTRIP,QEXC,QTTT,QWINT,QINEL,QIONS
-    cdef int FI,CONI
-    F[0:18] = [0.0271,0.0442,0.0859,0.0906,0.0841,0.1036,0.1460,0.1548,0.1927,0.1981,0.1628,0.10930,0.0628,0.0297,0.0074,0.5,0.0045,0.0045]
-    CON[0:18] = [1.029,1.027,1.026,1.024,1.023,1.022,1.021,1.020,1.020,1.019,1.018,1.018,1.017,1.016,1.016,1,1.037,1.034]
+    cdef double XMT, CON[18], F[18], QSUP, QVIB, QDATT, QSING, QTRIP, QEXC, QTTT, QWINT, QINEL, QIONS
+    cdef int FI, CONI
+    F[0:18] = [<float> (0.0271), <float> (0.0442), <float> (0.0859), <float> (0.0906), <float> (0.0841),
+               <float> (0.1036), <float> (0.1460), <float> (0.1548), <float> (0.1927), <float> (0.1981),
+               <float> (0.1628), <float> (0.10930), <float> (0.0628), <float> (0.0297), <float> (0.0074), <float> (0.5),
+               <float> (0.0045), <float> (0.0045) ]
+    CON[0:18] = [<float> (1.029), <float> (1.027), <float> (1.026), <float> (1.024), <float> (1.023), <float> (1.022),
+                 <float> (1.021), <float> (1.020), <float> (1.020), <float> (1.019), <float> (1.018), <float> (1.018),
+                 <float> (1.017), <float> (1.016), <float> (1.016), <float> (1), <float> (1.037), <float> (1.034) ]
     #CALC LEVEL POPULATIONS
     APOPV4 = DEGV4 * exp(object.EIN[0] / object.AKT)
     APOPV2 = DEGV2 * exp(object.EIN[2] / object.AKT)
@@ -275,7 +280,8 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[0][I] = 0
         if EN >= object.EION[0]:
-            object.QION[0][I] = GasUtil.CALQIONX(EN, NIONF, YINF, XINF, BETA2, 0.4594, CONST, object.DEN[I], C, AM2)
+            object.QION[0][I] = GasUtil.CALQIONX(EN, NIONF, YINF, XINF, BETA2, <float> (0.4594), CONST, object.DEN[I],
+                                                 C, AM2)
         if EN > 2 * object.EION[0]:
             object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]
 
@@ -285,7 +291,8 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[1][I] = 0
         if EN >= object.EION[1]:
-            object.QION[1][I] = GasUtil.CALQIONX(EN, NIONF1, YINF1, XINF1, BETA2, 0.3716, CONST, object.DEN[I], C, AM2)
+            object.QION[1][I] = GasUtil.CALQIONX(EN, NIONF1, YINF1, XINF1, BETA2, <float> (0.3716), CONST,
+                                                 object.DEN[I], C, AM2)
         if EN > 2 * object.EION[1]:
             object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]
 
@@ -295,7 +302,8 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[2][I] = 0
         if EN >= object.EION[2]:
-            object.QION[2][I] = GasUtil.CALQIONX(EN, NIONF2, YINF2, XINF2, BETA2, 0.06312, CONST, object.DEN[I], C, AM2)
+            object.QION[2][I] = GasUtil.CALQIONX(EN, NIONF2, YINF2, XINF2, BETA2, <float> (0.06312), CONST,
+                                                 object.DEN[I], C, AM2)
         if EN > 2 * object.EION[2]:
             object.PEQION[2][I] = object.PEQEL[1][I - IOFFION[2]]
 
@@ -305,7 +313,8 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[3][I] = 0
         if EN >= object.EION[3]:
-            object.QION[3][I] = GasUtil.CALQIONX(EN, NIONF3, YINF3, XINF3, BETA2, 0.0664, CONST, object.DEN[I], C, AM2)
+            object.QION[3][I] = GasUtil.CALQIONX(EN, NIONF3, YINF3, XINF3, BETA2, <float> (0.0664), CONST,
+                                                 object.DEN[I], C, AM2)
         if EN > 2 * object.EION[3]:
             object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]
 
@@ -315,7 +324,8 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[4][I] = 0
         if EN >= object.EION[4]:
-            object.QION[4][I] = GasUtil.CALQIONX(EN, NIONF4, YINF4, XINF4, BETA2, 0.02625, CONST, object.DEN[I], C, AM2)
+            object.QION[4][I] = GasUtil.CALQIONX(EN, NIONF4, YINF4, XINF4, BETA2, <float> (0.02625), CONST,
+                                                 object.DEN[I], C, AM2)
         if EN > 2 * object.EION[4]:
             object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]
 
@@ -325,7 +335,8 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[5][I] = 0
         if EN >= object.EION[5]:
-            object.QION[5][I] = GasUtil.CALQIONX(EN, NIONF5, YINF5, XINF5, BETA2, 0.00798, CONST, object.DEN[I], C, AM2)
+            object.QION[5][I] = GasUtil.CALQIONX(EN, NIONF5, YINF5, XINF5, BETA2, <float> (0.00798), CONST,
+                                                 object.DEN[I], C, AM2)
         if EN > 2 * object.EION[5]:
             object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]
 
@@ -335,7 +346,8 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[6][I] = 0
         if EN >= object.EION[6]:
-            object.QION[6][I] = GasUtil.CALQIONX(EN, NIONPP, YINPP, XINPP, BETA2, 0.0095969, CONST, object.DEN[I], C, AM2)
+            object.QION[6][I] = GasUtil.CALQIONX(EN, NIONPP, YINPP, XINPP, BETA2, <float> (0.0095969), CONST,
+                                                 object.DEN[I], C, AM2)
         if EN > 2 * object.EION[6]:
             object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]
 
@@ -345,7 +357,8 @@ cdef void Gas8(Gas*object):
         if object.NANISO == 2:
             object.PEQION[7][I] = 0
         if EN >= object.EION[7]:
-            object.QION[7][I] = GasUtil.CALQIONX(EN, NIONF6, YINF6, XINF6, BETA2, 0.00523, CONST, object.DEN[I], C, AM2)
+            object.QION[7][I] = GasUtil.CALQIONX(EN, NIONF6, YINF6, XINF6, BETA2, <float> (0.00523), CONST,
+                                                 object.DEN[I], C, AM2)
         if EN > 2 * object.EION[7]:
             object.PEQION[7][I] = object.PEQEL[1][I - IOFFION[7]]
 
@@ -389,7 +402,8 @@ cdef void Gas8(Gas*object):
         object.QIN[1][I] = 0.0
         object.PEQIN[1][I] = 0.5
         if EN > object.EIN[1]:
-            object.QIN[1][I] = GasUtil.CALQINVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT, 0.076)
+            object.QIN[1][I] = GasUtil.CALQINVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT,
+                                                    <float> (0.076))
             #RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART =RAT
             XMT = GasUtil.CALXMTVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT, 0.076)
             object.PEQIN[1][I] = 0.5 + (object.QIN[1][I] - XMT) / object.QIN[1][I]
@@ -417,9 +431,9 @@ cdef void Gas8(Gas*object):
         object.QIN[5][I] = 0.0
         object.PEQIN[5][I] = 0.5
         if EN > object.EIN[5]:
-            object.QIN[5][I] = GasUtil.CALQINVANISO(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, 0.076)
+            object.QIN[5][I] = GasUtil.CALQINVANISO(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
             #RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART =RAT
-            XMT = GasUtil.CALXMTVANISO(EN, NVIBV3, YVBV3, XVBV3, object.EIN[1], 1, RAT, 0.076)
+            XMT = GasUtil.CALXMTVANISO(EN, NVIBV3, YVBV3, XVBV3, object.EIN[1], 1, RAT, <float> (0.076))
             object.PEQIN[5][I] = 0.5 + (object.QIN[5][I] - XMT) / object.QIN[5][I]
 
         #VIBRATION HARMONICS 1 ISOTROPIC
@@ -461,17 +475,17 @@ cdef void Gas8(Gas*object):
         #SINGLET DISSOCIATION AT 8.75+FI*0.5 EV USE BEF SCALING WITH F[J]
         FI = 0
         CONI = 0
-        for J in range(11,14):
+        for J in range(11, 14):
             object.QIN[J][I] = 0.0
             object.PEQIN[J][I] = 0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                            log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                        I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
+                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
             if EN > 3 * object.EIN[J]:
                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
-            FI+=1
-            CONI+=1
+            FI += 1
+            CONI += 1
 
         #TRIPLET DISSOCIATION 10.0EV
         object.QIN[14][I] = 0.0
@@ -482,23 +496,23 @@ cdef void Gas8(Gas*object):
             object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]
 
         #SINGLET DISSOCIATION AT 8.75+FI*0.5 EV USE BEF SCALING WITH F[J]
-        for J in range(15,22):
+        for J in range(15, 22):
             object.QIN[J][I] = 0.0
             object.PEQIN[J][I] = 0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                            log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                        I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
+                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
             if EN > 3 * object.EIN[J]:
                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
-            FI+=1
-            CONI+=1
+            FI += 1
+            CONI += 1
 
         #DISSOCIATIVE EXC TO STATES DECAYING VIA CH(A2DELTA TO G.S.)
         object.QIN[22][I] = 0.0
         object.PEQIN[22][I] = 0.0
         if EN > object.EIN[22]:
-            object.QIN[22][I] = GasUtil.CALQINP(EN, NCHD, YCHD, XCHD, 1)*100
+            object.QIN[22][I] = GasUtil.CALQINP(EN, NCHD, YCHD, XCHD, 1) * 100
         if EN > 3 * object.EIN[22]:
             object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]
 
@@ -506,28 +520,28 @@ cdef void Gas8(Gas*object):
         object.QIN[23][I] = 0.0
         object.PEQIN[23][I] = 0.0
         if EN > object.EIN[23]:
-            object.QIN[23][I] = GasUtil.CALQINP(EN, NCHB, YCHB, XCHB, 1)*100
+            object.QIN[23][I] = GasUtil.CALQINP(EN, NCHB, YCHB, XCHB, 1) * 100
         if EN > 3 * object.EIN[23]:
             object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]
 
         #SINGLET DISSOCIATION AT 8.75+FI*0.5 EV USE BEF SCALING WITH F[J]
-        for J in range(24,30):
+        for J in range(24, 30):
             object.QIN[J][I] = 0.0
             object.PEQIN[J][I] = 0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                            log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                        I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
+                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
             if EN > 3 * object.EIN[J]:
                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
-            FI+=1
-            CONI+=1
+            FI += 1
+            CONI += 1
 
         #DISSOCIATIVE EXC TO STATES DECAYING VIA H(ALPHA)
         object.QIN[30][I] = 0.0
         object.PEQIN[30][I] = 0.0
         if EN > object.EIN[30]:
-            object.QIN[30][I] = GasUtil.CALQINP(EN, NHAL, YHAL, XHAL, 1)*100
+            object.QIN[30][I] = GasUtil.CALQINP(EN, NHAL, YHAL, XHAL, 1) * 100
         if EN > 3 * object.EIN[30]:
             object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]
 
@@ -535,29 +549,29 @@ cdef void Gas8(Gas*object):
         object.QIN[31][I] = 0.0
         object.PEQIN[31][I] = 0.0
         if EN > object.EIN[31]:
-            object.QIN[31][I] = GasUtil.CALQINP(EN, NHBE, YHBE, XHBE, 1)*100
+            object.QIN[31][I] = GasUtil.CALQINP(EN, NHBE, YHBE, XHBE, 1) * 100
         if EN > 3 * object.EIN[31]:
             object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]
 
         #SINGLET DISSOCIATION AT 8.75+FI*0.5 EV USE BEF SCALING WITH F[J]
-        for J in range(32,34):
+        for J in range(32, 34):
             object.QIN[J][I] = 0.0
             object.PEQIN[J][I] = 0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                            log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                        I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
+                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * CON[CONI]
             if EN > 3 * object.EIN[J]:
                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
-            FI+=1
-            CONI+=1
+            FI += 1
+            CONI += 1
 
         #LOAD BREMSSTRAHLUNG X-SECTIONS
         object.QIN[34][I] = 0.0
         object.QIN[35][I] = 0.0
-        if EN>1000:
-            object.QIN[34][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z6T, EBRM)*1e-8
-            object.QIN[35][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z1T, EBRM)*4e-8
+        if EN > 1000:
+            object.QIN[34][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z6T, EBRM) * 1e-8
+            object.QIN[35][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z1T, EBRM) * 4e-8
 
         #skipped the QSUP,QVIB,QDATT,QSING,QTRIP,QEXC,QTTT,QWINT,QINEL,QIONS as they are not used later one.
     for J in range(object.NIN):

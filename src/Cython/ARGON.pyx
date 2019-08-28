@@ -89,7 +89,7 @@ cdef void Gas2(Gas *object):
     EMASS = 9.10938291e-31
     AMU = 1.660538921e-27
     object.E = [0.0, 1.0, <float>(15.75961), 0.0, 0.0, <float>(15.0)]
-    object.E[1] = <float>(2.0) * EMASS / ((39.948) * AMU)
+    object.E[1] = <float>(2.0) * EMASS / (<float>(39.948) * AMU)
     cdef double EOBY[30], ISHELL[30], LEGAS[30], WKLM[30]
     EOBY[0:7] = [<float>(9.5), <float>(18.0), <float>(34.0), <float>(110.0), <float>(110.0), <float>(150.0), <float>(1800)]
 
@@ -117,7 +117,7 @@ cdef void Gas2(Gas *object):
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if object.EG[i] > object.EION[j]:
-                IOFFION[j] = i -1
+                IOFFION[j] = i
                 break
     cdef double XEN[117],YSEC[117],YEL[117],XEPS[217],YEPS[217],XENI[75],YENI[75],YENC[75],YEN1[75],XEN2[47]
     cdef double YEN2[47],XEN3[36],YEN3[36],XKSH[89],YKSH[89],XL1S[101],YL1S[101],XL2S[104],YL2S[104],XL3S[104],YL3S[104]
@@ -235,7 +235,7 @@ cdef void Gas2(Gas *object):
     for i in range(object.NIN):
         for j in range(4000):
             if object.EG[j] > object.EIN[i]:
-                IOFFN[i] = j -1
+                IOFFN[i] = j
                 break
     cdef int I
     cdef double GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
@@ -373,9 +373,9 @@ cdef void Gas2(Gas *object):
                 object.QION[2][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.00987)
             if EN > 2 * object.EION[2]:
                 object.PEQION[2][I] = object.PEQEL[1][(I - IOFFION[2])]
-            # L3 Shell ionisation
-            object.QION[3][I] = 0.0
-            object.PEQION[3][I] = 0.5
+        # L3 Shell ionisation
+        object.QION[3][I] = 0.0
+        object.PEQION[3][I] = 0.5
 
         if object.NANISO == 2:
             object.PEQION[3][I] = 0.0

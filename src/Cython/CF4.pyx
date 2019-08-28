@@ -39,11 +39,8 @@ cdef void Gas1(Gas* object):
     object.EG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 5.0]
     object.EION[0:12] = [<float>(15.7), <float>(21.47), <float>(29.14), <float>(34.5), <float>(34.77), 36.0, 40.0, 41.0, 43.0, 63.0, 285.0, <float>(685.4)]
     cdef int IOFFION[12]
-    IOFFION = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     cdef int IOFFN[46]
 
-    for i in range(46):
-        IOFFN[i] = 0
 
     cdef double EMASS2 = <float>(1021997.804)
     cdef double API = acos(-1)
@@ -102,7 +99,7 @@ cdef void Gas1(Gas* object):
     cdef int J = 0
     # OPAL BEATY IONISATION ENERGY SPLITTING
     for i in range(0, 10):
-        EOBY[i] = 0.58 * object.EION[i]
+        EOBY[i] = <float>(0.58) * object.EION[i]
 
     EOBY[10] = 210.0
     EOBY[11] = 510.0
@@ -709,7 +706,7 @@ cdef void Gas1(Gas* object):
 
         # VIBRATION HARMONIC 2V3
         object.QIN[8][i] = 0.0
-        object.PEQION[8][i] = 0.5
+        object.PEQIN[8][i] = 0.5
         if EN > object.EIN[8]:
             if EN <= XVIB5[NVIB5 - 1]:
                 j = 0
@@ -728,7 +725,7 @@ cdef void Gas1(Gas* object):
                 object.PEQIN[8][i] = PQ[1]
         # VIBRATION HARMONIC 3V3
         object.QIN[9][i] = 0.0
-        object.PEQION[9][i] = 0.5
+        object.PEQIN[9][i] = 0.5
         if EN > object.EIN[9]:
             if EN <= XVIB6[NVIB6 - 1]:
                 j = 0
@@ -772,10 +769,10 @@ cdef void Gas1(Gas* object):
                                                                  object.DEN[
                                                                      i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[11] + object.E[2]) * <float>(1.0107)
-        if object.QIN[11][i] < 0.0:
-            object.QIN[11][i] = 0
-        if EN > 3 * object.EIN[11]:
-            object.PEQIN[11][i] = object.PEQEL[1][i - IOFFN[11]]
+            if object.QIN[11][i] < 0.0:
+                object.QIN[11][i] = 0
+            if EN > 3 * object.EIN[11]:
+                object.PEQIN[11][i] = object.PEQEL[1][i - IOFFN[11]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=11.88 EV     F=0.001085
         object.QIN[12][i] = 0.0
@@ -786,10 +783,10 @@ cdef void Gas1(Gas* object):
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[12] + object.E[2]) * <float>(1.0105)
-        if object.QIN[12][i] < 0.0:
-            object.QIN[12][i] = 0
-        if EN > 3 * object.EIN[12]:
-            object.PEQIN[12][i] = object.PEQEL[1][i - IOFFN[12]]
+            if object.QIN[12][i] < 0.0:
+                object.QIN[12][i] = 0
+            if EN > 3 * object.EIN[12]:
+                object.PEQIN[12][i] = object.PEQEL[1][i - IOFFN[12]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=11.88 EV     F=0.004807
         object.QIN[13][i] = 0.0
@@ -800,10 +797,10 @@ cdef void Gas1(Gas* object):
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[13] + object.E[2]) * <float>(1.0103)
-        if object.QIN[13][i] < 0.0:
-            object.QIN[13][i] = 0
-        if EN > 3 * object.EIN[13]:
-            object.PEQIN[13][i] = object.PEQEL[1][i - IOFFN[13]]
+            if object.QIN[13][i] < 0.0:
+                object.QIN[13][i] = 0
+            if EN > 3 * object.EIN[13]:
+                object.PEQIN[13][i] = object.PEQEL[1][i - IOFFN[13]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.38 EV     F=0.008819
         object.QIN[14][i] = 0.0
@@ -814,10 +811,10 @@ cdef void Gas1(Gas* object):
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[14] + object.E[2]) * <float>(1.0101)
-        if object.QIN[14][i] < 0.0:
-            object.QIN[14][i] = 0
-        if EN > 3 * object.EIN[14]:
-            object.PEQIN[14][i] = object.PEQEL[1][i - IOFFN[14]]
+            if object.QIN[14][i] < 0.0:
+                object.QIN[14][i] = 0
+            if EN > 3 * object.EIN[14]:
+                object.PEQIN[14][i] = object.PEQEL[1][i - IOFFN[14]]
 
         # TRIPLET NEUTRAL DISSOCIATION ELOSS=12.5 EV
         object.QIN[15][i] = 0.0
@@ -845,10 +842,10 @@ cdef void Gas1(Gas* object):
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[16] + object.E[2]) * <float>(1.0099)
-        if object.QIN[16][i] < 0.0:
-            object.QIN[16][i] = 0
-        if EN > 3 * object.EIN[16]:
-            object.PEQIN[16][i] = object.PEQEL[1][i - IOFFN[16]]
+            if object.QIN[16][i] < 0.0:
+                object.QIN[16][i] = 0
+            if EN > 3 * object.EIN[16]:
+                object.PEQIN[16][i] = object.PEQEL[1][i - IOFFN[16]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.88 EV     F=0.008420
         object.QIN[17][i] = 0.0
@@ -859,10 +856,10 @@ cdef void Gas1(Gas* object):
                                                                 object.DEN[
                                                                     i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[17] + object.E[2]) * <float>(1.0097)
-        if object.QIN[17][i] < 0.0:
-            object.QIN[17][i] = 0
-        if EN > 3 * object.EIN[17]:
-            object.PEQIN[17][i] = object.PEQEL[1][i - IOFFN[17]]
+            if object.QIN[17][i] < 0.0:
+                object.QIN[17][i] = 0
+            if EN > 3 * object.EIN[17]:
+                object.PEQIN[17][i] = object.PEQEL[1][i - IOFFN[17]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.13 EV     F=0.02531
         object.QIN[18][i] = 0.0
@@ -873,10 +870,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[18] + object.E[2]) * <float>(1.0095)
-        if object.QIN[18][i] < 0.0:
-            object.QIN[18][i] = 0
-        if EN > 3 * object.EIN[18]:
-            object.PEQIN[18][i] = object.PEQEL[1][i - IOFFN[18]]
+            if object.QIN[18][i] < 0.0:
+                object.QIN[18][i] = 0
+            if EN > 3 * object.EIN[18]:
+                object.PEQIN[18][i] = object.PEQEL[1][i - IOFFN[18]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.38 EV     F=0.09553
         object.QIN[19][i] = 0.0
@@ -887,10 +884,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[19] + object.E[2]) * <float>(1.0093)
-        if object.QIN[19][i] < 0.0:
-            object.QIN[19][i] = 0
-        if EN > 3 * object.EIN[19]:
-            object.PEQIN[19][i] = object.PEQEL[1][i - IOFFN[19]]
+            if object.QIN[19][i] < 0.0:
+                object.QIN[19][i] = 0
+            if EN > 3 * object.EIN[19]:
+                object.PEQIN[19][i] = object.PEQEL[1][i - IOFFN[19]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.63 EV     F=0.11193
         object.QIN[20][i] = 0.0
@@ -901,10 +898,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[20] + object.E[2]) * <float>(1.0092)
-        if object.QIN[20][i] < 0.0:
-            object.QIN[20][i] = 0
-        if EN > 3 * object.EIN[20]:
-            object.PEQIN[20][i] = object.PEQEL[1][i - IOFFN[20]]
+            if object.QIN[20][i] < 0.0:
+                object.QIN[20][i] = 0
+            if EN > 3 * object.EIN[20]:
+                object.PEQIN[20][i] = object.PEQEL[1][i - IOFFN[20]]
 
         # SINGLET NEUTRAL DISSOCIATION    ELOSS=13.88 EV     F=0.10103
         object.QIN[21][i] = 0.0
@@ -915,10 +912,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[21] + object.E[2]) * <float>(1.0090)
-        if object.QIN[21][i] < 0.0:
-            object.QIN[21][i] = 0
-        if EN > 3 * object.EIN[21]:
-            object.PEQIN[21][i] = object.PEQEL[1][i - IOFFN[21]]
+            if object.QIN[21][i] < 0.0:
+                object.QIN[21][i] = 0
+            if EN > 3 * object.EIN[21]:
+                object.PEQIN[21][i] = object.PEQEL[1][i - IOFFN[21]]
 
         # TRIPLET NEUTRAL DISSOCIATION ELOSS=14.0 EV
         object.QIN[22][i] = 0.0
@@ -946,10 +943,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[23] + object.E[2]) * <float>(1.0088)
-        if object.QIN[23][i] < 0.0:
-            object.QIN[23][i] = 0
-        if EN > 3 * object.EIN[23]:
-            object.PEQIN[23][i] = object.PEQEL[1][i - IOFFN[23]]
+            if object.QIN[23][i] < 0.0:
+                object.QIN[23][i] = 0
+            if EN > 3 * object.EIN[23]:
+                object.PEQIN[23][i] = object.PEQEL[1][i - IOFFN[23]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.38 EV     F=0.03968
         object.QIN[24][i] = 0.0
@@ -960,10 +957,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[24] + object.E[2]) * <float>(1.0087)
-        if object.QIN[24][i] < 0.0:
-            object.QIN[24][i] = 0
-        if EN > 3 * object.EIN[24]:
-            object.PEQIN[24][i] = object.PEQEL[1][i - IOFFN[24]]
+            if object.QIN[24][i] < 0.0:
+                object.QIN[24][i] = 0
+            if EN > 3 * object.EIN[24]:
+                object.PEQIN[24][i] = object.PEQEL[1][i - IOFFN[24]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.63 EV     F=0.02584
         object.QIN[25][i] = 0.0
@@ -974,10 +971,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[25] + object.E[2]) * <float>(1.0085)
-        if object.QIN[25][i] < 0.0:
-            object.QIN[25][i] = 0
-        if EN > 3 * object.EIN[25]:
-            object.PEQIN[25][i] = object.PEQEL[1][i - IOFFN[25]]
+            if object.QIN[25][i] < 0.0:
+                object.QIN[25][i] = 0
+            if EN > 3 * object.EIN[25]:
+                object.PEQIN[25][i] = object.PEQEL[1][i - IOFFN[25]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.88 EV     F=0.02071
         object.QIN[26][i] = 0.0
@@ -988,10 +985,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[26] + object.E[2]) * <float>(1.0084)
-        if object.QIN[26][i] < 0.0:
-            object.QIN[26][i] = 0
-        if EN > 3 * object.EIN[26]:
-            object.PEQIN[26][i] = object.PEQEL[1][i - IOFFN[26]]
+            if object.QIN[26][i] < 0.0:
+                object.QIN[26][i] = 0
+            if EN > 3 * object.EIN[26]:
+                object.PEQIN[26][i] = object.PEQEL[1][i - IOFFN[26]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.13 EV     F=0.03122
         object.QIN[27][i] = 0.0
@@ -1002,10 +999,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[27] + object.E[2]) * <float>(1.0083)
-        if object.QIN[27][i] < 0.0:
-            object.QIN[27][i] = 0
-        if EN > 3 * object.EIN[27]:
-            object.PEQIN[27][i] = object.PEQEL[1][i - IOFFN[27]]
+            if object.QIN[27][i] < 0.0:
+                object.QIN[27][i] = 0
+            if EN > 3 * object.EIN[27]:
+                object.PEQIN[27][i] = object.PEQEL[1][i - IOFFN[27]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.38 EV     F=0.05580
         object.QIN[28][i] = 0.0
@@ -1016,10 +1013,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[28] + object.E[2]) * <float>(1.0081)
-        if object.QIN[28][i] < 0.0:
-            object.QIN[28][i] = 0
-        if EN > 3 * object.EIN[28]:
-            object.PEQIN[28][i] = object.PEQEL[1][i - IOFFN[28]]
+            if object.QIN[28][i] < 0.0:
+                object.QIN[28][i] = 0
+            if EN > 3 * object.EIN[28]:
+                object.PEQIN[28][i] = object.PEQEL[1][i - IOFFN[28]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.63 EV     F=0.10187
         object.QIN[29][i] = 0.0
@@ -1030,10 +1027,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[29] + object.E[2]) * <float>(1.0080)
-        if object.QIN[29][i] < 0.0:
-            object.QIN[29][i] = 0
-        if EN > 3 * object.EIN[29]:
-            object.PEQIN[29][i] = object.PEQEL[1][i - IOFFN[29]]
+            if object.QIN[29][i] < 0.0:
+                object.QIN[29][i] = 0
+            if EN > 3 * object.EIN[29]:
+                object.PEQIN[29][i] = object.PEQEL[1][i - IOFFN[29]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.88 EV     F=0.09427
         object.QIN[30][i] = 0.0
@@ -1044,10 +1041,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[30] + object.E[2]) * <float>(1.0079)
-        if object.QIN[30][i] < 0.0:
-            object.QIN[30][i] = 0
-        if EN > 3 * object.EIN[30]:
-            object.PEQIN[30][i] = object.PEQEL[1][i - IOFFN[30]]
+            if object.QIN[30][i] < 0.0:
+                object.QIN[30][i] = 0
+            if EN > 3 * object.EIN[30]:
+                object.PEQIN[30][i] = object.PEQEL[1][i - IOFFN[30]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.13 EV     F=0.05853
         object.QIN[31][i] = 0.0
@@ -1058,10 +1055,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[31] + object.E[2]) * <float>(1.0077)
-        if object.QIN[31][i] < 0.0:
-            object.QIN[31][i] = 0
-        if EN > 3 * object.EIN[31]:
-            object.PEQIN[31][i] = object.PEQEL[1][i - IOFFN[31]]
+            if object.QIN[31][i] < 0.0:
+                object.QIN[31][i] = 0
+            if EN > 3 * object.EIN[31]:
+                object.PEQIN[31][i] = object.PEQEL[1][i - IOFFN[31]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.38 EV     F=0.06002
         object.QIN[32][i] = 0.0
@@ -1086,10 +1083,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[33] + object.E[2]) * <float>(1.0075)
-        if object.QIN[33][i] < 0.0:
-            object.QIN[33][i] = 0
-        if EN > 3 * object.EIN[33]:
-            object.PEQIN[33][i] = object.PEQEL[1][i - IOFFN[33]]
+            if object.QIN[33][i] < 0.0:
+                object.QIN[33][i] = 0
+            if EN > 3 * object.EIN[33]:
+                object.PEQIN[33][i] = object.PEQEL[1][i - IOFFN[33]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.88 EV     F=0.04885
         object.QIN[34][i] = 0.0
@@ -1100,10 +1097,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[34] + object.E[2]) * <float>(1.0074)
-        if object.QIN[34][i] < 0.0:
-            object.QIN[34][i] = 0
-        if EN > 3 * object.EIN[34]:
-            object.PEQIN[34][i] = object.PEQEL[1][i - IOFFN[34]]
+            if object.QIN[34][i] < 0.0:
+                object.QIN[34][i] = 0
+            if EN > 3 * object.EIN[34]:
+                object.PEQIN[34][i] = object.PEQEL[1][i - IOFFN[34]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.13 EV     F=0.04036
         object.QIN[35][i] = 0.0
@@ -1114,10 +1111,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[35] + object.E[2]) * <float>(1.0073)
-        if object.QIN[35][i] < 0.0:
-            object.QIN[35][i] = 0
-        if EN > 3 * object.EIN[35]:
-            object.PEQIN[35][i] = object.PEQEL[1][i - IOFFN[35]]
+            if object.QIN[35][i] < 0.0:
+                object.QIN[35][i] = 0
+            if EN > 3 * object.EIN[35]:
+                object.PEQIN[35][i] = object.PEQEL[1][i - IOFFN[35]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.38 EV     F=0.03298
         object.QIN[36][i] = 0.0
@@ -1128,10 +1125,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[36] + object.E[2]) * <float>(1.0072)
-        if object.QIN[36][i] < 0.0:
-            object.QIN[36][i] = 0
-        if EN > 3 * object.EIN[36]:
-            object.PEQIN[36][i] = object.PEQEL[1][i - IOFFN[36]]
+            if object.QIN[36][i] < 0.0:
+                object.QIN[36][i] = 0
+            if EN > 3 * object.EIN[36]:
+                object.PEQIN[36][i] = object.PEQEL[1][i - IOFFN[36]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.63 EV     F=0.02593
         object.QIN[37][i] = 0.0
@@ -1142,10 +1139,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[37] + object.E[2]) * <float>(1.0071)
-        if object.QIN[37][i] < 0.0:
-            object.QIN[37][i] = 0
-        if EN > 3 * object.EIN[37]:
-            object.PEQIN[37][i] = object.PEQEL[1][i - IOFFN[37]]
+            if object.QIN[37][i] < 0.0:
+                object.QIN[37][i] = 0
+            if EN > 3 * object.EIN[37]:
+                object.PEQIN[37][i] = object.PEQEL[1][i - IOFFN[37]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.88 EV     F=0.01802
         object.QIN[38][i] = 0.0
@@ -1156,10 +1153,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[38] + object.E[2]) * <float>(1.0070)
-        if object.QIN[38][i] < 0.0:
-            object.QIN[38][i] = 0
-        if EN > 3 * object.EIN[38]:
-            object.PEQIN[38][i] = object.PEQEL[1][i - IOFFN[38]]
+            if object.QIN[38][i] < 0.0:
+                object.QIN[38][i] = 0
+            if EN > 3 * object.EIN[38]:
+                object.PEQIN[38][i] = object.PEQEL[1][i - IOFFN[38]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.13 EV     F=0.01287
         object.QIN[39][i] = 0.0
@@ -1170,10 +1167,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[39] + object.E[2]) * <float>(1.0069)
-        if object.QIN[39][i] < 0.0:
-            object.QIN[39][i] = 0
-        if EN > 3 * object.EIN[39]:
-            object.PEQIN[39][i] = object.PEQEL[1][i - IOFFN[39]]
+            if object.QIN[39][i] < 0.0:
+                object.QIN[39][i] = 0
+            if EN > 3 * object.EIN[39]:
+                object.PEQIN[39][i] = object.PEQEL[1][i - IOFFN[39]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.38 EV     F=0.00830
         object.QIN[40][i] = 0.0
@@ -1184,10 +1181,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[40] + object.E[2]) * <float>(1.0068)
-        if object.QIN[40][i] < 0.0:
-            object.QIN[40][i] = 0
-        if EN > 3 * object.EIN[40]:
-            object.PEQIN[40][i] = object.PEQEL[1][i - IOFFN[40]]
+            if object.QIN[40][i] < 0.0:
+                object.QIN[40][i] = 0
+            if EN > 3 * object.EIN[40]:
+                object.PEQIN[40][i] = object.PEQEL[1][i - IOFFN[40]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.63 EV     F=0.00698
         object.QIN[41][i] = 0.0
@@ -1198,10 +1195,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[41] + object.E[2]) * <float>(1.0067)
-        if object.QIN[41][i] < 0.0:
-            object.QIN[41][i] = 0
-        if EN > 3 * object.EIN[41]:
-            object.PEQIN[41][i] = object.PEQEL[1][i - IOFFN[41]]
+            if object.QIN[41][i] < 0.0:
+                object.QIN[41][i] = 0
+            if EN > 3 * object.EIN[41]:
+                object.PEQIN[41][i] = object.PEQEL[1][i - IOFFN[41]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.88 EV     F=0.00581
         object.QIN[42][i] = 0.0
@@ -1212,10 +1209,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[42] + object.E[2]) * <float>(1.0066)
-        if object.QIN[42][i] < 0.0:
-            object.QIN[42][i] = 0
-        if EN > 3 * object.EIN[42]:
-            object.PEQIN[42][i] = object.PEQEL[1][i - IOFFN[42]]
+            if object.QIN[42][i] < 0.0:
+                object.QIN[42][i] = 0
+            if EN > 3 * object.EIN[42]:
+                object.PEQIN[42][i] = object.PEQEL[1][i - IOFFN[42]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.13 EV     F=0.00502
         object.QIN[43][i] = 0.0
@@ -1226,10 +1223,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[43] + object.E[2]) * <float>(1.0065)
-        if object.QIN[43][i] < 0.0:
-            object.QIN[43][i] = 0
-        if EN > 3 * object.EIN[43]:
-            object.PEQIN[43][i] = object.PEQEL[1][i - IOFFN[43]]
+            if object.QIN[43][i] < 0.0:
+                object.QIN[43][i] = 0
+            if EN > 3 * object.EIN[43]:
+                object.PEQIN[43][i] = object.PEQEL[1][i - IOFFN[43]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.38 EV     F=0.00398
         object.QIN[44][i] = 0.0
@@ -1240,10 +1237,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[44] + object.E[2]) * <float>(1.0064)
-        if object.QIN[44][i] < 0.0:
-            object.QIN[44][i] = 0
-        if EN > 3 * object.EIN[44]:
-            object.PEQIN[44][i] = object.PEQEL[1][i - IOFFN[44]]
+            if object.QIN[44][i] < 0.0:
+                object.QIN[44][i] = 0
+            if EN > 3 * object.EIN[44]:
+                object.PEQIN[44][i] = object.PEQEL[1][i - IOFFN[44]]
 
         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.63 EV     F=0.00189
         object.QIN[45][i] = 0.0
@@ -1255,10 +1252,10 @@ cdef void Gas1(Gas* object):
                                                                object.DEN[
                                                                    i] / 2.0) * BBCONST * EN / (
                                         EN + object.EIN[45] + object.E[2]) * <float>(1.0064)
-        if object.QIN[45][i] < 0.0:
-            object.QIN[45][i] = 0
-        if EN > 3 * object.EIN[45]:
-            object.PEQIN[45][i] = object.PEQEL[1][i - IOFFN[45]]
+            if object.QIN[45][i] < 0.0:
+                object.QIN[45][i] = 0
+            if EN > 3 * object.EIN[45]:
+                object.PEQIN[45][i] = object.PEQEL[1][i - IOFFN[45]]
 
         QIONSUM = 0.0
         for J in range(0, 12):
@@ -1280,6 +1277,8 @@ cdef void Gas1(Gas* object):
 
         DISTOT = QSNGLSUM + QTRIPSUM + QIONSUM
         object.Q[0][i] = object.Q[1][i] + object.Q[3][i] + VSUM + DISTOT
+
+    print(object.QATT[0][i])
 
     for J in range(10, 46):
         if object.EFINAL <= object.EIN[J]:

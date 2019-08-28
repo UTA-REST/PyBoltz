@@ -30,7 +30,7 @@ cdef void Gas1(Gas* object):
     object.NC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0]
     object.EC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 253.0, 625.2]
     cdef double WKLM[12]
-    WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0026, 0.01]
+    WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, <float>(0.0026), <float>(0.01)]
     object.WK[0:12]=WKLM
     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 273.0, 668.0]
     object.NG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 2]
@@ -83,7 +83,7 @@ cdef void Gas1(Gas* object):
         object.KIN[i] = object.NANISO
     # RATIO OF MOMENTUM TRANSFER TO TOTAL X-SEC FOR RESONANCE
     # PART OF VIBRATIONAL X-SECTIONS
-    cdef double RAT = 0.75
+    cdef double RAT = <float>(0.75)
     cdef int NDATA = 163
     cdef int NVBV4 = 11
     cdef int NVBV1 = 11
@@ -677,7 +677,7 @@ cdef void Gas1(Gas* object):
             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
             if EN > 100.0:
                 object.PEQIN[6][i] = PQ[1]
-        # VIBRATION V4 ANISOTROPIC
+        # VIBRATION V3 ANISOTROPIC
         object.QIN[7][i] = 0.0
         object.PEQIN[7][i] = 0.5
         if EN > object.EIN[7]:
@@ -1277,8 +1277,6 @@ cdef void Gas1(Gas* object):
 
         DISTOT = QSNGLSUM + QTRIPSUM + QIONSUM
         object.Q[0][i] = object.Q[1][i] + object.Q[3][i] + VSUM + DISTOT
-
-    print(object.QATT[0][i])
 
     for J in range(10, 46):
         if object.EFINAL <= object.EIN[J]:

@@ -316,8 +316,8 @@ cdef void Gas2(Gas *object):
                 for j in range(1, NIDATA):
                     if EN <= XENI[j]:
                         break
-                A = (YENI[j] - YENI[j - 1]) / (XENI[j] - XENI[j - 1])
-                B = (XENI[j - 1] * YENI[j] - XENI[j] * YENI[j - 1]) / (XENI[j - 1] - XENI[j])
+                A = (YEN1[j] - YEN1[j - 1]) / (XENI[j] - XENI[j - 1])
+                B = (XENI[j - 1] * YEN1[j] - XENI[j] * YEN1[j - 1]) / (XENI[j - 1] - XENI[j])
                 object.QION[0][I] = (A * EN + B) * 1e-16
 
             else:
@@ -326,7 +326,7 @@ cdef void Gas2(Gas *object):
                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
                 object.QION[0][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2) * <float>(0.9466)
             if EN > 2 * object.EION[0]:
-                object.PEQION[0][I] = object.PEQEL[0][(I - IOFFION[0])]
+                object.PEQION[0][I] = object.PEQEL[1][(I - IOFFION[0])]
 
         object.QION[1][I] = 0.0
         object.PEQION[1][I] = 0.5
@@ -445,7 +445,7 @@ cdef void Gas2(Gas *object):
         if object.NANISO == 2:
             object.PEQEL[4][I] = 0.0
         if EN > object.E[2]:
-            if EN <= XENI[NIDATA]:
+            if EN <= XENI[NIDATA-1]:
                 for j in range(1, NIDATA):
                     if EN <= XENI[j]:
                         break
@@ -1034,8 +1034,6 @@ cdef void Gas2(Gas *object):
         object.Q[0][I] = QELA + Q1SSUM + QPSSUM + QDSSUM
         for i in range(0, 7):
             object.Q[0][I] += object.QION[i][I]
-
-    print(object.NC0[0])
 
     for j in range(0, object.NIN):
         if object.EFINAL <= object.EIN[j]:

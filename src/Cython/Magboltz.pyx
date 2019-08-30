@@ -18,6 +18,7 @@ from MONTEBT import MONTEBT
 from MONTECT import MONTECT
 from MIXER import MIXER
 from SETUP import SETUP
+from COLFT cimport COLFT
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
 
@@ -351,11 +352,13 @@ cdef class Magboltz:
         self.FAKEI = 0.0
         self.RSTART = 0.666
         self.OF = 1
+        self.MCT = 0.0
 
     def end(self):
         """
         This function is used to convert some of the output values into different units.
         """
+        cdef double DUM[6]
         if self.WZ != 0:
             self.DTOVMB = self.DIFTR * self.EFIELD / self.WZ
             self.DTMN = sqrt(2.0 * self.DIFTR / self.WZ) * 10000.0
@@ -369,6 +372,7 @@ cdef class Magboltz:
             self.WZ *=1e-5
             self.WY *=1e-5
             self.WX *=1e-5
+
 
 
     def Start(self):
@@ -396,39 +400,39 @@ cdef class Magboltz:
                     self.EFINAL = 8.0
                 self.ESTART = self.EFINAL / 50.0
                 while self.IELOW == 1:
-                    print("MIXERT")
+                    if self.OF : print("MIXERT")
                     MIXERT(self)
                     if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        print("ELIMITT")
+                        if self.OF : print("ELIMITT")
                         ELIMITT(self)
                     elif self.BTHETA == 90:
-                        print("ELIMITBT")
+                        if self.OF : print("ELIMITBT")
                         ELIMITBT(self)
                     else:
-                        print("ELIMITCT")
+                        if self.OF : print("ELIMITCT")
                         ELIMITCT(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
-                        print("Calculated the final energy = " + str(self.EFINAL))
+                        if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
                         self.ESTART = self.EFINAL / 50
-                print("Calculated the final energy = " + str(self.EFINAL))
+                if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
 
 
             else:
-                print("MIXERT")
+                if self.OF : print("MIXERT")
                 MIXERT(self)
             if self.BMAG == 0:
-                print("MONTET")
+                if self.OF : print("MONTET")
                 MONTET(self)
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
-                    print("MONTEAT")
+                    if self.OF : print("MONTEAT")
                     MONTEAT(self)
                 elif self.BTHETA == 90:
-                    print("MONTEBT")
+                    if self.OF : print("MONTEBT")
                     MONTEBT(self)
                 else:
-                    print("MONTECT")
+                    if self.OF : print("MONTECT")
                     MONTECT(self)
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
@@ -440,7 +444,7 @@ cdef class Magboltz:
                 self.end()
                 return
             if self.BMAG == 0.0:
-                print("ALP")
+                if self.OF : print("ALP")
                 ALPCALCT(self)
             elif self.BTHETA == 0.0 or self.BTHETA == 180:
                 print("")
@@ -459,38 +463,38 @@ cdef class Magboltz:
                     self.EFINAL = 8
                 self.ESTART = self.EFINAL / 50
                 while self.IELOW == 1:
-                    print("MIXER")
+                    if self.OF : print("MIXER")
                     MIXER(self)
                     if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        print("ELIMIT")
+                        if self.OF : print("ELIMIT")
                         ELIMIT(self)
                     elif self.BTHETA == 90:
-                        print("ELIMITB")
+                        if self.OF : print("ELIMITB")
                         ELIMITB(self)
                     else:
-                        print("ELIMITC")
+                        if self.OF : print("ELIMITC")
                         ELIMITC(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
-                        print("Calculated the final energy = " + str(self.EFINAL))
+                        if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
                         self.ESTART = self.EFINAL / 50
-                print("Calculated the final energy = " + str(self.EFINAL))
+                if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
 
             else:
-                print("MIXER")
+                if self.OF : print("MIXER")
                 MIXER(self)
             if self.BMAG == 0:
-                print("MONTE")
+                if self.OF : print("MONTE")
                 MONTE(self)
             else:
                 if self.BTHETA == 0 or self.BTHETA == 180:
-                    print("MONTEA")
+                    if self.OF : print("MONTEA")
                     MONTEA(self)
                 elif self.BTHETA == 90:
-                    print("MONTEB")
+                    if self.OF : print("MONTEB")
                     MONTEB(self)
                 else:
-                    print("MONTEC")
+                    if self.OF : print("MONTEC")
                     MONTEC(self)
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)

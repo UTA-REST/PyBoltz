@@ -186,6 +186,7 @@ cpdef MONTECT(Magboltz Object):
             while True:
                 R1 = random_uniform(RDUM)
                 T = -1 * log(R1) / Object.TCFMX + TDASH
+                Object.MCT = 0.9 * Object.MCT + 0.1 * T
                 TDASH = T
                 WBT = Object.WB * T
                 COSWT = cos(WBT)

@@ -154,6 +154,7 @@ cpdef MONTE(Magboltz Object):
                 I = min(I, INTEM) - 1
                 TLIM = Object.TCFMAXNT[I]
                 T = -1 * log(R1) / TLIM + TDASH
+                Object.MCT = 0.9 * Object.MCT + 0.1 * T
                 TDASH = T
                 AP = DCZ1 * F2 * sqrt(E1)
                 E = E1 + (AP + BP * T) * T

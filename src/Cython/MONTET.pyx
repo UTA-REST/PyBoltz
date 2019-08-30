@@ -139,7 +139,7 @@ cpdef MONTET(Magboltz Object):
     J2M = <long long> (Object.NMAX / Object.ITMAX)
     if Object.OF:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
-                                                                       "DIFXX", "DIFYY", "DIFZZ"))
+                                                                         "DIFXX", "DIFYY", "DIFZZ"))
 
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
@@ -148,6 +148,7 @@ cpdef MONTET(Magboltz Object):
                 T = -log(R1) / Object.TCFMX + TDASH
                 TDASH = T
 
+                Object.MCT = 0.9 * Object.MCT + 0.1 * T
                 AP = DCZ1 * F2 * sqrt(E1)
                 E = E1 + (AP + BP * T) * T
                 CONST6 = sqrt(E1 / E)
@@ -396,9 +397,11 @@ cpdef MONTET(Magboltz Object):
         SXXOLD = SUMXX
         SME2OLD = SUME2
         if Object.OF:
-            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ, Object.Z, Object.ST,
-                                                                                    Object.AVE, Object.DIFXX, Object.DIFYY,
-                                                                                    Object.DIFZZ))
+            print(
+                '{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ, Object.Z, Object.ST,
+                                                                                         Object.AVE, Object.DIFXX,
+                                                                                         Object.DIFYY,
+                                                                                         Object.DIFZZ))
         if Object.SPEC[3999] > (1000 * float(J1 + 1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
 

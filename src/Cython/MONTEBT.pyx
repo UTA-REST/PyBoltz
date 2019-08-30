@@ -166,6 +166,7 @@ cpdef MONTEBT(Magboltz Object):
                 R1 = random_uniform(RDUM)
                 T = -1 * log(R1) / Object.TCFMX + TDASH
                 TDASH = T
+                Object.MCT = 0.9 * Object.MCT + 0.1 * T
                 WBT = Object.WB * T
                 COSWT = cos(WBT)
                 SINWT = sin(WBT)

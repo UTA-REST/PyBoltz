@@ -143,6 +143,9 @@ cpdef MONTE(Magboltz Object):
     J2M = <long long>(Object.NMAX / Object.ITMAX)
 
     DELTAE = Object.EFINAL / float(INTEM)
+    if Object.OF:
+        print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
+                                                                       "DIFXX", "DIFYY", "DIFZZ"))
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
@@ -352,7 +355,10 @@ cpdef MONTE(Magboltz Object):
         SYYOLD = SUMYY
         SXXOLD = SUMXX
         SME2OLD = SUME2
-        print(J1)
+        if Object.OF:
+            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ, Object.Z, Object.ST,
+                                                                                    Object.AVE, Object.DIFXX, Object.DIFYY,
+                                                                                    Object.DIFZZ))
         if Object.SPEC[3999] > (1000 * float(J1+1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
     # Calculate errors and check averages

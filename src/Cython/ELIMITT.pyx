@@ -68,7 +68,7 @@ cpdef ELIMITT(Magboltz Object):
     J2M = Object.NMAX / ISAMP
     print("Finding the upper limit of electron energy")
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]):
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.OF:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)

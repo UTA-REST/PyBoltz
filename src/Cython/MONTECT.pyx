@@ -178,7 +178,9 @@ cpdef MONTECT(Magboltz Object):
     RDUM = Object.RSTART
 
     J2M = <long long>(Object.NMAX / Object.ITMAX)
-
+    if Object.OF:
+        print('{:^12s}{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Velocity X","Energy",
+                                                                       "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFXZ","DIFXY"))
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
@@ -397,7 +399,6 @@ cpdef MONTECT(Magboltz Object):
             DCY1 = CY1 * CONST11
             DCZ1 = CZ1 * CONST11
 
-        print(J1)
         Object.WZ *= 1e9
         Object.WY *= 1e9
         Object.WX *= 1e9
@@ -467,6 +468,11 @@ cpdef MONTECT(Magboltz Object):
         SXYOLD = SXYR
         SYZOLD = SYZR
         SXZOLD = SXZR
+        if Object.OF:
+            print('{:^12.1f}{:^12.1f}{:^12.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(WZR,WYR,WXR,
+                                                                                    Object.AVE, DIFXXR, DIFYYR,
+                                                                                    DIFZZR,DIFYZR,DIFXZR,DIFXYR))
+
     #CALCULATE ERRORS AND CHECK AVERAGES
 
     TWZST = 0.0

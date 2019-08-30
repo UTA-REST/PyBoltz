@@ -157,7 +157,9 @@ cpdef MONTEBT(Magboltz Object):
     CZ1 = DCZ1 * VTOT
     RDUM = Object.RSTART
     J2M = <long long>(Object.NMAX / Object.ITMAX)
-
+    if Object.OF:
+        print('{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Energy",
+                                                                       "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFLNG","DIFTRN"))
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
@@ -383,8 +385,6 @@ cpdef MONTEBT(Magboltz Object):
             DCY1 = CY1 * CONST11
             DCZ1 = CZ1 * CONST11
 
-        print(J1)
-
         Object.WZ *= 1e9
         Object.WY *= 1e9
         if ST2 != 0.0:
@@ -434,6 +434,10 @@ cpdef MONTEBT(Magboltz Object):
         SYZOLD = SUMYZ
         SLNOLD = SUMLS
         STROLD = SUMTS
+        if Object.OF:
+            print('{:^12.1f}{:^12.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ,Object.WY,
+                                                                                    Object.AVE, Object.DIFXX, Object.DIFYY,
+                                                                                    Object.DIFZZ,Object.DIFYZ,Object.DIFLN,Object.DIFTR))
 
     # Calculate errors and check averages
     TWZST = 0.0

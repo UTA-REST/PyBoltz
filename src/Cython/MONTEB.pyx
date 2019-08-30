@@ -154,7 +154,9 @@ cpdef MONTEB(Magboltz Object):
     J2M = <long long>(Object.NMAX / Object.ITMAX)
 
     DELTAE = Object.EFINAL / float(INTEM)
-
+    if Object.OF:
+        print('{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Energy",
+                                                                       "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFLNG","DIFTRN"))
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
@@ -376,6 +378,10 @@ cpdef MONTEB(Magboltz Object):
         SYZOLD = SUMYZ
         SLNOLD = SUMLS
         STROLD = SUMTS
+        if Object.OF:
+            print('{:^12.1f}{:^12.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ,Object.WY,
+                                                                                    Object.AVE, Object.DIFXX, Object.DIFYY,
+                                                                                    Object.DIFZZ,Object.DIFYZ,Object.DIFLN,Object.DIFTR))
     TWZST = 0.0
     TWYST = 0.0
     TAVE = 0.0

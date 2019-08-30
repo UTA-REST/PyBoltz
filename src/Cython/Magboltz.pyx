@@ -350,7 +350,7 @@ cdef class Magboltz:
         self.IFAKE = 0
         self.FAKEI = 0.0
         self.RSTART = 0.666
-
+        self.OF = 1
 
     def end(self):
         """

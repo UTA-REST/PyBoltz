@@ -135,8 +135,11 @@ cpdef MONTEAT(Magboltz Object):
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2 * acos(-1)
     J2M = <long long>(Object.NMAX / Object.ITMAX)
+    if Object.OF:
+        print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
+                                                                       "DIFXX", "DIFYY", "DIFZZ"))
+
     for J1 in range(int(Object.ITMAX)):
-        print(J1)
         for J2 in range(int(J2M)):
             while True:
                 R1 = random_uniform(RDUM)
@@ -392,6 +395,10 @@ cpdef MONTEAT(Magboltz Object):
         SYYOLD = SUMYY
         SXXOLD = SUMXX
         SME2OLD = SUME2
+        if Object.OF:
+            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ, Object.Z, Object.ST,
+                                                                                    Object.AVE, Object.DIFXX, Object.DIFYY,
+                                                                                    Object.DIFZZ))
     #CALCULATE ERRORS AND CHECK AVERAGES
     TWZST = 0.0
     TAVE = 0.0

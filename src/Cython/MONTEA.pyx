@@ -141,7 +141,9 @@ cpdef MONTEA(Magboltz Object):
 
     J2M = <long long>(Object.NMAX / Object.ITMAX)
     DELTAE = Object.EFINAL / float(INTEM)
-
+    if Object.OF:
+        print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
+                                                                       "DIFXX", "DIFYY", "DIFZZ"))
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
@@ -334,7 +336,6 @@ cpdef MONTEA(Magboltz Object):
             else:
                 DFXXST[J1] = 0.0
                 DFYYST[J1] = 0.0
-        print(J1)
         if ST1 != 0.0:
             Object.DIFZZ = 5e15 * SUMZZ / ST1
             DFZZST[J1] = 5e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
@@ -352,6 +353,10 @@ cpdef MONTEA(Magboltz Object):
         SYYOLD = SUMYY
         SXXOLD = SUMXX
         SME2OLD = SUME2
+        if Object.OF:
+            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ, Object.Z, Object.ST,
+                                                                                    Object.AVE, Object.DIFXX, Object.DIFYY,
+                                                                                    Object.DIFZZ))
     TWZST = 0.0
     TAVE = 0.0
     T2WZST = 0.0

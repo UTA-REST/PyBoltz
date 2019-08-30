@@ -172,7 +172,9 @@ cpdef MONTEC(Magboltz Object):
 
     DELTAE = Object.EFINAL / float(INTEM)
     J2M = <long long>(Object.NMAX / Object.ITMAX)
-
+    if Object.OF:
+        print('{:^12s}{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Velocity X","Energy",
+                                                                       "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFXZ","DIFXY"))
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
@@ -363,7 +365,6 @@ cpdef MONTEC(Magboltz Object):
         AVEST[J1] = (EBAR - EBAROLD) / (Object.ST - STOLD)
         EBAROLD = EBAR
 
-        print(J1)
 
         if J1 >= 2:
             Object.DIFXX = 5e15 * SUMXX / ST1
@@ -410,6 +411,10 @@ cpdef MONTEC(Magboltz Object):
         SXYOLD = SXYR
         SYZOLD = SYZR
         SXZOLD = SXZR
+        if Object.OF:
+            print('{:^12.1f}{:^12.1f}{:^12.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(WZR,WYR,WXR,
+                                                                                    Object.AVE, DIFXXR, DIFYYR,
+                                                                                    DIFZZR,DIFYZR,DIFXZR,DIFXYR))
     TWZST = 0.0
     TWYST = 0.0
     TWXST = 0.0

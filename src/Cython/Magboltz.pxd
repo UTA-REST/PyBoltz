@@ -298,7 +298,8 @@ cdef class Magboltz:
         '''Percentage error for DLOVMB'''
         double IPLASTNT,ISIZENT
         double PIR2
-
+        int OF
+        '''Flag used to stop console printouts'''
         # Variables and arrays used when the thermal motion is not included.
         double CFNT[4000][960],EINNT[960],TCFNT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PENFRANT[3][960],TCFMAXNT[8]
         double CFNNT[4000][60],TCFNNT[4000],SCLENULNT[60],PSCTNT[4000][960],ANGCTNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]

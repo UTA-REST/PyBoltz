@@ -80,7 +80,7 @@ Please note that the following are only the main output parameters. One can stil
 * **Magboltz.DXYER** - Error for the Magboltz.DIFXY value (+- Magboltz.DIFXY * Magboltz.DXYER).
 * **Magboltz.DIFXZ** - Diffusion in the XZ plane \[cm^2/s\].
 * **Magboltz.DXZER** - Error for the Magboltz.DIFXZ value (+- Magboltz.DIFXZ * Magboltz.DXZER).
-#### Main issues
+#### Main issues.
 This sections is written here to help troubleshoot compilation issues. The following are links to the two main issues:
 
 * [First Issue](https://github.com/UTA-REST/MAGBOLTZ-py/issues/1).

@@ -83,8 +83,8 @@ Please note that the following are only the main output parameters. One can stil
 #### Main issues
 This sections is written here to help troubleshoot compilation issues. The following are links to the two main issues:
 
-[First Issue](https://github.com/UTA-REST/MAGBOLTZ-py/issues/1).
-[Second Issue](https://github.com/UTA-REST/MAGBOLTZ-py/issues/2).
+* [First Issue](https://github.com/UTA-REST/MAGBOLTZ-py/issues/1).
+* [Second Issue](https://github.com/UTA-REST/MAGBOLTZ-py/issues/2).
 
 ## Gas list.
 The current PyBoltz version has the following gases. Please note that the number of the gas is used as an indicator to that gas in the code. 

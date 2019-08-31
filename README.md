@@ -1,5 +1,5 @@
 # PyBoltz
-This software package is a translation of the Fortran based Magboltz into Cython. This project was done to allow for more productive work to be done with magboltz.
+This software package is a translation of the Fortran based Magboltz into Cython. This project was built to allow for more productive work to be done with magboltz.
 
 ## General information.
 
@@ -12,7 +12,7 @@ Cython's static typing improves the speed of python code by about a hundred time
 ## Setting up and running instructions. 
 
 ### Setting up.
-To be able to run this project you will need python3+, cython, and numpy installed. The setup that we use has python 3.6.7, Cython 0.29.3, and numpy 1.16.1. 
+To be able to run this project you will need python3+, cython, and numpy installed. Our setup has python 3.6.7, Cython 0.29.3, and numpy 1.16.1. 
 
 ### Gases cross section database.
 Before building the code make sure to run the following command in the Cython directory to get the gases.npy file made, as this file has all the cross section values.
@@ -48,6 +48,9 @@ To run the code, you will need to import Magboltz and instantiate an instance of
   - Okhrimvoskky Type - Magboltz.NANISO = 2 (default value).
   - Capitelli Longo Type - Magboltz.NANISO = 1.
   - Isotropic Scattering - Magboltz.NANISO = 0.
+* **Magboltz.OF** - This variable is used to tell PyBoltz to print to the console.
+  - Print to the console - Magboltz.OF = 1.
+  - Avoid printing to the console - Magboltz.OF = 0.
   
 #### Output parameters.
 Please note that the following are only the main output parameters. One can still get any value from the parameters within the Magboltz class.
@@ -80,6 +83,7 @@ Please note that the following are only the main output parameters. One can stil
 * **Magboltz.DXYER** - Error for the Magboltz.DIFXY value (+- Magboltz.DIFXY * Magboltz.DXYER).
 * **Magboltz.DIFXZ** - Diffusion in the XZ plane \[cm^2/s\].
 * **Magboltz.DXZER** - Error for the Magboltz.DIFXZ value (+- Magboltz.DIFXZ * Magboltz.DXZER).
+* **Magboltz.MCT** - Mean Collision Time.
 #### Main issues.
 This sections is written here to help troubleshoot compilation issues. The following are links to the two main issues:
 

@@ -1,5 +1,5 @@
-from CollisionFreq cimport CollisionFreq
-from CollisionFreqT cimport CollisionFreqT
+from CollisionFreqs cimport CollisionFreq, CollisionFreqT
+
 
 from Magboltz cimport Magboltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow,tan,atan

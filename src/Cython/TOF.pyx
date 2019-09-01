@@ -3,8 +3,7 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt,pow,tan,atan
 
 
 
-from CollisionFreq cimport CollisionFreq
-from CollisionFreqT cimport CollisionFreqT
+from CollisionFreqs cimport CollisionFreq, CollisionFreqT
 cimport cython
 
 @cython.cdivision(True)

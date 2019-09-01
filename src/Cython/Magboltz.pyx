@@ -13,7 +13,7 @@ from MONTEBT import MONTEBT
 from MONTECT import MONTECT
 from MIXER import MIXER
 from SETUP import SETUP
-from CollisionFreqT cimport CollisionFreqT
+from CollisionFreqs cimport CollisionFreqT, CollisionFreq
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
 

@@ -1,11 +1,11 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 cimport cython
 
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef FRIEDLANDT(Magboltz object):
+cdef FRIEDLANDT(PyBoltz object):
     cdef double FR[4000],ALFBAR,ATTBAR,EBAR,FSUM,TCFSUM
     cdef int I
     ALFBAR = 0.0

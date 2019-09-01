@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 
 import cython
@@ -12,7 +12,7 @@ from SST import SST
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef ALPCALCT(Magboltz object):
+cpdef ALPCALCT(PyBoltz object):
     cdef int IMAX,JPRT,I
     cdef double ANETP,ANET,TCUTH,TCUTL,ZCUTH,ZCUTL,ALPHAD,ALP1,ATT1,ALP1ERR,ATT1ER,ANET2,ZSTEPM,WRZN,FC1,FC2,ALPTEST
     IMAX = <int>(object.NMAX / 10000000)

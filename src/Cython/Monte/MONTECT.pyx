@@ -1,7 +1,7 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
-from Magboltz cimport drand48
+from PyBoltz cimport drand48
 from MBSorts cimport MBSortT
 from libc.stdlib cimport malloc, free
 import cython
@@ -29,13 +29,13 @@ cdef void GERJAN(double RDUM, double API, double *RNMX):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(Magboltz Object):
+cpdef run(PyBoltz Object):
     """
     This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  tempc.
 
     This function is used for any magnetic field electric field in the z direction.    
     
-    The object parameter is the Magboltz object to have the output results and to be used in the simulation.
+    The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
     Object.WX = 0.0
     Object.DWX = 0.0

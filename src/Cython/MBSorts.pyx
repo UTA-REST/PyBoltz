@@ -1,11 +1,11 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 import cython
 cimport numpy as np
 import  numpy as np
 
 
-# TODO: figure out Magboltz.LAST
-cdef long long MBSort(int I, double R2, int IE,Magboltz Object):
+# TODO: figure out PyBoltz.LAST
+cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
     """
     This function selects collision type from collision array by binary step sampling reduces sampling range to within 4 
     positions in array output =  i ( position within 4 of correct value).
@@ -32,7 +32,7 @@ cdef long long MBSort(int I, double R2, int IE,Magboltz Object):
     return I
 
 
-cdef long long MBSortT(int KGAS, int I, double R2, int IE,Magboltz Object):
+cdef long long MBSortT(int KGAS, int I, double R2, int IE,PyBoltz Object):
     """
     This function selects collision type from collision array by binary step sampling reduces sampling range to within 4 
     positions in array output =  i ( position within 4 of correct value).

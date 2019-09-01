@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport log
 
 
@@ -6,7 +6,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef PT(Magboltz object,int JPRT):
+cdef PT(PyBoltz object,int JPRT):
     cdef double ANTPL[8]
     cdef int I
     ANTPL[0] = <double>(object.NETPL[0])

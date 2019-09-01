@@ -5,7 +5,7 @@ from libc.string cimport memset
 
 cdef double drand48(double dummy)
 
-cdef class Magboltz:
+cdef class PyBoltz:
     cdef public:
         double EOVB
         '''This is a constant that is equal to the electric field / magentic field * 1e-9.'''
@@ -18,7 +18,7 @@ cdef class Magboltz:
         double EFINAL
         '''This is the upper limit for the electron energy integration.'''
         double ESTEP
-        '''Magboltz does the electron energy integration in 4000 steps this variable has the difference in energy between each step.'''
+        '''PyBoltz does the electron energy integration in 4000 steps this variable has the difference in energy between each step.'''
         double AKT
         '''This indicates the amount of energy in the gas (it is equal to the Boltzman constant * absolute tempreture).'''
         double ARY

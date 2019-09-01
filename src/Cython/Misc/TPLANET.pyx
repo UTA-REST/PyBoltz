@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sqrt
 
 
@@ -6,7 +6,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef TPLANET(Magboltz object, double T,double E1,double DCX1, double DCY1,double DCZ1,double AP, double BP, int IPLANE):
+cdef TPLANET(PyBoltz object, double T,double E1,double DCX1, double DCY1,double DCZ1,double AP, double BP, int IPLANE):
     cdef double TIMESP,TIMLFT,T2LFT,A,B,EPLANE,CONST6,DCZ2,XPLANE,YPLANE,ZPLANE,VZPLANE
     TIMESP = IPLANE * object.TSTEP
     TIMLFT = TIMESP - object.ST

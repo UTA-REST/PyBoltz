@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow,tan,atan
 
 
@@ -6,7 +6,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef TCALCT(Magboltz object, double DCZ1,double E1,double TZSTOP,double TZSTOP1,double ISOL,int IZPLANE):
+cdef TCALCT(PyBoltz object, double DCZ1,double E1,double TZSTOP,double TZSTOP1,double ISOL,int IZPLANE):
     cdef double R[4],B,A,B2,C1,C2,FAC,TSTOP1,TSTOP2
     ISOL = 1
     A = object.EFIELD

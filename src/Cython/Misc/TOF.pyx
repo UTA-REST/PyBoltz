@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow,tan,atan
 
 
@@ -9,7 +9,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef TOF(Magboltz object, int JPRT):
+cpdef TOF(PyBoltz object, int JPRT):
     cdef double DUM[6],DLTF[8],DXTF[8],DYTF[8],WR[8],ANTPL[8],FRION,FRATT,ATTOINT,CORERR,TDT2,TDT3
     cdef double ANST2,ANST3,ANST4,ANST5,ANST6,ANST7,ANST8,ATER
     cdef int I1,I2,I

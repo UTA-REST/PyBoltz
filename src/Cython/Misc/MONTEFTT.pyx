@@ -1,7 +1,7 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow,tan,atan
 from libc.string cimport memset
-from Magboltz cimport drand48
+from PyBoltz cimport drand48
 from MBSorts cimport MBSortT
 from libc.stdlib cimport malloc, free
 import cython
@@ -28,7 +28,7 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
         RNMX[J + 1] = sqrt(-1*log(RAN1)) * sin(RAN2 * TWOPI)
 
 
-cpdef GOTO544(Magboltz object):
+cpdef GOTO544(PyBoltz object):
     global ITER,DCZ1,DCX1,DCY1,DCZ100,DCY100,DCX100,E100,NCLUS,TSSTRT,ZSTRT,IPLANE,f700,EPRM,IDUM,IESPECP,E1
     object.IPRIM += 1
     if object.IPRIM > 1:
@@ -55,7 +55,7 @@ cpdef GOTO544(Magboltz object):
     IDUM = min(IDUM, 99)
     IESPECP[IDUM] += 1
 
-cpdef GOTO555(Magboltz object):
+cpdef GOTO555(PyBoltz object):
     global TDASH,NELEC,TSTOP,IPLANE
     TDASH = 0.0
     NELEC += 1
@@ -65,7 +65,7 @@ cpdef GOTO555(Magboltz object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(Magboltz object, int JPRT):
+cpdef run(PyBoltz object, int JPRT):
     cdef double *EPRM,*IESPECP
     EPRM = <double *> malloc(10000000 * sizeof(double))
     memset(EPRM, 0, 10000000 * sizeof(double))

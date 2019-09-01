@@ -1,3 +1,3 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 
-cdef TCALCT(Magboltz object, double DCZ1,double E1,double TZSTOP,double TZSTOP1,double ISOL,int IZPLANE)
+cdef TCALCT(PyBoltz object, double DCZ1,double E1,double TZSTOP,double TZSTOP1,double ISOL,int IZPLANE)

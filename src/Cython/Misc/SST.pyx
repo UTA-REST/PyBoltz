@@ -1,7 +1,7 @@
 from CollisionFreqs cimport CollisionFreq, CollisionFreqT
 
 
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow,tan,atan
 
 
@@ -9,7 +9,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef SST(Magboltz object):
+cpdef SST(PyBoltz object):
     cdef double ESST[8],VDSST[8],WSSST[8],DXSST[8],DYSST[8],WTEMP[8],DRSST[8],ALFNE[8],ALFNJ[8],ALFN[8],ZSST[8],DLSST[8]
     cdef double DRSS1[8],DRSS2[8],DRSS3[8],ALFEX1[8],NEPL[8],DUM[6],FRION,FRATT,ATTOINT,CORERR,CORF
     cdef int JPRINT,K,I,JPRT

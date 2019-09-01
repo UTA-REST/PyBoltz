@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport acos, sqrt
 cimport numpy as np
 import  numpy as np
@@ -7,11 +7,11 @@ import cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef Setup(Magboltz object):
+cpdef Setup(PyBoltz object):
     """
-    This function sets up the given Magboltz object. It fills the values of the main constants. 
+    This function sets up the given PyBoltz object. It fills the values of the main constants. 
         
-    The object parameter is the Magboltz object to be setup.
+    The object parameter is the PyBoltz object to be setup.
     """
     object.API = acos(-1.0)
     TWOPI = 2.0 * object.API
@@ -99,11 +99,11 @@ cpdef Setup(Magboltz object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef SetupT(Magboltz object):
+cpdef SetupT(PyBoltz object):
     """
-    This function sets up the given Magboltz object. It fills the values of the main constants. 
+    This function sets up the given PyBoltz object. It fills the values of the main constants. 
     
-    The object parameter is the Magboltz object to be setup.
+    The object parameter is the PyBoltz object to be setup.
     """
     cdef double TWOPI, PIR2, ECHARG, EMASS, AMU, BOLTZ, BOLTZJ, AWB, ALOSCH, EOVM, ABZERO, ATMOS, TOTFRAC
     cdef long long MXEKR, IH, NSCALE, i

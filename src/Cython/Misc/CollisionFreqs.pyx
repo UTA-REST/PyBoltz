@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 
 # Calculate collision frequency without thermal motion
 
@@ -6,7 +6,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double* CollisionFreq(Magboltz object):
+cdef double* CollisionFreq(PyBoltz object):
     """
     This function calculates real collision frequencies for event types.
     """
@@ -46,7 +46,7 @@ cdef double* CollisionFreq(Magboltz object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double* CollisionFreqT(Magboltz object):
+cdef double* CollisionFreqT(PyBoltz object):
     """
     This function calculates real collision frequencies for event types.
     """

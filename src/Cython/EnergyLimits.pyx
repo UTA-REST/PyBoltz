@@ -1,6 +1,6 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 cimport cython
-from Magboltz cimport drand48
+from PyBoltz cimport drand48
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
@@ -39,17 +39,17 @@ cdef void GERJAN(double RDUM, double API, double *RNMX):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimit(Magboltz Object):
+cpdef EnergyLimit(PyBoltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value.
+    Object.EFINAL value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher EFINAL value.
     This function is used when there is no magnetic field. 
 
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     
     Electric field in z direction.
 
-    The object parameter is the Magboltz object to be setup and used in the simulation.
+    The object parameter is the PyBoltz object to be setup and used in the simulation.
     """
 
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE, INTEM
@@ -194,13 +194,13 @@ cpdef EnergyLimit(Magboltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitB(Magboltz Object):
+cpdef EnergyLimitB(PyBoltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value.
+    Object.EFINAL value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher EFINAL value.
     This function is used when the magnetic field angle is 90 degrees to the electric field. 
 
-    The object parameter is the Magboltz object to be setup and used in the simulation.
+    The object parameter is the PyBoltz object to be setup and used in the simulation.
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
@@ -361,13 +361,13 @@ cpdef EnergyLimitB(Magboltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitBT(Magboltz Object):
+cpdef EnergyLimitBT(PyBoltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value.
+    Object.EFINAL value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher EFINAL value.
     This function is used when the magnetic field angle is 90 degrees to the electric field. 
 
-    The object parameter is the Magboltz object to be setup and used in the simulation.
+    The object parameter is the PyBoltz object to be setup and used in the simulation.
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
@@ -545,12 +545,12 @@ cpdef EnergyLimitBT(Magboltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitC(Magboltz Object):
+cpdef EnergyLimitC(PyBoltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value.
+    Object.EFINAL value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher EFINAL value.
     
-    The object parameter is the Magboltz object to be setup and used in the simulation.
+    The object parameter is the PyBoltz object to be setup and used in the simulation.
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
@@ -709,12 +709,12 @@ cpdef EnergyLimitC(Magboltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitCT(Magboltz Object):
+cpdef EnergyLimitCT(PyBoltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value. 
+    Object.EFINAL value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher EFINAL value. 
     
-    The object parameter is the Magboltz object to be setup and used in the simulation.
+    The object parameter is the PyBoltz object to be setup and used in the simulation.
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
@@ -903,17 +903,17 @@ cpdef EnergyLimitCT(Magboltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitT(Magboltz Object):
+cpdef EnergyLimitT(PyBoltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.EFINAL value it will set self.IELOW to 1 which would get the Magboltz object to try a higher EFINAL value.
+    Object.EFINAL value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher EFINAL value.
     This function is used when there is no magnetic field. 
 
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     
     Electric field in z direction.
 
-    The object parameter is the Magboltz object to be setup and used in the simulation.
+    The object parameter is the PyBoltz object to be setup and used in the simulation.
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,

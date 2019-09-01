@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sqrt
 
 
@@ -6,7 +6,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef SPLANET(Magboltz object, double T,double E1,double DCX1,double DCY1,double DCZ1,double AP,double BP,double TIMLFT,int IZPLANE):
+cdef SPLANET(PyBoltz object, double T,double E1,double DCX1,double DCY1,double DCZ1,double AP,double BP,double TIMLFT,int IZPLANE):
     cdef double T2LFT,A,B,EPLANE,CONST6,DCZ2,XPLANE,YPLANE,ZPLANE,VZPLANE,WGHT,RPLANE
     if IZPLANE > 8:
         return

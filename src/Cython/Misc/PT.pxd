@@ -1,3 +1,3 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 
-cdef PT(Magboltz object,int JPRT)
+cdef PT(PyBoltz object,int JPRT)

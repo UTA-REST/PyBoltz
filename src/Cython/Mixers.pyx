@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt
 from Gasmix cimport Gasmix
 from Ang cimport Ang
@@ -9,12 +9,12 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cpdef Mixer(Magboltz object):
+cpdef Mixer(PyBoltz object):
     """
-    This function sets up the given Magboltz object with the right values for the requested gas mixture. It uses the Gasmix object
+    This function sets up the given PyBoltz object with the right values for the requested gas mixture. It uses the Gasmix object
     to get the momentum cross sections and all the needed values.
 
-    The object parameter is the Magboltz object to be setup.
+    The object parameter is the PyBoltz object to be setup.
     """
     cdef double QATT[6][4000], ECHARG, JHI, JLOW, EHI, F2, BP, ELOW
     cdef Gasmix MIXOBJECT
@@ -343,12 +343,12 @@ cpdef Mixer(Magboltz object):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cpdef MixerT(Magboltz object):
+cpdef MixerT(PyBoltz object):
     """
-    This function sets up the given Magboltz object with the right values for the requested gas mixture. It uses the Gasmix object
+    This function sets up the given PyBoltz object with the right values for the requested gas mixture. It uses the Gasmix object
     to get the momentum cross sections and all the needed values.
 
-    The object parameter is the Magboltz object to be setup.
+    The object parameter is the PyBoltz object to be setup.
     """
     cdef double QATT[6][4000]
     cdef Gasmix MIXOBJECT

@@ -1,3 +1,3 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 
-cdef FRIEDLANDT(Magboltz object)
+cdef FRIEDLANDT(PyBoltz object)

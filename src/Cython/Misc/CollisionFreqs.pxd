@@ -1,4 +1,4 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 
-cdef double* CollisionFreq(Magboltz object)
-cdef double* CollisionFreqT(Magboltz object)
+cdef double* CollisionFreq(PyBoltz object)
+cdef double* CollisionFreqT(PyBoltz object)

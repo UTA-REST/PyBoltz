@@ -1,5 +1,5 @@
 import numpy as np
-from Magboltz import Magboltz
+from PyBoltz import PyBoltz
 
 #Data type to store results with uncertainties
 class PBRes:
@@ -105,7 +105,7 @@ class PyBoltzRun:
 
     # Run PyBoltz with chosen settings
     def Run(self,MySettings):
-        MBObject = Magboltz()
+        MBObject = PyBoltz()
         Status=self.ProcessInputs(MBObject,MySettings)
         if(Status):
             MBObject.Start()

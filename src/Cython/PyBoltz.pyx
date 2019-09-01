@@ -17,15 +17,15 @@ cdef extern from "C/RM48.h":
 cdef double drand48(double dummy):
     return DRAND48(dummy)
 
-cdef class Magboltz:
+cdef class PyBoltz:
     """
 
     This is the main object used to start the simulation, as well as store the information of the simulation.
     It has most of the needed arrays, and variables.
 
-    More about Magboltz:
+    More about PyBoltz:
 
-    `Magboltz_Documentation <http://cyclo.mit.edu/drift/www/aboutMagboltz.html/>`_
+    `PyBoltz_Documentation <http://cyclo.mit.edu/drift/www/aboutPyBoltz.html/>`_
 
     .. note::
         If the variable has a "NT" at the end, that variable has the same function as its counterpart without a "NT" at the end.
@@ -410,7 +410,7 @@ cdef class Magboltz:
         is equal to 0.0 it will then keep calling the EnergyLimit functions and the Mixer functions to find the electron
         Integration limit.
 
-        Finally Magboltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
+        Finally PyBoltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
         in the the parent object of this function.
 
         For more info on the main output variables check the git repository readme:

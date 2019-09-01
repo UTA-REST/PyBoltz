@@ -1,3 +1,3 @@
-from Magboltz cimport Magboltz
+from PyBoltz cimport PyBoltz
 
-cdef SPLANET(Magboltz object, double T,double E1,double DCX1,double DCY1,double DCZ1,double AP,double BP,double TIMLFT,int IZPLANE)
+cdef SPLANET(PyBoltz object, double T,double E1,double DCX1,double DCY1,double DCZ1,double AP,double BP,double TIMLFT,int IZPLANE)

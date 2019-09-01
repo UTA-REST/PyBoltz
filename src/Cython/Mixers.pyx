@@ -1,7 +1,7 @@
 from Magboltz cimport Magboltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt
 from Gasmix cimport Gasmix
-from ANG cimport ANG
+from Ang cimport Ang
 
 import cython
 
@@ -46,14 +46,14 @@ cpdef Mixer(Magboltz object):
             object.PSCTNT[IE][NP] = 0.5
             object.ANGCTNT[IE][NP] = 1
             object.INDEXNT[NP] = 0
-            ANGOBJECT = ANG()
+            AngObject = Ang()
 
             if MIXOBJECT.Gases[KGAS].KEL[1] == 1:
                 PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
-                ANGOBJECT.PSCT1 = PSCT1
-                ANGOBJECT.ANGCUT()
-                object.ANGCTNT[IE][NP] = ANGOBJECT.ANGC
-                object.PSCTNT[IE][NP] = ANGOBJECT.PSCT2
+                AngObject.PSCT1 = PSCT1
+                AngObject.AngCut()
+                object.ANGCTNT[IE][NP] = AngObject.ANGC
+                object.PSCTNT[IE][NP] = AngObject.PSCT2
                 object.INDEXNT[NP] = 1
             elif MIXOBJECT.Gases[KGAS].KEL[1] == 2:
                 object.PSCTNT[IE][NP] = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
@@ -82,10 +82,10 @@ cpdef Mixer(Magboltz object):
                     object.INDEXNT[NP] = 0
                     if MIXOBJECT.Gases[KGAS].KEL[2] == 1:
                         PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[2][IE]
-                        ANGOBJECT.PSCT1 = PSCT1
-                        ANGOBJECT.ANGCUT()
-                        object.ANGCTNT[IE][NP] = ANGOBJECT.ANGC
-                        object.PSCTNT[IE][NP] = ANGOBJECT.PSCT2
+                        AngObject.PSCT1 = PSCT1
+                        AngObject.AngCut()
+                        object.ANGCTNT[IE][NP] = AngObject.ANGC
+                        object.PSCTNT[IE][NP] = AngObject.PSCT2
                         object.INDEXNT[NP] = 1
                     elif MIXOBJECT.Gases[KGAS].KEL[2] == 2:
                         object.PSCTNT[IE][NP] = MIXOBJECT.Gases[KGAS].PEQEL[2][IE]
@@ -100,10 +100,10 @@ cpdef Mixer(Magboltz object):
                         object.INDEXNT[NP] = 0
                         if MIXOBJECT.Gases[KGAS].KEL[2] == 1:
                             PSCT1 = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
-                            ANGOBJECT.PSCT1 = PSCT1
-                            ANGOBJECT.ANGCUT()
-                            object.ANGCTNT[IE][NP] = ANGOBJECT.ANGC
-                            object.PSCTNT[IE][NP] = ANGOBJECT.PSCT2
+                            AngObject.PSCT1 = PSCT1
+                            AngObject.AngCut()
+                            object.ANGCTNT[IE][NP] = AngObject.ANGC
+                            object.PSCTNT[IE][NP] = AngObject.PSCT2
                             object.INDEXNT[NP] = 1
                         elif MIXOBJECT.Gases[KGAS].KEL[2] == 2:
                             object.PSCTNT[IE][NP] = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
@@ -200,10 +200,10 @@ cpdef Mixer(Magboltz object):
                     if MIXOBJECT.Gases[KGAS].KIN[J] == 1:
 
                         PSCT1 = MIXOBJECT.Gases[KGAS].PEQIN[J][IE]
-                        ANGOBJECT.PSCT1 = PSCT1
-                        ANGOBJECT.ANGCUT()
-                        object.ANGCTNT[IE][NP] = ANGOBJECT.ANGC
-                        object.PSCTNT[IE][NP] = ANGOBJECT.PSCT2
+                        AngObject.PSCT1 = PSCT1
+                        AngObject.AngCut()
+                        object.ANGCTNT[IE][NP] = AngObject.ANGC
+                        object.PSCTNT[IE][NP] = AngObject.PSCT2
                         object.INDEXNT[NP] = 1
                     elif MIXOBJECT.Gases[KGAS].KIN[J] == 2:
 
@@ -394,14 +394,14 @@ cpdef MixerT(Magboltz object):
             object.PSCT[KGAS][IE][NP - 1] = 0.5
             object.ANGCT[KGAS][IE][NP - 1] = 1
             object.INDEX[KGAS][NP - 1] = 0
-            ANGOBJECT = ANG()
+            AngObject = Ang()
 
             if MIXOBJECT.Gases[KGAS].KEL[1] == 1:
                 PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
-                ANGOBJECT.PSCT1 = PSCT1
-                ANGOBJECT.ANGCUT()
-                object.ANGCT[KGAS][IE][NP - 1] = ANGOBJECT.ANGC
-                object.PSCT[KGAS][IE][NP - 1] = ANGOBJECT.PSCT2
+                AngObject.PSCT1 = PSCT1
+                AngObject.AngCut()
+                object.ANGCT[KGAS][IE][NP - 1] = AngObject.ANGC
+                object.PSCT[KGAS][IE][NP - 1] = AngObject.PSCT2
                 object.INDEX[KGAS][NP - 1] = 1
             elif MIXOBJECT.Gases[KGAS].KEL[1] == 2:
                 object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
@@ -431,10 +431,10 @@ cpdef MixerT(Magboltz object):
                     object.INDEX[KGAS][NP - 1] = 0
                     if MIXOBJECT.Gases[KGAS].KEL[2] == 1:
                         PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[2][IE]
-                        ANGOBJECT.PSCT1 = PSCT1
-                        ANGOBJECT.ANGCUT()
-                        object.ANGCT[KGAS][IE][NP - 1] = ANGOBJECT.ANGC
-                        object.PSCT[KGAS][IE][NP - 1] = ANGOBJECT.PSCT2
+                        AngObject.PSCT1 = PSCT1
+                        AngObject.AngCut()
+                        object.ANGCT[KGAS][IE][NP - 1] = AngObject.ANGC
+                        object.PSCT[KGAS][IE][NP - 1] = AngObject.PSCT2
                         object.INDEX[KGAS][NP - 1] = 1
                     elif MIXOBJECT.Gases[KGAS].KEL[2] == 2:
                         object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQEL[2][IE]
@@ -449,10 +449,10 @@ cpdef MixerT(Magboltz object):
                         object.INDEX[KGAS][NP - 1] = 0
                         if MIXOBJECT.Gases[0].KEL[2] == 1:
                             PSCT1 = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
-                            ANGOBJECT.PSCT1 = PSCT1
-                            ANGOBJECT.ANGCUT()
-                            object.ANGCT[KGAS][IE][NP - 1] = ANGOBJECT.ANGC
-                            object.PSCT[KGAS][IE][NP - 1] = ANGOBJECT.PSCT2
+                            AngObject.PSCT1 = PSCT1
+                            AngObject.AngCut()
+                            object.ANGCT[KGAS][IE][NP - 1] = AngObject.ANGC
+                            object.PSCT[KGAS][IE][NP - 1] = AngObject.PSCT2
                             object.INDEX[KGAS][NP - 1] = 1
                         elif MIXOBJECT.Gases[0].KEL[2] == 2:
                             object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
@@ -547,10 +547,10 @@ cpdef MixerT(Magboltz object):
                     object.INDEX[KGAS][NP - 1] = 0
                     if MIXOBJECT.Gases[KGAS].KIN[J] == 1:
                         PSCT1 = MIXOBJECT.Gases[KGAS].PEQIN[J][IE]
-                        ANGOBJECT.PSCT1 = PSCT1
-                        ANGOBJECT.ANGCUT()
-                        object.ANGCT[KGAS][IE][NP - 1] = ANGOBJECT.ANGC
-                        object.PSCT[KGAS][IE][NP - 1] = ANGOBJECT.PSCT2
+                        AngObject.PSCT1 = PSCT1
+                        AngObject.AngCut()
+                        object.ANGCT[KGAS][IE][NP - 1] = AngObject.ANGC
+                        object.PSCT[KGAS][IE][NP - 1] = AngObject.PSCT2
                         object.INDEX[KGAS][NP - 1] = 1
                     elif MIXOBJECT.Gases[KGAS].KIN[J] == 2:
                         object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQIN[J][IE]

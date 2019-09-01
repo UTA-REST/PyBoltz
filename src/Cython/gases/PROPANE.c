@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "PROPANE",
+        "name": "gases.PROPANE",
         "sources": [
-            "PROPANE.pyx"
+            "gases/PROPANE.pyx"
         ]
     },
-    "module_name": "PROPANE"
+    "module_name": "gases.PROPANE"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__PROPANE
-#define __PYX_HAVE_API__PROPANE
+#define __PYX_HAVE__gases__PROPANE
+#define __PYX_HAVE_API__gases__PROPANE
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "PROPANE.pyx",
+  "gases/PROPANE.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1686,13 +1686,13 @@ static double (*__pyx_f_7GasUtil_CALQINVISO)(double, int, double *, double *, do
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'PROPANE' */
+/* Module declarations from 'gases.PROPANE' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "PROPANE"
-extern int __pyx_module_is_main_PROPANE;
-int __pyx_module_is_main_PROPANE = 0;
+#define __Pyx_MODULE_NAME "gases.PROPANE"
+extern int __pyx_module_is_main_gases__PROPANE;
+int __pyx_module_is_main_gases__PROPANE = 0;
 
-/* Implementation of 'PROPANE' */
+/* Implementation of 'gases.PROPANE' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1938,7 +1938,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "PROPANE.pyx":17
+/* "gases/PROPANE.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas10(Gas*object):             # <<<<<<<<<<<<<<
@@ -1946,7 +1946,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Propane gas.
  */
 
-static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEN[0xA6];
   double __pyx_v_YMT[0xA6];
@@ -2145,7 +2145,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   int __pyx_t_31;
   __Pyx_RefNannySetupContext("Gas10", 0);
 
-  /* "PROPANE.pyx":21
+  /* "gases/PROPANE.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Propane gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2193,7 +2193,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "PROPANE.pyx":32
+  /* "gases/PROPANE.pyx":32
  *     cdef double XNUL1[14], YNUL1[14], XNUL2[14], YNUL2[14], Z1T[25], Z6T[25], EBRM[25]
  * 
  *     XEN = gd['gas10/XEN']             # <<<<<<<<<<<<<<
@@ -2210,7 +2210,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (0xA6));
 
-  /* "PROPANE.pyx":33
+  /* "gases/PROPANE.pyx":33
  * 
  *     XEN = gd['gas10/XEN']
  *     YMT = gd['gas10/YMT']             # <<<<<<<<<<<<<<
@@ -2227,7 +2227,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YMT[0]), __pyx_t_5, sizeof(__pyx_v_YMT[0]) * (0xA6));
 
-  /* "PROPANE.pyx":34
+  /* "gases/PROPANE.pyx":34
  *     XEN = gd['gas10/XEN']
  *     YMT = gd['gas10/YMT']
  *     YEL = gd['gas10/YEL']             # <<<<<<<<<<<<<<
@@ -2244,7 +2244,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEL[0]), __pyx_t_5, sizeof(__pyx_v_YEL[0]) * (0xA6));
 
-  /* "PROPANE.pyx":35
+  /* "gases/PROPANE.pyx":35
  *     YMT = gd['gas10/YMT']
  *     YEL = gd['gas10/YEL']
  *     YEPS = gd['gas10/YEPS']             # <<<<<<<<<<<<<<
@@ -2261,7 +2261,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_5, sizeof(__pyx_v_YEPS[0]) * (0xA6));
 
-  /* "PROPANE.pyx":36
+  /* "gases/PROPANE.pyx":36
  *     YEL = gd['gas10/YEL']
  *     YEPS = gd['gas10/YEPS']
  *     XION = gd['gas10/XION']             # <<<<<<<<<<<<<<
@@ -2274,7 +2274,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_6, sizeof(__pyx_v_XION[0]) * (45));
 
-  /* "PROPANE.pyx":37
+  /* "gases/PROPANE.pyx":37
  *     YEPS = gd['gas10/YEPS']
  *     XION = gd['gas10/XION']
  *     YIONG = gd['gas10/YIONG']             # <<<<<<<<<<<<<<
@@ -2287,7 +2287,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIONG[0]), __pyx_t_6, sizeof(__pyx_v_YIONG[0]) * (45));
 
-  /* "PROPANE.pyx":38
+  /* "gases/PROPANE.pyx":38
  *     XION = gd['gas10/XION']
  *     YIONG = gd['gas10/YIONG']
  *     YIONC = gd['gas10/YIONC']             # <<<<<<<<<<<<<<
@@ -2300,7 +2300,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIONC[0]), __pyx_t_6, sizeof(__pyx_v_YIONC[0]) * (45));
 
-  /* "PROPANE.pyx":39
+  /* "gases/PROPANE.pyx":39
  *     YIONG = gd['gas10/YIONG']
  *     YIONC = gd['gas10/YIONC']
  *     XION1 = gd['gas10/XION1']             # <<<<<<<<<<<<<<
@@ -2313,7 +2313,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION1[0]), __pyx_t_6, sizeof(__pyx_v_XION1[0]) * (45));
 
-  /* "PROPANE.pyx":40
+  /* "gases/PROPANE.pyx":40
  *     YIONC = gd['gas10/YIONC']
  *     XION1 = gd['gas10/XION1']
  *     YION1 = gd['gas10/YION1']             # <<<<<<<<<<<<<<
@@ -2326,7 +2326,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION1[0]), __pyx_t_6, sizeof(__pyx_v_YION1[0]) * (45));
 
-  /* "PROPANE.pyx":41
+  /* "gases/PROPANE.pyx":41
  *     XION1 = gd['gas10/XION1']
  *     YION1 = gd['gas10/YION1']
  *     XION2 = gd['gas10/XION2']             # <<<<<<<<<<<<<<
@@ -2339,7 +2339,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION2[0]), __pyx_t_6, sizeof(__pyx_v_XION2[0]) * (45));
 
-  /* "PROPANE.pyx":42
+  /* "gases/PROPANE.pyx":42
  *     YION1 = gd['gas10/YION1']
  *     XION2 = gd['gas10/XION2']
  *     YION2 = gd['gas10/YION2']             # <<<<<<<<<<<<<<
@@ -2352,7 +2352,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION2[0]), __pyx_t_6, sizeof(__pyx_v_YION2[0]) * (45));
 
-  /* "PROPANE.pyx":43
+  /* "gases/PROPANE.pyx":43
  *     XION2 = gd['gas10/XION2']
  *     YION2 = gd['gas10/YION2']
  *     XION3 = gd['gas10/XION3']             # <<<<<<<<<<<<<<
@@ -2365,7 +2365,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION3[0]), __pyx_t_6, sizeof(__pyx_v_XION3[0]) * (45));
 
-  /* "PROPANE.pyx":44
+  /* "gases/PROPANE.pyx":44
  *     YION2 = gd['gas10/YION2']
  *     XION3 = gd['gas10/XION3']
  *     YION3 = gd['gas10/YION3']             # <<<<<<<<<<<<<<
@@ -2378,7 +2378,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION3[0]), __pyx_t_6, sizeof(__pyx_v_YION3[0]) * (45));
 
-  /* "PROPANE.pyx":45
+  /* "gases/PROPANE.pyx":45
  *     XION3 = gd['gas10/XION3']
  *     YION3 = gd['gas10/YION3']
  *     XION4 = gd['gas10/XION4']             # <<<<<<<<<<<<<<
@@ -2391,7 +2391,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION4[0]), __pyx_t_6, sizeof(__pyx_v_XION4[0]) * (45));
 
-  /* "PROPANE.pyx":46
+  /* "gases/PROPANE.pyx":46
  *     YION3 = gd['gas10/YION3']
  *     XION4 = gd['gas10/XION4']
  *     YION4 = gd['gas10/YION4']             # <<<<<<<<<<<<<<
@@ -2404,7 +2404,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION4[0]), __pyx_t_6, sizeof(__pyx_v_YION4[0]) * (45));
 
-  /* "PROPANE.pyx":47
+  /* "gases/PROPANE.pyx":47
  *     XION4 = gd['gas10/XION4']
  *     YION4 = gd['gas10/YION4']
  *     XION5 = gd['gas10/XION5']             # <<<<<<<<<<<<<<
@@ -2417,7 +2417,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION5[0]), __pyx_t_6, sizeof(__pyx_v_XION5[0]) * (45));
 
-  /* "PROPANE.pyx":48
+  /* "gases/PROPANE.pyx":48
  *     YION4 = gd['gas10/YION4']
  *     XION5 = gd['gas10/XION5']
  *     YION5 = gd['gas10/YION5']             # <<<<<<<<<<<<<<
@@ -2430,7 +2430,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION5[0]), __pyx_t_6, sizeof(__pyx_v_YION5[0]) * (45));
 
-  /* "PROPANE.pyx":49
+  /* "gases/PROPANE.pyx":49
  *     XION5 = gd['gas10/XION5']
  *     YION5 = gd['gas10/YION5']
  *     XION6 = gd['gas10/XION6']             # <<<<<<<<<<<<<<
@@ -2443,7 +2443,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION6[0]), __pyx_t_7, sizeof(__pyx_v_XION6[0]) * (44));
 
-  /* "PROPANE.pyx":50
+  /* "gases/PROPANE.pyx":50
  *     YION5 = gd['gas10/YION5']
  *     XION6 = gd['gas10/XION6']
  *     YION6 = gd['gas10/YION6']             # <<<<<<<<<<<<<<
@@ -2456,7 +2456,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION6[0]), __pyx_t_7, sizeof(__pyx_v_YION6[0]) * (44));
 
-  /* "PROPANE.pyx":51
+  /* "gases/PROPANE.pyx":51
  *     XION6 = gd['gas10/XION6']
  *     YION6 = gd['gas10/YION6']
  *     XION7 = gd['gas10/XION7']             # <<<<<<<<<<<<<<
@@ -2469,7 +2469,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION7[0]), __pyx_t_7, sizeof(__pyx_v_XION7[0]) * (44));
 
-  /* "PROPANE.pyx":52
+  /* "gases/PROPANE.pyx":52
  *     YION6 = gd['gas10/YION6']
  *     XION7 = gd['gas10/XION7']
  *     YION7 = gd['gas10/YION7']             # <<<<<<<<<<<<<<
@@ -2482,7 +2482,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION7[0]), __pyx_t_7, sizeof(__pyx_v_YION7[0]) * (44));
 
-  /* "PROPANE.pyx":53
+  /* "gases/PROPANE.pyx":53
  *     XION7 = gd['gas10/XION7']
  *     YION7 = gd['gas10/YION7']
  *     XION8 = gd['gas10/XION8']             # <<<<<<<<<<<<<<
@@ -2495,7 +2495,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION8[0]), __pyx_t_7, sizeof(__pyx_v_XION8[0]) * (44));
 
-  /* "PROPANE.pyx":54
+  /* "gases/PROPANE.pyx":54
  *     YION7 = gd['gas10/YION7']
  *     XION8 = gd['gas10/XION8']
  *     YION8 = gd['gas10/YION8']             # <<<<<<<<<<<<<<
@@ -2508,7 +2508,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION8[0]), __pyx_t_7, sizeof(__pyx_v_YION8[0]) * (44));
 
-  /* "PROPANE.pyx":55
+  /* "gases/PROPANE.pyx":55
  *     XION8 = gd['gas10/XION8']
  *     YION8 = gd['gas10/YION8']
  *     XION9 = gd['gas10/XION9']             # <<<<<<<<<<<<<<
@@ -2521,7 +2521,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION9[0]), __pyx_t_7, sizeof(__pyx_v_XION9[0]) * (44));
 
-  /* "PROPANE.pyx":56
+  /* "gases/PROPANE.pyx":56
  *     YION8 = gd['gas10/YION8']
  *     XION9 = gd['gas10/XION9']
  *     YION9 = gd['gas10/YION9']             # <<<<<<<<<<<<<<
@@ -2534,7 +2534,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION9[0]), __pyx_t_7, sizeof(__pyx_v_YION9[0]) * (44));
 
-  /* "PROPANE.pyx":57
+  /* "gases/PROPANE.pyx":57
  *     XION9 = gd['gas10/XION9']
  *     YION9 = gd['gas10/YION9']
  *     XION10 = gd['gas10/XION10']             # <<<<<<<<<<<<<<
@@ -2547,7 +2547,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION10[0]), __pyx_t_7, sizeof(__pyx_v_XION10[0]) * (44));
 
-  /* "PROPANE.pyx":58
+  /* "gases/PROPANE.pyx":58
  *     YION9 = gd['gas10/YION9']
  *     XION10 = gd['gas10/XION10']
  *     YION10 = gd['gas10/YION10']             # <<<<<<<<<<<<<<
@@ -2560,7 +2560,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION10[0]), __pyx_t_7, sizeof(__pyx_v_YION10[0]) * (44));
 
-  /* "PROPANE.pyx":59
+  /* "gases/PROPANE.pyx":59
  *     XION10 = gd['gas10/XION10']
  *     YION10 = gd['gas10/YION10']
  *     XION11 = gd['gas10/XION11']             # <<<<<<<<<<<<<<
@@ -2573,7 +2573,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION11[0]), __pyx_t_8, sizeof(__pyx_v_XION11[0]) * (43));
 
-  /* "PROPANE.pyx":60
+  /* "gases/PROPANE.pyx":60
  *     YION10 = gd['gas10/YION10']
  *     XION11 = gd['gas10/XION11']
  *     YION11 = gd['gas10/YION11']             # <<<<<<<<<<<<<<
@@ -2586,7 +2586,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION11[0]), __pyx_t_8, sizeof(__pyx_v_YION11[0]) * (43));
 
-  /* "PROPANE.pyx":61
+  /* "gases/PROPANE.pyx":61
  *     XION11 = gd['gas10/XION11']
  *     YION11 = gd['gas10/YION11']
  *     XION12 = gd['gas10/XION12']             # <<<<<<<<<<<<<<
@@ -2599,7 +2599,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION12[0]), __pyx_t_9, sizeof(__pyx_v_XION12[0]) * (41));
 
-  /* "PROPANE.pyx":62
+  /* "gases/PROPANE.pyx":62
  *     YION11 = gd['gas10/YION11']
  *     XION12 = gd['gas10/XION12']
  *     YION12 = gd['gas10/YION12']             # <<<<<<<<<<<<<<
@@ -2612,7 +2612,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION12[0]), __pyx_t_9, sizeof(__pyx_v_YION12[0]) * (41));
 
-  /* "PROPANE.pyx":63
+  /* "gases/PROPANE.pyx":63
  *     XION12 = gd['gas10/XION12']
  *     YION12 = gd['gas10/YION12']
  *     XION13 = gd['gas10/XION13']             # <<<<<<<<<<<<<<
@@ -2625,7 +2625,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION13[0]), __pyx_t_9, sizeof(__pyx_v_XION13[0]) * (41));
 
-  /* "PROPANE.pyx":64
+  /* "gases/PROPANE.pyx":64
  *     YION12 = gd['gas10/YION12']
  *     XION13 = gd['gas10/XION13']
  *     YION13 = gd['gas10/YION13']             # <<<<<<<<<<<<<<
@@ -2638,7 +2638,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION13[0]), __pyx_t_9, sizeof(__pyx_v_YION13[0]) * (41));
 
-  /* "PROPANE.pyx":65
+  /* "gases/PROPANE.pyx":65
  *     XION13 = gd['gas10/XION13']
  *     YION13 = gd['gas10/YION13']
  *     XION14 = gd['gas10/XION14']             # <<<<<<<<<<<<<<
@@ -2651,7 +2651,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION14[0]), __pyx_t_10, sizeof(__pyx_v_XION14[0]) * (40));
 
-  /* "PROPANE.pyx":66
+  /* "gases/PROPANE.pyx":66
  *     YION13 = gd['gas10/YION13']
  *     XION14 = gd['gas10/XION14']
  *     YION14 = gd['gas10/YION14']             # <<<<<<<<<<<<<<
@@ -2664,7 +2664,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION14[0]), __pyx_t_10, sizeof(__pyx_v_YION14[0]) * (40));
 
-  /* "PROPANE.pyx":67
+  /* "gases/PROPANE.pyx":67
  *     XION14 = gd['gas10/XION14']
  *     YION14 = gd['gas10/YION14']
  *     XION15 = gd['gas10/XION15']             # <<<<<<<<<<<<<<
@@ -2677,7 +2677,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION15[0]), __pyx_t_11, sizeof(__pyx_v_XION15[0]) * (39));
 
-  /* "PROPANE.pyx":68
+  /* "gases/PROPANE.pyx":68
  *     YION14 = gd['gas10/YION14']
  *     XION15 = gd['gas10/XION15']
  *     YION15 = gd['gas10/YION15']             # <<<<<<<<<<<<<<
@@ -2690,7 +2690,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION15[0]), __pyx_t_11, sizeof(__pyx_v_YION15[0]) * (39));
 
-  /* "PROPANE.pyx":69
+  /* "gases/PROPANE.pyx":69
  *     XION15 = gd['gas10/XION15']
  *     YION15 = gd['gas10/YION15']
  *     XION16 = gd['gas10/XION16']             # <<<<<<<<<<<<<<
@@ -2703,7 +2703,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION16[0]), __pyx_t_11, sizeof(__pyx_v_XION16[0]) * (39));
 
-  /* "PROPANE.pyx":70
+  /* "gases/PROPANE.pyx":70
  *     YION15 = gd['gas10/YION15']
  *     XION16 = gd['gas10/XION16']
  *     YION16 = gd['gas10/YION16']             # <<<<<<<<<<<<<<
@@ -2716,7 +2716,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION16[0]), __pyx_t_11, sizeof(__pyx_v_YION16[0]) * (39));
 
-  /* "PROPANE.pyx":71
+  /* "gases/PROPANE.pyx":71
  *     XION16 = gd['gas10/XION16']
  *     YION16 = gd['gas10/YION16']
  *     XION17 = gd['gas10/XION17']             # <<<<<<<<<<<<<<
@@ -2729,7 +2729,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION17[0]), __pyx_t_11, sizeof(__pyx_v_XION17[0]) * (39));
 
-  /* "PROPANE.pyx":72
+  /* "gases/PROPANE.pyx":72
  *     YION16 = gd['gas10/YION16']
  *     XION17 = gd['gas10/XION17']
  *     YION17 = gd['gas10/YION17']             # <<<<<<<<<<<<<<
@@ -2742,7 +2742,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION17[0]), __pyx_t_11, sizeof(__pyx_v_YION17[0]) * (39));
 
-  /* "PROPANE.pyx":73
+  /* "gases/PROPANE.pyx":73
  *     XION17 = gd['gas10/XION17']
  *     YION17 = gd['gas10/YION17']
  *     XION18 = gd['gas10/XION18']             # <<<<<<<<<<<<<<
@@ -2755,7 +2755,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION18[0]), __pyx_t_12, sizeof(__pyx_v_XION18[0]) * (38));
 
-  /* "PROPANE.pyx":74
+  /* "gases/PROPANE.pyx":74
  *     YION17 = gd['gas10/YION17']
  *     XION18 = gd['gas10/XION18']
  *     YION18 = gd['gas10/YION18']             # <<<<<<<<<<<<<<
@@ -2768,7 +2768,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION18[0]), __pyx_t_12, sizeof(__pyx_v_YION18[0]) * (38));
 
-  /* "PROPANE.pyx":75
+  /* "gases/PROPANE.pyx":75
  *     XION18 = gd['gas10/XION18']
  *     YION18 = gd['gas10/YION18']
  *     XION19 = gd['gas10/XION19']             # <<<<<<<<<<<<<<
@@ -2781,7 +2781,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION19[0]), __pyx_t_11, sizeof(__pyx_v_XION19[0]) * (39));
 
-  /* "PROPANE.pyx":76
+  /* "gases/PROPANE.pyx":76
  *     YION18 = gd['gas10/YION18']
  *     XION19 = gd['gas10/XION19']
  *     YION19 = gd['gas10/YION19']             # <<<<<<<<<<<<<<
@@ -2794,7 +2794,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION19[0]), __pyx_t_11, sizeof(__pyx_v_YION19[0]) * (39));
 
-  /* "PROPANE.pyx":77
+  /* "gases/PROPANE.pyx":77
  *     XION19 = gd['gas10/XION19']
  *     YION19 = gd['gas10/YION19']
  *     XION20 = gd['gas10/XION20']             # <<<<<<<<<<<<<<
@@ -2807,7 +2807,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION20[0]), __pyx_t_12, sizeof(__pyx_v_XION20[0]) * (38));
 
-  /* "PROPANE.pyx":78
+  /* "gases/PROPANE.pyx":78
  *     YION19 = gd['gas10/YION19']
  *     XION20 = gd['gas10/XION20']
  *     YION20 = gd['gas10/YION20']             # <<<<<<<<<<<<<<
@@ -2820,7 +2820,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION20[0]), __pyx_t_12, sizeof(__pyx_v_YION20[0]) * (38));
 
-  /* "PROPANE.pyx":79
+  /* "gases/PROPANE.pyx":79
  *     XION20 = gd['gas10/XION20']
  *     YION20 = gd['gas10/YION20']
  *     XION21 = gd['gas10/XION21']             # <<<<<<<<<<<<<<
@@ -2833,7 +2833,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION21[0]), __pyx_t_13, sizeof(__pyx_v_XION21[0]) * (36));
 
-  /* "PROPANE.pyx":80
+  /* "gases/PROPANE.pyx":80
  *     YION20 = gd['gas10/YION20']
  *     XION21 = gd['gas10/XION21']
  *     YION21 = gd['gas10/YION21']             # <<<<<<<<<<<<<<
@@ -2846,7 +2846,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION21[0]), __pyx_t_13, sizeof(__pyx_v_YION21[0]) * (36));
 
-  /* "PROPANE.pyx":81
+  /* "gases/PROPANE.pyx":81
  *     XION21 = gd['gas10/XION21']
  *     YION21 = gd['gas10/YION21']
  *     XION22 = gd['gas10/XION22']             # <<<<<<<<<<<<<<
@@ -2859,7 +2859,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION22[0]), __pyx_t_13, sizeof(__pyx_v_XION22[0]) * (36));
 
-  /* "PROPANE.pyx":82
+  /* "gases/PROPANE.pyx":82
  *     YION21 = gd['gas10/YION21']
  *     XION22 = gd['gas10/XION22']
  *     YION22 = gd['gas10/YION22']             # <<<<<<<<<<<<<<
@@ -2872,7 +2872,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION22[0]), __pyx_t_13, sizeof(__pyx_v_YION22[0]) * (36));
 
-  /* "PROPANE.pyx":83
+  /* "gases/PROPANE.pyx":83
  *     XION22 = gd['gas10/XION22']
  *     YION22 = gd['gas10/YION22']
  *     XION23 = gd['gas10/XION23']             # <<<<<<<<<<<<<<
@@ -2885,7 +2885,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION23[0]), __pyx_t_13, sizeof(__pyx_v_XION23[0]) * (36));
 
-  /* "PROPANE.pyx":84
+  /* "gases/PROPANE.pyx":84
  *     YION22 = gd['gas10/YION22']
  *     XION23 = gd['gas10/XION23']
  *     YION23 = gd['gas10/YION23']             # <<<<<<<<<<<<<<
@@ -2898,7 +2898,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION23[0]), __pyx_t_13, sizeof(__pyx_v_YION23[0]) * (36));
 
-  /* "PROPANE.pyx":85
+  /* "gases/PROPANE.pyx":85
  *     XION23 = gd['gas10/XION23']
  *     YION23 = gd['gas10/YION23']
  *     XION24 = gd['gas10/XION24']             # <<<<<<<<<<<<<<
@@ -2911,7 +2911,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION24[0]), __pyx_t_14, sizeof(__pyx_v_XION24[0]) * (83));
 
-  /* "PROPANE.pyx":86
+  /* "gases/PROPANE.pyx":86
  *     YION23 = gd['gas10/YION23']
  *     XION24 = gd['gas10/XION24']
  *     YION24 = gd['gas10/YION24']             # <<<<<<<<<<<<<<
@@ -2924,7 +2924,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION24[0]), __pyx_t_14, sizeof(__pyx_v_YION24[0]) * (83));
 
-  /* "PROPANE.pyx":87
+  /* "gases/PROPANE.pyx":87
  *     XION24 = gd['gas10/XION24']
  *     YION24 = gd['gas10/YION24']
  *     XATT1 = gd['gas10/XATT1']             # <<<<<<<<<<<<<<
@@ -2937,7 +2937,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT1[0]), __pyx_t_15, sizeof(__pyx_v_XATT1[0]) * (9));
 
-  /* "PROPANE.pyx":88
+  /* "gases/PROPANE.pyx":88
  *     YION24 = gd['gas10/YION24']
  *     XATT1 = gd['gas10/XATT1']
  *     YATT1 = gd['gas10/YATT1']             # <<<<<<<<<<<<<<
@@ -2950,7 +2950,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT1[0]), __pyx_t_15, sizeof(__pyx_v_YATT1[0]) * (9));
 
-  /* "PROPANE.pyx":89
+  /* "gases/PROPANE.pyx":89
  *     XATT1 = gd['gas10/XATT1']
  *     YATT1 = gd['gas10/YATT1']
  *     XATT2 = gd['gas10/XATT2']             # <<<<<<<<<<<<<<
@@ -2963,7 +2963,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT2[0]), __pyx_t_15, sizeof(__pyx_v_XATT2[0]) * (9));
 
-  /* "PROPANE.pyx":90
+  /* "gases/PROPANE.pyx":90
  *     YATT1 = gd['gas10/YATT1']
  *     XATT2 = gd['gas10/XATT2']
  *     YATT2 = gd['gas10/YATT2']             # <<<<<<<<<<<<<<
@@ -2976,7 +2976,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT2[0]), __pyx_t_15, sizeof(__pyx_v_YATT2[0]) * (9));
 
-  /* "PROPANE.pyx":91
+  /* "gases/PROPANE.pyx":91
  *     XATT2 = gd['gas10/XATT2']
  *     YATT2 = gd['gas10/YATT2']
  *     XVIB1 = gd['gas10/XVIB1']             # <<<<<<<<<<<<<<
@@ -2989,7 +2989,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB1[0]), __pyx_t_16, sizeof(__pyx_v_XVIB1[0]) * (25));
 
-  /* "PROPANE.pyx":92
+  /* "gases/PROPANE.pyx":92
  *     YATT2 = gd['gas10/YATT2']
  *     XVIB1 = gd['gas10/XVIB1']
  *     YVIB1 = gd['gas10/YVIB1']             # <<<<<<<<<<<<<<
@@ -3002,7 +3002,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB1[0]), __pyx_t_16, sizeof(__pyx_v_YVIB1[0]) * (25));
 
-  /* "PROPANE.pyx":93
+  /* "gases/PROPANE.pyx":93
  *     XVIB1 = gd['gas10/XVIB1']
  *     YVIB1 = gd['gas10/YVIB1']
  *     XVIB2 = gd['gas10/XVIB2']             # <<<<<<<<<<<<<<
@@ -3015,7 +3015,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB2[0]), __pyx_t_17, sizeof(__pyx_v_XVIB2[0]) * (24));
 
-  /* "PROPANE.pyx":94
+  /* "gases/PROPANE.pyx":94
  *     YVIB1 = gd['gas10/YVIB1']
  *     XVIB2 = gd['gas10/XVIB2']
  *     YVIB2 = gd['gas10/YVIB2']             # <<<<<<<<<<<<<<
@@ -3028,7 +3028,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB2[0]), __pyx_t_17, sizeof(__pyx_v_YVIB2[0]) * (24));
 
-  /* "PROPANE.pyx":95
+  /* "gases/PROPANE.pyx":95
  *     XVIB2 = gd['gas10/XVIB2']
  *     YVIB2 = gd['gas10/YVIB2']
  *     XVIB3 = gd['gas10/XVIB3']             # <<<<<<<<<<<<<<
@@ -3041,7 +3041,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB3[0]), __pyx_t_16, sizeof(__pyx_v_XVIB3[0]) * (25));
 
-  /* "PROPANE.pyx":96
+  /* "gases/PROPANE.pyx":96
  *     YVIB2 = gd['gas10/YVIB2']
  *     XVIB3 = gd['gas10/XVIB3']
  *     YVIB3 = gd['gas10/YVIB3']             # <<<<<<<<<<<<<<
@@ -3054,7 +3054,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB3[0]), __pyx_t_16, sizeof(__pyx_v_YVIB3[0]) * (25));
 
-  /* "PROPANE.pyx":97
+  /* "gases/PROPANE.pyx":97
  *     XVIB3 = gd['gas10/XVIB3']
  *     YVIB3 = gd['gas10/YVIB3']
  *     XVIB4 = gd['gas10/XVIB4']             # <<<<<<<<<<<<<<
@@ -3067,7 +3067,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB4[0]), __pyx_t_18, sizeof(__pyx_v_XVIB4[0]) * (17));
 
-  /* "PROPANE.pyx":98
+  /* "gases/PROPANE.pyx":98
  *     YVIB3 = gd['gas10/YVIB3']
  *     XVIB4 = gd['gas10/XVIB4']
  *     YVIB4 = gd['gas10/YVIB4']             # <<<<<<<<<<<<<<
@@ -3080,7 +3080,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB4[0]), __pyx_t_18, sizeof(__pyx_v_YVIB4[0]) * (17));
 
-  /* "PROPANE.pyx":99
+  /* "gases/PROPANE.pyx":99
  *     XVIB4 = gd['gas10/XVIB4']
  *     YVIB4 = gd['gas10/YVIB4']
  *     XTR1 = gd['gas10/XTR1']             # <<<<<<<<<<<<<<
@@ -3093,7 +3093,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR1[0]), __pyx_t_19, sizeof(__pyx_v_XTR1[0]) * (14));
 
-  /* "PROPANE.pyx":100
+  /* "gases/PROPANE.pyx":100
  *     YVIB4 = gd['gas10/YVIB4']
  *     XTR1 = gd['gas10/XTR1']
  *     YTR1 = gd['gas10/YTR1']             # <<<<<<<<<<<<<<
@@ -3106,7 +3106,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR1[0]), __pyx_t_19, sizeof(__pyx_v_YTR1[0]) * (14));
 
-  /* "PROPANE.pyx":101
+  /* "gases/PROPANE.pyx":101
  *     XTR1 = gd['gas10/XTR1']
  *     YTR1 = gd['gas10/YTR1']
  *     XTR2 = gd['gas10/XTR2']             # <<<<<<<<<<<<<<
@@ -3119,7 +3119,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR2[0]), __pyx_t_20, sizeof(__pyx_v_XTR2[0]) * (11));
 
-  /* "PROPANE.pyx":102
+  /* "gases/PROPANE.pyx":102
  *     YTR1 = gd['gas10/YTR1']
  *     XTR2 = gd['gas10/XTR2']
  *     YTR2 = gd['gas10/YTR2']             # <<<<<<<<<<<<<<
@@ -3132,7 +3132,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR2[0]), __pyx_t_20, sizeof(__pyx_v_YTR2[0]) * (11));
 
-  /* "PROPANE.pyx":103
+  /* "gases/PROPANE.pyx":103
  *     XTR2 = gd['gas10/XTR2']
  *     YTR2 = gd['gas10/YTR2']
  *     XTR3 = gd['gas10/XTR3']             # <<<<<<<<<<<<<<
@@ -3145,7 +3145,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR3[0]), __pyx_t_20, sizeof(__pyx_v_XTR3[0]) * (11));
 
-  /* "PROPANE.pyx":104
+  /* "gases/PROPANE.pyx":104
  *     YTR2 = gd['gas10/YTR2']
  *     XTR3 = gd['gas10/XTR3']
  *     YTR3 = gd['gas10/YTR3']             # <<<<<<<<<<<<<<
@@ -3158,7 +3158,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR3[0]), __pyx_t_20, sizeof(__pyx_v_YTR3[0]) * (11));
 
-  /* "PROPANE.pyx":105
+  /* "gases/PROPANE.pyx":105
  *     XTR3 = gd['gas10/XTR3']
  *     YTR3 = gd['gas10/YTR3']
  *     XTR4 = gd['gas10/XTR4']             # <<<<<<<<<<<<<<
@@ -3171,7 +3171,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR4[0]), __pyx_t_20, sizeof(__pyx_v_XTR4[0]) * (11));
 
-  /* "PROPANE.pyx":106
+  /* "gases/PROPANE.pyx":106
  *     YTR3 = gd['gas10/YTR3']
  *     XTR4 = gd['gas10/XTR4']
  *     YTR4 = gd['gas10/YTR4']             # <<<<<<<<<<<<<<
@@ -3184,7 +3184,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR4[0]), __pyx_t_20, sizeof(__pyx_v_YTR4[0]) * (11));
 
-  /* "PROPANE.pyx":107
+  /* "gases/PROPANE.pyx":107
  *     XTR4 = gd['gas10/XTR4']
  *     YTR4 = gd['gas10/YTR4']
  *     XNUL1 = gd['gas10/XNUL1']             # <<<<<<<<<<<<<<
@@ -3197,7 +3197,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL1[0]), __pyx_t_19, sizeof(__pyx_v_XNUL1[0]) * (14));
 
-  /* "PROPANE.pyx":108
+  /* "gases/PROPANE.pyx":108
  *     YTR4 = gd['gas10/YTR4']
  *     XNUL1 = gd['gas10/XNUL1']
  *     YNUL1 = gd['gas10/YNUL1']             # <<<<<<<<<<<<<<
@@ -3210,7 +3210,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL1[0]), __pyx_t_19, sizeof(__pyx_v_YNUL1[0]) * (14));
 
-  /* "PROPANE.pyx":109
+  /* "gases/PROPANE.pyx":109
  *     XNUL1 = gd['gas10/XNUL1']
  *     YNUL1 = gd['gas10/YNUL1']
  *     XNUL2 = gd['gas10/XNUL2']             # <<<<<<<<<<<<<<
@@ -3223,7 +3223,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL2[0]), __pyx_t_19, sizeof(__pyx_v_XNUL2[0]) * (14));
 
-  /* "PROPANE.pyx":110
+  /* "gases/PROPANE.pyx":110
  *     YNUL1 = gd['gas10/YNUL1']
  *     XNUL2 = gd['gas10/XNUL2']
  *     YNUL2 = gd['gas10/YNUL2']             # <<<<<<<<<<<<<<
@@ -3236,7 +3236,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL2[0]), __pyx_t_19, sizeof(__pyx_v_YNUL2[0]) * (14));
 
-  /* "PROPANE.pyx":111
+  /* "gases/PROPANE.pyx":111
  *     XNUL2 = gd['gas10/XNUL2']
  *     YNUL2 = gd['gas10/YNUL2']
  *     Z1T = gd['gas10/Z1T']             # <<<<<<<<<<<<<<
@@ -3249,7 +3249,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z1T[0]), __pyx_t_16, sizeof(__pyx_v_Z1T[0]) * (25));
 
-  /* "PROPANE.pyx":112
+  /* "gases/PROPANE.pyx":112
  *     YNUL2 = gd['gas10/YNUL2']
  *     Z1T = gd['gas10/Z1T']
  *     Z6T = gd['gas10/Z6T']             # <<<<<<<<<<<<<<
@@ -3262,7 +3262,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z6T[0]), __pyx_t_16, sizeof(__pyx_v_Z6T[0]) * (25));
 
-  /* "PROPANE.pyx":113
+  /* "gases/PROPANE.pyx":113
  *     Z1T = gd['gas10/Z1T']
  *     Z6T = gd['gas10/Z6T']
  *     EBRM = gd['gas10/EBRM']             # <<<<<<<<<<<<<<
@@ -3275,7 +3275,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_16, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "PROPANE.pyx":118
+  /* "gases/PROPANE.pyx":118
  * 
  *     # BORN-BETHE CONSTANTS
  *     A0 = 0.52917720859e-08             # <<<<<<<<<<<<<<
@@ -3284,7 +3284,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-08;
 
-  /* "PROPANE.pyx":119
+  /* "gases/PROPANE.pyx":119
  *     # BORN-BETHE CONSTANTS
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193             # <<<<<<<<<<<<<<
@@ -3293,7 +3293,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "PROPANE.pyx":120
+  /* "gases/PROPANE.pyx":120
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -3302,7 +3302,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "PROPANE.pyx":121
+  /* "gases/PROPANE.pyx":121
  *     RY = 13.60569193
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804             # <<<<<<<<<<<<<<
@@ -3311,7 +3311,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "PROPANE.pyx":122
+  /* "gases/PROPANE.pyx":122
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)             # <<<<<<<<<<<<<<
@@ -3320,7 +3320,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0e0);
 
-  /* "PROPANE.pyx":123
+  /* "gases/PROPANE.pyx":123
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -3329,7 +3329,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0e0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "PROPANE.pyx":126
+  /* "gases/PROPANE.pyx":126
  * 
  *     # BORN BETHE FOR IONISATION
  *     AM2 = 10.52             # <<<<<<<<<<<<<<
@@ -3338,7 +3338,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 10.52;
 
-  /* "PROPANE.pyx":127
+  /* "gases/PROPANE.pyx":127
  *     # BORN BETHE FOR IONISATION
  *     AM2 = 10.52
  *     C = 125.50             # <<<<<<<<<<<<<<
@@ -3347,7 +3347,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 125.50;
 
-  /* "PROPANE.pyx":129
+  /* "gases/PROPANE.pyx":129
  *     C = 125.50
  *     # ARRAY SIZE
  *     NASIZE = 4000             # <<<<<<<<<<<<<<
@@ -3356,7 +3356,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NASIZE = 0xFA0;
 
-  /* "PROPANE.pyx":131
+  /* "gases/PROPANE.pyx":131
  *     NASIZE = 4000
  * 
  *     object.NION = 24             # <<<<<<<<<<<<<<
@@ -3365,7 +3365,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 24;
 
-  /* "PROPANE.pyx":132
+  /* "gases/PROPANE.pyx":132
  * 
  *     object.NION = 24
  *     object.NATT = 2             # <<<<<<<<<<<<<<
@@ -3374,7 +3374,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 2;
 
-  /* "PROPANE.pyx":133
+  /* "gases/PROPANE.pyx":133
  *     object.NION = 24
  *     object.NATT = 2
  *     object.NIN = 64             # <<<<<<<<<<<<<<
@@ -3383,7 +3383,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 64;
 
-  /* "PROPANE.pyx":134
+  /* "gases/PROPANE.pyx":134
  *     object.NATT = 2
  *     object.NIN = 64
  *     object.NNULL = 2             # <<<<<<<<<<<<<<
@@ -3392,7 +3392,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 2;
 
-  /* "PROPANE.pyx":141
+  /* "gases/PROPANE.pyx":141
  * 
  *     cdef int i, j, I, J, NL
  *     NBREM = 25             # <<<<<<<<<<<<<<
@@ -3401,7 +3401,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "PROPANE.pyx":142
+  /* "gases/PROPANE.pyx":142
  *     cdef int i, j, I, J, NL
  *     NBREM = 25
  *     for i in range(6):             # <<<<<<<<<<<<<<
@@ -3411,7 +3411,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_21 = 0; __pyx_t_21 < 6; __pyx_t_21+=1) {
     __pyx_v_i = __pyx_t_21;
 
-    /* "PROPANE.pyx":143
+    /* "gases/PROPANE.pyx":143
  *     NBREM = 25
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -3422,7 +3422,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_i]) = __pyx_t_22;
   }
 
-  /* "PROPANE.pyx":145
+  /* "gases/PROPANE.pyx":145
  *         object.KEL[i] = object.NANISO
  * 
  *     for i in range(8):             # <<<<<<<<<<<<<<
@@ -3432,7 +3432,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_21 = 0; __pyx_t_21 < 8; __pyx_t_21+=1) {
     __pyx_v_i = __pyx_t_21;
 
-    /* "PROPANE.pyx":146
+    /* "gases/PROPANE.pyx":146
  * 
  *     for i in range(8):
  *         object.KIN[i] = 0             # <<<<<<<<<<<<<<
@@ -3442,7 +3442,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = 0.0;
   }
 
-  /* "PROPANE.pyx":148
+  /* "gases/PROPANE.pyx":148
  *         object.KIN[i] = 0
  * 
  *     for i in range(8, object.NIN):             # <<<<<<<<<<<<<<
@@ -3454,7 +3454,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_23 = 8; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
     __pyx_v_i = __pyx_t_23;
 
-    /* "PROPANE.pyx":149
+    /* "gases/PROPANE.pyx":149
  * 
  *     for i in range(8, object.NIN):
  *         object.KIN[i] = 2             # <<<<<<<<<<<<<<
@@ -3464,7 +3464,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = 2.0;
   }
 
-  /* "PROPANE.pyx":151
+  /* "gases/PROPANE.pyx":151
  *         object.KIN[i] = 2
  * 
  *     NDATA = 166             # <<<<<<<<<<<<<<
@@ -3473,7 +3473,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 0xA6;
 
-  /* "PROPANE.pyx":152
+  /* "gases/PROPANE.pyx":152
  * 
  *     NDATA = 166
  *     NIONG = 46             # <<<<<<<<<<<<<<
@@ -3482,7 +3482,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONG = 46;
 
-  /* "PROPANE.pyx":153
+  /* "gases/PROPANE.pyx":153
  *     NDATA = 166
  *     NIONG = 46
  *     NION1 = 45             # <<<<<<<<<<<<<<
@@ -3491,7 +3491,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION1 = 45;
 
-  /* "PROPANE.pyx":154
+  /* "gases/PROPANE.pyx":154
  *     NIONG = 46
  *     NION1 = 45
  *     NION2 = 45             # <<<<<<<<<<<<<<
@@ -3500,7 +3500,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 45;
 
-  /* "PROPANE.pyx":155
+  /* "gases/PROPANE.pyx":155
  *     NION1 = 45
  *     NION2 = 45
  *     NION3 = 45             # <<<<<<<<<<<<<<
@@ -3509,7 +3509,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 45;
 
-  /* "PROPANE.pyx":156
+  /* "gases/PROPANE.pyx":156
  *     NION2 = 45
  *     NION3 = 45
  *     NION4 = 45             # <<<<<<<<<<<<<<
@@ -3518,7 +3518,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION4 = 45;
 
-  /* "PROPANE.pyx":157
+  /* "gases/PROPANE.pyx":157
  *     NION3 = 45
  *     NION4 = 45
  *     NION5 = 45             # <<<<<<<<<<<<<<
@@ -3527,7 +3527,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION5 = 45;
 
-  /* "PROPANE.pyx":158
+  /* "gases/PROPANE.pyx":158
  *     NION4 = 45
  *     NION5 = 45
  *     NION6 = 44             # <<<<<<<<<<<<<<
@@ -3536,7 +3536,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION6 = 44;
 
-  /* "PROPANE.pyx":159
+  /* "gases/PROPANE.pyx":159
  *     NION5 = 45
  *     NION6 = 44
  *     NION7 = 44             # <<<<<<<<<<<<<<
@@ -3545,7 +3545,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION7 = 44;
 
-  /* "PROPANE.pyx":160
+  /* "gases/PROPANE.pyx":160
  *     NION6 = 44
  *     NION7 = 44
  *     NION8 = 44             # <<<<<<<<<<<<<<
@@ -3554,7 +3554,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION8 = 44;
 
-  /* "PROPANE.pyx":161
+  /* "gases/PROPANE.pyx":161
  *     NION7 = 44
  *     NION8 = 44
  *     NION9 = 44             # <<<<<<<<<<<<<<
@@ -3563,7 +3563,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION9 = 44;
 
-  /* "PROPANE.pyx":162
+  /* "gases/PROPANE.pyx":162
  *     NION8 = 44
  *     NION9 = 44
  *     NION10 = 44             # <<<<<<<<<<<<<<
@@ -3572,7 +3572,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION10 = 44;
 
-  /* "PROPANE.pyx":163
+  /* "gases/PROPANE.pyx":163
  *     NION9 = 44
  *     NION10 = 44
  *     NION11 = 43             # <<<<<<<<<<<<<<
@@ -3581,7 +3581,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION11 = 43;
 
-  /* "PROPANE.pyx":164
+  /* "gases/PROPANE.pyx":164
  *     NION10 = 44
  *     NION11 = 43
  *     NION12 = 41             # <<<<<<<<<<<<<<
@@ -3590,7 +3590,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION12 = 41;
 
-  /* "PROPANE.pyx":165
+  /* "gases/PROPANE.pyx":165
  *     NION11 = 43
  *     NION12 = 41
  *     NION13 = 41             # <<<<<<<<<<<<<<
@@ -3599,7 +3599,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION13 = 41;
 
-  /* "PROPANE.pyx":166
+  /* "gases/PROPANE.pyx":166
  *     NION12 = 41
  *     NION13 = 41
  *     NION14 = 40             # <<<<<<<<<<<<<<
@@ -3608,7 +3608,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION14 = 40;
 
-  /* "PROPANE.pyx":167
+  /* "gases/PROPANE.pyx":167
  *     NION13 = 41
  *     NION14 = 40
  *     NION15 = 39             # <<<<<<<<<<<<<<
@@ -3617,7 +3617,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION15 = 39;
 
-  /* "PROPANE.pyx":168
+  /* "gases/PROPANE.pyx":168
  *     NION14 = 40
  *     NION15 = 39
  *     NION16 = 39             # <<<<<<<<<<<<<<
@@ -3626,7 +3626,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION16 = 39;
 
-  /* "PROPANE.pyx":169
+  /* "gases/PROPANE.pyx":169
  *     NION15 = 39
  *     NION16 = 39
  *     NION17 = 39             # <<<<<<<<<<<<<<
@@ -3635,7 +3635,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION17 = 39;
 
-  /* "PROPANE.pyx":170
+  /* "gases/PROPANE.pyx":170
  *     NION16 = 39
  *     NION17 = 39
  *     NION18 = 38             # <<<<<<<<<<<<<<
@@ -3644,7 +3644,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION18 = 38;
 
-  /* "PROPANE.pyx":171
+  /* "gases/PROPANE.pyx":171
  *     NION17 = 39
  *     NION18 = 38
  *     NION19 = 39             # <<<<<<<<<<<<<<
@@ -3653,7 +3653,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION19 = 39;
 
-  /* "PROPANE.pyx":172
+  /* "gases/PROPANE.pyx":172
  *     NION18 = 38
  *     NION19 = 39
  *     NION20 = 38             # <<<<<<<<<<<<<<
@@ -3662,7 +3662,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION20 = 38;
 
-  /* "PROPANE.pyx":173
+  /* "gases/PROPANE.pyx":173
  *     NION19 = 39
  *     NION20 = 38
  *     NION21 = 36             # <<<<<<<<<<<<<<
@@ -3671,7 +3671,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION21 = 36;
 
-  /* "PROPANE.pyx":174
+  /* "gases/PROPANE.pyx":174
  *     NION20 = 38
  *     NION21 = 36
  *     NION22 = 36             # <<<<<<<<<<<<<<
@@ -3680,7 +3680,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION22 = 36;
 
-  /* "PROPANE.pyx":175
+  /* "gases/PROPANE.pyx":175
  *     NION21 = 36
  *     NION22 = 36
  *     NION23 = 36             # <<<<<<<<<<<<<<
@@ -3689,7 +3689,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION23 = 36;
 
-  /* "PROPANE.pyx":176
+  /* "gases/PROPANE.pyx":176
  *     NION22 = 36
  *     NION23 = 36
  *     NION24 = 83             # <<<<<<<<<<<<<<
@@ -3698,7 +3698,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION24 = 83;
 
-  /* "PROPANE.pyx":177
+  /* "gases/PROPANE.pyx":177
  *     NION23 = 36
  *     NION24 = 83
  *     NATT1 = 9             # <<<<<<<<<<<<<<
@@ -3707,7 +3707,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 9;
 
-  /* "PROPANE.pyx":178
+  /* "gases/PROPANE.pyx":178
  *     NION24 = 83
  *     NATT1 = 9
  *     NATT2 = 9             # <<<<<<<<<<<<<<
@@ -3716,7 +3716,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT2 = 9;
 
-  /* "PROPANE.pyx":179
+  /* "gases/PROPANE.pyx":179
  *     NATT1 = 9
  *     NATT2 = 9
  *     NVIB1 = 25             # <<<<<<<<<<<<<<
@@ -3725,7 +3725,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB1 = 25;
 
-  /* "PROPANE.pyx":180
+  /* "gases/PROPANE.pyx":180
  *     NATT2 = 9
  *     NVIB1 = 25
  *     NVIB2 = 24             # <<<<<<<<<<<<<<
@@ -3734,7 +3734,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB2 = 24;
 
-  /* "PROPANE.pyx":181
+  /* "gases/PROPANE.pyx":181
  *     NVIB1 = 25
  *     NVIB2 = 24
  *     NVIB3 = 25             # <<<<<<<<<<<<<<
@@ -3743,7 +3743,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB3 = 25;
 
-  /* "PROPANE.pyx":182
+  /* "gases/PROPANE.pyx":182
  *     NVIB2 = 24
  *     NVIB3 = 25
  *     NVIB4 = 17             # <<<<<<<<<<<<<<
@@ -3752,7 +3752,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB4 = 17;
 
-  /* "PROPANE.pyx":183
+  /* "gases/PROPANE.pyx":183
  *     NVIB3 = 25
  *     NVIB4 = 17
  *     NTR1 = 14             # <<<<<<<<<<<<<<
@@ -3761,7 +3761,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR1 = 14;
 
-  /* "PROPANE.pyx":184
+  /* "gases/PROPANE.pyx":184
  *     NVIB4 = 17
  *     NTR1 = 14
  *     NTR2 = 11             # <<<<<<<<<<<<<<
@@ -3770,7 +3770,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR2 = 11;
 
-  /* "PROPANE.pyx":185
+  /* "gases/PROPANE.pyx":185
  *     NTR1 = 14
  *     NTR2 = 11
  *     NTR3 = 11             # <<<<<<<<<<<<<<
@@ -3779,7 +3779,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR3 = 11;
 
-  /* "PROPANE.pyx":186
+  /* "gases/PROPANE.pyx":186
  *     NTR2 = 11
  *     NTR3 = 11
  *     NTR4 = 11             # <<<<<<<<<<<<<<
@@ -3788,7 +3788,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR4 = 11;
 
-  /* "PROPANE.pyx":187
+  /* "gases/PROPANE.pyx":187
  *     NTR3 = 11
  *     NTR4 = 11
  *     NUL1 = 14             # <<<<<<<<<<<<<<
@@ -3797,7 +3797,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL1 = 14;
 
-  /* "PROPANE.pyx":188
+  /* "gases/PROPANE.pyx":188
  *     NTR4 = 11
  *     NUL1 = 14
  *     NUL2 = 14             # <<<<<<<<<<<<<<
@@ -3806,7 +3806,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL2 = 14;
 
-  /* "PROPANE.pyx":190
+  /* "gases/PROPANE.pyx":190
  *     NUL2 = 14
  * 
  *     object.SCLN[0] = 1.0             # <<<<<<<<<<<<<<
@@ -3815,7 +3815,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->SCLN[0]) = 1.0;
 
-  /* "PROPANE.pyx":191
+  /* "gases/PROPANE.pyx":191
  * 
  *     object.SCLN[0] = 1.0
  *     object.SCLN[1] = 1.0             # <<<<<<<<<<<<<<
@@ -3824,7 +3824,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->SCLN[1]) = 1.0;
 
-  /* "PROPANE.pyx":193
+  /* "gases/PROPANE.pyx":193
  *     object.SCLN[1] = 1.0
  * 
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -3833,7 +3833,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "PROPANE.pyx":194
+  /* "gases/PROPANE.pyx":194
  * 
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27, EOBY[30], SCLOBY, APOP1, APOP2, APOP3, APOP4, QCOUNT = 0.0, QIONC, QIONG             # <<<<<<<<<<<<<<
@@ -3843,7 +3843,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_AMU = 1.660538921e-27;
   __pyx_v_QCOUNT = 0.0;
 
-  /* "PROPANE.pyx":196
+  /* "gases/PROPANE.pyx":196
  *     cdef double AMU = 1.660538921e-27, EOBY[30], SCLOBY, APOP1, APOP2, APOP3, APOP4, QCOUNT = 0.0, QIONC, QIONG
  * 
  *     object.E = [0.0, 1.0, 11.05, 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -3858,7 +3858,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_24[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_24, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "PROPANE.pyx":197
+  /* "gases/PROPANE.pyx":197
  * 
  *     object.E = [0.0, 1.0, 11.05, 0.0, 0.0, 0.0]
  *     object.E[1] = 2.0 * EMASS / (44.09652 * AMU)             # <<<<<<<<<<<<<<
@@ -3867,7 +3867,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (44.09652 * __pyx_v_AMU));
 
-  /* "PROPANE.pyx":199
+  /* "gases/PROPANE.pyx":199
  *     object.E[1] = 2.0 * EMASS / (44.09652 * AMU)
  * 
  *     object.EION[0:24] = [11.11, 11.55, 11.75, 11.75, 11.91, 13.48, 13.65, 13.79, 14.1, 14.5, 16.5, 20.0, 21.5, 25.0,             # <<<<<<<<<<<<<<
@@ -3900,7 +3900,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_17[23] = 285.0;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_17, sizeof(__pyx_v_object->EION[0]) * (24));
 
-  /* "PROPANE.pyx":203
+  /* "gases/PROPANE.pyx":203
  * 
  *     # OPAL BEATY
  *     SCLOBY = 0.8             # <<<<<<<<<<<<<<
@@ -3909,7 +3909,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_SCLOBY = 0.8;
 
-  /* "PROPANE.pyx":204
+  /* "gases/PROPANE.pyx":204
  *     # OPAL BEATY
  *     SCLOBY = 0.8
  *     for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -3921,7 +3921,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
     __pyx_v_J = __pyx_t_23;
 
-    /* "PROPANE.pyx":205
+    /* "gases/PROPANE.pyx":205
  *     SCLOBY = 0.8
  *     for J in range(object.NION):
  *         EOBY[J] = object.EION[J] * SCLOBY             # <<<<<<<<<<<<<<
@@ -3931,7 +3931,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_EOBY[__pyx_v_J]) = ((__pyx_v_object->EION[__pyx_v_J]) * __pyx_v_SCLOBY);
   }
 
-  /* "PROPANE.pyx":206
+  /* "gases/PROPANE.pyx":206
  *     for J in range(object.NION):
  *         EOBY[J] = object.EION[J] * SCLOBY
  *     EOBY[object.NION - 1] *= 0.63             # <<<<<<<<<<<<<<
@@ -3941,7 +3941,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_25 = (__pyx_v_object->NION - 1);
   (__pyx_v_EOBY[__pyx_t_25]) = ((__pyx_v_EOBY[__pyx_t_25]) * 0.63);
 
-  /* "PROPANE.pyx":208
+  /* "gases/PROPANE.pyx":208
  *     EOBY[object.NION - 1] *= 0.63
  * 
  *     for i in range(23):             # <<<<<<<<<<<<<<
@@ -3951,7 +3951,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_21 = 0; __pyx_t_21 < 23; __pyx_t_21+=1) {
     __pyx_v_i = __pyx_t_21;
 
-    /* "PROPANE.pyx":209
+    /* "gases/PROPANE.pyx":209
  * 
  *     for i in range(23):
  *         object.NC0[i] = 0             # <<<<<<<<<<<<<<
@@ -3960,7 +3960,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NC0[__pyx_v_i]) = 0.0;
 
-    /* "PROPANE.pyx":210
+    /* "gases/PROPANE.pyx":210
  *     for i in range(23):
  *         object.NC0[i] = 0
  *         object.EC0[i] = 0.0             # <<<<<<<<<<<<<<
@@ -3969,7 +3969,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EC0[__pyx_v_i]) = 0.0;
 
-    /* "PROPANE.pyx":211
+    /* "gases/PROPANE.pyx":211
  *         object.NC0[i] = 0
  *         object.EC0[i] = 0.0
  *         object.WK[i] = 0.0             # <<<<<<<<<<<<<<
@@ -3978,7 +3978,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->WK[__pyx_v_i]) = 0.0;
 
-    /* "PROPANE.pyx":212
+    /* "gases/PROPANE.pyx":212
  *         object.EC0[i] = 0.0
  *         object.WK[i] = 0.0
  *         object.EFL[i] = 0.0             # <<<<<<<<<<<<<<
@@ -3987,7 +3987,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EFL[__pyx_v_i]) = 0.0;
 
-    /* "PROPANE.pyx":213
+    /* "gases/PROPANE.pyx":213
  *         object.WK[i] = 0.0
  *         object.EFL[i] = 0.0
  *         object.NG1[i] = 0             # <<<<<<<<<<<<<<
@@ -3996,7 +3996,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG1[__pyx_v_i]) = 0.0;
 
-    /* "PROPANE.pyx":214
+    /* "gases/PROPANE.pyx":214
  *         object.EFL[i] = 0.0
  *         object.NG1[i] = 0
  *         object.EG1[i] = 0.0             # <<<<<<<<<<<<<<
@@ -4005,7 +4005,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EG1[__pyx_v_i]) = 0.0;
 
-    /* "PROPANE.pyx":215
+    /* "gases/PROPANE.pyx":215
  *         object.NG1[i] = 0
  *         object.EG1[i] = 0.0
  *         object.NG2[i] = 0             # <<<<<<<<<<<<<<
@@ -4014,7 +4014,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG2[__pyx_v_i]) = 0.0;
 
-    /* "PROPANE.pyx":216
+    /* "gases/PROPANE.pyx":216
  *         object.EG1[i] = 0.0
  *         object.NG2[i] = 0
  *         object.EG2[i] = 0.0             # <<<<<<<<<<<<<<
@@ -4024,7 +4024,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EG2[__pyx_v_i]) = 0.0;
   }
 
-  /* "PROPANE.pyx":218
+  /* "gases/PROPANE.pyx":218
  *         object.EG2[i] = 0.0
  *     # DOUBLE CHARGE , ++ ION STATES ( EXTRA ELECTRON )
  *     object.NC0[17] = 1             # <<<<<<<<<<<<<<
@@ -4033,7 +4033,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[17]) = 1.0;
 
-  /* "PROPANE.pyx":219
+  /* "gases/PROPANE.pyx":219
  *     # DOUBLE CHARGE , ++ ION STATES ( EXTRA ELECTRON )
  *     object.NC0[17] = 1
  *     object.EC0[17] = 4.0             # <<<<<<<<<<<<<<
@@ -4042,7 +4042,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[17]) = 4.0;
 
-  /* "PROPANE.pyx":220
+  /* "gases/PROPANE.pyx":220
  *     object.NC0[17] = 1
  *     object.EC0[17] = 4.0
  *     object.NC0[18] = 1             # <<<<<<<<<<<<<<
@@ -4051,7 +4051,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[18]) = 1.0;
 
-  /* "PROPANE.pyx":221
+  /* "gases/PROPANE.pyx":221
  *     object.EC0[17] = 4.0
  *     object.NC0[18] = 1
  *     object.EC0[18] = 4.0             # <<<<<<<<<<<<<<
@@ -4060,7 +4060,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[18]) = 4.0;
 
-  /* "PROPANE.pyx":223
+  /* "gases/PROPANE.pyx":223
  *     object.EC0[18] = 4.0
  *     # FLUORESCENCE DATA (KSHELL)
  *     object.NC0[23] = 2             # <<<<<<<<<<<<<<
@@ -4069,7 +4069,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[23]) = 2.0;
 
-  /* "PROPANE.pyx":224
+  /* "gases/PROPANE.pyx":224
  *     # FLUORESCENCE DATA (KSHELL)
  *     object.NC0[23] = 2
  *     object.EC0[23] = 253.0             # <<<<<<<<<<<<<<
@@ -4078,7 +4078,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[23]) = 253.0;
 
-  /* "PROPANE.pyx":225
+  /* "gases/PROPANE.pyx":225
  *     object.NC0[23] = 2
  *     object.EC0[23] = 253.0
  *     object.WK[23] = 0.0026             # <<<<<<<<<<<<<<
@@ -4087,7 +4087,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->WK[23]) = 0.0026;
 
-  /* "PROPANE.pyx":226
+  /* "gases/PROPANE.pyx":226
  *     object.EC0[23] = 253.0
  *     object.WK[23] = 0.0026
  *     object.EFL[23] = 273.0             # <<<<<<<<<<<<<<
@@ -4096,7 +4096,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EFL[23]) = 273.0;
 
-  /* "PROPANE.pyx":227
+  /* "gases/PROPANE.pyx":227
  *     object.WK[23] = 0.0026
  *     object.EFL[23] = 273.0
  *     object.NG1[23] = 1             # <<<<<<<<<<<<<<
@@ -4105,7 +4105,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG1[23]) = 1.0;
 
-  /* "PROPANE.pyx":228
+  /* "gases/PROPANE.pyx":228
  *     object.EFL[23] = 273.0
  *     object.NG1[23] = 1
  *     object.EG1[23] = 253.0             # <<<<<<<<<<<<<<
@@ -4114,7 +4114,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG1[23]) = 253.0;
 
-  /* "PROPANE.pyx":229
+  /* "gases/PROPANE.pyx":229
  *     object.NG1[23] = 1
  *     object.EG1[23] = 253.0
  *     object.NG2[23] = 2             # <<<<<<<<<<<<<<
@@ -4123,7 +4123,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG2[23]) = 2.0;
 
-  /* "PROPANE.pyx":230
+  /* "gases/PROPANE.pyx":230
  *     object.EG1[23] = 253.0
  *     object.NG2[23] = 2
  *     object.EG2[23] = 5.0             # <<<<<<<<<<<<<<
@@ -4132,7 +4132,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG2[23]) = 5.0;
 
-  /* "PROPANE.pyx":231
+  /* "gases/PROPANE.pyx":231
  *     object.NG2[23] = 2
  *     object.EG2[23] = 5.0
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -4144,7 +4144,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
     __pyx_v_j = __pyx_t_23;
 
-    /* "PROPANE.pyx":232
+    /* "gases/PROPANE.pyx":232
  *     object.EG2[23] = 5.0
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -4154,7 +4154,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 0; __pyx_t_26 < 0xFA0; __pyx_t_26+=1) {
       __pyx_v_i = __pyx_t_26;
 
-      /* "PROPANE.pyx":233
+      /* "gases/PROPANE.pyx":233
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -4164,7 +4164,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":234
+        /* "gases/PROPANE.pyx":234
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -4173,7 +4173,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "PROPANE.pyx":235
+        /* "gases/PROPANE.pyx":235
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4182,7 +4182,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L16_break;
 
-        /* "PROPANE.pyx":233
+        /* "gases/PROPANE.pyx":233
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -4194,7 +4194,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L16_break:;
   }
 
-  /* "PROPANE.pyx":236
+  /* "gases/PROPANE.pyx":236
  *                 IOFFION[j] = i - 1
  *                 break
  *     object.EIN = gd['gas10/EIN']             # <<<<<<<<<<<<<<
@@ -4211,7 +4211,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_28, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "PROPANE.pyx":239
+  /* "gases/PROPANE.pyx":239
  * 
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4223,7 +4223,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
     __pyx_v_NL = __pyx_t_23;
 
-    /* "PROPANE.pyx":240
+    /* "gases/PROPANE.pyx":240
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -4233,7 +4233,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 0; __pyx_t_26 < 0xFA0; __pyx_t_26+=1) {
       __pyx_v_i = __pyx_t_26;
 
-      /* "PROPANE.pyx":241
+      /* "gases/PROPANE.pyx":241
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -4243,7 +4243,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EIN[__pyx_v_NL])) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":242
+        /* "gases/PROPANE.pyx":242
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i - 1             # <<<<<<<<<<<<<<
@@ -4252,7 +4252,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
 
-        /* "PROPANE.pyx":243
+        /* "gases/PROPANE.pyx":243
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4261,7 +4261,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L21_break;
 
-        /* "PROPANE.pyx":241
+        /* "gases/PROPANE.pyx":241
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -4273,7 +4273,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L21_break:;
   }
 
-  /* "PROPANE.pyx":245
+  /* "gases/PROPANE.pyx":245
  *                 break
  * 
  *     for i in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4285,7 +4285,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
     __pyx_v_i = __pyx_t_23;
 
-    /* "PROPANE.pyx":246
+    /* "gases/PROPANE.pyx":246
  * 
  *     for i in range(object.NIN):
  *         for j in range(3):             # <<<<<<<<<<<<<<
@@ -4295,7 +4295,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 0; __pyx_t_26 < 3; __pyx_t_26+=1) {
       __pyx_v_j = __pyx_t_26;
 
-      /* "PROPANE.pyx":247
+      /* "gases/PROPANE.pyx":247
  *     for i in range(object.NIN):
  *         for j in range(3):
  *             object.PENFRA[j][i]=0.0             # <<<<<<<<<<<<<<
@@ -4306,7 +4306,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "PROPANE.pyx":249
+  /* "gases/PROPANE.pyx":249
  *             object.PENFRA[j][i]=0.0
  *     # CALC LEVEL POPULATIONS
  *     APOP1 = exp(object.EIN[0] / object.AKT)             # <<<<<<<<<<<<<<
@@ -4315,7 +4315,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP1 = exp(((__pyx_v_object->EIN[0]) / __pyx_v_object->AKT));
 
-  /* "PROPANE.pyx":250
+  /* "gases/PROPANE.pyx":250
  *     # CALC LEVEL POPULATIONS
  *     APOP1 = exp(object.EIN[0] / object.AKT)
  *     APOP2 = exp(object.EIN[2] / object.AKT)             # <<<<<<<<<<<<<<
@@ -4324,7 +4324,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP2 = exp(((__pyx_v_object->EIN[2]) / __pyx_v_object->AKT));
 
-  /* "PROPANE.pyx":251
+  /* "gases/PROPANE.pyx":251
  *     APOP1 = exp(object.EIN[0] / object.AKT)
  *     APOP2 = exp(object.EIN[2] / object.AKT)
  *     APOP3 = exp(object.EIN[4] / object.AKT)             # <<<<<<<<<<<<<<
@@ -4333,7 +4333,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP3 = exp(((__pyx_v_object->EIN[4]) / __pyx_v_object->AKT));
 
-  /* "PROPANE.pyx":253
+  /* "gases/PROPANE.pyx":253
  *     APOP3 = exp(object.EIN[4] / object.AKT)
  * 
  *     cdef double EN, ENLG, GAMMA1, GAMMA2, BETA, BETA2, QMT, QEL, PQ[3], X1, X2, QBB = 0.0, QSUM, EFAC, F[52]             # <<<<<<<<<<<<<<
@@ -4342,7 +4342,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_QBB = 0.0;
 
-  /* "PROPANE.pyx":254
+  /* "gases/PROPANE.pyx":254
  * 
  *     cdef double EN, ENLG, GAMMA1, GAMMA2, BETA, BETA2, QMT, QEL, PQ[3], X1, X2, QBB = 0.0, QSUM, EFAC, F[52]
  *     F = [.000339, .004660, .012816, .037747, .081783, .084248, .090347, .098580, .10415, .11379, .12674, .096356,             # <<<<<<<<<<<<<<
@@ -4403,7 +4403,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_29[51] = .0010872;
   memcpy(&(__pyx_v_F[0]), __pyx_t_29, sizeof(__pyx_v_F[0]) * (52));
 
-  /* "PROPANE.pyx":260
+  /* "gases/PROPANE.pyx":260
  *          .011553, .0089679, .0064815, .0035484, .0010872]
  * 
  *     cdef int FI = 0             # <<<<<<<<<<<<<<
@@ -4412,7 +4412,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_FI = 0;
 
-  /* "PROPANE.pyx":261
+  /* "gases/PROPANE.pyx":261
  * 
  *     cdef int FI = 0
  *     object.NSTEP = 4000             # <<<<<<<<<<<<<<
@@ -4421,7 +4421,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NSTEP = 0xFA0;
 
-  /* "PROPANE.pyx":262
+  /* "gases/PROPANE.pyx":262
  *     cdef int FI = 0
  *     object.NSTEP = 4000
  *     for I in range(object.NSTEP):             # <<<<<<<<<<<<<<
@@ -4433,7 +4433,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
     __pyx_v_I = __pyx_t_23;
 
-    /* "PROPANE.pyx":263
+    /* "gases/PROPANE.pyx":263
  *     object.NSTEP = 4000
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -4442,7 +4442,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "PROPANE.pyx":264
+    /* "gases/PROPANE.pyx":264
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         ENLG = log(EN)             # <<<<<<<<<<<<<<
@@ -4451,7 +4451,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_ENLG = log(__pyx_v_EN);
 
-    /* "PROPANE.pyx":265
+    /* "gases/PROPANE.pyx":265
  *         EN = object.EG[I]
  *         ENLG = log(EN)
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -4460,7 +4460,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-    /* "PROPANE.pyx":266
+    /* "gases/PROPANE.pyx":266
  *         ENLG = log(EN)
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -4469,7 +4469,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-    /* "PROPANE.pyx":267
+    /* "gases/PROPANE.pyx":267
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -4478,7 +4478,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-    /* "PROPANE.pyx":268
+    /* "gases/PROPANE.pyx":268
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *         BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -4487,7 +4487,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-    /* "PROPANE.pyx":270
+    /* "gases/PROPANE.pyx":270
  *         BETA2 = BETA * BETA
  * 
  *         if EN <= 10:             # <<<<<<<<<<<<<<
@@ -4497,7 +4497,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN <= 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":271
+      /* "gases/PROPANE.pyx":271
  * 
  *         if EN <= 10:
  *             QMT = GasUtil.CALPQ3(EN, NDATA, YMT, XEN) * 1e-16             # <<<<<<<<<<<<<<
@@ -4506,7 +4506,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMT = (__pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YMT, __pyx_v_XEN) * 1e-16);
 
-      /* "PROPANE.pyx":272
+      /* "gases/PROPANE.pyx":272
  *         if EN <= 10:
  *             QMT = GasUtil.CALPQ3(EN, NDATA, YMT, XEN) * 1e-16
  *             QEL = GasUtil.CALPQ3(EN, NDATA, YEL, XEN) * 1e-16             # <<<<<<<<<<<<<<
@@ -4515,7 +4515,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QEL = (__pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEL, __pyx_v_XEN) * 1e-16);
 
-      /* "PROPANE.pyx":273
+      /* "gases/PROPANE.pyx":273
  *             QMT = GasUtil.CALPQ3(EN, NDATA, YMT, XEN) * 1e-16
  *             QEL = GasUtil.CALPQ3(EN, NDATA, YEL, XEN) * 1e-16
  *             PQ[2] = GasUtil.CALPQ3(EN, NDATA, YEPS, XEN)             # <<<<<<<<<<<<<<
@@ -4524,7 +4524,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       (__pyx_v_PQ[2]) = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEPS, __pyx_v_XEN);
 
-      /* "PROPANE.pyx":270
+      /* "gases/PROPANE.pyx":270
  *         BETA2 = BETA * BETA
  * 
  *         if EN <= 10:             # <<<<<<<<<<<<<<
@@ -4534,7 +4534,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L29;
     }
 
-    /* "PROPANE.pyx":275
+    /* "gases/PROPANE.pyx":275
  *             PQ[2] = GasUtil.CALPQ3(EN, NDATA, YEPS, XEN)
  *         else:
  *             QEL = GasUtil.QLSCALE(EN, NDATA, YEL, XEN)             # <<<<<<<<<<<<<<
@@ -4544,7 +4544,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     /*else*/ {
       __pyx_v_QEL = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEL, __pyx_v_XEN);
 
-      /* "PROPANE.pyx":276
+      /* "gases/PROPANE.pyx":276
  *         else:
  *             QEL = GasUtil.QLSCALE(EN, NDATA, YEL, XEN)
  *             QMT = GasUtil.QLSCALE(EN, NDATA, YMT, XEN)             # <<<<<<<<<<<<<<
@@ -4553,7 +4553,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMT = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YMT, __pyx_v_XEN);
 
-      /* "PROPANE.pyx":277
+      /* "gases/PROPANE.pyx":277
  *             QEL = GasUtil.QLSCALE(EN, NDATA, YEL, XEN)
  *             QMT = GasUtil.QLSCALE(EN, NDATA, YMT, XEN)
  *             PQ[2] = GasUtil.QLSCALE(EN, NDATA, YEPS, XEN) * 1e16             # <<<<<<<<<<<<<<
@@ -4564,7 +4564,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L29:;
 
-    /* "PROPANE.pyx":279
+    /* "gases/PROPANE.pyx":279
  *             PQ[2] = GasUtil.QLSCALE(EN, NDATA, YEPS, XEN) * 1e16
  * 
  *         PQ[2] = 1 - PQ[2]             # <<<<<<<<<<<<<<
@@ -4573,7 +4573,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = (1.0 - (__pyx_v_PQ[2]));
 
-    /* "PROPANE.pyx":280
+    /* "gases/PROPANE.pyx":280
  * 
  *         PQ[2] = 1 - PQ[2]
  *         PQ[1] = 0.5 + (QEL - QMT) / QEL             # <<<<<<<<<<<<<<
@@ -4582,7 +4582,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[1]) = (0.5 + ((__pyx_v_QEL - __pyx_v_QMT) / __pyx_v_QEL));
 
-    /* "PROPANE.pyx":281
+    /* "gases/PROPANE.pyx":281
  *         PQ[2] = 1 - PQ[2]
  *         PQ[1] = 0.5 + (QEL - QMT) / QEL
  *         PQ[0] = 0.5             # <<<<<<<<<<<<<<
@@ -4591,7 +4591,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[0]) = 0.5;
 
-    /* "PROPANE.pyx":282
+    /* "gases/PROPANE.pyx":282
  *         PQ[1] = 0.5 + (QEL - QMT) / QEL
  *         PQ[0] = 0.5
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -4600,7 +4600,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "PROPANE.pyx":284
+    /* "gases/PROPANE.pyx":284
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  * 
  *         object.Q[1][I] = QEL             # <<<<<<<<<<<<<<
@@ -4609,7 +4609,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QEL;
 
-    /* "PROPANE.pyx":286
+    /* "gases/PROPANE.pyx":286
  *         object.Q[1][I] = QEL
  * 
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -4619,7 +4619,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":287
+      /* "gases/PROPANE.pyx":287
  * 
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMT             # <<<<<<<<<<<<<<
@@ -4628,7 +4628,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMT;
 
-      /* "PROPANE.pyx":286
+      /* "gases/PROPANE.pyx":286
  *         object.Q[1][I] = QEL
  * 
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -4637,7 +4637,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":290
+    /* "gases/PROPANE.pyx":290
  * 
  *         # IONISATION
  *         for i in range(object.NION):             # <<<<<<<<<<<<<<
@@ -4649,7 +4649,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_31 = 0; __pyx_t_31 < __pyx_t_30; __pyx_t_31+=1) {
       __pyx_v_i = __pyx_t_31;
 
-      /* "PROPANE.pyx":291
+      /* "gases/PROPANE.pyx":291
  *         # IONISATION
  *         for i in range(object.NION):
  *             object.QION[i][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4658,7 +4658,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[__pyx_v_i])[__pyx_v_I]) = 0.0;
 
-      /* "PROPANE.pyx":292
+      /* "gases/PROPANE.pyx":292
  *         for i in range(object.NION):
  *             object.QION[i][I] = 0.0
  *             object.PEQION[i][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4667,7 +4667,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[__pyx_v_i])[__pyx_v_I]) = 0.5;
 
-      /* "PROPANE.pyx":293
+      /* "gases/PROPANE.pyx":293
  *             object.QION[i][I] = 0.0
  *             object.PEQION[i][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4677,7 +4677,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":294
+        /* "gases/PROPANE.pyx":294
  *             object.PEQION[i][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQION[i][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4686,7 +4686,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[__pyx_v_i])[__pyx_v_I]) = 0.0;
 
-        /* "PROPANE.pyx":293
+        /* "gases/PROPANE.pyx":293
  *             object.QION[i][I] = 0.0
  *             object.PEQION[i][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4696,7 +4696,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "PROPANE.pyx":299
+    /* "gases/PROPANE.pyx":299
  *         # NOT USED: ONLY FOR COMPARISON TO TOTAL OF IONISATION CHANNELS
  *         #     GROSS IONISATION
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4706,7 +4706,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":300
+      /* "gases/PROPANE.pyx":300
  *         #     GROSS IONISATION
  *         if EN > object.EION[0]:
  *             QIONG = GasUtil.CALQION(EN, NIONG, YIONG, XION)             # <<<<<<<<<<<<<<
@@ -4715,7 +4715,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QIONG = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NIONG, __pyx_v_YIONG, __pyx_v_XION);
 
-      /* "PROPANE.pyx":301
+      /* "gases/PROPANE.pyx":301
  *         if EN > object.EION[0]:
  *             QIONG = GasUtil.CALQION(EN, NIONG, YIONG, XION)
  *             QIONC = GasUtil.CALQION(EN, NIONG, YIONC, XION)             # <<<<<<<<<<<<<<
@@ -4724,7 +4724,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QIONC = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NIONG, __pyx_v_YIONC, __pyx_v_XION);
 
-      /* "PROPANE.pyx":302
+      /* "gases/PROPANE.pyx":302
  *             QIONG = GasUtil.CALQION(EN, NIONG, YIONG, XION)
  *             QIONC = GasUtil.CALQION(EN, NIONG, YIONC, XION)
  *             if EN > XION[NIONG - 1]:             # <<<<<<<<<<<<<<
@@ -4734,7 +4734,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NIONG - 1)])) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":303
+        /* "gases/PROPANE.pyx":303
  *             QIONC = GasUtil.CALQION(EN, NIONG, YIONC, XION)
  *             if EN > XION[NIONG - 1]:
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -4743,7 +4743,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "PROPANE.pyx":304
+        /* "gases/PROPANE.pyx":304
  *             if EN > XION[NIONG - 1]:
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -4752,7 +4752,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "PROPANE.pyx":305
+        /* "gases/PROPANE.pyx":305
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 QBB = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2)             # <<<<<<<<<<<<<<
@@ -4761,7 +4761,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QBB = (__pyx_v_CONST * ((__pyx_v_AM2 * (__pyx_v_X1 - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) + (__pyx_v_C * __pyx_v_X2)));
 
-        /* "PROPANE.pyx":306
+        /* "gases/PROPANE.pyx":306
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 QBB = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2)
  *                 QIONC = QBB             # <<<<<<<<<<<<<<
@@ -4770,7 +4770,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QIONC = __pyx_v_QBB;
 
-        /* "PROPANE.pyx":307
+        /* "gases/PROPANE.pyx":307
  *                 QBB = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2)
  *                 QIONC = QBB
  *                 QIONG = QIONC / 0.8939             # <<<<<<<<<<<<<<
@@ -4779,7 +4779,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QIONG = (__pyx_v_QIONC / 0.8939);
 
-        /* "PROPANE.pyx":302
+        /* "gases/PROPANE.pyx":302
  *             QIONG = GasUtil.CALQION(EN, NIONG, YIONG, XION)
  *             QIONC = GasUtil.CALQION(EN, NIONG, YIONC, XION)
  *             if EN > XION[NIONG - 1]:             # <<<<<<<<<<<<<<
@@ -4788,7 +4788,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":299
+      /* "gases/PROPANE.pyx":299
  *         # NOT USED: ONLY FOR COMPARISON TO TOTAL OF IONISATION CHANNELS
  *         #     GROSS IONISATION
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4797,7 +4797,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":310
+    /* "gases/PROPANE.pyx":310
  * 
  *         # C3H8+
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4807,7 +4807,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":311
+      /* "gases/PROPANE.pyx":311
  *         # C3H8+
  *         if EN > object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)             # <<<<<<<<<<<<<<
@@ -4816,7 +4816,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION1, __pyx_v_YION1, __pyx_v_XION1);
 
-      /* "PROPANE.pyx":312
+      /* "gases/PROPANE.pyx":312
  *         if EN > object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
  *             if object.QION[0][I] == 0:             # <<<<<<<<<<<<<<
@@ -4826,7 +4826,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[0])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":313
+        /* "gases/PROPANE.pyx":313
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
  *             if object.QION[0][I] == 0:
  *                 if EN > XION[NION1 - 1]:             # <<<<<<<<<<<<<<
@@ -4836,7 +4836,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION1 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":314
+          /* "gases/PROPANE.pyx":314
  *             if object.QION[0][I] == 0:
  *                 if EN > XION[NION1 - 1]:
  *                     object.QION[0][I] = QIONC * 0.103628             # <<<<<<<<<<<<<<
@@ -4845,7 +4845,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QIONC * 0.103628);
 
-          /* "PROPANE.pyx":313
+          /* "gases/PROPANE.pyx":313
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
  *             if object.QION[0][I] == 0:
  *                 if EN > XION[NION1 - 1]:             # <<<<<<<<<<<<<<
@@ -4854,7 +4854,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":312
+        /* "gases/PROPANE.pyx":312
  *         if EN > object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
  *             if object.QION[0][I] == 0:             # <<<<<<<<<<<<<<
@@ -4863,7 +4863,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":315
+      /* "gases/PROPANE.pyx":315
  *                 if EN > XION[NION1 - 1]:
  *                     object.QION[0][I] = QIONC * 0.103628
  *             if EN >= 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4873,7 +4873,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[0]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":316
+        /* "gases/PROPANE.pyx":316
  *                     object.QION[0][I] = QIONC * 0.103628
  *             if EN >= 2 * object.EION[0]:
  *                 object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]             # <<<<<<<<<<<<<<
@@ -4882,7 +4882,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-        /* "PROPANE.pyx":315
+        /* "gases/PROPANE.pyx":315
  *                 if EN > XION[NION1 - 1]:
  *                     object.QION[0][I] = QIONC * 0.103628
  *             if EN >= 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4891,7 +4891,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":310
+      /* "gases/PROPANE.pyx":310
  * 
  *         # C3H8+
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4900,7 +4900,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":319
+    /* "gases/PROPANE.pyx":319
  * 
  *         # C3H7+
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4910,7 +4910,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":320
+      /* "gases/PROPANE.pyx":320
  *         # C3H7+
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)             # <<<<<<<<<<<<<<
@@ -4919,7 +4919,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION2, __pyx_v_YION2, __pyx_v_XION2);
 
-      /* "PROPANE.pyx":321
+      /* "gases/PROPANE.pyx":321
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
  *             if object.QION[1][I] == 0:             # <<<<<<<<<<<<<<
@@ -4929,7 +4929,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[1])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":322
+        /* "gases/PROPANE.pyx":322
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
  *             if object.QION[1][I] == 0:
  *                 if EN > XION[NION2 - 1]:             # <<<<<<<<<<<<<<
@@ -4939,7 +4939,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION2 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":323
+          /* "gases/PROPANE.pyx":323
  *             if object.QION[1][I] == 0:
  *                 if EN > XION[NION2 - 1]:
  *                     object.QION[1][I] = QIONC * 0.073774             # <<<<<<<<<<<<<<
@@ -4948,7 +4948,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QIONC * 0.073774);
 
-          /* "PROPANE.pyx":322
+          /* "gases/PROPANE.pyx":322
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
  *             if object.QION[1][I] == 0:
  *                 if EN > XION[NION2 - 1]:             # <<<<<<<<<<<<<<
@@ -4957,7 +4957,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":321
+        /* "gases/PROPANE.pyx":321
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
  *             if object.QION[1][I] == 0:             # <<<<<<<<<<<<<<
@@ -4966,7 +4966,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":324
+      /* "gases/PROPANE.pyx":324
  *                 if EN > XION[NION2 - 1]:
  *                     object.QION[1][I] = QIONC * 0.073774
  *             if EN >= 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4976,7 +4976,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[1]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":325
+        /* "gases/PROPANE.pyx":325
  *                     object.QION[1][I] = QIONC * 0.073774
  *             if EN >= 2 * object.EION[1]:
  *                 object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]             # <<<<<<<<<<<<<<
@@ -4985,7 +4985,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-        /* "PROPANE.pyx":324
+        /* "gases/PROPANE.pyx":324
  *                 if EN > XION[NION2 - 1]:
  *                     object.QION[1][I] = QIONC * 0.073774
  *             if EN >= 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4994,7 +4994,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":319
+      /* "gases/PROPANE.pyx":319
  * 
  *         # C3H7+
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5003,7 +5003,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":328
+    /* "gases/PROPANE.pyx":328
  * 
  *         # C3H6+
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5013,7 +5013,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":329
+      /* "gases/PROPANE.pyx":329
  *         # C3H6+
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)             # <<<<<<<<<<<<<<
@@ -5022,7 +5022,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION3, __pyx_v_YION3, __pyx_v_XION3);
 
-      /* "PROPANE.pyx":330
+      /* "gases/PROPANE.pyx":330
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
  *             if object.QION[2][I] == 0:             # <<<<<<<<<<<<<<
@@ -5032,7 +5032,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[2])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":331
+        /* "gases/PROPANE.pyx":331
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
  *             if object.QION[2][I] == 0:
  *                 if EN > XION[NION3 - 1]:             # <<<<<<<<<<<<<<
@@ -5042,7 +5042,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION3 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":332
+          /* "gases/PROPANE.pyx":332
  *             if object.QION[2][I] == 0:
  *                 if EN > XION[NION3 - 1]:
  *                     object.QION[3][I] = QIONC * 0.017780             # <<<<<<<<<<<<<<
@@ -5051,7 +5051,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[3])[__pyx_v_I]) = (__pyx_v_QIONC * 0.017780);
 
-          /* "PROPANE.pyx":331
+          /* "gases/PROPANE.pyx":331
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
  *             if object.QION[2][I] == 0:
  *                 if EN > XION[NION3 - 1]:             # <<<<<<<<<<<<<<
@@ -5060,7 +5060,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":330
+        /* "gases/PROPANE.pyx":330
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
  *             if object.QION[2][I] == 0:             # <<<<<<<<<<<<<<
@@ -5069,7 +5069,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":333
+      /* "gases/PROPANE.pyx":333
  *                 if EN > XION[NION3 - 1]:
  *                     object.QION[3][I] = QIONC * 0.017780
  *             if EN >= 2 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5079,7 +5079,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[2]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":334
+        /* "gases/PROPANE.pyx":334
  *                     object.QION[3][I] = QIONC * 0.017780
  *             if EN >= 2 * object.EION[2]:
  *                 object.PEQION[2][I] = object.PEQEL[1][I - IOFFION[2]]             # <<<<<<<<<<<<<<
@@ -5088,7 +5088,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[2]))]);
 
-        /* "PROPANE.pyx":333
+        /* "gases/PROPANE.pyx":333
  *                 if EN > XION[NION3 - 1]:
  *                     object.QION[3][I] = QIONC * 0.017780
  *             if EN >= 2 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5097,7 +5097,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":328
+      /* "gases/PROPANE.pyx":328
  * 
  *         # C3H6+
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5106,7 +5106,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":336
+    /* "gases/PROPANE.pyx":336
  *                 object.PEQION[2][I] = object.PEQEL[1][I - IOFFION[2]]
  *         # C2H4+
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5116,7 +5116,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[3])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":337
+      /* "gases/PROPANE.pyx":337
  *         # C2H4+
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)             # <<<<<<<<<<<<<<
@@ -5125,7 +5125,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION4, __pyx_v_YION4, __pyx_v_XION4);
 
-      /* "PROPANE.pyx":338
+      /* "gases/PROPANE.pyx":338
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
  *             if object.QION[3][I] == 0:             # <<<<<<<<<<<<<<
@@ -5135,7 +5135,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[3])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":339
+        /* "gases/PROPANE.pyx":339
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
  *             if object.QION[3][I] == 0:
  *                 if EN > XION[NION4 - 1]:             # <<<<<<<<<<<<<<
@@ -5145,7 +5145,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION4 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":340
+          /* "gases/PROPANE.pyx":340
  *             if object.QION[3][I] == 0:
  *                 if EN > XION[NION4 - 1]:
  *                     object.QION[3][I] = QIONC * 0.151263             # <<<<<<<<<<<<<<
@@ -5154,7 +5154,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[3])[__pyx_v_I]) = (__pyx_v_QIONC * 0.151263);
 
-          /* "PROPANE.pyx":339
+          /* "gases/PROPANE.pyx":339
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
  *             if object.QION[3][I] == 0:
  *                 if EN > XION[NION4 - 1]:             # <<<<<<<<<<<<<<
@@ -5163,7 +5163,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":338
+        /* "gases/PROPANE.pyx":338
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
  *             if object.QION[3][I] == 0:             # <<<<<<<<<<<<<<
@@ -5172,7 +5172,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":341
+      /* "gases/PROPANE.pyx":341
  *                 if EN > XION[NION4 - 1]:
  *                     object.QION[3][I] = QIONC * 0.151263
  *             if EN >= 2 * object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5182,7 +5182,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[3]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":342
+        /* "gases/PROPANE.pyx":342
  *                     object.QION[3][I] = QIONC * 0.151263
  *             if EN >= 2 * object.EION[3]:
  *                 object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]             # <<<<<<<<<<<<<<
@@ -5191,7 +5191,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[3]))]);
 
-        /* "PROPANE.pyx":341
+        /* "gases/PROPANE.pyx":341
  *                 if EN > XION[NION4 - 1]:
  *                     object.QION[3][I] = QIONC * 0.151263
  *             if EN >= 2 * object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5200,7 +5200,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":336
+      /* "gases/PROPANE.pyx":336
  *                 object.PEQION[2][I] = object.PEQEL[1][I - IOFFION[2]]
  *         # C2H4+
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5209,7 +5209,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":344
+    /* "gases/PROPANE.pyx":344
  *                 object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]
  *         # C2H5+
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5219,7 +5219,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[4])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":345
+      /* "gases/PROPANE.pyx":345
  *         # C2H5+
  *         if EN > object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)             # <<<<<<<<<<<<<<
@@ -5228,7 +5228,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION5, __pyx_v_YION5, __pyx_v_XION5);
 
-      /* "PROPANE.pyx":346
+      /* "gases/PROPANE.pyx":346
  *         if EN > object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
  *             if object.QION[4][I] == 0:             # <<<<<<<<<<<<<<
@@ -5238,7 +5238,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[4])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":347
+        /* "gases/PROPANE.pyx":347
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
  *             if object.QION[4][I] == 0:
  *                 if EN > XION[NION5 - 1]:             # <<<<<<<<<<<<<<
@@ -5248,7 +5248,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION5 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":348
+          /* "gases/PROPANE.pyx":348
  *             if object.QION[4][I] == 0:
  *                 if EN > XION[NION5 - 1]:
  *                     object.QION[4][I] = QIONC * 0.238836             # <<<<<<<<<<<<<<
@@ -5257,7 +5257,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[4])[__pyx_v_I]) = (__pyx_v_QIONC * 0.238836);
 
-          /* "PROPANE.pyx":347
+          /* "gases/PROPANE.pyx":347
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
  *             if object.QION[4][I] == 0:
  *                 if EN > XION[NION5 - 1]:             # <<<<<<<<<<<<<<
@@ -5266,7 +5266,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":346
+        /* "gases/PROPANE.pyx":346
  *         if EN > object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
  *             if object.QION[4][I] == 0:             # <<<<<<<<<<<<<<
@@ -5275,7 +5275,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":349
+      /* "gases/PROPANE.pyx":349
  *                 if EN > XION[NION5 - 1]:
  *                     object.QION[4][I] = QIONC * 0.238836
  *             if EN >= 2 * object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5285,7 +5285,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[4]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":350
+        /* "gases/PROPANE.pyx":350
  *                     object.QION[4][I] = QIONC * 0.238836
  *             if EN >= 2 * object.EION[4]:
  *                 object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]             # <<<<<<<<<<<<<<
@@ -5294,7 +5294,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[4]))]);
 
-        /* "PROPANE.pyx":349
+        /* "gases/PROPANE.pyx":349
  *                 if EN > XION[NION5 - 1]:
  *                     object.QION[4][I] = QIONC * 0.238836
  *             if EN >= 2 * object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5303,7 +5303,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":344
+      /* "gases/PROPANE.pyx":344
  *                 object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]
  *         # C2H5+
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5312,7 +5312,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":352
+    /* "gases/PROPANE.pyx":352
  *                 object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]
  *         # C3H5+
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5322,7 +5322,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[5])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":353
+      /* "gases/PROPANE.pyx":353
  *         # C3H5+
  *         if EN > object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)             # <<<<<<<<<<<<<<
@@ -5331,7 +5331,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION6, __pyx_v_YION6, __pyx_v_XION6);
 
-      /* "PROPANE.pyx":354
+      /* "gases/PROPANE.pyx":354
  *         if EN > object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
  *             if object.QION[5][I] == 0:             # <<<<<<<<<<<<<<
@@ -5341,7 +5341,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[5])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":355
+        /* "gases/PROPANE.pyx":355
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
  *             if object.QION[5][I] == 0:
  *                 if EN > XION[NION6 - 1]:             # <<<<<<<<<<<<<<
@@ -5351,7 +5351,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION6 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":356
+          /* "gases/PROPANE.pyx":356
  *             if object.QION[5][I] == 0:
  *                 if EN > XION[NION6 - 1]:
  *                     object.QION[5][I] = QIONC * 0.040867             # <<<<<<<<<<<<<<
@@ -5360,7 +5360,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[5])[__pyx_v_I]) = (__pyx_v_QIONC * 0.040867);
 
-          /* "PROPANE.pyx":355
+          /* "gases/PROPANE.pyx":355
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
  *             if object.QION[5][I] == 0:
  *                 if EN > XION[NION6 - 1]:             # <<<<<<<<<<<<<<
@@ -5369,7 +5369,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":354
+        /* "gases/PROPANE.pyx":354
  *         if EN > object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
  *             if object.QION[5][I] == 0:             # <<<<<<<<<<<<<<
@@ -5378,7 +5378,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":357
+      /* "gases/PROPANE.pyx":357
  *                 if EN > XION[NION6 - 1]:
  *                     object.QION[5][I] = QIONC * 0.040867
  *             if EN >= 2 * object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5388,7 +5388,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[5]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":358
+        /* "gases/PROPANE.pyx":358
  *                     object.QION[5][I] = QIONC * 0.040867
  *             if EN >= 2 * object.EION[5]:
  *                 object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]             # <<<<<<<<<<<<<<
@@ -5397,7 +5397,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[5]))]);
 
-        /* "PROPANE.pyx":357
+        /* "gases/PROPANE.pyx":357
  *                 if EN > XION[NION6 - 1]:
  *                     object.QION[5][I] = QIONC * 0.040867
  *             if EN >= 2 * object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5406,7 +5406,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":352
+      /* "gases/PROPANE.pyx":352
  *                 object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]
  *         # C3H5+
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5415,7 +5415,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":360
+    /* "gases/PROPANE.pyx":360
  *                 object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]
  *         # CH3+
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5425,7 +5425,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[6])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":361
+      /* "gases/PROPANE.pyx":361
  *         # CH3+
  *         if EN > object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)             # <<<<<<<<<<<<<<
@@ -5434,7 +5434,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION7, __pyx_v_YION7, __pyx_v_XION7);
 
-      /* "PROPANE.pyx":362
+      /* "gases/PROPANE.pyx":362
  *         if EN > object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
  *             if object.QION[6][I] == 0:             # <<<<<<<<<<<<<<
@@ -5444,7 +5444,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[6])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":363
+        /* "gases/PROPANE.pyx":363
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
  *             if object.QION[6][I] == 0:
  *                 if EN > XION[NION7 - 1]:             # <<<<<<<<<<<<<<
@@ -5454,7 +5454,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION7 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":364
+          /* "gases/PROPANE.pyx":364
  *             if object.QION[6][I] == 0:
  *                 if EN > XION[NION7 - 1]:
  *                     object.QION[6][I] = QIONC * 0.019372             # <<<<<<<<<<<<<<
@@ -5463,7 +5463,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[6])[__pyx_v_I]) = (__pyx_v_QIONC * 0.019372);
 
-          /* "PROPANE.pyx":363
+          /* "gases/PROPANE.pyx":363
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
  *             if object.QION[6][I] == 0:
  *                 if EN > XION[NION7 - 1]:             # <<<<<<<<<<<<<<
@@ -5472,7 +5472,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":362
+        /* "gases/PROPANE.pyx":362
  *         if EN > object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
  *             if object.QION[6][I] == 0:             # <<<<<<<<<<<<<<
@@ -5481,7 +5481,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":365
+      /* "gases/PROPANE.pyx":365
  *                 if EN > XION[NION7 - 1]:
  *                     object.QION[6][I] = QIONC * 0.019372
  *             if EN >= 2 * object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5491,7 +5491,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[6]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":366
+        /* "gases/PROPANE.pyx":366
  *                     object.QION[6][I] = QIONC * 0.019372
  *             if EN >= 2 * object.EION[6]:
  *                 object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]             # <<<<<<<<<<<<<<
@@ -5500,7 +5500,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[6]))]);
 
-        /* "PROPANE.pyx":365
+        /* "gases/PROPANE.pyx":365
  *                 if EN > XION[NION7 - 1]:
  *                     object.QION[6][I] = QIONC * 0.019372
  *             if EN >= 2 * object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5509,7 +5509,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":360
+      /* "gases/PROPANE.pyx":360
  *                 object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]
  *         # CH3+
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5518,7 +5518,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":368
+    /* "gases/PROPANE.pyx":368
  *                 object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]
  *         # C3H4+
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5528,7 +5528,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[7])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":369
+      /* "gases/PROPANE.pyx":369
  *         # C3H4+
  *         if EN > object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)             # <<<<<<<<<<<<<<
@@ -5537,7 +5537,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION8, __pyx_v_YION8, __pyx_v_XION8);
 
-      /* "PROPANE.pyx":370
+      /* "gases/PROPANE.pyx":370
  *         if EN > object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
  *             if object.QION[7][I] == 0:             # <<<<<<<<<<<<<<
@@ -5547,7 +5547,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[7])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":371
+        /* "gases/PROPANE.pyx":371
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
  *             if object.QION[7][I] == 0:
  *                 if EN > XION[NION8 - 1]:             # <<<<<<<<<<<<<<
@@ -5557,7 +5557,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION8 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":372
+          /* "gases/PROPANE.pyx":372
  *             if object.QION[7][I] == 0:
  *                 if EN > XION[NION8 - 1]:
  *                     object.QION[7][I] = QIONC * 0.007842             # <<<<<<<<<<<<<<
@@ -5566,7 +5566,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[7])[__pyx_v_I]) = (__pyx_v_QIONC * 0.007842);
 
-          /* "PROPANE.pyx":371
+          /* "gases/PROPANE.pyx":371
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
  *             if object.QION[7][I] == 0:
  *                 if EN > XION[NION8 - 1]:             # <<<<<<<<<<<<<<
@@ -5575,7 +5575,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":370
+        /* "gases/PROPANE.pyx":370
  *         if EN > object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
  *             if object.QION[7][I] == 0:             # <<<<<<<<<<<<<<
@@ -5584,7 +5584,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":373
+      /* "gases/PROPANE.pyx":373
  *                 if EN > XION[NION8 - 1]:
  *                     object.QION[7][I] = QIONC * 0.007842
  *             if EN >= 2 * object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5594,7 +5594,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[7]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":374
+        /* "gases/PROPANE.pyx":374
  *                     object.QION[7][I] = QIONC * 0.007842
  *             if EN >= 2 * object.EION[7]:
  *                 object.PEQION[7][I] = object.PEQEL[1][I - IOFFION[7]]             # <<<<<<<<<<<<<<
@@ -5603,7 +5603,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[7]))]);
 
-        /* "PROPANE.pyx":373
+        /* "gases/PROPANE.pyx":373
  *                 if EN > XION[NION8 - 1]:
  *                     object.QION[7][I] = QIONC * 0.007842
  *             if EN >= 2 * object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5612,7 +5612,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":368
+      /* "gases/PROPANE.pyx":368
  *                 object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]
  *         # C3H4+
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5621,7 +5621,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":376
+    /* "gases/PROPANE.pyx":376
  *                 object.PEQION[7][I] = object.PEQEL[1][I - IOFFION[7]]
  *         # C2H2+
  *         if EN > object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5631,7 +5631,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[8])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":377
+      /* "gases/PROPANE.pyx":377
  *         # C2H2+
  *         if EN > object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQION(EN, NION9, YION9, XION9)             # <<<<<<<<<<<<<<
@@ -5640,7 +5640,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION9, __pyx_v_YION9, __pyx_v_XION9);
 
-      /* "PROPANE.pyx":378
+      /* "gases/PROPANE.pyx":378
  *         if EN > object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQION(EN, NION9, YION9, XION9)
  *             if object.QION[8][I] == 0:             # <<<<<<<<<<<<<<
@@ -5650,7 +5650,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[8])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":379
+        /* "gases/PROPANE.pyx":379
  *             object.QION[8][I] = GasUtil.CALQION(EN, NION9, YION9, XION9)
  *             if object.QION[8][I] == 0:
  *                 if EN > XION[NION9 - 1]:             # <<<<<<<<<<<<<<
@@ -5660,7 +5660,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION9 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":380
+          /* "gases/PROPANE.pyx":380
  *             if object.QION[8][I] == 0:
  *                 if EN > XION[NION9 - 1]:
  *                     object.QION[8][I] = QIONC * 0.025343             # <<<<<<<<<<<<<<
@@ -5669,7 +5669,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[8])[__pyx_v_I]) = (__pyx_v_QIONC * 0.025343);
 
-          /* "PROPANE.pyx":379
+          /* "gases/PROPANE.pyx":379
  *             object.QION[8][I] = GasUtil.CALQION(EN, NION9, YION9, XION9)
  *             if object.QION[8][I] == 0:
  *                 if EN > XION[NION9 - 1]:             # <<<<<<<<<<<<<<
@@ -5678,7 +5678,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":378
+        /* "gases/PROPANE.pyx":378
  *         if EN > object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQION(EN, NION9, YION9, XION9)
  *             if object.QION[8][I] == 0:             # <<<<<<<<<<<<<<
@@ -5687,7 +5687,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":381
+      /* "gases/PROPANE.pyx":381
  *                 if EN > XION[NION9 - 1]:
  *                     object.QION[8][I] = QIONC * 0.025343
  *             if EN >= 2 * object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5697,7 +5697,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[8]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":382
+        /* "gases/PROPANE.pyx":382
  *                     object.QION[8][I] = QIONC * 0.025343
  *             if EN >= 2 * object.EION[8]:
  *                 object.PEQION[8][I] = object.PEQEL[1][I - IOFFION[8]]             # <<<<<<<<<<<<<<
@@ -5706,7 +5706,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[8]))]);
 
-        /* "PROPANE.pyx":381
+        /* "gases/PROPANE.pyx":381
  *                 if EN > XION[NION9 - 1]:
  *                     object.QION[8][I] = QIONC * 0.025343
  *             if EN >= 2 * object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5715,7 +5715,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":376
+      /* "gases/PROPANE.pyx":376
  *                 object.PEQION[7][I] = object.PEQEL[1][I - IOFFION[7]]
  *         # C2H2+
  *         if EN > object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5724,7 +5724,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":384
+    /* "gases/PROPANE.pyx":384
  *                 object.PEQION[8][I] = object.PEQEL[1][I - IOFFION[8]]
  *         # C2H3+
  *         if EN > object.EION[9]:             # <<<<<<<<<<<<<<
@@ -5734,7 +5734,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[9])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":385
+      /* "gases/PROPANE.pyx":385
  *         # C2H3+
  *         if EN > object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQION(EN, NION10, YION10, XION10)             # <<<<<<<<<<<<<<
@@ -5743,7 +5743,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION10, __pyx_v_YION10, __pyx_v_XION10);
 
-      /* "PROPANE.pyx":386
+      /* "gases/PROPANE.pyx":386
  *         if EN > object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQION(EN, NION10, YION10, XION10)
  *             if object.QION[9][I] == 0:             # <<<<<<<<<<<<<<
@@ -5753,7 +5753,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[9])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":387
+        /* "gases/PROPANE.pyx":387
  *             object.QION[9][I] = GasUtil.CALQION(EN, NION10, YION10, XION10)
  *             if object.QION[9][I] == 0:
  *                 if EN > XION[NION10 - 1]:             # <<<<<<<<<<<<<<
@@ -5763,7 +5763,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION10 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":388
+          /* "gases/PROPANE.pyx":388
  *             if object.QION[9][I] == 0:
  *                 if EN > XION[NION10 - 1]:
  *                     object.QION[9][I] = QIONC * 0.112253             # <<<<<<<<<<<<<<
@@ -5772,7 +5772,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[9])[__pyx_v_I]) = (__pyx_v_QIONC * 0.112253);
 
-          /* "PROPANE.pyx":387
+          /* "gases/PROPANE.pyx":387
  *             object.QION[9][I] = GasUtil.CALQION(EN, NION10, YION10, XION10)
  *             if object.QION[9][I] == 0:
  *                 if EN > XION[NION10 - 1]:             # <<<<<<<<<<<<<<
@@ -5781,7 +5781,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":386
+        /* "gases/PROPANE.pyx":386
  *         if EN > object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQION(EN, NION10, YION10, XION10)
  *             if object.QION[9][I] == 0:             # <<<<<<<<<<<<<<
@@ -5790,7 +5790,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":389
+      /* "gases/PROPANE.pyx":389
  *                 if EN > XION[NION10 - 1]:
  *                     object.QION[9][I] = QIONC * 0.112253
  *             if EN >= 2 * object.EION[9]:             # <<<<<<<<<<<<<<
@@ -5800,7 +5800,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[9]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":390
+        /* "gases/PROPANE.pyx":390
  *                     object.QION[9][I] = QIONC * 0.112253
  *             if EN >= 2 * object.EION[9]:
  *                 object.PEQION[9][I] = object.PEQEL[1][I - IOFFION[9]]             # <<<<<<<<<<<<<<
@@ -5809,7 +5809,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[9]))]);
 
-        /* "PROPANE.pyx":389
+        /* "gases/PROPANE.pyx":389
  *                 if EN > XION[NION10 - 1]:
  *                     object.QION[9][I] = QIONC * 0.112253
  *             if EN >= 2 * object.EION[9]:             # <<<<<<<<<<<<<<
@@ -5818,7 +5818,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":384
+      /* "gases/PROPANE.pyx":384
  *                 object.PEQION[8][I] = object.PEQEL[1][I - IOFFION[8]]
  *         # C2H3+
  *         if EN > object.EION[9]:             # <<<<<<<<<<<<<<
@@ -5827,7 +5827,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":392
+    /* "gases/PROPANE.pyx":392
  *                 object.PEQION[9][I] = object.PEQEL[1][I - IOFFION[9]]
  *         # C3H3+
  *         if EN > object.EION[10]:             # <<<<<<<<<<<<<<
@@ -5837,7 +5837,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[10])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":393
+      /* "gases/PROPANE.pyx":393
  *         # C3H3+
  *         if EN > object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQION(EN, NION11, YION11, XION11)             # <<<<<<<<<<<<<<
@@ -5846,7 +5846,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[10])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION11, __pyx_v_YION11, __pyx_v_XION11);
 
-      /* "PROPANE.pyx":394
+      /* "gases/PROPANE.pyx":394
  *         if EN > object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQION(EN, NION11, YION11, XION11)
  *             if object.QION[10][I] == 0:             # <<<<<<<<<<<<<<
@@ -5856,7 +5856,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[10])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":395
+        /* "gases/PROPANE.pyx":395
  *             object.QION[10][I] = GasUtil.CALQION(EN, NION11, YION11, XION11)
  *             if object.QION[10][I] == 0:
  *                 if EN > XION[NION11 - 1]:             # <<<<<<<<<<<<<<
@@ -5866,7 +5866,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION11 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":396
+          /* "gases/PROPANE.pyx":396
  *             if object.QION[10][I] == 0:
  *                 if EN > XION[NION11 - 1]:
  *                     object.QION[10][I] = QIONC * 0.049359             # <<<<<<<<<<<<<<
@@ -5875,7 +5875,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[10])[__pyx_v_I]) = (__pyx_v_QIONC * 0.049359);
 
-          /* "PROPANE.pyx":395
+          /* "gases/PROPANE.pyx":395
  *             object.QION[10][I] = GasUtil.CALQION(EN, NION11, YION11, XION11)
  *             if object.QION[10][I] == 0:
  *                 if EN > XION[NION11 - 1]:             # <<<<<<<<<<<<<<
@@ -5884,7 +5884,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":394
+        /* "gases/PROPANE.pyx":394
  *         if EN > object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQION(EN, NION11, YION11, XION11)
  *             if object.QION[10][I] == 0:             # <<<<<<<<<<<<<<
@@ -5893,7 +5893,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":397
+      /* "gases/PROPANE.pyx":397
  *                 if EN > XION[NION11 - 1]:
  *                     object.QION[10][I] = QIONC * 0.049359
  *             if EN >= 2 * object.EION[10]:             # <<<<<<<<<<<<<<
@@ -5903,7 +5903,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[10]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":398
+        /* "gases/PROPANE.pyx":398
  *                     object.QION[10][I] = QIONC * 0.049359
  *             if EN >= 2 * object.EION[10]:
  *                 object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]             # <<<<<<<<<<<<<<
@@ -5912,7 +5912,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[10]))]);
 
-        /* "PROPANE.pyx":397
+        /* "gases/PROPANE.pyx":397
  *                 if EN > XION[NION11 - 1]:
  *                     object.QION[10][I] = QIONC * 0.049359
  *             if EN >= 2 * object.EION[10]:             # <<<<<<<<<<<<<<
@@ -5921,7 +5921,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":392
+      /* "gases/PROPANE.pyx":392
  *                 object.PEQION[9][I] = object.PEQEL[1][I - IOFFION[9]]
  *         # C3H3+
  *         if EN > object.EION[10]:             # <<<<<<<<<<<<<<
@@ -5930,7 +5930,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":400
+    /* "gases/PROPANE.pyx":400
  *                 object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]
  *         # H+
  *         if EN > object.EION[11]:             # <<<<<<<<<<<<<<
@@ -5940,7 +5940,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[11])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":401
+      /* "gases/PROPANE.pyx":401
  *         # H+
  *         if EN > object.EION[11]:
  *             object.QION[11][I] = GasUtil.CALQION(EN, NION12, YION12, XION12)             # <<<<<<<<<<<<<<
@@ -5949,7 +5949,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[11])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION12, __pyx_v_YION12, __pyx_v_XION12);
 
-      /* "PROPANE.pyx":402
+      /* "gases/PROPANE.pyx":402
  *         if EN > object.EION[11]:
  *             object.QION[11][I] = GasUtil.CALQION(EN, NION12, YION12, XION12)
  *             if object.QION[11][I] == 0:             # <<<<<<<<<<<<<<
@@ -5959,7 +5959,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[11])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":403
+        /* "gases/PROPANE.pyx":403
  *             object.QION[11][I] = GasUtil.CALQION(EN, NION12, YION12, XION12)
  *             if object.QION[11][I] == 0:
  *                 if EN > XION[NION12 - 1]:             # <<<<<<<<<<<<<<
@@ -5969,7 +5969,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION12 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":404
+          /* "gases/PROPANE.pyx":404
  *             if object.QION[11][I] == 0:
  *                 if EN > XION[NION12 - 1]:
  *                     object.QION[11][I] = QIONC * 0.001884             # <<<<<<<<<<<<<<
@@ -5978,7 +5978,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[11])[__pyx_v_I]) = (__pyx_v_QIONC * 0.001884);
 
-          /* "PROPANE.pyx":403
+          /* "gases/PROPANE.pyx":403
  *             object.QION[11][I] = GasUtil.CALQION(EN, NION12, YION12, XION12)
  *             if object.QION[11][I] == 0:
  *                 if EN > XION[NION12 - 1]:             # <<<<<<<<<<<<<<
@@ -5987,7 +5987,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":402
+        /* "gases/PROPANE.pyx":402
  *         if EN > object.EION[11]:
  *             object.QION[11][I] = GasUtil.CALQION(EN, NION12, YION12, XION12)
  *             if object.QION[11][I] == 0:             # <<<<<<<<<<<<<<
@@ -5996,7 +5996,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":405
+      /* "gases/PROPANE.pyx":405
  *                 if EN > XION[NION12 - 1]:
  *                     object.QION[11][I] = QIONC * 0.001884
  *             if EN >= 2 * object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6006,7 +6006,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[11]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":406
+        /* "gases/PROPANE.pyx":406
  *                     object.QION[11][I] = QIONC * 0.001884
  *             if EN >= 2 * object.EION[11]:
  *                 object.PEQION[11][I] = object.PEQEL[1][I - IOFFION[11]]             # <<<<<<<<<<<<<<
@@ -6015,7 +6015,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[11]))]);
 
-        /* "PROPANE.pyx":405
+        /* "gases/PROPANE.pyx":405
  *                 if EN > XION[NION12 - 1]:
  *                     object.QION[11][I] = QIONC * 0.001884
  *             if EN >= 2 * object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6024,7 +6024,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":400
+      /* "gases/PROPANE.pyx":400
  *                 object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]
  *         # H+
  *         if EN > object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6033,7 +6033,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":408
+    /* "gases/PROPANE.pyx":408
  *                 object.PEQION[11][I] = object.PEQEL[1][I - IOFFION[11]]
  *         # H2+ AND H3+
  *         if EN > object.EION[12]:             # <<<<<<<<<<<<<<
@@ -6043,7 +6043,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[12])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":409
+      /* "gases/PROPANE.pyx":409
  *         # H2+ AND H3+
  *         if EN > object.EION[12]:
  *             object.QION[12][I] = GasUtil.CALQION(EN, NION13, YION13, XION13)             # <<<<<<<<<<<<<<
@@ -6052,7 +6052,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[12])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION13, __pyx_v_YION13, __pyx_v_XION13);
 
-      /* "PROPANE.pyx":410
+      /* "gases/PROPANE.pyx":410
  *         if EN > object.EION[12]:
  *             object.QION[12][I] = GasUtil.CALQION(EN, NION13, YION13, XION13)
  *             if object.QION[12][I] == 0:             # <<<<<<<<<<<<<<
@@ -6062,7 +6062,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[12])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":411
+        /* "gases/PROPANE.pyx":411
  *             object.QION[12][I] = GasUtil.CALQION(EN, NION13, YION13, XION13)
  *             if object.QION[12][I] == 0:
  *                 if EN > XION[NION13 - 1]:             # <<<<<<<<<<<<<<
@@ -6072,7 +6072,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION13 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":412
+          /* "gases/PROPANE.pyx":412
  *             if object.QION[12][I] == 0:
  *                 if EN > XION[NION13 - 1]:
  *                     object.QION[12][I] = QIONC * 0.001015             # <<<<<<<<<<<<<<
@@ -6081,7 +6081,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[12])[__pyx_v_I]) = (__pyx_v_QIONC * 0.001015);
 
-          /* "PROPANE.pyx":411
+          /* "gases/PROPANE.pyx":411
  *             object.QION[12][I] = GasUtil.CALQION(EN, NION13, YION13, XION13)
  *             if object.QION[12][I] == 0:
  *                 if EN > XION[NION13 - 1]:             # <<<<<<<<<<<<<<
@@ -6090,7 +6090,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":410
+        /* "gases/PROPANE.pyx":410
  *         if EN > object.EION[12]:
  *             object.QION[12][I] = GasUtil.CALQION(EN, NION13, YION13, XION13)
  *             if object.QION[12][I] == 0:             # <<<<<<<<<<<<<<
@@ -6099,7 +6099,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":413
+      /* "gases/PROPANE.pyx":413
  *                 if EN > XION[NION13 - 1]:
  *                     object.QION[12][I] = QIONC * 0.001015
  *             if EN >= 2 * object.EION[12]:             # <<<<<<<<<<<<<<
@@ -6109,7 +6109,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[12]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":414
+        /* "gases/PROPANE.pyx":414
  *                     object.QION[12][I] = QIONC * 0.001015
  *             if EN >= 2 * object.EION[12]:
  *                 object.PEQION[12][I] = object.PEQEL[1][I - IOFFION[12]]             # <<<<<<<<<<<<<<
@@ -6118,7 +6118,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[12]))]);
 
-        /* "PROPANE.pyx":413
+        /* "gases/PROPANE.pyx":413
  *                 if EN > XION[NION13 - 1]:
  *                     object.QION[12][I] = QIONC * 0.001015
  *             if EN >= 2 * object.EION[12]:             # <<<<<<<<<<<<<<
@@ -6127,7 +6127,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":408
+      /* "gases/PROPANE.pyx":408
  *                 object.PEQION[11][I] = object.PEQEL[1][I - IOFFION[11]]
  *         # H2+ AND H3+
  *         if EN > object.EION[12]:             # <<<<<<<<<<<<<<
@@ -6136,7 +6136,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":416
+    /* "gases/PROPANE.pyx":416
  *                 object.PEQION[12][I] = object.PEQEL[1][I - IOFFION[12]]
  *         # CH2+
  *         if EN > object.EION[13]:             # <<<<<<<<<<<<<<
@@ -6146,7 +6146,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[13])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":417
+      /* "gases/PROPANE.pyx":417
  *         # CH2+
  *         if EN > object.EION[13]:
  *             object.QION[13][I] = GasUtil.CALQION(EN, NION14, YION14, XION14)             # <<<<<<<<<<<<<<
@@ -6155,7 +6155,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[13])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION14, __pyx_v_YION14, __pyx_v_XION14);
 
-      /* "PROPANE.pyx":418
+      /* "gases/PROPANE.pyx":418
  *         if EN > object.EION[13]:
  *             object.QION[13][I] = GasUtil.CALQION(EN, NION14, YION14, XION14)
  *             if object.QION[13][I] == 0:             # <<<<<<<<<<<<<<
@@ -6165,7 +6165,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[13])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":419
+        /* "gases/PROPANE.pyx":419
  *             object.QION[13][I] = GasUtil.CALQION(EN, NION14, YION14, XION14)
  *             if object.QION[13][I] == 0:
  *                 if EN > XION[NION14 - 1]:             # <<<<<<<<<<<<<<
@@ -6175,7 +6175,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION14 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":420
+          /* "gases/PROPANE.pyx":420
  *             if object.QION[13][I] == 0:
  *                 if EN > XION[NION14 - 1]:
  *                     object.QION[13][I] = QIONC * 0.006342             # <<<<<<<<<<<<<<
@@ -6184,7 +6184,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[13])[__pyx_v_I]) = (__pyx_v_QIONC * 0.006342);
 
-          /* "PROPANE.pyx":419
+          /* "gases/PROPANE.pyx":419
  *             object.QION[13][I] = GasUtil.CALQION(EN, NION14, YION14, XION14)
  *             if object.QION[13][I] == 0:
  *                 if EN > XION[NION14 - 1]:             # <<<<<<<<<<<<<<
@@ -6193,7 +6193,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":418
+        /* "gases/PROPANE.pyx":418
  *         if EN > object.EION[13]:
  *             object.QION[13][I] = GasUtil.CALQION(EN, NION14, YION14, XION14)
  *             if object.QION[13][I] == 0:             # <<<<<<<<<<<<<<
@@ -6202,7 +6202,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":421
+      /* "gases/PROPANE.pyx":421
  *                 if EN > XION[NION14 - 1]:
  *                     object.QION[13][I] = QIONC * 0.006342
  *             if EN >= 2 * object.EION[13]:             # <<<<<<<<<<<<<<
@@ -6212,7 +6212,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[13]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":422
+        /* "gases/PROPANE.pyx":422
  *                     object.QION[13][I] = QIONC * 0.006342
  *             if EN >= 2 * object.EION[13]:
  *                 object.PEQION[13][I] = object.PEQEL[1][I - IOFFION[13]]             # <<<<<<<<<<<<<<
@@ -6221,7 +6221,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[13])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[13]))]);
 
-        /* "PROPANE.pyx":421
+        /* "gases/PROPANE.pyx":421
  *                 if EN > XION[NION14 - 1]:
  *                     object.QION[13][I] = QIONC * 0.006342
  *             if EN >= 2 * object.EION[13]:             # <<<<<<<<<<<<<<
@@ -6230,7 +6230,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":416
+      /* "gases/PROPANE.pyx":416
  *                 object.PEQION[12][I] = object.PEQEL[1][I - IOFFION[12]]
  *         # CH2+
  *         if EN > object.EION[13]:             # <<<<<<<<<<<<<<
@@ -6239,7 +6239,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":425
+    /* "gases/PROPANE.pyx":425
  * 
  *         # C3H2+
  *         if EN > object.EION[14]:             # <<<<<<<<<<<<<<
@@ -6249,7 +6249,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[14])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":426
+      /* "gases/PROPANE.pyx":426
  *         # C3H2+
  *         if EN > object.EION[14]:
  *             object.QION[14][I] = GasUtil.CALQION(EN, NION15, YION15, XION15)             # <<<<<<<<<<<<<<
@@ -6258,7 +6258,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[14])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION15, __pyx_v_YION15, __pyx_v_XION15);
 
-      /* "PROPANE.pyx":427
+      /* "gases/PROPANE.pyx":427
  *         if EN > object.EION[14]:
  *             object.QION[14][I] = GasUtil.CALQION(EN, NION15, YION15, XION15)
  *             if object.QION[14][I] == 0:             # <<<<<<<<<<<<<<
@@ -6268,7 +6268,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[14])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":428
+        /* "gases/PROPANE.pyx":428
  *             object.QION[14][I] = GasUtil.CALQION(EN, NION15, YION15, XION15)
  *             if object.QION[14][I] == 0:
  *                 if EN > XION[NION15 - 1]:             # <<<<<<<<<<<<<<
@@ -6278,7 +6278,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION15 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":429
+          /* "gases/PROPANE.pyx":429
  *             if object.QION[14][I] == 0:
  *                 if EN > XION[NION15 - 1]:
  *                     object.QION[14][I] = QIONC * 0.013401             # <<<<<<<<<<<<<<
@@ -6287,7 +6287,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[14])[__pyx_v_I]) = (__pyx_v_QIONC * 0.013401);
 
-          /* "PROPANE.pyx":428
+          /* "gases/PROPANE.pyx":428
  *             object.QION[14][I] = GasUtil.CALQION(EN, NION15, YION15, XION15)
  *             if object.QION[14][I] == 0:
  *                 if EN > XION[NION15 - 1]:             # <<<<<<<<<<<<<<
@@ -6296,7 +6296,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":427
+        /* "gases/PROPANE.pyx":427
  *         if EN > object.EION[14]:
  *             object.QION[14][I] = GasUtil.CALQION(EN, NION15, YION15, XION15)
  *             if object.QION[14][I] == 0:             # <<<<<<<<<<<<<<
@@ -6305,7 +6305,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":430
+      /* "gases/PROPANE.pyx":430
  *                 if EN > XION[NION15 - 1]:
  *                     object.QION[14][I] = QIONC * 0.013401
  *             if EN >= 2 * object.EION[14]:             # <<<<<<<<<<<<<<
@@ -6315,7 +6315,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[14]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":431
+        /* "gases/PROPANE.pyx":431
  *                     object.QION[14][I] = QIONC * 0.013401
  *             if EN >= 2 * object.EION[14]:
  *                 object.PEQION[14][I] = object.PEQEL[1][I - IOFFION[14]]             # <<<<<<<<<<<<<<
@@ -6324,7 +6324,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[14])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[14]))]);
 
-        /* "PROPANE.pyx":430
+        /* "gases/PROPANE.pyx":430
  *                 if EN > XION[NION15 - 1]:
  *                     object.QION[14][I] = QIONC * 0.013401
  *             if EN >= 2 * object.EION[14]:             # <<<<<<<<<<<<<<
@@ -6333,7 +6333,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":425
+      /* "gases/PROPANE.pyx":425
  * 
  *         # C3H2+
  *         if EN > object.EION[14]:             # <<<<<<<<<<<<<<
@@ -6342,7 +6342,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":434
+    /* "gases/PROPANE.pyx":434
  * 
  *         # C3H+
  *         if EN > object.EION[15]:             # <<<<<<<<<<<<<<
@@ -6352,7 +6352,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[15])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":435
+      /* "gases/PROPANE.pyx":435
  *         # C3H+
  *         if EN > object.EION[15]:
  *             object.QION[15][I] = GasUtil.CALQION(EN, NION16, YION16, XION16)             # <<<<<<<<<<<<<<
@@ -6361,7 +6361,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[15])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION16, __pyx_v_YION16, __pyx_v_XION16);
 
-      /* "PROPANE.pyx":436
+      /* "gases/PROPANE.pyx":436
  *         if EN > object.EION[15]:
  *             object.QION[15][I] = GasUtil.CALQION(EN, NION16, YION16, XION16)
  *             if object.QION[15][I] == 0:             # <<<<<<<<<<<<<<
@@ -6371,7 +6371,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[15])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":437
+        /* "gases/PROPANE.pyx":437
  *             object.QION[15][I] = GasUtil.CALQION(EN, NION16, YION16, XION16)
  *             if object.QION[15][I] == 0:
  *                 if EN > XION[NION16 - 1]:             # <<<<<<<<<<<<<<
@@ -6381,7 +6381,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION16 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":438
+          /* "gases/PROPANE.pyx":438
  *             if object.QION[15][I] == 0:
  *                 if EN > XION[NION16 - 1]:
  *                     object.QION[15][I] = QIONC * 0.008240             # <<<<<<<<<<<<<<
@@ -6390,7 +6390,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[15])[__pyx_v_I]) = (__pyx_v_QIONC * 0.008240);
 
-          /* "PROPANE.pyx":437
+          /* "gases/PROPANE.pyx":437
  *             object.QION[15][I] = GasUtil.CALQION(EN, NION16, YION16, XION16)
  *             if object.QION[15][I] == 0:
  *                 if EN > XION[NION16 - 1]:             # <<<<<<<<<<<<<<
@@ -6399,7 +6399,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":436
+        /* "gases/PROPANE.pyx":436
  *         if EN > object.EION[15]:
  *             object.QION[15][I] = GasUtil.CALQION(EN, NION16, YION16, XION16)
  *             if object.QION[15][I] == 0:             # <<<<<<<<<<<<<<
@@ -6408,7 +6408,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":439
+      /* "gases/PROPANE.pyx":439
  *                 if EN > XION[NION16 - 1]:
  *                     object.QION[15][I] = QIONC * 0.008240
  *             if EN >= 2 * object.EION[15]:             # <<<<<<<<<<<<<<
@@ -6418,7 +6418,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[15]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":440
+        /* "gases/PROPANE.pyx":440
  *                     object.QION[15][I] = QIONC * 0.008240
  *             if EN >= 2 * object.EION[15]:
  *                 object.PEQION[15][I] = object.PEQEL[1][I - IOFFION[15]]             # <<<<<<<<<<<<<<
@@ -6427,7 +6427,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[15])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[15]))]);
 
-        /* "PROPANE.pyx":439
+        /* "gases/PROPANE.pyx":439
  *                 if EN > XION[NION16 - 1]:
  *                     object.QION[15][I] = QIONC * 0.008240
  *             if EN >= 2 * object.EION[15]:             # <<<<<<<<<<<<<<
@@ -6436,7 +6436,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":434
+      /* "gases/PROPANE.pyx":434
  * 
  *         # C3H+
  *         if EN > object.EION[15]:             # <<<<<<<<<<<<<<
@@ -6445,7 +6445,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":443
+    /* "gases/PROPANE.pyx":443
  * 
  *         # C2H+
  *         if EN > object.EION[16]:             # <<<<<<<<<<<<<<
@@ -6455,7 +6455,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[16])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":444
+      /* "gases/PROPANE.pyx":444
  *         # C2H+
  *         if EN > object.EION[16]:
  *             object.QION[16][I] = GasUtil.CALQION(EN, NION17, YION17, XION17)             # <<<<<<<<<<<<<<
@@ -6464,7 +6464,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[16])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION17, __pyx_v_YION17, __pyx_v_XION17);
 
-      /* "PROPANE.pyx":445
+      /* "gases/PROPANE.pyx":445
  *         if EN > object.EION[16]:
  *             object.QION[16][I] = GasUtil.CALQION(EN, NION17, YION17, XION17)
  *             if object.QION[16][I] == 0:             # <<<<<<<<<<<<<<
@@ -6474,7 +6474,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[16])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":446
+        /* "gases/PROPANE.pyx":446
  *             object.QION[16][I] = GasUtil.CALQION(EN, NION17, YION17, XION17)
  *             if object.QION[16][I] == 0:
  *                 if EN > XION[NION17 - 1]:             # <<<<<<<<<<<<<<
@@ -6484,7 +6484,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION17 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":447
+          /* "gases/PROPANE.pyx":447
  *             if object.QION[16][I] == 0:
  *                 if EN > XION[NION17 - 1]:
  *                     object.QION[16][I] = QIONC * 0.002004             # <<<<<<<<<<<<<<
@@ -6493,7 +6493,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[16])[__pyx_v_I]) = (__pyx_v_QIONC * 0.002004);
 
-          /* "PROPANE.pyx":446
+          /* "gases/PROPANE.pyx":446
  *             object.QION[16][I] = GasUtil.CALQION(EN, NION17, YION17, XION17)
  *             if object.QION[16][I] == 0:
  *                 if EN > XION[NION17 - 1]:             # <<<<<<<<<<<<<<
@@ -6502,7 +6502,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":445
+        /* "gases/PROPANE.pyx":445
  *         if EN > object.EION[16]:
  *             object.QION[16][I] = GasUtil.CALQION(EN, NION17, YION17, XION17)
  *             if object.QION[16][I] == 0:             # <<<<<<<<<<<<<<
@@ -6511,7 +6511,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":448
+      /* "gases/PROPANE.pyx":448
  *                 if EN > XION[NION17 - 1]:
  *                     object.QION[16][I] = QIONC * 0.002004
  *             if EN >= 2 * object.EION[16]:             # <<<<<<<<<<<<<<
@@ -6521,7 +6521,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[16]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":449
+        /* "gases/PROPANE.pyx":449
  *                     object.QION[16][I] = QIONC * 0.002004
  *             if EN >= 2 * object.EION[16]:
  *                 object.PEQION[16][I] = object.PEQEL[1][I - IOFFION[16]]             # <<<<<<<<<<<<<<
@@ -6530,7 +6530,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[16])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[16]))]);
 
-        /* "PROPANE.pyx":448
+        /* "gases/PROPANE.pyx":448
  *                 if EN > XION[NION17 - 1]:
  *                     object.QION[16][I] = QIONC * 0.002004
  *             if EN >= 2 * object.EION[16]:             # <<<<<<<<<<<<<<
@@ -6539,7 +6539,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":443
+      /* "gases/PROPANE.pyx":443
  * 
  *         # C2H+
  *         if EN > object.EION[16]:             # <<<<<<<<<<<<<<
@@ -6548,7 +6548,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":451
+    /* "gases/PROPANE.pyx":451
  *                 object.PEQION[16][I] = object.PEQEL[1][I - IOFFION[16]]
  *         # ++ DOUBLE CHARGED STABLE IONS
  *         if EN > object.EION[17]:             # <<<<<<<<<<<<<<
@@ -6558,7 +6558,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[17])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":452
+      /* "gases/PROPANE.pyx":452
  *         # ++ DOUBLE CHARGED STABLE IONS
  *         if EN > object.EION[17]:
  *             object.QION[17][I] = GasUtil.CALQION(EN, NION18, YION18, XION18)             # <<<<<<<<<<<<<<
@@ -6567,7 +6567,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[17])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION18, __pyx_v_YION18, __pyx_v_XION18);
 
-      /* "PROPANE.pyx":453
+      /* "gases/PROPANE.pyx":453
  *         if EN > object.EION[17]:
  *             object.QION[17][I] = GasUtil.CALQION(EN, NION18, YION18, XION18)
  *             if object.QION[17][I] == 0:             # <<<<<<<<<<<<<<
@@ -6577,7 +6577,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[17])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":454
+        /* "gases/PROPANE.pyx":454
  *             object.QION[17][I] = GasUtil.CALQION(EN, NION18, YION18, XION18)
  *             if object.QION[17][I] == 0:
  *                 if EN > XION[NION18 - 1]:             # <<<<<<<<<<<<<<
@@ -6587,7 +6587,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION18 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":455
+          /* "gases/PROPANE.pyx":455
  *             if object.QION[17][I] == 0:
  *                 if EN > XION[NION18 - 1]:
  *                     object.QION[17][I] = QIONC * 0.004085             # <<<<<<<<<<<<<<
@@ -6596,7 +6596,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[17])[__pyx_v_I]) = (__pyx_v_QIONC * 0.004085);
 
-          /* "PROPANE.pyx":454
+          /* "gases/PROPANE.pyx":454
  *             object.QION[17][I] = GasUtil.CALQION(EN, NION18, YION18, XION18)
  *             if object.QION[17][I] == 0:
  *                 if EN > XION[NION18 - 1]:             # <<<<<<<<<<<<<<
@@ -6605,7 +6605,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":453
+        /* "gases/PROPANE.pyx":453
  *         if EN > object.EION[17]:
  *             object.QION[17][I] = GasUtil.CALQION(EN, NION18, YION18, XION18)
  *             if object.QION[17][I] == 0:             # <<<<<<<<<<<<<<
@@ -6614,7 +6614,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":456
+      /* "gases/PROPANE.pyx":456
  *                 if EN > XION[NION18 - 1]:
  *                     object.QION[17][I] = QIONC * 0.004085
  *             if EN >= 2 * object.EION[17]:             # <<<<<<<<<<<<<<
@@ -6624,7 +6624,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[17]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":457
+        /* "gases/PROPANE.pyx":457
  *                     object.QION[17][I] = QIONC * 0.004085
  *             if EN >= 2 * object.EION[17]:
  *                 object.PEQION[17][I] = object.PEQEL[1][I - IOFFION[17]]             # <<<<<<<<<<<<<<
@@ -6633,7 +6633,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[17])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[17]))]);
 
-        /* "PROPANE.pyx":456
+        /* "gases/PROPANE.pyx":456
  *                 if EN > XION[NION18 - 1]:
  *                     object.QION[17][I] = QIONC * 0.004085
  *             if EN >= 2 * object.EION[17]:             # <<<<<<<<<<<<<<
@@ -6642,7 +6642,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":451
+      /* "gases/PROPANE.pyx":451
  *                 object.PEQION[16][I] = object.PEQEL[1][I - IOFFION[16]]
  *         # ++ DOUBLE CHARGED STABLE IONS
  *         if EN > object.EION[17]:             # <<<<<<<<<<<<<<
@@ -6651,7 +6651,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":459
+    /* "gases/PROPANE.pyx":459
  *                 object.PEQION[17][I] = object.PEQEL[1][I - IOFFION[17]]
  *         # ++ DOUBLE CHARGED UNSTABLE IONS (DISSOCIATIVE)
  *         if EN > object.EION[18]:             # <<<<<<<<<<<<<<
@@ -6661,7 +6661,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[18])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":460
+      /* "gases/PROPANE.pyx":460
  *         # ++ DOUBLE CHARGED UNSTABLE IONS (DISSOCIATIVE)
  *         if EN > object.EION[18]:
  *             object.QION[18][I] = GasUtil.CALQION(EN, NION19, YION19, XION19)             # <<<<<<<<<<<<<<
@@ -6670,7 +6670,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[18])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION19, __pyx_v_YION19, __pyx_v_XION19);
 
-      /* "PROPANE.pyx":461
+      /* "gases/PROPANE.pyx":461
  *         if EN > object.EION[18]:
  *             object.QION[18][I] = GasUtil.CALQION(EN, NION19, YION19, XION19)
  *             if object.QION[18][I] == 0:             # <<<<<<<<<<<<<<
@@ -6680,7 +6680,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[18])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":462
+        /* "gases/PROPANE.pyx":462
  *             object.QION[18][I] = GasUtil.CALQION(EN, NION19, YION19, XION19)
  *             if object.QION[18][I] == 0:
  *                 if EN > XION[NION19 - 1]:             # <<<<<<<<<<<<<<
@@ -6690,7 +6690,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION19 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":463
+          /* "gases/PROPANE.pyx":463
  *             if object.QION[18][I] == 0:
  *                 if EN > XION[NION19 - 1]:
  *                     object.QION[18][I] = QIONC * 0.118714             # <<<<<<<<<<<<<<
@@ -6699,7 +6699,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[18])[__pyx_v_I]) = (__pyx_v_QIONC * 0.118714);
 
-          /* "PROPANE.pyx":462
+          /* "gases/PROPANE.pyx":462
  *             object.QION[18][I] = GasUtil.CALQION(EN, NION19, YION19, XION19)
  *             if object.QION[18][I] == 0:
  *                 if EN > XION[NION19 - 1]:             # <<<<<<<<<<<<<<
@@ -6708,7 +6708,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":461
+        /* "gases/PROPANE.pyx":461
  *         if EN > object.EION[18]:
  *             object.QION[18][I] = GasUtil.CALQION(EN, NION19, YION19, XION19)
  *             if object.QION[18][I] == 0:             # <<<<<<<<<<<<<<
@@ -6717,7 +6717,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":464
+      /* "gases/PROPANE.pyx":464
  *                 if EN > XION[NION19 - 1]:
  *                     object.QION[18][I] = QIONC * 0.118714
  *             if EN >= 2 * object.EION[18]:             # <<<<<<<<<<<<<<
@@ -6727,7 +6727,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[18]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":465
+        /* "gases/PROPANE.pyx":465
  *                     object.QION[18][I] = QIONC * 0.118714
  *             if EN >= 2 * object.EION[18]:
  *                 object.PEQION[18][I] = object.PEQEL[1][I - IOFFION[18]]             # <<<<<<<<<<<<<<
@@ -6736,7 +6736,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[18])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[18]))]);
 
-        /* "PROPANE.pyx":464
+        /* "gases/PROPANE.pyx":464
  *                 if EN > XION[NION19 - 1]:
  *                     object.QION[18][I] = QIONC * 0.118714
  *             if EN >= 2 * object.EION[18]:             # <<<<<<<<<<<<<<
@@ -6745,7 +6745,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":459
+      /* "gases/PROPANE.pyx":459
  *                 object.PEQION[17][I] = object.PEQEL[1][I - IOFFION[17]]
  *         # ++ DOUBLE CHARGED UNSTABLE IONS (DISSOCIATIVE)
  *         if EN > object.EION[18]:             # <<<<<<<<<<<<<<
@@ -6754,7 +6754,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":467
+    /* "gases/PROPANE.pyx":467
  *                 object.PEQION[18][I] = object.PEQEL[1][I - IOFFION[18]]
  *         # CH+
  *         if EN > object.EION[19]:             # <<<<<<<<<<<<<<
@@ -6764,7 +6764,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[19])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":468
+      /* "gases/PROPANE.pyx":468
  *         # CH+
  *         if EN > object.EION[19]:
  *             object.QION[19][I] = GasUtil.CALQION(EN, NION20, YION20, XION20)             # <<<<<<<<<<<<<<
@@ -6773,7 +6773,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[19])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION20, __pyx_v_YION20, __pyx_v_XION20);
 
-      /* "PROPANE.pyx":469
+      /* "gases/PROPANE.pyx":469
  *         if EN > object.EION[19]:
  *             object.QION[19][I] = GasUtil.CALQION(EN, NION20, YION20, XION20)
  *             if object.QION[19][I] == 0:             # <<<<<<<<<<<<<<
@@ -6783,7 +6783,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[19])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":470
+        /* "gases/PROPANE.pyx":470
  *             object.QION[19][I] = GasUtil.CALQION(EN, NION20, YION20, XION20)
  *             if object.QION[19][I] == 0:
  *                 if EN > XION[NION20 - 1]:             # <<<<<<<<<<<<<<
@@ -6793,7 +6793,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION20 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":471
+          /* "gases/PROPANE.pyx":471
  *             if object.QION[19][I] == 0:
  *                 if EN > XION[NION20 - 1]:
  *                     object.QION[19][I] = QIONC * 0.002070             # <<<<<<<<<<<<<<
@@ -6802,7 +6802,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[19])[__pyx_v_I]) = (__pyx_v_QIONC * 0.002070);
 
-          /* "PROPANE.pyx":470
+          /* "gases/PROPANE.pyx":470
  *             object.QION[19][I] = GasUtil.CALQION(EN, NION20, YION20, XION20)
  *             if object.QION[19][I] == 0:
  *                 if EN > XION[NION20 - 1]:             # <<<<<<<<<<<<<<
@@ -6811,7 +6811,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":469
+        /* "gases/PROPANE.pyx":469
  *         if EN > object.EION[19]:
  *             object.QION[19][I] = GasUtil.CALQION(EN, NION20, YION20, XION20)
  *             if object.QION[19][I] == 0:             # <<<<<<<<<<<<<<
@@ -6820,7 +6820,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":472
+      /* "gases/PROPANE.pyx":472
  *                 if EN > XION[NION20 - 1]:
  *                     object.QION[19][I] = QIONC * 0.002070
  *             if EN >= 2 * object.EION[19]:             # <<<<<<<<<<<<<<
@@ -6830,7 +6830,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[19]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":473
+        /* "gases/PROPANE.pyx":473
  *                     object.QION[19][I] = QIONC * 0.002070
  *             if EN >= 2 * object.EION[19]:
  *                 object.PEQION[19][I] = object.PEQEL[1][I - IOFFION[19]]             # <<<<<<<<<<<<<<
@@ -6839,7 +6839,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[19])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[19]))]);
 
-        /* "PROPANE.pyx":472
+        /* "gases/PROPANE.pyx":472
  *                 if EN > XION[NION20 - 1]:
  *                     object.QION[19][I] = QIONC * 0.002070
  *             if EN >= 2 * object.EION[19]:             # <<<<<<<<<<<<<<
@@ -6848,7 +6848,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":467
+      /* "gases/PROPANE.pyx":467
  *                 object.PEQION[18][I] = object.PEQEL[1][I - IOFFION[18]]
  *         # CH+
  *         if EN > object.EION[19]:             # <<<<<<<<<<<<<<
@@ -6857,7 +6857,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":475
+    /* "gases/PROPANE.pyx":475
  *                 object.PEQION[19][I] = object.PEQEL[1][I - IOFFION[19]]
  *         # C+
  *         if EN > object.EION[20]:             # <<<<<<<<<<<<<<
@@ -6867,7 +6867,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[20])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":476
+      /* "gases/PROPANE.pyx":476
  *         # C+
  *         if EN > object.EION[20]:
  *             object.QION[20][I] = GasUtil.CALQION(EN, NION21, YION21, XION21)             # <<<<<<<<<<<<<<
@@ -6876,7 +6876,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[20])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION21, __pyx_v_YION21, __pyx_v_XION21);
 
-      /* "PROPANE.pyx":477
+      /* "gases/PROPANE.pyx":477
  *         if EN > object.EION[20]:
  *             object.QION[20][I] = GasUtil.CALQION(EN, NION21, YION21, XION21)
  *             if object.QION[20][I] == 0:             # <<<<<<<<<<<<<<
@@ -6886,7 +6886,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[20])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":478
+        /* "gases/PROPANE.pyx":478
  *             object.QION[20][I] = GasUtil.CALQION(EN, NION21, YION21, XION21)
  *             if object.QION[20][I] == 0:
  *                 if EN > XION[NION21 - 1]:             # <<<<<<<<<<<<<<
@@ -6896,7 +6896,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION21 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":479
+          /* "gases/PROPANE.pyx":479
  *             if object.QION[20][I] == 0:
  *                 if EN > XION[NION21 - 1]:
  *                     object.QION[20][I] = QIONC * 0.000837             # <<<<<<<<<<<<<<
@@ -6905,7 +6905,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[20])[__pyx_v_I]) = (__pyx_v_QIONC * 0.000837);
 
-          /* "PROPANE.pyx":478
+          /* "gases/PROPANE.pyx":478
  *             object.QION[20][I] = GasUtil.CALQION(EN, NION21, YION21, XION21)
  *             if object.QION[20][I] == 0:
  *                 if EN > XION[NION21 - 1]:             # <<<<<<<<<<<<<<
@@ -6914,7 +6914,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":477
+        /* "gases/PROPANE.pyx":477
  *         if EN > object.EION[20]:
  *             object.QION[20][I] = GasUtil.CALQION(EN, NION21, YION21, XION21)
  *             if object.QION[20][I] == 0:             # <<<<<<<<<<<<<<
@@ -6923,7 +6923,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":480
+      /* "gases/PROPANE.pyx":480
  *                 if EN > XION[NION21 - 1]:
  *                     object.QION[20][I] = QIONC * 0.000837
  *             if EN >= 2 * object.EION[20]:             # <<<<<<<<<<<<<<
@@ -6933,7 +6933,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[20]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":481
+        /* "gases/PROPANE.pyx":481
  *                     object.QION[20][I] = QIONC * 0.000837
  *             if EN >= 2 * object.EION[20]:
  *                 object.PEQION[20][I] = object.PEQEL[1][I - IOFFION[20]]             # <<<<<<<<<<<<<<
@@ -6942,7 +6942,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[20])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[20]))]);
 
-        /* "PROPANE.pyx":480
+        /* "gases/PROPANE.pyx":480
  *                 if EN > XION[NION21 - 1]:
  *                     object.QION[20][I] = QIONC * 0.000837
  *             if EN >= 2 * object.EION[20]:             # <<<<<<<<<<<<<<
@@ -6951,7 +6951,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":475
+      /* "gases/PROPANE.pyx":475
  *                 object.PEQION[19][I] = object.PEQEL[1][I - IOFFION[19]]
  *         # C+
  *         if EN > object.EION[20]:             # <<<<<<<<<<<<<<
@@ -6960,7 +6960,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":483
+    /* "gases/PROPANE.pyx":483
  *                 object.PEQION[20][I] = object.PEQEL[1][I - IOFFION[20]]
  *         # C2+
  *         if EN > object.EION[21]:             # <<<<<<<<<<<<<<
@@ -6970,7 +6970,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[21])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":484
+      /* "gases/PROPANE.pyx":484
  *         # C2+
  *         if EN > object.EION[21]:
  *             object.QION[21][I] = GasUtil.CALQION(EN, NION22, YION22, XION22)             # <<<<<<<<<<<<<<
@@ -6979,7 +6979,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[21])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION22, __pyx_v_YION22, __pyx_v_XION22);
 
-      /* "PROPANE.pyx":485
+      /* "gases/PROPANE.pyx":485
  *         if EN > object.EION[21]:
  *             object.QION[21][I] = GasUtil.CALQION(EN, NION22, YION22, XION22)
  *             if object.QION[21][I] == 0:             # <<<<<<<<<<<<<<
@@ -6989,7 +6989,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[21])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":486
+        /* "gases/PROPANE.pyx":486
  *             object.QION[21][I] = GasUtil.CALQION(EN, NION22, YION22, XION22)
  *             if object.QION[21][I] == 0:
  *                 if EN > XION[NION22 - 1]:             # <<<<<<<<<<<<<<
@@ -6999,7 +6999,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION22 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":487
+          /* "gases/PROPANE.pyx":487
  *             if object.QION[21][I] == 0:
  *                 if EN > XION[NION22 - 1]:
  *                     object.QION[21][I] = QIONC * 0.000057             # <<<<<<<<<<<<<<
@@ -7008,7 +7008,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[21])[__pyx_v_I]) = (__pyx_v_QIONC * 0.000057);
 
-          /* "PROPANE.pyx":486
+          /* "gases/PROPANE.pyx":486
  *             object.QION[21][I] = GasUtil.CALQION(EN, NION22, YION22, XION22)
  *             if object.QION[21][I] == 0:
  *                 if EN > XION[NION22 - 1]:             # <<<<<<<<<<<<<<
@@ -7017,7 +7017,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":485
+        /* "gases/PROPANE.pyx":485
  *         if EN > object.EION[21]:
  *             object.QION[21][I] = GasUtil.CALQION(EN, NION22, YION22, XION22)
  *             if object.QION[21][I] == 0:             # <<<<<<<<<<<<<<
@@ -7026,7 +7026,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":488
+      /* "gases/PROPANE.pyx":488
  *                 if EN > XION[NION22 - 1]:
  *                     object.QION[21][I] = QIONC * 0.000057
  *             if EN >= 2 * object.EION[21]:             # <<<<<<<<<<<<<<
@@ -7036,7 +7036,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[21]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":489
+        /* "gases/PROPANE.pyx":489
  *                     object.QION[21][I] = QIONC * 0.000057
  *             if EN >= 2 * object.EION[21]:
  *                 object.PEQION[21][I] = object.PEQEL[1][I - IOFFION[21]]             # <<<<<<<<<<<<<<
@@ -7045,7 +7045,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[21])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[21]))]);
 
-        /* "PROPANE.pyx":488
+        /* "gases/PROPANE.pyx":488
  *                 if EN > XION[NION22 - 1]:
  *                     object.QION[21][I] = QIONC * 0.000057
  *             if EN >= 2 * object.EION[21]:             # <<<<<<<<<<<<<<
@@ -7054,7 +7054,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":483
+      /* "gases/PROPANE.pyx":483
  *                 object.PEQION[20][I] = object.PEQEL[1][I - IOFFION[20]]
  *         # C2+
  *         if EN > object.EION[21]:             # <<<<<<<<<<<<<<
@@ -7063,7 +7063,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":491
+    /* "gases/PROPANE.pyx":491
  *                 object.PEQION[21][I] = object.PEQEL[1][I - IOFFION[21]]
  *         # C3+
  *         if EN > object.EION[22]:             # <<<<<<<<<<<<<<
@@ -7073,7 +7073,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[22])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":492
+      /* "gases/PROPANE.pyx":492
  *         # C3+
  *         if EN > object.EION[22]:
  *             object.QION[22][I] = GasUtil.CALQION(EN, NION23, YION23, XION23)             # <<<<<<<<<<<<<<
@@ -7082,7 +7082,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[22])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION23, __pyx_v_YION23, __pyx_v_XION23);
 
-      /* "PROPANE.pyx":493
+      /* "gases/PROPANE.pyx":493
  *         if EN > object.EION[22]:
  *             object.QION[22][I] = GasUtil.CALQION(EN, NION23, YION23, XION23)
  *             if object.QION[22][I] == 0:             # <<<<<<<<<<<<<<
@@ -7092,7 +7092,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QION[22])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":494
+        /* "gases/PROPANE.pyx":494
  *             object.QION[22][I] = GasUtil.CALQION(EN, NION23, YION23, XION23)
  *             if object.QION[22][I] == 0:
  *                 if EN > XION[NION23 - 1]:             # <<<<<<<<<<<<<<
@@ -7102,7 +7102,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XION[(__pyx_v_NION23 - 1)])) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":495
+          /* "gases/PROPANE.pyx":495
  *             if object.QION[22][I] == 0:
  *                 if EN > XION[NION23 - 1]:
  *                     object.QION[22][I] = QIONC * 0.001034             # <<<<<<<<<<<<<<
@@ -7111,7 +7111,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[22])[__pyx_v_I]) = (__pyx_v_QIONC * 0.001034);
 
-          /* "PROPANE.pyx":494
+          /* "gases/PROPANE.pyx":494
  *             object.QION[22][I] = GasUtil.CALQION(EN, NION23, YION23, XION23)
  *             if object.QION[22][I] == 0:
  *                 if EN > XION[NION23 - 1]:             # <<<<<<<<<<<<<<
@@ -7120,7 +7120,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":493
+        /* "gases/PROPANE.pyx":493
  *         if EN > object.EION[22]:
  *             object.QION[22][I] = GasUtil.CALQION(EN, NION23, YION23, XION23)
  *             if object.QION[22][I] == 0:             # <<<<<<<<<<<<<<
@@ -7129,7 +7129,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":496
+      /* "gases/PROPANE.pyx":496
  *                 if EN > XION[NION23 - 1]:
  *                     object.QION[22][I] = QIONC * 0.001034
  *             if EN >= 2 * object.EION[22]:             # <<<<<<<<<<<<<<
@@ -7139,7 +7139,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[22]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":497
+        /* "gases/PROPANE.pyx":497
  *                     object.QION[22][I] = QIONC * 0.001034
  *             if EN >= 2 * object.EION[22]:
  *                 object.PEQION[22][I] = object.PEQEL[1][I - IOFFION[22]]             # <<<<<<<<<<<<<<
@@ -7148,7 +7148,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[22])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[22]))]);
 
-        /* "PROPANE.pyx":496
+        /* "gases/PROPANE.pyx":496
  *                 if EN > XION[NION23 - 1]:
  *                     object.QION[22][I] = QIONC * 0.001034
  *             if EN >= 2 * object.EION[22]:             # <<<<<<<<<<<<<<
@@ -7157,7 +7157,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":491
+      /* "gases/PROPANE.pyx":491
  *                 object.PEQION[21][I] = object.PEQEL[1][I - IOFFION[21]]
  *         # C3+
  *         if EN > object.EION[22]:             # <<<<<<<<<<<<<<
@@ -7166,7 +7166,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":499
+    /* "gases/PROPANE.pyx":499
  *                 object.PEQION[22][I] = object.PEQEL[1][I - IOFFION[22]]
  *         # CARBON K-SHEL
  *         if EN > object.EION[23]:             # <<<<<<<<<<<<<<
@@ -7176,7 +7176,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EION[23])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":500
+      /* "gases/PROPANE.pyx":500
  *         # CARBON K-SHEL
  *         if EN > object.EION[23]:
  *             object.QION[23][I] = 3 * GasUtil.CALQION(EN, NION24, YION24, XION24)             # <<<<<<<<<<<<<<
@@ -7185,7 +7185,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[23])[__pyx_v_I]) = (3.0 * __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION24, __pyx_v_YION24, __pyx_v_XION24));
 
-      /* "PROPANE.pyx":501
+      /* "gases/PROPANE.pyx":501
  *         if EN > object.EION[23]:
  *             object.QION[23][I] = 3 * GasUtil.CALQION(EN, NION24, YION24, XION24)
  *             if EN >= 2 * object.EION[23]:             # <<<<<<<<<<<<<<
@@ -7195,7 +7195,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[23]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":502
+        /* "gases/PROPANE.pyx":502
  *             object.QION[23][I] = 3 * GasUtil.CALQION(EN, NION24, YION24, XION24)
  *             if EN >= 2 * object.EION[23]:
  *                 object.PEQION[23][I] = object.PEQEL[1][I - IOFFION[23]]             # <<<<<<<<<<<<<<
@@ -7204,7 +7204,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[23])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[23]))]);
 
-        /* "PROPANE.pyx":501
+        /* "gases/PROPANE.pyx":501
  *         if EN > object.EION[23]:
  *             object.QION[23][I] = 3 * GasUtil.CALQION(EN, NION24, YION24, XION24)
  *             if EN >= 2 * object.EION[23]:             # <<<<<<<<<<<<<<
@@ -7213,7 +7213,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":499
+      /* "gases/PROPANE.pyx":499
  *                 object.PEQION[22][I] = object.PEQEL[1][I - IOFFION[22]]
  *         # CARBON K-SHEL
  *         if EN > object.EION[23]:             # <<<<<<<<<<<<<<
@@ -7222,7 +7222,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":504
+    /* "gases/PROPANE.pyx":504
  *                 object.PEQION[23][I] = object.PEQEL[1][I - IOFFION[23]]
  *         # CORRECTION TO TOTAL I0NISATION DUE TO SPLIT OFF KSHELL
  *         QSUM = 0.0             # <<<<<<<<<<<<<<
@@ -7231,7 +7231,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QSUM = 0.0;
 
-    /* "PROPANE.pyx":505
+    /* "gases/PROPANE.pyx":505
  *         # CORRECTION TO TOTAL I0NISATION DUE TO SPLIT OFF KSHELL
  *         QSUM = 0.0
  *         for J in range(23):             # <<<<<<<<<<<<<<
@@ -7241,7 +7241,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 0; __pyx_t_26 < 23; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "PROPANE.pyx":506
+      /* "gases/PROPANE.pyx":506
  *         QSUM = 0.0
  *         for J in range(23):
  *             QSUM += object.QION[J][I]             # <<<<<<<<<<<<<<
@@ -7251,7 +7251,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QSUM = (__pyx_v_QSUM + ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "PROPANE.pyx":507
+    /* "gases/PROPANE.pyx":507
  *         for J in range(23):
  *             QSUM += object.QION[J][I]
  *         if QSUM != 0.0:             # <<<<<<<<<<<<<<
@@ -7261,7 +7261,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_QSUM != 0.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":508
+      /* "gases/PROPANE.pyx":508
  *             QSUM += object.QION[J][I]
  *         if QSUM != 0.0:
  *             for J in range(23):             # <<<<<<<<<<<<<<
@@ -7271,7 +7271,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_26 = 0; __pyx_t_26 < 23; __pyx_t_26+=1) {
         __pyx_v_J = __pyx_t_26;
 
-        /* "PROPANE.pyx":509
+        /* "gases/PROPANE.pyx":509
  *         if QSUM != 0.0:
  *             for J in range(23):
  *                 object.QION[J][I] *= (QSUM - object.QION[23][I]) / QSUM             # <<<<<<<<<<<<<<
@@ -7283,7 +7283,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         ((__pyx_v_object->QION[__pyx_t_30])[__pyx_t_31]) = (((__pyx_v_object->QION[__pyx_t_30])[__pyx_t_31]) * ((__pyx_v_QSUM - ((__pyx_v_object->QION[23])[__pyx_v_I])) / __pyx_v_QSUM));
       }
 
-      /* "PROPANE.pyx":507
+      /* "gases/PROPANE.pyx":507
  *         for J in range(23):
  *             QSUM += object.QION[J][I]
  *         if QSUM != 0.0:             # <<<<<<<<<<<<<<
@@ -7292,7 +7292,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":511
+    /* "gases/PROPANE.pyx":511
  *                 object.QION[J][I] *= (QSUM - object.QION[23][I]) / QSUM
  * 
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7301,7 +7301,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":512
+    /* "gases/PROPANE.pyx":512
  * 
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7310,7 +7310,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":514
+    /* "gases/PROPANE.pyx":514
  *         object.QATT[0][I] = 0.0
  *         # DISSOCIATIVE ATTACHMENT TO CH3-
  *         if EN >= XATT1[0]:             # <<<<<<<<<<<<<<
@@ -7320,7 +7320,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN >= (__pyx_v_XATT1[0])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":515
+      /* "gases/PROPANE.pyx":515
  *         # DISSOCIATIVE ATTACHMENT TO CH3-
  *         if EN >= XATT1[0]:
  *             object.QATT[0][I] = GasUtil.CALQION(EN, NATT1, YATT1, XATT1)             # <<<<<<<<<<<<<<
@@ -7329,7 +7329,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NATT1, __pyx_v_YATT1, __pyx_v_XATT1);
 
-      /* "PROPANE.pyx":514
+      /* "gases/PROPANE.pyx":514
  *         object.QATT[0][I] = 0.0
  *         # DISSOCIATIVE ATTACHMENT TO CH3-
  *         if EN >= XATT1[0]:             # <<<<<<<<<<<<<<
@@ -7338,7 +7338,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":517
+    /* "gases/PROPANE.pyx":517
  *             object.QATT[0][I] = GasUtil.CALQION(EN, NATT1, YATT1, XATT1)
  * 
  *         object.QATT[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7347,7 +7347,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[1])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":519
+    /* "gases/PROPANE.pyx":519
  *         object.QATT[1][I] = 0.0
  *         # DISSOCIATIVE ATTACHMENT TO H-
  *         if EN >= XATT2[0]:             # <<<<<<<<<<<<<<
@@ -7357,7 +7357,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN >= (__pyx_v_XATT2[0])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":520
+      /* "gases/PROPANE.pyx":520
  *         # DISSOCIATIVE ATTACHMENT TO H-
  *         if EN >= XATT2[0]:
  *             object.QATT[1][I] = GasUtil.CALQION(EN, NATT2, YATT2, XATT2)             # <<<<<<<<<<<<<<
@@ -7366,7 +7366,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NATT2, __pyx_v_YATT2, __pyx_v_XATT2);
 
-      /* "PROPANE.pyx":519
+      /* "gases/PROPANE.pyx":519
  *         object.QATT[1][I] = 0.0
  *         # DISSOCIATIVE ATTACHMENT TO H-
  *         if EN >= XATT2[0]:             # <<<<<<<<<<<<<<
@@ -7375,7 +7375,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":522
+    /* "gases/PROPANE.pyx":522
  *             object.QATT[1][I] = GasUtil.CALQION(EN, NATT2, YATT2, XATT2)
  * 
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7384,7 +7384,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":523
+    /* "gases/PROPANE.pyx":523
  * 
  *         object.Q[4][I] = 0.0
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7393,7 +7393,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":527
+    /* "gases/PROPANE.pyx":527
  *         # set ZEROS
  * 
  *         for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -7405,7 +7405,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_31 = 0; __pyx_t_31 < __pyx_t_30; __pyx_t_31+=1) {
       __pyx_v_J = __pyx_t_31;
 
-      /* "PROPANE.pyx":528
+      /* "gases/PROPANE.pyx":528
  * 
  *         for J in range(object.NIN):
  *             object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7414,7 +7414,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-      /* "PROPANE.pyx":529
+      /* "gases/PROPANE.pyx":529
  *         for J in range(object.NIN):
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5             # <<<<<<<<<<<<<<
@@ -7423,7 +7423,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.5;
 
-      /* "PROPANE.pyx":530
+      /* "gases/PROPANE.pyx":530
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7433,7 +7433,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":531
+        /* "gases/PROPANE.pyx":531
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7442,7 +7442,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "PROPANE.pyx":530
+        /* "gases/PROPANE.pyx":530
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7452,7 +7452,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "PROPANE.pyx":534
+    /* "gases/PROPANE.pyx":534
  * 
  *         # SUPERELASTIC VIBRATION-TORSION         ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7462,7 +7462,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":535
+      /* "gases/PROPANE.pyx":535
  *         # SUPERELASTIC VIBRATION-TORSION         ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))             # <<<<<<<<<<<<<<
@@ -7471,7 +7471,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[0]) / __pyx_v_EN)));
 
-      /* "PROPANE.pyx":536
+      /* "gases/PROPANE.pyx":536
  *         if EN > 0.0:
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
  *             object.QIN[0][I] = 0.00536 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN             # <<<<<<<<<<<<<<
@@ -7480,7 +7480,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = ((0.00536 * log(((__pyx_v_EFAC + 1.0) / (__pyx_v_EFAC - 1.0)))) / __pyx_v_EN);
 
-      /* "PROPANE.pyx":537
+      /* "gases/PROPANE.pyx":537
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
  *             object.QIN[0][I] = 0.00536 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][I] *= APOP1 / (1.0 + APOP1) * 1.e-16             # <<<<<<<<<<<<<<
@@ -7491,7 +7491,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_25])[__pyx_t_26]) = (((__pyx_v_object->QIN[__pyx_t_25])[__pyx_t_26]) * ((__pyx_v_APOP1 / (1.0 + __pyx_v_APOP1)) * 1.e-16));
 
-      /* "PROPANE.pyx":534
+      /* "gases/PROPANE.pyx":534
  * 
  *         # SUPERELASTIC VIBRATION-TORSION         ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7500,7 +7500,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":538
+    /* "gases/PROPANE.pyx":538
  *             object.QIN[0][I] = 0.00536 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][I] *= APOP1 / (1.0 + APOP1) * 1.e-16
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7510,7 +7510,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":539
+      /* "gases/PROPANE.pyx":539
  *             object.QIN[0][I] *= APOP1 / (1.0 + APOP1) * 1.e-16
  *         if EN > 10:
  *             object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]             # <<<<<<<<<<<<<<
@@ -7519,7 +7519,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0]))]);
 
-      /* "PROPANE.pyx":538
+      /* "gases/PROPANE.pyx":538
  *             object.QIN[0][I] = 0.00536 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][I] *= APOP1 / (1.0 + APOP1) * 1.e-16
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7528,7 +7528,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":541
+    /* "gases/PROPANE.pyx":541
  *             object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
  *         #VIBRATION-TORSION                      ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7538,7 +7538,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":542
+      /* "gases/PROPANE.pyx":542
  *         #VIBRATION-TORSION                      ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[1]:
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))             # <<<<<<<<<<<<<<
@@ -7547,7 +7547,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[1]) / __pyx_v_EN)));
 
-      /* "PROPANE.pyx":543
+      /* "gases/PROPANE.pyx":543
  *         if EN > object.EIN[1]:
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
  *             object.QIN[1][I] = 0.00536 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN             # <<<<<<<<<<<<<<
@@ -7556,7 +7556,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = ((0.00536 * log(((__pyx_v_EFAC + 1.0) / (1.0 - __pyx_v_EFAC)))) / __pyx_v_EN);
 
-      /* "PROPANE.pyx":544
+      /* "gases/PROPANE.pyx":544
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
  *             object.QIN[1][I] = 0.00536 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
  *             object.QIN[1][I] *= 1.0 / (1.0 + APOP1) * 1.e-16             # <<<<<<<<<<<<<<
@@ -7567,7 +7567,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_25])[__pyx_t_26]) = (((__pyx_v_object->QIN[__pyx_t_25])[__pyx_t_26]) * ((1.0 / (1.0 + __pyx_v_APOP1)) * 1.e-16));
 
-      /* "PROPANE.pyx":541
+      /* "gases/PROPANE.pyx":541
  *             object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
  *         #VIBRATION-TORSION                      ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7576,7 +7576,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":545
+    /* "gases/PROPANE.pyx":545
  *             object.QIN[1][I] = 0.00536 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
  *             object.QIN[1][I] *= 1.0 / (1.0 + APOP1) * 1.e-16
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7586,7 +7586,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":546
+      /* "gases/PROPANE.pyx":546
  *             object.QIN[1][I] *= 1.0 / (1.0 + APOP1) * 1.e-16
  *         if EN > 10:
  *             object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]             # <<<<<<<<<<<<<<
@@ -7595,7 +7595,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[1]))]);
 
-      /* "PROPANE.pyx":545
+      /* "gases/PROPANE.pyx":545
  *             object.QIN[1][I] = 0.00536 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
  *             object.QIN[1][I] *= 1.0 / (1.0 + APOP1) * 1.e-16
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7604,7 +7604,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":549
+    /* "gases/PROPANE.pyx":549
  * 
  *         #SUPERELASTIC VIB1                     ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7614,7 +7614,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":550
+      /* "gases/PROPANE.pyx":550
  *         #SUPERELASTIC VIB1                     ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:
  *             object.QIN[2][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, APOP2 / (1 + APOP2), object.EIN[3], 1,             # <<<<<<<<<<<<<<
@@ -7623,7 +7623,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVIB1, __pyx_v_XVIB1, (__pyx_v_APOP2 / (1.0 + __pyx_v_APOP2)), (__pyx_v_object->EIN[3]), 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "PROPANE.pyx":549
+      /* "gases/PROPANE.pyx":549
  * 
  *         #SUPERELASTIC VIB1                     ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7632,7 +7632,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":552
+    /* "gases/PROPANE.pyx":552
  *             object.QIN[2][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, APOP2 / (1 + APOP2), object.EIN[3], 1,
  *                                                   -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7642,7 +7642,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":553
+      /* "gases/PROPANE.pyx":553
  *                                                   -1 * 5 * EN, 0)
  *         if EN > 10:
  *             object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -7651,7 +7651,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-      /* "PROPANE.pyx":552
+      /* "gases/PROPANE.pyx":552
  *             object.QIN[2][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, APOP2 / (1 + APOP2), object.EIN[3], 1,
  *                                                   -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7660,7 +7660,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":556
+    /* "gases/PROPANE.pyx":556
  * 
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7670,7 +7670,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":557
+      /* "gases/PROPANE.pyx":557
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, 1 / (1 + APOP2), 0, 1, -1 * 5 * EN, 0)             # <<<<<<<<<<<<<<
@@ -7679,7 +7679,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVIB1, __pyx_v_XVIB1, (1.0 / (1.0 + __pyx_v_APOP2)), 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "PROPANE.pyx":556
+      /* "gases/PROPANE.pyx":556
  * 
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7688,7 +7688,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":558
+    /* "gases/PROPANE.pyx":558
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, 1 / (1 + APOP2), 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7698,7 +7698,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":559
+      /* "gases/PROPANE.pyx":559
  *             object.QIN[3][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, 1 / (1 + APOP2), 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:
  *             object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -7707,7 +7707,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-      /* "PROPANE.pyx":558
+      /* "gases/PROPANE.pyx":558
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, 1 / (1 + APOP2), 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7716,7 +7716,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":562
+    /* "gases/PROPANE.pyx":562
  * 
  *         #SUPERELASTIC VIB2                     ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7726,7 +7726,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":563
+      /* "gases/PROPANE.pyx":563
  *         #SUPERELASTIC VIB2                     ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:
  *             object.QIN[4][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, APOP3 / (1 + APOP3), object.EIN[5], 1,             # <<<<<<<<<<<<<<
@@ -7735,7 +7735,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2, (__pyx_v_APOP3 / (1.0 + __pyx_v_APOP3)), (__pyx_v_object->EIN[5]), 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "PROPANE.pyx":562
+      /* "gases/PROPANE.pyx":562
  * 
  *         #SUPERELASTIC VIB2                     ANISOTROPIC ABOVE 10 EV
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7744,7 +7744,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":565
+    /* "gases/PROPANE.pyx":565
  *             object.QIN[4][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, APOP3 / (1 + APOP3), object.EIN[5], 1,
  *                                                   -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7754,7 +7754,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":566
+      /* "gases/PROPANE.pyx":566
  *                                                   -1 * 5 * EN, 0)
  *         if EN > 10:
  *             object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -7763,7 +7763,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-      /* "PROPANE.pyx":565
+      /* "gases/PROPANE.pyx":565
  *             object.QIN[4][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, APOP3 / (1 + APOP3), object.EIN[5], 1,
  *                                                   -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7772,7 +7772,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":569
+    /* "gases/PROPANE.pyx":569
  * 
  *         #VIB2                           ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7782,7 +7782,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":570
+      /* "gases/PROPANE.pyx":570
  *         #VIB2                           ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, 1 / (1 + APOP3), 0, 1, -1 * 5 * EN, 0)             # <<<<<<<<<<<<<<
@@ -7791,7 +7791,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2, (1.0 / (1.0 + __pyx_v_APOP3)), 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "PROPANE.pyx":569
+      /* "gases/PROPANE.pyx":569
  * 
  *         #VIB2                           ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7800,7 +7800,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":571
+    /* "gases/PROPANE.pyx":571
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, 1 / (1 + APOP3), 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7810,7 +7810,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":572
+      /* "gases/PROPANE.pyx":572
  *             object.QIN[5][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, 1 / (1 + APOP3), 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:
  *             object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -7819,7 +7819,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-      /* "PROPANE.pyx":571
+      /* "gases/PROPANE.pyx":571
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, 1 / (1 + APOP3), 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7828,7 +7828,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":575
+    /* "gases/PROPANE.pyx":575
  * 
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7838,7 +7838,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":576
+      /* "gases/PROPANE.pyx":576
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINVISO(EN, NVIB3, YVIB3, XVIB3, 1, 0, 1, -1 * 5 * EN, 0)             # <<<<<<<<<<<<<<
@@ -7847,7 +7847,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3, 1.0, 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "PROPANE.pyx":575
+      /* "gases/PROPANE.pyx":575
  * 
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7856,7 +7856,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":577
+    /* "gases/PROPANE.pyx":577
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINVISO(EN, NVIB3, YVIB3, XVIB3, 1, 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7866,7 +7866,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":578
+      /* "gases/PROPANE.pyx":578
  *             object.QIN[6][I] = GasUtil.CALQINVISO(EN, NVIB3, YVIB3, XVIB3, 1, 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:
  *             object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -7875,7 +7875,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-      /* "PROPANE.pyx":577
+      /* "gases/PROPANE.pyx":577
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINVISO(EN, NVIB3, YVIB3, XVIB3, 1, 0, 1, -1 * 5 * EN, 0)
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7884,7 +7884,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":581
+    /* "gases/PROPANE.pyx":581
  * 
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7894,7 +7894,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":582
+      /* "gases/PROPANE.pyx":582
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINVISO(EN, NVIB4, YVIB4, XVIB4, 1, 0, 1, -1 * 5 * EN, 0)             # <<<<<<<<<<<<<<
@@ -7903,7 +7903,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB4, __pyx_v_YVIB4, __pyx_v_XVIB4, 1.0, 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "PROPANE.pyx":583
+      /* "gases/PROPANE.pyx":583
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINVISO(EN, NVIB4, YVIB4, XVIB4, 1, 0, 1, -1 * 5 * EN, 0)
  *             if object.QIN[7][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -7913,7 +7913,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QIN[7])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":584
+        /* "gases/PROPANE.pyx":584
  *             object.QIN[7][I] = GasUtil.CALQINVISO(EN, NVIB4, YVIB4, XVIB4, 1, 0, 1, -1 * 5 * EN, 0)
  *             if object.QIN[7][I] < 0.0:
  *                 object.QIN[7][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7922,7 +7922,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[7])[__pyx_v_I]) = 0.0;
 
-        /* "PROPANE.pyx":583
+        /* "gases/PROPANE.pyx":583
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINVISO(EN, NVIB4, YVIB4, XVIB4, 1, 0, 1, -1 * 5 * EN, 0)
  *             if object.QIN[7][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -7931,7 +7931,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":581
+      /* "gases/PROPANE.pyx":581
  * 
  *         #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7940,7 +7940,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":585
+    /* "gases/PROPANE.pyx":585
  *             if object.QIN[7][I] < 0.0:
  *                 object.QIN[7][I] = 0.0
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7950,7 +7950,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":586
+      /* "gases/PROPANE.pyx":586
  *                 object.QIN[7][I] = 0.0
  *         if EN > 10:
  *             object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -7959,7 +7959,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-      /* "PROPANE.pyx":585
+      /* "gases/PROPANE.pyx":585
  *             if object.QIN[7][I] < 0.0:
  *                 object.QIN[7][I] = 0.0
  *         if EN > 10:             # <<<<<<<<<<<<<<
@@ -7968,7 +7968,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":596
+    /* "gases/PROPANE.pyx":596
  *         # FIRST TRIPLET AT  6.57 EV
  * 
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -7978,7 +7978,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":597
+      /* "gases/PROPANE.pyx":597
  * 
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, NTR1, YTR1, XTR1, 2) * 100             # <<<<<<<<<<<<<<
@@ -7987,7 +7987,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTR1, __pyx_v_YTR1, __pyx_v_XTR1, 2.0) * 100.0);
 
-      /* "PROPANE.pyx":596
+      /* "gases/PROPANE.pyx":596
  *         # FIRST TRIPLET AT  6.57 EV
  * 
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -7996,7 +7996,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":598
+    /* "gases/PROPANE.pyx":598
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, NTR1, YTR1, XTR1, 2) * 100
  *         if EN > 3 * object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -8006,7 +8006,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[8]))) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":599
+      /* "gases/PROPANE.pyx":599
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, NTR1, YTR1, XTR1, 2) * 100
  *         if EN > 3 * object.EIN[8]:
  *             object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]             # <<<<<<<<<<<<<<
@@ -8015,7 +8015,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[8]))]);
 
-      /* "PROPANE.pyx":598
+      /* "gases/PROPANE.pyx":598
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, NTR1, YTR1, XTR1, 2) * 100
  *         if EN > 3 * object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -8024,7 +8024,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":602
+    /* "gases/PROPANE.pyx":602
  * 
  *         #SINGLET DISSOCIATION AT  7.65  EV     BEF SCALING F[FI]
  *         FI = 0             # <<<<<<<<<<<<<<
@@ -8033,7 +8033,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = 0;
 
-    /* "PROPANE.pyx":603
+    /* "gases/PROPANE.pyx":603
  *         #SINGLET DISSOCIATION AT  7.65  EV     BEF SCALING F[FI]
  *         FI = 0
  *         J=9             # <<<<<<<<<<<<<<
@@ -8042,7 +8042,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_J = 9;
 
-    /* "PROPANE.pyx":605
+    /* "gases/PROPANE.pyx":605
  *         J=9
  * 
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8052,7 +8052,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":606
+      /* "gases/PROPANE.pyx":606
  * 
  *         if EN > object.EIN[J]:
  *             object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8061,7 +8061,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-      /* "PROPANE.pyx":609
+      /* "gases/PROPANE.pyx":609
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8071,7 +8071,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":610
+        /* "gases/PROPANE.pyx":610
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if object.QIN[J][I]<0.0:
  *                 object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8080,7 +8080,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "PROPANE.pyx":609
+        /* "gases/PROPANE.pyx":609
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8089,7 +8089,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":605
+      /* "gases/PROPANE.pyx":605
  *         J=9
  * 
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8098,7 +8098,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":611
+    /* "gases/PROPANE.pyx":611
  *             if object.QIN[J][I]<0.0:
  *                 object.QIN[J][I] = 0.0
  *         if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8108,7 +8108,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":612
+      /* "gases/PROPANE.pyx":612
  *                 object.QIN[J][I] = 0.0
  *         if EN > 3 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -8117,7 +8117,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-      /* "PROPANE.pyx":611
+      /* "gases/PROPANE.pyx":611
  *             if object.QIN[J][I]<0.0:
  *                 object.QIN[J][I] = 0.0
  *         if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8126,7 +8126,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":613
+    /* "gases/PROPANE.pyx":613
  *         if EN > 3 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *         FI+=1             # <<<<<<<<<<<<<<
@@ -8135,7 +8135,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = (__pyx_v_FI + 1);
 
-    /* "PROPANE.pyx":616
+    /* "gases/PROPANE.pyx":616
  * 
  *         # SECOND TRIPLET AT  7.67 EV
  *         if EN>object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8145,7 +8145,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":617
+      /* "gases/PROPANE.pyx":617
  *         # SECOND TRIPLET AT  7.67 EV
  *         if EN>object.EIN[10]:
  *             object.QIN[10][I]= GasUtil.CALQINP(EN, NTR2, YTR2, XTR2,2)*100             # <<<<<<<<<<<<<<
@@ -8154,7 +8154,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTR2, __pyx_v_YTR2, __pyx_v_XTR2, 2.0) * 100.0);
 
-      /* "PROPANE.pyx":616
+      /* "gases/PROPANE.pyx":616
  * 
  *         # SECOND TRIPLET AT  7.67 EV
  *         if EN>object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8163,7 +8163,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":618
+    /* "gases/PROPANE.pyx":618
  *         if EN>object.EIN[10]:
  *             object.QIN[10][I]= GasUtil.CALQINP(EN, NTR2, YTR2, XTR2,2)*100
  *         if EN>3*object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8173,7 +8173,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[10]))) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":619
+      /* "gases/PROPANE.pyx":619
  *             object.QIN[10][I]= GasUtil.CALQINP(EN, NTR2, YTR2, XTR2,2)*100
  *         if EN>3*object.EIN[10]:
  *             object.PEQIN[10][I] = object.PEQEL[1][I-IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -8182,7 +8182,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-      /* "PROPANE.pyx":618
+      /* "gases/PROPANE.pyx":618
  *         if EN>object.EIN[10]:
  *             object.QIN[10][I]= GasUtil.CALQINP(EN, NTR2, YTR2, XTR2,2)*100
  *         if EN>3*object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8191,7 +8191,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":623
+    /* "gases/PROPANE.pyx":623
  *         #SINGLET DISSOCIATION AT  7.65+.3*FI  EV     BEF SCALING F[FI]
  * 
  *         for J in range(11,17):             # <<<<<<<<<<<<<<
@@ -8201,7 +8201,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 11; __pyx_t_26 < 17; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "PROPANE.pyx":624
+      /* "gases/PROPANE.pyx":624
  * 
  *         for J in range(11,17):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8211,7 +8211,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":625
+        /* "gases/PROPANE.pyx":625
  *         for J in range(11,17):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8220,7 +8220,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "PROPANE.pyx":628
+        /* "gases/PROPANE.pyx":628
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8230,7 +8230,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":629
+          /* "gases/PROPANE.pyx":629
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8239,7 +8239,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "PROPANE.pyx":628
+          /* "gases/PROPANE.pyx":628
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8248,7 +8248,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":624
+        /* "gases/PROPANE.pyx":624
  * 
  *         for J in range(11,17):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8257,7 +8257,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":630
+      /* "gases/PROPANE.pyx":630
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8267,7 +8267,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":631
+        /* "gases/PROPANE.pyx":631
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -8276,7 +8276,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "PROPANE.pyx":630
+        /* "gases/PROPANE.pyx":630
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8285,7 +8285,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":633
+      /* "gases/PROPANE.pyx":633
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  * 
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -8295,7 +8295,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "PROPANE.pyx":636
+    /* "gases/PROPANE.pyx":636
  * 
  *         # THIRD TRIPLET AT  9.59 EV
  *         if EN>object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -8305,7 +8305,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[17])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":637
+      /* "gases/PROPANE.pyx":637
  *         # THIRD TRIPLET AT  9.59 EV
  *         if EN>object.EIN[17]:
  *             object.QIN[17][I]= GasUtil.CALQINP(EN, NTR3, YTR3, XTR3,2)*100             # <<<<<<<<<<<<<<
@@ -8314,7 +8314,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[17])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTR3, __pyx_v_YTR3, __pyx_v_XTR3, 2.0) * 100.0);
 
-      /* "PROPANE.pyx":636
+      /* "gases/PROPANE.pyx":636
  * 
  *         # THIRD TRIPLET AT  9.59 EV
  *         if EN>object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -8323,7 +8323,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":638
+    /* "gases/PROPANE.pyx":638
  *         if EN>object.EIN[17]:
  *             object.QIN[17][I]= GasUtil.CALQINP(EN, NTR3, YTR3, XTR3,2)*100
  *         if EN>3*object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -8333,7 +8333,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[17]))) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":639
+      /* "gases/PROPANE.pyx":639
  *             object.QIN[17][I]= GasUtil.CALQINP(EN, NTR3, YTR3, XTR3,2)*100
  *         if EN>3*object.EIN[17]:
  *             object.PEQIN[17][I] = object.PEQEL[1][I-IOFFN[17]]             # <<<<<<<<<<<<<<
@@ -8342,7 +8342,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[17])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[17]))]);
 
-      /* "PROPANE.pyx":638
+      /* "gases/PROPANE.pyx":638
  *         if EN>object.EIN[17]:
  *             object.QIN[17][I]= GasUtil.CALQINP(EN, NTR3, YTR3, XTR3,2)*100
  *         if EN>3*object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -8351,7 +8351,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":644
+    /* "gases/PROPANE.pyx":644
  *         #SINGLET DISSOCIATION AT  7.65+.3*FI  EV     BEF SCALING F[FI]
  * 
  *         for J in range(18,61):             # <<<<<<<<<<<<<<
@@ -8361,7 +8361,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 18; __pyx_t_26 < 61; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "PROPANE.pyx":645
+      /* "gases/PROPANE.pyx":645
  * 
  *         for J in range(18,61):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8371,7 +8371,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":646
+        /* "gases/PROPANE.pyx":646
  *         for J in range(18,61):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8380,7 +8380,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "PROPANE.pyx":649
+        /* "gases/PROPANE.pyx":649
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8390,7 +8390,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":650
+          /* "gases/PROPANE.pyx":650
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8399,7 +8399,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "PROPANE.pyx":649
+          /* "gases/PROPANE.pyx":649
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8408,7 +8408,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":645
+        /* "gases/PROPANE.pyx":645
  * 
  *         for J in range(18,61):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8417,7 +8417,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":651
+      /* "gases/PROPANE.pyx":651
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8427,7 +8427,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":652
+        /* "gases/PROPANE.pyx":652
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -8436,7 +8436,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "PROPANE.pyx":651
+        /* "gases/PROPANE.pyx":651
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8445,7 +8445,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":654
+      /* "gases/PROPANE.pyx":654
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  * 
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -8455,7 +8455,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "PROPANE.pyx":657
+    /* "gases/PROPANE.pyx":657
  * 
  *         # FOURTH TRIPLET AT  26.0 EV
  *         if EN>object.EIN[61]:             # <<<<<<<<<<<<<<
@@ -8465,7 +8465,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[61])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":658
+      /* "gases/PROPANE.pyx":658
  *         # FOURTH TRIPLET AT  26.0 EV
  *         if EN>object.EIN[61]:
  *             object.QIN[61][I]= GasUtil.CALQINP(EN, NTR4, YTR4, XTR4,2)*100             # <<<<<<<<<<<<<<
@@ -8474,7 +8474,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[61])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTR4, __pyx_v_YTR4, __pyx_v_XTR4, 2.0) * 100.0);
 
-      /* "PROPANE.pyx":657
+      /* "gases/PROPANE.pyx":657
  * 
  *         # FOURTH TRIPLET AT  26.0 EV
  *         if EN>object.EIN[61]:             # <<<<<<<<<<<<<<
@@ -8483,7 +8483,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":659
+    /* "gases/PROPANE.pyx":659
  *         if EN>object.EIN[61]:
  *             object.QIN[61][I]= GasUtil.CALQINP(EN, NTR4, YTR4, XTR4,2)*100
  *         if EN>3*object.EIN[61]:             # <<<<<<<<<<<<<<
@@ -8493,7 +8493,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[61]))) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":660
+      /* "gases/PROPANE.pyx":660
  *             object.QIN[61][I]= GasUtil.CALQINP(EN, NTR4, YTR4, XTR4,2)*100
  *         if EN>3*object.EIN[61]:
  *             object.PEQIN[61][I] = object.PEQEL[1][I-IOFFN[61]]             # <<<<<<<<<<<<<<
@@ -8502,7 +8502,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[61])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[61]))]);
 
-      /* "PROPANE.pyx":659
+      /* "gases/PROPANE.pyx":659
  *         if EN>object.EIN[61]:
  *             object.QIN[61][I]= GasUtil.CALQINP(EN, NTR4, YTR4, XTR4,2)*100
  *         if EN>3*object.EIN[61]:             # <<<<<<<<<<<<<<
@@ -8511,7 +8511,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":664
+    /* "gases/PROPANE.pyx":664
  *         #SINGLET DISSOCIATION AT  7.65+.3*FI  EV     BEF SCALING F[FI]
  * 
  *         for J in range(62,64):             # <<<<<<<<<<<<<<
@@ -8521,7 +8521,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 62; __pyx_t_26 < 64; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "PROPANE.pyx":665
+      /* "gases/PROPANE.pyx":665
  * 
  *         for J in range(62,64):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8531,7 +8531,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":666
+        /* "gases/PROPANE.pyx":666
  *         for J in range(62,64):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8540,7 +8540,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "PROPANE.pyx":669
+        /* "gases/PROPANE.pyx":669
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8550,7 +8550,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_27 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_27) {
 
-          /* "PROPANE.pyx":670
+          /* "gases/PROPANE.pyx":670
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8559,7 +8559,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "PROPANE.pyx":669
+          /* "gases/PROPANE.pyx":669
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8568,7 +8568,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "PROPANE.pyx":665
+        /* "gases/PROPANE.pyx":665
  * 
  *         for J in range(62,64):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8577,7 +8577,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":671
+      /* "gases/PROPANE.pyx":671
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8587,7 +8587,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_27 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_27) {
 
-        /* "PROPANE.pyx":672
+        /* "gases/PROPANE.pyx":672
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -8596,7 +8596,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "PROPANE.pyx":671
+        /* "gases/PROPANE.pyx":671
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8605,7 +8605,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "PROPANE.pyx":674
+      /* "gases/PROPANE.pyx":674
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  * 
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -8615,7 +8615,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "PROPANE.pyx":676
+    /* "gases/PROPANE.pyx":676
  *             FI+=1
  *         # LOAD BREMSSTRAHLUNG X-SECTION
  *         object.QIN[64][I] =0.0             # <<<<<<<<<<<<<<
@@ -8624,7 +8624,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[64])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":677
+    /* "gases/PROPANE.pyx":677
  *         # LOAD BREMSSTRAHLUNG X-SECTION
  *         object.QIN[64][I] =0.0
  *         object.QIN[65][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8633,7 +8633,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[65])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":684
+    /* "gases/PROPANE.pyx":684
  *         # LIGHT EMISSION FROM H ALPHA
  *         # MOHLMANN AND DE HEER CHEM.PHYS.19(1979)233
  *         object.QNULL[0][I]=0.0             # <<<<<<<<<<<<<<
@@ -8642,7 +8642,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[0])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":685
+    /* "gases/PROPANE.pyx":685
  *         # MOHLMANN AND DE HEER CHEM.PHYS.19(1979)233
  *         object.QNULL[0][I]=0.0
  *         if EN>XNUL1[0]:             # <<<<<<<<<<<<<<
@@ -8652,7 +8652,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XNUL1[0])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":686
+      /* "gases/PROPANE.pyx":686
  *         object.QNULL[0][I]=0.0
  *         if EN>XNUL1[0]:
  *             object.QNULL[0][I] = GasUtil.CALQINP(EN, NUL1, YNUL1, XNUL1,1)*100 *0.9*object.SCLN[0]             # <<<<<<<<<<<<<<
@@ -8661,7 +8661,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[0])[__pyx_v_I]) = (((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL1, __pyx_v_YNUL1, __pyx_v_XNUL1, 1.0) * 100.0) * 0.9) * (__pyx_v_object->SCLN[0]));
 
-      /* "PROPANE.pyx":685
+      /* "gases/PROPANE.pyx":685
  *         # MOHLMANN AND DE HEER CHEM.PHYS.19(1979)233
  *         object.QNULL[0][I]=0.0
  *         if EN>XNUL1[0]:             # <<<<<<<<<<<<<<
@@ -8670,7 +8670,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "PROPANE.pyx":691
+    /* "gases/PROPANE.pyx":691
  *         #  MOHLMANN AND DE HEER  CHEM.PHYS.19(1979)233
  * 
  *         object.QNULL[1][I]=0.0             # <<<<<<<<<<<<<<
@@ -8679,7 +8679,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[1])[__pyx_v_I]) = 0.0;
 
-    /* "PROPANE.pyx":692
+    /* "gases/PROPANE.pyx":692
  * 
  *         object.QNULL[1][I]=0.0
  *         if EN>XNUL2[0]:             # <<<<<<<<<<<<<<
@@ -8689,7 +8689,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_EN > (__pyx_v_XNUL2[0])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":693
+      /* "gases/PROPANE.pyx":693
  *         object.QNULL[1][I]=0.0
  *         if EN>XNUL2[0]:
  *             object.QNULL[1][I] = GasUtil.CALQINP(EN, NUL2, YNUL2, XNUL2,1)*100 *object.SCLN[1]             # <<<<<<<<<<<<<<
@@ -8698,7 +8698,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[1])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL2, __pyx_v_YNUL2, __pyx_v_XNUL2, 1.0) * 100.0) * (__pyx_v_object->SCLN[1]));
 
-      /* "PROPANE.pyx":692
+      /* "gases/PROPANE.pyx":692
  * 
  *         object.QNULL[1][I]=0.0
  *         if EN>XNUL2[0]:             # <<<<<<<<<<<<<<
@@ -8708,7 +8708,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "PROPANE.pyx":696
+  /* "gases/PROPANE.pyx":696
  * 
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -8720,7 +8720,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
     __pyx_v_J = __pyx_t_23;
 
-    /* "PROPANE.pyx":697
+    /* "gases/PROPANE.pyx":697
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8730,7 +8730,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_27 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_27) {
 
-      /* "PROPANE.pyx":698
+      /* "gases/PROPANE.pyx":698
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -8739,7 +8739,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "PROPANE.pyx":699
+      /* "gases/PROPANE.pyx":699
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -8747,7 +8747,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L186_break;
 
-      /* "PROPANE.pyx":697
+      /* "gases/PROPANE.pyx":697
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8758,14 +8758,14 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L186_break:;
 
-  /* "PROPANE.pyx":700
+  /* "gases/PROPANE.pyx":700
  *             object.NIN = J
  *             break
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "PROPANE.pyx":17
+  /* "gases/PROPANE.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas10(Gas*object):             # <<<<<<<<<<<<<<
@@ -8779,7 +8779,7 @@ static void __pyx_f_7PROPANE_Gas10(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("PROPANE.Gas10", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.PROPANE.Gas10", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -11833,7 +11833,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas10", (void (*)(void))__pyx_f_7PROPANE_Gas10, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas10", (void (*)(void))__pyx_f_5gases_7PROPANE_Gas10, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -12085,14 +12085,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_PROPANE) {
+  if (__pyx_module_is_main_gases__PROPANE) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "PROPANE")) {
-      if (unlikely(PyDict_SetItemString(modules, "PROPANE", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.PROPANE")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.PROPANE", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -12113,7 +12113,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "PROPANE.pyx":3
+  /* "gases/PROPANE.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -12125,7 +12125,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "PROPANE.pyx":5
+  /* "gases/PROPANE.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -12137,7 +12137,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "PROPANE.pyx":10
+  /* "gases/PROPANE.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -12152,7 +12152,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "PROPANE.pyx":1
+  /* "gases/PROPANE.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -12178,11 +12178,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init PROPANE", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.PROPANE", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init PROPANE");
+    PyErr_SetString(PyExc_ImportError, "init gases.PROPANE");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

@@ -43,9 +43,9 @@ cpdef SETUPT(Magboltz object):
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     cdef double FRACM = 0.0
     MXEKR = 0
-    for IH in range(object.NGAS):
-        if object.NGASN[IH] != 2 and object.NGASN[IH] != 6 and object.NGASN[IH] != 7 and object.NGASN[IH] != 3 and \
-                object.NGASN[IH] != 4 and object.NGASN[IH] != 5:
+    for IH in range(object.NumberOfGases):
+        if object.NumberOfGasesN[IH] != 2 and object.NumberOfGasesN[IH] != 6 and object.NumberOfGasesN[IH] != 7 and object.NumberOfGasesN[IH] != 3 and \
+                object.NumberOfGasesN[IH] != 4 and object.NumberOfGasesN[IH] != 5:
             # Molecular gas sum total fraction
             FRACM += object.FRAC[IH]
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
@@ -55,10 +55,10 @@ cpdef SETUPT(Magboltz object):
             object.NCORST = 4
     TOTFRAC = 0.0
 
-    if object.NGAS == 0 or object.NGAS > 6:
+    if object.NumberOfGases == 0 or object.NumberOfGases > 6:
         raise ValueError("Error in Gas Input")
-    for J in range(object.NGAS):
-        if object.NGASN[J] == 0 or object.FRAC[J] == 0:
+    for J in range(object.NumberOfGases):
+        if object.NumberOfGasesN[J] == 0 or object.FRAC[J] == 0:
             raise ValueError("Error in Gas Input")
         TOTFRAC += object.FRAC[J]
     if abs(TOTFRAC - 100) >= 1e-6:
@@ -85,11 +85,11 @@ cpdef SETUPT(Magboltz object):
     object.VAN = 100.0 * object.CORR * object.CONST4 * 1.0e15
 
     # Radians per picosecond
-    object.WB = AWB * object.BMAG * 1e-12
+    object.WB = AWB * object.BFieldMag * 1e-12
 
 
-    if object.BMAG == 0:
+    if object.BFieldMag == 0:
         return
     # Metres per picosecond
-    object.EOVB = object.EFIELD * 1e-9 / object.BMAG
+    object.EOVB = object.EFIELD * 1e-9 / object.BFieldMag
     return

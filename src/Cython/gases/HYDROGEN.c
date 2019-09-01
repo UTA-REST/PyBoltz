@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "HYDROGEN",
+        "name": "gases.HYDROGEN",
         "sources": [
-            "HYDROGEN.pyx"
+            "gases/HYDROGEN.pyx"
         ]
     },
-    "module_name": "HYDROGEN"
+    "module_name": "gases.HYDROGEN"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__HYDROGEN
-#define __PYX_HAVE_API__HYDROGEN
+#define __PYX_HAVE__gases__HYDROGEN
+#define __PYX_HAVE_API__gases__HYDROGEN
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "HYDROGEN.pyx",
+  "gases/HYDROGEN.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1687,13 +1687,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'HYDROGEN' */
+/* Module declarations from 'gases.HYDROGEN' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "HYDROGEN"
-extern int __pyx_module_is_main_HYDROGEN;
-int __pyx_module_is_main_HYDROGEN = 0;
+#define __Pyx_MODULE_NAME "gases.HYDROGEN"
+extern int __pyx_module_is_main_gases__HYDROGEN;
+int __pyx_module_is_main_gases__HYDROGEN = 0;
 
-/* Implementation of 'HYDROGEN' */
+/* Implementation of 'gases.HYDROGEN' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1871,7 +1871,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "HYDROGEN.pyx":17
+/* "gases/HYDROGEN.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas21(Gas*object):             # <<<<<<<<<<<<<<
@@ -1879,7 +1879,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Hydrogen gas.
  */
 
-static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XELM[0xAC];
   double __pyx_v_YELM[0xAC];
@@ -2027,7 +2027,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   int __pyx_t_35;
   __Pyx_RefNannySetupContext("Gas21", 0);
 
-  /* "HYDROGEN.pyx":21
+  /* "gases/HYDROGEN.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Hydrogen gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2075,7 +2075,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "HYDROGEN.pyx":30
+  /* "gases/HYDROGEN.pyx":30
  *     cdef int IOFFN[107], IOFFION[2]
  * 
  *     XELM = gd['gas21/XELM']             # <<<<<<<<<<<<<<
@@ -2092,7 +2092,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XELM[0]), __pyx_t_5, sizeof(__pyx_v_XELM[0]) * (0xAC));
 
-  /* "HYDROGEN.pyx":31
+  /* "gases/HYDROGEN.pyx":31
  * 
  *     XELM = gd['gas21/XELM']
  *     YELM = gd['gas21/YELM']             # <<<<<<<<<<<<<<
@@ -2109,7 +2109,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YELM[0]), __pyx_t_5, sizeof(__pyx_v_YELM[0]) * (0xAC));
 
-  /* "HYDROGEN.pyx":32
+  /* "gases/HYDROGEN.pyx":32
  *     XELM = gd['gas21/XELM']
  *     YELM = gd['gas21/YELM']
  *     YELT = gd['gas21/YELT']             # <<<<<<<<<<<<<<
@@ -2126,7 +2126,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YELT[0]), __pyx_t_5, sizeof(__pyx_v_YELT[0]) * (0xAC));
 
-  /* "HYDROGEN.pyx":33
+  /* "gases/HYDROGEN.pyx":33
  *     YELM = gd['gas21/YELM']
  *     YELT = gd['gas21/YELT']
  *     YEPS = gd['gas21/YEPS']             # <<<<<<<<<<<<<<
@@ -2143,7 +2143,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_5, sizeof(__pyx_v_YEPS[0]) * (0xAC));
 
-  /* "HYDROGEN.pyx":34
+  /* "gases/HYDROGEN.pyx":34
  *     YELT = gd['gas21/YELT']
  *     YEPS = gd['gas21/YEPS']
  *     XROT0 = gd['gas21/XROT0']             # <<<<<<<<<<<<<<
@@ -2156,7 +2156,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT0[0]), __pyx_t_6, sizeof(__pyx_v_XROT0[0]) * (53));
 
-  /* "HYDROGEN.pyx":35
+  /* "gases/HYDROGEN.pyx":35
  *     YEPS = gd['gas21/YEPS']
  *     XROT0 = gd['gas21/XROT0']
  *     YROT0 = gd['gas21/YROT0']             # <<<<<<<<<<<<<<
@@ -2169,7 +2169,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT0[0]), __pyx_t_6, sizeof(__pyx_v_YROT0[0]) * (53));
 
-  /* "HYDROGEN.pyx":36
+  /* "gases/HYDROGEN.pyx":36
  *     XROT0 = gd['gas21/XROT0']
  *     YROT0 = gd['gas21/YROT0']
  *     XROT1 = gd['gas21/XROT1']             # <<<<<<<<<<<<<<
@@ -2182,7 +2182,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT1[0]), __pyx_t_7, sizeof(__pyx_v_XROT1[0]) * (43));
 
-  /* "HYDROGEN.pyx":37
+  /* "gases/HYDROGEN.pyx":37
  *     YROT0 = gd['gas21/YROT0']
  *     XROT1 = gd['gas21/XROT1']
  *     YROT1 = gd['gas21/YROT1']             # <<<<<<<<<<<<<<
@@ -2195,7 +2195,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT1[0]), __pyx_t_7, sizeof(__pyx_v_YROT1[0]) * (43));
 
-  /* "HYDROGEN.pyx":38
+  /* "gases/HYDROGEN.pyx":38
  *     XROT1 = gd['gas21/XROT1']
  *     YROT1 = gd['gas21/YROT1']
  *     XROT2 = gd['gas21/XROT2']             # <<<<<<<<<<<<<<
@@ -2208,7 +2208,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT2[0]), __pyx_t_8, sizeof(__pyx_v_XROT2[0]) * (28));
 
-  /* "HYDROGEN.pyx":39
+  /* "gases/HYDROGEN.pyx":39
  *     YROT1 = gd['gas21/YROT1']
  *     XROT2 = gd['gas21/XROT2']
  *     YROT2 = gd['gas21/YROT2']             # <<<<<<<<<<<<<<
@@ -2221,7 +2221,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT2[0]), __pyx_t_8, sizeof(__pyx_v_YROT2[0]) * (28));
 
-  /* "HYDROGEN.pyx":40
+  /* "gases/HYDROGEN.pyx":40
  *     XROT2 = gd['gas21/XROT2']
  *     YROT2 = gd['gas21/YROT2']
  *     XROT3 = gd['gas21/XROT3']             # <<<<<<<<<<<<<<
@@ -2234,7 +2234,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT3[0]), __pyx_t_8, sizeof(__pyx_v_XROT3[0]) * (28));
 
-  /* "HYDROGEN.pyx":41
+  /* "gases/HYDROGEN.pyx":41
  *     YROT2 = gd['gas21/YROT2']
  *     XROT3 = gd['gas21/XROT3']
  *     YROT3 = gd['gas21/YROT3']             # <<<<<<<<<<<<<<
@@ -2247,7 +2247,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT3[0]), __pyx_t_8, sizeof(__pyx_v_YROT3[0]) * (28));
 
-  /* "HYDROGEN.pyx":42
+  /* "gases/HYDROGEN.pyx":42
  *     XROT3 = gd['gas21/XROT3']
  *     YROT3 = gd['gas21/YROT3']
  *     XVIB1 = gd['gas21/XVIB1']             # <<<<<<<<<<<<<<
@@ -2260,7 +2260,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB1[0]), __pyx_t_7, sizeof(__pyx_v_XVIB1[0]) * (43));
 
-  /* "HYDROGEN.pyx":43
+  /* "gases/HYDROGEN.pyx":43
  *     YROT3 = gd['gas21/YROT3']
  *     XVIB1 = gd['gas21/XVIB1']
  *     YVIB1 = gd['gas21/YVIB1']             # <<<<<<<<<<<<<<
@@ -2273,7 +2273,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB1[0]), __pyx_t_7, sizeof(__pyx_v_YVIB1[0]) * (43));
 
-  /* "HYDROGEN.pyx":44
+  /* "gases/HYDROGEN.pyx":44
  *     XVIB1 = gd['gas21/XVIB1']
  *     YVIB1 = gd['gas21/YVIB1']
  *     XVIB2 = gd['gas21/XVIB2']             # <<<<<<<<<<<<<<
@@ -2286,7 +2286,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB2[0]), __pyx_t_9, sizeof(__pyx_v_XVIB2[0]) * (42));
 
-  /* "HYDROGEN.pyx":45
+  /* "gases/HYDROGEN.pyx":45
  *     YVIB1 = gd['gas21/YVIB1']
  *     XVIB2 = gd['gas21/XVIB2']
  *     YVIB2 = gd['gas21/YVIB2']             # <<<<<<<<<<<<<<
@@ -2299,7 +2299,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB2[0]), __pyx_t_9, sizeof(__pyx_v_YVIB2[0]) * (42));
 
-  /* "HYDROGEN.pyx":46
+  /* "gases/HYDROGEN.pyx":46
  *     XVIB2 = gd['gas21/XVIB2']
  *     YVIB2 = gd['gas21/YVIB2']
  *     XVIB3 = gd['gas21/XVIB3']             # <<<<<<<<<<<<<<
@@ -2312,7 +2312,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB3[0]), __pyx_t_10, sizeof(__pyx_v_XVIB3[0]) * (13));
 
-  /* "HYDROGEN.pyx":47
+  /* "gases/HYDROGEN.pyx":47
  *     YVIB2 = gd['gas21/YVIB2']
  *     XVIB3 = gd['gas21/XVIB3']
  *     YVIB3 = gd['gas21/YVIB3']             # <<<<<<<<<<<<<<
@@ -2325,7 +2325,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB3[0]), __pyx_t_10, sizeof(__pyx_v_YVIB3[0]) * (13));
 
-  /* "HYDROGEN.pyx":48
+  /* "gases/HYDROGEN.pyx":48
  *     XVIB3 = gd['gas21/XVIB3']
  *     YVIB3 = gd['gas21/YVIB3']
  *     XVIB4 = gd['gas21/XVIB4']             # <<<<<<<<<<<<<<
@@ -2338,7 +2338,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB4[0]), __pyx_t_11, sizeof(__pyx_v_XVIB4[0]) * (12));
 
-  /* "HYDROGEN.pyx":49
+  /* "gases/HYDROGEN.pyx":49
  *     YVIB3 = gd['gas21/YVIB3']
  *     XVIB4 = gd['gas21/XVIB4']
  *     YVIB4 = gd['gas21/YVIB4']             # <<<<<<<<<<<<<<
@@ -2351,7 +2351,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB4[0]), __pyx_t_11, sizeof(__pyx_v_YVIB4[0]) * (12));
 
-  /* "HYDROGEN.pyx":50
+  /* "gases/HYDROGEN.pyx":50
  *     XVIB4 = gd['gas21/XVIB4']
  *     YVIB4 = gd['gas21/YVIB4']
  *     XB3S1 = gd['gas21/XB3S1']             # <<<<<<<<<<<<<<
@@ -2364,7 +2364,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XB3S1[0]), __pyx_t_12, sizeof(__pyx_v_XB3S1[0]) * (3));
 
-  /* "HYDROGEN.pyx":51
+  /* "gases/HYDROGEN.pyx":51
  *     YVIB4 = gd['gas21/YVIB4']
  *     XB3S1 = gd['gas21/XB3S1']
  *     YB3S1 = gd['gas21/YB3S1']             # <<<<<<<<<<<<<<
@@ -2377,7 +2377,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YB3S1[0]), __pyx_t_12, sizeof(__pyx_v_YB3S1[0]) * (3));
 
-  /* "HYDROGEN.pyx":52
+  /* "gases/HYDROGEN.pyx":52
  *     XB3S1 = gd['gas21/XB3S1']
  *     YB3S1 = gd['gas21/YB3S1']
  *     XB3S2 = gd['gas21/XB3S2']             # <<<<<<<<<<<<<<
@@ -2390,7 +2390,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XB3S2[0]), __pyx_t_13, sizeof(__pyx_v_XB3S2[0]) * (6));
 
-  /* "HYDROGEN.pyx":53
+  /* "gases/HYDROGEN.pyx":53
  *     YB3S1 = gd['gas21/YB3S1']
  *     XB3S2 = gd['gas21/XB3S2']
  *     YB3S2 = gd['gas21/YB3S2']             # <<<<<<<<<<<<<<
@@ -2403,7 +2403,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YB3S2[0]), __pyx_t_13, sizeof(__pyx_v_YB3S2[0]) * (6));
 
-  /* "HYDROGEN.pyx":54
+  /* "gases/HYDROGEN.pyx":54
  *     XB3S2 = gd['gas21/XB3S2']
  *     YB3S2 = gd['gas21/YB3S2']
  *     XB3S3 = gd['gas21/XB3S3']             # <<<<<<<<<<<<<<
@@ -2416,7 +2416,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XB3S3[0]), __pyx_t_14, sizeof(__pyx_v_XB3S3[0]) * (5));
 
-  /* "HYDROGEN.pyx":55
+  /* "gases/HYDROGEN.pyx":55
  *     YB3S2 = gd['gas21/YB3S2']
  *     XB3S3 = gd['gas21/XB3S3']
  *     YB3S3 = gd['gas21/YB3S3']             # <<<<<<<<<<<<<<
@@ -2429,7 +2429,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YB3S3[0]), __pyx_t_14, sizeof(__pyx_v_YB3S3[0]) * (5));
 
-  /* "HYDROGEN.pyx":56
+  /* "gases/HYDROGEN.pyx":56
  *     XB3S3 = gd['gas21/XB3S3']
  *     YB3S3 = gd['gas21/YB3S3']
  *     XB3S4 = gd['gas21/XB3S4']             # <<<<<<<<<<<<<<
@@ -2442,7 +2442,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XB3S4[0]), __pyx_t_15, sizeof(__pyx_v_XB3S4[0]) * (8));
 
-  /* "HYDROGEN.pyx":57
+  /* "gases/HYDROGEN.pyx":57
  *     YB3S3 = gd['gas21/YB3S3']
  *     XB3S4 = gd['gas21/XB3S4']
  *     YB3S4 = gd['gas21/YB3S4']             # <<<<<<<<<<<<<<
@@ -2455,7 +2455,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YB3S4[0]), __pyx_t_15, sizeof(__pyx_v_YB3S4[0]) * (8));
 
-  /* "HYDROGEN.pyx":58
+  /* "gases/HYDROGEN.pyx":58
  *     XB3S4 = gd['gas21/XB3S4']
  *     YB3S4 = gd['gas21/YB3S4']
  *     XC3PI = gd['gas21/XC3PI']             # <<<<<<<<<<<<<<
@@ -2468,7 +2468,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XC3PI[0]), __pyx_t_14, sizeof(__pyx_v_XC3PI[0]) * (5));
 
-  /* "HYDROGEN.pyx":59
+  /* "gases/HYDROGEN.pyx":59
  *     YB3S4 = gd['gas21/YB3S4']
  *     XC3PI = gd['gas21/XC3PI']
  *     YC3PI = gd['gas21/YC3PI']             # <<<<<<<<<<<<<<
@@ -2481,7 +2481,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YC3PI[0]), __pyx_t_14, sizeof(__pyx_v_YC3PI[0]) * (5));
 
-  /* "HYDROGEN.pyx":60
+  /* "gases/HYDROGEN.pyx":60
  *     XC3PI = gd['gas21/XC3PI']
  *     YC3PI = gd['gas21/YC3PI']
  *     XA3SG = gd['gas21/XA3SG']             # <<<<<<<<<<<<<<
@@ -2494,7 +2494,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XA3SG[0]), __pyx_t_14, sizeof(__pyx_v_XA3SG[0]) * (5));
 
-  /* "HYDROGEN.pyx":61
+  /* "gases/HYDROGEN.pyx":61
  *     YC3PI = gd['gas21/YC3PI']
  *     XA3SG = gd['gas21/XA3SG']
  *     YA3SG = gd['gas21/YA3SG']             # <<<<<<<<<<<<<<
@@ -2507,7 +2507,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YA3SG[0]), __pyx_t_14, sizeof(__pyx_v_YA3SG[0]) * (5));
 
-  /* "HYDROGEN.pyx":62
+  /* "gases/HYDROGEN.pyx":62
  *     XA3SG = gd['gas21/XA3SG']
  *     YA3SG = gd['gas21/YA3SG']
  *     XE3SG = gd['gas21/XE3SG']             # <<<<<<<<<<<<<<
@@ -2520,7 +2520,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XE3SG[0]), __pyx_t_14, sizeof(__pyx_v_XE3SG[0]) * (5));
 
-  /* "HYDROGEN.pyx":63
+  /* "gases/HYDROGEN.pyx":63
  *     YA3SG = gd['gas21/YA3SG']
  *     XE3SG = gd['gas21/XE3SG']
  *     YE3SG = gd['gas21/YE3SG']             # <<<<<<<<<<<<<<
@@ -2533,7 +2533,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YE3SG[0]), __pyx_t_14, sizeof(__pyx_v_YE3SG[0]) * (5));
 
-  /* "HYDROGEN.pyx":64
+  /* "gases/HYDROGEN.pyx":64
  *     XE3SG = gd['gas21/XE3SG']
  *     YE3SG = gd['gas21/YE3SG']
  *     XEFSG = gd['gas21/XEFSG']             # <<<<<<<<<<<<<<
@@ -2546,7 +2546,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEFSG[0]), __pyx_t_16, sizeof(__pyx_v_XEFSG[0]) * (34));
 
-  /* "HYDROGEN.pyx":65
+  /* "gases/HYDROGEN.pyx":65
  *     YE3SG = gd['gas21/YE3SG']
  *     XEFSG = gd['gas21/XEFSG']
  *     YEFSG = gd['gas21/YEFSG']             # <<<<<<<<<<<<<<
@@ -2559,7 +2559,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEFSG[0]), __pyx_t_16, sizeof(__pyx_v_YEFSG[0]) * (34));
 
-  /* "HYDROGEN.pyx":66
+  /* "gases/HYDROGEN.pyx":66
  *     XEFSG = gd['gas21/XEFSG']
  *     YEFSG = gd['gas21/YEFSG']
  *     XATT = gd['gas21/XATT']             # <<<<<<<<<<<<<<
@@ -2572,7 +2572,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT[0]), __pyx_t_17, sizeof(__pyx_v_XATT[0]) * (18));
 
-  /* "HYDROGEN.pyx":67
+  /* "gases/HYDROGEN.pyx":67
  *     YEFSG = gd['gas21/YEFSG']
  *     XATT = gd['gas21/XATT']
  *     YATT = gd['gas21/YATT']             # <<<<<<<<<<<<<<
@@ -2585,7 +2585,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT[0]), __pyx_t_17, sizeof(__pyx_v_YATT[0]) * (18));
 
-  /* "HYDROGEN.pyx":68
+  /* "gases/HYDROGEN.pyx":68
  *     XATT = gd['gas21/XATT']
  *     YATT = gd['gas21/YATT']
  *     XION = gd['gas21/XION']             # <<<<<<<<<<<<<<
@@ -2598,7 +2598,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_18, sizeof(__pyx_v_XION[0]) * (92));
 
-  /* "HYDROGEN.pyx":69
+  /* "gases/HYDROGEN.pyx":69
  *     YATT = gd['gas21/YATT']
  *     XION = gd['gas21/XION']
  *     YION = gd['gas21/YION']             # <<<<<<<<<<<<<<
@@ -2611,7 +2611,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_18, sizeof(__pyx_v_YION[0]) * (92));
 
-  /* "HYDROGEN.pyx":70
+  /* "gases/HYDROGEN.pyx":70
  *     XION = gd['gas21/XION']
  *     YION = gd['gas21/YION']
  *     XIOND = gd['gas21/XIOND']             # <<<<<<<<<<<<<<
@@ -2624,7 +2624,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIOND[0]), __pyx_t_19, sizeof(__pyx_v_XIOND[0]) * (61));
 
-  /* "HYDROGEN.pyx":71
+  /* "gases/HYDROGEN.pyx":71
  *     YION = gd['gas21/YION']
  *     XIOND = gd['gas21/XIOND']
  *     YIOND = gd['gas21/YIOND']             # <<<<<<<<<<<<<<
@@ -2637,7 +2637,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIOND[0]), __pyx_t_19, sizeof(__pyx_v_YIOND[0]) * (61));
 
-  /* "HYDROGEN.pyx":72
+  /* "gases/HYDROGEN.pyx":72
  *     XIOND = gd['gas21/XIOND']
  *     YIOND = gd['gas21/YIOND']
  *     DISLY = gd['gas21/DISLY']             # <<<<<<<<<<<<<<
@@ -2650,7 +2650,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_DISLY[0]), __pyx_t_20, sizeof(__pyx_v_DISLY[0]) * (37));
 
-  /* "HYDROGEN.pyx":73
+  /* "gases/HYDROGEN.pyx":73
  *     YIOND = gd['gas21/YIOND']
  *     DISLY = gd['gas21/DISLY']
  *     DISWR = gd['gas21/DISWR']             # <<<<<<<<<<<<<<
@@ -2663,7 +2663,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_DISWR[0]), __pyx_t_21, sizeof(__pyx_v_DISWR[0]) * (14));
 
-  /* "HYDROGEN.pyx":74
+  /* "gases/HYDROGEN.pyx":74
  *     DISLY = gd['gas21/DISLY']
  *     DISWR = gd['gas21/DISWR']
  *     DISD1P = gd['gas21/DISD1P']             # <<<<<<<<<<<<<<
@@ -2676,7 +2676,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_DISD1P[0]), __pyx_t_22, sizeof(__pyx_v_DISD1P[0]) * (16));
 
-  /* "HYDROGEN.pyx":75
+  /* "gases/HYDROGEN.pyx":75
  *     DISWR = gd['gas21/DISWR']
  *     DISD1P = gd['gas21/DISD1P']
  *     DISB1S = gd['gas21/DISB1S']             # <<<<<<<<<<<<<<
@@ -2689,7 +2689,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_DISB1S[0]), __pyx_t_23, sizeof(__pyx_v_DISB1S[0]) * (9));
 
-  /* "HYDROGEN.pyx":76
+  /* "gases/HYDROGEN.pyx":76
  *     DISD1P = gd['gas21/DISD1P']
  *     DISB1S = gd['gas21/DISB1S']
  *     Z1T = gd['gas21/Z1T']             # <<<<<<<<<<<<<<
@@ -2702,7 +2702,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z1T[0]), __pyx_t_24, sizeof(__pyx_v_Z1T[0]) * (25));
 
-  /* "HYDROGEN.pyx":77
+  /* "gases/HYDROGEN.pyx":77
  *     DISB1S = gd['gas21/DISB1S']
  *     Z1T = gd['gas21/Z1T']
  *     EBRM = gd['gas21/EBRM']             # <<<<<<<<<<<<<<
@@ -2715,7 +2715,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_24, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "HYDROGEN.pyx":81
+  /* "gases/HYDROGEN.pyx":81
  *     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C,
  *     cdef int NBREM, i, j, I, J
  *     A0 = 0.52917720859e-08             # <<<<<<<<<<<<<<
@@ -2724,7 +2724,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-08;
 
-  /* "HYDROGEN.pyx":82
+  /* "gases/HYDROGEN.pyx":82
  *     cdef int NBREM, i, j, I, J
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193             # <<<<<<<<<<<<<<
@@ -2733,7 +2733,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "HYDROGEN.pyx":83
+  /* "gases/HYDROGEN.pyx":83
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -2742,7 +2742,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "HYDROGEN.pyx":84
+  /* "gases/HYDROGEN.pyx":84
  *     RY = 13.60569193
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804             # <<<<<<<<<<<<<<
@@ -2751,7 +2751,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "HYDROGEN.pyx":85
+  /* "gases/HYDROGEN.pyx":85
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)             # <<<<<<<<<<<<<<
@@ -2760,7 +2760,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0e0);
 
-  /* "HYDROGEN.pyx":86
+  /* "gases/HYDROGEN.pyx":86
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -2769,7 +2769,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0e0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "HYDROGEN.pyx":88
+  /* "gases/HYDROGEN.pyx":88
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
  *     #BORN BETHE VALUES FOR IONISATION
  *     AM2 = 0.642             # <<<<<<<<<<<<<<
@@ -2778,7 +2778,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 0.642;
 
-  /* "HYDROGEN.pyx":89
+  /* "gases/HYDROGEN.pyx":89
  *     #BORN BETHE VALUES FOR IONISATION
  *     AM2 = 0.642
  *     C = 8.30             # <<<<<<<<<<<<<<
@@ -2787,7 +2787,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 8.30;
 
-  /* "HYDROGEN.pyx":91
+  /* "gases/HYDROGEN.pyx":91
  *     C = 8.30
  * 
  *     object.NION = 2             # <<<<<<<<<<<<<<
@@ -2796,7 +2796,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 2;
 
-  /* "HYDROGEN.pyx":92
+  /* "gases/HYDROGEN.pyx":92
  * 
  *     object.NION = 2
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -2805,7 +2805,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "HYDROGEN.pyx":93
+  /* "gases/HYDROGEN.pyx":93
  *     object.NION = 2
  *     object.NATT = 1
  *     object.NIN = 107             # <<<<<<<<<<<<<<
@@ -2814,7 +2814,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 0x6B;
 
-  /* "HYDROGEN.pyx":94
+  /* "gases/HYDROGEN.pyx":94
  *     object.NATT = 1
  *     object.NIN = 107
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -2823,7 +2823,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "HYDROGEN.pyx":96
+  /* "gases/HYDROGEN.pyx":96
  *     object.NNULL = 0
  * 
  *     for i in range(6):             # <<<<<<<<<<<<<<
@@ -2833,7 +2833,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 0; __pyx_t_25 < 6; __pyx_t_25+=1) {
     __pyx_v_i = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":97
+    /* "gases/HYDROGEN.pyx":97
  * 
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -2844,7 +2844,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_i]) = __pyx_t_26;
   }
 
-  /* "HYDROGEN.pyx":98
+  /* "gases/HYDROGEN.pyx":98
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO
  *     for i in range(4, object.NIN):             # <<<<<<<<<<<<<<
@@ -2856,7 +2856,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_27 = 4; __pyx_t_27 < __pyx_t_26; __pyx_t_27+=1) {
     __pyx_v_i = __pyx_t_27;
 
-    /* "HYDROGEN.pyx":99
+    /* "gases/HYDROGEN.pyx":99
  *         object.KEL[i] = object.NANISO
  *     for i in range(4, object.NIN):
  *         object.KIN[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -2867,7 +2867,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = __pyx_t_28;
   }
 
-  /* "HYDROGEN.pyx":101
+  /* "gases/HYDROGEN.pyx":101
  *         object.KIN[i] = object.NANISO
  * 
  *     for i in range(4):             # <<<<<<<<<<<<<<
@@ -2877,7 +2877,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 0; __pyx_t_25 < 4; __pyx_t_25+=1) {
     __pyx_v_i = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":102
+    /* "gases/HYDROGEN.pyx":102
  * 
  *     for i in range(4):
  *         object.KIN[i] = 0             # <<<<<<<<<<<<<<
@@ -2887,7 +2887,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = 0.0;
   }
 
-  /* "HYDROGEN.pyx":106
+  /* "gases/HYDROGEN.pyx":106
  *     cdef int NELM, NROT0, NROT1, NROT2, NROT3, NVIB1, NVIB2, NVIB3, NVIB4, NB3S1, NB3S2, NB3S3, NB3S4, NC3PI, NA3SG, NE3SG, NEFSG, NIONG
  *     cdef int NIOND, NATT1
  *     NELM = 172             # <<<<<<<<<<<<<<
@@ -2896,7 +2896,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NELM = 0xAC;
 
-  /* "HYDROGEN.pyx":107
+  /* "gases/HYDROGEN.pyx":107
  *     cdef int NIOND, NATT1
  *     NELM = 172
  *     NROT0 = 53             # <<<<<<<<<<<<<<
@@ -2905,7 +2905,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT0 = 53;
 
-  /* "HYDROGEN.pyx":108
+  /* "gases/HYDROGEN.pyx":108
  *     NELM = 172
  *     NROT0 = 53
  *     NROT1 = 43             # <<<<<<<<<<<<<<
@@ -2914,7 +2914,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT1 = 43;
 
-  /* "HYDROGEN.pyx":109
+  /* "gases/HYDROGEN.pyx":109
  *     NROT0 = 53
  *     NROT1 = 43
  *     NROT2 = 28             # <<<<<<<<<<<<<<
@@ -2923,7 +2923,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT2 = 28;
 
-  /* "HYDROGEN.pyx":110
+  /* "gases/HYDROGEN.pyx":110
  *     NROT1 = 43
  *     NROT2 = 28
  *     NROT3 = 28             # <<<<<<<<<<<<<<
@@ -2932,7 +2932,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT3 = 28;
 
-  /* "HYDROGEN.pyx":111
+  /* "gases/HYDROGEN.pyx":111
  *     NROT2 = 28
  *     NROT3 = 28
  *     NVIB1 = 43             # <<<<<<<<<<<<<<
@@ -2941,7 +2941,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB1 = 43;
 
-  /* "HYDROGEN.pyx":112
+  /* "gases/HYDROGEN.pyx":112
  *     NROT3 = 28
  *     NVIB1 = 43
  *     NVIB2 = 42             # <<<<<<<<<<<<<<
@@ -2950,7 +2950,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB2 = 42;
 
-  /* "HYDROGEN.pyx":113
+  /* "gases/HYDROGEN.pyx":113
  *     NVIB1 = 43
  *     NVIB2 = 42
  *     NVIB3 = 13             # <<<<<<<<<<<<<<
@@ -2959,7 +2959,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB3 = 13;
 
-  /* "HYDROGEN.pyx":114
+  /* "gases/HYDROGEN.pyx":114
  *     NVIB2 = 42
  *     NVIB3 = 13
  *     NVIB4 = 12             # <<<<<<<<<<<<<<
@@ -2968,7 +2968,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB4 = 12;
 
-  /* "HYDROGEN.pyx":115
+  /* "gases/HYDROGEN.pyx":115
  *     NVIB3 = 13
  *     NVIB4 = 12
  *     NB3S1 = 3             # <<<<<<<<<<<<<<
@@ -2977,7 +2977,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NB3S1 = 3;
 
-  /* "HYDROGEN.pyx":116
+  /* "gases/HYDROGEN.pyx":116
  *     NVIB4 = 12
  *     NB3S1 = 3
  *     NB3S2 = 6             # <<<<<<<<<<<<<<
@@ -2986,7 +2986,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NB3S2 = 6;
 
-  /* "HYDROGEN.pyx":117
+  /* "gases/HYDROGEN.pyx":117
  *     NB3S1 = 3
  *     NB3S2 = 6
  *     NB3S3 = 5             # <<<<<<<<<<<<<<
@@ -2995,7 +2995,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NB3S3 = 5;
 
-  /* "HYDROGEN.pyx":118
+  /* "gases/HYDROGEN.pyx":118
  *     NB3S2 = 6
  *     NB3S3 = 5
  *     NB3S4 = 8             # <<<<<<<<<<<<<<
@@ -3004,7 +3004,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NB3S4 = 8;
 
-  /* "HYDROGEN.pyx":119
+  /* "gases/HYDROGEN.pyx":119
  *     NB3S3 = 5
  *     NB3S4 = 8
  *     NC3PI = 5             # <<<<<<<<<<<<<<
@@ -3013,7 +3013,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NC3PI = 5;
 
-  /* "HYDROGEN.pyx":120
+  /* "gases/HYDROGEN.pyx":120
  *     NB3S4 = 8
  *     NC3PI = 5
  *     NA3SG = 5             # <<<<<<<<<<<<<<
@@ -3022,7 +3022,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NA3SG = 5;
 
-  /* "HYDROGEN.pyx":121
+  /* "gases/HYDROGEN.pyx":121
  *     NC3PI = 5
  *     NA3SG = 5
  *     NE3SG = 5             # <<<<<<<<<<<<<<
@@ -3031,7 +3031,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NE3SG = 5;
 
-  /* "HYDROGEN.pyx":122
+  /* "gases/HYDROGEN.pyx":122
  *     NA3SG = 5
  *     NE3SG = 5
  *     NEFSG = 34             # <<<<<<<<<<<<<<
@@ -3040,7 +3040,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEFSG = 34;
 
-  /* "HYDROGEN.pyx":123
+  /* "gases/HYDROGEN.pyx":123
  *     NE3SG = 5
  *     NEFSG = 34
  *     NIONG = 92             # <<<<<<<<<<<<<<
@@ -3049,7 +3049,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONG = 92;
 
-  /* "HYDROGEN.pyx":124
+  /* "gases/HYDROGEN.pyx":124
  *     NEFSG = 34
  *     NIONG = 92
  *     NIOND = 61             # <<<<<<<<<<<<<<
@@ -3058,7 +3058,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIOND = 61;
 
-  /* "HYDROGEN.pyx":125
+  /* "gases/HYDROGEN.pyx":125
  *     NIONG = 92
  *     NIOND = 61
  *     NATT1 = 18             # <<<<<<<<<<<<<<
@@ -3067,7 +3067,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 18;
 
-  /* "HYDROGEN.pyx":126
+  /* "gases/HYDROGEN.pyx":126
  *     NIOND = 61
  *     NATT1 = 18
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -3076,7 +3076,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "HYDROGEN.pyx":127
+  /* "gases/HYDROGEN.pyx":127
  *     NATT1 = 18
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27, ESCOBY, EOBY[2], EATTTH, EATTWD, AMPATT, EATTTH1, EATTWD1, AMPATT1             # <<<<<<<<<<<<<<
@@ -3085,7 +3085,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "HYDROGEN.pyx":129
+  /* "gases/HYDROGEN.pyx":129
  *     cdef double AMU = 1.660538921e-27, ESCOBY, EOBY[2], EATTTH, EATTWD, AMPATT, EATTTH1, EATTWD1, AMPATT1
  * 
  *     object.E = [0.0, 1.0, 15.418, 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -3100,7 +3100,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_13[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_13, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "HYDROGEN.pyx":130
+  /* "gases/HYDROGEN.pyx":130
  * 
  *     object.E = [0.0, 1.0, 15.418, 0.0, 0.0, 0.0]
  *     object.E[1] = 2.0 * EMASS / (2.01565 * AMU)             # <<<<<<<<<<<<<<
@@ -3109,7 +3109,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (2.01565 * __pyx_v_AMU));
 
-  /* "HYDROGEN.pyx":134
+  /* "gases/HYDROGEN.pyx":134
  *     # IONISATION ENERGY FOR ORTHO=15.41833111 EV
  *     # USE ORTHO ENERGY FOR ROOM TEMPERATURE GAS
  *     object.EION[0:2] = [object.E[2], 18.076]             # <<<<<<<<<<<<<<
@@ -3120,7 +3120,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_29[1] = 18.076;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_29, sizeof(__pyx_v_object->EION[0]) * (2));
 
-  /* "HYDROGEN.pyx":137
+  /* "gases/HYDROGEN.pyx":137
  * 
  *     # OPAL BEATY FOR LOW ENERGY
  *     ESCOBY = 0.5             # <<<<<<<<<<<<<<
@@ -3129,7 +3129,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_ESCOBY = 0.5;
 
-  /* "HYDROGEN.pyx":138
+  /* "gases/HYDROGEN.pyx":138
  *     # OPAL BEATY FOR LOW ENERGY
  *     ESCOBY = 0.5
  *     EOBY[0] = object.EION[0] * ESCOBY             # <<<<<<<<<<<<<<
@@ -3138,7 +3138,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_EOBY[0]) = ((__pyx_v_object->EION[0]) * __pyx_v_ESCOBY);
 
-  /* "HYDROGEN.pyx":139
+  /* "gases/HYDROGEN.pyx":139
  *     ESCOBY = 0.5
  *     EOBY[0] = object.EION[0] * ESCOBY
  *     EOBY[1] = object.EION[1] * ESCOBY             # <<<<<<<<<<<<<<
@@ -3147,7 +3147,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_EOBY[1]) = ((__pyx_v_object->EION[1]) * __pyx_v_ESCOBY);
 
-  /* "HYDROGEN.pyx":142
+  /* "gases/HYDROGEN.pyx":142
  * 
  *     #FLUORESENCE DATA
  *     for J in range(2):             # <<<<<<<<<<<<<<
@@ -3157,7 +3157,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 0; __pyx_t_25 < 2; __pyx_t_25+=1) {
     __pyx_v_J = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":143
+    /* "gases/HYDROGEN.pyx":143
  *     #FLUORESENCE DATA
  *     for J in range(2):
  *         object.NC0[J] = 0             # <<<<<<<<<<<<<<
@@ -3166,7 +3166,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NC0[__pyx_v_J]) = 0.0;
 
-    /* "HYDROGEN.pyx":144
+    /* "gases/HYDROGEN.pyx":144
  *     for J in range(2):
  *         object.NC0[J] = 0
  *         object.EC0[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3175,7 +3175,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EC0[__pyx_v_J]) = 0.0;
 
-    /* "HYDROGEN.pyx":145
+    /* "gases/HYDROGEN.pyx":145
  *         object.NC0[J] = 0
  *         object.EC0[J] = 0.0
  *         object.WK[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3184,7 +3184,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->WK[__pyx_v_J]) = 0.0;
 
-    /* "HYDROGEN.pyx":146
+    /* "gases/HYDROGEN.pyx":146
  *         object.EC0[J] = 0.0
  *         object.WK[J] = 0.0
  *         object.EFL[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3193,7 +3193,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EFL[__pyx_v_J]) = 0.0;
 
-    /* "HYDROGEN.pyx":147
+    /* "gases/HYDROGEN.pyx":147
  *         object.WK[J] = 0.0
  *         object.EFL[J] = 0.0
  *         object.NG1[J] = 0             # <<<<<<<<<<<<<<
@@ -3202,7 +3202,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG1[__pyx_v_J]) = 0.0;
 
-    /* "HYDROGEN.pyx":148
+    /* "gases/HYDROGEN.pyx":148
  *         object.EFL[J] = 0.0
  *         object.NG1[J] = 0
  *         object.EG1[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3211,7 +3211,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EG1[__pyx_v_J]) = 0.0;
 
-    /* "HYDROGEN.pyx":149
+    /* "gases/HYDROGEN.pyx":149
  *         object.NG1[J] = 0
  *         object.EG1[J] = 0.0
  *         object.NG2[J] = 0             # <<<<<<<<<<<<<<
@@ -3220,7 +3220,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG2[__pyx_v_J]) = 0.0;
 
-    /* "HYDROGEN.pyx":150
+    /* "gases/HYDROGEN.pyx":150
  *         object.EG1[J] = 0.0
  *         object.NG2[J] = 0
  *         object.EG2[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3230,7 +3230,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EG2[__pyx_v_J]) = 0.0;
   }
 
-  /* "HYDROGEN.pyx":152
+  /* "gases/HYDROGEN.pyx":152
  *         object.EG2[J] = 0.0
  * 
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -3242,7 +3242,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_27 = 0; __pyx_t_27 < __pyx_t_26; __pyx_t_27+=1) {
     __pyx_v_j = __pyx_t_27;
 
-    /* "HYDROGEN.pyx":153
+    /* "gases/HYDROGEN.pyx":153
  * 
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -3252,7 +3252,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_28 = 0; __pyx_t_28 < 0xFA0; __pyx_t_28+=1) {
       __pyx_v_i = __pyx_t_28;
 
-      /* "HYDROGEN.pyx":154
+      /* "gases/HYDROGEN.pyx":154
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -3262,7 +3262,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":155
+        /* "gases/HYDROGEN.pyx":155
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -3271,7 +3271,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "HYDROGEN.pyx":156
+        /* "gases/HYDROGEN.pyx":156
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -3280,7 +3280,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L14_break;
 
-        /* "HYDROGEN.pyx":154
+        /* "gases/HYDROGEN.pyx":154
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -3292,7 +3292,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L14_break:;
   }
 
-  /* "HYDROGEN.pyx":159
+  /* "gases/HYDROGEN.pyx":159
  *     #TODO: add EIN comments
  * 
  *     object.EIN = gd['gas21/EIN']             # <<<<<<<<<<<<<<
@@ -3309,7 +3309,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_31, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "HYDROGEN.pyx":161
+  /* "gases/HYDROGEN.pyx":161
  *     object.EIN = gd['gas21/EIN']
  * 
  *     for J in range(5):             # <<<<<<<<<<<<<<
@@ -3319,7 +3319,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 0; __pyx_t_25 < 5; __pyx_t_25+=1) {
     __pyx_v_J = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":162
+    /* "gases/HYDROGEN.pyx":162
  * 
  *     for J in range(5):
  *         BEF[J] = object.E[2]             # <<<<<<<<<<<<<<
@@ -3329,7 +3329,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_BEF[__pyx_v_J]) = (__pyx_v_object->E[2]);
   }
 
-  /* "HYDROGEN.pyx":165
+  /* "gases/HYDROGEN.pyx":165
  * 
  *     # ATTACHMENT THRESHOLD EV FOR 2 SIGMAu
  *     EATTTH = 3.723             # <<<<<<<<<<<<<<
@@ -3338,7 +3338,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EATTTH = 3.723;
 
-  /* "HYDROGEN.pyx":167
+  /* "gases/HYDROGEN.pyx":167
  *     EATTTH = 3.723
  *     # ATTACHMENT WIDTH FOR 2 SIGMAu
  *     EATTWD = 0.45             # <<<<<<<<<<<<<<
@@ -3347,7 +3347,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EATTWD = 0.45;
 
-  /* "HYDROGEN.pyx":169
+  /* "gases/HYDROGEN.pyx":169
  *     EATTWD = 0.45
  *     # ATTACHMENT AMPLITUDE FOR 2 SIGMAu
  *     AMPATT = 3.0e-21             # <<<<<<<<<<<<<<
@@ -3356,7 +3356,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMPATT = 3.0e-21;
 
-  /* "HYDROGEN.pyx":171
+  /* "gases/HYDROGEN.pyx":171
  *     AMPATT = 3.0e-21
  *     # ATTACHMENT THRESHOLD EV FOR 2 SIGMAg
  *     EATTTH1 = 13.922             # <<<<<<<<<<<<<<
@@ -3365,7 +3365,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EATTTH1 = 13.922;
 
-  /* "HYDROGEN.pyx":173
+  /* "gases/HYDROGEN.pyx":173
  *     EATTTH1 = 13.922
  *     # ATTACHMENT WIDTH FOR 2 SIGMAg
  *     EATTWD1 = 0.95             # <<<<<<<<<<<<<<
@@ -3374,7 +3374,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EATTWD1 = 0.95;
 
-  /* "HYDROGEN.pyx":175
+  /* "gases/HYDROGEN.pyx":175
  *     EATTWD1 = 0.95
  *     # ATTACHMENT AMPLITUDE FOR 2 SIGMAg
  *     AMPATT1 = 3.0e-20             # <<<<<<<<<<<<<<
@@ -3383,7 +3383,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMPATT1 = 3.0e-20;
 
-  /* "HYDROGEN.pyx":180
+  /* "gases/HYDROGEN.pyx":180
  *     #  PARA - ORTHO ENERGY DIFFERENCE ( J=0 - J=1 ROT LEVEL) = 0.01469049 EV
  *     #  REF :ASTROPHYS J.  282(1984)L85
  *     ERLVL[0] = 0.01469049             # <<<<<<<<<<<<<<
@@ -3392,7 +3392,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_ERLVL[0]) = 0.01469049;
 
-  /* "HYDROGEN.pyx":181
+  /* "gases/HYDROGEN.pyx":181
  *     #  REF :ASTROPHYS J.  282(1984)L85
  *     ERLVL[0] = 0.01469049
  *     ERLVL[1] = object.EIN[4]             # <<<<<<<<<<<<<<
@@ -3401,7 +3401,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_ERLVL[1]) = (__pyx_v_object->EIN[4]);
 
-  /* "HYDROGEN.pyx":182
+  /* "gases/HYDROGEN.pyx":182
  *     ERLVL[0] = 0.01469049
  *     ERLVL[1] = object.EIN[4]
  *     ERLVL[2] = 0.01469049 + object.EIN[5]             # <<<<<<<<<<<<<<
@@ -3410,7 +3410,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_ERLVL[2]) = (0.01469049 + (__pyx_v_object->EIN[5]));
 
-  /* "HYDROGEN.pyx":183
+  /* "gases/HYDROGEN.pyx":183
  *     ERLVL[1] = object.EIN[4]
  *     ERLVL[2] = 0.01469049 + object.EIN[5]
  *     ERLVL[3] = object.EIN[4] + object.EIN[6]             # <<<<<<<<<<<<<<
@@ -3419,7 +3419,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_ERLVL[3]) = ((__pyx_v_object->EIN[4]) + (__pyx_v_object->EIN[6]));
 
-  /* "HYDROGEN.pyx":184
+  /* "gases/HYDROGEN.pyx":184
  *     ERLVL[2] = 0.01469049 + object.EIN[5]
  *     ERLVL[3] = object.EIN[4] + object.EIN[6]
  *     ERLVL[4] = 0.01469049 + object.EIN[5] + object.EIN[7]             # <<<<<<<<<<<<<<
@@ -3428,7 +3428,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_ERLVL[4]) = ((0.01469049 + (__pyx_v_object->EIN[5])) + (__pyx_v_object->EIN[7]));
 
-  /* "HYDROGEN.pyx":185
+  /* "gases/HYDROGEN.pyx":185
  *     ERLVL[3] = object.EIN[4] + object.EIN[6]
  *     ERLVL[4] = 0.01469049 + object.EIN[5] + object.EIN[7]
  *     ERLVL[5] = object.EIN[4] + object.EIN[6] + 0.15381             # <<<<<<<<<<<<<<
@@ -3437,7 +3437,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_ERLVL[5]) = (((__pyx_v_object->EIN[4]) + (__pyx_v_object->EIN[6])) + 0.15381);
 
-  /* "HYDROGEN.pyx":186
+  /* "gases/HYDROGEN.pyx":186
  *     ERLVL[4] = 0.01469049 + object.EIN[5] + object.EIN[7]
  *     ERLVL[5] = object.EIN[4] + object.EIN[6] + 0.15381
  *     ERLVL[6] = 0.01469049 + object.EIN[5] + object.EIN[7] + 0.1794             # <<<<<<<<<<<<<<
@@ -3446,7 +3446,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_ERLVL[6]) = (((0.01469049 + (__pyx_v_object->EIN[5])) + (__pyx_v_object->EIN[7])) + 0.1794);
 
-  /* "HYDROGEN.pyx":188
+  /* "gases/HYDROGEN.pyx":188
  *     ERLVL[6] = 0.01469049 + object.EIN[5] + object.EIN[7] + 0.1794
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3458,7 +3458,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_27 = 0; __pyx_t_27 < __pyx_t_26; __pyx_t_27+=1) {
     __pyx_v_J = __pyx_t_27;
 
-    /* "HYDROGEN.pyx":189
+    /* "gases/HYDROGEN.pyx":189
  * 
  *     for J in range(object.NIN):
  *         object.PENFRA[0][J] = 0.0             # <<<<<<<<<<<<<<
@@ -3467,7 +3467,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_J]) = 0.0;
 
-    /* "HYDROGEN.pyx":190
+    /* "gases/HYDROGEN.pyx":190
  *     for J in range(object.NIN):
  *         object.PENFRA[0][J] = 0.0
  *         object.PENFRA[1][J] = 1.0             # <<<<<<<<<<<<<<
@@ -3476,7 +3476,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_J]) = 1.0;
 
-    /* "HYDROGEN.pyx":191
+    /* "gases/HYDROGEN.pyx":191
  *         object.PENFRA[0][J] = 0.0
  *         object.PENFRA[1][J] = 1.0
  *         object.PENFRA[2][J] = 1.0             # <<<<<<<<<<<<<<
@@ -3486,7 +3486,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_J]) = 1.0;
   }
 
-  /* "HYDROGEN.pyx":194
+  /* "gases/HYDROGEN.pyx":194
  * 
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  *     cdef int NL = 0, FI             # <<<<<<<<<<<<<<
@@ -3495,7 +3495,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL = 0;
 
-  /* "HYDROGEN.pyx":195
+  /* "gases/HYDROGEN.pyx":195
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  *     cdef int NL = 0, FI
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3507,7 +3507,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_27 = 0; __pyx_t_27 < __pyx_t_26; __pyx_t_27+=1) {
     __pyx_v_NL = __pyx_t_27;
 
-    /* "HYDROGEN.pyx":196
+    /* "gases/HYDROGEN.pyx":196
  *     cdef int NL = 0, FI
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -3517,7 +3517,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_28 = 0; __pyx_t_28 < 0xFA0; __pyx_t_28+=1) {
       __pyx_v_i = __pyx_t_28;
 
-      /* "HYDROGEN.pyx":197
+      /* "gases/HYDROGEN.pyx":197
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -3527,7 +3527,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = (((__pyx_v_object->EG[__pyx_v_i]) > fabs((__pyx_v_object->EIN[__pyx_v_NL]))) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":198
+        /* "gases/HYDROGEN.pyx":198
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i - 1             # <<<<<<<<<<<<<<
@@ -3536,7 +3536,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
 
-        /* "HYDROGEN.pyx":199
+        /* "gases/HYDROGEN.pyx":199
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -3545,7 +3545,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L23_break;
 
-        /* "HYDROGEN.pyx":197
+        /* "gases/HYDROGEN.pyx":197
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -3557,7 +3557,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L23_break:;
   }
 
-  /* "HYDROGEN.pyx":203
+  /* "gases/HYDROGEN.pyx":203
  *     cdef double SUM, FROT[8], GAMMA1, GAMMA2, BETA, BETA2, QMOM, QELA, PQ[3], EN, F[84]
  * 
  *     F = [.0016884, .005782, .011536, .017531, .022477, .025688, .027021, .026731, .025233, .022980, .020362, .017653,             # <<<<<<<<<<<<<<
@@ -3650,7 +3650,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_32[83] = .00927;
   memcpy(&(__pyx_v_F[0]), __pyx_t_32, sizeof(__pyx_v_F[0]) * (84));
 
-  /* "HYDROGEN.pyx":212
+  /* "gases/HYDROGEN.pyx":212
  *          .01700, .00927]
  * 
  *     SUM = 1.0             # <<<<<<<<<<<<<<
@@ -3659,7 +3659,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_SUM = 1.0;
 
-  /* "HYDROGEN.pyx":214
+  /* "gases/HYDROGEN.pyx":214
  *     SUM = 1.0
  *     #ROTATIONAL POPULATIONS
  *     for I in range(1, 8, 2):             # <<<<<<<<<<<<<<
@@ -3669,7 +3669,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 1; __pyx_t_25 < 8; __pyx_t_25+=2) {
     __pyx_v_I = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":215
+    /* "gases/HYDROGEN.pyx":215
  *     #ROTATIONAL POPULATIONS
  *     for I in range(1, 8, 2):
  *         PJ[I - 1] = 3 * (2 * I + 1) * exp(-1 * ERLVL[I - 1] / object.AKT)             # <<<<<<<<<<<<<<
@@ -3679,7 +3679,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_I - 1)]) = ((3 * ((2 * __pyx_v_I) + 1)) * exp(((-1.0 * (__pyx_v_ERLVL[(__pyx_v_I - 1)])) / __pyx_v_object->AKT)));
   }
 
-  /* "HYDROGEN.pyx":217
+  /* "gases/HYDROGEN.pyx":217
  *         PJ[I - 1] = 3 * (2 * I + 1) * exp(-1 * ERLVL[I - 1] / object.AKT)
  * 
  *     for I in range(2, 7, 2):             # <<<<<<<<<<<<<<
@@ -3689,7 +3689,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 2; __pyx_t_25 < 7; __pyx_t_25+=2) {
     __pyx_v_I = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":218
+    /* "gases/HYDROGEN.pyx":218
  * 
  *     for I in range(2, 7, 2):
  *         PJ[I - 1] = (2 * I + 1) * exp(-1 * ERLVL[I - 1] / object.AKT)             # <<<<<<<<<<<<<<
@@ -3699,7 +3699,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_I - 1)]) = (((2 * __pyx_v_I) + 1) * exp(((-1.0 * (__pyx_v_ERLVL[(__pyx_v_I - 1)])) / __pyx_v_object->AKT)));
   }
 
-  /* "HYDROGEN.pyx":220
+  /* "gases/HYDROGEN.pyx":220
  *         PJ[I - 1] = (2 * I + 1) * exp(-1 * ERLVL[I - 1] / object.AKT)
  * 
  *     for I in range(7):             # <<<<<<<<<<<<<<
@@ -3709,7 +3709,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 0; __pyx_t_25 < 7; __pyx_t_25+=1) {
     __pyx_v_I = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":221
+    /* "gases/HYDROGEN.pyx":221
  * 
  *     for I in range(7):
  *         SUM+=PJ[I]             # <<<<<<<<<<<<<<
@@ -3719,7 +3719,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_v_SUM = (__pyx_v_SUM + (__pyx_v_PJ[__pyx_v_I]));
   }
 
-  /* "HYDROGEN.pyx":222
+  /* "gases/HYDROGEN.pyx":222
  *     for I in range(7):
  *         SUM+=PJ[I]
  *     FROT[0] = 1.0 / SUM             # <<<<<<<<<<<<<<
@@ -3728,7 +3728,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_FROT[0]) = (1.0 / __pyx_v_SUM);
 
-  /* "HYDROGEN.pyx":224
+  /* "gases/HYDROGEN.pyx":224
  *     FROT[0] = 1.0 / SUM
  * 
  *     for I in range(1, 8):             # <<<<<<<<<<<<<<
@@ -3738,7 +3738,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 1; __pyx_t_25 < 8; __pyx_t_25+=1) {
     __pyx_v_I = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":225
+    /* "gases/HYDROGEN.pyx":225
  * 
  *     for I in range(1, 8):
  *         FROT[I] = PJ[I - 1] / SUM             # <<<<<<<<<<<<<<
@@ -3748,7 +3748,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_FROT[__pyx_v_I]) = ((__pyx_v_PJ[(__pyx_v_I - 1)]) / __pyx_v_SUM);
   }
 
-  /* "HYDROGEN.pyx":227
+  /* "gases/HYDROGEN.pyx":227
  *         FROT[I] = PJ[I - 1] / SUM
  * 
  *     for I in range(4000):             # <<<<<<<<<<<<<<
@@ -3758,7 +3758,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_25 = 0; __pyx_t_25 < 0xFA0; __pyx_t_25+=1) {
     __pyx_v_I = __pyx_t_25;
 
-    /* "HYDROGEN.pyx":228
+    /* "gases/HYDROGEN.pyx":228
  * 
  *     for I in range(4000):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -3767,7 +3767,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "HYDROGEN.pyx":229
+    /* "gases/HYDROGEN.pyx":229
  *     for I in range(4000):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -3777,7 +3777,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":230
+      /* "gases/HYDROGEN.pyx":230
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -3786,7 +3786,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-      /* "HYDROGEN.pyx":231
+      /* "gases/HYDROGEN.pyx":231
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -3795,7 +3795,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-      /* "HYDROGEN.pyx":232
+      /* "gases/HYDROGEN.pyx":232
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -3804,7 +3804,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-      /* "HYDROGEN.pyx":233
+      /* "gases/HYDROGEN.pyx":233
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -3813,7 +3813,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-      /* "HYDROGEN.pyx":229
+      /* "gases/HYDROGEN.pyx":229
  *     for I in range(4000):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -3822,7 +3822,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":235
+    /* "gases/HYDROGEN.pyx":235
  *             BETA2 = BETA * BETA
  * 
  *         QMOM = GasUtil.CALQIONREG(EN, NELM, YELM, XELM)             # <<<<<<<<<<<<<<
@@ -3831,7 +3831,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QMOM = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NELM, __pyx_v_YELM, __pyx_v_XELM);
 
-    /* "HYDROGEN.pyx":236
+    /* "gases/HYDROGEN.pyx":236
  * 
  *         QMOM = GasUtil.CALQIONREG(EN, NELM, YELM, XELM)
  *         QELA = GasUtil.CALQIONREG(EN, NELM, YELT, XELM)             # <<<<<<<<<<<<<<
@@ -3840,7 +3840,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QELA = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NELM, __pyx_v_YELT, __pyx_v_XELM);
 
-    /* "HYDROGEN.pyx":237
+    /* "gases/HYDROGEN.pyx":237
  *         QMOM = GasUtil.CALQIONREG(EN, NELM, YELM, XELM)
  *         QELA = GasUtil.CALQIONREG(EN, NELM, YELT, XELM)
  *         PQ[2] = GasUtil.CALPQ3(EN, NELM, YEPS, XELM)             # <<<<<<<<<<<<<<
@@ -3849,7 +3849,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NELM, __pyx_v_YEPS, __pyx_v_XELM);
 
-    /* "HYDROGEN.pyx":239
+    /* "gases/HYDROGEN.pyx":239
  *         PQ[2] = GasUtil.CALPQ3(EN, NELM, YEPS, XELM)
  * 
  *         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - PQ[2]]             # <<<<<<<<<<<<<<
@@ -3861,7 +3861,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_12[2] = (1.0 - (__pyx_v_PQ[2]));
     memcpy(&(__pyx_v_PQ[0]), __pyx_t_12, sizeof(__pyx_v_PQ[0]) * (3));
 
-    /* "HYDROGEN.pyx":241
+    /* "gases/HYDROGEN.pyx":241
  *         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - PQ[2]]
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -3870,7 +3870,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "HYDROGEN.pyx":243
+    /* "gases/HYDROGEN.pyx":243
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  * 
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -3879,7 +3879,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "HYDROGEN.pyx":244
+    /* "gases/HYDROGEN.pyx":244
  * 
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -3889,7 +3889,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":245
+      /* "gases/HYDROGEN.pyx":245
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -3898,7 +3898,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "HYDROGEN.pyx":244
+      /* "gases/HYDROGEN.pyx":244
  * 
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -3907,7 +3907,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":248
+    /* "gases/HYDROGEN.pyx":248
  * 
  *         # GROSS IONISATION
  *         object.QION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3916,7 +3916,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = 0.0;
 
-    /* "HYDROGEN.pyx":249
+    /* "gases/HYDROGEN.pyx":249
  *         # GROSS IONISATION
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5             # <<<<<<<<<<<<<<
@@ -3925,7 +3925,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.5;
 
-    /* "HYDROGEN.pyx":250
+    /* "gases/HYDROGEN.pyx":250
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -3935,7 +3935,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":251
+      /* "gases/HYDROGEN.pyx":251
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0             # <<<<<<<<<<<<<<
@@ -3944,7 +3944,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.0;
 
-      /* "HYDROGEN.pyx":250
+      /* "gases/HYDROGEN.pyx":250
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -3953,7 +3953,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":252
+    /* "gases/HYDROGEN.pyx":252
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:             # <<<<<<<<<<<<<<
@@ -3963,7 +3963,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":253
+      /* "gases/HYDROGEN.pyx":253
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YION, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -3972,7 +3972,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIONG, __pyx_v_YION, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "HYDROGEN.pyx":252
+      /* "gases/HYDROGEN.pyx":252
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:             # <<<<<<<<<<<<<<
@@ -3981,7 +3981,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":254
+    /* "gases/HYDROGEN.pyx":254
  *         if EN >= object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YION, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -3991,7 +3991,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[0]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":255
+      /* "gases/HYDROGEN.pyx":255
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YION, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[0]:
  *             object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]             # <<<<<<<<<<<<<<
@@ -4000,7 +4000,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-      /* "HYDROGEN.pyx":254
+      /* "gases/HYDROGEN.pyx":254
  *         if EN >= object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YION, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4009,7 +4009,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":258
+    /* "gases/HYDROGEN.pyx":258
  * 
  *         # DISSOCIATIVE IONISATION
  *         object.QION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4018,7 +4018,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = 0.0;
 
-    /* "HYDROGEN.pyx":259
+    /* "gases/HYDROGEN.pyx":259
  *         # DISSOCIATIVE IONISATION
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4027,7 +4027,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.5;
 
-    /* "HYDROGEN.pyx":260
+    /* "gases/HYDROGEN.pyx":260
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4037,7 +4037,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":261
+      /* "gases/HYDROGEN.pyx":261
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0             # <<<<<<<<<<<<<<
@@ -4046,7 +4046,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.0;
 
-      /* "HYDROGEN.pyx":260
+      /* "gases/HYDROGEN.pyx":260
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4055,7 +4055,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":262
+    /* "gases/HYDROGEN.pyx":262
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4065,7 +4065,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":263
+      /* "gases/HYDROGEN.pyx":263
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NIOND, YIOND, XIOND, BETA2, 0.05481, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -4074,7 +4074,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YIOND, __pyx_v_XIOND, __pyx_v_BETA2, 0.05481, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "HYDROGEN.pyx":262
+      /* "gases/HYDROGEN.pyx":262
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4083,7 +4083,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":264
+    /* "gases/HYDROGEN.pyx":264
  *         if EN >= object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NIOND, YIOND, XIOND, BETA2, 0.05481, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4093,7 +4093,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[1]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":265
+      /* "gases/HYDROGEN.pyx":265
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NIOND, YIOND, XIOND, BETA2, 0.05481, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[1]:
  *             object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]             # <<<<<<<<<<<<<<
@@ -4102,7 +4102,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-      /* "HYDROGEN.pyx":264
+      /* "gases/HYDROGEN.pyx":264
  *         if EN >= object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NIOND, YIOND, XIOND, BETA2, 0.05481, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4111,7 +4111,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":268
+    /* "gases/HYDROGEN.pyx":268
  * 
  *         # CALCULATE NON_DISSOCIATIVE IONISATION
  *         if object.QION[0][I] != 0.0:             # <<<<<<<<<<<<<<
@@ -4121,7 +4121,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((((__pyx_v_object->QION[0])[__pyx_v_I]) != 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":269
+      /* "gases/HYDROGEN.pyx":269
  *         # CALCULATE NON_DISSOCIATIVE IONISATION
  *         if object.QION[0][I] != 0.0:
  *             object.QION[0][I] -= object.QION[1][I]             # <<<<<<<<<<<<<<
@@ -4132,7 +4132,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->QION[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->QION[__pyx_t_33])[__pyx_t_26]) - ((__pyx_v_object->QION[1])[__pyx_v_I]));
 
-      /* "HYDROGEN.pyx":268
+      /* "gases/HYDROGEN.pyx":268
  * 
  *         # CALCULATE NON_DISSOCIATIVE IONISATION
  *         if object.QION[0][I] != 0.0:             # <<<<<<<<<<<<<<
@@ -4141,7 +4141,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":272
+    /* "gases/HYDROGEN.pyx":272
  * 
  *         #ATTACHMENT
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4150,7 +4150,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "HYDROGEN.pyx":273
+    /* "gases/HYDROGEN.pyx":273
  *         #ATTACHMENT
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4159,7 +4159,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "HYDROGEN.pyx":274
+    /* "gases/HYDROGEN.pyx":274
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0
  *         object.PEQEL[3][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4168,7 +4168,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[3])[__pyx_v_I]) = 0.5;
 
-    /* "HYDROGEN.pyx":275
+    /* "gases/HYDROGEN.pyx":275
  *         object.QATT[0][I] = 0.0
  *         object.PEQEL[3][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4178,7 +4178,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":276
+      /* "gases/HYDROGEN.pyx":276
  *         object.PEQEL[3][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQEL[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4187,7 +4187,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQEL[3])[__pyx_v_I]) = 0.0;
 
-      /* "HYDROGEN.pyx":275
+      /* "gases/HYDROGEN.pyx":275
  *         object.QATT[0][I] = 0.0
  *         object.PEQEL[3][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4196,7 +4196,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":280
+    /* "gases/HYDROGEN.pyx":280
  *         #ROTATIONAL DEPENDANCE OF ATTACHMENT TO 2 SIGMAu
  * 
  *         if EN >= (EATTTH - ERLVL[6]):             # <<<<<<<<<<<<<<
@@ -4206,7 +4206,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_EATTTH - (__pyx_v_ERLVL[6]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":281
+      /* "gases/HYDROGEN.pyx":281
  * 
  *         if EN >= (EATTTH - ERLVL[6]):
  *             object.Q[3][I] = AMPATT * 5.0 * FROT[7] * exp(-1 * (EN - EATTTH + ERLVL[6]) / EATTWD)             # <<<<<<<<<<<<<<
@@ -4215,7 +4215,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[3])[__pyx_v_I]) = (((__pyx_v_AMPATT * 5.0) * (__pyx_v_FROT[7])) * exp(((-1.0 * ((__pyx_v_EN - __pyx_v_EATTTH) + (__pyx_v_ERLVL[6]))) / __pyx_v_EATTWD)));
 
-      /* "HYDROGEN.pyx":280
+      /* "gases/HYDROGEN.pyx":280
  *         #ROTATIONAL DEPENDANCE OF ATTACHMENT TO 2 SIGMAu
  * 
  *         if EN >= (EATTTH - ERLVL[6]):             # <<<<<<<<<<<<<<
@@ -4224,7 +4224,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":282
+    /* "gases/HYDROGEN.pyx":282
  *         if EN >= (EATTTH - ERLVL[6]):
  *             object.Q[3][I] = AMPATT * 5.0 * FROT[7] * exp(-1 * (EN - EATTTH + ERLVL[6]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[5]):             # <<<<<<<<<<<<<<
@@ -4234,7 +4234,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_EATTTH - (__pyx_v_ERLVL[5]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":283
+      /* "gases/HYDROGEN.pyx":283
  *             object.Q[3][I] = AMPATT * 5.0 * FROT[7] * exp(-1 * (EN - EATTTH + ERLVL[6]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[5]):
  *             object.Q[3][I] += AMPATT * 3.96 * FROT[6] * exp(-1 * (EN - EATTTH + ERLVL[5]) / EATTWD)             # <<<<<<<<<<<<<<
@@ -4245,7 +4245,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + (((__pyx_v_AMPATT * 3.96) * (__pyx_v_FROT[6])) * exp(((-1.0 * ((__pyx_v_EN - __pyx_v_EATTTH) + (__pyx_v_ERLVL[5]))) / __pyx_v_EATTWD))));
 
-      /* "HYDROGEN.pyx":282
+      /* "gases/HYDROGEN.pyx":282
  *         if EN >= (EATTTH - ERLVL[6]):
  *             object.Q[3][I] = AMPATT * 5.0 * FROT[7] * exp(-1 * (EN - EATTTH + ERLVL[6]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[5]):             # <<<<<<<<<<<<<<
@@ -4254,7 +4254,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":284
+    /* "gases/HYDROGEN.pyx":284
  *         if EN >= (EATTTH - ERLVL[5]):
  *             object.Q[3][I] += AMPATT * 3.96 * FROT[6] * exp(-1 * (EN - EATTTH + ERLVL[5]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[4]):             # <<<<<<<<<<<<<<
@@ -4264,7 +4264,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_EATTTH - (__pyx_v_ERLVL[4]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":285
+      /* "gases/HYDROGEN.pyx":285
  *             object.Q[3][I] += AMPATT * 3.96 * FROT[6] * exp(-1 * (EN - EATTTH + ERLVL[5]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[4]):
  *             object.Q[3][I] += AMPATT * 3.15 * FROT[5] * exp(-1 * (EN - EATTTH + ERLVL[4]) / EATTWD)             # <<<<<<<<<<<<<<
@@ -4275,7 +4275,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + (((__pyx_v_AMPATT * 3.15) * (__pyx_v_FROT[5])) * exp(((-1.0 * ((__pyx_v_EN - __pyx_v_EATTTH) + (__pyx_v_ERLVL[4]))) / __pyx_v_EATTWD))));
 
-      /* "HYDROGEN.pyx":284
+      /* "gases/HYDROGEN.pyx":284
  *         if EN >= (EATTTH - ERLVL[5]):
  *             object.Q[3][I] += AMPATT * 3.96 * FROT[6] * exp(-1 * (EN - EATTTH + ERLVL[5]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[4]):             # <<<<<<<<<<<<<<
@@ -4284,7 +4284,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":286
+    /* "gases/HYDROGEN.pyx":286
  *         if EN >= (EATTTH - ERLVL[4]):
  *             object.Q[3][I] += AMPATT * 3.15 * FROT[5] * exp(-1 * (EN - EATTTH + ERLVL[4]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[3]):             # <<<<<<<<<<<<<<
@@ -4294,7 +4294,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_EATTTH - (__pyx_v_ERLVL[3]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":287
+      /* "gases/HYDROGEN.pyx":287
  *             object.Q[3][I] += AMPATT * 3.15 * FROT[5] * exp(-1 * (EN - EATTTH + ERLVL[4]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[3]):
  *             object.Q[3][I] += AMPATT * 2.50 * FROT[4] * exp(-1 * (EN - EATTTH + ERLVL[3]) / EATTWD)             # <<<<<<<<<<<<<<
@@ -4305,7 +4305,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + (((__pyx_v_AMPATT * 2.50) * (__pyx_v_FROT[4])) * exp(((-1.0 * ((__pyx_v_EN - __pyx_v_EATTTH) + (__pyx_v_ERLVL[3]))) / __pyx_v_EATTWD))));
 
-      /* "HYDROGEN.pyx":286
+      /* "gases/HYDROGEN.pyx":286
  *         if EN >= (EATTTH - ERLVL[4]):
  *             object.Q[3][I] += AMPATT * 3.15 * FROT[5] * exp(-1 * (EN - EATTTH + ERLVL[4]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[3]):             # <<<<<<<<<<<<<<
@@ -4314,7 +4314,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":288
+    /* "gases/HYDROGEN.pyx":288
  *         if EN >= (EATTTH - ERLVL[3]):
  *             object.Q[3][I] += AMPATT * 2.50 * FROT[4] * exp(-1 * (EN - EATTTH + ERLVL[3]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[2]):             # <<<<<<<<<<<<<<
@@ -4324,7 +4324,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_EATTTH - (__pyx_v_ERLVL[2]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":289
+      /* "gases/HYDROGEN.pyx":289
  *             object.Q[3][I] += AMPATT * 2.50 * FROT[4] * exp(-1 * (EN - EATTTH + ERLVL[3]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[2]):
  *             object.Q[3][I] += AMPATT * 1.99 * FROT[3] * exp(-1 * (EN - EATTTH + ERLVL[2]) / EATTWD)             # <<<<<<<<<<<<<<
@@ -4335,7 +4335,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + (((__pyx_v_AMPATT * 1.99) * (__pyx_v_FROT[3])) * exp(((-1.0 * ((__pyx_v_EN - __pyx_v_EATTTH) + (__pyx_v_ERLVL[2]))) / __pyx_v_EATTWD))));
 
-      /* "HYDROGEN.pyx":288
+      /* "gases/HYDROGEN.pyx":288
  *         if EN >= (EATTTH - ERLVL[3]):
  *             object.Q[3][I] += AMPATT * 2.50 * FROT[4] * exp(-1 * (EN - EATTTH + ERLVL[3]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[2]):             # <<<<<<<<<<<<<<
@@ -4344,7 +4344,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":290
+    /* "gases/HYDROGEN.pyx":290
  *         if EN >= (EATTTH - ERLVL[2]):
  *             object.Q[3][I] += AMPATT * 1.99 * FROT[3] * exp(-1 * (EN - EATTTH + ERLVL[2]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[1]):             # <<<<<<<<<<<<<<
@@ -4354,7 +4354,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_EATTTH - (__pyx_v_ERLVL[1]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":291
+      /* "gases/HYDROGEN.pyx":291
  *             object.Q[3][I] += AMPATT * 1.99 * FROT[3] * exp(-1 * (EN - EATTTH + ERLVL[2]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[1]):
  *             object.Q[3][I] += AMPATT * 1.58 * FROT[2] * exp(-1 * (EN - EATTTH + ERLVL[1]) / EATTWD)             # <<<<<<<<<<<<<<
@@ -4365,7 +4365,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + (((__pyx_v_AMPATT * 1.58) * (__pyx_v_FROT[2])) * exp(((-1.0 * ((__pyx_v_EN - __pyx_v_EATTTH) + (__pyx_v_ERLVL[1]))) / __pyx_v_EATTWD))));
 
-      /* "HYDROGEN.pyx":290
+      /* "gases/HYDROGEN.pyx":290
  *         if EN >= (EATTTH - ERLVL[2]):
  *             object.Q[3][I] += AMPATT * 1.99 * FROT[3] * exp(-1 * (EN - EATTTH + ERLVL[2]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[1]):             # <<<<<<<<<<<<<<
@@ -4374,7 +4374,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":292
+    /* "gases/HYDROGEN.pyx":292
  *         if EN >= (EATTTH - ERLVL[1]):
  *             object.Q[3][I] += AMPATT * 1.58 * FROT[2] * exp(-1 * (EN - EATTTH + ERLVL[1]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[0]):             # <<<<<<<<<<<<<<
@@ -4384,7 +4384,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_EATTTH - (__pyx_v_ERLVL[0]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":293
+      /* "gases/HYDROGEN.pyx":293
  *             object.Q[3][I] += AMPATT * 1.58 * FROT[2] * exp(-1 * (EN - EATTTH + ERLVL[1]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[0]):
  *             object.Q[3][I] += AMPATT * 1.26 * FROT[1] * exp(-1 * (EN - EATTTH + ERLVL[0]) / EATTWD)             # <<<<<<<<<<<<<<
@@ -4395,7 +4395,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + (((__pyx_v_AMPATT * 1.26) * (__pyx_v_FROT[1])) * exp(((-1.0 * ((__pyx_v_EN - __pyx_v_EATTTH) + (__pyx_v_ERLVL[0]))) / __pyx_v_EATTWD))));
 
-      /* "HYDROGEN.pyx":292
+      /* "gases/HYDROGEN.pyx":292
  *         if EN >= (EATTTH - ERLVL[1]):
  *             object.Q[3][I] += AMPATT * 1.58 * FROT[2] * exp(-1 * (EN - EATTTH + ERLVL[1]) / EATTWD)
  *         if EN >= (EATTTH - ERLVL[0]):             # <<<<<<<<<<<<<<
@@ -4404,7 +4404,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":294
+    /* "gases/HYDROGEN.pyx":294
  *         if EN >= (EATTTH - ERLVL[0]):
  *             object.Q[3][I] += AMPATT * 1.26 * FROT[1] * exp(-1 * (EN - EATTTH + ERLVL[0]) / EATTWD)
  *         if EN >= EATTTH:             # <<<<<<<<<<<<<<
@@ -4414,7 +4414,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= __pyx_v_EATTTH) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":295
+      /* "gases/HYDROGEN.pyx":295
  *             object.Q[3][I] += AMPATT * 1.26 * FROT[1] * exp(-1 * (EN - EATTTH + ERLVL[0]) / EATTWD)
  *         if EN >= EATTTH:
  *             object.Q[3][I] += AMPATT * FROT[0] * exp(-1 * (EN - EATTTH) / EATTWD)             # <<<<<<<<<<<<<<
@@ -4425,7 +4425,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + ((__pyx_v_AMPATT * (__pyx_v_FROT[0])) * exp(((-1.0 * (__pyx_v_EN - __pyx_v_EATTTH)) / __pyx_v_EATTWD))));
 
-      /* "HYDROGEN.pyx":294
+      /* "gases/HYDROGEN.pyx":294
  *         if EN >= (EATTTH - ERLVL[0]):
  *             object.Q[3][I] += AMPATT * 1.26 * FROT[1] * exp(-1 * (EN - EATTTH + ERLVL[0]) / EATTWD)
  *         if EN >= EATTTH:             # <<<<<<<<<<<<<<
@@ -4434,7 +4434,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":297
+    /* "gases/HYDROGEN.pyx":297
  *             object.Q[3][I] += AMPATT * FROT[0] * exp(-1 * (EN - EATTTH) / EATTWD)
  * 
  *         if EN > XATT[0]:             # <<<<<<<<<<<<<<
@@ -4444,7 +4444,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_XATT[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":299
+      /* "gases/HYDROGEN.pyx":299
  *         if EN > XATT[0]:
  *             # ATTACHMENT TO 2 SIGMAg
  *             object.Q[3][I] += GasUtil.CALQIONREG(EN, NATT1, YATT, XATT)             # <<<<<<<<<<<<<<
@@ -4455,7 +4455,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NATT1, __pyx_v_YATT, __pyx_v_XATT));
 
-      /* "HYDROGEN.pyx":297
+      /* "gases/HYDROGEN.pyx":297
  *             object.Q[3][I] += AMPATT * FROT[0] * exp(-1 * (EN - EATTTH) / EATTWD)
  * 
  *         if EN > XATT[0]:             # <<<<<<<<<<<<<<
@@ -4464,7 +4464,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":300
+    /* "gases/HYDROGEN.pyx":300
  *             # ATTACHMENT TO 2 SIGMAg
  *             object.Q[3][I] += GasUtil.CALQIONREG(EN, NATT1, YATT, XATT)
  *         if EN > EATTTH1:             # <<<<<<<<<<<<<<
@@ -4474,7 +4474,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > __pyx_v_EATTTH1) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":301
+      /* "gases/HYDROGEN.pyx":301
  *             object.Q[3][I] += GasUtil.CALQIONREG(EN, NATT1, YATT, XATT)
  *         if EN > EATTTH1:
  *             object.Q[3][I] += AMPATT1 * exp(-1 * (EN - EATTTH1) / EATTWD1)             # <<<<<<<<<<<<<<
@@ -4485,7 +4485,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + (__pyx_v_AMPATT1 * exp(((-1.0 * (__pyx_v_EN - __pyx_v_EATTTH1)) / __pyx_v_EATTWD1))));
 
-      /* "HYDROGEN.pyx":300
+      /* "gases/HYDROGEN.pyx":300
  *             # ATTACHMENT TO 2 SIGMAg
  *             object.Q[3][I] += GasUtil.CALQIONREG(EN, NATT1, YATT, XATT)
  *         if EN > EATTTH1:             # <<<<<<<<<<<<<<
@@ -4494,7 +4494,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":302
+    /* "gases/HYDROGEN.pyx":302
  *         if EN > EATTTH1:
  *             object.Q[3][I] += AMPATT1 * exp(-1 * (EN - EATTTH1) / EATTWD1)
  *         object.QATT[0][I] = object.Q[3][I]             # <<<<<<<<<<<<<<
@@ -4503,7 +4503,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = ((__pyx_v_object->Q[3])[__pyx_v_I]);
 
-    /* "HYDROGEN.pyx":304
+    /* "gases/HYDROGEN.pyx":304
  *         object.QATT[0][I] = object.Q[3][I]
  * 
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4512,7 +4512,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "HYDROGEN.pyx":305
+    /* "gases/HYDROGEN.pyx":305
  * 
  *         object.Q[4][I] = 0.0
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4521,7 +4521,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "HYDROGEN.pyx":307
+    /* "gases/HYDROGEN.pyx":307
  *         object.Q[5][I] = 0.0
  * 
  *         for J in range(object.NIN + 1):             # <<<<<<<<<<<<<<
@@ -4533,7 +4533,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 0; __pyx_t_26 < __pyx_t_34; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "HYDROGEN.pyx":308
+      /* "gases/HYDROGEN.pyx":308
  * 
  *         for J in range(object.NIN + 1):
  *             object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4542,7 +4542,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-      /* "HYDROGEN.pyx":309
+      /* "gases/HYDROGEN.pyx":309
  *         for J in range(object.NIN + 1):
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4551,7 +4551,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.5;
 
-      /* "HYDROGEN.pyx":310
+      /* "gases/HYDROGEN.pyx":310
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4561,7 +4561,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":311
+        /* "gases/HYDROGEN.pyx":311
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4570,7 +4570,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "HYDROGEN.pyx":310
+        /* "gases/HYDROGEN.pyx":310
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4580,7 +4580,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "HYDROGEN.pyx":314
+    /* "gases/HYDROGEN.pyx":314
  * 
  *         # SUPERELASTIC 2-0
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -4590,7 +4590,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":315
+      /* "gases/HYDROGEN.pyx":315
  *         # SUPERELASTIC 2-0
  *         if EN > 0.0:
  *             object.QIN[0][I] = GasUtil.CALQIONREG(EN + object.EIN[4], NROT0, YROT0, XROT0)             # <<<<<<<<<<<<<<
@@ -4599,7 +4599,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG((__pyx_v_EN + (__pyx_v_object->EIN[4])), __pyx_v_NROT0, __pyx_v_YROT0, __pyx_v_XROT0);
 
-      /* "HYDROGEN.pyx":316
+      /* "gases/HYDROGEN.pyx":316
  *         if EN > 0.0:
  *             object.QIN[0][I] = GasUtil.CALQIONREG(EN + object.EIN[4], NROT0, YROT0, XROT0)
  *             object.QIN[0][I] *= ((object.EIN[4] + EN) / EN) * FROT[2] * 0.2             # <<<<<<<<<<<<<<
@@ -4610,7 +4610,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_26]) * (((((__pyx_v_object->EIN[4]) + __pyx_v_EN) / __pyx_v_EN) * (__pyx_v_FROT[2])) * 0.2));
 
-      /* "HYDROGEN.pyx":314
+      /* "gases/HYDROGEN.pyx":314
  * 
  *         # SUPERELASTIC 2-0
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -4619,7 +4619,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":319
+    /* "gases/HYDROGEN.pyx":319
  * 
  *         # SUPERELASTIC 3-1
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -4629,7 +4629,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":320
+      /* "gases/HYDROGEN.pyx":320
  *         # SUPERELASTIC 3-1
  *         if EN > 0.0:
  *             object.QIN[1][I] = GasUtil.CALQIONREG(EN + object.EIN[5], NROT1, YROT1, XROT1)             # <<<<<<<<<<<<<<
@@ -4638,7 +4638,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG((__pyx_v_EN + (__pyx_v_object->EIN[5])), __pyx_v_NROT1, __pyx_v_YROT1, __pyx_v_XROT1);
 
-      /* "HYDROGEN.pyx":321
+      /* "gases/HYDROGEN.pyx":321
  *         if EN > 0.0:
  *             object.QIN[1][I] = GasUtil.CALQIONREG(EN + object.EIN[5], NROT1, YROT1, XROT1)
  *             object.QIN[1][I] *= ((object.EIN[5] + EN) / EN) * FROT[3] * (3.0 / 7.0)             # <<<<<<<<<<<<<<
@@ -4649,7 +4649,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_26]) * (((((__pyx_v_object->EIN[5]) + __pyx_v_EN) / __pyx_v_EN) * (__pyx_v_FROT[3])) * (3.0 / 7.0)));
 
-      /* "HYDROGEN.pyx":319
+      /* "gases/HYDROGEN.pyx":319
  * 
  *         # SUPERELASTIC 3-1
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -4658,7 +4658,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":324
+    /* "gases/HYDROGEN.pyx":324
  * 
  *         # SUPERELASTIC 4-2
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -4668,7 +4668,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":325
+      /* "gases/HYDROGEN.pyx":325
  *         # SUPERELASTIC 4-2
  *         if EN > 0.0:
  *             object.QIN[2][I] = GasUtil.CALQIONREG(EN + object.EIN[6], NROT2, YROT2, XROT2)             # <<<<<<<<<<<<<<
@@ -4677,7 +4677,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG((__pyx_v_EN + (__pyx_v_object->EIN[6])), __pyx_v_NROT2, __pyx_v_YROT2, __pyx_v_XROT2);
 
-      /* "HYDROGEN.pyx":326
+      /* "gases/HYDROGEN.pyx":326
  *         if EN > 0.0:
  *             object.QIN[2][I] = GasUtil.CALQIONREG(EN + object.EIN[6], NROT2, YROT2, XROT2)
  *             object.QIN[2][I] *= ((object.EIN[6] + EN) / EN) * FROT[4] * (5.0 / 9.0)             # <<<<<<<<<<<<<<
@@ -4688,7 +4688,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_26]) * (((((__pyx_v_object->EIN[6]) + __pyx_v_EN) / __pyx_v_EN) * (__pyx_v_FROT[4])) * (5.0 / 9.0)));
 
-      /* "HYDROGEN.pyx":324
+      /* "gases/HYDROGEN.pyx":324
  * 
  *         # SUPERELASTIC 4-2
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -4697,7 +4697,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":329
+    /* "gases/HYDROGEN.pyx":329
  * 
  *         # SUPERELASTIC 5-3
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -4707,7 +4707,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":330
+      /* "gases/HYDROGEN.pyx":330
  *         # SUPERELASTIC 5-3
  *         if EN > 0.0:
  *             object.QIN[3][I] = GasUtil.CALQIONREG(EN + object.EIN[7], NROT3, YROT3, XROT3)             # <<<<<<<<<<<<<<
@@ -4716,7 +4716,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG((__pyx_v_EN + (__pyx_v_object->EIN[7])), __pyx_v_NROT3, __pyx_v_YROT3, __pyx_v_XROT3);
 
-      /* "HYDROGEN.pyx":331
+      /* "gases/HYDROGEN.pyx":331
  *         if EN > 0.0:
  *             object.QIN[3][I] = GasUtil.CALQIONREG(EN + object.EIN[7], NROT3, YROT3, XROT3)
  *             object.QIN[3][I] *= ((object.EIN[7] + EN) / EN) * FROT[5] * (7.0 / 11.0)             # <<<<<<<<<<<<<<
@@ -4727,7 +4727,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_26 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_26]) * (((((__pyx_v_object->EIN[7]) + __pyx_v_EN) / __pyx_v_EN) * (__pyx_v_FROT[5])) * (7.0 / 11.0)));
 
-      /* "HYDROGEN.pyx":329
+      /* "gases/HYDROGEN.pyx":329
  * 
  *         # SUPERELASTIC 5-3
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -4736,7 +4736,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":334
+    /* "gases/HYDROGEN.pyx":334
  * 
  *         # ROTATION 0-2
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -4746,7 +4746,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[4])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":335
+      /* "gases/HYDROGEN.pyx":335
  *         # ROTATION 0-2
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, NROT0, YROT0, XROT0, 1) * 100 * FROT[0]             # <<<<<<<<<<<<<<
@@ -4755,7 +4755,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NROT0, __pyx_v_YROT0, __pyx_v_XROT0, 1.0) * 100.0) * (__pyx_v_FROT[0]));
 
-      /* "HYDROGEN.pyx":334
+      /* "gases/HYDROGEN.pyx":334
  * 
  *         # ROTATION 0-2
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -4764,7 +4764,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":336
+    /* "gases/HYDROGEN.pyx":336
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, NROT0, YROT0, XROT0, 1) * 100 * FROT[0]
  *         if EN > 2 * object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -4774,7 +4774,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[4]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":337
+      /* "gases/HYDROGEN.pyx":337
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, NROT0, YROT0, XROT0, 1) * 100 * FROT[0]
  *         if EN > 2 * object.EIN[4]:
  *             object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -4783,7 +4783,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-      /* "HYDROGEN.pyx":336
+      /* "gases/HYDROGEN.pyx":336
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, NROT0, YROT0, XROT0, 1) * 100 * FROT[0]
  *         if EN > 2 * object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -4792,7 +4792,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":340
+    /* "gases/HYDROGEN.pyx":340
  * 
  *         # ROTATION 1-3
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -4802,7 +4802,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":341
+      /* "gases/HYDROGEN.pyx":341
  *         # ROTATION 1-3
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NROT1, YROT1, XROT1, 1) * 100 * FROT[1]             # <<<<<<<<<<<<<<
@@ -4811,7 +4811,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NROT1, __pyx_v_YROT1, __pyx_v_XROT1, 1.0) * 100.0) * (__pyx_v_FROT[1]));
 
-      /* "HYDROGEN.pyx":340
+      /* "gases/HYDROGEN.pyx":340
  * 
  *         # ROTATION 1-3
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -4820,7 +4820,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":342
+    /* "gases/HYDROGEN.pyx":342
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NROT1, YROT1, XROT1, 1) * 100 * FROT[1]
  *         if EN > 2 * object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -4830,7 +4830,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[5]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":343
+      /* "gases/HYDROGEN.pyx":343
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NROT1, YROT1, XROT1, 1) * 100 * FROT[1]
  *         if EN > 2 * object.EIN[5]:
  *             object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -4839,7 +4839,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-      /* "HYDROGEN.pyx":342
+      /* "gases/HYDROGEN.pyx":342
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NROT1, YROT1, XROT1, 1) * 100 * FROT[1]
  *         if EN > 2 * object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -4848,7 +4848,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":348
+    /* "gases/HYDROGEN.pyx":348
  *         # USED SCALED 2-4 XSECTION FOR 4-6 AND 6-8
  *         # ALSO SCALED FOR ENERGY LOSS BY 1.5 FOR 4-6 AND BY 2.0 FOR 6-8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -4858,7 +4858,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":349
+      /* "gases/HYDROGEN.pyx":349
  *         # ALSO SCALED FOR ENERGY LOSS BY 1.5 FOR 4-6 AND BY 2.0 FOR 6-8
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, NROT2, YROT2, XROT2, 1) * 100 * (             # <<<<<<<<<<<<<<
@@ -4867,7 +4867,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NROT2, __pyx_v_YROT2, __pyx_v_XROT2, 1.0) * 100.0) * (((__pyx_v_FROT[2]) + (((__pyx_v_FROT[4]) * 0.8) * 1.5)) + (((__pyx_v_FROT[6]) * 0.5) * 2.0)));
 
-      /* "HYDROGEN.pyx":348
+      /* "gases/HYDROGEN.pyx":348
  *         # USED SCALED 2-4 XSECTION FOR 4-6 AND 6-8
  *         # ALSO SCALED FOR ENERGY LOSS BY 1.5 FOR 4-6 AND BY 2.0 FOR 6-8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -4876,7 +4876,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":351
+    /* "gases/HYDROGEN.pyx":351
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, NROT2, YROT2, XROT2, 1) * 100 * (
  *                     FROT[2] + FROT[4] * 0.8 * 1.5 + FROT[6] * 0.5 * 2.0)
  *         if EN > 2 * object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -4886,7 +4886,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[6]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":352
+      /* "gases/HYDROGEN.pyx":352
  *                     FROT[2] + FROT[4] * 0.8 * 1.5 + FROT[6] * 0.5 * 2.0)
  *         if EN > 2 * object.EIN[6]:
  *             object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -4895,7 +4895,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-      /* "HYDROGEN.pyx":351
+      /* "gases/HYDROGEN.pyx":351
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, NROT2, YROT2, XROT2, 1) * 100 * (
  *                     FROT[2] + FROT[4] * 0.8 * 1.5 + FROT[6] * 0.5 * 2.0)
  *         if EN > 2 * object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -4904,7 +4904,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":357
+    /* "gases/HYDROGEN.pyx":357
  *         # USED SCALED 3-5 XSECTION FOR 5-7 AND 7-9
  *         # ALSO SCALED FOR ENERGY LOSS BY 1.4 FOR 5-7 AND 1.8 FOR 7-9
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -4914,7 +4914,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":358
+      /* "gases/HYDROGEN.pyx":358
  *         # ALSO SCALED FOR ENERGY LOSS BY 1.4 FOR 5-7 AND 1.8 FOR 7-9
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, NROT3, YROT3, XROT3, 1) * 100 * (             # <<<<<<<<<<<<<<
@@ -4923,7 +4923,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NROT3, __pyx_v_YROT3, __pyx_v_XROT3, 1.0) * 100.0) * (((__pyx_v_FROT[3]) + (((__pyx_v_FROT[5]) * 0.8) * 1.5)) + (((__pyx_v_FROT[7]) * 0.5) * 2.0)));
 
-      /* "HYDROGEN.pyx":357
+      /* "gases/HYDROGEN.pyx":357
  *         # USED SCALED 3-5 XSECTION FOR 5-7 AND 7-9
  *         # ALSO SCALED FOR ENERGY LOSS BY 1.4 FOR 5-7 AND 1.8 FOR 7-9
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -4932,7 +4932,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":360
+    /* "gases/HYDROGEN.pyx":360
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, NROT3, YROT3, XROT3, 1) * 100 * (
  *                     FROT[3] + FROT[5] * 0.8 * 1.5 + FROT[7] * 0.5 * 2.0)
  *         if EN > 2 * object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -4942,7 +4942,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[7]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":361
+      /* "gases/HYDROGEN.pyx":361
  *                     FROT[3] + FROT[5] * 0.8 * 1.5 + FROT[7] * 0.5 * 2.0)
  *         if EN > 2 * object.EIN[7]:
  *             object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -4951,7 +4951,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-      /* "HYDROGEN.pyx":360
+      /* "gases/HYDROGEN.pyx":360
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, NROT3, YROT3, XROT3, 1) * 100 * (
  *                     FROT[3] + FROT[5] * 0.8 * 1.5 + FROT[7] * 0.5 * 2.0)
  *         if EN > 2 * object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -4960,7 +4960,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":364
+    /* "gases/HYDROGEN.pyx":364
  * 
  *         #VIBRATION V1 with DJ = 0
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -4970,7 +4970,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":365
+      /* "gases/HYDROGEN.pyx":365
  *         #VIBRATION V1 with DJ = 0
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1, 1) * 100             # <<<<<<<<<<<<<<
@@ -4979,7 +4979,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVIB1, __pyx_v_XVIB1, 1.0) * 100.0);
 
-      /* "HYDROGEN.pyx":364
+      /* "gases/HYDROGEN.pyx":364
  * 
  *         #VIBRATION V1 with DJ = 0
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -4988,7 +4988,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":366
+    /* "gases/HYDROGEN.pyx":366
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1, 1) * 100
  *         if EN > 2 * object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -4998,7 +4998,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[8]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":367
+      /* "gases/HYDROGEN.pyx":367
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1, 1) * 100
  *         if EN > 2 * object.EIN[8]:
  *             object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]             # <<<<<<<<<<<<<<
@@ -5007,7 +5007,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[8]))]);
 
-      /* "HYDROGEN.pyx":366
+      /* "gases/HYDROGEN.pyx":366
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1, 1) * 100
  *         if EN > 2 * object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -5016,7 +5016,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":370
+    /* "gases/HYDROGEN.pyx":370
  * 
  *         #VIBRATION V1 with DJ = 2
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5026,7 +5026,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":371
+      /* "gases/HYDROGEN.pyx":371
  *         #VIBRATION V1 with DJ = 2
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1) * 100             # <<<<<<<<<<<<<<
@@ -5035,7 +5035,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2, 1.0) * 100.0);
 
-      /* "HYDROGEN.pyx":370
+      /* "gases/HYDROGEN.pyx":370
  * 
  *         #VIBRATION V1 with DJ = 2
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5044,7 +5044,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":372
+    /* "gases/HYDROGEN.pyx":372
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1) * 100
  *         if EN > 2 * object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5054,7 +5054,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[9]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":373
+      /* "gases/HYDROGEN.pyx":373
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1) * 100
  *         if EN > 2 * object.EIN[9]:
  *             object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]             # <<<<<<<<<<<<<<
@@ -5063,7 +5063,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[9]))]);
 
-      /* "HYDROGEN.pyx":372
+      /* "gases/HYDROGEN.pyx":372
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1) * 100
  *         if EN > 2 * object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5072,7 +5072,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":376
+    /* "gases/HYDROGEN.pyx":376
  * 
  *         #VIBRATION V2
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5082,7 +5082,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":377
+      /* "gases/HYDROGEN.pyx":377
  *         #VIBRATION V2
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1) * 100             # <<<<<<<<<<<<<<
@@ -5091,7 +5091,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3, 1.0) * 100.0);
 
-      /* "HYDROGEN.pyx":376
+      /* "gases/HYDROGEN.pyx":376
  * 
  *         #VIBRATION V2
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5100,7 +5100,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":378
+    /* "gases/HYDROGEN.pyx":378
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1) * 100
  *         if EN > 2 * object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5110,7 +5110,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[10]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":379
+      /* "gases/HYDROGEN.pyx":379
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1) * 100
  *         if EN > 2 * object.EIN[10]:
  *             object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -5119,7 +5119,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-      /* "HYDROGEN.pyx":378
+      /* "gases/HYDROGEN.pyx":378
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1) * 100
  *         if EN > 2 * object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5128,7 +5128,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":382
+    /* "gases/HYDROGEN.pyx":382
  * 
  *         #VIBRATION V3
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5138,7 +5138,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[11])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":383
+      /* "gases/HYDROGEN.pyx":383
  *         #VIBRATION V3
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, NVIB4, YVIB4, XVIB4, 1) * 100             # <<<<<<<<<<<<<<
@@ -5147,7 +5147,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[11])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB4, __pyx_v_YVIB4, __pyx_v_XVIB4, 1.0) * 100.0);
 
-      /* "HYDROGEN.pyx":382
+      /* "gases/HYDROGEN.pyx":382
  * 
  *         #VIBRATION V3
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5156,7 +5156,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":384
+    /* "gases/HYDROGEN.pyx":384
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, NVIB4, YVIB4, XVIB4, 1) * 100
  *         if EN > 2 * object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5166,7 +5166,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[11]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":385
+      /* "gases/HYDROGEN.pyx":385
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, NVIB4, YVIB4, XVIB4, 1) * 100
  *         if EN > 2 * object.EIN[11]:
  *             object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]             # <<<<<<<<<<<<<<
@@ -5175,7 +5175,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[11]))]);
 
-      /* "HYDROGEN.pyx":384
+      /* "gases/HYDROGEN.pyx":384
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, NVIB4, YVIB4, XVIB4, 1) * 100
  *         if EN > 2 * object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5184,7 +5184,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":388
+    /* "gases/HYDROGEN.pyx":388
  * 
  *         # B3 SIGMA DISSOCIATION ELOSS=8.0EV
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5194,7 +5194,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":389
+      /* "gases/HYDROGEN.pyx":389
  *         # B3 SIGMA DISSOCIATION ELOSS=8.0EV
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQION(EN, NB3S1, YB3S1, XB3S1)             # <<<<<<<<<<<<<<
@@ -5203,7 +5203,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[12])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NB3S1, __pyx_v_YB3S1, __pyx_v_XB3S1);
 
-      /* "HYDROGEN.pyx":388
+      /* "gases/HYDROGEN.pyx":388
  * 
  *         # B3 SIGMA DISSOCIATION ELOSS=8.0EV
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5212,7 +5212,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":390
+    /* "gases/HYDROGEN.pyx":390
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQION(EN, NB3S1, YB3S1, XB3S1)
  *         if EN > 2 * object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5222,7 +5222,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[12]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":391
+      /* "gases/HYDROGEN.pyx":391
  *             object.QIN[12][I] = GasUtil.CALQION(EN, NB3S1, YB3S1, XB3S1)
  *         if EN > 2 * object.EIN[12]:
  *             object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]             # <<<<<<<<<<<<<<
@@ -5231,7 +5231,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[12]))]);
 
-      /* "HYDROGEN.pyx":390
+      /* "gases/HYDROGEN.pyx":390
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQION(EN, NB3S1, YB3S1, XB3S1)
  *         if EN > 2 * object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5240,7 +5240,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":394
+    /* "gases/HYDROGEN.pyx":394
  * 
  *         # B3 SIGMA DISSOCIATION ELOSS=9.0EV
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5250,7 +5250,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[13])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":395
+      /* "gases/HYDROGEN.pyx":395
  *         # B3 SIGMA DISSOCIATION ELOSS=9.0EV
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQION(EN, NB3S2, YB3S2, XB3S2)             # <<<<<<<<<<<<<<
@@ -5259,7 +5259,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[13])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NB3S2, __pyx_v_YB3S2, __pyx_v_XB3S2);
 
-      /* "HYDROGEN.pyx":394
+      /* "gases/HYDROGEN.pyx":394
  * 
  *         # B3 SIGMA DISSOCIATION ELOSS=9.0EV
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5268,7 +5268,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":396
+    /* "gases/HYDROGEN.pyx":396
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQION(EN, NB3S2, YB3S2, XB3S2)
  *         if EN > 2 * object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5278,7 +5278,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[13]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":397
+      /* "gases/HYDROGEN.pyx":397
  *             object.QIN[13][I] = GasUtil.CALQION(EN, NB3S2, YB3S2, XB3S2)
  *         if EN > 2 * object.EIN[13]:
  *             object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]             # <<<<<<<<<<<<<<
@@ -5287,7 +5287,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[13])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[13]))]);
 
-      /* "HYDROGEN.pyx":396
+      /* "gases/HYDROGEN.pyx":396
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQION(EN, NB3S2, YB3S2, XB3S2)
  *         if EN > 2 * object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5296,7 +5296,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":400
+    /* "gases/HYDROGEN.pyx":400
  * 
  *         # B3 SIGMA DISSOCIATION ELOSS=9.5EV
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -5306,7 +5306,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[14])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":401
+      /* "gases/HYDROGEN.pyx":401
  *         # B3 SIGMA DISSOCIATION ELOSS=9.5EV
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQION(EN, NB3S3, YB3S3, XB3S3)             # <<<<<<<<<<<<<<
@@ -5315,7 +5315,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[14])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NB3S3, __pyx_v_YB3S3, __pyx_v_XB3S3);
 
-      /* "HYDROGEN.pyx":400
+      /* "gases/HYDROGEN.pyx":400
  * 
  *         # B3 SIGMA DISSOCIATION ELOSS=9.5EV
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -5324,7 +5324,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":402
+    /* "gases/HYDROGEN.pyx":402
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQION(EN, NB3S3, YB3S3, XB3S3)
  *         if EN > 2 * object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -5334,7 +5334,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[14]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":403
+      /* "gases/HYDROGEN.pyx":403
  *             object.QIN[14][I] = GasUtil.CALQION(EN, NB3S3, YB3S3, XB3S3)
  *         if EN > 2 * object.EIN[14]:
  *             object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]             # <<<<<<<<<<<<<<
@@ -5343,7 +5343,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[14])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[14]))]);
 
-      /* "HYDROGEN.pyx":402
+      /* "gases/HYDROGEN.pyx":402
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQION(EN, NB3S3, YB3S3, XB3S3)
  *         if EN > 2 * object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -5352,7 +5352,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":407
+    /* "gases/HYDROGEN.pyx":407
  *         # B3 SIGMA DISSOCIATION ELOSS=10.0EV
  *         # SCALED BY 1/E**3 ABOVE XB3S4(NB3S4) EV
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -5362,7 +5362,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[15])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":408
+      /* "gases/HYDROGEN.pyx":408
  *         # SCALED BY 1/E**3 ABOVE XB3S4(NB3S4) EV
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, NB3S4, YB3S4, XB3S4, 3) * 100             # <<<<<<<<<<<<<<
@@ -5371,7 +5371,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[15])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NB3S4, __pyx_v_YB3S4, __pyx_v_XB3S4, 3.0) * 100.0);
 
-      /* "HYDROGEN.pyx":407
+      /* "gases/HYDROGEN.pyx":407
  *         # B3 SIGMA DISSOCIATION ELOSS=10.0EV
  *         # SCALED BY 1/E**3 ABOVE XB3S4(NB3S4) EV
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -5380,7 +5380,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":409
+    /* "gases/HYDROGEN.pyx":409
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, NB3S4, YB3S4, XB3S4, 3) * 100
  *         if EN > 2 * object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -5390,7 +5390,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[15]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":410
+      /* "gases/HYDROGEN.pyx":410
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, NB3S4, YB3S4, XB3S4, 3) * 100
  *         if EN > 2 * object.EIN[15]:
  *             object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]             # <<<<<<<<<<<<<<
@@ -5399,7 +5399,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[15])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[15]))]);
 
-      /* "HYDROGEN.pyx":409
+      /* "gases/HYDROGEN.pyx":409
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, NB3S4, YB3S4, XB3S4, 3) * 100
  *         if EN > 2 * object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -5408,7 +5408,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":415
+    /* "gases/HYDROGEN.pyx":415
  *         #   DIPOLE ALLOWED
  *         # V=FI B1 SIGMA
  *         FI = 0             # <<<<<<<<<<<<<<
@@ -5417,7 +5417,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = 0;
 
-    /* "HYDROGEN.pyx":416
+    /* "gases/HYDROGEN.pyx":416
  *         # V=FI B1 SIGMA
  *         FI = 0
  *         for J in range(16, 53):             # <<<<<<<<<<<<<<
@@ -5427,7 +5427,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 16; __pyx_t_26 < 53; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "HYDROGEN.pyx":417
+      /* "gases/HYDROGEN.pyx":417
  *         FI = 0
  *         for J in range(16, 53):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5437,7 +5437,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":418
+        /* "gases/HYDROGEN.pyx":418
  *         for J in range(16, 53):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -5446,7 +5446,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_BEF[0])));
 
-        /* "HYDROGEN.pyx":421
+        /* "gases/HYDROGEN.pyx":421
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[0])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -5456,7 +5456,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_30) {
 
-          /* "HYDROGEN.pyx":422
+          /* "gases/HYDROGEN.pyx":422
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[0])
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5465,7 +5465,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "HYDROGEN.pyx":421
+          /* "gases/HYDROGEN.pyx":421
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[0])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -5474,7 +5474,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "HYDROGEN.pyx":417
+        /* "gases/HYDROGEN.pyx":417
  *         FI = 0
  *         for J in range(16, 53):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5483,7 +5483,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":423
+      /* "gases/HYDROGEN.pyx":423
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5493,7 +5493,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":424
+        /* "gases/HYDROGEN.pyx":424
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -5502,7 +5502,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "HYDROGEN.pyx":423
+        /* "gases/HYDROGEN.pyx":423
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5511,7 +5511,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":425
+      /* "gases/HYDROGEN.pyx":425
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -5521,7 +5521,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "HYDROGEN.pyx":428
+    /* "gases/HYDROGEN.pyx":428
  * 
  *         #V =FI C1 PI
  *         for J in range(53, 67):             # <<<<<<<<<<<<<<
@@ -5531,7 +5531,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 53; __pyx_t_26 < 67; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "HYDROGEN.pyx":429
+      /* "gases/HYDROGEN.pyx":429
  *         #V =FI C1 PI
  *         for J in range(53, 67):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5541,7 +5541,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":430
+        /* "gases/HYDROGEN.pyx":430
  *         for J in range(53, 67):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -5550,7 +5550,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_BEF[1])));
 
-        /* "HYDROGEN.pyx":433
+        /* "gases/HYDROGEN.pyx":433
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[1])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -5560,7 +5560,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_30) {
 
-          /* "HYDROGEN.pyx":434
+          /* "gases/HYDROGEN.pyx":434
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[1])
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5569,7 +5569,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "HYDROGEN.pyx":433
+          /* "gases/HYDROGEN.pyx":433
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[1])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -5578,7 +5578,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "HYDROGEN.pyx":429
+        /* "gases/HYDROGEN.pyx":429
  *         #V =FI C1 PI
  *         for J in range(53, 67):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5587,7 +5587,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":435
+      /* "gases/HYDROGEN.pyx":435
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5597,7 +5597,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":436
+        /* "gases/HYDROGEN.pyx":436
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -5606,7 +5606,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "HYDROGEN.pyx":435
+        /* "gases/HYDROGEN.pyx":435
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5615,7 +5615,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":437
+      /* "gases/HYDROGEN.pyx":437
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -5625,7 +5625,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "HYDROGEN.pyx":441
+    /* "gases/HYDROGEN.pyx":441
  *         # C3PI V=0-4  METASTABLE LEVEL     FRANCK-CONDON FAC=0.6967
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[67]:             # <<<<<<<<<<<<<<
@@ -5635,7 +5635,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[67])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":442
+      /* "gases/HYDROGEN.pyx":442
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[67]:
  *             object.QIN[67][I] = GasUtil.CALQINP(EN, NC3PI, YC3PI, XC3PI, 3) * 100 * 0.6967             # <<<<<<<<<<<<<<
@@ -5644,7 +5644,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[67])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NC3PI, __pyx_v_YC3PI, __pyx_v_XC3PI, 3.0) * 100.0) * 0.6967);
 
-      /* "HYDROGEN.pyx":441
+      /* "gases/HYDROGEN.pyx":441
  *         # C3PI V=0-4  METASTABLE LEVEL     FRANCK-CONDON FAC=0.6967
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[67]:             # <<<<<<<<<<<<<<
@@ -5653,7 +5653,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":443
+    /* "gases/HYDROGEN.pyx":443
  *         if EN > object.EIN[67]:
  *             object.QIN[67][I] = GasUtil.CALQINP(EN, NC3PI, YC3PI, XC3PI, 3) * 100 * 0.6967
  *         if EN > 2 * object.EIN[67]:             # <<<<<<<<<<<<<<
@@ -5663,7 +5663,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[67]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":444
+      /* "gases/HYDROGEN.pyx":444
  *             object.QIN[67][I] = GasUtil.CALQINP(EN, NC3PI, YC3PI, XC3PI, 3) * 100 * 0.6967
  *         if EN > 2 * object.EIN[67]:
  *             object.PEQIN[67][I] = object.PEQEL[1][I - IOFFN[67]]             # <<<<<<<<<<<<<<
@@ -5672,7 +5672,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[67])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[67]))]);
 
-      /* "HYDROGEN.pyx":443
+      /* "gases/HYDROGEN.pyx":443
  *         if EN > object.EIN[67]:
  *             object.QIN[67][I] = GasUtil.CALQINP(EN, NC3PI, YC3PI, XC3PI, 3) * 100 * 0.6967
  *         if EN > 2 * object.EIN[67]:             # <<<<<<<<<<<<<<
@@ -5681,7 +5681,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":448
+    /* "gases/HYDROGEN.pyx":448
  *         # C3PI V=5-18  METASTABLE LEVEL     FRANCK-CONDON FAC=0.3033
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[68]:             # <<<<<<<<<<<<<<
@@ -5691,7 +5691,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[68])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":449
+      /* "gases/HYDROGEN.pyx":449
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[68]:
  *             object.QIN[68][I] = GasUtil.CALQINP(EN, NC3PI, YC3PI, XC3PI, 3) * 100 * 0.3033             # <<<<<<<<<<<<<<
@@ -5700,7 +5700,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[68])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NC3PI, __pyx_v_YC3PI, __pyx_v_XC3PI, 3.0) * 100.0) * 0.3033);
 
-      /* "HYDROGEN.pyx":448
+      /* "gases/HYDROGEN.pyx":448
  *         # C3PI V=5-18  METASTABLE LEVEL     FRANCK-CONDON FAC=0.3033
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[68]:             # <<<<<<<<<<<<<<
@@ -5709,7 +5709,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":450
+    /* "gases/HYDROGEN.pyx":450
  *         if EN > object.EIN[68]:
  *             object.QIN[68][I] = GasUtil.CALQINP(EN, NC3PI, YC3PI, XC3PI, 3) * 100 * 0.3033
  *         if EN > 2 * object.EIN[68]:             # <<<<<<<<<<<<<<
@@ -5719,7 +5719,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[68]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":451
+      /* "gases/HYDROGEN.pyx":451
  *             object.QIN[68][I] = GasUtil.CALQINP(EN, NC3PI, YC3PI, XC3PI, 3) * 100 * 0.3033
  *         if EN > 2 * object.EIN[68]:
  *             object.PEQIN[68][I] = object.PEQEL[1][I - IOFFN[68]]             # <<<<<<<<<<<<<<
@@ -5728,7 +5728,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[68])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[68]))]);
 
-      /* "HYDROGEN.pyx":450
+      /* "gases/HYDROGEN.pyx":450
  *         if EN > object.EIN[68]:
  *             object.QIN[68][I] = GasUtil.CALQINP(EN, NC3PI, YC3PI, XC3PI, 3) * 100 * 0.3033
  *         if EN > 2 * object.EIN[68]:             # <<<<<<<<<<<<<<
@@ -5737,7 +5737,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":455
+    /* "gases/HYDROGEN.pyx":455
  *         # A3SG V=0-2  METASTABLE LEVEL     FRANCK-CONDON FAC=0.6668
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[69]:             # <<<<<<<<<<<<<<
@@ -5747,7 +5747,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[69])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":456
+      /* "gases/HYDROGEN.pyx":456
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[69]:
  *             object.QIN[69][I] = GasUtil.CALQINP(EN, NA3SG, YA3SG, XA3SG, 3) * 100 * 0.6668             # <<<<<<<<<<<<<<
@@ -5756,7 +5756,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[69])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NA3SG, __pyx_v_YA3SG, __pyx_v_XA3SG, 3.0) * 100.0) * 0.6668);
 
-      /* "HYDROGEN.pyx":455
+      /* "gases/HYDROGEN.pyx":455
  *         # A3SG V=0-2  METASTABLE LEVEL     FRANCK-CONDON FAC=0.6668
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[69]:             # <<<<<<<<<<<<<<
@@ -5765,7 +5765,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":457
+    /* "gases/HYDROGEN.pyx":457
  *         if EN > object.EIN[69]:
  *             object.QIN[69][I] = GasUtil.CALQINP(EN, NA3SG, YA3SG, XA3SG, 3) * 100 * 0.6668
  *         if EN > 2 * object.EIN[69]:             # <<<<<<<<<<<<<<
@@ -5775,7 +5775,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[69]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":458
+      /* "gases/HYDROGEN.pyx":458
  *             object.QIN[69][I] = GasUtil.CALQINP(EN, NA3SG, YA3SG, XA3SG, 3) * 100 * 0.6668
  *         if EN > 2 * object.EIN[69]:
  *             object.PEQIN[69][I] = object.PEQEL[1][I - IOFFN[69]]             # <<<<<<<<<<<<<<
@@ -5784,7 +5784,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[69])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[69]))]);
 
-      /* "HYDROGEN.pyx":457
+      /* "gases/HYDROGEN.pyx":457
  *         if EN > object.EIN[69]:
  *             object.QIN[69][I] = GasUtil.CALQINP(EN, NA3SG, YA3SG, XA3SG, 3) * 100 * 0.6668
  *         if EN > 2 * object.EIN[69]:             # <<<<<<<<<<<<<<
@@ -5793,7 +5793,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":462
+    /* "gases/HYDROGEN.pyx":462
  *         # A3SG V=3-17  METASTABLE LEVEL     FRANCK-CONDON FAC=0.3332
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[70]:             # <<<<<<<<<<<<<<
@@ -5803,7 +5803,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[70])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":463
+      /* "gases/HYDROGEN.pyx":463
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[70]:
  *             object.QIN[70][I] = GasUtil.CALQINP(EN, NA3SG, YA3SG, XA3SG, 3) * 100 * 0.3332             # <<<<<<<<<<<<<<
@@ -5812,7 +5812,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[70])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NA3SG, __pyx_v_YA3SG, __pyx_v_XA3SG, 3.0) * 100.0) * 0.3332);
 
-      /* "HYDROGEN.pyx":462
+      /* "gases/HYDROGEN.pyx":462
  *         # A3SG V=3-17  METASTABLE LEVEL     FRANCK-CONDON FAC=0.3332
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[70]:             # <<<<<<<<<<<<<<
@@ -5821,7 +5821,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":464
+    /* "gases/HYDROGEN.pyx":464
  *         if EN > object.EIN[70]:
  *             object.QIN[70][I] = GasUtil.CALQINP(EN, NA3SG, YA3SG, XA3SG, 3) * 100 * 0.3332
  *         if EN > 2 * object.EIN[70]:             # <<<<<<<<<<<<<<
@@ -5831,7 +5831,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[70]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":465
+      /* "gases/HYDROGEN.pyx":465
  *             object.QIN[70][I] = GasUtil.CALQINP(EN, NA3SG, YA3SG, XA3SG, 3) * 100 * 0.3332
  *         if EN > 2 * object.EIN[70]:
  *             object.PEQIN[70][I] = object.PEQEL[1][I - IOFFN[70]]             # <<<<<<<<<<<<<<
@@ -5840,7 +5840,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[70])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[70]))]);
 
-      /* "HYDROGEN.pyx":464
+      /* "gases/HYDROGEN.pyx":464
  *         if EN > object.EIN[70]:
  *             object.QIN[70][I] = GasUtil.CALQINP(EN, NA3SG, YA3SG, XA3SG, 3) * 100 * 0.3332
  *         if EN > 2 * object.EIN[70]:             # <<<<<<<<<<<<<<
@@ -5849,7 +5849,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":469
+    /* "gases/HYDROGEN.pyx":469
  *         # E3SG V=0-9
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[71]:             # <<<<<<<<<<<<<<
@@ -5859,7 +5859,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[71])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":470
+      /* "gases/HYDROGEN.pyx":470
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[71]:
  *             object.QIN[71][I] = GasUtil.CALQINP(EN, NE3SG, YE3SG, XE3SG, 3) * 100             # <<<<<<<<<<<<<<
@@ -5868,7 +5868,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[71])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NE3SG, __pyx_v_YE3SG, __pyx_v_XE3SG, 3.0) * 100.0);
 
-      /* "HYDROGEN.pyx":469
+      /* "gases/HYDROGEN.pyx":469
  *         # E3SG V=0-9
  *         # SCALED BY 1/E**3 ABOVE XC3PI(NC3PI) EV
  *         if EN > object.EIN[71]:             # <<<<<<<<<<<<<<
@@ -5877,7 +5877,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":471
+    /* "gases/HYDROGEN.pyx":471
  *         if EN > object.EIN[71]:
  *             object.QIN[71][I] = GasUtil.CALQINP(EN, NE3SG, YE3SG, XE3SG, 3) * 100
  *         if EN > 2 * object.EIN[71]:             # <<<<<<<<<<<<<<
@@ -5887,7 +5887,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[71]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":472
+      /* "gases/HYDROGEN.pyx":472
  *             object.QIN[71][I] = GasUtil.CALQINP(EN, NE3SG, YE3SG, XE3SG, 3) * 100
  *         if EN > 2 * object.EIN[71]:
  *             object.PEQIN[71][I] = object.PEQEL[1][I - IOFFN[71]]             # <<<<<<<<<<<<<<
@@ -5896,7 +5896,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[71])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[71]))]);
 
-      /* "HYDROGEN.pyx":471
+      /* "gases/HYDROGEN.pyx":471
  *         if EN > object.EIN[71]:
  *             object.QIN[71][I] = GasUtil.CALQINP(EN, NE3SG, YE3SG, XE3SG, 3) * 100
  *         if EN > 2 * object.EIN[71]:             # <<<<<<<<<<<<<<
@@ -5905,7 +5905,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":476
+    /* "gases/HYDROGEN.pyx":476
  *         # EF1 SIGMA V=0-5           FRANCK-CONDON FACTOR=0.4
  *         # USE BORN SCALING ABOVE XEFSG(NEFSG)  EV
  *         if EN > object.EIN[72]:             # <<<<<<<<<<<<<<
@@ -5915,7 +5915,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[72])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":477
+      /* "gases/HYDROGEN.pyx":477
  *         # USE BORN SCALING ABOVE XEFSG(NEFSG)  EV
  *         if EN > object.EIN[72]:
  *             object.QIN[72][I] = GasUtil.CALQINBEF(EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -5924,7 +5924,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[72])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NEFSG, __pyx_v_YEFSG, __pyx_v_XEFSG, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[72]), (__pyx_v_BEF[2]), 0.0089000);
 
-      /* "HYDROGEN.pyx":479
+      /* "gases/HYDROGEN.pyx":479
  *             object.QIN[72][I] = GasUtil.CALQINBEF(EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                   BBCONST, object.EIN[72], BEF[2], 0.0089000)
  *             if EN <= XEFSG[NEFSG - 1]:             # <<<<<<<<<<<<<<
@@ -5934,7 +5934,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XEFSG[(__pyx_v_NEFSG - 1)])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":480
+        /* "gases/HYDROGEN.pyx":480
  *                                                   BBCONST, object.EIN[72], BEF[2], 0.0089000)
  *             if EN <= XEFSG[NEFSG - 1]:
  *                 object.QIN[72][I] * 100 * 0.4             # <<<<<<<<<<<<<<
@@ -5943,7 +5943,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (void)(((((__pyx_v_object->QIN[72])[__pyx_v_I]) * 100.0) * 0.4));
 
-        /* "HYDROGEN.pyx":479
+        /* "gases/HYDROGEN.pyx":479
  *             object.QIN[72][I] = GasUtil.CALQINBEF(EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                   BBCONST, object.EIN[72], BEF[2], 0.0089000)
  *             if EN <= XEFSG[NEFSG - 1]:             # <<<<<<<<<<<<<<
@@ -5952,7 +5952,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":476
+      /* "gases/HYDROGEN.pyx":476
  *         # EF1 SIGMA V=0-5           FRANCK-CONDON FACTOR=0.4
  *         # USE BORN SCALING ABOVE XEFSG(NEFSG)  EV
  *         if EN > object.EIN[72]:             # <<<<<<<<<<<<<<
@@ -5961,7 +5961,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":481
+    /* "gases/HYDROGEN.pyx":481
  *             if EN <= XEFSG[NEFSG - 1]:
  *                 object.QIN[72][I] * 100 * 0.4
  *         if EN > 2 * object.EIN[72]:             # <<<<<<<<<<<<<<
@@ -5971,7 +5971,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[72]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":482
+      /* "gases/HYDROGEN.pyx":482
  *                 object.QIN[72][I] * 100 * 0.4
  *         if EN > 2 * object.EIN[72]:
  *             object.PEQIN[72][I] = object.PEQEL[1][I - IOFFN[72]]             # <<<<<<<<<<<<<<
@@ -5980,7 +5980,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[72])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[72]))]);
 
-      /* "HYDROGEN.pyx":481
+      /* "gases/HYDROGEN.pyx":481
  *             if EN <= XEFSG[NEFSG - 1]:
  *                 object.QIN[72][I] * 100 * 0.4
  *         if EN > 2 * object.EIN[72]:             # <<<<<<<<<<<<<<
@@ -5989,7 +5989,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":486
+    /* "gases/HYDROGEN.pyx":486
  *         # EF1 SIGMA V=0-5           FRANCK-CONDON FACTOR=0.6
  *         # USE BORN SCALING ABOVE XEFSG(NEFSG)  EV
  *         if EN > object.EIN[73]:             # <<<<<<<<<<<<<<
@@ -5999,7 +5999,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[73])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":487
+      /* "gases/HYDROGEN.pyx":487
  *         # USE BORN SCALING ABOVE XEFSG(NEFSG)  EV
  *         if EN > object.EIN[73]:
  *             object.QIN[73][I] = GasUtil.CALQINBEF(EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -6008,7 +6008,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[73])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NEFSG, __pyx_v_YEFSG, __pyx_v_XEFSG, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[73]), (__pyx_v_BEF[2]), 0.0133000);
 
-      /* "HYDROGEN.pyx":489
+      /* "gases/HYDROGEN.pyx":489
  *             object.QIN[73][I] = GasUtil.CALQINBEF(EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                   BBCONST, object.EIN[73], BEF[2], 0.0133000)
  *             if EN <= XEFSG[NEFSG - 1]:             # <<<<<<<<<<<<<<
@@ -6018,7 +6018,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XEFSG[(__pyx_v_NEFSG - 1)])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":490
+        /* "gases/HYDROGEN.pyx":490
  *                                                   BBCONST, object.EIN[73], BEF[2], 0.0133000)
  *             if EN <= XEFSG[NEFSG - 1]:
  *                 object.QIN[73][I] * 100 * 0.6             # <<<<<<<<<<<<<<
@@ -6027,7 +6027,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (void)(((((__pyx_v_object->QIN[73])[__pyx_v_I]) * 100.0) * 0.6));
 
-        /* "HYDROGEN.pyx":489
+        /* "gases/HYDROGEN.pyx":489
  *             object.QIN[73][I] = GasUtil.CALQINBEF(EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                   BBCONST, object.EIN[73], BEF[2], 0.0133000)
  *             if EN <= XEFSG[NEFSG - 1]:             # <<<<<<<<<<<<<<
@@ -6036,7 +6036,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":486
+      /* "gases/HYDROGEN.pyx":486
  *         # EF1 SIGMA V=0-5           FRANCK-CONDON FACTOR=0.6
  *         # USE BORN SCALING ABOVE XEFSG(NEFSG)  EV
  *         if EN > object.EIN[73]:             # <<<<<<<<<<<<<<
@@ -6045,7 +6045,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":491
+    /* "gases/HYDROGEN.pyx":491
  *             if EN <= XEFSG[NEFSG - 1]:
  *                 object.QIN[73][I] * 100 * 0.6
  *         if EN > 2 * object.EIN[73]:             # <<<<<<<<<<<<<<
@@ -6055,7 +6055,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[73]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":492
+      /* "gases/HYDROGEN.pyx":492
  *                 object.QIN[73][I] * 100 * 0.6
  *         if EN > 2 * object.EIN[73]:
  *             object.PEQIN[73][I] = object.PEQEL[1][I - IOFFN[73]]             # <<<<<<<<<<<<<<
@@ -6064,7 +6064,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[73])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[73]))]);
 
-      /* "HYDROGEN.pyx":491
+      /* "gases/HYDROGEN.pyx":491
  *             if EN <= XEFSG[NEFSG - 1]:
  *                 object.QIN[73][I] * 100 * 0.6
  *         if EN > 2 * object.EIN[73]:             # <<<<<<<<<<<<<<
@@ -6073,7 +6073,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":495
+    /* "gases/HYDROGEN.pyx":495
  * 
  *         #B!1 SIGMA V=FI
  *         for J in range(74, 83):             # <<<<<<<<<<<<<<
@@ -6083,7 +6083,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 74; __pyx_t_26 < 83; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "HYDROGEN.pyx":496
+      /* "gases/HYDROGEN.pyx":496
  *         #B!1 SIGMA V=FI
  *         for J in range(74, 83):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6093,7 +6093,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":497
+        /* "gases/HYDROGEN.pyx":497
  *         for J in range(74, 83):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6102,7 +6102,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_BEF[3])));
 
-        /* "HYDROGEN.pyx":500
+        /* "gases/HYDROGEN.pyx":500
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[3])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6112,7 +6112,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_30) {
 
-          /* "HYDROGEN.pyx":501
+          /* "gases/HYDROGEN.pyx":501
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[3])
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6121,7 +6121,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "HYDROGEN.pyx":500
+          /* "gases/HYDROGEN.pyx":500
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[3])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6130,7 +6130,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "HYDROGEN.pyx":496
+        /* "gases/HYDROGEN.pyx":496
  *         #B!1 SIGMA V=FI
  *         for J in range(74, 83):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6139,7 +6139,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":502
+      /* "gases/HYDROGEN.pyx":502
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6149,7 +6149,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":503
+        /* "gases/HYDROGEN.pyx":503
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6158,7 +6158,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "HYDROGEN.pyx":502
+        /* "gases/HYDROGEN.pyx":502
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6167,7 +6167,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":504
+      /* "gases/HYDROGEN.pyx":504
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -6177,7 +6177,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "HYDROGEN.pyx":507
+    /* "gases/HYDROGEN.pyx":507
  * 
  *         #D1 PI  V=FI
  *         for J in range(83, 99):             # <<<<<<<<<<<<<<
@@ -6187,7 +6187,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 83; __pyx_t_26 < 99; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "HYDROGEN.pyx":508
+      /* "gases/HYDROGEN.pyx":508
  *         #D1 PI  V=FI
  *         for J in range(83, 99):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6197,7 +6197,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":509
+        /* "gases/HYDROGEN.pyx":509
  *         for J in range(83, 99):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6206,7 +6206,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_BEF[4])));
 
-        /* "HYDROGEN.pyx":512
+        /* "gases/HYDROGEN.pyx":512
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6216,7 +6216,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_30) {
 
-          /* "HYDROGEN.pyx":513
+          /* "gases/HYDROGEN.pyx":513
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6225,7 +6225,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "HYDROGEN.pyx":512
+          /* "gases/HYDROGEN.pyx":512
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6234,7 +6234,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "HYDROGEN.pyx":508
+        /* "gases/HYDROGEN.pyx":508
  *         #D1 PI  V=FI
  *         for J in range(83, 99):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6243,7 +6243,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":514
+      /* "gases/HYDROGEN.pyx":514
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6253,7 +6253,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":515
+        /* "gases/HYDROGEN.pyx":515
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6262,7 +6262,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "HYDROGEN.pyx":514
+        /* "gases/HYDROGEN.pyx":514
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6271,7 +6271,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":516
+      /* "gases/HYDROGEN.pyx":516
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -6281,7 +6281,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "HYDROGEN.pyx":519
+    /* "gases/HYDROGEN.pyx":519
  * 
  *         #TODO: add comments
  *         for J in range(99, 104):             # <<<<<<<<<<<<<<
@@ -6291,7 +6291,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 99; __pyx_t_26 < 0x68; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "HYDROGEN.pyx":520
+      /* "gases/HYDROGEN.pyx":520
  *         #TODO: add comments
  *         for J in range(99, 104):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6301,7 +6301,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":521
+        /* "gases/HYDROGEN.pyx":521
  *         for J in range(99, 104):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6310,7 +6310,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = (((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_BEF[4]))) * 1.08);
 
-        /* "HYDROGEN.pyx":524
+        /* "gases/HYDROGEN.pyx":524
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])*1.08
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6320,7 +6320,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_30) {
 
-          /* "HYDROGEN.pyx":525
+          /* "gases/HYDROGEN.pyx":525
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])*1.08
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6329,7 +6329,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "HYDROGEN.pyx":524
+          /* "gases/HYDROGEN.pyx":524
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])*1.08
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6338,7 +6338,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "HYDROGEN.pyx":520
+        /* "gases/HYDROGEN.pyx":520
  *         #TODO: add comments
  *         for J in range(99, 104):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6347,7 +6347,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":526
+      /* "gases/HYDROGEN.pyx":526
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6357,7 +6357,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":527
+        /* "gases/HYDROGEN.pyx":527
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6366,7 +6366,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "HYDROGEN.pyx":526
+        /* "gases/HYDROGEN.pyx":526
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6375,7 +6375,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":528
+      /* "gases/HYDROGEN.pyx":528
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -6385,7 +6385,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "HYDROGEN.pyx":530
+    /* "gases/HYDROGEN.pyx":530
  *             FI += 1
  * 
  *         for J in range(104, 106):             # <<<<<<<<<<<<<<
@@ -6395,7 +6395,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 0x68; __pyx_t_26 < 0x6A; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "HYDROGEN.pyx":531
+      /* "gases/HYDROGEN.pyx":531
  * 
  *         for J in range(104, 106):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6405,7 +6405,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":532
+        /* "gases/HYDROGEN.pyx":532
  *         for J in range(104, 106):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6414,7 +6414,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = (((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_BEF[4]))) * 1.20);
 
-        /* "HYDROGEN.pyx":535
+        /* "gases/HYDROGEN.pyx":535
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])*1.20
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6424,7 +6424,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_30) {
 
-          /* "HYDROGEN.pyx":536
+          /* "gases/HYDROGEN.pyx":536
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])*1.20
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6433,7 +6433,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "HYDROGEN.pyx":535
+          /* "gases/HYDROGEN.pyx":535
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])*1.20
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6442,7 +6442,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "HYDROGEN.pyx":531
+        /* "gases/HYDROGEN.pyx":531
  * 
  *         for J in range(104, 106):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6451,7 +6451,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":537
+      /* "gases/HYDROGEN.pyx":537
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6461,7 +6461,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":538
+        /* "gases/HYDROGEN.pyx":538
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6470,7 +6470,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "HYDROGEN.pyx":537
+        /* "gases/HYDROGEN.pyx":537
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6479,7 +6479,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":539
+      /* "gases/HYDROGEN.pyx":539
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -6489,7 +6489,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "HYDROGEN.pyx":540
+    /* "gases/HYDROGEN.pyx":540
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1
  *         J=106             # <<<<<<<<<<<<<<
@@ -6498,7 +6498,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_J = 0x6A;
 
-    /* "HYDROGEN.pyx":541
+    /* "gases/HYDROGEN.pyx":541
  *             FI += 1
  *         J=106
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6508,7 +6508,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":542
+      /* "gases/HYDROGEN.pyx":542
  *         J=106
  *         if EN > object.EIN[J]:
  *             object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6517,7 +6517,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_BEF[4])));
 
-      /* "HYDROGEN.pyx":545
+      /* "gases/HYDROGEN.pyx":545
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])
  *             if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6527,7 +6527,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "HYDROGEN.pyx":546
+        /* "gases/HYDROGEN.pyx":546
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])
  *             if object.QIN[J][I] < 0.0:
  *                 object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6536,7 +6536,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "HYDROGEN.pyx":545
+        /* "gases/HYDROGEN.pyx":545
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + BEF[4])
  *             if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6545,7 +6545,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "HYDROGEN.pyx":541
+      /* "gases/HYDROGEN.pyx":541
  *             FI += 1
  *         J=106
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6554,7 +6554,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":547
+    /* "gases/HYDROGEN.pyx":547
  *             if object.QIN[J][I] < 0.0:
  *                 object.QIN[J][I] = 0.0
  *         if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6564,7 +6564,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HYDROGEN.pyx":548
+      /* "gases/HYDROGEN.pyx":548
  *                 object.QIN[J][I] = 0.0
  *         if EN > 2 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6573,7 +6573,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-      /* "HYDROGEN.pyx":547
+      /* "gases/HYDROGEN.pyx":547
  *             if object.QIN[J][I] < 0.0:
  *                 object.QIN[J][I] = 0.0
  *         if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6582,7 +6582,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HYDROGEN.pyx":549
+    /* "gases/HYDROGEN.pyx":549
  *         if EN > 2 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *         FI += 1             # <<<<<<<<<<<<<<
@@ -6591,7 +6591,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = (__pyx_v_FI + 1);
 
-    /* "HYDROGEN.pyx":551
+    /* "gases/HYDROGEN.pyx":551
  *         FI += 1
  * 
  *         object.Q[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6600,7 +6600,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = 0.0;
 
-    /* "HYDROGEN.pyx":552
+    /* "gases/HYDROGEN.pyx":552
  * 
  *         object.Q[0][I] = 0.0
  *         for J in range(107):             # <<<<<<<<<<<<<<
@@ -6610,7 +6610,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_26 = 0; __pyx_t_26 < 0x6B; __pyx_t_26+=1) {
       __pyx_v_J = __pyx_t_26;
 
-      /* "HYDROGEN.pyx":553
+      /* "gases/HYDROGEN.pyx":553
  *         object.Q[0][I] = 0.0
  *         for J in range(107):
  *             object.Q[0][I]+=object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -6622,7 +6622,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_27]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_27]) + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "HYDROGEN.pyx":555
+    /* "gases/HYDROGEN.pyx":555
  *             object.Q[0][I]+=object.QIN[J][I]
  * 
  *         object.Q[0][I]+=object.Q[1][I] +object.Q[3][I]+object.QION[0][I]+object.QION[1][I]             # <<<<<<<<<<<<<<
@@ -6634,7 +6634,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_26]) + (((((__pyx_v_object->Q[1])[__pyx_v_I]) + ((__pyx_v_object->Q[3])[__pyx_v_I])) + ((__pyx_v_object->QION[0])[__pyx_v_I])) + ((__pyx_v_object->QION[1])[__pyx_v_I])));
   }
 
-  /* "HYDROGEN.pyx":557
+  /* "gases/HYDROGEN.pyx":557
  *         object.Q[0][I]+=object.Q[1][I] +object.Q[3][I]+object.QION[0][I]+object.QION[1][I]
  * 
  *     object.NIN =12             # <<<<<<<<<<<<<<
@@ -6643,7 +6643,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 12;
 
-  /* "HYDROGEN.pyx":558
+  /* "gases/HYDROGEN.pyx":558
  * 
  *     object.NIN =12
  *     if object.EFINAL>8.0 and object.EFINAL<=10.0:             # <<<<<<<<<<<<<<
@@ -6661,7 +6661,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_L138_bool_binop_done:;
   if (__pyx_t_30) {
 
-    /* "HYDROGEN.pyx":559
+    /* "gases/HYDROGEN.pyx":559
  *     object.NIN =12
  *     if object.EFINAL>8.0 and object.EFINAL<=10.0:
  *         object.NIN = 16             # <<<<<<<<<<<<<<
@@ -6670,7 +6670,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_object->NIN = 16;
 
-    /* "HYDROGEN.pyx":558
+    /* "gases/HYDROGEN.pyx":558
  * 
  *     object.NIN =12
  *     if object.EFINAL>8.0 and object.EFINAL<=10.0:             # <<<<<<<<<<<<<<
@@ -6679,7 +6679,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   }
 
-  /* "HYDROGEN.pyx":560
+  /* "gases/HYDROGEN.pyx":560
  *     if object.EFINAL>8.0 and object.EFINAL<=10.0:
  *         object.NIN = 16
  *     if object.EFINAL>10.0:             # <<<<<<<<<<<<<<
@@ -6689,7 +6689,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_30 = ((__pyx_v_object->EFINAL > 10.0) != 0);
   if (__pyx_t_30) {
 
-    /* "HYDROGEN.pyx":561
+    /* "gases/HYDROGEN.pyx":561
  *         object.NIN = 16
  *     if object.EFINAL>10.0:
  *         object.NIN = 107             # <<<<<<<<<<<<<<
@@ -6697,7 +6697,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_object->NIN = 0x6B;
 
-    /* "HYDROGEN.pyx":560
+    /* "gases/HYDROGEN.pyx":560
  *     if object.EFINAL>8.0 and object.EFINAL<=10.0:
  *         object.NIN = 16
  *     if object.EFINAL>10.0:             # <<<<<<<<<<<<<<
@@ -6706,14 +6706,14 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   }
 
-  /* "HYDROGEN.pyx":562
+  /* "gases/HYDROGEN.pyx":562
  *     if object.EFINAL>10.0:
  *         object.NIN = 107
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "HYDROGEN.pyx":17
+  /* "gases/HYDROGEN.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas21(Gas*object):             # <<<<<<<<<<<<<<
@@ -6727,7 +6727,7 @@ static void __pyx_f_8HYDROGEN_Gas21(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("HYDROGEN.Gas21", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.HYDROGEN.Gas21", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -9747,7 +9747,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas21", (void (*)(void))__pyx_f_8HYDROGEN_Gas21, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas21", (void (*)(void))__pyx_f_5gases_8HYDROGEN_Gas21, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -10000,14 +10000,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_HYDROGEN) {
+  if (__pyx_module_is_main_gases__HYDROGEN) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "HYDROGEN")) {
-      if (unlikely(PyDict_SetItemString(modules, "HYDROGEN", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.HYDROGEN")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.HYDROGEN", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -10028,7 +10028,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "HYDROGEN.pyx":3
+  /* "gases/HYDROGEN.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -10040,7 +10040,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HYDROGEN.pyx":5
+  /* "gases/HYDROGEN.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -10052,7 +10052,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HYDROGEN.pyx":10
+  /* "gases/HYDROGEN.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -10067,7 +10067,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "HYDROGEN.pyx":1
+  /* "gases/HYDROGEN.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -10093,11 +10093,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init HYDROGEN", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.HYDROGEN", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init HYDROGEN");
+    PyErr_SetString(PyExc_ImportError, "init gases.HYDROGEN");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

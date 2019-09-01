@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "ETHANE",
+        "name": "gases.ETHANE",
         "sources": [
-            "ETHANE.pyx"
+            "gases/ETHANE.pyx"
         ]
     },
-    "module_name": "ETHANE"
+    "module_name": "gases.ETHANE"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__ETHANE
-#define __PYX_HAVE_API__ETHANE
+#define __PYX_HAVE__gases__ETHANE
+#define __PYX_HAVE_API__gases__ETHANE
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "ETHANE.pyx",
+  "gases/ETHANE.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1687,13 +1687,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'ETHANE' */
+/* Module declarations from 'gases.ETHANE' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "ETHANE"
-extern int __pyx_module_is_main_ETHANE;
-int __pyx_module_is_main_ETHANE = 0;
+#define __Pyx_MODULE_NAME "gases.ETHANE"
+extern int __pyx_module_is_main_gases__ETHANE;
+int __pyx_module_is_main_gases__ETHANE = 0;
 
-/* Implementation of 'ETHANE' */
+/* Implementation of 'gases.ETHANE' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1911,7 +1911,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "ETHANE.pyx":18
+/* "gases/ETHANE.pyx":18
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas9(Gas*object):             # <<<<<<<<<<<<<<
@@ -1919,7 +1919,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Ethane gas.
  */
 
-static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEN[0xA4];
   double __pyx_v_YMT[0xA4];
@@ -2100,7 +2100,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   long __pyx_t_35;
   __Pyx_RefNannySetupContext("Gas9", 0);
 
-  /* "ETHANE.pyx":22
+  /* "gases/ETHANE.pyx":22
  *     This function is used to calculate the needed momentum cross sections for Ethane gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2148,7 +2148,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "ETHANE.pyx":32
+  /* "gases/ETHANE.pyx":32
  *     cdef int IOFFION[16], IOFFN[250]
  * 
  *     XEN=gd['gas9/XEN']             # <<<<<<<<<<<<<<
@@ -2165,7 +2165,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (0xA4));
 
-  /* "ETHANE.pyx":33
+  /* "gases/ETHANE.pyx":33
  * 
  *     XEN=gd['gas9/XEN']
  *     YMT=gd['gas9/YMT']             # <<<<<<<<<<<<<<
@@ -2182,7 +2182,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YMT[0]), __pyx_t_5, sizeof(__pyx_v_YMT[0]) * (0xA4));
 
-  /* "ETHANE.pyx":34
+  /* "gases/ETHANE.pyx":34
  *     XEN=gd['gas9/XEN']
  *     YMT=gd['gas9/YMT']
  *     YEL=gd['gas9/YEL']             # <<<<<<<<<<<<<<
@@ -2199,7 +2199,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEL[0]), __pyx_t_5, sizeof(__pyx_v_YEL[0]) * (0xA4));
 
-  /* "ETHANE.pyx":35
+  /* "gases/ETHANE.pyx":35
  *     YMT=gd['gas9/YMT']
  *     YEL=gd['gas9/YEL']
  *     YEPS=gd['gas9/YEPS']             # <<<<<<<<<<<<<<
@@ -2216,7 +2216,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_5, sizeof(__pyx_v_YEPS[0]) * (0xA4));
 
-  /* "ETHANE.pyx":36
+  /* "gases/ETHANE.pyx":36
  *     YEL=gd['gas9/YEL']
  *     YEPS=gd['gas9/YEPS']
  *     XATT1=gd['gas9/XATT1']             # <<<<<<<<<<<<<<
@@ -2229,7 +2229,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT1[0]), __pyx_t_6, sizeof(__pyx_v_XATT1[0]) * (11));
 
-  /* "ETHANE.pyx":37
+  /* "gases/ETHANE.pyx":37
  *     YEPS=gd['gas9/YEPS']
  *     XATT1=gd['gas9/XATT1']
  *     YATT1=gd['gas9/YATT1']             # <<<<<<<<<<<<<<
@@ -2242,7 +2242,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT1[0]), __pyx_t_6, sizeof(__pyx_v_YATT1[0]) * (11));
 
-  /* "ETHANE.pyx":38
+  /* "gases/ETHANE.pyx":38
  *     XATT1=gd['gas9/XATT1']
  *     YATT1=gd['gas9/YATT1']
  *     XATT2=gd['gas9/XATT2']             # <<<<<<<<<<<<<<
@@ -2255,7 +2255,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT2[0]), __pyx_t_7, sizeof(__pyx_v_XATT2[0]) * (9));
 
-  /* "ETHANE.pyx":39
+  /* "gases/ETHANE.pyx":39
  *     YATT1=gd['gas9/YATT1']
  *     XATT2=gd['gas9/XATT2']
  *     YATT2=gd['gas9/YATT2']             # <<<<<<<<<<<<<<
@@ -2268,7 +2268,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT2[0]), __pyx_t_7, sizeof(__pyx_v_YATT2[0]) * (9));
 
-  /* "ETHANE.pyx":40
+  /* "gases/ETHANE.pyx":40
  *     XATT2=gd['gas9/XATT2']
  *     YATT2=gd['gas9/YATT2']
  *     XVIB1=gd['gas9/XVIB1']             # <<<<<<<<<<<<<<
@@ -2281,7 +2281,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB1[0]), __pyx_t_8, sizeof(__pyx_v_XVIB1[0]) * (29));
 
-  /* "ETHANE.pyx":41
+  /* "gases/ETHANE.pyx":41
  *     YATT2=gd['gas9/YATT2']
  *     XVIB1=gd['gas9/XVIB1']
  *     YVIB1=gd['gas9/YVIB1']             # <<<<<<<<<<<<<<
@@ -2294,7 +2294,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB1[0]), __pyx_t_8, sizeof(__pyx_v_YVIB1[0]) * (29));
 
-  /* "ETHANE.pyx":42
+  /* "gases/ETHANE.pyx":42
  *     XVIB1=gd['gas9/XVIB1']
  *     YVIB1=gd['gas9/YVIB1']
  *     XVIB2=gd['gas9/XVIB2']             # <<<<<<<<<<<<<<
@@ -2307,7 +2307,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB2[0]), __pyx_t_9, sizeof(__pyx_v_XVIB2[0]) * (28));
 
-  /* "ETHANE.pyx":43
+  /* "gases/ETHANE.pyx":43
  *     YVIB1=gd['gas9/YVIB1']
  *     XVIB2=gd['gas9/XVIB2']
  *     YVIB2=gd['gas9/YVIB2']             # <<<<<<<<<<<<<<
@@ -2320,7 +2320,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB2[0]), __pyx_t_9, sizeof(__pyx_v_YVIB2[0]) * (28));
 
-  /* "ETHANE.pyx":44
+  /* "gases/ETHANE.pyx":44
  *     XVIB2=gd['gas9/XVIB2']
  *     YVIB2=gd['gas9/YVIB2']
  *     XVIB3=gd['gas9/XVIB3']             # <<<<<<<<<<<<<<
@@ -2333,7 +2333,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB3[0]), __pyx_t_9, sizeof(__pyx_v_XVIB3[0]) * (28));
 
-  /* "ETHANE.pyx":45
+  /* "gases/ETHANE.pyx":45
  *     YVIB2=gd['gas9/YVIB2']
  *     XVIB3=gd['gas9/XVIB3']
  *     YVIB3=gd['gas9/YVIB3']             # <<<<<<<<<<<<<<
@@ -2346,7 +2346,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB3[0]), __pyx_t_9, sizeof(__pyx_v_YVIB3[0]) * (28));
 
-  /* "ETHANE.pyx":46
+  /* "gases/ETHANE.pyx":46
  *     XVIB3=gd['gas9/XVIB3']
  *     YVIB3=gd['gas9/YVIB3']
  *     XVIB4=gd['gas9/XVIB4']             # <<<<<<<<<<<<<<
@@ -2359,7 +2359,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB4[0]), __pyx_t_10, sizeof(__pyx_v_XVIB4[0]) * (46));
 
-  /* "ETHANE.pyx":47
+  /* "gases/ETHANE.pyx":47
  *     YVIB3=gd['gas9/YVIB3']
  *     XVIB4=gd['gas9/XVIB4']
  *     YVIB4=gd['gas9/YVIB4']             # <<<<<<<<<<<<<<
@@ -2372,7 +2372,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB4[0]), __pyx_t_10, sizeof(__pyx_v_YVIB4[0]) * (46));
 
-  /* "ETHANE.pyx":48
+  /* "gases/ETHANE.pyx":48
  *     XVIB4=gd['gas9/XVIB4']
  *     YVIB4=gd['gas9/YVIB4']
  *     XVIB5=gd['gas9/XVIB5']             # <<<<<<<<<<<<<<
@@ -2385,7 +2385,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB5[0]), __pyx_t_11, sizeof(__pyx_v_XVIB5[0]) * (16));
 
-  /* "ETHANE.pyx":49
+  /* "gases/ETHANE.pyx":49
  *     YVIB4=gd['gas9/YVIB4']
  *     XVIB5=gd['gas9/XVIB5']
  *     YVIB5=gd['gas9/YVIB5']             # <<<<<<<<<<<<<<
@@ -2398,7 +2398,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB5[0]), __pyx_t_11, sizeof(__pyx_v_YVIB5[0]) * (16));
 
-  /* "ETHANE.pyx":50
+  /* "gases/ETHANE.pyx":50
  *     XVIB5=gd['gas9/XVIB5']
  *     YVIB5=gd['gas9/YVIB5']
  *     XTR1=gd['gas9/XTR1']             # <<<<<<<<<<<<<<
@@ -2411,7 +2411,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR1[0]), __pyx_t_12, sizeof(__pyx_v_XTR1[0]) * (12));
 
-  /* "ETHANE.pyx":51
+  /* "gases/ETHANE.pyx":51
  *     YVIB5=gd['gas9/YVIB5']
  *     XTR1=gd['gas9/XTR1']
  *     YTR1=gd['gas9/YTR1']             # <<<<<<<<<<<<<<
@@ -2424,7 +2424,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR1[0]), __pyx_t_12, sizeof(__pyx_v_YTR1[0]) * (12));
 
-  /* "ETHANE.pyx":52
+  /* "gases/ETHANE.pyx":52
  *     XTR1=gd['gas9/XTR1']
  *     YTR1=gd['gas9/YTR1']
  *     XTR2=gd['gas9/XTR2']             # <<<<<<<<<<<<<<
@@ -2437,7 +2437,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR2[0]), __pyx_t_6, sizeof(__pyx_v_XTR2[0]) * (11));
 
-  /* "ETHANE.pyx":53
+  /* "gases/ETHANE.pyx":53
  *     YTR1=gd['gas9/YTR1']
  *     XTR2=gd['gas9/XTR2']
  *     YTR2=gd['gas9/YTR2']             # <<<<<<<<<<<<<<
@@ -2450,7 +2450,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR2[0]), __pyx_t_6, sizeof(__pyx_v_YTR2[0]) * (11));
 
-  /* "ETHANE.pyx":54
+  /* "gases/ETHANE.pyx":54
  *     XTR2=gd['gas9/XTR2']
  *     YTR2=gd['gas9/YTR2']
  *     XTR3=gd['gas9/XTR3']             # <<<<<<<<<<<<<<
@@ -2463,7 +2463,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR3[0]), __pyx_t_6, sizeof(__pyx_v_XTR3[0]) * (11));
 
-  /* "ETHANE.pyx":55
+  /* "gases/ETHANE.pyx":55
  *     YTR2=gd['gas9/YTR2']
  *     XTR3=gd['gas9/XTR3']
  *     YTR3=gd['gas9/YTR3']             # <<<<<<<<<<<<<<
@@ -2476,7 +2476,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR3[0]), __pyx_t_6, sizeof(__pyx_v_YTR3[0]) * (11));
 
-  /* "ETHANE.pyx":56
+  /* "gases/ETHANE.pyx":56
  *     XTR3=gd['gas9/XTR3']
  *     YTR3=gd['gas9/YTR3']
  *     XNUL1=gd['gas9/XNUL1']             # <<<<<<<<<<<<<<
@@ -2489,7 +2489,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL1[0]), __pyx_t_13, sizeof(__pyx_v_XNUL1[0]) * (25));
 
-  /* "ETHANE.pyx":57
+  /* "gases/ETHANE.pyx":57
  *     YTR3=gd['gas9/YTR3']
  *     XNUL1=gd['gas9/XNUL1']
  *     YNUL1=gd['gas9/YNUL1']             # <<<<<<<<<<<<<<
@@ -2502,7 +2502,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL1[0]), __pyx_t_13, sizeof(__pyx_v_YNUL1[0]) * (25));
 
-  /* "ETHANE.pyx":58
+  /* "gases/ETHANE.pyx":58
  *     XNUL1=gd['gas9/XNUL1']
  *     YNUL1=gd['gas9/YNUL1']
  *     XNUL2=gd['gas9/XNUL2']             # <<<<<<<<<<<<<<
@@ -2515,7 +2515,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL2[0]), __pyx_t_14, sizeof(__pyx_v_XNUL2[0]) * (13));
 
-  /* "ETHANE.pyx":59
+  /* "gases/ETHANE.pyx":59
  *     YNUL1=gd['gas9/YNUL1']
  *     XNUL2=gd['gas9/XNUL2']
  *     YNUL2=gd['gas9/YNUL2']             # <<<<<<<<<<<<<<
@@ -2528,7 +2528,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL2[0]), __pyx_t_14, sizeof(__pyx_v_YNUL2[0]) * (13));
 
-  /* "ETHANE.pyx":60
+  /* "gases/ETHANE.pyx":60
  *     XNUL2=gd['gas9/XNUL2']
  *     YNUL2=gd['gas9/YNUL2']
  *     XNUL3=gd['gas9/XNUL3']             # <<<<<<<<<<<<<<
@@ -2541,7 +2541,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL3[0]), __pyx_t_15, sizeof(__pyx_v_XNUL3[0]) * (14));
 
-  /* "ETHANE.pyx":61
+  /* "gases/ETHANE.pyx":61
  *     YNUL2=gd['gas9/YNUL2']
  *     XNUL3=gd['gas9/XNUL3']
  *     YNUL3=gd['gas9/YNUL3']             # <<<<<<<<<<<<<<
@@ -2554,7 +2554,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL3[0]), __pyx_t_15, sizeof(__pyx_v_YNUL3[0]) * (14));
 
-  /* "ETHANE.pyx":62
+  /* "gases/ETHANE.pyx":62
  *     XNUL3=gd['gas9/XNUL3']
  *     YNUL3=gd['gas9/YNUL3']
  *     XION1=gd['gas9/XION1']             # <<<<<<<<<<<<<<
@@ -2567,7 +2567,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION1[0]), __pyx_t_16, sizeof(__pyx_v_XION1[0]) * (31));
 
-  /* "ETHANE.pyx":63
+  /* "gases/ETHANE.pyx":63
  *     YNUL3=gd['gas9/YNUL3']
  *     XION1=gd['gas9/XION1']
  *     YION1=gd['gas9/YION1']             # <<<<<<<<<<<<<<
@@ -2580,7 +2580,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION1[0]), __pyx_t_16, sizeof(__pyx_v_YION1[0]) * (31));
 
-  /* "ETHANE.pyx":64
+  /* "gases/ETHANE.pyx":64
  *     XION1=gd['gas9/XION1']
  *     YION1=gd['gas9/YION1']
  *     XION2=gd['gas9/XION2']             # <<<<<<<<<<<<<<
@@ -2593,7 +2593,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION2[0]), __pyx_t_16, sizeof(__pyx_v_XION2[0]) * (31));
 
-  /* "ETHANE.pyx":65
+  /* "gases/ETHANE.pyx":65
  *     YION1=gd['gas9/YION1']
  *     XION2=gd['gas9/XION2']
  *     YION2=gd['gas9/YION2']             # <<<<<<<<<<<<<<
@@ -2606,7 +2606,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION2[0]), __pyx_t_16, sizeof(__pyx_v_YION2[0]) * (31));
 
-  /* "ETHANE.pyx":66
+  /* "gases/ETHANE.pyx":66
  *     XION2=gd['gas9/XION2']
  *     YION2=gd['gas9/YION2']
  *     XION3=gd['gas9/XION3']             # <<<<<<<<<<<<<<
@@ -2619,7 +2619,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION3[0]), __pyx_t_16, sizeof(__pyx_v_XION3[0]) * (31));
 
-  /* "ETHANE.pyx":67
+  /* "gases/ETHANE.pyx":67
  *     YION2=gd['gas9/YION2']
  *     XION3=gd['gas9/XION3']
  *     YION3=gd['gas9/YION3']             # <<<<<<<<<<<<<<
@@ -2632,7 +2632,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION3[0]), __pyx_t_16, sizeof(__pyx_v_YION3[0]) * (31));
 
-  /* "ETHANE.pyx":68
+  /* "gases/ETHANE.pyx":68
  *     XION3=gd['gas9/XION3']
  *     YION3=gd['gas9/YION3']
  *     XION4=gd['gas9/XION4']             # <<<<<<<<<<<<<<
@@ -2645,7 +2645,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION4[0]), __pyx_t_17, sizeof(__pyx_v_XION4[0]) * (30));
 
-  /* "ETHANE.pyx":69
+  /* "gases/ETHANE.pyx":69
  *     YION3=gd['gas9/YION3']
  *     XION4=gd['gas9/XION4']
  *     YION4=gd['gas9/YION4']             # <<<<<<<<<<<<<<
@@ -2658,7 +2658,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION4[0]), __pyx_t_17, sizeof(__pyx_v_YION4[0]) * (30));
 
-  /* "ETHANE.pyx":70
+  /* "gases/ETHANE.pyx":70
  *     XION4=gd['gas9/XION4']
  *     YION4=gd['gas9/YION4']
  *     XION5=gd['gas9/XION5']             # <<<<<<<<<<<<<<
@@ -2671,7 +2671,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION5[0]), __pyx_t_8, sizeof(__pyx_v_XION5[0]) * (29));
 
-  /* "ETHANE.pyx":71
+  /* "gases/ETHANE.pyx":71
  *     YION4=gd['gas9/YION4']
  *     XION5=gd['gas9/XION5']
  *     YION5=gd['gas9/YION5']             # <<<<<<<<<<<<<<
@@ -2684,7 +2684,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION5[0]), __pyx_t_8, sizeof(__pyx_v_YION5[0]) * (29));
 
-  /* "ETHANE.pyx":72
+  /* "gases/ETHANE.pyx":72
  *     XION5=gd['gas9/XION5']
  *     YION5=gd['gas9/YION5']
  *     XION6=gd['gas9/XION6']             # <<<<<<<<<<<<<<
@@ -2697,7 +2697,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION6[0]), __pyx_t_8, sizeof(__pyx_v_XION6[0]) * (29));
 
-  /* "ETHANE.pyx":73
+  /* "gases/ETHANE.pyx":73
  *     YION5=gd['gas9/YION5']
  *     XION6=gd['gas9/XION6']
  *     YION6=gd['gas9/YION6']             # <<<<<<<<<<<<<<
@@ -2710,7 +2710,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION6[0]), __pyx_t_8, sizeof(__pyx_v_YION6[0]) * (29));
 
-  /* "ETHANE.pyx":74
+  /* "gases/ETHANE.pyx":74
  *     XION6=gd['gas9/XION6']
  *     YION6=gd['gas9/YION6']
  *     XION7=gd['gas9/XION7']             # <<<<<<<<<<<<<<
@@ -2723,7 +2723,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION7[0]), __pyx_t_18, sizeof(__pyx_v_XION7[0]) * (26));
 
-  /* "ETHANE.pyx":75
+  /* "gases/ETHANE.pyx":75
  *     YION6=gd['gas9/YION6']
  *     XION7=gd['gas9/XION7']
  *     YION7=gd['gas9/YION7']             # <<<<<<<<<<<<<<
@@ -2736,7 +2736,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION7[0]), __pyx_t_18, sizeof(__pyx_v_YION7[0]) * (26));
 
-  /* "ETHANE.pyx":76
+  /* "gases/ETHANE.pyx":76
  *     XION7=gd['gas9/XION7']
  *     YION7=gd['gas9/YION7']
  *     XION8=gd['gas9/XION8']             # <<<<<<<<<<<<<<
@@ -2749,7 +2749,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION8[0]), __pyx_t_18, sizeof(__pyx_v_XION8[0]) * (26));
 
-  /* "ETHANE.pyx":77
+  /* "gases/ETHANE.pyx":77
  *     YION7=gd['gas9/YION7']
  *     XION8=gd['gas9/XION8']
  *     YION8=gd['gas9/YION8']             # <<<<<<<<<<<<<<
@@ -2762,7 +2762,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION8[0]), __pyx_t_18, sizeof(__pyx_v_YION8[0]) * (26));
 
-  /* "ETHANE.pyx":78
+  /* "gases/ETHANE.pyx":78
  *     XION8=gd['gas9/XION8']
  *     YION8=gd['gas9/YION8']
  *     XION9=gd['gas9/XION9']             # <<<<<<<<<<<<<<
@@ -2775,7 +2775,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION9[0]), __pyx_t_13, sizeof(__pyx_v_XION9[0]) * (25));
 
-  /* "ETHANE.pyx":79
+  /* "gases/ETHANE.pyx":79
  *     YION8=gd['gas9/YION8']
  *     XION9=gd['gas9/XION9']
  *     YION9=gd['gas9/YION9']             # <<<<<<<<<<<<<<
@@ -2788,7 +2788,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION9[0]), __pyx_t_13, sizeof(__pyx_v_YION9[0]) * (25));
 
-  /* "ETHANE.pyx":80
+  /* "gases/ETHANE.pyx":80
  *     XION9=gd['gas9/XION9']
  *     YION9=gd['gas9/YION9']
  *     XION10=gd['gas9/XION10']             # <<<<<<<<<<<<<<
@@ -2801,7 +2801,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION10[0]), __pyx_t_19, sizeof(__pyx_v_XION10[0]) * (24));
 
-  /* "ETHANE.pyx":81
+  /* "gases/ETHANE.pyx":81
  *     YION9=gd['gas9/YION9']
  *     XION10=gd['gas9/XION10']
  *     YION10=gd['gas9/YION10']             # <<<<<<<<<<<<<<
@@ -2814,7 +2814,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION10[0]), __pyx_t_19, sizeof(__pyx_v_YION10[0]) * (24));
 
-  /* "ETHANE.pyx":82
+  /* "gases/ETHANE.pyx":82
  *     XION10=gd['gas9/XION10']
  *     YION10=gd['gas9/YION10']
  *     XION11=gd['gas9/XION11']             # <<<<<<<<<<<<<<
@@ -2827,7 +2827,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION11[0]), __pyx_t_19, sizeof(__pyx_v_XION11[0]) * (24));
 
-  /* "ETHANE.pyx":83
+  /* "gases/ETHANE.pyx":83
  *     YION10=gd['gas9/YION10']
  *     XION11=gd['gas9/XION11']
  *     YION11=gd['gas9/YION11']             # <<<<<<<<<<<<<<
@@ -2840,7 +2840,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION11[0]), __pyx_t_19, sizeof(__pyx_v_YION11[0]) * (24));
 
-  /* "ETHANE.pyx":84
+  /* "gases/ETHANE.pyx":84
  *     XION11=gd['gas9/XION11']
  *     YION11=gd['gas9/YION11']
  *     XION12=gd['gas9/XION12']             # <<<<<<<<<<<<<<
@@ -2853,7 +2853,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION12[0]), __pyx_t_19, sizeof(__pyx_v_XION12[0]) * (24));
 
-  /* "ETHANE.pyx":85
+  /* "gases/ETHANE.pyx":85
  *     YION11=gd['gas9/YION11']
  *     XION12=gd['gas9/XION12']
  *     YION12=gd['gas9/YION12']             # <<<<<<<<<<<<<<
@@ -2866,7 +2866,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION12[0]), __pyx_t_19, sizeof(__pyx_v_YION12[0]) * (24));
 
-  /* "ETHANE.pyx":86
+  /* "gases/ETHANE.pyx":86
  *     XION12=gd['gas9/XION12']
  *     YION12=gd['gas9/YION12']
  *     XION13=gd['gas9/XION13']             # <<<<<<<<<<<<<<
@@ -2879,7 +2879,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION13[0]), __pyx_t_20, sizeof(__pyx_v_XION13[0]) * (23));
 
-  /* "ETHANE.pyx":87
+  /* "gases/ETHANE.pyx":87
  *     YION12=gd['gas9/YION12']
  *     XION13=gd['gas9/XION13']
  *     YION13=gd['gas9/YION13']             # <<<<<<<<<<<<<<
@@ -2892,7 +2892,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION13[0]), __pyx_t_20, sizeof(__pyx_v_YION13[0]) * (23));
 
-  /* "ETHANE.pyx":88
+  /* "gases/ETHANE.pyx":88
  *     XION13=gd['gas9/XION13']
  *     YION13=gd['gas9/YION13']
  *     XION14=gd['gas9/XION14']             # <<<<<<<<<<<<<<
@@ -2905,7 +2905,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION14[0]), __pyx_t_21, sizeof(__pyx_v_XION14[0]) * (21));
 
-  /* "ETHANE.pyx":89
+  /* "gases/ETHANE.pyx":89
  *     YION13=gd['gas9/YION13']
  *     XION14=gd['gas9/XION14']
  *     YION14=gd['gas9/YION14']             # <<<<<<<<<<<<<<
@@ -2918,7 +2918,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION14[0]), __pyx_t_21, sizeof(__pyx_v_YION14[0]) * (21));
 
-  /* "ETHANE.pyx":90
+  /* "gases/ETHANE.pyx":90
  *     XION14=gd['gas9/XION14']
  *     YION14=gd['gas9/YION14']
  *     XION15=gd['gas9/XION15']             # <<<<<<<<<<<<<<
@@ -2931,7 +2931,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION15[0]), __pyx_t_21, sizeof(__pyx_v_XION15[0]) * (21));
 
-  /* "ETHANE.pyx":91
+  /* "gases/ETHANE.pyx":91
  *     YION14=gd['gas9/YION14']
  *     XION15=gd['gas9/XION15']
  *     YION15=gd['gas9/YION15']             # <<<<<<<<<<<<<<
@@ -2944,7 +2944,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION15[0]), __pyx_t_21, sizeof(__pyx_v_YION15[0]) * (21));
 
-  /* "ETHANE.pyx":92
+  /* "gases/ETHANE.pyx":92
  *     XION15=gd['gas9/XION15']
  *     YION15=gd['gas9/YION15']
  *     XION16=gd['gas9/XION16']             # <<<<<<<<<<<<<<
@@ -2957,7 +2957,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION16[0]), __pyx_t_22, sizeof(__pyx_v_XION16[0]) * (83));
 
-  /* "ETHANE.pyx":93
+  /* "gases/ETHANE.pyx":93
  *     YION15=gd['gas9/YION15']
  *     XION16=gd['gas9/XION16']
  *     YION16=gd['gas9/YION16']             # <<<<<<<<<<<<<<
@@ -2970,7 +2970,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION16[0]), __pyx_t_22, sizeof(__pyx_v_YION16[0]) * (83));
 
-  /* "ETHANE.pyx":94
+  /* "gases/ETHANE.pyx":94
  *     XION16=gd['gas9/XION16']
  *     YION16=gd['gas9/YION16']
  *     XION=gd['gas9/XION']             # <<<<<<<<<<<<<<
@@ -2983,7 +2983,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_23, sizeof(__pyx_v_XION[0]) * (50));
 
-  /* "ETHANE.pyx":95
+  /* "gases/ETHANE.pyx":95
  *     YION16=gd['gas9/YION16']
  *     XION=gd['gas9/XION']
  *     YIONG=gd['gas9/YIONG']             # <<<<<<<<<<<<<<
@@ -2996,7 +2996,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIONG[0]), __pyx_t_23, sizeof(__pyx_v_YIONG[0]) * (50));
 
-  /* "ETHANE.pyx":96
+  /* "gases/ETHANE.pyx":96
  *     XION=gd['gas9/XION']
  *     YIONG=gd['gas9/YIONG']
  *     YIONC=gd['gas9/YIONC']             # <<<<<<<<<<<<<<
@@ -3009,7 +3009,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIONC[0]), __pyx_t_23, sizeof(__pyx_v_YIONC[0]) * (50));
 
-  /* "ETHANE.pyx":97
+  /* "gases/ETHANE.pyx":97
  *     YIONG=gd['gas9/YIONG']
  *     YIONC=gd['gas9/YIONC']
  *     Z1T=gd['gas9/Z1T']             # <<<<<<<<<<<<<<
@@ -3022,7 +3022,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z1T[0]), __pyx_t_13, sizeof(__pyx_v_Z1T[0]) * (25));
 
-  /* "ETHANE.pyx":98
+  /* "gases/ETHANE.pyx":98
  *     YIONC=gd['gas9/YIONC']
  *     Z1T=gd['gas9/Z1T']
  *     Z6T=gd['gas9/Z6T']             # <<<<<<<<<<<<<<
@@ -3035,7 +3035,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z6T[0]), __pyx_t_13, sizeof(__pyx_v_Z6T[0]) * (25));
 
-  /* "ETHANE.pyx":99
+  /* "gases/ETHANE.pyx":99
  *     Z1T=gd['gas9/Z1T']
  *     Z6T=gd['gas9/Z6T']
  *     EBRM=gd['gas9/EBRM']             # <<<<<<<<<<<<<<
@@ -3048,7 +3048,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_13, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "ETHANE.pyx":106
+  /* "gases/ETHANE.pyx":106
  * 
  *     # BORN-BETHE CONSTANTS
  *     A0=0.52917720859e-08             # <<<<<<<<<<<<<<
@@ -3057,7 +3057,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-08;
 
-  /* "ETHANE.pyx":107
+  /* "gases/ETHANE.pyx":107
  *     # BORN-BETHE CONSTANTS
  *     A0=0.52917720859e-08
  *     RY=13.60569193             # <<<<<<<<<<<<<<
@@ -3066,7 +3066,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "ETHANE.pyx":108
+  /* "gases/ETHANE.pyx":108
  *     A0=0.52917720859e-08
  *     RY=13.60569193
  *     CONST=1.8738843-20             # <<<<<<<<<<<<<<
@@ -3075,7 +3075,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = (1.8738843 - 20.0);
 
-  /* "ETHANE.pyx":109
+  /* "gases/ETHANE.pyx":109
  *     RY=13.60569193
  *     CONST=1.8738843-20
  *     EMASS2=1021997.804             # <<<<<<<<<<<<<<
@@ -3084,7 +3084,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "ETHANE.pyx":110
+  /* "gases/ETHANE.pyx":110
  *     CONST=1.8738843-20
  *     EMASS2=1021997.804
  *     API=acos(-1.0)             # <<<<<<<<<<<<<<
@@ -3093,7 +3093,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0);
 
-  /* "ETHANE.pyx":111
+  /* "gases/ETHANE.pyx":111
  *     EMASS2=1021997.804
  *     API=acos(-1.0)
  *     BBCONST=16.0*API*A0*A0*RY*RY/EMASS2             # <<<<<<<<<<<<<<
@@ -3102,7 +3102,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "ETHANE.pyx":114
+  /* "gases/ETHANE.pyx":114
  * 
  *     # BORN BETHE FOR IONISATION
  *     AM2=7.21             # <<<<<<<<<<<<<<
@@ -3111,7 +3111,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 7.21;
 
-  /* "ETHANE.pyx":115
+  /* "gases/ETHANE.pyx":115
  *     # BORN BETHE FOR IONISATION
  *     AM2=7.21
  *     C=70.5             # <<<<<<<<<<<<<<
@@ -3120,7 +3120,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 70.5;
 
-  /* "ETHANE.pyx":117
+  /* "gases/ETHANE.pyx":117
  *     C=70.5
  *     # ARRAY SIZE
  *     NASIZE=4000             # <<<<<<<<<<<<<<
@@ -3129,7 +3129,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NASIZE = 0xFA0;
 
-  /* "ETHANE.pyx":118
+  /* "gases/ETHANE.pyx":118
  *     # ARRAY SIZE
  *     NASIZE=4000
  *     object.NION=16             # <<<<<<<<<<<<<<
@@ -3138,7 +3138,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 16;
 
-  /* "ETHANE.pyx":119
+  /* "gases/ETHANE.pyx":119
  *     NASIZE=4000
  *     object.NION=16
  *     object.NATT=2             # <<<<<<<<<<<<<<
@@ -3147,7 +3147,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 2;
 
-  /* "ETHANE.pyx":120
+  /* "gases/ETHANE.pyx":120
  *     object.NION=16
  *     object.NATT=2
  *     object.NIN=55             # <<<<<<<<<<<<<<
@@ -3156,7 +3156,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 55;
 
-  /* "ETHANE.pyx":121
+  /* "gases/ETHANE.pyx":121
  *     object.NATT=2
  *     object.NIN=55
  *     object.NNULL=3             # <<<<<<<<<<<<<<
@@ -3165,7 +3165,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 3;
 
-  /* "ETHANE.pyx":122
+  /* "gases/ETHANE.pyx":122
  *     object.NIN=55
  *     object.NNULL=3
  *     NBREM=25             # <<<<<<<<<<<<<<
@@ -3174,7 +3174,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "ETHANE.pyx":124
+  /* "gases/ETHANE.pyx":124
  *     NBREM=25
  * 
  *     for i in range(6):             # <<<<<<<<<<<<<<
@@ -3184,7 +3184,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_24 = 0; __pyx_t_24 < 6; __pyx_t_24+=1) {
     __pyx_v_i = __pyx_t_24;
 
-    /* "ETHANE.pyx":125
+    /* "gases/ETHANE.pyx":125
  * 
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -3195,7 +3195,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_i]) = __pyx_t_25;
   }
 
-  /* "ETHANE.pyx":126
+  /* "gases/ETHANE.pyx":126
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO
  *     for i in range(10):             # <<<<<<<<<<<<<<
@@ -3205,7 +3205,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_24 = 0; __pyx_t_24 < 10; __pyx_t_24+=1) {
     __pyx_v_i = __pyx_t_24;
 
-    /* "ETHANE.pyx":127
+    /* "gases/ETHANE.pyx":127
  *         object.KEL[i] = object.NANISO
  *     for i in range(10):
  *         object.KIN[i] = 0             # <<<<<<<<<<<<<<
@@ -3215,7 +3215,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = 0.0;
   }
 
-  /* "ETHANE.pyx":128
+  /* "gases/ETHANE.pyx":128
  *     for i in range(10):
  *         object.KIN[i] = 0
  *     for i in range(10,object.NIN):             # <<<<<<<<<<<<<<
@@ -3227,7 +3227,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 10; __pyx_t_26 < __pyx_t_25; __pyx_t_26+=1) {
     __pyx_v_i = __pyx_t_26;
 
-    /* "ETHANE.pyx":129
+    /* "gases/ETHANE.pyx":129
  *         object.KIN[i] = 0
  *     for i in range(10,object.NIN):
  *         object.KIN[i] = 2             # <<<<<<<<<<<<<<
@@ -3237,7 +3237,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = 2.0;
   }
 
-  /* "ETHANE.pyx":130
+  /* "gases/ETHANE.pyx":130
  *     for i in range(10,object.NIN):
  *         object.KIN[i] = 2
  *     NDATA=164             # <<<<<<<<<<<<<<
@@ -3246,7 +3246,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 0xA4;
 
-  /* "ETHANE.pyx":132
+  /* "gases/ETHANE.pyx":132
  *     NDATA=164
  * 
  *     NIOND=50             # <<<<<<<<<<<<<<
@@ -3255,7 +3255,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIOND = 50;
 
-  /* "ETHANE.pyx":133
+  /* "gases/ETHANE.pyx":133
  * 
  *     NIOND=50
  *     NION1=31             # <<<<<<<<<<<<<<
@@ -3264,7 +3264,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION1 = 31;
 
-  /* "ETHANE.pyx":134
+  /* "gases/ETHANE.pyx":134
  *     NIOND=50
  *     NION1=31
  *     NION2=31             # <<<<<<<<<<<<<<
@@ -3273,7 +3273,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 31;
 
-  /* "ETHANE.pyx":135
+  /* "gases/ETHANE.pyx":135
  *     NION1=31
  *     NION2=31
  *     NION3=31             # <<<<<<<<<<<<<<
@@ -3282,7 +3282,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 31;
 
-  /* "ETHANE.pyx":136
+  /* "gases/ETHANE.pyx":136
  *     NION2=31
  *     NION3=31
  *     NION4=30             # <<<<<<<<<<<<<<
@@ -3291,7 +3291,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION4 = 30;
 
-  /* "ETHANE.pyx":137
+  /* "gases/ETHANE.pyx":137
  *     NION3=31
  *     NION4=30
  *     NION5=29             # <<<<<<<<<<<<<<
@@ -3300,7 +3300,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION5 = 29;
 
-  /* "ETHANE.pyx":138
+  /* "gases/ETHANE.pyx":138
  *     NION4=30
  *     NION5=29
  *     NION6=29             # <<<<<<<<<<<<<<
@@ -3309,7 +3309,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION6 = 29;
 
-  /* "ETHANE.pyx":139
+  /* "gases/ETHANE.pyx":139
  *     NION5=29
  *     NION6=29
  *     NION7=26             # <<<<<<<<<<<<<<
@@ -3318,7 +3318,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION7 = 26;
 
-  /* "ETHANE.pyx":140
+  /* "gases/ETHANE.pyx":140
  *     NION6=29
  *     NION7=26
  *     NION8=26             # <<<<<<<<<<<<<<
@@ -3327,7 +3327,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION8 = 26;
 
-  /* "ETHANE.pyx":141
+  /* "gases/ETHANE.pyx":141
  *     NION7=26
  *     NION8=26
  *     NION9=25             # <<<<<<<<<<<<<<
@@ -3336,7 +3336,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION9 = 25;
 
-  /* "ETHANE.pyx":142
+  /* "gases/ETHANE.pyx":142
  *     NION8=26
  *     NION9=25
  *     NION10=24             # <<<<<<<<<<<<<<
@@ -3345,7 +3345,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION10 = 24;
 
-  /* "ETHANE.pyx":143
+  /* "gases/ETHANE.pyx":143
  *     NION9=25
  *     NION10=24
  *     NION11=24             # <<<<<<<<<<<<<<
@@ -3354,7 +3354,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION11 = 24;
 
-  /* "ETHANE.pyx":144
+  /* "gases/ETHANE.pyx":144
  *     NION10=24
  *     NION11=24
  *     NION12=24             # <<<<<<<<<<<<<<
@@ -3363,7 +3363,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION12 = 24;
 
-  /* "ETHANE.pyx":145
+  /* "gases/ETHANE.pyx":145
  *     NION11=24
  *     NION12=24
  *     NION13=23             # <<<<<<<<<<<<<<
@@ -3372,7 +3372,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION13 = 23;
 
-  /* "ETHANE.pyx":146
+  /* "gases/ETHANE.pyx":146
  *     NION12=24
  *     NION13=23
  *     NION14=21             # <<<<<<<<<<<<<<
@@ -3381,7 +3381,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION14 = 21;
 
-  /* "ETHANE.pyx":147
+  /* "gases/ETHANE.pyx":147
  *     NION13=23
  *     NION14=21
  *     NION15=21             # <<<<<<<<<<<<<<
@@ -3390,7 +3390,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION15 = 21;
 
-  /* "ETHANE.pyx":148
+  /* "gases/ETHANE.pyx":148
  *     NION14=21
  *     NION15=21
  *     NION16=83             # <<<<<<<<<<<<<<
@@ -3399,7 +3399,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION16 = 83;
 
-  /* "ETHANE.pyx":149
+  /* "gases/ETHANE.pyx":149
  *     NION15=21
  *     NION16=83
  *     NATT1=11             # <<<<<<<<<<<<<<
@@ -3408,7 +3408,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 11;
 
-  /* "ETHANE.pyx":150
+  /* "gases/ETHANE.pyx":150
  *     NION16=83
  *     NATT1=11
  *     NATT2=9             # <<<<<<<<<<<<<<
@@ -3417,7 +3417,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT2 = 9;
 
-  /* "ETHANE.pyx":151
+  /* "gases/ETHANE.pyx":151
  *     NATT1=11
  *     NATT2=9
  *     NVIB1=29             # <<<<<<<<<<<<<<
@@ -3426,7 +3426,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB1 = 29;
 
-  /* "ETHANE.pyx":152
+  /* "gases/ETHANE.pyx":152
  *     NATT2=9
  *     NVIB1=29
  *     NVIB2=28             # <<<<<<<<<<<<<<
@@ -3435,7 +3435,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB2 = 28;
 
-  /* "ETHANE.pyx":153
+  /* "gases/ETHANE.pyx":153
  *     NVIB1=29
  *     NVIB2=28
  *     NVIB3=28             # <<<<<<<<<<<<<<
@@ -3444,7 +3444,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB3 = 28;
 
-  /* "ETHANE.pyx":154
+  /* "gases/ETHANE.pyx":154
  *     NVIB2=28
  *     NVIB3=28
  *     NVIB4=46             # <<<<<<<<<<<<<<
@@ -3453,7 +3453,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB4 = 46;
 
-  /* "ETHANE.pyx":155
+  /* "gases/ETHANE.pyx":155
  *     NVIB3=28
  *     NVIB4=46
  *     NVIB5=16             # <<<<<<<<<<<<<<
@@ -3462,7 +3462,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB5 = 16;
 
-  /* "ETHANE.pyx":156
+  /* "gases/ETHANE.pyx":156
  *     NVIB4=46
  *     NVIB5=16
  *     NTR1=12             # <<<<<<<<<<<<<<
@@ -3471,7 +3471,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR1 = 12;
 
-  /* "ETHANE.pyx":157
+  /* "gases/ETHANE.pyx":157
  *     NVIB5=16
  *     NTR1=12
  *     NTR2=11             # <<<<<<<<<<<<<<
@@ -3480,7 +3480,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR2 = 11;
 
-  /* "ETHANE.pyx":158
+  /* "gases/ETHANE.pyx":158
  *     NTR1=12
  *     NTR2=11
  *     NTR3=11             # <<<<<<<<<<<<<<
@@ -3489,7 +3489,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR3 = 11;
 
-  /* "ETHANE.pyx":159
+  /* "gases/ETHANE.pyx":159
  *     NTR2=11
  *     NTR3=11
  *     NUL1=25             # <<<<<<<<<<<<<<
@@ -3498,7 +3498,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL1 = 25;
 
-  /* "ETHANE.pyx":160
+  /* "gases/ETHANE.pyx":160
  *     NTR3=11
  *     NUL1=25
  *     NUL2=13             # <<<<<<<<<<<<<<
@@ -3507,7 +3507,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL2 = 13;
 
-  /* "ETHANE.pyx":161
+  /* "gases/ETHANE.pyx":161
  *     NUL1=25
  *     NUL2=13
  *     NUL3=14             # <<<<<<<<<<<<<<
@@ -3516,7 +3516,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL3 = 14;
 
-  /* "ETHANE.pyx":163
+  /* "gases/ETHANE.pyx":163
  *     NUL3=14
  * 
  *     object.SCLN[0:3]=[1.0,10,10]             # <<<<<<<<<<<<<<
@@ -3528,7 +3528,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_27[2] = 10.0;
   memcpy(&(__pyx_v_object->SCLN[0]), __pyx_t_27, sizeof(__pyx_v_object->SCLN[0]) * (3));
 
-  /* "ETHANE.pyx":164
+  /* "gases/ETHANE.pyx":164
  * 
  *     object.SCLN[0:3]=[1.0,10,10]
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -3537,7 +3537,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "ETHANE.pyx":165
+  /* "gases/ETHANE.pyx":165
  *     object.SCLN[0:3]=[1.0,10,10]
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27, EOBY[16],SCLOBY,APOP1,APOP2,APOP3,APOP4,QCOUNT=0.0             # <<<<<<<<<<<<<<
@@ -3547,7 +3547,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_AMU = 1.660538921e-27;
   __pyx_v_QCOUNT = 0.0;
 
-  /* "ETHANE.pyx":167
+  /* "gases/ETHANE.pyx":167
  *     cdef double AMU = 1.660538921e-27, EOBY[16],SCLOBY,APOP1,APOP2,APOP3,APOP4,QCOUNT=0.0
  * 
  *     object.E = [0.0, 1.0, 11.52, 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -3562,7 +3562,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_28[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_28, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "ETHANE.pyx":168
+  /* "gases/ETHANE.pyx":168
  * 
  *     object.E = [0.0, 1.0, 11.52, 0.0, 0.0, 0.0]
  *     object.E[1] = 2.0 * EMASS / (30.06964 * AMU)             # <<<<<<<<<<<<<<
@@ -3571,7 +3571,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (30.06964 * __pyx_v_AMU));
 
-  /* "ETHANE.pyx":170
+  /* "gases/ETHANE.pyx":170
  *     object.E[1] = 2.0 * EMASS / (30.06964 * AMU)
  * 
  *     object.EION[0:16]=[11.52,12.05,12.65,13.65,14.8,14.8,20.5,21.5,25.8,26.2,32.0,32.5,36.0,37.0,37.0,285.0]             # <<<<<<<<<<<<<<
@@ -3596,7 +3596,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_11[15] = 285.0;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_11, sizeof(__pyx_v_object->EION[0]) * (16));
 
-  /* "ETHANE.pyx":173
+  /* "gases/ETHANE.pyx":173
  * 
  *     # OPAL BEATY
  *     SCLOBY = 1.0             # <<<<<<<<<<<<<<
@@ -3605,7 +3605,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_SCLOBY = 1.0;
 
-  /* "ETHANE.pyx":175
+  /* "gases/ETHANE.pyx":175
  *     SCLOBY = 1.0
  * 
  *     for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -3617,7 +3617,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < __pyx_t_25; __pyx_t_26+=1) {
     __pyx_v_J = __pyx_t_26;
 
-    /* "ETHANE.pyx":176
+    /* "gases/ETHANE.pyx":176
  * 
  *     for J in range(object.NION):
  *         EOBY[J] = object.EION[J]*SCLOBY             # <<<<<<<<<<<<<<
@@ -3627,7 +3627,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_EOBY[__pyx_v_J]) = ((__pyx_v_object->EION[__pyx_v_J]) * __pyx_v_SCLOBY);
   }
 
-  /* "ETHANE.pyx":177
+  /* "gases/ETHANE.pyx":177
  *     for J in range(object.NION):
  *         EOBY[J] = object.EION[J]*SCLOBY
  *     EOBY[object.NION-1]=object.EION[object.NION-1]*0.63             # <<<<<<<<<<<<<<
@@ -3636,7 +3636,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_EOBY[(__pyx_v_object->NION - 1)]) = ((__pyx_v_object->EION[(__pyx_v_object->NION - 1)]) * 0.63);
 
-  /* "ETHANE.pyx":179
+  /* "gases/ETHANE.pyx":179
  *     EOBY[object.NION-1]=object.EION[object.NION-1]*0.63
  * 
  *     for J in range(15):             # <<<<<<<<<<<<<<
@@ -3646,7 +3646,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_24 = 0; __pyx_t_24 < 15; __pyx_t_24+=1) {
     __pyx_v_J = __pyx_t_24;
 
-    /* "ETHANE.pyx":180
+    /* "gases/ETHANE.pyx":180
  * 
  *     for J in range(15):
  *         object.NC0[J] =0             # <<<<<<<<<<<<<<
@@ -3655,7 +3655,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NC0[__pyx_v_J]) = 0.0;
 
-    /* "ETHANE.pyx":181
+    /* "gases/ETHANE.pyx":181
  *     for J in range(15):
  *         object.NC0[J] =0
  *         object.EC0[J]=0.0             # <<<<<<<<<<<<<<
@@ -3664,7 +3664,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EC0[__pyx_v_J]) = 0.0;
 
-    /* "ETHANE.pyx":182
+    /* "gases/ETHANE.pyx":182
  *         object.NC0[J] =0
  *         object.EC0[J]=0.0
  *         object.WK[J]=0.0             # <<<<<<<<<<<<<<
@@ -3673,7 +3673,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->WK[__pyx_v_J]) = 0.0;
 
-    /* "ETHANE.pyx":183
+    /* "gases/ETHANE.pyx":183
  *         object.EC0[J]=0.0
  *         object.WK[J]=0.0
  *         object.EFL[J]=0.0             # <<<<<<<<<<<<<<
@@ -3682,7 +3682,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EFL[__pyx_v_J]) = 0.0;
 
-    /* "ETHANE.pyx":184
+    /* "gases/ETHANE.pyx":184
  *         object.WK[J]=0.0
  *         object.EFL[J]=0.0
  *         object.NG1[J]=0             # <<<<<<<<<<<<<<
@@ -3691,7 +3691,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG1[__pyx_v_J]) = 0.0;
 
-    /* "ETHANE.pyx":185
+    /* "gases/ETHANE.pyx":185
  *         object.EFL[J]=0.0
  *         object.NG1[J]=0
  *         object.EG1[J]=0.0             # <<<<<<<<<<<<<<
@@ -3700,7 +3700,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EG1[__pyx_v_J]) = 0.0;
 
-    /* "ETHANE.pyx":186
+    /* "gases/ETHANE.pyx":186
  *         object.NG1[J]=0
  *         object.EG1[J]=0.0
  *         object.NG2[J]=0             # <<<<<<<<<<<<<<
@@ -3709,7 +3709,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG2[__pyx_v_J]) = 0.0;
 
-    /* "ETHANE.pyx":187
+    /* "gases/ETHANE.pyx":187
  *         object.EG1[J]=0.0
  *         object.NG2[J]=0
  *         object.EG2[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3719,7 +3719,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EG2[__pyx_v_J]) = 0.0;
   }
 
-  /* "ETHANE.pyx":189
+  /* "gases/ETHANE.pyx":189
  *         object.EG2[J] = 0.0
  *     #DOUBLE CHARGE , ++ ION STATES ( EXTRA ELECTRON )
  *     object.NC0[10]=1             # <<<<<<<<<<<<<<
@@ -3728,7 +3728,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[10]) = 1.0;
 
-  /* "ETHANE.pyx":190
+  /* "gases/ETHANE.pyx":190
  *     #DOUBLE CHARGE , ++ ION STATES ( EXTRA ELECTRON )
  *     object.NC0[10]=1
  *     object.EC0[10]=6.0             # <<<<<<<<<<<<<<
@@ -3737,7 +3737,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[10]) = 6.0;
 
-  /* "ETHANE.pyx":192
+  /* "gases/ETHANE.pyx":192
  *     object.EC0[10]=6.0
  *     #FLUORESCENCE DATA  (KSHELL)
  *     object.NC0[15]=2             # <<<<<<<<<<<<<<
@@ -3746,7 +3746,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[15]) = 2.0;
 
-  /* "ETHANE.pyx":193
+  /* "gases/ETHANE.pyx":193
  *     #FLUORESCENCE DATA  (KSHELL)
  *     object.NC0[15]=2
  *     object.EC0[15]=253             # <<<<<<<<<<<<<<
@@ -3755,7 +3755,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[15]) = 253.0;
 
-  /* "ETHANE.pyx":194
+  /* "gases/ETHANE.pyx":194
  *     object.NC0[15]=2
  *     object.EC0[15]=253
  *     object.WK[15]=0.0026             # <<<<<<<<<<<<<<
@@ -3764,7 +3764,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->WK[15]) = 0.0026;
 
-  /* "ETHANE.pyx":195
+  /* "gases/ETHANE.pyx":195
  *     object.EC0[15]=253
  *     object.WK[15]=0.0026
  *     object.EFL[15]=273             # <<<<<<<<<<<<<<
@@ -3773,7 +3773,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EFL[15]) = 273.0;
 
-  /* "ETHANE.pyx":196
+  /* "gases/ETHANE.pyx":196
  *     object.WK[15]=0.0026
  *     object.EFL[15]=273
  *     object.NG1[15]=1             # <<<<<<<<<<<<<<
@@ -3782,7 +3782,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG1[15]) = 1.0;
 
-  /* "ETHANE.pyx":197
+  /* "gases/ETHANE.pyx":197
  *     object.EFL[15]=273
  *     object.NG1[15]=1
  *     object.EG1[15]=253             # <<<<<<<<<<<<<<
@@ -3791,7 +3791,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG1[15]) = 253.0;
 
-  /* "ETHANE.pyx":198
+  /* "gases/ETHANE.pyx":198
  *     object.NG1[15]=1
  *     object.EG1[15]=253
  *     object.NG2[15]=2             # <<<<<<<<<<<<<<
@@ -3800,7 +3800,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG2[15]) = 2.0;
 
-  /* "ETHANE.pyx":199
+  /* "gases/ETHANE.pyx":199
  *     object.EG1[15]=253
  *     object.NG2[15]=2
  *     object.EG2[15]=5.0             # <<<<<<<<<<<<<<
@@ -3809,7 +3809,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG2[15]) = 5.0;
 
-  /* "ETHANE.pyx":202
+  /* "gases/ETHANE.pyx":202
  * 
  *     #OFFSET ENERGY FOR IONISATION ELECTRON ANGULAR DISTRIBUTION
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -3821,7 +3821,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < __pyx_t_25; __pyx_t_26+=1) {
     __pyx_v_j = __pyx_t_26;
 
-    /* "ETHANE.pyx":203
+    /* "gases/ETHANE.pyx":203
  *     #OFFSET ENERGY FOR IONISATION ELECTRON ANGULAR DISTRIBUTION
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -3831,7 +3831,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_29 = 0; __pyx_t_29 < 0xFA0; __pyx_t_29+=1) {
       __pyx_v_i = __pyx_t_29;
 
-      /* "ETHANE.pyx":204
+      /* "gases/ETHANE.pyx":204
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -3841,7 +3841,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":205
+        /* "gases/ETHANE.pyx":205
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -3850,7 +3850,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "ETHANE.pyx":206
+        /* "gases/ETHANE.pyx":206
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -3859,7 +3859,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L16_break;
 
-        /* "ETHANE.pyx":204
+        /* "gases/ETHANE.pyx":204
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -3871,7 +3871,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L16_break:;
   }
 
-  /* "ETHANE.pyx":208
+  /* "gases/ETHANE.pyx":208
  *                 break
  * 
  *     object.EIN = gd['gas9/EIN']             # <<<<<<<<<<<<<<
@@ -3888,7 +3888,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_31, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "ETHANE.pyx":211
+  /* "gases/ETHANE.pyx":211
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  * 
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3900,7 +3900,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < __pyx_t_25; __pyx_t_26+=1) {
     __pyx_v_NL = __pyx_t_26;
 
-    /* "ETHANE.pyx":212
+    /* "gases/ETHANE.pyx":212
  * 
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -3910,7 +3910,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_29 = 0; __pyx_t_29 < 0xFA0; __pyx_t_29+=1) {
       __pyx_v_i = __pyx_t_29;
 
-      /* "ETHANE.pyx":213
+      /* "gases/ETHANE.pyx":213
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -3920,7 +3920,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EIN[__pyx_v_NL])) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":214
+        /* "gases/ETHANE.pyx":214
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i -1             # <<<<<<<<<<<<<<
@@ -3929,7 +3929,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
 
-        /* "ETHANE.pyx":215
+        /* "gases/ETHANE.pyx":215
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i -1
  *                 break             # <<<<<<<<<<<<<<
@@ -3938,7 +3938,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L21_break;
 
-        /* "ETHANE.pyx":213
+        /* "gases/ETHANE.pyx":213
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -3950,7 +3950,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L21_break:;
   }
 
-  /* "ETHANE.pyx":217
+  /* "gases/ETHANE.pyx":217
  *                 break
  * 
  *     for i in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3962,7 +3962,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < __pyx_t_25; __pyx_t_26+=1) {
     __pyx_v_i = __pyx_t_26;
 
-    /* "ETHANE.pyx":218
+    /* "gases/ETHANE.pyx":218
  * 
  *     for i in range(object.NIN):
  *         for j in range(3):             # <<<<<<<<<<<<<<
@@ -3972,7 +3972,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_29 = 0; __pyx_t_29 < 3; __pyx_t_29+=1) {
       __pyx_v_j = __pyx_t_29;
 
-      /* "ETHANE.pyx":219
+      /* "gases/ETHANE.pyx":219
  *     for i in range(object.NIN):
  *         for j in range(3):
  *             object.PENFRA[j][i]=0.0             # <<<<<<<<<<<<<<
@@ -3983,7 +3983,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "ETHANE.pyx":223
+  /* "gases/ETHANE.pyx":223
  * 
  *     # CALC LEVEL POPULATIONS
  *     APOP1=exp(object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3992,7 +3992,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP1 = exp(((__pyx_v_object->EIN[0]) / __pyx_v_object->AKT));
 
-  /* "ETHANE.pyx":224
+  /* "gases/ETHANE.pyx":224
  *     # CALC LEVEL POPULATIONS
  *     APOP1=exp(object.EIN[0]/object.AKT)
  *     APOP2=exp(object.EIN[2]/object.AKT)             # <<<<<<<<<<<<<<
@@ -4001,7 +4001,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP2 = exp(((__pyx_v_object->EIN[2]) / __pyx_v_object->AKT));
 
-  /* "ETHANE.pyx":225
+  /* "gases/ETHANE.pyx":225
  *     APOP1=exp(object.EIN[0]/object.AKT)
  *     APOP2=exp(object.EIN[2]/object.AKT)
  *     APOP3=exp(object.EIN[4]/object.AKT)             # <<<<<<<<<<<<<<
@@ -4010,7 +4010,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP3 = exp(((__pyx_v_object->EIN[4]) / __pyx_v_object->AKT));
 
-  /* "ETHANE.pyx":226
+  /* "gases/ETHANE.pyx":226
  *     APOP2=exp(object.EIN[2]/object.AKT)
  *     APOP3=exp(object.EIN[4]/object.AKT)
  *     APOP4=exp(object.EIN[6]/object.AKT)             # <<<<<<<<<<<<<<
@@ -4019,7 +4019,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP4 = exp(((__pyx_v_object->EIN[6]) / __pyx_v_object->AKT));
 
-  /* "ETHANE.pyx":227
+  /* "gases/ETHANE.pyx":227
  *     APOP3=exp(object.EIN[4]/object.AKT)
  *     APOP4=exp(object.EIN[6]/object.AKT)
  *     for J in range(NBREM):             # <<<<<<<<<<<<<<
@@ -4031,7 +4031,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < __pyx_t_25; __pyx_t_26+=1) {
     __pyx_v_J = __pyx_t_26;
 
-    /* "ETHANE.pyx":228
+    /* "gases/ETHANE.pyx":228
  *     APOP4=exp(object.EIN[6]/object.AKT)
  *     for J in range(NBREM):
  *         EBRM[J] = exp(EBRM[J])             # <<<<<<<<<<<<<<
@@ -4041,7 +4041,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_EBRM[__pyx_v_J]) = exp((__pyx_v_EBRM[__pyx_v_J]));
   }
 
-  /* "ETHANE.pyx":229
+  /* "gases/ETHANE.pyx":229
  *     for J in range(NBREM):
  *         EBRM[J] = exp(EBRM[J])
  *     cdef double EN,ENLG,GAMMA1,GAMMA2,BETA,BETA2,QMT,QEL,PQ[3],X1,X2,QBB=0.0,QSUM,EFAC,F[42]             # <<<<<<<<<<<<<<
@@ -4050,7 +4050,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_QBB = 0.0;
 
-  /* "ETHANE.pyx":231
+  /* "gases/ETHANE.pyx":231
  *     cdef double EN,ENLG,GAMMA1,GAMMA2,BETA,BETA2,QMT,QEL,PQ[3],X1,X2,QBB=0.0,QSUM,EFAC,F[42]
  *     cdef int FI
  *     F=[0.000136,0.00174,0.008187,0.006312,0.011877,0.020856,0.031444,0.39549,0.042350,0.041113,0.038256,0.036556,0.096232,             # <<<<<<<<<<<<<<
@@ -4101,7 +4101,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_32[41] = .000662;
   memcpy(&(__pyx_v_F[0]), __pyx_t_32, sizeof(__pyx_v_F[0]) * (42));
 
-  /* "ETHANE.pyx":235
+  /* "gases/ETHANE.pyx":235
  *        .022479,.008585,.004524,.004982,.010130,.013320,.013310,.010760,.009797,.009198,.008312,.007139,.004715,.002137,.000662]
  * 
  *     object.NSTEP=4000             # <<<<<<<<<<<<<<
@@ -4110,7 +4110,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NSTEP = 0xFA0;
 
-  /* "ETHANE.pyx":236
+  /* "gases/ETHANE.pyx":236
  * 
  *     object.NSTEP=4000
  *     for I in range(object.NSTEP):             # <<<<<<<<<<<<<<
@@ -4122,7 +4122,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < __pyx_t_25; __pyx_t_26+=1) {
     __pyx_v_I = __pyx_t_26;
 
-    /* "ETHANE.pyx":237
+    /* "gases/ETHANE.pyx":237
  *     object.NSTEP=4000
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -4131,7 +4131,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "ETHANE.pyx":238
+    /* "gases/ETHANE.pyx":238
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         ENLG = log(EN)             # <<<<<<<<<<<<<<
@@ -4140,7 +4140,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_ENLG = log(__pyx_v_EN);
 
-    /* "ETHANE.pyx":239
+    /* "gases/ETHANE.pyx":239
  *         EN = object.EG[I]
  *         ENLG = log(EN)
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -4149,7 +4149,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-    /* "ETHANE.pyx":240
+    /* "gases/ETHANE.pyx":240
  *         ENLG = log(EN)
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -4158,7 +4158,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-    /* "ETHANE.pyx":241
+    /* "gases/ETHANE.pyx":241
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -4167,7 +4167,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-    /* "ETHANE.pyx":242
+    /* "gases/ETHANE.pyx":242
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *         BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -4176,7 +4176,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-    /* "ETHANE.pyx":244
+    /* "gases/ETHANE.pyx":244
  *         BETA2 = BETA * BETA
  * 
  *         if EN<=10:             # <<<<<<<<<<<<<<
@@ -4186,7 +4186,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN <= 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":245
+      /* "gases/ETHANE.pyx":245
  * 
  *         if EN<=10:
  *             QMT = GasUtil.CALPQ3(EN, NDATA,YMT, XEN)*1e-16             # <<<<<<<<<<<<<<
@@ -4195,7 +4195,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMT = (__pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YMT, __pyx_v_XEN) * 1e-16);
 
-      /* "ETHANE.pyx":246
+      /* "gases/ETHANE.pyx":246
  *         if EN<=10:
  *             QMT = GasUtil.CALPQ3(EN, NDATA,YMT, XEN)*1e-16
  *             QEL = GasUtil.CALPQ3(EN, NDATA,YEL, XEN)*1e-16             # <<<<<<<<<<<<<<
@@ -4204,7 +4204,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QEL = (__pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEL, __pyx_v_XEN) * 1e-16);
 
-      /* "ETHANE.pyx":247
+      /* "gases/ETHANE.pyx":247
  *             QMT = GasUtil.CALPQ3(EN, NDATA,YMT, XEN)*1e-16
  *             QEL = GasUtil.CALPQ3(EN, NDATA,YEL, XEN)*1e-16
  *             PQ[2] = GasUtil.CALPQ3(EN, NDATA,YEPS,XEN)             # <<<<<<<<<<<<<<
@@ -4213,7 +4213,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       (__pyx_v_PQ[2]) = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEPS, __pyx_v_XEN);
 
-      /* "ETHANE.pyx":244
+      /* "gases/ETHANE.pyx":244
  *         BETA2 = BETA * BETA
  * 
  *         if EN<=10:             # <<<<<<<<<<<<<<
@@ -4223,7 +4223,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L31;
     }
 
-    /* "ETHANE.pyx":249
+    /* "gases/ETHANE.pyx":249
  *             PQ[2] = GasUtil.CALPQ3(EN, NDATA,YEPS,XEN)
  *         else:
  *             QEL = GasUtil.QLSCALE(EN, NDATA, YEL, XEN)             # <<<<<<<<<<<<<<
@@ -4233,7 +4233,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     /*else*/ {
       __pyx_v_QEL = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEL, __pyx_v_XEN);
 
-      /* "ETHANE.pyx":250
+      /* "gases/ETHANE.pyx":250
  *         else:
  *             QEL = GasUtil.QLSCALE(EN, NDATA, YEL, XEN)
  *             QMT = GasUtil.QLSCALE(EN, NDATA, YMT, XEN)             # <<<<<<<<<<<<<<
@@ -4242,7 +4242,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMT = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YMT, __pyx_v_XEN);
 
-      /* "ETHANE.pyx":251
+      /* "gases/ETHANE.pyx":251
  *             QEL = GasUtil.QLSCALE(EN, NDATA, YEL, XEN)
  *             QMT = GasUtil.QLSCALE(EN, NDATA, YMT, XEN)
  *             PQ[2] = GasUtil.QLSCALE(EN, NDATA, YEPS, XEN)*1e16             # <<<<<<<<<<<<<<
@@ -4253,7 +4253,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L31:;
 
-    /* "ETHANE.pyx":252
+    /* "gases/ETHANE.pyx":252
  *             QMT = GasUtil.QLSCALE(EN, NDATA, YMT, XEN)
  *             PQ[2] = GasUtil.QLSCALE(EN, NDATA, YEPS, XEN)*1e16
  *         PQ[2]=1-PQ[2]             # <<<<<<<<<<<<<<
@@ -4262,7 +4262,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = (1.0 - (__pyx_v_PQ[2]));
 
-    /* "ETHANE.pyx":253
+    /* "gases/ETHANE.pyx":253
  *             PQ[2] = GasUtil.QLSCALE(EN, NDATA, YEPS, XEN)*1e16
  *         PQ[2]=1-PQ[2]
  *         PQ[1]=0.5+(QEL-QMT)/QEL             # <<<<<<<<<<<<<<
@@ -4271,7 +4271,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[1]) = (0.5 + ((__pyx_v_QEL - __pyx_v_QMT) / __pyx_v_QEL));
 
-    /* "ETHANE.pyx":254
+    /* "gases/ETHANE.pyx":254
  *         PQ[2]=1-PQ[2]
  *         PQ[1]=0.5+(QEL-QMT)/QEL
  *         PQ[0]=0.5             # <<<<<<<<<<<<<<
@@ -4280,7 +4280,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[0]) = 0.5;
 
-    /* "ETHANE.pyx":255
+    /* "gases/ETHANE.pyx":255
  *         PQ[1]=0.5+(QEL-QMT)/QEL
  *         PQ[0]=0.5
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -4289,7 +4289,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "ETHANE.pyx":257
+    /* "gases/ETHANE.pyx":257
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  * 
  *         object.Q[1][I] = QEL             # <<<<<<<<<<<<<<
@@ -4298,7 +4298,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QEL;
 
-    /* "ETHANE.pyx":259
+    /* "gases/ETHANE.pyx":259
  *         object.Q[1][I] = QEL
  * 
  *         if object.NANISO==0:             # <<<<<<<<<<<<<<
@@ -4308,7 +4308,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":260
+      /* "gases/ETHANE.pyx":260
  * 
  *         if object.NANISO==0:
  *             object.Q[1][I] = QMT             # <<<<<<<<<<<<<<
@@ -4317,7 +4317,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMT;
 
-      /* "ETHANE.pyx":259
+      /* "gases/ETHANE.pyx":259
  *         object.Q[1][I] = QEL
  * 
  *         if object.NANISO==0:             # <<<<<<<<<<<<<<
@@ -4326,7 +4326,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":264
+    /* "gases/ETHANE.pyx":264
  *         # IONISATION
  * 
  *         for i in range(object.NION):             # <<<<<<<<<<<<<<
@@ -4338,7 +4338,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
       __pyx_v_i = __pyx_t_34;
 
-      /* "ETHANE.pyx":265
+      /* "gases/ETHANE.pyx":265
  * 
  *         for i in range(object.NION):
  *             object.QION[i][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4347,7 +4347,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[__pyx_v_i])[__pyx_v_I]) = 0.0;
 
-      /* "ETHANE.pyx":266
+      /* "gases/ETHANE.pyx":266
  *         for i in range(object.NION):
  *             object.QION[i][I] = 0.0
  *             object.PEQION[i][I]=0.5             # <<<<<<<<<<<<<<
@@ -4356,7 +4356,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[__pyx_v_i])[__pyx_v_I]) = 0.5;
 
-      /* "ETHANE.pyx":267
+      /* "gases/ETHANE.pyx":267
  *             object.QION[i][I] = 0.0
  *             object.PEQION[i][I]=0.5
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4366,7 +4366,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":268
+        /* "gases/ETHANE.pyx":268
  *             object.PEQION[i][I]=0.5
  *             if object.NANISO==2:
  *                 object.PEQION[i][I]=0.0             # <<<<<<<<<<<<<<
@@ -4375,7 +4375,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[__pyx_v_i])[__pyx_v_I]) = 0.0;
 
-        /* "ETHANE.pyx":267
+        /* "gases/ETHANE.pyx":267
  *             object.QION[i][I] = 0.0
  *             object.PEQION[i][I]=0.5
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4385,7 +4385,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "ETHANE.pyx":271
+    /* "gases/ETHANE.pyx":271
  * 
  *         # C2H6+
  *         if EN>object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4395,7 +4395,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":272
+      /* "gases/ETHANE.pyx":272
  *         # C2H6+
  *         if EN>object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN,NION1, YION1, XION1)             # <<<<<<<<<<<<<<
@@ -4404,7 +4404,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION1, __pyx_v_YION1, __pyx_v_XION1);
 
-      /* "ETHANE.pyx":273
+      /* "gases/ETHANE.pyx":273
  *         if EN>object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN,NION1, YION1, XION1)
  *             if object.QION[0][I]==0:             # <<<<<<<<<<<<<<
@@ -4414,7 +4414,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[0])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":274
+        /* "gases/ETHANE.pyx":274
  *             object.QION[0][I] = GasUtil.CALQION(EN,NION1, YION1, XION1)
  *             if object.QION[0][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4424,7 +4424,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":275
+          /* "gases/ETHANE.pyx":275
  *             if object.QION[0][I]==0:
  *                 if EN<=XION[NIOND-1]:
  *                     QCOUNT = GasUtil.QLSCALE(EN, NIOND, YIONC, XION)             # <<<<<<<<<<<<<<
@@ -4433,7 +4433,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           __pyx_v_QCOUNT = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YIONC, __pyx_v_XION);
 
-          /* "ETHANE.pyx":277
+          /* "gases/ETHANE.pyx":277
  *                     QCOUNT = GasUtil.QLSCALE(EN, NIOND, YIONC, XION)
  *                     # fraction of QCOUNT
  *                     object.QION[0][I] = QCOUNT * 0.1378             # <<<<<<<<<<<<<<
@@ -4442,7 +4442,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.1378);
 
-          /* "ETHANE.pyx":274
+          /* "gases/ETHANE.pyx":274
  *             object.QION[0][I] = GasUtil.CALQION(EN,NION1, YION1, XION1)
  *             if object.QION[0][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4452,7 +4452,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L38;
         }
 
-        /* "ETHANE.pyx":280
+        /* "gases/ETHANE.pyx":280
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -4462,7 +4462,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         /*else*/ {
           __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-          /* "ETHANE.pyx":281
+          /* "gases/ETHANE.pyx":281
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     X2 = 1 / BETA2
  *                     X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -4471,7 +4471,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-          /* "ETHANE.pyx":282
+          /* "gases/ETHANE.pyx":282
  *                     X2 = 1 / BETA2
  *                     X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                     QBB = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2)             # <<<<<<<<<<<<<<
@@ -4480,7 +4480,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           __pyx_v_QBB = (__pyx_v_CONST * ((__pyx_v_AM2 * (__pyx_v_X1 - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) + (__pyx_v_C * __pyx_v_X2)));
 
-          /* "ETHANE.pyx":283
+          /* "gases/ETHANE.pyx":283
  *                     X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                     QBB = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2)
  *                     object.QION[0][I] = QBB*0.1378             # <<<<<<<<<<<<<<
@@ -4491,7 +4491,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L38:;
 
-        /* "ETHANE.pyx":273
+        /* "gases/ETHANE.pyx":273
  *         if EN>object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN,NION1, YION1, XION1)
  *             if object.QION[0][I]==0:             # <<<<<<<<<<<<<<
@@ -4500,7 +4500,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":284
+      /* "gases/ETHANE.pyx":284
  *                     QBB = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2)
  *                     object.QION[0][I] = QBB*0.1378
  *             if EN >=2*object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4510,7 +4510,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[0]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":285
+        /* "gases/ETHANE.pyx":285
  *                     object.QION[0][I] = QBB*0.1378
  *             if EN >=2*object.EION[0]:
  *                 object.PEQION[0][I] = object.PEQEL[1][I-IOFFION[0]]             # <<<<<<<<<<<<<<
@@ -4519,7 +4519,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-        /* "ETHANE.pyx":284
+        /* "gases/ETHANE.pyx":284
  *                     QBB = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2)
  *                     object.QION[0][I] = QBB*0.1378
  *             if EN >=2*object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4528,7 +4528,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":271
+      /* "gases/ETHANE.pyx":271
  * 
  *         # C2H6+
  *         if EN>object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4537,7 +4537,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":288
+    /* "gases/ETHANE.pyx":288
  * 
  *         # C2H4+
  *         if EN>object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4547,7 +4547,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":289
+      /* "gases/ETHANE.pyx":289
  *         # C2H4+
  *         if EN>object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQION(EN,NION2, YION2, XION2)             # <<<<<<<<<<<<<<
@@ -4556,7 +4556,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION2, __pyx_v_YION2, __pyx_v_XION2);
 
-      /* "ETHANE.pyx":290
+      /* "gases/ETHANE.pyx":290
  *         if EN>object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQION(EN,NION2, YION2, XION2)
  *             if object.QION[1][I]==0:             # <<<<<<<<<<<<<<
@@ -4566,7 +4566,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[1])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":291
+        /* "gases/ETHANE.pyx":291
  *             object.QION[1][I] = GasUtil.CALQION(EN,NION2, YION2, XION2)
  *             if object.QION[1][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4576,7 +4576,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":293
+          /* "gases/ETHANE.pyx":293
  *                 if EN<=XION[NIOND-1]:
  *                     # fraction of QCOUNT
  *                     object.QION[1][I] = QCOUNT * 0.4481             # <<<<<<<<<<<<<<
@@ -4585,7 +4585,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.4481);
 
-          /* "ETHANE.pyx":291
+          /* "gases/ETHANE.pyx":291
  *             object.QION[1][I] = GasUtil.CALQION(EN,NION2, YION2, XION2)
  *             if object.QION[1][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4595,7 +4595,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L42;
         }
 
-        /* "ETHANE.pyx":296
+        /* "gases/ETHANE.pyx":296
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[1][I] = QBB*0.4481             # <<<<<<<<<<<<<<
@@ -4607,7 +4607,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L42:;
 
-        /* "ETHANE.pyx":290
+        /* "gases/ETHANE.pyx":290
  *         if EN>object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQION(EN,NION2, YION2, XION2)
  *             if object.QION[1][I]==0:             # <<<<<<<<<<<<<<
@@ -4616,7 +4616,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":297
+      /* "gases/ETHANE.pyx":297
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[1][I] = QBB*0.4481
  *             if EN >=2*object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4626,7 +4626,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[1]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":298
+        /* "gases/ETHANE.pyx":298
  *                     object.QION[1][I] = QBB*0.4481
  *             if EN >=2*object.EION[1]:
  *                 object.PEQION[1][I] = object.PEQEL[1][I-IOFFION[1]]             # <<<<<<<<<<<<<<
@@ -4635,7 +4635,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-        /* "ETHANE.pyx":297
+        /* "gases/ETHANE.pyx":297
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[1][I] = QBB*0.4481
  *             if EN >=2*object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4644,7 +4644,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":288
+      /* "gases/ETHANE.pyx":288
  * 
  *         # C2H4+
  *         if EN>object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4653,7 +4653,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":301
+    /* "gases/ETHANE.pyx":301
  * 
  *         # C2H5+
  *         if EN>object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4663,7 +4663,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":302
+      /* "gases/ETHANE.pyx":302
  *         # C2H5+
  *         if EN>object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQION(EN,NION3, YION3, XION3)             # <<<<<<<<<<<<<<
@@ -4672,7 +4672,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION3, __pyx_v_YION3, __pyx_v_XION3);
 
-      /* "ETHANE.pyx":303
+      /* "gases/ETHANE.pyx":303
  *         if EN>object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQION(EN,NION3, YION3, XION3)
  *             if object.QION[2][I]==0:             # <<<<<<<<<<<<<<
@@ -4682,7 +4682,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[2])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":304
+        /* "gases/ETHANE.pyx":304
  *             object.QION[2][I] = GasUtil.CALQION(EN,NION3, YION3, XION3)
  *             if object.QION[2][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4692,7 +4692,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":307
+          /* "gases/ETHANE.pyx":307
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[2][I] = QCOUNT * 0.1104             # <<<<<<<<<<<<<<
@@ -4701,7 +4701,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.1104);
 
-          /* "ETHANE.pyx":304
+          /* "gases/ETHANE.pyx":304
  *             object.QION[2][I] = GasUtil.CALQION(EN,NION3, YION3, XION3)
  *             if object.QION[2][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4711,7 +4711,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L46;
         }
 
-        /* "ETHANE.pyx":310
+        /* "gases/ETHANE.pyx":310
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[2][I] = QBB*0.1104             # <<<<<<<<<<<<<<
@@ -4723,7 +4723,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L46:;
 
-        /* "ETHANE.pyx":303
+        /* "gases/ETHANE.pyx":303
  *         if EN>object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQION(EN,NION3, YION3, XION3)
  *             if object.QION[2][I]==0:             # <<<<<<<<<<<<<<
@@ -4732,7 +4732,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":311
+      /* "gases/ETHANE.pyx":311
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[2][I] = QBB*0.1104
  *             if EN >=2*object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4742,7 +4742,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[2]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":312
+        /* "gases/ETHANE.pyx":312
  *                     object.QION[2][I] = QBB*0.1104
  *             if EN >=2*object.EION[2]:
  *                 object.PEQION[2][I] = object.PEQEL[1][I-IOFFION[2]]             # <<<<<<<<<<<<<<
@@ -4751,7 +4751,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[2]))]);
 
-        /* "ETHANE.pyx":311
+        /* "gases/ETHANE.pyx":311
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[2][I] = QBB*0.1104
  *             if EN >=2*object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4760,7 +4760,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":301
+      /* "gases/ETHANE.pyx":301
  * 
  *         # C2H5+
  *         if EN>object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4769,7 +4769,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":316
+    /* "gases/ETHANE.pyx":316
  * 
  *         # CH3+
  *         if EN>object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4779,7 +4779,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[3])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":317
+      /* "gases/ETHANE.pyx":317
  *         # CH3+
  *         if EN>object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQION(EN,NION4, YION4, XION4)             # <<<<<<<<<<<<<<
@@ -4788,7 +4788,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION4, __pyx_v_YION4, __pyx_v_XION4);
 
-      /* "ETHANE.pyx":318
+      /* "gases/ETHANE.pyx":318
  *         if EN>object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQION(EN,NION4, YION4, XION4)
  *             if object.QION[3][I]==0:             # <<<<<<<<<<<<<<
@@ -4798,7 +4798,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[3])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":319
+        /* "gases/ETHANE.pyx":319
  *             object.QION[3][I] = GasUtil.CALQION(EN,NION4, YION4, XION4)
  *             if object.QION[3][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4808,7 +4808,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":322
+          /* "gases/ETHANE.pyx":322
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[3][I] = QCOUNT * 0.01718             # <<<<<<<<<<<<<<
@@ -4817,7 +4817,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[3])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.01718);
 
-          /* "ETHANE.pyx":319
+          /* "gases/ETHANE.pyx":319
  *             object.QION[3][I] = GasUtil.CALQION(EN,NION4, YION4, XION4)
  *             if object.QION[3][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4827,7 +4827,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L50;
         }
 
-        /* "ETHANE.pyx":325
+        /* "gases/ETHANE.pyx":325
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[3][I] = QBB*0.01718             # <<<<<<<<<<<<<<
@@ -4839,7 +4839,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L50:;
 
-        /* "ETHANE.pyx":318
+        /* "gases/ETHANE.pyx":318
  *         if EN>object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQION(EN,NION4, YION4, XION4)
  *             if object.QION[3][I]==0:             # <<<<<<<<<<<<<<
@@ -4848,7 +4848,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":326
+      /* "gases/ETHANE.pyx":326
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[3][I] = QBB*0.01718
  *             if EN >=2*object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4858,7 +4858,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[3]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":327
+        /* "gases/ETHANE.pyx":327
  *                     object.QION[3][I] = QBB*0.01718
  *             if EN >=2*object.EION[3]:
  *                 object.PEQION[3][I] = object.PEQEL[1][I-IOFFION[3]]             # <<<<<<<<<<<<<<
@@ -4867,7 +4867,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[3]))]);
 
-        /* "ETHANE.pyx":326
+        /* "gases/ETHANE.pyx":326
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[3][I] = QBB*0.01718
  *             if EN >=2*object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4876,7 +4876,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":316
+      /* "gases/ETHANE.pyx":316
  * 
  *         # CH3+
  *         if EN>object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4885,7 +4885,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":330
+    /* "gases/ETHANE.pyx":330
  * 
  *         # C2H3+
  *         if EN>object.EION[4]:             # <<<<<<<<<<<<<<
@@ -4895,7 +4895,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[4])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":331
+      /* "gases/ETHANE.pyx":331
  *         # C2H3+
  *         if EN>object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQION(EN,NION5, YION5, XION5)             # <<<<<<<<<<<<<<
@@ -4904,7 +4904,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION5, __pyx_v_YION5, __pyx_v_XION5);
 
-      /* "ETHANE.pyx":332
+      /* "gases/ETHANE.pyx":332
  *         if EN>object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQION(EN,NION5, YION5, XION5)
  *             if object.QION[4][I]==0:             # <<<<<<<<<<<<<<
@@ -4914,7 +4914,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[4])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":333
+        /* "gases/ETHANE.pyx":333
  *             object.QION[4][I] = GasUtil.CALQION(EN,NION5, YION5, XION5)
  *             if object.QION[4][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4924,7 +4924,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":336
+          /* "gases/ETHANE.pyx":336
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[4][I] = QCOUNT * 0.1283             # <<<<<<<<<<<<<<
@@ -4933,7 +4933,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[4])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.1283);
 
-          /* "ETHANE.pyx":333
+          /* "gases/ETHANE.pyx":333
  *             object.QION[4][I] = GasUtil.CALQION(EN,NION5, YION5, XION5)
  *             if object.QION[4][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -4943,7 +4943,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L54;
         }
 
-        /* "ETHANE.pyx":339
+        /* "gases/ETHANE.pyx":339
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[4][I] = QBB*0.1283             # <<<<<<<<<<<<<<
@@ -4955,7 +4955,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L54:;
 
-        /* "ETHANE.pyx":332
+        /* "gases/ETHANE.pyx":332
  *         if EN>object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQION(EN,NION5, YION5, XION5)
  *             if object.QION[4][I]==0:             # <<<<<<<<<<<<<<
@@ -4964,7 +4964,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":340
+      /* "gases/ETHANE.pyx":340
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[4][I] = QBB*0.1283
  *             if EN >=2*object.EION[4]:             # <<<<<<<<<<<<<<
@@ -4974,7 +4974,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[4]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":341
+        /* "gases/ETHANE.pyx":341
  *                     object.QION[4][I] = QBB*0.1283
  *             if EN >=2*object.EION[4]:
  *                 object.PEQION[4][I] = object.PEQEL[1][I-IOFFION[4]]             # <<<<<<<<<<<<<<
@@ -4983,7 +4983,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[4]))]);
 
-        /* "ETHANE.pyx":340
+        /* "gases/ETHANE.pyx":340
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[4][I] = QBB*0.1283
  *             if EN >=2*object.EION[4]:             # <<<<<<<<<<<<<<
@@ -4992,7 +4992,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":330
+      /* "gases/ETHANE.pyx":330
  * 
  *         # C2H3+
  *         if EN>object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5001,7 +5001,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":344
+    /* "gases/ETHANE.pyx":344
  * 
  *         # C2H2+
  *         if EN>object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5011,7 +5011,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[5])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":345
+      /* "gases/ETHANE.pyx":345
  *         # C2H2+
  *         if EN>object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQION(EN,NION6, YION6, XION6)             # <<<<<<<<<<<<<<
@@ -5020,7 +5020,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION6, __pyx_v_YION6, __pyx_v_XION6);
 
-      /* "ETHANE.pyx":346
+      /* "gases/ETHANE.pyx":346
  *         if EN>object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQION(EN,NION6, YION6, XION6)
  *             if object.QION[5][I]==0:             # <<<<<<<<<<<<<<
@@ -5030,7 +5030,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[5])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":347
+        /* "gases/ETHANE.pyx":347
  *             object.QION[5][I] = GasUtil.CALQION(EN,NION6, YION6, XION6)
  *             if object.QION[5][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5040,7 +5040,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":350
+          /* "gases/ETHANE.pyx":350
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[5][I] = QCOUNT * 0.07             # <<<<<<<<<<<<<<
@@ -5049,7 +5049,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[5])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.07);
 
-          /* "ETHANE.pyx":347
+          /* "gases/ETHANE.pyx":347
  *             object.QION[5][I] = GasUtil.CALQION(EN,NION6, YION6, XION6)
  *             if object.QION[5][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5059,7 +5059,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L58;
         }
 
-        /* "ETHANE.pyx":353
+        /* "gases/ETHANE.pyx":353
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[5][I] = QBB*0.07             # <<<<<<<<<<<<<<
@@ -5071,7 +5071,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L58:;
 
-        /* "ETHANE.pyx":346
+        /* "gases/ETHANE.pyx":346
  *         if EN>object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQION(EN,NION6, YION6, XION6)
  *             if object.QION[5][I]==0:             # <<<<<<<<<<<<<<
@@ -5080,7 +5080,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":354
+      /* "gases/ETHANE.pyx":354
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[5][I] = QBB*0.07
  *             if EN >=2*object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5090,7 +5090,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[5]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":355
+        /* "gases/ETHANE.pyx":355
  *                     object.QION[5][I] = QBB*0.07
  *             if EN >=2*object.EION[5]:
  *                 object.PEQION[5][I] = object.PEQEL[1][I-IOFFION[5]]             # <<<<<<<<<<<<<<
@@ -5099,7 +5099,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[5]))]);
 
-        /* "ETHANE.pyx":354
+        /* "gases/ETHANE.pyx":354
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[5][I] = QBB*0.07
  *             if EN >=2*object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5108,7 +5108,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":344
+      /* "gases/ETHANE.pyx":344
  * 
  *         # C2H2+
  *         if EN>object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5117,7 +5117,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":359
+    /* "gases/ETHANE.pyx":359
  * 
  *         # H+
  *         if EN>object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5127,7 +5127,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[6])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":360
+      /* "gases/ETHANE.pyx":360
  *         # H+
  *         if EN>object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQION(EN,NION7, YION7, XION7)             # <<<<<<<<<<<<<<
@@ -5136,7 +5136,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION7, __pyx_v_YION7, __pyx_v_XION7);
 
-      /* "ETHANE.pyx":361
+      /* "gases/ETHANE.pyx":361
  *         if EN>object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQION(EN,NION7, YION7, XION7)
  *             if object.QION[6][I]==0:             # <<<<<<<<<<<<<<
@@ -5146,7 +5146,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[6])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":362
+        /* "gases/ETHANE.pyx":362
  *             object.QION[6][I] = GasUtil.CALQION(EN,NION7, YION7, XION7)
  *             if object.QION[6][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5156,7 +5156,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":365
+          /* "gases/ETHANE.pyx":365
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[6][I] = QCOUNT * 0.000011             # <<<<<<<<<<<<<<
@@ -5165,7 +5165,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[6])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.000011);
 
-          /* "ETHANE.pyx":362
+          /* "gases/ETHANE.pyx":362
  *             object.QION[6][I] = GasUtil.CALQION(EN,NION7, YION7, XION7)
  *             if object.QION[6][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5175,7 +5175,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L62;
         }
 
-        /* "ETHANE.pyx":368
+        /* "gases/ETHANE.pyx":368
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[6][I] = QBB*0.000011             # <<<<<<<<<<<<<<
@@ -5187,7 +5187,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L62:;
 
-        /* "ETHANE.pyx":361
+        /* "gases/ETHANE.pyx":361
  *         if EN>object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQION(EN,NION7, YION7, XION7)
  *             if object.QION[6][I]==0:             # <<<<<<<<<<<<<<
@@ -5196,7 +5196,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":369
+      /* "gases/ETHANE.pyx":369
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[6][I] = QBB*0.000011
  *             if EN >=2*object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5206,7 +5206,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[6]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":370
+        /* "gases/ETHANE.pyx":370
  *                     object.QION[6][I] = QBB*0.000011
  *             if EN >=2*object.EION[6]:
  *                 object.PEQION[6][I] = object.PEQEL[1][I-IOFFION[6]]             # <<<<<<<<<<<<<<
@@ -5215,7 +5215,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[6]))]);
 
-        /* "ETHANE.pyx":369
+        /* "gases/ETHANE.pyx":369
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[6][I] = QBB*0.000011
  *             if EN >=2*object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5224,7 +5224,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":359
+      /* "gases/ETHANE.pyx":359
  * 
  *         # H+
  *         if EN>object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5233,7 +5233,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":373
+    /* "gases/ETHANE.pyx":373
  * 
  *         # H2+
  *         if EN>object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5243,7 +5243,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[7])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":374
+      /* "gases/ETHANE.pyx":374
  *         # H2+
  *         if EN>object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQION(EN,NION8, YION8, XION8)             # <<<<<<<<<<<<<<
@@ -5252,7 +5252,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION8, __pyx_v_YION8, __pyx_v_XION8);
 
-      /* "ETHANE.pyx":375
+      /* "gases/ETHANE.pyx":375
  *         if EN>object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQION(EN,NION8, YION8, XION8)
  *             if object.QION[7][I]==0:             # <<<<<<<<<<<<<<
@@ -5262,7 +5262,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[7])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":376
+        /* "gases/ETHANE.pyx":376
  *             object.QION[7][I] = GasUtil.CALQION(EN,NION8, YION8, XION8)
  *             if object.QION[7][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5272,7 +5272,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":379
+          /* "gases/ETHANE.pyx":379
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[7][I] = QCOUNT * 0.00036             # <<<<<<<<<<<<<<
@@ -5281,7 +5281,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[7])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.00036);
 
-          /* "ETHANE.pyx":376
+          /* "gases/ETHANE.pyx":376
  *             object.QION[7][I] = GasUtil.CALQION(EN,NION8, YION8, XION8)
  *             if object.QION[7][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5291,7 +5291,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L66;
         }
 
-        /* "ETHANE.pyx":382
+        /* "gases/ETHANE.pyx":382
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[7][I] = QBB*0.00036             # <<<<<<<<<<<<<<
@@ -5303,7 +5303,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L66:;
 
-        /* "ETHANE.pyx":375
+        /* "gases/ETHANE.pyx":375
  *         if EN>object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQION(EN,NION8, YION8, XION8)
  *             if object.QION[7][I]==0:             # <<<<<<<<<<<<<<
@@ -5312,7 +5312,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":383
+      /* "gases/ETHANE.pyx":383
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[7][I] = QBB*0.00036
  *             if EN >=2*object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5322,7 +5322,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[7]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":384
+        /* "gases/ETHANE.pyx":384
  *                     object.QION[7][I] = QBB*0.00036
  *             if EN >=2*object.EION[7]:
  *                 object.PEQION[7][I] = object.PEQEL[1][I-IOFFION[7]]             # <<<<<<<<<<<<<<
@@ -5331,7 +5331,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[7]))]);
 
-        /* "ETHANE.pyx":383
+        /* "gases/ETHANE.pyx":383
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[7][I] = QBB*0.00036
  *             if EN >=2*object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5340,7 +5340,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":373
+      /* "gases/ETHANE.pyx":373
  * 
  *         # H2+
  *         if EN>object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5349,7 +5349,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":387
+    /* "gases/ETHANE.pyx":387
  * 
  *         # CH2+
  *         if EN>object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5359,7 +5359,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[8])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":388
+      /* "gases/ETHANE.pyx":388
  *         # CH2+
  *         if EN>object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQION(EN,NION9, YION9, XION9)             # <<<<<<<<<<<<<<
@@ -5368,7 +5368,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION9, __pyx_v_YION9, __pyx_v_XION9);
 
-      /* "ETHANE.pyx":389
+      /* "gases/ETHANE.pyx":389
  *         if EN>object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQION(EN,NION9, YION9, XION9)
  *             if object.QION[8][I]==0:             # <<<<<<<<<<<<<<
@@ -5378,7 +5378,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[8])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":390
+        /* "gases/ETHANE.pyx":390
  *             object.QION[8][I] = GasUtil.CALQION(EN,NION9, YION9, XION9)
  *             if object.QION[8][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5388,7 +5388,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":393
+          /* "gases/ETHANE.pyx":393
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[8][I] = QCOUNT * 0.0066             # <<<<<<<<<<<<<<
@@ -5397,7 +5397,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[8])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.0066);
 
-          /* "ETHANE.pyx":390
+          /* "gases/ETHANE.pyx":390
  *             object.QION[8][I] = GasUtil.CALQION(EN,NION9, YION9, XION9)
  *             if object.QION[8][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5407,7 +5407,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L70;
         }
 
-        /* "ETHANE.pyx":396
+        /* "gases/ETHANE.pyx":396
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[8][I] = QBB*0.0066             # <<<<<<<<<<<<<<
@@ -5419,7 +5419,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L70:;
 
-        /* "ETHANE.pyx":389
+        /* "gases/ETHANE.pyx":389
  *         if EN>object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQION(EN,NION9, YION9, XION9)
  *             if object.QION[8][I]==0:             # <<<<<<<<<<<<<<
@@ -5428,7 +5428,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":397
+      /* "gases/ETHANE.pyx":397
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[8][I] = QBB*0.0066
  *             if EN >=2*object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5438,7 +5438,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[8]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":398
+        /* "gases/ETHANE.pyx":398
  *                     object.QION[8][I] = QBB*0.0066
  *             if EN >=2*object.EION[8]:
  *                 object.PEQION[8][I] = object.PEQEL[1][I-IOFFION[8]]             # <<<<<<<<<<<<<<
@@ -5447,7 +5447,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[8]))]);
 
-        /* "ETHANE.pyx":397
+        /* "gases/ETHANE.pyx":397
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[8][I] = QBB*0.0066
  *             if EN >=2*object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5456,7 +5456,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":387
+      /* "gases/ETHANE.pyx":387
  * 
  *         # CH2+
  *         if EN>object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5465,7 +5465,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":401
+    /* "gases/ETHANE.pyx":401
  * 
  *         # C2H+
  *         if EN>object.EION[9]:             # <<<<<<<<<<<<<<
@@ -5475,7 +5475,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[9])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":402
+      /* "gases/ETHANE.pyx":402
  *         # C2H+
  *         if EN>object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQION(EN,NION10, YION10, XION10)             # <<<<<<<<<<<<<<
@@ -5484,7 +5484,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION10, __pyx_v_YION10, __pyx_v_XION10);
 
-      /* "ETHANE.pyx":403
+      /* "gases/ETHANE.pyx":403
  *         if EN>object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQION(EN,NION10, YION10, XION10)
  *             if object.QION[9][I]==0:             # <<<<<<<<<<<<<<
@@ -5494,7 +5494,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[9])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":404
+        /* "gases/ETHANE.pyx":404
  *             object.QION[9][I] = GasUtil.CALQION(EN,NION10, YION10, XION10)
  *             if object.QION[9][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5504,7 +5504,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":407
+          /* "gases/ETHANE.pyx":407
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[9][I] = QCOUNT * 0.0062             # <<<<<<<<<<<<<<
@@ -5513,7 +5513,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[9])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.0062);
 
-          /* "ETHANE.pyx":404
+          /* "gases/ETHANE.pyx":404
  *             object.QION[9][I] = GasUtil.CALQION(EN,NION10, YION10, XION10)
  *             if object.QION[9][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5523,7 +5523,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L74;
         }
 
-        /* "ETHANE.pyx":410
+        /* "gases/ETHANE.pyx":410
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[9][I] = QBB*0.0062             # <<<<<<<<<<<<<<
@@ -5535,7 +5535,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L74:;
 
-        /* "ETHANE.pyx":403
+        /* "gases/ETHANE.pyx":403
  *         if EN>object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQION(EN,NION10, YION10, XION10)
  *             if object.QION[9][I]==0:             # <<<<<<<<<<<<<<
@@ -5544,7 +5544,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":411
+      /* "gases/ETHANE.pyx":411
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[9][I] = QBB*0.0062
  *             if EN >=2*object.EION[9]:             # <<<<<<<<<<<<<<
@@ -5554,7 +5554,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[9]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":412
+        /* "gases/ETHANE.pyx":412
  *                     object.QION[9][I] = QBB*0.0062
  *             if EN >=2*object.EION[9]:
  *                 object.PEQION[9][I] = object.PEQEL[1][I-IOFFION[9]]             # <<<<<<<<<<<<<<
@@ -5563,7 +5563,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[9]))]);
 
-        /* "ETHANE.pyx":411
+        /* "gases/ETHANE.pyx":411
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[9][I] = QBB*0.0062
  *             if EN >=2*object.EION[9]:             # <<<<<<<<<<<<<<
@@ -5572,7 +5572,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":401
+      /* "gases/ETHANE.pyx":401
  * 
  *         # C2H+
  *         if EN>object.EION[9]:             # <<<<<<<<<<<<<<
@@ -5581,7 +5581,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":415
+    /* "gases/ETHANE.pyx":415
  * 
  *         # C2H6++
  *         if EN>object.EION[10]:             # <<<<<<<<<<<<<<
@@ -5591,7 +5591,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[10])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":416
+      /* "gases/ETHANE.pyx":416
  *         # C2H6++
  *         if EN>object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQION(EN,NION11, YION11, XION11)             # <<<<<<<<<<<<<<
@@ -5600,7 +5600,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[10])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION11, __pyx_v_YION11, __pyx_v_XION11);
 
-      /* "ETHANE.pyx":417
+      /* "gases/ETHANE.pyx":417
  *         if EN>object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQION(EN,NION11, YION11, XION11)
  *             if object.QION[10][I]==0:             # <<<<<<<<<<<<<<
@@ -5610,7 +5610,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[10])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":418
+        /* "gases/ETHANE.pyx":418
  *             object.QION[10][I] = GasUtil.CALQION(EN,NION11, YION11, XION11)
  *             if object.QION[10][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5620,7 +5620,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":421
+          /* "gases/ETHANE.pyx":421
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[10][I] = QCOUNT * 0.0745             # <<<<<<<<<<<<<<
@@ -5629,7 +5629,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[10])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.0745);
 
-          /* "ETHANE.pyx":418
+          /* "gases/ETHANE.pyx":418
  *             object.QION[10][I] = GasUtil.CALQION(EN,NION11, YION11, XION11)
  *             if object.QION[10][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5639,7 +5639,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L78;
         }
 
-        /* "ETHANE.pyx":424
+        /* "gases/ETHANE.pyx":424
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[10][I] = QBB*0.0745             # <<<<<<<<<<<<<<
@@ -5651,7 +5651,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L78:;
 
-        /* "ETHANE.pyx":417
+        /* "gases/ETHANE.pyx":417
  *         if EN>object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQION(EN,NION11, YION11, XION11)
  *             if object.QION[10][I]==0:             # <<<<<<<<<<<<<<
@@ -5660,7 +5660,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":425
+      /* "gases/ETHANE.pyx":425
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[10][I] = QBB*0.0745
  *             if EN >=2*object.EION[10]:             # <<<<<<<<<<<<<<
@@ -5670,7 +5670,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[10]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":426
+        /* "gases/ETHANE.pyx":426
  *                     object.QION[10][I] = QBB*0.0745
  *             if EN >=2*object.EION[10]:
  *                 object.PEQION[10][I] = object.PEQEL[1][I-IOFFION[10]]             # <<<<<<<<<<<<<<
@@ -5679,7 +5679,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[10]))]);
 
-        /* "ETHANE.pyx":425
+        /* "gases/ETHANE.pyx":425
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[10][I] = QBB*0.0745
  *             if EN >=2*object.EION[10]:             # <<<<<<<<<<<<<<
@@ -5688,7 +5688,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":415
+      /* "gases/ETHANE.pyx":415
  * 
  *         # C2H6++
  *         if EN>object.EION[10]:             # <<<<<<<<<<<<<<
@@ -5697,7 +5697,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":430
+    /* "gases/ETHANE.pyx":430
  * 
  *         # H3+
  *         if EN>object.EION[11]:             # <<<<<<<<<<<<<<
@@ -5707,7 +5707,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[11])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":431
+      /* "gases/ETHANE.pyx":431
  *         # H3+
  *         if EN>object.EION[11]:
  *             object.QION[11][I] = GasUtil.CALQION(EN,NION12, YION12, XION12)             # <<<<<<<<<<<<<<
@@ -5716,7 +5716,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[11])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION12, __pyx_v_YION12, __pyx_v_XION12);
 
-      /* "ETHANE.pyx":432
+      /* "gases/ETHANE.pyx":432
  *         if EN>object.EION[11]:
  *             object.QION[11][I] = GasUtil.CALQION(EN,NION12, YION12, XION12)
  *             if object.QION[11][I]==0:             # <<<<<<<<<<<<<<
@@ -5726,7 +5726,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[11])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":433
+        /* "gases/ETHANE.pyx":433
  *             object.QION[11][I] = GasUtil.CALQION(EN,NION12, YION12, XION12)
  *             if object.QION[11][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5736,7 +5736,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":436
+          /* "gases/ETHANE.pyx":436
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[11][I] = QCOUNT * 0.0000055             # <<<<<<<<<<<<<<
@@ -5745,7 +5745,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[11])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.0000055);
 
-          /* "ETHANE.pyx":433
+          /* "gases/ETHANE.pyx":433
  *             object.QION[11][I] = GasUtil.CALQION(EN,NION12, YION12, XION12)
  *             if object.QION[11][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5755,7 +5755,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L82;
         }
 
-        /* "ETHANE.pyx":439
+        /* "gases/ETHANE.pyx":439
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[11][I] = QBB*0.0000055             # <<<<<<<<<<<<<<
@@ -5767,7 +5767,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L82:;
 
-        /* "ETHANE.pyx":432
+        /* "gases/ETHANE.pyx":432
  *         if EN>object.EION[11]:
  *             object.QION[11][I] = GasUtil.CALQION(EN,NION12, YION12, XION12)
  *             if object.QION[11][I]==0:             # <<<<<<<<<<<<<<
@@ -5776,7 +5776,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":440
+      /* "gases/ETHANE.pyx":440
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[11][I] = QBB*0.0000055
  *             if EN >=2*object.EION[11]:             # <<<<<<<<<<<<<<
@@ -5786,7 +5786,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[11]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":441
+        /* "gases/ETHANE.pyx":441
  *                     object.QION[11][I] = QBB*0.0000055
  *             if EN >=2*object.EION[11]:
  *                 object.PEQION[11][I] = object.PEQEL[1][I-IOFFION[11]]             # <<<<<<<<<<<<<<
@@ -5795,7 +5795,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[11]))]);
 
-        /* "ETHANE.pyx":440
+        /* "gases/ETHANE.pyx":440
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[11][I] = QBB*0.0000055
  *             if EN >=2*object.EION[11]:             # <<<<<<<<<<<<<<
@@ -5804,7 +5804,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":430
+      /* "gases/ETHANE.pyx":430
  * 
  *         # H3+
  *         if EN>object.EION[11]:             # <<<<<<<<<<<<<<
@@ -5813,7 +5813,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":444
+    /* "gases/ETHANE.pyx":444
  * 
  *         # CH+
  *         if EN>object.EION[12]:             # <<<<<<<<<<<<<<
@@ -5823,7 +5823,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[12])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":445
+      /* "gases/ETHANE.pyx":445
  *         # CH+
  *         if EN>object.EION[12]:
  *             object.QION[12][I] = GasUtil.CALQION(EN,NION13, YION13, XION13)             # <<<<<<<<<<<<<<
@@ -5832,7 +5832,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[12])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION13, __pyx_v_YION13, __pyx_v_XION13);
 
-      /* "ETHANE.pyx":446
+      /* "gases/ETHANE.pyx":446
  *         if EN>object.EION[12]:
  *             object.QION[12][I] = GasUtil.CALQION(EN,NION13, YION13, XION13)
  *             if object.QION[12][I]==0:             # <<<<<<<<<<<<<<
@@ -5842,7 +5842,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[12])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":447
+        /* "gases/ETHANE.pyx":447
  *             object.QION[12][I] = GasUtil.CALQION(EN,NION13, YION13, XION13)
  *             if object.QION[12][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5852,7 +5852,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":450
+          /* "gases/ETHANE.pyx":450
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[12][I] = QCOUNT * 0.00037             # <<<<<<<<<<<<<<
@@ -5861,7 +5861,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[12])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.00037);
 
-          /* "ETHANE.pyx":447
+          /* "gases/ETHANE.pyx":447
  *             object.QION[12][I] = GasUtil.CALQION(EN,NION13, YION13, XION13)
  *             if object.QION[12][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5871,7 +5871,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L86;
         }
 
-        /* "ETHANE.pyx":453
+        /* "gases/ETHANE.pyx":453
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[12][I] = QBB*0.00037             # <<<<<<<<<<<<<<
@@ -5883,7 +5883,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L86:;
 
-        /* "ETHANE.pyx":446
+        /* "gases/ETHANE.pyx":446
  *         if EN>object.EION[12]:
  *             object.QION[12][I] = GasUtil.CALQION(EN,NION13, YION13, XION13)
  *             if object.QION[12][I]==0:             # <<<<<<<<<<<<<<
@@ -5892,7 +5892,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":454
+      /* "gases/ETHANE.pyx":454
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[12][I] = QBB*0.00037
  *             if EN >=2*object.EION[12]:             # <<<<<<<<<<<<<<
@@ -5902,7 +5902,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[12]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":455
+        /* "gases/ETHANE.pyx":455
  *                     object.QION[12][I] = QBB*0.00037
  *             if EN >=2*object.EION[12]:
  *                 object.PEQION[12][I] = object.PEQEL[1][I-IOFFION[12]]             # <<<<<<<<<<<<<<
@@ -5911,7 +5911,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[12]))]);
 
-        /* "ETHANE.pyx":454
+        /* "gases/ETHANE.pyx":454
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[12][I] = QBB*0.00037
  *             if EN >=2*object.EION[12]:             # <<<<<<<<<<<<<<
@@ -5920,7 +5920,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":444
+      /* "gases/ETHANE.pyx":444
  * 
  *         # CH+
  *         if EN>object.EION[12]:             # <<<<<<<<<<<<<<
@@ -5929,7 +5929,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":459
+    /* "gases/ETHANE.pyx":459
  * 
  *         # C2+
  *         if EN>object.EION[13]:             # <<<<<<<<<<<<<<
@@ -5939,7 +5939,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[13])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":460
+      /* "gases/ETHANE.pyx":460
  *         # C2+
  *         if EN>object.EION[13]:
  *             object.QION[13][I] = GasUtil.CALQION(EN,NION14, YION14, XION14)             # <<<<<<<<<<<<<<
@@ -5948,7 +5948,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[13])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION14, __pyx_v_YION14, __pyx_v_XION14);
 
-      /* "ETHANE.pyx":461
+      /* "gases/ETHANE.pyx":461
  *         if EN>object.EION[13]:
  *             object.QION[13][I] = GasUtil.CALQION(EN,NION14, YION14, XION14)
  *             if object.QION[13][I]==0:             # <<<<<<<<<<<<<<
@@ -5958,7 +5958,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[13])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":462
+        /* "gases/ETHANE.pyx":462
  *             object.QION[13][I] = GasUtil.CALQION(EN,NION14, YION14, XION14)
  *             if object.QION[13][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5968,7 +5968,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":465
+          /* "gases/ETHANE.pyx":465
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[13][I] = QCOUNT * 0.000022             # <<<<<<<<<<<<<<
@@ -5977,7 +5977,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[13])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.000022);
 
-          /* "ETHANE.pyx":462
+          /* "gases/ETHANE.pyx":462
  *             object.QION[13][I] = GasUtil.CALQION(EN,NION14, YION14, XION14)
  *             if object.QION[13][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -5987,7 +5987,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L90;
         }
 
-        /* "ETHANE.pyx":468
+        /* "gases/ETHANE.pyx":468
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[13][I] = QBB*0.000022             # <<<<<<<<<<<<<<
@@ -5999,7 +5999,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L90:;
 
-        /* "ETHANE.pyx":461
+        /* "gases/ETHANE.pyx":461
  *         if EN>object.EION[13]:
  *             object.QION[13][I] = GasUtil.CALQION(EN,NION14, YION14, XION14)
  *             if object.QION[13][I]==0:             # <<<<<<<<<<<<<<
@@ -6008,7 +6008,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":469
+      /* "gases/ETHANE.pyx":469
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[13][I] = QBB*0.000022
  *             if EN >=2*object.EION[13]:             # <<<<<<<<<<<<<<
@@ -6018,7 +6018,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[13]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":470
+        /* "gases/ETHANE.pyx":470
  *                     object.QION[13][I] = QBB*0.000022
  *             if EN >=2*object.EION[13]:
  *                 object.PEQION[13][I] = object.PEQEL[1][I-IOFFION[13]]             # <<<<<<<<<<<<<<
@@ -6027,7 +6027,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[13])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[13]))]);
 
-        /* "ETHANE.pyx":469
+        /* "gases/ETHANE.pyx":469
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[13][I] = QBB*0.000022
  *             if EN >=2*object.EION[13]:             # <<<<<<<<<<<<<<
@@ -6036,7 +6036,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":459
+      /* "gases/ETHANE.pyx":459
  * 
  *         # C2+
  *         if EN>object.EION[13]:             # <<<<<<<<<<<<<<
@@ -6045,7 +6045,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":473
+    /* "gases/ETHANE.pyx":473
  * 
  *         # C+
  *         if EN>object.EION[14]:             # <<<<<<<<<<<<<<
@@ -6055,7 +6055,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[14])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":474
+      /* "gases/ETHANE.pyx":474
  *         # C+
  *         if EN>object.EION[14]:
  *             object.QION[14][I] = GasUtil.CALQION(EN,NION15, YION15, XION15)             # <<<<<<<<<<<<<<
@@ -6064,7 +6064,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[14])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION15, __pyx_v_YION15, __pyx_v_XION15);
 
-      /* "ETHANE.pyx":475
+      /* "gases/ETHANE.pyx":475
  *         if EN>object.EION[14]:
  *             object.QION[14][I] = GasUtil.CALQION(EN,NION15, YION15, XION15)
  *             if object.QION[14][I]==0:             # <<<<<<<<<<<<<<
@@ -6074,7 +6074,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QION[14])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":476
+        /* "gases/ETHANE.pyx":476
  *             object.QION[14][I] = GasUtil.CALQION(EN,NION15, YION15, XION15)
  *             if object.QION[14][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -6084,7 +6084,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((__pyx_v_EN <= (__pyx_v_XION[(__pyx_v_NIOND - 1)])) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":479
+          /* "gases/ETHANE.pyx":479
  *                     #USE FRACTION OF COUNTING IONISATION ABOVE 600 EV
  *                     # fraction of QCOUNT
  *                     object.QION[14][I] = QCOUNT * 0.00011             # <<<<<<<<<<<<<<
@@ -6093,7 +6093,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[14])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.00011);
 
-          /* "ETHANE.pyx":476
+          /* "gases/ETHANE.pyx":476
  *             object.QION[14][I] = GasUtil.CALQION(EN,NION15, YION15, XION15)
  *             if object.QION[14][I]==0:
  *                 if EN<=XION[NIOND-1]:             # <<<<<<<<<<<<<<
@@ -6103,7 +6103,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L94;
         }
 
-        /* "ETHANE.pyx":482
+        /* "gases/ETHANE.pyx":482
  *                 else:
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[14][I] = QBB*0.00011             # <<<<<<<<<<<<<<
@@ -6115,7 +6115,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L94:;
 
-        /* "ETHANE.pyx":475
+        /* "gases/ETHANE.pyx":475
  *         if EN>object.EION[14]:
  *             object.QION[14][I] = GasUtil.CALQION(EN,NION15, YION15, XION15)
  *             if object.QION[14][I]==0:             # <<<<<<<<<<<<<<
@@ -6124,7 +6124,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":483
+      /* "gases/ETHANE.pyx":483
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[14][I] = QBB*0.00011
  *             if EN >=2*object.EION[14]:             # <<<<<<<<<<<<<<
@@ -6134,7 +6134,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[14]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":484
+        /* "gases/ETHANE.pyx":484
  *                     object.QION[14][I] = QBB*0.00011
  *             if EN >=2*object.EION[14]:
  *                 object.PEQION[14][I] = object.PEQEL[1][I-IOFFION[14]]             # <<<<<<<<<<<<<<
@@ -6143,7 +6143,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[14])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[14]))]);
 
-        /* "ETHANE.pyx":483
+        /* "gases/ETHANE.pyx":483
  *                     #USE BORN-BETHE X-SECTION ABOVE X[n] EV
  *                     object.QION[14][I] = QBB*0.00011
  *             if EN >=2*object.EION[14]:             # <<<<<<<<<<<<<<
@@ -6152,7 +6152,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":473
+      /* "gases/ETHANE.pyx":473
  * 
  *         # C+
  *         if EN>object.EION[14]:             # <<<<<<<<<<<<<<
@@ -6161,7 +6161,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":487
+    /* "gases/ETHANE.pyx":487
  * 
  *         #CARBON K-SHELL
  *         if EN > object.EION[15]:             # <<<<<<<<<<<<<<
@@ -6171,7 +6171,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EION[15])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":488
+      /* "gases/ETHANE.pyx":488
  *         #CARBON K-SHELL
  *         if EN > object.EION[15]:
  *             object.QION[15][I] = GasUtil.CALQIONREG(EN, NION16,YION16, XION16)*2             # <<<<<<<<<<<<<<
@@ -6180,7 +6180,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[15])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NION16, __pyx_v_YION16, __pyx_v_XION16) * 2.0);
 
-      /* "ETHANE.pyx":487
+      /* "gases/ETHANE.pyx":487
  * 
  *         #CARBON K-SHELL
  *         if EN > object.EION[15]:             # <<<<<<<<<<<<<<
@@ -6189,7 +6189,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":489
+    /* "gases/ETHANE.pyx":489
  *         if EN > object.EION[15]:
  *             object.QION[15][I] = GasUtil.CALQIONREG(EN, NION16,YION16, XION16)*2
  *         if EN >=2*object.EION[15]:             # <<<<<<<<<<<<<<
@@ -6199,7 +6199,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (2.0 * (__pyx_v_object->EION[15]))) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":490
+      /* "gases/ETHANE.pyx":490
  *             object.QION[15][I] = GasUtil.CALQIONREG(EN, NION16,YION16, XION16)*2
  *         if EN >=2*object.EION[15]:
  *                 object.PEQION[15][I] = object.PEQEL[1][I-IOFFION[15]]             # <<<<<<<<<<<<<<
@@ -6208,7 +6208,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[15])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[15]))]);
 
-      /* "ETHANE.pyx":489
+      /* "gases/ETHANE.pyx":489
  *         if EN > object.EION[15]:
  *             object.QION[15][I] = GasUtil.CALQIONREG(EN, NION16,YION16, XION16)*2
  *         if EN >=2*object.EION[15]:             # <<<<<<<<<<<<<<
@@ -6217,7 +6217,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":492
+    /* "gases/ETHANE.pyx":492
  *                 object.PEQION[15][I] = object.PEQEL[1][I-IOFFION[15]]
  * 
  *         QSUM = 0.0             # <<<<<<<<<<<<<<
@@ -6226,7 +6226,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QSUM = 0.0;
 
-    /* "ETHANE.pyx":493
+    /* "gases/ETHANE.pyx":493
  * 
  *         QSUM = 0.0
  *         for J in range(15):             # <<<<<<<<<<<<<<
@@ -6236,7 +6236,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_29 = 0; __pyx_t_29 < 15; __pyx_t_29+=1) {
       __pyx_v_J = __pyx_t_29;
 
-      /* "ETHANE.pyx":494
+      /* "gases/ETHANE.pyx":494
  *         QSUM = 0.0
  *         for J in range(15):
  *             QSUM +=object.QION[J][I]             # <<<<<<<<<<<<<<
@@ -6246,7 +6246,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QSUM = (__pyx_v_QSUM + ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "ETHANE.pyx":495
+    /* "gases/ETHANE.pyx":495
  *         for J in range(15):
  *             QSUM +=object.QION[J][I]
  *         if QSUM!=0.0:             # <<<<<<<<<<<<<<
@@ -6256,7 +6256,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_QSUM != 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":496
+      /* "gases/ETHANE.pyx":496
  *             QSUM +=object.QION[J][I]
  *         if QSUM!=0.0:
  *                 for J in range(15):             # <<<<<<<<<<<<<<
@@ -6266,7 +6266,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_29 = 0; __pyx_t_29 < 15; __pyx_t_29+=1) {
         __pyx_v_J = __pyx_t_29;
 
-        /* "ETHANE.pyx":497
+        /* "gases/ETHANE.pyx":497
  *         if QSUM!=0.0:
  *                 for J in range(15):
  *                     object.QION[J][I]*=(QSUM-object.QION[15][I])/QSUM             # <<<<<<<<<<<<<<
@@ -6278,7 +6278,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         ((__pyx_v_object->QION[__pyx_t_33])[__pyx_t_34]) = (((__pyx_v_object->QION[__pyx_t_33])[__pyx_t_34]) * ((__pyx_v_QSUM - ((__pyx_v_object->QION[15])[__pyx_v_I])) / __pyx_v_QSUM));
       }
 
-      /* "ETHANE.pyx":495
+      /* "gases/ETHANE.pyx":495
  *         for J in range(15):
  *             QSUM +=object.QION[J][I]
  *         if QSUM!=0.0:             # <<<<<<<<<<<<<<
@@ -6287,7 +6287,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":499
+    /* "gases/ETHANE.pyx":499
  *                     object.QION[J][I]*=(QSUM-object.QION[15][I])/QSUM
  * 
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6296,7 +6296,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":501
+    /* "gases/ETHANE.pyx":501
  *         object.Q[3][I] = 0.0
  * 
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6305,7 +6305,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":503
+    /* "gases/ETHANE.pyx":503
  *         object.QATT[0][I] = 0.0
  *         # ATTACHMENT to H-
  *         if EN>=XATT1[0]:             # <<<<<<<<<<<<<<
@@ -6315,7 +6315,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_XATT1[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":504
+      /* "gases/ETHANE.pyx":504
  *         # ATTACHMENT to H-
  *         if EN>=XATT1[0]:
  *             object.QATT[0][I] = GasUtil.CALQION(EN, NATT1,YATT1, XATT1)             # <<<<<<<<<<<<<<
@@ -6324,7 +6324,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NATT1, __pyx_v_YATT1, __pyx_v_XATT1);
 
-      /* "ETHANE.pyx":503
+      /* "gases/ETHANE.pyx":503
  *         object.QATT[0][I] = 0.0
  *         # ATTACHMENT to H-
  *         if EN>=XATT1[0]:             # <<<<<<<<<<<<<<
@@ -6333,7 +6333,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":506
+    /* "gases/ETHANE.pyx":506
  *             object.QATT[0][I] = GasUtil.CALQION(EN, NATT1,YATT1, XATT1)
  * 
  *         object.QATT[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6342,7 +6342,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[1])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":508
+    /* "gases/ETHANE.pyx":508
  *         object.QATT[1][I] = 0.0
  *         # ATTACHMENT to CH2-
  *         if EN>=XATT2[0]:             # <<<<<<<<<<<<<<
@@ -6352,7 +6352,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_XATT2[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":509
+      /* "gases/ETHANE.pyx":509
  *         # ATTACHMENT to CH2-
  *         if EN>=XATT2[0]:
  *             object.QATT[1][I] = GasUtil.CALQION(EN, NATT2,YATT2, XATT2)             # <<<<<<<<<<<<<<
@@ -6361,7 +6361,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NATT2, __pyx_v_YATT2, __pyx_v_XATT2);
 
-      /* "ETHANE.pyx":508
+      /* "gases/ETHANE.pyx":508
  *         object.QATT[1][I] = 0.0
  *         # ATTACHMENT to CH2-
  *         if EN>=XATT2[0]:             # <<<<<<<<<<<<<<
@@ -6370,7 +6370,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":511
+    /* "gases/ETHANE.pyx":511
  *             object.QATT[1][I] = GasUtil.CALQION(EN, NATT2,YATT2, XATT2)
  * 
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6379,7 +6379,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":512
+    /* "gases/ETHANE.pyx":512
  * 
  *         object.Q[4][I] = 0.0
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6388,7 +6388,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":516
+    /* "gases/ETHANE.pyx":516
  *         # set ZEROS
  * 
  *         for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -6400,7 +6400,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "ETHANE.pyx":517
+      /* "gases/ETHANE.pyx":517
  * 
  *         for J in range(object.NIN):
  *             object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6409,7 +6409,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-      /* "ETHANE.pyx":518
+      /* "gases/ETHANE.pyx":518
  *         for J in range(object.NIN):
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6419,7 +6419,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
     }
 
-    /* "ETHANE.pyx":521
+    /* "gases/ETHANE.pyx":521
  * 
  *         # SUPERELASTIC VIBRATION-TORSION         ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -6429,7 +6429,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":522
+      /* "gases/ETHANE.pyx":522
  *         # SUPERELASTIC VIBRATION-TORSION         ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:
  *             EFAC = sqrt(1.0-(object.EIN[0]/EN))             # <<<<<<<<<<<<<<
@@ -6438,7 +6438,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[0]) / __pyx_v_EN)));
 
-      /* "ETHANE.pyx":523
+      /* "gases/ETHANE.pyx":523
  *         if EN>0.0:
  *             EFAC = sqrt(1.0-(object.EIN[0]/EN))
  *             object.QIN[0][I]=0.0045*log((EFAC+1.0)/(EFAC-1.0))/EN             # <<<<<<<<<<<<<<
@@ -6447,7 +6447,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = ((0.0045 * log(((__pyx_v_EFAC + 1.0) / (__pyx_v_EFAC - 1.0)))) / __pyx_v_EN);
 
-      /* "ETHANE.pyx":524
+      /* "gases/ETHANE.pyx":524
  *             EFAC = sqrt(1.0-(object.EIN[0]/EN))
  *             object.QIN[0][I]=0.0045*log((EFAC+1.0)/(EFAC-1.0))/EN
  *             object.QIN[0][I]*=APOP1/(1.0+APOP1)*1.e-16             # <<<<<<<<<<<<<<
@@ -6458,7 +6458,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_29 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_35])[__pyx_t_29]) = (((__pyx_v_object->QIN[__pyx_t_35])[__pyx_t_29]) * ((__pyx_v_APOP1 / (1.0 + __pyx_v_APOP1)) * 1.e-16));
 
-      /* "ETHANE.pyx":521
+      /* "gases/ETHANE.pyx":521
  * 
  *         # SUPERELASTIC VIBRATION-TORSION         ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -6467,7 +6467,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":525
+    /* "gases/ETHANE.pyx":525
  *             object.QIN[0][I]=0.0045*log((EFAC+1.0)/(EFAC-1.0))/EN
  *             object.QIN[0][I]*=APOP1/(1.0+APOP1)*1.e-16
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6477,7 +6477,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":526
+      /* "gases/ETHANE.pyx":526
  *             object.QIN[0][I]*=APOP1/(1.0+APOP1)*1.e-16
  *         if EN>10:
  *             object.PEQIN[0][I] = object.PEQEL[1][I-IOFFN[0]]             # <<<<<<<<<<<<<<
@@ -6486,7 +6486,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0]))]);
 
-      /* "ETHANE.pyx":525
+      /* "gases/ETHANE.pyx":525
  *             object.QIN[0][I]=0.0045*log((EFAC+1.0)/(EFAC-1.0))/EN
  *             object.QIN[0][I]*=APOP1/(1.0+APOP1)*1.e-16
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6495,7 +6495,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":530
+    /* "gases/ETHANE.pyx":530
  * 
  *         #VIBRATION-TORSION                      ANISOTROPIC ABOVE 10 EV
  *         if EN>object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -6505,7 +6505,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":531
+      /* "gases/ETHANE.pyx":531
  *         #VIBRATION-TORSION                      ANISOTROPIC ABOVE 10 EV
  *         if EN>object.EIN[1]:
  *             EFAC = sqrt(1.0-(object.EIN[1]/EN))             # <<<<<<<<<<<<<<
@@ -6514,7 +6514,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[1]) / __pyx_v_EN)));
 
-      /* "ETHANE.pyx":532
+      /* "gases/ETHANE.pyx":532
  *         if EN>object.EIN[1]:
  *             EFAC = sqrt(1.0-(object.EIN[1]/EN))
  *             object.QIN[1][I]=0.0045*log((EFAC+1.0)/(1.0-EFAC))/EN             # <<<<<<<<<<<<<<
@@ -6523,7 +6523,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = ((0.0045 * log(((__pyx_v_EFAC + 1.0) / (1.0 - __pyx_v_EFAC)))) / __pyx_v_EN);
 
-      /* "ETHANE.pyx":533
+      /* "gases/ETHANE.pyx":533
  *             EFAC = sqrt(1.0-(object.EIN[1]/EN))
  *             object.QIN[1][I]=0.0045*log((EFAC+1.0)/(1.0-EFAC))/EN
  *             object.QIN[1][I]*=1.0/(1.0+APOP1)*1.e-16             # <<<<<<<<<<<<<<
@@ -6534,7 +6534,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_29 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_35])[__pyx_t_29]) = (((__pyx_v_object->QIN[__pyx_t_35])[__pyx_t_29]) * ((1.0 / (1.0 + __pyx_v_APOP1)) * 1.e-16));
 
-      /* "ETHANE.pyx":530
+      /* "gases/ETHANE.pyx":530
  * 
  *         #VIBRATION-TORSION                      ANISOTROPIC ABOVE 10 EV
  *         if EN>object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -6543,7 +6543,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":534
+    /* "gases/ETHANE.pyx":534
  *             object.QIN[1][I]=0.0045*log((EFAC+1.0)/(1.0-EFAC))/EN
  *             object.QIN[1][I]*=1.0/(1.0+APOP1)*1.e-16
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6553,7 +6553,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":535
+      /* "gases/ETHANE.pyx":535
  *             object.QIN[1][I]*=1.0/(1.0+APOP1)*1.e-16
  *         if EN>10:
  *             object.PEQIN[1][I] = object.PEQEL[1][I-IOFFN[1]]             # <<<<<<<<<<<<<<
@@ -6562,7 +6562,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[1]))]);
 
-      /* "ETHANE.pyx":534
+      /* "gases/ETHANE.pyx":534
  *             object.QIN[1][I]=0.0045*log((EFAC+1.0)/(1.0-EFAC))/EN
  *             object.QIN[1][I]*=1.0/(1.0+APOP1)*1.e-16
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6571,7 +6571,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":538
+    /* "gases/ETHANE.pyx":538
  * 
  *         #SUPERELASTIC VIB1                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -6581,7 +6581,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":539
+      /* "gases/ETHANE.pyx":539
  *         #SUPERELASTIC VIB1                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:
  *             object.QIN[2][I] = GasUtil.CALQINVISO(EN,NVIB1, YVIB1, XVIB1, APOP2/(1+APOP2), object.EIN[3],1, -1*5*EN,0)             # <<<<<<<<<<<<<<
@@ -6590,7 +6590,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVIB1, __pyx_v_XVIB1, (__pyx_v_APOP2 / (1.0 + __pyx_v_APOP2)), (__pyx_v_object->EIN[3]), 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "ETHANE.pyx":538
+      /* "gases/ETHANE.pyx":538
  * 
  *         #SUPERELASTIC VIB1                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -6599,7 +6599,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":540
+    /* "gases/ETHANE.pyx":540
  *         if EN>0.0:
  *             object.QIN[2][I] = GasUtil.CALQINVISO(EN,NVIB1, YVIB1, XVIB1, APOP2/(1+APOP2), object.EIN[3],1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6609,7 +6609,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":541
+      /* "gases/ETHANE.pyx":541
  *             object.QIN[2][I] = GasUtil.CALQINVISO(EN,NVIB1, YVIB1, XVIB1, APOP2/(1+APOP2), object.EIN[3],1, -1*5*EN,0)
  *         if EN>10:
  *             object.PEQIN[2][I] = object.PEQEL[1][I-IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -6618,7 +6618,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-      /* "ETHANE.pyx":540
+      /* "gases/ETHANE.pyx":540
  *         if EN>0.0:
  *             object.QIN[2][I] = GasUtil.CALQINVISO(EN,NVIB1, YVIB1, XVIB1, APOP2/(1+APOP2), object.EIN[3],1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6627,7 +6627,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":545
+    /* "gases/ETHANE.pyx":545
  * 
  *         #VIB1                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -6637,7 +6637,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":546
+      /* "gases/ETHANE.pyx":546
  *         #VIB1                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINVISO(EN,NVIB1, YVIB1, XVIB1, 1/(1+APOP2), 0,1, -1*5*EN,0)             # <<<<<<<<<<<<<<
@@ -6646,7 +6646,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVIB1, __pyx_v_XVIB1, (1.0 / (1.0 + __pyx_v_APOP2)), 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "ETHANE.pyx":545
+      /* "gases/ETHANE.pyx":545
  * 
  *         #VIB1                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -6655,7 +6655,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":547
+    /* "gases/ETHANE.pyx":547
  *         if EN >object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINVISO(EN,NVIB1, YVIB1, XVIB1, 1/(1+APOP2), 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6665,7 +6665,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":548
+      /* "gases/ETHANE.pyx":548
  *             object.QIN[3][I] = GasUtil.CALQINVISO(EN,NVIB1, YVIB1, XVIB1, 1/(1+APOP2), 0,1, -1*5*EN,0)
  *         if EN>10:
  *             object.PEQIN[3][I] = object.PEQEL[1][I-IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -6674,7 +6674,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-      /* "ETHANE.pyx":547
+      /* "gases/ETHANE.pyx":547
  *         if EN >object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINVISO(EN,NVIB1, YVIB1, XVIB1, 1/(1+APOP2), 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6683,7 +6683,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":551
+    /* "gases/ETHANE.pyx":551
  * 
  *         #SUPERELASTIC VIB2                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -6693,7 +6693,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":552
+      /* "gases/ETHANE.pyx":552
  *         #SUPERELASTIC VIB2                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:
  *             object.QIN[4][I] = GasUtil.CALQINVISO(EN,NVIB2, YVIB2, XVIB2, APOP3/(1+APOP3), object.EIN[5],1, -1*5*EN,0)             # <<<<<<<<<<<<<<
@@ -6702,7 +6702,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2, (__pyx_v_APOP3 / (1.0 + __pyx_v_APOP3)), (__pyx_v_object->EIN[5]), 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "ETHANE.pyx":551
+      /* "gases/ETHANE.pyx":551
  * 
  *         #SUPERELASTIC VIB2                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -6711,7 +6711,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":553
+    /* "gases/ETHANE.pyx":553
  *         if EN>0.0:
  *             object.QIN[4][I] = GasUtil.CALQINVISO(EN,NVIB2, YVIB2, XVIB2, APOP3/(1+APOP3), object.EIN[5],1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6721,7 +6721,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":554
+      /* "gases/ETHANE.pyx":554
  *             object.QIN[4][I] = GasUtil.CALQINVISO(EN,NVIB2, YVIB2, XVIB2, APOP3/(1+APOP3), object.EIN[5],1, -1*5*EN,0)
  *         if EN>10:
  *             object.PEQIN[4][I] = object.PEQEL[1][I-IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -6730,7 +6730,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-      /* "ETHANE.pyx":553
+      /* "gases/ETHANE.pyx":553
  *         if EN>0.0:
  *             object.QIN[4][I] = GasUtil.CALQINVISO(EN,NVIB2, YVIB2, XVIB2, APOP3/(1+APOP3), object.EIN[5],1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6739,7 +6739,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":557
+    /* "gases/ETHANE.pyx":557
  * 
  *         #VIB2                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -6749,7 +6749,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":558
+      /* "gases/ETHANE.pyx":558
  *         #VIB2                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINVISO(EN,NVIB2, YVIB2, XVIB2, 1/(1+APOP3), 0,1, -1*5*EN,0)             # <<<<<<<<<<<<<<
@@ -6758,7 +6758,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2, (1.0 / (1.0 + __pyx_v_APOP3)), 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "ETHANE.pyx":557
+      /* "gases/ETHANE.pyx":557
  * 
  *         #VIB2                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -6767,7 +6767,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":559
+    /* "gases/ETHANE.pyx":559
  *         if EN >object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINVISO(EN,NVIB2, YVIB2, XVIB2, 1/(1+APOP3), 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6777,7 +6777,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":560
+      /* "gases/ETHANE.pyx":560
  *             object.QIN[5][I] = GasUtil.CALQINVISO(EN,NVIB2, YVIB2, XVIB2, 1/(1+APOP3), 0,1, -1*5*EN,0)
  *         if EN>10:
  *             object.PEQIN[5][I] = object.PEQEL[1][I-IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -6786,7 +6786,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-      /* "ETHANE.pyx":559
+      /* "gases/ETHANE.pyx":559
  *         if EN >object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINVISO(EN,NVIB2, YVIB2, XVIB2, 1/(1+APOP3), 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6795,7 +6795,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":563
+    /* "gases/ETHANE.pyx":563
  * 
  *         #SUPERELASTIC VIB3                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -6805,7 +6805,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":564
+      /* "gases/ETHANE.pyx":564
  *         #SUPERELASTIC VIB3                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:
  *             object.QIN[6][I] = GasUtil.CALQINVISO(EN,NVIB3, YVIB3, XVIB3, APOP4/(1+APOP4), object.EIN[7],1, -1*5*EN,0)             # <<<<<<<<<<<<<<
@@ -6814,7 +6814,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3, (__pyx_v_APOP4 / (1.0 + __pyx_v_APOP4)), (__pyx_v_object->EIN[7]), 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "ETHANE.pyx":563
+      /* "gases/ETHANE.pyx":563
  * 
  *         #SUPERELASTIC VIB3                     ANISOTROPIC ABOVE 10 EV
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -6823,7 +6823,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":565
+    /* "gases/ETHANE.pyx":565
  *         if EN>0.0:
  *             object.QIN[6][I] = GasUtil.CALQINVISO(EN,NVIB3, YVIB3, XVIB3, APOP4/(1+APOP4), object.EIN[7],1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6833,7 +6833,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":566
+      /* "gases/ETHANE.pyx":566
  *             object.QIN[6][I] = GasUtil.CALQINVISO(EN,NVIB3, YVIB3, XVIB3, APOP4/(1+APOP4), object.EIN[7],1, -1*5*EN,0)
  *         if EN>10:
  *             object.PEQIN[6][I] = object.PEQEL[1][I-IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -6842,7 +6842,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-      /* "ETHANE.pyx":565
+      /* "gases/ETHANE.pyx":565
  *         if EN>0.0:
  *             object.QIN[6][I] = GasUtil.CALQINVISO(EN,NVIB3, YVIB3, XVIB3, APOP4/(1+APOP4), object.EIN[7],1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6851,7 +6851,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":570
+    /* "gases/ETHANE.pyx":570
  * 
  *         #VIB3                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -6861,7 +6861,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":571
+      /* "gases/ETHANE.pyx":571
  *         #VIB3                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINVISO(EN,NVIB3, YVIB3, XVIB3, 1/(1+APOP4), 0,1, -1*5*EN,0)             # <<<<<<<<<<<<<<
@@ -6870,7 +6870,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3, (1.0 / (1.0 + __pyx_v_APOP4)), 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "ETHANE.pyx":570
+      /* "gases/ETHANE.pyx":570
  * 
  *         #VIB3                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -6879,7 +6879,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":572
+    /* "gases/ETHANE.pyx":572
  *         if EN >object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINVISO(EN,NVIB3, YVIB3, XVIB3, 1/(1+APOP4), 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6889,7 +6889,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":573
+      /* "gases/ETHANE.pyx":573
  *             object.QIN[7][I] = GasUtil.CALQINVISO(EN,NVIB3, YVIB3, XVIB3, 1/(1+APOP4), 0,1, -1*5*EN,0)
  *         if EN>10:
  *             object.PEQIN[7][I] = object.PEQEL[1][I-IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -6898,7 +6898,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-      /* "ETHANE.pyx":572
+      /* "gases/ETHANE.pyx":572
  *         if EN >object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINVISO(EN,NVIB3, YVIB3, XVIB3, 1/(1+APOP4), 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6907,7 +6907,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":576
+    /* "gases/ETHANE.pyx":576
  * 
  *         #VIB4                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -6917,7 +6917,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":577
+      /* "gases/ETHANE.pyx":577
  *         #VIB4                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINVISO(EN,NVIB4, YVIB4, XVIB4, 1, 0,1, -1*5*EN,0)             # <<<<<<<<<<<<<<
@@ -6926,7 +6926,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB4, __pyx_v_YVIB4, __pyx_v_XVIB4, 1.0, 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "ETHANE.pyx":576
+      /* "gases/ETHANE.pyx":576
  * 
  *         #VIB4                           ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -6935,7 +6935,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":578
+    /* "gases/ETHANE.pyx":578
  *         if EN >object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINVISO(EN,NVIB4, YVIB4, XVIB4, 1, 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6945,7 +6945,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":579
+      /* "gases/ETHANE.pyx":579
  *             object.QIN[8][I] = GasUtil.CALQINVISO(EN,NVIB4, YVIB4, XVIB4, 1, 0,1, -1*5*EN,0)
  *         if EN>10:
  *             object.PEQIN[8][I] = object.PEQEL[1][I-IOFFN[8]]             # <<<<<<<<<<<<<<
@@ -6954,7 +6954,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[8]))]);
 
-      /* "ETHANE.pyx":578
+      /* "gases/ETHANE.pyx":578
  *         if EN >object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINVISO(EN,NVIB4, YVIB4, XVIB4, 1, 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -6963,7 +6963,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":582
+    /* "gases/ETHANE.pyx":582
  * 
  *         #VIB HARMONICS                  ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -6973,7 +6973,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":583
+      /* "gases/ETHANE.pyx":583
  *         #VIB HARMONICS                  ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINVISO(EN,NVIB5, YVIB5, XVIB5, 1, 0,1, -1*5*EN,0)             # <<<<<<<<<<<<<<
@@ -6982,7 +6982,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB5, __pyx_v_YVIB5, __pyx_v_XVIB5, 1.0, 0.0, 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-      /* "ETHANE.pyx":582
+      /* "gases/ETHANE.pyx":582
  * 
  *         #VIB HARMONICS                  ANISOTROPIC ABOVE 10 EV
  *         if EN >object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -6991,7 +6991,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":584
+    /* "gases/ETHANE.pyx":584
  *         if EN >object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINVISO(EN,NVIB5, YVIB5, XVIB5, 1, 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -7001,7 +7001,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 10.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":585
+      /* "gases/ETHANE.pyx":585
  *             object.QIN[9][I] = GasUtil.CALQINVISO(EN,NVIB5, YVIB5, XVIB5, 1, 0,1, -1*5*EN,0)
  *         if EN>10:
  *             object.PEQIN[9][I] = object.PEQEL[1][I-IOFFN[9]]             # <<<<<<<<<<<<<<
@@ -7010,7 +7010,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[9]))]);
 
-      /* "ETHANE.pyx":584
+      /* "gases/ETHANE.pyx":584
  *         if EN >object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINVISO(EN,NVIB5, YVIB5, XVIB5, 1, 0,1, -1*5*EN,0)
  *         if EN>10:             # <<<<<<<<<<<<<<
@@ -7019,7 +7019,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":591
+    /* "gases/ETHANE.pyx":591
  *         # FIRST TRIPLET AT  6.85 EV
  * 
  *         if EN>object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -7029,7 +7029,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":592
+      /* "gases/ETHANE.pyx":592
  * 
  *         if EN>object.EIN[10]:
  *             object.QIN[10][I]= GasUtil.CALQINP(EN, NTR1, YTR1, XTR1,2)*100             # <<<<<<<<<<<<<<
@@ -7038,7 +7038,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTR1, __pyx_v_YTR1, __pyx_v_XTR1, 2.0) * 100.0);
 
-      /* "ETHANE.pyx":591
+      /* "gases/ETHANE.pyx":591
  *         # FIRST TRIPLET AT  6.85 EV
  * 
  *         if EN>object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -7047,7 +7047,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":593
+    /* "gases/ETHANE.pyx":593
  *         if EN>object.EIN[10]:
  *             object.QIN[10][I]= GasUtil.CALQINP(EN, NTR1, YTR1, XTR1,2)*100
  *         if EN>3*object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -7057,7 +7057,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[10]))) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":594
+      /* "gases/ETHANE.pyx":594
  *             object.QIN[10][I]= GasUtil.CALQINP(EN, NTR1, YTR1, XTR1,2)*100
  *         if EN>3*object.EIN[10]:
  *             object.PEQIN[10][I] = object.PEQEL[1][I-IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -7066,7 +7066,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-      /* "ETHANE.pyx":593
+      /* "gases/ETHANE.pyx":593
  *         if EN>object.EIN[10]:
  *             object.QIN[10][I]= GasUtil.CALQINP(EN, NTR1, YTR1, XTR1,2)*100
  *         if EN>3*object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -7075,7 +7075,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":597
+    /* "gases/ETHANE.pyx":597
  * 
  *         #SINGLET DISSOCIATION AT  7.93  EV     BEF SCALING F[FI]
  *         FI = 0             # <<<<<<<<<<<<<<
@@ -7084,7 +7084,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = 0;
 
-    /* "ETHANE.pyx":598
+    /* "gases/ETHANE.pyx":598
  *         #SINGLET DISSOCIATION AT  7.93  EV     BEF SCALING F[FI]
  *         FI = 0
  *         J=11             # <<<<<<<<<<<<<<
@@ -7093,7 +7093,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_J = 11;
 
-    /* "ETHANE.pyx":600
+    /* "gases/ETHANE.pyx":600
  *         J=11
  * 
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7103,7 +7103,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":601
+      /* "gases/ETHANE.pyx":601
  * 
  *         if EN > object.EIN[J]:
  *             object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7112,7 +7112,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-      /* "ETHANE.pyx":604
+      /* "gases/ETHANE.pyx":604
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -7122,7 +7122,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":605
+        /* "gases/ETHANE.pyx":605
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if object.QIN[J][I]<0.0:
  *                 object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7131,7 +7131,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "ETHANE.pyx":604
+        /* "gases/ETHANE.pyx":604
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -7140,7 +7140,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":600
+      /* "gases/ETHANE.pyx":600
  *         J=11
  * 
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7149,7 +7149,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":606
+    /* "gases/ETHANE.pyx":606
  *             if object.QIN[J][I]<0.0:
  *                 object.QIN[J][I] = 0.0
  *         if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7159,7 +7159,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":607
+      /* "gases/ETHANE.pyx":607
  *                 object.QIN[J][I] = 0.0
  *         if EN > 3 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -7168,7 +7168,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-      /* "ETHANE.pyx":606
+      /* "gases/ETHANE.pyx":606
  *             if object.QIN[J][I]<0.0:
  *                 object.QIN[J][I] = 0.0
  *         if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7177,7 +7177,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":608
+    /* "gases/ETHANE.pyx":608
  *         if EN > 3 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *         FI+=1             # <<<<<<<<<<<<<<
@@ -7186,7 +7186,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = (__pyx_v_FI + 1);
 
-    /* "ETHANE.pyx":612
+    /* "gases/ETHANE.pyx":612
  * 
  *         # SECOND TRIPLET AT  8.00 EV
  *         if EN>object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -7196,7 +7196,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":613
+      /* "gases/ETHANE.pyx":613
  *         # SECOND TRIPLET AT  8.00 EV
  *         if EN>object.EIN[12]:
  *             object.QIN[12][I]= GasUtil.CALQINP(EN, NTR2, YTR2, XTR2,2)*100             # <<<<<<<<<<<<<<
@@ -7205,7 +7205,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[12])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTR2, __pyx_v_YTR2, __pyx_v_XTR2, 2.0) * 100.0);
 
-      /* "ETHANE.pyx":612
+      /* "gases/ETHANE.pyx":612
  * 
  *         # SECOND TRIPLET AT  8.00 EV
  *         if EN>object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -7214,7 +7214,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":614
+    /* "gases/ETHANE.pyx":614
  *         if EN>object.EIN[12]:
  *             object.QIN[12][I]= GasUtil.CALQINP(EN, NTR2, YTR2, XTR2,2)*100
  *         if EN>3*object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -7224,7 +7224,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[12]))) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":615
+      /* "gases/ETHANE.pyx":615
  *             object.QIN[12][I]= GasUtil.CALQINP(EN, NTR2, YTR2, XTR2,2)*100
  *         if EN>3*object.EIN[12]:
  *             object.PEQIN[12][I] = object.PEQEL[1][I-IOFFN[12]]             # <<<<<<<<<<<<<<
@@ -7233,7 +7233,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[12]))]);
 
-      /* "ETHANE.pyx":614
+      /* "gases/ETHANE.pyx":614
  *         if EN>object.EIN[12]:
  *             object.QIN[12][I]= GasUtil.CALQINP(EN, NTR2, YTR2, XTR2,2)*100
  *         if EN>3*object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -7242,7 +7242,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":618
+    /* "gases/ETHANE.pyx":618
  * 
  * 
  *         for J in range(13,24):             # <<<<<<<<<<<<<<
@@ -7252,7 +7252,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_29 = 13; __pyx_t_29 < 24; __pyx_t_29+=1) {
       __pyx_v_J = __pyx_t_29;
 
-      /* "ETHANE.pyx":619
+      /* "gases/ETHANE.pyx":619
  * 
  *         for J in range(13,24):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7262,7 +7262,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":620
+        /* "gases/ETHANE.pyx":620
  *         for J in range(13,24):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7271,7 +7271,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "ETHANE.pyx":623
+        /* "gases/ETHANE.pyx":623
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -7281,7 +7281,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":624
+          /* "gases/ETHANE.pyx":624
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7290,7 +7290,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "ETHANE.pyx":623
+          /* "gases/ETHANE.pyx":623
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -7299,7 +7299,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "ETHANE.pyx":619
+        /* "gases/ETHANE.pyx":619
  * 
  *         for J in range(13,24):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7308,7 +7308,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":625
+      /* "gases/ETHANE.pyx":625
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7318,7 +7318,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":626
+        /* "gases/ETHANE.pyx":626
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -7327,7 +7327,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "ETHANE.pyx":625
+        /* "gases/ETHANE.pyx":625
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7336,7 +7336,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":627
+      /* "gases/ETHANE.pyx":627
  *             if EN > 3 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -7346,7 +7346,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "ETHANE.pyx":630
+    /* "gases/ETHANE.pyx":630
  * 
  *         # THIRD TRIPLET AT  10.00 EV
  *         if EN>object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -7356,7 +7356,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[24])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":631
+      /* "gases/ETHANE.pyx":631
  *         # THIRD TRIPLET AT  10.00 EV
  *         if EN>object.EIN[24]:
  *             object.QIN[24][I]= GasUtil.CALQINP(EN, NTR3, YTR3, XTR3,2)*100             # <<<<<<<<<<<<<<
@@ -7365,7 +7365,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[24])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTR3, __pyx_v_YTR3, __pyx_v_XTR3, 2.0) * 100.0);
 
-      /* "ETHANE.pyx":630
+      /* "gases/ETHANE.pyx":630
  * 
  *         # THIRD TRIPLET AT  10.00 EV
  *         if EN>object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -7374,7 +7374,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":632
+    /* "gases/ETHANE.pyx":632
  *         if EN>object.EIN[24]:
  *             object.QIN[24][I]= GasUtil.CALQINP(EN, NTR3, YTR3, XTR3,2)*100
  *         if EN>3*object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -7384,7 +7384,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[24]))) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":633
+      /* "gases/ETHANE.pyx":633
  *             object.QIN[24][I]= GasUtil.CALQINP(EN, NTR3, YTR3, XTR3,2)*100
  *         if EN>3*object.EIN[24]:
  *             object.PEQIN[24][I] = object.PEQEL[1][I-IOFFN[24]]             # <<<<<<<<<<<<<<
@@ -7393,7 +7393,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[24])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[24]))]);
 
-      /* "ETHANE.pyx":632
+      /* "gases/ETHANE.pyx":632
  *         if EN>object.EIN[24]:
  *             object.QIN[24][I]= GasUtil.CALQINP(EN, NTR3, YTR3, XTR3,2)*100
  *         if EN>3*object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -7402,7 +7402,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":635
+    /* "gases/ETHANE.pyx":635
  *             object.PEQIN[24][I] = object.PEQEL[1][I-IOFFN[24]]
  * 
  *         for J in range(25,55):             # <<<<<<<<<<<<<<
@@ -7412,7 +7412,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_29 = 25; __pyx_t_29 < 55; __pyx_t_29+=1) {
       __pyx_v_J = __pyx_t_29;
 
-      /* "ETHANE.pyx":636
+      /* "gases/ETHANE.pyx":636
  * 
  *         for J in range(25,55):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7422,7 +7422,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":637
+        /* "gases/ETHANE.pyx":637
  *         for J in range(25,55):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7431,7 +7431,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "ETHANE.pyx":640
+        /* "gases/ETHANE.pyx":640
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -7441,7 +7441,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_30 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_30) {
 
-          /* "ETHANE.pyx":641
+          /* "gases/ETHANE.pyx":641
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7450,7 +7450,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "ETHANE.pyx":640
+          /* "gases/ETHANE.pyx":640
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -7459,7 +7459,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "ETHANE.pyx":636
+        /* "gases/ETHANE.pyx":636
  * 
  *         for J in range(25,55):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7468,7 +7468,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":642
+      /* "gases/ETHANE.pyx":642
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7478,7 +7478,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_30) {
 
-        /* "ETHANE.pyx":643
+        /* "gases/ETHANE.pyx":643
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -7487,7 +7487,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "ETHANE.pyx":642
+        /* "gases/ETHANE.pyx":642
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 3 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7496,7 +7496,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ETHANE.pyx":644
+      /* "gases/ETHANE.pyx":644
  *             if EN > 3 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -7506,7 +7506,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "ETHANE.pyx":647
+    /* "gases/ETHANE.pyx":647
  * 
  *         #LOAD BREMSSTRAHLUNG X-SECTION
  *         object.QIN[55][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7515,7 +7515,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[55])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":648
+    /* "gases/ETHANE.pyx":648
  *         #LOAD BREMSSTRAHLUNG X-SECTION
  *         object.QIN[55][I] = 0.0
  *         object.QIN[56][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7524,7 +7524,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[56])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":649
+    /* "gases/ETHANE.pyx":649
  *         object.QIN[55][I] = 0.0
  *         object.QIN[56][I] = 0.0
  *         if EN>1000:             # <<<<<<<<<<<<<<
@@ -7534,7 +7534,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > 1000.0) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":650
+      /* "gases/ETHANE.pyx":650
  *         object.QIN[56][I] = 0.0
  *         if EN>1000:
  *             object.QIN[55][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z6T, EBRM)*2e-8             # <<<<<<<<<<<<<<
@@ -7543,7 +7543,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[55])[__pyx_v_I]) = (__pyx_f_7GasUtil_QLSCALE(exp(__pyx_v_EN), __pyx_v_NBREM, __pyx_v_Z6T, __pyx_v_EBRM) * 2e-8);
 
-      /* "ETHANE.pyx":651
+      /* "gases/ETHANE.pyx":651
  *         if EN>1000:
  *             object.QIN[55][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z6T, EBRM)*2e-8
  *             object.QIN[56][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z1T, EBRM)*6e-8             # <<<<<<<<<<<<<<
@@ -7552,7 +7552,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[56])[__pyx_v_I]) = (__pyx_f_7GasUtil_QLSCALE(exp(__pyx_v_EN), __pyx_v_NBREM, __pyx_v_Z1T, __pyx_v_EBRM) * 6e-8);
 
-      /* "ETHANE.pyx":649
+      /* "gases/ETHANE.pyx":649
  *         object.QIN[55][I] = 0.0
  *         object.QIN[56][I] = 0.0
  *         if EN>1000:             # <<<<<<<<<<<<<<
@@ -7561,7 +7561,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":654
+    /* "gases/ETHANE.pyx":654
  * 
  *         # LOAD NULL COLLISIONS
  *         object.QNULL[0][I]=0.0             # <<<<<<<<<<<<<<
@@ -7570,7 +7570,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[0])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":655
+    /* "gases/ETHANE.pyx":655
  *         # LOAD NULL COLLISIONS
  *         object.QNULL[0][I]=0.0
  *         if EN>XNUL1[0]:             # <<<<<<<<<<<<<<
@@ -7580,7 +7580,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_XNUL1[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":656
+      /* "gases/ETHANE.pyx":656
  *         object.QNULL[0][I]=0.0
  *         if EN>XNUL1[0]:
  *             object.QNULL[0][I] = GasUtil.CALQINP(EN, NUL1, YNUL1, XNUL1,1)*100 *0.9*object.SCLN[0]             # <<<<<<<<<<<<<<
@@ -7589,7 +7589,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[0])[__pyx_v_I]) = (((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL1, __pyx_v_YNUL1, __pyx_v_XNUL1, 1.0) * 100.0) * 0.9) * (__pyx_v_object->SCLN[0]));
 
-      /* "ETHANE.pyx":655
+      /* "gases/ETHANE.pyx":655
  *         # LOAD NULL COLLISIONS
  *         object.QNULL[0][I]=0.0
  *         if EN>XNUL1[0]:             # <<<<<<<<<<<<<<
@@ -7598,7 +7598,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":660
+    /* "gases/ETHANE.pyx":660
  *         # LIGHT EMISSION FROM H ALPHA
  *         #   MOHLMANN AND DE HEER  CHEM.PHYS.19(1979)233
  *         object.QNULL[1][I]=0.0             # <<<<<<<<<<<<<<
@@ -7607,7 +7607,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[1])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":661
+    /* "gases/ETHANE.pyx":661
  *         #   MOHLMANN AND DE HEER  CHEM.PHYS.19(1979)233
  *         object.QNULL[1][I]=0.0
  *         if EN>XNUL2[0]:             # <<<<<<<<<<<<<<
@@ -7617,7 +7617,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_XNUL2[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":662
+      /* "gases/ETHANE.pyx":662
  *         object.QNULL[1][I]=0.0
  *         if EN>XNUL2[0]:
  *             object.QNULL[1][I] = GasUtil.CALQINP(EN, NUL2, YNUL2, XNUL2,1)*100 *object.SCLN[1]             # <<<<<<<<<<<<<<
@@ -7626,7 +7626,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[1])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL2, __pyx_v_YNUL2, __pyx_v_XNUL2, 1.0) * 100.0) * (__pyx_v_object->SCLN[1]));
 
-      /* "ETHANE.pyx":661
+      /* "gases/ETHANE.pyx":661
  *         #   MOHLMANN AND DE HEER  CHEM.PHYS.19(1979)233
  *         object.QNULL[1][I]=0.0
  *         if EN>XNUL2[0]:             # <<<<<<<<<<<<<<
@@ -7635,7 +7635,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ETHANE.pyx":666
+    /* "gases/ETHANE.pyx":666
  *         # LIGHT EMISSION FROM CH2(A2DELTA - X2PI)
  *         #  MOHLMANN AND DE HEER  CHEM.PHYS.19(1979)233
  *         object.QNULL[2][I]=0.0             # <<<<<<<<<<<<<<
@@ -7644,7 +7644,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[2])[__pyx_v_I]) = 0.0;
 
-    /* "ETHANE.pyx":667
+    /* "gases/ETHANE.pyx":667
  *         #  MOHLMANN AND DE HEER  CHEM.PHYS.19(1979)233
  *         object.QNULL[2][I]=0.0
  *         if EN>XNUL3[0]:             # <<<<<<<<<<<<<<
@@ -7654,7 +7654,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_XNUL3[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":668
+      /* "gases/ETHANE.pyx":668
  *         object.QNULL[2][I]=0.0
  *         if EN>XNUL3[0]:
  *             object.QNULL[2][I] = GasUtil.CALQINP(EN, NUL3, YNUL3, XNUL3,1)*100 *object.SCLN[2]             # <<<<<<<<<<<<<<
@@ -7663,7 +7663,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[2])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL3, __pyx_v_YNUL3, __pyx_v_XNUL3, 1.0) * 100.0) * (__pyx_v_object->SCLN[2]));
 
-      /* "ETHANE.pyx":667
+      /* "gases/ETHANE.pyx":667
  *         #  MOHLMANN AND DE HEER  CHEM.PHYS.19(1979)233
  *         object.QNULL[2][I]=0.0
  *         if EN>XNUL3[0]:             # <<<<<<<<<<<<<<
@@ -7673,7 +7673,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "ETHANE.pyx":672
+  /* "gases/ETHANE.pyx":672
  * 
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -7685,7 +7685,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < __pyx_t_25; __pyx_t_26+=1) {
     __pyx_v_J = __pyx_t_26;
 
-    /* "ETHANE.pyx":673
+    /* "gases/ETHANE.pyx":673
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7695,7 +7695,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_30) {
 
-      /* "ETHANE.pyx":674
+      /* "gases/ETHANE.pyx":674
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -7704,7 +7704,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "ETHANE.pyx":675
+      /* "gases/ETHANE.pyx":675
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -7712,7 +7712,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L151_break;
 
-      /* "ETHANE.pyx":673
+      /* "gases/ETHANE.pyx":673
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7723,14 +7723,14 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L151_break:;
 
-  /* "ETHANE.pyx":676
+  /* "gases/ETHANE.pyx":676
  *             object.NIN = J
  *             break
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "ETHANE.pyx":18
+  /* "gases/ETHANE.pyx":18
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas9(Gas*object):             # <<<<<<<<<<<<<<
@@ -7744,7 +7744,7 @@ static void __pyx_f_6ETHANE_Gas9(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("ETHANE.Gas9", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.ETHANE.Gas9", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -10784,7 +10784,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas9", (void (*)(void))__pyx_f_6ETHANE_Gas9, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas9", (void (*)(void))__pyx_f_5gases_6ETHANE_Gas9, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -11037,14 +11037,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_ETHANE) {
+  if (__pyx_module_is_main_gases__ETHANE) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "ETHANE")) {
-      if (unlikely(PyDict_SetItemString(modules, "ETHANE", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.ETHANE")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.ETHANE", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -11065,7 +11065,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "ETHANE.pyx":3
+  /* "gases/ETHANE.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -11077,7 +11077,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ETHANE.pyx":5
+  /* "gases/ETHANE.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -11089,7 +11089,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ETHANE.pyx":10
+  /* "gases/ETHANE.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -11104,7 +11104,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "ETHANE.pyx":1
+  /* "gases/ETHANE.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -11130,11 +11130,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init ETHANE", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.ETHANE", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init ETHANE");
+    PyErr_SetString(PyExc_ImportError, "init gases.ETHANE");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

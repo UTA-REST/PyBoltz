@@ -32,9 +32,9 @@ cpdef MIXERT(Magboltz object):
     object.EROOT[0] = sqrt(EHALF)
 
     MIXOBJECT = Gasmix()
-    MIXOBJECT.InitWithInfo(object.NGASN, object.QIN, object.NIN, object.PENFRA,
+    MIXOBJECT.InitWithInfo(object.NumberOfGasesN, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
-                           object.DENSY, 0, object.NGAS, object.NSTEP, object.NANISO, object.ESTEP,
+                           object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.NANISO, object.ESTEP,
                            object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN,object.PIR2)
     MIXOBJECT.Run()
 
@@ -51,7 +51,7 @@ cpdef MIXERT(Magboltz object):
     EMASS = 9.10938291e-31
 
     for IE in range(4000):
-        for KGAS in range(object.NGAS):
+        for KGAS in range(object.NumberOfGases):
             object.FCION[IE] = 0.0
             object.FCATT[IE] = 0.0
             NP = 1
@@ -275,7 +275,7 @@ cpdef MIXERT(Magboltz object):
                     object.CFN[i][IE][J] = MIXOBJECT.Gases[i].QNULL[J][IE] * object.VANN[i] * object.SCLENUL[i][J]
             # CALCULATE NULL COLLISION FREQUENCY FOR EACH GAS COMPONENT
 
-        for KGAS in range(object.NGAS):
+        for KGAS in range(object.NumberOfGases):
             object.TCFN[KGAS][IE] = 0.0
             for IL in range(int(object.NPLAST[KGAS])):
                 object.TCFN[KGAS][IE] = object.TCFN[KGAS][IE] + object.CFN[KGAS][IE][IL]
@@ -292,11 +292,11 @@ cpdef MIXERT(Magboltz object):
             object.TCFN[KGAS][IE] = object.TCFN[KGAS][IE] * object.EROOT[IE]
     KELSUM = 0
 
-    for KGAS in range(object.NGAS):
+    for KGAS in range(object.NumberOfGases):
         for J in range(6):
             KELSUM += MIXOBJECT.Gases[KGAS].KEL[J]
 
-    for KGAS in range(object.NGAS):
+    for KGAS in range(object.NumberOfGases):
         for J in range(250):
             KELSUM += MIXOBJECT.Gases[KGAS].KIN[J]
 
@@ -304,24 +304,24 @@ cpdef MIXERT(Magboltz object):
         object.NISO = 1
 
     # CALCULATE NULL COLLISION FREQUENCIES FOR EACH GAS COMPONENT
-    FAKEIN = abs(object.FAKEI) / object.NGAS
-    for KGAS in range(object.NGAS):
+    FAKEIN = abs(object.FAKEI) / object.NumberOfGases
+    for KGAS in range(object.NumberOfGases):
         object.TCFMAX[KGAS] = 0.0
         for IE in range(4000):
             if object.TCF[KGAS][IE] + object.TCFN[KGAS][IE] + FAKEIN >= object.TCFMAX[KGAS]:
                 object.TCFMAX[KGAS] = object.TCF[KGAS][IE] + object.TCFN[KGAS][IE] + FAKEIN
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
     object.TCFMX = 0.0
-    for KGAS in range(object.NGAS):
+    for KGAS in range(object.NumberOfGases):
         object.TCFMX = object.TCFMX + object.TCFMAX[KGAS]
-    for KGAS in range(object.NGAS):
+    for KGAS in range(object.NumberOfGases):
         object.TCFMXG[KGAS] = object.TCFMAX[KGAS] / object.TCFMX
-    for KGAS in range(1, object.NGAS):
+    for KGAS in range(1, object.NumberOfGases):
         object.TCFMXG[KGAS] = object.TCFMXG[KGAS] + object.TCFMXG[KGAS - 1]
 
     # CALCULATE MAXWELL BOLTZMAN VELOCITY FACTOR FOR EACH GAS COMPONENT
 
-    for KGAS in range(object.NGAS):
+    for KGAS in range(object.NumberOfGases):
         object.VTMB[KGAS] = sqrt(2.0 * ECHARG * object.AKT / object.AMGAS[KGAS]) * 1e-12
 
     for I in range(object.NSTEP):
@@ -338,7 +338,7 @@ cpdef MIXERT(Magboltz object):
         object.QREL[I] = 0.0
         object.QSATT[I] = 0.0
         object.QSUM[I] = 0.0
-        for J in range(object.NGAS):
+        for J in range(object.NumberOfGases):
             object.QSUM[I] = object.QSUM[I] + object.QION[J][I] + QATT[J][I]
             object.QSATT[I] = object.QSATT[I] + QATT[J][I]
             object.QREL[I] = object.QREL[I] + object.QION[J][I] - QATT[J][I]

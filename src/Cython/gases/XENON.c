@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "XENON",
+        "name": "gases.XENON",
         "sources": [
-            "XENON.pyx"
+            "gases/XENON.pyx"
         ]
     },
-    "module_name": "XENON"
+    "module_name": "gases.XENON"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__XENON
-#define __PYX_HAVE_API__XENON
+#define __PYX_HAVE__gases__XENON
+#define __PYX_HAVE_API__gases__XENON
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "XENON.pyx",
+  "gases/XENON.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1698,13 +1698,13 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, cha
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'XENON' */
+/* Module declarations from 'gases.XENON' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "XENON"
-extern int __pyx_module_is_main_XENON;
-int __pyx_module_is_main_XENON = 0;
+#define __Pyx_MODULE_NAME "gases.XENON"
+extern int __pyx_module_is_main_gases__XENON;
+int __pyx_module_is_main_gases__XENON = 0;
 
-/* Implementation of 'XENON' */
+/* Implementation of 'gases.XENON' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -2012,7 +2012,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "XENON.pyx":17
+/* "gases/XENON.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas7(Gas*object):             # <<<<<<<<<<<<<<
@@ -2020,7 +2020,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Xenon gas.
  */
 
-static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_EN;
   double __pyx_v_GAMMA1;
@@ -2271,7 +2271,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   int __pyx_t_54;
   __Pyx_RefNannySetupContext("Gas7", 0);
 
-  /* "XENON.pyx":21
+  /* "gases/XENON.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Xenon gas.
  *     """
  *     print("XENON")             # <<<<<<<<<<<<<<
@@ -2280,7 +2280,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   if (__Pyx_PrintOne(0, __pyx_n_s_XENON) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
 
-  /* "XENON.pyx":22
+  /* "gases/XENON.pyx":22
  *     """
  *     print("XENON")
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2328,7 +2328,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "XENON.pyx":45
+  /* "gases/XENON.pyx":45
  *     cdef int IOFFN[50], IOFFION[12]
  *     cdef double Z54T[25], EBRM[25]
  *     XEN = gd['gas7/XEN']             # <<<<<<<<<<<<<<
@@ -2345,7 +2345,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (0xB6));
 
-  /* "XENON.pyx":46
+  /* "gases/XENON.pyx":46
  *     cdef double Z54T[25], EBRM[25]
  *     XEN = gd['gas7/XEN']
  *     YMOM = gd['gas7/YMOM']             # <<<<<<<<<<<<<<
@@ -2362,7 +2362,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YMOM[0]), __pyx_t_5, sizeof(__pyx_v_YMOM[0]) * (0xB6));
 
-  /* "XENON.pyx":47
+  /* "gases/XENON.pyx":47
  *     XEN = gd['gas7/XEN']
  *     YMOM = gd['gas7/YMOM']
  *     XEL = gd['gas7/XEL']             # <<<<<<<<<<<<<<
@@ -2379,7 +2379,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEL[0]), __pyx_t_6, sizeof(__pyx_v_XEL[0]) * (0x99));
 
-  /* "XENON.pyx":48
+  /* "gases/XENON.pyx":48
  *     YMOM = gd['gas7/YMOM']
  *     XEL = gd['gas7/XEL']
  *     YEL = gd['gas7/YEL']             # <<<<<<<<<<<<<<
@@ -2396,7 +2396,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEL[0]), __pyx_t_6, sizeof(__pyx_v_YEL[0]) * (0x99));
 
-  /* "XENON.pyx":49
+  /* "gases/XENON.pyx":49
  *     XEL = gd['gas7/XEL']
  *     YEL = gd['gas7/YEL']
  *     XEPS = gd['gas7/XEPS']             # <<<<<<<<<<<<<<
@@ -2413,7 +2413,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEPS[0]), __pyx_t_5, sizeof(__pyx_v_XEPS[0]) * (0xB6));
 
-  /* "XENON.pyx":50
+  /* "gases/XENON.pyx":50
  *     YEL = gd['gas7/YEL']
  *     XEPS = gd['gas7/XEPS']
  *     YEPS = gd['gas7/YEPS']             # <<<<<<<<<<<<<<
@@ -2430,7 +2430,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_5, sizeof(__pyx_v_YEPS[0]) * (0xB6));
 
-  /* "XENON.pyx":51
+  /* "gases/XENON.pyx":51
  *     XEPS = gd['gas7/XEPS']
  *     YEPS = gd['gas7/YEPS']
  *     XION = gd['gas7/XION']             # <<<<<<<<<<<<<<
@@ -2443,7 +2443,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_7, sizeof(__pyx_v_XION[0]) * (76));
 
-  /* "XENON.pyx":52
+  /* "gases/XENON.pyx":52
  *     YEPS = gd['gas7/YEPS']
  *     XION = gd['gas7/XION']
  *     YION = gd['gas7/YION']             # <<<<<<<<<<<<<<
@@ -2456,7 +2456,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_7, sizeof(__pyx_v_YION[0]) * (76));
 
-  /* "XENON.pyx":53
+  /* "gases/XENON.pyx":53
  *     XION = gd['gas7/XION']
  *     YION = gd['gas7/YION']
  *     YINC = gd['gas7/YINC']             # <<<<<<<<<<<<<<
@@ -2469,7 +2469,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YINC[0]), __pyx_t_7, sizeof(__pyx_v_YINC[0]) * (76));
 
-  /* "XENON.pyx":54
+  /* "gases/XENON.pyx":54
  *     YION = gd['gas7/YION']
  *     YINC = gd['gas7/YINC']
  *     YIN1 = gd['gas7/YIN1']             # <<<<<<<<<<<<<<
@@ -2482,7 +2482,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN1[0]), __pyx_t_7, sizeof(__pyx_v_YIN1[0]) * (76));
 
-  /* "XENON.pyx":55
+  /* "gases/XENON.pyx":55
  *     YINC = gd['gas7/YINC']
  *     YIN1 = gd['gas7/YIN1']
  *     XIN2 = gd['gas7/XIN2']             # <<<<<<<<<<<<<<
@@ -2495,7 +2495,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN2[0]), __pyx_t_8, sizeof(__pyx_v_XIN2[0]) * (54));
 
-  /* "XENON.pyx":56
+  /* "gases/XENON.pyx":56
  *     YIN1 = gd['gas7/YIN1']
  *     XIN2 = gd['gas7/XIN2']
  *     YIN2 = gd['gas7/YIN2']             # <<<<<<<<<<<<<<
@@ -2508,7 +2508,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN2[0]), __pyx_t_8, sizeof(__pyx_v_YIN2[0]) * (54));
 
-  /* "XENON.pyx":57
+  /* "gases/XENON.pyx":57
  *     XIN2 = gd['gas7/XIN2']
  *     YIN2 = gd['gas7/YIN2']
  *     XIN3 = gd['gas7/XIN3']             # <<<<<<<<<<<<<<
@@ -2521,7 +2521,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN3[0]), __pyx_t_9, sizeof(__pyx_v_XIN3[0]) * (47));
 
-  /* "XENON.pyx":58
+  /* "gases/XENON.pyx":58
  *     YIN2 = gd['gas7/YIN2']
  *     XIN3 = gd['gas7/XIN3']
  *     YIN3 = gd['gas7/YIN3']             # <<<<<<<<<<<<<<
@@ -2534,7 +2534,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN3[0]), __pyx_t_9, sizeof(__pyx_v_YIN3[0]) * (47));
 
-  /* "XENON.pyx":59
+  /* "gases/XENON.pyx":59
  *     XIN3 = gd['gas7/XIN3']
  *     YIN3 = gd['gas7/YIN3']
  *     XIN4 = gd['gas7/XIN4']             # <<<<<<<<<<<<<<
@@ -2547,7 +2547,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN4[0]), __pyx_t_10, sizeof(__pyx_v_XIN4[0]) * (42));
 
-  /* "XENON.pyx":60
+  /* "gases/XENON.pyx":60
  *     YIN3 = gd['gas7/YIN3']
  *     XIN4 = gd['gas7/XIN4']
  *     YIN4 = gd['gas7/YIN4']             # <<<<<<<<<<<<<<
@@ -2560,7 +2560,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN4[0]), __pyx_t_10, sizeof(__pyx_v_YIN4[0]) * (42));
 
-  /* "XENON.pyx":61
+  /* "gases/XENON.pyx":61
  *     XIN4 = gd['gas7/XIN4']
  *     YIN4 = gd['gas7/YIN4']
  *     XIN5 = gd['gas7/XIN5']             # <<<<<<<<<<<<<<
@@ -2573,7 +2573,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN5[0]), __pyx_t_11, sizeof(__pyx_v_XIN5[0]) * (37));
 
-  /* "XENON.pyx":62
+  /* "gases/XENON.pyx":62
  *     YIN4 = gd['gas7/YIN4']
  *     XIN5 = gd['gas7/XIN5']
  *     YIN5 = gd['gas7/YIN5']             # <<<<<<<<<<<<<<
@@ -2586,7 +2586,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN5[0]), __pyx_t_11, sizeof(__pyx_v_YIN5[0]) * (37));
 
-  /* "XENON.pyx":63
+  /* "gases/XENON.pyx":63
  *     XIN5 = gd['gas7/XIN5']
  *     YIN5 = gd['gas7/YIN5']
  *     XIN6 = gd['gas7/XIN6']             # <<<<<<<<<<<<<<
@@ -2599,7 +2599,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN6[0]), __pyx_t_12, sizeof(__pyx_v_XIN6[0]) * (35));
 
-  /* "XENON.pyx":64
+  /* "gases/XENON.pyx":64
  *     YIN5 = gd['gas7/YIN5']
  *     XIN6 = gd['gas7/XIN6']
  *     YIN6 = gd['gas7/YIN6']             # <<<<<<<<<<<<<<
@@ -2612,7 +2612,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN6[0]), __pyx_t_12, sizeof(__pyx_v_YIN6[0]) * (35));
 
-  /* "XENON.pyx":65
+  /* "gases/XENON.pyx":65
  *     XIN6 = gd['gas7/XIN6']
  *     YIN6 = gd['gas7/YIN6']
  *     XKSH = gd['gas7/XKSH']             # <<<<<<<<<<<<<<
@@ -2625,7 +2625,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSH[0]), __pyx_t_13, sizeof(__pyx_v_XKSH[0]) * (60));
 
-  /* "XENON.pyx":66
+  /* "gases/XENON.pyx":66
  *     YIN6 = gd['gas7/YIN6']
  *     XKSH = gd['gas7/XKSH']
  *     YKSH = gd['gas7/YKSH']             # <<<<<<<<<<<<<<
@@ -2638,7 +2638,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSH[0]), __pyx_t_13, sizeof(__pyx_v_YKSH[0]) * (60));
 
-  /* "XENON.pyx":67
+  /* "gases/XENON.pyx":67
  *     XKSH = gd['gas7/XKSH']
  *     YKSH = gd['gas7/YKSH']
  *     XL1S = gd['gas7/XL1S']             # <<<<<<<<<<<<<<
@@ -2651,7 +2651,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XL1S[0]), __pyx_t_7, sizeof(__pyx_v_XL1S[0]) * (76));
 
-  /* "XENON.pyx":68
+  /* "gases/XENON.pyx":68
  *     YKSH = gd['gas7/YKSH']
  *     XL1S = gd['gas7/XL1S']
  *     YL1S = gd['gas7/YL1S']             # <<<<<<<<<<<<<<
@@ -2664,7 +2664,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YL1S[0]), __pyx_t_7, sizeof(__pyx_v_YL1S[0]) * (76));
 
-  /* "XENON.pyx":69
+  /* "gases/XENON.pyx":69
  *     XL1S = gd['gas7/XL1S']
  *     YL1S = gd['gas7/YL1S']
  *     XL2S = gd['gas7/XL2S']             # <<<<<<<<<<<<<<
@@ -2677,7 +2677,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XL2S[0]), __pyx_t_7, sizeof(__pyx_v_XL2S[0]) * (76));
 
-  /* "XENON.pyx":70
+  /* "gases/XENON.pyx":70
  *     YL1S = gd['gas7/YL1S']
  *     XL2S = gd['gas7/XL2S']
  *     YL2S = gd['gas7/YL2S']             # <<<<<<<<<<<<<<
@@ -2690,7 +2690,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YL2S[0]), __pyx_t_7, sizeof(__pyx_v_YL2S[0]) * (76));
 
-  /* "XENON.pyx":71
+  /* "gases/XENON.pyx":71
  *     XL2S = gd['gas7/XL2S']
  *     YL2S = gd['gas7/YL2S']
  *     XL3S = gd['gas7/XL3S']             # <<<<<<<<<<<<<<
@@ -2703,7 +2703,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XL3S[0]), __pyx_t_7, sizeof(__pyx_v_XL3S[0]) * (76));
 
-  /* "XENON.pyx":72
+  /* "gases/XENON.pyx":72
  *     YL2S = gd['gas7/YL2S']
  *     XL3S = gd['gas7/XL3S']
  *     YL3S = gd['gas7/YL3S']             # <<<<<<<<<<<<<<
@@ -2716,7 +2716,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YL3S[0]), __pyx_t_7, sizeof(__pyx_v_YL3S[0]) * (76));
 
-  /* "XENON.pyx":73
+  /* "gases/XENON.pyx":73
  *     XL3S = gd['gas7/XL3S']
  *     YL3S = gd['gas7/YL3S']
  *     XM1S = gd['gas7/XM1S']             # <<<<<<<<<<<<<<
@@ -2729,7 +2729,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XM1S[0]), __pyx_t_14, sizeof(__pyx_v_XM1S[0]) * (79));
 
-  /* "XENON.pyx":74
+  /* "gases/XENON.pyx":74
  *     YL3S = gd['gas7/YL3S']
  *     XM1S = gd['gas7/XM1S']
  *     YM1S = gd['gas7/YM1S']             # <<<<<<<<<<<<<<
@@ -2742,7 +2742,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YM1S[0]), __pyx_t_14, sizeof(__pyx_v_YM1S[0]) * (79));
 
-  /* "XENON.pyx":75
+  /* "gases/XENON.pyx":75
  *     XM1S = gd['gas7/XM1S']
  *     YM1S = gd['gas7/YM1S']
  *     XM2S = gd['gas7/XM2S']             # <<<<<<<<<<<<<<
@@ -2755,7 +2755,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XM2S[0]), __pyx_t_15, sizeof(__pyx_v_XM2S[0]) * (80));
 
-  /* "XENON.pyx":76
+  /* "gases/XENON.pyx":76
  *     YM1S = gd['gas7/YM1S']
  *     XM2S = gd['gas7/XM2S']
  *     YM2S = gd['gas7/YM2S']             # <<<<<<<<<<<<<<
@@ -2768,7 +2768,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YM2S[0]), __pyx_t_15, sizeof(__pyx_v_YM2S[0]) * (80));
 
-  /* "XENON.pyx":77
+  /* "gases/XENON.pyx":77
  *     XM2S = gd['gas7/XM2S']
  *     YM2S = gd['gas7/YM2S']
  *     XM3S = gd['gas7/XM3S']             # <<<<<<<<<<<<<<
@@ -2781,7 +2781,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XM3S[0]), __pyx_t_15, sizeof(__pyx_v_XM3S[0]) * (80));
 
-  /* "XENON.pyx":78
+  /* "gases/XENON.pyx":78
  *     YM2S = gd['gas7/YM2S']
  *     XM3S = gd['gas7/XM3S']
  *     YM3S = gd['gas7/YM3S']             # <<<<<<<<<<<<<<
@@ -2794,7 +2794,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YM3S[0]), __pyx_t_15, sizeof(__pyx_v_YM3S[0]) * (80));
 
-  /* "XENON.pyx":79
+  /* "gases/XENON.pyx":79
  *     XM3S = gd['gas7/XM3S']
  *     YM3S = gd['gas7/YM3S']
  *     XM4S = gd['gas7/XM4S']             # <<<<<<<<<<<<<<
@@ -2807,7 +2807,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XM4S[0]), __pyx_t_16, sizeof(__pyx_v_XM4S[0]) * (82));
 
-  /* "XENON.pyx":80
+  /* "gases/XENON.pyx":80
  *     YM3S = gd['gas7/YM3S']
  *     XM4S = gd['gas7/XM4S']
  *     YM4S = gd['gas7/YM4S']             # <<<<<<<<<<<<<<
@@ -2820,7 +2820,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YM4S[0]), __pyx_t_16, sizeof(__pyx_v_YM4S[0]) * (82));
 
-  /* "XENON.pyx":81
+  /* "gases/XENON.pyx":81
  *     XM4S = gd['gas7/XM4S']
  *     YM4S = gd['gas7/YM4S']
  *     XM5S = gd['gas7/XM5S']             # <<<<<<<<<<<<<<
@@ -2833,7 +2833,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XM5S[0]), __pyx_t_17, sizeof(__pyx_v_XM5S[0]) * (83));
 
-  /* "XENON.pyx":82
+  /* "gases/XENON.pyx":82
  *     YM4S = gd['gas7/YM4S']
  *     XM5S = gd['gas7/XM5S']
  *     YM5S = gd['gas7/YM5S']             # <<<<<<<<<<<<<<
@@ -2846,7 +2846,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YM5S[0]), __pyx_t_17, sizeof(__pyx_v_YM5S[0]) * (83));
 
-  /* "XENON.pyx":83
+  /* "gases/XENON.pyx":83
  *     XM5S = gd['gas7/XM5S']
  *     YM5S = gd['gas7/YM5S']
  *     X1S5 = gd['gas7/X1S5']             # <<<<<<<<<<<<<<
@@ -2859,7 +2859,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X1S5[0]), __pyx_t_18, sizeof(__pyx_v_X1S5[0]) * (70));
 
-  /* "XENON.pyx":84
+  /* "gases/XENON.pyx":84
  *     YM5S = gd['gas7/YM5S']
  *     X1S5 = gd['gas7/X1S5']
  *     Y1S5 = gd['gas7/Y1S5']             # <<<<<<<<<<<<<<
@@ -2872,7 +2872,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y1S5[0]), __pyx_t_18, sizeof(__pyx_v_Y1S5[0]) * (70));
 
-  /* "XENON.pyx":85
+  /* "gases/XENON.pyx":85
  *     X1S5 = gd['gas7/X1S5']
  *     Y1S5 = gd['gas7/Y1S5']
  *     YP1S5 = gd['gas7/YP1S5']             # <<<<<<<<<<<<<<
@@ -2885,7 +2885,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP1S5[0]), __pyx_t_18, sizeof(__pyx_v_YP1S5[0]) * (70));
 
-  /* "XENON.pyx":86
+  /* "gases/XENON.pyx":86
  *     Y1S5 = gd['gas7/Y1S5']
  *     YP1S5 = gd['gas7/YP1S5']
  *     X1S4 = gd['gas7/X1S4']             # <<<<<<<<<<<<<<
@@ -2898,7 +2898,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X1S4[0]), __pyx_t_19, sizeof(__pyx_v_X1S4[0]) * (38));
 
-  /* "XENON.pyx":87
+  /* "gases/XENON.pyx":87
  *     YP1S5 = gd['gas7/YP1S5']
  *     X1S4 = gd['gas7/X1S4']
  *     Y1S4 = gd['gas7/Y1S4']             # <<<<<<<<<<<<<<
@@ -2911,7 +2911,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y1S4[0]), __pyx_t_19, sizeof(__pyx_v_Y1S4[0]) * (38));
 
-  /* "XENON.pyx":88
+  /* "gases/XENON.pyx":88
  *     X1S4 = gd['gas7/X1S4']
  *     Y1S4 = gd['gas7/Y1S4']
  *     YP1S4 = gd['gas7/YP1S4']             # <<<<<<<<<<<<<<
@@ -2924,7 +2924,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP1S4[0]), __pyx_t_19, sizeof(__pyx_v_YP1S4[0]) * (38));
 
-  /* "XENON.pyx":89
+  /* "gases/XENON.pyx":89
  *     Y1S4 = gd['gas7/Y1S4']
  *     YP1S4 = gd['gas7/YP1S4']
  *     X1S3 = gd['gas7/X1S3']             # <<<<<<<<<<<<<<
@@ -2937,7 +2937,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X1S3[0]), __pyx_t_20, sizeof(__pyx_v_X1S3[0]) * (46));
 
-  /* "XENON.pyx":90
+  /* "gases/XENON.pyx":90
  *     YP1S4 = gd['gas7/YP1S4']
  *     X1S3 = gd['gas7/X1S3']
  *     Y1S3 = gd['gas7/Y1S3']             # <<<<<<<<<<<<<<
@@ -2950,7 +2950,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y1S3[0]), __pyx_t_20, sizeof(__pyx_v_Y1S3[0]) * (46));
 
-  /* "XENON.pyx":91
+  /* "gases/XENON.pyx":91
  *     X1S3 = gd['gas7/X1S3']
  *     Y1S3 = gd['gas7/Y1S3']
  *     YP1S3 = gd['gas7/YP1S3']             # <<<<<<<<<<<<<<
@@ -2963,7 +2963,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP1S3[0]), __pyx_t_20, sizeof(__pyx_v_YP1S3[0]) * (46));
 
-  /* "XENON.pyx":92
+  /* "gases/XENON.pyx":92
  *     Y1S3 = gd['gas7/Y1S3']
  *     YP1S3 = gd['gas7/YP1S3']
  *     X1S2 = gd['gas7/X1S2']             # <<<<<<<<<<<<<<
@@ -2976,7 +2976,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X1S2[0]), __pyx_t_21, sizeof(__pyx_v_X1S2[0]) * (20));
 
-  /* "XENON.pyx":93
+  /* "gases/XENON.pyx":93
  *     YP1S3 = gd['gas7/YP1S3']
  *     X1S2 = gd['gas7/X1S2']
  *     Y1S2 = gd['gas7/Y1S2']             # <<<<<<<<<<<<<<
@@ -2989,7 +2989,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y1S2[0]), __pyx_t_21, sizeof(__pyx_v_Y1S2[0]) * (20));
 
-  /* "XENON.pyx":94
+  /* "gases/XENON.pyx":94
  *     X1S2 = gd['gas7/X1S2']
  *     Y1S2 = gd['gas7/Y1S2']
  *     YP1S2 = gd['gas7/YP1S2']             # <<<<<<<<<<<<<<
@@ -3002,7 +3002,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP1S2[0]), __pyx_t_21, sizeof(__pyx_v_YP1S2[0]) * (20));
 
-  /* "XENON.pyx":95
+  /* "gases/XENON.pyx":95
  *     Y1S2 = gd['gas7/Y1S2']
  *     YP1S2 = gd['gas7/YP1S2']
  *     X2P10 = gd['gas7/X2P10']             # <<<<<<<<<<<<<<
@@ -3015,7 +3015,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P10[0]), __pyx_t_22, sizeof(__pyx_v_X2P10[0]) * (22));
 
-  /* "XENON.pyx":96
+  /* "gases/XENON.pyx":96
  *     YP1S2 = gd['gas7/YP1S2']
  *     X2P10 = gd['gas7/X2P10']
  *     Y2P10 = gd['gas7/Y2P10']             # <<<<<<<<<<<<<<
@@ -3028,7 +3028,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P10[0]), __pyx_t_22, sizeof(__pyx_v_Y2P10[0]) * (22));
 
-  /* "XENON.pyx":97
+  /* "gases/XENON.pyx":97
  *     X2P10 = gd['gas7/X2P10']
  *     Y2P10 = gd['gas7/Y2P10']
  *     YP2P10 = gd['gas7/YP2P10']             # <<<<<<<<<<<<<<
@@ -3041,7 +3041,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P10[0]), __pyx_t_22, sizeof(__pyx_v_YP2P10[0]) * (22));
 
-  /* "XENON.pyx":98
+  /* "gases/XENON.pyx":98
  *     Y2P10 = gd['gas7/Y2P10']
  *     YP2P10 = gd['gas7/YP2P10']
  *     X2P9 = gd['gas7/X2P9']             # <<<<<<<<<<<<<<
@@ -3054,7 +3054,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P9[0]), __pyx_t_23, sizeof(__pyx_v_X2P9[0]) * (21));
 
-  /* "XENON.pyx":99
+  /* "gases/XENON.pyx":99
  *     YP2P10 = gd['gas7/YP2P10']
  *     X2P9 = gd['gas7/X2P9']
  *     Y2P9 = gd['gas7/Y2P9']             # <<<<<<<<<<<<<<
@@ -3067,7 +3067,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P9[0]), __pyx_t_23, sizeof(__pyx_v_Y2P9[0]) * (21));
 
-  /* "XENON.pyx":100
+  /* "gases/XENON.pyx":100
  *     X2P9 = gd['gas7/X2P9']
  *     Y2P9 = gd['gas7/Y2P9']
  *     YP2P9 = gd['gas7/YP2P9']             # <<<<<<<<<<<<<<
@@ -3080,7 +3080,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P9[0]), __pyx_t_23, sizeof(__pyx_v_YP2P9[0]) * (21));
 
-  /* "XENON.pyx":101
+  /* "gases/XENON.pyx":101
  *     Y2P9 = gd['gas7/Y2P9']
  *     YP2P9 = gd['gas7/YP2P9']
  *     X2P8 = gd['gas7/X2P8']             # <<<<<<<<<<<<<<
@@ -3093,7 +3093,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P8[0]), __pyx_t_22, sizeof(__pyx_v_X2P8[0]) * (22));
 
-  /* "XENON.pyx":102
+  /* "gases/XENON.pyx":102
  *     YP2P9 = gd['gas7/YP2P9']
  *     X2P8 = gd['gas7/X2P8']
  *     Y2P8 = gd['gas7/Y2P8']             # <<<<<<<<<<<<<<
@@ -3106,7 +3106,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P8[0]), __pyx_t_22, sizeof(__pyx_v_Y2P8[0]) * (22));
 
-  /* "XENON.pyx":103
+  /* "gases/XENON.pyx":103
  *     X2P8 = gd['gas7/X2P8']
  *     Y2P8 = gd['gas7/Y2P8']
  *     YP2P8 = gd['gas7/YP2P8']             # <<<<<<<<<<<<<<
@@ -3119,7 +3119,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P8[0]), __pyx_t_22, sizeof(__pyx_v_YP2P8[0]) * (22));
 
-  /* "XENON.pyx":104
+  /* "gases/XENON.pyx":104
  *     Y2P8 = gd['gas7/Y2P8']
  *     YP2P8 = gd['gas7/YP2P8']
  *     X2P7 = gd['gas7/X2P7']             # <<<<<<<<<<<<<<
@@ -3132,7 +3132,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P7[0]), __pyx_t_22, sizeof(__pyx_v_X2P7[0]) * (22));
 
-  /* "XENON.pyx":105
+  /* "gases/XENON.pyx":105
  *     YP2P8 = gd['gas7/YP2P8']
  *     X2P7 = gd['gas7/X2P7']
  *     Y2P7 = gd['gas7/Y2P7']             # <<<<<<<<<<<<<<
@@ -3145,7 +3145,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P7[0]), __pyx_t_22, sizeof(__pyx_v_Y2P7[0]) * (22));
 
-  /* "XENON.pyx":106
+  /* "gases/XENON.pyx":106
  *     X2P7 = gd['gas7/X2P7']
  *     Y2P7 = gd['gas7/Y2P7']
  *     YP2P7 = gd['gas7/YP2P7']             # <<<<<<<<<<<<<<
@@ -3158,7 +3158,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P7[0]), __pyx_t_22, sizeof(__pyx_v_YP2P7[0]) * (22));
 
-  /* "XENON.pyx":107
+  /* "gases/XENON.pyx":107
  *     Y2P7 = gd['gas7/Y2P7']
  *     YP2P7 = gd['gas7/YP2P7']
  *     X2P6 = gd['gas7/X2P6']             # <<<<<<<<<<<<<<
@@ -3171,7 +3171,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P6[0]), __pyx_t_22, sizeof(__pyx_v_X2P6[0]) * (22));
 
-  /* "XENON.pyx":108
+  /* "gases/XENON.pyx":108
  *     YP2P7 = gd['gas7/YP2P7']
  *     X2P6 = gd['gas7/X2P6']
  *     Y2P6 = gd['gas7/Y2P6']             # <<<<<<<<<<<<<<
@@ -3184,7 +3184,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P6[0]), __pyx_t_22, sizeof(__pyx_v_Y2P6[0]) * (22));
 
-  /* "XENON.pyx":109
+  /* "gases/XENON.pyx":109
  *     X2P6 = gd['gas7/X2P6']
  *     Y2P6 = gd['gas7/Y2P6']
  *     YP2P6 = gd['gas7/YP2P6']             # <<<<<<<<<<<<<<
@@ -3197,7 +3197,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P6[0]), __pyx_t_22, sizeof(__pyx_v_YP2P6[0]) * (22));
 
-  /* "XENON.pyx":110
+  /* "gases/XENON.pyx":110
  *     Y2P6 = gd['gas7/Y2P6']
  *     YP2P6 = gd['gas7/YP2P6']
  *     X3D6 = gd['gas7/X3D6']             # <<<<<<<<<<<<<<
@@ -3210,7 +3210,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D6[0]), __pyx_t_24, sizeof(__pyx_v_X3D6[0]) * (24));
 
-  /* "XENON.pyx":111
+  /* "gases/XENON.pyx":111
  *     YP2P6 = gd['gas7/YP2P6']
  *     X3D6 = gd['gas7/X3D6']
  *     Y3D6 = gd['gas7/Y3D6']             # <<<<<<<<<<<<<<
@@ -3223,7 +3223,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D6[0]), __pyx_t_24, sizeof(__pyx_v_Y3D6[0]) * (24));
 
-  /* "XENON.pyx":112
+  /* "gases/XENON.pyx":112
  *     X3D6 = gd['gas7/X3D6']
  *     Y3D6 = gd['gas7/Y3D6']
  *     YP3D6 = gd['gas7/YP3D6']             # <<<<<<<<<<<<<<
@@ -3236,7 +3236,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D6[0]), __pyx_t_24, sizeof(__pyx_v_YP3D6[0]) * (24));
 
-  /* "XENON.pyx":113
+  /* "gases/XENON.pyx":113
  *     Y3D6 = gd['gas7/Y3D6']
  *     YP3D6 = gd['gas7/YP3D6']
  *     X2P5 = gd['gas7/X2P5']             # <<<<<<<<<<<<<<
@@ -3249,7 +3249,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P5[0]), __pyx_t_25, sizeof(__pyx_v_X2P5[0]) * (15));
 
-  /* "XENON.pyx":114
+  /* "gases/XENON.pyx":114
  *     YP3D6 = gd['gas7/YP3D6']
  *     X2P5 = gd['gas7/X2P5']
  *     Y2P5 = gd['gas7/Y2P5']             # <<<<<<<<<<<<<<
@@ -3262,7 +3262,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P5[0]), __pyx_t_25, sizeof(__pyx_v_Y2P5[0]) * (15));
 
-  /* "XENON.pyx":115
+  /* "gases/XENON.pyx":115
  *     X2P5 = gd['gas7/X2P5']
  *     Y2P5 = gd['gas7/Y2P5']
  *     YP2P5 = gd['gas7/YP2P5']             # <<<<<<<<<<<<<<
@@ -3275,7 +3275,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P5[0]), __pyx_t_25, sizeof(__pyx_v_YP2P5[0]) * (15));
 
-  /* "XENON.pyx":116
+  /* "gases/XENON.pyx":116
  *     Y2P5 = gd['gas7/Y2P5']
  *     YP2P5 = gd['gas7/YP2P5']
  *     X3D4P = gd['gas7/X3D4P']             # <<<<<<<<<<<<<<
@@ -3288,7 +3288,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D4P[0]), __pyx_t_24, sizeof(__pyx_v_X3D4P[0]) * (24));
 
-  /* "XENON.pyx":117
+  /* "gases/XENON.pyx":117
  *     YP2P5 = gd['gas7/YP2P5']
  *     X3D4P = gd['gas7/X3D4P']
  *     Y3D4P = gd['gas7/Y3D4P']             # <<<<<<<<<<<<<<
@@ -3301,7 +3301,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D4P[0]), __pyx_t_24, sizeof(__pyx_v_Y3D4P[0]) * (24));
 
-  /* "XENON.pyx":118
+  /* "gases/XENON.pyx":118
  *     X3D4P = gd['gas7/X3D4P']
  *     Y3D4P = gd['gas7/Y3D4P']
  *     YP3D4P = gd['gas7/YP3D4P']             # <<<<<<<<<<<<<<
@@ -3314,7 +3314,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D4P[0]), __pyx_t_24, sizeof(__pyx_v_YP3D4P[0]) * (24));
 
-  /* "XENON.pyx":119
+  /* "gases/XENON.pyx":119
  *     Y3D4P = gd['gas7/Y3D4P']
  *     YP3D4P = gd['gas7/YP3D4P']
  *     X3D3 = gd['gas7/X3D3']             # <<<<<<<<<<<<<<
@@ -3327,7 +3327,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D3[0]), __pyx_t_24, sizeof(__pyx_v_X3D3[0]) * (24));
 
-  /* "XENON.pyx":120
+  /* "gases/XENON.pyx":120
  *     YP3D4P = gd['gas7/YP3D4P']
  *     X3D3 = gd['gas7/X3D3']
  *     Y3D3 = gd['gas7/Y3D3']             # <<<<<<<<<<<<<<
@@ -3340,7 +3340,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D3[0]), __pyx_t_24, sizeof(__pyx_v_Y3D3[0]) * (24));
 
-  /* "XENON.pyx":121
+  /* "gases/XENON.pyx":121
  *     X3D3 = gd['gas7/X3D3']
  *     Y3D3 = gd['gas7/Y3D3']
  *     YP3D3 = gd['gas7/YP3D3']             # <<<<<<<<<<<<<<
@@ -3353,7 +3353,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D3[0]), __pyx_t_24, sizeof(__pyx_v_YP3D3[0]) * (24));
 
-  /* "XENON.pyx":122
+  /* "gases/XENON.pyx":122
  *     Y3D3 = gd['gas7/Y3D3']
  *     YP3D3 = gd['gas7/YP3D3']
  *     X3D4 = gd['gas7/X3D4']             # <<<<<<<<<<<<<<
@@ -3366,7 +3366,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D4[0]), __pyx_t_26, sizeof(__pyx_v_X3D4[0]) * (26));
 
-  /* "XENON.pyx":123
+  /* "gases/XENON.pyx":123
  *     YP3D3 = gd['gas7/YP3D3']
  *     X3D4 = gd['gas7/X3D4']
  *     Y3D4 = gd['gas7/Y3D4']             # <<<<<<<<<<<<<<
@@ -3379,7 +3379,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D4[0]), __pyx_t_26, sizeof(__pyx_v_Y3D4[0]) * (26));
 
-  /* "XENON.pyx":124
+  /* "gases/XENON.pyx":124
  *     X3D4 = gd['gas7/X3D4']
  *     Y3D4 = gd['gas7/Y3D4']
  *     YP3D4 = gd['gas7/YP3D4']             # <<<<<<<<<<<<<<
@@ -3392,7 +3392,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D4[0]), __pyx_t_26, sizeof(__pyx_v_YP3D4[0]) * (26));
 
-  /* "XENON.pyx":125
+  /* "gases/XENON.pyx":125
  *     Y3D4 = gd['gas7/Y3D4']
  *     YP3D4 = gd['gas7/YP3D4']
  *     X3D1PP = gd['gas7/X3D1PP']             # <<<<<<<<<<<<<<
@@ -3405,7 +3405,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D1PP[0]), __pyx_t_27, sizeof(__pyx_v_X3D1PP[0]) * (23));
 
-  /* "XENON.pyx":126
+  /* "gases/XENON.pyx":126
  *     YP3D4 = gd['gas7/YP3D4']
  *     X3D1PP = gd['gas7/X3D1PP']
  *     Y3D1PP = gd['gas7/Y3D1PP']             # <<<<<<<<<<<<<<
@@ -3418,7 +3418,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D1PP[0]), __pyx_t_27, sizeof(__pyx_v_Y3D1PP[0]) * (23));
 
-  /* "XENON.pyx":127
+  /* "gases/XENON.pyx":127
  *     X3D1PP = gd['gas7/X3D1PP']
  *     Y3D1PP = gd['gas7/Y3D1PP']
  *     YP3D1PP = gd['gas7/YP3D1PP']             # <<<<<<<<<<<<<<
@@ -3431,7 +3431,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D1PP[0]), __pyx_t_27, sizeof(__pyx_v_YP3D1PP[0]) * (23));
 
-  /* "XENON.pyx":128
+  /* "gases/XENON.pyx":128
  *     Y3D1PP = gd['gas7/Y3D1PP']
  *     YP3D1PP = gd['gas7/YP3D1PP']
  *     X3D1P = gd['gas7/X3D1P']             # <<<<<<<<<<<<<<
@@ -3444,7 +3444,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D1P[0]), __pyx_t_22, sizeof(__pyx_v_X3D1P[0]) * (22));
 
-  /* "XENON.pyx":129
+  /* "gases/XENON.pyx":129
  *     YP3D1PP = gd['gas7/YP3D1PP']
  *     X3D1P = gd['gas7/X3D1P']
  *     Y3D1P = gd['gas7/Y3D1P']             # <<<<<<<<<<<<<<
@@ -3457,7 +3457,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D1P[0]), __pyx_t_22, sizeof(__pyx_v_Y3D1P[0]) * (22));
 
-  /* "XENON.pyx":130
+  /* "gases/XENON.pyx":130
  *     X3D1P = gd['gas7/X3D1P']
  *     Y3D1P = gd['gas7/Y3D1P']
  *     YP3D1P = gd['gas7/YP3D1P']             # <<<<<<<<<<<<<<
@@ -3470,7 +3470,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D1P[0]), __pyx_t_22, sizeof(__pyx_v_YP3D1P[0]) * (22));
 
-  /* "XENON.pyx":131
+  /* "gases/XENON.pyx":131
  *     Y3D1P = gd['gas7/Y3D1P']
  *     YP3D1P = gd['gas7/YP3D1P']
  *     X2S5 = gd['gas7/X2S5']             # <<<<<<<<<<<<<<
@@ -3483,7 +3483,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2S5[0]), __pyx_t_28, sizeof(__pyx_v_X2S5[0]) * (18));
 
-  /* "XENON.pyx":132
+  /* "gases/XENON.pyx":132
  *     YP3D1P = gd['gas7/YP3D1P']
  *     X2S5 = gd['gas7/X2S5']
  *     Y2S5 = gd['gas7/Y2S5']             # <<<<<<<<<<<<<<
@@ -3496,7 +3496,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2S5[0]), __pyx_t_28, sizeof(__pyx_v_Y2S5[0]) * (18));
 
-  /* "XENON.pyx":133
+  /* "gases/XENON.pyx":133
  *     X2S5 = gd['gas7/X2S5']
  *     Y2S5 = gd['gas7/Y2S5']
  *     YP2S5 = gd['gas7/YP2S5']             # <<<<<<<<<<<<<<
@@ -3509,7 +3509,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2S5[0]), __pyx_t_28, sizeof(__pyx_v_YP2S5[0]) * (18));
 
-  /* "XENON.pyx":134
+  /* "gases/XENON.pyx":134
  *     Y2S5 = gd['gas7/Y2S5']
  *     YP2S5 = gd['gas7/YP2S5']
  *     X3P105 = gd['gas7/X3P105']             # <<<<<<<<<<<<<<
@@ -3522,7 +3522,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P105[0]), __pyx_t_28, sizeof(__pyx_v_X3P105[0]) * (18));
 
-  /* "XENON.pyx":135
+  /* "gases/XENON.pyx":135
  *     YP2S5 = gd['gas7/YP2S5']
  *     X3P105 = gd['gas7/X3P105']
  *     Y3P105 = gd['gas7/Y3P105']             # <<<<<<<<<<<<<<
@@ -3535,7 +3535,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P105[0]), __pyx_t_28, sizeof(__pyx_v_Y3P105[0]) * (18));
 
-  /* "XENON.pyx":136
+  /* "gases/XENON.pyx":136
  *     X3P105 = gd['gas7/X3P105']
  *     Y3P105 = gd['gas7/Y3P105']
  *     YP3P105 = gd['gas7/YP3P105']             # <<<<<<<<<<<<<<
@@ -3548,7 +3548,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3P105[0]), __pyx_t_28, sizeof(__pyx_v_YP3P105[0]) * (18));
 
-  /* "XENON.pyx":137
+  /* "gases/XENON.pyx":137
  *     Y3P105 = gd['gas7/Y3P105']
  *     YP3P105 = gd['gas7/YP3P105']
  *     X2P4 = gd['gas7/X2P4']             # <<<<<<<<<<<<<<
@@ -3561,7 +3561,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P4[0]), __pyx_t_29, sizeof(__pyx_v_X2P4[0]) * (14));
 
-  /* "XENON.pyx":138
+  /* "gases/XENON.pyx":138
  *     YP3P105 = gd['gas7/YP3P105']
  *     X2P4 = gd['gas7/X2P4']
  *     Y2P4 = gd['gas7/Y2P4']             # <<<<<<<<<<<<<<
@@ -3574,7 +3574,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P4[0]), __pyx_t_29, sizeof(__pyx_v_Y2P4[0]) * (14));
 
-  /* "XENON.pyx":139
+  /* "gases/XENON.pyx":139
  *     X2P4 = gd['gas7/X2P4']
  *     Y2P4 = gd['gas7/Y2P4']
  *     YP2P4 = gd['gas7/YP2P4']             # <<<<<<<<<<<<<<
@@ -3587,7 +3587,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P4[0]), __pyx_t_29, sizeof(__pyx_v_YP2P4[0]) * (14));
 
-  /* "XENON.pyx":140
+  /* "gases/XENON.pyx":140
  *     Y2P4 = gd['gas7/Y2P4']
  *     YP2P4 = gd['gas7/YP2P4']
  *     X4DSUM = gd['gas7/X4DSUM']             # <<<<<<<<<<<<<<
@@ -3600,7 +3600,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X4DSUM[0]), __pyx_t_30, sizeof(__pyx_v_X4DSUM[0]) * (16));
 
-  /* "XENON.pyx":141
+  /* "gases/XENON.pyx":141
  *     YP2P4 = gd['gas7/YP2P4']
  *     X4DSUM = gd['gas7/X4DSUM']
  *     Y4DSUM = gd['gas7/Y4DSUM']             # <<<<<<<<<<<<<<
@@ -3613,7 +3613,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y4DSUM[0]), __pyx_t_30, sizeof(__pyx_v_Y4DSUM[0]) * (16));
 
-  /* "XENON.pyx":142
+  /* "gases/XENON.pyx":142
  *     X4DSUM = gd['gas7/X4DSUM']
  *     Y4DSUM = gd['gas7/Y4DSUM']
  *     print("HERE")             # <<<<<<<<<<<<<<
@@ -3622,7 +3622,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   if (__Pyx_PrintOne(0, __pyx_n_s_HERE) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
 
-  /* "XENON.pyx":143
+  /* "gases/XENON.pyx":143
  *     Y4DSUM = gd['gas7/Y4DSUM']
  *     print("HERE")
  *     YP4DSUM = gd['gas7/YP4DSUM']             # <<<<<<<<<<<<<<
@@ -3635,7 +3635,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP4DSUM[0]), __pyx_t_30, sizeof(__pyx_v_YP4DSUM[0]) * (16));
 
-  /* "XENON.pyx":144
+  /* "gases/XENON.pyx":144
  *     print("HERE")
  *     YP4DSUM = gd['gas7/YP4DSUM']
  *     X2P3 = gd['gas7/X2P3']             # <<<<<<<<<<<<<<
@@ -3648,7 +3648,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P3[0]), __pyx_t_29, sizeof(__pyx_v_X2P3[0]) * (14));
 
-  /* "XENON.pyx":145
+  /* "gases/XENON.pyx":145
  *     YP4DSUM = gd['gas7/YP4DSUM']
  *     X2P3 = gd['gas7/X2P3']
  *     Y2P3 = gd['gas7/Y2P3']             # <<<<<<<<<<<<<<
@@ -3661,7 +3661,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P3[0]), __pyx_t_29, sizeof(__pyx_v_Y2P3[0]) * (14));
 
-  /* "XENON.pyx":146
+  /* "gases/XENON.pyx":146
  *     X2P3 = gd['gas7/X2P3']
  *     Y2P3 = gd['gas7/Y2P3']
  *     YP2P3 = gd['gas7/YP2P3']             # <<<<<<<<<<<<<<
@@ -3674,7 +3674,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P3[0]), __pyx_t_29, sizeof(__pyx_v_YP2P3[0]) * (14));
 
-  /* "XENON.pyx":147
+  /* "gases/XENON.pyx":147
  *     Y2P3 = gd['gas7/Y2P3']
  *     YP2P3 = gd['gas7/YP2P3']
  *     X2P2 = gd['gas7/X2P2']             # <<<<<<<<<<<<<<
@@ -3687,7 +3687,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P2[0]), __pyx_t_29, sizeof(__pyx_v_X2P2[0]) * (14));
 
-  /* "XENON.pyx":148
+  /* "gases/XENON.pyx":148
  *     YP2P3 = gd['gas7/YP2P3']
  *     X2P2 = gd['gas7/X2P2']
  *     Y2P2 = gd['gas7/Y2P2']             # <<<<<<<<<<<<<<
@@ -3700,7 +3700,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P2[0]), __pyx_t_29, sizeof(__pyx_v_Y2P2[0]) * (14));
 
-  /* "XENON.pyx":149
+  /* "gases/XENON.pyx":149
  *     X2P2 = gd['gas7/X2P2']
  *     Y2P2 = gd['gas7/Y2P2']
  *     YP2P2 = gd['gas7/YP2P2']             # <<<<<<<<<<<<<<
@@ -3713,7 +3713,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P2[0]), __pyx_t_29, sizeof(__pyx_v_YP2P2[0]) * (14));
 
-  /* "XENON.pyx":150
+  /* "gases/XENON.pyx":150
  *     Y2P2 = gd['gas7/Y2P2']
  *     YP2P2 = gd['gas7/YP2P2']
  *     X2P1 = gd['gas7/X2P1']             # <<<<<<<<<<<<<<
@@ -3726,7 +3726,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P1[0]), __pyx_t_25, sizeof(__pyx_v_X2P1[0]) * (15));
 
-  /* "XENON.pyx":151
+  /* "gases/XENON.pyx":151
  *     YP2P2 = gd['gas7/YP2P2']
  *     X2P1 = gd['gas7/X2P1']
  *     Y2P1 = gd['gas7/Y2P1']             # <<<<<<<<<<<<<<
@@ -3739,7 +3739,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P1[0]), __pyx_t_25, sizeof(__pyx_v_Y2P1[0]) * (15));
 
-  /* "XENON.pyx":152
+  /* "gases/XENON.pyx":152
  *     X2P1 = gd['gas7/X2P1']
  *     Y2P1 = gd['gas7/Y2P1']
  *     YP2P1 = gd['gas7/YP2P1']             # <<<<<<<<<<<<<<
@@ -3752,7 +3752,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P1[0]), __pyx_t_25, sizeof(__pyx_v_YP2P1[0]) * (15));
 
-  /* "XENON.pyx":153
+  /* "gases/XENON.pyx":153
  *     Y2P1 = gd['gas7/Y2P1']
  *     YP2P1 = gd['gas7/YP2P1']
  *     Z54T = gd['gas7/Z54T']             # <<<<<<<<<<<<<<
@@ -3765,7 +3765,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z54T[0]), __pyx_t_31, sizeof(__pyx_v_Z54T[0]) * (25));
 
-  /* "XENON.pyx":154
+  /* "gases/XENON.pyx":154
  *     YP2P1 = gd['gas7/YP2P1']
  *     Z54T = gd['gas7/Z54T']
  *     EBRM = gd['gas7/EBRM']             # <<<<<<<<<<<<<<
@@ -3778,7 +3778,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_31, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "XENON.pyx":156
+  /* "gases/XENON.pyx":156
  *     EBRM = gd['gas7/EBRM']
  *     #   BORN BETHE VALUES FOR IONISATION
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -3787,7 +3787,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "XENON.pyx":157
+  /* "gases/XENON.pyx":157
  *     #   BORN BETHE VALUES FOR IONISATION
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804             # <<<<<<<<<<<<<<
@@ -3796,7 +3796,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "XENON.pyx":158
+  /* "gases/XENON.pyx":158
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804
  *     API = acos(-1)             # <<<<<<<<<<<<<<
@@ -3805,7 +3805,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0);
 
-  /* "XENON.pyx":159
+  /* "gases/XENON.pyx":159
  *     EMASS2 = 1021997.804
  *     API = acos(-1)
  *     A0 = 0.52917720859e-8             # <<<<<<<<<<<<<<
@@ -3814,7 +3814,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-8;
 
-  /* "XENON.pyx":160
+  /* "gases/XENON.pyx":160
  *     API = acos(-1)
  *     A0 = 0.52917720859e-8
  *     RY = 13.60569193             # <<<<<<<<<<<<<<
@@ -3823,7 +3823,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "XENON.pyx":161
+  /* "gases/XENON.pyx":161
  *     A0 = 0.52917720859e-8
  *     RY = 13.60569193
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -3832,7 +3832,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "XENON.pyx":163
+  /* "gases/XENON.pyx":163
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
  * 
  *     AM2 = 8.04             # <<<<<<<<<<<<<<
@@ -3841,7 +3841,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 8.04;
 
-  /* "XENON.pyx":164
+  /* "gases/XENON.pyx":164
  * 
  *     AM2 = 8.04
  *     C = 75.25             # <<<<<<<<<<<<<<
@@ -3850,7 +3850,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 75.25;
 
-  /* "XENON.pyx":167
+  /* "gases/XENON.pyx":167
  * 
  *     # AVERAGE AUGER EMISSIONS FROM EACH SHELL
  *     AUGM5 = 4.34             # <<<<<<<<<<<<<<
@@ -3859,7 +3859,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM5 = 4.34;
 
-  /* "XENON.pyx":168
+  /* "gases/XENON.pyx":168
  *     # AVERAGE AUGER EMISSIONS FROM EACH SHELL
  *     AUGM5 = 4.34
  *     AUGM4 = 4.43             # <<<<<<<<<<<<<<
@@ -3868,7 +3868,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM4 = 4.43;
 
-  /* "XENON.pyx":169
+  /* "gases/XENON.pyx":169
  *     AUGM5 = 4.34
  *     AUGM4 = 4.43
  *     AUGM3 = 6.79             # <<<<<<<<<<<<<<
@@ -3877,7 +3877,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM3 = 6.79;
 
-  /* "XENON.pyx":170
+  /* "gases/XENON.pyx":170
  *     AUGM4 = 4.43
  *     AUGM3 = 6.79
  *     AUGM2 = 6.85             # <<<<<<<<<<<<<<
@@ -3886,7 +3886,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM2 = 6.85;
 
-  /* "XENON.pyx":171
+  /* "gases/XENON.pyx":171
  *     AUGM3 = 6.79
  *     AUGM2 = 6.85
  *     AUGM1 = 7.94             # <<<<<<<<<<<<<<
@@ -3895,7 +3895,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM1 = 7.94;
 
-  /* "XENON.pyx":172
+  /* "gases/XENON.pyx":172
  *     AUGM2 = 6.85
  *     AUGM1 = 7.94
  *     AUGL3 = 8.21             # <<<<<<<<<<<<<<
@@ -3904,7 +3904,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL3 = 8.21;
 
-  /* "XENON.pyx":173
+  /* "gases/XENON.pyx":173
  *     AUGM1 = 7.94
  *     AUGL3 = 8.21
  *     AUGL2 = 8.45             # <<<<<<<<<<<<<<
@@ -3913,7 +3913,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL2 = 8.45;
 
-  /* "XENON.pyx":174
+  /* "gases/XENON.pyx":174
  *     AUGL3 = 8.21
  *     AUGL2 = 8.45
  *     AUGL1 = 9.39             # <<<<<<<<<<<<<<
@@ -3922,7 +3922,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL1 = 9.39;
 
-  /* "XENON.pyx":175
+  /* "gases/XENON.pyx":175
  *     AUGL2 = 8.45
  *     AUGL1 = 9.39
  *     AUGK = 8.49             # <<<<<<<<<<<<<<
@@ -3931,7 +3931,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGK = 8.49;
 
-  /* "XENON.pyx":177
+  /* "gases/XENON.pyx":177
  *     AUGK = 8.49
  * 
  *     object.NION = 12             # <<<<<<<<<<<<<<
@@ -3940,7 +3940,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 12;
 
-  /* "XENON.pyx":178
+  /* "gases/XENON.pyx":178
  * 
  *     object.NION = 12
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -3949,7 +3949,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "XENON.pyx":179
+  /* "gases/XENON.pyx":179
  *     object.NION = 12
  *     object.NATT = 1
  *     object.NIN = 50             # <<<<<<<<<<<<<<
@@ -3958,7 +3958,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 50;
 
-  /* "XENON.pyx":180
+  /* "gases/XENON.pyx":180
  *     object.NATT = 1
  *     object.NIN = 50
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -3967,7 +3967,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "XENON.pyx":181
+  /* "gases/XENON.pyx":181
  *     object.NIN = 50
  *     object.NNULL = 0
  *     NBREM = 25             # <<<<<<<<<<<<<<
@@ -3976,7 +3976,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "XENON.pyx":185
+  /* "gases/XENON.pyx":185
  *     cdef int J, I
  * 
  *     for J in range(6):             # <<<<<<<<<<<<<<
@@ -3986,7 +3986,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0; __pyx_t_32 < 6; __pyx_t_32+=1) {
     __pyx_v_J = __pyx_t_32;
 
-    /* "XENON.pyx":186
+    /* "gases/XENON.pyx":186
  * 
  *     for J in range(6):
  *         object.KEL[J] = object.NANISO             # <<<<<<<<<<<<<<
@@ -3997,7 +3997,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_J]) = __pyx_t_33;
   }
 
-  /* "XENON.pyx":187
+  /* "gases/XENON.pyx":187
  *     for J in range(6):
  *         object.KEL[J] = object.NANISO
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4009,7 +4009,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
     __pyx_v_J = __pyx_t_34;
 
-    /* "XENON.pyx":188
+    /* "gases/XENON.pyx":188
  *         object.KEL[J] = object.NANISO
  *     for J in range(object.NIN):
  *         object.KIN[J] = object.NANISO             # <<<<<<<<<<<<<<
@@ -4020,7 +4020,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_J]) = __pyx_t_35;
   }
 
-  /* "XENON.pyx":192
+  /* "gases/XENON.pyx":192
  *     cdef int NIONM5, N1S5, N1S4, N1S3, N1S2, N2P10, N2P9, N2P8, N2P7, N2P6, N3D6, N2P5, N3D4P, N3D3, N3D4, N3D1PP, N3D1P, N2S5, N3PSUM, N2P4
  *     cdef int N4DSUM, N2P3, N2P2, N2P1
  *     NDATA = 182             # <<<<<<<<<<<<<<
@@ -4029,7 +4029,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 0xB6;
 
-  /* "XENON.pyx":193
+  /* "gases/XENON.pyx":193
  *     cdef int N4DSUM, N2P3, N2P2, N2P1
  *     NDATA = 182
  *     NEL = 153             # <<<<<<<<<<<<<<
@@ -4038,7 +4038,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEL = 0x99;
 
-  /* "XENON.pyx":194
+  /* "gases/XENON.pyx":194
  *     NDATA = 182
  *     NEL = 153
  *     NEPSI = 182             # <<<<<<<<<<<<<<
@@ -4047,7 +4047,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEPSI = 0xB6;
 
-  /* "XENON.pyx":195
+  /* "gases/XENON.pyx":195
  *     NEL = 153
  *     NEPSI = 182
  *     NIONG = 76             # <<<<<<<<<<<<<<
@@ -4056,7 +4056,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONG = 76;
 
-  /* "XENON.pyx":196
+  /* "gases/XENON.pyx":196
  *     NEPSI = 182
  *     NIONG = 76
  *     NION2 = 54             # <<<<<<<<<<<<<<
@@ -4065,7 +4065,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 54;
 
-  /* "XENON.pyx":197
+  /* "gases/XENON.pyx":197
  *     NIONG = 76
  *     NION2 = 54
  *     NION3 = 47             # <<<<<<<<<<<<<<
@@ -4074,7 +4074,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 47;
 
-  /* "XENON.pyx":198
+  /* "gases/XENON.pyx":198
  *     NION2 = 54
  *     NION3 = 47
  *     NION4 = 42             # <<<<<<<<<<<<<<
@@ -4083,7 +4083,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION4 = 42;
 
-  /* "XENON.pyx":199
+  /* "gases/XENON.pyx":199
  *     NION3 = 47
  *     NION4 = 42
  *     NION5 = 37             # <<<<<<<<<<<<<<
@@ -4092,7 +4092,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION5 = 37;
 
-  /* "XENON.pyx":200
+  /* "gases/XENON.pyx":200
  *     NION4 = 42
  *     NION5 = 37
  *     NION6 = 35             # <<<<<<<<<<<<<<
@@ -4101,7 +4101,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION6 = 35;
 
-  /* "XENON.pyx":201
+  /* "gases/XENON.pyx":201
  *     NION5 = 37
  *     NION6 = 35
  *     NIONK = 60             # <<<<<<<<<<<<<<
@@ -4110,7 +4110,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONK = 60;
 
-  /* "XENON.pyx":202
+  /* "gases/XENON.pyx":202
  *     NION6 = 35
  *     NIONK = 60
  *     NIONL1 = 76             # <<<<<<<<<<<<<<
@@ -4119,7 +4119,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONL1 = 76;
 
-  /* "XENON.pyx":203
+  /* "gases/XENON.pyx":203
  *     NIONK = 60
  *     NIONL1 = 76
  *     NIONL2 = 76             # <<<<<<<<<<<<<<
@@ -4128,7 +4128,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONL2 = 76;
 
-  /* "XENON.pyx":204
+  /* "gases/XENON.pyx":204
  *     NIONL1 = 76
  *     NIONL2 = 76
  *     NIONL3 = 76             # <<<<<<<<<<<<<<
@@ -4137,7 +4137,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONL3 = 76;
 
-  /* "XENON.pyx":205
+  /* "gases/XENON.pyx":205
  *     NIONL2 = 76
  *     NIONL3 = 76
  *     NIONM1 = 79             # <<<<<<<<<<<<<<
@@ -4146,7 +4146,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONM1 = 79;
 
-  /* "XENON.pyx":206
+  /* "gases/XENON.pyx":206
  *     NIONL3 = 76
  *     NIONM1 = 79
  *     NIONM2 = 80             # <<<<<<<<<<<<<<
@@ -4155,7 +4155,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONM2 = 80;
 
-  /* "XENON.pyx":207
+  /* "gases/XENON.pyx":207
  *     NIONM1 = 79
  *     NIONM2 = 80
  *     NIONM3 = 80             # <<<<<<<<<<<<<<
@@ -4164,7 +4164,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONM3 = 80;
 
-  /* "XENON.pyx":208
+  /* "gases/XENON.pyx":208
  *     NIONM2 = 80
  *     NIONM3 = 80
  *     NIONM4 = 82             # <<<<<<<<<<<<<<
@@ -4173,7 +4173,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONM4 = 82;
 
-  /* "XENON.pyx":209
+  /* "gases/XENON.pyx":209
  *     NIONM3 = 80
  *     NIONM4 = 82
  *     NIONM5 = 83             # <<<<<<<<<<<<<<
@@ -4182,7 +4182,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONM5 = 83;
 
-  /* "XENON.pyx":210
+  /* "gases/XENON.pyx":210
  *     NIONM4 = 82
  *     NIONM5 = 83
  *     N1S5 = 70             # <<<<<<<<<<<<<<
@@ -4191,7 +4191,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S5 = 70;
 
-  /* "XENON.pyx":211
+  /* "gases/XENON.pyx":211
  *     NIONM5 = 83
  *     N1S5 = 70
  *     N1S4 = 38             # <<<<<<<<<<<<<<
@@ -4200,7 +4200,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S4 = 38;
 
-  /* "XENON.pyx":212
+  /* "gases/XENON.pyx":212
  *     N1S5 = 70
  *     N1S4 = 38
  *     N1S3 = 46             # <<<<<<<<<<<<<<
@@ -4209,7 +4209,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S3 = 46;
 
-  /* "XENON.pyx":213
+  /* "gases/XENON.pyx":213
  *     N1S4 = 38
  *     N1S3 = 46
  *     N1S2 = 20             # <<<<<<<<<<<<<<
@@ -4218,7 +4218,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S2 = 20;
 
-  /* "XENON.pyx":214
+  /* "gases/XENON.pyx":214
  *     N1S3 = 46
  *     N1S2 = 20
  *     N2P10 = 22             # <<<<<<<<<<<<<<
@@ -4227,7 +4227,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P10 = 22;
 
-  /* "XENON.pyx":215
+  /* "gases/XENON.pyx":215
  *     N1S2 = 20
  *     N2P10 = 22
  *     N2P9 = 21             # <<<<<<<<<<<<<<
@@ -4236,7 +4236,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P9 = 21;
 
-  /* "XENON.pyx":216
+  /* "gases/XENON.pyx":216
  *     N2P10 = 22
  *     N2P9 = 21
  *     N2P8 = 22             # <<<<<<<<<<<<<<
@@ -4245,7 +4245,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P8 = 22;
 
-  /* "XENON.pyx":217
+  /* "gases/XENON.pyx":217
  *     N2P9 = 21
  *     N2P8 = 22
  *     N2P7 = 22             # <<<<<<<<<<<<<<
@@ -4254,7 +4254,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P7 = 22;
 
-  /* "XENON.pyx":218
+  /* "gases/XENON.pyx":218
  *     N2P8 = 22
  *     N2P7 = 22
  *     N2P6 = 22             # <<<<<<<<<<<<<<
@@ -4263,7 +4263,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P6 = 22;
 
-  /* "XENON.pyx":219
+  /* "gases/XENON.pyx":219
  *     N2P7 = 22
  *     N2P6 = 22
  *     N3D6 = 24             # <<<<<<<<<<<<<<
@@ -4272,7 +4272,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D6 = 24;
 
-  /* "XENON.pyx":220
+  /* "gases/XENON.pyx":220
  *     N2P6 = 22
  *     N3D6 = 24
  *     N2P5 = 15             # <<<<<<<<<<<<<<
@@ -4281,7 +4281,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P5 = 15;
 
-  /* "XENON.pyx":221
+  /* "gases/XENON.pyx":221
  *     N3D6 = 24
  *     N2P5 = 15
  *     N3D4P = 24             # <<<<<<<<<<<<<<
@@ -4290,7 +4290,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D4P = 24;
 
-  /* "XENON.pyx":222
+  /* "gases/XENON.pyx":222
  *     N2P5 = 15
  *     N3D4P = 24
  *     N3D3 = 24             # <<<<<<<<<<<<<<
@@ -4299,7 +4299,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D3 = 24;
 
-  /* "XENON.pyx":223
+  /* "gases/XENON.pyx":223
  *     N3D4P = 24
  *     N3D3 = 24
  *     N3D4 = 26             # <<<<<<<<<<<<<<
@@ -4308,7 +4308,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D4 = 26;
 
-  /* "XENON.pyx":224
+  /* "gases/XENON.pyx":224
  *     N3D3 = 24
  *     N3D4 = 26
  *     N3D1PP = 23             # <<<<<<<<<<<<<<
@@ -4317,7 +4317,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D1PP = 23;
 
-  /* "XENON.pyx":225
+  /* "gases/XENON.pyx":225
  *     N3D4 = 26
  *     N3D1PP = 23
  *     N3D1P = 22             # <<<<<<<<<<<<<<
@@ -4326,7 +4326,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D1P = 22;
 
-  /* "XENON.pyx":226
+  /* "gases/XENON.pyx":226
  *     N3D1PP = 23
  *     N3D1P = 22
  *     N2S5 = 18             # <<<<<<<<<<<<<<
@@ -4335,7 +4335,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2S5 = 18;
 
-  /* "XENON.pyx":227
+  /* "gases/XENON.pyx":227
  *     N3D1P = 22
  *     N2S5 = 18
  *     N3PSUM = 18             # <<<<<<<<<<<<<<
@@ -4344,7 +4344,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3PSUM = 18;
 
-  /* "XENON.pyx":228
+  /* "gases/XENON.pyx":228
  *     N2S5 = 18
  *     N3PSUM = 18
  *     N2P4 = 14             # <<<<<<<<<<<<<<
@@ -4353,7 +4353,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P4 = 14;
 
-  /* "XENON.pyx":229
+  /* "gases/XENON.pyx":229
  *     N3PSUM = 18
  *     N2P4 = 14
  *     N4DSUM = 16             # <<<<<<<<<<<<<<
@@ -4362,7 +4362,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N4DSUM = 16;
 
-  /* "XENON.pyx":230
+  /* "gases/XENON.pyx":230
  *     N2P4 = 14
  *     N4DSUM = 16
  *     N2P3 = 14             # <<<<<<<<<<<<<<
@@ -4371,7 +4371,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P3 = 14;
 
-  /* "XENON.pyx":231
+  /* "gases/XENON.pyx":231
  *     N4DSUM = 16
  *     N2P3 = 14
  *     N2P2 = 14             # <<<<<<<<<<<<<<
@@ -4380,7 +4380,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P2 = 14;
 
-  /* "XENON.pyx":232
+  /* "gases/XENON.pyx":232
  *     N2P3 = 14
  *     N2P2 = 14
  *     N2P1 = 15             # <<<<<<<<<<<<<<
@@ -4389,7 +4389,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P1 = 15;
 
-  /* "XENON.pyx":233
+  /* "gases/XENON.pyx":233
  *     N2P2 = 14
  *     N2P1 = 15
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -4398,7 +4398,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "XENON.pyx":234
+  /* "gases/XENON.pyx":234
  *     N2P1 = 15
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27             # <<<<<<<<<<<<<<
@@ -4407,7 +4407,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "XENON.pyx":235
+  /* "gases/XENON.pyx":235
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27
  *     object.E = [0.0, 1.0, 12.129843, 0.0, 0.0, 23.7]             # <<<<<<<<<<<<<<
@@ -4422,7 +4422,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_36[5] = 23.7;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_36, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "XENON.pyx":236
+  /* "gases/XENON.pyx":236
  *     cdef double AMU = 1.660538921e-27
  *     object.E = [0.0, 1.0, 12.129843, 0.0, 0.0, 23.7]
  *     object.E[1] = 2.0 * EMASS / (131.30 * AMU)             # <<<<<<<<<<<<<<
@@ -4431,7 +4431,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (131.30 * __pyx_v_AMU));
 
-  /* "XENON.pyx":239
+  /* "gases/XENON.pyx":239
  *     cdef double EOBY[12]
  * 
  *     EOBY[0:12] = [8.7, 20.0, 38.0, 400., 410., 750.0, 800.0, 920.0, 3850., 4100., 4400., 34561.]             # <<<<<<<<<<<<<<
@@ -4452,7 +4452,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_37[11] = 34561.;
   memcpy(&(__pyx_v_EOBY[0]), __pyx_t_37, sizeof(__pyx_v_EOBY[0]) * (12));
 
-  /* "XENON.pyx":240
+  /* "gases/XENON.pyx":240
  * 
  *     EOBY[0:12] = [8.7, 20.0, 38.0, 400., 410., 750.0, 800.0, 920.0, 3850., 4100., 4400., 34561.]
  *     object.EION[0:12] = [12.129843, 33.105, 64.155, 676.4, 689.0, 940.6, 1002.1, 1148.7, 4786., 5107., 5453., 34561.]             # <<<<<<<<<<<<<<
@@ -4473,7 +4473,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_38[11] = 34561.;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_38, sizeof(__pyx_v_object->EION[0]) * (12));
 
-  /* "XENON.pyx":242
+  /* "gases/XENON.pyx":242
  *     object.EION[0:12] = [12.129843, 33.105, 64.155, 676.4, 689.0, 940.6, 1002.1, 1148.7, 4786., 5107., 5453., 34561.]
  *     # FLUORESCENCE DATA
  *     object.NC0[0:12] = [0, 1, 2, 4, 4, 7, 7, 8, 9, 9, 10, 17]             # <<<<<<<<<<<<<<
@@ -4494,7 +4494,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_39[11] = 17.0;
   memcpy(&(__pyx_v_object->NC0[0]), __pyx_t_39, sizeof(__pyx_v_object->NC0[0]) * (12));
 
-  /* "XENON.pyx":243
+  /* "gases/XENON.pyx":243
  *     # FLUORESCENCE DATA
  *     object.NC0[0:12] = [0, 1, 2, 4, 4, 7, 7, 8, 9, 9, 10, 17]
  *     object.EC0[0:12] = [0.0, 5.0, 10.0, 593.7, 604.0, 782.2, 839.7, 911.4, 4494.3, 4774.8, 5015.2, 33900]             # <<<<<<<<<<<<<<
@@ -4515,7 +4515,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_40[11] = 33900.0;
   memcpy(&(__pyx_v_object->EC0[0]), __pyx_t_40, sizeof(__pyx_v_object->EC0[0]) * (12));
 
-  /* "XENON.pyx":245
+  /* "gases/XENON.pyx":245
  *     object.EC0[0:12] = [0.0, 5.0, 10.0, 593.7, 604.0, 782.2, 839.7, 911.4, 4494.3, 4774.8, 5015.2, 33900]
  *     cdef double WKLM[12]
  *     WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0942, 0.093, 0.0475, 0.89]             # <<<<<<<<<<<<<<
@@ -4536,7 +4536,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_41[11] = 0.89;
   memcpy(&(__pyx_v_WKLM[0]), __pyx_t_41, sizeof(__pyx_v_WKLM[0]) * (12));
 
-  /* "XENON.pyx":246
+  /* "gases/XENON.pyx":246
  *     cdef double WKLM[12]
  *     WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0942, 0.093, 0.0475, 0.89]
  *     object.WK[0:12] = WKLM             # <<<<<<<<<<<<<<
@@ -4545,7 +4545,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   memcpy(&(__pyx_v_object->WK[0]), __pyx_v_WKLM, sizeof(__pyx_v_object->WK[0]) * (12));
 
-  /* "XENON.pyx":247
+  /* "gases/XENON.pyx":247
  *     WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0942, 0.093, 0.0475, 0.89]
  *     object.WK[0:12] = WKLM
  *     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4106, 4427, 4483, 29775]             # <<<<<<<<<<<<<<
@@ -4566,7 +4566,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_42[11] = 29775.0;
   memcpy(&(__pyx_v_object->EFL[0]), __pyx_t_42, sizeof(__pyx_v_object->EFL[0]) * (12));
 
-  /* "XENON.pyx":248
+  /* "gases/XENON.pyx":248
  *     object.WK[0:12] = WKLM
  *     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4106, 4427, 4483, 29775]
  *     object.NG1[0:12] = [0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 8]             # <<<<<<<<<<<<<<
@@ -4587,7 +4587,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_43[11] = 8.0;
   memcpy(&(__pyx_v_object->NG1[0]), __pyx_t_43, sizeof(__pyx_v_object->NG1[0]) * (12));
 
-  /* "XENON.pyx":249
+  /* "gases/XENON.pyx":249
  *     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4106, 4427, 4483, 29775]
  *     object.NG1[0:12] = [0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 8]
  *     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3900, 4181, 4233, 29406]             # <<<<<<<<<<<<<<
@@ -4608,7 +4608,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_44[11] = 29406.0;
   memcpy(&(__pyx_v_object->EG1[0]), __pyx_t_44, sizeof(__pyx_v_object->EG1[0]) * (12));
 
-  /* "XENON.pyx":250
+  /* "gases/XENON.pyx":250
  *     object.NG1[0:12] = [0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 8]
  *     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3900, 4181, 4233, 29406]
  *     object.NG2[0:12] = [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 6, 9]             # <<<<<<<<<<<<<<
@@ -4629,7 +4629,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_45[11] = 9.0;
   memcpy(&(__pyx_v_object->NG2[0]), __pyx_t_45, sizeof(__pyx_v_object->NG2[0]) * (12));
 
-  /* "XENON.pyx":251
+  /* "gases/XENON.pyx":251
  *     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3900, 4181, 4233, 29406]
  *     object.NG2[0:12] = [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 6, 9]
  *     object.EG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594, 594, 782, 4494]             # <<<<<<<<<<<<<<
@@ -4650,7 +4650,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_46[11] = 4494.0;
   memcpy(&(__pyx_v_object->EG2[0]), __pyx_t_46, sizeof(__pyx_v_object->EG2[0]) * (12));
 
-  /* "XENON.pyx":253
+  /* "gases/XENON.pyx":253
  *     object.EG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 594, 594, 782, 4494]
  * 
  *     for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -4662,7 +4662,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
     __pyx_v_J = __pyx_t_34;
 
-    /* "XENON.pyx":254
+    /* "gases/XENON.pyx":254
  * 
  *     for J in range(object.NION):
  *         for I in range(4000):             # <<<<<<<<<<<<<<
@@ -4672,7 +4672,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_35 = 0; __pyx_t_35 < 0xFA0; __pyx_t_35+=1) {
       __pyx_v_I = __pyx_t_35;
 
-      /* "XENON.pyx":255
+      /* "gases/XENON.pyx":255
  *     for J in range(object.NION):
  *         for I in range(4000):
  *             if object.EG[I] > object.EION[J]:             # <<<<<<<<<<<<<<
@@ -4682,7 +4682,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = (((__pyx_v_object->EG[__pyx_v_I]) > (__pyx_v_object->EION[__pyx_v_J])) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":256
+        /* "gases/XENON.pyx":256
  *         for I in range(4000):
  *             if object.EG[I] > object.EION[J]:
  *                 IOFFION[J] = I - 1             # <<<<<<<<<<<<<<
@@ -4691,7 +4691,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_J]) = (__pyx_v_I - 1);
 
-        /* "XENON.pyx":257
+        /* "gases/XENON.pyx":257
  *             if object.EG[I] > object.EION[J]:
  *                 IOFFION[J] = I - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4700,7 +4700,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L10_break;
 
-        /* "XENON.pyx":255
+        /* "gases/XENON.pyx":255
  *     for J in range(object.NION):
  *         for I in range(4000):
  *             if object.EG[I] > object.EION[J]:             # <<<<<<<<<<<<<<
@@ -4712,7 +4712,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L10_break:;
   }
 
-  /* "XENON.pyx":259
+  /* "gases/XENON.pyx":259
  *                 break
  * 
  *     object.EIN[0:51] = [8.3153, 8.4365, 9.4472, 9.5697, 9.5802, 9.6856, 9.7207, 9.7893, 9.8211, 9.8904, 9.9171, 9.9335,             # <<<<<<<<<<<<<<
@@ -4772,7 +4772,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_48[50] = 0.0;
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_48, sizeof(__pyx_v_object->EIN[0]) * (51));
 
-  /* "XENON.pyx":264
+  /* "gases/XENON.pyx":264
  *                         11.6828, 11.7395, 11.7521, 11.8068, 11.8403, 11.8518, 11.8778, 11.8917, 11.9082, 11.9177,
  *                         11.9416, 11.9550, 11.9621, 11.9789, 11.9886, 11.9939, 12.0, 0.0]
  *     for I in range(51, 250):             # <<<<<<<<<<<<<<
@@ -4782,7 +4782,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 51; __pyx_t_32 < 0xFA; __pyx_t_32+=1) {
     __pyx_v_I = __pyx_t_32;
 
-    /* "XENON.pyx":265
+    /* "gases/XENON.pyx":265
  *                         11.9416, 11.9550, 11.9621, 11.9789, 11.9886, 11.9939, 12.0, 0.0]
  *     for I in range(51, 250):
  *         object.EIN[I] = 0.0             # <<<<<<<<<<<<<<
@@ -4792,7 +4792,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EIN[__pyx_v_I]) = 0.0;
   }
 
-  /* "XENON.pyx":268
+  /* "gases/XENON.pyx":268
  * 
  *     cdef int NL
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4804,7 +4804,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
     __pyx_v_NL = __pyx_t_34;
 
-    /* "XENON.pyx":269
+    /* "gases/XENON.pyx":269
  *     cdef int NL
  *     for NL in range(object.NIN):
  *         object.PENFRA[0][NL] = 0.0             # <<<<<<<<<<<<<<
@@ -4813,7 +4813,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_NL]) = 0.0;
 
-    /* "XENON.pyx":271
+    /* "gases/XENON.pyx":271
  *         object.PENFRA[0][NL] = 0.0
  *         # PENNING TRANSFER DISTANCE MICRONS
  *         object.PENFRA[1][NL] = 1.0             # <<<<<<<<<<<<<<
@@ -4822,7 +4822,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_NL]) = 1.0;
 
-    /* "XENON.pyx":273
+    /* "gases/XENON.pyx":273
  *         object.PENFRA[1][NL] = 1.0
  *         # PENNING TRANSFER TIME PICOSECONDS
  *         object.PENFRA[2][NL] = 1.0             # <<<<<<<<<<<<<<
@@ -4832,7 +4832,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_NL]) = 1.0;
   }
 
-  /* "XENON.pyx":275
+  /* "gases/XENON.pyx":275
  *         object.PENFRA[2][NL] = 1.0
  * 
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4844,7 +4844,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
     __pyx_v_NL = __pyx_t_34;
 
-    /* "XENON.pyx":276
+    /* "gases/XENON.pyx":276
  * 
  *     for NL in range(object.NIN):
  *         for I in range(4000):             # <<<<<<<<<<<<<<
@@ -4854,7 +4854,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_35 = 0; __pyx_t_35 < 0xFA0; __pyx_t_35+=1) {
       __pyx_v_I = __pyx_t_35;
 
-      /* "XENON.pyx":277
+      /* "gases/XENON.pyx":277
  *     for NL in range(object.NIN):
  *         for I in range(4000):
  *             if object.EG[I] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -4864,7 +4864,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = (((__pyx_v_object->EG[__pyx_v_I]) > (__pyx_v_object->EIN[__pyx_v_NL])) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":278
+        /* "gases/XENON.pyx":278
  *         for I in range(4000):
  *             if object.EG[I] > object.EIN[NL]:
  *                 IOFFN[NL] = I - 1             # <<<<<<<<<<<<<<
@@ -4873,7 +4873,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_I - 1);
 
-        /* "XENON.pyx":279
+        /* "gases/XENON.pyx":279
  *             if object.EG[I] > object.EIN[NL]:
  *                 IOFFN[NL] = I - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4882,7 +4882,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L19_break;
 
-        /* "XENON.pyx":277
+        /* "gases/XENON.pyx":277
  *     for NL in range(object.NIN):
  *         for I in range(4000):
  *             if object.EG[I] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -4894,7 +4894,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L19_break:;
   }
 
-  /* "XENON.pyx":280
+  /* "gases/XENON.pyx":280
  *                 IOFFN[NL] = I - 1
  *                 break
  *     object.NSTEP = 4000             # <<<<<<<<<<<<<<
@@ -4903,7 +4903,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NSTEP = 0xFA0;
 
-  /* "XENON.pyx":283
+  /* "gases/XENON.pyx":283
  * 
  * 
  *     for I in range(object.NSTEP):             # <<<<<<<<<<<<<<
@@ -4915,7 +4915,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
     __pyx_v_I = __pyx_t_34;
 
-    /* "XENON.pyx":284
+    /* "gases/XENON.pyx":284
  * 
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -4924,7 +4924,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "XENON.pyx":285
+    /* "gases/XENON.pyx":285
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -4934,7 +4934,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":286
+      /* "gases/XENON.pyx":286
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -4943,7 +4943,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-      /* "XENON.pyx":287
+      /* "gases/XENON.pyx":287
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -4952,7 +4952,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-      /* "XENON.pyx":288
+      /* "gases/XENON.pyx":288
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -4961,7 +4961,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-      /* "XENON.pyx":289
+      /* "gases/XENON.pyx":289
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -4970,7 +4970,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-      /* "XENON.pyx":285
+      /* "gases/XENON.pyx":285
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -4979,7 +4979,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":291
+    /* "gases/XENON.pyx":291
  *             BETA2 = BETA * BETA
  * 
  *         if EN <= XEN[1]:             # <<<<<<<<<<<<<<
@@ -4989,7 +4989,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN <= (__pyx_v_XEN[1])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":292
+      /* "gases/XENON.pyx":292
  * 
  *         if EN <= XEN[1]:
  *             QELA = 122.e-16             # <<<<<<<<<<<<<<
@@ -4998,7 +4998,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QELA = 122.e-16;
 
-      /* "XENON.pyx":293
+      /* "gases/XENON.pyx":293
  *         if EN <= XEN[1]:
  *             QELA = 122.e-16
  *             QMOM = 122.e-16             # <<<<<<<<<<<<<<
@@ -5007,7 +5007,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMOM = 122.e-16;
 
-      /* "XENON.pyx":291
+      /* "gases/XENON.pyx":291
  *             BETA2 = BETA * BETA
  * 
  *         if EN <= XEN[1]:             # <<<<<<<<<<<<<<
@@ -5017,7 +5017,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L24;
     }
 
-    /* "XENON.pyx":295
+    /* "gases/XENON.pyx":295
  *             QMOM = 122.e-16
  *         else:
  *             QELA = GasUtil.QLSCALE(EN, NEL, YEL, XEL)             # <<<<<<<<<<<<<<
@@ -5027,7 +5027,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     /*else*/ {
       __pyx_v_QELA = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NEL, __pyx_v_YEL, __pyx_v_XEL);
 
-      /* "XENON.pyx":296
+      /* "gases/XENON.pyx":296
  *         else:
  *             QELA = GasUtil.QLSCALE(EN, NEL, YEL, XEL)
  *             QMOM = GasUtil.QLSCALE(EN, NDATA, YMOM, XEN)             # <<<<<<<<<<<<<<
@@ -5038,7 +5038,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L24:;
 
-    /* "XENON.pyx":298
+    /* "gases/XENON.pyx":298
  *             QMOM = GasUtil.QLSCALE(EN, NDATA, YMOM, XEN)
  * 
  *         TEMP = GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)             # <<<<<<<<<<<<<<
@@ -5047,7 +5047,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_TEMP = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NEPSI, __pyx_v_YEPS, __pyx_v_XEPS);
 
-    /* "XENON.pyx":300
+    /* "gases/XENON.pyx":300
  *         TEMP = GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)
  * 
  *         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - TEMP]             # <<<<<<<<<<<<<<
@@ -5059,7 +5059,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_49[2] = (1.0 - __pyx_v_TEMP);
     memcpy(&(__pyx_v_PQ[0]), __pyx_t_49, sizeof(__pyx_v_PQ[0]) * (3));
 
-    /* "XENON.pyx":302
+    /* "gases/XENON.pyx":302
  *         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - TEMP]
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -5068,7 +5068,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "XENON.pyx":304
+    /* "gases/XENON.pyx":304
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  * 
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -5077,7 +5077,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "XENON.pyx":306
+    /* "gases/XENON.pyx":306
  *         object.Q[1][I] = QELA
  * 
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -5087,7 +5087,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":307
+      /* "gases/XENON.pyx":307
  * 
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -5096,7 +5096,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "XENON.pyx":306
+      /* "gases/XENON.pyx":306
  *         object.Q[1][I] = QELA
  * 
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -5105,7 +5105,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":311
+    /* "gases/XENON.pyx":311
  * 
  * 
  *         object.QION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5114,7 +5114,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":312
+    /* "gases/XENON.pyx":312
  * 
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5123,7 +5123,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":313
+    /* "gases/XENON.pyx":313
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5133,7 +5133,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":314
+      /* "gases/XENON.pyx":314
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0             # <<<<<<<<<<<<<<
@@ -5142,7 +5142,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":313
+      /* "gases/XENON.pyx":313
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5151,7 +5151,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":315
+    /* "gases/XENON.pyx":315
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5161,7 +5161,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":316
+      /* "gases/XENON.pyx":316
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YIN1, XION, BETA2, 0.8061, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5170,7 +5170,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIONG, __pyx_v_YIN1, __pyx_v_XION, __pyx_v_BETA2, 0.8061, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "XENON.pyx":315
+      /* "gases/XENON.pyx":315
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5179,7 +5179,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":323
+    /* "gases/XENON.pyx":323
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[0]):             # <<<<<<<<<<<<<<
@@ -5189,7 +5189,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[0]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":324
+      /* "gases/XENON.pyx":324
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[0]):
  *             object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]             # <<<<<<<<<<<<<<
@@ -5198,7 +5198,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-      /* "XENON.pyx":323
+      /* "gases/XENON.pyx":323
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[0]):             # <<<<<<<<<<<<<<
@@ -5207,7 +5207,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":327
+    /* "gases/XENON.pyx":327
  * 
  *         #  IONISATION CHARGE STATE =2
  *         object.QION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5216,7 +5216,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[1])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":328
+    /* "gases/XENON.pyx":328
  *         #  IONISATION CHARGE STATE =2
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5225,7 +5225,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":329
+    /* "gases/XENON.pyx":329
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5235,7 +5235,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":330
+      /* "gases/XENON.pyx":330
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0             # <<<<<<<<<<<<<<
@@ -5244,7 +5244,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":329
+      /* "gases/XENON.pyx":329
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5253,7 +5253,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":331
+    /* "gases/XENON.pyx":331
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0
  *         if EN >= object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5263,7 +5263,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":332
+      /* "gases/XENON.pyx":332
  *             object.PEQION[1][I] = 0
  *         if EN >= object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, 0.1133, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5272,7 +5272,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION2, __pyx_v_YIN2, __pyx_v_XIN2, __pyx_v_BETA2, 0.1133, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "XENON.pyx":331
+      /* "gases/XENON.pyx":331
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0
  *         if EN >= object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5281,7 +5281,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":338
+    /* "gases/XENON.pyx":338
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[1]):             # <<<<<<<<<<<<<<
@@ -5291,7 +5291,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[1]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":339
+      /* "gases/XENON.pyx":339
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[1]):
  *             object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]             # <<<<<<<<<<<<<<
@@ -5300,7 +5300,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-      /* "XENON.pyx":338
+      /* "gases/XENON.pyx":338
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[1]):             # <<<<<<<<<<<<<<
@@ -5309,7 +5309,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":342
+    /* "gases/XENON.pyx":342
  * 
  *         #  IONISATION CHARGE STATE =3
  *         object.QION[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5318,7 +5318,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[2])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":343
+    /* "gases/XENON.pyx":343
  *         #  IONISATION CHARGE STATE =3
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5327,7 +5327,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":344
+    /* "gases/XENON.pyx":344
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5337,7 +5337,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":345
+      /* "gases/XENON.pyx":345
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0             # <<<<<<<<<<<<<<
@@ -5346,7 +5346,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":344
+      /* "gases/XENON.pyx":344
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5355,7 +5355,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":346
+    /* "gases/XENON.pyx":346
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0
  *         if EN >= object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5365,7 +5365,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":347
+      /* "gases/XENON.pyx":347
  *             object.PEQION[2][I] = 0
  *         if EN >= object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, 0.05496, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5374,7 +5374,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION3, __pyx_v_YIN3, __pyx_v_XIN3, __pyx_v_BETA2, 0.05496, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "XENON.pyx":346
+      /* "gases/XENON.pyx":346
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0
  *         if EN >= object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5383,7 +5383,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":352
+    /* "gases/XENON.pyx":352
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[2]):             # <<<<<<<<<<<<<<
@@ -5393,7 +5393,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[2]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":353
+      /* "gases/XENON.pyx":353
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[2]):
  *             object.PEQION[2][I] = object.PEQEL[2][I - IOFFION[2]]             # <<<<<<<<<<<<<<
@@ -5402,7 +5402,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[2])[(__pyx_v_I - (__pyx_v_IOFFION[2]))]);
 
-      /* "XENON.pyx":352
+      /* "gases/XENON.pyx":352
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[2]):             # <<<<<<<<<<<<<<
@@ -5411,7 +5411,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":355
+    /* "gases/XENON.pyx":355
  *             object.PEQION[2][I] = object.PEQEL[2][I - IOFFION[2]]
  * 
  *         Q456 = 0.0             # <<<<<<<<<<<<<<
@@ -5420,7 +5420,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_Q456 = 0.0;
 
-    /* "XENON.pyx":356
+    /* "gases/XENON.pyx":356
  * 
  *         Q456 = 0.0
  *         if EN > 106.35:             # <<<<<<<<<<<<<<
@@ -5430,7 +5430,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > 106.35) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":357
+      /* "gases/XENON.pyx":357
  *         Q456 = 0.0
  *         if EN > 106.35:
  *             TEMP = GasUtil.CALQION(EN, NION4, YIN4, XIN4)             # <<<<<<<<<<<<<<
@@ -5439,7 +5439,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_TEMP = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION4, __pyx_v_YIN4, __pyx_v_XIN4);
 
-      /* "XENON.pyx":358
+      /* "gases/XENON.pyx":358
  *         if EN > 106.35:
  *             TEMP = GasUtil.CALQION(EN, NION4, YIN4, XIN4)
  *             Q456 = TEMP * 4.0 / 3.0             # <<<<<<<<<<<<<<
@@ -5448,7 +5448,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_Q456 = ((__pyx_v_TEMP * 4.0) / 3.0);
 
-      /* "XENON.pyx":356
+      /* "gases/XENON.pyx":356
  * 
  *         Q456 = 0.0
  *         if EN > 106.35:             # <<<<<<<<<<<<<<
@@ -5457,7 +5457,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":359
+    /* "gases/XENON.pyx":359
  *             TEMP = GasUtil.CALQION(EN, NION4, YIN4, XIN4)
  *             Q456 = TEMP * 4.0 / 3.0
  *         if EN > 160.45:             # <<<<<<<<<<<<<<
@@ -5467,7 +5467,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > 160.45) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":360
+      /* "gases/XENON.pyx":360
  *             Q456 = TEMP * 4.0 / 3.0
  *         if EN > 160.45:
  *             TEMP = GasUtil.CALQION(EN, NION5, YIN5, XIN5)             # <<<<<<<<<<<<<<
@@ -5476,7 +5476,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_TEMP = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION5, __pyx_v_YIN5, __pyx_v_XIN5);
 
-      /* "XENON.pyx":361
+      /* "gases/XENON.pyx":361
  *         if EN > 160.45:
  *             TEMP = GasUtil.CALQION(EN, NION5, YIN5, XIN5)
  *             Q456 += (TEMP * 5.0 / 3.0)             # <<<<<<<<<<<<<<
@@ -5485,7 +5485,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_Q456 = (__pyx_v_Q456 + ((__pyx_v_TEMP * 5.0) / 3.0));
 
-      /* "XENON.pyx":359
+      /* "gases/XENON.pyx":359
  *             TEMP = GasUtil.CALQION(EN, NION4, YIN4, XIN4)
  *             Q456 = TEMP * 4.0 / 3.0
  *         if EN > 160.45:             # <<<<<<<<<<<<<<
@@ -5494,7 +5494,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":362
+    /* "gases/XENON.pyx":362
  *             TEMP = GasUtil.CALQION(EN, NION5, YIN5, XIN5)
  *             Q456 += (TEMP * 5.0 / 3.0)
  *         if EN > 227.2:             # <<<<<<<<<<<<<<
@@ -5504,7 +5504,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > 227.2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":363
+      /* "gases/XENON.pyx":363
  *             Q456 += (TEMP * 5.0 / 3.0)
  *         if EN > 227.2:
  *             TEMP = GasUtil.CALQION(EN, NION6, YIN6, XIN6)             # <<<<<<<<<<<<<<
@@ -5513,7 +5513,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_TEMP = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION6, __pyx_v_YIN6, __pyx_v_XIN6);
 
-      /* "XENON.pyx":364
+      /* "gases/XENON.pyx":364
  *         if EN > 227.2:
  *             TEMP = GasUtil.CALQION(EN, NION6, YIN6, XIN6)
  *             Q456 += (TEMP * 6.0 / 3.0)             # <<<<<<<<<<<<<<
@@ -5522,7 +5522,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_Q456 = (__pyx_v_Q456 + ((__pyx_v_TEMP * 6.0) / 3.0));
 
-      /* "XENON.pyx":362
+      /* "gases/XENON.pyx":362
  *             TEMP = GasUtil.CALQION(EN, NION5, YIN5, XIN5)
  *             Q456 += (TEMP * 5.0 / 3.0)
  *         if EN > 227.2:             # <<<<<<<<<<<<<<
@@ -5531,7 +5531,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":366
+    /* "gases/XENON.pyx":366
  *             Q456 += (TEMP * 6.0 / 3.0)
  * 
  *         if EN > XIN4[NION4 - 1] or EN > XIN5[NION5 - 1] or EN > XIN6[NION6 - 1]:             # <<<<<<<<<<<<<<
@@ -5555,7 +5555,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L39_bool_binop_done:;
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":367
+      /* "gases/XENON.pyx":367
  * 
  *         if EN > XIN4[NION4 - 1] or EN > XIN5[NION5 - 1] or EN > XIN6[NION6 - 1]:
  *             X2 = 1.0 / BETA2             # <<<<<<<<<<<<<<
@@ -5564,7 +5564,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-      /* "XENON.pyx":368
+      /* "gases/XENON.pyx":368
  *         if EN > XIN4[NION4 - 1] or EN > XIN5[NION5 - 1] or EN > XIN6[NION6 - 1]:
  *             X2 = 1.0 / BETA2
  *             X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0             # <<<<<<<<<<<<<<
@@ -5573,7 +5573,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-      /* "XENON.pyx":370
+      /* "gases/XENON.pyx":370
  *             X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0
  *             #  0.3629 = .01959*4/3 + .004597*5/3  + .002504*6/3
  *             Q456 = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * 0.03629             # <<<<<<<<<<<<<<
@@ -5582,7 +5582,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_Q456 = ((__pyx_v_CONST * ((__pyx_v_AM2 * (__pyx_v_X1 - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) + (__pyx_v_C * __pyx_v_X2))) * 0.03629);
 
-      /* "XENON.pyx":366
+      /* "gases/XENON.pyx":366
  *             Q456 += (TEMP * 6.0 / 3.0)
  * 
  *         if EN > XIN4[NION4 - 1] or EN > XIN5[NION5 - 1] or EN > XIN6[NION6 - 1]:             # <<<<<<<<<<<<<<
@@ -5591,7 +5591,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":372
+    /* "gases/XENON.pyx":372
  *             Q456 = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * 0.03629
  * 
  *         object.QION[2][I] += Q456             # <<<<<<<<<<<<<<
@@ -5602,7 +5602,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_35 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_51])[__pyx_t_35]) = (((__pyx_v_object->QION[__pyx_t_51])[__pyx_t_35]) + __pyx_v_Q456);
 
-    /* "XENON.pyx":375
+    /* "gases/XENON.pyx":375
  * 
  *         #M5-SHELL IONISATION
  *         object.QION[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5611,7 +5611,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[3])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":376
+    /* "gases/XENON.pyx":376
  *         #M5-SHELL IONISATION
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5620,7 +5620,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":377
+    /* "gases/XENON.pyx":377
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5630,7 +5630,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":378
+      /* "gases/XENON.pyx":378
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0             # <<<<<<<<<<<<<<
@@ -5639,7 +5639,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":377
+      /* "gases/XENON.pyx":377
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5648,7 +5648,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":379
+    /* "gases/XENON.pyx":379
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0
  *         if EN >= object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5658,7 +5658,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[3])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":380
+      /* "gases/XENON.pyx":380
  *             object.PEQION[3][I] = 0
  *         if EN >= object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQIONREG(EN, NIONM5, YM5S, XM5S)             # <<<<<<<<<<<<<<
@@ -5667,7 +5667,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONM5, __pyx_v_YM5S, __pyx_v_XM5S);
 
-      /* "XENON.pyx":381
+      /* "gases/XENON.pyx":381
  *         if EN >= object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQIONREG(EN, NIONM5, YM5S, XM5S)
  *             object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]             # <<<<<<<<<<<<<<
@@ -5676,7 +5676,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[3]))]);
 
-      /* "XENON.pyx":379
+      /* "gases/XENON.pyx":379
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0
  *         if EN >= object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5685,7 +5685,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":384
+    /* "gases/XENON.pyx":384
  * 
  *         #M4-SHELL IONISATION
  *         object.QION[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5694,7 +5694,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[4])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":385
+    /* "gases/XENON.pyx":385
  *         #M4-SHELL IONISATION
  *         object.QION[4][I] = 0.0
  *         object.PEQION[4][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5703,7 +5703,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":386
+    /* "gases/XENON.pyx":386
  *         object.QION[4][I] = 0.0
  *         object.PEQION[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5713,7 +5713,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":387
+      /* "gases/XENON.pyx":387
  *         object.PEQION[4][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[4][I] = 0             # <<<<<<<<<<<<<<
@@ -5722,7 +5722,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":386
+      /* "gases/XENON.pyx":386
  *         object.QION[4][I] = 0.0
  *         object.PEQION[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5731,7 +5731,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":388
+    /* "gases/XENON.pyx":388
  *         if object.NANISO == 2:
  *             object.PEQION[4][I] = 0
  *         if EN >= object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5741,7 +5741,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[4])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":389
+      /* "gases/XENON.pyx":389
  *             object.PEQION[4][I] = 0
  *         if EN >= object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQIONREG(EN, NIONM4, YM4S, XM4S)             # <<<<<<<<<<<<<<
@@ -5750,7 +5750,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONM4, __pyx_v_YM4S, __pyx_v_XM4S);
 
-      /* "XENON.pyx":390
+      /* "gases/XENON.pyx":390
  *         if EN >= object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQIONREG(EN, NIONM4, YM4S, XM4S)
  *             object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]             # <<<<<<<<<<<<<<
@@ -5759,7 +5759,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[4]))]);
 
-      /* "XENON.pyx":388
+      /* "gases/XENON.pyx":388
  *         if object.NANISO == 2:
  *             object.PEQION[4][I] = 0
  *         if EN >= object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5768,7 +5768,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":393
+    /* "gases/XENON.pyx":393
  * 
  *         #M3-SHELL IONISATION
  *         object.QION[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5777,7 +5777,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[5])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":394
+    /* "gases/XENON.pyx":394
  *         #M3-SHELL IONISATION
  *         object.QION[5][I] = 0.0
  *         object.PEQION[5][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5786,7 +5786,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":395
+    /* "gases/XENON.pyx":395
  *         object.QION[5][I] = 0.0
  *         object.PEQION[5][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5796,7 +5796,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":396
+      /* "gases/XENON.pyx":396
  *         object.PEQION[5][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[5][I] = 0             # <<<<<<<<<<<<<<
@@ -5805,7 +5805,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":395
+      /* "gases/XENON.pyx":395
  *         object.QION[5][I] = 0.0
  *         object.PEQION[5][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5814,7 +5814,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":397
+    /* "gases/XENON.pyx":397
  *         if object.NANISO == 2:
  *             object.PEQION[5][I] = 0
  *         if EN >= object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5824,7 +5824,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[5])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":398
+      /* "gases/XENON.pyx":398
  *             object.PEQION[5][I] = 0
  *         if EN >= object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQIONREG(EN, NIONM3, YM3S, XM3S)             # <<<<<<<<<<<<<<
@@ -5833,7 +5833,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONM3, __pyx_v_YM3S, __pyx_v_XM3S);
 
-      /* "XENON.pyx":399
+      /* "gases/XENON.pyx":399
  *         if EN >= object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQIONREG(EN, NIONM3, YM3S, XM3S)
  *             object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]             # <<<<<<<<<<<<<<
@@ -5842,7 +5842,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[5]))]);
 
-      /* "XENON.pyx":397
+      /* "gases/XENON.pyx":397
  *         if object.NANISO == 2:
  *             object.PEQION[5][I] = 0
  *         if EN >= object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5851,7 +5851,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":402
+    /* "gases/XENON.pyx":402
  * 
  *         #M2-SHELL IONISATION
  *         object.QION[6][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5860,7 +5860,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[6])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":403
+    /* "gases/XENON.pyx":403
  *         #M2-SHELL IONISATION
  *         object.QION[6][I] = 0.0
  *         object.PEQION[6][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5869,7 +5869,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":404
+    /* "gases/XENON.pyx":404
  *         object.QION[6][I] = 0.0
  *         object.PEQION[6][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5879,7 +5879,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":405
+      /* "gases/XENON.pyx":405
  *         object.PEQION[6][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[6][I] = 0             # <<<<<<<<<<<<<<
@@ -5888,7 +5888,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":404
+      /* "gases/XENON.pyx":404
  *         object.QION[6][I] = 0.0
  *         object.PEQION[6][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5897,7 +5897,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":406
+    /* "gases/XENON.pyx":406
  *         if object.NANISO == 2:
  *             object.PEQION[6][I] = 0
  *         if EN >= object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5907,7 +5907,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[6])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":407
+      /* "gases/XENON.pyx":407
  *             object.PEQION[6][I] = 0
  *         if EN >= object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQIONREG(EN, NIONM2, YM2S, XM2S)             # <<<<<<<<<<<<<<
@@ -5916,7 +5916,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONM2, __pyx_v_YM2S, __pyx_v_XM2S);
 
-      /* "XENON.pyx":408
+      /* "gases/XENON.pyx":408
  *         if EN >= object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQIONREG(EN, NIONM2, YM2S, XM2S)
  *             object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]             # <<<<<<<<<<<<<<
@@ -5925,7 +5925,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[6]))]);
 
-      /* "XENON.pyx":406
+      /* "gases/XENON.pyx":406
  *         if object.NANISO == 2:
  *             object.PEQION[6][I] = 0
  *         if EN >= object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5934,7 +5934,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":411
+    /* "gases/XENON.pyx":411
  * 
  *         #M1-SHELL IONISATION
  *         object.QION[7][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5943,7 +5943,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[7])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":412
+    /* "gases/XENON.pyx":412
  *         #M1-SHELL IONISATION
  *         object.QION[7][I] = 0.0
  *         object.PEQION[7][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5952,7 +5952,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[7])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":413
+    /* "gases/XENON.pyx":413
  *         object.QION[7][I] = 0.0
  *         object.PEQION[7][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5962,7 +5962,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":414
+      /* "gases/XENON.pyx":414
  *         object.PEQION[7][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[7][I] = 0             # <<<<<<<<<<<<<<
@@ -5971,7 +5971,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[7])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":413
+      /* "gases/XENON.pyx":413
  *         object.QION[7][I] = 0.0
  *         object.PEQION[7][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5980,7 +5980,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":415
+    /* "gases/XENON.pyx":415
  *         if object.NANISO == 2:
  *             object.PEQION[7][I] = 0
  *         if EN >= object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5990,7 +5990,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[7])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":416
+      /* "gases/XENON.pyx":416
  *             object.PEQION[7][I] = 0
  *         if EN >= object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQIONREG(EN, NIONM1, YM1S, XM1S)             # <<<<<<<<<<<<<<
@@ -5999,7 +5999,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONM1, __pyx_v_YM1S, __pyx_v_XM1S);
 
-      /* "XENON.pyx":417
+      /* "gases/XENON.pyx":417
  *         if EN >= object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQIONREG(EN, NIONM1, YM1S, XM1S)
  *             object.PEQION[7][I] = object.PEQEL[1][I - IOFFION[7]]             # <<<<<<<<<<<<<<
@@ -6008,7 +6008,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[7]))]);
 
-      /* "XENON.pyx":415
+      /* "gases/XENON.pyx":415
  *         if object.NANISO == 2:
  *             object.PEQION[7][I] = 0
  *         if EN >= object.EION[7]:             # <<<<<<<<<<<<<<
@@ -6017,7 +6017,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":420
+    /* "gases/XENON.pyx":420
  * 
  *         #L3-SHELL IONISATION
  *         object.QION[8][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6026,7 +6026,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[8])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":421
+    /* "gases/XENON.pyx":421
  *         #L3-SHELL IONISATION
  *         object.QION[8][I] = 0.0
  *         object.PEQION[8][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6035,7 +6035,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[8])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":422
+    /* "gases/XENON.pyx":422
  *         object.QION[8][I] = 0.0
  *         object.PEQION[8][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6045,7 +6045,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":423
+      /* "gases/XENON.pyx":423
  *         object.PEQION[8][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[8][I] = 0             # <<<<<<<<<<<<<<
@@ -6054,7 +6054,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[8])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":422
+      /* "gases/XENON.pyx":422
  *         object.QION[8][I] = 0.0
  *         object.PEQION[8][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6063,7 +6063,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":424
+    /* "gases/XENON.pyx":424
  *         if object.NANISO == 2:
  *             object.PEQION[8][I] = 0
  *         if EN >= object.EION[8]:             # <<<<<<<<<<<<<<
@@ -6073,7 +6073,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[8])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":425
+      /* "gases/XENON.pyx":425
  *             object.PEQION[8][I] = 0
  *         if EN >= object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQIONREG(EN, NIONL3, YL3S, XL3S)             # <<<<<<<<<<<<<<
@@ -6082,7 +6082,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONL3, __pyx_v_YL3S, __pyx_v_XL3S);
 
-      /* "XENON.pyx":426
+      /* "gases/XENON.pyx":426
  *         if EN >= object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQIONREG(EN, NIONL3, YL3S, XL3S)
  *             object.PEQION[8][I] = object.PEQEL[1][I - IOFFION[8]]             # <<<<<<<<<<<<<<
@@ -6091,7 +6091,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[8]))]);
 
-      /* "XENON.pyx":424
+      /* "gases/XENON.pyx":424
  *         if object.NANISO == 2:
  *             object.PEQION[8][I] = 0
  *         if EN >= object.EION[8]:             # <<<<<<<<<<<<<<
@@ -6100,7 +6100,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":429
+    /* "gases/XENON.pyx":429
  * 
  *         #L2-SHELL IONISATION
  *         object.QION[9][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6109,7 +6109,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[9])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":430
+    /* "gases/XENON.pyx":430
  *         #L2-SHELL IONISATION
  *         object.QION[9][I] = 0.0
  *         object.PEQION[9][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6118,7 +6118,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[9])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":431
+    /* "gases/XENON.pyx":431
  *         object.QION[9][I] = 0.0
  *         object.PEQION[9][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6128,7 +6128,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":432
+      /* "gases/XENON.pyx":432
  *         object.PEQION[9][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[9][I] = 0             # <<<<<<<<<<<<<<
@@ -6137,7 +6137,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[9])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":431
+      /* "gases/XENON.pyx":431
  *         object.QION[9][I] = 0.0
  *         object.PEQION[9][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6146,7 +6146,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":433
+    /* "gases/XENON.pyx":433
  *         if object.NANISO == 2:
  *             object.PEQION[9][I] = 0
  *         if EN >= object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6156,7 +6156,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[9])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":434
+      /* "gases/XENON.pyx":434
  *             object.PEQION[9][I] = 0
  *         if EN >= object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQIONREG(EN, NIONL2, YL2S, XL2S)             # <<<<<<<<<<<<<<
@@ -6165,7 +6165,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONL2, __pyx_v_YL2S, __pyx_v_XL2S);
 
-      /* "XENON.pyx":435
+      /* "gases/XENON.pyx":435
  *         if EN >= object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQIONREG(EN, NIONL2, YL2S, XL2S)
  *             object.PEQION[9][I] = object.PEQEL[1][I - IOFFION[9]]             # <<<<<<<<<<<<<<
@@ -6174,7 +6174,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[9]))]);
 
-      /* "XENON.pyx":433
+      /* "gases/XENON.pyx":433
  *         if object.NANISO == 2:
  *             object.PEQION[9][I] = 0
  *         if EN >= object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6183,7 +6183,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":438
+    /* "gases/XENON.pyx":438
  * 
  *         #L1-SHELL IONISATION
  *         object.QION[10][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6192,7 +6192,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[10])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":439
+    /* "gases/XENON.pyx":439
  *         #L1-SHELL IONISATION
  *         object.QION[10][I] = 0.0
  *         object.PEQION[10][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6201,7 +6201,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[10])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":440
+    /* "gases/XENON.pyx":440
  *         object.QION[10][I] = 0.0
  *         object.PEQION[10][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6211,7 +6211,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":441
+      /* "gases/XENON.pyx":441
  *         object.PEQION[10][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[10][I] = 0             # <<<<<<<<<<<<<<
@@ -6220,7 +6220,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[10])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":440
+      /* "gases/XENON.pyx":440
  *         object.QION[10][I] = 0.0
  *         object.PEQION[10][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6229,7 +6229,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":442
+    /* "gases/XENON.pyx":442
  *         if object.NANISO == 2:
  *             object.PEQION[10][I] = 0
  *         if EN >= object.EION[10]:             # <<<<<<<<<<<<<<
@@ -6239,7 +6239,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[10])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":443
+      /* "gases/XENON.pyx":443
  *             object.PEQION[10][I] = 0
  *         if EN >= object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQIONREG(EN, NIONL1, YL1S, XL1S)             # <<<<<<<<<<<<<<
@@ -6248,7 +6248,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[10])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONL1, __pyx_v_YL1S, __pyx_v_XL1S);
 
-      /* "XENON.pyx":444
+      /* "gases/XENON.pyx":444
  *         if EN >= object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQIONREG(EN, NIONL1, YL1S, XL1S)
  *             object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]             # <<<<<<<<<<<<<<
@@ -6257,7 +6257,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[10]))]);
 
-      /* "XENON.pyx":442
+      /* "gases/XENON.pyx":442
  *         if object.NANISO == 2:
  *             object.PEQION[10][I] = 0
  *         if EN >= object.EION[10]:             # <<<<<<<<<<<<<<
@@ -6266,7 +6266,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":447
+    /* "gases/XENON.pyx":447
  * 
  *         #K-SHELL IONISATION
  *         object.QION[11][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6275,7 +6275,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[11])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":448
+    /* "gases/XENON.pyx":448
  *         #K-SHELL IONISATION
  *         object.QION[11][I] = 0.0
  *         object.PEQION[11][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6284,7 +6284,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[11])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":449
+    /* "gases/XENON.pyx":449
  *         object.QION[11][I] = 0.0
  *         object.PEQION[11][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6294,7 +6294,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":450
+      /* "gases/XENON.pyx":450
  *         object.PEQION[11][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[11][I] = 0             # <<<<<<<<<<<<<<
@@ -6303,7 +6303,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[11])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":449
+      /* "gases/XENON.pyx":449
  *         object.QION[11][I] = 0.0
  *         object.PEQION[11][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6312,7 +6312,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":451
+    /* "gases/XENON.pyx":451
  *         if object.NANISO == 2:
  *             object.PEQION[11][I] = 0
  *         if EN >= object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6322,7 +6322,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN >= (__pyx_v_object->EION[11])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":452
+      /* "gases/XENON.pyx":452
  *             object.PEQION[11][I] = 0
  *         if EN >= object.EION[11]:
  *             object.QION[11][I] = GasUtil.CALQIONREG(EN, NIONK, YKSH, XKSH)             # <<<<<<<<<<<<<<
@@ -6331,7 +6331,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[11])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIONK, __pyx_v_YKSH, __pyx_v_XKSH);
 
-      /* "XENON.pyx":453
+      /* "gases/XENON.pyx":453
  *         if EN >= object.EION[11]:
  *             object.QION[11][I] = GasUtil.CALQIONREG(EN, NIONK, YKSH, XKSH)
  *             object.PEQION[11][I] = object.PEQEL[1][I - IOFFION[11]]             # <<<<<<<<<<<<<<
@@ -6340,7 +6340,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[11]))]);
 
-      /* "XENON.pyx":451
+      /* "gases/XENON.pyx":451
  *         if object.NANISO == 2:
  *             object.PEQION[11][I] = 0
  *         if EN >= object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6349,7 +6349,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":456
+    /* "gases/XENON.pyx":456
  * 
  *         # ATTACHMENT
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6358,7 +6358,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":457
+    /* "gases/XENON.pyx":457
  *         # ATTACHMENT
  *         object.Q[3][I] = 0.0
  *         object.QATT[3][I] = object.Q[3][I]             # <<<<<<<<<<<<<<
@@ -6367,7 +6367,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[3])[__pyx_v_I]) = ((__pyx_v_object->Q[3])[__pyx_v_I]);
 
-    /* "XENON.pyx":460
+    /* "gases/XENON.pyx":460
  * 
  *         # COUNTING IONISATION
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6376,7 +6376,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":461
+    /* "gases/XENON.pyx":461
  *         # COUNTING IONISATION
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6385,7 +6385,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.5;
 
-    /* "XENON.pyx":462
+    /* "gases/XENON.pyx":462
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6395,7 +6395,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":463
+      /* "gases/XENON.pyx":463
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6404,7 +6404,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":462
+      /* "gases/XENON.pyx":462
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6413,7 +6413,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":464
+    /* "gases/XENON.pyx":464
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -6423,7 +6423,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":465
+      /* "gases/XENON.pyx":465
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.EION[0]:
  *             object.Q[4][I] = GasUtil.CALQIONX(EN, NIONG, YINC, XION, BETA2, 1.0, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -6432,7 +6432,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIONG, __pyx_v_YINC, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "XENON.pyx":464
+      /* "gases/XENON.pyx":464
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -6441,7 +6441,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":469
+    /* "gases/XENON.pyx":469
  *         # CORRECTION TO CHARGE STATE 1 2 3+4+5+6 X-SECTION FOR K L AND M SHELLS
  *         # CORRECTION GIVES TOTAL IONISATION EQUAL TO OSCILLATOR SUM
  *         QTEMP = 0.0             # <<<<<<<<<<<<<<
@@ -6450,7 +6450,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTEMP = 0.0;
 
-    /* "XENON.pyx":470
+    /* "gases/XENON.pyx":470
  *         # CORRECTION GIVES TOTAL IONISATION EQUAL TO OSCILLATOR SUM
  *         QTEMP = 0.0
  *         for J in range(4, 12):             # <<<<<<<<<<<<<<
@@ -6460,7 +6460,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_35 = 4; __pyx_t_35 < 12; __pyx_t_35+=1) {
       __pyx_v_J = __pyx_t_35;
 
-      /* "XENON.pyx":471
+      /* "gases/XENON.pyx":471
  *         QTEMP = 0.0
  *         for J in range(4, 12):
  *             QTEMP += object.QION[J][I]             # <<<<<<<<<<<<<<
@@ -6470,7 +6470,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QTEMP = (__pyx_v_QTEMP + ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "XENON.pyx":473
+    /* "gases/XENON.pyx":473
  *             QTEMP += object.QION[J][I]
  * 
  *         if object.Q[4][I] == 0.0:             # <<<<<<<<<<<<<<
@@ -6480,7 +6480,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((((__pyx_v_object->Q[4])[__pyx_v_I]) == 0.0) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":474
+      /* "gases/XENON.pyx":474
  * 
  *         if object.Q[4][I] == 0.0:
  *             QCORR = 1.0             # <<<<<<<<<<<<<<
@@ -6489,7 +6489,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QCORR = 1.0;
 
-      /* "XENON.pyx":473
+      /* "gases/XENON.pyx":473
  *             QTEMP += object.QION[J][I]
  * 
  *         if object.Q[4][I] == 0.0:             # <<<<<<<<<<<<<<
@@ -6499,7 +6499,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L64;
     }
 
-    /* "XENON.pyx":476
+    /* "gases/XENON.pyx":476
  *             QCORR = 1.0
  *         else:
  *             QCORR = (object.Q[4][I] - QTEMP) / object.Q[4][I]             # <<<<<<<<<<<<<<
@@ -6511,7 +6511,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L64:;
 
-    /* "XENON.pyx":477
+    /* "gases/XENON.pyx":477
  *         else:
  *             QCORR = (object.Q[4][I] - QTEMP) / object.Q[4][I]
  *         object.QION[0][I] *= QCORR             # <<<<<<<<<<<<<<
@@ -6522,7 +6522,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_35 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_51])[__pyx_t_35]) = (((__pyx_v_object->QION[__pyx_t_51])[__pyx_t_35]) * __pyx_v_QCORR);
 
-    /* "XENON.pyx":478
+    /* "gases/XENON.pyx":478
  *             QCORR = (object.Q[4][I] - QTEMP) / object.Q[4][I]
  *         object.QION[0][I] *= QCORR
  *         object.QION[1][I] *= QCORR             # <<<<<<<<<<<<<<
@@ -6533,7 +6533,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_35 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_51])[__pyx_t_35]) = (((__pyx_v_object->QION[__pyx_t_51])[__pyx_t_35]) * __pyx_v_QCORR);
 
-    /* "XENON.pyx":479
+    /* "gases/XENON.pyx":479
  *         object.QION[0][I] *= QCORR
  *         object.QION[1][I] *= QCORR
  *         object.QION[2][I] *= QCORR             # <<<<<<<<<<<<<<
@@ -6544,7 +6544,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_35 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_51])[__pyx_t_35]) = (((__pyx_v_object->QION[__pyx_t_51])[__pyx_t_35]) * __pyx_v_QCORR);
 
-    /* "XENON.pyx":481
+    /* "gases/XENON.pyx":481
  *         object.QION[2][I] *= QCORR
  * 
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6553,7 +6553,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "XENON.pyx":483
+    /* "gases/XENON.pyx":483
  *         object.Q[5][I] = 0.0
  * 
  *         for NL in range(object.NIN + 1):             # <<<<<<<<<<<<<<
@@ -6565,7 +6565,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_35 = 0; __pyx_t_35 < __pyx_t_52; __pyx_t_35+=1) {
       __pyx_v_NL = __pyx_t_35;
 
-      /* "XENON.pyx":484
+      /* "gases/XENON.pyx":484
  * 
  *         for NL in range(object.NIN + 1):
  *             object.QIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6574,7 +6574,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-      /* "XENON.pyx":485
+      /* "gases/XENON.pyx":485
  *         for NL in range(object.NIN + 1):
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6583,7 +6583,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.5;
 
-      /* "XENON.pyx":486
+      /* "gases/XENON.pyx":486
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6593,7 +6593,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":487
+        /* "gases/XENON.pyx":487
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6602,7 +6602,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-        /* "XENON.pyx":486
+        /* "gases/XENON.pyx":486
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6612,7 +6612,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "XENON.pyx":490
+    /* "gases/XENON.pyx":490
  * 
  *         #1S5
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -6622,7 +6622,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":491
+      /* "gases/XENON.pyx":491
  *         #1S5
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)             # <<<<<<<<<<<<<<
@@ -6631,7 +6631,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N1S5, __pyx_v_Y1S5, __pyx_v_X1S5, 3.0);
 
-      /* "XENON.pyx":490
+      /* "gases/XENON.pyx":490
  * 
  *         #1S5
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -6640,7 +6640,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":492
+    /* "gases/XENON.pyx":492
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)
  *         if EN > (2 * object.EIN[0]):             # <<<<<<<<<<<<<<
@@ -6650,7 +6650,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":493
+      /* "gases/XENON.pyx":493
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)
  *         if EN > (2 * object.EIN[0]):
  *             object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]             # <<<<<<<<<<<<<<
@@ -6659,7 +6659,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0]))]);
 
-      /* "XENON.pyx":492
+      /* "gases/XENON.pyx":492
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)
  *         if EN > (2 * object.EIN[0]):             # <<<<<<<<<<<<<<
@@ -6668,7 +6668,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":496
+    /* "gases/XENON.pyx":496
  * 
  *         #1S4 F=0.260
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -6678,7 +6678,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":497
+      /* "gases/XENON.pyx":497
  *         #1S4 F=0.260
  *         if EN > object.EIN[1]:
  *             if EN <= X1S4[N1S4]:             # <<<<<<<<<<<<<<
@@ -6688,7 +6688,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN <= (__pyx_v_X1S4[__pyx_v_N1S4])) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":498
+        /* "gases/XENON.pyx":498
  *         if EN > object.EIN[1]:
  *             if EN <= X1S4[N1S4]:
  *                 object.QIN[1][I] = GasUtil.CALQIN(EN, N1S4, Y1S4, X1S4)             # <<<<<<<<<<<<<<
@@ -6697,7 +6697,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIN(__pyx_v_EN, __pyx_v_N1S4, __pyx_v_Y1S4, __pyx_v_X1S4);
 
-        /* "XENON.pyx":497
+        /* "gases/XENON.pyx":497
  *         #1S4 F=0.260
  *         if EN > object.EIN[1]:
  *             if EN <= X1S4[N1S4]:             # <<<<<<<<<<<<<<
@@ -6707,7 +6707,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L71;
       }
 
-      /* "XENON.pyx":502
+      /* "gases/XENON.pyx":502
  *                 object.QIN[1][I] = 0.260 / (object.EIN[1] * BETA2) * (
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[1])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[1] + object.E[2])             # <<<<<<<<<<<<<<
@@ -6716,7 +6716,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       /*else*/ {
 
-        /* "XENON.pyx":500
+        /* "gases/XENON.pyx":500
  *                 object.QIN[1][I] = GasUtil.CALQIN(EN, N1S4, Y1S4, X1S4)
  *             else:
  *                 object.QIN[1][I] = 0.260 / (object.EIN[1] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6727,7 +6727,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L71:;
 
-      /* "XENON.pyx":503
+      /* "gases/XENON.pyx":503
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[1])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[1] + object.E[2])
  *             if EN > (2 * object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -6737,7 +6737,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[1]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":504
+        /* "gases/XENON.pyx":504
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[1] + object.E[2])
  *             if EN > (2 * object.EIN[1]):
  *                 object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]             # <<<<<<<<<<<<<<
@@ -6746,7 +6746,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[1]))]);
 
-        /* "XENON.pyx":503
+        /* "gases/XENON.pyx":503
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[1])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[1] + object.E[2])
  *             if EN > (2 * object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -6755,7 +6755,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":496
+      /* "gases/XENON.pyx":496
  * 
  *         #1S4 F=0.260
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -6764,7 +6764,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":507
+    /* "gases/XENON.pyx":507
  * 
  *         #1S3
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -6774,7 +6774,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[2])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":508
+      /* "gases/XENON.pyx":508
  *         #1S3
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)             # <<<<<<<<<<<<<<
@@ -6783,7 +6783,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N1S3, __pyx_v_Y1S3, __pyx_v_X1S3, 3.0);
 
-      /* "XENON.pyx":507
+      /* "gases/XENON.pyx":507
  * 
  *         #1S3
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -6792,7 +6792,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":509
+    /* "gases/XENON.pyx":509
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)
  *         if EN > (2 * object.EIN[2]):             # <<<<<<<<<<<<<<
@@ -6802,7 +6802,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[2]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":510
+      /* "gases/XENON.pyx":510
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)
  *         if EN > (2 * object.EIN[2]):
  *             object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -6811,7 +6811,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-      /* "XENON.pyx":509
+      /* "gases/XENON.pyx":509
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)
  *         if EN > (2 * object.EIN[2]):             # <<<<<<<<<<<<<<
@@ -6820,7 +6820,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":513
+    /* "gases/XENON.pyx":513
  * 
  *         #1S2 F=0.183
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -6830,7 +6830,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":514
+      /* "gases/XENON.pyx":514
  *         #1S2 F=0.183
  *         if EN > object.EIN[3]:
  *             if EN <= X1S2[N1S2]:             # <<<<<<<<<<<<<<
@@ -6840,7 +6840,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN <= (__pyx_v_X1S2[__pyx_v_N1S2])) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":515
+        /* "gases/XENON.pyx":515
  *         if EN > object.EIN[3]:
  *             if EN <= X1S2[N1S2]:
  *                 object.QIN[3][I] = GasUtil.CALQIN(EN, N1S2, Y1S2, X1S2)             # <<<<<<<<<<<<<<
@@ -6849,7 +6849,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIN(__pyx_v_EN, __pyx_v_N1S2, __pyx_v_Y1S2, __pyx_v_X1S2);
 
-        /* "XENON.pyx":514
+        /* "gases/XENON.pyx":514
  *         #1S2 F=0.183
  *         if EN > object.EIN[3]:
  *             if EN <= X1S2[N1S2]:             # <<<<<<<<<<<<<<
@@ -6859,7 +6859,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L76;
       }
 
-      /* "XENON.pyx":519
+      /* "gases/XENON.pyx":519
  *                 object.QIN[3][I] = 0.183 / (object.EIN[3] * BETA2) * (
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[3])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[3] + object.E[2])             # <<<<<<<<<<<<<<
@@ -6868,7 +6868,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       /*else*/ {
 
-        /* "XENON.pyx":517
+        /* "gases/XENON.pyx":517
  *                 object.QIN[3][I] = GasUtil.CALQIN(EN, N1S2, Y1S2, X1S2)
  *             else:
  *                 object.QIN[3][I] = 0.183 / (object.EIN[3] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6879,7 +6879,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L76:;
 
-      /* "XENON.pyx":520
+      /* "gases/XENON.pyx":520
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[3])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[3] + object.E[2])
  *             if EN > (2 * object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -6889,7 +6889,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[1]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":521
+        /* "gases/XENON.pyx":521
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[3] + object.E[2])
  *             if EN > (2 * object.EIN[1]):
  *                 object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -6898,7 +6898,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-        /* "XENON.pyx":520
+        /* "gases/XENON.pyx":520
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[3])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[3] + object.E[2])
  *             if EN > (2 * object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -6907,7 +6907,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":513
+      /* "gases/XENON.pyx":513
  * 
  *         #1S2 F=0.183
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -6916,7 +6916,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":525
+    /* "gases/XENON.pyx":525
  *         #P STATES
  *         #2P10
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -6926,7 +6926,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[4])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":526
+      /* "gases/XENON.pyx":526
  *         #2P10
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3)             # <<<<<<<<<<<<<<
@@ -6935,7 +6935,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P10, __pyx_v_Y2P10, __pyx_v_X2P10, 3.0);
 
-      /* "XENON.pyx":525
+      /* "gases/XENON.pyx":525
  *         #P STATES
  *         #2P10
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -6944,7 +6944,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":527
+    /* "gases/XENON.pyx":527
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3)
  *         if EN > (2 * object.EIN[4]):             # <<<<<<<<<<<<<<
@@ -6954,7 +6954,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[4]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":528
+      /* "gases/XENON.pyx":528
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3)
  *         if EN > (2 * object.EIN[4]):
  *             object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -6963,7 +6963,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-      /* "XENON.pyx":527
+      /* "gases/XENON.pyx":527
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3)
  *         if EN > (2 * object.EIN[4]):             # <<<<<<<<<<<<<<
@@ -6972,7 +6972,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":531
+    /* "gases/XENON.pyx":531
  * 
  *         #2P9
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -6982,7 +6982,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":532
+      /* "gases/XENON.pyx":532
  *         #2P9
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 1)             # <<<<<<<<<<<<<<
@@ -6991,7 +6991,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P9, __pyx_v_Y2P9, __pyx_v_X2P9, 1.0);
 
-      /* "XENON.pyx":531
+      /* "gases/XENON.pyx":531
  * 
  *         #2P9
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7000,7 +7000,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":533
+    /* "gases/XENON.pyx":533
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 1)
  *         if EN > (2 * object.EIN[5]):             # <<<<<<<<<<<<<<
@@ -7010,7 +7010,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[5]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":534
+      /* "gases/XENON.pyx":534
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 1)
  *         if EN > (2 * object.EIN[5]):
  *             object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -7019,7 +7019,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-      /* "XENON.pyx":533
+      /* "gases/XENON.pyx":533
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 1)
  *         if EN > (2 * object.EIN[5]):             # <<<<<<<<<<<<<<
@@ -7028,7 +7028,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":537
+    /* "gases/XENON.pyx":537
  * 
  *         #2P8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7038,7 +7038,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":538
+      /* "gases/XENON.pyx":538
  *         #2P8
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 3)             # <<<<<<<<<<<<<<
@@ -7047,7 +7047,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P8, __pyx_v_Y2P8, __pyx_v_X2P8, 3.0);
 
-      /* "XENON.pyx":537
+      /* "gases/XENON.pyx":537
  * 
  *         #2P8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7056,7 +7056,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":539
+    /* "gases/XENON.pyx":539
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 3)
  *         if EN > (2 * object.EIN[6]):             # <<<<<<<<<<<<<<
@@ -7066,7 +7066,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[6]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":540
+      /* "gases/XENON.pyx":540
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 3)
  *         if EN > (2 * object.EIN[6]):
  *             object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -7075,7 +7075,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-      /* "XENON.pyx":539
+      /* "gases/XENON.pyx":539
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 3)
  *         if EN > (2 * object.EIN[6]):             # <<<<<<<<<<<<<<
@@ -7084,7 +7084,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":543
+    /* "gases/XENON.pyx":543
  * 
  *         #2P7
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7094,7 +7094,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":544
+      /* "gases/XENON.pyx":544
  *         #2P7
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 2)             # <<<<<<<<<<<<<<
@@ -7103,7 +7103,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P7, __pyx_v_Y2P7, __pyx_v_X2P7, 2.0);
 
-      /* "XENON.pyx":543
+      /* "gases/XENON.pyx":543
  * 
  *         #2P7
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7112,7 +7112,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":545
+    /* "gases/XENON.pyx":545
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 2)
  *         if EN > (2 * object.EIN[7]):             # <<<<<<<<<<<<<<
@@ -7122,7 +7122,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[7]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":546
+      /* "gases/XENON.pyx":546
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 2)
  *         if EN > (2 * object.EIN[7]):
  *             object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -7131,7 +7131,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-      /* "XENON.pyx":545
+      /* "gases/XENON.pyx":545
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 2)
  *         if EN > (2 * object.EIN[7]):             # <<<<<<<<<<<<<<
@@ -7140,7 +7140,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":549
+    /* "gases/XENON.pyx":549
  * 
  *         #2P6
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -7150,7 +7150,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":550
+      /* "gases/XENON.pyx":550
  *         #2P6
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)             # <<<<<<<<<<<<<<
@@ -7159,7 +7159,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P6, __pyx_v_Y2P6, __pyx_v_X2P6, 1.0);
 
-      /* "XENON.pyx":549
+      /* "gases/XENON.pyx":549
  * 
  *         #2P6
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -7168,7 +7168,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":551
+    /* "gases/XENON.pyx":551
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)
  *         if EN > (2 * object.EIN[8]):             # <<<<<<<<<<<<<<
@@ -7178,7 +7178,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[8]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":552
+      /* "gases/XENON.pyx":552
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)
  *         if EN > (2 * object.EIN[8]):
  *             object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]             # <<<<<<<<<<<<<<
@@ -7187,7 +7187,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[8]))]);
 
-      /* "XENON.pyx":551
+      /* "gases/XENON.pyx":551
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)
  *         if EN > (2 * object.EIN[8]):             # <<<<<<<<<<<<<<
@@ -7196,7 +7196,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":555
+    /* "gases/XENON.pyx":555
  * 
  *         #3D6
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -7206,7 +7206,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":556
+      /* "gases/XENON.pyx":556
  *         #3D6
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 1.5)             # <<<<<<<<<<<<<<
@@ -7215,7 +7215,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D6, __pyx_v_Y3D6, __pyx_v_X3D6, 1.5);
 
-      /* "XENON.pyx":555
+      /* "gases/XENON.pyx":555
  * 
  *         #3D6
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -7224,7 +7224,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":557
+    /* "gases/XENON.pyx":557
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 1.5)
  *         if EN > (2 * object.EIN[9]):             # <<<<<<<<<<<<<<
@@ -7234,7 +7234,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[9]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":558
+      /* "gases/XENON.pyx":558
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 1.5)
  *         if EN > (2 * object.EIN[9]):
  *             object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]             # <<<<<<<<<<<<<<
@@ -7243,7 +7243,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[9]))]);
 
-      /* "XENON.pyx":557
+      /* "gases/XENON.pyx":557
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 1.5)
  *         if EN > (2 * object.EIN[9]):             # <<<<<<<<<<<<<<
@@ -7252,7 +7252,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":561
+    /* "gases/XENON.pyx":561
  * 
  *         #3D5 F=0.0100
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -7262,7 +7262,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":562
+      /* "gases/XENON.pyx":562
  *         #3D5 F=0.0100
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = 0.01 / (object.EIN[10] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7271,7 +7271,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = (((((0.01 / ((__pyx_v_object->EIN[10]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[10])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[10])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":565
+      /* "gases/XENON.pyx":565
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[10])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[10] + object.E[2])
  *             if EN > (2 * object.EIN[10]):             # <<<<<<<<<<<<<<
@@ -7281,7 +7281,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[10]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":566
+        /* "gases/XENON.pyx":566
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[10] + object.E[2])
  *             if EN > (2 * object.EIN[10]):
  *                 object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -7290,7 +7290,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-        /* "XENON.pyx":565
+        /* "gases/XENON.pyx":565
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[10])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[10] + object.E[2])
  *             if EN > (2 * object.EIN[10]):             # <<<<<<<<<<<<<<
@@ -7299,7 +7299,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":561
+      /* "gases/XENON.pyx":561
  * 
  *         #3D5 F=0.0100
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -7308,7 +7308,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":568
+    /* "gases/XENON.pyx":568
  *                 object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
  *         #2P5
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -7318,7 +7318,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[11])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":569
+      /* "gases/XENON.pyx":569
  *         #2P5
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1)             # <<<<<<<<<<<<<<
@@ -7327,7 +7327,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[11])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P5, __pyx_v_Y2P5, __pyx_v_X2P5, 1.0);
 
-      /* "XENON.pyx":568
+      /* "gases/XENON.pyx":568
  *                 object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
  *         #2P5
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -7336,7 +7336,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":570
+    /* "gases/XENON.pyx":570
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1)
  *         if EN > (2 * object.EIN[11]):             # <<<<<<<<<<<<<<
@@ -7346,7 +7346,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[11]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":571
+      /* "gases/XENON.pyx":571
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1)
  *         if EN > (2 * object.EIN[11]):
  *             object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]             # <<<<<<<<<<<<<<
@@ -7355,7 +7355,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[11]))]);
 
-      /* "XENON.pyx":570
+      /* "gases/XENON.pyx":570
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1)
  *         if EN > (2 * object.EIN[11]):             # <<<<<<<<<<<<<<
@@ -7364,7 +7364,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":574
+    /* "gases/XENON.pyx":574
  * 
  *         #3D4!
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -7374,7 +7374,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":575
+      /* "gases/XENON.pyx":575
  *         #3D4!
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 1.5)             # <<<<<<<<<<<<<<
@@ -7383,7 +7383,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[12])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D4P, __pyx_v_Y3D4P, __pyx_v_X3D4P, 1.5);
 
-      /* "XENON.pyx":574
+      /* "gases/XENON.pyx":574
  * 
  *         #3D4!
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -7392,7 +7392,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":576
+    /* "gases/XENON.pyx":576
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 1.5)
  *         if EN > (2 * object.EIN[12]):             # <<<<<<<<<<<<<<
@@ -7402,7 +7402,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[12]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":577
+      /* "gases/XENON.pyx":577
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 1.5)
  *         if EN > (2 * object.EIN[12]):
  *             object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]             # <<<<<<<<<<<<<<
@@ -7411,7 +7411,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[12]))]);
 
-      /* "XENON.pyx":576
+      /* "gases/XENON.pyx":576
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 1.5)
  *         if EN > (2 * object.EIN[12]):             # <<<<<<<<<<<<<<
@@ -7420,7 +7420,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":580
+    /* "gases/XENON.pyx":580
  * 
  *         #3D3
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -7430,7 +7430,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[13])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":581
+      /* "gases/XENON.pyx":581
  *         #3D3
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 1.5)             # <<<<<<<<<<<<<<
@@ -7439,7 +7439,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[13])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D3, __pyx_v_Y3D3, __pyx_v_X3D3, 1.5);
 
-      /* "XENON.pyx":580
+      /* "gases/XENON.pyx":580
  * 
  *         #3D3
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -7448,7 +7448,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":582
+    /* "gases/XENON.pyx":582
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 1.5)
  *         if EN > (2 * object.EIN[13]):             # <<<<<<<<<<<<<<
@@ -7458,7 +7458,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[13]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":583
+      /* "gases/XENON.pyx":583
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 1.5)
  *         if EN > (2 * object.EIN[13]):
  *             object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]             # <<<<<<<<<<<<<<
@@ -7467,7 +7467,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[13])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[13]))]);
 
-      /* "XENON.pyx":582
+      /* "gases/XENON.pyx":582
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 1.5)
  *         if EN > (2 * object.EIN[13]):             # <<<<<<<<<<<<<<
@@ -7476,7 +7476,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":586
+    /* "gases/XENON.pyx":586
  * 
  *         #3D4
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -7486,7 +7486,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[14])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":587
+      /* "gases/XENON.pyx":587
  *         #3D4
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 2)             # <<<<<<<<<<<<<<
@@ -7495,7 +7495,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[14])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D4, __pyx_v_Y3D4, __pyx_v_X3D4, 2.0);
 
-      /* "XENON.pyx":586
+      /* "gases/XENON.pyx":586
  * 
  *         #3D4
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -7504,7 +7504,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":588
+    /* "gases/XENON.pyx":588
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 2)
  *         if EN > (2 * object.EIN[14]):             # <<<<<<<<<<<<<<
@@ -7514,7 +7514,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[14]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":589
+      /* "gases/XENON.pyx":589
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 2)
  *         if EN > (2 * object.EIN[14]):
  *             object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]             # <<<<<<<<<<<<<<
@@ -7523,7 +7523,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[14])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[14]))]);
 
-      /* "XENON.pyx":588
+      /* "gases/XENON.pyx":588
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 2)
  *         if EN > (2 * object.EIN[14]):             # <<<<<<<<<<<<<<
@@ -7532,7 +7532,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":592
+    /* "gases/XENON.pyx":592
  * 
  *         #3D1!!
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -7542,7 +7542,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[15])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":593
+      /* "gases/XENON.pyx":593
  *         #3D1!!
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)             # <<<<<<<<<<<<<<
@@ -7551,7 +7551,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[15])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D1PP, __pyx_v_Y3D1PP, __pyx_v_X3D1PP, 3.0);
 
-      /* "XENON.pyx":592
+      /* "gases/XENON.pyx":592
  * 
  *         #3D1!!
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -7560,7 +7560,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":594
+    /* "gases/XENON.pyx":594
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)
  *         if EN > (2 * object.EIN[15]):             # <<<<<<<<<<<<<<
@@ -7570,7 +7570,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[15]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":595
+      /* "gases/XENON.pyx":595
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)
  *         if EN > (2 * object.EIN[15]):
  *             object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]             # <<<<<<<<<<<<<<
@@ -7579,7 +7579,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[15])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[15]))]);
 
-      /* "XENON.pyx":594
+      /* "gases/XENON.pyx":594
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)
  *         if EN > (2 * object.EIN[15]):             # <<<<<<<<<<<<<<
@@ -7588,7 +7588,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":598
+    /* "gases/XENON.pyx":598
  * 
  *         #3D1!
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -7598,7 +7598,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[16])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":599
+      /* "gases/XENON.pyx":599
  *         #3D1!
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1)             # <<<<<<<<<<<<<<
@@ -7607,7 +7607,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[16])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D1P, __pyx_v_Y3D1P, __pyx_v_X3D1P, 1.0);
 
-      /* "XENON.pyx":598
+      /* "gases/XENON.pyx":598
  * 
  *         #3D1!
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -7616,7 +7616,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":600
+    /* "gases/XENON.pyx":600
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1)
  *         if EN > (2 * object.EIN[16]):             # <<<<<<<<<<<<<<
@@ -7626,7 +7626,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[16]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":601
+      /* "gases/XENON.pyx":601
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1)
  *         if EN > (2 * object.EIN[16]):
  *             object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]             # <<<<<<<<<<<<<<
@@ -7635,7 +7635,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[16])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[16]))]);
 
-      /* "XENON.pyx":600
+      /* "gases/XENON.pyx":600
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1)
  *         if EN > (2 * object.EIN[16]):             # <<<<<<<<<<<<<<
@@ -7644,7 +7644,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":604
+    /* "gases/XENON.pyx":604
  * 
  *         #3D2 F=0.379
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -7654,7 +7654,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[17])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":605
+      /* "gases/XENON.pyx":605
  *         #3D2 F=0.379
  *         if EN > object.EIN[17]:
  *             object.QIN[17][I] = 0.379 / (object.EIN[17] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7663,7 +7663,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[17])[__pyx_v_I]) = (((((0.379 / ((__pyx_v_object->EIN[17]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[17])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[17])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":608
+      /* "gases/XENON.pyx":608
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[17])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[17] + object.E[2])
  *             if EN > (2 * object.EIN[17]):             # <<<<<<<<<<<<<<
@@ -7673,7 +7673,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[17]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":609
+        /* "gases/XENON.pyx":609
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[17] + object.E[2])
  *             if EN > (2 * object.EIN[17]):
  *                 object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]             # <<<<<<<<<<<<<<
@@ -7682,7 +7682,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[17])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[17]))]);
 
-        /* "XENON.pyx":608
+        /* "gases/XENON.pyx":608
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[17])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[17] + object.E[2])
  *             if EN > (2 * object.EIN[17]):             # <<<<<<<<<<<<<<
@@ -7691,7 +7691,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":604
+      /* "gases/XENON.pyx":604
  * 
  *         #3D2 F=0.379
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -7700,7 +7700,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":612
+    /* "gases/XENON.pyx":612
  * 
  *         #2S5
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -7710,7 +7710,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[18])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":613
+      /* "gases/XENON.pyx":613
  *         #2S5
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3)             # <<<<<<<<<<<<<<
@@ -7719,7 +7719,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[18])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2S5, __pyx_v_Y2S5, __pyx_v_X2S5, 3.0);
 
-      /* "XENON.pyx":612
+      /* "gases/XENON.pyx":612
  * 
  *         #2S5
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -7728,7 +7728,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":614
+    /* "gases/XENON.pyx":614
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3)
  *         if EN > (2 * object.EIN[18]):             # <<<<<<<<<<<<<<
@@ -7738,7 +7738,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[18]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":615
+      /* "gases/XENON.pyx":615
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3)
  *         if EN > (2 * object.EIN[18]):
  *             object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]             # <<<<<<<<<<<<<<
@@ -7747,7 +7747,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[18])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[18]))]);
 
-      /* "XENON.pyx":614
+      /* "gases/XENON.pyx":614
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3)
  *         if EN > (2 * object.EIN[18]):             # <<<<<<<<<<<<<<
@@ -7756,7 +7756,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":618
+    /* "gases/XENON.pyx":618
  * 
  *         #2S4 J=1 F=0.086
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -7766,7 +7766,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[19])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":619
+      /* "gases/XENON.pyx":619
  *         #2S4 J=1 F=0.086
  *         if EN > object.EIN[19]:
  *             object.QIN[19][I] = 0.086 / (object.EIN[19] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7775,7 +7775,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[19])[__pyx_v_I]) = (((((0.086 / ((__pyx_v_object->EIN[19]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[19])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[19])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":622
+      /* "gases/XENON.pyx":622
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[19])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[19] + object.E[2])
  *             if EN > (2 * object.EIN[19]):             # <<<<<<<<<<<<<<
@@ -7785,7 +7785,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[19]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":623
+        /* "gases/XENON.pyx":623
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[19] + object.E[2])
  *             if EN > (2 * object.EIN[19]):
  *                 object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]             # <<<<<<<<<<<<<<
@@ -7794,7 +7794,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[19])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[19]))]);
 
-        /* "XENON.pyx":622
+        /* "gases/XENON.pyx":622
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[19])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[19] + object.E[2])
  *             if EN > (2 * object.EIN[19]):             # <<<<<<<<<<<<<<
@@ -7803,7 +7803,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":618
+      /* "gases/XENON.pyx":618
  * 
  *         #2S4 J=1 F=0.086
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -7812,7 +7812,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":626
+    /* "gases/XENON.pyx":626
  * 
  *         #SUM 3P10+3P9+3P8+3P7+3P6+3P5
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -7822,7 +7822,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[20])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":627
+      /* "gases/XENON.pyx":627
  *         #SUM 3P10+3P9+3P8+3P7+3P6+3P5
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3PSUM, Y3P105, X3P105, 1)             # <<<<<<<<<<<<<<
@@ -7831,7 +7831,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[20])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3PSUM, __pyx_v_Y3P105, __pyx_v_X3P105, 1.0);
 
-      /* "XENON.pyx":626
+      /* "gases/XENON.pyx":626
  * 
  *         #SUM 3P10+3P9+3P8+3P7+3P6+3P5
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -7840,7 +7840,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":628
+    /* "gases/XENON.pyx":628
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3PSUM, Y3P105, X3P105, 1)
  *         if EN > (2 * object.EIN[20]):             # <<<<<<<<<<<<<<
@@ -7850,7 +7850,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[20]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":629
+      /* "gases/XENON.pyx":629
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3PSUM, Y3P105, X3P105, 1)
  *         if EN > (2 * object.EIN[20]):
  *             object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[20]]             # <<<<<<<<<<<<<<
@@ -7859,7 +7859,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[20])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[20]))]);
 
-      /* "XENON.pyx":628
+      /* "gases/XENON.pyx":628
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3PSUM, Y3P105, X3P105, 1)
  *         if EN > (2 * object.EIN[20]):             # <<<<<<<<<<<<<<
@@ -7868,7 +7868,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":632
+    /* "gases/XENON.pyx":632
  * 
  *         #2P4
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -7878,7 +7878,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[21])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":633
+      /* "gases/XENON.pyx":633
  *         #2P4
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 2)             # <<<<<<<<<<<<<<
@@ -7887,7 +7887,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[21])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P4, __pyx_v_Y2P4, __pyx_v_X2P4, 2.0);
 
-      /* "XENON.pyx":632
+      /* "gases/XENON.pyx":632
  * 
  *         #2P4
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -7896,7 +7896,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":634
+    /* "gases/XENON.pyx":634
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 2)
  *         if EN > (2 * object.EIN[21]):             # <<<<<<<<<<<<<<
@@ -7906,7 +7906,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[21]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":635
+      /* "gases/XENON.pyx":635
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 2)
  *         if EN > (2 * object.EIN[21]):
  *             object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]             # <<<<<<<<<<<<<<
@@ -7915,7 +7915,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[21])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[21]))]);
 
-      /* "XENON.pyx":634
+      /* "gases/XENON.pyx":634
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 2)
  *         if EN > (2 * object.EIN[21]):             # <<<<<<<<<<<<<<
@@ -7924,7 +7924,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":638
+    /* "gases/XENON.pyx":638
  * 
  *         #SUM 4D6+4D3+4D4P+4D4+4D1PP+4D1P
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -7934,7 +7934,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[22])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":639
+      /* "gases/XENON.pyx":639
  *         #SUM 4D6+4D3+4D4P+4D4+4D1PP+4D1P
  *         if EN > object.EIN[22]:
  *             object.QIN[22][I] = GasUtil.CALQINP(EN, N4DSUM, Y4DSUM, X4DSUM, 3)             # <<<<<<<<<<<<<<
@@ -7943,7 +7943,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[22])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N4DSUM, __pyx_v_Y4DSUM, __pyx_v_X4DSUM, 3.0);
 
-      /* "XENON.pyx":638
+      /* "gases/XENON.pyx":638
  * 
  *         #SUM 4D6+4D3+4D4P+4D4+4D1PP+4D1P
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -7952,7 +7952,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":640
+    /* "gases/XENON.pyx":640
  *         if EN > object.EIN[22]:
  *             object.QIN[22][I] = GasUtil.CALQINP(EN, N4DSUM, Y4DSUM, X4DSUM, 3)
  *         if EN > (2 * object.EIN[22]):             # <<<<<<<<<<<<<<
@@ -7962,7 +7962,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[22]))) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":641
+      /* "gases/XENON.pyx":641
  *             object.QIN[22][I] = GasUtil.CALQINP(EN, N4DSUM, Y4DSUM, X4DSUM, 3)
  *         if EN > (2 * object.EIN[22]):
  *             object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]             # <<<<<<<<<<<<<<
@@ -7971,7 +7971,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[22])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[22]))]);
 
-      /* "XENON.pyx":640
+      /* "gases/XENON.pyx":640
  *         if EN > object.EIN[22]:
  *             object.QIN[22][I] = GasUtil.CALQINP(EN, N4DSUM, Y4DSUM, X4DSUM, 3)
  *         if EN > (2 * object.EIN[22]):             # <<<<<<<<<<<<<<
@@ -7980,7 +7980,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":644
+    /* "gases/XENON.pyx":644
  * 
  *         # 4D5 J=1 F=0.0010
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -7990,7 +7990,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[23])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":645
+      /* "gases/XENON.pyx":645
  *         # 4D5 J=1 F=0.0010
  *         if EN > object.EIN[23]:
  *             object.QIN[23][I] = 0.001 / (object.EIN[23] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7999,7 +7999,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[23])[__pyx_v_I]) = (((((0.001 / ((__pyx_v_object->EIN[23]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[23])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[23])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":648
+      /* "gases/XENON.pyx":648
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[23])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[23] + object.E[2])
  *             if EN > (2 * object.EIN[23]):             # <<<<<<<<<<<<<<
@@ -8009,7 +8009,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[23]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":649
+        /* "gases/XENON.pyx":649
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[23] + object.E[2])
  *             if EN > (2 * object.EIN[23]):
  *                 object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]             # <<<<<<<<<<<<<<
@@ -8018,7 +8018,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[23])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[23]))]);
 
-        /* "XENON.pyx":648
+        /* "gases/XENON.pyx":648
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[23])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[23] + object.E[2])
  *             if EN > (2 * object.EIN[23]):             # <<<<<<<<<<<<<<
@@ -8027,7 +8027,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":644
+      /* "gases/XENON.pyx":644
  * 
  *         # 4D5 J=1 F=0.0010
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -8036,7 +8036,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":652
+    /* "gases/XENON.pyx":652
  * 
  *         #2P3
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -8046,7 +8046,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[24])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":653
+      /* "gases/XENON.pyx":653
  *         #2P3
  *         if EN > object.EIN[24]:
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 1)             # <<<<<<<<<<<<<<
@@ -8055,7 +8055,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[24])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P3, __pyx_v_Y2P3, __pyx_v_X2P3, 1.0);
 
-      /* "XENON.pyx":652
+      /* "gases/XENON.pyx":652
  * 
  *         #2P3
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -8064,7 +8064,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":656
+    /* "gases/XENON.pyx":656
  * 
  *         #2P2
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -8074,7 +8074,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[25])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":657
+      /* "gases/XENON.pyx":657
  *         #2P2
  *         if EN > object.EIN[25]:
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 2)             # <<<<<<<<<<<<<<
@@ -8083,7 +8083,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[25])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P2, __pyx_v_Y2P2, __pyx_v_X2P2, 2.0);
 
-      /* "XENON.pyx":656
+      /* "gases/XENON.pyx":656
  * 
  *         #2P2
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -8092,7 +8092,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":660
+    /* "gases/XENON.pyx":660
  * 
  *         #2P1
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -8102,7 +8102,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[26])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":661
+      /* "gases/XENON.pyx":661
  *         #2P1
  *         if EN > object.EIN[26]:
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)             # <<<<<<<<<<<<<<
@@ -8111,7 +8111,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[26])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P1, __pyx_v_Y2P1, __pyx_v_X2P1, 1.0);
 
-      /* "XENON.pyx":660
+      /* "gases/XENON.pyx":660
  * 
  *         #2P1
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -8120,7 +8120,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":664
+    /* "gases/XENON.pyx":664
  * 
  *         # 4D2 J=1 F=0.0835
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -8130,7 +8130,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[27])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":665
+      /* "gases/XENON.pyx":665
  *         # 4D2 J=1 F=0.0835
  *         if EN > object.EIN[27]:
  *             object.QIN[27][I] = 0.0835 / (object.EIN[27] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8139,7 +8139,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[27])[__pyx_v_I]) = (((((0.0835 / ((__pyx_v_object->EIN[27]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[27])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[27])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":669
+      /* "gases/XENON.pyx":669
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[27] + object.E[2])
  * 
  *             if EN > (2 * object.EIN[27]):             # <<<<<<<<<<<<<<
@@ -8149,7 +8149,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[27]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":670
+        /* "gases/XENON.pyx":670
  * 
  *             if EN > (2 * object.EIN[27]):
  *                 object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]             # <<<<<<<<<<<<<<
@@ -8158,7 +8158,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[27])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[27]))]);
 
-        /* "XENON.pyx":669
+        /* "gases/XENON.pyx":669
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[27] + object.E[2])
  * 
  *             if EN > (2 * object.EIN[27]):             # <<<<<<<<<<<<<<
@@ -8167,7 +8167,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":664
+      /* "gases/XENON.pyx":664
  * 
  *         # 4D2 J=1 F=0.0835
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -8176,7 +8176,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":673
+    /* "gases/XENON.pyx":673
  * 
  *         # 3S4 J=1 F=0.0225
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -8186,7 +8186,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[28])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":674
+      /* "gases/XENON.pyx":674
  *         # 3S4 J=1 F=0.0225
  *         if EN > object.EIN[28]:
  *             object.QIN[28][I] = 0.0225 / (object.EIN[28] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8195,7 +8195,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[28])[__pyx_v_I]) = (((((0.0225 / ((__pyx_v_object->EIN[28]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[28])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[28])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":677
+      /* "gases/XENON.pyx":677
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[28])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[28] + object.E[2])
  *             if EN > (2 * object.EIN[28]):             # <<<<<<<<<<<<<<
@@ -8205,7 +8205,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[28]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":678
+        /* "gases/XENON.pyx":678
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[28] + object.E[2])
  *             if EN > (2 * object.EIN[28]):
  *                 object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]             # <<<<<<<<<<<<<<
@@ -8214,7 +8214,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[28])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[28]))]);
 
-        /* "XENON.pyx":677
+        /* "gases/XENON.pyx":677
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[28])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[28] + object.E[2])
  *             if EN > (2 * object.EIN[28]):             # <<<<<<<<<<<<<<
@@ -8223,7 +8223,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":673
+      /* "gases/XENON.pyx":673
  * 
  *         # 3S4 J=1 F=0.0225
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -8232,7 +8232,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":681
+    /* "gases/XENON.pyx":681
  * 
  *         # 5D5 J=1 F=0.0227
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -8242,7 +8242,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[29])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":682
+      /* "gases/XENON.pyx":682
  *         # 5D5 J=1 F=0.0227
  *         if EN > object.EIN[29]:
  *             object.QIN[29][I] = 0.0227 / (object.EIN[29] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8251,7 +8251,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[29])[__pyx_v_I]) = (((((0.0227 / ((__pyx_v_object->EIN[29]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[29])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[29])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":685
+      /* "gases/XENON.pyx":685
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[29])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[29] + object.E[2])
  *             if EN > (2 * object.EIN[29]):             # <<<<<<<<<<<<<<
@@ -8261,7 +8261,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[29]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":686
+        /* "gases/XENON.pyx":686
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[29] + object.E[2])
  *             if EN > (2 * object.EIN[29]):
  *                 object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]             # <<<<<<<<<<<<<<
@@ -8270,7 +8270,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[29])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[29]))]);
 
-        /* "XENON.pyx":685
+        /* "gases/XENON.pyx":685
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[29])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[29] + object.E[2])
  *             if EN > (2 * object.EIN[29]):             # <<<<<<<<<<<<<<
@@ -8279,7 +8279,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":681
+      /* "gases/XENON.pyx":681
  * 
  *         # 5D5 J=1 F=0.0227
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -8288,7 +8288,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":689
+    /* "gases/XENON.pyx":689
  * 
  *         # 5D2 J=1 F=0.002
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -8298,7 +8298,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[30])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":690
+      /* "gases/XENON.pyx":690
  *         # 5D2 J=1 F=0.002
  *         if EN > object.EIN[30]:
  *             object.QIN[30][I] = 0.002 / (object.EIN[30] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8307,7 +8307,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[30])[__pyx_v_I]) = (((((0.002 / ((__pyx_v_object->EIN[30]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[30])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[30])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":693
+      /* "gases/XENON.pyx":693
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[30])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[30] + object.E[2])
  *             if EN > (2 * object.EIN[30]):             # <<<<<<<<<<<<<<
@@ -8317,7 +8317,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[30]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":694
+        /* "gases/XENON.pyx":694
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[30] + object.E[2])
  *             if EN > (2 * object.EIN[30]):
  *                 object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]             # <<<<<<<<<<<<<<
@@ -8326,7 +8326,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[30])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[30]))]);
 
-        /* "XENON.pyx":693
+        /* "gases/XENON.pyx":693
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[30])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[30] + object.E[2])
  *             if EN > (2 * object.EIN[30]):             # <<<<<<<<<<<<<<
@@ -8335,7 +8335,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":689
+      /* "gases/XENON.pyx":689
  * 
  *         # 5D2 J=1 F=0.002
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -8344,7 +8344,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":697
+    /* "gases/XENON.pyx":697
  * 
  *         # 4S4 J=1 F=0.0005
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -8354,7 +8354,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[31])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":698
+      /* "gases/XENON.pyx":698
  *         # 4S4 J=1 F=0.0005
  *         if EN > object.EIN[31]:
  *             object.QIN[31][I] = 0.0005 / (object.EIN[31] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8363,7 +8363,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[31])[__pyx_v_I]) = (((((0.0005 / ((__pyx_v_object->EIN[31]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[31])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[31])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":701
+      /* "gases/XENON.pyx":701
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[31])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[31] + object.E[2])
  *             if EN > (2 * object.EIN[31]):             # <<<<<<<<<<<<<<
@@ -8373,7 +8373,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[31]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":702
+        /* "gases/XENON.pyx":702
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[31] + object.E[2])
  *             if EN > (2 * object.EIN[31]):
  *                 object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]             # <<<<<<<<<<<<<<
@@ -8382,7 +8382,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[31])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[31]))]);
 
-        /* "XENON.pyx":701
+        /* "gases/XENON.pyx":701
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[31])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[31] + object.E[2])
  *             if EN > (2 * object.EIN[31]):             # <<<<<<<<<<<<<<
@@ -8391,7 +8391,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":697
+      /* "gases/XENON.pyx":697
  * 
  *         # 4S4 J=1 F=0.0005
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -8400,7 +8400,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":705
+    /* "gases/XENON.pyx":705
  * 
  *         # 3S1! J=1 F=0.1910
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -8410,7 +8410,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[32])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":706
+      /* "gases/XENON.pyx":706
  *         # 3S1! J=1 F=0.1910
  *         if EN > object.EIN[32]:
  *             object.QIN[32][I] = 0.191 / (object.EIN[32] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8419,7 +8419,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[32])[__pyx_v_I]) = (((((0.191 / ((__pyx_v_object->EIN[32]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[32])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[32])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":709
+      /* "gases/XENON.pyx":709
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[32])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[32] + object.E[2])
  *             if EN > (2 * object.EIN[32]):             # <<<<<<<<<<<<<<
@@ -8429,7 +8429,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[32]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":710
+        /* "gases/XENON.pyx":710
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[32] + object.E[2])
  *             if EN > (2 * object.EIN[32]):
  *                 object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]             # <<<<<<<<<<<<<<
@@ -8438,7 +8438,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[32])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[32]))]);
 
-        /* "XENON.pyx":709
+        /* "gases/XENON.pyx":709
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[32])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[32] + object.E[2])
  *             if EN > (2 * object.EIN[32]):             # <<<<<<<<<<<<<<
@@ -8447,7 +8447,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":705
+      /* "gases/XENON.pyx":705
  * 
  *         # 3S1! J=1 F=0.1910
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -8456,7 +8456,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":713
+    /* "gases/XENON.pyx":713
  * 
  *         # 6D5 J=1 F=0.0088
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -8466,7 +8466,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[33])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":714
+      /* "gases/XENON.pyx":714
  *         # 6D5 J=1 F=0.0088
  *         if EN > object.EIN[33]:
  *             object.QIN[33][I] = 0.0088 / (object.EIN[33] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8475,7 +8475,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[33])[__pyx_v_I]) = (((((0.0088 / ((__pyx_v_object->EIN[33]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[33])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[33])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":717
+      /* "gases/XENON.pyx":717
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[33])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[33] + object.E[2])
  *             if EN > (2 * object.EIN[33]):             # <<<<<<<<<<<<<<
@@ -8485,7 +8485,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[33]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":718
+        /* "gases/XENON.pyx":718
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[33] + object.E[2])
  *             if EN > (2 * object.EIN[33]):
  *                 object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]             # <<<<<<<<<<<<<<
@@ -8494,7 +8494,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[33])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[33]))]);
 
-        /* "XENON.pyx":717
+        /* "gases/XENON.pyx":717
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[33])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[33] + object.E[2])
  *             if EN > (2 * object.EIN[33]):             # <<<<<<<<<<<<<<
@@ -8503,7 +8503,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":713
+      /* "gases/XENON.pyx":713
  * 
  *         # 6D5 J=1 F=0.0088
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -8512,7 +8512,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":721
+    /* "gases/XENON.pyx":721
  * 
  *         # 6D2 J=1 F=0.0967
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -8522,7 +8522,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[34])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":722
+      /* "gases/XENON.pyx":722
  *         # 6D2 J=1 F=0.0967
  *         if EN > object.EIN[34]:
  *             object.QIN[34][I] = 0.0967 / (object.EIN[34] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8531,7 +8531,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[34])[__pyx_v_I]) = (((((0.0967 / ((__pyx_v_object->EIN[34]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[34])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[34])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":725
+      /* "gases/XENON.pyx":725
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[34])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[34] + object.E[2])
  *             if EN > (2 * object.EIN[34]):             # <<<<<<<<<<<<<<
@@ -8541,7 +8541,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[34]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":726
+        /* "gases/XENON.pyx":726
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[34] + object.E[2])
  *             if EN > (2 * object.EIN[34]):
  *                 object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]             # <<<<<<<<<<<<<<
@@ -8550,7 +8550,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[34])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[34]))]);
 
-        /* "XENON.pyx":725
+        /* "gases/XENON.pyx":725
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[34])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[34] + object.E[2])
  *             if EN > (2 * object.EIN[34]):             # <<<<<<<<<<<<<<
@@ -8559,7 +8559,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":721
+      /* "gases/XENON.pyx":721
  * 
  *         # 6D2 J=1 F=0.0967
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -8568,7 +8568,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":729
+    /* "gases/XENON.pyx":729
  * 
  *         # 5S4 J=1 F=0.0967
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -8578,7 +8578,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[35])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":730
+      /* "gases/XENON.pyx":730
  *         # 5S4 J=1 F=0.0967
  *         if EN > object.EIN[35]:
  *             object.QIN[35][I] = 0.0288 / (object.EIN[35] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8587,7 +8587,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[35])[__pyx_v_I]) = (((((0.0288 / ((__pyx_v_object->EIN[35]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[35])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[35])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":733
+      /* "gases/XENON.pyx":733
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[35])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[35] + object.E[2])
  *             if EN > (2 * object.EIN[35]):             # <<<<<<<<<<<<<<
@@ -8597,7 +8597,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[35]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":734
+        /* "gases/XENON.pyx":734
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[35] + object.E[2])
  *             if EN > (2 * object.EIN[35]):
  *                 object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]             # <<<<<<<<<<<<<<
@@ -8606,7 +8606,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[35])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[35]))]);
 
-        /* "XENON.pyx":733
+        /* "gases/XENON.pyx":733
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[35])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[35] + object.E[2])
  *             if EN > (2 * object.EIN[35]):             # <<<<<<<<<<<<<<
@@ -8615,7 +8615,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":729
+      /* "gases/XENON.pyx":729
  * 
  *         # 5S4 J=1 F=0.0967
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -8624,7 +8624,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":737
+    /* "gases/XENON.pyx":737
  * 
  *         # 7D5 J=1 F=0.0042
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -8634,7 +8634,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[36])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":738
+      /* "gases/XENON.pyx":738
  *         # 7D5 J=1 F=0.0042
  *         if EN > object.EIN[36]:
  *             object.QIN[36][I] = 0.0042 / (object.EIN[36] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8643,7 +8643,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[36])[__pyx_v_I]) = (((((0.0042 / ((__pyx_v_object->EIN[36]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[36])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[36])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":741
+      /* "gases/XENON.pyx":741
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[36])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[36] + object.E[2])
  *             if EN > (2 * object.EIN[36]):             # <<<<<<<<<<<<<<
@@ -8653,7 +8653,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[36]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":742
+        /* "gases/XENON.pyx":742
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[36] + object.E[2])
  *             if EN > (2 * object.EIN[36]):
  *                 object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]             # <<<<<<<<<<<<<<
@@ -8662,7 +8662,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[36])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[36]))]);
 
-        /* "XENON.pyx":741
+        /* "gases/XENON.pyx":741
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[36])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[36] + object.E[2])
  *             if EN > (2 * object.EIN[36]):             # <<<<<<<<<<<<<<
@@ -8671,7 +8671,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":737
+      /* "gases/XENON.pyx":737
  * 
  *         # 7D5 J=1 F=0.0042
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -8680,7 +8680,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":745
+    /* "gases/XENON.pyx":745
  * 
  *         # 7D2 J=1 F=0.0625
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -8690,7 +8690,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[37])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":746
+      /* "gases/XENON.pyx":746
  *         # 7D2 J=1 F=0.0625
  *         if EN > object.EIN[37]:
  *             object.QIN[37][I] = 0.0625 / (object.EIN[37] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8699,7 +8699,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[37])[__pyx_v_I]) = (((((0.0625 / ((__pyx_v_object->EIN[37]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[37])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[37])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":749
+      /* "gases/XENON.pyx":749
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             if EN > (2 * object.EIN[37]):             # <<<<<<<<<<<<<<
@@ -8709,7 +8709,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[37]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":750
+        /* "gases/XENON.pyx":750
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             if EN > (2 * object.EIN[37]):
  *                 object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]             # <<<<<<<<<<<<<<
@@ -8718,7 +8718,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[37])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[37]))]);
 
-        /* "XENON.pyx":749
+        /* "gases/XENON.pyx":749
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             if EN > (2 * object.EIN[37]):             # <<<<<<<<<<<<<<
@@ -8727,7 +8727,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":745
+      /* "gases/XENON.pyx":745
  * 
  *         # 7D2 J=1 F=0.0625
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -8736,7 +8736,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":753
+    /* "gases/XENON.pyx":753
  * 
  *         # 6S4 J=1 F=0.0025
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -8746,7 +8746,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[38])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":754
+      /* "gases/XENON.pyx":754
  *         # 6S4 J=1 F=0.0025
  *         if EN > object.EIN[38]:
  *             object.QIN[38][I] = 0.0025 / (object.EIN[38] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8755,7 +8755,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[38])[__pyx_v_I]) = (((((0.0025 / ((__pyx_v_object->EIN[38]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[37])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[37])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":757
+      /* "gases/XENON.pyx":757
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             if EN > (2 * object.EIN[37]):             # <<<<<<<<<<<<<<
@@ -8765,7 +8765,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[37]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":758
+        /* "gases/XENON.pyx":758
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             if EN > (2 * object.EIN[37]):
  *                 object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]             # <<<<<<<<<<<<<<
@@ -8774,7 +8774,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[37])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[37]))]);
 
-        /* "XENON.pyx":757
+        /* "gases/XENON.pyx":757
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             if EN > (2 * object.EIN[37]):             # <<<<<<<<<<<<<<
@@ -8783,7 +8783,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":753
+      /* "gases/XENON.pyx":753
  * 
  *         # 6S4 J=1 F=0.0025
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -8792,7 +8792,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":761
+    /* "gases/XENON.pyx":761
  * 
  *         # 2S2 J=1 F=0.029
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -8802,7 +8802,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[39])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":762
+      /* "gases/XENON.pyx":762
  *         # 2S2 J=1 F=0.029
  *         if EN > object.EIN[39]:
  *             object.QIN[39][I] = 0.029 / (object.EIN[39] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8811,7 +8811,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[39])[__pyx_v_I]) = (((((0.029 / ((__pyx_v_object->EIN[39]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[39])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[39])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":765
+      /* "gases/XENON.pyx":765
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[39])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[39] + object.E[2])
  *             if EN > (2 * object.EIN[39]):             # <<<<<<<<<<<<<<
@@ -8821,7 +8821,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[39]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":766
+        /* "gases/XENON.pyx":766
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[39] + object.E[2])
  *             if EN > (2 * object.EIN[39]):
  *                 object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]             # <<<<<<<<<<<<<<
@@ -8830,7 +8830,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[39])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[39]))]);
 
-        /* "XENON.pyx":765
+        /* "gases/XENON.pyx":765
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[39])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[39] + object.E[2])
  *             if EN > (2 * object.EIN[39]):             # <<<<<<<<<<<<<<
@@ -8839,7 +8839,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":761
+      /* "gases/XENON.pyx":761
  * 
  *         # 2S2 J=1 F=0.029
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -8848,7 +8848,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":769
+    /* "gases/XENON.pyx":769
  * 
  *         # 8D5 J=1 F=0.0035
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -8858,7 +8858,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[40])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":770
+      /* "gases/XENON.pyx":770
  *         # 8D5 J=1 F=0.0035
  *         if EN > object.EIN[40]:
  *             object.QIN[40][I] = 0.0035 / (object.EIN[40] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8867,7 +8867,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[40])[__pyx_v_I]) = (((((0.0035 / ((__pyx_v_object->EIN[40]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[40])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[40])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":773
+      /* "gases/XENON.pyx":773
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[40])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[40] + object.E[2])
  *             if EN > (2 * object.EIN[40]):             # <<<<<<<<<<<<<<
@@ -8877,7 +8877,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[40]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":774
+        /* "gases/XENON.pyx":774
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[40] + object.E[2])
  *             if EN > (2 * object.EIN[40]):
  *                 object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]             # <<<<<<<<<<<<<<
@@ -8886,7 +8886,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[40])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[40]))]);
 
-        /* "XENON.pyx":773
+        /* "gases/XENON.pyx":773
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[40])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[40] + object.E[2])
  *             if EN > (2 * object.EIN[40]):             # <<<<<<<<<<<<<<
@@ -8895,7 +8895,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":769
+      /* "gases/XENON.pyx":769
  * 
  *         # 8D5 J=1 F=0.0035
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -8904,7 +8904,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":777
+    /* "gases/XENON.pyx":777
  * 
  *         # 8D2 J=1 F=0.0386
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -8914,7 +8914,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[41])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":778
+      /* "gases/XENON.pyx":778
  *         # 8D2 J=1 F=0.0386
  *         if EN > object.EIN[41]:
  *             object.QIN[41][I] = 0.0386 / (object.EIN[41] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8923,7 +8923,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[41])[__pyx_v_I]) = (((((0.0386 / ((__pyx_v_object->EIN[41]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[41])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[41])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":781
+      /* "gases/XENON.pyx":781
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[41])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[41] + object.E[2])
  *             if EN > (2 * object.EIN[41]):             # <<<<<<<<<<<<<<
@@ -8933,7 +8933,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[41]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":782
+        /* "gases/XENON.pyx":782
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[41] + object.E[2])
  *             if EN > (2 * object.EIN[41]):
  *                 object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]             # <<<<<<<<<<<<<<
@@ -8942,7 +8942,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[41])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[41]))]);
 
-        /* "XENON.pyx":781
+        /* "gases/XENON.pyx":781
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[41])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[41] + object.E[2])
  *             if EN > (2 * object.EIN[41]):             # <<<<<<<<<<<<<<
@@ -8951,7 +8951,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":777
+      /* "gases/XENON.pyx":777
  * 
  *         # 8D2 J=1 F=0.0386
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -8960,7 +8960,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":785
+    /* "gases/XENON.pyx":785
  * 
  *         # 7S4 J=1 F=0.005
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -8970,7 +8970,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[42])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":786
+      /* "gases/XENON.pyx":786
  *         # 7S4 J=1 F=0.005
  *         if EN > object.EIN[42]:
  *             object.QIN[42][I] = 0.005 / (object.EIN[42] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8979,7 +8979,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[42])[__pyx_v_I]) = (((((0.005 / ((__pyx_v_object->EIN[42]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[42])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[42])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":789
+      /* "gases/XENON.pyx":789
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[42])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[42] + object.E[2])
  *             if EN > (2 * object.EIN[42]):             # <<<<<<<<<<<<<<
@@ -8989,7 +8989,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[42]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":790
+        /* "gases/XENON.pyx":790
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[42] + object.E[2])
  *             if EN > (2 * object.EIN[42]):
  *                 object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]             # <<<<<<<<<<<<<<
@@ -8998,7 +8998,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[42])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[42]))]);
 
-        /* "XENON.pyx":789
+        /* "gases/XENON.pyx":789
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[42])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[42] + object.E[2])
  *             if EN > (2 * object.EIN[42]):             # <<<<<<<<<<<<<<
@@ -9007,7 +9007,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":785
+      /* "gases/XENON.pyx":785
  * 
  *         # 7S4 J=1 F=0.005
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -9016,7 +9016,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":793
+    /* "gases/XENON.pyx":793
  * 
  *         # 9D5 J=1 F=0.0005
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -9026,7 +9026,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[43])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":794
+      /* "gases/XENON.pyx":794
  *         # 9D5 J=1 F=0.0005
  *         if EN > object.EIN[43]:
  *             object.QIN[43][I] = 0.0005 / (object.EIN[43] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9035,7 +9035,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[43])[__pyx_v_I]) = (((((0.0005 / ((__pyx_v_object->EIN[43]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[43])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[43])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":797
+      /* "gases/XENON.pyx":797
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[43])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[43] + object.E[2])
  *             if EN > (2 * object.EIN[43]):             # <<<<<<<<<<<<<<
@@ -9045,7 +9045,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[43]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":798
+        /* "gases/XENON.pyx":798
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[43] + object.E[2])
  *             if EN > (2 * object.EIN[43]):
  *                 object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]             # <<<<<<<<<<<<<<
@@ -9054,7 +9054,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[43])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[43]))]);
 
-        /* "XENON.pyx":797
+        /* "gases/XENON.pyx":797
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[43])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[43] + object.E[2])
  *             if EN > (2 * object.EIN[43]):             # <<<<<<<<<<<<<<
@@ -9063,7 +9063,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":793
+      /* "gases/XENON.pyx":793
  * 
  *         # 9D5 J=1 F=0.0005
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -9072,7 +9072,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":801
+    /* "gases/XENON.pyx":801
  * 
  *         # 9D2 J=1 F=0.0250
  *         if EN > object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -9082,7 +9082,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[44])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":802
+      /* "gases/XENON.pyx":802
  *         # 9D2 J=1 F=0.0250
  *         if EN > object.EIN[44]:
  *             object.QIN[44][I] = 0.025 / (object.EIN[44] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9091,7 +9091,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[44])[__pyx_v_I]) = (((((0.025 / ((__pyx_v_object->EIN[44]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[44])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[44])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":805
+      /* "gases/XENON.pyx":805
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[44])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[44] + object.E[2])
  *             if EN > (2 * object.EIN[44]):             # <<<<<<<<<<<<<<
@@ -9101,7 +9101,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[44]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":806
+        /* "gases/XENON.pyx":806
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[44] + object.E[2])
  *             if EN > (2 * object.EIN[44]):
  *                 object.PEQIN[44][I] = object.PEQEL[1][I - IOFFN[44]]             # <<<<<<<<<<<<<<
@@ -9110,7 +9110,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[44])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[44]))]);
 
-        /* "XENON.pyx":805
+        /* "gases/XENON.pyx":805
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[44])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[44] + object.E[2])
  *             if EN > (2 * object.EIN[44]):             # <<<<<<<<<<<<<<
@@ -9119,7 +9119,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":801
+      /* "gases/XENON.pyx":801
  * 
  *         # 9D2 J=1 F=0.0250
  *         if EN > object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -9128,7 +9128,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":809
+    /* "gases/XENON.pyx":809
  * 
  *         # 8S4 J=1 F=0.0023
  *         if EN > object.EIN[45]:             # <<<<<<<<<<<<<<
@@ -9138,7 +9138,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[45])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":810
+      /* "gases/XENON.pyx":810
  *         # 8S4 J=1 F=0.0023
  *         if EN > object.EIN[45]:
  *             object.QIN[45][I] = 0.0023 / (object.EIN[45] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9147,7 +9147,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[45])[__pyx_v_I]) = (((((0.0023 / ((__pyx_v_object->EIN[45]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[45])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[45])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":813
+      /* "gases/XENON.pyx":813
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[45])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[45] + object.E[2])
  *             if EN > (2 * object.EIN[45]):             # <<<<<<<<<<<<<<
@@ -9157,7 +9157,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[45]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":814
+        /* "gases/XENON.pyx":814
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[45] + object.E[2])
  *             if EN > (2 * object.EIN[45]):
  *                 object.PEQIN[45][I] = object.PEQEL[1][I - IOFFN[45]]             # <<<<<<<<<<<<<<
@@ -9166,7 +9166,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[45])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[45]))]);
 
-        /* "XENON.pyx":813
+        /* "gases/XENON.pyx":813
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[45])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[45] + object.E[2])
  *             if EN > (2 * object.EIN[45]):             # <<<<<<<<<<<<<<
@@ -9175,7 +9175,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":809
+      /* "gases/XENON.pyx":809
  * 
  *         # 8S4 J=1 F=0.0023
  *         if EN > object.EIN[45]:             # <<<<<<<<<<<<<<
@@ -9184,7 +9184,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":817
+    /* "gases/XENON.pyx":817
  * 
  *         #10D5 J=1 F=0.0005
  *         if EN > object.EIN[46]:             # <<<<<<<<<<<<<<
@@ -9194,7 +9194,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[46])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":818
+      /* "gases/XENON.pyx":818
  *         #10D5 J=1 F=0.0005
  *         if EN > object.EIN[46]:
  *             object.QIN[46][I] = 0.0005 / (object.EIN[46] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9203,7 +9203,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[46])[__pyx_v_I]) = (((((0.0005 / ((__pyx_v_object->EIN[46]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[46])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[46])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":821
+      /* "gases/XENON.pyx":821
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[46])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[46] + object.E[2])
  *             if EN > (2 * object.EIN[46]):             # <<<<<<<<<<<<<<
@@ -9213,7 +9213,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[46]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":822
+        /* "gases/XENON.pyx":822
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[46] + object.E[2])
  *             if EN > (2 * object.EIN[46]):
  *                 object.PEQIN[46][I] = object.PEQEL[1][I - IOFFN[46]]             # <<<<<<<<<<<<<<
@@ -9222,7 +9222,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[46])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[46]))]);
 
-        /* "XENON.pyx":821
+        /* "gases/XENON.pyx":821
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[46])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[46] + object.E[2])
  *             if EN > (2 * object.EIN[46]):             # <<<<<<<<<<<<<<
@@ -9231,7 +9231,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":817
+      /* "gases/XENON.pyx":817
  * 
  *         #10D5 J=1 F=0.0005
  *         if EN > object.EIN[46]:             # <<<<<<<<<<<<<<
@@ -9240,7 +9240,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":825
+    /* "gases/XENON.pyx":825
  * 
  *         #10D2 J=1 F=0.0164
  *         if EN > object.EIN[47]:             # <<<<<<<<<<<<<<
@@ -9250,7 +9250,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[47])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":826
+      /* "gases/XENON.pyx":826
  *         #10D2 J=1 F=0.0164
  *         if EN > object.EIN[47]:
  *             object.QIN[47][I] = 0.0164 / (object.EIN[47] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9259,7 +9259,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[47])[__pyx_v_I]) = (((((0.0164 / ((__pyx_v_object->EIN[47]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[47])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[47])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":829
+      /* "gases/XENON.pyx":829
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[47])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[47] + object.E[2])
  *             if EN > (2 * object.EIN[47]):             # <<<<<<<<<<<<<<
@@ -9269,7 +9269,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[47]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":830
+        /* "gases/XENON.pyx":830
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[47] + object.E[2])
  *             if EN > (2 * object.EIN[47]):
  *                 object.PEQIN[47][I] = object.PEQEL[1][I - IOFFN[47]]             # <<<<<<<<<<<<<<
@@ -9278,7 +9278,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[47])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[47]))]);
 
-        /* "XENON.pyx":829
+        /* "gases/XENON.pyx":829
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[47])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[47] + object.E[2])
  *             if EN > (2 * object.EIN[47]):             # <<<<<<<<<<<<<<
@@ -9287,7 +9287,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":825
+      /* "gases/XENON.pyx":825
  * 
  *         #10D2 J=1 F=0.0164
  *         if EN > object.EIN[47]:             # <<<<<<<<<<<<<<
@@ -9296,7 +9296,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":833
+    /* "gases/XENON.pyx":833
  * 
  *         #9S4 J=1 F=0.0014
  *         if EN > object.EIN[48]:             # <<<<<<<<<<<<<<
@@ -9306,7 +9306,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[48])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":834
+      /* "gases/XENON.pyx":834
  *         #9S4 J=1 F=0.0014
  *         if EN > object.EIN[48]:
  *             object.QIN[48][I] = 0.0014 / (object.EIN[48] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9315,7 +9315,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[48])[__pyx_v_I]) = (((((0.0014 / ((__pyx_v_object->EIN[48]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[48])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[48])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":837
+      /* "gases/XENON.pyx":837
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[48])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[48] + object.E[2])
  *             if EN > (2 * object.EIN[48]):             # <<<<<<<<<<<<<<
@@ -9325,7 +9325,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[48]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":838
+        /* "gases/XENON.pyx":838
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[48] + object.E[2])
  *             if EN > (2 * object.EIN[48]):
  *                 object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]             # <<<<<<<<<<<<<<
@@ -9334,7 +9334,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[48])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[48]))]);
 
-        /* "XENON.pyx":837
+        /* "gases/XENON.pyx":837
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[48])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[48] + object.E[2])
  *             if EN > (2 * object.EIN[48]):             # <<<<<<<<<<<<<<
@@ -9343,7 +9343,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":833
+      /* "gases/XENON.pyx":833
  * 
  *         #9S4 J=1 F=0.0014
  *         if EN > object.EIN[48]:             # <<<<<<<<<<<<<<
@@ -9352,7 +9352,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":841
+    /* "gases/XENON.pyx":841
  * 
  *         #HIGH J=1 F=0.0831
  *         if EN > object.EIN[49]:             # <<<<<<<<<<<<<<
@@ -9362,7 +9362,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_EN > (__pyx_v_object->EIN[49])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":842
+      /* "gases/XENON.pyx":842
  *         #HIGH J=1 F=0.0831
  *         if EN > object.EIN[49]:
  *             object.QIN[49][I] = 0.0831 / (object.EIN[49] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9371,7 +9371,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[49])[__pyx_v_I]) = (((((0.0831 / ((__pyx_v_object->EIN[49]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[49])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[49])) + (__pyx_v_object->E[2])));
 
-      /* "XENON.pyx":845
+      /* "gases/XENON.pyx":845
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[49])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[49] + object.E[2])
  *             if EN > (2 * object.EIN[49]):             # <<<<<<<<<<<<<<
@@ -9381,7 +9381,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[49]))) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":846
+        /* "gases/XENON.pyx":846
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[49] + object.E[2])
  *             if EN > (2 * object.EIN[49]):
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]             # <<<<<<<<<<<<<<
@@ -9390,7 +9390,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[49])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[49]))]);
 
-        /* "XENON.pyx":845
+        /* "gases/XENON.pyx":845
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[49])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[49] + object.E[2])
  *             if EN > (2 * object.EIN[49]):             # <<<<<<<<<<<<<<
@@ -9399,7 +9399,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "XENON.pyx":841
+      /* "gases/XENON.pyx":841
  * 
  *         #HIGH J=1 F=0.0831
  *         if EN > object.EIN[49]:             # <<<<<<<<<<<<<<
@@ -9408,7 +9408,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "XENON.pyx":847
+    /* "gases/XENON.pyx":847
  *             if EN > (2 * object.EIN[49]):
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]
  *         for J in range(26, 50):             # <<<<<<<<<<<<<<
@@ -9418,7 +9418,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_35 = 26; __pyx_t_35 < 50; __pyx_t_35+=1) {
       __pyx_v_J = __pyx_t_35;
 
-      /* "XENON.pyx":848
+      /* "gases/XENON.pyx":848
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]
  *         for J in range(26, 50):
  *             if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -9428,7 +9428,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_47 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_47) {
 
-        /* "XENON.pyx":849
+        /* "gases/XENON.pyx":849
  *         for J in range(26, 50):
  *             if object.QIN[J][I] < 0.0:
  *                 object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -9437,7 +9437,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "XENON.pyx":848
+        /* "gases/XENON.pyx":848
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]
  *         for J in range(26, 50):
  *             if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -9447,7 +9447,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "XENON.pyx":850
+    /* "gases/XENON.pyx":850
  *             if object.QIN[J][I] < 0.0:
  *                 object.QIN[J][I] = 0.0
  *         QEXC=0.0             # <<<<<<<<<<<<<<
@@ -9456,7 +9456,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QEXC = 0.0;
 
-    /* "XENON.pyx":851
+    /* "gases/XENON.pyx":851
  *                 object.QIN[J][I] = 0.0
  *         QEXC=0.0
  *         for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -9468,7 +9468,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_54 = 0; __pyx_t_54 < __pyx_t_53; __pyx_t_54+=1) {
       __pyx_v_J = __pyx_t_54;
 
-      /* "XENON.pyx":852
+      /* "gases/XENON.pyx":852
  *         QEXC=0.0
  *         for J in range(object.NIN):
  *             QEXC+=object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -9478,7 +9478,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QEXC = (__pyx_v_QEXC + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "XENON.pyx":853
+    /* "gases/XENON.pyx":853
  *         for J in range(object.NIN):
  *             QEXC+=object.QIN[J][I]
  *         for J in range(12):             # <<<<<<<<<<<<<<
@@ -9488,7 +9488,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_35 = 0; __pyx_t_35 < 12; __pyx_t_35+=1) {
       __pyx_v_J = __pyx_t_35;
 
-      /* "XENON.pyx":854
+      /* "gases/XENON.pyx":854
  *             QEXC+=object.QIN[J][I]
  *         for J in range(12):
  *             object.Q[0][I]+=object.QION[J][I]             # <<<<<<<<<<<<<<
@@ -9500,7 +9500,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->Q[__pyx_t_51])[__pyx_t_53]) = (((__pyx_v_object->Q[__pyx_t_51])[__pyx_t_53]) + ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "XENON.pyx":855
+    /* "gases/XENON.pyx":855
  *         for J in range(12):
  *             object.Q[0][I]+=object.QION[J][I]
  *         object.Q[0][I]+=QEXC             # <<<<<<<<<<<<<<
@@ -9512,7 +9512,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->Q[__pyx_t_51])[__pyx_t_35]) = (((__pyx_v_object->Q[__pyx_t_51])[__pyx_t_35]) + __pyx_v_QEXC);
   }
 
-  /* "XENON.pyx":857
+  /* "gases/XENON.pyx":857
  *         object.Q[0][I]+=QEXC
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -9524,7 +9524,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_34 = 0; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
     __pyx_v_J = __pyx_t_34;
 
-    /* "XENON.pyx":858
+    /* "gases/XENON.pyx":858
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9534,7 +9534,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_47) {
 
-      /* "XENON.pyx":859
+      /* "gases/XENON.pyx":859
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -9543,7 +9543,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "XENON.pyx":860
+      /* "gases/XENON.pyx":860
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -9551,7 +9551,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L175_break;
 
-      /* "XENON.pyx":858
+      /* "gases/XENON.pyx":858
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9562,7 +9562,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L175_break:;
 
-  /* "XENON.pyx":17
+  /* "gases/XENON.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas7(Gas*object):             # <<<<<<<<<<<<<<
@@ -9577,7 +9577,7 @@ static void __pyx_f_5XENON_Gas7(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("XENON.Gas7", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.XENON.Gas7", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -12662,7 +12662,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas7", (void (*)(void))__pyx_f_5XENON_Gas7, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas7", (void (*)(void))__pyx_f_5gases_5XENON_Gas7, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -12916,14 +12916,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_XENON) {
+  if (__pyx_module_is_main_gases__XENON) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "XENON")) {
-      if (unlikely(PyDict_SetItemString(modules, "XENON", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.XENON")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.XENON", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -12944,7 +12944,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "XENON.pyx":4
+  /* "gases/XENON.pyx":4
  * cimport GasUtil
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -12956,7 +12956,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "XENON.pyx":6
+  /* "gases/XENON.pyx":6
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -12968,7 +12968,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "XENON.pyx":10
+  /* "gases/XENON.pyx":10
  * from cython.parallel import prange
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -12983,7 +12983,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "XENON.pyx":1
+  /* "gases/XENON.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport GasUtil
  * cimport libc.math
@@ -13009,11 +13009,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init XENON", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.XENON", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init XENON");
+    PyErr_SetString(PyExc_ImportError, "init gases.XENON");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

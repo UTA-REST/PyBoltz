@@ -155,7 +155,7 @@ cpdef MONTEAT(Magboltz Object):
                 # FIND IDENTITY OF GAS FOR COLLISION
                 KGAS = 0
                 R2 = random_uniform(RDUM)
-                if Object.NGAS == 1:
+                if Object.NumberOfGases == 1:
                     KGAS = 0
                 else:
                     while (Object.TCFMXG[KGAS] < R2):
@@ -444,7 +444,7 @@ cpdef MONTEAT(Magboltz Object):
     #CALCULATE TOWNSEND COEFICIENTS AND ERRORS
     ANCATT = 0.0
     ANCION = 0.0
-    for I in range(Object.NGAS):
+    for I in range(Object.NumberOfGases):
         ANCATT += Object.ICOLL[I][2]
         ANCION += Object.ICOLL[I][1]
     ANCION += IEXTRA

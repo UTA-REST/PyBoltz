@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "DEUTERIUM",
+        "name": "gases.DEUTERIUM",
         "sources": [
-            "DEUTERIUM.pyx"
+            "gases/DEUTERIUM.pyx"
         ]
     },
-    "module_name": "DEUTERIUM"
+    "module_name": "gases.DEUTERIUM"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__DEUTERIUM
-#define __PYX_HAVE_API__DEUTERIUM
+#define __PYX_HAVE__gases__DEUTERIUM
+#define __PYX_HAVE_API__gases__DEUTERIUM
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "DEUTERIUM.pyx",
+  "gases/DEUTERIUM.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1682,13 +1682,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'DEUTERIUM' */
+/* Module declarations from 'gases.DEUTERIUM' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "DEUTERIUM"
-extern int __pyx_module_is_main_DEUTERIUM;
-int __pyx_module_is_main_DEUTERIUM = 0;
+#define __Pyx_MODULE_NAME "gases.DEUTERIUM"
+extern int __pyx_module_is_main_gases__DEUTERIUM;
+int __pyx_module_is_main_gases__DEUTERIUM = 0;
 
-/* Implementation of 'DEUTERIUM' */
+/* Implementation of 'gases.DEUTERIUM' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1830,7 +1830,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "DEUTERIUM.pyx":17
+/* "gases/DEUTERIUM.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas22(Gas*object):             # <<<<<<<<<<<<<<
@@ -1838,7 +1838,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Deuterium gas.
  */
 
-static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEN[53];
   double __pyx_v_YXSEC[53];
@@ -1920,7 +1920,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   long __pyx_t_22;
   __Pyx_RefNannySetupContext("Gas22", 0);
 
-  /* "DEUTERIUM.pyx":21
+  /* "gases/DEUTERIUM.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Deuterium gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -1968,7 +1968,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "DEUTERIUM.pyx":27
+  /* "gases/DEUTERIUM.pyx":27
  *     cdef double XEXC2[23],YEXC2[23],XATT[18],YATT[18],XION[72],YION[72]
  * 
  *     XEN=gd['gas22/XEN']             # <<<<<<<<<<<<<<
@@ -1981,7 +1981,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (53));
 
-  /* "DEUTERIUM.pyx":28
+  /* "gases/DEUTERIUM.pyx":28
  * 
  *     XEN=gd['gas22/XEN']
  *     YXSEC=gd['gas22/YXSEC']             # <<<<<<<<<<<<<<
@@ -1994,7 +1994,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YXSEC[0]), __pyx_t_5, sizeof(__pyx_v_YXSEC[0]) * (53));
 
-  /* "DEUTERIUM.pyx":29
+  /* "gases/DEUTERIUM.pyx":29
  *     XEN=gd['gas22/XEN']
  *     YXSEC=gd['gas22/YXSEC']
  *     XROT0=gd['gas22/XROT0']             # <<<<<<<<<<<<<<
@@ -2007,7 +2007,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT0[0]), __pyx_t_6, sizeof(__pyx_v_XROT0[0]) * (40));
 
-  /* "DEUTERIUM.pyx":30
+  /* "gases/DEUTERIUM.pyx":30
  *     YXSEC=gd['gas22/YXSEC']
  *     XROT0=gd['gas22/XROT0']
  *     YROT0=gd['gas22/YROT0']             # <<<<<<<<<<<<<<
@@ -2020,7 +2020,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT0[0]), __pyx_t_6, sizeof(__pyx_v_YROT0[0]) * (40));
 
-  /* "DEUTERIUM.pyx":31
+  /* "gases/DEUTERIUM.pyx":31
  *     XROT0=gd['gas22/XROT0']
  *     YROT0=gd['gas22/YROT0']
  *     XROT1=gd['gas22/XROT1']             # <<<<<<<<<<<<<<
@@ -2033,7 +2033,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT1[0]), __pyx_t_7, sizeof(__pyx_v_XROT1[0]) * (42));
 
-  /* "DEUTERIUM.pyx":32
+  /* "gases/DEUTERIUM.pyx":32
  *     YROT0=gd['gas22/YROT0']
  *     XROT1=gd['gas22/XROT1']
  *     YROT1=gd['gas22/YROT1']             # <<<<<<<<<<<<<<
@@ -2046,7 +2046,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT1[0]), __pyx_t_7, sizeof(__pyx_v_YROT1[0]) * (42));
 
-  /* "DEUTERIUM.pyx":33
+  /* "gases/DEUTERIUM.pyx":33
  *     XROT1=gd['gas22/XROT1']
  *     YROT1=gd['gas22/YROT1']
  *     XROT2=gd['gas22/XROT2']             # <<<<<<<<<<<<<<
@@ -2059,7 +2059,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT2[0]), __pyx_t_8, sizeof(__pyx_v_XROT2[0]) * (31));
 
-  /* "DEUTERIUM.pyx":34
+  /* "gases/DEUTERIUM.pyx":34
  *     YROT1=gd['gas22/YROT1']
  *     XROT2=gd['gas22/XROT2']
  *     YROT2=gd['gas22/YROT2']             # <<<<<<<<<<<<<<
@@ -2072,7 +2072,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT2[0]), __pyx_t_8, sizeof(__pyx_v_YROT2[0]) * (31));
 
-  /* "DEUTERIUM.pyx":35
+  /* "gases/DEUTERIUM.pyx":35
  *     XROT2=gd['gas22/XROT2']
  *     YROT2=gd['gas22/YROT2']
  *     XROT3=gd['gas22/XROT3']             # <<<<<<<<<<<<<<
@@ -2085,7 +2085,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT3[0]), __pyx_t_8, sizeof(__pyx_v_XROT3[0]) * (31));
 
-  /* "DEUTERIUM.pyx":36
+  /* "gases/DEUTERIUM.pyx":36
  *     YROT2=gd['gas22/YROT2']
  *     XROT3=gd['gas22/XROT3']
  *     YROT3=gd['gas22/YROT3']             # <<<<<<<<<<<<<<
@@ -2098,7 +2098,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT3[0]), __pyx_t_8, sizeof(__pyx_v_YROT3[0]) * (31));
 
-  /* "DEUTERIUM.pyx":37
+  /* "gases/DEUTERIUM.pyx":37
  *     XROT3=gd['gas22/XROT3']
  *     YROT3=gd['gas22/YROT3']
  *     XROT4=gd['gas22/XROT4']             # <<<<<<<<<<<<<<
@@ -2111,7 +2111,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT4[0]), __pyx_t_8, sizeof(__pyx_v_XROT4[0]) * (31));
 
-  /* "DEUTERIUM.pyx":38
+  /* "gases/DEUTERIUM.pyx":38
  *     YROT3=gd['gas22/YROT3']
  *     XROT4=gd['gas22/XROT4']
  *     YROT4=gd['gas22/YROT4']             # <<<<<<<<<<<<<<
@@ -2124,7 +2124,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT4[0]), __pyx_t_8, sizeof(__pyx_v_YROT4[0]) * (31));
 
-  /* "DEUTERIUM.pyx":39
+  /* "gases/DEUTERIUM.pyx":39
  *     XROT4=gd['gas22/XROT4']
  *     YROT4=gd['gas22/YROT4']
  *     XROT5=gd['gas22/XROT5']             # <<<<<<<<<<<<<<
@@ -2137,7 +2137,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT5[0]), __pyx_t_9, sizeof(__pyx_v_XROT5[0]) * (30));
 
-  /* "DEUTERIUM.pyx":40
+  /* "gases/DEUTERIUM.pyx":40
  *     YROT4=gd['gas22/YROT4']
  *     XROT5=gd['gas22/XROT5']
  *     YROT5=gd['gas22/YROT5']             # <<<<<<<<<<<<<<
@@ -2150,7 +2150,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT5[0]), __pyx_t_9, sizeof(__pyx_v_YROT5[0]) * (30));
 
-  /* "DEUTERIUM.pyx":41
+  /* "gases/DEUTERIUM.pyx":41
  *     XROT5=gd['gas22/XROT5']
  *     YROT5=gd['gas22/YROT5']
  *     XVIB1=gd['gas22/XVIB1']             # <<<<<<<<<<<<<<
@@ -2163,7 +2163,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB1[0]), __pyx_t_10, sizeof(__pyx_v_XVIB1[0]) * (35));
 
-  /* "DEUTERIUM.pyx":42
+  /* "gases/DEUTERIUM.pyx":42
  *     YROT5=gd['gas22/YROT5']
  *     XVIB1=gd['gas22/XVIB1']
  *     YVIB1=gd['gas22/YVIB1']             # <<<<<<<<<<<<<<
@@ -2176,7 +2176,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB1[0]), __pyx_t_10, sizeof(__pyx_v_YVIB1[0]) * (35));
 
-  /* "DEUTERIUM.pyx":43
+  /* "gases/DEUTERIUM.pyx":43
  *     XVIB1=gd['gas22/XVIB1']
  *     YVIB1=gd['gas22/YVIB1']
  *     XVIB2=gd['gas22/XVIB2']             # <<<<<<<<<<<<<<
@@ -2189,7 +2189,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB2[0]), __pyx_t_10, sizeof(__pyx_v_XVIB2[0]) * (35));
 
-  /* "DEUTERIUM.pyx":44
+  /* "gases/DEUTERIUM.pyx":44
  *     YVIB1=gd['gas22/YVIB1']
  *     XVIB2=gd['gas22/XVIB2']
  *     YVIB2=gd['gas22/YVIB2']             # <<<<<<<<<<<<<<
@@ -2202,7 +2202,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB2[0]), __pyx_t_10, sizeof(__pyx_v_YVIB2[0]) * (35));
 
-  /* "DEUTERIUM.pyx":45
+  /* "gases/DEUTERIUM.pyx":45
  *     XVIB2=gd['gas22/XVIB2']
  *     YVIB2=gd['gas22/YVIB2']
  *     XVIB3=gd['gas22/XVIB3']             # <<<<<<<<<<<<<<
@@ -2215,7 +2215,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB3[0]), __pyx_t_11, sizeof(__pyx_v_XVIB3[0]) * (16));
 
-  /* "DEUTERIUM.pyx":46
+  /* "gases/DEUTERIUM.pyx":46
  *     YVIB2=gd['gas22/YVIB2']
  *     XVIB3=gd['gas22/XVIB3']
  *     YVIB3=gd['gas22/YVIB3']             # <<<<<<<<<<<<<<
@@ -2228,7 +2228,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB3[0]), __pyx_t_11, sizeof(__pyx_v_YVIB3[0]) * (16));
 
-  /* "DEUTERIUM.pyx":47
+  /* "gases/DEUTERIUM.pyx":47
  *     XVIB3=gd['gas22/XVIB3']
  *     YVIB3=gd['gas22/YVIB3']
  *     XVIB4=gd['gas22/XVIB4']             # <<<<<<<<<<<<<<
@@ -2241,7 +2241,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB4[0]), __pyx_t_11, sizeof(__pyx_v_XVIB4[0]) * (16));
 
-  /* "DEUTERIUM.pyx":48
+  /* "gases/DEUTERIUM.pyx":48
  *     YVIB3=gd['gas22/YVIB3']
  *     XVIB4=gd['gas22/XVIB4']
  *     YVIB4=gd['gas22/YVIB4']             # <<<<<<<<<<<<<<
@@ -2254,7 +2254,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB4[0]), __pyx_t_11, sizeof(__pyx_v_YVIB4[0]) * (16));
 
-  /* "DEUTERIUM.pyx":49
+  /* "gases/DEUTERIUM.pyx":49
  *     XVIB4=gd['gas22/XVIB4']
  *     YVIB4=gd['gas22/YVIB4']
  *     XEXC1=gd['gas22/XEXC1']             # <<<<<<<<<<<<<<
@@ -2267,7 +2267,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC1[0]), __pyx_t_12, sizeof(__pyx_v_XEXC1[0]) * (20));
 
-  /* "DEUTERIUM.pyx":50
+  /* "gases/DEUTERIUM.pyx":50
  *     YVIB4=gd['gas22/YVIB4']
  *     XEXC1=gd['gas22/XEXC1']
  *     YEXC1=gd['gas22/YEXC1']             # <<<<<<<<<<<<<<
@@ -2280,7 +2280,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC1[0]), __pyx_t_12, sizeof(__pyx_v_YEXC1[0]) * (20));
 
-  /* "DEUTERIUM.pyx":51
+  /* "gases/DEUTERIUM.pyx":51
  *     XEXC1=gd['gas22/XEXC1']
  *     YEXC1=gd['gas22/YEXC1']
  *     XEXC2=gd['gas22/XEXC2']             # <<<<<<<<<<<<<<
@@ -2293,7 +2293,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC2[0]), __pyx_t_13, sizeof(__pyx_v_XEXC2[0]) * (23));
 
-  /* "DEUTERIUM.pyx":52
+  /* "gases/DEUTERIUM.pyx":52
  *     YEXC1=gd['gas22/YEXC1']
  *     XEXC2=gd['gas22/XEXC2']
  *     YEXC2=gd['gas22/YEXC2']             # <<<<<<<<<<<<<<
@@ -2306,7 +2306,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC2[0]), __pyx_t_13, sizeof(__pyx_v_YEXC2[0]) * (23));
 
-  /* "DEUTERIUM.pyx":53
+  /* "gases/DEUTERIUM.pyx":53
  *     XEXC2=gd['gas22/XEXC2']
  *     YEXC2=gd['gas22/YEXC2']
  *     XATT=gd['gas22/XATT']             # <<<<<<<<<<<<<<
@@ -2319,7 +2319,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT[0]), __pyx_t_14, sizeof(__pyx_v_XATT[0]) * (18));
 
-  /* "DEUTERIUM.pyx":54
+  /* "gases/DEUTERIUM.pyx":54
  *     YEXC2=gd['gas22/YEXC2']
  *     XATT=gd['gas22/XATT']
  *     YATT=gd['gas22/YATT']             # <<<<<<<<<<<<<<
@@ -2332,7 +2332,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT[0]), __pyx_t_14, sizeof(__pyx_v_YATT[0]) * (18));
 
-  /* "DEUTERIUM.pyx":55
+  /* "gases/DEUTERIUM.pyx":55
  *     XATT=gd['gas22/XATT']
  *     YATT=gd['gas22/YATT']
  *     XION=gd['gas22/XION']             # <<<<<<<<<<<<<<
@@ -2345,7 +2345,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_15, sizeof(__pyx_v_XION[0]) * (72));
 
-  /* "DEUTERIUM.pyx":56
+  /* "gases/DEUTERIUM.pyx":56
  *     YATT=gd['gas22/YATT']
  *     XION=gd['gas22/XION']
  *     YION=gd['gas22/YION']             # <<<<<<<<<<<<<<
@@ -2358,7 +2358,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_15, sizeof(__pyx_v_YION[0]) * (72));
 
-  /* "DEUTERIUM.pyx":62
+  /* "gases/DEUTERIUM.pyx":62
  * 
  *     # CALCULATE FRACTIONAL POPULATION DENSITY FOR ROTATIONAL STATES
  *     B0=0.00377272             # <<<<<<<<<<<<<<
@@ -2367,7 +2367,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_B0 = 0.00377272;
 
-  /* "DEUTERIUM.pyx":64
+  /* "gases/DEUTERIUM.pyx":64
  *     B0=0.00377272
  * 
  *     for I in range(1,8,2):             # <<<<<<<<<<<<<<
@@ -2377,7 +2377,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 1; __pyx_t_16 < 8; __pyx_t_16+=2) {
     __pyx_v_I = __pyx_t_16;
 
-    /* "DEUTERIUM.pyx":65
+    /* "gases/DEUTERIUM.pyx":65
  * 
  *     for I in range(1,8,2):
  *         PJ[I-1] = 3*(2*I+1)*exp(-1*I*(I+1)*B0/object.AKT)             # <<<<<<<<<<<<<<
@@ -2387,7 +2387,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_I - 1)]) = ((3 * ((2 * __pyx_v_I) + 1)) * exp(((((-1L * __pyx_v_I) * (__pyx_v_I + 1)) * __pyx_v_B0) / __pyx_v_object->AKT)));
   }
 
-  /* "DEUTERIUM.pyx":67
+  /* "gases/DEUTERIUM.pyx":67
  *         PJ[I-1] = 3*(2*I+1)*exp(-1*I*(I+1)*B0/object.AKT)
  * 
  *     for I in range(2,7,2):             # <<<<<<<<<<<<<<
@@ -2397,7 +2397,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 2; __pyx_t_16 < 7; __pyx_t_16+=2) {
     __pyx_v_I = __pyx_t_16;
 
-    /* "DEUTERIUM.pyx":68
+    /* "gases/DEUTERIUM.pyx":68
  * 
  *     for I in range(2,7,2):
  *         PJ[I-1] = 6*(2*I+1)*exp(-1*I*(I+1)*B0/object.AKT)             # <<<<<<<<<<<<<<
@@ -2407,7 +2407,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_I - 1)]) = ((6 * ((2 * __pyx_v_I) + 1)) * exp(((((-1L * __pyx_v_I) * (__pyx_v_I + 1)) * __pyx_v_B0) / __pyx_v_object->AKT)));
   }
 
-  /* "DEUTERIUM.pyx":70
+  /* "gases/DEUTERIUM.pyx":70
  *         PJ[I-1] = 6*(2*I+1)*exp(-1*I*(I+1)*B0/object.AKT)
  * 
  *     SUM = 6.0             # <<<<<<<<<<<<<<
@@ -2416,7 +2416,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_SUM = 6.0;
 
-  /* "DEUTERIUM.pyx":72
+  /* "gases/DEUTERIUM.pyx":72
  *     SUM = 6.0
  * 
  *     for I in range(7):             # <<<<<<<<<<<<<<
@@ -2426,7 +2426,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < 7; __pyx_t_16+=1) {
     __pyx_v_I = __pyx_t_16;
 
-    /* "DEUTERIUM.pyx":73
+    /* "gases/DEUTERIUM.pyx":73
  * 
  *     for I in range(7):
  *         SUM+=PJ[I]             # <<<<<<<<<<<<<<
@@ -2436,7 +2436,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_v_SUM = (__pyx_v_SUM + (__pyx_v_PJ[__pyx_v_I]));
   }
 
-  /* "DEUTERIUM.pyx":75
+  /* "gases/DEUTERIUM.pyx":75
  *         SUM+=PJ[I]
  * 
  *     FROT[0] = 6.0/SUM             # <<<<<<<<<<<<<<
@@ -2445,7 +2445,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_FROT[0]) = (6.0 / __pyx_v_SUM);
 
-  /* "DEUTERIUM.pyx":77
+  /* "gases/DEUTERIUM.pyx":77
  *     FROT[0] = 6.0/SUM
  * 
  *     for I in range(1,8):             # <<<<<<<<<<<<<<
@@ -2455,7 +2455,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 1; __pyx_t_16 < 8; __pyx_t_16+=1) {
     __pyx_v_I = __pyx_t_16;
 
-    /* "DEUTERIUM.pyx":78
+    /* "gases/DEUTERIUM.pyx":78
  * 
  *     for I in range(1,8):
  *         FROT[I] = PJ[I-1]/SUM             # <<<<<<<<<<<<<<
@@ -2465,7 +2465,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_FROT[__pyx_v_I]) = ((__pyx_v_PJ[(__pyx_v_I - 1)]) / __pyx_v_SUM);
   }
 
-  /* "DEUTERIUM.pyx":80
+  /* "gases/DEUTERIUM.pyx":80
  *         FROT[I] = PJ[I-1]/SUM
  * 
  *     object.NION = 1             # <<<<<<<<<<<<<<
@@ -2474,7 +2474,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 1;
 
-  /* "DEUTERIUM.pyx":81
+  /* "gases/DEUTERIUM.pyx":81
  * 
  *     object.NION = 1
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -2483,7 +2483,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "DEUTERIUM.pyx":82
+  /* "gases/DEUTERIUM.pyx":82
  *     object.NION = 1
  *     object.NATT = 1
  *     object.NIN = 15             # <<<<<<<<<<<<<<
@@ -2492,7 +2492,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 15;
 
-  /* "DEUTERIUM.pyx":83
+  /* "gases/DEUTERIUM.pyx":83
  *     object.NATT = 1
  *     object.NIN = 15
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -2501,7 +2501,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "DEUTERIUM.pyx":85
+  /* "gases/DEUTERIUM.pyx":85
  *     object.NNULL = 0
  * 
  *     for J in range(6):             # <<<<<<<<<<<<<<
@@ -2511,7 +2511,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < 6; __pyx_t_16+=1) {
     __pyx_v_J = __pyx_t_16;
 
-    /* "DEUTERIUM.pyx":86
+    /* "gases/DEUTERIUM.pyx":86
  * 
  *     for J in range(6):
  *         object.KEL[J] = 0             # <<<<<<<<<<<<<<
@@ -2521,7 +2521,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_J]) = 0.0;
   }
 
-  /* "DEUTERIUM.pyx":88
+  /* "gases/DEUTERIUM.pyx":88
  *         object.KEL[J] = 0
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -2533,7 +2533,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
     __pyx_v_J = __pyx_t_18;
 
-    /* "DEUTERIUM.pyx":89
+    /* "gases/DEUTERIUM.pyx":89
  * 
  *     for J in range(object.NIN):
  *         object.KIN[J] = 0             # <<<<<<<<<<<<<<
@@ -2543,7 +2543,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_J]) = 0.0;
   }
 
-  /* "DEUTERIUM.pyx":94
+  /* "gases/DEUTERIUM.pyx":94
  *     cdef int NDATA,NROT0,NROT1,NROT2,NROT3,NROT4,NROT5,NVIB1,NVIB2,NVIB3,NVIB4,NEXC1,NEXC2,NIOND,NATT1
  * 
  *     NDATA=53             # <<<<<<<<<<<<<<
@@ -2552,7 +2552,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 53;
 
-  /* "DEUTERIUM.pyx":95
+  /* "gases/DEUTERIUM.pyx":95
  * 
  *     NDATA=53
  *     NROT0=40             # <<<<<<<<<<<<<<
@@ -2561,7 +2561,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT0 = 40;
 
-  /* "DEUTERIUM.pyx":96
+  /* "gases/DEUTERIUM.pyx":96
  *     NDATA=53
  *     NROT0=40
  *     NROT1=42             # <<<<<<<<<<<<<<
@@ -2570,7 +2570,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT1 = 42;
 
-  /* "DEUTERIUM.pyx":97
+  /* "gases/DEUTERIUM.pyx":97
  *     NROT0=40
  *     NROT1=42
  *     NROT2=31             # <<<<<<<<<<<<<<
@@ -2579,7 +2579,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT2 = 31;
 
-  /* "DEUTERIUM.pyx":98
+  /* "gases/DEUTERIUM.pyx":98
  *     NROT1=42
  *     NROT2=31
  *     NROT3=31             # <<<<<<<<<<<<<<
@@ -2588,7 +2588,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT3 = 31;
 
-  /* "DEUTERIUM.pyx":99
+  /* "gases/DEUTERIUM.pyx":99
  *     NROT2=31
  *     NROT3=31
  *     NROT4=31             # <<<<<<<<<<<<<<
@@ -2597,7 +2597,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT4 = 31;
 
-  /* "DEUTERIUM.pyx":100
+  /* "gases/DEUTERIUM.pyx":100
  *     NROT3=31
  *     NROT4=31
  *     NROT5=30             # <<<<<<<<<<<<<<
@@ -2606,7 +2606,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT5 = 30;
 
-  /* "DEUTERIUM.pyx":101
+  /* "gases/DEUTERIUM.pyx":101
  *     NROT4=31
  *     NROT5=30
  *     NVIB1=35             # <<<<<<<<<<<<<<
@@ -2615,7 +2615,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB1 = 35;
 
-  /* "DEUTERIUM.pyx":102
+  /* "gases/DEUTERIUM.pyx":102
  *     NROT5=30
  *     NVIB1=35
  *     NVIB2=35             # <<<<<<<<<<<<<<
@@ -2624,7 +2624,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB2 = 35;
 
-  /* "DEUTERIUM.pyx":103
+  /* "gases/DEUTERIUM.pyx":103
  *     NVIB1=35
  *     NVIB2=35
  *     NVIB3=16             # <<<<<<<<<<<<<<
@@ -2633,7 +2633,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB3 = 16;
 
-  /* "DEUTERIUM.pyx":104
+  /* "gases/DEUTERIUM.pyx":104
  *     NVIB2=35
  *     NVIB3=16
  *     NVIB4=16             # <<<<<<<<<<<<<<
@@ -2642,7 +2642,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB4 = 16;
 
-  /* "DEUTERIUM.pyx":105
+  /* "gases/DEUTERIUM.pyx":105
  *     NVIB3=16
  *     NVIB4=16
  *     NEXC1=20             # <<<<<<<<<<<<<<
@@ -2651,7 +2651,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC1 = 20;
 
-  /* "DEUTERIUM.pyx":106
+  /* "gases/DEUTERIUM.pyx":106
  *     NVIB4=16
  *     NEXC1=20
  *     NEXC2=23             # <<<<<<<<<<<<<<
@@ -2660,7 +2660,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC2 = 23;
 
-  /* "DEUTERIUM.pyx":107
+  /* "gases/DEUTERIUM.pyx":107
  *     NEXC1=20
  *     NEXC2=23
  *     NIOND=72             # <<<<<<<<<<<<<<
@@ -2669,7 +2669,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIOND = 72;
 
-  /* "DEUTERIUM.pyx":108
+  /* "gases/DEUTERIUM.pyx":108
  *     NEXC2=23
  *     NIOND=72
  *     NATT1=18             # <<<<<<<<<<<<<<
@@ -2678,7 +2678,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 18;
 
-  /* "DEUTERIUM.pyx":110
+  /* "gases/DEUTERIUM.pyx":110
  *     NATT1=18
  * 
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -2687,7 +2687,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "DEUTERIUM.pyx":111
+  /* "gases/DEUTERIUM.pyx":111
  * 
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27,EOBY             # <<<<<<<<<<<<<<
@@ -2696,7 +2696,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "DEUTERIUM.pyx":113
+  /* "gases/DEUTERIUM.pyx":113
  *     cdef double AMU = 1.660538921e-27,EOBY
  * 
  *     object.E = [0.0, 1.0, 15.427, 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -2711,7 +2711,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_19[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_19, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "DEUTERIUM.pyx":114
+  /* "gases/DEUTERIUM.pyx":114
  * 
  *     object.E = [0.0, 1.0, 15.427, 0.0, 0.0, 0.0]
  *     object.E[1] = 2.0 * EMASS / (4.028204 * AMU)             # <<<<<<<<<<<<<<
@@ -2720,7 +2720,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (4.028204 * __pyx_v_AMU));
 
-  /* "DEUTERIUM.pyx":116
+  /* "gases/DEUTERIUM.pyx":116
  *     object.E[1] = 2.0 * EMASS / (4.028204 * AMU)
  * 
  *     EOBY = 8.3             # <<<<<<<<<<<<<<
@@ -2729,7 +2729,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EOBY = 8.3;
 
-  /* "DEUTERIUM.pyx":118
+  /* "gases/DEUTERIUM.pyx":118
  *     EOBY = 8.3
  * 
  *     object.EIN = gd['gas22/EIN']             # <<<<<<<<<<<<<<
@@ -2746,7 +2746,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_20, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "DEUTERIUM.pyx":122
+  /* "gases/DEUTERIUM.pyx":122
  *     cdef double EN
  * 
  *     EN = -1*object.ESTEP/2.0             # <<<<<<<<<<<<<<
@@ -2755,7 +2755,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EN = ((-1.0 * __pyx_v_object->ESTEP) / 2.0);
 
-  /* "DEUTERIUM.pyx":124
+  /* "gases/DEUTERIUM.pyx":124
  *     EN = -1*object.ESTEP/2.0
  * 
  *     for I in range(4000):             # <<<<<<<<<<<<<<
@@ -2765,7 +2765,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < 0xFA0; __pyx_t_16+=1) {
     __pyx_v_I = __pyx_t_16;
 
-    /* "DEUTERIUM.pyx":125
+    /* "gases/DEUTERIUM.pyx":125
  * 
  *     for I in range(4000):
  *         EN+=object.ESTEP             # <<<<<<<<<<<<<<
@@ -2774,7 +2774,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_EN + __pyx_v_object->ESTEP);
 
-    /* "DEUTERIUM.pyx":126
+    /* "gases/DEUTERIUM.pyx":126
  *     for I in range(4000):
  *         EN+=object.ESTEP
  *         object.Q[1][I] = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)             # <<<<<<<<<<<<<<
@@ -2783,7 +2783,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YXSEC, __pyx_v_XEN);
 
-    /* "DEUTERIUM.pyx":128
+    /* "gases/DEUTERIUM.pyx":128
  *         object.Q[1][I] = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)
  * 
  *         object.Q[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2792,7 +2792,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[2])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":129
+    /* "gases/DEUTERIUM.pyx":129
  * 
  *         object.Q[2][I] = 0.0
  *         if EN>object.E[2]:             # <<<<<<<<<<<<<<
@@ -2802,7 +2802,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->E[2])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":130
+      /* "gases/DEUTERIUM.pyx":130
  *         object.Q[2][I] = 0.0
  *         if EN>object.E[2]:
  *             object.Q[2][I] = GasUtil.CALQIONREG(EN, NIOND, YION, XION)             # <<<<<<<<<<<<<<
@@ -2811,7 +2811,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YION, __pyx_v_XION);
 
-      /* "DEUTERIUM.pyx":129
+      /* "gases/DEUTERIUM.pyx":129
  * 
  *         object.Q[2][I] = 0.0
  *         if EN>object.E[2]:             # <<<<<<<<<<<<<<
@@ -2820,7 +2820,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":132
+    /* "gases/DEUTERIUM.pyx":132
  *             object.Q[2][I] = GasUtil.CALQIONREG(EN, NIOND, YION, XION)
  * 
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2829,7 +2829,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":133
+    /* "gases/DEUTERIUM.pyx":133
  * 
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2838,7 +2838,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":134
+    /* "gases/DEUTERIUM.pyx":134
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0
  *         if EN>XATT[0]:             # <<<<<<<<<<<<<<
@@ -2848,7 +2848,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_XATT[0])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":135
+      /* "gases/DEUTERIUM.pyx":135
  *         object.QATT[0][I] = 0.0
  *         if EN>XATT[0]:
  *             object.Q[3][I] = GasUtil.CALQIONREG(EN, NATT1, YATT, XATT)             # <<<<<<<<<<<<<<
@@ -2857,7 +2857,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NATT1, __pyx_v_YATT, __pyx_v_XATT);
 
-      /* "DEUTERIUM.pyx":136
+      /* "gases/DEUTERIUM.pyx":136
  *         if EN>XATT[0]:
  *             object.Q[3][I] = GasUtil.CALQIONREG(EN, NATT1, YATT, XATT)
  *             object.QATT[0][I] = object.Q[3][I]             # <<<<<<<<<<<<<<
@@ -2866,7 +2866,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[0])[__pyx_v_I]) = ((__pyx_v_object->Q[3])[__pyx_v_I]);
 
-      /* "DEUTERIUM.pyx":134
+      /* "gases/DEUTERIUM.pyx":134
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0
  *         if EN>XATT[0]:             # <<<<<<<<<<<<<<
@@ -2875,7 +2875,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":138
+    /* "gases/DEUTERIUM.pyx":138
  *             object.QATT[0][I] = object.Q[3][I]
  * 
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2884,7 +2884,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":139
+    /* "gases/DEUTERIUM.pyx":139
  * 
  *         object.Q[5][I] = 0.0
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2893,7 +2893,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":142
+    /* "gases/DEUTERIUM.pyx":142
  * 
  *         # SUPERELASTIC 2-0
  *         object.QIN[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2902,7 +2902,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":143
+    /* "gases/DEUTERIUM.pyx":143
  *         # SUPERELASTIC 2-0
  *         object.QIN[0][I] = 0.0
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -2912,7 +2912,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":144
+      /* "gases/DEUTERIUM.pyx":144
  *         object.QIN[0][I] = 0.0
  *         if EN>0.0:
  *             object.QIN[0][I] = GasUtil.CALQIONREG(EN +object.EIN[3], NROT0, YROT0, XROT0)             # <<<<<<<<<<<<<<
@@ -2921,7 +2921,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG((__pyx_v_EN + (__pyx_v_object->EIN[3])), __pyx_v_NROT0, __pyx_v_YROT0, __pyx_v_XROT0);
 
-      /* "DEUTERIUM.pyx":145
+      /* "gases/DEUTERIUM.pyx":145
  *         if EN>0.0:
  *             object.QIN[0][I] = GasUtil.CALQIONREG(EN +object.EIN[3], NROT0, YROT0, XROT0)
  *             object.QIN[0][I]*=((object.EIN[3]+EN)/EN)*FROT[2]*0.2             # <<<<<<<<<<<<<<
@@ -2932,7 +2932,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_17 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_22])[__pyx_t_17]) = (((__pyx_v_object->QIN[__pyx_t_22])[__pyx_t_17]) * (((((__pyx_v_object->EIN[3]) + __pyx_v_EN) / __pyx_v_EN) * (__pyx_v_FROT[2])) * 0.2));
 
-      /* "DEUTERIUM.pyx":143
+      /* "gases/DEUTERIUM.pyx":143
  *         # SUPERELASTIC 2-0
  *         object.QIN[0][I] = 0.0
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -2941,7 +2941,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":148
+    /* "gases/DEUTERIUM.pyx":148
  * 
  *         # SUPERELASTIC 3-1
  *         object.QIN[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2950,7 +2950,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[1])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":149
+    /* "gases/DEUTERIUM.pyx":149
  *         # SUPERELASTIC 3-1
  *         object.QIN[1][I] = 0.0
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -2960,7 +2960,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":150
+      /* "gases/DEUTERIUM.pyx":150
  *         object.QIN[1][I] = 0.0
  *         if EN>0.0:
  *             object.QIN[1][I] = GasUtil.CALQIONREG(EN +object.EIN[4], NROT1, YROT1, XROT1)             # <<<<<<<<<<<<<<
@@ -2969,7 +2969,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG((__pyx_v_EN + (__pyx_v_object->EIN[4])), __pyx_v_NROT1, __pyx_v_YROT1, __pyx_v_XROT1);
 
-      /* "DEUTERIUM.pyx":151
+      /* "gases/DEUTERIUM.pyx":151
  *         if EN>0.0:
  *             object.QIN[1][I] = GasUtil.CALQIONREG(EN +object.EIN[4], NROT1, YROT1, XROT1)
  *             object.QIN[1][I]*=((object.EIN[4]+EN)/EN)*FROT[3]*(3.0/7.0)             # <<<<<<<<<<<<<<
@@ -2980,7 +2980,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_17 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_22])[__pyx_t_17]) = (((__pyx_v_object->QIN[__pyx_t_22])[__pyx_t_17]) * (((((__pyx_v_object->EIN[4]) + __pyx_v_EN) / __pyx_v_EN) * (__pyx_v_FROT[3])) * (3.0 / 7.0)));
 
-      /* "DEUTERIUM.pyx":149
+      /* "gases/DEUTERIUM.pyx":149
  *         # SUPERELASTIC 3-1
  *         object.QIN[1][I] = 0.0
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -2989,7 +2989,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":154
+    /* "gases/DEUTERIUM.pyx":154
  * 
  *         # SUPERELASTIC 4-2
  *         object.QIN[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2998,7 +2998,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[2])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":155
+    /* "gases/DEUTERIUM.pyx":155
  *         # SUPERELASTIC 4-2
  *         object.QIN[2][I] = 0.0
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -3008,7 +3008,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":156
+      /* "gases/DEUTERIUM.pyx":156
  *         object.QIN[2][I] = 0.0
  *         if EN>0.0:
  *             object.QIN[2][I] = GasUtil.CALQIONREG(EN +object.EIN[5], NROT2, YROT2, XROT2)             # <<<<<<<<<<<<<<
@@ -3017,7 +3017,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG((__pyx_v_EN + (__pyx_v_object->EIN[5])), __pyx_v_NROT2, __pyx_v_YROT2, __pyx_v_XROT2);
 
-      /* "DEUTERIUM.pyx":157
+      /* "gases/DEUTERIUM.pyx":157
  *         if EN>0.0:
  *             object.QIN[2][I] = GasUtil.CALQIONREG(EN +object.EIN[5], NROT2, YROT2, XROT2)
  *             object.QIN[2][I]*=((object.EIN[5]+EN)/EN)*FROT[4]*(5.0/9.0)             # <<<<<<<<<<<<<<
@@ -3028,7 +3028,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_17 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_22])[__pyx_t_17]) = (((__pyx_v_object->QIN[__pyx_t_22])[__pyx_t_17]) * (((((__pyx_v_object->EIN[5]) + __pyx_v_EN) / __pyx_v_EN) * (__pyx_v_FROT[4])) * (5.0 / 9.0)));
 
-      /* "DEUTERIUM.pyx":155
+      /* "gases/DEUTERIUM.pyx":155
  *         # SUPERELASTIC 4-2
  *         object.QIN[2][I] = 0.0
  *         if EN>0.0:             # <<<<<<<<<<<<<<
@@ -3037,7 +3037,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":160
+    /* "gases/DEUTERIUM.pyx":160
  * 
  *         # ROTATION 0-2
  *         object.QIN[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3046,7 +3046,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[3])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":161
+    /* "gases/DEUTERIUM.pyx":161
  *         # ROTATION 0-2
  *         object.QIN[3][I] = 0.0
  *         if EN>object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -3056,7 +3056,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":162
+      /* "gases/DEUTERIUM.pyx":162
  *         object.QIN[3][I] = 0.0
  *         if EN>object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQIONREG(EN, NROT0, YROT0, XROT0)*FROT[0]             # <<<<<<<<<<<<<<
@@ -3065,7 +3065,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NROT0, __pyx_v_YROT0, __pyx_v_XROT0) * (__pyx_v_FROT[0]));
 
-      /* "DEUTERIUM.pyx":161
+      /* "gases/DEUTERIUM.pyx":161
  *         # ROTATION 0-2
  *         object.QIN[3][I] = 0.0
  *         if EN>object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -3074,7 +3074,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":165
+    /* "gases/DEUTERIUM.pyx":165
  * 
  *         # ROTATION 1-3
  *         object.QIN[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3083,7 +3083,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[4])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":166
+    /* "gases/DEUTERIUM.pyx":166
  *         # ROTATION 1-3
  *         object.QIN[4][I] = 0.0
  *         if EN>object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -3093,7 +3093,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[4])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":167
+      /* "gases/DEUTERIUM.pyx":167
  *         object.QIN[4][I] = 0.0
  *         if EN>object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQIONREG(EN, NROT1, YROT1, XROT1)*FROT[1]             # <<<<<<<<<<<<<<
@@ -3102,7 +3102,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NROT1, __pyx_v_YROT1, __pyx_v_XROT1) * (__pyx_v_FROT[1]));
 
-      /* "DEUTERIUM.pyx":166
+      /* "gases/DEUTERIUM.pyx":166
  *         # ROTATION 1-3
  *         object.QIN[4][I] = 0.0
  *         if EN>object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -3111,7 +3111,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":170
+    /* "gases/DEUTERIUM.pyx":170
  * 
  *         # ROTATION 2-4
  *         object.QIN[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3120,7 +3120,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[5])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":171
+    /* "gases/DEUTERIUM.pyx":171
  *         # ROTATION 2-4
  *         object.QIN[5][I] = 0.0
  *         if EN>object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -3130,7 +3130,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":172
+      /* "gases/DEUTERIUM.pyx":172
  *         object.QIN[5][I] = 0.0
  *         if EN>object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQIONREG(EN, NROT2, YROT2, XROT2)*FROT[2]             # <<<<<<<<<<<<<<
@@ -3139,7 +3139,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NROT2, __pyx_v_YROT2, __pyx_v_XROT2) * (__pyx_v_FROT[2]));
 
-      /* "DEUTERIUM.pyx":171
+      /* "gases/DEUTERIUM.pyx":171
  *         # ROTATION 2-4
  *         object.QIN[5][I] = 0.0
  *         if EN>object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -3148,7 +3148,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":175
+    /* "gases/DEUTERIUM.pyx":175
  * 
  *         # ROTATION 3-5
  *         object.QIN[6][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3157,7 +3157,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[6])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":176
+    /* "gases/DEUTERIUM.pyx":176
  *         # ROTATION 3-5
  *         object.QIN[6][I] = 0.0
  *         if EN>object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -3167,7 +3167,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":177
+      /* "gases/DEUTERIUM.pyx":177
  *         object.QIN[6][I] = 0.0
  *         if EN>object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQIONREG(EN, NROT3, YROT3, XROT3)*FROT[3]             # <<<<<<<<<<<<<<
@@ -3176,7 +3176,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NROT3, __pyx_v_YROT3, __pyx_v_XROT3) * (__pyx_v_FROT[3]));
 
-      /* "DEUTERIUM.pyx":176
+      /* "gases/DEUTERIUM.pyx":176
  *         # ROTATION 3-5
  *         object.QIN[6][I] = 0.0
  *         if EN>object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -3185,7 +3185,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":180
+    /* "gases/DEUTERIUM.pyx":180
  * 
  *         # ROTATION 4-6 + 6-8
  *         object.QIN[7][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3194,7 +3194,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[7])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":181
+    /* "gases/DEUTERIUM.pyx":181
  *         # ROTATION 4-6 + 6-8
  *         object.QIN[7][I] = 0.0
  *         if EN>object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -3204,7 +3204,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":182
+      /* "gases/DEUTERIUM.pyx":182
  *         object.QIN[7][I] = 0.0
  *         if EN>object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQIONREG(EN, NROT4, YROT4, XROT4)*(FROT[4]+FROT[6])             # <<<<<<<<<<<<<<
@@ -3213,7 +3213,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NROT4, __pyx_v_YROT4, __pyx_v_XROT4) * ((__pyx_v_FROT[4]) + (__pyx_v_FROT[6])));
 
-      /* "DEUTERIUM.pyx":181
+      /* "gases/DEUTERIUM.pyx":181
  *         # ROTATION 4-6 + 6-8
  *         object.QIN[7][I] = 0.0
  *         if EN>object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -3222,7 +3222,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":185
+    /* "gases/DEUTERIUM.pyx":185
  * 
  *         # ROTATION 5-7 + 7-9
  *         object.QIN[8][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3231,7 +3231,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[8])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":186
+    /* "gases/DEUTERIUM.pyx":186
  *         # ROTATION 5-7 + 7-9
  *         object.QIN[8][I] = 0.0
  *         if EN>object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -3241,7 +3241,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":187
+      /* "gases/DEUTERIUM.pyx":187
  *         object.QIN[8][I] = 0.0
  *         if EN>object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQIONREG(EN, NROT5, YROT5, XROT5)*(FROT[5]+FROT[7])             # <<<<<<<<<<<<<<
@@ -3250,7 +3250,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NROT5, __pyx_v_YROT5, __pyx_v_XROT5) * ((__pyx_v_FROT[5]) + (__pyx_v_FROT[7])));
 
-      /* "DEUTERIUM.pyx":186
+      /* "gases/DEUTERIUM.pyx":186
  *         # ROTATION 5-7 + 7-9
  *         object.QIN[8][I] = 0.0
  *         if EN>object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -3259,7 +3259,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":190
+    /* "gases/DEUTERIUM.pyx":190
  * 
  * 
  *         object.QIN[9][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3268,7 +3268,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[9])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":191
+    /* "gases/DEUTERIUM.pyx":191
  * 
  *         object.QIN[9][I] = 0.0
  *         if EN>object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -3278,7 +3278,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":192
+      /* "gases/DEUTERIUM.pyx":192
  *         object.QIN[9][I] = 0.0
  *         if EN>object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQIONREG(EN, NVIB1, YVIB1, XVIB1)             # <<<<<<<<<<<<<<
@@ -3287,7 +3287,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVIB1, __pyx_v_XVIB1);
 
-      /* "DEUTERIUM.pyx":191
+      /* "gases/DEUTERIUM.pyx":191
  * 
  *         object.QIN[9][I] = 0.0
  *         if EN>object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -3296,7 +3296,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":194
+    /* "gases/DEUTERIUM.pyx":194
  *             object.QIN[9][I] = GasUtil.CALQIONREG(EN, NVIB1, YVIB1, XVIB1)
  * 
  *         object.QIN[10][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3305,7 +3305,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[10])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":195
+    /* "gases/DEUTERIUM.pyx":195
  * 
  *         object.QIN[10][I] = 0.0
  *         if EN>object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -3315,7 +3315,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":196
+      /* "gases/DEUTERIUM.pyx":196
  *         object.QIN[10][I] = 0.0
  *         if EN>object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQIONREG(EN, NVIB2, YVIB2, XVIB2)             # <<<<<<<<<<<<<<
@@ -3324,7 +3324,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2);
 
-      /* "DEUTERIUM.pyx":195
+      /* "gases/DEUTERIUM.pyx":195
  * 
  *         object.QIN[10][I] = 0.0
  *         if EN>object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -3333,7 +3333,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":198
+    /* "gases/DEUTERIUM.pyx":198
  *             object.QIN[10][I] = GasUtil.CALQIONREG(EN, NVIB2, YVIB2, XVIB2)
  * 
  *         object.QIN[11][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3342,7 +3342,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[11])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":199
+    /* "gases/DEUTERIUM.pyx":199
  * 
  *         object.QIN[11][I] = 0.0
  *         if EN>object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -3352,7 +3352,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[11])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":200
+      /* "gases/DEUTERIUM.pyx":200
  *         object.QIN[11][I] = 0.0
  *         if EN>object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQIONREG(EN, NVIB3, YVIB3, XVIB3)             # <<<<<<<<<<<<<<
@@ -3361,7 +3361,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[11])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3);
 
-      /* "DEUTERIUM.pyx":199
+      /* "gases/DEUTERIUM.pyx":199
  * 
  *         object.QIN[11][I] = 0.0
  *         if EN>object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -3370,7 +3370,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":202
+    /* "gases/DEUTERIUM.pyx":202
  *             object.QIN[11][I] = GasUtil.CALQIONREG(EN, NVIB3, YVIB3, XVIB3)
  * 
  *         object.QIN[12][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3379,7 +3379,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[12])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":203
+    /* "gases/DEUTERIUM.pyx":203
  * 
  *         object.QIN[12][I] = 0.0
  *         if EN>object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -3389,7 +3389,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":204
+      /* "gases/DEUTERIUM.pyx":204
  *         object.QIN[12][I] = 0.0
  *         if EN>object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQIONREG(EN, NVIB4, YVIB4, XVIB4)             # <<<<<<<<<<<<<<
@@ -3398,7 +3398,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[12])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NVIB4, __pyx_v_YVIB4, __pyx_v_XVIB4);
 
-      /* "DEUTERIUM.pyx":203
+      /* "gases/DEUTERIUM.pyx":203
  * 
  *         object.QIN[12][I] = 0.0
  *         if EN>object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -3407,7 +3407,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":206
+    /* "gases/DEUTERIUM.pyx":206
  *             object.QIN[12][I] = GasUtil.CALQIONREG(EN, NVIB4, YVIB4, XVIB4)
  * 
  *         object.QIN[13][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3416,7 +3416,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[13])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":207
+    /* "gases/DEUTERIUM.pyx":207
  * 
  *         object.QIN[13][I] = 0.0
  *         if EN>object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -3426,7 +3426,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[13])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":208
+      /* "gases/DEUTERIUM.pyx":208
  *         object.QIN[13][I] = 0.0
  *         if EN>object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQIONREG(EN, NEXC1, YEXC1, XEXC1)             # <<<<<<<<<<<<<<
@@ -3435,7 +3435,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[13])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NEXC1, __pyx_v_YEXC1, __pyx_v_XEXC1);
 
-      /* "DEUTERIUM.pyx":207
+      /* "gases/DEUTERIUM.pyx":207
  * 
  *         object.QIN[13][I] = 0.0
  *         if EN>object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -3444,7 +3444,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":211
+    /* "gases/DEUTERIUM.pyx":211
  * 
  * 
  *         object.QIN[14][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3453,7 +3453,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[14])[__pyx_v_I]) = 0.0;
 
-    /* "DEUTERIUM.pyx":212
+    /* "gases/DEUTERIUM.pyx":212
  * 
  *         object.QIN[14][I] = 0.0
  *         if EN>object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -3463,7 +3463,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN > (__pyx_v_object->EIN[14])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":213
+      /* "gases/DEUTERIUM.pyx":213
  *         object.QIN[14][I] = 0.0
  *         if EN>object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQIONREG(EN, NEXC2, YEXC2, XEXC2)             # <<<<<<<<<<<<<<
@@ -3472,7 +3472,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[14])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NEXC2, __pyx_v_YEXC2, __pyx_v_XEXC2);
 
-      /* "DEUTERIUM.pyx":212
+      /* "gases/DEUTERIUM.pyx":212
  * 
  *         object.QIN[14][I] = 0.0
  *         if EN>object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -3481,7 +3481,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DEUTERIUM.pyx":215
+    /* "gases/DEUTERIUM.pyx":215
  *             object.QIN[14][I] = GasUtil.CALQIONREG(EN, NEXC2, YEXC2, XEXC2)
  * 
  *         object.Q[0][I] = object.Q[1][I]+object.Q[2][I]+object.Q[3][I]+object.QIN[13][I]+object.QIN[14][I]             # <<<<<<<<<<<<<<
@@ -3490,7 +3490,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = ((((((__pyx_v_object->Q[1])[__pyx_v_I]) + ((__pyx_v_object->Q[2])[__pyx_v_I])) + ((__pyx_v_object->Q[3])[__pyx_v_I])) + ((__pyx_v_object->QIN[13])[__pyx_v_I])) + ((__pyx_v_object->QIN[14])[__pyx_v_I]));
 
-    /* "DEUTERIUM.pyx":217
+    /* "gases/DEUTERIUM.pyx":217
  *         object.Q[0][I] = object.Q[1][I]+object.Q[2][I]+object.Q[3][I]+object.QIN[13][I]+object.QIN[14][I]
  * 
  *         if EN<200:             # <<<<<<<<<<<<<<
@@ -3500,7 +3500,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_EN < 200.0) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":218
+      /* "gases/DEUTERIUM.pyx":218
  * 
  *         if EN<200:
  *             for J in range(13):             # <<<<<<<<<<<<<<
@@ -3510,7 +3510,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_17 = 0; __pyx_t_17 < 13; __pyx_t_17+=1) {
         __pyx_v_J = __pyx_t_17;
 
-        /* "DEUTERIUM.pyx":219
+        /* "gases/DEUTERIUM.pyx":219
  *         if EN<200:
  *             for J in range(13):
  *                 object.Q[1][I]-=object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -3522,7 +3522,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
         ((__pyx_v_object->Q[__pyx_t_22])[__pyx_t_18]) = (((__pyx_v_object->Q[__pyx_t_22])[__pyx_t_18]) - ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
       }
 
-      /* "DEUTERIUM.pyx":217
+      /* "gases/DEUTERIUM.pyx":217
  *         object.Q[0][I] = object.Q[1][I]+object.Q[2][I]+object.Q[3][I]+object.QIN[13][I]+object.QIN[14][I]
  * 
  *         if EN<200:             # <<<<<<<<<<<<<<
@@ -3532,7 +3532,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "DEUTERIUM.pyx":223
+  /* "gases/DEUTERIUM.pyx":223
  * 
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3544,7 +3544,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
     __pyx_v_J = __pyx_t_18;
 
-    /* "DEUTERIUM.pyx":224
+    /* "gases/DEUTERIUM.pyx":224
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -3554,7 +3554,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_21 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_21) {
 
-      /* "DEUTERIUM.pyx":225
+      /* "gases/DEUTERIUM.pyx":225
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -3563,7 +3563,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "DEUTERIUM.pyx":226
+      /* "gases/DEUTERIUM.pyx":226
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -3572,7 +3572,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L38_break;
 
-      /* "DEUTERIUM.pyx":224
+      /* "gases/DEUTERIUM.pyx":224
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -3583,7 +3583,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L38_break:;
 
-  /* "DEUTERIUM.pyx":227
+  /* "gases/DEUTERIUM.pyx":227
  *             object.NIN = J
  *             break
  *     return             # <<<<<<<<<<<<<<
@@ -3592,7 +3592,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   goto __pyx_L0;
 
-  /* "DEUTERIUM.pyx":17
+  /* "gases/DEUTERIUM.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas22(Gas*object):             # <<<<<<<<<<<<<<
@@ -3606,7 +3606,7 @@ static void __pyx_f_9DEUTERIUM_Gas22(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("DEUTERIUM.Gas22", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.DEUTERIUM.Gas22", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -6608,7 +6608,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas22", (void (*)(void))__pyx_f_9DEUTERIUM_Gas22, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas22", (void (*)(void))__pyx_f_5gases_9DEUTERIUM_Gas22, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -6856,14 +6856,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_DEUTERIUM) {
+  if (__pyx_module_is_main_gases__DEUTERIUM) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "DEUTERIUM")) {
-      if (unlikely(PyDict_SetItemString(modules, "DEUTERIUM", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.DEUTERIUM")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.DEUTERIUM", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -6884,7 +6884,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "DEUTERIUM.pyx":3
+  /* "gases/DEUTERIUM.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -6896,7 +6896,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "DEUTERIUM.pyx":5
+  /* "gases/DEUTERIUM.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -6908,7 +6908,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "DEUTERIUM.pyx":10
+  /* "gases/DEUTERIUM.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -6923,7 +6923,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "DEUTERIUM.pyx":1
+  /* "gases/DEUTERIUM.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -6949,11 +6949,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init DEUTERIUM", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.DEUTERIUM", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init DEUTERIUM");
+    PyErr_SetString(PyExc_ImportError, "init gases.DEUTERIUM");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

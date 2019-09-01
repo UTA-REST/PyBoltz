@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "NITROGEN",
+        "name": "gases.NITROGEN",
         "sources": [
-            "NITROGEN.pyx"
+            "gases/NITROGEN.pyx"
         ]
     },
-    "module_name": "NITROGEN"
+    "module_name": "gases.NITROGEN"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__NITROGEN
-#define __PYX_HAVE_API__NITROGEN
+#define __PYX_HAVE__gases__NITROGEN
+#define __PYX_HAVE_API__gases__NITROGEN
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "NITROGEN.pyx",
+  "gases/NITROGEN.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1688,13 +1688,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'NITROGEN' */
+/* Module declarations from 'gases.NITROGEN' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "NITROGEN"
-extern int __pyx_module_is_main_NITROGEN;
-int __pyx_module_is_main_NITROGEN = 0;
+#define __Pyx_MODULE_NAME "gases.NITROGEN"
+extern int __pyx_module_is_main_gases__NITROGEN;
+int __pyx_module_is_main_gases__NITROGEN = 0;
 
-/* Implementation of 'NITROGEN' */
+/* Implementation of 'gases.NITROGEN' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -2050,7 +2050,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "NITROGEN.pyx":17
+/* "gases/NITROGEN.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas16(Gas*object):             # <<<<<<<<<<<<<<
@@ -2058,7 +2058,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Nitrogen gas.
  */
 
-static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XELA[0xD8];
   double __pyx_v_YELA[0xD8];
@@ -2339,7 +2339,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   long __pyx_t_41;
   __Pyx_RefNannySetupContext("Gas16", 0);
 
-  /* "NITROGEN.pyx":21
+  /* "gases/NITROGEN.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Nitrogen gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2387,7 +2387,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NITROGEN.pyx":37
+  /* "gases/NITROGEN.pyx":37
  *     cdef int IOFFN[127], IOFFION[12]
  * 
  *     XELA = gd['gas16/XELA']             # <<<<<<<<<<<<<<
@@ -2404,7 +2404,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XELA[0]), __pyx_t_5, sizeof(__pyx_v_XELA[0]) * (0xD8));
 
-  /* "NITROGEN.pyx":38
+  /* "gases/NITROGEN.pyx":38
  * 
  *     XELA = gd['gas16/XELA']
  *     YELA = gd['gas16/YELA']             # <<<<<<<<<<<<<<
@@ -2421,7 +2421,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YELA[0]), __pyx_t_5, sizeof(__pyx_v_YELA[0]) * (0xD8));
 
-  /* "NITROGEN.pyx":39
+  /* "gases/NITROGEN.pyx":39
  *     XELA = gd['gas16/XELA']
  *     YELA = gd['gas16/YELA']
  *     YMOM = gd['gas16/YMOM']             # <<<<<<<<<<<<<<
@@ -2438,7 +2438,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YMOM[0]), __pyx_t_5, sizeof(__pyx_v_YMOM[0]) * (0xD8));
 
-  /* "NITROGEN.pyx":40
+  /* "gases/NITROGEN.pyx":40
  *     YELA = gd['gas16/YELA']
  *     YMOM = gd['gas16/YMOM']
  *     YEPS = gd['gas16/YEPS']             # <<<<<<<<<<<<<<
@@ -2455,7 +2455,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_5, sizeof(__pyx_v_YEPS[0]) * (0xD8));
 
-  /* "NITROGEN.pyx":41
+  /* "gases/NITROGEN.pyx":41
  *     YMOM = gd['gas16/YMOM']
  *     YEPS = gd['gas16/YEPS']
  *     XROT = gd['gas16/XROT']             # <<<<<<<<<<<<<<
@@ -2468,7 +2468,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT[0]), __pyx_t_6, sizeof(__pyx_v_XROT[0]) * (70));
 
-  /* "NITROGEN.pyx":42
+  /* "gases/NITROGEN.pyx":42
  *     YEPS = gd['gas16/YEPS']
  *     XROT = gd['gas16/XROT']
  *     YROT = gd['gas16/YROT']             # <<<<<<<<<<<<<<
@@ -2481,7 +2481,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT[0]), __pyx_t_6, sizeof(__pyx_v_YROT[0]) * (70));
 
-  /* "NITROGEN.pyx":43
+  /* "gases/NITROGEN.pyx":43
  *     XROT = gd['gas16/XROT']
  *     YROT = gd['gas16/YROT']
  *     XVB1 = gd['gas16/XVB1']             # <<<<<<<<<<<<<<
@@ -2494,7 +2494,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB1[0]), __pyx_t_7, sizeof(__pyx_v_XVB1[0]) * (87));
 
-  /* "NITROGEN.pyx":44
+  /* "gases/NITROGEN.pyx":44
  *     YROT = gd['gas16/YROT']
  *     XVB1 = gd['gas16/XVB1']
  *     YVB1 = gd['gas16/YVB1']             # <<<<<<<<<<<<<<
@@ -2507,7 +2507,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB1[0]), __pyx_t_7, sizeof(__pyx_v_YVB1[0]) * (87));
 
-  /* "NITROGEN.pyx":45
+  /* "gases/NITROGEN.pyx":45
  *     XVB1 = gd['gas16/XVB1']
  *     YVB1 = gd['gas16/YVB1']
  *     XVB2 = gd['gas16/XVB2']             # <<<<<<<<<<<<<<
@@ -2520,7 +2520,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB2[0]), __pyx_t_8, sizeof(__pyx_v_XVB2[0]) * (69));
 
-  /* "NITROGEN.pyx":46
+  /* "gases/NITROGEN.pyx":46
  *     YVB1 = gd['gas16/YVB1']
  *     XVB2 = gd['gas16/XVB2']
  *     YVB2 = gd['gas16/YVB2']             # <<<<<<<<<<<<<<
@@ -2533,7 +2533,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB2[0]), __pyx_t_8, sizeof(__pyx_v_YVB2[0]) * (69));
 
-  /* "NITROGEN.pyx":47
+  /* "gases/NITROGEN.pyx":47
  *     XVB2 = gd['gas16/XVB2']
  *     YVB2 = gd['gas16/YVB2']
  *     XVB3 = gd['gas16/XVB3']             # <<<<<<<<<<<<<<
@@ -2546,7 +2546,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB3[0]), __pyx_t_6, sizeof(__pyx_v_XVB3[0]) * (70));
 
-  /* "NITROGEN.pyx":48
+  /* "gases/NITROGEN.pyx":48
  *     YVB2 = gd['gas16/YVB2']
  *     XVB3 = gd['gas16/XVB3']
  *     YVB3 = gd['gas16/YVB3']             # <<<<<<<<<<<<<<
@@ -2559,7 +2559,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB3[0]), __pyx_t_6, sizeof(__pyx_v_YVB3[0]) * (70));
 
-  /* "NITROGEN.pyx":49
+  /* "gases/NITROGEN.pyx":49
  *     XVB3 = gd['gas16/XVB3']
  *     YVB3 = gd['gas16/YVB3']
  *     XVB4 = gd['gas16/XVB4']             # <<<<<<<<<<<<<<
@@ -2572,7 +2572,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB4[0]), __pyx_t_9, sizeof(__pyx_v_XVB4[0]) * (50));
 
-  /* "NITROGEN.pyx":50
+  /* "gases/NITROGEN.pyx":50
  *     YVB3 = gd['gas16/YVB3']
  *     XVB4 = gd['gas16/XVB4']
  *     YVB4 = gd['gas16/YVB4']             # <<<<<<<<<<<<<<
@@ -2585,7 +2585,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB4[0]), __pyx_t_9, sizeof(__pyx_v_YVB4[0]) * (50));
 
-  /* "NITROGEN.pyx":51
+  /* "gases/NITROGEN.pyx":51
  *     XVB4 = gd['gas16/XVB4']
  *     YVB4 = gd['gas16/YVB4']
  *     XVB5 = gd['gas16/XVB5']             # <<<<<<<<<<<<<<
@@ -2598,7 +2598,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB5[0]), __pyx_t_10, sizeof(__pyx_v_XVB5[0]) * (40));
 
-  /* "NITROGEN.pyx":52
+  /* "gases/NITROGEN.pyx":52
  *     YVB4 = gd['gas16/YVB4']
  *     XVB5 = gd['gas16/XVB5']
  *     YVB5 = gd['gas16/YVB5']             # <<<<<<<<<<<<<<
@@ -2611,7 +2611,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB5[0]), __pyx_t_10, sizeof(__pyx_v_YVB5[0]) * (40));
 
-  /* "NITROGEN.pyx":53
+  /* "gases/NITROGEN.pyx":53
  *     XVB5 = gd['gas16/XVB5']
  *     YVB5 = gd['gas16/YVB5']
  *     XVB6 = gd['gas16/XVB6']             # <<<<<<<<<<<<<<
@@ -2624,7 +2624,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB6[0]), __pyx_t_11, sizeof(__pyx_v_XVB6[0]) * (41));
 
-  /* "NITROGEN.pyx":54
+  /* "gases/NITROGEN.pyx":54
  *     YVB5 = gd['gas16/YVB5']
  *     XVB6 = gd['gas16/XVB6']
  *     YVB6 = gd['gas16/YVB6']             # <<<<<<<<<<<<<<
@@ -2637,7 +2637,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB6[0]), __pyx_t_11, sizeof(__pyx_v_YVB6[0]) * (41));
 
-  /* "NITROGEN.pyx":55
+  /* "gases/NITROGEN.pyx":55
  *     XVB6 = gd['gas16/XVB6']
  *     YVB6 = gd['gas16/YVB6']
  *     XVB7 = gd['gas16/XVB7']             # <<<<<<<<<<<<<<
@@ -2650,7 +2650,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB7[0]), __pyx_t_12, sizeof(__pyx_v_XVB7[0]) * (42));
 
-  /* "NITROGEN.pyx":56
+  /* "gases/NITROGEN.pyx":56
  *     YVB6 = gd['gas16/YVB6']
  *     XVB7 = gd['gas16/XVB7']
  *     YVB7 = gd['gas16/YVB7']             # <<<<<<<<<<<<<<
@@ -2663,7 +2663,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB7[0]), __pyx_t_12, sizeof(__pyx_v_YVB7[0]) * (42));
 
-  /* "NITROGEN.pyx":57
+  /* "gases/NITROGEN.pyx":57
  *     XVB7 = gd['gas16/XVB7']
  *     YVB7 = gd['gas16/YVB7']
  *     XVB8 = gd['gas16/XVB8']             # <<<<<<<<<<<<<<
@@ -2676,7 +2676,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB8[0]), __pyx_t_10, sizeof(__pyx_v_XVB8[0]) * (40));
 
-  /* "NITROGEN.pyx":58
+  /* "gases/NITROGEN.pyx":58
  *     YVB7 = gd['gas16/YVB7']
  *     XVB8 = gd['gas16/XVB8']
  *     YVB8 = gd['gas16/YVB8']             # <<<<<<<<<<<<<<
@@ -2689,7 +2689,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB8[0]), __pyx_t_10, sizeof(__pyx_v_YVB8[0]) * (40));
 
-  /* "NITROGEN.pyx":59
+  /* "gases/NITROGEN.pyx":59
  *     XVB8 = gd['gas16/XVB8']
  *     YVB8 = gd['gas16/YVB8']
  *     XVB9 = gd['gas16/XVB9']             # <<<<<<<<<<<<<<
@@ -2702,7 +2702,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB9[0]), __pyx_t_13, sizeof(__pyx_v_XVB9[0]) * (35));
 
-  /* "NITROGEN.pyx":60
+  /* "gases/NITROGEN.pyx":60
  *     YVB8 = gd['gas16/YVB8']
  *     XVB9 = gd['gas16/XVB9']
  *     YVB9 = gd['gas16/YVB9']             # <<<<<<<<<<<<<<
@@ -2715,7 +2715,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB9[0]), __pyx_t_13, sizeof(__pyx_v_YVB9[0]) * (35));
 
-  /* "NITROGEN.pyx":61
+  /* "gases/NITROGEN.pyx":61
  *     XVB9 = gd['gas16/XVB9']
  *     YVB9 = gd['gas16/YVB9']
  *     XVB10 = gd['gas16/XVB10']             # <<<<<<<<<<<<<<
@@ -2728,7 +2728,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB10[0]), __pyx_t_13, sizeof(__pyx_v_XVB10[0]) * (35));
 
-  /* "NITROGEN.pyx":62
+  /* "gases/NITROGEN.pyx":62
  *     YVB9 = gd['gas16/YVB9']
  *     XVB10 = gd['gas16/XVB10']
  *     YVB10 = gd['gas16/YVB10']             # <<<<<<<<<<<<<<
@@ -2741,7 +2741,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB10[0]), __pyx_t_13, sizeof(__pyx_v_YVB10[0]) * (35));
 
-  /* "NITROGEN.pyx":63
+  /* "gases/NITROGEN.pyx":63
  *     XVB10 = gd['gas16/XVB10']
  *     YVB10 = gd['gas16/YVB10']
  *     XVB11 = gd['gas16/XVB11']             # <<<<<<<<<<<<<<
@@ -2754,7 +2754,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB11[0]), __pyx_t_13, sizeof(__pyx_v_XVB11[0]) * (35));
 
-  /* "NITROGEN.pyx":64
+  /* "gases/NITROGEN.pyx":64
  *     YVB10 = gd['gas16/YVB10']
  *     XVB11 = gd['gas16/XVB11']
  *     YVB11 = gd['gas16/YVB11']             # <<<<<<<<<<<<<<
@@ -2767,7 +2767,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB11[0]), __pyx_t_13, sizeof(__pyx_v_YVB11[0]) * (35));
 
-  /* "NITROGEN.pyx":65
+  /* "gases/NITROGEN.pyx":65
  *     XVB11 = gd['gas16/XVB11']
  *     YVB11 = gd['gas16/YVB11']
  *     XVB12 = gd['gas16/XVB12']             # <<<<<<<<<<<<<<
@@ -2780,7 +2780,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB12[0]), __pyx_t_14, sizeof(__pyx_v_XVB12[0]) * (33));
 
-  /* "NITROGEN.pyx":66
+  /* "gases/NITROGEN.pyx":66
  *     YVB11 = gd['gas16/YVB11']
  *     XVB12 = gd['gas16/XVB12']
  *     YVB12 = gd['gas16/YVB12']             # <<<<<<<<<<<<<<
@@ -2793,7 +2793,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB12[0]), __pyx_t_14, sizeof(__pyx_v_YVB12[0]) * (33));
 
-  /* "NITROGEN.pyx":67
+  /* "gases/NITROGEN.pyx":67
  *     XVB12 = gd['gas16/XVB12']
  *     YVB12 = gd['gas16/YVB12']
  *     XVB13 = gd['gas16/XVB13']             # <<<<<<<<<<<<<<
@@ -2806,7 +2806,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB13[0]), __pyx_t_15, sizeof(__pyx_v_XVB13[0]) * (31));
 
-  /* "NITROGEN.pyx":68
+  /* "gases/NITROGEN.pyx":68
  *     YVB12 = gd['gas16/YVB12']
  *     XVB13 = gd['gas16/XVB13']
  *     YVB13 = gd['gas16/YVB13']             # <<<<<<<<<<<<<<
@@ -2819,7 +2819,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB13[0]), __pyx_t_15, sizeof(__pyx_v_YVB13[0]) * (31));
 
-  /* "NITROGEN.pyx":69
+  /* "gases/NITROGEN.pyx":69
  *     XVB13 = gd['gas16/XVB13']
  *     YVB13 = gd['gas16/YVB13']
  *     XVB14 = gd['gas16/XVB14']             # <<<<<<<<<<<<<<
@@ -2832,7 +2832,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB14[0]), __pyx_t_16, sizeof(__pyx_v_XVB14[0]) * (28));
 
-  /* "NITROGEN.pyx":70
+  /* "gases/NITROGEN.pyx":70
  *     YVB13 = gd['gas16/YVB13']
  *     XVB14 = gd['gas16/XVB14']
  *     YVB14 = gd['gas16/YVB14']             # <<<<<<<<<<<<<<
@@ -2845,7 +2845,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB14[0]), __pyx_t_16, sizeof(__pyx_v_YVB14[0]) * (28));
 
-  /* "NITROGEN.pyx":71
+  /* "gases/NITROGEN.pyx":71
  *     XVB14 = gd['gas16/XVB14']
  *     YVB14 = gd['gas16/YVB14']
  *     XVB15 = gd['gas16/XVB15']             # <<<<<<<<<<<<<<
@@ -2858,7 +2858,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVB15[0]), __pyx_t_17, sizeof(__pyx_v_XVB15[0]) * (32));
 
-  /* "NITROGEN.pyx":72
+  /* "gases/NITROGEN.pyx":72
  *     YVB14 = gd['gas16/YVB14']
  *     XVB15 = gd['gas16/XVB15']
  *     YVB15 = gd['gas16/YVB15']             # <<<<<<<<<<<<<<
@@ -2871,7 +2871,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVB15[0]), __pyx_t_17, sizeof(__pyx_v_YVB15[0]) * (32));
 
-  /* "NITROGEN.pyx":73
+  /* "gases/NITROGEN.pyx":73
  *     XVB15 = gd['gas16/XVB15']
  *     YVB15 = gd['gas16/YVB15']
  *     XTRP1 = gd['gas16/XTRP1']             # <<<<<<<<<<<<<<
@@ -2884,7 +2884,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP1[0]), __pyx_t_18, sizeof(__pyx_v_XTRP1[0]) * (23));
 
-  /* "NITROGEN.pyx":74
+  /* "gases/NITROGEN.pyx":74
  *     YVB15 = gd['gas16/YVB15']
  *     XTRP1 = gd['gas16/XTRP1']
  *     YTRP1 = gd['gas16/YTRP1']             # <<<<<<<<<<<<<<
@@ -2897,7 +2897,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP1[0]), __pyx_t_18, sizeof(__pyx_v_YTRP1[0]) * (23));
 
-  /* "NITROGEN.pyx":75
+  /* "gases/NITROGEN.pyx":75
  *     XTRP1 = gd['gas16/XTRP1']
  *     YTRP1 = gd['gas16/YTRP1']
  *     YTP1M = gd['gas16/YTP1M']             # <<<<<<<<<<<<<<
@@ -2910,7 +2910,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP1M[0]), __pyx_t_18, sizeof(__pyx_v_YTP1M[0]) * (23));
 
-  /* "NITROGEN.pyx":76
+  /* "gases/NITROGEN.pyx":76
  *     YTRP1 = gd['gas16/YTRP1']
  *     YTP1M = gd['gas16/YTP1M']
  *     XTRP2 = gd['gas16/XTRP2']             # <<<<<<<<<<<<<<
@@ -2923,7 +2923,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP2[0]), __pyx_t_18, sizeof(__pyx_v_XTRP2[0]) * (23));
 
-  /* "NITROGEN.pyx":77
+  /* "gases/NITROGEN.pyx":77
  *     YTP1M = gd['gas16/YTP1M']
  *     XTRP2 = gd['gas16/XTRP2']
  *     YTRP2 = gd['gas16/YTRP2']             # <<<<<<<<<<<<<<
@@ -2936,7 +2936,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP2[0]), __pyx_t_18, sizeof(__pyx_v_YTRP2[0]) * (23));
 
-  /* "NITROGEN.pyx":78
+  /* "gases/NITROGEN.pyx":78
  *     XTRP2 = gd['gas16/XTRP2']
  *     YTRP2 = gd['gas16/YTRP2']
  *     YTP2M = gd['gas16/YTP2M']             # <<<<<<<<<<<<<<
@@ -2949,7 +2949,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP2M[0]), __pyx_t_18, sizeof(__pyx_v_YTP2M[0]) * (23));
 
-  /* "NITROGEN.pyx":79
+  /* "gases/NITROGEN.pyx":79
  *     YTRP2 = gd['gas16/YTRP2']
  *     YTP2M = gd['gas16/YTP2M']
  *     XTRP3 = gd['gas16/XTRP3']             # <<<<<<<<<<<<<<
@@ -2962,7 +2962,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP3[0]), __pyx_t_19, sizeof(__pyx_v_XTRP3[0]) * (21));
 
-  /* "NITROGEN.pyx":80
+  /* "gases/NITROGEN.pyx":80
  *     YTP2M = gd['gas16/YTP2M']
  *     XTRP3 = gd['gas16/XTRP3']
  *     YTRP3 = gd['gas16/YTRP3']             # <<<<<<<<<<<<<<
@@ -2975,7 +2975,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP3[0]), __pyx_t_19, sizeof(__pyx_v_YTRP3[0]) * (21));
 
-  /* "NITROGEN.pyx":81
+  /* "gases/NITROGEN.pyx":81
  *     XTRP3 = gd['gas16/XTRP3']
  *     YTRP3 = gd['gas16/YTRP3']
  *     YTP3M = gd['gas16/YTP3M']             # <<<<<<<<<<<<<<
@@ -2988,7 +2988,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP3M[0]), __pyx_t_19, sizeof(__pyx_v_YTP3M[0]) * (21));
 
-  /* "NITROGEN.pyx":82
+  /* "gases/NITROGEN.pyx":82
  *     YTRP3 = gd['gas16/YTRP3']
  *     YTP3M = gd['gas16/YTP3M']
  *     XTRP4 = gd['gas16/XTRP4']             # <<<<<<<<<<<<<<
@@ -3001,7 +3001,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP4[0]), __pyx_t_20, sizeof(__pyx_v_XTRP4[0]) * (22));
 
-  /* "NITROGEN.pyx":83
+  /* "gases/NITROGEN.pyx":83
  *     YTP3M = gd['gas16/YTP3M']
  *     XTRP4 = gd['gas16/XTRP4']
  *     YTRP4 = gd['gas16/YTRP4']             # <<<<<<<<<<<<<<
@@ -3014,7 +3014,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP4[0]), __pyx_t_20, sizeof(__pyx_v_YTRP4[0]) * (22));
 
-  /* "NITROGEN.pyx":84
+  /* "gases/NITROGEN.pyx":84
  *     XTRP4 = gd['gas16/XTRP4']
  *     YTRP4 = gd['gas16/YTRP4']
  *     YTP4M = gd['gas16/YTP4M']             # <<<<<<<<<<<<<<
@@ -3027,7 +3027,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP4M[0]), __pyx_t_20, sizeof(__pyx_v_YTP4M[0]) * (22));
 
-  /* "NITROGEN.pyx":85
+  /* "gases/NITROGEN.pyx":85
  *     YTRP4 = gd['gas16/YTRP4']
  *     YTP4M = gd['gas16/YTP4M']
  *     XTRP5 = gd['gas16/XTRP5']             # <<<<<<<<<<<<<<
@@ -3040,7 +3040,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP5[0]), __pyx_t_18, sizeof(__pyx_v_XTRP5[0]) * (23));
 
-  /* "NITROGEN.pyx":86
+  /* "gases/NITROGEN.pyx":86
  *     YTP4M = gd['gas16/YTP4M']
  *     XTRP5 = gd['gas16/XTRP5']
  *     YTRP5 = gd['gas16/YTRP5']             # <<<<<<<<<<<<<<
@@ -3053,7 +3053,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP5[0]), __pyx_t_18, sizeof(__pyx_v_YTRP5[0]) * (23));
 
-  /* "NITROGEN.pyx":87
+  /* "gases/NITROGEN.pyx":87
  *     XTRP5 = gd['gas16/XTRP5']
  *     YTRP5 = gd['gas16/YTRP5']
  *     YTP5M = gd['gas16/YTP5M']             # <<<<<<<<<<<<<<
@@ -3066,7 +3066,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP5M[0]), __pyx_t_18, sizeof(__pyx_v_YTP5M[0]) * (23));
 
-  /* "NITROGEN.pyx":88
+  /* "gases/NITROGEN.pyx":88
  *     YTRP5 = gd['gas16/YTRP5']
  *     YTP5M = gd['gas16/YTP5M']
  *     XTRP6 = gd['gas16/XTRP6']             # <<<<<<<<<<<<<<
@@ -3079,7 +3079,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP6[0]), __pyx_t_19, sizeof(__pyx_v_XTRP6[0]) * (21));
 
-  /* "NITROGEN.pyx":89
+  /* "gases/NITROGEN.pyx":89
  *     YTP5M = gd['gas16/YTP5M']
  *     XTRP6 = gd['gas16/XTRP6']
  *     YTRP6 = gd['gas16/YTRP6']             # <<<<<<<<<<<<<<
@@ -3092,7 +3092,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP6[0]), __pyx_t_19, sizeof(__pyx_v_YTRP6[0]) * (21));
 
-  /* "NITROGEN.pyx":90
+  /* "gases/NITROGEN.pyx":90
  *     XTRP6 = gd['gas16/XTRP6']
  *     YTRP6 = gd['gas16/YTRP6']
  *     YTP6M = gd['gas16/YTP6M']             # <<<<<<<<<<<<<<
@@ -3105,7 +3105,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP6M[0]), __pyx_t_19, sizeof(__pyx_v_YTP6M[0]) * (21));
 
-  /* "NITROGEN.pyx":91
+  /* "gases/NITROGEN.pyx":91
  *     YTRP6 = gd['gas16/YTRP6']
  *     YTP6M = gd['gas16/YTP6M']
  *     XTRP7 = gd['gas16/XTRP7']             # <<<<<<<<<<<<<<
@@ -3118,7 +3118,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP7[0]), __pyx_t_19, sizeof(__pyx_v_XTRP7[0]) * (21));
 
-  /* "NITROGEN.pyx":92
+  /* "gases/NITROGEN.pyx":92
  *     YTP6M = gd['gas16/YTP6M']
  *     XTRP7 = gd['gas16/XTRP7']
  *     YTRP7 = gd['gas16/YTRP7']             # <<<<<<<<<<<<<<
@@ -3131,7 +3131,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP7[0]), __pyx_t_19, sizeof(__pyx_v_YTRP7[0]) * (21));
 
-  /* "NITROGEN.pyx":93
+  /* "gases/NITROGEN.pyx":93
  *     XTRP7 = gd['gas16/XTRP7']
  *     YTRP7 = gd['gas16/YTRP7']
  *     YTP7M = gd['gas16/YTP7M']             # <<<<<<<<<<<<<<
@@ -3144,7 +3144,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP7M[0]), __pyx_t_19, sizeof(__pyx_v_YTP7M[0]) * (21));
 
-  /* "NITROGEN.pyx":94
+  /* "gases/NITROGEN.pyx":94
  *     YTRP7 = gd['gas16/YTRP7']
  *     YTP7M = gd['gas16/YTP7M']
  *     XTRP8 = gd['gas16/XTRP8']             # <<<<<<<<<<<<<<
@@ -3157,7 +3157,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP8[0]), __pyx_t_19, sizeof(__pyx_v_XTRP8[0]) * (21));
 
-  /* "NITROGEN.pyx":95
+  /* "gases/NITROGEN.pyx":95
  *     YTP7M = gd['gas16/YTP7M']
  *     XTRP8 = gd['gas16/XTRP8']
  *     YTRP8 = gd['gas16/YTRP8']             # <<<<<<<<<<<<<<
@@ -3170,7 +3170,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP8[0]), __pyx_t_19, sizeof(__pyx_v_YTRP8[0]) * (21));
 
-  /* "NITROGEN.pyx":96
+  /* "gases/NITROGEN.pyx":96
  *     XTRP8 = gd['gas16/XTRP8']
  *     YTRP8 = gd['gas16/YTRP8']
  *     YTP8M = gd['gas16/YTP8M']             # <<<<<<<<<<<<<<
@@ -3183,7 +3183,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP8M[0]), __pyx_t_19, sizeof(__pyx_v_YTP8M[0]) * (21));
 
-  /* "NITROGEN.pyx":97
+  /* "gases/NITROGEN.pyx":97
  *     YTRP8 = gd['gas16/YTRP8']
  *     YTP8M = gd['gas16/YTP8M']
  *     XTRP9 = gd['gas16/XTRP9']             # <<<<<<<<<<<<<<
@@ -3196,7 +3196,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP9[0]), __pyx_t_21, sizeof(__pyx_v_XTRP9[0]) * (20));
 
-  /* "NITROGEN.pyx":98
+  /* "gases/NITROGEN.pyx":98
  *     YTP8M = gd['gas16/YTP8M']
  *     XTRP9 = gd['gas16/XTRP9']
  *     YTRP9 = gd['gas16/YTRP9']             # <<<<<<<<<<<<<<
@@ -3209,7 +3209,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP9[0]), __pyx_t_21, sizeof(__pyx_v_YTRP9[0]) * (20));
 
-  /* "NITROGEN.pyx":99
+  /* "gases/NITROGEN.pyx":99
  *     XTRP9 = gd['gas16/XTRP9']
  *     YTRP9 = gd['gas16/YTRP9']
  *     YTP9M = gd['gas16/YTP9M']             # <<<<<<<<<<<<<<
@@ -3222,7 +3222,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP9M[0]), __pyx_t_21, sizeof(__pyx_v_YTP9M[0]) * (20));
 
-  /* "NITROGEN.pyx":100
+  /* "gases/NITROGEN.pyx":100
  *     YTRP9 = gd['gas16/YTRP9']
  *     YTP9M = gd['gas16/YTP9M']
  *     XTRP10 = gd['gas16/XTRP10']             # <<<<<<<<<<<<<<
@@ -3235,7 +3235,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP10[0]), __pyx_t_21, sizeof(__pyx_v_XTRP10[0]) * (20));
 
-  /* "NITROGEN.pyx":101
+  /* "gases/NITROGEN.pyx":101
  *     YTP9M = gd['gas16/YTP9M']
  *     XTRP10 = gd['gas16/XTRP10']
  *     YTRP10 = gd['gas16/YTRP10']             # <<<<<<<<<<<<<<
@@ -3248,7 +3248,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP10[0]), __pyx_t_21, sizeof(__pyx_v_YTRP10[0]) * (20));
 
-  /* "NITROGEN.pyx":102
+  /* "gases/NITROGEN.pyx":102
  *     XTRP10 = gd['gas16/XTRP10']
  *     YTRP10 = gd['gas16/YTRP10']
  *     YTP10M = gd['gas16/YTP10M']             # <<<<<<<<<<<<<<
@@ -3261,7 +3261,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP10M[0]), __pyx_t_21, sizeof(__pyx_v_YTP10M[0]) * (20));
 
-  /* "NITROGEN.pyx":103
+  /* "gases/NITROGEN.pyx":103
  *     YTRP10 = gd['gas16/YTRP10']
  *     YTP10M = gd['gas16/YTP10M']
  *     XTRP11 = gd['gas16/XTRP11']             # <<<<<<<<<<<<<<
@@ -3274,7 +3274,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP11[0]), __pyx_t_22, sizeof(__pyx_v_XTRP11[0]) * (19));
 
-  /* "NITROGEN.pyx":104
+  /* "gases/NITROGEN.pyx":104
  *     YTP10M = gd['gas16/YTP10M']
  *     XTRP11 = gd['gas16/XTRP11']
  *     YTRP11 = gd['gas16/YTRP11']             # <<<<<<<<<<<<<<
@@ -3287,7 +3287,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP11[0]), __pyx_t_22, sizeof(__pyx_v_YTRP11[0]) * (19));
 
-  /* "NITROGEN.pyx":105
+  /* "gases/NITROGEN.pyx":105
  *     XTRP11 = gd['gas16/XTRP11']
  *     YTRP11 = gd['gas16/YTRP11']
  *     YTP11M = gd['gas16/YTP11M']             # <<<<<<<<<<<<<<
@@ -3300,7 +3300,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP11M[0]), __pyx_t_22, sizeof(__pyx_v_YTP11M[0]) * (19));
 
-  /* "NITROGEN.pyx":106
+  /* "gases/NITROGEN.pyx":106
  *     YTRP11 = gd['gas16/YTRP11']
  *     YTP11M = gd['gas16/YTP11M']
  *     XTRP12 = gd['gas16/XTRP12']             # <<<<<<<<<<<<<<
@@ -3313,7 +3313,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP12[0]), __pyx_t_20, sizeof(__pyx_v_XTRP12[0]) * (22));
 
-  /* "NITROGEN.pyx":107
+  /* "gases/NITROGEN.pyx":107
  *     YTP11M = gd['gas16/YTP11M']
  *     XTRP12 = gd['gas16/XTRP12']
  *     YTRP12 = gd['gas16/YTRP12']             # <<<<<<<<<<<<<<
@@ -3326,7 +3326,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP12[0]), __pyx_t_20, sizeof(__pyx_v_YTRP12[0]) * (22));
 
-  /* "NITROGEN.pyx":108
+  /* "gases/NITROGEN.pyx":108
  *     XTRP12 = gd['gas16/XTRP12']
  *     YTRP12 = gd['gas16/YTRP12']
  *     YTP12M = gd['gas16/YTP12M']             # <<<<<<<<<<<<<<
@@ -3339,7 +3339,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP12M[0]), __pyx_t_20, sizeof(__pyx_v_YTP12M[0]) * (22));
 
-  /* "NITROGEN.pyx":109
+  /* "gases/NITROGEN.pyx":109
  *     YTRP12 = gd['gas16/YTRP12']
  *     YTP12M = gd['gas16/YTP12M']
  *     XTRP13 = gd['gas16/XTRP13']             # <<<<<<<<<<<<<<
@@ -3352,7 +3352,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP13[0]), __pyx_t_23, sizeof(__pyx_v_XTRP13[0]) * (10));
 
-  /* "NITROGEN.pyx":110
+  /* "gases/NITROGEN.pyx":110
  *     YTP12M = gd['gas16/YTP12M']
  *     XTRP13 = gd['gas16/XTRP13']
  *     YTRP13 = gd['gas16/YTRP13']             # <<<<<<<<<<<<<<
@@ -3365,7 +3365,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP13[0]), __pyx_t_23, sizeof(__pyx_v_YTRP13[0]) * (10));
 
-  /* "NITROGEN.pyx":111
+  /* "gases/NITROGEN.pyx":111
  *     XTRP13 = gd['gas16/XTRP13']
  *     YTRP13 = gd['gas16/YTRP13']
  *     YTP13M = gd['gas16/YTP13M']             # <<<<<<<<<<<<<<
@@ -3378,7 +3378,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP13M[0]), __pyx_t_23, sizeof(__pyx_v_YTP13M[0]) * (10));
 
-  /* "NITROGEN.pyx":112
+  /* "gases/NITROGEN.pyx":112
  *     YTRP13 = gd['gas16/YTRP13']
  *     YTP13M = gd['gas16/YTP13M']
  *     XTRP14 = gd['gas16/XTRP14']             # <<<<<<<<<<<<<<
@@ -3391,7 +3391,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP14[0]), __pyx_t_23, sizeof(__pyx_v_XTRP14[0]) * (10));
 
-  /* "NITROGEN.pyx":113
+  /* "gases/NITROGEN.pyx":113
  *     YTP13M = gd['gas16/YTP13M']
  *     XTRP14 = gd['gas16/XTRP14']
  *     YTRP14 = gd['gas16/YTRP14']             # <<<<<<<<<<<<<<
@@ -3404,7 +3404,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP14[0]), __pyx_t_23, sizeof(__pyx_v_YTRP14[0]) * (10));
 
-  /* "NITROGEN.pyx":114
+  /* "gases/NITROGEN.pyx":114
  *     XTRP14 = gd['gas16/XTRP14']
  *     YTRP14 = gd['gas16/YTRP14']
  *     YTP14M = gd['gas16/YTP14M']             # <<<<<<<<<<<<<<
@@ -3417,7 +3417,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTP14M[0]), __pyx_t_23, sizeof(__pyx_v_YTP14M[0]) * (10));
 
-  /* "NITROGEN.pyx":115
+  /* "gases/NITROGEN.pyx":115
  *     YTRP14 = gd['gas16/YTRP14']
  *     YTP14M = gd['gas16/YTP14M']
  *     XSNG1 = gd['gas16/XSNG1']             # <<<<<<<<<<<<<<
@@ -3430,7 +3430,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG1[0]), __pyx_t_22, sizeof(__pyx_v_XSNG1[0]) * (19));
 
-  /* "NITROGEN.pyx":116
+  /* "gases/NITROGEN.pyx":116
  *     YTP14M = gd['gas16/YTP14M']
  *     XSNG1 = gd['gas16/XSNG1']
  *     YSNG1 = gd['gas16/YSNG1']             # <<<<<<<<<<<<<<
@@ -3443,7 +3443,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG1[0]), __pyx_t_22, sizeof(__pyx_v_YSNG1[0]) * (19));
 
-  /* "NITROGEN.pyx":117
+  /* "gases/NITROGEN.pyx":117
  *     XSNG1 = gd['gas16/XSNG1']
  *     YSNG1 = gd['gas16/YSNG1']
  *     YSG1M = gd['gas16/YSG1M']             # <<<<<<<<<<<<<<
@@ -3456,7 +3456,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG1M[0]), __pyx_t_22, sizeof(__pyx_v_YSG1M[0]) * (19));
 
-  /* "NITROGEN.pyx":118
+  /* "gases/NITROGEN.pyx":118
  *     YSNG1 = gd['gas16/YSNG1']
  *     YSG1M = gd['gas16/YSG1M']
  *     XSNG2 = gd['gas16/XSNG2']             # <<<<<<<<<<<<<<
@@ -3469,7 +3469,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG2[0]), __pyx_t_24, sizeof(__pyx_v_XSNG2[0]) * (17));
 
-  /* "NITROGEN.pyx":119
+  /* "gases/NITROGEN.pyx":119
  *     YSG1M = gd['gas16/YSG1M']
  *     XSNG2 = gd['gas16/XSNG2']
  *     YSNG2 = gd['gas16/YSNG2']             # <<<<<<<<<<<<<<
@@ -3482,7 +3482,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG2[0]), __pyx_t_24, sizeof(__pyx_v_YSNG2[0]) * (17));
 
-  /* "NITROGEN.pyx":120
+  /* "gases/NITROGEN.pyx":120
  *     XSNG2 = gd['gas16/XSNG2']
  *     YSNG2 = gd['gas16/YSNG2']
  *     YSG2M = gd['gas16/YSG2M']             # <<<<<<<<<<<<<<
@@ -3495,7 +3495,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG2M[0]), __pyx_t_24, sizeof(__pyx_v_YSG2M[0]) * (17));
 
-  /* "NITROGEN.pyx":121
+  /* "gases/NITROGEN.pyx":121
  *     YSNG2 = gd['gas16/YSNG2']
  *     YSG2M = gd['gas16/YSG2M']
  *     XSNG3 = gd['gas16/XSNG3']             # <<<<<<<<<<<<<<
@@ -3508,7 +3508,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG3[0]), __pyx_t_24, sizeof(__pyx_v_XSNG3[0]) * (17));
 
-  /* "NITROGEN.pyx":122
+  /* "gases/NITROGEN.pyx":122
  *     YSG2M = gd['gas16/YSG2M']
  *     XSNG3 = gd['gas16/XSNG3']
  *     YSNG3 = gd['gas16/YSNG3']             # <<<<<<<<<<<<<<
@@ -3521,7 +3521,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG3[0]), __pyx_t_24, sizeof(__pyx_v_YSNG3[0]) * (17));
 
-  /* "NITROGEN.pyx":123
+  /* "gases/NITROGEN.pyx":123
  *     XSNG3 = gd['gas16/XSNG3']
  *     YSNG3 = gd['gas16/YSNG3']
  *     YSG3M = gd['gas16/YSG3M']             # <<<<<<<<<<<<<<
@@ -3534,7 +3534,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG3M[0]), __pyx_t_24, sizeof(__pyx_v_YSG3M[0]) * (17));
 
-  /* "NITROGEN.pyx":124
+  /* "gases/NITROGEN.pyx":124
  *     YSNG3 = gd['gas16/YSNG3']
  *     YSG3M = gd['gas16/YSG3M']
  *     XSNG4 = gd['gas16/XSNG4']             # <<<<<<<<<<<<<<
@@ -3547,7 +3547,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG4[0]), __pyx_t_22, sizeof(__pyx_v_XSNG4[0]) * (19));
 
-  /* "NITROGEN.pyx":125
+  /* "gases/NITROGEN.pyx":125
  *     YSG3M = gd['gas16/YSG3M']
  *     XSNG4 = gd['gas16/XSNG4']
  *     YSNG4 = gd['gas16/YSNG4']             # <<<<<<<<<<<<<<
@@ -3560,7 +3560,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG4[0]), __pyx_t_22, sizeof(__pyx_v_YSNG4[0]) * (19));
 
-  /* "NITROGEN.pyx":126
+  /* "gases/NITROGEN.pyx":126
  *     XSNG4 = gd['gas16/XSNG4']
  *     YSNG4 = gd['gas16/YSNG4']
  *     YSG4M = gd['gas16/YSG4M']             # <<<<<<<<<<<<<<
@@ -3573,7 +3573,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG4M[0]), __pyx_t_22, sizeof(__pyx_v_YSG4M[0]) * (19));
 
-  /* "NITROGEN.pyx":127
+  /* "gases/NITROGEN.pyx":127
  *     YSNG4 = gd['gas16/YSNG4']
  *     YSG4M = gd['gas16/YSG4M']
  *     XSNG5 = gd['gas16/XSNG5']             # <<<<<<<<<<<<<<
@@ -3586,7 +3586,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG5[0]), __pyx_t_24, sizeof(__pyx_v_XSNG5[0]) * (17));
 
-  /* "NITROGEN.pyx":128
+  /* "gases/NITROGEN.pyx":128
  *     YSG4M = gd['gas16/YSG4M']
  *     XSNG5 = gd['gas16/XSNG5']
  *     YSNG5 = gd['gas16/YSNG5']             # <<<<<<<<<<<<<<
@@ -3599,7 +3599,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG5[0]), __pyx_t_24, sizeof(__pyx_v_YSNG5[0]) * (17));
 
-  /* "NITROGEN.pyx":129
+  /* "gases/NITROGEN.pyx":129
  *     XSNG5 = gd['gas16/XSNG5']
  *     YSNG5 = gd['gas16/YSNG5']
  *     YSG5M = gd['gas16/YSG5M']             # <<<<<<<<<<<<<<
@@ -3612,7 +3612,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG5M[0]), __pyx_t_24, sizeof(__pyx_v_YSG5M[0]) * (17));
 
-  /* "NITROGEN.pyx":130
+  /* "gases/NITROGEN.pyx":130
  *     YSNG5 = gd['gas16/YSNG5']
  *     YSG5M = gd['gas16/YSG5M']
  *     XSNG6 = gd['gas16/XSNG6']             # <<<<<<<<<<<<<<
@@ -3625,7 +3625,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG6[0]), __pyx_t_25, sizeof(__pyx_v_XSNG6[0]) * (16));
 
-  /* "NITROGEN.pyx":131
+  /* "gases/NITROGEN.pyx":131
  *     YSG5M = gd['gas16/YSG5M']
  *     XSNG6 = gd['gas16/XSNG6']
  *     YSNG6 = gd['gas16/YSNG6']             # <<<<<<<<<<<<<<
@@ -3638,7 +3638,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG6[0]), __pyx_t_25, sizeof(__pyx_v_YSNG6[0]) * (16));
 
-  /* "NITROGEN.pyx":132
+  /* "gases/NITROGEN.pyx":132
  *     XSNG6 = gd['gas16/XSNG6']
  *     YSNG6 = gd['gas16/YSNG6']
  *     YSG6M = gd['gas16/YSG6M']             # <<<<<<<<<<<<<<
@@ -3651,7 +3651,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG6M[0]), __pyx_t_25, sizeof(__pyx_v_YSG6M[0]) * (16));
 
-  /* "NITROGEN.pyx":133
+  /* "gases/NITROGEN.pyx":133
  *     YSNG6 = gd['gas16/YSNG6']
  *     YSG6M = gd['gas16/YSG6M']
  *     XSNG7 = gd['gas16/XSNG7']             # <<<<<<<<<<<<<<
@@ -3664,7 +3664,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG7[0]), __pyx_t_26, sizeof(__pyx_v_XSNG7[0]) * (12));
 
-  /* "NITROGEN.pyx":134
+  /* "gases/NITROGEN.pyx":134
  *     YSG6M = gd['gas16/YSG6M']
  *     XSNG7 = gd['gas16/XSNG7']
  *     YSNG7 = gd['gas16/YSNG7']             # <<<<<<<<<<<<<<
@@ -3677,7 +3677,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG7[0]), __pyx_t_26, sizeof(__pyx_v_YSNG7[0]) * (12));
 
-  /* "NITROGEN.pyx":135
+  /* "gases/NITROGEN.pyx":135
  *     XSNG7 = gd['gas16/XSNG7']
  *     YSNG7 = gd['gas16/YSNG7']
  *     YSG7M = gd['gas16/YSG7M']             # <<<<<<<<<<<<<<
@@ -3690,7 +3690,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG7M[0]), __pyx_t_26, sizeof(__pyx_v_YSG7M[0]) * (12));
 
-  /* "NITROGEN.pyx":136
+  /* "gases/NITROGEN.pyx":136
  *     YSNG7 = gd['gas16/YSNG7']
  *     YSG7M = gd['gas16/YSG7M']
  *     XSNG8 = gd['gas16/XSNG8']             # <<<<<<<<<<<<<<
@@ -3703,7 +3703,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG8[0]), __pyx_t_27, sizeof(__pyx_v_XSNG8[0]) * (8));
 
-  /* "NITROGEN.pyx":137
+  /* "gases/NITROGEN.pyx":137
  *     YSG7M = gd['gas16/YSG7M']
  *     XSNG8 = gd['gas16/XSNG8']
  *     YSNG8 = gd['gas16/YSNG8']             # <<<<<<<<<<<<<<
@@ -3716,7 +3716,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG8[0]), __pyx_t_27, sizeof(__pyx_v_YSNG8[0]) * (8));
 
-  /* "NITROGEN.pyx":138
+  /* "gases/NITROGEN.pyx":138
  *     XSNG8 = gd['gas16/XSNG8']
  *     YSNG8 = gd['gas16/YSNG8']
  *     YSG8M = gd['gas16/YSG8M']             # <<<<<<<<<<<<<<
@@ -3729,7 +3729,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG8M[0]), __pyx_t_27, sizeof(__pyx_v_YSG8M[0]) * (8));
 
-  /* "NITROGEN.pyx":139
+  /* "gases/NITROGEN.pyx":139
  *     YSNG8 = gd['gas16/YSNG8']
  *     YSG8M = gd['gas16/YSG8M']
  *     XSNG9 = gd['gas16/XSNG9']             # <<<<<<<<<<<<<<
@@ -3742,7 +3742,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG9[0]), __pyx_t_25, sizeof(__pyx_v_XSNG9[0]) * (16));
 
-  /* "NITROGEN.pyx":140
+  /* "gases/NITROGEN.pyx":140
  *     YSG8M = gd['gas16/YSG8M']
  *     XSNG9 = gd['gas16/XSNG9']
  *     YSNG9 = gd['gas16/YSNG9']             # <<<<<<<<<<<<<<
@@ -3755,7 +3755,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG9[0]), __pyx_t_25, sizeof(__pyx_v_YSNG9[0]) * (16));
 
-  /* "NITROGEN.pyx":141
+  /* "gases/NITROGEN.pyx":141
  *     XSNG9 = gd['gas16/XSNG9']
  *     YSNG9 = gd['gas16/YSNG9']
  *     YSG9M = gd['gas16/YSG9M']             # <<<<<<<<<<<<<<
@@ -3768,7 +3768,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG9M[0]), __pyx_t_25, sizeof(__pyx_v_YSG9M[0]) * (16));
 
-  /* "NITROGEN.pyx":142
+  /* "gases/NITROGEN.pyx":142
  *     YSNG9 = gd['gas16/YSNG9']
  *     YSG9M = gd['gas16/YSG9M']
  *     XSNG10 = gd['gas16/XSNG10']             # <<<<<<<<<<<<<<
@@ -3781,7 +3781,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG10[0]), __pyx_t_27, sizeof(__pyx_v_XSNG10[0]) * (8));
 
-  /* "NITROGEN.pyx":143
+  /* "gases/NITROGEN.pyx":143
  *     YSG9M = gd['gas16/YSG9M']
  *     XSNG10 = gd['gas16/XSNG10']
  *     YSNG10 = gd['gas16/YSNG10']             # <<<<<<<<<<<<<<
@@ -3794,7 +3794,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG10[0]), __pyx_t_27, sizeof(__pyx_v_YSNG10[0]) * (8));
 
-  /* "NITROGEN.pyx":144
+  /* "gases/NITROGEN.pyx":144
  *     XSNG10 = gd['gas16/XSNG10']
  *     YSNG10 = gd['gas16/YSNG10']
  *     YSG10M = gd['gas16/YSG10M']             # <<<<<<<<<<<<<<
@@ -3807,7 +3807,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG10M[0]), __pyx_t_27, sizeof(__pyx_v_YSG10M[0]) * (8));
 
-  /* "NITROGEN.pyx":145
+  /* "gases/NITROGEN.pyx":145
  *     YSNG10 = gd['gas16/YSNG10']
  *     YSG10M = gd['gas16/YSG10M']
  *     XSNG11 = gd['gas16/XSNG11']             # <<<<<<<<<<<<<<
@@ -3820,7 +3820,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG11[0]), __pyx_t_27, sizeof(__pyx_v_XSNG11[0]) * (8));
 
-  /* "NITROGEN.pyx":146
+  /* "gases/NITROGEN.pyx":146
  *     YSG10M = gd['gas16/YSG10M']
  *     XSNG11 = gd['gas16/XSNG11']
  *     YSNG11 = gd['gas16/YSNG11']             # <<<<<<<<<<<<<<
@@ -3833,7 +3833,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG11[0]), __pyx_t_27, sizeof(__pyx_v_YSNG11[0]) * (8));
 
-  /* "NITROGEN.pyx":147
+  /* "gases/NITROGEN.pyx":147
  *     XSNG11 = gd['gas16/XSNG11']
  *     YSNG11 = gd['gas16/YSNG11']
  *     YSG11M = gd['gas16/YSG11M']             # <<<<<<<<<<<<<<
@@ -3846,7 +3846,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG11M[0]), __pyx_t_27, sizeof(__pyx_v_YSG11M[0]) * (8));
 
-  /* "NITROGEN.pyx":148
+  /* "gases/NITROGEN.pyx":148
  *     YSNG11 = gd['gas16/YSNG11']
  *     YSG11M = gd['gas16/YSG11M']
  *     XSNG12 = gd['gas16/XSNG12']             # <<<<<<<<<<<<<<
@@ -3859,7 +3859,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG12[0]), __pyx_t_27, sizeof(__pyx_v_XSNG12[0]) * (8));
 
-  /* "NITROGEN.pyx":149
+  /* "gases/NITROGEN.pyx":149
  *     YSG11M = gd['gas16/YSG11M']
  *     XSNG12 = gd['gas16/XSNG12']
  *     YSNG12 = gd['gas16/YSNG12']             # <<<<<<<<<<<<<<
@@ -3872,7 +3872,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG12[0]), __pyx_t_27, sizeof(__pyx_v_YSNG12[0]) * (8));
 
-  /* "NITROGEN.pyx":150
+  /* "gases/NITROGEN.pyx":150
  *     XSNG12 = gd['gas16/XSNG12']
  *     YSNG12 = gd['gas16/YSNG12']
  *     YSG12M = gd['gas16/YSG12M']             # <<<<<<<<<<<<<<
@@ -3885,7 +3885,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG12M[0]), __pyx_t_27, sizeof(__pyx_v_YSG12M[0]) * (8));
 
-  /* "NITROGEN.pyx":151
+  /* "gases/NITROGEN.pyx":151
  *     YSNG12 = gd['gas16/YSNG12']
  *     YSG12M = gd['gas16/YSG12M']
  *     XSNG13 = gd['gas16/XSNG13']             # <<<<<<<<<<<<<<
@@ -3898,7 +3898,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG13[0]), __pyx_t_27, sizeof(__pyx_v_XSNG13[0]) * (8));
 
-  /* "NITROGEN.pyx":152
+  /* "gases/NITROGEN.pyx":152
  *     YSG12M = gd['gas16/YSG12M']
  *     XSNG13 = gd['gas16/XSNG13']
  *     YSNG13 = gd['gas16/YSNG13']             # <<<<<<<<<<<<<<
@@ -3911,7 +3911,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG13[0]), __pyx_t_27, sizeof(__pyx_v_YSNG13[0]) * (8));
 
-  /* "NITROGEN.pyx":153
+  /* "gases/NITROGEN.pyx":153
  *     XSNG13 = gd['gas16/XSNG13']
  *     YSNG13 = gd['gas16/YSNG13']
  *     YSG13M = gd['gas16/YSG13M']             # <<<<<<<<<<<<<<
@@ -3924,7 +3924,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG13M[0]), __pyx_t_27, sizeof(__pyx_v_YSG13M[0]) * (8));
 
-  /* "NITROGEN.pyx":154
+  /* "gases/NITROGEN.pyx":154
  *     YSNG13 = gd['gas16/YSNG13']
  *     YSG13M = gd['gas16/YSG13M']
  *     XSNG14 = gd['gas16/XSNG14']             # <<<<<<<<<<<<<<
@@ -3937,7 +3937,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG14[0]), __pyx_t_27, sizeof(__pyx_v_XSNG14[0]) * (8));
 
-  /* "NITROGEN.pyx":155
+  /* "gases/NITROGEN.pyx":155
  *     YSG13M = gd['gas16/YSG13M']
  *     XSNG14 = gd['gas16/XSNG14']
  *     YSNG14 = gd['gas16/YSNG14']             # <<<<<<<<<<<<<<
@@ -3950,7 +3950,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG14[0]), __pyx_t_27, sizeof(__pyx_v_YSNG14[0]) * (8));
 
-  /* "NITROGEN.pyx":156
+  /* "gases/NITROGEN.pyx":156
  *     XSNG14 = gd['gas16/XSNG14']
  *     YSNG14 = gd['gas16/YSNG14']
  *     YSG14M = gd['gas16/YSG14M']             # <<<<<<<<<<<<<<
@@ -3963,7 +3963,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG14M[0]), __pyx_t_27, sizeof(__pyx_v_YSG14M[0]) * (8));
 
-  /* "NITROGEN.pyx":157
+  /* "gases/NITROGEN.pyx":157
  *     YSNG14 = gd['gas16/YSNG14']
  *     YSG14M = gd['gas16/YSG14M']
  *     XSNG15 = gd['gas16/XSNG15']             # <<<<<<<<<<<<<<
@@ -3976,7 +3976,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XSNG15[0]), __pyx_t_27, sizeof(__pyx_v_XSNG15[0]) * (8));
 
-  /* "NITROGEN.pyx":158
+  /* "gases/NITROGEN.pyx":158
  *     YSG14M = gd['gas16/YSG14M']
  *     XSNG15 = gd['gas16/XSNG15']
  *     YSNG15 = gd['gas16/YSNG15']             # <<<<<<<<<<<<<<
@@ -3989,7 +3989,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSNG15[0]), __pyx_t_27, sizeof(__pyx_v_YSNG15[0]) * (8));
 
-  /* "NITROGEN.pyx":159
+  /* "gases/NITROGEN.pyx":159
  *     XSNG15 = gd['gas16/XSNG15']
  *     YSNG15 = gd['gas16/YSNG15']
  *     YSG15M = gd['gas16/YSG15M']             # <<<<<<<<<<<<<<
@@ -4002,7 +4002,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YSG15M[0]), __pyx_t_27, sizeof(__pyx_v_YSG15M[0]) * (8));
 
-  /* "NITROGEN.pyx":160
+  /* "gases/NITROGEN.pyx":160
  *     YSNG15 = gd['gas16/YSNG15']
  *     YSG15M = gd['gas16/YSG15M']
  *     XKSH = gd['gas16/XKSH']             # <<<<<<<<<<<<<<
@@ -4015,7 +4015,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSH[0]), __pyx_t_28, sizeof(__pyx_v_XKSH[0]) * (89));
 
-  /* "NITROGEN.pyx":161
+  /* "gases/NITROGEN.pyx":161
  *     YSG15M = gd['gas16/YSG15M']
  *     XKSH = gd['gas16/XKSH']
  *     YKSH = gd['gas16/YKSH']             # <<<<<<<<<<<<<<
@@ -4028,7 +4028,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSH[0]), __pyx_t_28, sizeof(__pyx_v_YKSH[0]) * (89));
 
-  /* "NITROGEN.pyx":162
+  /* "gases/NITROGEN.pyx":162
  *     XKSH = gd['gas16/XKSH']
  *     YKSH = gd['gas16/YKSH']
  *     XION = gd['gas16/XION']             # <<<<<<<<<<<<<<
@@ -4041,7 +4041,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_7, sizeof(__pyx_v_XION[0]) * (87));
 
-  /* "NITROGEN.pyx":163
+  /* "gases/NITROGEN.pyx":163
  *     YKSH = gd['gas16/YKSH']
  *     XION = gd['gas16/XION']
  *     YION = gd['gas16/YION']             # <<<<<<<<<<<<<<
@@ -4054,7 +4054,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_7, sizeof(__pyx_v_YION[0]) * (87));
 
-  /* "NITROGEN.pyx":164
+  /* "gases/NITROGEN.pyx":164
  *     XION = gd['gas16/XION']
  *     YION = gd['gas16/YION']
  *     XION1 = gd['gas16/XION1']             # <<<<<<<<<<<<<<
@@ -4067,7 +4067,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION1[0]), __pyx_t_7, sizeof(__pyx_v_XION1[0]) * (87));
 
-  /* "NITROGEN.pyx":165
+  /* "gases/NITROGEN.pyx":165
  *     YION = gd['gas16/YION']
  *     XION1 = gd['gas16/XION1']
  *     YION1 = gd['gas16/YION1']             # <<<<<<<<<<<<<<
@@ -4080,7 +4080,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION1[0]), __pyx_t_7, sizeof(__pyx_v_YION1[0]) * (87));
 
-  /* "NITROGEN.pyx":166
+  /* "gases/NITROGEN.pyx":166
  *     XION1 = gd['gas16/XION1']
  *     YION1 = gd['gas16/YION1']
  *     XION2 = gd['gas16/XION2']             # <<<<<<<<<<<<<<
@@ -4093,7 +4093,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION2[0]), __pyx_t_29, sizeof(__pyx_v_XION2[0]) * (63));
 
-  /* "NITROGEN.pyx":167
+  /* "gases/NITROGEN.pyx":167
  *     YION1 = gd['gas16/YION1']
  *     XION2 = gd['gas16/XION2']
  *     YION2 = gd['gas16/YION2']             # <<<<<<<<<<<<<<
@@ -4106,7 +4106,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION2[0]), __pyx_t_29, sizeof(__pyx_v_YION2[0]) * (63));
 
-  /* "NITROGEN.pyx":168
+  /* "gases/NITROGEN.pyx":168
  *     XION2 = gd['gas16/XION2']
  *     YION2 = gd['gas16/YION2']
  *     XION3 = gd['gas16/XION3']             # <<<<<<<<<<<<<<
@@ -4119,7 +4119,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION3[0]), __pyx_t_30, sizeof(__pyx_v_XION3[0]) * (48));
 
-  /* "NITROGEN.pyx":169
+  /* "gases/NITROGEN.pyx":169
  *     YION2 = gd['gas16/YION2']
  *     XION3 = gd['gas16/XION3']
  *     YION3 = gd['gas16/YION3']             # <<<<<<<<<<<<<<
@@ -4132,7 +4132,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION3[0]), __pyx_t_30, sizeof(__pyx_v_YION3[0]) * (48));
 
-  /* "NITROGEN.pyx":170
+  /* "gases/NITROGEN.pyx":170
  *     XION3 = gd['gas16/XION3']
  *     YION3 = gd['gas16/YION3']
  *     XION4 = gd['gas16/XION4']             # <<<<<<<<<<<<<<
@@ -4145,7 +4145,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION4[0]), __pyx_t_31, sizeof(__pyx_v_XION4[0]) * (54));
 
-  /* "NITROGEN.pyx":171
+  /* "gases/NITROGEN.pyx":171
  *     YION3 = gd['gas16/YION3']
  *     XION4 = gd['gas16/XION4']
  *     YION4 = gd['gas16/YION4']             # <<<<<<<<<<<<<<
@@ -4158,7 +4158,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION4[0]), __pyx_t_31, sizeof(__pyx_v_YION4[0]) * (54));
 
-  /* "NITROGEN.pyx":172
+  /* "gases/NITROGEN.pyx":172
  *     XION4 = gd['gas16/XION4']
  *     YION4 = gd['gas16/YION4']
  *     Z7T = gd['gas16/Z7T']             # <<<<<<<<<<<<<<
@@ -4171,7 +4171,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z7T[0]), __pyx_t_32, sizeof(__pyx_v_Z7T[0]) * (25));
 
-  /* "NITROGEN.pyx":173
+  /* "gases/NITROGEN.pyx":173
  *     YION4 = gd['gas16/YION4']
  *     Z7T = gd['gas16/Z7T']
  *     EBRM = gd['gas16/EBRM']             # <<<<<<<<<<<<<<
@@ -4184,7 +4184,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_32, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "NITROGEN.pyx":177
+  /* "gases/NITROGEN.pyx":177
  *     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AUGK, B0
  *     cdef int NBREM, i, j, I, J,
  *     A0 = 0.52917720859e-08             # <<<<<<<<<<<<<<
@@ -4193,7 +4193,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-08;
 
-  /* "NITROGEN.pyx":178
+  /* "gases/NITROGEN.pyx":178
  *     cdef int NBREM, i, j, I, J,
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193             # <<<<<<<<<<<<<<
@@ -4202,7 +4202,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "NITROGEN.pyx":179
+  /* "gases/NITROGEN.pyx":179
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -4211,7 +4211,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "NITROGEN.pyx":180
+  /* "gases/NITROGEN.pyx":180
  *     RY = 13.60569193
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804             # <<<<<<<<<<<<<<
@@ -4220,7 +4220,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "NITROGEN.pyx":181
+  /* "gases/NITROGEN.pyx":181
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)             # <<<<<<<<<<<<<<
@@ -4229,7 +4229,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0e0);
 
-  /* "NITROGEN.pyx":182
+  /* "gases/NITROGEN.pyx":182
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -4238,7 +4238,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0e0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "NITROGEN.pyx":184
+  /* "gases/NITROGEN.pyx":184
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
  *     #BORN BETHE VALUES FOR IONISATION
  *     AM2 = 3.35             # <<<<<<<<<<<<<<
@@ -4247,7 +4247,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 3.35;
 
-  /* "NITROGEN.pyx":185
+  /* "gases/NITROGEN.pyx":185
  *     #BORN BETHE VALUES FOR IONISATION
  *     AM2 = 3.35
  *     C = 38.1             # <<<<<<<<<<<<<<
@@ -4256,7 +4256,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 38.1;
 
-  /* "NITROGEN.pyx":187
+  /* "gases/NITROGEN.pyx":187
  *     C = 38.1
  *     # AVERAGE AUGER EMISSION FROM KSHELL
  *     AUGK = 2.0             # <<<<<<<<<<<<<<
@@ -4265,7 +4265,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGK = 2.0;
 
-  /* "NITROGEN.pyx":189
+  /* "gases/NITROGEN.pyx":189
  *     AUGK = 2.0
  * 
  *     object.NION = 12             # <<<<<<<<<<<<<<
@@ -4274,7 +4274,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 12;
 
-  /* "NITROGEN.pyx":190
+  /* "gases/NITROGEN.pyx":190
  * 
  *     object.NION = 12
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -4283,7 +4283,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "NITROGEN.pyx":191
+  /* "gases/NITROGEN.pyx":191
  *     object.NION = 12
  *     object.NATT = 1
  *     object.NIN = 127             # <<<<<<<<<<<<<<
@@ -4292,7 +4292,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 0x7F;
 
-  /* "NITROGEN.pyx":192
+  /* "gases/NITROGEN.pyx":192
  *     object.NATT = 1
  *     object.NIN = 127
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -4301,7 +4301,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "NITROGEN.pyx":193
+  /* "gases/NITROGEN.pyx":193
  *     object.NIN = 127
  *     object.NNULL = 0
  *     NBREM = 25             # <<<<<<<<<<<<<<
@@ -4310,7 +4310,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "NITROGEN.pyx":198
+  /* "gases/NITROGEN.pyx":198
  *     # ISOTROPIC (KEL=0) OR
  *     # CAPITELLI-LONGO (KEL =1)  OR OKHRIMOVSKKY TYPES (KEL=2)
  *     for J in range(6):             # <<<<<<<<<<<<<<
@@ -4320,7 +4320,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 0; __pyx_t_33 < 6; __pyx_t_33+=1) {
     __pyx_v_J = __pyx_t_33;
 
-    /* "NITROGEN.pyx":199
+    /* "gases/NITROGEN.pyx":199
  *     # CAPITELLI-LONGO (KEL =1)  OR OKHRIMOVSKKY TYPES (KEL=2)
  *     for J in range(6):
  *         object.KEL[J] = object.NANISO             # <<<<<<<<<<<<<<
@@ -4331,7 +4331,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_J]) = __pyx_t_34;
   }
 
-  /* "NITROGEN.pyx":202
+  /* "gases/NITROGEN.pyx":202
  * 
  *     # USE ISOTROPIC SCATTERING FOR ROTATIONAL AND VIBRATIONAL STATES
  *     for J in range(92):             # <<<<<<<<<<<<<<
@@ -4341,7 +4341,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 0; __pyx_t_33 < 92; __pyx_t_33+=1) {
     __pyx_v_J = __pyx_t_33;
 
-    /* "NITROGEN.pyx":203
+    /* "gases/NITROGEN.pyx":203
  *     # USE ISOTROPIC SCATTERING FOR ROTATIONAL AND VIBRATIONAL STATES
  *     for J in range(92):
  *         object.KIN[J] = 0             # <<<<<<<<<<<<<<
@@ -4351,7 +4351,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_J]) = 0.0;
   }
 
-  /* "NITROGEN.pyx":209
+  /* "gases/NITROGEN.pyx":209
  *     # OR OKRIMOVSKKY
  * 
  *     for J in range(92, object.NIN):             # <<<<<<<<<<<<<<
@@ -4363,7 +4363,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 92; __pyx_t_35 < __pyx_t_34; __pyx_t_35+=1) {
     __pyx_v_J = __pyx_t_35;
 
-    /* "NITROGEN.pyx":210
+    /* "gases/NITROGEN.pyx":210
  * 
  *     for J in range(92, object.NIN):
  *         object.KIN[J] = 1             # <<<<<<<<<<<<<<
@@ -4373,7 +4373,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_J]) = 1.0;
   }
 
-  /* "NITROGEN.pyx":217
+  /* "gases/NITROGEN.pyx":217
  *     cdef int NSNG13, NSNG14, NSNG15, NIOND, NION1, NION2, NION3, NION4, NKSH,
  * 
  *     NELA = 216             # <<<<<<<<<<<<<<
@@ -4382,7 +4382,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NELA = 0xD8;
 
-  /* "NITROGEN.pyx":218
+  /* "gases/NITROGEN.pyx":218
  * 
  *     NELA = 216
  *     NROT = 70             # <<<<<<<<<<<<<<
@@ -4391,7 +4391,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT = 70;
 
-  /* "NITROGEN.pyx":219
+  /* "gases/NITROGEN.pyx":219
  *     NELA = 216
  *     NROT = 70
  *     NVIB1 = 87             # <<<<<<<<<<<<<<
@@ -4400,7 +4400,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB1 = 87;
 
-  /* "NITROGEN.pyx":220
+  /* "gases/NITROGEN.pyx":220
  *     NROT = 70
  *     NVIB1 = 87
  *     NVIB2 = 69             # <<<<<<<<<<<<<<
@@ -4409,7 +4409,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB2 = 69;
 
-  /* "NITROGEN.pyx":221
+  /* "gases/NITROGEN.pyx":221
  *     NVIB1 = 87
  *     NVIB2 = 69
  *     NVIB3 = 70             # <<<<<<<<<<<<<<
@@ -4418,7 +4418,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB3 = 70;
 
-  /* "NITROGEN.pyx":222
+  /* "gases/NITROGEN.pyx":222
  *     NVIB2 = 69
  *     NVIB3 = 70
  *     NVIB4 = 50             # <<<<<<<<<<<<<<
@@ -4427,7 +4427,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB4 = 50;
 
-  /* "NITROGEN.pyx":223
+  /* "gases/NITROGEN.pyx":223
  *     NVIB3 = 70
  *     NVIB4 = 50
  *     NVIB5 = 40             # <<<<<<<<<<<<<<
@@ -4436,7 +4436,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB5 = 40;
 
-  /* "NITROGEN.pyx":224
+  /* "gases/NITROGEN.pyx":224
  *     NVIB4 = 50
  *     NVIB5 = 40
  *     NVIB6 = 41             # <<<<<<<<<<<<<<
@@ -4445,7 +4445,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB6 = 41;
 
-  /* "NITROGEN.pyx":225
+  /* "gases/NITROGEN.pyx":225
  *     NVIB5 = 40
  *     NVIB6 = 41
  *     NVIB7 = 42             # <<<<<<<<<<<<<<
@@ -4454,7 +4454,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB7 = 42;
 
-  /* "NITROGEN.pyx":226
+  /* "gases/NITROGEN.pyx":226
  *     NVIB6 = 41
  *     NVIB7 = 42
  *     NVIB8 = 40             # <<<<<<<<<<<<<<
@@ -4463,7 +4463,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB8 = 40;
 
-  /* "NITROGEN.pyx":227
+  /* "gases/NITROGEN.pyx":227
  *     NVIB7 = 42
  *     NVIB8 = 40
  *     NVIB9 = 35             # <<<<<<<<<<<<<<
@@ -4472,7 +4472,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB9 = 35;
 
-  /* "NITROGEN.pyx":228
+  /* "gases/NITROGEN.pyx":228
  *     NVIB8 = 40
  *     NVIB9 = 35
  *     NVIB10 = 35             # <<<<<<<<<<<<<<
@@ -4481,7 +4481,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB10 = 35;
 
-  /* "NITROGEN.pyx":229
+  /* "gases/NITROGEN.pyx":229
  *     NVIB9 = 35
  *     NVIB10 = 35
  *     NVIB11 = 35             # <<<<<<<<<<<<<<
@@ -4490,7 +4490,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB11 = 35;
 
-  /* "NITROGEN.pyx":230
+  /* "gases/NITROGEN.pyx":230
  *     NVIB10 = 35
  *     NVIB11 = 35
  *     NVIB12 = 33             # <<<<<<<<<<<<<<
@@ -4499,7 +4499,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB12 = 33;
 
-  /* "NITROGEN.pyx":231
+  /* "gases/NITROGEN.pyx":231
  *     NVIB11 = 35
  *     NVIB12 = 33
  *     NVIB13 = 31             # <<<<<<<<<<<<<<
@@ -4508,7 +4508,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB13 = 31;
 
-  /* "NITROGEN.pyx":232
+  /* "gases/NITROGEN.pyx":232
  *     NVIB12 = 33
  *     NVIB13 = 31
  *     NVIB14 = 28             # <<<<<<<<<<<<<<
@@ -4517,7 +4517,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB14 = 28;
 
-  /* "NITROGEN.pyx":233
+  /* "gases/NITROGEN.pyx":233
  *     NVIB13 = 31
  *     NVIB14 = 28
  *     NVIB15 = 32             # <<<<<<<<<<<<<<
@@ -4526,7 +4526,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB15 = 32;
 
-  /* "NITROGEN.pyx":234
+  /* "gases/NITROGEN.pyx":234
  *     NVIB14 = 28
  *     NVIB15 = 32
  *     NTRP1 = 23             # <<<<<<<<<<<<<<
@@ -4535,7 +4535,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP1 = 23;
 
-  /* "NITROGEN.pyx":235
+  /* "gases/NITROGEN.pyx":235
  *     NVIB15 = 32
  *     NTRP1 = 23
  *     NTRP2 = 23             # <<<<<<<<<<<<<<
@@ -4544,7 +4544,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP2 = 23;
 
-  /* "NITROGEN.pyx":236
+  /* "gases/NITROGEN.pyx":236
  *     NTRP1 = 23
  *     NTRP2 = 23
  *     NTRP3 = 21             # <<<<<<<<<<<<<<
@@ -4553,7 +4553,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP3 = 21;
 
-  /* "NITROGEN.pyx":237
+  /* "gases/NITROGEN.pyx":237
  *     NTRP2 = 23
  *     NTRP3 = 21
  *     NTRP4 = 22             # <<<<<<<<<<<<<<
@@ -4562,7 +4562,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP4 = 22;
 
-  /* "NITROGEN.pyx":238
+  /* "gases/NITROGEN.pyx":238
  *     NTRP3 = 21
  *     NTRP4 = 22
  *     NTRP5 = 23             # <<<<<<<<<<<<<<
@@ -4571,7 +4571,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP5 = 23;
 
-  /* "NITROGEN.pyx":239
+  /* "gases/NITROGEN.pyx":239
  *     NTRP4 = 22
  *     NTRP5 = 23
  *     NTRP6 = 21             # <<<<<<<<<<<<<<
@@ -4580,7 +4580,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP6 = 21;
 
-  /* "NITROGEN.pyx":240
+  /* "gases/NITROGEN.pyx":240
  *     NTRP5 = 23
  *     NTRP6 = 21
  *     NTRP7 = 21             # <<<<<<<<<<<<<<
@@ -4589,7 +4589,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP7 = 21;
 
-  /* "NITROGEN.pyx":241
+  /* "gases/NITROGEN.pyx":241
  *     NTRP6 = 21
  *     NTRP7 = 21
  *     NTRP8 = 21             # <<<<<<<<<<<<<<
@@ -4598,7 +4598,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP8 = 21;
 
-  /* "NITROGEN.pyx":242
+  /* "gases/NITROGEN.pyx":242
  *     NTRP7 = 21
  *     NTRP8 = 21
  *     NTRP9 = 20             # <<<<<<<<<<<<<<
@@ -4607,7 +4607,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP9 = 20;
 
-  /* "NITROGEN.pyx":243
+  /* "gases/NITROGEN.pyx":243
  *     NTRP8 = 21
  *     NTRP9 = 20
  *     NTRP10 = 20             # <<<<<<<<<<<<<<
@@ -4616,7 +4616,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP10 = 20;
 
-  /* "NITROGEN.pyx":244
+  /* "gases/NITROGEN.pyx":244
  *     NTRP9 = 20
  *     NTRP10 = 20
  *     NTRP11 = 19             # <<<<<<<<<<<<<<
@@ -4625,7 +4625,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP11 = 19;
 
-  /* "NITROGEN.pyx":245
+  /* "gases/NITROGEN.pyx":245
  *     NTRP10 = 20
  *     NTRP11 = 19
  *     NTRP12 = 22             # <<<<<<<<<<<<<<
@@ -4634,7 +4634,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP12 = 22;
 
-  /* "NITROGEN.pyx":246
+  /* "gases/NITROGEN.pyx":246
  *     NTRP11 = 19
  *     NTRP12 = 22
  *     NTRP13 = 10             # <<<<<<<<<<<<<<
@@ -4643,7 +4643,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP13 = 10;
 
-  /* "NITROGEN.pyx":247
+  /* "gases/NITROGEN.pyx":247
  *     NTRP12 = 22
  *     NTRP13 = 10
  *     NTRP14 = 10             # <<<<<<<<<<<<<<
@@ -4652,7 +4652,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP14 = 10;
 
-  /* "NITROGEN.pyx":248
+  /* "gases/NITROGEN.pyx":248
  *     NTRP13 = 10
  *     NTRP14 = 10
  *     NSNG1 = 19             # <<<<<<<<<<<<<<
@@ -4661,7 +4661,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG1 = 19;
 
-  /* "NITROGEN.pyx":249
+  /* "gases/NITROGEN.pyx":249
  *     NTRP14 = 10
  *     NSNG1 = 19
  *     NSNG2 = 17             # <<<<<<<<<<<<<<
@@ -4670,7 +4670,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG2 = 17;
 
-  /* "NITROGEN.pyx":250
+  /* "gases/NITROGEN.pyx":250
  *     NSNG1 = 19
  *     NSNG2 = 17
  *     NSNG3 = 17             # <<<<<<<<<<<<<<
@@ -4679,7 +4679,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG3 = 17;
 
-  /* "NITROGEN.pyx":251
+  /* "gases/NITROGEN.pyx":251
  *     NSNG2 = 17
  *     NSNG3 = 17
  *     NSNG4 = 19             # <<<<<<<<<<<<<<
@@ -4688,7 +4688,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG4 = 19;
 
-  /* "NITROGEN.pyx":252
+  /* "gases/NITROGEN.pyx":252
  *     NSNG3 = 17
  *     NSNG4 = 19
  *     NSNG5 = 17             # <<<<<<<<<<<<<<
@@ -4697,7 +4697,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG5 = 17;
 
-  /* "NITROGEN.pyx":253
+  /* "gases/NITROGEN.pyx":253
  *     NSNG4 = 19
  *     NSNG5 = 17
  *     NSNG6 = 16             # <<<<<<<<<<<<<<
@@ -4706,7 +4706,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG6 = 16;
 
-  /* "NITROGEN.pyx":254
+  /* "gases/NITROGEN.pyx":254
  *     NSNG5 = 17
  *     NSNG6 = 16
  *     NSNG7 = 12             # <<<<<<<<<<<<<<
@@ -4715,7 +4715,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG7 = 12;
 
-  /* "NITROGEN.pyx":255
+  /* "gases/NITROGEN.pyx":255
  *     NSNG6 = 16
  *     NSNG7 = 12
  *     NSNG8 = 8             # <<<<<<<<<<<<<<
@@ -4724,7 +4724,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG8 = 8;
 
-  /* "NITROGEN.pyx":256
+  /* "gases/NITROGEN.pyx":256
  *     NSNG7 = 12
  *     NSNG8 = 8
  *     NSNG9 = 16             # <<<<<<<<<<<<<<
@@ -4733,7 +4733,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG9 = 16;
 
-  /* "NITROGEN.pyx":257
+  /* "gases/NITROGEN.pyx":257
  *     NSNG8 = 8
  *     NSNG9 = 16
  *     NSNG10 = 8             # <<<<<<<<<<<<<<
@@ -4742,7 +4742,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG10 = 8;
 
-  /* "NITROGEN.pyx":258
+  /* "gases/NITROGEN.pyx":258
  *     NSNG9 = 16
  *     NSNG10 = 8
  *     NSNG11 = 8             # <<<<<<<<<<<<<<
@@ -4751,7 +4751,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG11 = 8;
 
-  /* "NITROGEN.pyx":259
+  /* "gases/NITROGEN.pyx":259
  *     NSNG10 = 8
  *     NSNG11 = 8
  *     NSNG12 = 8             # <<<<<<<<<<<<<<
@@ -4760,7 +4760,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG12 = 8;
 
-  /* "NITROGEN.pyx":260
+  /* "gases/NITROGEN.pyx":260
  *     NSNG11 = 8
  *     NSNG12 = 8
  *     NSNG13 = 8             # <<<<<<<<<<<<<<
@@ -4769,7 +4769,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG13 = 8;
 
-  /* "NITROGEN.pyx":261
+  /* "gases/NITROGEN.pyx":261
  *     NSNG12 = 8
  *     NSNG13 = 8
  *     NSNG14 = 8             # <<<<<<<<<<<<<<
@@ -4778,7 +4778,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG14 = 8;
 
-  /* "NITROGEN.pyx":262
+  /* "gases/NITROGEN.pyx":262
  *     NSNG13 = 8
  *     NSNG14 = 8
  *     NSNG15 = 8             # <<<<<<<<<<<<<<
@@ -4787,7 +4787,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NSNG15 = 8;
 
-  /* "NITROGEN.pyx":263
+  /* "gases/NITROGEN.pyx":263
  *     NSNG14 = 8
  *     NSNG15 = 8
  *     NIOND = 87             # <<<<<<<<<<<<<<
@@ -4796,7 +4796,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIOND = 87;
 
-  /* "NITROGEN.pyx":264
+  /* "gases/NITROGEN.pyx":264
  *     NSNG15 = 8
  *     NIOND = 87
  *     NION1 = 87             # <<<<<<<<<<<<<<
@@ -4805,7 +4805,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION1 = 87;
 
-  /* "NITROGEN.pyx":265
+  /* "gases/NITROGEN.pyx":265
  *     NIOND = 87
  *     NION1 = 87
  *     NION2 = 63             # <<<<<<<<<<<<<<
@@ -4814,7 +4814,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 63;
 
-  /* "NITROGEN.pyx":266
+  /* "gases/NITROGEN.pyx":266
  *     NION1 = 87
  *     NION2 = 63
  *     NION3 = 48             # <<<<<<<<<<<<<<
@@ -4823,7 +4823,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 48;
 
-  /* "NITROGEN.pyx":267
+  /* "gases/NITROGEN.pyx":267
  *     NION2 = 63
  *     NION3 = 48
  *     NION4 = 54             # <<<<<<<<<<<<<<
@@ -4832,7 +4832,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION4 = 54;
 
-  /* "NITROGEN.pyx":268
+  /* "gases/NITROGEN.pyx":268
  *     NION3 = 48
  *     NION4 = 54
  *     NKSH = 89             # <<<<<<<<<<<<<<
@@ -4841,7 +4841,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSH = 89;
 
-  /* "NITROGEN.pyx":270
+  /* "gases/NITROGEN.pyx":270
  *     NKSH = 89
  * 
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -4850,7 +4850,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "NITROGEN.pyx":271
+  /* "gases/NITROGEN.pyx":271
  * 
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27, EOBY[12], SUMR, SUMV, SUMEX, SUMEX1             # <<<<<<<<<<<<<<
@@ -4859,7 +4859,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "NITROGEN.pyx":273
+  /* "gases/NITROGEN.pyx":273
  *     cdef double AMU = 1.660538921e-27, EOBY[12], SUMR, SUMV, SUMEX, SUMEX1
  * 
  *     object.E = [0.0, 1.0, 15.581, 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -4874,7 +4874,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_36[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_36, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "NITROGEN.pyx":274
+  /* "gases/NITROGEN.pyx":274
  * 
  *     object.E = [0.0, 1.0, 15.581, 0.0, 0.0, 0.0]
  *     object.E[1] = 2.0 * EMASS / (27.7940 * AMU)             # <<<<<<<<<<<<<<
@@ -4883,7 +4883,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (27.7940 * __pyx_v_AMU));
 
-  /* "NITROGEN.pyx":275
+  /* "gases/NITROGEN.pyx":275
  *     object.E = [0.0, 1.0, 15.581, 0.0, 0.0, 0.0]
  *     object.E[1] = 2.0 * EMASS / (27.7940 * AMU)
  *     object.EION[0:12] = [15.581, 15.855, 16.699, 16.935, 17.171, 18.751, 23.591, 24.294, 24.4, 35.7, 38.8, 401.6]             # <<<<<<<<<<<<<<
@@ -4904,7 +4904,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_26[11] = 401.6;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_26, sizeof(__pyx_v_object->EION[0]) * (12));
 
-  /* "NITROGEN.pyx":277
+  /* "gases/NITROGEN.pyx":277
  *     object.EION[0:12] = [15.581, 15.855, 16.699, 16.935, 17.171, 18.751, 23.591, 24.294, 24.4, 35.7, 38.8, 401.6]
  * 
  *     for J in range(12):             # <<<<<<<<<<<<<<
@@ -4914,7 +4914,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 0; __pyx_t_33 < 12; __pyx_t_33+=1) {
     __pyx_v_J = __pyx_t_33;
 
-    /* "NITROGEN.pyx":278
+    /* "gases/NITROGEN.pyx":278
  * 
  *     for J in range(12):
  *         EOBY[J] = 13.6             # <<<<<<<<<<<<<<
@@ -4923,7 +4923,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_EOBY[__pyx_v_J]) = 13.6;
 
-    /* "NITROGEN.pyx":279
+    /* "gases/NITROGEN.pyx":279
  *     for J in range(12):
  *         EOBY[J] = 13.6
  *         object.NC0[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4932,7 +4932,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NC0[__pyx_v_J]) = 0.0;
 
-    /* "NITROGEN.pyx":280
+    /* "gases/NITROGEN.pyx":280
  *         EOBY[J] = 13.6
  *         object.NC0[J] = 0.0
  *         object.EC0[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4941,7 +4941,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EC0[__pyx_v_J]) = 0.0;
 
-    /* "NITROGEN.pyx":281
+    /* "gases/NITROGEN.pyx":281
  *         object.NC0[J] = 0.0
  *         object.EC0[J] = 0.0
  *         object.WK[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4950,7 +4950,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->WK[__pyx_v_J]) = 0.0;
 
-    /* "NITROGEN.pyx":282
+    /* "gases/NITROGEN.pyx":282
  *         object.EC0[J] = 0.0
  *         object.WK[J] = 0.0
  *         object.EFL[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4959,7 +4959,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EFL[__pyx_v_J]) = 0.0;
 
-    /* "NITROGEN.pyx":283
+    /* "gases/NITROGEN.pyx":283
  *         object.WK[J] = 0.0
  *         object.EFL[J] = 0.0
  *         object.NG1[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4968,7 +4968,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG1[__pyx_v_J]) = 0.0;
 
-    /* "NITROGEN.pyx":284
+    /* "gases/NITROGEN.pyx":284
  *         object.EFL[J] = 0.0
  *         object.NG1[J] = 0.0
  *         object.EG1[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4977,7 +4977,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EG1[__pyx_v_J]) = 0.0;
 
-    /* "NITROGEN.pyx":285
+    /* "gases/NITROGEN.pyx":285
  *         object.NG1[J] = 0.0
  *         object.EG1[J] = 0.0
  *         object.NG2[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4986,7 +4986,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG2[__pyx_v_J]) = 0.0;
 
-    /* "NITROGEN.pyx":286
+    /* "gases/NITROGEN.pyx":286
  *         object.EG1[J] = 0.0
  *         object.NG2[J] = 0.0
  *         object.EG2[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4996,7 +4996,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EG2[__pyx_v_J]) = 0.0;
   }
 
-  /* "NITROGEN.pyx":289
+  /* "gases/NITROGEN.pyx":289
  * 
  *     # DOUBLY CHARGED STATES
  *     object.NC0[10] = 1             # <<<<<<<<<<<<<<
@@ -5005,7 +5005,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[10]) = 1.0;
 
-  /* "NITROGEN.pyx":290
+  /* "gases/NITROGEN.pyx":290
  *     # DOUBLY CHARGED STATES
  *     object.NC0[10] = 1
  *     object.EC0[10] = 6.0             # <<<<<<<<<<<<<<
@@ -5014,7 +5014,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[10]) = 6.0;
 
-  /* "NITROGEN.pyx":292
+  /* "gases/NITROGEN.pyx":292
  *     object.EC0[10] = 6.0
  *     # FLUORESENCE DATA
  *     object.NC0[11] = 2.0             # <<<<<<<<<<<<<<
@@ -5023,7 +5023,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[11]) = 2.0;
 
-  /* "NITROGEN.pyx":293
+  /* "gases/NITROGEN.pyx":293
  *     # FLUORESENCE DATA
  *     object.NC0[11] = 2.0
  *     object.EC0[11] = 358.6             # <<<<<<<<<<<<<<
@@ -5032,7 +5032,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[11]) = 358.6;
 
-  /* "NITROGEN.pyx":294
+  /* "gases/NITROGEN.pyx":294
  *     object.NC0[11] = 2.0
  *     object.EC0[11] = 358.6
  *     object.WK[11] = 0.0044             # <<<<<<<<<<<<<<
@@ -5041,7 +5041,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->WK[11]) = 0.0044;
 
-  /* "NITROGEN.pyx":295
+  /* "gases/NITROGEN.pyx":295
  *     object.EC0[11] = 358.6
  *     object.WK[11] = 0.0044
  *     object.EFL[11] = 385.             # <<<<<<<<<<<<<<
@@ -5050,7 +5050,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EFL[11]) = 385.;
 
-  /* "NITROGEN.pyx":296
+  /* "gases/NITROGEN.pyx":296
  *     object.WK[11] = 0.0044
  *     object.EFL[11] = 385.
  *     object.NG1[11] = 1             # <<<<<<<<<<<<<<
@@ -5059,7 +5059,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG1[11]) = 1.0;
 
-  /* "NITROGEN.pyx":297
+  /* "gases/NITROGEN.pyx":297
  *     object.EFL[11] = 385.
  *     object.NG1[11] = 1
  *     object.EG1[11] = 353.             # <<<<<<<<<<<<<<
@@ -5068,7 +5068,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG1[11]) = 353.;
 
-  /* "NITROGEN.pyx":298
+  /* "gases/NITROGEN.pyx":298
  *     object.NG1[11] = 1
  *     object.EG1[11] = 353.
  *     object.NG2[11] = 1             # <<<<<<<<<<<<<<
@@ -5077,7 +5077,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG2[11]) = 1.0;
 
-  /* "NITROGEN.pyx":299
+  /* "gases/NITROGEN.pyx":299
  *     object.EG1[11] = 353.
  *     object.NG2[11] = 1
  *     object.EG2[11] = 6.             # <<<<<<<<<<<<<<
@@ -5086,7 +5086,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG2[11]) = 6.;
 
-  /* "NITROGEN.pyx":303
+  /* "gases/NITROGEN.pyx":303
  *     cdef double QBQA, QBK, SUM, FROT0, PJ[39], RAT
  *     #CALC FRACTIONAL POPULATION DENSITY FOR ROTATIONAL STATES
  *     B0 = 2.4668e-4             # <<<<<<<<<<<<<<
@@ -5095,7 +5095,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_B0 = 2.4668e-4;
 
-  /* "NITROGEN.pyx":305
+  /* "gases/NITROGEN.pyx":305
  *     B0 = 2.4668e-4
  *     #ROTATIONAL QUADRUPOLE MOMENT
  *     QBQA = 1.045             # <<<<<<<<<<<<<<
@@ -5104,7 +5104,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_QBQA = 1.045;
 
-  /* "NITROGEN.pyx":306
+  /* "gases/NITROGEN.pyx":306
  *     #ROTATIONAL QUADRUPOLE MOMENT
  *     QBQA = 1.045
  *     QBK = 1.67552 * (QBQA * A0) ** 2             # <<<<<<<<<<<<<<
@@ -5113,7 +5113,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_QBK = (1.67552 * pow((__pyx_v_QBQA * __pyx_v_A0), 2.0));
 
-  /* "NITROGEN.pyx":307
+  /* "gases/NITROGEN.pyx":307
  *     QBQA = 1.045
  *     QBK = 1.67552 * (QBQA * A0) ** 2
  *     for J in range(1, 40, 2):             # <<<<<<<<<<<<<<
@@ -5123,7 +5123,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 1; __pyx_t_33 < 40; __pyx_t_33+=2) {
     __pyx_v_J = __pyx_t_33;
 
-    /* "NITROGEN.pyx":308
+    /* "gases/NITROGEN.pyx":308
  *     QBK = 1.67552 * (QBQA * A0) ** 2
  *     for J in range(1, 40, 2):
  *         PJ[J - 1] = 3.0 * (2.0 * J + 1.0) * exp(-1.0 * J * (J + 1.0) * B0 / object.AKT)             # <<<<<<<<<<<<<<
@@ -5133,7 +5133,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_J - 1)]) = ((3.0 * ((2.0 * __pyx_v_J) + 1.0)) * exp(((((-1.0 * __pyx_v_J) * (__pyx_v_J + 1.0)) * __pyx_v_B0) / __pyx_v_object->AKT)));
   }
 
-  /* "NITROGEN.pyx":309
+  /* "gases/NITROGEN.pyx":309
  *     for J in range(1, 40, 2):
  *         PJ[J - 1] = 3.0 * (2.0 * J + 1.0) * exp(-1.0 * J * (J + 1.0) * B0 / object.AKT)
  *     for J in range(2, 39, 2):             # <<<<<<<<<<<<<<
@@ -5143,7 +5143,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 2; __pyx_t_33 < 39; __pyx_t_33+=2) {
     __pyx_v_J = __pyx_t_33;
 
-    /* "NITROGEN.pyx":310
+    /* "gases/NITROGEN.pyx":310
  *         PJ[J - 1] = 3.0 * (2.0 * J + 1.0) * exp(-1.0 * J * (J + 1.0) * B0 / object.AKT)
  *     for J in range(2, 39, 2):
  *         PJ[J - 1] = 6.0 * (2.0 * J + 1.0) * exp(-1.0 * J * (J + 1.0) * B0 / object.AKT)             # <<<<<<<<<<<<<<
@@ -5153,7 +5153,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_J - 1)]) = ((6.0 * ((2.0 * __pyx_v_J) + 1.0)) * exp(((((-1.0 * __pyx_v_J) * (__pyx_v_J + 1.0)) * __pyx_v_B0) / __pyx_v_object->AKT)));
   }
 
-  /* "NITROGEN.pyx":311
+  /* "gases/NITROGEN.pyx":311
  *     for J in range(2, 39, 2):
  *         PJ[J - 1] = 6.0 * (2.0 * J + 1.0) * exp(-1.0 * J * (J + 1.0) * B0 / object.AKT)
  *     SUM = 6.0             # <<<<<<<<<<<<<<
@@ -5162,7 +5162,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_SUM = 6.0;
 
-  /* "NITROGEN.pyx":312
+  /* "gases/NITROGEN.pyx":312
  *         PJ[J - 1] = 6.0 * (2.0 * J + 1.0) * exp(-1.0 * J * (J + 1.0) * B0 / object.AKT)
  *     SUM = 6.0
  *     for J in range(39):             # <<<<<<<<<<<<<<
@@ -5172,7 +5172,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 0; __pyx_t_33 < 39; __pyx_t_33+=1) {
     __pyx_v_J = __pyx_t_33;
 
-    /* "NITROGEN.pyx":313
+    /* "gases/NITROGEN.pyx":313
  *     SUM = 6.0
  *     for J in range(39):
  *         SUM += PJ[J]             # <<<<<<<<<<<<<<
@@ -5182,7 +5182,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_v_SUM = (__pyx_v_SUM + (__pyx_v_PJ[__pyx_v_J]));
   }
 
-  /* "NITROGEN.pyx":314
+  /* "gases/NITROGEN.pyx":314
  *     for J in range(39):
  *         SUM += PJ[J]
  *     FROT0 = 6.0 / SUM             # <<<<<<<<<<<<<<
@@ -5191,7 +5191,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_FROT0 = (6.0 / __pyx_v_SUM);
 
-  /* "NITROGEN.pyx":315
+  /* "gases/NITROGEN.pyx":315
  *         SUM += PJ[J]
  *     FROT0 = 6.0 / SUM
  *     for J in range(39):             # <<<<<<<<<<<<<<
@@ -5201,7 +5201,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 0; __pyx_t_33 < 39; __pyx_t_33+=1) {
     __pyx_v_J = __pyx_t_33;
 
-    /* "NITROGEN.pyx":316
+    /* "gases/NITROGEN.pyx":316
  *     FROT0 = 6.0 / SUM
  *     for J in range(39):
  *         PJ[J] /= SUM             # <<<<<<<<<<<<<<
@@ -5212,7 +5212,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[__pyx_t_34]) = ((__pyx_v_PJ[__pyx_t_34]) / __pyx_v_SUM);
   }
 
-  /* "NITROGEN.pyx":318
+  /* "gases/NITROGEN.pyx":318
  *         PJ[J] /= SUM
  * 
  *     object.EIN = gd['gas16/EIN']             # <<<<<<<<<<<<<<
@@ -5229,7 +5229,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_37, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "NITROGEN.pyx":321
+  /* "gases/NITROGEN.pyx":321
  * 
  *     # OFFSET ENERGY FOR IONISATION ELECTRON ANGULAR DISTRIBUTION
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -5241,7 +5241,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 0; __pyx_t_35 < __pyx_t_34; __pyx_t_35+=1) {
     __pyx_v_j = __pyx_t_35;
 
-    /* "NITROGEN.pyx":322
+    /* "gases/NITROGEN.pyx":322
  *     # OFFSET ENERGY FOR IONISATION ELECTRON ANGULAR DISTRIBUTION
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -5251,7 +5251,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_38 = 0; __pyx_t_38 < 0xFA0; __pyx_t_38+=1) {
       __pyx_v_i = __pyx_t_38;
 
-      /* "NITROGEN.pyx":323
+      /* "gases/NITROGEN.pyx":323
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -5261,7 +5261,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":324
+        /* "gases/NITROGEN.pyx":324
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -5270,7 +5270,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "NITROGEN.pyx":325
+        /* "gases/NITROGEN.pyx":325
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -5279,7 +5279,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L22_break;
 
-        /* "NITROGEN.pyx":323
+        /* "gases/NITROGEN.pyx":323
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -5291,7 +5291,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L22_break:;
   }
 
-  /* "NITROGEN.pyx":327
+  /* "gases/NITROGEN.pyx":327
  *                 break
  * 
  *     cdef int NL = 0             # <<<<<<<<<<<<<<
@@ -5300,7 +5300,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL = 0;
 
-  /* "NITROGEN.pyx":328
+  /* "gases/NITROGEN.pyx":328
  * 
  *     cdef int NL = 0
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -5312,7 +5312,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 0; __pyx_t_35 < __pyx_t_34; __pyx_t_35+=1) {
     __pyx_v_NL = __pyx_t_35;
 
-    /* "NITROGEN.pyx":329
+    /* "gases/NITROGEN.pyx":329
  *     cdef int NL = 0
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -5322,7 +5322,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_38 = 0; __pyx_t_38 < 0xFA0; __pyx_t_38+=1) {
       __pyx_v_i = __pyx_t_38;
 
-      /* "NITROGEN.pyx":330
+      /* "gases/NITROGEN.pyx":330
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -5332,7 +5332,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = (((__pyx_v_object->EG[__pyx_v_i]) > fabs((__pyx_v_object->EIN[__pyx_v_NL]))) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":331
+        /* "gases/NITROGEN.pyx":331
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i - 1             # <<<<<<<<<<<<<<
@@ -5341,7 +5341,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
 
-        /* "NITROGEN.pyx":332
+        /* "gases/NITROGEN.pyx":332
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -5350,7 +5350,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L27_break;
 
-        /* "NITROGEN.pyx":330
+        /* "gases/NITROGEN.pyx":330
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -5362,7 +5362,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L27_break:;
   }
 
-  /* "NITROGEN.pyx":334
+  /* "gases/NITROGEN.pyx":334
  *                 break
  * 
  *     for I in range(106):             # <<<<<<<<<<<<<<
@@ -5372,7 +5372,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 0; __pyx_t_33 < 0x6A; __pyx_t_33+=1) {
     __pyx_v_I = __pyx_t_33;
 
-    /* "NITROGEN.pyx":335
+    /* "gases/NITROGEN.pyx":335
  * 
  *     for I in range(106):
  *         for J in range(3):             # <<<<<<<<<<<<<<
@@ -5382,7 +5382,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 0; __pyx_t_34 < 3; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":336
+      /* "gases/NITROGEN.pyx":336
  *     for I in range(106):
  *         for J in range(3):
  *             object.PENFRA[I][J] = 0.0             # <<<<<<<<<<<<<<
@@ -5393,7 +5393,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "NITROGEN.pyx":338
+  /* "gases/NITROGEN.pyx":338
  *             object.PENFRA[I][J] = 0.0
  * 
  *     for J in range(106, 127):             # <<<<<<<<<<<<<<
@@ -5403,7 +5403,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 0x6A; __pyx_t_33 < 0x7F; __pyx_t_33+=1) {
     __pyx_v_J = __pyx_t_33;
 
-    /* "NITROGEN.pyx":339
+    /* "gases/NITROGEN.pyx":339
  * 
  *     for J in range(106, 127):
  *         object.PENFRA[0][J] = 0.0             # <<<<<<<<<<<<<<
@@ -5412,7 +5412,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_J]) = 0.0;
 
-    /* "NITROGEN.pyx":340
+    /* "gases/NITROGEN.pyx":340
  *     for J in range(106, 127):
  *         object.PENFRA[0][J] = 0.0
  *         object.PENFRA[1][J] = 1.0             # <<<<<<<<<<<<<<
@@ -5421,7 +5421,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_J]) = 1.0;
 
-    /* "NITROGEN.pyx":341
+    /* "gases/NITROGEN.pyx":341
  *         object.PENFRA[0][J] = 0.0
  *         object.PENFRA[1][J] = 1.0
  *         object.PENFRA[2][J] = 1.0             # <<<<<<<<<<<<<<
@@ -5431,7 +5431,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_J]) = 1.0;
   }
 
-  /* "NITROGEN.pyx":345
+  /* "gases/NITROGEN.pyx":345
  *     cdef double APOPV1, APOPGS, APOPSUM, EN, GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, PQ[3], QN2PTOT, QNPTOT, RESFAC, ASCALE
  * 
  *     for J in range(NBREM):             # <<<<<<<<<<<<<<
@@ -5443,7 +5443,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 0; __pyx_t_35 < __pyx_t_34; __pyx_t_35+=1) {
     __pyx_v_J = __pyx_t_35;
 
-    /* "NITROGEN.pyx":346
+    /* "gases/NITROGEN.pyx":346
  * 
  *     for J in range(NBREM):
  *         EBRM[J] = exp(EBRM[J])             # <<<<<<<<<<<<<<
@@ -5453,7 +5453,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_EBRM[__pyx_v_J]) = exp((__pyx_v_EBRM[__pyx_v_J]));
   }
 
-  /* "NITROGEN.pyx":348
+  /* "gases/NITROGEN.pyx":348
  *         EBRM[J] = exp(EBRM[J])
  *     # CALC VIBRATIONAL LEVEL V1 POPULATION
  *     APOPV1 = exp(object.EIN[76] / object.AKT)             # <<<<<<<<<<<<<<
@@ -5462,7 +5462,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV1 = exp(((__pyx_v_object->EIN[76]) / __pyx_v_object->AKT));
 
-  /* "NITROGEN.pyx":349
+  /* "gases/NITROGEN.pyx":349
  *     # CALC VIBRATIONAL LEVEL V1 POPULATION
  *     APOPV1 = exp(object.EIN[76] / object.AKT)
  *     APOPGS = 1.0             # <<<<<<<<<<<<<<
@@ -5471,7 +5471,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = 1.0;
 
-  /* "NITROGEN.pyx":350
+  /* "gases/NITROGEN.pyx":350
  *     APOPV1 = exp(object.EIN[76] / object.AKT)
  *     APOPGS = 1.0
  *     APOPSUM = APOPGS + APOPV1             # <<<<<<<<<<<<<<
@@ -5480,7 +5480,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPSUM = (__pyx_v_APOPGS + __pyx_v_APOPV1);
 
-  /* "NITROGEN.pyx":351
+  /* "gases/NITROGEN.pyx":351
  *     APOPGS = 1.0
  *     APOPSUM = APOPGS + APOPV1
  *     APOPV1 = APOPV1 / APOPSUM             # <<<<<<<<<<<<<<
@@ -5489,7 +5489,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV1 = (__pyx_v_APOPV1 / __pyx_v_APOPSUM);
 
-  /* "NITROGEN.pyx":352
+  /* "gases/NITROGEN.pyx":352
  *     APOPSUM = APOPGS + APOPV1
  *     APOPV1 = APOPV1 / APOPSUM
  *     APOPGS = APOPGS / APOPSUM             # <<<<<<<<<<<<<<
@@ -5498,7 +5498,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = (__pyx_v_APOPGS / __pyx_v_APOPSUM);
 
-  /* "NITROGEN.pyx":355
+  /* "gases/NITROGEN.pyx":355
  *     #  RENORMALISE GROUND STATE TO ALLOW FOR EXCITATION FROM
  *     #  THE EXCITED VIBRATIONAL STATE
  *     APOPGS = 1.0             # <<<<<<<<<<<<<<
@@ -5507,7 +5507,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = 1.0;
 
-  /* "NITROGEN.pyx":357
+  /* "gases/NITROGEN.pyx":357
  *     APOPGS = 1.0
  * 
  *     for I in range(4000):             # <<<<<<<<<<<<<<
@@ -5517,7 +5517,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 0; __pyx_t_33 < 0xFA0; __pyx_t_33+=1) {
     __pyx_v_I = __pyx_t_33;
 
-    /* "NITROGEN.pyx":358
+    /* "gases/NITROGEN.pyx":358
  * 
  *     for I in range(4000):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -5526,7 +5526,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "NITROGEN.pyx":359
+    /* "gases/NITROGEN.pyx":359
  *     for I in range(4000):
  *         EN = object.EG[I]
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -5535,7 +5535,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-    /* "NITROGEN.pyx":360
+    /* "gases/NITROGEN.pyx":360
  *         EN = object.EG[I]
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -5544,7 +5544,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-    /* "NITROGEN.pyx":361
+    /* "gases/NITROGEN.pyx":361
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -5553,7 +5553,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-    /* "NITROGEN.pyx":362
+    /* "gases/NITROGEN.pyx":362
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *         BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -5562,7 +5562,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-    /* "NITROGEN.pyx":365
+    /* "gases/NITROGEN.pyx":365
  * 
  *         # ELASTIC (+ROTATIONAL)
  *         QELA = GasUtil.CALQIONREG(EN, NELA, YELA, XELA)             # <<<<<<<<<<<<<<
@@ -5571,7 +5571,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QELA = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NELA, __pyx_v_YELA, __pyx_v_XELA);
 
-    /* "NITROGEN.pyx":366
+    /* "gases/NITROGEN.pyx":366
  *         # ELASTIC (+ROTATIONAL)
  *         QELA = GasUtil.CALQIONREG(EN, NELA, YELA, XELA)
  *         QMOM = GasUtil.CALQIONREG(EN, NELA, YMOM, XELA)             # <<<<<<<<<<<<<<
@@ -5580,7 +5580,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QMOM = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NELA, __pyx_v_YMOM, __pyx_v_XELA);
 
-    /* "NITROGEN.pyx":367
+    /* "gases/NITROGEN.pyx":367
  *         QELA = GasUtil.CALQIONREG(EN, NELA, YELA, XELA)
  *         QMOM = GasUtil.CALQIONREG(EN, NELA, YMOM, XELA)
  *         PQ[2] = GasUtil.CALPQ3(EN, NELA, YEPS, XELA)             # <<<<<<<<<<<<<<
@@ -5589,7 +5589,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NELA, __pyx_v_YEPS, __pyx_v_XELA);
 
-    /* "NITROGEN.pyx":369
+    /* "gases/NITROGEN.pyx":369
  *         PQ[2] = GasUtil.CALPQ3(EN, NELA, YEPS, XELA)
  * 
  *         PQ[2] = 1 - PQ[2]             # <<<<<<<<<<<<<<
@@ -5598,7 +5598,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = (1.0 - (__pyx_v_PQ[2]));
 
-    /* "NITROGEN.pyx":370
+    /* "gases/NITROGEN.pyx":370
  * 
  *         PQ[2] = 1 - PQ[2]
  *         PQ[1] = 0.5 + (QELA - QMOM) / QELA             # <<<<<<<<<<<<<<
@@ -5607,7 +5607,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[1]) = (0.5 + ((__pyx_v_QELA - __pyx_v_QMOM) / __pyx_v_QELA));
 
-    /* "NITROGEN.pyx":371
+    /* "gases/NITROGEN.pyx":371
  *         PQ[2] = 1 - PQ[2]
  *         PQ[1] = 0.5 + (QELA - QMOM) / QELA
  *         PQ[0] = 0.5             # <<<<<<<<<<<<<<
@@ -5616,7 +5616,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[0]) = 0.5;
 
-    /* "NITROGEN.pyx":373
+    /* "gases/NITROGEN.pyx":373
  *         PQ[0] = 0.5
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -5625,7 +5625,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "NITROGEN.pyx":375
+    /* "gases/NITROGEN.pyx":375
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  * 
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -5634,7 +5634,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "NITROGEN.pyx":376
+    /* "gases/NITROGEN.pyx":376
  * 
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -5644,7 +5644,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":377
+      /* "gases/NITROGEN.pyx":377
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -5653,7 +5653,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "NITROGEN.pyx":376
+      /* "gases/NITROGEN.pyx":376
  * 
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -5662,7 +5662,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":379
+    /* "gases/NITROGEN.pyx":379
  *             object.Q[1][I] = QMOM
  * 
  *         for J in range(12):             # <<<<<<<<<<<<<<
@@ -5672,7 +5672,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 0; __pyx_t_34 < 12; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":380
+      /* "gases/NITROGEN.pyx":380
  * 
  *         for J in range(12):
  *             object.PEQION[J][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5681,7 +5681,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[__pyx_v_J])[__pyx_v_I]) = 0.5;
 
-      /* "NITROGEN.pyx":381
+      /* "gases/NITROGEN.pyx":381
  *         for J in range(12):
  *             object.PEQION[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5691,7 +5691,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":382
+        /* "gases/NITROGEN.pyx":382
  *             object.PEQION[J][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQION[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5700,7 +5700,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":381
+        /* "gases/NITROGEN.pyx":381
  *         for J in range(12):
  *             object.PEQION[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5709,7 +5709,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":383
+      /* "gases/NITROGEN.pyx":383
  *             if object.NANISO == 2:
  *                 object.PEQION[J][I] = 0.0
  *             object.QION[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5719,7 +5719,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]) = 0.0;
     }
 
-    /* "NITROGEN.pyx":386
+    /* "gases/NITROGEN.pyx":386
  * 
  *         # IONISATION TO ALL CHANNELS WITH N2+
  *         QN2PTOT = 0.0             # <<<<<<<<<<<<<<
@@ -5728,7 +5728,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QN2PTOT = 0.0;
 
-    /* "NITROGEN.pyx":387
+    /* "gases/NITROGEN.pyx":387
  *         # IONISATION TO ALL CHANNELS WITH N2+
  *         QN2PTOT = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5738,7 +5738,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":388
+      /* "gases/NITROGEN.pyx":388
  *         QN2PTOT = 0.0
  *         if EN > object.EION[0]:
  *             QN2PTOT = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, 0.7973, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5747,7 +5747,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QN2PTOT = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION1, __pyx_v_YION1, __pyx_v_XION1, __pyx_v_BETA2, 0.7973, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "NITROGEN.pyx":387
+      /* "gases/NITROGEN.pyx":387
  *         # IONISATION TO ALL CHANNELS WITH N2+
  *         QN2PTOT = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5756,7 +5756,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":390
+    /* "gases/NITROGEN.pyx":390
  *             QN2PTOT = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, 0.7973, CONST, object.DEN[I], C, AM2)
  * 
  *         object.QION[0][I] = QN2PTOT             # <<<<<<<<<<<<<<
@@ -5765,7 +5765,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_v_QN2PTOT;
 
-    /* "NITROGEN.pyx":392
+    /* "gases/NITROGEN.pyx":392
  *         object.QION[0][I] = QN2PTOT
  * 
  *         if EN > object.EION[1] and EN <= object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5783,7 +5783,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L45_bool_binop_done:;
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":393
+      /* "gases/NITROGEN.pyx":393
  * 
  *         if EN > object.EION[1] and EN <= object.EION[2]:
  *             object.QION[1][I] = QN2PTOT * 0.2             # <<<<<<<<<<<<<<
@@ -5792,7 +5792,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.2);
 
-      /* "NITROGEN.pyx":394
+      /* "gases/NITROGEN.pyx":394
  *         if EN > object.EION[1] and EN <= object.EION[2]:
  *             object.QION[1][I] = QN2PTOT * 0.2
  *             object.QION[0][I] = QN2PTOT * 0.8             # <<<<<<<<<<<<<<
@@ -5801,7 +5801,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.8);
 
-      /* "NITROGEN.pyx":392
+      /* "gases/NITROGEN.pyx":392
  *         object.QION[0][I] = QN2PTOT
  * 
  *         if EN > object.EION[1] and EN <= object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5811,7 +5811,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L44;
     }
 
-    /* "NITROGEN.pyx":395
+    /* "gases/NITROGEN.pyx":395
  *             object.QION[1][I] = QN2PTOT * 0.2
  *             object.QION[0][I] = QN2PTOT * 0.8
  *         elif EN > object.EION[2] and EN <= object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5829,7 +5829,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L47_bool_binop_done:;
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":396
+      /* "gases/NITROGEN.pyx":396
  *             object.QION[0][I] = QN2PTOT * 0.8
  *         elif EN > object.EION[2] and EN <= object.EION[3]:
  *             object.QION[2][I] = QN2PTOT * 0.1986             # <<<<<<<<<<<<<<
@@ -5838,7 +5838,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1986);
 
-      /* "NITROGEN.pyx":397
+      /* "gases/NITROGEN.pyx":397
  *         elif EN > object.EION[2] and EN <= object.EION[3]:
  *             object.QION[2][I] = QN2PTOT * 0.1986
  *             object.QION[1][I] = QN2PTOT * 0.1603             # <<<<<<<<<<<<<<
@@ -5847,7 +5847,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1603);
 
-      /* "NITROGEN.pyx":398
+      /* "gases/NITROGEN.pyx":398
  *             object.QION[2][I] = QN2PTOT * 0.1986
  *             object.QION[1][I] = QN2PTOT * 0.1603
  *             object.QION[0][I] = QN2PTOT * 0.6411             # <<<<<<<<<<<<<<
@@ -5856,7 +5856,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.6411);
 
-      /* "NITROGEN.pyx":395
+      /* "gases/NITROGEN.pyx":395
  *             object.QION[1][I] = QN2PTOT * 0.2
  *             object.QION[0][I] = QN2PTOT * 0.8
  *         elif EN > object.EION[2] and EN <= object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5866,7 +5866,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L44;
     }
 
-    /* "NITROGEN.pyx":399
+    /* "gases/NITROGEN.pyx":399
  *             object.QION[1][I] = QN2PTOT * 0.1603
  *             object.QION[0][I] = QN2PTOT * 0.6411
  *         elif EN > object.EION[3] and EN <= object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5884,7 +5884,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L49_bool_binop_done:;
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":400
+      /* "gases/NITROGEN.pyx":400
  *             object.QION[0][I] = QN2PTOT * 0.6411
  *         elif EN > object.EION[3] and EN <= object.EION[4]:
  *             object.QION[3][I] = QN2PTOT * 0.2296             # <<<<<<<<<<<<<<
@@ -5893,7 +5893,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.2296);
 
-      /* "NITROGEN.pyx":401
+      /* "gases/NITROGEN.pyx":401
  *         elif EN > object.EION[3] and EN <= object.EION[4]:
  *             object.QION[3][I] = QN2PTOT * 0.2296
  *             object.QION[2][I] = QN2PTOT * 0.1530             # <<<<<<<<<<<<<<
@@ -5902,7 +5902,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1530);
 
-      /* "NITROGEN.pyx":402
+      /* "gases/NITROGEN.pyx":402
  *             object.QION[3][I] = QN2PTOT * 0.2296
  *             object.QION[2][I] = QN2PTOT * 0.1530
  *             object.QION[1][I] = QN2PTOT * 0.1235             # <<<<<<<<<<<<<<
@@ -5911,7 +5911,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1235);
 
-      /* "NITROGEN.pyx":403
+      /* "gases/NITROGEN.pyx":403
  *             object.QION[2][I] = QN2PTOT * 0.1530
  *             object.QION[1][I] = QN2PTOT * 0.1235
  *             object.QION[0][I] = QN2PTOT * 0.4939             # <<<<<<<<<<<<<<
@@ -5920,7 +5920,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.4939);
 
-      /* "NITROGEN.pyx":399
+      /* "gases/NITROGEN.pyx":399
  *             object.QION[1][I] = QN2PTOT * 0.1603
  *             object.QION[0][I] = QN2PTOT * 0.6411
  *         elif EN > object.EION[3] and EN <= object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5930,7 +5930,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L44;
     }
 
-    /* "NITROGEN.pyx":404
+    /* "gases/NITROGEN.pyx":404
  *             object.QION[1][I] = QN2PTOT * 0.1235
  *             object.QION[0][I] = QN2PTOT * 0.4939
  *         elif EN > object.EION[4] and EN <= object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5948,7 +5948,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L51_bool_binop_done:;
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":405
+      /* "gases/NITROGEN.pyx":405
  *             object.QION[0][I] = QN2PTOT * 0.4939
  *         elif EN > object.EION[4] and EN <= object.EION[5]:
  *             object.QION[4][I] = QN2PTOT * 0.2765             # <<<<<<<<<<<<<<
@@ -5957,7 +5957,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.2765);
 
-      /* "NITROGEN.pyx":406
+      /* "gases/NITROGEN.pyx":406
  *         elif EN > object.EION[4] and EN <= object.EION[5]:
  *             object.QION[4][I] = QN2PTOT * 0.2765
  *             object.QION[3][I] = QN2PTOT * 0.1659             # <<<<<<<<<<<<<<
@@ -5966,7 +5966,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1659);
 
-      /* "NITROGEN.pyx":407
+      /* "gases/NITROGEN.pyx":407
  *             object.QION[4][I] = QN2PTOT * 0.2765
  *             object.QION[3][I] = QN2PTOT * 0.1659
  *             object.QION[2][I] = QN2PTOT * 0.1106             # <<<<<<<<<<<<<<
@@ -5975,7 +5975,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1106);
 
-      /* "NITROGEN.pyx":408
+      /* "gases/NITROGEN.pyx":408
  *             object.QION[3][I] = QN2PTOT * 0.1659
  *             object.QION[2][I] = QN2PTOT * 0.1106
  *             object.QION[1][I] = QN2PTOT * 0.0894             # <<<<<<<<<<<<<<
@@ -5984,7 +5984,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.0894);
 
-      /* "NITROGEN.pyx":409
+      /* "gases/NITROGEN.pyx":409
  *             object.QION[2][I] = QN2PTOT * 0.1106
  *             object.QION[1][I] = QN2PTOT * 0.0894
  *             object.QION[0][I] = QN2PTOT * 0.3576             # <<<<<<<<<<<<<<
@@ -5993,7 +5993,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.3576);
 
-      /* "NITROGEN.pyx":404
+      /* "gases/NITROGEN.pyx":404
  *             object.QION[1][I] = QN2PTOT * 0.1235
  *             object.QION[0][I] = QN2PTOT * 0.4939
  *         elif EN > object.EION[4] and EN <= object.EION[5]:             # <<<<<<<<<<<<<<
@@ -6003,7 +6003,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L44;
     }
 
-    /* "NITROGEN.pyx":410
+    /* "gases/NITROGEN.pyx":410
  *             object.QION[1][I] = QN2PTOT * 0.0894
  *             object.QION[0][I] = QN2PTOT * 0.3576
  *         elif EN > object.EION[5] and EN <= object.EION[6]:             # <<<<<<<<<<<<<<
@@ -6021,7 +6021,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L53_bool_binop_done:;
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":411
+      /* "gases/NITROGEN.pyx":411
  *             object.QION[0][I] = QN2PTOT * 0.3576
  *         elif EN > object.EION[5] and EN <= object.EION[6]:
  *             object.QION[5][I] = QN2PTOT * 0.1299             # <<<<<<<<<<<<<<
@@ -6030,7 +6030,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1299);
 
-      /* "NITROGEN.pyx":412
+      /* "gases/NITROGEN.pyx":412
  *         elif EN > object.EION[5] and EN <= object.EION[6]:
  *             object.QION[5][I] = QN2PTOT * 0.1299
  *             object.QION[4][I] = QN2PTOT * 0.2408             # <<<<<<<<<<<<<<
@@ -6039,7 +6039,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.2408);
 
-      /* "NITROGEN.pyx":413
+      /* "gases/NITROGEN.pyx":413
  *             object.QION[5][I] = QN2PTOT * 0.1299
  *             object.QION[4][I] = QN2PTOT * 0.2408
  *             object.QION[3][I] = QN2PTOT * 0.1445             # <<<<<<<<<<<<<<
@@ -6048,7 +6048,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1445);
 
-      /* "NITROGEN.pyx":414
+      /* "gases/NITROGEN.pyx":414
  *             object.QION[4][I] = QN2PTOT * 0.2408
  *             object.QION[3][I] = QN2PTOT * 0.1445
  *             object.QION[2][I] = QN2PTOT * 0.0963             # <<<<<<<<<<<<<<
@@ -6057,7 +6057,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.0963);
 
-      /* "NITROGEN.pyx":415
+      /* "gases/NITROGEN.pyx":415
  *             object.QION[3][I] = QN2PTOT * 0.1445
  *             object.QION[2][I] = QN2PTOT * 0.0963
  *             object.QION[1][I] = QN2PTOT * 0.0777             # <<<<<<<<<<<<<<
@@ -6066,7 +6066,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.0777);
 
-      /* "NITROGEN.pyx":416
+      /* "gases/NITROGEN.pyx":416
  *             object.QION[2][I] = QN2PTOT * 0.0963
  *             object.QION[1][I] = QN2PTOT * 0.0777
  *             object.QION[0][I] = QN2PTOT * 0.3108             # <<<<<<<<<<<<<<
@@ -6075,7 +6075,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.3108);
 
-      /* "NITROGEN.pyx":410
+      /* "gases/NITROGEN.pyx":410
  *             object.QION[1][I] = QN2PTOT * 0.0894
  *             object.QION[0][I] = QN2PTOT * 0.3576
  *         elif EN > object.EION[5] and EN <= object.EION[6]:             # <<<<<<<<<<<<<<
@@ -6085,7 +6085,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L44;
     }
 
-    /* "NITROGEN.pyx":417
+    /* "gases/NITROGEN.pyx":417
  *             object.QION[1][I] = QN2PTOT * 0.0777
  *             object.QION[0][I] = QN2PTOT * 0.3108
  *         elif EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -6095,7 +6095,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EION[6])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":418
+      /* "gases/NITROGEN.pyx":418
  *             object.QION[0][I] = QN2PTOT * 0.3108
  *         elif EN > object.EION[6]:
  *             object.QION[6][I] = QN2PTOT * 0.022             # <<<<<<<<<<<<<<
@@ -6104,7 +6104,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[6])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.022);
 
-      /* "NITROGEN.pyx":419
+      /* "gases/NITROGEN.pyx":419
  *         elif EN > object.EION[6]:
  *             object.QION[6][I] = QN2PTOT * 0.022
  *             object.QION[5][I] = QN2PTOT * 0.127             # <<<<<<<<<<<<<<
@@ -6113,7 +6113,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.127);
 
-      /* "NITROGEN.pyx":420
+      /* "gases/NITROGEN.pyx":420
  *             object.QION[6][I] = QN2PTOT * 0.022
  *             object.QION[5][I] = QN2PTOT * 0.127
  *             object.QION[4][I] = QN2PTOT * 0.2355             # <<<<<<<<<<<<<<
@@ -6122,7 +6122,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.2355);
 
-      /* "NITROGEN.pyx":421
+      /* "gases/NITROGEN.pyx":421
  *             object.QION[5][I] = QN2PTOT * 0.127
  *             object.QION[4][I] = QN2PTOT * 0.2355
  *             object.QION[3][I] = QN2PTOT * 0.1413             # <<<<<<<<<<<<<<
@@ -6131,7 +6131,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.1413);
 
-      /* "NITROGEN.pyx":422
+      /* "gases/NITROGEN.pyx":422
  *             object.QION[4][I] = QN2PTOT * 0.2355
  *             object.QION[3][I] = QN2PTOT * 0.1413
  *             object.QION[2][I] = QN2PTOT * 0.0942             # <<<<<<<<<<<<<<
@@ -6140,7 +6140,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.0942);
 
-      /* "NITROGEN.pyx":423
+      /* "gases/NITROGEN.pyx":423
  *             object.QION[3][I] = QN2PTOT * 0.1413
  *             object.QION[2][I] = QN2PTOT * 0.0942
  *             object.QION[1][I] = QN2PTOT * 0.076             # <<<<<<<<<<<<<<
@@ -6149,7 +6149,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.076);
 
-      /* "NITROGEN.pyx":424
+      /* "gases/NITROGEN.pyx":424
  *             object.QION[2][I] = QN2PTOT * 0.0942
  *             object.QION[1][I] = QN2PTOT * 0.076
  *             object.QION[0][I] = QN2PTOT * 0.304             # <<<<<<<<<<<<<<
@@ -6158,7 +6158,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QN2PTOT * 0.304);
 
-      /* "NITROGEN.pyx":417
+      /* "gases/NITROGEN.pyx":417
  *             object.QION[1][I] = QN2PTOT * 0.0777
  *             object.QION[0][I] = QN2PTOT * 0.3108
  *         elif EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -6168,7 +6168,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L44:;
 
-    /* "NITROGEN.pyx":427
+    /* "gases/NITROGEN.pyx":427
  * 
  *         # IONISATION TO aLL CHANNELS WITH N +
  *         QNPTOT = 0.0             # <<<<<<<<<<<<<<
@@ -6177,7 +6177,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QNPTOT = 0.0;
 
-    /* "NITROGEN.pyx":428
+    /* "gases/NITROGEN.pyx":428
  *         # IONISATION TO aLL CHANNELS WITH N +
  *         QNPTOT = 0.0
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -6187,7 +6187,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EION[7])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":429
+      /* "gases/NITROGEN.pyx":429
  *         QNPTOT = 0.0
  *         if EN > object.EION[7]:
  *             GasUtil.CALQIONX(EN, NION2, YION2, XION2, BETA2, 0.197, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -6196,7 +6196,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       (void)(__pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION2, __pyx_v_YION2, __pyx_v_XION2, __pyx_v_BETA2, 0.197, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2));
 
-      /* "NITROGEN.pyx":428
+      /* "gases/NITROGEN.pyx":428
  *         # IONISATION TO aLL CHANNELS WITH N +
  *         QNPTOT = 0.0
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -6205,7 +6205,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":431
+    /* "gases/NITROGEN.pyx":431
  *             GasUtil.CALQIONX(EN, NION2, YION2, XION2, BETA2, 0.197, CONST, object.DEN[I], C, AM2)
  * 
  *         object.QION[7][I] = QNPTOT             # <<<<<<<<<<<<<<
@@ -6214,7 +6214,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[7])[__pyx_v_I]) = __pyx_v_QNPTOT;
 
-    /* "NITROGEN.pyx":432
+    /* "gases/NITROGEN.pyx":432
  * 
  *         object.QION[7][I] = QNPTOT
  *         if EN > object.EION[8] and EN <= object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6232,7 +6232,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L57_bool_binop_done:;
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":433
+      /* "gases/NITROGEN.pyx":433
  *         object.QION[7][I] = QNPTOT
  *         if EN > object.EION[8] and EN <= object.EION[9]:
  *             if EN < 110:             # <<<<<<<<<<<<<<
@@ -6242,7 +6242,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN < 110.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":434
+        /* "gases/NITROGEN.pyx":434
  *         if EN > object.EION[8] and EN <= object.EION[9]:
  *             if EN < 110:
  *                 object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * 0.095 * 1.e-16             # <<<<<<<<<<<<<<
@@ -6251,7 +6251,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[8])[__pyx_v_I]) = ((((__pyx_v_EN - (__pyx_v_object->EION[8])) / (110. - (__pyx_v_object->EION[8]))) * 0.095) * 1.e-16);
 
-        /* "NITROGEN.pyx":433
+        /* "gases/NITROGEN.pyx":433
  *         object.QION[7][I] = QNPTOT
  *         if EN > object.EION[8] and EN <= object.EION[9]:
  *             if EN < 110:             # <<<<<<<<<<<<<<
@@ -6261,7 +6261,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L59;
       }
 
-      /* "NITROGEN.pyx":436
+      /* "gases/NITROGEN.pyx":436
  *                 object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * 0.095 * 1.e-16
  *             else:
  *                 object.QION[8][I] = object.QION[7][I] * 0.1439             # <<<<<<<<<<<<<<
@@ -6273,7 +6273,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L59:;
 
-      /* "NITROGEN.pyx":437
+      /* "gases/NITROGEN.pyx":437
  *             else:
  *                 object.QION[8][I] = object.QION[7][I] * 0.1439
  *             object.QION[7][I] = object.QION[7][I] - object.QION[8][I]             # <<<<<<<<<<<<<<
@@ -6282,7 +6282,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[7])[__pyx_v_I]) = (((__pyx_v_object->QION[7])[__pyx_v_I]) - ((__pyx_v_object->QION[8])[__pyx_v_I]));
 
-      /* "NITROGEN.pyx":432
+      /* "gases/NITROGEN.pyx":432
  * 
  *         object.QION[7][I] = QNPTOT
  *         if EN > object.EION[8] and EN <= object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6292,7 +6292,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L56;
     }
 
-    /* "NITROGEN.pyx":439
+    /* "gases/NITROGEN.pyx":439
  *             object.QION[7][I] = object.QION[7][I] - object.QION[8][I]
  * 
  *         elif EN > object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6302,7 +6302,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EION[9])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":440
+      /* "gases/NITROGEN.pyx":440
  * 
  *         elif EN > object.EION[9]:
  *             if EN < 110:             # <<<<<<<<<<<<<<
@@ -6312,7 +6312,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN < 110.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":441
+        /* "gases/NITROGEN.pyx":441
  *         elif EN > object.EION[9]:
  *             if EN < 110:
  *                 object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * 0.095 * 1.e-16             # <<<<<<<<<<<<<<
@@ -6321,7 +6321,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[8])[__pyx_v_I]) = ((((__pyx_v_EN - (__pyx_v_object->EION[8])) / (110. - (__pyx_v_object->EION[8]))) * 0.095) * 1.e-16);
 
-        /* "NITROGEN.pyx":440
+        /* "gases/NITROGEN.pyx":440
  * 
  *         elif EN > object.EION[9]:
  *             if EN < 110:             # <<<<<<<<<<<<<<
@@ -6331,7 +6331,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L60;
       }
 
-      /* "NITROGEN.pyx":442
+      /* "gases/NITROGEN.pyx":442
  *             if EN < 110:
  *                 object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * 0.095 * 1.e-16
  *             elif EN >= 110:             # <<<<<<<<<<<<<<
@@ -6341,7 +6341,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN >= 110.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":443
+        /* "gases/NITROGEN.pyx":443
  *                 object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * 0.095 * 1.e-16
  *             elif EN >= 110:
  *                 object.QION[8][I] = object.QION[7][I] * 0.1439             # <<<<<<<<<<<<<<
@@ -6350,7 +6350,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[8])[__pyx_v_I]) = (((__pyx_v_object->QION[7])[__pyx_v_I]) * 0.1439);
 
-        /* "NITROGEN.pyx":442
+        /* "gases/NITROGEN.pyx":442
  *             if EN < 110:
  *                 object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * 0.095 * 1.e-16
  *             elif EN >= 110:             # <<<<<<<<<<<<<<
@@ -6360,7 +6360,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L60:;
 
-      /* "NITROGEN.pyx":444
+      /* "gases/NITROGEN.pyx":444
  *             elif EN >= 110:
  *                 object.QION[8][I] = object.QION[7][I] * 0.1439
  *             if EN < 120:             # <<<<<<<<<<<<<<
@@ -6370,7 +6370,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN < 120.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":445
+        /* "gases/NITROGEN.pyx":445
  *                 object.QION[8][I] = object.QION[7][I] * 0.1439
  *             if EN < 120:
  *                 object.QION[9][I] = ((EN - object.EION[9]) / (120. - object.EION[9])) * 0.037 * 1.e-16             # <<<<<<<<<<<<<<
@@ -6379,7 +6379,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[9])[__pyx_v_I]) = ((((__pyx_v_EN - (__pyx_v_object->EION[9])) / (120. - (__pyx_v_object->EION[9]))) * 0.037) * 1.e-16);
 
-        /* "NITROGEN.pyx":444
+        /* "gases/NITROGEN.pyx":444
  *             elif EN >= 110:
  *                 object.QION[8][I] = object.QION[7][I] * 0.1439
  *             if EN < 120:             # <<<<<<<<<<<<<<
@@ -6389,7 +6389,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L61;
       }
 
-      /* "NITROGEN.pyx":447
+      /* "gases/NITROGEN.pyx":447
  *                 object.QION[9][I] = ((EN - object.EION[9]) / (120. - object.EION[9])) * 0.037 * 1.e-16
  *             else:
  *                 object.QION[9][I] = object.QION[8][I] * 0.056             # <<<<<<<<<<<<<<
@@ -6401,7 +6401,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L61:;
 
-      /* "NITROGEN.pyx":448
+      /* "gases/NITROGEN.pyx":448
  *             else:
  *                 object.QION[9][I] = object.QION[8][I] * 0.056
  *             object.QION[7][I] = object.QION[7][I] - object.QION[8][I] - object.QION[9][I]             # <<<<<<<<<<<<<<
@@ -6410,7 +6410,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[7])[__pyx_v_I]) = ((((__pyx_v_object->QION[7])[__pyx_v_I]) - ((__pyx_v_object->QION[8])[__pyx_v_I])) - ((__pyx_v_object->QION[9])[__pyx_v_I]));
 
-      /* "NITROGEN.pyx":439
+      /* "gases/NITROGEN.pyx":439
  *             object.QION[7][I] = object.QION[7][I] - object.QION[8][I]
  * 
  *         elif EN > object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6420,7 +6420,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L56:;
 
-    /* "NITROGEN.pyx":450
+    /* "gases/NITROGEN.pyx":450
  *             object.QION[7][I] = object.QION[7][I] - object.QION[8][I] - object.QION[9][I]
  * 
  *         if EN > object.EION[10]:             # <<<<<<<<<<<<<<
@@ -6430,7 +6430,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EION[10])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":452
+      /* "gases/NITROGEN.pyx":452
  *         if EN > object.EION[10]:
  *             # SUM OF DOUBLE IONISATION CHANNELS: N+,N+  AND N++,N
  *             object.QION[10][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6439,7 +6439,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[10])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":453
+      /* "gases/NITROGEN.pyx":453
  *             # SUM OF DOUBLE IONISATION CHANNELS: N+,N+  AND N++,N
  *             object.QION[10][I] = 0.0
  *             object.QION[10][I] = GasUtil.CALQIONX(EN, NION3, YION3, XION3, BETA2, 0.0338, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -6448,7 +6448,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[10])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION3, __pyx_v_YION3, __pyx_v_XION3, __pyx_v_BETA2, 0.0338, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "NITROGEN.pyx":454
+      /* "gases/NITROGEN.pyx":454
  *             object.QION[10][I] = 0.0
  *             object.QION[10][I] = GasUtil.CALQIONX(EN, NION3, YION3, XION3, BETA2, 0.0338, CONST, object.DEN[I], C, AM2)
  *             object.QION[7][I] -= object.QION[10][I]             # <<<<<<<<<<<<<<
@@ -6459,7 +6459,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_34 = __pyx_v_I;
       ((__pyx_v_object->QION[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QION[__pyx_t_41])[__pyx_t_34]) - ((__pyx_v_object->QION[10])[__pyx_v_I]));
 
-      /* "NITROGEN.pyx":450
+      /* "gases/NITROGEN.pyx":450
  *             object.QION[7][I] = object.QION[7][I] - object.QION[8][I] - object.QION[9][I]
  * 
  *         if EN > object.EION[10]:             # <<<<<<<<<<<<<<
@@ -6468,7 +6468,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":456
+    /* "gases/NITROGEN.pyx":456
  *             object.QION[7][I] -= object.QION[10][I]
  * 
  *         if EN > 65.0:             # <<<<<<<<<<<<<<
@@ -6478,7 +6478,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > 65.0) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":457
+      /* "gases/NITROGEN.pyx":457
  * 
  *         if EN > 65.0:
  *             object.QION[10][I] += GasUtil.CALQIONX(EN, NION4, YION4, XION4, BETA2, 0.0057, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -6489,7 +6489,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_34 = __pyx_v_I;
       ((__pyx_v_object->QION[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QION[__pyx_t_41])[__pyx_t_34]) + __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION4, __pyx_v_YION4, __pyx_v_XION4, __pyx_v_BETA2, 0.0057, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2));
 
-      /* "NITROGEN.pyx":456
+      /* "gases/NITROGEN.pyx":456
  *             object.QION[7][I] -= object.QION[10][I]
  * 
  *         if EN > 65.0:             # <<<<<<<<<<<<<<
@@ -6498,7 +6498,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":459
+    /* "gases/NITROGEN.pyx":459
  *             object.QION[10][I] += GasUtil.CALQIONX(EN, NION4, YION4, XION4, BETA2, 0.0057, CONST, object.DEN[I], C, AM2)
  * 
  *         if EN > object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6508,7 +6508,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EION[11])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":460
+      /* "gases/NITROGEN.pyx":460
  * 
  *         if EN > object.EION[11]:
  *             object.QION[11][I] = 2 * GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)             # <<<<<<<<<<<<<<
@@ -6517,7 +6517,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[11])[__pyx_v_I]) = (2.0 * __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NKSH, __pyx_v_YKSH, __pyx_v_XKSH));
 
-      /* "NITROGEN.pyx":459
+      /* "gases/NITROGEN.pyx":459
  *             object.QION[10][I] += GasUtil.CALQIONX(EN, NION4, YION4, XION4, BETA2, 0.0057, CONST, object.DEN[I], C, AM2)
  * 
  *         if EN > object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6526,7 +6526,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":462
+    /* "gases/NITROGEN.pyx":462
  *             object.QION[11][I] = 2 * GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
  * 
  *         for J in range(12):             # <<<<<<<<<<<<<<
@@ -6536,7 +6536,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 0; __pyx_t_34 < 12; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":463
+      /* "gases/NITROGEN.pyx":463
  * 
  *         for J in range(12):
  *             if EN > 2 * object.EION[J]:             # <<<<<<<<<<<<<<
@@ -6546,7 +6546,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[__pyx_v_J]))) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":464
+        /* "gases/NITROGEN.pyx":464
  *         for J in range(12):
  *             if EN > 2 * object.EION[J]:
  *                 object.PEQION[J][I] = object.PEQEL[1][I - IOFFION[J]]             # <<<<<<<<<<<<<<
@@ -6555,7 +6555,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[__pyx_v_J]))]);
 
-        /* "NITROGEN.pyx":463
+        /* "gases/NITROGEN.pyx":463
  * 
  *         for J in range(12):
  *             if EN > 2 * object.EION[J]:             # <<<<<<<<<<<<<<
@@ -6565,7 +6565,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "NITROGEN.pyx":467
+    /* "gases/NITROGEN.pyx":467
  * 
  *         # CORRECTION TO IONISATION FOR AUGER EMISSION
  *         object.QION[0][I] -= AUGK * object.QION[11][I]             # <<<<<<<<<<<<<<
@@ -6576,7 +6576,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_34 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QION[__pyx_t_41])[__pyx_t_34]) - (__pyx_v_AUGK * ((__pyx_v_object->QION[11])[__pyx_v_I])));
 
-    /* "NITROGEN.pyx":469
+    /* "gases/NITROGEN.pyx":469
  *         object.QION[0][I] -= AUGK * object.QION[11][I]
  * 
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6585,7 +6585,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":470
+    /* "gases/NITROGEN.pyx":470
  * 
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6594,7 +6594,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":471
+    /* "gases/NITROGEN.pyx":471
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6603,7 +6603,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":472
+    /* "gases/NITROGEN.pyx":472
  *         object.QATT[0][I] = 0.0
  *         object.Q[4][I] = 0.0
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6612,7 +6612,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":481
+    /* "gases/NITROGEN.pyx":481
  *         #
  * 
  *         for J in range(1, 39):             # <<<<<<<<<<<<<<
@@ -6622,7 +6622,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 1; __pyx_t_34 < 39; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":482
+      /* "gases/NITROGEN.pyx":482
  * 
  *         for J in range(1, 39):
  *             object.QIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6631,7 +6631,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":483
+      /* "gases/NITROGEN.pyx":483
  *         for J in range(1, 39):
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6640,7 +6640,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.5;
 
-      /* "NITROGEN.pyx":484
+      /* "gases/NITROGEN.pyx":484
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6650,7 +6650,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":485
+        /* "gases/NITROGEN.pyx":485
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6659,7 +6659,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":484
+        /* "gases/NITROGEN.pyx":484
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6668,7 +6668,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":486
+      /* "gases/NITROGEN.pyx":486
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -6678,7 +6678,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN > 0.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":487
+        /* "gases/NITROGEN.pyx":487
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN > 0.0:
  *                 i = J + 1             # <<<<<<<<<<<<<<
@@ -6687,7 +6687,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_i = (__pyx_v_J + 1);
 
-        /* "NITROGEN.pyx":488
+        /* "gases/NITROGEN.pyx":488
  *             if EN > 0.0:
  *                 i = J + 1
  *                 object.QIN[J - 1][I] = PJ[J] * QBK * sqrt(1.0 - object.EIN[J - 1] / EN) * i * (i - 1.0) / (             # <<<<<<<<<<<<<<
@@ -6696,7 +6696,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((((__pyx_v_PJ[__pyx_v_J]) * __pyx_v_QBK) * sqrt((1.0 - ((__pyx_v_object->EIN[(__pyx_v_J - 1)]) / __pyx_v_EN)))) * __pyx_v_i) * (__pyx_v_i - 1.0)) / (((2.0 * __pyx_v_i) + 1.0) * ((2.0 * __pyx_v_i) - 1.0)));
 
-        /* "NITROGEN.pyx":491
+        /* "gases/NITROGEN.pyx":491
  *                         (2.0 * i + 1.0) * (2.0 * i - 1.0))
  *                 #CALCULATE ENHANCEMENT OF ROTATIONAL XSEC IN THE RESONANCE REGION
  *                 RESFAC = GasUtil.CALPQ3(EN - object.EIN[J - 1], NROT, YROT, XROT)             # <<<<<<<<<<<<<<
@@ -6705,7 +6705,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_RESFAC = __pyx_f_7GasUtil_CALPQ3((__pyx_v_EN - (__pyx_v_object->EIN[(__pyx_v_J - 1)])), __pyx_v_NROT, __pyx_v_YROT, __pyx_v_XROT);
 
-        /* "NITROGEN.pyx":493
+        /* "gases/NITROGEN.pyx":493
  *                 RESFAC = GasUtil.CALPQ3(EN - object.EIN[J - 1], NROT, YROT, XROT)
  *                 #USE 30% FOR RESFAC
  *                 RESFAC *= 0.3             # <<<<<<<<<<<<<<
@@ -6714,7 +6714,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_RESFAC = (__pyx_v_RESFAC * 0.3);
 
-        /* "NITROGEN.pyx":495
+        /* "gases/NITROGEN.pyx":495
  *                 RESFAC *= 0.3
  *                 #BORN ROTATIONAL X-SEC SUM IN RESONANCE REGION = 0.249
  *                 RESFAC = 1.0 + RESFAC / 0.249             # <<<<<<<<<<<<<<
@@ -6723,7 +6723,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_RESFAC = (1.0 + (__pyx_v_RESFAC / 0.249));
 
-        /* "NITROGEN.pyx":486
+        /* "gases/NITROGEN.pyx":486
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -6732,7 +6732,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":496
+      /* "gases/NITROGEN.pyx":496
  *                 #BORN ROTATIONAL X-SEC SUM IN RESONANCE REGION = 0.249
  *                 RESFAC = 1.0 + RESFAC / 0.249
  *             object.QIN[J - 1][I] *= RESFAC             # <<<<<<<<<<<<<<
@@ -6744,7 +6744,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_35]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_35]) * __pyx_v_RESFAC);
     }
 
-    /* "NITROGEN.pyx":502
+    /* "gases/NITROGEN.pyx":502
  *         # CALCULATE ENHANCEMENT OF ROTATIONAL XSEC IN THE RESONANCE REGION
  * 
  *         for J in range(39, 77):             # <<<<<<<<<<<<<<
@@ -6754,7 +6754,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 39; __pyx_t_34 < 77; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":503
+      /* "gases/NITROGEN.pyx":503
  * 
  *         for J in range(39, 77):
  *             object.PEQIN[J - 1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6763,7 +6763,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.5;
 
-      /* "NITROGEN.pyx":504
+      /* "gases/NITROGEN.pyx":504
  *         for J in range(39, 77):
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6773,7 +6773,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":505
+        /* "gases/NITROGEN.pyx":505
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6782,7 +6782,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":504
+        /* "gases/NITROGEN.pyx":504
  *         for J in range(39, 77):
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6791,7 +6791,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":506
+      /* "gases/NITROGEN.pyx":506
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0
  *             object.QIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6801,7 +6801,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
     }
 
-    /* "NITROGEN.pyx":508
+    /* "gases/NITROGEN.pyx":508
  *             object.QIN[J - 1][I] = 0.0
  *         # CALCULATE ENHANCEMENT OF ROTATIONAL XSEC IN THE RESONANCE REGION
  *         RESFAC = GasUtil.CALPQ3(EN, NROT, YROT, XROT)             # <<<<<<<<<<<<<<
@@ -6810,7 +6810,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_RESFAC = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NROT, __pyx_v_YROT, __pyx_v_XROT);
 
-    /* "NITROGEN.pyx":510
+    /* "gases/NITROGEN.pyx":510
  *         RESFAC = GasUtil.CALPQ3(EN, NROT, YROT, XROT)
  *         #USE 30% FOR RESFAC
  *         RESFAC *= 0.3             # <<<<<<<<<<<<<<
@@ -6819,7 +6819,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_RESFAC = (__pyx_v_RESFAC * 0.3);
 
-    /* "NITROGEN.pyx":512
+    /* "gases/NITROGEN.pyx":512
  *         RESFAC *= 0.3
  *         #BORN ROTATIONAL X-SEC SUM IN RESONANCE REGION = 0.249
  *         RESFAC = 1.0 + RESFAC / 0.249             # <<<<<<<<<<<<<<
@@ -6828,7 +6828,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_RESFAC = (1.0 + (__pyx_v_RESFAC / 0.249));
 
-    /* "NITROGEN.pyx":515
+    /* "gases/NITROGEN.pyx":515
  * 
  *         # ROT 0-2
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -6838,7 +6838,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[38])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":516
+      /* "gases/NITROGEN.pyx":516
  *         # ROT 0-2
  *         if EN > object.EIN[38]:
  *             object.QIN[38][I] = FROT0 * QBK * sqrt(1.0 - object.EIN[38] / EN) * 2.0 / 3.0             # <<<<<<<<<<<<<<
@@ -6847,7 +6847,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[38])[__pyx_v_I]) = ((((__pyx_v_FROT0 * __pyx_v_QBK) * sqrt((1.0 - ((__pyx_v_object->EIN[38]) / __pyx_v_EN)))) * 2.0) / 3.0);
 
-      /* "NITROGEN.pyx":517
+      /* "gases/NITROGEN.pyx":517
  *         if EN > object.EIN[38]:
  *             object.QIN[38][I] = FROT0 * QBK * sqrt(1.0 - object.EIN[38] / EN) * 2.0 / 3.0
  *             object.QIN[38][I] *= RESFAC             # <<<<<<<<<<<<<<
@@ -6858,7 +6858,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_34 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * __pyx_v_RESFAC);
 
-      /* "NITROGEN.pyx":518
+      /* "gases/NITROGEN.pyx":518
  *             object.QIN[38][I] = FROT0 * QBK * sqrt(1.0 - object.EIN[38] / EN) * 2.0 / 3.0
  *             object.QIN[38][I] *= RESFAC
  *             object.PEQIN[38][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6867,7 +6867,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[38])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":519
+      /* "gases/NITROGEN.pyx":519
  *             object.QIN[38][I] *= RESFAC
  *             object.PEQIN[38][I] = 0.0
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6877,7 +6877,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":520
+        /* "gases/NITROGEN.pyx":520
  *             object.PEQIN[38][I] = 0.0
  *             if object.NANISO == 2:
  *                 object.PEQIN[38][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6886,7 +6886,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[38])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":519
+        /* "gases/NITROGEN.pyx":519
  *             object.QIN[38][I] *= RESFAC
  *             object.PEQIN[38][I] = 0.0
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6895,7 +6895,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":521
+      /* "gases/NITROGEN.pyx":521
  *             if object.NANISO == 2:
  *                 object.PEQIN[38][I] = 0.0
  *             for J in range(40, 77):             # <<<<<<<<<<<<<<
@@ -6905,7 +6905,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_34 = 40; __pyx_t_34 < 77; __pyx_t_34+=1) {
         __pyx_v_J = __pyx_t_34;
 
-        /* "NITROGEN.pyx":522
+        /* "gases/NITROGEN.pyx":522
  *                 object.PEQIN[38][I] = 0.0
  *             for J in range(40, 77):
  *                 i = J - 39             # <<<<<<<<<<<<<<
@@ -6914,7 +6914,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_i = (__pyx_v_J - 39);
 
-        /* "NITROGEN.pyx":523
+        /* "gases/NITROGEN.pyx":523
  *             for J in range(40, 77):
  *                 i = J - 39
  *                 if EN > object.EIN[J - 1]:             # <<<<<<<<<<<<<<
@@ -6924,7 +6924,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[(__pyx_v_J - 1)])) != 0);
         if (__pyx_t_39) {
 
-          /* "NITROGEN.pyx":524
+          /* "gases/NITROGEN.pyx":524
  *                 i = J - 39
  *                 if EN > object.EIN[J - 1]:
  *                     object.QIN[J - 1][I] = PJ[i - 1] * QBK * sqrt(1.0 - object.EIN[J - 1] / EN) * (i + 2.0) * (             # <<<<<<<<<<<<<<
@@ -6933,7 +6933,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((((__pyx_v_PJ[(__pyx_v_i - 1)]) * __pyx_v_QBK) * sqrt((1.0 - ((__pyx_v_object->EIN[(__pyx_v_J - 1)]) / __pyx_v_EN)))) * (__pyx_v_i + 2.0)) * (__pyx_v_i + 1.0)) / (((2.0 * __pyx_v_i) + 3.0) * ((2.0 * __pyx_v_i) + 1.0)));
 
-          /* "NITROGEN.pyx":526
+          /* "gases/NITROGEN.pyx":526
  *                     object.QIN[J - 1][I] = PJ[i - 1] * QBK * sqrt(1.0 - object.EIN[J - 1] / EN) * (i + 2.0) * (
  *                             i + 1.0) / ((2.0 * i + 3.0) * (2.0 * i + 1.0))
  *                     object.QIN[J - 1][I] *= RESFAC             # <<<<<<<<<<<<<<
@@ -6944,7 +6944,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_35 = __pyx_v_I;
           ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_35]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_35]) * __pyx_v_RESFAC);
 
-          /* "NITROGEN.pyx":523
+          /* "gases/NITROGEN.pyx":523
  *             for J in range(40, 77):
  *                 i = J - 39
  *                 if EN > object.EIN[J - 1]:             # <<<<<<<<<<<<<<
@@ -6954,7 +6954,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
       }
 
-      /* "NITROGEN.pyx":528
+      /* "gases/NITROGEN.pyx":528
  *                     object.QIN[J - 1][I] *= RESFAC
  * 
  *             if EN >= 5.0:             # <<<<<<<<<<<<<<
@@ -6964,7 +6964,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN >= 5.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":529
+        /* "gases/NITROGEN.pyx":529
  * 
  *             if EN >= 5.0:
  *                 ASCALE = QMOM / 8.9e-16             # <<<<<<<<<<<<<<
@@ -6973,7 +6973,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_ASCALE = (__pyx_v_QMOM / 8.9e-16);
 
-        /* "NITROGEN.pyx":530
+        /* "gases/NITROGEN.pyx":530
  *             if EN >= 5.0:
  *                 ASCALE = QMOM / 8.9e-16
  *                 for J in range(76):             # <<<<<<<<<<<<<<
@@ -6983,7 +6983,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_34 = 0; __pyx_t_34 < 76; __pyx_t_34+=1) {
           __pyx_v_J = __pyx_t_34;
 
-          /* "NITROGEN.pyx":531
+          /* "gases/NITROGEN.pyx":531
  *                 ASCALE = QMOM / 8.9e-16
  *                 for J in range(76):
  *                     object.QIN[J][I] *= ASCALE             # <<<<<<<<<<<<<<
@@ -6995,7 +6995,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
           ((__pyx_v_object->QIN[__pyx_t_35])[__pyx_t_38]) = (((__pyx_v_object->QIN[__pyx_t_35])[__pyx_t_38]) * __pyx_v_ASCALE);
         }
 
-        /* "NITROGEN.pyx":528
+        /* "gases/NITROGEN.pyx":528
  *                     object.QIN[J - 1][I] *= RESFAC
  * 
  *             if EN >= 5.0:             # <<<<<<<<<<<<<<
@@ -7004,7 +7004,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":515
+      /* "gases/NITROGEN.pyx":515
  * 
  *         # ROT 0-2
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -7013,7 +7013,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":537
+    /* "gases/NITROGEN.pyx":537
  *         #---------------------------------------------------------------------
  *         #  V1 SUPERELASTIC
  *         object.QIN[76][I] = 0             # <<<<<<<<<<<<<<
@@ -7022,7 +7022,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[76])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":538
+    /* "gases/NITROGEN.pyx":538
  *         #  V1 SUPERELASTIC
  *         object.QIN[76][I] = 0
  *         object.PEQIN[76][I] = 0.5             # <<<<<<<<<<<<<<
@@ -7031,7 +7031,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[76])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":539
+    /* "gases/NITROGEN.pyx":539
  *         object.QIN[76][I] = 0
  *         object.PEQIN[76][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7041,7 +7041,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":540
+      /* "gases/NITROGEN.pyx":540
  *         object.PEQIN[76][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[76][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7050,7 +7050,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[76])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":539
+      /* "gases/NITROGEN.pyx":539
  *         object.QIN[76][I] = 0
  *         object.PEQIN[76][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7059,7 +7059,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":541
+    /* "gases/NITROGEN.pyx":541
  *         if object.NANISO == 2:
  *             object.PEQIN[76][I] = 0.0
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7069,7 +7069,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":542
+      /* "gases/NITROGEN.pyx":542
  *             object.PEQIN[76][I] = 0.0
  *         if EN > 0.0:
  *             object.QIN[76][I] = GasUtil.CALQINVISELA(EN, NVIB1, YVB1, XVB1, APOPV1, -1 * object.EIN[76], 1,  object.EIN[76], 0, 0)             # <<<<<<<<<<<<<<
@@ -7078,7 +7078,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[76])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISELA(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVB1, __pyx_v_XVB1, __pyx_v_APOPV1, (-1.0 * (__pyx_v_object->EIN[76])), 1.0, (__pyx_v_object->EIN[76]), 0.0, 0);
 
-      /* "NITROGEN.pyx":541
+      /* "gases/NITROGEN.pyx":541
  *         if object.NANISO == 2:
  *             object.PEQIN[76][I] = 0.0
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7087,7 +7087,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":545
+    /* "gases/NITROGEN.pyx":545
  * 
  *         # V1
  *         object.QIN[77][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7096,7 +7096,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[77])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":546
+    /* "gases/NITROGEN.pyx":546
  *         # V1
  *         object.QIN[77][I] = 0.0
  *         if EN > object.EIN[77]:             # <<<<<<<<<<<<<<
@@ -7106,7 +7106,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[77])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":547
+      /* "gases/NITROGEN.pyx":547
  *         object.QIN[77][I] = 0.0
  *         if EN > object.EIN[77]:
  *             object.QIN[77][I] = GasUtil.CALQINP(EN, NVIB1, YVB1, XVB1, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7115,7 +7115,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[77])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVB1, __pyx_v_XVB1, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":546
+      /* "gases/NITROGEN.pyx":546
  *         # V1
  *         object.QIN[77][I] = 0.0
  *         if EN > object.EIN[77]:             # <<<<<<<<<<<<<<
@@ -7124,7 +7124,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":550
+    /* "gases/NITROGEN.pyx":550
  * 
  *         # V2
  *         object.QIN[78][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7133,7 +7133,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[78])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":551
+    /* "gases/NITROGEN.pyx":551
  *         # V2
  *         object.QIN[78][I] = 0.0
  *         if EN > object.EIN[78]:             # <<<<<<<<<<<<<<
@@ -7143,7 +7143,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[78])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":552
+      /* "gases/NITROGEN.pyx":552
  *         object.QIN[78][I] = 0.0
  *         if EN > object.EIN[78]:
  *             object.QIN[78][I] = GasUtil.CALQINP(EN, NVIB2, YVB2, XVB2, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7152,7 +7152,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[78])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVB2, __pyx_v_XVB2, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":551
+      /* "gases/NITROGEN.pyx":551
  *         # V2
  *         object.QIN[78][I] = 0.0
  *         if EN > object.EIN[78]:             # <<<<<<<<<<<<<<
@@ -7161,7 +7161,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":555
+    /* "gases/NITROGEN.pyx":555
  * 
  *         # 3V1
  *         object.QIN[79][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7170,7 +7170,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[79])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":556
+    /* "gases/NITROGEN.pyx":556
  *         # 3V1
  *         object.QIN[79][I] = 0.0
  *         if EN > object.EIN[79]:             # <<<<<<<<<<<<<<
@@ -7180,7 +7180,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[79])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":557
+      /* "gases/NITROGEN.pyx":557
  *         object.QIN[79][I] = 0.0
  *         if EN > object.EIN[79]:
  *             object.QIN[79][I] = GasUtil.CALQINP(EN, NVIB3, YVB3, XVB3, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7189,7 +7189,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[79])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVB3, __pyx_v_XVB3, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":556
+      /* "gases/NITROGEN.pyx":556
  *         # 3V1
  *         object.QIN[79][I] = 0.0
  *         if EN > object.EIN[79]:             # <<<<<<<<<<<<<<
@@ -7198,7 +7198,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":560
+    /* "gases/NITROGEN.pyx":560
  * 
  *         # 4V1
  *         object.QIN[80][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7207,7 +7207,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[80])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":561
+    /* "gases/NITROGEN.pyx":561
  *         # 4V1
  *         object.QIN[80][I] = 0.0
  *         if EN > object.EIN[80]:             # <<<<<<<<<<<<<<
@@ -7217,7 +7217,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[80])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":562
+      /* "gases/NITROGEN.pyx":562
  *         object.QIN[80][I] = 0.0
  *         if EN > object.EIN[80]:
  *             object.QIN[80][I] = GasUtil.CALQINP(EN, NVIB4, YVB4, XVB4, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7226,7 +7226,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[80])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB4, __pyx_v_YVB4, __pyx_v_XVB4, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":561
+      /* "gases/NITROGEN.pyx":561
  *         # 4V1
  *         object.QIN[80][I] = 0.0
  *         if EN > object.EIN[80]:             # <<<<<<<<<<<<<<
@@ -7235,7 +7235,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":565
+    /* "gases/NITROGEN.pyx":565
  * 
  *         # 5V1
  *         object.QIN[81][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7244,7 +7244,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[81])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":566
+    /* "gases/NITROGEN.pyx":566
  *         # 5V1
  *         object.QIN[81][I] = 0.0
  *         if EN > object.EIN[81]:             # <<<<<<<<<<<<<<
@@ -7254,7 +7254,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[81])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":567
+      /* "gases/NITROGEN.pyx":567
  *         object.QIN[81][I] = 0.0
  *         if EN > object.EIN[81]:
  *             object.QIN[81][I] = GasUtil.CALQINP(EN, NVIB5, YVB5, XVB5, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7263,7 +7263,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[81])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB5, __pyx_v_YVB5, __pyx_v_XVB5, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":566
+      /* "gases/NITROGEN.pyx":566
  *         # 5V1
  *         object.QIN[81][I] = 0.0
  *         if EN > object.EIN[81]:             # <<<<<<<<<<<<<<
@@ -7272,7 +7272,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":569
+    /* "gases/NITROGEN.pyx":569
  *             object.QIN[81][I] = GasUtil.CALQINP(EN, NVIB5, YVB5, XVB5, 1) * 100 * APOPGS
  *         # 6V1
  *         object.QIN[82][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7281,7 +7281,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[82])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":570
+    /* "gases/NITROGEN.pyx":570
  *         # 6V1
  *         object.QIN[82][I] = 0.0
  *         if EN > object.EIN[82]:             # <<<<<<<<<<<<<<
@@ -7291,7 +7291,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[82])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":571
+      /* "gases/NITROGEN.pyx":571
  *         object.QIN[82][I] = 0.0
  *         if EN > object.EIN[82]:
  *             object.QIN[82][I] = GasUtil.CALQINP(EN, NVIB6, YVB6, XVB6, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7300,7 +7300,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[82])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB6, __pyx_v_YVB6, __pyx_v_XVB6, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":570
+      /* "gases/NITROGEN.pyx":570
  *         # 6V1
  *         object.QIN[82][I] = 0.0
  *         if EN > object.EIN[82]:             # <<<<<<<<<<<<<<
@@ -7309,7 +7309,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":573
+    /* "gases/NITROGEN.pyx":573
  *             object.QIN[82][I] = GasUtil.CALQINP(EN, NVIB6, YVB6, XVB6, 1) * 100 * APOPGS
  *         # 7V1
  *         object.QIN[83][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7318,7 +7318,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[83])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":574
+    /* "gases/NITROGEN.pyx":574
  *         # 7V1
  *         object.QIN[83][I] = 0.0
  *         if EN > object.EIN[83]:             # <<<<<<<<<<<<<<
@@ -7328,7 +7328,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[83])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":575
+      /* "gases/NITROGEN.pyx":575
  *         object.QIN[83][I] = 0.0
  *         if EN > object.EIN[83]:
  *             object.QIN[83][I] = GasUtil.CALQINP(EN, NVIB7, YVB7, XVB7, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7337,7 +7337,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[83])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB7, __pyx_v_YVB7, __pyx_v_XVB7, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":574
+      /* "gases/NITROGEN.pyx":574
  *         # 7V1
  *         object.QIN[83][I] = 0.0
  *         if EN > object.EIN[83]:             # <<<<<<<<<<<<<<
@@ -7346,7 +7346,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":577
+    /* "gases/NITROGEN.pyx":577
  *             object.QIN[83][I] = GasUtil.CALQINP(EN, NVIB7, YVB7, XVB7, 1) * 100 * APOPGS
  *         # 8V1
  *         object.QIN[84][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7355,7 +7355,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[84])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":578
+    /* "gases/NITROGEN.pyx":578
  *         # 8V1
  *         object.QIN[84][I] = 0.0
  *         if EN > object.EIN[84]:             # <<<<<<<<<<<<<<
@@ -7365,7 +7365,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[84])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":579
+      /* "gases/NITROGEN.pyx":579
  *         object.QIN[84][I] = 0.0
  *         if EN > object.EIN[84]:
  *             object.QIN[84][I] = GasUtil.CALQINP(EN, NVIB8, YVB8, XVB8, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7374,7 +7374,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[84])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB8, __pyx_v_YVB8, __pyx_v_XVB8, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":578
+      /* "gases/NITROGEN.pyx":578
  *         # 8V1
  *         object.QIN[84][I] = 0.0
  *         if EN > object.EIN[84]:             # <<<<<<<<<<<<<<
@@ -7383,7 +7383,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":581
+    /* "gases/NITROGEN.pyx":581
  *             object.QIN[84][I] = GasUtil.CALQINP(EN, NVIB8, YVB8, XVB8, 1) * 100 * APOPGS
  *         # 9V1
  *         object.QIN[85][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7392,7 +7392,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[85])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":582
+    /* "gases/NITROGEN.pyx":582
  *         # 9V1
  *         object.QIN[85][I] = 0.0
  *         if EN > object.EIN[85]:             # <<<<<<<<<<<<<<
@@ -7402,7 +7402,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[85])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":583
+      /* "gases/NITROGEN.pyx":583
  *         object.QIN[85][I] = 0.0
  *         if EN > object.EIN[85]:
  *             object.QIN[85][I] = GasUtil.CALQINP(EN, NVIB9, YVB9, XVB9, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7411,7 +7411,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[85])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB9, __pyx_v_YVB9, __pyx_v_XVB9, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":582
+      /* "gases/NITROGEN.pyx":582
  *         # 9V1
  *         object.QIN[85][I] = 0.0
  *         if EN > object.EIN[85]:             # <<<<<<<<<<<<<<
@@ -7420,7 +7420,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":585
+    /* "gases/NITROGEN.pyx":585
  *             object.QIN[85][I] = GasUtil.CALQINP(EN, NVIB9, YVB9, XVB9, 1) * 100 * APOPGS
  *         # 10V1
  *         object.QIN[86][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7429,7 +7429,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[86])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":586
+    /* "gases/NITROGEN.pyx":586
  *         # 10V1
  *         object.QIN[86][I] = 0.0
  *         if EN > object.EIN[86]:             # <<<<<<<<<<<<<<
@@ -7439,7 +7439,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[86])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":587
+      /* "gases/NITROGEN.pyx":587
  *         object.QIN[86][I] = 0.0
  *         if EN > object.EIN[86]:
  *             object.QIN[86][I] = GasUtil.CALQINP(EN, NVIB10, YVB10, XVB10, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7448,7 +7448,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[86])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB10, __pyx_v_YVB10, __pyx_v_XVB10, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":586
+      /* "gases/NITROGEN.pyx":586
  *         # 10V1
  *         object.QIN[86][I] = 0.0
  *         if EN > object.EIN[86]:             # <<<<<<<<<<<<<<
@@ -7457,7 +7457,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":589
+    /* "gases/NITROGEN.pyx":589
  *             object.QIN[86][I] = GasUtil.CALQINP(EN, NVIB10, YVB10, XVB10, 1) * 100 * APOPGS
  *         # 11V1
  *         object.QIN[87][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7466,7 +7466,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[87])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":590
+    /* "gases/NITROGEN.pyx":590
  *         # 11V1
  *         object.QIN[87][I] = 0.0
  *         if EN > object.EIN[87]:             # <<<<<<<<<<<<<<
@@ -7476,7 +7476,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[87])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":591
+      /* "gases/NITROGEN.pyx":591
  *         object.QIN[87][I] = 0.0
  *         if EN > object.EIN[87]:
  *             object.QIN[87][I] = GasUtil.CALQINP(EN, NVIB11, YVB11, XVB11, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7485,7 +7485,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[87])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB11, __pyx_v_YVB11, __pyx_v_XVB11, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":590
+      /* "gases/NITROGEN.pyx":590
  *         # 11V1
  *         object.QIN[87][I] = 0.0
  *         if EN > object.EIN[87]:             # <<<<<<<<<<<<<<
@@ -7494,7 +7494,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":593
+    /* "gases/NITROGEN.pyx":593
  *             object.QIN[87][I] = GasUtil.CALQINP(EN, NVIB11, YVB11, XVB11, 1) * 100 * APOPGS
  *         # 12V1
  *         object.QIN[88][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7503,7 +7503,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[88])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":594
+    /* "gases/NITROGEN.pyx":594
  *         # 12V1
  *         object.QIN[88][I] = 0.0
  *         if EN > object.EIN[88]:             # <<<<<<<<<<<<<<
@@ -7513,7 +7513,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[88])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":595
+      /* "gases/NITROGEN.pyx":595
  *         object.QIN[88][I] = 0.0
  *         if EN > object.EIN[88]:
  *             object.QIN[88][I] = GasUtil.CALQINP(EN, NVIB12, YVB12, XVB12, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7522,7 +7522,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[88])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB12, __pyx_v_YVB12, __pyx_v_XVB12, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":594
+      /* "gases/NITROGEN.pyx":594
  *         # 12V1
  *         object.QIN[88][I] = 0.0
  *         if EN > object.EIN[88]:             # <<<<<<<<<<<<<<
@@ -7531,7 +7531,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":597
+    /* "gases/NITROGEN.pyx":597
  *             object.QIN[88][I] = GasUtil.CALQINP(EN, NVIB12, YVB12, XVB12, 1) * 100 * APOPGS
  *         # 13V1
  *         object.QIN[89][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7540,7 +7540,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[89])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":598
+    /* "gases/NITROGEN.pyx":598
  *         # 13V1
  *         object.QIN[89][I] = 0.0
  *         if EN > object.EIN[89]:             # <<<<<<<<<<<<<<
@@ -7550,7 +7550,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[89])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":599
+      /* "gases/NITROGEN.pyx":599
  *         object.QIN[89][I] = 0.0
  *         if EN > object.EIN[89]:
  *             object.QIN[89][I] = GasUtil.CALQINP(EN, NVIB13, YVB13, XVB13, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7559,7 +7559,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[89])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB13, __pyx_v_YVB13, __pyx_v_XVB13, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":598
+      /* "gases/NITROGEN.pyx":598
  *         # 13V1
  *         object.QIN[89][I] = 0.0
  *         if EN > object.EIN[89]:             # <<<<<<<<<<<<<<
@@ -7568,7 +7568,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":601
+    /* "gases/NITROGEN.pyx":601
  *             object.QIN[89][I] = GasUtil.CALQINP(EN, NVIB13, YVB13, XVB13, 1) * 100 * APOPGS
  *         # 14V1
  *         object.QIN[90][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7577,7 +7577,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[90])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":602
+    /* "gases/NITROGEN.pyx":602
  *         # 14V1
  *         object.QIN[90][I] = 0.0
  *         if EN > object.EIN[90]:             # <<<<<<<<<<<<<<
@@ -7587,7 +7587,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[90])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":603
+      /* "gases/NITROGEN.pyx":603
  *         object.QIN[90][I] = 0.0
  *         if EN > object.EIN[90]:
  *             object.QIN[90][I] = GasUtil.CALQINP(EN, NVIB14, YVB14, XVB14, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7596,7 +7596,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[90])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB14, __pyx_v_YVB14, __pyx_v_XVB14, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":602
+      /* "gases/NITROGEN.pyx":602
  *         # 14V1
  *         object.QIN[90][I] = 0.0
  *         if EN > object.EIN[90]:             # <<<<<<<<<<<<<<
@@ -7605,7 +7605,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":605
+    /* "gases/NITROGEN.pyx":605
  *             object.QIN[90][I] = GasUtil.CALQINP(EN, NVIB14, YVB14, XVB14, 1) * 100 * APOPGS
  *         # 15V1
  *         object.QIN[91][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7614,7 +7614,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[91])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":606
+    /* "gases/NITROGEN.pyx":606
  *         # 15V1
  *         object.QIN[91][I] = 0.0
  *         if EN > object.EIN[91]:             # <<<<<<<<<<<<<<
@@ -7624,7 +7624,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[91])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":607
+      /* "gases/NITROGEN.pyx":607
  *         object.QIN[91][I] = 0.0
  *         if EN > object.EIN[91]:
  *             object.QIN[91][I] = GasUtil.CALQINP(EN, NVIB15, YVB15, XVB15, 1) * 100 * APOPGS             # <<<<<<<<<<<<<<
@@ -7633,7 +7633,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[91])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB15, __pyx_v_YVB15, __pyx_v_XVB15, 1.0) * 100.0) * __pyx_v_APOPGS);
 
-      /* "NITROGEN.pyx":606
+      /* "gases/NITROGEN.pyx":606
  *         # 15V1
  *         object.QIN[91][I] = 0.0
  *         if EN > object.EIN[91]:             # <<<<<<<<<<<<<<
@@ -7642,7 +7642,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":610
+    /* "gases/NITROGEN.pyx":610
  * 
  *         # SET ROTATIONAL AND VIBRATIONAL ANGULAR DISTRIBUTIONS ( IF KIN NE 0 )
  *         for J in range(92):             # <<<<<<<<<<<<<<
@@ -7652,7 +7652,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 0; __pyx_t_34 < 92; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":611
+      /* "gases/NITROGEN.pyx":611
  *         # SET ROTATIONAL AND VIBRATIONAL ANGULAR DISTRIBUTIONS ( IF KIN NE 0 )
  *         for J in range(92):
  *             object.PEQIN[J][I] = 0.5             # <<<<<<<<<<<<<<
@@ -7661,7 +7661,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.5;
 
-      /* "NITROGEN.pyx":612
+      /* "gases/NITROGEN.pyx":612
  *         for J in range(92):
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7671,7 +7671,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":613
+        /* "gases/NITROGEN.pyx":613
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7680,7 +7680,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":612
+        /* "gases/NITROGEN.pyx":612
  *         for J in range(92):
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7689,7 +7689,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":614
+      /* "gases/NITROGEN.pyx":614
  *             if object.NANISO == 2:
  *                 object.PEQIN[J][I] = 0.0
  *             if EN > 3 * abs(object.EIN[J]):             # <<<<<<<<<<<<<<
@@ -7699,7 +7699,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN > (3.0 * fabs((__pyx_v_object->EIN[__pyx_v_J])))) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":615
+        /* "gases/NITROGEN.pyx":615
  *                 object.PEQIN[J][I] = 0.0
  *             if EN > 3 * abs(object.EIN[J]):
  *                 if object.NANISO > 0:             # <<<<<<<<<<<<<<
@@ -7709,7 +7709,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_39 = ((__pyx_v_object->NANISO > 0) != 0);
         if (__pyx_t_39) {
 
-          /* "NITROGEN.pyx":616
+          /* "gases/NITROGEN.pyx":616
  *             if EN > 3 * abs(object.EIN[J]):
  *                 if object.NANISO > 0:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -7718,7 +7718,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-          /* "NITROGEN.pyx":615
+          /* "gases/NITROGEN.pyx":615
  *                 object.PEQIN[J][I] = 0.0
  *             if EN > 3 * abs(object.EIN[J]):
  *                 if object.NANISO > 0:             # <<<<<<<<<<<<<<
@@ -7727,7 +7727,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "NITROGEN.pyx":614
+        /* "gases/NITROGEN.pyx":614
  *             if object.NANISO == 2:
  *                 object.PEQIN[J][I] = 0.0
  *             if EN > 3 * abs(object.EIN[J]):             # <<<<<<<<<<<<<<
@@ -7737,7 +7737,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "NITROGEN.pyx":619
+    /* "gases/NITROGEN.pyx":619
  * 
  *         # A3SIGMA (V = 0-4)
  *         object.QIN[92][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7746,7 +7746,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[92])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":620
+    /* "gases/NITROGEN.pyx":620
  *         # A3SIGMA (V = 0-4)
  *         object.QIN[92][I] = 0.0
  *         object.PEQIN[92][I] = 0.5             # <<<<<<<<<<<<<<
@@ -7755,7 +7755,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[92])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":621
+    /* "gases/NITROGEN.pyx":621
  *         object.QIN[92][I] = 0.0
  *         object.PEQIN[92][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7765,7 +7765,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":622
+      /* "gases/NITROGEN.pyx":622
  *         object.PEQIN[92][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[92][I] = 0.             # <<<<<<<<<<<<<<
@@ -7774,7 +7774,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[92])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":621
+      /* "gases/NITROGEN.pyx":621
  *         object.QIN[92][I] = 0.0
  *         object.PEQIN[92][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7783,7 +7783,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":623
+    /* "gases/NITROGEN.pyx":623
  *         if object.NANISO == 2:
  *             object.PEQIN[92][I] = 0.
  *         if EN > object.EIN[92]:             # <<<<<<<<<<<<<<
@@ -7793,7 +7793,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[92])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":624
+      /* "gases/NITROGEN.pyx":624
  *             object.PEQIN[92][I] = 0.
  *         if EN > object.EIN[92]:
  *             object.QIN[92][I] = GasUtil.CALQINP(EN, NTRP1, YTRP1, XTRP1, 2) * 100             # <<<<<<<<<<<<<<
@@ -7802,7 +7802,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[92])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP1, __pyx_v_YTRP1, __pyx_v_XTRP1, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":625
+      /* "gases/NITROGEN.pyx":625
  *         if EN > object.EIN[92]:
  *             object.QIN[92][I] = GasUtil.CALQINP(EN, NTRP1, YTRP1, XTRP1, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP1, YTP1M, XTRP1, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -7811,7 +7811,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP1, __pyx_v_YTP1M, __pyx_v_XTRP1, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":623
+      /* "gases/NITROGEN.pyx":623
  *         if object.NANISO == 2:
  *             object.PEQIN[92][I] = 0.
  *         if EN > object.EIN[92]:             # <<<<<<<<<<<<<<
@@ -7820,7 +7820,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":626
+    /* "gases/NITROGEN.pyx":626
  *             object.QIN[92][I] = GasUtil.CALQINP(EN, NTRP1, YTRP1, XTRP1, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP1, YTP1M, XTRP1, 1) * 1e18
  *         if EN > 3.0 * object.EIN[92]:             # <<<<<<<<<<<<<<
@@ -7830,7 +7830,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[92]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":627
+      /* "gases/NITROGEN.pyx":627
  *             RAT = GasUtil.CALQINP(EN, NTRP1, YTP1M, XTRP1, 1) * 1e18
  *         if EN > 3.0 * object.EIN[92]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -7840,7 +7840,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":628
+        /* "gases/NITROGEN.pyx":628
  *         if EN > 3.0 * object.EIN[92]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[92][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -7849,7 +7849,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[92])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":627
+        /* "gases/NITROGEN.pyx":627
  *             RAT = GasUtil.CALQINP(EN, NTRP1, YTP1M, XTRP1, 1) * 1e18
  *         if EN > 3.0 * object.EIN[92]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -7858,7 +7858,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":629
+      /* "gases/NITROGEN.pyx":629
  *             if object.NANISO == 1:
  *                 object.PEQIN[92][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7868,7 +7868,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":630
+        /* "gases/NITROGEN.pyx":630
  *                 object.PEQIN[92][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[92][I] = object.PEQEL[1][I - IOFFN[92]]             # <<<<<<<<<<<<<<
@@ -7877,7 +7877,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[92])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[92]))]);
 
-        /* "NITROGEN.pyx":629
+        /* "gases/NITROGEN.pyx":629
  *             if object.NANISO == 1:
  *                 object.PEQIN[92][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7886,7 +7886,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":626
+      /* "gases/NITROGEN.pyx":626
  *             object.QIN[92][I] = GasUtil.CALQINP(EN, NTRP1, YTRP1, XTRP1, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP1, YTP1M, XTRP1, 1) * 1e18
  *         if EN > 3.0 * object.EIN[92]:             # <<<<<<<<<<<<<<
@@ -7895,7 +7895,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":633
+    /* "gases/NITROGEN.pyx":633
  * 
  *         # A3SIGMA (V = 5-9)
  *         object.QIN[93][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7904,7 +7904,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[93])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":634
+    /* "gases/NITROGEN.pyx":634
  *         # A3SIGMA (V = 5-9)
  *         object.QIN[93][I] = 0.0
  *         object.PEQIN[93][I] = 0.5             # <<<<<<<<<<<<<<
@@ -7913,7 +7913,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[93])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":635
+    /* "gases/NITROGEN.pyx":635
  *         object.QIN[93][I] = 0.0
  *         object.PEQIN[93][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7923,7 +7923,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":636
+      /* "gases/NITROGEN.pyx":636
  *         object.PEQIN[93][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[93][I] = 0.             # <<<<<<<<<<<<<<
@@ -7932,7 +7932,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[93])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":635
+      /* "gases/NITROGEN.pyx":635
  *         object.QIN[93][I] = 0.0
  *         object.PEQIN[93][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7941,7 +7941,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":637
+    /* "gases/NITROGEN.pyx":637
  *         if object.NANISO == 2:
  *             object.PEQIN[93][I] = 0.
  *         if EN > object.EIN[93]:             # <<<<<<<<<<<<<<
@@ -7951,7 +7951,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[93])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":638
+      /* "gases/NITROGEN.pyx":638
  *             object.PEQIN[93][I] = 0.
  *         if EN > object.EIN[93]:
  *             object.QIN[93][I] = GasUtil.CALQINP(EN, NTRP2, YTRP2, XTRP2, 2) * 100             # <<<<<<<<<<<<<<
@@ -7960,7 +7960,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[93])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP2, __pyx_v_YTRP2, __pyx_v_XTRP2, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":639
+      /* "gases/NITROGEN.pyx":639
  *         if EN > object.EIN[93]:
  *             object.QIN[93][I] = GasUtil.CALQINP(EN, NTRP2, YTRP2, XTRP2, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP2, YTP2M, XTRP2, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -7969,7 +7969,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP2, __pyx_v_YTP2M, __pyx_v_XTRP2, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":637
+      /* "gases/NITROGEN.pyx":637
  *         if object.NANISO == 2:
  *             object.PEQIN[93][I] = 0.
  *         if EN > object.EIN[93]:             # <<<<<<<<<<<<<<
@@ -7978,7 +7978,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":640
+    /* "gases/NITROGEN.pyx":640
  *             object.QIN[93][I] = GasUtil.CALQINP(EN, NTRP2, YTRP2, XTRP2, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP2, YTP2M, XTRP2, 1) * 1e18
  *         if EN > 3.0 * object.EIN[93]:             # <<<<<<<<<<<<<<
@@ -7988,7 +7988,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[93]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":641
+      /* "gases/NITROGEN.pyx":641
  *             RAT = GasUtil.CALQINP(EN, NTRP2, YTP2M, XTRP2, 1) * 1e18
  *         if EN > 3.0 * object.EIN[93]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -7998,7 +7998,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":642
+        /* "gases/NITROGEN.pyx":642
  *         if EN > 3.0 * object.EIN[93]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[93][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -8007,7 +8007,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[93])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":641
+        /* "gases/NITROGEN.pyx":641
  *             RAT = GasUtil.CALQINP(EN, NTRP2, YTP2M, XTRP2, 1) * 1e18
  *         if EN > 3.0 * object.EIN[93]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8016,7 +8016,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":643
+      /* "gases/NITROGEN.pyx":643
  *             if object.NANISO == 1:
  *                 object.PEQIN[93][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8026,7 +8026,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":644
+        /* "gases/NITROGEN.pyx":644
  *                 object.PEQIN[93][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[93][I] = object.PEQEL[1][I - IOFFN[93]]             # <<<<<<<<<<<<<<
@@ -8035,7 +8035,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[93])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[93]))]);
 
-        /* "NITROGEN.pyx":643
+        /* "gases/NITROGEN.pyx":643
  *             if object.NANISO == 1:
  *                 object.PEQIN[93][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8044,7 +8044,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":640
+      /* "gases/NITROGEN.pyx":640
  *             object.QIN[93][I] = GasUtil.CALQINP(EN, NTRP2, YTRP2, XTRP2, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP2, YTP2M, XTRP2, 1) * 1e18
  *         if EN > 3.0 * object.EIN[93]:             # <<<<<<<<<<<<<<
@@ -8053,7 +8053,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":647
+    /* "gases/NITROGEN.pyx":647
  * 
  *         # B3PI (V=0-3)
  *         object.QIN[94][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8062,7 +8062,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[94])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":648
+    /* "gases/NITROGEN.pyx":648
  *         # B3PI (V=0-3)
  *         object.QIN[94][I] = 0.0
  *         object.PEQIN[94][I] = 0.5             # <<<<<<<<<<<<<<
@@ -8071,7 +8071,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[94])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":649
+    /* "gases/NITROGEN.pyx":649
  *         object.QIN[94][I] = 0.0
  *         object.PEQIN[94][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8081,7 +8081,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":650
+      /* "gases/NITROGEN.pyx":650
  *         object.PEQIN[94][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[94][I] = 0.             # <<<<<<<<<<<<<<
@@ -8090,7 +8090,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[94])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":649
+      /* "gases/NITROGEN.pyx":649
  *         object.QIN[94][I] = 0.0
  *         object.PEQIN[94][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8099,7 +8099,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":651
+    /* "gases/NITROGEN.pyx":651
  *         if object.NANISO == 2:
  *             object.PEQIN[94][I] = 0.
  *         if EN > object.EIN[94]:             # <<<<<<<<<<<<<<
@@ -8109,7 +8109,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[94])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":652
+      /* "gases/NITROGEN.pyx":652
  *             object.PEQIN[94][I] = 0.
  *         if EN > object.EIN[94]:
  *             object.QIN[94][I] = GasUtil.CALQINP(EN, NTRP3, YTRP3, XTRP3, 2) * 100             # <<<<<<<<<<<<<<
@@ -8118,7 +8118,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[94])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP3, __pyx_v_YTRP3, __pyx_v_XTRP3, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":653
+      /* "gases/NITROGEN.pyx":653
  *         if EN > object.EIN[94]:
  *             object.QIN[94][I] = GasUtil.CALQINP(EN, NTRP3, YTRP3, XTRP3, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP3, YTP3M, XTRP3, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -8127,7 +8127,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP3, __pyx_v_YTP3M, __pyx_v_XTRP3, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":651
+      /* "gases/NITROGEN.pyx":651
  *         if object.NANISO == 2:
  *             object.PEQIN[94][I] = 0.
  *         if EN > object.EIN[94]:             # <<<<<<<<<<<<<<
@@ -8136,7 +8136,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":654
+    /* "gases/NITROGEN.pyx":654
  *             object.QIN[94][I] = GasUtil.CALQINP(EN, NTRP3, YTRP3, XTRP3, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP3, YTP3M, XTRP3, 1) * 1e18
  *         if EN > 3.0 * object.EIN[94]:             # <<<<<<<<<<<<<<
@@ -8146,7 +8146,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[94]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":655
+      /* "gases/NITROGEN.pyx":655
  *             RAT = GasUtil.CALQINP(EN, NTRP3, YTP3M, XTRP3, 1) * 1e18
  *         if EN > 3.0 * object.EIN[94]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8156,7 +8156,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":656
+        /* "gases/NITROGEN.pyx":656
  *         if EN > 3.0 * object.EIN[94]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[94][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -8165,7 +8165,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[94])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":655
+        /* "gases/NITROGEN.pyx":655
  *             RAT = GasUtil.CALQINP(EN, NTRP3, YTP3M, XTRP3, 1) * 1e18
  *         if EN > 3.0 * object.EIN[94]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8174,7 +8174,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":657
+      /* "gases/NITROGEN.pyx":657
  *             if object.NANISO == 1:
  *                 object.PEQIN[94][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8184,7 +8184,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":658
+        /* "gases/NITROGEN.pyx":658
  *                 object.PEQIN[94][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[94][I] = object.PEQEL[1][I - IOFFN[94]]             # <<<<<<<<<<<<<<
@@ -8193,7 +8193,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[94])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[94]))]);
 
-        /* "NITROGEN.pyx":657
+        /* "gases/NITROGEN.pyx":657
  *             if object.NANISO == 1:
  *                 object.PEQIN[94][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8202,7 +8202,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":654
+      /* "gases/NITROGEN.pyx":654
  *             object.QIN[94][I] = GasUtil.CALQINP(EN, NTRP3, YTRP3, XTRP3, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP3, YTP3M, XTRP3, 1) * 1e18
  *         if EN > 3.0 * object.EIN[94]:             # <<<<<<<<<<<<<<
@@ -8211,7 +8211,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":661
+    /* "gases/NITROGEN.pyx":661
  * 
  *         # W3DELTA (V = 0-5)
  *         object.QIN[95][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8220,7 +8220,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[95])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":662
+    /* "gases/NITROGEN.pyx":662
  *         # W3DELTA (V = 0-5)
  *         object.QIN[95][I] = 0.0
  *         object.PEQIN[95][I] = 0.5             # <<<<<<<<<<<<<<
@@ -8229,7 +8229,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[95])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":663
+    /* "gases/NITROGEN.pyx":663
  *         object.QIN[95][I] = 0.0
  *         object.PEQIN[95][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8239,7 +8239,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":664
+      /* "gases/NITROGEN.pyx":664
  *         object.PEQIN[95][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[95][I] = 0.             # <<<<<<<<<<<<<<
@@ -8248,7 +8248,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[95])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":663
+      /* "gases/NITROGEN.pyx":663
  *         object.QIN[95][I] = 0.0
  *         object.PEQIN[95][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8257,7 +8257,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":665
+    /* "gases/NITROGEN.pyx":665
  *         if object.NANISO == 2:
  *             object.PEQIN[95][I] = 0.
  *         if EN > object.EIN[95]:             # <<<<<<<<<<<<<<
@@ -8267,7 +8267,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[95])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":666
+      /* "gases/NITROGEN.pyx":666
  *             object.PEQIN[95][I] = 0.
  *         if EN > object.EIN[95]:
  *             object.QIN[95][I] = GasUtil.CALQINP(EN, NTRP4, YTRP4, XTRP4, 2) * 100             # <<<<<<<<<<<<<<
@@ -8276,7 +8276,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[95])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP4, __pyx_v_YTRP4, __pyx_v_XTRP4, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":667
+      /* "gases/NITROGEN.pyx":667
  *         if EN > object.EIN[95]:
  *             object.QIN[95][I] = GasUtil.CALQINP(EN, NTRP4, YTRP4, XTRP4, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP4, YTP4M, XTRP4, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -8285,7 +8285,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP4, __pyx_v_YTP4M, __pyx_v_XTRP4, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":665
+      /* "gases/NITROGEN.pyx":665
  *         if object.NANISO == 2:
  *             object.PEQIN[95][I] = 0.
  *         if EN > object.EIN[95]:             # <<<<<<<<<<<<<<
@@ -8294,7 +8294,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":668
+    /* "gases/NITROGEN.pyx":668
  *             object.QIN[95][I] = GasUtil.CALQINP(EN, NTRP4, YTRP4, XTRP4, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP4, YTP4M, XTRP4, 1) * 1e18
  *         if EN > 3.0 * object.EIN[95]:             # <<<<<<<<<<<<<<
@@ -8304,7 +8304,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[95]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":669
+      /* "gases/NITROGEN.pyx":669
  *             RAT = GasUtil.CALQINP(EN, NTRP4, YTP4M, XTRP4, 1) * 1e18
  *         if EN > 3.0 * object.EIN[95]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8314,7 +8314,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":670
+        /* "gases/NITROGEN.pyx":670
  *         if EN > 3.0 * object.EIN[95]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[95][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -8323,7 +8323,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[95])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":669
+        /* "gases/NITROGEN.pyx":669
  *             RAT = GasUtil.CALQINP(EN, NTRP4, YTP4M, XTRP4, 1) * 1e18
  *         if EN > 3.0 * object.EIN[95]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8332,7 +8332,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":671
+      /* "gases/NITROGEN.pyx":671
  *             if object.NANISO == 1:
  *                 object.PEQIN[95][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8342,7 +8342,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":672
+        /* "gases/NITROGEN.pyx":672
  *                 object.PEQIN[95][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[95][I] = object.PEQEL[1][I - IOFFN[95]]             # <<<<<<<<<<<<<<
@@ -8351,7 +8351,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[95])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[95]))]);
 
-        /* "NITROGEN.pyx":671
+        /* "gases/NITROGEN.pyx":671
  *             if object.NANISO == 1:
  *                 object.PEQIN[95][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8360,7 +8360,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":668
+      /* "gases/NITROGEN.pyx":668
  *             object.QIN[95][I] = GasUtil.CALQINP(EN, NTRP4, YTRP4, XTRP4, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP4, YTP4M, XTRP4, 1) * 1e18
  *         if EN > 3.0 * object.EIN[95]:             # <<<<<<<<<<<<<<
@@ -8369,7 +8369,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":675
+    /* "gases/NITROGEN.pyx":675
  * 
  *         # A3SIGMA (V = 10-21)
  *         object.QIN[96][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8378,7 +8378,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[96])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":676
+    /* "gases/NITROGEN.pyx":676
  *         # A3SIGMA (V = 10-21)
  *         object.QIN[96][I] = 0.0
  *         object.PEQIN[96][I] = 0.5             # <<<<<<<<<<<<<<
@@ -8387,7 +8387,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[96])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":677
+    /* "gases/NITROGEN.pyx":677
  *         object.QIN[96][I] = 0.0
  *         object.PEQIN[96][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8397,7 +8397,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":678
+      /* "gases/NITROGEN.pyx":678
  *         object.PEQIN[96][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[96][I] = 0.             # <<<<<<<<<<<<<<
@@ -8406,7 +8406,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[96])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":677
+      /* "gases/NITROGEN.pyx":677
  *         object.QIN[96][I] = 0.0
  *         object.PEQIN[96][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8415,7 +8415,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":679
+    /* "gases/NITROGEN.pyx":679
  *         if object.NANISO == 2:
  *             object.PEQIN[96][I] = 0.
  *         if EN > object.EIN[96]:             # <<<<<<<<<<<<<<
@@ -8425,7 +8425,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[96])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":680
+      /* "gases/NITROGEN.pyx":680
  *             object.PEQIN[96][I] = 0.
  *         if EN > object.EIN[96]:
  *             object.QIN[96][I] = GasUtil.CALQINP(EN, NTRP5, YTRP5, XTRP5, 2) * 100             # <<<<<<<<<<<<<<
@@ -8434,7 +8434,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[96])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP5, __pyx_v_YTRP5, __pyx_v_XTRP5, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":681
+      /* "gases/NITROGEN.pyx":681
  *         if EN > object.EIN[96]:
  *             object.QIN[96][I] = GasUtil.CALQINP(EN, NTRP5, YTRP5, XTRP5, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP5, YTP5M, XTRP5, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -8443,7 +8443,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP5, __pyx_v_YTP5M, __pyx_v_XTRP5, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":679
+      /* "gases/NITROGEN.pyx":679
  *         if object.NANISO == 2:
  *             object.PEQIN[96][I] = 0.
  *         if EN > object.EIN[96]:             # <<<<<<<<<<<<<<
@@ -8452,7 +8452,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":682
+    /* "gases/NITROGEN.pyx":682
  *             object.QIN[96][I] = GasUtil.CALQINP(EN, NTRP5, YTRP5, XTRP5, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP5, YTP5M, XTRP5, 1) * 1e18
  *         if EN > 3.0 * object.EIN[96]:             # <<<<<<<<<<<<<<
@@ -8462,7 +8462,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[96]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":683
+      /* "gases/NITROGEN.pyx":683
  *             RAT = GasUtil.CALQINP(EN, NTRP5, YTP5M, XTRP5, 1) * 1e18
  *         if EN > 3.0 * object.EIN[96]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8472,7 +8472,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":684
+        /* "gases/NITROGEN.pyx":684
  *         if EN > 3.0 * object.EIN[96]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[96][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -8481,7 +8481,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[96])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":683
+        /* "gases/NITROGEN.pyx":683
  *             RAT = GasUtil.CALQINP(EN, NTRP5, YTP5M, XTRP5, 1) * 1e18
  *         if EN > 3.0 * object.EIN[96]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8490,7 +8490,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":685
+      /* "gases/NITROGEN.pyx":685
  *             if object.NANISO == 1:
  *                 object.PEQIN[96][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8500,7 +8500,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":686
+        /* "gases/NITROGEN.pyx":686
  *                 object.PEQIN[96][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[96][I] = object.PEQEL[1][I - IOFFN[96]]             # <<<<<<<<<<<<<<
@@ -8509,7 +8509,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[96])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[96]))]);
 
-        /* "NITROGEN.pyx":685
+        /* "gases/NITROGEN.pyx":685
  *             if object.NANISO == 1:
  *                 object.PEQIN[96][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8518,7 +8518,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":682
+      /* "gases/NITROGEN.pyx":682
  *             object.QIN[96][I] = GasUtil.CALQINP(EN, NTRP5, YTRP5, XTRP5, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP5, YTP5M, XTRP5, 1) * 1e18
  *         if EN > 3.0 * object.EIN[96]:             # <<<<<<<<<<<<<<
@@ -8527,7 +8527,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":689
+    /* "gases/NITROGEN.pyx":689
  * 
  *         # B3PI (V=4-16)
  *         object.QIN[97][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8536,7 +8536,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[97])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":690
+    /* "gases/NITROGEN.pyx":690
  *         # B3PI (V=4-16)
  *         object.QIN[97][I] = 0.0
  *         object.PEQIN[97][I] = 0.5             # <<<<<<<<<<<<<<
@@ -8545,7 +8545,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[97])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":691
+    /* "gases/NITROGEN.pyx":691
  *         object.QIN[97][I] = 0.0
  *         object.PEQIN[97][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8555,7 +8555,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":692
+      /* "gases/NITROGEN.pyx":692
  *         object.PEQIN[97][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[97][I] = 0.             # <<<<<<<<<<<<<<
@@ -8564,7 +8564,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[97])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":691
+      /* "gases/NITROGEN.pyx":691
  *         object.QIN[97][I] = 0.0
  *         object.PEQIN[97][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8573,7 +8573,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":693
+    /* "gases/NITROGEN.pyx":693
  *         if object.NANISO == 2:
  *             object.PEQIN[97][I] = 0.
  *         if EN > object.EIN[97]:             # <<<<<<<<<<<<<<
@@ -8583,7 +8583,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[97])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":694
+      /* "gases/NITROGEN.pyx":694
  *             object.PEQIN[97][I] = 0.
  *         if EN > object.EIN[97]:
  *             object.QIN[97][I] = GasUtil.CALQINP(EN, NTRP6, YTRP6, XTRP6, 2) * 100             # <<<<<<<<<<<<<<
@@ -8592,7 +8592,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[97])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP6, __pyx_v_YTRP6, __pyx_v_XTRP6, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":695
+      /* "gases/NITROGEN.pyx":695
  *         if EN > object.EIN[97]:
  *             object.QIN[97][I] = GasUtil.CALQINP(EN, NTRP6, YTRP6, XTRP6, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP6, YTP6M, XTRP6, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -8601,7 +8601,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP6, __pyx_v_YTP6M, __pyx_v_XTRP6, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":693
+      /* "gases/NITROGEN.pyx":693
  *         if object.NANISO == 2:
  *             object.PEQIN[97][I] = 0.
  *         if EN > object.EIN[97]:             # <<<<<<<<<<<<<<
@@ -8610,7 +8610,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":696
+    /* "gases/NITROGEN.pyx":696
  *             object.QIN[97][I] = GasUtil.CALQINP(EN, NTRP6, YTRP6, XTRP6, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP6, YTP6M, XTRP6, 1) * 1e18
  *         if EN > 3.0 * object.EIN[97]:             # <<<<<<<<<<<<<<
@@ -8620,7 +8620,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[97]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":697
+      /* "gases/NITROGEN.pyx":697
  *             RAT = GasUtil.CALQINP(EN, NTRP6, YTP6M, XTRP6, 1) * 1e18
  *         if EN > 3.0 * object.EIN[97]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8630,7 +8630,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":698
+        /* "gases/NITROGEN.pyx":698
  *         if EN > 3.0 * object.EIN[97]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[97][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -8639,7 +8639,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[97])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":697
+        /* "gases/NITROGEN.pyx":697
  *             RAT = GasUtil.CALQINP(EN, NTRP6, YTP6M, XTRP6, 1) * 1e18
  *         if EN > 3.0 * object.EIN[97]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8648,7 +8648,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":699
+      /* "gases/NITROGEN.pyx":699
  *             if object.NANISO == 1:
  *                 object.PEQIN[97][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8658,7 +8658,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":700
+        /* "gases/NITROGEN.pyx":700
  *                 object.PEQIN[97][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[97][I] = object.PEQEL[1][I - IOFFN[97]]             # <<<<<<<<<<<<<<
@@ -8667,7 +8667,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[97])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[97]))]);
 
-        /* "NITROGEN.pyx":699
+        /* "gases/NITROGEN.pyx":699
  *             if object.NANISO == 1:
  *                 object.PEQIN[97][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8676,7 +8676,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":696
+      /* "gases/NITROGEN.pyx":696
  *             object.QIN[97][I] = GasUtil.CALQINP(EN, NTRP6, YTRP6, XTRP6, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP6, YTP6M, XTRP6, 1) * 1e18
  *         if EN > 3.0 * object.EIN[97]:             # <<<<<<<<<<<<<<
@@ -8685,7 +8685,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":703
+    /* "gases/NITROGEN.pyx":703
  * 
  *         # W3DEL (V=6-10)
  *         object.QIN[98][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8694,7 +8694,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[98])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":704
+    /* "gases/NITROGEN.pyx":704
  *         # W3DEL (V=6-10)
  *         object.QIN[98][I] = 0.0
  *         object.PEQIN[98][I] = 0.5             # <<<<<<<<<<<<<<
@@ -8703,7 +8703,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[98])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":705
+    /* "gases/NITROGEN.pyx":705
  *         object.QIN[98][I] = 0.0
  *         object.PEQIN[98][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8713,7 +8713,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":706
+      /* "gases/NITROGEN.pyx":706
  *         object.PEQIN[98][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[98][I] = 0.             # <<<<<<<<<<<<<<
@@ -8722,7 +8722,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[98])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":705
+      /* "gases/NITROGEN.pyx":705
  *         object.QIN[98][I] = 0.0
  *         object.PEQIN[98][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8731,7 +8731,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":707
+    /* "gases/NITROGEN.pyx":707
  *         if object.NANISO == 2:
  *             object.PEQIN[98][I] = 0.
  *         if EN > object.EIN[98]:             # <<<<<<<<<<<<<<
@@ -8741,7 +8741,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[98])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":708
+      /* "gases/NITROGEN.pyx":708
  *             object.PEQIN[98][I] = 0.
  *         if EN > object.EIN[98]:
  *             object.QIN[98][I] = GasUtil.CALQINP(EN, NTRP7, YTRP7, XTRP7, 2) * 100             # <<<<<<<<<<<<<<
@@ -8750,7 +8750,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[98])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP7, __pyx_v_YTRP7, __pyx_v_XTRP7, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":709
+      /* "gases/NITROGEN.pyx":709
  *         if EN > object.EIN[98]:
  *             object.QIN[98][I] = GasUtil.CALQINP(EN, NTRP7, YTRP7, XTRP7, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP7, YTP7M, XTRP7, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -8759,7 +8759,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP7, __pyx_v_YTP7M, __pyx_v_XTRP7, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":707
+      /* "gases/NITROGEN.pyx":707
  *         if object.NANISO == 2:
  *             object.PEQIN[98][I] = 0.
  *         if EN > object.EIN[98]:             # <<<<<<<<<<<<<<
@@ -8768,7 +8768,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":710
+    /* "gases/NITROGEN.pyx":710
  *             object.QIN[98][I] = GasUtil.CALQINP(EN, NTRP7, YTRP7, XTRP7, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP7, YTP7M, XTRP7, 1) * 1e18
  *         if EN > 3.0 * object.EIN[98]:             # <<<<<<<<<<<<<<
@@ -8778,7 +8778,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[98]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":711
+      /* "gases/NITROGEN.pyx":711
  *             RAT = GasUtil.CALQINP(EN, NTRP7, YTP7M, XTRP7, 1) * 1e18
  *         if EN > 3.0 * object.EIN[98]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8788,7 +8788,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":712
+        /* "gases/NITROGEN.pyx":712
  *         if EN > 3.0 * object.EIN[98]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[98][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -8797,7 +8797,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[98])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":711
+        /* "gases/NITROGEN.pyx":711
  *             RAT = GasUtil.CALQINP(EN, NTRP7, YTP7M, XTRP7, 1) * 1e18
  *         if EN > 3.0 * object.EIN[98]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8806,7 +8806,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":713
+      /* "gases/NITROGEN.pyx":713
  *             if object.NANISO == 1:
  *                 object.PEQIN[98][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8816,7 +8816,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":714
+        /* "gases/NITROGEN.pyx":714
  *                 object.PEQIN[98][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[98][I] = object.PEQEL[1][I - IOFFN[98]]             # <<<<<<<<<<<<<<
@@ -8825,7 +8825,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[98])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[98]))]);
 
-        /* "NITROGEN.pyx":713
+        /* "gases/NITROGEN.pyx":713
  *             if object.NANISO == 1:
  *                 object.PEQIN[98][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8834,7 +8834,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":710
+      /* "gases/NITROGEN.pyx":710
  *             object.QIN[98][I] = GasUtil.CALQINP(EN, NTRP7, YTRP7, XTRP7, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP7, YTP7M, XTRP7, 1) * 1e18
  *         if EN > 3.0 * object.EIN[98]:             # <<<<<<<<<<<<<<
@@ -8843,7 +8843,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":717
+    /* "gases/NITROGEN.pyx":717
  * 
  *         # A1PI (V=0-3)
  *         object.QIN[99][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8852,7 +8852,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[99])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":718
+    /* "gases/NITROGEN.pyx":718
  *         # A1PI (V=0-3)
  *         object.QIN[99][I] = 0.0
  *         object.PEQIN[99][I] = 0.5             # <<<<<<<<<<<<<<
@@ -8861,7 +8861,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[99])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":719
+    /* "gases/NITROGEN.pyx":719
  *         object.QIN[99][I] = 0.0
  *         object.PEQIN[99][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8871,7 +8871,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":720
+      /* "gases/NITROGEN.pyx":720
  *         object.PEQIN[99][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[99][I] = 0.             # <<<<<<<<<<<<<<
@@ -8880,7 +8880,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[99])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":719
+      /* "gases/NITROGEN.pyx":719
  *         object.QIN[99][I] = 0.0
  *         object.PEQIN[99][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8889,7 +8889,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":721
+    /* "gases/NITROGEN.pyx":721
  *         if object.NANISO == 2:
  *             object.PEQIN[99][I] = 0.
  *         if EN > object.EIN[99]:             # <<<<<<<<<<<<<<
@@ -8899,7 +8899,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[99])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":722
+      /* "gases/NITROGEN.pyx":722
  *             object.PEQIN[99][I] = 0.
  *         if EN > object.EIN[99]:
  *             object.QIN[99][I] = GasUtil.CALQINP(EN, NSNG1, YSNG1, XSNG1, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -8908,7 +8908,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[99])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG1, __pyx_v_YSNG1, __pyx_v_XSNG1, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":723
+      /* "gases/NITROGEN.pyx":723
  *         if EN > object.EIN[99]:
  *             object.QIN[99][I] = GasUtil.CALQINP(EN, NSNG1, YSNG1, XSNG1, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG1, YSG1M, XSNG1, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -8917,7 +8917,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG1, __pyx_v_YSG1M, __pyx_v_XSNG1, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":721
+      /* "gases/NITROGEN.pyx":721
  *         if object.NANISO == 2:
  *             object.PEQIN[99][I] = 0.
  *         if EN > object.EIN[99]:             # <<<<<<<<<<<<<<
@@ -8926,7 +8926,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":724
+    /* "gases/NITROGEN.pyx":724
  *             object.QIN[99][I] = GasUtil.CALQINP(EN, NSNG1, YSNG1, XSNG1, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG1, YSG1M, XSNG1, 1) * 1e18
  *         if EN > 3.0 * object.EIN[99]:             # <<<<<<<<<<<<<<
@@ -8936,7 +8936,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[99]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":725
+      /* "gases/NITROGEN.pyx":725
  *             RAT = GasUtil.CALQINP(EN, NSNG1, YSG1M, XSNG1, 1) * 1e18
  *         if EN > 3.0 * object.EIN[99]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8946,7 +8946,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":726
+        /* "gases/NITROGEN.pyx":726
  *         if EN > 3.0 * object.EIN[99]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[99][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -8955,7 +8955,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[99])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":725
+        /* "gases/NITROGEN.pyx":725
  *             RAT = GasUtil.CALQINP(EN, NSNG1, YSG1M, XSNG1, 1) * 1e18
  *         if EN > 3.0 * object.EIN[99]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -8964,7 +8964,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":727
+      /* "gases/NITROGEN.pyx":727
  *             if object.NANISO == 1:
  *                 object.PEQIN[99][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8974,7 +8974,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":728
+        /* "gases/NITROGEN.pyx":728
  *                 object.PEQIN[99][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[99][I] = object.PEQEL[1][I - IOFFN[99]]             # <<<<<<<<<<<<<<
@@ -8983,7 +8983,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[99])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[99]))]);
 
-        /* "NITROGEN.pyx":727
+        /* "gases/NITROGEN.pyx":727
  *             if object.NANISO == 1:
  *                 object.PEQIN[99][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8992,7 +8992,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":724
+      /* "gases/NITROGEN.pyx":724
  *             object.QIN[99][I] = GasUtil.CALQINP(EN, NSNG1, YSNG1, XSNG1, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG1, YSG1M, XSNG1, 1) * 1e18
  *         if EN > 3.0 * object.EIN[99]:             # <<<<<<<<<<<<<<
@@ -9001,7 +9001,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":731
+    /* "gases/NITROGEN.pyx":731
  * 
  *         # B!3SIG (V=0-6)
  *         object.QIN[100][I] = 0.0             # <<<<<<<<<<<<<<
@@ -9010,7 +9010,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x64])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":732
+    /* "gases/NITROGEN.pyx":732
  *         # B!3SIG (V=0-6)
  *         object.QIN[100][I] = 0.0
  *         object.PEQIN[100][I] = 0.5             # <<<<<<<<<<<<<<
@@ -9019,7 +9019,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x64])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":733
+    /* "gases/NITROGEN.pyx":733
  *         object.QIN[100][I] = 0.0
  *         object.PEQIN[100][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9029,7 +9029,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":734
+      /* "gases/NITROGEN.pyx":734
  *         object.PEQIN[100][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[100][I] = 0.             # <<<<<<<<<<<<<<
@@ -9038,7 +9038,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x64])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":733
+      /* "gases/NITROGEN.pyx":733
  *         object.QIN[100][I] = 0.0
  *         object.PEQIN[100][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9047,7 +9047,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":735
+    /* "gases/NITROGEN.pyx":735
  *         if object.NANISO == 2:
  *             object.PEQIN[100][I] = 0.
  *         if EN > object.EIN[100]:             # <<<<<<<<<<<<<<
@@ -9057,7 +9057,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x64])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":736
+      /* "gases/NITROGEN.pyx":736
  *             object.PEQIN[100][I] = 0.
  *         if EN > object.EIN[100]:
  *             object.QIN[100][I] = GasUtil.CALQINP(EN, NTRP8, YTRP8, XTRP8, 2) * 100             # <<<<<<<<<<<<<<
@@ -9066,7 +9066,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x64])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP8, __pyx_v_YTRP8, __pyx_v_XTRP8, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":737
+      /* "gases/NITROGEN.pyx":737
  *         if EN > object.EIN[100]:
  *             object.QIN[100][I] = GasUtil.CALQINP(EN, NTRP8, YTRP8, XTRP8, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP8, YTP8M, XTRP8, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -9075,7 +9075,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP8, __pyx_v_YTP8M, __pyx_v_XTRP8, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":735
+      /* "gases/NITROGEN.pyx":735
  *         if object.NANISO == 2:
  *             object.PEQIN[100][I] = 0.
  *         if EN > object.EIN[100]:             # <<<<<<<<<<<<<<
@@ -9084,7 +9084,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":738
+    /* "gases/NITROGEN.pyx":738
  *             object.QIN[100][I] = GasUtil.CALQINP(EN, NTRP8, YTRP8, XTRP8, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP8, YTP8M, XTRP8, 1) * 1e18
  *         if EN > 3.0 * object.EIN[100]:             # <<<<<<<<<<<<<<
@@ -9094,7 +9094,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x64]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":739
+      /* "gases/NITROGEN.pyx":739
  *             RAT = GasUtil.CALQINP(EN, NTRP8, YTP8M, XTRP8, 1) * 1e18
  *         if EN > 3.0 * object.EIN[100]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9104,7 +9104,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":740
+        /* "gases/NITROGEN.pyx":740
  *         if EN > 3.0 * object.EIN[100]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[100][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -9113,7 +9113,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x64])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":739
+        /* "gases/NITROGEN.pyx":739
  *             RAT = GasUtil.CALQINP(EN, NTRP8, YTP8M, XTRP8, 1) * 1e18
  *         if EN > 3.0 * object.EIN[100]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9122,7 +9122,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":741
+      /* "gases/NITROGEN.pyx":741
  *             if object.NANISO == 1:
  *                 object.PEQIN[100][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9132,7 +9132,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":742
+        /* "gases/NITROGEN.pyx":742
  *                 object.PEQIN[100][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[100][I] = object.PEQEL[1][I - IOFFN[100]]             # <<<<<<<<<<<<<<
@@ -9141,7 +9141,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x64])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x64]))]);
 
-        /* "NITROGEN.pyx":741
+        /* "gases/NITROGEN.pyx":741
  *             if object.NANISO == 1:
  *                 object.PEQIN[100][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9150,7 +9150,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":738
+      /* "gases/NITROGEN.pyx":738
  *             object.QIN[100][I] = GasUtil.CALQINP(EN, NTRP8, YTRP8, XTRP8, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP8, YTP8M, XTRP8, 1) * 1e18
  *         if EN > 3.0 * object.EIN[100]:             # <<<<<<<<<<<<<<
@@ -9159,7 +9159,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":745
+    /* "gases/NITROGEN.pyx":745
  * 
  *         # A!SIG (V=0-6)
  *         object.QIN[101][I] = 0.0             # <<<<<<<<<<<<<<
@@ -9168,7 +9168,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x65])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":746
+    /* "gases/NITROGEN.pyx":746
  *         # A!SIG (V=0-6)
  *         object.QIN[101][I] = 0.0
  *         object.PEQIN[101][I] = 0.5             # <<<<<<<<<<<<<<
@@ -9177,7 +9177,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x65])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":747
+    /* "gases/NITROGEN.pyx":747
  *         object.QIN[101][I] = 0.0
  *         object.PEQIN[101][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9187,7 +9187,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":748
+      /* "gases/NITROGEN.pyx":748
  *         object.PEQIN[101][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[101][I] = 0.             # <<<<<<<<<<<<<<
@@ -9196,7 +9196,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x65])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":747
+      /* "gases/NITROGEN.pyx":747
  *         object.QIN[101][I] = 0.0
  *         object.PEQIN[101][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9205,7 +9205,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":749
+    /* "gases/NITROGEN.pyx":749
  *         if object.NANISO == 2:
  *             object.PEQIN[101][I] = 0.
  *         if EN > object.EIN[101]:             # <<<<<<<<<<<<<<
@@ -9215,7 +9215,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x65])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":750
+      /* "gases/NITROGEN.pyx":750
  *             object.PEQIN[101][I] = 0.
  *         if EN > object.EIN[101]:
  *             object.QIN[101][I] = GasUtil.CALQINP(EN, NSNG2, YSNG2, XSNG2, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -9224,7 +9224,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x65])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG2, __pyx_v_YSNG2, __pyx_v_XSNG2, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":751
+      /* "gases/NITROGEN.pyx":751
  *         if EN > object.EIN[101]:
  *             object.QIN[101][I] = GasUtil.CALQINP(EN, NSNG2, YSNG2, XSNG2, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG2, YSG2M, XSNG2, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -9233,7 +9233,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG2, __pyx_v_YSG2M, __pyx_v_XSNG2, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":749
+      /* "gases/NITROGEN.pyx":749
  *         if object.NANISO == 2:
  *             object.PEQIN[101][I] = 0.
  *         if EN > object.EIN[101]:             # <<<<<<<<<<<<<<
@@ -9242,7 +9242,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":752
+    /* "gases/NITROGEN.pyx":752
  *             object.QIN[101][I] = GasUtil.CALQINP(EN, NSNG2, YSNG2, XSNG2, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG2, YSG2M, XSNG2, 1) * 1e18
  *         if EN > 3.0 * object.EIN[101]:             # <<<<<<<<<<<<<<
@@ -9252,7 +9252,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x65]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":753
+      /* "gases/NITROGEN.pyx":753
  *             RAT = GasUtil.CALQINP(EN, NSNG2, YSG2M, XSNG2, 1) * 1e18
  *         if EN > 3.0 * object.EIN[101]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9262,7 +9262,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":754
+        /* "gases/NITROGEN.pyx":754
  *         if EN > 3.0 * object.EIN[101]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[101][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -9271,7 +9271,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x65])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":753
+        /* "gases/NITROGEN.pyx":753
  *             RAT = GasUtil.CALQINP(EN, NSNG2, YSG2M, XSNG2, 1) * 1e18
  *         if EN > 3.0 * object.EIN[101]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9280,7 +9280,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":755
+      /* "gases/NITROGEN.pyx":755
  *             if object.NANISO == 1:
  *                 object.PEQIN[101][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9290,7 +9290,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":756
+        /* "gases/NITROGEN.pyx":756
  *                 object.PEQIN[101][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[101][I] = object.PEQEL[1][I - IOFFN[101]]             # <<<<<<<<<<<<<<
@@ -9299,7 +9299,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x65])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x65]))]);
 
-        /* "NITROGEN.pyx":755
+        /* "gases/NITROGEN.pyx":755
  *             if object.NANISO == 1:
  *                 object.PEQIN[101][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9308,7 +9308,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":752
+      /* "gases/NITROGEN.pyx":752
  *             object.QIN[101][I] = GasUtil.CALQINP(EN, NSNG2, YSNG2, XSNG2, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG2, YSG2M, XSNG2, 1) * 1e18
  *         if EN > 3.0 * object.EIN[101]:             # <<<<<<<<<<<<<<
@@ -9317,7 +9317,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":759
+    /* "gases/NITROGEN.pyx":759
  * 
  *         # W3DEL(V=11-19)
  *         object.QIN[102][I] = 0.0             # <<<<<<<<<<<<<<
@@ -9326,7 +9326,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x66])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":760
+    /* "gases/NITROGEN.pyx":760
  *         # W3DEL(V=11-19)
  *         object.QIN[102][I] = 0.0
  *         object.PEQIN[102][I] = 0.5             # <<<<<<<<<<<<<<
@@ -9335,7 +9335,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x66])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":761
+    /* "gases/NITROGEN.pyx":761
  *         object.QIN[102][I] = 0.0
  *         object.PEQIN[102][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9345,7 +9345,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":762
+      /* "gases/NITROGEN.pyx":762
  *         object.PEQIN[102][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[102][I] = 0.             # <<<<<<<<<<<<<<
@@ -9354,7 +9354,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x66])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":761
+      /* "gases/NITROGEN.pyx":761
  *         object.QIN[102][I] = 0.0
  *         object.PEQIN[102][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9363,7 +9363,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":763
+    /* "gases/NITROGEN.pyx":763
  *         if object.NANISO == 2:
  *             object.PEQIN[102][I] = 0.
  *         if EN > object.EIN[102]:             # <<<<<<<<<<<<<<
@@ -9373,7 +9373,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x66])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":764
+      /* "gases/NITROGEN.pyx":764
  *             object.PEQIN[102][I] = 0.
  *         if EN > object.EIN[102]:
  *             object.QIN[102][I] = GasUtil.CALQINP(EN, NTRP9, YTRP9, XTRP9, 2) * 100             # <<<<<<<<<<<<<<
@@ -9382,7 +9382,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x66])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP9, __pyx_v_YTRP9, __pyx_v_XTRP9, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":765
+      /* "gases/NITROGEN.pyx":765
  *         if EN > object.EIN[102]:
  *             object.QIN[102][I] = GasUtil.CALQINP(EN, NTRP9, YTRP9, XTRP9, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP9, YTP9M, XTRP9, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -9391,7 +9391,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP9, __pyx_v_YTP9M, __pyx_v_XTRP9, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":763
+      /* "gases/NITROGEN.pyx":763
  *         if object.NANISO == 2:
  *             object.PEQIN[102][I] = 0.
  *         if EN > object.EIN[102]:             # <<<<<<<<<<<<<<
@@ -9400,7 +9400,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":766
+    /* "gases/NITROGEN.pyx":766
  *             object.QIN[102][I] = GasUtil.CALQINP(EN, NTRP9, YTRP9, XTRP9, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP9, YTP9M, XTRP9, 1) * 1e18
  *         if EN > 3.0 * object.EIN[102]:             # <<<<<<<<<<<<<<
@@ -9410,7 +9410,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x66]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":767
+      /* "gases/NITROGEN.pyx":767
  *             RAT = GasUtil.CALQINP(EN, NTRP9, YTP9M, XTRP9, 1) * 1e18
  *         if EN > 3.0 * object.EIN[102]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9420,7 +9420,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":768
+        /* "gases/NITROGEN.pyx":768
  *         if EN > 3.0 * object.EIN[102]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[102][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -9429,7 +9429,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x66])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":767
+        /* "gases/NITROGEN.pyx":767
  *             RAT = GasUtil.CALQINP(EN, NTRP9, YTP9M, XTRP9, 1) * 1e18
  *         if EN > 3.0 * object.EIN[102]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9438,7 +9438,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":769
+      /* "gases/NITROGEN.pyx":769
  *             if object.NANISO == 1:
  *                 object.PEQIN[102][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9448,7 +9448,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":770
+        /* "gases/NITROGEN.pyx":770
  *                 object.PEQIN[102][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[102][I] = object.PEQEL[1][I - IOFFN[102]]             # <<<<<<<<<<<<<<
@@ -9457,7 +9457,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x66])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x66]))]);
 
-        /* "NITROGEN.pyx":769
+        /* "gases/NITROGEN.pyx":769
  *             if object.NANISO == 1:
  *                 object.PEQIN[102][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9466,7 +9466,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":766
+      /* "gases/NITROGEN.pyx":766
  *             object.QIN[102][I] = GasUtil.CALQINP(EN, NTRP9, YTRP9, XTRP9, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP9, YTP9M, XTRP9, 1) * 1e18
  *         if EN > 3.0 * object.EIN[102]:             # <<<<<<<<<<<<<<
@@ -9475,7 +9475,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":773
+    /* "gases/NITROGEN.pyx":773
  * 
  *         # W1DEL (V=0-5)
  *         object.QIN[103][I] = 0.0             # <<<<<<<<<<<<<<
@@ -9484,7 +9484,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x67])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":774
+    /* "gases/NITROGEN.pyx":774
  *         # W1DEL (V=0-5)
  *         object.QIN[103][I] = 0.0
  *         object.PEQIN[103][I] = 0.5             # <<<<<<<<<<<<<<
@@ -9493,7 +9493,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x67])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":775
+    /* "gases/NITROGEN.pyx":775
  *         object.QIN[103][I] = 0.0
  *         object.PEQIN[103][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9503,7 +9503,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":776
+      /* "gases/NITROGEN.pyx":776
  *         object.PEQIN[103][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[103][I] = 0.             # <<<<<<<<<<<<<<
@@ -9512,7 +9512,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x67])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":775
+      /* "gases/NITROGEN.pyx":775
  *         object.QIN[103][I] = 0.0
  *         object.PEQIN[103][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9521,7 +9521,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":777
+    /* "gases/NITROGEN.pyx":777
  *         if object.NANISO == 2:
  *             object.PEQIN[103][I] = 0.
  *         if EN > object.EIN[103]:             # <<<<<<<<<<<<<<
@@ -9531,7 +9531,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x67])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":778
+      /* "gases/NITROGEN.pyx":778
  *             object.PEQIN[103][I] = 0.
  *         if EN > object.EIN[103]:
  *             object.QIN[103][I] = GasUtil.CALQINP(EN, NSNG3, YSNG3, XSNG3, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -9540,7 +9540,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x67])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG3, __pyx_v_YSNG3, __pyx_v_XSNG3, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":779
+      /* "gases/NITROGEN.pyx":779
  *         if EN > object.EIN[103]:
  *             object.QIN[103][I] = GasUtil.CALQINP(EN, NSNG3, YSNG3, XSNG3, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG3, YSG3M, XSNG3, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -9549,7 +9549,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG3, __pyx_v_YSG3M, __pyx_v_XSNG3, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":777
+      /* "gases/NITROGEN.pyx":777
  *         if object.NANISO == 2:
  *             object.PEQIN[103][I] = 0.
  *         if EN > object.EIN[103]:             # <<<<<<<<<<<<<<
@@ -9558,7 +9558,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":780
+    /* "gases/NITROGEN.pyx":780
  *             object.QIN[103][I] = GasUtil.CALQINP(EN, NSNG3, YSNG3, XSNG3, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG3, YSG3M, XSNG3, 1) * 1e18
  *         if EN > 3.0 * object.EIN[103]:             # <<<<<<<<<<<<<<
@@ -9568,7 +9568,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x67]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":781
+      /* "gases/NITROGEN.pyx":781
  *             RAT = GasUtil.CALQINP(EN, NSNG3, YSG3M, XSNG3, 1) * 1e18
  *         if EN > 3.0 * object.EIN[103]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9578,7 +9578,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":782
+        /* "gases/NITROGEN.pyx":782
  *         if EN > 3.0 * object.EIN[103]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[103][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -9587,7 +9587,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x67])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":781
+        /* "gases/NITROGEN.pyx":781
  *             RAT = GasUtil.CALQINP(EN, NSNG3, YSG3M, XSNG3, 1) * 1e18
  *         if EN > 3.0 * object.EIN[103]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9596,7 +9596,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":783
+      /* "gases/NITROGEN.pyx":783
  *             if object.NANISO == 1:
  *                 object.PEQIN[103][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9606,7 +9606,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":784
+        /* "gases/NITROGEN.pyx":784
  *                 object.PEQIN[103][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[103][I] = object.PEQEL[1][I - IOFFN[103]]             # <<<<<<<<<<<<<<
@@ -9615,7 +9615,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x67])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x67]))]);
 
-        /* "NITROGEN.pyx":783
+        /* "gases/NITROGEN.pyx":783
  *             if object.NANISO == 1:
  *                 object.PEQIN[103][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9624,7 +9624,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":780
+      /* "gases/NITROGEN.pyx":780
  *             object.QIN[103][I] = GasUtil.CALQINP(EN, NSNG3, YSNG3, XSNG3, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG3, YSG3M, XSNG3, 1) * 1e18
  *         if EN > 3.0 * object.EIN[103]:             # <<<<<<<<<<<<<<
@@ -9633,7 +9633,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":787
+    /* "gases/NITROGEN.pyx":787
  * 
  *         # A1PI (V=4-15)
  *         object.QIN[104][I] = 0.0             # <<<<<<<<<<<<<<
@@ -9642,7 +9642,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x68])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":788
+    /* "gases/NITROGEN.pyx":788
  *         # A1PI (V=4-15)
  *         object.QIN[104][I] = 0.0
  *         object.PEQIN[104][I] = 0.5             # <<<<<<<<<<<<<<
@@ -9651,7 +9651,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x68])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":789
+    /* "gases/NITROGEN.pyx":789
  *         object.QIN[104][I] = 0.0
  *         object.PEQIN[104][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9661,7 +9661,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":790
+      /* "gases/NITROGEN.pyx":790
  *         object.PEQIN[104][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[104][I] = 0.             # <<<<<<<<<<<<<<
@@ -9670,7 +9670,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x68])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":789
+      /* "gases/NITROGEN.pyx":789
  *         object.QIN[104][I] = 0.0
  *         object.PEQIN[104][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9679,7 +9679,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":791
+    /* "gases/NITROGEN.pyx":791
  *         if object.NANISO == 2:
  *             object.PEQIN[104][I] = 0.
  *         if EN > object.EIN[104]:             # <<<<<<<<<<<<<<
@@ -9689,7 +9689,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x68])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":792
+      /* "gases/NITROGEN.pyx":792
  *             object.PEQIN[104][I] = 0.
  *         if EN > object.EIN[104]:
  *             object.QIN[104][I] = GasUtil.CALQINP(EN, NSNG4, YSNG4, XSNG4, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -9698,7 +9698,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x68])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG4, __pyx_v_YSNG4, __pyx_v_XSNG4, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":793
+      /* "gases/NITROGEN.pyx":793
  *         if EN > object.EIN[104]:
  *             object.QIN[104][I] = GasUtil.CALQINP(EN, NSNG4, YSNG4, XSNG4, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG4, YSG4M, XSNG4, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -9707,7 +9707,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG4, __pyx_v_YSG4M, __pyx_v_XSNG4, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":791
+      /* "gases/NITROGEN.pyx":791
  *         if object.NANISO == 2:
  *             object.PEQIN[104][I] = 0.
  *         if EN > object.EIN[104]:             # <<<<<<<<<<<<<<
@@ -9716,7 +9716,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":794
+    /* "gases/NITROGEN.pyx":794
  *             object.QIN[104][I] = GasUtil.CALQINP(EN, NSNG4, YSNG4, XSNG4, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG4, YSG4M, XSNG4, 1) * 1e18
  *         if EN > 3.0 * object.EIN[104]:             # <<<<<<<<<<<<<<
@@ -9726,7 +9726,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x68]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":795
+      /* "gases/NITROGEN.pyx":795
  *             RAT = GasUtil.CALQINP(EN, NSNG4, YSG4M, XSNG4, 1) * 1e18
  *         if EN > 3.0 * object.EIN[104]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9736,7 +9736,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":796
+        /* "gases/NITROGEN.pyx":796
  *         if EN > 3.0 * object.EIN[104]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[104][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -9745,7 +9745,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x68])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":795
+        /* "gases/NITROGEN.pyx":795
  *             RAT = GasUtil.CALQINP(EN, NSNG4, YSG4M, XSNG4, 1) * 1e18
  *         if EN > 3.0 * object.EIN[104]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9754,7 +9754,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":797
+      /* "gases/NITROGEN.pyx":797
  *             if object.NANISO == 1:
  *                 object.PEQIN[104][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9764,7 +9764,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":798
+        /* "gases/NITROGEN.pyx":798
  *                 object.PEQIN[104][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[104][I] = object.PEQEL[1][I - IOFFN[104]]             # <<<<<<<<<<<<<<
@@ -9773,7 +9773,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x68])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x68]))]);
 
-        /* "NITROGEN.pyx":797
+        /* "gases/NITROGEN.pyx":797
  *             if object.NANISO == 1:
  *                 object.PEQIN[104][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9782,7 +9782,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":794
+      /* "gases/NITROGEN.pyx":794
  *             object.QIN[104][I] = GasUtil.CALQINP(EN, NSNG4, YSNG4, XSNG4, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG4, YSG4M, XSNG4, 1) * 1e18
  *         if EN > 3.0 * object.EIN[104]:             # <<<<<<<<<<<<<<
@@ -9791,7 +9791,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":801
+    /* "gases/NITROGEN.pyx":801
  * 
  *         # B!3SIG (V = 7-18)
  *         object.QIN[105][I] = 0.0             # <<<<<<<<<<<<<<
@@ -9800,7 +9800,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x69])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":802
+    /* "gases/NITROGEN.pyx":802
  *         # B!3SIG (V = 7-18)
  *         object.QIN[105][I] = 0.0
  *         object.PEQIN[105][I] = 0.5             # <<<<<<<<<<<<<<
@@ -9809,7 +9809,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x69])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":803
+    /* "gases/NITROGEN.pyx":803
  *         object.QIN[105][I] = 0.0
  *         object.PEQIN[105][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9819,7 +9819,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":804
+      /* "gases/NITROGEN.pyx":804
  *         object.PEQIN[105][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[105][I] = 0.             # <<<<<<<<<<<<<<
@@ -9828,7 +9828,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x69])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":803
+      /* "gases/NITROGEN.pyx":803
  *         object.QIN[105][I] = 0.0
  *         object.PEQIN[105][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9837,7 +9837,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":805
+    /* "gases/NITROGEN.pyx":805
  *         if object.NANISO == 2:
  *             object.PEQIN[105][I] = 0.
  *         if EN > object.EIN[105]:             # <<<<<<<<<<<<<<
@@ -9847,7 +9847,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x69])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":806
+      /* "gases/NITROGEN.pyx":806
  *             object.PEQIN[105][I] = 0.
  *         if EN > object.EIN[105]:
  *             object.QIN[105][I] = GasUtil.CALQINP(EN, NTRP10, YTRP10, XTRP10, 2) * 100             # <<<<<<<<<<<<<<
@@ -9856,7 +9856,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x69])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP10, __pyx_v_YTRP10, __pyx_v_XTRP10, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":807
+      /* "gases/NITROGEN.pyx":807
  *         if EN > object.EIN[105]:
  *             object.QIN[105][I] = GasUtil.CALQINP(EN, NTRP10, YTRP10, XTRP10, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP10, YTP10M, XTRP10, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -9865,7 +9865,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP10, __pyx_v_YTP10M, __pyx_v_XTRP10, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":805
+      /* "gases/NITROGEN.pyx":805
  *         if object.NANISO == 2:
  *             object.PEQIN[105][I] = 0.
  *         if EN > object.EIN[105]:             # <<<<<<<<<<<<<<
@@ -9874,7 +9874,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":808
+    /* "gases/NITROGEN.pyx":808
  *             object.QIN[105][I] = GasUtil.CALQINP(EN, NTRP10, YTRP10, XTRP10, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP10, YTP10M, XTRP10, 1) * 1e18
  *         if EN > 3.0 * object.EIN[105]:             # <<<<<<<<<<<<<<
@@ -9884,7 +9884,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x69]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":809
+      /* "gases/NITROGEN.pyx":809
  *             RAT = GasUtil.CALQINP(EN, NTRP10, YTP10M, XTRP10, 1) * 1e18
  *         if EN > 3.0 * object.EIN[105]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9894,7 +9894,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":810
+        /* "gases/NITROGEN.pyx":810
  *         if EN > 3.0 * object.EIN[105]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[105][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -9903,7 +9903,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x69])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":809
+        /* "gases/NITROGEN.pyx":809
  *             RAT = GasUtil.CALQINP(EN, NTRP10, YTP10M, XTRP10, 1) * 1e18
  *         if EN > 3.0 * object.EIN[105]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -9912,7 +9912,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":811
+      /* "gases/NITROGEN.pyx":811
  *             if object.NANISO == 1:
  *                 object.PEQIN[105][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9922,7 +9922,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":812
+        /* "gases/NITROGEN.pyx":812
  *                 object.PEQIN[105][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[105][I] = object.PEQEL[1][I - IOFFN[105]]             # <<<<<<<<<<<<<<
@@ -9931,7 +9931,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x69])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x69]))]);
 
-        /* "NITROGEN.pyx":811
+        /* "gases/NITROGEN.pyx":811
  *             if object.NANISO == 1:
  *                 object.PEQIN[105][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9940,7 +9940,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":808
+      /* "gases/NITROGEN.pyx":808
  *             object.QIN[105][I] = GasUtil.CALQINP(EN, NTRP10, YTRP10, XTRP10, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP10, YTP10M, XTRP10, 1) * 1e18
  *         if EN > 3.0 * object.EIN[105]:             # <<<<<<<<<<<<<<
@@ -9949,7 +9949,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":815
+    /* "gases/NITROGEN.pyx":815
  * 
  *         # A!1SIG (V=7-19)
  *         object.QIN[106][I] = 0.0             # <<<<<<<<<<<<<<
@@ -9958,7 +9958,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x6A])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":816
+    /* "gases/NITROGEN.pyx":816
  *         # A!1SIG (V=7-19)
  *         object.QIN[106][I] = 0.0
  *         object.PEQIN[106][I] = 0.5             # <<<<<<<<<<<<<<
@@ -9967,7 +9967,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x6A])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":817
+    /* "gases/NITROGEN.pyx":817
  *         object.QIN[106][I] = 0.0
  *         object.PEQIN[106][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9977,7 +9977,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":818
+      /* "gases/NITROGEN.pyx":818
  *         object.PEQIN[106][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[106][I] = 0.             # <<<<<<<<<<<<<<
@@ -9986,7 +9986,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x6A])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":817
+      /* "gases/NITROGEN.pyx":817
  *         object.QIN[106][I] = 0.0
  *         object.PEQIN[106][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -9995,7 +9995,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":819
+    /* "gases/NITROGEN.pyx":819
  *         if object.NANISO == 2:
  *             object.PEQIN[106][I] = 0.
  *         if EN > object.EIN[106]:             # <<<<<<<<<<<<<<
@@ -10005,7 +10005,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x6A])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":820
+      /* "gases/NITROGEN.pyx":820
  *             object.PEQIN[106][I] = 0.
  *         if EN > object.EIN[106]:
  *             object.QIN[106][I] = GasUtil.CALQINP(EN, NSNG5, YSNG5, XSNG5, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -10014,7 +10014,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x6A])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG5, __pyx_v_YSNG5, __pyx_v_XSNG5, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":821
+      /* "gases/NITROGEN.pyx":821
  *         if EN > object.EIN[106]:
  *             object.QIN[106][I] = GasUtil.CALQINP(EN, NSNG5, YSNG5, XSNG5, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG5, YSG5M, XSNG5, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -10023,7 +10023,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG5, __pyx_v_YSG5M, __pyx_v_XSNG5, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":819
+      /* "gases/NITROGEN.pyx":819
  *         if object.NANISO == 2:
  *             object.PEQIN[106][I] = 0.
  *         if EN > object.EIN[106]:             # <<<<<<<<<<<<<<
@@ -10032,7 +10032,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":822
+    /* "gases/NITROGEN.pyx":822
  *             object.QIN[106][I] = GasUtil.CALQINP(EN, NSNG5, YSNG5, XSNG5, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG5, YSG5M, XSNG5, 1) * 1e18
  *         if EN > 3.0 * object.EIN[106]:             # <<<<<<<<<<<<<<
@@ -10042,7 +10042,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x6A]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":823
+      /* "gases/NITROGEN.pyx":823
  *             RAT = GasUtil.CALQINP(EN, NSNG5, YSG5M, XSNG5, 1) * 1e18
  *         if EN > 3.0 * object.EIN[106]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10052,7 +10052,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":824
+        /* "gases/NITROGEN.pyx":824
  *         if EN > 3.0 * object.EIN[106]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[106][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -10061,7 +10061,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6A])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":823
+        /* "gases/NITROGEN.pyx":823
  *             RAT = GasUtil.CALQINP(EN, NSNG5, YSG5M, XSNG5, 1) * 1e18
  *         if EN > 3.0 * object.EIN[106]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10070,7 +10070,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":825
+      /* "gases/NITROGEN.pyx":825
  *             if object.NANISO == 1:
  *                 object.PEQIN[106][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10080,7 +10080,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":826
+        /* "gases/NITROGEN.pyx":826
  *                 object.PEQIN[106][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[106][I] = object.PEQEL[1][I - IOFFN[106]]             # <<<<<<<<<<<<<<
@@ -10089,7 +10089,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6A])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x6A]))]);
 
-        /* "NITROGEN.pyx":825
+        /* "gases/NITROGEN.pyx":825
  *             if object.NANISO == 1:
  *                 object.PEQIN[106][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10098,7 +10098,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":822
+      /* "gases/NITROGEN.pyx":822
  *             object.QIN[106][I] = GasUtil.CALQINP(EN, NSNG5, YSNG5, XSNG5, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG5, YSG5M, XSNG5, 1) * 1e18
  *         if EN > 3.0 * object.EIN[106]:             # <<<<<<<<<<<<<<
@@ -10107,7 +10107,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":829
+    /* "gases/NITROGEN.pyx":829
  * 
  *         # W1DEL (V=6-18)
  *         object.QIN[107][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10116,7 +10116,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x6B])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":830
+    /* "gases/NITROGEN.pyx":830
  *         # W1DEL (V=6-18)
  *         object.QIN[107][I] = 0.0
  *         object.PEQIN[107][I] = 0.5             # <<<<<<<<<<<<<<
@@ -10125,7 +10125,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x6B])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":831
+    /* "gases/NITROGEN.pyx":831
  *         object.QIN[107][I] = 0.0
  *         object.PEQIN[107][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10135,7 +10135,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":832
+      /* "gases/NITROGEN.pyx":832
  *         object.PEQIN[107][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[107][I] = 0.             # <<<<<<<<<<<<<<
@@ -10144,7 +10144,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x6B])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":831
+      /* "gases/NITROGEN.pyx":831
  *         object.QIN[107][I] = 0.0
  *         object.PEQIN[107][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10153,7 +10153,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":833
+    /* "gases/NITROGEN.pyx":833
  *         if object.NANISO == 2:
  *             object.PEQIN[107][I] = 0.
  *         if EN > object.EIN[107]:             # <<<<<<<<<<<<<<
@@ -10163,7 +10163,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x6B])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":834
+      /* "gases/NITROGEN.pyx":834
  *             object.PEQIN[107][I] = 0.
  *         if EN > object.EIN[107]:
  *             object.QIN[107][I] = GasUtil.CALQINP(EN, NSNG6, YSNG6, XSNG6, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -10172,7 +10172,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x6B])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG6, __pyx_v_YSNG6, __pyx_v_XSNG6, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":835
+      /* "gases/NITROGEN.pyx":835
  *         if EN > object.EIN[107]:
  *             object.QIN[107][I] = GasUtil.CALQINP(EN, NSNG6, YSNG6, XSNG6, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG6, YSG6M, XSNG6, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -10181,7 +10181,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG6, __pyx_v_YSG6M, __pyx_v_XSNG6, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":833
+      /* "gases/NITROGEN.pyx":833
  *         if object.NANISO == 2:
  *             object.PEQIN[107][I] = 0.
  *         if EN > object.EIN[107]:             # <<<<<<<<<<<<<<
@@ -10190,7 +10190,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":836
+    /* "gases/NITROGEN.pyx":836
  *             object.QIN[107][I] = GasUtil.CALQINP(EN, NSNG6, YSNG6, XSNG6, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG6, YSG6M, XSNG6, 1) * 1e18
  *         if EN > 3.0 * object.EIN[107]:             # <<<<<<<<<<<<<<
@@ -10200,7 +10200,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x6B]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":837
+      /* "gases/NITROGEN.pyx":837
  *             RAT = GasUtil.CALQINP(EN, NSNG6, YSG6M, XSNG6, 1) * 1e18
  *         if EN > 3.0 * object.EIN[107]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10210,7 +10210,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":838
+        /* "gases/NITROGEN.pyx":838
  *         if EN > 3.0 * object.EIN[107]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[107][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -10219,7 +10219,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6B])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":837
+        /* "gases/NITROGEN.pyx":837
  *             RAT = GasUtil.CALQINP(EN, NSNG6, YSG6M, XSNG6, 1) * 1e18
  *         if EN > 3.0 * object.EIN[107]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10228,7 +10228,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":839
+      /* "gases/NITROGEN.pyx":839
  *             if object.NANISO == 1:
  *                 object.PEQIN[107][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10238,7 +10238,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":840
+        /* "gases/NITROGEN.pyx":840
  *                 object.PEQIN[107][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[107][I] = object.PEQEL[1][I - IOFFN[107]]             # <<<<<<<<<<<<<<
@@ -10247,7 +10247,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6B])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x6B]))]);
 
-        /* "NITROGEN.pyx":839
+        /* "gases/NITROGEN.pyx":839
  *             if object.NANISO == 1:
  *                 object.PEQIN[107][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10256,7 +10256,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":836
+      /* "gases/NITROGEN.pyx":836
  *             object.QIN[107][I] = GasUtil.CALQINP(EN, NSNG6, YSNG6, XSNG6, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG6, YSG6M, XSNG6, 1) * 1e18
  *         if EN > 3.0 * object.EIN[107]:             # <<<<<<<<<<<<<<
@@ -10265,7 +10265,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":843
+    /* "gases/NITROGEN.pyx":843
  * 
  *         # C3PI (V=0-4)
  *         object.QIN[108][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10274,7 +10274,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x6C])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":844
+    /* "gases/NITROGEN.pyx":844
  *         # C3PI (V=0-4)
  *         object.QIN[108][I] = 0.0
  *         object.PEQIN[108][I] = 0.5             # <<<<<<<<<<<<<<
@@ -10283,7 +10283,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x6C])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":845
+    /* "gases/NITROGEN.pyx":845
  *         object.QIN[108][I] = 0.0
  *         object.PEQIN[108][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10293,7 +10293,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":846
+      /* "gases/NITROGEN.pyx":846
  *         object.PEQIN[108][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[108][I] = 0.             # <<<<<<<<<<<<<<
@@ -10302,7 +10302,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x6C])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":845
+      /* "gases/NITROGEN.pyx":845
  *         object.QIN[108][I] = 0.0
  *         object.PEQIN[108][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10311,7 +10311,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":847
+    /* "gases/NITROGEN.pyx":847
  *         if object.NANISO == 2:
  *             object.PEQIN[108][I] = 0.
  *         if EN > object.EIN[108]:             # <<<<<<<<<<<<<<
@@ -10321,7 +10321,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x6C])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":848
+      /* "gases/NITROGEN.pyx":848
  *             object.PEQIN[108][I] = 0.
  *         if EN > object.EIN[108]:
  *             object.QIN[108][I] = GasUtil.CALQINP(EN, NTRP11, YTRP11, XTRP11, 2) * 100             # <<<<<<<<<<<<<<
@@ -10330,7 +10330,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x6C])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP11, __pyx_v_YTRP11, __pyx_v_XTRP11, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":849
+      /* "gases/NITROGEN.pyx":849
  *         if EN > object.EIN[108]:
  *             object.QIN[108][I] = GasUtil.CALQINP(EN, NTRP11, YTRP11, XTRP11, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP11, YTP11M, XTRP11, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -10339,7 +10339,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP11, __pyx_v_YTP11M, __pyx_v_XTRP11, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":847
+      /* "gases/NITROGEN.pyx":847
  *         if object.NANISO == 2:
  *             object.PEQIN[108][I] = 0.
  *         if EN > object.EIN[108]:             # <<<<<<<<<<<<<<
@@ -10348,7 +10348,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":850
+    /* "gases/NITROGEN.pyx":850
  *             object.QIN[108][I] = GasUtil.CALQINP(EN, NTRP11, YTRP11, XTRP11, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP11, YTP11M, XTRP11, 1) * 1e18
  *         if EN > 3.0 * object.EIN[108]:             # <<<<<<<<<<<<<<
@@ -10358,7 +10358,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x6C]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":851
+      /* "gases/NITROGEN.pyx":851
  *             RAT = GasUtil.CALQINP(EN, NTRP11, YTP11M, XTRP11, 1) * 1e18
  *         if EN > 3.0 * object.EIN[108]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10368,7 +10368,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":852
+        /* "gases/NITROGEN.pyx":852
  *         if EN > 3.0 * object.EIN[108]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[108][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -10377,7 +10377,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6C])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":851
+        /* "gases/NITROGEN.pyx":851
  *             RAT = GasUtil.CALQINP(EN, NTRP11, YTP11M, XTRP11, 1) * 1e18
  *         if EN > 3.0 * object.EIN[108]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10386,7 +10386,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":853
+      /* "gases/NITROGEN.pyx":853
  *             if object.NANISO == 1:
  *                 object.PEQIN[108][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10396,7 +10396,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":854
+        /* "gases/NITROGEN.pyx":854
  *                 object.PEQIN[108][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[108][I] = object.PEQEL[1][I - IOFFN[108]]             # <<<<<<<<<<<<<<
@@ -10405,7 +10405,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6C])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x6C]))]);
 
-        /* "NITROGEN.pyx":853
+        /* "gases/NITROGEN.pyx":853
  *             if object.NANISO == 1:
  *                 object.PEQIN[108][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10414,7 +10414,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":850
+      /* "gases/NITROGEN.pyx":850
  *             object.QIN[108][I] = GasUtil.CALQINP(EN, NTRP11, YTRP11, XTRP11, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP11, YTP11M, XTRP11, 1) * 1e18
  *         if EN > 3.0 * object.EIN[108]:             # <<<<<<<<<<<<<<
@@ -10423,7 +10423,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":857
+    /* "gases/NITROGEN.pyx":857
  * 
  *         # E3SIG
  *         object.QIN[109][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10432,7 +10432,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x6D])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":858
+    /* "gases/NITROGEN.pyx":858
  *         # E3SIG
  *         object.QIN[109][I] = 0.0
  *         object.PEQIN[109][I] = 0.5             # <<<<<<<<<<<<<<
@@ -10441,7 +10441,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x6D])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":859
+    /* "gases/NITROGEN.pyx":859
  *         object.QIN[109][I] = 0.0
  *         object.PEQIN[109][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10451,7 +10451,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":860
+      /* "gases/NITROGEN.pyx":860
  *         object.PEQIN[109][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[109][I] = 0.             # <<<<<<<<<<<<<<
@@ -10460,7 +10460,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x6D])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":859
+      /* "gases/NITROGEN.pyx":859
  *         object.QIN[109][I] = 0.0
  *         object.PEQIN[109][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10469,7 +10469,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":861
+    /* "gases/NITROGEN.pyx":861
  *         if object.NANISO == 2:
  *             object.PEQIN[109][I] = 0.
  *         if EN > object.EIN[109]:             # <<<<<<<<<<<<<<
@@ -10479,7 +10479,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x6D])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":862
+      /* "gases/NITROGEN.pyx":862
  *             object.PEQIN[109][I] = 0.
  *         if EN > object.EIN[109]:
  *             object.QIN[109][I] = GasUtil.CALQINP(EN, NTRP12, YTRP12, XTRP12, 2) * 100             # <<<<<<<<<<<<<<
@@ -10488,7 +10488,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x6D])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP12, __pyx_v_YTRP12, __pyx_v_XTRP12, 2.0) * 100.0);
 
-      /* "NITROGEN.pyx":863
+      /* "gases/NITROGEN.pyx":863
  *         if EN > object.EIN[109]:
  *             object.QIN[109][I] = GasUtil.CALQINP(EN, NTRP12, YTRP12, XTRP12, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP12, YTP12M, XTRP12, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -10497,7 +10497,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP12, __pyx_v_YTP12M, __pyx_v_XTRP12, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":861
+      /* "gases/NITROGEN.pyx":861
  *         if object.NANISO == 2:
  *             object.PEQIN[109][I] = 0.
  *         if EN > object.EIN[109]:             # <<<<<<<<<<<<<<
@@ -10506,7 +10506,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":864
+    /* "gases/NITROGEN.pyx":864
  *             object.QIN[109][I] = GasUtil.CALQINP(EN, NTRP12, YTRP12, XTRP12, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP12, YTP12M, XTRP12, 1) * 1e18
  *         if EN > 3.0 * object.EIN[109]:             # <<<<<<<<<<<<<<
@@ -10516,7 +10516,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x6D]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":865
+      /* "gases/NITROGEN.pyx":865
  *             RAT = GasUtil.CALQINP(EN, NTRP12, YTP12M, XTRP12, 1) * 1e18
  *         if EN > 3.0 * object.EIN[109]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10526,7 +10526,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":866
+        /* "gases/NITROGEN.pyx":866
  *         if EN > 3.0 * object.EIN[109]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[109][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -10535,7 +10535,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6D])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":865
+        /* "gases/NITROGEN.pyx":865
  *             RAT = GasUtil.CALQINP(EN, NTRP12, YTP12M, XTRP12, 1) * 1e18
  *         if EN > 3.0 * object.EIN[109]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10544,7 +10544,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":867
+      /* "gases/NITROGEN.pyx":867
  *             if object.NANISO == 1:
  *                 object.PEQIN[109][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10554,7 +10554,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":868
+        /* "gases/NITROGEN.pyx":868
  *                 object.PEQIN[109][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[109][I] = object.PEQEL[1][I - IOFFN[109]]             # <<<<<<<<<<<<<<
@@ -10563,7 +10563,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6D])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x6D]))]);
 
-        /* "NITROGEN.pyx":867
+        /* "gases/NITROGEN.pyx":867
  *             if object.NANISO == 1:
  *                 object.PEQIN[109][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10572,7 +10572,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":864
+      /* "gases/NITROGEN.pyx":864
  *             object.QIN[109][I] = GasUtil.CALQINP(EN, NTRP12, YTRP12, XTRP12, 2) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP12, YTP12M, XTRP12, 1) * 1e18
  *         if EN > 3.0 * object.EIN[109]:             # <<<<<<<<<<<<<<
@@ -10581,7 +10581,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":871
+    /* "gases/NITROGEN.pyx":871
  * 
  *         # A!!1SIG (V=0-1)
  *         object.QIN[110][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10590,7 +10590,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x6E])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":872
+    /* "gases/NITROGEN.pyx":872
  *         # A!!1SIG (V=0-1)
  *         object.QIN[110][I] = 0.0
  *         object.PEQIN[110][I] = 0.5             # <<<<<<<<<<<<<<
@@ -10599,7 +10599,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x6E])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":873
+    /* "gases/NITROGEN.pyx":873
  *         object.QIN[110][I] = 0.0
  *         object.PEQIN[110][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10609,7 +10609,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":874
+      /* "gases/NITROGEN.pyx":874
  *         object.PEQIN[110][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[110][I] = 0.             # <<<<<<<<<<<<<<
@@ -10618,7 +10618,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x6E])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":873
+      /* "gases/NITROGEN.pyx":873
  *         object.QIN[110][I] = 0.0
  *         object.PEQIN[110][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10627,7 +10627,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":875
+    /* "gases/NITROGEN.pyx":875
  *         if object.NANISO == 2:
  *             object.PEQIN[110][I] = 0.
  *         if EN > object.EIN[110]:             # <<<<<<<<<<<<<<
@@ -10637,7 +10637,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x6E])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":876
+      /* "gases/NITROGEN.pyx":876
  *             object.PEQIN[110][I] = 0.
  *         if EN > object.EIN[110]:
  *             object.QIN[110][I] = GasUtil.CALQINP(EN, NSNG7, YSNG7, XSNG7, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -10646,7 +10646,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x6E])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG7, __pyx_v_YSNG7, __pyx_v_XSNG7, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":877
+      /* "gases/NITROGEN.pyx":877
  *         if EN > object.EIN[110]:
  *             object.QIN[110][I] = GasUtil.CALQINP(EN, NSNG7, YSNG7, XSNG7, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG7, YSG7M, XSNG7, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -10655,7 +10655,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG7, __pyx_v_YSG7M, __pyx_v_XSNG7, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":875
+      /* "gases/NITROGEN.pyx":875
  *         if object.NANISO == 2:
  *             object.PEQIN[110][I] = 0.
  *         if EN > object.EIN[110]:             # <<<<<<<<<<<<<<
@@ -10664,7 +10664,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":878
+    /* "gases/NITROGEN.pyx":878
  *             object.QIN[110][I] = GasUtil.CALQINP(EN, NSNG7, YSNG7, XSNG7, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG7, YSG7M, XSNG7, 1) * 1e18
  *         if EN > 3.0 * object.EIN[110]:             # <<<<<<<<<<<<<<
@@ -10674,7 +10674,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x6E]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":879
+      /* "gases/NITROGEN.pyx":879
  *             RAT = GasUtil.CALQINP(EN, NSNG7, YSG7M, XSNG7, 1) * 1e18
  *         if EN > 3.0 * object.EIN[110]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10684,7 +10684,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":880
+        /* "gases/NITROGEN.pyx":880
  *         if EN > 3.0 * object.EIN[110]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[110][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -10693,7 +10693,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6E])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":879
+        /* "gases/NITROGEN.pyx":879
  *             RAT = GasUtil.CALQINP(EN, NSNG7, YSG7M, XSNG7, 1) * 1e18
  *         if EN > 3.0 * object.EIN[110]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10702,7 +10702,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":881
+      /* "gases/NITROGEN.pyx":881
  *             if object.NANISO == 1:
  *                 object.PEQIN[110][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10712,7 +10712,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":882
+        /* "gases/NITROGEN.pyx":882
  *                 object.PEQIN[110][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[110][I] = object.PEQEL[1][I - IOFFN[110]]             # <<<<<<<<<<<<<<
@@ -10721,7 +10721,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6E])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x6E]))]);
 
-        /* "NITROGEN.pyx":881
+        /* "gases/NITROGEN.pyx":881
  *             if object.NANISO == 1:
  *                 object.PEQIN[110][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10730,7 +10730,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":878
+      /* "gases/NITROGEN.pyx":878
  *             object.QIN[110][I] = GasUtil.CALQINP(EN, NSNG7, YSNG7, XSNG7, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NSNG7, YSG7M, XSNG7, 1) * 1e18
  *         if EN > 3.0 * object.EIN[110]:             # <<<<<<<<<<<<<<
@@ -10739,7 +10739,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":885
+    /* "gases/NITROGEN.pyx":885
  * 
  *         # B1PI (V=0-6)   F=0.1855
  *         object.QIN[111][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10748,7 +10748,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x6F])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":886
+    /* "gases/NITROGEN.pyx":886
  *         # B1PI (V=0-6)   F=0.1855
  *         object.QIN[111][I] = 0.0
  *         object.PEQIN[111][I] = 0.5             # <<<<<<<<<<<<<<
@@ -10757,7 +10757,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x6F])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":887
+    /* "gases/NITROGEN.pyx":887
  *         object.QIN[111][I] = 0.0
  *         object.PEQIN[111][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10767,7 +10767,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":888
+      /* "gases/NITROGEN.pyx":888
  *         object.PEQIN[111][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[111][I] = 0.             # <<<<<<<<<<<<<<
@@ -10776,7 +10776,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x6F])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":887
+      /* "gases/NITROGEN.pyx":887
  *         object.QIN[111][I] = 0.0
  *         object.PEQIN[111][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10785,7 +10785,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":889
+    /* "gases/NITROGEN.pyx":889
  *         if object.NANISO == 2:
  *             object.PEQIN[111][I] = 0.
  *         if EN > object.EIN[111]:             # <<<<<<<<<<<<<<
@@ -10795,7 +10795,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x6F])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":890
+      /* "gases/NITROGEN.pyx":890
  *             object.PEQIN[111][I] = 0.
  *         if EN > object.EIN[111]:
  *             object.QIN[111][I] = GasUtil.CALQINBEF(EN, NSNG8, YSNG8, XSNG8, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -10804,7 +10804,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x6F])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NSNG8, __pyx_v_YSNG8, __pyx_v_XSNG8, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[0x6F]), (__pyx_v_object->E[2]), 0.1855);
 
-      /* "NITROGEN.pyx":892
+      /* "gases/NITROGEN.pyx":892
  *             object.QIN[111][I] = GasUtil.CALQINBEF(EN, NSNG8, YSNG8, XSNG8, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[111], object.E[2], 0.1855)
  *             if EN <= XSNG8[NSNG8 - 1]:             # <<<<<<<<<<<<<<
@@ -10814,7 +10814,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN <= (__pyx_v_XSNG8[(__pyx_v_NSNG8 - 1)])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":893
+        /* "gases/NITROGEN.pyx":893
  *                                                    BBCONST, object.EIN[111], object.E[2], 0.1855)
  *             if EN <= XSNG8[NSNG8 - 1]:
  *                 object.QIN[111][I] *= 100             # <<<<<<<<<<<<<<
@@ -10825,7 +10825,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_34 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * 100.0);
 
-        /* "NITROGEN.pyx":892
+        /* "gases/NITROGEN.pyx":892
  *             object.QIN[111][I] = GasUtil.CALQINBEF(EN, NSNG8, YSNG8, XSNG8, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[111], object.E[2], 0.1855)
  *             if EN <= XSNG8[NSNG8 - 1]:             # <<<<<<<<<<<<<<
@@ -10834,7 +10834,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":894
+      /* "gases/NITROGEN.pyx":894
  *             if EN <= XSNG8[NSNG8 - 1]:
  *                 object.QIN[111][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG8, YSG8M, XSNG8, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -10843,7 +10843,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG8, __pyx_v_YSG8M, __pyx_v_XSNG8, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":889
+      /* "gases/NITROGEN.pyx":889
  *         if object.NANISO == 2:
  *             object.PEQIN[111][I] = 0.
  *         if EN > object.EIN[111]:             # <<<<<<<<<<<<<<
@@ -10852,7 +10852,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":895
+    /* "gases/NITROGEN.pyx":895
  *                 object.QIN[111][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG8, YSG8M, XSNG8, 1) * 1e18
  *         if EN > 3.0 * object.EIN[111]:             # <<<<<<<<<<<<<<
@@ -10862,7 +10862,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x6F]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":896
+      /* "gases/NITROGEN.pyx":896
  *             RAT = GasUtil.CALQINP(EN, NSNG8, YSG8M, XSNG8, 1) * 1e18
  *         if EN > 3.0 * object.EIN[111]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10872,7 +10872,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":897
+        /* "gases/NITROGEN.pyx":897
  *         if EN > 3.0 * object.EIN[111]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[111][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -10881,7 +10881,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6F])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":896
+        /* "gases/NITROGEN.pyx":896
  *             RAT = GasUtil.CALQINP(EN, NSNG8, YSG8M, XSNG8, 1) * 1e18
  *         if EN > 3.0 * object.EIN[111]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -10890,7 +10890,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":898
+      /* "gases/NITROGEN.pyx":898
  *             if object.NANISO == 1:
  *                 object.PEQIN[111][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10900,7 +10900,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":899
+        /* "gases/NITROGEN.pyx":899
  *                 object.PEQIN[111][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[111][I] = object.PEQEL[1][I - IOFFN[111]]             # <<<<<<<<<<<<<<
@@ -10909,7 +10909,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6F])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x6F]))]);
 
-        /* "NITROGEN.pyx":898
+        /* "gases/NITROGEN.pyx":898
  *             if object.NANISO == 1:
  *                 object.PEQIN[111][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10918,7 +10918,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":895
+      /* "gases/NITROGEN.pyx":895
  *                 object.QIN[111][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG8, YSG8M, XSNG8, 1) * 1e18
  *         if EN > 3.0 * object.EIN[111]:             # <<<<<<<<<<<<<<
@@ -10927,7 +10927,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":902
+    /* "gases/NITROGEN.pyx":902
  * 
  *         # C!1SIG (V=0-3)   F=0.150
  *         object.QIN[112][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10936,7 +10936,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x70])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":903
+    /* "gases/NITROGEN.pyx":903
  *         # C!1SIG (V=0-3)   F=0.150
  *         object.QIN[112][I] = 0.0
  *         object.PEQIN[112][I] = 0.5             # <<<<<<<<<<<<<<
@@ -10945,7 +10945,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x70])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":904
+    /* "gases/NITROGEN.pyx":904
  *         object.QIN[112][I] = 0.0
  *         object.PEQIN[112][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10955,7 +10955,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":905
+      /* "gases/NITROGEN.pyx":905
  *         object.PEQIN[112][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[112][I] = 0.             # <<<<<<<<<<<<<<
@@ -10964,7 +10964,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x70])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":904
+      /* "gases/NITROGEN.pyx":904
  *         object.QIN[112][I] = 0.0
  *         object.PEQIN[112][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -10973,7 +10973,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":906
+    /* "gases/NITROGEN.pyx":906
  *         if object.NANISO == 2:
  *             object.PEQIN[112][I] = 0.
  *         if EN > object.EIN[112]:             # <<<<<<<<<<<<<<
@@ -10983,7 +10983,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x70])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":907
+      /* "gases/NITROGEN.pyx":907
  *             object.PEQIN[112][I] = 0.
  *         if EN > object.EIN[112]:
  *             object.QIN[112][I] = GasUtil.CALQINBEF(EN, NSNG9, YSNG9, XSNG9, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -10992,7 +10992,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x70])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NSNG9, __pyx_v_YSNG9, __pyx_v_XSNG9, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[0x70]), (__pyx_v_object->E[2]), 0.150);
 
-      /* "NITROGEN.pyx":909
+      /* "gases/NITROGEN.pyx":909
  *             object.QIN[112][I] = GasUtil.CALQINBEF(EN, NSNG9, YSNG9, XSNG9, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[112], object.E[2], 0.150)
  *             if EN <= XSNG9[NSNG9 - 1]:             # <<<<<<<<<<<<<<
@@ -11002,7 +11002,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN <= (__pyx_v_XSNG9[(__pyx_v_NSNG9 - 1)])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":910
+        /* "gases/NITROGEN.pyx":910
  *                                                    BBCONST, object.EIN[112], object.E[2], 0.150)
  *             if EN <= XSNG9[NSNG9 - 1]:
  *                 object.QIN[112][I] *= 100             # <<<<<<<<<<<<<<
@@ -11013,7 +11013,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_34 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * 100.0);
 
-        /* "NITROGEN.pyx":909
+        /* "gases/NITROGEN.pyx":909
  *             object.QIN[112][I] = GasUtil.CALQINBEF(EN, NSNG9, YSNG9, XSNG9, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[112], object.E[2], 0.150)
  *             if EN <= XSNG9[NSNG9 - 1]:             # <<<<<<<<<<<<<<
@@ -11022,7 +11022,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":911
+      /* "gases/NITROGEN.pyx":911
  *             if EN <= XSNG9[NSNG9 - 1]:
  *                 object.QIN[112][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG9, YSG9M, XSNG9, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -11031,7 +11031,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG9, __pyx_v_YSG9M, __pyx_v_XSNG9, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":906
+      /* "gases/NITROGEN.pyx":906
  *         if object.NANISO == 2:
  *             object.PEQIN[112][I] = 0.
  *         if EN > object.EIN[112]:             # <<<<<<<<<<<<<<
@@ -11040,7 +11040,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":912
+    /* "gases/NITROGEN.pyx":912
  *                 object.QIN[112][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG9, YSG9M, XSNG9, 1) * 1e18
  *         if EN > 3.0 * object.EIN[112]:             # <<<<<<<<<<<<<<
@@ -11050,7 +11050,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x70]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":913
+      /* "gases/NITROGEN.pyx":913
  *             RAT = GasUtil.CALQINP(EN, NSNG9, YSG9M, XSNG9, 1) * 1e18
  *         if EN > 3.0 * object.EIN[112]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11060,7 +11060,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":914
+        /* "gases/NITROGEN.pyx":914
  *         if EN > 3.0 * object.EIN[112]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[112][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -11069,7 +11069,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x70])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":913
+        /* "gases/NITROGEN.pyx":913
  *             RAT = GasUtil.CALQINP(EN, NSNG9, YSG9M, XSNG9, 1) * 1e18
  *         if EN > 3.0 * object.EIN[112]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11078,7 +11078,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":915
+      /* "gases/NITROGEN.pyx":915
  *             if object.NANISO == 1:
  *                 object.PEQIN[112][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11088,7 +11088,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":916
+        /* "gases/NITROGEN.pyx":916
  *                 object.PEQIN[112][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[112][I] = object.PEQEL[1][I - IOFFN[112]]             # <<<<<<<<<<<<<<
@@ -11097,7 +11097,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x70])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x70]))]);
 
-        /* "NITROGEN.pyx":915
+        /* "gases/NITROGEN.pyx":915
  *             if object.NANISO == 1:
  *                 object.PEQIN[112][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11106,7 +11106,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":912
+      /* "gases/NITROGEN.pyx":912
  *                 object.QIN[112][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG9, YSG9M, XSNG9, 1) * 1e18
  *         if EN > 3.0 * object.EIN[112]:             # <<<<<<<<<<<<<<
@@ -11115,7 +11115,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":919
+    /* "gases/NITROGEN.pyx":919
  * 
  *         # G 3PI
  *         object.QIN[113][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11124,7 +11124,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x71])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":920
+    /* "gases/NITROGEN.pyx":920
  *         # G 3PI
  *         object.QIN[113][I] = 0.0
  *         object.PEQIN[113][I] = 0.5             # <<<<<<<<<<<<<<
@@ -11133,7 +11133,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x71])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":921
+    /* "gases/NITROGEN.pyx":921
  *         object.QIN[113][I] = 0.0
  *         object.PEQIN[113][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11143,7 +11143,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":922
+      /* "gases/NITROGEN.pyx":922
  *         object.PEQIN[113][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[113][I] = 0.             # <<<<<<<<<<<<<<
@@ -11152,7 +11152,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x71])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":921
+      /* "gases/NITROGEN.pyx":921
  *         object.QIN[113][I] = 0.0
  *         object.PEQIN[113][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11161,7 +11161,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":923
+    /* "gases/NITROGEN.pyx":923
  *         if object.NANISO == 2:
  *             object.PEQIN[113][I] = 0.
  *         if EN > object.EIN[113]:             # <<<<<<<<<<<<<<
@@ -11171,7 +11171,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x71])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":924
+      /* "gases/NITROGEN.pyx":924
  *             object.PEQIN[113][I] = 0.
  *         if EN > object.EIN[113]:
  *             object.QIN[113][I] = GasUtil.CALQINP(EN, NTRP13, YTRP13, XTRP13, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -11180,7 +11180,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x71])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP13, __pyx_v_YTRP13, __pyx_v_XTRP13, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":925
+      /* "gases/NITROGEN.pyx":925
  *         if EN > object.EIN[113]:
  *             object.QIN[113][I] = GasUtil.CALQINP(EN, NTRP13, YTRP13, XTRP13, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP13, YTP13M, XTRP13, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -11189,7 +11189,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP13, __pyx_v_YTP13M, __pyx_v_XTRP13, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":923
+      /* "gases/NITROGEN.pyx":923
  *         if object.NANISO == 2:
  *             object.PEQIN[113][I] = 0.
  *         if EN > object.EIN[113]:             # <<<<<<<<<<<<<<
@@ -11198,7 +11198,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":926
+    /* "gases/NITROGEN.pyx":926
  *             object.QIN[113][I] = GasUtil.CALQINP(EN, NTRP13, YTRP13, XTRP13, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP13, YTP13M, XTRP13, 1) * 1e18
  *         if EN > 3.0 * object.EIN[113]:             # <<<<<<<<<<<<<<
@@ -11208,7 +11208,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x71]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":927
+      /* "gases/NITROGEN.pyx":927
  *             RAT = GasUtil.CALQINP(EN, NTRP13, YTP13M, XTRP13, 1) * 1e18
  *         if EN > 3.0 * object.EIN[113]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11218,7 +11218,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":928
+        /* "gases/NITROGEN.pyx":928
  *         if EN > 3.0 * object.EIN[113]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[113][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -11227,7 +11227,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x71])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":927
+        /* "gases/NITROGEN.pyx":927
  *             RAT = GasUtil.CALQINP(EN, NTRP13, YTP13M, XTRP13, 1) * 1e18
  *         if EN > 3.0 * object.EIN[113]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11236,7 +11236,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":929
+      /* "gases/NITROGEN.pyx":929
  *             if object.NANISO == 1:
  *                 object.PEQIN[113][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11246,7 +11246,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":930
+        /* "gases/NITROGEN.pyx":930
  *                 object.PEQIN[113][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[113][I] = object.PEQEL[1][I - IOFFN[113]]             # <<<<<<<<<<<<<<
@@ -11255,7 +11255,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x71])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x71]))]);
 
-        /* "NITROGEN.pyx":929
+        /* "gases/NITROGEN.pyx":929
  *             if object.NANISO == 1:
  *                 object.PEQIN[113][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11264,7 +11264,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":926
+      /* "gases/NITROGEN.pyx":926
  *             object.QIN[113][I] = GasUtil.CALQINP(EN, NTRP13, YTRP13, XTRP13, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP13, YTP13M, XTRP13, 1) * 1e18
  *         if EN > 3.0 * object.EIN[113]:             # <<<<<<<<<<<<<<
@@ -11273,7 +11273,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":933
+    /* "gases/NITROGEN.pyx":933
  * 
  *         # C3 1PI (V=0-3)   F=0.150
  *         object.QIN[114][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11282,7 +11282,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x72])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":934
+    /* "gases/NITROGEN.pyx":934
  *         # C3 1PI (V=0-3)   F=0.150
  *         object.QIN[114][I] = 0.0
  *         object.PEQIN[114][I] = 0.5             # <<<<<<<<<<<<<<
@@ -11291,7 +11291,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x72])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":935
+    /* "gases/NITROGEN.pyx":935
  *         object.QIN[114][I] = 0.0
  *         object.PEQIN[114][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11301,7 +11301,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":936
+      /* "gases/NITROGEN.pyx":936
  *         object.PEQIN[114][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[114][I] = 0.             # <<<<<<<<<<<<<<
@@ -11310,7 +11310,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x72])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":935
+      /* "gases/NITROGEN.pyx":935
  *         object.QIN[114][I] = 0.0
  *         object.PEQIN[114][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11319,7 +11319,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":937
+    /* "gases/NITROGEN.pyx":937
  *         if object.NANISO == 2:
  *             object.PEQIN[114][I] = 0.
  *         if EN > object.EIN[114]:             # <<<<<<<<<<<<<<
@@ -11329,7 +11329,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x72])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":938
+      /* "gases/NITROGEN.pyx":938
  *             object.PEQIN[114][I] = 0.
  *         if EN > object.EIN[114]:
  *             object.QIN[114][I] = GasUtil.CALQINBEF(EN, NSNG10, YSNG10, XSNG10, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -11338,7 +11338,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x72])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NSNG10, __pyx_v_YSNG10, __pyx_v_XSNG10, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[0x72]), (__pyx_v_object->E[2]), 0.150);
 
-      /* "NITROGEN.pyx":940
+      /* "gases/NITROGEN.pyx":940
  *             object.QIN[114][I] = GasUtil.CALQINBEF(EN, NSNG10, YSNG10, XSNG10, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[114], object.E[2], 0.150)
  *             if EN <= XSNG10[NSNG10 - 1]:             # <<<<<<<<<<<<<<
@@ -11348,7 +11348,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN <= (__pyx_v_XSNG10[(__pyx_v_NSNG10 - 1)])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":941
+        /* "gases/NITROGEN.pyx":941
  *                                                    BBCONST, object.EIN[114], object.E[2], 0.150)
  *             if EN <= XSNG10[NSNG10 - 1]:
  *                 object.QIN[114][I] *= 100             # <<<<<<<<<<<<<<
@@ -11359,7 +11359,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_34 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * 100.0);
 
-        /* "NITROGEN.pyx":940
+        /* "gases/NITROGEN.pyx":940
  *             object.QIN[114][I] = GasUtil.CALQINBEF(EN, NSNG10, YSNG10, XSNG10, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[114], object.E[2], 0.150)
  *             if EN <= XSNG10[NSNG10 - 1]:             # <<<<<<<<<<<<<<
@@ -11368,7 +11368,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":942
+      /* "gases/NITROGEN.pyx":942
  *             if EN <= XSNG10[NSNG10 - 1]:
  *                 object.QIN[114][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG10, YSG10M, XSNG10, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -11377,7 +11377,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG10, __pyx_v_YSG10M, __pyx_v_XSNG10, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":937
+      /* "gases/NITROGEN.pyx":937
  *         if object.NANISO == 2:
  *             object.PEQIN[114][I] = 0.
  *         if EN > object.EIN[114]:             # <<<<<<<<<<<<<<
@@ -11386,7 +11386,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":943
+    /* "gases/NITROGEN.pyx":943
  *                 object.QIN[114][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG10, YSG10M, XSNG10, 1) * 1e18
  *         if EN > 3.0 * object.EIN[114]:             # <<<<<<<<<<<<<<
@@ -11396,7 +11396,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x72]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":944
+      /* "gases/NITROGEN.pyx":944
  *             RAT = GasUtil.CALQINP(EN, NSNG10, YSG10M, XSNG10, 1) * 1e18
  *         if EN > 3.0 * object.EIN[114]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11406,7 +11406,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":945
+        /* "gases/NITROGEN.pyx":945
  *         if EN > 3.0 * object.EIN[114]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[114][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -11415,7 +11415,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x72])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":944
+        /* "gases/NITROGEN.pyx":944
  *             RAT = GasUtil.CALQINP(EN, NSNG10, YSG10M, XSNG10, 1) * 1e18
  *         if EN > 3.0 * object.EIN[114]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11424,7 +11424,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":946
+      /* "gases/NITROGEN.pyx":946
  *             if object.NANISO == 1:
  *                 object.PEQIN[114][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11434,7 +11434,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":947
+        /* "gases/NITROGEN.pyx":947
  *                 object.PEQIN[114][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[114][I] = object.PEQEL[1][I - IOFFN[114]]             # <<<<<<<<<<<<<<
@@ -11443,7 +11443,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x72])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x72]))]);
 
-        /* "NITROGEN.pyx":946
+        /* "gases/NITROGEN.pyx":946
  *             if object.NANISO == 1:
  *                 object.PEQIN[114][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11452,7 +11452,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":943
+      /* "gases/NITROGEN.pyx":943
  *                 object.QIN[114][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG10, YSG10M, XSNG10, 1) * 1e18
  *         if EN > 3.0 * object.EIN[114]:             # <<<<<<<<<<<<<<
@@ -11461,7 +11461,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":950
+    /* "gases/NITROGEN.pyx":950
  * 
  *         # F 3PI (V = 0-3)
  *         object.QIN[115][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11470,7 +11470,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x73])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":951
+    /* "gases/NITROGEN.pyx":951
  *         # F 3PI (V = 0-3)
  *         object.QIN[115][I] = 0.0
  *         object.PEQIN[115][I] = 0.5             # <<<<<<<<<<<<<<
@@ -11479,7 +11479,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x73])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":952
+    /* "gases/NITROGEN.pyx":952
  *         object.QIN[115][I] = 0.0
  *         object.PEQIN[115][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11489,7 +11489,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":953
+      /* "gases/NITROGEN.pyx":953
  *         object.PEQIN[115][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[115][I] = 0.             # <<<<<<<<<<<<<<
@@ -11498,7 +11498,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x73])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":952
+      /* "gases/NITROGEN.pyx":952
  *         object.QIN[115][I] = 0.0
  *         object.PEQIN[115][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11507,7 +11507,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":954
+    /* "gases/NITROGEN.pyx":954
  *         if object.NANISO == 2:
  *             object.PEQIN[115][I] = 0.
  *         if EN > object.EIN[115]:             # <<<<<<<<<<<<<<
@@ -11517,7 +11517,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x73])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":955
+      /* "gases/NITROGEN.pyx":955
  *             object.PEQIN[115][I] = 0.
  *         if EN > object.EIN[115]:
  *             object.QIN[115][I] = GasUtil.CALQINP(EN, NTRP14, YTRP14, XTRP14, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -11526,7 +11526,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x73])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP14, __pyx_v_YTRP14, __pyx_v_XTRP14, 1.5) * 100.0);
 
-      /* "NITROGEN.pyx":956
+      /* "gases/NITROGEN.pyx":956
  *         if EN > object.EIN[115]:
  *             object.QIN[115][I] = GasUtil.CALQINP(EN, NTRP14, YTRP14, XTRP14, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP14, YTP14M, XTRP14, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -11535,7 +11535,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NTRP14, __pyx_v_YTP14M, __pyx_v_XTRP14, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":954
+      /* "gases/NITROGEN.pyx":954
  *         if object.NANISO == 2:
  *             object.PEQIN[115][I] = 0.
  *         if EN > object.EIN[115]:             # <<<<<<<<<<<<<<
@@ -11544,7 +11544,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":957
+    /* "gases/NITROGEN.pyx":957
  *             object.QIN[115][I] = GasUtil.CALQINP(EN, NTRP14, YTRP14, XTRP14, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP14, YTP14M, XTRP14, 1) * 1e18
  *         if EN > 3.0 * object.EIN[115]:             # <<<<<<<<<<<<<<
@@ -11554,7 +11554,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x73]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":958
+      /* "gases/NITROGEN.pyx":958
  *             RAT = GasUtil.CALQINP(EN, NTRP14, YTP14M, XTRP14, 1) * 1e18
  *         if EN > 3.0 * object.EIN[115]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11564,7 +11564,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":959
+        /* "gases/NITROGEN.pyx":959
  *         if EN > 3.0 * object.EIN[115]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[115][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -11573,7 +11573,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x73])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":958
+        /* "gases/NITROGEN.pyx":958
  *             RAT = GasUtil.CALQINP(EN, NTRP14, YTP14M, XTRP14, 1) * 1e18
  *         if EN > 3.0 * object.EIN[115]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11582,7 +11582,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":960
+      /* "gases/NITROGEN.pyx":960
  *             if object.NANISO == 1:
  *                 object.PEQIN[115][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11592,7 +11592,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":961
+        /* "gases/NITROGEN.pyx":961
  *                 object.PEQIN[115][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[115][I] = object.PEQEL[1][I - IOFFN[115]]             # <<<<<<<<<<<<<<
@@ -11601,7 +11601,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x73])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x73]))]);
 
-        /* "NITROGEN.pyx":960
+        /* "gases/NITROGEN.pyx":960
  *             if object.NANISO == 1:
  *                 object.PEQIN[115][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11610,7 +11610,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":957
+      /* "gases/NITROGEN.pyx":957
  *             object.QIN[115][I] = GasUtil.CALQINP(EN, NTRP14, YTRP14, XTRP14, 1.5) * 100
  *             RAT = GasUtil.CALQINP(EN, NTRP14, YTP14M, XTRP14, 1) * 1e18
  *         if EN > 3.0 * object.EIN[115]:             # <<<<<<<<<<<<<<
@@ -11619,7 +11619,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":964
+    /* "gases/NITROGEN.pyx":964
  * 
  *         # B1PI (V=7-14)   F=0.0663
  *         object.QIN[116][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11628,7 +11628,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x74])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":965
+    /* "gases/NITROGEN.pyx":965
  *         # B1PI (V=7-14)   F=0.0663
  *         object.QIN[116][I] = 0.0
  *         object.PEQIN[116][I] = 0.5             # <<<<<<<<<<<<<<
@@ -11637,7 +11637,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x74])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":966
+    /* "gases/NITROGEN.pyx":966
  *         object.QIN[116][I] = 0.0
  *         object.PEQIN[116][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11647,7 +11647,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":967
+      /* "gases/NITROGEN.pyx":967
  *         object.PEQIN[116][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[116][I] = 0.             # <<<<<<<<<<<<<<
@@ -11656,7 +11656,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x74])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":966
+      /* "gases/NITROGEN.pyx":966
  *         object.QIN[116][I] = 0.0
  *         object.PEQIN[116][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11665,7 +11665,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":968
+    /* "gases/NITROGEN.pyx":968
  *         if object.NANISO == 2:
  *             object.PEQIN[116][I] = 0.
  *         if EN > object.EIN[116]:             # <<<<<<<<<<<<<<
@@ -11675,7 +11675,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x74])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":969
+      /* "gases/NITROGEN.pyx":969
  *             object.PEQIN[116][I] = 0.
  *         if EN > object.EIN[116]:
  *             object.QIN[116][I] = GasUtil.CALQINBEF(EN, NSNG11, YSNG11, XSNG11, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -11684,7 +11684,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x74])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NSNG11, __pyx_v_YSNG11, __pyx_v_XSNG11, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[0x74]), (__pyx_v_object->E[2]), 0.0663);
 
-      /* "NITROGEN.pyx":971
+      /* "gases/NITROGEN.pyx":971
  *             object.QIN[116][I] = GasUtil.CALQINBEF(EN, NSNG11, YSNG11, XSNG11, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[116], object.E[2], 0.0663)
  *             if EN <= XSNG11[NSNG11 - 1]:             # <<<<<<<<<<<<<<
@@ -11694,7 +11694,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN <= (__pyx_v_XSNG11[(__pyx_v_NSNG11 - 1)])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":972
+        /* "gases/NITROGEN.pyx":972
  *                                                    BBCONST, object.EIN[116], object.E[2], 0.0663)
  *             if EN <= XSNG11[NSNG11 - 1]:
  *                 object.QIN[116][I] *= 100             # <<<<<<<<<<<<<<
@@ -11705,7 +11705,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_34 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * 100.0);
 
-        /* "NITROGEN.pyx":971
+        /* "gases/NITROGEN.pyx":971
  *             object.QIN[116][I] = GasUtil.CALQINBEF(EN, NSNG11, YSNG11, XSNG11, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[116], object.E[2], 0.0663)
  *             if EN <= XSNG11[NSNG11 - 1]:             # <<<<<<<<<<<<<<
@@ -11714,7 +11714,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":973
+      /* "gases/NITROGEN.pyx":973
  *             if EN <= XSNG11[NSNG11 - 1]:
  *                 object.QIN[116][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG11, YSG11M, XSNG11, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -11723,7 +11723,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG11, __pyx_v_YSG11M, __pyx_v_XSNG11, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":968
+      /* "gases/NITROGEN.pyx":968
  *         if object.NANISO == 2:
  *             object.PEQIN[116][I] = 0.
  *         if EN > object.EIN[116]:             # <<<<<<<<<<<<<<
@@ -11732,7 +11732,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":974
+    /* "gases/NITROGEN.pyx":974
  *                 object.QIN[116][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG11, YSG11M, XSNG11, 1) * 1e18
  *         if EN > 3.0 * object.EIN[116]:             # <<<<<<<<<<<<<<
@@ -11742,7 +11742,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x74]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":975
+      /* "gases/NITROGEN.pyx":975
  *             RAT = GasUtil.CALQINP(EN, NSNG11, YSG11M, XSNG11, 1) * 1e18
  *         if EN > 3.0 * object.EIN[116]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11752,7 +11752,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":976
+        /* "gases/NITROGEN.pyx":976
  *         if EN > 3.0 * object.EIN[116]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[116][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -11761,7 +11761,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x74])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":975
+        /* "gases/NITROGEN.pyx":975
  *             RAT = GasUtil.CALQINP(EN, NSNG11, YSG11M, XSNG11, 1) * 1e18
  *         if EN > 3.0 * object.EIN[116]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11770,7 +11770,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":977
+      /* "gases/NITROGEN.pyx":977
  *             if object.NANISO == 1:
  *                 object.PEQIN[116][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11780,7 +11780,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":978
+        /* "gases/NITROGEN.pyx":978
  *                 object.PEQIN[116][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[116][I] = object.PEQEL[1][I - IOFFN[116]]             # <<<<<<<<<<<<<<
@@ -11789,7 +11789,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x74])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x74]))]);
 
-        /* "NITROGEN.pyx":977
+        /* "gases/NITROGEN.pyx":977
  *             if object.NANISO == 1:
  *                 object.PEQIN[116][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11798,7 +11798,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":974
+      /* "gases/NITROGEN.pyx":974
  *                 object.QIN[116][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG11, YSG11M, XSNG11, 1) * 1e18
  *         if EN > 3.0 * object.EIN[116]:             # <<<<<<<<<<<<<<
@@ -11807,7 +11807,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":981
+    /* "gases/NITROGEN.pyx":981
  * 
  *         # B! SIG (V=0-10)   F=0.0601
  *         object.QIN[117][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11816,7 +11816,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x75])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":982
+    /* "gases/NITROGEN.pyx":982
  *         # B! SIG (V=0-10)   F=0.0601
  *         object.QIN[117][I] = 0.0
  *         object.PEQIN[117][I] = 0.5             # <<<<<<<<<<<<<<
@@ -11825,7 +11825,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x75])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":983
+    /* "gases/NITROGEN.pyx":983
  *         object.QIN[117][I] = 0.0
  *         object.PEQIN[117][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11835,7 +11835,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":984
+      /* "gases/NITROGEN.pyx":984
  *         object.PEQIN[117][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[117][I] = 0.             # <<<<<<<<<<<<<<
@@ -11844,7 +11844,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x75])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":983
+      /* "gases/NITROGEN.pyx":983
  *         object.QIN[117][I] = 0.0
  *         object.PEQIN[117][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11853,7 +11853,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":985
+    /* "gases/NITROGEN.pyx":985
  *         if object.NANISO == 2:
  *             object.PEQIN[117][I] = 0.
  *         if EN > object.EIN[117]:             # <<<<<<<<<<<<<<
@@ -11863,7 +11863,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x75])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":986
+      /* "gases/NITROGEN.pyx":986
  *             object.PEQIN[117][I] = 0.
  *         if EN > object.EIN[117]:
  *             object.QIN[117][I] = GasUtil.CALQINBEF(EN, NSNG12, YSNG12, XSNG12, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -11872,7 +11872,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x75])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NSNG12, __pyx_v_YSNG12, __pyx_v_XSNG12, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[0x75]), (__pyx_v_object->E[2]), 0.0601);
 
-      /* "NITROGEN.pyx":988
+      /* "gases/NITROGEN.pyx":988
  *             object.QIN[117][I] = GasUtil.CALQINBEF(EN, NSNG12, YSNG12, XSNG12, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[117], object.E[2], 0.0601)
  *             if EN <= XSNG12[NSNG12 - 1]:             # <<<<<<<<<<<<<<
@@ -11882,7 +11882,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN <= (__pyx_v_XSNG12[(__pyx_v_NSNG12 - 1)])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":989
+        /* "gases/NITROGEN.pyx":989
  *                                                    BBCONST, object.EIN[117], object.E[2], 0.0601)
  *             if EN <= XSNG12[NSNG12 - 1]:
  *                 object.QIN[117][I] *= 100             # <<<<<<<<<<<<<<
@@ -11893,7 +11893,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_34 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * 100.0);
 
-        /* "NITROGEN.pyx":988
+        /* "gases/NITROGEN.pyx":988
  *             object.QIN[117][I] = GasUtil.CALQINBEF(EN, NSNG12, YSNG12, XSNG12, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[117], object.E[2], 0.0601)
  *             if EN <= XSNG12[NSNG12 - 1]:             # <<<<<<<<<<<<<<
@@ -11902,7 +11902,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":990
+      /* "gases/NITROGEN.pyx":990
  *             if EN <= XSNG12[NSNG12 - 1]:
  *                 object.QIN[117][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG12, YSG12M, XSNG12, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -11911,7 +11911,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG12, __pyx_v_YSG12M, __pyx_v_XSNG12, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":985
+      /* "gases/NITROGEN.pyx":985
  *         if object.NANISO == 2:
  *             object.PEQIN[117][I] = 0.
  *         if EN > object.EIN[117]:             # <<<<<<<<<<<<<<
@@ -11920,7 +11920,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":991
+    /* "gases/NITROGEN.pyx":991
  *                 object.QIN[117][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG12, YSG12M, XSNG12, 1) * 1e18
  *         if EN > 3.0 * object.EIN[117]:             # <<<<<<<<<<<<<<
@@ -11930,7 +11930,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x75]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":992
+      /* "gases/NITROGEN.pyx":992
  *             RAT = GasUtil.CALQINP(EN, NSNG12, YSG12M, XSNG12, 1) * 1e18
  *         if EN > 3.0 * object.EIN[117]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11940,7 +11940,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":993
+        /* "gases/NITROGEN.pyx":993
  *         if EN > 3.0 * object.EIN[117]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[117][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -11949,7 +11949,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x75])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":992
+        /* "gases/NITROGEN.pyx":992
  *             RAT = GasUtil.CALQINP(EN, NSNG12, YSG12M, XSNG12, 1) * 1e18
  *         if EN > 3.0 * object.EIN[117]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -11958,7 +11958,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":994
+      /* "gases/NITROGEN.pyx":994
  *             if object.NANISO == 1:
  *                 object.PEQIN[117][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11968,7 +11968,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":995
+        /* "gases/NITROGEN.pyx":995
  *                 object.PEQIN[117][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[117][I] = object.PEQEL[1][I - IOFFN[117]]             # <<<<<<<<<<<<<<
@@ -11977,7 +11977,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x75])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x75]))]);
 
-        /* "NITROGEN.pyx":994
+        /* "gases/NITROGEN.pyx":994
  *             if object.NANISO == 1:
  *                 object.PEQIN[117][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -11986,7 +11986,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":991
+      /* "gases/NITROGEN.pyx":991
  *                 object.QIN[117][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG12, YSG12M, XSNG12, 1) * 1e18
  *         if EN > 3.0 * object.EIN[117]:             # <<<<<<<<<<<<<<
@@ -11995,7 +11995,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":998
+    /* "gases/NITROGEN.pyx":998
  * 
  *         # O3 1PI (V=0-3)   F=0.0828
  *         object.QIN[118][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12004,7 +12004,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x76])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":999
+    /* "gases/NITROGEN.pyx":999
  *         # O3 1PI (V=0-3)   F=0.0828
  *         object.QIN[118][I] = 0.0
  *         object.PEQIN[118][I] = 0.5             # <<<<<<<<<<<<<<
@@ -12013,7 +12013,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x76])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1000
+    /* "gases/NITROGEN.pyx":1000
  *         object.QIN[118][I] = 0.0
  *         object.PEQIN[118][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12023,7 +12023,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1001
+      /* "gases/NITROGEN.pyx":1001
  *         object.PEQIN[118][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[118][I] = 0.             # <<<<<<<<<<<<<<
@@ -12032,7 +12032,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x76])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":1000
+      /* "gases/NITROGEN.pyx":1000
  *         object.QIN[118][I] = 0.0
  *         object.PEQIN[118][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12041,7 +12041,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1002
+    /* "gases/NITROGEN.pyx":1002
  *         if object.NANISO == 2:
  *             object.PEQIN[118][I] = 0.
  *         if EN > object.EIN[118]:             # <<<<<<<<<<<<<<
@@ -12051,7 +12051,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x76])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1003
+      /* "gases/NITROGEN.pyx":1003
  *             object.PEQIN[118][I] = 0.
  *         if EN > object.EIN[118]:
  *             object.QIN[118][I] = GasUtil.CALQINBEF(EN, NSNG13, YSNG13, XSNG13, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -12060,7 +12060,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x76])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NSNG13, __pyx_v_YSNG13, __pyx_v_XSNG13, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[0x76]), (__pyx_v_object->E[2]), 0.0828);
 
-      /* "NITROGEN.pyx":1005
+      /* "gases/NITROGEN.pyx":1005
  *             object.QIN[118][I] = GasUtil.CALQINBEF(EN, NSNG13, YSNG13, XSNG13, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[118], object.E[2], 0.0828)
  *             if EN <= XSNG13[NSNG13 - 1]:             # <<<<<<<<<<<<<<
@@ -12070,7 +12070,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN <= (__pyx_v_XSNG13[(__pyx_v_NSNG13 - 1)])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1006
+        /* "gases/NITROGEN.pyx":1006
  *                                                    BBCONST, object.EIN[118], object.E[2], 0.0828)
  *             if EN <= XSNG13[NSNG13 - 1]:
  *                 object.QIN[118][I] *= 100             # <<<<<<<<<<<<<<
@@ -12081,7 +12081,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_34 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * 100.0);
 
-        /* "NITROGEN.pyx":1005
+        /* "gases/NITROGEN.pyx":1005
  *             object.QIN[118][I] = GasUtil.CALQINBEF(EN, NSNG13, YSNG13, XSNG13, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[118], object.E[2], 0.0828)
  *             if EN <= XSNG13[NSNG13 - 1]:             # <<<<<<<<<<<<<<
@@ -12090,7 +12090,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1007
+      /* "gases/NITROGEN.pyx":1007
  *             if EN <= XSNG13[NSNG13 - 1]:
  *                 object.QIN[118][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG13, YSG13M, XSNG13, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -12099,7 +12099,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG13, __pyx_v_YSG13M, __pyx_v_XSNG13, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":1002
+      /* "gases/NITROGEN.pyx":1002
  *         if object.NANISO == 2:
  *             object.PEQIN[118][I] = 0.
  *         if EN > object.EIN[118]:             # <<<<<<<<<<<<<<
@@ -12108,7 +12108,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1008
+    /* "gases/NITROGEN.pyx":1008
  *                 object.QIN[118][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG13, YSG13M, XSNG13, 1) * 1e18
  *         if EN > 3.0 * object.EIN[118]:             # <<<<<<<<<<<<<<
@@ -12118,7 +12118,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x76]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1009
+      /* "gases/NITROGEN.pyx":1009
  *             RAT = GasUtil.CALQINP(EN, NSNG13, YSG13M, XSNG13, 1) * 1e18
  *         if EN > 3.0 * object.EIN[118]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -12128,7 +12128,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1010
+        /* "gases/NITROGEN.pyx":1010
  *         if EN > 3.0 * object.EIN[118]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[118][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -12137,7 +12137,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x76])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":1009
+        /* "gases/NITROGEN.pyx":1009
  *             RAT = GasUtil.CALQINP(EN, NSNG13, YSG13M, XSNG13, 1) * 1e18
  *         if EN > 3.0 * object.EIN[118]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -12146,7 +12146,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1011
+      /* "gases/NITROGEN.pyx":1011
  *             if object.NANISO == 1:
  *                 object.PEQIN[118][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12156,7 +12156,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1012
+        /* "gases/NITROGEN.pyx":1012
  *                 object.PEQIN[118][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[118][I] = object.PEQEL[1][I - IOFFN[118]]             # <<<<<<<<<<<<<<
@@ -12165,7 +12165,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x76])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x76]))]);
 
-        /* "NITROGEN.pyx":1011
+        /* "gases/NITROGEN.pyx":1011
  *             if object.NANISO == 1:
  *                 object.PEQIN[118][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12174,7 +12174,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1008
+      /* "gases/NITROGEN.pyx":1008
  *                 object.QIN[118][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG13, YSG13M, XSNG13, 1) * 1e18
  *         if EN > 3.0 * object.EIN[118]:             # <<<<<<<<<<<<<<
@@ -12183,7 +12183,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1015
+    /* "gases/NITROGEN.pyx":1015
  * 
  *         # C C!  1SIG (SUM V=4-6) (AVERGAE E=14.090)  F=0.139
  *         object.QIN[119][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12192,7 +12192,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x77])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1016
+    /* "gases/NITROGEN.pyx":1016
  *         # C C!  1SIG (SUM V=4-6) (AVERGAE E=14.090)  F=0.139
  *         object.QIN[119][I] = 0.0
  *         object.PEQIN[119][I] = 0.5             # <<<<<<<<<<<<<<
@@ -12201,7 +12201,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x77])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1017
+    /* "gases/NITROGEN.pyx":1017
  *         object.QIN[119][I] = 0.0
  *         object.PEQIN[119][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12211,7 +12211,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1018
+      /* "gases/NITROGEN.pyx":1018
  *         object.PEQIN[119][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[119][I] = 0.             # <<<<<<<<<<<<<<
@@ -12220,7 +12220,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x77])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":1017
+      /* "gases/NITROGEN.pyx":1017
  *         object.QIN[119][I] = 0.0
  *         object.PEQIN[119][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12229,7 +12229,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1019
+    /* "gases/NITROGEN.pyx":1019
  *         if object.NANISO == 2:
  *             object.PEQIN[119][I] = 0.
  *         if EN > object.EIN[119]:             # <<<<<<<<<<<<<<
@@ -12239,7 +12239,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x77])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1020
+      /* "gases/NITROGEN.pyx":1020
  *             object.PEQIN[119][I] = 0.
  *         if EN > object.EIN[119]:
  *             object.QIN[119][I] = GasUtil.CALQINBEF(EN, NSNG14, YSNG14, XSNG14, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -12248,7 +12248,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x77])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NSNG14, __pyx_v_YSNG14, __pyx_v_XSNG14, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[0x77]), (__pyx_v_object->E[2]), 0.1390);
 
-      /* "NITROGEN.pyx":1022
+      /* "gases/NITROGEN.pyx":1022
  *             object.QIN[119][I] = GasUtil.CALQINBEF(EN, NSNG14, YSNG14, XSNG14, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[119], object.E[2], 0.1390)
  *             if EN <= XSNG14[NSNG14 - 1]:             # <<<<<<<<<<<<<<
@@ -12258,7 +12258,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN <= (__pyx_v_XSNG14[(__pyx_v_NSNG14 - 1)])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1023
+        /* "gases/NITROGEN.pyx":1023
  *                                                    BBCONST, object.EIN[119], object.E[2], 0.1390)
  *             if EN <= XSNG14[NSNG14 - 1]:
  *                 object.QIN[119][I] *= 100             # <<<<<<<<<<<<<<
@@ -12269,7 +12269,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_34 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * 100.0);
 
-        /* "NITROGEN.pyx":1022
+        /* "gases/NITROGEN.pyx":1022
  *             object.QIN[119][I] = GasUtil.CALQINBEF(EN, NSNG14, YSNG14, XSNG14, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[119], object.E[2], 0.1390)
  *             if EN <= XSNG14[NSNG14 - 1]:             # <<<<<<<<<<<<<<
@@ -12278,7 +12278,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1024
+      /* "gases/NITROGEN.pyx":1024
  *             if EN <= XSNG14[NSNG14 - 1]:
  *                 object.QIN[119][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG14, YSG14M, XSNG14, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -12287,7 +12287,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG14, __pyx_v_YSG14M, __pyx_v_XSNG14, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":1019
+      /* "gases/NITROGEN.pyx":1019
  *         if object.NANISO == 2:
  *             object.PEQIN[119][I] = 0.
  *         if EN > object.EIN[119]:             # <<<<<<<<<<<<<<
@@ -12296,7 +12296,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1025
+    /* "gases/NITROGEN.pyx":1025
  *                 object.QIN[119][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG14, YSG14M, XSNG14, 1) * 1e18
  *         if EN > 3.0 * object.EIN[119]:             # <<<<<<<<<<<<<<
@@ -12306,7 +12306,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x77]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1026
+      /* "gases/NITROGEN.pyx":1026
  *             RAT = GasUtil.CALQINP(EN, NSNG14, YSG14M, XSNG14, 1) * 1e18
  *         if EN > 3.0 * object.EIN[119]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -12316,7 +12316,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1027
+        /* "gases/NITROGEN.pyx":1027
  *         if EN > 3.0 * object.EIN[119]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[119][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -12325,7 +12325,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x77])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":1026
+        /* "gases/NITROGEN.pyx":1026
  *             RAT = GasUtil.CALQINP(EN, NSNG14, YSG14M, XSNG14, 1) * 1e18
  *         if EN > 3.0 * object.EIN[119]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -12334,7 +12334,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1028
+      /* "gases/NITROGEN.pyx":1028
  *             if object.NANISO == 1:
  *                 object.PEQIN[119][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12344,7 +12344,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1029
+        /* "gases/NITROGEN.pyx":1029
  *                 object.PEQIN[119][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[119][I] = object.PEQEL[1][I - IOFFN[119]]             # <<<<<<<<<<<<<<
@@ -12353,7 +12353,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x77])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x77]))]);
 
-        /* "NITROGEN.pyx":1028
+        /* "gases/NITROGEN.pyx":1028
  *             if object.NANISO == 1:
  *                 object.PEQIN[119][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12362,7 +12362,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1025
+      /* "gases/NITROGEN.pyx":1025
  *                 object.QIN[119][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG14, YSG14M, XSNG14, 1) * 1e18
  *         if EN > 3.0 * object.EIN[119]:             # <<<<<<<<<<<<<<
@@ -12371,7 +12371,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1032
+    /* "gases/NITROGEN.pyx":1032
  * 
  *         # C C!  1SIG (SUM V=4-6) (AVERGAE E=14.090)  F=0.139
  *         object.QIN[120][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12380,7 +12380,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x78])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1033
+    /* "gases/NITROGEN.pyx":1033
  *         # C C!  1SIG (SUM V=4-6) (AVERGAE E=14.090)  F=0.139
  *         object.QIN[120][I] = 0.0
  *         object.PEQIN[120][I] = 0.5             # <<<<<<<<<<<<<<
@@ -12389,7 +12389,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1034
+    /* "gases/NITROGEN.pyx":1034
  *         object.QIN[120][I] = 0.0
  *         object.PEQIN[120][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12399,7 +12399,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1035
+      /* "gases/NITROGEN.pyx":1035
  *         object.PEQIN[120][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[120][I] = 0.             # <<<<<<<<<<<<<<
@@ -12408,7 +12408,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]) = 0.;
 
-      /* "NITROGEN.pyx":1034
+      /* "gases/NITROGEN.pyx":1034
  *         object.QIN[120][I] = 0.0
  *         object.PEQIN[120][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12417,7 +12417,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1036
+    /* "gases/NITROGEN.pyx":1036
  *         if object.NANISO == 2:
  *             object.PEQIN[120][I] = 0.
  *         if EN > object.EIN[120]:             # <<<<<<<<<<<<<<
@@ -12427,7 +12427,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x78])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1037
+      /* "gases/NITROGEN.pyx":1037
  *             object.PEQIN[120][I] = 0.
  *         if EN > object.EIN[120]:
  *             object.QIN[120][I] = GasUtil.CALQINBEF(EN, NSNG15, YSNG15, XSNG15, BETA2, GAMMA2, EMASS2, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -12436,7 +12436,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x78])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_NSNG15, __pyx_v_YSNG15, __pyx_v_XSNG15, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[0x78]), (__pyx_v_object->E[2]), 0.2650);
 
-      /* "NITROGEN.pyx":1039
+      /* "gases/NITROGEN.pyx":1039
  *             object.QIN[120][I] = GasUtil.CALQINBEF(EN, NSNG15, YSNG15, XSNG15, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[120], object.E[2], 0.2650)
  *             if EN <= XSNG15[NSNG15 - 1]:             # <<<<<<<<<<<<<<
@@ -12446,7 +12446,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_EN <= (__pyx_v_XSNG15[(__pyx_v_NSNG15 - 1)])) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1040
+        /* "gases/NITROGEN.pyx":1040
  *                                                    BBCONST, object.EIN[120], object.E[2], 0.2650)
  *             if EN <= XSNG15[NSNG15 - 1]:
  *                 object.QIN[120][I] *= 100             # <<<<<<<<<<<<<<
@@ -12457,7 +12457,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_34 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->QIN[__pyx_t_41])[__pyx_t_34]) * 100.0);
 
-        /* "NITROGEN.pyx":1039
+        /* "gases/NITROGEN.pyx":1039
  *             object.QIN[120][I] = GasUtil.CALQINBEF(EN, NSNG15, YSNG15, XSNG15, BETA2, GAMMA2, EMASS2, object.DEN[I],
  *                                                    BBCONST, object.EIN[120], object.E[2], 0.2650)
  *             if EN <= XSNG15[NSNG15 - 1]:             # <<<<<<<<<<<<<<
@@ -12466,7 +12466,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1041
+      /* "gases/NITROGEN.pyx":1041
  *             if EN <= XSNG15[NSNG15 - 1]:
  *                 object.QIN[120][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG15, YSG15M, XSNG15, 1) * 1e18             # <<<<<<<<<<<<<<
@@ -12475,7 +12475,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_RAT = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NSNG15, __pyx_v_YSG15M, __pyx_v_XSNG15, 1.0) * 1e18);
 
-      /* "NITROGEN.pyx":1036
+      /* "gases/NITROGEN.pyx":1036
  *         if object.NANISO == 2:
  *             object.PEQIN[120][I] = 0.
  *         if EN > object.EIN[120]:             # <<<<<<<<<<<<<<
@@ -12484,7 +12484,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1042
+    /* "gases/NITROGEN.pyx":1042
  *                 object.QIN[120][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG15, YSG15M, XSNG15, 1) * 1e18
  *         if EN > 3.0 * object.EIN[120]:             # <<<<<<<<<<<<<<
@@ -12494,7 +12494,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[0x78]))) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1043
+      /* "gases/NITROGEN.pyx":1043
  *             RAT = GasUtil.CALQINP(EN, NSNG15, YSG15M, XSNG15, 1) * 1e18
  *         if EN > 3.0 * object.EIN[120]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -12504,7 +12504,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 1) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1044
+        /* "gases/NITROGEN.pyx":1044
  *         if EN > 3.0 * object.EIN[120]:
  *             if object.NANISO == 1:
  *                 object.PEQIN[120][I] = 1.5 - RAT             # <<<<<<<<<<<<<<
@@ -12513,7 +12513,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]) = (1.5 - __pyx_v_RAT);
 
-        /* "NITROGEN.pyx":1043
+        /* "gases/NITROGEN.pyx":1043
  *             RAT = GasUtil.CALQINP(EN, NSNG15, YSG15M, XSNG15, 1) * 1e18
  *         if EN > 3.0 * object.EIN[120]:
  *             if object.NANISO == 1:             # <<<<<<<<<<<<<<
@@ -12522,7 +12522,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1045
+      /* "gases/NITROGEN.pyx":1045
  *             if object.NANISO == 1:
  *                 object.PEQIN[120][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12532,7 +12532,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1046
+        /* "gases/NITROGEN.pyx":1046
  *                 object.PEQIN[120][I] = 1.5 - RAT
  *             if object.NANISO == 2:
  *                 object.PEQIN[120][I] = object.PEQEL[1][I - IOFFN[120]]             # <<<<<<<<<<<<<<
@@ -12541,7 +12541,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x78]))]);
 
-        /* "NITROGEN.pyx":1045
+        /* "gases/NITROGEN.pyx":1045
  *             if object.NANISO == 1:
  *                 object.PEQIN[120][I] = 1.5 - RAT
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12550,7 +12550,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1042
+      /* "gases/NITROGEN.pyx":1042
  *                 object.QIN[120][I] *= 100
  *             RAT = GasUtil.CALQINP(EN, NSNG15, YSG15M, XSNG15, 1) * 1e18
  *         if EN > 3.0 * object.EIN[120]:             # <<<<<<<<<<<<<<
@@ -12559,7 +12559,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1049
+    /* "gases/NITROGEN.pyx":1049
  * 
  *         # E! 1SIG  ELOSS = 14.36 F = 0.0108
  *         object.QIN[121][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12568,7 +12568,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x79])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1050
+    /* "gases/NITROGEN.pyx":1050
  *         # E! 1SIG  ELOSS = 14.36 F = 0.0108
  *         object.QIN[121][I] = 0.0
  *         object.PEQIN[121][I] = 0.5             # <<<<<<<<<<<<<<
@@ -12577,7 +12577,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x79])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1051
+    /* "gases/NITROGEN.pyx":1051
  *         object.QIN[121][I] = 0.0
  *         object.PEQIN[121][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12587,7 +12587,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1052
+      /* "gases/NITROGEN.pyx":1052
  *         object.PEQIN[121][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[121][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12596,7 +12596,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x79])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":1051
+      /* "gases/NITROGEN.pyx":1051
  *         object.QIN[121][I] = 0.0
  *         object.PEQIN[121][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12605,7 +12605,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1053
+    /* "gases/NITROGEN.pyx":1053
  *         if object.NANISO == 2:
  *             object.PEQIN[121][I] = 0.0
  *         if EN > object.EIN[121]:             # <<<<<<<<<<<<<<
@@ -12615,7 +12615,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x79])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1054
+      /* "gases/NITROGEN.pyx":1054
  *             object.PEQIN[121][I] = 0.0
  *         if EN > object.EIN[121]:
  *             object.QIN[121][I] = 0.0108 / (object.EIN[121] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12624,7 +12624,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x79])[__pyx_v_I]) = (((((0.0108 / ((__pyx_v_object->EIN[0x79]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[0x79])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[0x79])) + (__pyx_v_object->E[2])));
 
-      /* "NITROGEN.pyx":1057
+      /* "gases/NITROGEN.pyx":1057
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[121])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[121] + object.E[2])
  *             if object.QIN[121][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12634,7 +12634,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((((__pyx_v_object->QIN[0x79])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1058
+        /* "gases/NITROGEN.pyx":1058
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[121] + object.E[2])
  *             if object.QIN[121][I] < 0.0:
  *                 object.QIN[121][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12643,7 +12643,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0x79])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":1057
+        /* "gases/NITROGEN.pyx":1057
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[121])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[121] + object.E[2])
  *             if object.QIN[121][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12652,7 +12652,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1059
+      /* "gases/NITROGEN.pyx":1059
  *             if object.QIN[121][I] < 0.0:
  *                 object.QIN[121][I] = 0.0
  *             object.PEQIN[121][I] = object.PEQIN[120][I]             # <<<<<<<<<<<<<<
@@ -12661,7 +12661,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x79])[__pyx_v_I]) = ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]);
 
-      /* "NITROGEN.pyx":1053
+      /* "gases/NITROGEN.pyx":1053
  *         if object.NANISO == 2:
  *             object.PEQIN[121][I] = 0.0
  *         if EN > object.EIN[121]:             # <<<<<<<<<<<<<<
@@ -12670,7 +12670,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1062
+    /* "gases/NITROGEN.pyx":1062
  * 
  *         # E 1PI  ELOSS = 14.45 F = 0.0237
  *         object.QIN[122][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12679,7 +12679,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x7A])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1063
+    /* "gases/NITROGEN.pyx":1063
  *         # E 1PI  ELOSS = 14.45 F = 0.0237
  *         object.QIN[122][I] = 0.0
  *         object.PEQIN[122][I] = 0.5             # <<<<<<<<<<<<<<
@@ -12688,7 +12688,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x7A])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1064
+    /* "gases/NITROGEN.pyx":1064
  *         object.QIN[122][I] = 0.0
  *         object.PEQIN[122][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12698,7 +12698,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1065
+      /* "gases/NITROGEN.pyx":1065
  *         object.PEQIN[122][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[122][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12707,7 +12707,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7A])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":1064
+      /* "gases/NITROGEN.pyx":1064
  *         object.QIN[122][I] = 0.0
  *         object.PEQIN[122][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12716,7 +12716,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1066
+    /* "gases/NITROGEN.pyx":1066
  *         if object.NANISO == 2:
  *             object.PEQIN[122][I] = 0.0
  *         if EN > object.EIN[122]:             # <<<<<<<<<<<<<<
@@ -12726,7 +12726,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x7A])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1067
+      /* "gases/NITROGEN.pyx":1067
  *             object.PEQIN[122][I] = 0.0
  *         if EN > object.EIN[122]:
  *             object.QIN[122][I] = 0.0237 / (object.EIN[122] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12735,7 +12735,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x7A])[__pyx_v_I]) = (((((0.0237 / ((__pyx_v_object->EIN[0x7A]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[0x7A])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[0x7A])) + (__pyx_v_object->E[2])));
 
-      /* "NITROGEN.pyx":1070
+      /* "gases/NITROGEN.pyx":1070
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[122])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[122] + object.E[2])
  *             if object.QIN[122][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12745,7 +12745,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((((__pyx_v_object->QIN[0x7A])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1071
+        /* "gases/NITROGEN.pyx":1071
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[122] + object.E[2])
  *             if object.QIN[122][I] < 0.0:
  *                 object.QIN[122][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12754,7 +12754,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0x7A])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":1070
+        /* "gases/NITROGEN.pyx":1070
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[122])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[122] + object.E[2])
  *             if object.QIN[122][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12763,7 +12763,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1072
+      /* "gases/NITROGEN.pyx":1072
  *             if object.QIN[122][I] < 0.0:
  *                 object.QIN[122][I] = 0.0
  *             object.PEQIN[122][I] = object.PEQIN[120][I]             # <<<<<<<<<<<<<<
@@ -12772,7 +12772,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7A])[__pyx_v_I]) = ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]);
 
-      /* "NITROGEN.pyx":1066
+      /* "gases/NITROGEN.pyx":1066
  *         if object.NANISO == 2:
  *             object.PEQIN[122][I] = 0.0
  *         if EN > object.EIN[122]:             # <<<<<<<<<<<<<<
@@ -12781,7 +12781,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1075
+    /* "gases/NITROGEN.pyx":1075
  * 
  *         # SINGLET  ELOSS = 14.839 F = 0.0117
  *         object.QIN[123][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12790,7 +12790,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x7B])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1076
+    /* "gases/NITROGEN.pyx":1076
  *         # SINGLET  ELOSS = 14.839 F = 0.0117
  *         object.QIN[123][I] = 0.0
  *         object.PEQIN[123][I] = 0.5             # <<<<<<<<<<<<<<
@@ -12799,7 +12799,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x7B])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1077
+    /* "gases/NITROGEN.pyx":1077
  *         object.QIN[123][I] = 0.0
  *         object.PEQIN[123][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12809,7 +12809,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1078
+      /* "gases/NITROGEN.pyx":1078
  *         object.PEQIN[123][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[123][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12818,7 +12818,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7B])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":1077
+      /* "gases/NITROGEN.pyx":1077
  *         object.QIN[123][I] = 0.0
  *         object.PEQIN[123][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12827,7 +12827,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1079
+    /* "gases/NITROGEN.pyx":1079
  *         if object.NANISO == 2:
  *             object.PEQIN[123][I] = 0.0
  *         if EN > object.EIN[123]:             # <<<<<<<<<<<<<<
@@ -12837,7 +12837,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x7B])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1080
+      /* "gases/NITROGEN.pyx":1080
  *             object.PEQIN[123][I] = 0.0
  *         if EN > object.EIN[123]:
  *             object.QIN[123][I] = 0.0117 / (object.EIN[123] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12846,7 +12846,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x7B])[__pyx_v_I]) = (((((0.0117 / ((__pyx_v_object->EIN[0x7B]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[0x7B])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[0x7B])) + (__pyx_v_object->E[2])));
 
-      /* "NITROGEN.pyx":1083
+      /* "gases/NITROGEN.pyx":1083
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[123])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[123] + object.E[2])
  *             if object.QIN[123][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12856,7 +12856,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((((__pyx_v_object->QIN[0x7B])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1084
+        /* "gases/NITROGEN.pyx":1084
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[123] + object.E[2])
  *             if object.QIN[123][I] < 0.0:
  *                 object.QIN[123][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12865,7 +12865,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0x7B])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":1083
+        /* "gases/NITROGEN.pyx":1083
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[123])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[123] + object.E[2])
  *             if object.QIN[123][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12874,7 +12874,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1085
+      /* "gases/NITROGEN.pyx":1085
  *             if object.QIN[123][I] < 0.0:
  *                 object.QIN[123][I] = 0.0
  *             object.PEQIN[123][I] = object.PEQIN[120][I]             # <<<<<<<<<<<<<<
@@ -12883,7 +12883,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7B])[__pyx_v_I]) = ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]);
 
-      /* "NITROGEN.pyx":1079
+      /* "gases/NITROGEN.pyx":1079
  *         if object.NANISO == 2:
  *             object.PEQIN[123][I] = 0.0
  *         if EN > object.EIN[123]:             # <<<<<<<<<<<<<<
@@ -12892,7 +12892,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1088
+    /* "gases/NITROGEN.pyx":1088
  * 
  *         # SUM  OF HIGH ENERGY SINGLETS ELOSS 15.20EV F = 0.1152
  *         object.QIN[124][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12901,7 +12901,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x7C])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1089
+    /* "gases/NITROGEN.pyx":1089
  *         # SUM  OF HIGH ENERGY SINGLETS ELOSS 15.20EV F = 0.1152
  *         object.QIN[124][I] = 0.0
  *         object.PEQIN[124][I] = 0.5             # <<<<<<<<<<<<<<
@@ -12910,7 +12910,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x7C])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1090
+    /* "gases/NITROGEN.pyx":1090
  *         object.QIN[124][I] = 0.0
  *         object.PEQIN[124][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12920,7 +12920,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1091
+      /* "gases/NITROGEN.pyx":1091
  *         object.PEQIN[124][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[124][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12929,7 +12929,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7C])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":1090
+      /* "gases/NITROGEN.pyx":1090
  *         object.QIN[124][I] = 0.0
  *         object.PEQIN[124][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -12938,7 +12938,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1092
+    /* "gases/NITROGEN.pyx":1092
  *         if object.NANISO == 2:
  *             object.PEQIN[124][I] = 0.0
  *         if EN > object.EIN[124]:             # <<<<<<<<<<<<<<
@@ -12948,7 +12948,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x7C])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1093
+      /* "gases/NITROGEN.pyx":1093
  *             object.PEQIN[124][I] = 0.0
  *         if EN > object.EIN[124]:
  *             object.QIN[124][I] = 0.1152 / (object.EIN[124] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12957,7 +12957,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x7C])[__pyx_v_I]) = (((((0.1152 / ((__pyx_v_object->EIN[0x7C]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[0x7C])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[0x7C])) + (__pyx_v_object->E[2])));
 
-      /* "NITROGEN.pyx":1096
+      /* "gases/NITROGEN.pyx":1096
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[124])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[124] + object.E[2])
  *             if object.QIN[124][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12967,7 +12967,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((((__pyx_v_object->QIN[0x7C])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1097
+        /* "gases/NITROGEN.pyx":1097
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[124] + object.E[2])
  *             if object.QIN[124][I] < 0.0:
  *                 object.QIN[124][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12976,7 +12976,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0x7C])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":1096
+        /* "gases/NITROGEN.pyx":1096
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[124])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[124] + object.E[2])
  *             if object.QIN[124][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12985,7 +12985,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1098
+      /* "gases/NITROGEN.pyx":1098
  *             if object.QIN[124][I] < 0.0:
  *                 object.QIN[124][I] = 0.0
  *             object.PEQIN[124][I] = object.PEQIN[120][I]             # <<<<<<<<<<<<<<
@@ -12994,7 +12994,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7C])[__pyx_v_I]) = ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]);
 
-      /* "NITROGEN.pyx":1092
+      /* "gases/NITROGEN.pyx":1092
  *         if object.NANISO == 2:
  *             object.PEQIN[124][I] = 0.0
  *         if EN > object.EIN[124]:             # <<<<<<<<<<<<<<
@@ -13003,7 +13003,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1101
+    /* "gases/NITROGEN.pyx":1101
  * 
  *         # SUM NEUTRAL BREAKUP ABOVE IONISATION ENERGY  F=0.160
  *         object.QIN[125][I] = 0.0             # <<<<<<<<<<<<<<
@@ -13012,7 +13012,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x7D])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1102
+    /* "gases/NITROGEN.pyx":1102
  *         # SUM NEUTRAL BREAKUP ABOVE IONISATION ENERGY  F=0.160
  *         object.QIN[125][I] = 0.0
  *         object.PEQIN[125][I] = 0.5             # <<<<<<<<<<<<<<
@@ -13021,7 +13021,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x7D])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1103
+    /* "gases/NITROGEN.pyx":1103
  *         object.QIN[125][I] = 0.0
  *         object.PEQIN[125][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -13031,7 +13031,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1104
+      /* "gases/NITROGEN.pyx":1104
  *         object.PEQIN[125][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[125][I] = 0.0             # <<<<<<<<<<<<<<
@@ -13040,7 +13040,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7D])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":1103
+      /* "gases/NITROGEN.pyx":1103
  *         object.QIN[125][I] = 0.0
  *         object.PEQIN[125][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -13049,7 +13049,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1105
+    /* "gases/NITROGEN.pyx":1105
  *         if object.NANISO == 2:
  *             object.PEQIN[125][I] = 0.0
  *         if EN > object.EIN[125]:             # <<<<<<<<<<<<<<
@@ -13059,7 +13059,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x7D])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1106
+      /* "gases/NITROGEN.pyx":1106
  *             object.PEQIN[125][I] = 0.0
  *         if EN > object.EIN[125]:
  *             object.QIN[125][I] = 0.1600 / (object.EIN[125] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -13068,7 +13068,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x7D])[__pyx_v_I]) = (((((0.1600 / ((__pyx_v_object->EIN[0x7D]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[0x7D])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * (__pyx_v_EN + (2.0 * (__pyx_v_object->EIN[0x7D])))) / __pyx_v_EN);
 
-      /* "NITROGEN.pyx":1109
+      /* "gases/NITROGEN.pyx":1109
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[125])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * (EN + 2 * object.EIN[125]) / EN
  *             if object.QIN[125][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -13078,7 +13078,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((((__pyx_v_object->QIN[0x7D])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1110
+        /* "gases/NITROGEN.pyx":1110
  *                 I] / 2.0) * BBCONST * (EN + 2 * object.EIN[125]) / EN
  *             if object.QIN[125][I] < 0.0:
  *                 object.QIN[125][I] = 0.0             # <<<<<<<<<<<<<<
@@ -13087,7 +13087,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0x7D])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":1109
+        /* "gases/NITROGEN.pyx":1109
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[125])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * (EN + 2 * object.EIN[125]) / EN
  *             if object.QIN[125][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -13096,7 +13096,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1111
+      /* "gases/NITROGEN.pyx":1111
  *             if object.QIN[125][I] < 0.0:
  *                 object.QIN[125][I] = 0.0
  *             object.PEQIN[125][I] = object.PEQIN[120][I]             # <<<<<<<<<<<<<<
@@ -13105,7 +13105,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7D])[__pyx_v_I]) = ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]);
 
-      /* "NITROGEN.pyx":1105
+      /* "gases/NITROGEN.pyx":1105
  *         if object.NANISO == 2:
  *             object.PEQIN[125][I] = 0.0
  *         if EN > object.EIN[125]:             # <<<<<<<<<<<<<<
@@ -13114,7 +13114,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1114
+    /* "gases/NITROGEN.pyx":1114
  * 
  *         # SUM NEUTRAL BREAKUP ABOVE IONISATION ENERGY  F=0.160
  *         object.QIN[126][I] = 0.0             # <<<<<<<<<<<<<<
@@ -13123,7 +13123,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x7E])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1115
+    /* "gases/NITROGEN.pyx":1115
  *         # SUM NEUTRAL BREAKUP ABOVE IONISATION ENERGY  F=0.160
  *         object.QIN[126][I] = 0.0
  *         object.PEQIN[126][I] = 0.5             # <<<<<<<<<<<<<<
@@ -13132,7 +13132,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0x7E])[__pyx_v_I]) = 0.5;
 
-    /* "NITROGEN.pyx":1116
+    /* "gases/NITROGEN.pyx":1116
  *         object.QIN[126][I] = 0.0
  *         object.PEQIN[126][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -13142,7 +13142,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1117
+      /* "gases/NITROGEN.pyx":1117
  *         object.PEQIN[126][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQIN[126][I] = 0.0             # <<<<<<<<<<<<<<
@@ -13151,7 +13151,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7E])[__pyx_v_I]) = 0.0;
 
-      /* "NITROGEN.pyx":1116
+      /* "gases/NITROGEN.pyx":1116
  *         object.QIN[126][I] = 0.0
  *         object.PEQIN[126][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -13160,7 +13160,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1118
+    /* "gases/NITROGEN.pyx":1118
  *         if object.NANISO == 2:
  *             object.PEQIN[126][I] = 0.0
  *         if EN > object.EIN[126]:             # <<<<<<<<<<<<<<
@@ -13170,7 +13170,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x7E])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1119
+      /* "gases/NITROGEN.pyx":1119
  *             object.PEQIN[126][I] = 0.0
  *         if EN > object.EIN[126]:
  *             object.QIN[126][I] = 0.090 / (object.EIN[126] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -13179,7 +13179,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x7E])[__pyx_v_I]) = (((((0.090 / ((__pyx_v_object->EIN[0x7E]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[0x7E])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * (__pyx_v_EN + (2.0 * (__pyx_v_object->EIN[0x7E])))) / __pyx_v_EN);
 
-      /* "NITROGEN.pyx":1122
+      /* "gases/NITROGEN.pyx":1122
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[126])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * (EN + 2 * object.EIN[126]) / EN
  *             if object.QIN[126][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -13189,7 +13189,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_39 = ((((__pyx_v_object->QIN[0x7E])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_39) {
 
-        /* "NITROGEN.pyx":1123
+        /* "gases/NITROGEN.pyx":1123
  *                 I] / 2.0) * BBCONST * (EN + 2 * object.EIN[126]) / EN
  *             if object.QIN[126][I] < 0.0:
  *                 object.QIN[126][I] = 0.0             # <<<<<<<<<<<<<<
@@ -13198,7 +13198,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0x7E])[__pyx_v_I]) = 0.0;
 
-        /* "NITROGEN.pyx":1122
+        /* "gases/NITROGEN.pyx":1122
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[126])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * (EN + 2 * object.EIN[126]) / EN
  *             if object.QIN[126][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -13207,7 +13207,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NITROGEN.pyx":1124
+      /* "gases/NITROGEN.pyx":1124
  *             if object.QIN[126][I] < 0.0:
  *                 object.QIN[126][I] = 0.0
  *             object.PEQIN[126][I] = object.PEQIN[120][I]             # <<<<<<<<<<<<<<
@@ -13216,7 +13216,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0x7E])[__pyx_v_I]) = ((__pyx_v_object->PEQIN[0x78])[__pyx_v_I]);
 
-      /* "NITROGEN.pyx":1118
+      /* "gases/NITROGEN.pyx":1118
  *         if object.NANISO == 2:
  *             object.PEQIN[126][I] = 0.0
  *         if EN > object.EIN[126]:             # <<<<<<<<<<<<<<
@@ -13225,7 +13225,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1127
+    /* "gases/NITROGEN.pyx":1127
  * 
  *         #LOAD BREMSSTRAHLUNG X-SECTIONS
  *         object.QIN[127][I] = 0.0             # <<<<<<<<<<<<<<
@@ -13234,7 +13234,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x7F])[__pyx_v_I]) = 0.0;
 
-    /* "NITROGEN.pyx":1128
+    /* "gases/NITROGEN.pyx":1128
  *         #LOAD BREMSSTRAHLUNG X-SECTIONS
  *         object.QIN[127][I] = 0.0
  *         if EN > 1000:             # <<<<<<<<<<<<<<
@@ -13244,7 +13244,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_EN > 1000.0) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1129
+      /* "gases/NITROGEN.pyx":1129
  *         object.QIN[127][I] = 0.0
  *         if EN > 1000:
  *             object.QIN[127][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z7T, EBRM) * 2e-8             # <<<<<<<<<<<<<<
@@ -13253,7 +13253,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x7F])[__pyx_v_I]) = (__pyx_f_7GasUtil_QLSCALE(exp(__pyx_v_EN), __pyx_v_NBREM, __pyx_v_Z7T, __pyx_v_EBRM) * 2e-8);
 
-      /* "NITROGEN.pyx":1128
+      /* "gases/NITROGEN.pyx":1128
  *         #LOAD BREMSSTRAHLUNG X-SECTIONS
  *         object.QIN[127][I] = 0.0
  *         if EN > 1000:             # <<<<<<<<<<<<<<
@@ -13262,7 +13262,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1132
+    /* "gases/NITROGEN.pyx":1132
  * 
  *         # ROTATIONAL SUM
  *         SUMR = 0.0             # <<<<<<<<<<<<<<
@@ -13271,7 +13271,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_SUMR = 0.0;
 
-    /* "NITROGEN.pyx":1133
+    /* "gases/NITROGEN.pyx":1133
  *         # ROTATIONAL SUM
  *         SUMR = 0.0
  *         for J in range(76):             # <<<<<<<<<<<<<<
@@ -13281,7 +13281,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 0; __pyx_t_34 < 76; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":1134
+      /* "gases/NITROGEN.pyx":1134
  *         SUMR = 0.0
  *         for J in range(76):
  *             SUMR += object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -13291,7 +13291,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_SUMR = (__pyx_v_SUMR + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "NITROGEN.pyx":1137
+    /* "gases/NITROGEN.pyx":1137
  * 
  *         # VIBRATIONAL SUM
  *         SUMV = 0.0             # <<<<<<<<<<<<<<
@@ -13300,7 +13300,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_SUMV = 0.0;
 
-    /* "NITROGEN.pyx":1138
+    /* "gases/NITROGEN.pyx":1138
  *         # VIBRATIONAL SUM
  *         SUMV = 0.0
  *         for J in range(76, 92):             # <<<<<<<<<<<<<<
@@ -13310,7 +13310,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 76; __pyx_t_34 < 92; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":1139
+      /* "gases/NITROGEN.pyx":1139
  *         SUMV = 0.0
  *         for J in range(76, 92):
  *             SUMV += object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -13320,7 +13320,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_SUMV = (__pyx_v_SUMV + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "NITROGEN.pyx":1142
+    /* "gases/NITROGEN.pyx":1142
  * 
  *         #EXCITATION SUM
  *         SUMEX = 0.0             # <<<<<<<<<<<<<<
@@ -13329,7 +13329,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_SUMEX = 0.0;
 
-    /* "NITROGEN.pyx":1143
+    /* "gases/NITROGEN.pyx":1143
  *         #EXCITATION SUM
  *         SUMEX = 0.0
  *         for J in range(92, 111):             # <<<<<<<<<<<<<<
@@ -13339,7 +13339,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 92; __pyx_t_34 < 0x6F; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":1144
+      /* "gases/NITROGEN.pyx":1144
  *         SUMEX = 0.0
  *         for J in range(92, 111):
  *             SUMEX += object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -13349,7 +13349,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_SUMEX = (__pyx_v_SUMEX + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "NITROGEN.pyx":1147
+    /* "gases/NITROGEN.pyx":1147
  * 
  *         #EXCITATION SUM
  *         SUMEX1 = 0.0             # <<<<<<<<<<<<<<
@@ -13358,7 +13358,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_SUMEX1 = 0.0;
 
-    /* "NITROGEN.pyx":1148
+    /* "gases/NITROGEN.pyx":1148
  *         #EXCITATION SUM
  *         SUMEX1 = 0.0
  *         for J in range(111, 127):             # <<<<<<<<<<<<<<
@@ -13368,7 +13368,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_34 = 0x6F; __pyx_t_34 < 0x7F; __pyx_t_34+=1) {
       __pyx_v_J = __pyx_t_34;
 
-      /* "NITROGEN.pyx":1149
+      /* "gases/NITROGEN.pyx":1149
  *         SUMEX1 = 0.0
  *         for J in range(111, 127):
  *             SUMEX1 += object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -13378,7 +13378,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_SUMEX1 = (__pyx_v_SUMEX1 + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "NITROGEN.pyx":1151
+    /* "gases/NITROGEN.pyx":1151
  *             SUMEX1 += object.QIN[J][I]
  *         # GET CORRECT ELASTIC XSECTION BY SUBTRACTION OF ROTATION
  *         object.Q[1][I] -= SUMR             # <<<<<<<<<<<<<<
@@ -13389,7 +13389,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_34 = __pyx_v_I;
     ((__pyx_v_object->Q[__pyx_t_41])[__pyx_t_34]) = (((__pyx_v_object->Q[__pyx_t_41])[__pyx_t_34]) - __pyx_v_SUMR);
 
-    /* "NITROGEN.pyx":1153
+    /* "gases/NITROGEN.pyx":1153
  *         object.Q[1][I] -= SUMR
  * 
  *         if object.Q[1][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -13399,7 +13399,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((((__pyx_v_object->Q[1])[__pyx_v_I]) < 0.0) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1156
+      /* "gases/NITROGEN.pyx":1156
  *             # FOR VERY HIGH TEMPERATURES SOMETIMES SUMR BECOMES LARGER THAN
  *             # THE ELASTIC+ROT (ONLY IN FIRST TWO ENERGY BINS) FIX GT 0
  *             object.Q[1][I] = 0.95e-16             # <<<<<<<<<<<<<<
@@ -13408,7 +13408,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = 0.95e-16;
 
-      /* "NITROGEN.pyx":1153
+      /* "gases/NITROGEN.pyx":1153
  *         object.Q[1][I] -= SUMR
  * 
  *         if object.Q[1][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -13417,7 +13417,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NITROGEN.pyx":1158
+    /* "gases/NITROGEN.pyx":1158
  *             object.Q[1][I] = 0.95e-16
  * 
  *         object.Q[0][I] = object.Q[1][I] + object.Q[4][I] + object.QION[1][I] + SUMR + SUMV + SUMEX + SUMEX1             # <<<<<<<<<<<<<<
@@ -13427,7 +13427,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = ((((((((__pyx_v_object->Q[1])[__pyx_v_I]) + ((__pyx_v_object->Q[4])[__pyx_v_I])) + ((__pyx_v_object->QION[1])[__pyx_v_I])) + __pyx_v_SUMR) + __pyx_v_SUMV) + __pyx_v_SUMEX) + __pyx_v_SUMEX1);
   }
 
-  /* "NITROGEN.pyx":1160
+  /* "gases/NITROGEN.pyx":1160
  *         object.Q[0][I] = object.Q[1][I] + object.Q[4][I] + object.QION[1][I] + SUMR + SUMV + SUMEX + SUMEX1
  * 
  *     for I in range(1,128):             # <<<<<<<<<<<<<<
@@ -13437,7 +13437,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_33 = 1; __pyx_t_33 < 0x80; __pyx_t_33+=1) {
     __pyx_v_I = __pyx_t_33;
 
-    /* "NITROGEN.pyx":1161
+    /* "gases/NITROGEN.pyx":1161
  * 
  *     for I in range(1,128):
  *         J = 128 - I - 1             # <<<<<<<<<<<<<<
@@ -13446,7 +13446,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_J = ((0x80 - __pyx_v_I) - 1);
 
-    /* "NITROGEN.pyx":1162
+    /* "gases/NITROGEN.pyx":1162
  *     for I in range(1,128):
  *         J = 128 - I - 1
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -13456,7 +13456,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_39 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_39) {
 
-      /* "NITROGEN.pyx":1163
+      /* "gases/NITROGEN.pyx":1163
  *         J = 128 - I - 1
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -13465,7 +13465,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "NITROGEN.pyx":1162
+      /* "gases/NITROGEN.pyx":1162
  *     for I in range(1,128):
  *         J = 128 - I - 1
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -13475,7 +13475,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "NITROGEN.pyx":1164
+  /* "gases/NITROGEN.pyx":1164
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *     if object.NIN < 77:             # <<<<<<<<<<<<<<
@@ -13485,7 +13485,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_39 = ((__pyx_v_object->NIN < 77) != 0);
   if (__pyx_t_39) {
 
-    /* "NITROGEN.pyx":1165
+    /* "gases/NITROGEN.pyx":1165
  *             object.NIN = J
  *     if object.NIN < 77:
  *         object.NIN = 77             # <<<<<<<<<<<<<<
@@ -13493,7 +13493,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_object->NIN = 77;
 
-    /* "NITROGEN.pyx":1164
+    /* "gases/NITROGEN.pyx":1164
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *     if object.NIN < 77:             # <<<<<<<<<<<<<<
@@ -13502,14 +13502,14 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   }
 
-  /* "NITROGEN.pyx":1166
+  /* "gases/NITROGEN.pyx":1166
  *     if object.NIN < 77:
  *         object.NIN = 77
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "NITROGEN.pyx":17
+  /* "gases/NITROGEN.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas16(Gas*object):             # <<<<<<<<<<<<<<
@@ -13523,7 +13523,7 @@ static void __pyx_f_8NITROGEN_Gas16(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("NITROGEN.Gas16", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.NITROGEN.Gas16", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -16632,7 +16632,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas16", (void (*)(void))__pyx_f_8NITROGEN_Gas16, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas16", (void (*)(void))__pyx_f_5gases_8NITROGEN_Gas16, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -16886,14 +16886,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_NITROGEN) {
+  if (__pyx_module_is_main_gases__NITROGEN) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "NITROGEN")) {
-      if (unlikely(PyDict_SetItemString(modules, "NITROGEN", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.NITROGEN")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.NITROGEN", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -16914,7 +16914,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "NITROGEN.pyx":3
+  /* "gases/NITROGEN.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -16926,7 +16926,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "NITROGEN.pyx":5
+  /* "gases/NITROGEN.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -16938,7 +16938,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "NITROGEN.pyx":10
+  /* "gases/NITROGEN.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -16953,7 +16953,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "NITROGEN.pyx":1
+  /* "gases/NITROGEN.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -16979,11 +16979,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init NITROGEN", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.NITROGEN", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init NITROGEN");
+    PyErr_SetString(PyExc_ImportError, "init gases.NITROGEN");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

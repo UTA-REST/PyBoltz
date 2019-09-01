@@ -181,7 +181,7 @@ cpdef MONTEBT(Magboltz Object):
                 # FIND IDENTITY OF GAS FOR COLLISION
                 KGAS = 0
                 R2 = random_uniform(RDUM)
-                if Object.NGAS == 1:
+                if Object.NumberOfGases == 1:
                     KGAS = 0
                 else:
                     while (Object.TCFMXG[KGAS] < R2):
@@ -401,7 +401,7 @@ cpdef MONTEBT(Magboltz Object):
         EBAR = 0.0
         for IK in range(4000):
             TCFSUM = 0.0
-            for KI in range(Object.NGAS):
+            for KI in range(Object.NumberOfGases):
                 TCFSUM += Object.TCF[KI][IK]
             EBAR += Object.E[IK] * Object.SPEC[IK] / TCFSUM
         Object.AVE = EBAR / Object.ST
@@ -506,7 +506,7 @@ cpdef MONTEBT(Magboltz Object):
 
     ANCATT = 0.0
     ANCION = 0.0
-    for I in range(Object.NGAS):
+    for I in range(Object.NumberOfGases):
         ANCATT += Object.ICOLL[I][2]
         ANCION += Object.ICOLL[I][1]
     ANCION += IEXTRA

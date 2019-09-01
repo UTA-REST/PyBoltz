@@ -63,22 +63,22 @@ class PyBoltzRun:
             print("Error! Gas fractions don't add to 100%")
             return False
         MBObject.EFIELD=Inputs['EField_Vcm']
-        MBObject.NGAS=len(Inputs['Gases'])
-        NGASN=np.zeros(6,dtype='int')
+        MBObject.NumberOfGases=len(Inputs['Gases'])
+        NumberOfGasesN=np.zeros(6,dtype='int')
         FRAC=np.zeros(6,dtype='float')
         for i in range(len(Inputs['Gases'])):
-            NGASN[i] = self.GasCode(Inputs['Gases'][i])
+            NumberOfGasesN[i] = self.GasCode(Inputs['Gases'][i])
             FRAC[i]  = Inputs['Fractions'][i]
-        MBObject.NGASN  = NGASN
+        MBObject.NumberOfGasesN  = NumberOfGasesN
         MBObject.FRAC   = FRAC
         MBObject.NMAX   = Inputs['Max_collisions']
         MBObject.IPEN   = Inputs['Enable_penning']
-        MBObject.ITHRM  = Inputs['Enable_thermal_motion']
+        MBObject.EnableThermalMotion  = Inputs['Enable_thermal_motion']
         MBObject.EFINAL = Inputs['Max_electron_energy']
         MBObject.TEMPC  = Inputs['Temperature_C']
         MBObject.TORR   = Inputs['Pressure_Torr']
-        MBObject.BMAG   = Inputs['BField_Tesla']
-        MBObject.BTHETA = Inputs['BField_angle']
+        MBObject.BFieldMag   = Inputs['BField_Tesla']
+        MBObject.BFieldAngle = Inputs['BField_angle']
         MBObject.OF     = Inputs['OF']
         MBObject.NANISO = Inputs['Angular_dist_model']
         return True

@@ -3,8 +3,8 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt,pow,tan,atan
 
 
 
-from COLF cimport COLF
-from COLFT cimport COLFT
+from CollisionFreq cimport CollisionFreq
+from CollisionFreqT cimport CollisionFreqT
 cimport cython
 
 @cython.cdivision(True)
@@ -14,10 +14,10 @@ cpdef TOF(Magboltz object, int JPRT):
     cdef double DUM[6],DLTF[8],DXTF[8],DYTF[8],WR[8],ANTPL[8],FRION,FRATT,ATTOINT,CORERR,TDT2,TDT3
     cdef double ANST2,ANST3,ANST4,ANST5,ANST6,ANST7,ANST8,ATER
     cdef int I1,I2,I
-    if object.ITHRM == 1:
-        DUM = COLFT(object)
-    if object.ITHRM == 0:
-        DUM = COLF(object)
+    if object.EnableThermalMotion == 1:
+        DUM = CollisionFreqT(object)
+    if object.EnableThermalMotion == 0:
+        DUM = CollisionFreq(object)
 
     FRION = DUM[2]
     FRATT = DUM[3]

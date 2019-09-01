@@ -448,7 +448,7 @@ cpdef MONTEB(Magboltz Object):
 
     ANCATT = 0.0
     ANCION = 0.0
-    for I in range(Object.NGAS):
+    for I in range(Object.NumberOfGases):
         ANCATT += Object.ICOLLNT[5 * (I + 1) - 3]
         ANCION += Object.ICOLLNT[5 * (I + 1) - 4]
     ANCION += IEXTRA

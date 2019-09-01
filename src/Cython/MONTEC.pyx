@@ -139,9 +139,9 @@ cpdef MONTEC(Magboltz Object):
     Object.SMALL = 1e-20
     Object.TMAX1 = 0.0
     Object.API = acos(-1)
-    RCS = cos((Object.BTHETA - 90) * Object.API / 180)
-    RSN = sin((Object.BTHETA - 90) * Object.API / 180)
-    RTHETA = Object.BTHETA * Object.API / 180
+    RCS = cos((Object.BFieldAngle - 90) * Object.API / 180)
+    RSN = sin((Object.BFieldAngle - 90) * Object.API / 180)
+    RTHETA = Object.BFieldAngle * Object.API / 180
     EFZ100 = Object.EFIELD * 100 * sin(RTHETA)
     EFX100 = Object.EFIELD * 100 * cos(RTHETA)
     F1 = Object.EFIELD * Object.CONST2 * cos(RTHETA)
@@ -499,7 +499,7 @@ cpdef MONTEC(Magboltz Object):
 
     ANCATT = 0.0
     ANCION = 0.0
-    for I in range(Object.NGAS):
+    for I in range(Object.NumberOfGases):
         ANCATT += Object.ICOLLNT[5 * (I + 1) - 3]
         ANCION += Object.ICOLLNT[5 * (I + 1) - 4]
     ANCION += IEXTRA

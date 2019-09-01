@@ -1,5 +1,5 @@
-from COLF cimport COLF
-from COLFT cimport COLFT
+from CollisionFreq cimport CollisionFreq
+from CollisionFreqT cimport CollisionFreqT
 
 from Magboltz cimport Magboltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow,tan,atan
@@ -48,10 +48,10 @@ cpdef SST(Magboltz object):
     DLSST[0] = ((object.TTMSPL[0] / object.TSSUM[0]) - (object.TMSPL[0] / object.TSSUM[0]) ** 2) * WSSST[
         0] ** 3 / (
                        2 * object.ZSTEP)
-    if object.ITHRM == 1:
-        DUM = COLFT(object)
-    if object.ITHRM == 0:
-        DUM = COLF(object)
+    if object.EnableThermalMotion == 1:
+        DUM = CollisionFreqT(object)
+    if object.EnableThermalMotion == 0:
+        DUM = CollisionFreq(object)
     FRION = DUM[2]
     FRATT = DUM[3]
     ATTOINT = FRATT / FRION

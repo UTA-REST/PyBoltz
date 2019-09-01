@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "HELIUM3",
+        "name": "gases.HELIUM3",
         "sources": [
-            "HELIUM3.pyx"
+            "gases/HELIUM3.pyx"
         ]
     },
-    "module_name": "HELIUM3"
+    "module_name": "gases.HELIUM3"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__HELIUM3
-#define __PYX_HAVE_API__HELIUM3
+#define __PYX_HAVE__gases__HELIUM3
+#define __PYX_HAVE_API__gases__HELIUM3
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "HELIUM3.pyx",
+  "gases/HELIUM3.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1686,13 +1686,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'HELIUM3' */
+/* Module declarations from 'gases.HELIUM3' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "HELIUM3"
-extern int __pyx_module_is_main_HELIUM3;
-int __pyx_module_is_main_HELIUM3 = 0;
+#define __Pyx_MODULE_NAME "gases.HELIUM3"
+extern int __pyx_module_is_main_gases__HELIUM3;
+int __pyx_module_is_main_gases__HELIUM3 = 0;
 
-/* Implementation of 'HELIUM3' */
+/* Implementation of 'gases.HELIUM3' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1912,7 +1912,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "HELIUM3.pyx":17
+/* "gases/HELIUM3.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas4(Gas*object):             # <<<<<<<<<<<<<<
@@ -1920,7 +1920,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Helium4 gas.
  */
 
-static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEN[0x90];
   double __pyx_v_YEM[0x90];
@@ -2112,7 +2112,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   long __pyx_t_84;
   __Pyx_RefNannySetupContext("Gas4", 0);
 
-  /* "HELIUM3.pyx":21
+  /* "gases/HELIUM3.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Helium4 gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2160,7 +2160,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":28
+  /* "gases/HELIUM3.pyx":28
  *     cdef int IOFFN[49], IOFFION[2]
  *     # Same cross sections as Helium4
  *     XEN = gd['gas3/XEN']             # <<<<<<<<<<<<<<
@@ -2177,7 +2177,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (0x90));
 
-  /* "HELIUM3.pyx":29
+  /* "gases/HELIUM3.pyx":29
  *     # Same cross sections as Helium4
  *     XEN = gd['gas3/XEN']
  *     YEM = gd['gas3/YEM']             # <<<<<<<<<<<<<<
@@ -2194,7 +2194,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEM[0]), __pyx_t_5, sizeof(__pyx_v_YEM[0]) * (0x90));
 
-  /* "HELIUM3.pyx":30
+  /* "gases/HELIUM3.pyx":30
  *     XEN = gd['gas3/XEN']
  *     YEM = gd['gas3/YEM']
  *     YEL = gd['gas3/YEL']             # <<<<<<<<<<<<<<
@@ -2211,7 +2211,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEL[0]), __pyx_t_5, sizeof(__pyx_v_YEL[0]) * (0x90));
 
-  /* "HELIUM3.pyx":31
+  /* "gases/HELIUM3.pyx":31
  *     YEM = gd['gas3/YEM']
  *     YEL = gd['gas3/YEL']
  *     YEPS = gd['gas3/YEPS']             # <<<<<<<<<<<<<<
@@ -2228,7 +2228,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_5, sizeof(__pyx_v_YEPS[0]) * (0x90));
 
-  /* "HELIUM3.pyx":32
+  /* "gases/HELIUM3.pyx":32
  *     YEL = gd['gas3/YEL']
  *     YEPS = gd['gas3/YEPS']
  *     XION = gd['gas3/XION']             # <<<<<<<<<<<<<<
@@ -2241,7 +2241,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_6, sizeof(__pyx_v_XION[0]) * (90));
 
-  /* "HELIUM3.pyx":33
+  /* "gases/HELIUM3.pyx":33
  *     YEPS = gd['gas3/YEPS']
  *     XION = gd['gas3/XION']
  *     YION = gd['gas3/YION']             # <<<<<<<<<<<<<<
@@ -2254,7 +2254,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_6, sizeof(__pyx_v_YION[0]) * (90));
 
-  /* "HELIUM3.pyx":34
+  /* "gases/HELIUM3.pyx":34
  *     XION = gd['gas3/XION']
  *     YION = gd['gas3/YION']
  *     YINC = gd['gas3/YINC']             # <<<<<<<<<<<<<<
@@ -2267,7 +2267,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YINC[0]), __pyx_t_6, sizeof(__pyx_v_YINC[0]) * (90));
 
-  /* "HELIUM3.pyx":35
+  /* "gases/HELIUM3.pyx":35
  *     YION = gd['gas3/YION']
  *     YINC = gd['gas3/YINC']
  *     X23S = gd['gas3/X23S']             # <<<<<<<<<<<<<<
@@ -2284,7 +2284,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X23S[0]), __pyx_t_7, sizeof(__pyx_v_X23S[0]) * (0x8B));
 
-  /* "HELIUM3.pyx":36
+  /* "gases/HELIUM3.pyx":36
  *     YINC = gd['gas3/YINC']
  *     X23S = gd['gas3/X23S']
  *     Y23S = gd['gas3/Y23S']             # <<<<<<<<<<<<<<
@@ -2301,7 +2301,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y23S[0]), __pyx_t_7, sizeof(__pyx_v_Y23S[0]) * (0x8B));
 
-  /* "HELIUM3.pyx":37
+  /* "gases/HELIUM3.pyx":37
  *     X23S = gd['gas3/X23S']
  *     Y23S = gd['gas3/Y23S']
  *     X21S = gd['gas3/X21S']             # <<<<<<<<<<<<<<
@@ -2318,7 +2318,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X21S[0]), __pyx_t_8, sizeof(__pyx_v_X21S[0]) * (0x80));
 
-  /* "HELIUM3.pyx":38
+  /* "gases/HELIUM3.pyx":38
  *     Y23S = gd['gas3/Y23S']
  *     X21S = gd['gas3/X21S']
  *     Y21S = gd['gas3/Y21S']             # <<<<<<<<<<<<<<
@@ -2335,7 +2335,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y21S[0]), __pyx_t_8, sizeof(__pyx_v_Y21S[0]) * (0x80));
 
-  /* "HELIUM3.pyx":39
+  /* "gases/HELIUM3.pyx":39
  *     X21S = gd['gas3/X21S']
  *     Y21S = gd['gas3/Y21S']
  *     X23P = gd['gas3/X23P']             # <<<<<<<<<<<<<<
@@ -2352,7 +2352,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X23P[0]), __pyx_t_8, sizeof(__pyx_v_X23P[0]) * (0x80));
 
-  /* "HELIUM3.pyx":40
+  /* "gases/HELIUM3.pyx":40
  *     Y21S = gd['gas3/Y21S']
  *     X23P = gd['gas3/X23P']
  *     Y23P = gd['gas3/Y23P']             # <<<<<<<<<<<<<<
@@ -2369,7 +2369,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y23P[0]), __pyx_t_8, sizeof(__pyx_v_Y23P[0]) * (0x80));
 
-  /* "HELIUM3.pyx":41
+  /* "gases/HELIUM3.pyx":41
  *     X23P = gd['gas3/X23P']
  *     Y23P = gd['gas3/Y23P']
  *     X21P = gd['gas3/X21P']             # <<<<<<<<<<<<<<
@@ -2386,7 +2386,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X21P[0]), __pyx_t_9, sizeof(__pyx_v_X21P[0]) * (0x7D));
 
-  /* "HELIUM3.pyx":42
+  /* "gases/HELIUM3.pyx":42
  *     Y23P = gd['gas3/Y23P']
  *     X21P = gd['gas3/X21P']
  *     Y21P = gd['gas3/Y21P']             # <<<<<<<<<<<<<<
@@ -2403,7 +2403,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y21P[0]), __pyx_t_9, sizeof(__pyx_v_Y21P[0]) * (0x7D));
 
-  /* "HELIUM3.pyx":43
+  /* "gases/HELIUM3.pyx":43
  *     X21P = gd['gas3/X21P']
  *     Y21P = gd['gas3/Y21P']
  *     X33S = gd['gas3/X33S']             # <<<<<<<<<<<<<<
@@ -2420,7 +2420,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X33S[0]), __pyx_t_10, sizeof(__pyx_v_X33S[0]) * (0x6A));
 
-  /* "HELIUM3.pyx":44
+  /* "gases/HELIUM3.pyx":44
  *     Y21P = gd['gas3/Y21P']
  *     X33S = gd['gas3/X33S']
  *     Y33S = gd['gas3/Y33S']             # <<<<<<<<<<<<<<
@@ -2437,7 +2437,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y33S[0]), __pyx_t_10, sizeof(__pyx_v_Y33S[0]) * (0x6A));
 
-  /* "HELIUM3.pyx":45
+  /* "gases/HELIUM3.pyx":45
  *     X33S = gd['gas3/X33S']
  *     Y33S = gd['gas3/Y33S']
  *     X31S = gd['gas3/X31S']             # <<<<<<<<<<<<<<
@@ -2450,7 +2450,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X31S[0]), __pyx_t_11, sizeof(__pyx_v_X31S[0]) * (87));
 
-  /* "HELIUM3.pyx":46
+  /* "gases/HELIUM3.pyx":46
  *     Y33S = gd['gas3/Y33S']
  *     X31S = gd['gas3/X31S']
  *     Y31S = gd['gas3/Y31S']             # <<<<<<<<<<<<<<
@@ -2463,7 +2463,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y31S[0]), __pyx_t_11, sizeof(__pyx_v_Y31S[0]) * (87));
 
-  /* "HELIUM3.pyx":47
+  /* "gases/HELIUM3.pyx":47
  *     X31S = gd['gas3/X31S']
  *     Y31S = gd['gas3/Y31S']
  *     X33P = gd['gas3/X33P']             # <<<<<<<<<<<<<<
@@ -2476,7 +2476,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X33P[0]), __pyx_t_12, sizeof(__pyx_v_X33P[0]) * (91));
 
-  /* "HELIUM3.pyx":48
+  /* "gases/HELIUM3.pyx":48
  *     Y31S = gd['gas3/Y31S']
  *     X33P = gd['gas3/X33P']
  *     Y33P = gd['gas3/Y33P']             # <<<<<<<<<<<<<<
@@ -2489,7 +2489,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y33P[0]), __pyx_t_12, sizeof(__pyx_v_Y33P[0]) * (91));
 
-  /* "HELIUM3.pyx":49
+  /* "gases/HELIUM3.pyx":49
  *     X33P = gd['gas3/X33P']
  *     Y33P = gd['gas3/Y33P']
  *     X33D = gd['gas3/X33D']             # <<<<<<<<<<<<<<
@@ -2506,7 +2506,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X33D[0]), __pyx_t_13, sizeof(__pyx_v_X33D[0]) * (0x6C));
 
-  /* "HELIUM3.pyx":50
+  /* "gases/HELIUM3.pyx":50
  *     Y33P = gd['gas3/Y33P']
  *     X33D = gd['gas3/X33D']
  *     Y33D = gd['gas3/Y33D']             # <<<<<<<<<<<<<<
@@ -2523,7 +2523,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y33D[0]), __pyx_t_13, sizeof(__pyx_v_Y33D[0]) * (0x6C));
 
-  /* "HELIUM3.pyx":51
+  /* "gases/HELIUM3.pyx":51
  *     X33D = gd['gas3/X33D']
  *     Y33D = gd['gas3/Y33D']
  *     X31D = gd['gas3/X31D']             # <<<<<<<<<<<<<<
@@ -2536,7 +2536,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X31D[0]), __pyx_t_14, sizeof(__pyx_v_X31D[0]) * (94));
 
-  /* "HELIUM3.pyx":52
+  /* "gases/HELIUM3.pyx":52
  *     Y33D = gd['gas3/Y33D']
  *     X31D = gd['gas3/X31D']
  *     Y31D = gd['gas3/Y31D']             # <<<<<<<<<<<<<<
@@ -2549,7 +2549,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y31D[0]), __pyx_t_14, sizeof(__pyx_v_Y31D[0]) * (94));
 
-  /* "HELIUM3.pyx":53
+  /* "gases/HELIUM3.pyx":53
  *     X31D = gd['gas3/X31D']
  *     Y31D = gd['gas3/Y31D']
  *     X31P = gd['gas3/X31P']             # <<<<<<<<<<<<<<
@@ -2566,7 +2566,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X31P[0]), __pyx_t_15, sizeof(__pyx_v_X31P[0]) * (0x72));
 
-  /* "HELIUM3.pyx":54
+  /* "gases/HELIUM3.pyx":54
  *     Y31D = gd['gas3/Y31D']
  *     X31P = gd['gas3/X31P']
  *     Y31P = gd['gas3/Y31P']             # <<<<<<<<<<<<<<
@@ -2583,7 +2583,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y31P[0]), __pyx_t_15, sizeof(__pyx_v_Y31P[0]) * (0x72));
 
-  /* "HELIUM3.pyx":55
+  /* "gases/HELIUM3.pyx":55
  *     X31P = gd['gas3/X31P']
  *     Y31P = gd['gas3/Y31P']
  *     X43S = gd['gas3/X43S']             # <<<<<<<<<<<<<<
@@ -2596,7 +2596,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X43S[0]), __pyx_t_16, sizeof(__pyx_v_X43S[0]) * (59));
 
-  /* "HELIUM3.pyx":56
+  /* "gases/HELIUM3.pyx":56
  *     Y31P = gd['gas3/Y31P']
  *     X43S = gd['gas3/X43S']
  *     Y43S = gd['gas3/Y43S']             # <<<<<<<<<<<<<<
@@ -2609,7 +2609,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y43S[0]), __pyx_t_16, sizeof(__pyx_v_Y43S[0]) * (59));
 
-  /* "HELIUM3.pyx":57
+  /* "gases/HELIUM3.pyx":57
  *     X43S = gd['gas3/X43S']
  *     Y43S = gd['gas3/Y43S']
  *     X41S = gd['gas3/X41S']             # <<<<<<<<<<<<<<
@@ -2622,7 +2622,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X41S[0]), __pyx_t_17, sizeof(__pyx_v_X41S[0]) * (55));
 
-  /* "HELIUM3.pyx":58
+  /* "gases/HELIUM3.pyx":58
  *     Y43S = gd['gas3/Y43S']
  *     X41S = gd['gas3/X41S']
  *     Y41S = gd['gas3/Y41S']             # <<<<<<<<<<<<<<
@@ -2635,7 +2635,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y41S[0]), __pyx_t_17, sizeof(__pyx_v_Y41S[0]) * (55));
 
-  /* "HELIUM3.pyx":59
+  /* "gases/HELIUM3.pyx":59
  *     X41S = gd['gas3/X41S']
  *     Y41S = gd['gas3/Y41S']
  *     X43P = gd['gas3/X43P']             # <<<<<<<<<<<<<<
@@ -2648,7 +2648,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X43P[0]), __pyx_t_18, sizeof(__pyx_v_X43P[0]) * (76));
 
-  /* "HELIUM3.pyx":60
+  /* "gases/HELIUM3.pyx":60
  *     Y41S = gd['gas3/Y41S']
  *     X43P = gd['gas3/X43P']
  *     Y43P = gd['gas3/Y43P']             # <<<<<<<<<<<<<<
@@ -2661,7 +2661,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y43P[0]), __pyx_t_18, sizeof(__pyx_v_Y43P[0]) * (76));
 
-  /* "HELIUM3.pyx":61
+  /* "gases/HELIUM3.pyx":61
  *     X43P = gd['gas3/X43P']
  *     Y43P = gd['gas3/Y43P']
  *     X43D = gd['gas3/X43D']             # <<<<<<<<<<<<<<
@@ -2674,7 +2674,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X43D[0]), __pyx_t_19, sizeof(__pyx_v_X43D[0]) * (65));
 
-  /* "HELIUM3.pyx":62
+  /* "gases/HELIUM3.pyx":62
  *     Y43P = gd['gas3/Y43P']
  *     X43D = gd['gas3/X43D']
  *     Y43D = gd['gas3/Y43D']             # <<<<<<<<<<<<<<
@@ -2687,7 +2687,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y43D[0]), __pyx_t_19, sizeof(__pyx_v_Y43D[0]) * (65));
 
-  /* "HELIUM3.pyx":63
+  /* "gases/HELIUM3.pyx":63
  *     X43D = gd['gas3/X43D']
  *     Y43D = gd['gas3/Y43D']
  *     X41D = gd['gas3/X41D']             # <<<<<<<<<<<<<<
@@ -2700,7 +2700,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X41D[0]), __pyx_t_20, sizeof(__pyx_v_X41D[0]) * (53));
 
-  /* "HELIUM3.pyx":64
+  /* "gases/HELIUM3.pyx":64
  *     Y43D = gd['gas3/Y43D']
  *     X41D = gd['gas3/X41D']
  *     Y41D = gd['gas3/Y41D']             # <<<<<<<<<<<<<<
@@ -2713,7 +2713,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y41D[0]), __pyx_t_20, sizeof(__pyx_v_Y41D[0]) * (53));
 
-  /* "HELIUM3.pyx":65
+  /* "gases/HELIUM3.pyx":65
  *     X41D = gd['gas3/X41D']
  *     Y41D = gd['gas3/Y41D']
  *     X43F = gd['gas3/X43F']             # <<<<<<<<<<<<<<
@@ -2726,7 +2726,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X43F[0]), __pyx_t_21, sizeof(__pyx_v_X43F[0]) * (40));
 
-  /* "HELIUM3.pyx":66
+  /* "gases/HELIUM3.pyx":66
  *     Y41D = gd['gas3/Y41D']
  *     X43F = gd['gas3/X43F']
  *     Y43F = gd['gas3/Y43F']             # <<<<<<<<<<<<<<
@@ -2739,7 +2739,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y43F[0]), __pyx_t_21, sizeof(__pyx_v_Y43F[0]) * (40));
 
-  /* "HELIUM3.pyx":67
+  /* "gases/HELIUM3.pyx":67
  *     X43F = gd['gas3/X43F']
  *     Y43F = gd['gas3/Y43F']
  *     X41F = gd['gas3/X41F']             # <<<<<<<<<<<<<<
@@ -2752,7 +2752,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X41F[0]), __pyx_t_22, sizeof(__pyx_v_X41F[0]) * (57));
 
-  /* "HELIUM3.pyx":68
+  /* "gases/HELIUM3.pyx":68
  *     Y43F = gd['gas3/Y43F']
  *     X41F = gd['gas3/X41F']
  *     Y41F = gd['gas3/Y41F']             # <<<<<<<<<<<<<<
@@ -2765,7 +2765,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y41F[0]), __pyx_t_22, sizeof(__pyx_v_Y41F[0]) * (57));
 
-  /* "HELIUM3.pyx":69
+  /* "gases/HELIUM3.pyx":69
  *     X41F = gd['gas3/X41F']
  *     Y41F = gd['gas3/Y41F']
  *     X41P = gd['gas3/X41P']             # <<<<<<<<<<<<<<
@@ -2778,7 +2778,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X41P[0]), __pyx_t_23, sizeof(__pyx_v_X41P[0]) * (96));
 
-  /* "HELIUM3.pyx":70
+  /* "gases/HELIUM3.pyx":70
  *     Y41F = gd['gas3/Y41F']
  *     X41P = gd['gas3/X41P']
  *     Y41P = gd['gas3/Y41P']             # <<<<<<<<<<<<<<
@@ -2791,7 +2791,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y41P[0]), __pyx_t_23, sizeof(__pyx_v_Y41P[0]) * (96));
 
-  /* "HELIUM3.pyx":71
+  /* "gases/HELIUM3.pyx":71
  *     X41P = gd['gas3/X41P']
  *     Y41P = gd['gas3/Y41P']
  *     Z2T = gd['gas3/Z2T']             # <<<<<<<<<<<<<<
@@ -2804,7 +2804,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z2T[0]), __pyx_t_24, sizeof(__pyx_v_Z2T[0]) * (25));
 
-  /* "HELIUM3.pyx":72
+  /* "gases/HELIUM3.pyx":72
  *     Y41P = gd['gas3/Y41P']
  *     Z2T = gd['gas3/Z2T']
  *     EBRM = gd['gas3/EBRM']             # <<<<<<<<<<<<<<
@@ -2817,7 +2817,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_24, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "HELIUM3.pyx":74
+  /* "gases/HELIUM3.pyx":74
  *     EBRM = gd['gas3/EBRM']
  * 
  *     cdef double EMASS2 = <float> (1021997.804)             # <<<<<<<<<<<<<<
@@ -2826,7 +2826,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = ((float)1021997.804);
 
-  /* "HELIUM3.pyx":75
+  /* "gases/HELIUM3.pyx":75
  * 
  *     cdef double EMASS2 = <float> (1021997.804)
  *     cdef double API = acos(-1)             # <<<<<<<<<<<<<<
@@ -2835,7 +2835,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0);
 
-  /* "HELIUM3.pyx":76
+  /* "gases/HELIUM3.pyx":76
  *     cdef double EMASS2 = <float> (1021997.804)
  *     cdef double API = acos(-1)
  *     cdef double A0 = 0.52917720859e-8             # <<<<<<<<<<<<<<
@@ -2844,7 +2844,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-8;
 
-  /* "HELIUM3.pyx":77
+  /* "gases/HELIUM3.pyx":77
  *     cdef double API = acos(-1)
  *     cdef double A0 = 0.52917720859e-8
  *     cdef double RY = <float> (13.60569193)             # <<<<<<<<<<<<<<
@@ -2853,7 +2853,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = ((float)13.60569193);
 
-  /* "HELIUM3.pyx":78
+  /* "gases/HELIUM3.pyx":78
  *     cdef double A0 = 0.52917720859e-8
  *     cdef double RY = <float> (13.60569193)
  *     cdef double BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -2862,7 +2862,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "HELIUM3.pyx":79
+  /* "gases/HELIUM3.pyx":79
  *     cdef double RY = <float> (13.60569193)
  *     cdef double BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -2871,7 +2871,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "HELIUM3.pyx":80
+  /* "gases/HELIUM3.pyx":80
  *     cdef double BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27             # <<<<<<<<<<<<<<
@@ -2880,7 +2880,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "HELIUM3.pyx":82
+  /* "gases/HELIUM3.pyx":82
  *     cdef double AMU = 1.660538921e-27
  *     # BORN BETHE VALUES FOR IONISATION
  *     cdef double CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -2889,7 +2889,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "HELIUM3.pyx":83
+  /* "gases/HELIUM3.pyx":83
  *     # BORN BETHE VALUES FOR IONISATION
  *     cdef double CONST = 1.873884e-20
  *     cdef double AM2 = <float> (0.489)             # <<<<<<<<<<<<<<
@@ -2898,7 +2898,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = ((float)0.489);
 
-  /* "HELIUM3.pyx":84
+  /* "gases/HELIUM3.pyx":84
  *     cdef double CONST = 1.873884e-20
  *     cdef double AM2 = <float> (0.489)
  *     cdef double C = <float> (5.50)             # <<<<<<<<<<<<<<
@@ -2907,7 +2907,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = ((float)5.50);
 
-  /* "HELIUM3.pyx":85
+  /* "gases/HELIUM3.pyx":85
  *     cdef double AM2 = <float> (0.489)
  *     cdef double C = <float> (5.50)
  *     object.NION = 2             # <<<<<<<<<<<<<<
@@ -2916,7 +2916,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 2;
 
-  /* "HELIUM3.pyx":86
+  /* "gases/HELIUM3.pyx":86
  *     cdef double C = <float> (5.50)
  *     object.NION = 2
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -2925,7 +2925,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "HELIUM3.pyx":87
+  /* "gases/HELIUM3.pyx":87
  *     object.NION = 2
  *     object.NATT = 1
  *     object.NIN = 49             # <<<<<<<<<<<<<<
@@ -2934,7 +2934,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 49;
 
-  /* "HELIUM3.pyx":88
+  /* "gases/HELIUM3.pyx":88
  *     object.NATT = 1
  *     object.NIN = 49
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -2943,7 +2943,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "HELIUM3.pyx":89
+  /* "gases/HELIUM3.pyx":89
  *     object.NIN = 49
  *     object.NNULL = 0
  *     cdef int NBREM = 25, NDATA = 144, NIOND = 90, N23S = 139, N21S = 128, N23P = 128, N21P = 125, N33S = 106, N31S = 87, N33P = 91, N33D = 108, N31D = 94             # <<<<<<<<<<<<<<
@@ -2963,7 +2963,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_N33D = 0x6C;
   __pyx_v_N31D = 94;
 
-  /* "HELIUM3.pyx":90
+  /* "gases/HELIUM3.pyx":90
  *     object.NNULL = 0
  *     cdef int NBREM = 25, NDATA = 144, NIOND = 90, N23S = 139, N21S = 128, N23P = 128, N21P = 125, N33S = 106, N31S = 87, N33P = 91, N33D = 108, N31D = 94
  *     cdef int N31P = 114, N43S = 59, N41S = 55, N43P = 76, N43D = 65, N41D = 53, N43F = 40, N41F = 57, N41P = 96             # <<<<<<<<<<<<<<
@@ -2980,7 +2980,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_N41F = 57;
   __pyx_v_N41P = 96;
 
-  /* "HELIUM3.pyx":91
+  /* "gases/HELIUM3.pyx":91
  *     cdef int NBREM = 25, NDATA = 144, NIOND = 90, N23S = 139, N21S = 128, N23P = 128, N21P = 125, N33S = 106, N31S = 87, N33P = 91, N33D = 108, N31D = 94
  *     cdef int N31P = 114, N43S = 59, N41S = 55, N43P = 76, N43D = 65, N41D = 53, N43F = 40, N41F = 57, N41P = 96
  *     object.E = [0.0, <float> (2.0) * EMASS / (<float> (3.0160) * AMU), <float> (24.58739), 0, 0.0,             # <<<<<<<<<<<<<<
@@ -2995,7 +2995,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_25[5] = ((float)0.0);
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_25, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "HELIUM3.pyx":94
+  /* "gases/HELIUM3.pyx":94
  *                 <float> (0.0)]
  *     #IONISATION ENERGIES
  *     object.EION[0] = <float> (24.58739)             # <<<<<<<<<<<<<<
@@ -3004,7 +3004,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EION[0]) = ((float)24.58739);
 
-  /* "HELIUM3.pyx":95
+  /* "gases/HELIUM3.pyx":95
  *     #IONISATION ENERGIES
  *     object.EION[0] = <float> (24.58739)
  *     object.EION[1] = <float> (79.00515)             # <<<<<<<<<<<<<<
@@ -3013,7 +3013,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EION[1]) = ((float)79.00515);
 
-  /* "HELIUM3.pyx":97
+  /* "gases/HELIUM3.pyx":97
  *     object.EION[1] = <float> (79.00515)
  *     # EOBY AT LOW ENERGY
  *     EOBY[0] = 12.0             # <<<<<<<<<<<<<<
@@ -3022,7 +3022,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_EOBY[0]) = 12.0;
 
-  /* "HELIUM3.pyx":98
+  /* "gases/HELIUM3.pyx":98
  *     # EOBY AT LOW ENERGY
  *     EOBY[0] = 12.0
  *     EOBY[1] = 65.0             # <<<<<<<<<<<<<<
@@ -3031,7 +3031,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_EOBY[1]) = 65.0;
 
-  /* "HELIUM3.pyx":100
+  /* "gases/HELIUM3.pyx":100
  *     EOBY[1] = 65.0
  *     cdef double WKLM[2]
  *     WKLM[0] = 0.0             # <<<<<<<<<<<<<<
@@ -3040,7 +3040,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_WKLM[0]) = 0.0;
 
-  /* "HELIUM3.pyx":101
+  /* "gases/HELIUM3.pyx":101
  *     cdef double WKLM[2]
  *     WKLM[0] = 0.0
  *     WKLM[1] = 0.0             # <<<<<<<<<<<<<<
@@ -3049,7 +3049,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_WKLM[1]) = 0.0;
 
-  /* "HELIUM3.pyx":102
+  /* "gases/HELIUM3.pyx":102
  *     WKLM[0] = 0.0
  *     WKLM[1] = 0.0
  *     object.NC0[0] = 0             # <<<<<<<<<<<<<<
@@ -3058,7 +3058,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[0]) = 0.0;
 
-  /* "HELIUM3.pyx":103
+  /* "gases/HELIUM3.pyx":103
  *     WKLM[1] = 0.0
  *     object.NC0[0] = 0
  *     object.EC0[0] = 0.0             # <<<<<<<<<<<<<<
@@ -3067,7 +3067,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[0]) = 0.0;
 
-  /* "HELIUM3.pyx":104
+  /* "gases/HELIUM3.pyx":104
  *     object.NC0[0] = 0
  *     object.EC0[0] = 0.0
  *     object.WK[0:2] = WKLM             # <<<<<<<<<<<<<<
@@ -3076,7 +3076,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   memcpy(&(__pyx_v_object->WK[0]), __pyx_v_WKLM, sizeof(__pyx_v_object->WK[0]) * (2));
 
-  /* "HELIUM3.pyx":105
+  /* "gases/HELIUM3.pyx":105
  *     object.EC0[0] = 0.0
  *     object.WK[0:2] = WKLM
  *     object.EFL[0] = 0.0             # <<<<<<<<<<<<<<
@@ -3085,7 +3085,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EFL[0]) = 0.0;
 
-  /* "HELIUM3.pyx":106
+  /* "gases/HELIUM3.pyx":106
  *     object.WK[0:2] = WKLM
  *     object.EFL[0] = 0.0
  *     object.NG1[0] = 0             # <<<<<<<<<<<<<<
@@ -3094,7 +3094,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG1[0]) = 0.0;
 
-  /* "HELIUM3.pyx":107
+  /* "gases/HELIUM3.pyx":107
  *     object.EFL[0] = 0.0
  *     object.NG1[0] = 0
  *     object.EG1[0] = 0.0             # <<<<<<<<<<<<<<
@@ -3103,7 +3103,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG1[0]) = 0.0;
 
-  /* "HELIUM3.pyx":108
+  /* "gases/HELIUM3.pyx":108
  *     object.NG1[0] = 0
  *     object.EG1[0] = 0.0
  *     object.NG2[0] = 0             # <<<<<<<<<<<<<<
@@ -3112,7 +3112,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG2[0]) = 0.0;
 
-  /* "HELIUM3.pyx":109
+  /* "gases/HELIUM3.pyx":109
  *     object.EG1[0] = 0.0
  *     object.NG2[0] = 0
  *     object.EG2[0] = 0.0             # <<<<<<<<<<<<<<
@@ -3121,7 +3121,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG2[0]) = 0.0;
 
-  /* "HELIUM3.pyx":110
+  /* "gases/HELIUM3.pyx":110
  *     object.NG2[0] = 0
  *     object.EG2[0] = 0.0
  *     object.NC0[1] = 1             # <<<<<<<<<<<<<<
@@ -3130,7 +3130,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[1]) = 1.0;
 
-  /* "HELIUM3.pyx":111
+  /* "gases/HELIUM3.pyx":111
  *     object.EG2[0] = 0.0
  *     object.NC0[1] = 1
  *     object.EC0[1] = 10.0             # <<<<<<<<<<<<<<
@@ -3139,7 +3139,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[1]) = 10.0;
 
-  /* "HELIUM3.pyx":112
+  /* "gases/HELIUM3.pyx":112
  *     object.NC0[1] = 1
  *     object.EC0[1] = 10.0
  *     object.EFL[1] = 0.0             # <<<<<<<<<<<<<<
@@ -3148,7 +3148,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EFL[1]) = 0.0;
 
-  /* "HELIUM3.pyx":113
+  /* "gases/HELIUM3.pyx":113
  *     object.EC0[1] = 10.0
  *     object.EFL[1] = 0.0
  *     object.NG1[1] = 0             # <<<<<<<<<<<<<<
@@ -3157,7 +3157,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG1[1]) = 0.0;
 
-  /* "HELIUM3.pyx":114
+  /* "gases/HELIUM3.pyx":114
  *     object.EFL[1] = 0.0
  *     object.NG1[1] = 0
  *     object.EG1[1] = 0.0             # <<<<<<<<<<<<<<
@@ -3166,7 +3166,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG1[1]) = 0.0;
 
-  /* "HELIUM3.pyx":115
+  /* "gases/HELIUM3.pyx":115
  *     object.NG1[1] = 0
  *     object.EG1[1] = 0.0
  *     object.NG2[1] = 0             # <<<<<<<<<<<<<<
@@ -3175,7 +3175,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG2[1]) = 0.0;
 
-  /* "HELIUM3.pyx":116
+  /* "gases/HELIUM3.pyx":116
  *     object.EG1[1] = 0.0
  *     object.NG2[1] = 0
  *     object.EG2[1] = 0.0             # <<<<<<<<<<<<<<
@@ -3184,7 +3184,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG2[1]) = 0.0;
 
-  /* "HELIUM3.pyx":118
+  /* "gases/HELIUM3.pyx":118
  *     object.EG2[1] = 0.0
  *     cdef int I, j, i
  *     for i in range(6):             # <<<<<<<<<<<<<<
@@ -3194,7 +3194,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < 6; __pyx_t_26+=1) {
     __pyx_v_i = __pyx_t_26;
 
-    /* "HELIUM3.pyx":119
+    /* "gases/HELIUM3.pyx":119
  *     cdef int I, j, i
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -3205,7 +3205,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_i]) = __pyx_t_27;
   }
 
-  /* "HELIUM3.pyx":120
+  /* "gases/HELIUM3.pyx":120
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO
  *     for i in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3217,7 +3217,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_28 = 0; __pyx_t_28 < __pyx_t_27; __pyx_t_28+=1) {
     __pyx_v_i = __pyx_t_28;
 
-    /* "HELIUM3.pyx":121
+    /* "gases/HELIUM3.pyx":121
  *         object.KEL[i] = object.NANISO
  *     for i in range(object.NIN):
  *         object.KIN[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -3228,7 +3228,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = __pyx_t_29;
   }
 
-  /* "HELIUM3.pyx":122
+  /* "gases/HELIUM3.pyx":122
  *     for i in range(object.NIN):
  *         object.KIN[i] = object.NANISO
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -3240,7 +3240,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_28 = 0; __pyx_t_28 < __pyx_t_27; __pyx_t_28+=1) {
     __pyx_v_j = __pyx_t_28;
 
-    /* "HELIUM3.pyx":123
+    /* "gases/HELIUM3.pyx":123
  *         object.KIN[i] = object.NANISO
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -3250,7 +3250,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_29 = 0; __pyx_t_29 < 0xFA0; __pyx_t_29+=1) {
       __pyx_v_i = __pyx_t_29;
 
-      /* "HELIUM3.pyx":124
+      /* "gases/HELIUM3.pyx":124
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -3260,7 +3260,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_30) {
 
-        /* "HELIUM3.pyx":125
+        /* "gases/HELIUM3.pyx":125
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -3269,7 +3269,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "HELIUM3.pyx":126
+        /* "gases/HELIUM3.pyx":126
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -3278,7 +3278,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L10_break;
 
-        /* "HELIUM3.pyx":124
+        /* "gases/HELIUM3.pyx":124
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -3290,7 +3290,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L10_break:;
   }
 
-  /* "HELIUM3.pyx":127
+  /* "gases/HELIUM3.pyx":127
  *                 IOFFION[j] = i - 1
  *                 break
  *     object.EIN[0:50] = [np.float32(19.81961), np.float32(20.61577), np.float32(20.96409), np.float32(21.21802),             # <<<<<<<<<<<<<<
@@ -3386,7 +3386,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_34 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_34 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":128
+  /* "gases/HELIUM3.pyx":128
  *                 break
  *     object.EIN[0:50] = [np.float32(19.81961), np.float32(20.61577), np.float32(20.96409), np.float32(21.21802),
  *                         np.float32(22.71847), np.float32(22.92032), np.float32(23.00707), np.float32(23.07365),             # <<<<<<<<<<<<<<
@@ -3482,7 +3482,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_38 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_38 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 128, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":129
+  /* "gases/HELIUM3.pyx":129
  *     object.EIN[0:50] = [np.float32(19.81961), np.float32(20.61577), np.float32(20.96409), np.float32(21.21802),
  *                         np.float32(22.71847), np.float32(22.92032), np.float32(23.00707), np.float32(23.07365),
  *                         np.float32(23.07407), np.float32(23.08702), np.float32(23.59396), np.float32(23.67357),             # <<<<<<<<<<<<<<
@@ -3578,7 +3578,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_42 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_42 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 129, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":130
+  /* "gases/HELIUM3.pyx":130
  *                         np.float32(22.71847), np.float32(22.92032), np.float32(23.00707), np.float32(23.07365),
  *                         np.float32(23.07407), np.float32(23.08702), np.float32(23.59396), np.float32(23.67357),
  *                         np.float32(23.70789), np.float32(23.73609), np.float32(23.73633), np.float32(23.73701),             # <<<<<<<<<<<<<<
@@ -3674,7 +3674,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_46 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_46 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":131
+  /* "gases/HELIUM3.pyx":131
  *                         np.float32(23.07407), np.float32(23.08702), np.float32(23.59396), np.float32(23.67357),
  *                         np.float32(23.70789), np.float32(23.73609), np.float32(23.73633), np.float32(23.73701),
  *                         np.float32(23.73701), np.float32(23.74207), np.float32(23.97197), np.float32(24.01121),             # <<<<<<<<<<<<<<
@@ -3770,7 +3770,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_50 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_50 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":132
+  /* "gases/HELIUM3.pyx":132
  *                         np.float32(23.70789), np.float32(23.73609), np.float32(23.73633), np.float32(23.73701),
  *                         np.float32(23.73701), np.float32(23.74207), np.float32(23.97197), np.float32(24.01121),
  *                         np.float32(24.02822), np.float32(24.04266), np.float32(24.04280), np.float32(24.04315),             # <<<<<<<<<<<<<<
@@ -3866,7 +3866,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_54 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_54 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 132, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":133
+  /* "gases/HELIUM3.pyx":133
  *                         np.float32(23.73701), np.float32(23.74207), np.float32(23.97197), np.float32(24.01121),
  *                         np.float32(24.02822), np.float32(24.04266), np.float32(24.04280), np.float32(24.04315),
  *                         np.float32(24.04315), np.float32(24.04580), np.float32(24.16900), np.float32(24.19116),             # <<<<<<<<<<<<<<
@@ -3962,7 +3962,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_58 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_58 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":134
+  /* "gases/HELIUM3.pyx":134
  *                         np.float32(24.02822), np.float32(24.04266), np.float32(24.04280), np.float32(24.04315),
  *                         np.float32(24.04315), np.float32(24.04580), np.float32(24.16900), np.float32(24.19116),
  *                         np.float32(24.20081), np.float32(24.20916), np.float32(24.20925), np.float32(24.21100),             # <<<<<<<<<<<<<<
@@ -4058,7 +4058,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_62 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_62 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 134, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":135
+  /* "gases/HELIUM3.pyx":135
  *                         np.float32(24.04315), np.float32(24.04580), np.float32(24.16900), np.float32(24.19116),
  *                         np.float32(24.20081), np.float32(24.20916), np.float32(24.20925), np.float32(24.21100),
  *                         np.float32(24.28456), np.float32(24.29828), np.float32(24.30429), np.float32(24.30954),             # <<<<<<<<<<<<<<
@@ -4154,7 +4154,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_66 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_66 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":136
+  /* "gases/HELIUM3.pyx":136
  *                         np.float32(24.20081), np.float32(24.20916), np.float32(24.20925), np.float32(24.21100),
  *                         np.float32(24.28456), np.float32(24.29828), np.float32(24.30429), np.float32(24.30954),
  *                         np.float32(24.30960), np.float32(24.31071), np.float32(24.35810), np.float32(24.36718),             # <<<<<<<<<<<<<<
@@ -4250,7 +4250,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_70 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_70 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":137
+  /* "gases/HELIUM3.pyx":137
  *                         np.float32(24.28456), np.float32(24.29828), np.float32(24.30429), np.float32(24.30954),
  *                         np.float32(24.30960), np.float32(24.31071), np.float32(24.35810), np.float32(24.36718),
  *                         np.float32(24.37116), np.float32(24.37468), np.float32(24.37472), np.float32(24.37547),             # <<<<<<<<<<<<<<
@@ -4346,7 +4346,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_74 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_74 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":138
+  /* "gases/HELIUM3.pyx":138
  *                         np.float32(24.30960), np.float32(24.31071), np.float32(24.35810), np.float32(24.36718),
  *                         np.float32(24.37116), np.float32(24.37468), np.float32(24.37472), np.float32(24.37547),
  *                         np.float32(24.41989), np.float32(24.45168), np.float32(24.47518), np.float32(24.49308),             # <<<<<<<<<<<<<<
@@ -4442,7 +4442,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_78 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_78 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 138, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":139
+  /* "gases/HELIUM3.pyx":139
  *                         np.float32(24.37116), np.float32(24.37468), np.float32(24.37472), np.float32(24.37547),
  *                         np.float32(24.41989), np.float32(24.45168), np.float32(24.47518), np.float32(24.49308),
  *                         np.float32(24.50708), np.float32(0.0)]             # <<<<<<<<<<<<<<
@@ -4494,7 +4494,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_80 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_80 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":127
+  /* "gases/HELIUM3.pyx":127
  *                 IOFFION[j] = i - 1
  *                 break
  *     object.EIN[0:50] = [np.float32(19.81961), np.float32(20.61577), np.float32(20.96409), np.float32(21.21802),             # <<<<<<<<<<<<<<
@@ -4553,7 +4553,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_81[49] = __pyx_t_80;
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_81, sizeof(__pyx_v_object->EIN[0]) * (50));
 
-  /* "HELIUM3.pyx":141
+  /* "gases/HELIUM3.pyx":141
  *                         np.float32(24.50708), np.float32(0.0)]
  * 
  *     for I in range(50, 250):             # <<<<<<<<<<<<<<
@@ -4563,7 +4563,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 50; __pyx_t_26 < 0xFA; __pyx_t_26+=1) {
     __pyx_v_I = __pyx_t_26;
 
-    /* "HELIUM3.pyx":142
+    /* "gases/HELIUM3.pyx":142
  * 
  *     for I in range(50, 250):
  *         object.EIN[I] = 0.0             # <<<<<<<<<<<<<<
@@ -4573,7 +4573,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EIN[__pyx_v_I]) = 0.0;
   }
 
-  /* "HELIUM3.pyx":145
+  /* "gases/HELIUM3.pyx":145
  * 
  *     cdef int NL
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4585,7 +4585,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_28 = 0; __pyx_t_28 < __pyx_t_27; __pyx_t_28+=1) {
     __pyx_v_NL = __pyx_t_28;
 
-    /* "HELIUM3.pyx":146
+    /* "gases/HELIUM3.pyx":146
  *     cdef int NL
  *     for NL in range(object.NIN):
  *         object.PENFRA[0][NL] = 1.0             # <<<<<<<<<<<<<<
@@ -4594,7 +4594,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_NL]) = 1.0;
 
-    /* "HELIUM3.pyx":148
+    /* "gases/HELIUM3.pyx":148
  *         object.PENFRA[0][NL] = 1.0
  *         # PENNING TRANSFER DISTANCE MICRONS
  *         object.PENFRA[1][NL] = 1.0             # <<<<<<<<<<<<<<
@@ -4603,7 +4603,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_NL]) = 1.0;
 
-    /* "HELIUM3.pyx":150
+    /* "gases/HELIUM3.pyx":150
  *         object.PENFRA[1][NL] = 1.0
  *         # PENNING TRANSFER TIME PICOSECONDS
  *         object.PENFRA[2][NL] = 1.0             # <<<<<<<<<<<<<<
@@ -4613,7 +4613,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_NL]) = 1.0;
   }
 
-  /* "HELIUM3.pyx":152
+  /* "gases/HELIUM3.pyx":152
  *         object.PENFRA[2][NL] = 1.0
  * 
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4625,7 +4625,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_28 = 0; __pyx_t_28 < __pyx_t_27; __pyx_t_28+=1) {
     __pyx_v_NL = __pyx_t_28;
 
-    /* "HELIUM3.pyx":153
+    /* "gases/HELIUM3.pyx":153
  * 
  *     for NL in range(object.NIN):
  *         for I in range(4000):             # <<<<<<<<<<<<<<
@@ -4635,7 +4635,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_29 = 0; __pyx_t_29 < 0xFA0; __pyx_t_29+=1) {
       __pyx_v_I = __pyx_t_29;
 
-      /* "HELIUM3.pyx":154
+      /* "gases/HELIUM3.pyx":154
  *     for NL in range(object.NIN):
  *         for I in range(4000):
  *             if object.EG[I] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -4645,7 +4645,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = (((__pyx_v_object->EG[__pyx_v_I]) > (__pyx_v_object->EIN[__pyx_v_NL])) != 0);
       if (__pyx_t_30) {
 
-        /* "HELIUM3.pyx":155
+        /* "gases/HELIUM3.pyx":155
  *         for I in range(4000):
  *             if object.EG[I] > object.EIN[NL]:
  *                 IOFFN[NL] = I - 1             # <<<<<<<<<<<<<<
@@ -4654,7 +4654,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_I - 1);
 
-        /* "HELIUM3.pyx":156
+        /* "gases/HELIUM3.pyx":156
  *             if object.EG[I] > object.EIN[NL]:
  *                 IOFFN[NL] = I - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4663,7 +4663,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L19_break;
 
-        /* "HELIUM3.pyx":154
+        /* "gases/HELIUM3.pyx":154
  *     for NL in range(object.NIN):
  *         for I in range(4000):
  *             if object.EG[I] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -4675,7 +4675,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L19_break:;
   }
 
-  /* "HELIUM3.pyx":160
+  /* "gases/HELIUM3.pyx":160
  *     cdef double EN, GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, A, B, X1, X2, PQ[3], TEMP, QTEMP1, QTEMP2, ER, ENP, QMET, QDIP, QTRP, QSNG, QINEL
  * 
  *     for I in range(4000):             # <<<<<<<<<<<<<<
@@ -4685,7 +4685,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_26 = 0; __pyx_t_26 < 0xFA0; __pyx_t_26+=1) {
     __pyx_v_I = __pyx_t_26;
 
-    /* "HELIUM3.pyx":161
+    /* "gases/HELIUM3.pyx":161
  * 
  *     for I in range(4000):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -4694,7 +4694,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "HELIUM3.pyx":162
+    /* "gases/HELIUM3.pyx":162
  *     for I in range(4000):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -4704,7 +4704,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":163
+      /* "gases/HELIUM3.pyx":163
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -4713,7 +4713,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-      /* "HELIUM3.pyx":164
+      /* "gases/HELIUM3.pyx":164
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -4722,7 +4722,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-      /* "HELIUM3.pyx":165
+      /* "gases/HELIUM3.pyx":165
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -4731,7 +4731,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-      /* "HELIUM3.pyx":166
+      /* "gases/HELIUM3.pyx":166
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -4740,7 +4740,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-      /* "HELIUM3.pyx":162
+      /* "gases/HELIUM3.pyx":162
  *     for I in range(4000):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -4749,7 +4749,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":167
+    /* "gases/HELIUM3.pyx":167
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA
  *         QELA = GasUtil.CALQIONREG(EN, NDATA, YEL, XEN)             # <<<<<<<<<<<<<<
@@ -4758,7 +4758,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QELA = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEL, __pyx_v_XEN);
 
-    /* "HELIUM3.pyx":168
+    /* "gases/HELIUM3.pyx":168
  *             BETA2 = BETA * BETA
  *         QELA = GasUtil.CALQIONREG(EN, NDATA, YEL, XEN)
  *         QMOM = GasUtil.CALQIONREG(EN, NDATA, YEM, XEN)             # <<<<<<<<<<<<<<
@@ -4767,7 +4767,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QMOM = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEM, __pyx_v_XEN);
 
-    /* "HELIUM3.pyx":170
+    /* "gases/HELIUM3.pyx":170
  *         QMOM = GasUtil.CALQIONREG(EN, NDATA, YEM, XEN)
  * 
  *         TEMP = GasUtil.CALPQ3(EN, NDATA, YEPS, XEN)             # <<<<<<<<<<<<<<
@@ -4776,7 +4776,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_TEMP = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEPS, __pyx_v_XEN);
 
-    /* "HELIUM3.pyx":171
+    /* "gases/HELIUM3.pyx":171
  * 
  *         TEMP = GasUtil.CALPQ3(EN, NDATA, YEPS, XEN)
  *         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - TEMP]             # <<<<<<<<<<<<<<
@@ -4788,7 +4788,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_82[2] = (1.0 - __pyx_v_TEMP);
     memcpy(&(__pyx_v_PQ[0]), __pyx_t_82, sizeof(__pyx_v_PQ[0]) * (3));
 
-    /* "HELIUM3.pyx":173
+    /* "gases/HELIUM3.pyx":173
  *         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - TEMP]
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -4797,7 +4797,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "HELIUM3.pyx":175
+    /* "gases/HELIUM3.pyx":175
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  * 
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -4806,7 +4806,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "HELIUM3.pyx":177
+    /* "gases/HELIUM3.pyx":177
  *         object.Q[1][I] = QELA
  * 
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -4816,7 +4816,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":178
+      /* "gases/HELIUM3.pyx":178
  * 
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -4825,7 +4825,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "HELIUM3.pyx":179
+      /* "gases/HELIUM3.pyx":179
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM
  *             object.PEQEL[1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4834,7 +4834,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = 0.5;
 
-      /* "HELIUM3.pyx":177
+      /* "gases/HELIUM3.pyx":177
  *         object.Q[1][I] = QELA
  * 
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -4843,7 +4843,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":182
+    /* "gases/HELIUM3.pyx":182
  * 
  *         #GROSS IONISATION
  *         object.QION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4852,7 +4852,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = 0.0;
 
-    /* "HELIUM3.pyx":183
+    /* "gases/HELIUM3.pyx":183
  *         #GROSS IONISATION
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4861,7 +4861,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.5;
 
-    /* "HELIUM3.pyx":184
+    /* "gases/HELIUM3.pyx":184
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4871,7 +4871,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":185
+      /* "gases/HELIUM3.pyx":185
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0             # <<<<<<<<<<<<<<
@@ -4880,7 +4880,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.0;
 
-      /* "HELIUM3.pyx":184
+      /* "gases/HELIUM3.pyx":184
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4889,7 +4889,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":186
+    /* "gases/HELIUM3.pyx":186
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4899,7 +4899,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":187
+      /* "gases/HELIUM3.pyx":187
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION, XION, BETA2, 1 / <float>(0.995), CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -4908,7 +4908,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YION, __pyx_v_XION, __pyx_v_BETA2, (1.0 / ((float)0.995)), __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "HELIUM3.pyx":186
+      /* "gases/HELIUM3.pyx":186
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN >= object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4917,7 +4917,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":192
+    /* "gases/HELIUM3.pyx":192
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[0]):             # <<<<<<<<<<<<<<
@@ -4927,7 +4927,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[0]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":193
+      /* "gases/HELIUM3.pyx":193
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[0]):
  *             object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]             # <<<<<<<<<<<<<<
@@ -4936,7 +4936,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-      /* "HELIUM3.pyx":192
+      /* "gases/HELIUM3.pyx":192
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
  *         # IONISATION ENERGY
  *         if EN > (2 * object.EION[0]):             # <<<<<<<<<<<<<<
@@ -4945,7 +4945,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":196
+    /* "gases/HELIUM3.pyx":196
  * 
  *         #ATTACHMENT
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4954,7 +4954,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "HELIUM3.pyx":197
+    /* "gases/HELIUM3.pyx":197
  *         #ATTACHMENT
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][i] = object.Q[3][I]             # <<<<<<<<<<<<<<
@@ -4963,7 +4963,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_i]) = ((__pyx_v_object->Q[3])[__pyx_v_I]);
 
-    /* "HELIUM3.pyx":200
+    /* "gases/HELIUM3.pyx":200
  * 
  *         #COUNTING IONISATION
  *         object.Q[4][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4972,7 +4972,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_i]) = 0.0;
 
-    /* "HELIUM3.pyx":201
+    /* "gases/HELIUM3.pyx":201
  *         #COUNTING IONISATION
  *         object.Q[4][i] = 0.0
  *         object.PEQION[1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4981,7 +4981,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.5;
 
-    /* "HELIUM3.pyx":202
+    /* "gases/HELIUM3.pyx":202
  *         object.Q[4][i] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4991,7 +4991,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":203
+      /* "gases/HELIUM3.pyx":203
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0             # <<<<<<<<<<<<<<
@@ -5000,7 +5000,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.0;
 
-      /* "HELIUM3.pyx":202
+      /* "gases/HELIUM3.pyx":202
  *         object.Q[4][i] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5009,7 +5009,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":204
+    /* "gases/HELIUM3.pyx":204
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0
  *         if EN >= object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5019,7 +5019,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN >= (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":205
+      /* "gases/HELIUM3.pyx":205
  *             object.PEQION[1][I] = 0
  *         if EN >= object.EION[1]:
  *             object.Q[4][I] = GasUtil.CALQIONX(EN, NIOND, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5028,7 +5028,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YINC, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "HELIUM3.pyx":204
+      /* "gases/HELIUM3.pyx":204
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0
  *         if EN >= object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5037,7 +5037,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":207
+    /* "gases/HELIUM3.pyx":207
  *             object.Q[4][I] = GasUtil.CALQIONX(EN, NIOND, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *         #USE BORN-BETHE X-SECTION ABOVE XION(NIOND) EV
  *         if EN > (2 * object.EION[1]):             # <<<<<<<<<<<<<<
@@ -5047,7 +5047,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[1]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":208
+      /* "gases/HELIUM3.pyx":208
  *         #USE BORN-BETHE X-SECTION ABOVE XION(NIOND) EV
  *         if EN > (2 * object.EION[1]):
  *             object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]             # <<<<<<<<<<<<<<
@@ -5056,7 +5056,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-      /* "HELIUM3.pyx":207
+      /* "gases/HELIUM3.pyx":207
  *             object.Q[4][I] = GasUtil.CALQIONX(EN, NIOND, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *         #USE BORN-BETHE X-SECTION ABOVE XION(NIOND) EV
  *         if EN > (2 * object.EION[1]):             # <<<<<<<<<<<<<<
@@ -5065,7 +5065,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":210
+    /* "gases/HELIUM3.pyx":210
  *             object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]
  * 
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5074,7 +5074,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "HELIUM3.pyx":211
+    /* "gases/HELIUM3.pyx":211
  * 
  *         object.Q[5][I] = 0.0
  *         QTEMP1 = 2 * object.Q[4][I] - object.QION[0][I]             # <<<<<<<<<<<<<<
@@ -5083,7 +5083,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTEMP1 = ((2.0 * ((__pyx_v_object->Q[4])[__pyx_v_I])) - ((__pyx_v_object->QION[0])[__pyx_v_I]));
 
-    /* "HELIUM3.pyx":212
+    /* "gases/HELIUM3.pyx":212
  *         object.Q[5][I] = 0.0
  *         QTEMP1 = 2 * object.Q[4][I] - object.QION[0][I]
  *         QTEMP2 = object.QION[0][I] - object.Q[4][I]             # <<<<<<<<<<<<<<
@@ -5092,7 +5092,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTEMP2 = (((__pyx_v_object->QION[0])[__pyx_v_I]) - ((__pyx_v_object->Q[4])[__pyx_v_I]));
 
-    /* "HELIUM3.pyx":213
+    /* "gases/HELIUM3.pyx":213
  *         QTEMP1 = 2 * object.Q[4][I] - object.QION[0][I]
  *         QTEMP2 = object.QION[0][I] - object.Q[4][I]
  *         object.QION[0][I] = QTEMP1             # <<<<<<<<<<<<<<
@@ -5101,7 +5101,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_v_QTEMP1;
 
-    /* "HELIUM3.pyx":214
+    /* "gases/HELIUM3.pyx":214
  *         QTEMP2 = object.QION[0][I] - object.Q[4][I]
  *         object.QION[0][I] = QTEMP1
  *         object.QION[1][I] = QTEMP2             # <<<<<<<<<<<<<<
@@ -5110,7 +5110,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[1])[__pyx_v_I]) = __pyx_v_QTEMP2;
 
-    /* "HELIUM3.pyx":215
+    /* "gases/HELIUM3.pyx":215
  *         object.QION[0][I] = QTEMP1
  *         object.QION[1][I] = QTEMP2
  *         if object.QION[1][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -5120,7 +5120,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((((__pyx_v_object->QION[1])[__pyx_v_I]) < 0.0) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":216
+      /* "gases/HELIUM3.pyx":216
  *         object.QION[1][I] = QTEMP2
  *         if object.QION[1][I] < 0.0:
  *             object.QION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5129,7 +5129,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = 0.0;
 
-      /* "HELIUM3.pyx":215
+      /* "gases/HELIUM3.pyx":215
  *         object.QION[0][I] = QTEMP1
  *         object.QION[1][I] = QTEMP2
  *         if object.QION[1][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -5138,7 +5138,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":218
+    /* "gases/HELIUM3.pyx":218
  *             object.QION[1][I] = 0.0
  * 
  *         for NL in range(object.NIN + 1):             # <<<<<<<<<<<<<<
@@ -5150,7 +5150,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_27 = 0; __pyx_t_27 < __pyx_t_84; __pyx_t_27+=1) {
       __pyx_v_NL = __pyx_t_27;
 
-      /* "HELIUM3.pyx":219
+      /* "gases/HELIUM3.pyx":219
  * 
  *         for NL in range(object.NIN + 1):
  *             object.QIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5159,7 +5159,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-      /* "HELIUM3.pyx":220
+      /* "gases/HELIUM3.pyx":220
  *         for NL in range(object.NIN + 1):
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5168,7 +5168,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.5;
 
-      /* "HELIUM3.pyx":221
+      /* "gases/HELIUM3.pyx":221
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5178,7 +5178,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_30) {
 
-        /* "HELIUM3.pyx":222
+        /* "gases/HELIUM3.pyx":222
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5187,7 +5187,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-        /* "HELIUM3.pyx":221
+        /* "gases/HELIUM3.pyx":221
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5197,7 +5197,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "HELIUM3.pyx":225
+    /* "gases/HELIUM3.pyx":225
  * 
  *         #2 3S
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -5207,7 +5207,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":226
+      /* "gases/HELIUM3.pyx":226
  *         #2 3S
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N23S, Y23S, X23S, 3)             # <<<<<<<<<<<<<<
@@ -5216,7 +5216,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N23S, __pyx_v_Y23S, __pyx_v_X23S, 3.0);
 
-      /* "HELIUM3.pyx":225
+      /* "gases/HELIUM3.pyx":225
  * 
  *         #2 3S
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -5225,7 +5225,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":227
+    /* "gases/HELIUM3.pyx":227
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N23S, Y23S, X23S, 3)
  *         if EN > (2 * object.EIN[0]):             # <<<<<<<<<<<<<<
@@ -5235,7 +5235,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":228
+      /* "gases/HELIUM3.pyx":228
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N23S, Y23S, X23S, 3)
  *         if EN > (2 * object.EIN[0]):
  *             object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]             # <<<<<<<<<<<<<<
@@ -5244,7 +5244,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0]))]);
 
-      /* "HELIUM3.pyx":227
+      /* "gases/HELIUM3.pyx":227
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N23S, Y23S, X23S, 3)
  *         if EN > (2 * object.EIN[0]):             # <<<<<<<<<<<<<<
@@ -5253,7 +5253,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":231
+    /* "gases/HELIUM3.pyx":231
  * 
  *         #2 1S
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -5263,7 +5263,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":232
+      /* "gases/HELIUM3.pyx":232
  *         #2 1S
  *         if EN > object.EIN[1]:
  *             object.QIN[1][I] = GasUtil.CALQINP(EN, N21S, Y21S, X21S, 1)             # <<<<<<<<<<<<<<
@@ -5272,7 +5272,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N21S, __pyx_v_Y21S, __pyx_v_X21S, 1.0);
 
-      /* "HELIUM3.pyx":231
+      /* "gases/HELIUM3.pyx":231
  * 
  *         #2 1S
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -5281,7 +5281,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":233
+    /* "gases/HELIUM3.pyx":233
  *         if EN > object.EIN[1]:
  *             object.QIN[1][I] = GasUtil.CALQINP(EN, N21S, Y21S, X21S, 1)
  *         if EN > (2 * object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -5291,7 +5291,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[1]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":234
+      /* "gases/HELIUM3.pyx":234
  *             object.QIN[1][I] = GasUtil.CALQINP(EN, N21S, Y21S, X21S, 1)
  *         if EN > (2 * object.EIN[1]):
  *             object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]             # <<<<<<<<<<<<<<
@@ -5300,7 +5300,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[1]))]);
 
-      /* "HELIUM3.pyx":233
+      /* "gases/HELIUM3.pyx":233
  *         if EN > object.EIN[1]:
  *             object.QIN[1][I] = GasUtil.CALQINP(EN, N21S, Y21S, X21S, 1)
  *         if EN > (2 * object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -5309,7 +5309,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":237
+    /* "gases/HELIUM3.pyx":237
  * 
  *         #2 3P
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -5319,7 +5319,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[2])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":238
+      /* "gases/HELIUM3.pyx":238
  *         #2 3P
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N23P, Y23P, X23P, 3)             # <<<<<<<<<<<<<<
@@ -5328,7 +5328,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N23P, __pyx_v_Y23P, __pyx_v_X23P, 3.0);
 
-      /* "HELIUM3.pyx":237
+      /* "gases/HELIUM3.pyx":237
  * 
  *         #2 3P
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -5337,7 +5337,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":239
+    /* "gases/HELIUM3.pyx":239
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N23P, Y23P, X23P, 3)
  *         if EN > (2 * object.EIN[2]):             # <<<<<<<<<<<<<<
@@ -5347,7 +5347,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[2]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":240
+      /* "gases/HELIUM3.pyx":240
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N23P, Y23P, X23P, 3)
  *         if EN > (2 * object.EIN[2]):
  *             object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -5356,7 +5356,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-      /* "HELIUM3.pyx":239
+      /* "gases/HELIUM3.pyx":239
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N23P, Y23P, X23P, 3)
  *         if EN > (2 * object.EIN[2]):             # <<<<<<<<<<<<<<
@@ -5365,7 +5365,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":243
+    /* "gases/HELIUM3.pyx":243
  * 
  *         #2 1P
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -5375,7 +5375,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":244
+      /* "gases/HELIUM3.pyx":244
  *         #2 1P
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINBEF(EN, N21P, Y21P, X21P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,             # <<<<<<<<<<<<<<
@@ -5384,7 +5384,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N21P, __pyx_v_Y21P, __pyx_v_X21P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[3]), (__pyx_v_object->E[2]), 0.27608);
 
-      /* "HELIUM3.pyx":243
+      /* "gases/HELIUM3.pyx":243
  * 
  *         #2 1P
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -5393,7 +5393,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":246
+    /* "gases/HELIUM3.pyx":246
  *             object.QIN[3][I] = GasUtil.CALQINBEF(EN, N21P, Y21P, X21P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[3], object.E[2], 0.27608)
  *         if EN > (2 * object.EIN[3]):             # <<<<<<<<<<<<<<
@@ -5403,7 +5403,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[3]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":247
+      /* "gases/HELIUM3.pyx":247
  *                                                  object.EIN[3], object.E[2], 0.27608)
  *         if EN > (2 * object.EIN[3]):
  *             object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -5412,7 +5412,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-      /* "HELIUM3.pyx":246
+      /* "gases/HELIUM3.pyx":246
  *             object.QIN[3][I] = GasUtil.CALQINBEF(EN, N21P, Y21P, X21P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[3], object.E[2], 0.27608)
  *         if EN > (2 * object.EIN[3]):             # <<<<<<<<<<<<<<
@@ -5421,7 +5421,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":250
+    /* "gases/HELIUM3.pyx":250
  * 
  *         #3 3S
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -5431,7 +5431,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[4])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":251
+      /* "gases/HELIUM3.pyx":251
  *         #3 3S
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N33S, Y33S, X33S, 3)             # <<<<<<<<<<<<<<
@@ -5440,7 +5440,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N33S, __pyx_v_Y33S, __pyx_v_X33S, 3.0);
 
-      /* "HELIUM3.pyx":250
+      /* "gases/HELIUM3.pyx":250
  * 
  *         #3 3S
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -5449,7 +5449,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":252
+    /* "gases/HELIUM3.pyx":252
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N33S, Y33S, X33S, 3)
  *         if EN > (2 * object.EIN[4]):             # <<<<<<<<<<<<<<
@@ -5459,7 +5459,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[4]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":253
+      /* "gases/HELIUM3.pyx":253
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N33S, Y33S, X33S, 3)
  *         if EN > (2 * object.EIN[4]):
  *             object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -5468,7 +5468,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-      /* "HELIUM3.pyx":252
+      /* "gases/HELIUM3.pyx":252
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N33S, Y33S, X33S, 3)
  *         if EN > (2 * object.EIN[4]):             # <<<<<<<<<<<<<<
@@ -5477,7 +5477,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":256
+    /* "gases/HELIUM3.pyx":256
  * 
  *         #3 1S
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -5487,7 +5487,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":257
+      /* "gases/HELIUM3.pyx":257
  *         #3 1S
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N31S, Y31S, X31S, 1)             # <<<<<<<<<<<<<<
@@ -5496,7 +5496,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N31S, __pyx_v_Y31S, __pyx_v_X31S, 1.0);
 
-      /* "HELIUM3.pyx":256
+      /* "gases/HELIUM3.pyx":256
  * 
  *         #3 1S
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -5505,7 +5505,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":258
+    /* "gases/HELIUM3.pyx":258
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N31S, Y31S, X31S, 1)
  *         if EN > (2 * object.EIN[5]):             # <<<<<<<<<<<<<<
@@ -5515,7 +5515,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[5]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":259
+      /* "gases/HELIUM3.pyx":259
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N31S, Y31S, X31S, 1)
  *         if EN > (2 * object.EIN[5]):
  *             object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -5524,7 +5524,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-      /* "HELIUM3.pyx":258
+      /* "gases/HELIUM3.pyx":258
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N31S, Y31S, X31S, 1)
  *         if EN > (2 * object.EIN[5]):             # <<<<<<<<<<<<<<
@@ -5533,7 +5533,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":262
+    /* "gases/HELIUM3.pyx":262
  * 
  *         #3 3P
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -5543,7 +5543,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":263
+      /* "gases/HELIUM3.pyx":263
  *         #3 3P
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N33P, Y33P, X33P, 1)             # <<<<<<<<<<<<<<
@@ -5552,7 +5552,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N33P, __pyx_v_Y33P, __pyx_v_X33P, 1.0);
 
-      /* "HELIUM3.pyx":262
+      /* "gases/HELIUM3.pyx":262
  * 
  *         #3 3P
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -5561,7 +5561,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":264
+    /* "gases/HELIUM3.pyx":264
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N33P, Y33P, X33P, 1)
  *         if EN > (2 * object.EIN[6]):             # <<<<<<<<<<<<<<
@@ -5571,7 +5571,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[6]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":265
+      /* "gases/HELIUM3.pyx":265
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N33P, Y33P, X33P, 1)
  *         if EN > (2 * object.EIN[6]):
  *             object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -5580,7 +5580,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-      /* "HELIUM3.pyx":264
+      /* "gases/HELIUM3.pyx":264
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N33P, Y33P, X33P, 1)
  *         if EN > (2 * object.EIN[6]):             # <<<<<<<<<<<<<<
@@ -5589,7 +5589,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":268
+    /* "gases/HELIUM3.pyx":268
  * 
  *         #3 3D
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -5599,7 +5599,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":269
+      /* "gases/HELIUM3.pyx":269
  *         #3 3D
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N33D, Y33D, X33D, 1)             # <<<<<<<<<<<<<<
@@ -5608,7 +5608,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N33D, __pyx_v_Y33D, __pyx_v_X33D, 1.0);
 
-      /* "HELIUM3.pyx":268
+      /* "gases/HELIUM3.pyx":268
  * 
  *         #3 3D
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -5617,7 +5617,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":270
+    /* "gases/HELIUM3.pyx":270
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N33D, Y33D, X33D, 1)
  *         if EN > (2 * object.EIN[7]):             # <<<<<<<<<<<<<<
@@ -5627,7 +5627,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[7]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":271
+      /* "gases/HELIUM3.pyx":271
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N33D, Y33D, X33D, 1)
  *         if EN > (2 * object.EIN[7]):
  *             object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -5636,7 +5636,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-      /* "HELIUM3.pyx":270
+      /* "gases/HELIUM3.pyx":270
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N33D, Y33D, X33D, 1)
  *         if EN > (2 * object.EIN[7]):             # <<<<<<<<<<<<<<
@@ -5645,7 +5645,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":274
+    /* "gases/HELIUM3.pyx":274
  * 
  *         #3 1D
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -5655,7 +5655,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":275
+      /* "gases/HELIUM3.pyx":275
  *         #3 1D
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N31D, Y31D, X31D, 1)             # <<<<<<<<<<<<<<
@@ -5664,7 +5664,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N31D, __pyx_v_Y31D, __pyx_v_X31D, 1.0);
 
-      /* "HELIUM3.pyx":274
+      /* "gases/HELIUM3.pyx":274
  * 
  *         #3 1D
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -5673,7 +5673,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":276
+    /* "gases/HELIUM3.pyx":276
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N31D, Y31D, X31D, 1)
  *         if EN > (2 * object.EIN[8]):             # <<<<<<<<<<<<<<
@@ -5683,7 +5683,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[8]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":277
+      /* "gases/HELIUM3.pyx":277
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N31D, Y31D, X31D, 1)
  *         if EN > (2 * object.EIN[8]):
  *             object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]             # <<<<<<<<<<<<<<
@@ -5692,7 +5692,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[8]))]);
 
-      /* "HELIUM3.pyx":276
+      /* "gases/HELIUM3.pyx":276
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N31D, Y31D, X31D, 1)
  *         if EN > (2 * object.EIN[8]):             # <<<<<<<<<<<<<<
@@ -5701,7 +5701,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":280
+    /* "gases/HELIUM3.pyx":280
  * 
  *         #3 1P
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5711,7 +5711,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":281
+      /* "gases/HELIUM3.pyx":281
  *         #3 1P
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINBEF(EN, N31P, Y31P, X31P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,             # <<<<<<<<<<<<<<
@@ -5720,7 +5720,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N31P, __pyx_v_Y31P, __pyx_v_X31P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[9]), (__pyx_v_object->E[2]), ((float)0.07342));
 
-      /* "HELIUM3.pyx":280
+      /* "gases/HELIUM3.pyx":280
  * 
  *         #3 1P
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5729,7 +5729,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":283
+    /* "gases/HELIUM3.pyx":283
  *             object.QIN[9][I] = GasUtil.CALQINBEF(EN, N31P, Y31P, X31P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[9], object.E[2], <float>(0.07342))
  *         if EN > (2 * object.EIN[9]):             # <<<<<<<<<<<<<<
@@ -5739,7 +5739,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[9]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":284
+      /* "gases/HELIUM3.pyx":284
  *                                                  object.EIN[9], object.E[2], <float>(0.07342))
  *         if EN > (2 * object.EIN[9]):
  *             object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]             # <<<<<<<<<<<<<<
@@ -5748,7 +5748,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[9]))]);
 
-      /* "HELIUM3.pyx":283
+      /* "gases/HELIUM3.pyx":283
  *             object.QIN[9][I] = GasUtil.CALQINBEF(EN, N31P, Y31P, X31P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[9], object.E[2], <float>(0.07342))
  *         if EN > (2 * object.EIN[9]):             # <<<<<<<<<<<<<<
@@ -5757,7 +5757,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":287
+    /* "gases/HELIUM3.pyx":287
  * 
  *         #4 3S
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5767,7 +5767,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":288
+      /* "gases/HELIUM3.pyx":288
  *         #4 3S
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N43S, Y43S, X43S, 3)             # <<<<<<<<<<<<<<
@@ -5776,7 +5776,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N43S, __pyx_v_Y43S, __pyx_v_X43S, 3.0);
 
-      /* "HELIUM3.pyx":287
+      /* "gases/HELIUM3.pyx":287
  * 
  *         #4 3S
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5785,7 +5785,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":289
+    /* "gases/HELIUM3.pyx":289
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[10]):             # <<<<<<<<<<<<<<
@@ -5795,7 +5795,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[10]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":290
+      /* "gases/HELIUM3.pyx":290
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[10]):
  *             object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -5804,7 +5804,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-      /* "HELIUM3.pyx":289
+      /* "gases/HELIUM3.pyx":289
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[10]):             # <<<<<<<<<<<<<<
@@ -5813,7 +5813,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":293
+    /* "gases/HELIUM3.pyx":293
  * 
  *         #4 1S
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5823,7 +5823,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[11])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":294
+      /* "gases/HELIUM3.pyx":294
  *         #4 1S
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N41S, Y41S, X41S, 1)             # <<<<<<<<<<<<<<
@@ -5832,7 +5832,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[11])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N41S, __pyx_v_Y41S, __pyx_v_X41S, 1.0);
 
-      /* "HELIUM3.pyx":293
+      /* "gases/HELIUM3.pyx":293
  * 
  *         #4 1S
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5841,7 +5841,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":295
+    /* "gases/HELIUM3.pyx":295
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[11]):             # <<<<<<<<<<<<<<
@@ -5851,7 +5851,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[11]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":296
+      /* "gases/HELIUM3.pyx":296
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[11]):
  *             object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]             # <<<<<<<<<<<<<<
@@ -5860,7 +5860,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[11]))]);
 
-      /* "HELIUM3.pyx":295
+      /* "gases/HELIUM3.pyx":295
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[11]):             # <<<<<<<<<<<<<<
@@ -5869,7 +5869,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":299
+    /* "gases/HELIUM3.pyx":299
  * 
  *         #4 3P
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5879,7 +5879,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":300
+      /* "gases/HELIUM3.pyx":300
  *         #4 3P
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N43P, Y43P, X43P, 3)             # <<<<<<<<<<<<<<
@@ -5888,7 +5888,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[12])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N43P, __pyx_v_Y43P, __pyx_v_X43P, 3.0);
 
-      /* "HELIUM3.pyx":299
+      /* "gases/HELIUM3.pyx":299
  * 
  *         #4 3P
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5897,7 +5897,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":301
+    /* "gases/HELIUM3.pyx":301
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[12]):             # <<<<<<<<<<<<<<
@@ -5907,7 +5907,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[12]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":302
+      /* "gases/HELIUM3.pyx":302
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[12]):
  *             object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]             # <<<<<<<<<<<<<<
@@ -5916,7 +5916,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[12]))]);
 
-      /* "HELIUM3.pyx":301
+      /* "gases/HELIUM3.pyx":301
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[12]):             # <<<<<<<<<<<<<<
@@ -5925,7 +5925,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":305
+    /* "gases/HELIUM3.pyx":305
  * 
  *         #4 3D
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5935,7 +5935,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[13])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":306
+      /* "gases/HELIUM3.pyx":306
  *         #4 3D
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N43D, Y43D, X43D, 3)             # <<<<<<<<<<<<<<
@@ -5944,7 +5944,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[13])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N43D, __pyx_v_Y43D, __pyx_v_X43D, 3.0);
 
-      /* "HELIUM3.pyx":305
+      /* "gases/HELIUM3.pyx":305
  * 
  *         #4 3D
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5953,7 +5953,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":307
+    /* "gases/HELIUM3.pyx":307
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[13]):             # <<<<<<<<<<<<<<
@@ -5963,7 +5963,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[13]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":308
+      /* "gases/HELIUM3.pyx":308
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[13]):
  *             object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]             # <<<<<<<<<<<<<<
@@ -5972,7 +5972,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[13])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[13]))]);
 
-      /* "HELIUM3.pyx":307
+      /* "gases/HELIUM3.pyx":307
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[13]):             # <<<<<<<<<<<<<<
@@ -5981,7 +5981,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":311
+    /* "gases/HELIUM3.pyx":311
  * 
  *         #4 1D
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -5991,7 +5991,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[14])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":312
+      /* "gases/HELIUM3.pyx":312
  *         #4 1D
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N41D, Y41D, X41D, 1)             # <<<<<<<<<<<<<<
@@ -6000,7 +6000,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[14])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N41D, __pyx_v_Y41D, __pyx_v_X41D, 1.0);
 
-      /* "HELIUM3.pyx":311
+      /* "gases/HELIUM3.pyx":311
  * 
  *         #4 1D
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -6009,7 +6009,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":313
+    /* "gases/HELIUM3.pyx":313
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[14]):             # <<<<<<<<<<<<<<
@@ -6019,7 +6019,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[14]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":314
+      /* "gases/HELIUM3.pyx":314
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[14]):
  *             object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]             # <<<<<<<<<<<<<<
@@ -6028,7 +6028,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[14])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[14]))]);
 
-      /* "HELIUM3.pyx":313
+      /* "gases/HELIUM3.pyx":313
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[14]):             # <<<<<<<<<<<<<<
@@ -6037,7 +6037,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":317
+    /* "gases/HELIUM3.pyx":317
  * 
  *         #4 3F
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -6047,7 +6047,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[15])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":318
+      /* "gases/HELIUM3.pyx":318
  *         #4 3F
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N43F, Y43F, X43F, 4)             # <<<<<<<<<<<<<<
@@ -6056,7 +6056,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[15])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N43F, __pyx_v_Y43F, __pyx_v_X43F, 4.0);
 
-      /* "HELIUM3.pyx":317
+      /* "gases/HELIUM3.pyx":317
  * 
  *         #4 3F
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -6065,7 +6065,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":319
+    /* "gases/HELIUM3.pyx":319
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N43F, Y43F, X43F, 4)
  *         if EN > (2 * object.EIN[15]):             # <<<<<<<<<<<<<<
@@ -6075,7 +6075,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[15]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":320
+      /* "gases/HELIUM3.pyx":320
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N43F, Y43F, X43F, 4)
  *         if EN > (2 * object.EIN[15]):
  *             object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]             # <<<<<<<<<<<<<<
@@ -6084,7 +6084,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[15])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[15]))]);
 
-      /* "HELIUM3.pyx":319
+      /* "gases/HELIUM3.pyx":319
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N43F, Y43F, X43F, 4)
  *         if EN > (2 * object.EIN[15]):             # <<<<<<<<<<<<<<
@@ -6093,7 +6093,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":323
+    /* "gases/HELIUM3.pyx":323
  * 
  *         #4 1F
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -6103,7 +6103,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[16])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":324
+      /* "gases/HELIUM3.pyx":324
  *         #4 1F
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N41F, Y41F, X41F, 1)             # <<<<<<<<<<<<<<
@@ -6112,7 +6112,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[16])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N41F, __pyx_v_Y41F, __pyx_v_X41F, 1.0);
 
-      /* "HELIUM3.pyx":323
+      /* "gases/HELIUM3.pyx":323
  * 
  *         #4 1F
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -6121,7 +6121,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":325
+    /* "gases/HELIUM3.pyx":325
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N41F, Y41F, X41F, 1)
  *         if EN > (2 * object.EIN[16]):             # <<<<<<<<<<<<<<
@@ -6131,7 +6131,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[16]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":326
+      /* "gases/HELIUM3.pyx":326
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N41F, Y41F, X41F, 1)
  *         if EN > (2 * object.EIN[16]):
  *             object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]             # <<<<<<<<<<<<<<
@@ -6140,7 +6140,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[16])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[16]))]);
 
-      /* "HELIUM3.pyx":325
+      /* "gases/HELIUM3.pyx":325
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N41F, Y41F, X41F, 1)
  *         if EN > (2 * object.EIN[16]):             # <<<<<<<<<<<<<<
@@ -6149,7 +6149,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":329
+    /* "gases/HELIUM3.pyx":329
  * 
  *         #4 1P
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -6159,7 +6159,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[17])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":330
+      /* "gases/HELIUM3.pyx":330
  *         #4 1P
  *         if EN > object.EIN[17]:
  *             object.QIN[17][I] = GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,             # <<<<<<<<<<<<<<
@@ -6168,7 +6168,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[17])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[17]), (__pyx_v_object->E[2]), 0.02986);
 
-      /* "HELIUM3.pyx":329
+      /* "gases/HELIUM3.pyx":329
  * 
  *         #4 1P
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -6177,7 +6177,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":332
+    /* "gases/HELIUM3.pyx":332
  *             object.QIN[17][I] = GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                   object.EIN[17], object.E[2], 0.02986)
  *         if EN > (2 * object.EIN[17]):             # <<<<<<<<<<<<<<
@@ -6187,7 +6187,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[17]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":333
+      /* "gases/HELIUM3.pyx":333
  *                                                   object.EIN[17], object.E[2], 0.02986)
  *         if EN > (2 * object.EIN[17]):
  *             object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]             # <<<<<<<<<<<<<<
@@ -6196,7 +6196,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[17])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[17]))]);
 
-      /* "HELIUM3.pyx":332
+      /* "gases/HELIUM3.pyx":332
  *             object.QIN[17][I] = GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                   object.EIN[17], object.E[2], 0.02986)
  *         if EN > (2 * object.EIN[17]):             # <<<<<<<<<<<<<<
@@ -6205,7 +6205,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":336
+    /* "gases/HELIUM3.pyx":336
  * 
  *         #5 3S SCALED FROM 4 3S
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -6215,7 +6215,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[18])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":337
+      /* "gases/HELIUM3.pyx":337
  *         #5 3S SCALED FROM 4 3S
  *         if EN > object.EIN[18]:
  *             ER = object.EIN[18] / object.EIN[10]             # <<<<<<<<<<<<<<
@@ -6224,7 +6224,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[18]) / (__pyx_v_object->EIN[10]));
 
-      /* "HELIUM3.pyx":338
+      /* "gases/HELIUM3.pyx":338
  *         if EN > object.EIN[18]:
  *             ER = object.EIN[18] / object.EIN[10]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6233,7 +6233,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":339
+      /* "gases/HELIUM3.pyx":339
  *             ER = object.EIN[18] / object.EIN[10]
  *             ENP = EN / ER
  *             object.QIN[18][I] = 0.512 * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)             # <<<<<<<<<<<<<<
@@ -6242,7 +6242,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[18])[__pyx_v_I]) = (0.512 * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43S, __pyx_v_Y43S, __pyx_v_X43S, 3.0));
 
-      /* "HELIUM3.pyx":336
+      /* "gases/HELIUM3.pyx":336
  * 
  *         #5 3S SCALED FROM 4 3S
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -6251,7 +6251,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":340
+    /* "gases/HELIUM3.pyx":340
  *             ENP = EN / ER
  *             object.QIN[18][I] = 0.512 * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[18]):             # <<<<<<<<<<<<<<
@@ -6261,7 +6261,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[18]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":341
+      /* "gases/HELIUM3.pyx":341
  *             object.QIN[18][I] = 0.512 * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[18]):
  *             object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]             # <<<<<<<<<<<<<<
@@ -6270,7 +6270,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[18])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[18]))]);
 
-      /* "HELIUM3.pyx":340
+      /* "gases/HELIUM3.pyx":340
  *             ENP = EN / ER
  *             object.QIN[18][I] = 0.512 * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[18]):             # <<<<<<<<<<<<<<
@@ -6279,7 +6279,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":344
+    /* "gases/HELIUM3.pyx":344
  * 
  *         #5 1S SCALED FROM 4 1S
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -6289,7 +6289,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[19])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":345
+      /* "gases/HELIUM3.pyx":345
  *         #5 1S SCALED FROM 4 1S
  *         if EN > object.EIN[19]:
  *             ER = object.EIN[19] / object.EIN[11]             # <<<<<<<<<<<<<<
@@ -6298,7 +6298,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[19]) / (__pyx_v_object->EIN[11]));
 
-      /* "HELIUM3.pyx":346
+      /* "gases/HELIUM3.pyx":346
  *         if EN > object.EIN[19]:
  *             ER = object.EIN[19] / object.EIN[11]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6307,7 +6307,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":347
+      /* "gases/HELIUM3.pyx":347
  *             ER = object.EIN[19] / object.EIN[11]
  *             ENP = EN / ER
  *             object.QIN[19][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)             # <<<<<<<<<<<<<<
@@ -6316,7 +6316,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[19])[__pyx_v_I]) = (((float)0.512) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41S, __pyx_v_Y41S, __pyx_v_X41S, 1.0));
 
-      /* "HELIUM3.pyx":344
+      /* "gases/HELIUM3.pyx":344
  * 
  *         #5 1S SCALED FROM 4 1S
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -6325,7 +6325,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":348
+    /* "gases/HELIUM3.pyx":348
  *             ENP = EN / ER
  *             object.QIN[19][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[19]):             # <<<<<<<<<<<<<<
@@ -6335,7 +6335,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[19]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":349
+      /* "gases/HELIUM3.pyx":349
  *             object.QIN[19][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[19]):
  *             object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]             # <<<<<<<<<<<<<<
@@ -6344,7 +6344,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[19])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[19]))]);
 
-      /* "HELIUM3.pyx":348
+      /* "gases/HELIUM3.pyx":348
  *             ENP = EN / ER
  *             object.QIN[19][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[19]):             # <<<<<<<<<<<<<<
@@ -6353,7 +6353,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":352
+    /* "gases/HELIUM3.pyx":352
  * 
  *         #5 3P SCALED FROM 5 3P
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -6363,7 +6363,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[20])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":353
+      /* "gases/HELIUM3.pyx":353
  *         #5 3P SCALED FROM 5 3P
  *         if EN > object.EIN[20]:
  *             ER = object.EIN[20] / object.EIN[12]             # <<<<<<<<<<<<<<
@@ -6372,7 +6372,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[20]) / (__pyx_v_object->EIN[12]));
 
-      /* "HELIUM3.pyx":354
+      /* "gases/HELIUM3.pyx":354
  *         if EN > object.EIN[20]:
  *             ER = object.EIN[20] / object.EIN[12]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6381,7 +6381,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":355
+      /* "gases/HELIUM3.pyx":355
  *             ER = object.EIN[20] / object.EIN[12]
  *             ENP = EN / ER
  *             object.QIN[20][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)             # <<<<<<<<<<<<<<
@@ -6390,7 +6390,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[20])[__pyx_v_I]) = (((float)0.512) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43P, __pyx_v_Y43P, __pyx_v_X43P, 3.0));
 
-      /* "HELIUM3.pyx":352
+      /* "gases/HELIUM3.pyx":352
  * 
  *         #5 3P SCALED FROM 5 3P
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -6399,7 +6399,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":356
+    /* "gases/HELIUM3.pyx":356
  *             ENP = EN / ER
  *             object.QIN[20][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[20]):             # <<<<<<<<<<<<<<
@@ -6409,7 +6409,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[20]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":357
+      /* "gases/HELIUM3.pyx":357
  *             object.QIN[20][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[20]):
  *             object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[20]]             # <<<<<<<<<<<<<<
@@ -6418,7 +6418,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[20])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[20]))]);
 
-      /* "HELIUM3.pyx":356
+      /* "gases/HELIUM3.pyx":356
  *             ENP = EN / ER
  *             object.QIN[20][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[20]):             # <<<<<<<<<<<<<<
@@ -6427,7 +6427,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":360
+    /* "gases/HELIUM3.pyx":360
  * 
  *         #5 3D SCALED FROM 4 3D
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -6437,7 +6437,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[21])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":361
+      /* "gases/HELIUM3.pyx":361
  *         #5 3D SCALED FROM 4 3D
  *         if EN > object.EIN[21]:
  *             ER = object.EIN[21] / object.EIN[13]             # <<<<<<<<<<<<<<
@@ -6446,7 +6446,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[21]) / (__pyx_v_object->EIN[13]));
 
-      /* "HELIUM3.pyx":362
+      /* "gases/HELIUM3.pyx":362
  *         if EN > object.EIN[21]:
  *             ER = object.EIN[21] / object.EIN[13]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6455,7 +6455,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":363
+      /* "gases/HELIUM3.pyx":363
  *             ER = object.EIN[21] / object.EIN[13]
  *             ENP = EN / ER
  *             object.QIN[21][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)             # <<<<<<<<<<<<<<
@@ -6464,7 +6464,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[21])[__pyx_v_I]) = (((float)0.512) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43D, __pyx_v_Y43D, __pyx_v_X43D, 3.0));
 
-      /* "HELIUM3.pyx":360
+      /* "gases/HELIUM3.pyx":360
  * 
  *         #5 3D SCALED FROM 4 3D
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -6473,7 +6473,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":364
+    /* "gases/HELIUM3.pyx":364
  *             ENP = EN / ER
  *             object.QIN[21][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[21]):             # <<<<<<<<<<<<<<
@@ -6483,7 +6483,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[21]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":365
+      /* "gases/HELIUM3.pyx":365
  *             object.QIN[21][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[21]):
  *             object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]             # <<<<<<<<<<<<<<
@@ -6492,7 +6492,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[21])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[21]))]);
 
-      /* "HELIUM3.pyx":364
+      /* "gases/HELIUM3.pyx":364
  *             ENP = EN / ER
  *             object.QIN[21][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[21]):             # <<<<<<<<<<<<<<
@@ -6501,7 +6501,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":368
+    /* "gases/HELIUM3.pyx":368
  * 
  *         #5 1D SCALED FROM 4 1D
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -6511,7 +6511,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[22])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":369
+      /* "gases/HELIUM3.pyx":369
  *         #5 1D SCALED FROM 4 1D
  *         if EN > object.EIN[22]:
  *             ER = object.EIN[22] / object.EIN[14]             # <<<<<<<<<<<<<<
@@ -6520,7 +6520,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[22]) / (__pyx_v_object->EIN[14]));
 
-      /* "HELIUM3.pyx":370
+      /* "gases/HELIUM3.pyx":370
  *         if EN > object.EIN[22]:
  *             ER = object.EIN[22] / object.EIN[14]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6529,7 +6529,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":371
+      /* "gases/HELIUM3.pyx":371
  *             ER = object.EIN[22] / object.EIN[14]
  *             ENP = EN / ER
  *             object.QIN[22][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)             # <<<<<<<<<<<<<<
@@ -6538,7 +6538,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[22])[__pyx_v_I]) = (((float)0.512) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41D, __pyx_v_Y41D, __pyx_v_X41D, 1.0));
 
-      /* "HELIUM3.pyx":368
+      /* "gases/HELIUM3.pyx":368
  * 
  *         #5 1D SCALED FROM 4 1D
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -6547,7 +6547,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":372
+    /* "gases/HELIUM3.pyx":372
  *             ENP = EN / ER
  *             object.QIN[22][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[22]):             # <<<<<<<<<<<<<<
@@ -6557,7 +6557,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[22]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":373
+      /* "gases/HELIUM3.pyx":373
  *             object.QIN[22][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[22]):
  *             object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]             # <<<<<<<<<<<<<<
@@ -6566,7 +6566,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[22])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[22]))]);
 
-      /* "HELIUM3.pyx":372
+      /* "gases/HELIUM3.pyx":372
  *             ENP = EN / ER
  *             object.QIN[22][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[22]):             # <<<<<<<<<<<<<<
@@ -6575,7 +6575,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":376
+    /* "gases/HELIUM3.pyx":376
  * 
  *         #5 3F SCALED FROM 4 3F
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -6585,7 +6585,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[23])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":377
+      /* "gases/HELIUM3.pyx":377
  *         #5 3F SCALED FROM 4 3F
  *         if EN > object.EIN[23]:
  *             ER = object.EIN[23] / object.EIN[15]             # <<<<<<<<<<<<<<
@@ -6594,7 +6594,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[23]) / (__pyx_v_object->EIN[15]));
 
-      /* "HELIUM3.pyx":378
+      /* "gases/HELIUM3.pyx":378
  *         if EN > object.EIN[23]:
  *             ER = object.EIN[23] / object.EIN[15]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6603,7 +6603,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":379
+      /* "gases/HELIUM3.pyx":379
  *             ER = object.EIN[23] / object.EIN[15]
  *             ENP = EN / ER
  *             object.QIN[23][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43F, Y43F, X43F, 4)             # <<<<<<<<<<<<<<
@@ -6612,7 +6612,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[23])[__pyx_v_I]) = (((float)0.512) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43F, __pyx_v_Y43F, __pyx_v_X43F, 4.0));
 
-      /* "HELIUM3.pyx":376
+      /* "gases/HELIUM3.pyx":376
  * 
  *         #5 3F SCALED FROM 4 3F
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -6621,7 +6621,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":380
+    /* "gases/HELIUM3.pyx":380
  *             ENP = EN / ER
  *             object.QIN[23][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43F, Y43F, X43F, 4)
  *         if EN > (2 * object.EIN[23]):             # <<<<<<<<<<<<<<
@@ -6631,7 +6631,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[23]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":381
+      /* "gases/HELIUM3.pyx":381
  *             object.QIN[23][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43F, Y43F, X43F, 4)
  *         if EN > (2 * object.EIN[23]):
  *             object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]             # <<<<<<<<<<<<<<
@@ -6640,7 +6640,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[23])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[23]))]);
 
-      /* "HELIUM3.pyx":380
+      /* "gases/HELIUM3.pyx":380
  *             ENP = EN / ER
  *             object.QIN[23][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43F, Y43F, X43F, 4)
  *         if EN > (2 * object.EIN[23]):             # <<<<<<<<<<<<<<
@@ -6649,7 +6649,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":384
+    /* "gases/HELIUM3.pyx":384
  * 
  *         #5 1F SCALED FROM 4 1F
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -6659,7 +6659,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[24])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":385
+      /* "gases/HELIUM3.pyx":385
  *         #5 1F SCALED FROM 4 1F
  *         if EN > object.EIN[24]:
  *             ER = object.EIN[24] / object.EIN[16]             # <<<<<<<<<<<<<<
@@ -6668,7 +6668,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[24]) / (__pyx_v_object->EIN[16]));
 
-      /* "HELIUM3.pyx":386
+      /* "gases/HELIUM3.pyx":386
  *         if EN > object.EIN[24]:
  *             ER = object.EIN[24] / object.EIN[16]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6677,7 +6677,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":387
+      /* "gases/HELIUM3.pyx":387
  *             ER = object.EIN[24] / object.EIN[16]
  *             ENP = EN / ER
  *             object.QIN[24][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41F, Y41F, X41F, 1)             # <<<<<<<<<<<<<<
@@ -6686,7 +6686,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[24])[__pyx_v_I]) = (((float)0.512) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41F, __pyx_v_Y41F, __pyx_v_X41F, 1.0));
 
-      /* "HELIUM3.pyx":384
+      /* "gases/HELIUM3.pyx":384
  * 
  *         #5 1F SCALED FROM 4 1F
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -6695,7 +6695,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":388
+    /* "gases/HELIUM3.pyx":388
  *             ENP = EN / ER
  *             object.QIN[24][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41F, Y41F, X41F, 1)
  *         if EN > (2 * object.EIN[24]):             # <<<<<<<<<<<<<<
@@ -6705,7 +6705,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[24]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":389
+      /* "gases/HELIUM3.pyx":389
  *             object.QIN[24][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41F, Y41F, X41F, 1)
  *         if EN > (2 * object.EIN[24]):
  *             object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]             # <<<<<<<<<<<<<<
@@ -6714,7 +6714,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[24])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[24]))]);
 
-      /* "HELIUM3.pyx":388
+      /* "gases/HELIUM3.pyx":388
  *             ENP = EN / ER
  *             object.QIN[24][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41F, Y41F, X41F, 1)
  *         if EN > (2 * object.EIN[24]):             # <<<<<<<<<<<<<<
@@ -6723,7 +6723,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":392
+    /* "gases/HELIUM3.pyx":392
  * 
  *         #5 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.01504
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -6733,7 +6733,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[25])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":393
+      /* "gases/HELIUM3.pyx":393
  *         #5 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.01504
  *         if EN > object.EIN[25]:
  *             ER = object.EIN[25] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -6742,7 +6742,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[25]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":394
+      /* "gases/HELIUM3.pyx":394
  *         if EN > object.EIN[25]:
  *             ER = object.EIN[25] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6751,7 +6751,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":395
+      /* "gases/HELIUM3.pyx":395
  *             ER = object.EIN[25] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[25][I] = <float>(0.01504) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -6760,7 +6760,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[25])[__pyx_v_I]) = ((((float)0.01504) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[25]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":392
+      /* "gases/HELIUM3.pyx":392
  * 
  *         #5 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.01504
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -6769,7 +6769,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":398
+    /* "gases/HELIUM3.pyx":398
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[25], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[25]):             # <<<<<<<<<<<<<<
@@ -6779,7 +6779,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[25]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":399
+      /* "gases/HELIUM3.pyx":399
  *                                                                       object.EIN[25], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[25]):
  *             object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]             # <<<<<<<<<<<<<<
@@ -6788,7 +6788,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[25])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[25]))]);
 
-      /* "HELIUM3.pyx":398
+      /* "gases/HELIUM3.pyx":398
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[25], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[25]):             # <<<<<<<<<<<<<<
@@ -6797,7 +6797,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":402
+    /* "gases/HELIUM3.pyx":402
  * 
  *         #6 3S SCALED FROM 4 3S
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -6807,7 +6807,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[26])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":403
+      /* "gases/HELIUM3.pyx":403
  *         #6 3S SCALED FROM 4 3S
  *         if EN > object.EIN[26]:
  *             ER = object.EIN[26] / object.EIN[10]             # <<<<<<<<<<<<<<
@@ -6816,7 +6816,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[26]) / (__pyx_v_object->EIN[10]));
 
-      /* "HELIUM3.pyx":404
+      /* "gases/HELIUM3.pyx":404
  *         if EN > object.EIN[26]:
  *             ER = object.EIN[26] / object.EIN[10]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6825,7 +6825,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":405
+      /* "gases/HELIUM3.pyx":405
  *             ER = object.EIN[26] / object.EIN[10]
  *             ENP = EN / ER
  *             object.QIN[26][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)             # <<<<<<<<<<<<<<
@@ -6834,7 +6834,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[26])[__pyx_v_I]) = (((float)0.296) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43S, __pyx_v_Y43S, __pyx_v_X43S, 3.0));
 
-      /* "HELIUM3.pyx":402
+      /* "gases/HELIUM3.pyx":402
  * 
  *         #6 3S SCALED FROM 4 3S
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -6843,7 +6843,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":406
+    /* "gases/HELIUM3.pyx":406
  *             ENP = EN / ER
  *             object.QIN[26][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[26]):             # <<<<<<<<<<<<<<
@@ -6853,7 +6853,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[26]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":407
+      /* "gases/HELIUM3.pyx":407
  *             object.QIN[26][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[26]):
  *             object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]             # <<<<<<<<<<<<<<
@@ -6862,7 +6862,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[26])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[26]))]);
 
-      /* "HELIUM3.pyx":406
+      /* "gases/HELIUM3.pyx":406
  *             ENP = EN / ER
  *             object.QIN[26][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[26]):             # <<<<<<<<<<<<<<
@@ -6871,7 +6871,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":410
+    /* "gases/HELIUM3.pyx":410
  * 
  *         #6 1S SCALED FROM 4 1S
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -6881,7 +6881,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[27])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":411
+      /* "gases/HELIUM3.pyx":411
  *         #6 1S SCALED FROM 4 1S
  *         if EN > object.EIN[27]:
  *             ER = object.EIN[27] / object.EIN[11]             # <<<<<<<<<<<<<<
@@ -6890,7 +6890,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[27]) / (__pyx_v_object->EIN[11]));
 
-      /* "HELIUM3.pyx":412
+      /* "gases/HELIUM3.pyx":412
  *         if EN > object.EIN[27]:
  *             ER = object.EIN[27] / object.EIN[11]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6899,7 +6899,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":413
+      /* "gases/HELIUM3.pyx":413
  *             ER = object.EIN[27] / object.EIN[11]
  *             ENP = EN / ER
  *             object.QIN[27][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)             # <<<<<<<<<<<<<<
@@ -6908,7 +6908,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[27])[__pyx_v_I]) = (((float)0.296) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41S, __pyx_v_Y41S, __pyx_v_X41S, 1.0));
 
-      /* "HELIUM3.pyx":410
+      /* "gases/HELIUM3.pyx":410
  * 
  *         #6 1S SCALED FROM 4 1S
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -6917,7 +6917,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":414
+    /* "gases/HELIUM3.pyx":414
  *             ENP = EN / ER
  *             object.QIN[27][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[27]):             # <<<<<<<<<<<<<<
@@ -6927,7 +6927,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[27]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":415
+      /* "gases/HELIUM3.pyx":415
  *             object.QIN[27][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[27]):
  *             object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]             # <<<<<<<<<<<<<<
@@ -6936,7 +6936,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[27])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[27]))]);
 
-      /* "HELIUM3.pyx":414
+      /* "gases/HELIUM3.pyx":414
  *             ENP = EN / ER
  *             object.QIN[27][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[27]):             # <<<<<<<<<<<<<<
@@ -6945,7 +6945,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":418
+    /* "gases/HELIUM3.pyx":418
  * 
  *         #6 3P SCALED FROM 4 3P
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -6955,7 +6955,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[28])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":419
+      /* "gases/HELIUM3.pyx":419
  *         #6 3P SCALED FROM 4 3P
  *         if EN > object.EIN[28]:
  *             ER = object.EIN[28] / object.EIN[12]             # <<<<<<<<<<<<<<
@@ -6964,7 +6964,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[28]) / (__pyx_v_object->EIN[12]));
 
-      /* "HELIUM3.pyx":420
+      /* "gases/HELIUM3.pyx":420
  *         if EN > object.EIN[28]:
  *             ER = object.EIN[28] / object.EIN[12]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -6973,7 +6973,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":421
+      /* "gases/HELIUM3.pyx":421
  *             ER = object.EIN[28] / object.EIN[12]
  *             ENP = EN / ER
  *             object.QIN[28][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)             # <<<<<<<<<<<<<<
@@ -6982,7 +6982,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[28])[__pyx_v_I]) = (((float)0.296) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43P, __pyx_v_Y43P, __pyx_v_X43P, 3.0));
 
-      /* "HELIUM3.pyx":418
+      /* "gases/HELIUM3.pyx":418
  * 
  *         #6 3P SCALED FROM 4 3P
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -6991,7 +6991,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":422
+    /* "gases/HELIUM3.pyx":422
  *             ENP = EN / ER
  *             object.QIN[28][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[28]):             # <<<<<<<<<<<<<<
@@ -7001,7 +7001,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[28]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":423
+      /* "gases/HELIUM3.pyx":423
  *             object.QIN[28][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[28]):
  *             object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]             # <<<<<<<<<<<<<<
@@ -7010,7 +7010,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[28])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[28]))]);
 
-      /* "HELIUM3.pyx":422
+      /* "gases/HELIUM3.pyx":422
  *             ENP = EN / ER
  *             object.QIN[28][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[28]):             # <<<<<<<<<<<<<<
@@ -7019,7 +7019,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":426
+    /* "gases/HELIUM3.pyx":426
  * 
  *         #6 3D SCALED FROM 4 3D
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -7029,7 +7029,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[29])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":427
+      /* "gases/HELIUM3.pyx":427
  *         #6 3D SCALED FROM 4 3D
  *         if EN > object.EIN[29]:
  *             ER = object.EIN[29] / object.EIN[13]             # <<<<<<<<<<<<<<
@@ -7038,7 +7038,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[29]) / (__pyx_v_object->EIN[13]));
 
-      /* "HELIUM3.pyx":428
+      /* "gases/HELIUM3.pyx":428
  *         if EN > object.EIN[29]:
  *             ER = object.EIN[29] / object.EIN[13]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7047,7 +7047,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":429
+      /* "gases/HELIUM3.pyx":429
  *             ER = object.EIN[29] / object.EIN[13]
  *             ENP = EN / ER
  *             object.QIN[29][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)             # <<<<<<<<<<<<<<
@@ -7056,7 +7056,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[29])[__pyx_v_I]) = (((float)0.296) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43D, __pyx_v_Y43D, __pyx_v_X43D, 3.0));
 
-      /* "HELIUM3.pyx":426
+      /* "gases/HELIUM3.pyx":426
  * 
  *         #6 3D SCALED FROM 4 3D
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -7065,7 +7065,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":430
+    /* "gases/HELIUM3.pyx":430
  *             ENP = EN / ER
  *             object.QIN[29][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[29]):             # <<<<<<<<<<<<<<
@@ -7075,7 +7075,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[29]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":431
+      /* "gases/HELIUM3.pyx":431
  *             object.QIN[29][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[29]):
  *             object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]             # <<<<<<<<<<<<<<
@@ -7084,7 +7084,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[29])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[29]))]);
 
-      /* "HELIUM3.pyx":430
+      /* "gases/HELIUM3.pyx":430
  *             ENP = EN / ER
  *             object.QIN[29][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[29]):             # <<<<<<<<<<<<<<
@@ -7093,7 +7093,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":434
+    /* "gases/HELIUM3.pyx":434
  * 
  *         #6 1D SCALED FROM 4 1D
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -7103,7 +7103,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[30])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":435
+      /* "gases/HELIUM3.pyx":435
  *         #6 1D SCALED FROM 4 1D
  *         if EN > object.EIN[30]:
  *             ER = object.EIN[30] / object.EIN[14]             # <<<<<<<<<<<<<<
@@ -7112,7 +7112,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[30]) / (__pyx_v_object->EIN[14]));
 
-      /* "HELIUM3.pyx":436
+      /* "gases/HELIUM3.pyx":436
  *         if EN > object.EIN[30]:
  *             ER = object.EIN[30] / object.EIN[14]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7121,7 +7121,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":437
+      /* "gases/HELIUM3.pyx":437
  *             ER = object.EIN[30] / object.EIN[14]
  *             ENP = EN / ER
  *             object.QIN[30][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)             # <<<<<<<<<<<<<<
@@ -7130,7 +7130,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[30])[__pyx_v_I]) = (((float)0.296) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41D, __pyx_v_Y41D, __pyx_v_X41D, 1.0));
 
-      /* "HELIUM3.pyx":434
+      /* "gases/HELIUM3.pyx":434
  * 
  *         #6 1D SCALED FROM 4 1D
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -7139,7 +7139,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":438
+    /* "gases/HELIUM3.pyx":438
  *             ENP = EN / ER
  *             object.QIN[30][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[30]):             # <<<<<<<<<<<<<<
@@ -7149,7 +7149,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[30]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":439
+      /* "gases/HELIUM3.pyx":439
  *             object.QIN[30][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[30]):
  *             object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]             # <<<<<<<<<<<<<<
@@ -7158,7 +7158,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[30])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[30]))]);
 
-      /* "HELIUM3.pyx":438
+      /* "gases/HELIUM3.pyx":438
  *             ENP = EN / ER
  *             object.QIN[30][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[30]):             # <<<<<<<<<<<<<<
@@ -7167,7 +7167,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":442
+    /* "gases/HELIUM3.pyx":442
  * 
  *         #6 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.01504
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -7177,7 +7177,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[31])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":443
+      /* "gases/HELIUM3.pyx":443
  *         #6 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.01504
  *         if EN > object.EIN[31]:
  *             ER = object.EIN[31] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -7186,7 +7186,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[31]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":444
+      /* "gases/HELIUM3.pyx":444
  *         if EN > object.EIN[31]:
  *             ER = object.EIN[31] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7195,7 +7195,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":445
+      /* "gases/HELIUM3.pyx":445
  *             ER = object.EIN[31] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[31][I] = <float>(0.00863) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -7204,7 +7204,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[31])[__pyx_v_I]) = ((((float)0.00863) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[31]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":442
+      /* "gases/HELIUM3.pyx":442
  * 
  *         #6 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.01504
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -7213,7 +7213,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":448
+    /* "gases/HELIUM3.pyx":448
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[31], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[31]):             # <<<<<<<<<<<<<<
@@ -7223,7 +7223,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[31]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":449
+      /* "gases/HELIUM3.pyx":449
  *                                                                       object.EIN[31], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[31]):
  *             object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]             # <<<<<<<<<<<<<<
@@ -7232,7 +7232,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[31])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[31]))]);
 
-      /* "HELIUM3.pyx":448
+      /* "gases/HELIUM3.pyx":448
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[31], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[31]):             # <<<<<<<<<<<<<<
@@ -7241,7 +7241,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":452
+    /* "gases/HELIUM3.pyx":452
  * 
  *         #7 3S SCALED FROM 4 3S
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -7251,7 +7251,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[32])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":453
+      /* "gases/HELIUM3.pyx":453
  *         #7 3S SCALED FROM 4 3S
  *         if EN > object.EIN[32]:
  *             ER = object.EIN[32] / object.EIN[10]             # <<<<<<<<<<<<<<
@@ -7260,7 +7260,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[32]) / (__pyx_v_object->EIN[10]));
 
-      /* "HELIUM3.pyx":454
+      /* "gases/HELIUM3.pyx":454
  *         if EN > object.EIN[32]:
  *             ER = object.EIN[32] / object.EIN[10]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7269,7 +7269,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":455
+      /* "gases/HELIUM3.pyx":455
  *             ER = object.EIN[32] / object.EIN[10]
  *             ENP = EN / ER
  *             object.QIN[32][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)             # <<<<<<<<<<<<<<
@@ -7278,7 +7278,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[32])[__pyx_v_I]) = (((float)0.187) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43S, __pyx_v_Y43S, __pyx_v_X43S, 3.0));
 
-      /* "HELIUM3.pyx":452
+      /* "gases/HELIUM3.pyx":452
  * 
  *         #7 3S SCALED FROM 4 3S
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -7287,7 +7287,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":456
+    /* "gases/HELIUM3.pyx":456
  *             ENP = EN / ER
  *             object.QIN[32][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[32]):             # <<<<<<<<<<<<<<
@@ -7297,7 +7297,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[32]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":457
+      /* "gases/HELIUM3.pyx":457
  *             object.QIN[32][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[32]):
  *             object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]             # <<<<<<<<<<<<<<
@@ -7306,7 +7306,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[32])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[32]))]);
 
-      /* "HELIUM3.pyx":456
+      /* "gases/HELIUM3.pyx":456
  *             ENP = EN / ER
  *             object.QIN[32][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[32]):             # <<<<<<<<<<<<<<
@@ -7315,7 +7315,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":460
+    /* "gases/HELIUM3.pyx":460
  * 
  *         #7 1S SCALED FROM 4 1S
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -7325,7 +7325,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[33])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":461
+      /* "gases/HELIUM3.pyx":461
  *         #7 1S SCALED FROM 4 1S
  *         if EN > object.EIN[33]:
  *             ER = object.EIN[33] / object.EIN[11]             # <<<<<<<<<<<<<<
@@ -7334,7 +7334,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[33]) / (__pyx_v_object->EIN[11]));
 
-      /* "HELIUM3.pyx":462
+      /* "gases/HELIUM3.pyx":462
  *         if EN > object.EIN[33]:
  *             ER = object.EIN[33] / object.EIN[11]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7343,7 +7343,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":463
+      /* "gases/HELIUM3.pyx":463
  *             ER = object.EIN[33] / object.EIN[11]
  *             ENP = EN / ER
  *             object.QIN[33][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)             # <<<<<<<<<<<<<<
@@ -7352,7 +7352,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[33])[__pyx_v_I]) = (((float)0.187) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41S, __pyx_v_Y41S, __pyx_v_X41S, 1.0));
 
-      /* "HELIUM3.pyx":460
+      /* "gases/HELIUM3.pyx":460
  * 
  *         #7 1S SCALED FROM 4 1S
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -7361,7 +7361,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":464
+    /* "gases/HELIUM3.pyx":464
  *             ENP = EN / ER
  *             object.QIN[33][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[33]):             # <<<<<<<<<<<<<<
@@ -7371,7 +7371,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[33]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":465
+      /* "gases/HELIUM3.pyx":465
  *             object.QIN[33][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[33]):
  *             object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]             # <<<<<<<<<<<<<<
@@ -7380,7 +7380,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[33])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[33]))]);
 
-      /* "HELIUM3.pyx":464
+      /* "gases/HELIUM3.pyx":464
  *             ENP = EN / ER
  *             object.QIN[33][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[33]):             # <<<<<<<<<<<<<<
@@ -7389,7 +7389,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":468
+    /* "gases/HELIUM3.pyx":468
  * 
  *         #7 3P SCALED FROM 4 3P
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -7399,7 +7399,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[34])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":469
+      /* "gases/HELIUM3.pyx":469
  *         #7 3P SCALED FROM 4 3P
  *         if EN > object.EIN[34]:
  *             ER = object.EIN[34] / object.EIN[12]             # <<<<<<<<<<<<<<
@@ -7408,7 +7408,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[34]) / (__pyx_v_object->EIN[12]));
 
-      /* "HELIUM3.pyx":470
+      /* "gases/HELIUM3.pyx":470
  *         if EN > object.EIN[34]:
  *             ER = object.EIN[34] / object.EIN[12]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7417,7 +7417,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":471
+      /* "gases/HELIUM3.pyx":471
  *             ER = object.EIN[34] / object.EIN[12]
  *             ENP = EN / ER
  *             object.QIN[34][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)             # <<<<<<<<<<<<<<
@@ -7426,7 +7426,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[34])[__pyx_v_I]) = (((float)0.187) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43P, __pyx_v_Y43P, __pyx_v_X43P, 3.0));
 
-      /* "HELIUM3.pyx":468
+      /* "gases/HELIUM3.pyx":468
  * 
  *         #7 3P SCALED FROM 4 3P
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -7435,7 +7435,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":472
+    /* "gases/HELIUM3.pyx":472
  *             ENP = EN / ER
  *             object.QIN[34][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[34]):             # <<<<<<<<<<<<<<
@@ -7445,7 +7445,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[34]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":473
+      /* "gases/HELIUM3.pyx":473
  *             object.QIN[34][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[34]):
  *             object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]             # <<<<<<<<<<<<<<
@@ -7454,7 +7454,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[34])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[34]))]);
 
-      /* "HELIUM3.pyx":472
+      /* "gases/HELIUM3.pyx":472
  *             ENP = EN / ER
  *             object.QIN[34][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[34]):             # <<<<<<<<<<<<<<
@@ -7463,7 +7463,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":476
+    /* "gases/HELIUM3.pyx":476
  * 
  *         #7 3D SCALED FROM 4 3D
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -7473,7 +7473,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[35])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":477
+      /* "gases/HELIUM3.pyx":477
  *         #7 3D SCALED FROM 4 3D
  *         if EN > object.EIN[35]:
  *             ER = object.EIN[35] / object.EIN[13]             # <<<<<<<<<<<<<<
@@ -7482,7 +7482,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[35]) / (__pyx_v_object->EIN[13]));
 
-      /* "HELIUM3.pyx":478
+      /* "gases/HELIUM3.pyx":478
  *         if EN > object.EIN[35]:
  *             ER = object.EIN[35] / object.EIN[13]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7491,7 +7491,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":479
+      /* "gases/HELIUM3.pyx":479
  *             ER = object.EIN[35] / object.EIN[13]
  *             ENP = EN / ER
  *             object.QIN[35][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)             # <<<<<<<<<<<<<<
@@ -7500,7 +7500,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[35])[__pyx_v_I]) = (((float)0.187) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43D, __pyx_v_Y43D, __pyx_v_X43D, 3.0));
 
-      /* "HELIUM3.pyx":476
+      /* "gases/HELIUM3.pyx":476
  * 
  *         #7 3D SCALED FROM 4 3D
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -7509,7 +7509,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":480
+    /* "gases/HELIUM3.pyx":480
  *             ENP = EN / ER
  *             object.QIN[35][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[35]):             # <<<<<<<<<<<<<<
@@ -7519,7 +7519,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[35]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":481
+      /* "gases/HELIUM3.pyx":481
  *             object.QIN[35][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[35]):
  *             object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]             # <<<<<<<<<<<<<<
@@ -7528,7 +7528,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[35])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[35]))]);
 
-      /* "HELIUM3.pyx":480
+      /* "gases/HELIUM3.pyx":480
  *             ENP = EN / ER
  *             object.QIN[35][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[35]):             # <<<<<<<<<<<<<<
@@ -7537,7 +7537,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":484
+    /* "gases/HELIUM3.pyx":484
  * 
  *         #7 1D SCALED FROM 4 1D
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -7547,7 +7547,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[36])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":485
+      /* "gases/HELIUM3.pyx":485
  *         #7 1D SCALED FROM 4 1D
  *         if EN > object.EIN[36]:
  *             ER = object.EIN[36] / object.EIN[14]             # <<<<<<<<<<<<<<
@@ -7556,7 +7556,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[36]) / (__pyx_v_object->EIN[14]));
 
-      /* "HELIUM3.pyx":486
+      /* "gases/HELIUM3.pyx":486
  *         if EN > object.EIN[36]:
  *             ER = object.EIN[36] / object.EIN[14]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7565,7 +7565,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":487
+      /* "gases/HELIUM3.pyx":487
  *             ER = object.EIN[36] / object.EIN[14]
  *             ENP = EN / ER
  *             object.QIN[36][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)             # <<<<<<<<<<<<<<
@@ -7574,7 +7574,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[36])[__pyx_v_I]) = (((float)0.187) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41D, __pyx_v_Y41D, __pyx_v_X41D, 1.0));
 
-      /* "HELIUM3.pyx":484
+      /* "gases/HELIUM3.pyx":484
  * 
  *         #7 1D SCALED FROM 4 1D
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -7583,7 +7583,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":488
+    /* "gases/HELIUM3.pyx":488
  *             ENP = EN / ER
  *             object.QIN[36][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[36]):             # <<<<<<<<<<<<<<
@@ -7593,7 +7593,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[36]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":489
+      /* "gases/HELIUM3.pyx":489
  *             object.QIN[36][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[36]):
  *             object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]             # <<<<<<<<<<<<<<
@@ -7602,7 +7602,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[36])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[36]))]);
 
-      /* "HELIUM3.pyx":488
+      /* "gases/HELIUM3.pyx":488
  *             ENP = EN / ER
  *             object.QIN[36][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[36]):             # <<<<<<<<<<<<<<
@@ -7611,7 +7611,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":492
+    /* "gases/HELIUM3.pyx":492
  * 
  *         #7 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00540
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -7621,7 +7621,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[37])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":493
+      /* "gases/HELIUM3.pyx":493
  *         #7 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00540
  *         if EN > object.EIN[37]:
  *             ER = object.EIN[37] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -7630,7 +7630,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[37]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":494
+      /* "gases/HELIUM3.pyx":494
  *         if EN > object.EIN[37]:
  *             ER = object.EIN[37] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7639,7 +7639,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":495
+      /* "gases/HELIUM3.pyx":495
  *             ER = object.EIN[37] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[37][I] = <float>(0.00540) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -7648,7 +7648,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[37])[__pyx_v_I]) = ((((float)0.00540) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[37]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":492
+      /* "gases/HELIUM3.pyx":492
  * 
  *         #7 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00540
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -7657,7 +7657,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":498
+    /* "gases/HELIUM3.pyx":498
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[37], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[37]):             # <<<<<<<<<<<<<<
@@ -7667,7 +7667,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[37]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":499
+      /* "gases/HELIUM3.pyx":499
  *                                                                       object.EIN[37], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[37]):
  *             object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]             # <<<<<<<<<<<<<<
@@ -7676,7 +7676,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[37])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[37]))]);
 
-      /* "HELIUM3.pyx":498
+      /* "gases/HELIUM3.pyx":498
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[37], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[37]):             # <<<<<<<<<<<<<<
@@ -7685,7 +7685,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":502
+    /* "gases/HELIUM3.pyx":502
  * 
  *         #SUM 3S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 3S
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -7695,7 +7695,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[38])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":503
+      /* "gases/HELIUM3.pyx":503
  *         #SUM 3S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 3S
  *         if EN > object.EIN[38]:
  *             ER = object.EIN[38] / object.EIN[10]             # <<<<<<<<<<<<<<
@@ -7704,7 +7704,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[38]) / (__pyx_v_object->EIN[10]));
 
-      /* "HELIUM3.pyx":504
+      /* "gases/HELIUM3.pyx":504
  *         if EN > object.EIN[38]:
  *             ER = object.EIN[38] / object.EIN[10]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7713,7 +7713,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":505
+      /* "gases/HELIUM3.pyx":505
  *             ER = object.EIN[38] / object.EIN[10]
  *             ENP = EN / ER
  *             object.QIN[38][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)             # <<<<<<<<<<<<<<
@@ -7722,7 +7722,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[38])[__pyx_v_I]) = (((float)0.553) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43S, __pyx_v_Y43S, __pyx_v_X43S, 3.0));
 
-      /* "HELIUM3.pyx":502
+      /* "gases/HELIUM3.pyx":502
  * 
  *         #SUM 3S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 3S
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -7731,7 +7731,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":506
+    /* "gases/HELIUM3.pyx":506
  *             ENP = EN / ER
  *             object.QIN[38][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[38]):             # <<<<<<<<<<<<<<
@@ -7741,7 +7741,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[38]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":507
+      /* "gases/HELIUM3.pyx":507
  *             object.QIN[38][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[38]):
  *             object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]             # <<<<<<<<<<<<<<
@@ -7750,7 +7750,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[38])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[38]))]);
 
-      /* "HELIUM3.pyx":506
+      /* "gases/HELIUM3.pyx":506
  *             ENP = EN / ER
  *             object.QIN[38][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
  *         if EN > (2 * object.EIN[38]):             # <<<<<<<<<<<<<<
@@ -7759,7 +7759,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":510
+    /* "gases/HELIUM3.pyx":510
  * 
  *         #SUM 1S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 1S
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -7769,7 +7769,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[39])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":511
+      /* "gases/HELIUM3.pyx":511
  *         #SUM 1S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 1S
  *         if EN > object.EIN[39]:
  *             ER = object.EIN[39] / object.EIN[11]             # <<<<<<<<<<<<<<
@@ -7778,7 +7778,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[39]) / (__pyx_v_object->EIN[11]));
 
-      /* "HELIUM3.pyx":512
+      /* "gases/HELIUM3.pyx":512
  *         if EN > object.EIN[39]:
  *             ER = object.EIN[39] / object.EIN[11]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7787,7 +7787,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":513
+      /* "gases/HELIUM3.pyx":513
  *             ER = object.EIN[39] / object.EIN[11]
  *             ENP = EN / ER
  *             object.QIN[39][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)             # <<<<<<<<<<<<<<
@@ -7796,7 +7796,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[39])[__pyx_v_I]) = (((float)0.553) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41S, __pyx_v_Y41S, __pyx_v_X41S, 1.0));
 
-      /* "HELIUM3.pyx":510
+      /* "gases/HELIUM3.pyx":510
  * 
  *         #SUM 1S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 1S
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -7805,7 +7805,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":514
+    /* "gases/HELIUM3.pyx":514
  *             ENP = EN / ER
  *             object.QIN[39][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[39]):             # <<<<<<<<<<<<<<
@@ -7815,7 +7815,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[39]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":515
+      /* "gases/HELIUM3.pyx":515
  *             object.QIN[39][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[39]):
  *             object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]             # <<<<<<<<<<<<<<
@@ -7824,7 +7824,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[39])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[39]))]);
 
-      /* "HELIUM3.pyx":514
+      /* "gases/HELIUM3.pyx":514
  *             ENP = EN / ER
  *             object.QIN[39][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
  *         if EN > (2 * object.EIN[39]):             # <<<<<<<<<<<<<<
@@ -7833,7 +7833,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":518
+    /* "gases/HELIUM3.pyx":518
  * 
  *         #SUM 3P LEVELS FROM  8 3P HIGHER AND SCALED FROM 4 3P
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -7843,7 +7843,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[40])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":519
+      /* "gases/HELIUM3.pyx":519
  *         #SUM 3P LEVELS FROM  8 3P HIGHER AND SCALED FROM 4 3P
  *         if EN > object.EIN[40]:
  *             ER = object.EIN[40] / object.EIN[12]             # <<<<<<<<<<<<<<
@@ -7852,7 +7852,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[40]) / (__pyx_v_object->EIN[12]));
 
-      /* "HELIUM3.pyx":520
+      /* "gases/HELIUM3.pyx":520
  *         if EN > object.EIN[40]:
  *             ER = object.EIN[40] / object.EIN[12]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7861,7 +7861,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":521
+      /* "gases/HELIUM3.pyx":521
  *             ER = object.EIN[40] / object.EIN[12]
  *             ENP = EN / ER
  *             object.QIN[40][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)             # <<<<<<<<<<<<<<
@@ -7870,7 +7870,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[40])[__pyx_v_I]) = (((float)0.553) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43P, __pyx_v_Y43P, __pyx_v_X43P, 3.0));
 
-      /* "HELIUM3.pyx":518
+      /* "gases/HELIUM3.pyx":518
  * 
  *         #SUM 3P LEVELS FROM  8 3P HIGHER AND SCALED FROM 4 3P
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -7879,7 +7879,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":522
+    /* "gases/HELIUM3.pyx":522
  *             ENP = EN / ER
  *             object.QIN[40][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[40]):             # <<<<<<<<<<<<<<
@@ -7889,7 +7889,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[40]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":523
+      /* "gases/HELIUM3.pyx":523
  *             object.QIN[40][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[40]):
  *             object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]             # <<<<<<<<<<<<<<
@@ -7898,7 +7898,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[40])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[40]))]);
 
-      /* "HELIUM3.pyx":522
+      /* "gases/HELIUM3.pyx":522
  *             ENP = EN / ER
  *             object.QIN[40][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
  *         if EN > (2 * object.EIN[40]):             # <<<<<<<<<<<<<<
@@ -7907,7 +7907,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":526
+    /* "gases/HELIUM3.pyx":526
  * 
  *         #SUM 3D LEVELS FROM  8 3D HIGHER AND SCALED FROM 4 3D
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -7917,7 +7917,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[41])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":527
+      /* "gases/HELIUM3.pyx":527
  *         #SUM 3D LEVELS FROM  8 3D HIGHER AND SCALED FROM 4 3D
  *         if EN > object.EIN[41]:
  *             ER = object.EIN[41] / object.EIN[13]             # <<<<<<<<<<<<<<
@@ -7926,7 +7926,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[41]) / (__pyx_v_object->EIN[13]));
 
-      /* "HELIUM3.pyx":528
+      /* "gases/HELIUM3.pyx":528
  *         if EN > object.EIN[41]:
  *             ER = object.EIN[41] / object.EIN[13]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -7935,7 +7935,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":529
+      /* "gases/HELIUM3.pyx":529
  *             ER = object.EIN[41] / object.EIN[13]
  *             ENP = EN / ER
  *             object.QIN[41][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)             # <<<<<<<<<<<<<<
@@ -7944,7 +7944,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[41])[__pyx_v_I]) = (((float)0.553) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N43D, __pyx_v_Y43D, __pyx_v_X43D, 3.0));
 
-      /* "HELIUM3.pyx":526
+      /* "gases/HELIUM3.pyx":526
  * 
  *         #SUM 3D LEVELS FROM  8 3D HIGHER AND SCALED FROM 4 3D
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -7953,7 +7953,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":530
+    /* "gases/HELIUM3.pyx":530
  *             ENP = EN / ER
  *             object.QIN[41][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[41]):             # <<<<<<<<<<<<<<
@@ -7963,7 +7963,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[41]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":531
+      /* "gases/HELIUM3.pyx":531
  *             object.QIN[41][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[41]):
  *             object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]             # <<<<<<<<<<<<<<
@@ -7972,7 +7972,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[41])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[41]))]);
 
-      /* "HELIUM3.pyx":530
+      /* "gases/HELIUM3.pyx":530
  *             ENP = EN / ER
  *             object.QIN[41][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
  *         if EN > (2 * object.EIN[41]):             # <<<<<<<<<<<<<<
@@ -7981,7 +7981,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":534
+    /* "gases/HELIUM3.pyx":534
  * 
  *         #SUM 1D LEVELS FROM  8 1D HIGHER AND SCALED FROM 4 1D
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -7991,7 +7991,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[42])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":535
+      /* "gases/HELIUM3.pyx":535
  *         #SUM 1D LEVELS FROM  8 1D HIGHER AND SCALED FROM 4 1D
  *         if EN > object.EIN[42]:
  *             ER = object.EIN[42] / object.EIN[14]             # <<<<<<<<<<<<<<
@@ -8000,7 +8000,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[42]) / (__pyx_v_object->EIN[14]));
 
-      /* "HELIUM3.pyx":536
+      /* "gases/HELIUM3.pyx":536
  *         if EN > object.EIN[42]:
  *             ER = object.EIN[42] / object.EIN[14]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -8009,7 +8009,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":537
+      /* "gases/HELIUM3.pyx":537
  *             ER = object.EIN[42] / object.EIN[14]
  *             ENP = EN / ER
  *             object.QIN[42][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)             # <<<<<<<<<<<<<<
@@ -8018,7 +8018,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[42])[__pyx_v_I]) = (((float)0.553) * __pyx_f_7GasUtil_CALQINP(__pyx_v_ENP, __pyx_v_N41D, __pyx_v_Y41D, __pyx_v_X41D, 1.0));
 
-      /* "HELIUM3.pyx":534
+      /* "gases/HELIUM3.pyx":534
  * 
  *         #SUM 1D LEVELS FROM  8 1D HIGHER AND SCALED FROM 4 1D
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -8027,7 +8027,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":538
+    /* "gases/HELIUM3.pyx":538
  *             ENP = EN / ER
  *             object.QIN[42][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[42]):             # <<<<<<<<<<<<<<
@@ -8037,7 +8037,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[42]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":539
+      /* "gases/HELIUM3.pyx":539
  *             object.QIN[42][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[42]):
  *             object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]             # <<<<<<<<<<<<<<
@@ -8046,7 +8046,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[42])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[42]))]);
 
-      /* "HELIUM3.pyx":538
+      /* "gases/HELIUM3.pyx":538
  *             ENP = EN / ER
  *             object.QIN[42][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
  *         if EN > (2 * object.EIN[42]):             # <<<<<<<<<<<<<<
@@ -8055,7 +8055,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":542
+    /* "gases/HELIUM3.pyx":542
  * 
  *         #8 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00362
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -8065,7 +8065,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[43])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":543
+      /* "gases/HELIUM3.pyx":543
  *         #8 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00362
  *         if EN > object.EIN[43]:
  *             ER = object.EIN[43] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -8074,7 +8074,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[43]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":544
+      /* "gases/HELIUM3.pyx":544
  *         if EN > object.EIN[43]:
  *             ER = object.EIN[43] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -8083,7 +8083,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":545
+      /* "gases/HELIUM3.pyx":545
  *             ER = object.EIN[43] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[43][I] = <float>(0.00362) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -8092,7 +8092,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[43])[__pyx_v_I]) = ((((float)0.00362) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[43]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":542
+      /* "gases/HELIUM3.pyx":542
  * 
  *         #8 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00362
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -8101,7 +8101,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":548
+    /* "gases/HELIUM3.pyx":548
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[43], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[43]):             # <<<<<<<<<<<<<<
@@ -8111,7 +8111,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[43]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":549
+      /* "gases/HELIUM3.pyx":549
  *                                                                       object.EIN[43], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[43]):
  *             object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]             # <<<<<<<<<<<<<<
@@ -8120,7 +8120,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[43])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[43]))]);
 
-      /* "HELIUM3.pyx":548
+      /* "gases/HELIUM3.pyx":548
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[43], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[43]):             # <<<<<<<<<<<<<<
@@ -8129,7 +8129,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":552
+    /* "gases/HELIUM3.pyx":552
  * 
  *         #9 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00253
  *         if EN > object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -8139,7 +8139,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[44])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":553
+      /* "gases/HELIUM3.pyx":553
  *         #9 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00253
  *         if EN > object.EIN[44]:
  *             ER = object.EIN[44] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -8148,7 +8148,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[44]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":554
+      /* "gases/HELIUM3.pyx":554
  *         if EN > object.EIN[44]:
  *             ER = object.EIN[44] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -8157,7 +8157,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":555
+      /* "gases/HELIUM3.pyx":555
  *             ER = object.EIN[44] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[44][I] = <float>(0.00253) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -8166,7 +8166,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[44])[__pyx_v_I]) = ((((float)0.00253) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[44]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":552
+      /* "gases/HELIUM3.pyx":552
  * 
  *         #9 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00253
  *         if EN > object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -8175,7 +8175,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":558
+    /* "gases/HELIUM3.pyx":558
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[44], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[44]):             # <<<<<<<<<<<<<<
@@ -8185,7 +8185,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[44]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":559
+      /* "gases/HELIUM3.pyx":559
  *                                                                       object.EIN[44], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[44]):
  *             object.PEQIN[44][I] = object.PEQEL[1][I - IOFFN[44]]             # <<<<<<<<<<<<<<
@@ -8194,7 +8194,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[44])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[44]))]);
 
-      /* "HELIUM3.pyx":558
+      /* "gases/HELIUM3.pyx":558
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[44], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[44]):             # <<<<<<<<<<<<<<
@@ -8203,7 +8203,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":562
+    /* "gases/HELIUM3.pyx":562
  * 
  *         #10 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00184
  *         if EN > object.EIN[45]:             # <<<<<<<<<<<<<<
@@ -8213,7 +8213,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[45])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":563
+      /* "gases/HELIUM3.pyx":563
  *         #10 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00184
  *         if EN > object.EIN[45]:
  *             ER = object.EIN[45] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -8222,7 +8222,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[45]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":564
+      /* "gases/HELIUM3.pyx":564
  *         if EN > object.EIN[45]:
  *             ER = object.EIN[45] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -8231,7 +8231,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":565
+      /* "gases/HELIUM3.pyx":565
  *             ER = object.EIN[45] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[45][I] = <float>(0.00184) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -8240,7 +8240,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[45])[__pyx_v_I]) = ((((float)0.00184) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[45]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":562
+      /* "gases/HELIUM3.pyx":562
  * 
  *         #10 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00184
  *         if EN > object.EIN[45]:             # <<<<<<<<<<<<<<
@@ -8249,7 +8249,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":568
+    /* "gases/HELIUM3.pyx":568
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[45], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[45]):             # <<<<<<<<<<<<<<
@@ -8259,7 +8259,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[45]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":569
+      /* "gases/HELIUM3.pyx":569
  *                                                                       object.EIN[45], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[45]):
  *             object.PEQIN[45][I] = object.PEQEL[1][I - IOFFN[45]]             # <<<<<<<<<<<<<<
@@ -8268,7 +8268,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[45])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[45]))]);
 
-      /* "HELIUM3.pyx":568
+      /* "gases/HELIUM3.pyx":568
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[45], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[45]):             # <<<<<<<<<<<<<<
@@ -8277,7 +8277,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":572
+    /* "gases/HELIUM3.pyx":572
  * 
  *         #11 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00138
  *         if EN > object.EIN[46]:             # <<<<<<<<<<<<<<
@@ -8287,7 +8287,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[46])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":573
+      /* "gases/HELIUM3.pyx":573
  *         #11 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00138
  *         if EN > object.EIN[46]:
  *             ER = object.EIN[46] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -8296,7 +8296,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[46]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":574
+      /* "gases/HELIUM3.pyx":574
  *         if EN > object.EIN[46]:
  *             ER = object.EIN[46] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -8305,7 +8305,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":575
+      /* "gases/HELIUM3.pyx":575
  *             ER = object.EIN[46] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[46][I] = <float>(0.00138) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -8314,7 +8314,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[46])[__pyx_v_I]) = ((((float)0.00138) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[46]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":572
+      /* "gases/HELIUM3.pyx":572
  * 
  *         #11 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00138
  *         if EN > object.EIN[46]:             # <<<<<<<<<<<<<<
@@ -8323,7 +8323,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":578
+    /* "gases/HELIUM3.pyx":578
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[46], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[46]):             # <<<<<<<<<<<<<<
@@ -8333,7 +8333,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[46]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":579
+      /* "gases/HELIUM3.pyx":579
  *                                                                       object.EIN[46], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[46]):
  *             object.PEQIN[46][I] = object.PEQEL[1][I - IOFFN[46]]             # <<<<<<<<<<<<<<
@@ -8342,7 +8342,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[46])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[46]))]);
 
-      /* "HELIUM3.pyx":578
+      /* "gases/HELIUM3.pyx":578
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[46], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[46]):             # <<<<<<<<<<<<<<
@@ -8351,7 +8351,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":582
+    /* "gases/HELIUM3.pyx":582
  * 
  *         #12 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00106
  *         if EN > object.EIN[47]:             # <<<<<<<<<<<<<<
@@ -8361,7 +8361,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[47])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":583
+      /* "gases/HELIUM3.pyx":583
  *         #12 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00106
  *         if EN > object.EIN[47]:
  *             ER = object.EIN[47] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -8370,7 +8370,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[47]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":584
+      /* "gases/HELIUM3.pyx":584
  *         if EN > object.EIN[47]:
  *             ER = object.EIN[47] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -8379,7 +8379,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":585
+      /* "gases/HELIUM3.pyx":585
  *             ER = object.EIN[47] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[47][I] = <float>(0.00106) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -8388,7 +8388,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[47])[__pyx_v_I]) = ((((float)0.00106) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[47]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":582
+      /* "gases/HELIUM3.pyx":582
  * 
  *         #12 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00106
  *         if EN > object.EIN[47]:             # <<<<<<<<<<<<<<
@@ -8397,7 +8397,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":588
+    /* "gases/HELIUM3.pyx":588
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[47], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[47]):             # <<<<<<<<<<<<<<
@@ -8407,7 +8407,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[47]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":589
+      /* "gases/HELIUM3.pyx":589
  *                                                                       object.EIN[47], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[47]):
  *             object.PEQIN[47][I] = object.PEQEL[1][I - IOFFN[47]]             # <<<<<<<<<<<<<<
@@ -8416,7 +8416,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[47])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[47]))]);
 
-      /* "HELIUM3.pyx":588
+      /* "gases/HELIUM3.pyx":588
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[47], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[47]):             # <<<<<<<<<<<<<<
@@ -8425,7 +8425,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":592
+    /* "gases/HELIUM3.pyx":592
  * 
  *         #13 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00440
  *         if EN > object.EIN[48]:             # <<<<<<<<<<<<<<
@@ -8435,7 +8435,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (__pyx_v_object->EIN[48])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":593
+      /* "gases/HELIUM3.pyx":593
  *         #13 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00440
  *         if EN > object.EIN[48]:
  *             ER = object.EIN[48] / object.EIN[17]             # <<<<<<<<<<<<<<
@@ -8444,7 +8444,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ER = ((__pyx_v_object->EIN[48]) / (__pyx_v_object->EIN[17]));
 
-      /* "HELIUM3.pyx":594
+      /* "gases/HELIUM3.pyx":594
  *         if EN > object.EIN[48]:
  *             ER = object.EIN[48] / object.EIN[17]
  *             ENP = EN / ER             # <<<<<<<<<<<<<<
@@ -8453,7 +8453,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ENP = (__pyx_v_EN / __pyx_v_ER);
 
-      /* "HELIUM3.pyx":595
+      /* "gases/HELIUM3.pyx":595
  *             ER = object.EIN[48] / object.EIN[17]
  *             ENP = EN / ER
  *             object.QIN[48][I] = <float>(0.00440) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,             # <<<<<<<<<<<<<<
@@ -8462,7 +8462,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[48])[__pyx_v_I]) = ((((float)0.00440) / ((float)0.02986)) * __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N41P, __pyx_v_Y41P, __pyx_v_X41P, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[48]), (__pyx_v_object->E[2]), ((float)0.02986)));
 
-      /* "HELIUM3.pyx":592
+      /* "gases/HELIUM3.pyx":592
  * 
  *         #13 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00440
  *         if EN > object.EIN[48]:             # <<<<<<<<<<<<<<
@@ -8471,7 +8471,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":598
+    /* "gases/HELIUM3.pyx":598
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[48], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[48]):             # <<<<<<<<<<<<<<
@@ -8481,7 +8481,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[48]))) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":599
+      /* "gases/HELIUM3.pyx":599
  *                                                                       object.EIN[48], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[48]):
  *             object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]             # <<<<<<<<<<<<<<
@@ -8490,7 +8490,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[48])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[48]))]);
 
-      /* "HELIUM3.pyx":598
+      /* "gases/HELIUM3.pyx":598
  *                                                                       object.DEN[I], BBCONST,
  *                                                                       object.EIN[48], object.E[2], <float>(0.02986))
  *         if EN > (2 * object.EIN[48]):             # <<<<<<<<<<<<<<
@@ -8499,7 +8499,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "HELIUM3.pyx":601
+    /* "gases/HELIUM3.pyx":601
  *             object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]
  * 
  *         QMET = object.QIN[0][I] + object.QIN[1][I]             # <<<<<<<<<<<<<<
@@ -8508,7 +8508,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QMET = (((__pyx_v_object->QIN[0])[__pyx_v_I]) + ((__pyx_v_object->QIN[1])[__pyx_v_I]));
 
-    /* "HELIUM3.pyx":604
+    /* "gases/HELIUM3.pyx":604
  *         QDIP = object.QIN[3][I] + object.QIN[9][I] + object.QIN[17][I] + object.QIN[25][I] + object.QIN[31][I] + \
  *                object.QIN[37][I] + object.QIN[43][I] + object.QIN[44][I] + object.QIN[45][I] + object.QIN[46][I] + \
  *                object.QIN[47][I] + object.QIN[48][I]             # <<<<<<<<<<<<<<
@@ -8517,7 +8517,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QDIP = (((((((((((((__pyx_v_object->QIN[3])[__pyx_v_I]) + ((__pyx_v_object->QIN[9])[__pyx_v_I])) + ((__pyx_v_object->QIN[17])[__pyx_v_I])) + ((__pyx_v_object->QIN[25])[__pyx_v_I])) + ((__pyx_v_object->QIN[31])[__pyx_v_I])) + ((__pyx_v_object->QIN[37])[__pyx_v_I])) + ((__pyx_v_object->QIN[43])[__pyx_v_I])) + ((__pyx_v_object->QIN[44])[__pyx_v_I])) + ((__pyx_v_object->QIN[45])[__pyx_v_I])) + ((__pyx_v_object->QIN[46])[__pyx_v_I])) + ((__pyx_v_object->QIN[47])[__pyx_v_I])) + ((__pyx_v_object->QIN[48])[__pyx_v_I]));
 
-    /* "HELIUM3.pyx":609
+    /* "gases/HELIUM3.pyx":609
  *                object.QIN[20][I] + object.QIN[21][I] + object.QIN[23][I] + object.QIN[26][I] + object.QIN[28][I] + \
  *                object.QIN[29][I] + object.QIN[32][I] + object.QIN[34][I] + object.QIN[35][I] + object.QIN[38][I] + \
  *                object.QIN[40][I] + object.QIN[41][I]             # <<<<<<<<<<<<<<
@@ -8526,7 +8526,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTRP = (((((((((((((((((((((((__pyx_v_object->QIN[0])[__pyx_v_I]) + ((__pyx_v_object->QIN[2])[__pyx_v_I])) + ((__pyx_v_object->QIN[4])[__pyx_v_I])) + ((__pyx_v_object->QIN[6])[__pyx_v_I])) + ((__pyx_v_object->QIN[7])[__pyx_v_I])) + ((__pyx_v_object->QIN[10])[__pyx_v_I])) + ((__pyx_v_object->QIN[12])[__pyx_v_I])) + ((__pyx_v_object->QIN[13])[__pyx_v_I])) + ((__pyx_v_object->QIN[15])[__pyx_v_I])) + ((__pyx_v_object->QIN[18])[__pyx_v_I])) + ((__pyx_v_object->QIN[20])[__pyx_v_I])) + ((__pyx_v_object->QIN[21])[__pyx_v_I])) + ((__pyx_v_object->QIN[23])[__pyx_v_I])) + ((__pyx_v_object->QIN[26])[__pyx_v_I])) + ((__pyx_v_object->QIN[28])[__pyx_v_I])) + ((__pyx_v_object->QIN[29])[__pyx_v_I])) + ((__pyx_v_object->QIN[32])[__pyx_v_I])) + ((__pyx_v_object->QIN[34])[__pyx_v_I])) + ((__pyx_v_object->QIN[35])[__pyx_v_I])) + ((__pyx_v_object->QIN[38])[__pyx_v_I])) + ((__pyx_v_object->QIN[40])[__pyx_v_I])) + ((__pyx_v_object->QIN[41])[__pyx_v_I]));
 
-    /* "HELIUM3.pyx":615
+    /* "gases/HELIUM3.pyx":615
  *                object.QIN[31][I] + object.QIN[33][I] + object.QIN[36][I] + object.QIN[37][I] + object.QIN[39][I] + \
  *                object.QIN[42][I] + object.QIN[43][I] + object.QIN[44][I] + object.QIN[45][I] + object.QIN[46][I] + \
  *                object.QIN[47][I] + object.QIN[48][I]             # <<<<<<<<<<<<<<
@@ -8535,7 +8535,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QSNG = ((((((((((((((((((((((((((((__pyx_v_object->QIN[1])[__pyx_v_I]) + ((__pyx_v_object->QIN[3])[__pyx_v_I])) + ((__pyx_v_object->QIN[5])[__pyx_v_I])) + ((__pyx_v_object->QIN[8])[__pyx_v_I])) + ((__pyx_v_object->QIN[9])[__pyx_v_I])) + ((__pyx_v_object->QIN[11])[__pyx_v_I])) + ((__pyx_v_object->QIN[14])[__pyx_v_I])) + ((__pyx_v_object->QIN[16])[__pyx_v_I])) + ((__pyx_v_object->QIN[17])[__pyx_v_I])) + ((__pyx_v_object->QIN[19])[__pyx_v_I])) + ((__pyx_v_object->QIN[22])[__pyx_v_I])) + ((__pyx_v_object->QIN[24])[__pyx_v_I])) + ((__pyx_v_object->QIN[25])[__pyx_v_I])) + ((__pyx_v_object->QIN[27])[__pyx_v_I])) + ((__pyx_v_object->QIN[30])[__pyx_v_I])) + ((__pyx_v_object->QIN[31])[__pyx_v_I])) + ((__pyx_v_object->QIN[33])[__pyx_v_I])) + ((__pyx_v_object->QIN[36])[__pyx_v_I])) + ((__pyx_v_object->QIN[37])[__pyx_v_I])) + ((__pyx_v_object->QIN[39])[__pyx_v_I])) + ((__pyx_v_object->QIN[42])[__pyx_v_I])) + ((__pyx_v_object->QIN[43])[__pyx_v_I])) + ((__pyx_v_object->QIN[44])[__pyx_v_I])) + ((__pyx_v_object->QIN[45])[__pyx_v_I])) + ((__pyx_v_object->QIN[46])[__pyx_v_I])) + ((__pyx_v_object->QIN[47])[__pyx_v_I])) + ((__pyx_v_object->QIN[48])[__pyx_v_I]));
 
-    /* "HELIUM3.pyx":616
+    /* "gases/HELIUM3.pyx":616
  *                object.QIN[42][I] + object.QIN[43][I] + object.QIN[44][I] + object.QIN[45][I] + object.QIN[46][I] + \
  *                object.QIN[47][I] + object.QIN[48][I]
  *         QINEL = QSNG + QTRP + object.QION[0][I] + object.QION[1][I]             # <<<<<<<<<<<<<<
@@ -8544,7 +8544,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QINEL = (((__pyx_v_QSNG + __pyx_v_QTRP) + ((__pyx_v_object->QION[0])[__pyx_v_I])) + ((__pyx_v_object->QION[1])[__pyx_v_I]));
 
-    /* "HELIUM3.pyx":617
+    /* "gases/HELIUM3.pyx":617
  *                object.QIN[47][I] + object.QIN[48][I]
  *         QINEL = QSNG + QTRP + object.QION[0][I] + object.QION[1][I]
  *         object.Q[0][I] = QELA + QINEL             # <<<<<<<<<<<<<<
@@ -8554,7 +8554,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = (__pyx_v_QELA + __pyx_v_QINEL);
   }
 
-  /* "HELIUM3.pyx":619
+  /* "gases/HELIUM3.pyx":619
  *         object.Q[0][I] = QELA + QINEL
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -8566,7 +8566,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_28 = 0; __pyx_t_28 < __pyx_t_27; __pyx_t_28+=1) {
     __pyx_v_J = __pyx_t_28;
 
-    /* "HELIUM3.pyx":620
+    /* "gases/HELIUM3.pyx":620
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8576,7 +8576,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_30) {
 
-      /* "HELIUM3.pyx":621
+      /* "gases/HELIUM3.pyx":621
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -8584,14 +8584,14 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "HELIUM3.pyx":622
+      /* "gases/HELIUM3.pyx":622
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
  */
       goto __pyx_L134_break;
 
-      /* "HELIUM3.pyx":620
+      /* "gases/HELIUM3.pyx":620
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8602,7 +8602,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L134_break:;
 
-  /* "HELIUM3.pyx":17
+  /* "gases/HELIUM3.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas4(Gas*object):             # <<<<<<<<<<<<<<
@@ -8617,7 +8617,7 @@ static void __pyx_f_7HELIUM3_Gas4(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("HELIUM3.Gas4", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.HELIUM3.Gas4", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -11682,7 +11682,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas4", (void (*)(void))__pyx_f_7HELIUM3_Gas4, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas4", (void (*)(void))__pyx_f_5gases_7HELIUM3_Gas4, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -11934,14 +11934,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_HELIUM3) {
+  if (__pyx_module_is_main_gases__HELIUM3) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "HELIUM3")) {
-      if (unlikely(PyDict_SetItemString(modules, "HELIUM3", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.HELIUM3")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.HELIUM3", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -11962,7 +11962,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "HELIUM3.pyx":3
+  /* "gases/HELIUM3.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -11974,7 +11974,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":5
+  /* "gases/HELIUM3.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -11986,7 +11986,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "HELIUM3.pyx":10
+  /* "gases/HELIUM3.pyx":10
  * from cython.parallel import prange
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -12001,7 +12001,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "HELIUM3.pyx":1
+  /* "gases/HELIUM3.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -12027,11 +12027,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init HELIUM3", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.HELIUM3", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init HELIUM3");
+    PyErr_SetString(PyExc_ImportError, "init gases.HELIUM3");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

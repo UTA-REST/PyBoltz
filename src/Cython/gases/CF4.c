@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "CF4",
+        "name": "gases.CF4",
         "sources": [
-            "CF4.pyx"
+            "gases/CF4.pyx"
         ]
     },
-    "module_name": "CF4"
+    "module_name": "gases.CF4"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__CF4
-#define __PYX_HAVE_API__CF4
+#define __PYX_HAVE__gases__CF4
+#define __PYX_HAVE_API__gases__CF4
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "CF4.pyx",
+  "gases/CF4.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1676,13 +1676,13 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, cha
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'CF4' */
+/* Module declarations from 'gases.CF4' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "CF4"
-extern int __pyx_module_is_main_CF4;
-int __pyx_module_is_main_CF4 = 0;
+#define __Pyx_MODULE_NAME "gases.CF4"
+extern int __pyx_module_is_main_gases__CF4;
+int __pyx_module_is_main_gases__CF4 = 0;
 
-/* Implementation of 'CF4' */
+/* Implementation of 'gases.CF4' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1860,7 +1860,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "CF4.pyx":16
+/* "gases/CF4.pyx":16
  * @cython.fast_getattr(True)
  * 
  * cdef void Gas1(Gas* object):             # <<<<<<<<<<<<<<
@@ -1868,7 +1868,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for CF4 gas.
  */
 
-static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   int __pyx_v_i;
   double __pyx_v_EOBY[12];
@@ -2037,7 +2037,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   double __pyx_t_36[3];
   __Pyx_RefNannySetupContext("Gas1", 0);
 
-  /* "CF4.pyx":20
+  /* "gases/CF4.pyx":20
  *     This function is used to calculate the needed momentum cross sections for CF4 gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2085,7 +2085,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "CF4.pyx":21
+  /* "gases/CF4.pyx":21
  *     """
  *     gd = np.load('gases.npy').item()
  *     cdef int i = 0             # <<<<<<<<<<<<<<
@@ -2094,7 +2094,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_i = 0;
 
-  /* "CF4.pyx":22
+  /* "gases/CF4.pyx":22
  *     gd = np.load('gases.npy').item()
  *     cdef int i = 0
  *     object.EIN = gd['gas1/EIN']             # <<<<<<<<<<<<<<
@@ -2111,7 +2111,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_5, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "CF4.pyx":26
+  /* "gases/CF4.pyx":26
  *     cdef double PQ[3]
  *     # EIN=[0 for x in range(250)]#<=== input to this function
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -2120,7 +2120,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "CF4.pyx":27
+  /* "gases/CF4.pyx":27
  *     # EIN=[0 for x in range(250)]#<=== input to this function
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27             # <<<<<<<<<<<<<<
@@ -2129,7 +2129,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "CF4.pyx":28
+  /* "gases/CF4.pyx":28
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27
  *     object.E = [0.0, 1.0, <float>(15.9), 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -2144,7 +2144,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_6[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_6, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "CF4.pyx":29
+  /* "gases/CF4.pyx":29
  *     cdef double AMU = 1.660538921e-27
  *     object.E = [0.0, 1.0, <float>(15.9), 0.0, 0.0, 0.0]
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(88.0043) * AMU)             # <<<<<<<<<<<<<<
@@ -2153,7 +2153,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((((float)2.0) * __pyx_v_EMASS) / (((float)88.0043) * __pyx_v_AMU));
 
-  /* "CF4.pyx":30
+  /* "gases/CF4.pyx":30
  *     object.E = [0.0, 1.0, <float>(15.9), 0.0, 0.0, 0.0]
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(88.0043) * AMU)
  *     object.NC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0]             # <<<<<<<<<<<<<<
@@ -2174,7 +2174,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_7[11] = 3.0;
   memcpy(&(__pyx_v_object->NC0[0]), __pyx_t_7, sizeof(__pyx_v_object->NC0[0]) * (12));
 
-  /* "CF4.pyx":31
+  /* "gases/CF4.pyx":31
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(88.0043) * AMU)
  *     object.NC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0]
  *     object.EC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 253.0, 625.2]             # <<<<<<<<<<<<<<
@@ -2195,7 +2195,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_8[11] = 625.2;
   memcpy(&(__pyx_v_object->EC0[0]), __pyx_t_8, sizeof(__pyx_v_object->EC0[0]) * (12));
 
-  /* "CF4.pyx":33
+  /* "gases/CF4.pyx":33
  *     object.EC0[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 253.0, 625.2]
  *     cdef double WKLM[12]
  *     WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, <float>(0.0026), <float>(0.01)]             # <<<<<<<<<<<<<<
@@ -2216,7 +2216,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_9[11] = ((float)0.01);
   memcpy(&(__pyx_v_WKLM[0]), __pyx_t_9, sizeof(__pyx_v_WKLM[0]) * (12));
 
-  /* "CF4.pyx":34
+  /* "gases/CF4.pyx":34
  *     cdef double WKLM[12]
  *     WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, <float>(0.0026), <float>(0.01)]
  *     object.WK[0:12]=WKLM             # <<<<<<<<<<<<<<
@@ -2225,7 +2225,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   memcpy(&(__pyx_v_object->WK[0]), __pyx_v_WKLM, sizeof(__pyx_v_object->WK[0]) * (12));
 
-  /* "CF4.pyx":35
+  /* "gases/CF4.pyx":35
  *     WKLM = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, <float>(0.0026), <float>(0.01)]
  *     object.WK[0:12]=WKLM
  *     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 273.0, 668.0]             # <<<<<<<<<<<<<<
@@ -2246,7 +2246,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_10[11] = 668.0;
   memcpy(&(__pyx_v_object->EFL[0]), __pyx_t_10, sizeof(__pyx_v_object->EFL[0]) * (12));
 
-  /* "CF4.pyx":36
+  /* "gases/CF4.pyx":36
  *     object.WK[0:12]=WKLM
  *     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 273.0, 668.0]
  *     object.NG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 2]             # <<<<<<<<<<<<<<
@@ -2267,7 +2267,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_11[11] = 2.0;
   memcpy(&(__pyx_v_object->NG1[0]), __pyx_t_11, sizeof(__pyx_v_object->NG1[0]) * (12));
 
-  /* "CF4.pyx":37
+  /* "gases/CF4.pyx":37
  *     object.EFL[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 273.0, 668.0]
  *     object.NG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 2]
  *     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 253.0, 625.2]             # <<<<<<<<<<<<<<
@@ -2288,7 +2288,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_12[11] = 625.2;
   memcpy(&(__pyx_v_object->EG1[0]), __pyx_t_12, sizeof(__pyx_v_object->EG1[0]) * (12));
 
-  /* "CF4.pyx":38
+  /* "gases/CF4.pyx":38
  *     object.NG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 2]
  *     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 253.0, 625.2]
  *     object.NG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0,     0.0, 0.0, 0.0, 0.0, 0.0, 1, 1]             # <<<<<<<<<<<<<<
@@ -2309,7 +2309,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_13[11] = 1.0;
   memcpy(&(__pyx_v_object->NG2[0]), __pyx_t_13, sizeof(__pyx_v_object->NG2[0]) * (12));
 
-  /* "CF4.pyx":39
+  /* "gases/CF4.pyx":39
  *     object.EG1[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 253.0, 625.2]
  *     object.NG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0,     0.0, 0.0, 0.0, 0.0, 0.0, 1, 1]
  *     object.EG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 5.0]             # <<<<<<<<<<<<<<
@@ -2330,7 +2330,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_14[11] = 5.0;
   memcpy(&(__pyx_v_object->EG2[0]), __pyx_t_14, sizeof(__pyx_v_object->EG2[0]) * (12));
 
-  /* "CF4.pyx":40
+  /* "gases/CF4.pyx":40
  *     object.NG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0,     0.0, 0.0, 0.0, 0.0, 0.0, 1, 1]
  *     object.EG2[0:12] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.0, 5.0]
  *     object.EION[0:12] = [<float>(15.7), <float>(21.47), <float>(29.14), <float>(34.5), <float>(34.77), 36.0, 40.0, 41.0, 43.0, 63.0, 285.0, <float>(685.4)]             # <<<<<<<<<<<<<<
@@ -2351,7 +2351,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_15[11] = ((float)685.4);
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_15, sizeof(__pyx_v_object->EION[0]) * (12));
 
-  /* "CF4.pyx":45
+  /* "gases/CF4.pyx":45
  * 
  * 
  *     cdef double EMASS2 = <float>(1021997.804)             # <<<<<<<<<<<<<<
@@ -2360,7 +2360,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = ((float)1021997.804);
 
-  /* "CF4.pyx":46
+  /* "gases/CF4.pyx":46
  * 
  *     cdef double EMASS2 = <float>(1021997.804)
  *     cdef double API = acos(-1)             # <<<<<<<<<<<<<<
@@ -2369,7 +2369,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0);
 
-  /* "CF4.pyx":47
+  /* "gases/CF4.pyx":47
  *     cdef double EMASS2 = <float>(1021997.804)
  *     cdef double API = acos(-1)
  *     cdef double A0 = 0.52917720859e-8             # <<<<<<<<<<<<<<
@@ -2378,7 +2378,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-8;
 
-  /* "CF4.pyx":48
+  /* "gases/CF4.pyx":48
  *     cdef double API = acos(-1)
  *     cdef double A0 = 0.52917720859e-8
  *     cdef double RY = <float>(13.60569193)             # <<<<<<<<<<<<<<
@@ -2387,7 +2387,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = ((float)13.60569193);
 
-  /* "CF4.pyx":49
+  /* "gases/CF4.pyx":49
  *     cdef double A0 = 0.52917720859e-8
  *     cdef double RY = <float>(13.60569193)
  *     cdef double BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -2396,7 +2396,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "CF4.pyx":52
+  /* "gases/CF4.pyx":52
  * 
  *     # BORN BETHE VALUES FOR IONISATION
  *     cdef double CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -2405,7 +2405,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "CF4.pyx":53
+  /* "gases/CF4.pyx":53
  *     # BORN BETHE VALUES FOR IONISATION
  *     cdef double CONST = 1.873884e-20
  *     cdef double AM2 = <float>(9.5)             # <<<<<<<<<<<<<<
@@ -2414,7 +2414,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = ((float)9.5);
 
-  /* "CF4.pyx":54
+  /* "gases/CF4.pyx":54
  *     cdef double CONST = 1.873884e-20
  *     cdef double AM2 = <float>(9.5)
  *     cdef double C = <float>(100.9)             # <<<<<<<<<<<<<<
@@ -2423,7 +2423,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = ((float)100.9);
 
-  /* "CF4.pyx":57
+  /* "gases/CF4.pyx":57
  * 
  *     # number of array elements
  *     cdef int NCF3 = 37             # <<<<<<<<<<<<<<
@@ -2432,7 +2432,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF3 = 37;
 
-  /* "CF4.pyx":58
+  /* "gases/CF4.pyx":58
  *     # number of array elements
  *     cdef int NCF3 = 37
  *     cdef int NCF2 = 31             # <<<<<<<<<<<<<<
@@ -2441,7 +2441,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF2 = 31;
 
-  /* "CF4.pyx":59
+  /* "gases/CF4.pyx":59
  *     cdef int NCF3 = 37
  *     cdef int NCF2 = 31
  *     cdef int NCF1 = 28             # <<<<<<<<<<<<<<
@@ -2450,7 +2450,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF1 = 28;
 
-  /* "CF4.pyx":60
+  /* "gases/CF4.pyx":60
  *     cdef int NCF2 = 31
  *     cdef int NCF1 = 28
  *     cdef int NCF32 = 25             # <<<<<<<<<<<<<<
@@ -2459,7 +2459,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF32 = 25;
 
-  /* "CF4.pyx":61
+  /* "gases/CF4.pyx":61
  *     cdef int NCF1 = 28
  *     cdef int NCF32 = 25
  *     cdef int NCF0 = 27             # <<<<<<<<<<<<<<
@@ -2468,7 +2468,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF0 = 27;
 
-  /* "CF4.pyx":62
+  /* "gases/CF4.pyx":62
  *     cdef int NCF32 = 25
  *     cdef int NCF0 = 27
  *     cdef int NC0F = 27             # <<<<<<<<<<<<<<
@@ -2477,7 +2477,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NC0F = 27;
 
-  /* "CF4.pyx":63
+  /* "gases/CF4.pyx":63
  *     cdef int NCF0 = 27
  *     cdef int NC0F = 27
  *     cdef int NCF22 = 25             # <<<<<<<<<<<<<<
@@ -2486,7 +2486,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF22 = 25;
 
-  /* "CF4.pyx":64
+  /* "gases/CF4.pyx":64
  *     cdef int NC0F = 27
  *     cdef int NCF22 = 25
  *     cdef int NCF = 22             # <<<<<<<<<<<<<<
@@ -2495,7 +2495,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF = 22;
 
-  /* "CF4.pyx":65
+  /* "gases/CF4.pyx":65
  *     cdef int NCF22 = 25
  *     cdef int NCF = 22
  *     cdef int NCFF = 24             # <<<<<<<<<<<<<<
@@ -2504,7 +2504,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCFF = 24;
 
-  /* "CF4.pyx":66
+  /* "gases/CF4.pyx":66
  *     cdef int NCF = 22
  *     cdef int NCFF = 24
  *     cdef int NCF2F = 25             # <<<<<<<<<<<<<<
@@ -2513,7 +2513,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF2F = 25;
 
-  /* "CF4.pyx":67
+  /* "gases/CF4.pyx":67
  *     cdef int NCFF = 24
  *     cdef int NCF2F = 25
  *     cdef int NCF3F = 26             # <<<<<<<<<<<<<<
@@ -2522,7 +2522,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NCF3F = 26;
 
-  /* "CF4.pyx":68
+  /* "gases/CF4.pyx":68
  *     cdef int NCF2F = 25
  *     cdef int NCF3F = 26
  *     object.NION = 12             # <<<<<<<<<<<<<<
@@ -2531,7 +2531,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 12;
 
-  /* "CF4.pyx":69
+  /* "gases/CF4.pyx":69
  *     cdef int NCF3F = 26
  *     object.NION = 12
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -2540,7 +2540,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "CF4.pyx":70
+  /* "gases/CF4.pyx":70
  *     object.NION = 12
  *     object.NATT = 1
  *     object.NIN = 46             # <<<<<<<<<<<<<<
@@ -2549,7 +2549,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 46;
 
-  /* "CF4.pyx":71
+  /* "gases/CF4.pyx":71
  *     object.NATT = 1
  *     object.NIN = 46
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -2558,7 +2558,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "CF4.pyx":72
+  /* "gases/CF4.pyx":72
  *     object.NIN = 46
  *     object.NNULL = 0
  *     cdef int NASIZE = 4000             # <<<<<<<<<<<<<<
@@ -2567,7 +2567,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NASIZE = 0xFA0;
 
-  /* "CF4.pyx":73
+  /* "gases/CF4.pyx":73
  *     object.NNULL = 0
  *     cdef int NASIZE = 4000
  *     cdef int NBREM = 25             # <<<<<<<<<<<<<<
@@ -2576,7 +2576,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "CF4.pyx":74
+  /* "gases/CF4.pyx":74
  *     cdef int NASIZE = 4000
  *     cdef int NBREM = 25
  *     object.NSTEP = 4000             # <<<<<<<<<<<<<<
@@ -2585,7 +2585,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NSTEP = 0xFA0;
 
-  /* "CF4.pyx":75
+  /* "gases/CF4.pyx":75
  *     cdef int NBREM = 25
  *     object.NSTEP = 4000
  *     for i in range(0, 6):             # <<<<<<<<<<<<<<
@@ -2595,7 +2595,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < 6; __pyx_t_16+=1) {
     __pyx_v_i = __pyx_t_16;
 
-    /* "CF4.pyx":76
+    /* "gases/CF4.pyx":76
  *     object.NSTEP = 4000
  *     for i in range(0, 6):
  *         object.KEL[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -2606,7 +2606,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_i]) = __pyx_t_17;
   }
 
-  /* "CF4.pyx":79
+  /* "gases/CF4.pyx":79
  *     # ASSUME CAPITELLI LONGO TYPE OF ANGULAR DISTRIBUTION FOR
  *     # ALL VIBRATIONAL LEVELS AND THE SUM OF HIGHER HARMONICS
  *     for i in range(0, 10):             # <<<<<<<<<<<<<<
@@ -2616,7 +2616,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < 10; __pyx_t_16+=1) {
     __pyx_v_i = __pyx_t_16;
 
-    /* "CF4.pyx":80
+    /* "gases/CF4.pyx":80
  *     # ALL VIBRATIONAL LEVELS AND THE SUM OF HIGHER HARMONICS
  *     for i in range(0, 10):
  *         object.KIN[i] = 1             # <<<<<<<<<<<<<<
@@ -2626,7 +2626,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = 1.0;
   }
 
-  /* "CF4.pyx":82
+  /* "gases/CF4.pyx":82
  *         object.KIN[i] = 1
  *     # ANGULAR DISTRIBUTION FOR DISS.EXCITATION IS GIVEN BY OKHRIMOVSKKY
  *     for i in range(10, object.NIN):             # <<<<<<<<<<<<<<
@@ -2638,7 +2638,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_18 = 10; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
     __pyx_v_i = __pyx_t_18;
 
-    /* "CF4.pyx":83
+    /* "gases/CF4.pyx":83
  *     # ANGULAR DISTRIBUTION FOR DISS.EXCITATION IS GIVEN BY OKHRIMOVSKKY
  *     for i in range(10, object.NIN):
  *         object.KIN[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -2649,7 +2649,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = __pyx_t_19;
   }
 
-  /* "CF4.pyx":86
+  /* "gases/CF4.pyx":86
  *     # RATIO OF MOMENTUM TRANSFER TO TOTAL X-SEC FOR RESONANCE
  *     # PART OF VIBRATIONAL X-SECTIONS
  *     cdef double RAT = <float>(0.75)             # <<<<<<<<<<<<<<
@@ -2658,7 +2658,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RAT = ((float)0.75);
 
-  /* "CF4.pyx":87
+  /* "gases/CF4.pyx":87
  *     # PART OF VIBRATIONAL X-SECTIONS
  *     cdef double RAT = <float>(0.75)
  *     cdef int NDATA = 163             # <<<<<<<<<<<<<<
@@ -2667,7 +2667,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 0xA3;
 
-  /* "CF4.pyx":88
+  /* "gases/CF4.pyx":88
  *     cdef double RAT = <float>(0.75)
  *     cdef int NDATA = 163
  *     cdef int NVBV4 = 11             # <<<<<<<<<<<<<<
@@ -2676,7 +2676,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVBV4 = 11;
 
-  /* "CF4.pyx":89
+  /* "gases/CF4.pyx":89
  *     cdef int NDATA = 163
  *     cdef int NVBV4 = 11
  *     cdef int NVBV1 = 11             # <<<<<<<<<<<<<<
@@ -2685,7 +2685,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVBV1 = 11;
 
-  /* "CF4.pyx":90
+  /* "gases/CF4.pyx":90
  *     cdef int NVBV4 = 11
  *     cdef int NVBV1 = 11
  *     cdef int NVBV3 = 11             # <<<<<<<<<<<<<<
@@ -2694,7 +2694,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVBV3 = 11;
 
-  /* "CF4.pyx":91
+  /* "gases/CF4.pyx":91
  *     cdef int NVBV1 = 11
  *     cdef int NVBV3 = 11
  *     cdef int NVIB5 = 12             # <<<<<<<<<<<<<<
@@ -2703,7 +2703,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB5 = 12;
 
-  /* "CF4.pyx":92
+  /* "gases/CF4.pyx":92
  *     cdef int NVBV3 = 11
  *     cdef int NVIB5 = 12
  *     cdef int NVIB6 = 12             # <<<<<<<<<<<<<<
@@ -2712,7 +2712,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB6 = 12;
 
-  /* "CF4.pyx":93
+  /* "gases/CF4.pyx":93
  *     cdef int NVIB5 = 12
  *     cdef int NVIB6 = 12
  *     cdef int NATT1 = 11             # <<<<<<<<<<<<<<
@@ -2721,7 +2721,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 11;
 
-  /* "CF4.pyx":94
+  /* "gases/CF4.pyx":94
  *     cdef int NVIB6 = 12
  *     cdef int NATT1 = 11
  *     cdef int NTR1 = 12             # <<<<<<<<<<<<<<
@@ -2730,7 +2730,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR1 = 12;
 
-  /* "CF4.pyx":95
+  /* "gases/CF4.pyx":95
  *     cdef int NATT1 = 11
  *     cdef int NTR1 = 12
  *     cdef int NTR2 = 11             # <<<<<<<<<<<<<<
@@ -2739,7 +2739,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR2 = 11;
 
-  /* "CF4.pyx":96
+  /* "gases/CF4.pyx":96
  *     cdef int NTR1 = 12
  *     cdef int NTR2 = 11
  *     cdef int NTR3 = 11             # <<<<<<<<<<<<<<
@@ -2748,7 +2748,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTR3 = 11;
 
-  /* "CF4.pyx":97
+  /* "gases/CF4.pyx":97
  *     cdef int NTR2 = 11
  *     cdef int NTR3 = 11
  *     cdef int NKSHC = 81             # <<<<<<<<<<<<<<
@@ -2757,7 +2757,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSHC = 81;
 
-  /* "CF4.pyx":98
+  /* "gases/CF4.pyx":98
  *     cdef int NTR3 = 11
  *     cdef int NKSHC = 81
  *     cdef int NKSHF = 79             # <<<<<<<<<<<<<<
@@ -2766,7 +2766,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSHF = 79;
 
-  /* "CF4.pyx":99
+  /* "gases/CF4.pyx":99
  *     cdef int NKSHC = 81
  *     cdef int NKSHF = 79
  *     cdef int J = 0             # <<<<<<<<<<<<<<
@@ -2775,7 +2775,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_J = 0;
 
-  /* "CF4.pyx":101
+  /* "gases/CF4.pyx":101
  *     cdef int J = 0
  *     # OPAL BEATY IONISATION ENERGY SPLITTING
  *     for i in range(0, 10):             # <<<<<<<<<<<<<<
@@ -2785,7 +2785,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < 10; __pyx_t_16+=1) {
     __pyx_v_i = __pyx_t_16;
 
-    /* "CF4.pyx":102
+    /* "gases/CF4.pyx":102
  *     # OPAL BEATY IONISATION ENERGY SPLITTING
  *     for i in range(0, 10):
  *         EOBY[i] = <float>(0.58) * object.EION[i]             # <<<<<<<<<<<<<<
@@ -2795,7 +2795,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_EOBY[__pyx_v_i]) = (((float)0.58) * (__pyx_v_object->EION[__pyx_v_i]));
   }
 
-  /* "CF4.pyx":104
+  /* "gases/CF4.pyx":104
  *         EOBY[i] = <float>(0.58) * object.EION[i]
  * 
  *     EOBY[10] = 210.0             # <<<<<<<<<<<<<<
@@ -2804,7 +2804,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_EOBY[10]) = 210.0;
 
-  /* "CF4.pyx":105
+  /* "gases/CF4.pyx":105
  * 
  *     EOBY[10] = 210.0
  *     EOBY[11] = 510.0             # <<<<<<<<<<<<<<
@@ -2813,7 +2813,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_EOBY[11]) = 510.0;
 
-  /* "CF4.pyx":108
+  /* "gases/CF4.pyx":108
  * 
  *     # skipped ISHELL and LEGAS, as they are not used in any calculation
  *     cdef int j = 0             # <<<<<<<<<<<<<<
@@ -2822,7 +2822,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_j = 0;
 
-  /* "CF4.pyx":109
+  /* "gases/CF4.pyx":109
  *     # skipped ISHELL and LEGAS, as they are not used in any calculation
  *     cdef int j = 0
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -2834,7 +2834,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
     __pyx_v_j = __pyx_t_18;
 
-    /* "CF4.pyx":110
+    /* "gases/CF4.pyx":110
  *     cdef int j = 0
  *     for j in range(0, object.NION):
  *         for i in range(0, NASIZE):             # <<<<<<<<<<<<<<
@@ -2846,7 +2846,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_21 = 0; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
       __pyx_v_i = __pyx_t_21;
 
-      /* "CF4.pyx":111
+      /* "gases/CF4.pyx":111
  *     for j in range(0, object.NION):
  *         for i in range(0, NASIZE):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -2856,7 +2856,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":112
+        /* "gases/CF4.pyx":112
  *         for i in range(0, NASIZE):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i             # <<<<<<<<<<<<<<
@@ -2865,7 +2865,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = __pyx_v_i;
 
-        /* "CF4.pyx":113
+        /* "gases/CF4.pyx":113
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i
  *                 break             # <<<<<<<<<<<<<<
@@ -2874,7 +2874,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L14_break;
 
-        /* "CF4.pyx":111
+        /* "gases/CF4.pyx":111
  *     for j in range(0, object.NION):
  *         for i in range(0, NASIZE):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -2886,7 +2886,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L14_break:;
   }
 
-  /* "CF4.pyx":116
+  /* "gases/CF4.pyx":116
  * 
  *     # OFFSET ENERGY FOR DISSOCIATION ANGULAR DISTRIBUTION
  *     cdef int NL = 10             # <<<<<<<<<<<<<<
@@ -2895,7 +2895,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL = 10;
 
-  /* "CF4.pyx":117
+  /* "gases/CF4.pyx":117
  *     # OFFSET ENERGY FOR DISSOCIATION ANGULAR DISTRIBUTION
  *     cdef int NL = 10
  *     for NL in range(10, 46):             # <<<<<<<<<<<<<<
@@ -2905,7 +2905,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 10; __pyx_t_16 < 46; __pyx_t_16+=1) {
     __pyx_v_NL = __pyx_t_16;
 
-    /* "CF4.pyx":118
+    /* "gases/CF4.pyx":118
  *     cdef int NL = 10
  *     for NL in range(10, 46):
  *         for i in range(0, NASIZE):             # <<<<<<<<<<<<<<
@@ -2917,7 +2917,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_19 = 0; __pyx_t_19 < __pyx_t_18; __pyx_t_19+=1) {
       __pyx_v_i = __pyx_t_19;
 
-      /* "CF4.pyx":119
+      /* "gases/CF4.pyx":119
  *     for NL in range(10, 46):
  *         for i in range(0, NASIZE):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -2927,7 +2927,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = (((__pyx_v_object->EG[__pyx_v_i]) > fabs((__pyx_v_object->EIN[__pyx_v_NL]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":120
+        /* "gases/CF4.pyx":120
  *         for i in range(0, NASIZE):
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i             # <<<<<<<<<<<<<<
@@ -2936,7 +2936,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = __pyx_v_i;
 
-        /* "CF4.pyx":121
+        /* "gases/CF4.pyx":121
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i
  *                 break             # <<<<<<<<<<<<<<
@@ -2945,7 +2945,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L19_break;
 
-        /* "CF4.pyx":119
+        /* "gases/CF4.pyx":119
  *     for NL in range(10, 46):
  *         for i in range(0, NASIZE):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -2957,7 +2957,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L19_break:;
   }
 
-  /* "CF4.pyx":126
+  /* "gases/CF4.pyx":126
  *     # ONLY DISSOCIATION X-SECTION (LEVEL 11) HAS ENOUGH ENERGY TO GIVE
  *     # POSSIBLE PENNING TRANSFER
  *     for NL in range(3):             # <<<<<<<<<<<<<<
@@ -2967,7 +2967,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < 3; __pyx_t_16+=1) {
     __pyx_v_NL = __pyx_t_16;
 
-    /* "CF4.pyx":127
+    /* "gases/CF4.pyx":127
  *     # POSSIBLE PENNING TRANSFER
  *     for NL in range(3):
  *         for i in range(46):             # <<<<<<<<<<<<<<
@@ -2977,7 +2977,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_17 = 0; __pyx_t_17 < 46; __pyx_t_17+=1) {
       __pyx_v_i = __pyx_t_17;
 
-      /* "CF4.pyx":128
+      /* "gases/CF4.pyx":128
  *     for NL in range(3):
  *         for i in range(46):
  *             object.PENFRA[NL][i]=0.0             # <<<<<<<<<<<<<<
@@ -2988,7 +2988,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "CF4.pyx":130
+  /* "gases/CF4.pyx":130
  *             object.PENFRA[NL][i]=0.0
  *     # PENNING TRANSFER FRACTION FOR LEVEL 11
  *     object.PENFRA[0][45] = 0.0             # <<<<<<<<<<<<<<
@@ -2997,7 +2997,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   ((__pyx_v_object->PENFRA[0])[45]) = 0.0;
 
-  /* "CF4.pyx":132
+  /* "gases/CF4.pyx":132
  *     object.PENFRA[0][45] = 0.0
  *     # PENNING TRANSFER DISTANCE IN MICRONS
  *     object.PENFRA[1][45] = 1.0             # <<<<<<<<<<<<<<
@@ -3006,7 +3006,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   ((__pyx_v_object->PENFRA[1])[45]) = 1.0;
 
-  /* "CF4.pyx":134
+  /* "gases/CF4.pyx":134
  *     object.PENFRA[1][45] = 1.0
  *     # PENNING TRANSFER TIME IN PICOSECONDS
  *     object.PENFRA[2][45] = 1.0             # <<<<<<<<<<<<<<
@@ -3015,7 +3015,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   ((__pyx_v_object->PENFRA[2])[45]) = 1.0;
 
-  /* "CF4.pyx":139
+  /* "gases/CF4.pyx":139
  * 
  *     # VIBRATIONAL DEGENERACY
  *     cdef float DEGV4 = 3.0,DEGV3 = 3.0,DEGV2 = 2.0,DEGV1 = 1.0             # <<<<<<<<<<<<<<
@@ -3027,7 +3027,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_DEGV2 = 2.0;
   __pyx_v_DEGV1 = 1.0;
 
-  /* "CF4.pyx":142
+  /* "gases/CF4.pyx":142
  * 
  *     # CALC VIB LEVEL POPULATIONS
  *     cdef double APOPV2 = DEGV2 * exp(object.EIN[0] / object.AKT)             # <<<<<<<<<<<<<<
@@ -3036,7 +3036,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV2 = (__pyx_v_DEGV2 * exp(((__pyx_v_object->EIN[0]) / __pyx_v_object->AKT)));
 
-  /* "CF4.pyx":143
+  /* "gases/CF4.pyx":143
  *     # CALC VIB LEVEL POPULATIONS
  *     cdef double APOPV2 = DEGV2 * exp(object.EIN[0] / object.AKT)
  *     cdef double APOPV4 = DEGV4 * exp(object.EIN[2] / object.AKT)             # <<<<<<<<<<<<<<
@@ -3045,7 +3045,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV4 = (__pyx_v_DEGV4 * exp(((__pyx_v_object->EIN[2]) / __pyx_v_object->AKT)));
 
-  /* "CF4.pyx":144
+  /* "gases/CF4.pyx":144
  *     cdef double APOPV2 = DEGV2 * exp(object.EIN[0] / object.AKT)
  *     cdef double APOPV4 = DEGV4 * exp(object.EIN[2] / object.AKT)
  *     cdef double APOPV1 = DEGV1 * exp(object.EIN[4] / object.AKT)             # <<<<<<<<<<<<<<
@@ -3054,7 +3054,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV1 = (__pyx_v_DEGV1 * exp(((__pyx_v_object->EIN[4]) / __pyx_v_object->AKT)));
 
-  /* "CF4.pyx":145
+  /* "gases/CF4.pyx":145
  *     cdef double APOPV4 = DEGV4 * exp(object.EIN[2] / object.AKT)
  *     cdef double APOPV1 = DEGV1 * exp(object.EIN[4] / object.AKT)
  *     cdef double APOPV3 = DEGV3 * exp(object.EIN[6] / object.AKT)             # <<<<<<<<<<<<<<
@@ -3063,7 +3063,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV3 = (__pyx_v_DEGV3 * exp(((__pyx_v_object->EIN[6]) / __pyx_v_object->AKT)));
 
-  /* "CF4.pyx":146
+  /* "gases/CF4.pyx":146
  *     cdef double APOPV1 = DEGV1 * exp(object.EIN[4] / object.AKT)
  *     cdef double APOPV3 = DEGV3 * exp(object.EIN[6] / object.AKT)
  *     cdef double APOPGS = 1.0             # <<<<<<<<<<<<<<
@@ -3072,7 +3072,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = 1.0;
 
-  /* "CF4.pyx":147
+  /* "gases/CF4.pyx":147
  *     cdef double APOPV3 = DEGV3 * exp(object.EIN[6] / object.AKT)
  *     cdef double APOPGS = 1.0
  *     cdef double APOPSUM = APOPGS + APOPV2 + APOPV4 + APOPV1 + APOPV3             # <<<<<<<<<<<<<<
@@ -3081,7 +3081,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPSUM = ((((__pyx_v_APOPGS + __pyx_v_APOPV2) + __pyx_v_APOPV4) + __pyx_v_APOPV1) + __pyx_v_APOPV3);
 
-  /* "CF4.pyx":148
+  /* "gases/CF4.pyx":148
  *     cdef double APOPGS = 1.0
  *     cdef double APOPSUM = APOPGS + APOPV2 + APOPV4 + APOPV1 + APOPV3
  *     APOPGS = 1.0 / APOPSUM             # <<<<<<<<<<<<<<
@@ -3090,7 +3090,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = (1.0 / __pyx_v_APOPSUM);
 
-  /* "CF4.pyx":149
+  /* "gases/CF4.pyx":149
  *     cdef double APOPSUM = APOPGS + APOPV2 + APOPV4 + APOPV1 + APOPV3
  *     APOPGS = 1.0 / APOPSUM
  *     APOPV2 = APOPV2 / APOPSUM             # <<<<<<<<<<<<<<
@@ -3099,7 +3099,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV2 = (__pyx_v_APOPV2 / __pyx_v_APOPSUM);
 
-  /* "CF4.pyx":150
+  /* "gases/CF4.pyx":150
  *     APOPGS = 1.0 / APOPSUM
  *     APOPV2 = APOPV2 / APOPSUM
  *     APOPV4 = APOPV4 / APOPSUM             # <<<<<<<<<<<<<<
@@ -3108,7 +3108,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV4 = (__pyx_v_APOPV4 / __pyx_v_APOPSUM);
 
-  /* "CF4.pyx":151
+  /* "gases/CF4.pyx":151
  *     APOPV2 = APOPV2 / APOPSUM
  *     APOPV4 = APOPV4 / APOPSUM
  *     APOPV1 = APOPV1 / APOPSUM             # <<<<<<<<<<<<<<
@@ -3117,7 +3117,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV1 = (__pyx_v_APOPV1 / __pyx_v_APOPSUM);
 
-  /* "CF4.pyx":152
+  /* "gases/CF4.pyx":152
  *     APOPV4 = APOPV4 / APOPSUM
  *     APOPV1 = APOPV1 / APOPSUM
  *     APOPV3 = APOPV3 / APOPSUM             # <<<<<<<<<<<<<<
@@ -3126,7 +3126,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV3 = (__pyx_v_APOPV3 / __pyx_v_APOPSUM);
 
-  /* "CF4.pyx":158
+  /* "gases/CF4.pyx":158
  *     cdef double YCF[22],XCFF[24],XATT[11],YATT[11],XKSHC[81],YKSHC[81],XKSHF[79],YKSHF[79],XC0F[27],YC0F[27],XCF2F[25],YCF2F[25]
  *     cdef double YCFF[24],XCF3F[26],YCF3F[26]
  *     XEN = gd['gas1/XEN']             # <<<<<<<<<<<<<<
@@ -3143,7 +3143,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_23, sizeof(__pyx_v_XEN[0]) * (0xA3));
 
-  /* "CF4.pyx":159
+  /* "gases/CF4.pyx":159
  *     cdef double YCFF[24],XCF3F[26],YCF3F[26]
  *     XEN = gd['gas1/XEN']
  *     YELM = gd['gas1/YELM']             # <<<<<<<<<<<<<<
@@ -3160,7 +3160,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YELM[0]), __pyx_t_23, sizeof(__pyx_v_YELM[0]) * (0xA3));
 
-  /* "CF4.pyx":160
+  /* "gases/CF4.pyx":160
  *     XEN = gd['gas1/XEN']
  *     YELM = gd['gas1/YELM']
  *     YELT = gd['gas1/YELT']             # <<<<<<<<<<<<<<
@@ -3177,7 +3177,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YELT[0]), __pyx_t_23, sizeof(__pyx_v_YELT[0]) * (0xA3));
 
-  /* "CF4.pyx":161
+  /* "gases/CF4.pyx":161
  *     YELM = gd['gas1/YELM']
  *     YELT = gd['gas1/YELT']
  *     YEPS = gd['gas1/YEPS']             # <<<<<<<<<<<<<<
@@ -3194,7 +3194,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_23, sizeof(__pyx_v_YEPS[0]) * (0xA3));
 
-  /* "CF4.pyx":162
+  /* "gases/CF4.pyx":162
  *     YELT = gd['gas1/YELT']
  *     YEPS = gd['gas1/YEPS']
  *     XCF3 = gd['gas1/XCF3']             # <<<<<<<<<<<<<<
@@ -3207,7 +3207,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF3[0]), __pyx_t_24, sizeof(__pyx_v_XCF3[0]) * (37));
 
-  /* "CF4.pyx":163
+  /* "gases/CF4.pyx":163
  *     YEPS = gd['gas1/YEPS']
  *     XCF3 = gd['gas1/XCF3']
  *     YCF3 = gd['gas1/YCF3']             # <<<<<<<<<<<<<<
@@ -3220,7 +3220,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF3[0]), __pyx_t_24, sizeof(__pyx_v_YCF3[0]) * (37));
 
-  /* "CF4.pyx":164
+  /* "gases/CF4.pyx":164
  *     XCF3 = gd['gas1/XCF3']
  *     YCF3 = gd['gas1/YCF3']
  *     XCF2 = gd['gas1/XCF2']             # <<<<<<<<<<<<<<
@@ -3233,7 +3233,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF2[0]), __pyx_t_25, sizeof(__pyx_v_XCF2[0]) * (31));
 
-  /* "CF4.pyx":165
+  /* "gases/CF4.pyx":165
  *     YCF3 = gd['gas1/YCF3']
  *     XCF2 = gd['gas1/XCF2']
  *     YCF2 = gd['gas1/YCF2']             # <<<<<<<<<<<<<<
@@ -3246,7 +3246,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF2[0]), __pyx_t_25, sizeof(__pyx_v_YCF2[0]) * (31));
 
-  /* "CF4.pyx":166
+  /* "gases/CF4.pyx":166
  *     XCF2 = gd['gas1/XCF2']
  *     YCF2 = gd['gas1/YCF2']
  *     XCF1 = gd['gas1/XCF1']             # <<<<<<<<<<<<<<
@@ -3259,7 +3259,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF1[0]), __pyx_t_26, sizeof(__pyx_v_XCF1[0]) * (28));
 
-  /* "CF4.pyx":167
+  /* "gases/CF4.pyx":167
  *     YCF2 = gd['gas1/YCF2']
  *     XCF1 = gd['gas1/XCF1']
  *     YCF1 = gd['gas1/YCF1']             # <<<<<<<<<<<<<<
@@ -3272,7 +3272,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF1[0]), __pyx_t_26, sizeof(__pyx_v_YCF1[0]) * (28));
 
-  /* "CF4.pyx":168
+  /* "gases/CF4.pyx":168
  *     XCF1 = gd['gas1/XCF1']
  *     YCF1 = gd['gas1/YCF1']
  *     XC0F = gd['gas1/XC0F']             # <<<<<<<<<<<<<<
@@ -3285,7 +3285,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XC0F[0]), __pyx_t_27, sizeof(__pyx_v_XC0F[0]) * (27));
 
-  /* "CF4.pyx":169
+  /* "gases/CF4.pyx":169
  *     YCF1 = gd['gas1/YCF1']
  *     XC0F = gd['gas1/XC0F']
  *     YC0F = gd['gas1/YC0F']             # <<<<<<<<<<<<<<
@@ -3298,7 +3298,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YC0F[0]), __pyx_t_27, sizeof(__pyx_v_YC0F[0]) * (27));
 
-  /* "CF4.pyx":170
+  /* "gases/CF4.pyx":170
  *     XC0F = gd['gas1/XC0F']
  *     YC0F = gd['gas1/YC0F']
  *     XCF3F = gd['gas1/XCF3F']             # <<<<<<<<<<<<<<
@@ -3311,7 +3311,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF3F[0]), __pyx_t_28, sizeof(__pyx_v_XCF3F[0]) * (26));
 
-  /* "CF4.pyx":171
+  /* "gases/CF4.pyx":171
  *     YC0F = gd['gas1/YC0F']
  *     XCF3F = gd['gas1/XCF3F']
  *     YCF3F = gd['gas1/YCF3F']             # <<<<<<<<<<<<<<
@@ -3324,7 +3324,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF3F[0]), __pyx_t_28, sizeof(__pyx_v_YCF3F[0]) * (26));
 
-  /* "CF4.pyx":172
+  /* "gases/CF4.pyx":172
  *     XCF3F = gd['gas1/XCF3F']
  *     YCF3F = gd['gas1/YCF3F']
  *     XCF2F = gd['gas1/XCF2F']             # <<<<<<<<<<<<<<
@@ -3337,7 +3337,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF2F[0]), __pyx_t_29, sizeof(__pyx_v_XCF2F[0]) * (25));
 
-  /* "CF4.pyx":173
+  /* "gases/CF4.pyx":173
  *     YCF3F = gd['gas1/YCF3F']
  *     XCF2F = gd['gas1/XCF2F']
  *     YCF2F = gd['gas1/YCF2F']             # <<<<<<<<<<<<<<
@@ -3350,7 +3350,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF2F[0]), __pyx_t_29, sizeof(__pyx_v_YCF2F[0]) * (25));
 
-  /* "CF4.pyx":174
+  /* "gases/CF4.pyx":174
  *     XCF2F = gd['gas1/XCF2F']
  *     YCF2F = gd['gas1/YCF2F']
  *     XCF0 = gd['gas1/XCF0']             # <<<<<<<<<<<<<<
@@ -3363,7 +3363,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF0[0]), __pyx_t_27, sizeof(__pyx_v_XCF0[0]) * (27));
 
-  /* "CF4.pyx":175
+  /* "gases/CF4.pyx":175
  *     YCF2F = gd['gas1/YCF2F']
  *     XCF0 = gd['gas1/XCF0']
  *     YCF0 = gd['gas1/YCF0']             # <<<<<<<<<<<<<<
@@ -3376,7 +3376,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF0[0]), __pyx_t_27, sizeof(__pyx_v_YCF0[0]) * (27));
 
-  /* "CF4.pyx":176
+  /* "gases/CF4.pyx":176
  *     XCF0 = gd['gas1/XCF0']
  *     YCF0 = gd['gas1/YCF0']
  *     XCF32 = gd['gas1/XCF32']             # <<<<<<<<<<<<<<
@@ -3389,7 +3389,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF32[0]), __pyx_t_29, sizeof(__pyx_v_XCF32[0]) * (25));
 
-  /* "CF4.pyx":177
+  /* "gases/CF4.pyx":177
  *     YCF0 = gd['gas1/YCF0']
  *     XCF32 = gd['gas1/XCF32']
  *     YCF32 = gd['gas1/YCF32']             # <<<<<<<<<<<<<<
@@ -3402,7 +3402,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF32[0]), __pyx_t_29, sizeof(__pyx_v_YCF32[0]) * (25));
 
-  /* "CF4.pyx":178
+  /* "gases/CF4.pyx":178
  *     XCF32 = gd['gas1/XCF32']
  *     YCF32 = gd['gas1/YCF32']
  *     XCF22 = gd['gas1/XCF22']             # <<<<<<<<<<<<<<
@@ -3415,7 +3415,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF22[0]), __pyx_t_29, sizeof(__pyx_v_XCF22[0]) * (25));
 
-  /* "CF4.pyx":179
+  /* "gases/CF4.pyx":179
  *     YCF32 = gd['gas1/YCF32']
  *     XCF22 = gd['gas1/XCF22']
  *     YCF22 = gd['gas1/YCF22']             # <<<<<<<<<<<<<<
@@ -3428,7 +3428,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF22[0]), __pyx_t_29, sizeof(__pyx_v_YCF22[0]) * (25));
 
-  /* "CF4.pyx":180
+  /* "gases/CF4.pyx":180
  *     XCF22 = gd['gas1/XCF22']
  *     YCF22 = gd['gas1/YCF22']
  *     XCFF = gd['gas1/XCFF']             # <<<<<<<<<<<<<<
@@ -3441,7 +3441,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCFF[0]), __pyx_t_30, sizeof(__pyx_v_XCFF[0]) * (24));
 
-  /* "CF4.pyx":181
+  /* "gases/CF4.pyx":181
  *     YCF22 = gd['gas1/YCF22']
  *     XCFF = gd['gas1/XCFF']
  *     YCFF = gd['gas1/YCFF']             # <<<<<<<<<<<<<<
@@ -3454,7 +3454,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCFF[0]), __pyx_t_30, sizeof(__pyx_v_YCFF[0]) * (24));
 
-  /* "CF4.pyx":182
+  /* "gases/CF4.pyx":182
  *     XCFF = gd['gas1/XCFF']
  *     YCFF = gd['gas1/YCFF']
  *     XCF = gd['gas1/XCF']             # <<<<<<<<<<<<<<
@@ -3467,7 +3467,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XCF[0]), __pyx_t_31, sizeof(__pyx_v_XCF[0]) * (22));
 
-  /* "CF4.pyx":183
+  /* "gases/CF4.pyx":183
  *     YCFF = gd['gas1/YCFF']
  *     XCF = gd['gas1/XCF']
  *     YCF = gd['gas1/YCF']             # <<<<<<<<<<<<<<
@@ -3480,7 +3480,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YCF[0]), __pyx_t_31, sizeof(__pyx_v_YCF[0]) * (22));
 
-  /* "CF4.pyx":184
+  /* "gases/CF4.pyx":184
  *     XCF = gd['gas1/XCF']
  *     YCF = gd['gas1/YCF']
  *     XKSHC = gd['gas1/XKSHC']             # <<<<<<<<<<<<<<
@@ -3493,7 +3493,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSHC[0]), __pyx_t_32, sizeof(__pyx_v_XKSHC[0]) * (81));
 
-  /* "CF4.pyx":185
+  /* "gases/CF4.pyx":185
  *     YCF = gd['gas1/YCF']
  *     XKSHC = gd['gas1/XKSHC']
  *     YKSHC = gd['gas1/YKSHC']             # <<<<<<<<<<<<<<
@@ -3506,7 +3506,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSHC[0]), __pyx_t_32, sizeof(__pyx_v_YKSHC[0]) * (81));
 
-  /* "CF4.pyx":186
+  /* "gases/CF4.pyx":186
  *     XKSHC = gd['gas1/XKSHC']
  *     YKSHC = gd['gas1/YKSHC']
  *     XKSHF = gd['gas1/XKSHF']             # <<<<<<<<<<<<<<
@@ -3519,7 +3519,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSHF[0]), __pyx_t_33, sizeof(__pyx_v_XKSHF[0]) * (79));
 
-  /* "CF4.pyx":187
+  /* "gases/CF4.pyx":187
  *     YKSHC = gd['gas1/YKSHC']
  *     XKSHF = gd['gas1/XKSHF']
  *     YKSHF = gd['gas1/YKSHF']             # <<<<<<<<<<<<<<
@@ -3532,7 +3532,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSHF[0]), __pyx_t_33, sizeof(__pyx_v_YKSHF[0]) * (79));
 
-  /* "CF4.pyx":188
+  /* "gases/CF4.pyx":188
  *     XKSHF = gd['gas1/XKSHF']
  *     YKSHF = gd['gas1/YKSHF']
  *     XATT = gd['gas1/XATT']             # <<<<<<<<<<<<<<
@@ -3545,7 +3545,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT[0]), __pyx_t_34, sizeof(__pyx_v_XATT[0]) * (11));
 
-  /* "CF4.pyx":189
+  /* "gases/CF4.pyx":189
  *     YKSHF = gd['gas1/YKSHF']
  *     XATT = gd['gas1/XATT']
  *     YATT = gd['gas1/YATT']             # <<<<<<<<<<<<<<
@@ -3558,7 +3558,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT[0]), __pyx_t_34, sizeof(__pyx_v_YATT[0]) * (11));
 
-  /* "CF4.pyx":190
+  /* "gases/CF4.pyx":190
  *     XATT = gd['gas1/XATT']
  *     YATT = gd['gas1/YATT']
  *     XVBV4 = gd['gas1/XVBV4']             # <<<<<<<<<<<<<<
@@ -3571,7 +3571,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVBV4[0]), __pyx_t_34, sizeof(__pyx_v_XVBV4[0]) * (11));
 
-  /* "CF4.pyx":191
+  /* "gases/CF4.pyx":191
  *     YATT = gd['gas1/YATT']
  *     XVBV4 = gd['gas1/XVBV4']
  *     YVBV4 = gd['gas1/YVBV4']             # <<<<<<<<<<<<<<
@@ -3584,7 +3584,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVBV4[0]), __pyx_t_34, sizeof(__pyx_v_YVBV4[0]) * (11));
 
-  /* "CF4.pyx":192
+  /* "gases/CF4.pyx":192
  *     XVBV4 = gd['gas1/XVBV4']
  *     YVBV4 = gd['gas1/YVBV4']
  *     XVBV1 = gd['gas1/XVBV1']             # <<<<<<<<<<<<<<
@@ -3597,7 +3597,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVBV1[0]), __pyx_t_34, sizeof(__pyx_v_XVBV1[0]) * (11));
 
-  /* "CF4.pyx":193
+  /* "gases/CF4.pyx":193
  *     YVBV4 = gd['gas1/YVBV4']
  *     XVBV1 = gd['gas1/XVBV1']
  *     YVBV1 = gd['gas1/YVBV1']             # <<<<<<<<<<<<<<
@@ -3610,7 +3610,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVBV1[0]), __pyx_t_34, sizeof(__pyx_v_YVBV1[0]) * (11));
 
-  /* "CF4.pyx":194
+  /* "gases/CF4.pyx":194
  *     XVBV1 = gd['gas1/XVBV1']
  *     YVBV1 = gd['gas1/YVBV1']
  *     XVBV3 = gd['gas1/XVBV3']             # <<<<<<<<<<<<<<
@@ -3623,7 +3623,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVBV3[0]), __pyx_t_34, sizeof(__pyx_v_XVBV3[0]) * (11));
 
-  /* "CF4.pyx":195
+  /* "gases/CF4.pyx":195
  *     YVBV1 = gd['gas1/YVBV1']
  *     XVBV3 = gd['gas1/XVBV3']
  *     YVBV3 = gd['gas1/YVBV3']             # <<<<<<<<<<<<<<
@@ -3636,7 +3636,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVBV3[0]), __pyx_t_34, sizeof(__pyx_v_YVBV3[0]) * (11));
 
-  /* "CF4.pyx":196
+  /* "gases/CF4.pyx":196
  *     XVBV3 = gd['gas1/XVBV3']
  *     YVBV3 = gd['gas1/YVBV3']
  *     XVIB5 = gd['gas1/XVIB5']             # <<<<<<<<<<<<<<
@@ -3649,7 +3649,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB5[0]), __pyx_t_35, sizeof(__pyx_v_XVIB5[0]) * (12));
 
-  /* "CF4.pyx":197
+  /* "gases/CF4.pyx":197
  *     YVBV3 = gd['gas1/YVBV3']
  *     XVIB5 = gd['gas1/XVIB5']
  *     YVIB5 = gd['gas1/YVIB5']             # <<<<<<<<<<<<<<
@@ -3662,7 +3662,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB5[0]), __pyx_t_35, sizeof(__pyx_v_YVIB5[0]) * (12));
 
-  /* "CF4.pyx":198
+  /* "gases/CF4.pyx":198
  *     XVIB5 = gd['gas1/XVIB5']
  *     YVIB5 = gd['gas1/YVIB5']
  *     XVIB6 = gd['gas1/XVIB6']             # <<<<<<<<<<<<<<
@@ -3675,7 +3675,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB6[0]), __pyx_t_35, sizeof(__pyx_v_XVIB6[0]) * (12));
 
-  /* "CF4.pyx":199
+  /* "gases/CF4.pyx":199
  *     YVIB5 = gd['gas1/YVIB5']
  *     XVIB6 = gd['gas1/XVIB6']
  *     YVIB6 = gd['gas1/YVIB6']             # <<<<<<<<<<<<<<
@@ -3688,7 +3688,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB6[0]), __pyx_t_35, sizeof(__pyx_v_YVIB6[0]) * (12));
 
-  /* "CF4.pyx":200
+  /* "gases/CF4.pyx":200
  *     XVIB6 = gd['gas1/XVIB6']
  *     YVIB6 = gd['gas1/YVIB6']
  *     XTR1 = gd['gas1/XTR1']             # <<<<<<<<<<<<<<
@@ -3701,7 +3701,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR1[0]), __pyx_t_35, sizeof(__pyx_v_XTR1[0]) * (12));
 
-  /* "CF4.pyx":201
+  /* "gases/CF4.pyx":201
  *     YVIB6 = gd['gas1/YVIB6']
  *     XTR1 = gd['gas1/XTR1']
  *     XTR2 = gd['gas1/XTR2']             # <<<<<<<<<<<<<<
@@ -3714,7 +3714,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR2[0]), __pyx_t_34, sizeof(__pyx_v_XTR2[0]) * (11));
 
-  /* "CF4.pyx":202
+  /* "gases/CF4.pyx":202
  *     XTR1 = gd['gas1/XTR1']
  *     XTR2 = gd['gas1/XTR2']
  *     YTR1 = gd['gas1/YTR1']             # <<<<<<<<<<<<<<
@@ -3727,7 +3727,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR1[0]), __pyx_t_35, sizeof(__pyx_v_YTR1[0]) * (12));
 
-  /* "CF4.pyx":203
+  /* "gases/CF4.pyx":203
  *     XTR2 = gd['gas1/XTR2']
  *     YTR1 = gd['gas1/YTR1']
  *     YTR2 = gd['gas1/YTR2']             # <<<<<<<<<<<<<<
@@ -3740,7 +3740,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR2[0]), __pyx_t_34, sizeof(__pyx_v_YTR2[0]) * (11));
 
-  /* "CF4.pyx":204
+  /* "gases/CF4.pyx":204
  *     YTR1 = gd['gas1/YTR1']
  *     YTR2 = gd['gas1/YTR2']
  *     XTR3 = gd['gas1/XTR3']             # <<<<<<<<<<<<<<
@@ -3753,7 +3753,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTR3[0]), __pyx_t_34, sizeof(__pyx_v_XTR3[0]) * (11));
 
-  /* "CF4.pyx":205
+  /* "gases/CF4.pyx":205
  *     YTR2 = gd['gas1/YTR2']
  *     XTR3 = gd['gas1/XTR3']
  *     YTR3 = gd['gas1/YTR3']             # <<<<<<<<<<<<<<
@@ -3766,7 +3766,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTR3[0]), __pyx_t_34, sizeof(__pyx_v_YTR3[0]) * (11));
 
-  /* "CF4.pyx":209
+  /* "gases/CF4.pyx":209
  *     # EXCITED VIBRATIONAL STATES (EXACT APPROX IF THE HOT TRANSITIONS HAVE
  *     # EQUAL X-SEC TO THE GROUND STATE TRANSITIONS)
  *     APOPGS = 1.0             # <<<<<<<<<<<<<<
@@ -3775,7 +3775,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = 1.0;
 
-  /* "CF4.pyx":213
+  /* "gases/CF4.pyx":213
  *     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
  *     # EN=-ESTEP/2.0  #ESTEP is function input
  *     for i in range(object.NSTEP):             # <<<<<<<<<<<<<<
@@ -3787,7 +3787,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
     __pyx_v_i = __pyx_t_18;
 
-    /* "CF4.pyx":214
+    /* "gases/CF4.pyx":214
  *     # EN=-ESTEP/2.0  #ESTEP is function input
  *     for i in range(object.NSTEP):
  *         EN = object.EG[i]             # <<<<<<<<<<<<<<
@@ -3796,7 +3796,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_i]);
 
-    /* "CF4.pyx":216
+    /* "gases/CF4.pyx":216
  *         EN = object.EG[i]
  *         # EN=EN+ESTEP
  *         GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -3805,7 +3805,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-    /* "CF4.pyx":217
+    /* "gases/CF4.pyx":217
  *         # EN=EN+ESTEP
  *         GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -3814,7 +3814,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-    /* "CF4.pyx":218
+    /* "gases/CF4.pyx":218
  *         GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.00 - 1.00 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -3823,7 +3823,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA = sqrt((1.00 - (1.00 / __pyx_v_GAMMA2)));
 
-    /* "CF4.pyx":219
+    /* "gases/CF4.pyx":219
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.00 - 1.00 / GAMMA2)
  *         BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -3832,7 +3832,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-    /* "CF4.pyx":221
+    /* "gases/CF4.pyx":221
  *         BETA2 = BETA * BETA
  * 
  *         j = 0             # <<<<<<<<<<<<<<
@@ -3841,7 +3841,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_j = 0;
 
-    /* "CF4.pyx":222
+    /* "gases/CF4.pyx":222
  * 
  *         j = 0
  *         for j in range(1, NDATA):             # <<<<<<<<<<<<<<
@@ -3853,7 +3853,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
       __pyx_v_j = __pyx_t_21;
 
-      /* "CF4.pyx":223
+      /* "gases/CF4.pyx":223
  *         j = 0
  *         for j in range(1, NDATA):
  *             if EN <= XEN[j]:             # <<<<<<<<<<<<<<
@@ -3863,7 +3863,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XEN[__pyx_v_j])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":224
+        /* "gases/CF4.pyx":224
  *         for j in range(1, NDATA):
  *             if EN <= XEN[j]:
  *                 break             # <<<<<<<<<<<<<<
@@ -3872,7 +3872,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L28_break;
 
-        /* "CF4.pyx":223
+        /* "gases/CF4.pyx":223
  *         j = 0
  *         for j in range(1, NDATA):
  *             if EN <= XEN[j]:             # <<<<<<<<<<<<<<
@@ -3883,7 +3883,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L28_break:;
 
-    /* "CF4.pyx":226
+    /* "gases/CF4.pyx":226
  *                 break
  * 
  *         A = (YELM[j] - YELM[j - 1]) / (XEN[j] - XEN[j - 1])             # <<<<<<<<<<<<<<
@@ -3892,7 +3892,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_A = (((__pyx_v_YELM[__pyx_v_j]) - (__pyx_v_YELM[(__pyx_v_j - 1)])) / ((__pyx_v_XEN[__pyx_v_j]) - (__pyx_v_XEN[(__pyx_v_j - 1)])));
 
-    /* "CF4.pyx":227
+    /* "gases/CF4.pyx":227
  * 
  *         A = (YELM[j] - YELM[j - 1]) / (XEN[j] - XEN[j - 1])
  *         B = (XEN[j - 1] * YELM[j] - XEN[j] * YELM[j - 1]) / (XEN[j - 1] - XEN[j])             # <<<<<<<<<<<<<<
@@ -3901,7 +3901,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_B = ((((__pyx_v_XEN[(__pyx_v_j - 1)]) * (__pyx_v_YELM[__pyx_v_j])) - ((__pyx_v_XEN[__pyx_v_j]) * (__pyx_v_YELM[(__pyx_v_j - 1)]))) / ((__pyx_v_XEN[(__pyx_v_j - 1)]) - (__pyx_v_XEN[__pyx_v_j])));
 
-    /* "CF4.pyx":228
+    /* "gases/CF4.pyx":228
  *         A = (YELM[j] - YELM[j - 1]) / (XEN[j] - XEN[j - 1])
  *         B = (XEN[j - 1] * YELM[j] - XEN[j] * YELM[j - 1]) / (XEN[j - 1] - XEN[j])
  *         QMOM = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -3910,7 +3910,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QMOM = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-    /* "CF4.pyx":230
+    /* "gases/CF4.pyx":230
  *         QMOM = (A * EN + B) * 1e-16
  * 
  *         A = (YELT[j] - YELT[j - 1]) / (XEN[j] - XEN[j - 1])             # <<<<<<<<<<<<<<
@@ -3919,7 +3919,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_A = (((__pyx_v_YELT[__pyx_v_j]) - (__pyx_v_YELT[(__pyx_v_j - 1)])) / ((__pyx_v_XEN[__pyx_v_j]) - (__pyx_v_XEN[(__pyx_v_j - 1)])));
 
-    /* "CF4.pyx":231
+    /* "gases/CF4.pyx":231
  * 
  *         A = (YELT[j] - YELT[j - 1]) / (XEN[j] - XEN[j - 1])
  *         B = (XEN[j - 1] * YELT[j] - XEN[j] * YELT[j - 1]) / (XEN[j - 1] - XEN[j])             # <<<<<<<<<<<<<<
@@ -3928,7 +3928,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_B = ((((__pyx_v_XEN[(__pyx_v_j - 1)]) * (__pyx_v_YELT[__pyx_v_j])) - ((__pyx_v_XEN[__pyx_v_j]) * (__pyx_v_YELT[(__pyx_v_j - 1)]))) / ((__pyx_v_XEN[(__pyx_v_j - 1)]) - (__pyx_v_XEN[__pyx_v_j])));
 
-    /* "CF4.pyx":232
+    /* "gases/CF4.pyx":232
  *         A = (YELT[j] - YELT[j - 1]) / (XEN[j] - XEN[j - 1])
  *         B = (XEN[j - 1] * YELT[j] - XEN[j] * YELT[j - 1]) / (XEN[j - 1] - XEN[j])
  *         QELA = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -3937,7 +3937,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QELA = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-    /* "CF4.pyx":234
+    /* "gases/CF4.pyx":234
  *         QELA = (A * EN + B) * 1e-16
  * 
  *         A = (YEPS[j] - YEPS[j - 1]) / (XEN[j] - XEN[j - 1])             # <<<<<<<<<<<<<<
@@ -3946,7 +3946,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_A = (((__pyx_v_YEPS[__pyx_v_j]) - (__pyx_v_YEPS[(__pyx_v_j - 1)])) / ((__pyx_v_XEN[__pyx_v_j]) - (__pyx_v_XEN[(__pyx_v_j - 1)])));
 
-    /* "CF4.pyx":235
+    /* "gases/CF4.pyx":235
  * 
  *         A = (YEPS[j] - YEPS[j - 1]) / (XEN[j] - XEN[j - 1])
  *         B = (XEN[j - 1] * YEPS[j] - XEN[j] * YEPS[j - 1]) / (XEN[j - 1] - XEN[j])             # <<<<<<<<<<<<<<
@@ -3955,7 +3955,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_B = ((((__pyx_v_XEN[(__pyx_v_j - 1)]) * (__pyx_v_YEPS[__pyx_v_j])) - ((__pyx_v_XEN[__pyx_v_j]) * (__pyx_v_YEPS[(__pyx_v_j - 1)]))) / ((__pyx_v_XEN[(__pyx_v_j - 1)]) - (__pyx_v_XEN[__pyx_v_j])));
 
-    /* "CF4.pyx":236
+    /* "gases/CF4.pyx":236
  *         A = (YEPS[j] - YEPS[j - 1]) / (XEN[j] - XEN[j - 1])
  *         B = (XEN[j - 1] * YEPS[j] - XEN[j] * YEPS[j - 1]) / (XEN[j - 1] - XEN[j])
  *         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - (A * EN + B)]             # <<<<<<<<<<<<<<
@@ -3967,7 +3967,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_36[2] = (1.0 - ((__pyx_v_A * __pyx_v_EN) + __pyx_v_B));
     memcpy(&(__pyx_v_PQ[0]), __pyx_t_36, sizeof(__pyx_v_PQ[0]) * (3));
 
-    /* "CF4.pyx":238
+    /* "gases/CF4.pyx":238
  *         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - (A * EN + B)]
  *         # ^^^^^^EPS CORRECTED FOR 1-EPS^^^^^^^^
  *         object.PEQEL[1][i] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -3976,7 +3976,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_i]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "CF4.pyx":239
+    /* "gases/CF4.pyx":239
  *         # ^^^^^^EPS CORRECTED FOR 1-EPS^^^^^^^^
  *         object.PEQEL[1][i] = PQ[object.NANISO]
  *         object.Q[1][i] = QELA             # <<<<<<<<<<<<<<
@@ -3985,7 +3985,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_i]) = __pyx_v_QELA;
 
-    /* "CF4.pyx":241
+    /* "gases/CF4.pyx":241
  *         object.Q[1][i] = QELA
  * 
  *         X2 = 1.0 / BETA2             # <<<<<<<<<<<<<<
@@ -3994,7 +3994,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-    /* "CF4.pyx":242
+    /* "gases/CF4.pyx":242
  * 
  *         X2 = 1.0 / BETA2
  *         X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0             # <<<<<<<<<<<<<<
@@ -4003,7 +4003,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-    /* "CF4.pyx":245
+    /* "gases/CF4.pyx":245
  *         # DISSOCIATIVE IONISATION
  *         # ION  =  CF3 +
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -4013,7 +4013,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":246
+      /* "gases/CF4.pyx":246
  *         # ION  =  CF3 +
  *         if object.NANISO == 0:
  *             object.Q[1][i] = QMOM             # <<<<<<<<<<<<<<
@@ -4022,7 +4022,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_i]) = __pyx_v_QMOM;
 
-      /* "CF4.pyx":245
+      /* "gases/CF4.pyx":245
  *         # DISSOCIATIVE IONISATION
  *         # ION  =  CF3 +
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -4031,7 +4031,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":247
+    /* "gases/CF4.pyx":247
  *         if object.NANISO == 0:
  *             object.Q[1][i] = QMOM
  *         object.QION[0][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4040,7 +4040,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":248
+    /* "gases/CF4.pyx":248
  *             object.Q[1][i] = QMOM
  *         object.QION[0][i] = 0.0
  *         object.PEQION[0][i] = 0.5             # <<<<<<<<<<<<<<
@@ -4049,7 +4049,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":250
+    /* "gases/CF4.pyx":250
  *         object.PEQION[0][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4059,7 +4059,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":251
+      /* "gases/CF4.pyx":251
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[0][i] = 0             # <<<<<<<<<<<<<<
@@ -4068,7 +4068,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":250
+      /* "gases/CF4.pyx":250
  *         object.PEQION[0][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4077,7 +4077,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":253
+    /* "gases/CF4.pyx":253
  *             object.PEQION[0][i] = 0
  * 
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4087,7 +4087,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":254
+      /* "gases/CF4.pyx":254
  * 
  *         if EN > object.EION[0]:
  *             if EN <= XCF3[NCF3 - 1]:  # <<<check if -1 or not             # <<<<<<<<<<<<<<
@@ -4097,7 +4097,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF3[(__pyx_v_NCF3 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":255
+        /* "gases/CF4.pyx":255
  *         if EN > object.EION[0]:
  *             if EN <= XCF3[NCF3 - 1]:  # <<<check if -1 or not
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -4106,7 +4106,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":256
+        /* "gases/CF4.pyx":256
  *             if EN <= XCF3[NCF3 - 1]:  # <<<check if -1 or not
  *                 j = 0
  *                 for j in range(1, NCF3):             # <<<<<<<<<<<<<<
@@ -4118,7 +4118,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":257
+          /* "gases/CF4.pyx":257
  *                 j = 0
  *                 for j in range(1, NCF3):
  *                     if EN <= XCF3[j]:             # <<<<<<<<<<<<<<
@@ -4128,7 +4128,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF3[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":258
+            /* "gases/CF4.pyx":258
  *                 for j in range(1, NCF3):
  *                     if EN <= XCF3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -4137,7 +4137,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L35_break;
 
-            /* "CF4.pyx":257
+            /* "gases/CF4.pyx":257
  *                 j = 0
  *                 for j in range(1, NCF3):
  *                     if EN <= XCF3[j]:             # <<<<<<<<<<<<<<
@@ -4148,7 +4148,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L35_break:;
 
-        /* "CF4.pyx":259
+        /* "gases/CF4.pyx":259
  *                     if EN <= XCF3[j]:
  *                         break
  *                 A = (YCF3[j] - YCF3[j - 1]) / (XCF3[j] - XCF3[j - 1])             # <<<<<<<<<<<<<<
@@ -4157,7 +4157,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF3[__pyx_v_j]) - (__pyx_v_YCF3[(__pyx_v_j - 1)])) / ((__pyx_v_XCF3[__pyx_v_j]) - (__pyx_v_XCF3[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":260
+        /* "gases/CF4.pyx":260
  *                         break
  *                 A = (YCF3[j] - YCF3[j - 1]) / (XCF3[j] - XCF3[j - 1])
  *                 B = (XCF3[j - 1] * YCF3[j] - XCF3[j] * YCF3[j - 1]) / (XCF3[j - 1] - XCF3[j])             # <<<<<<<<<<<<<<
@@ -4166,7 +4166,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF3[(__pyx_v_j - 1)]) * (__pyx_v_YCF3[__pyx_v_j])) - ((__pyx_v_XCF3[__pyx_v_j]) * (__pyx_v_YCF3[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF3[(__pyx_v_j - 1)]) - (__pyx_v_XCF3[__pyx_v_j])));
 
-        /* "CF4.pyx":261
+        /* "gases/CF4.pyx":261
  *                 A = (YCF3[j] - YCF3[j - 1]) / (XCF3[j] - XCF3[j - 1])
  *                 B = (XCF3[j - 1] * YCF3[j] - XCF3[j] * YCF3[j - 1]) / (XCF3[j - 1] - XCF3[j])
  *                 object.QION[0][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -4175,7 +4175,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[0])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":254
+        /* "gases/CF4.pyx":254
  * 
  *         if EN > object.EION[0]:
  *             if EN <= XCF3[NCF3 - 1]:  # <<<check if -1 or not             # <<<<<<<<<<<<<<
@@ -4185,7 +4185,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L33;
       }
 
-      /* "CF4.pyx":264
+      /* "gases/CF4.pyx":264
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF3([NCF3] EV
  *                 object.QION[0][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.7344)             # <<<<<<<<<<<<<<
@@ -4197,7 +4197,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L33:;
 
-      /* "CF4.pyx":265
+      /* "gases/CF4.pyx":265
  *                 # USE BORN BETHE X-SECTION ABOVE XCF3([NCF3] EV
  *                 object.QION[0][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.7344)
  *             if EN > 2.0 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4207,7 +4207,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[0]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":266
+        /* "gases/CF4.pyx":266
  *                 object.QION[0][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.7344)
  *             if EN > 2.0 * object.EION[0]:
  *                 object.PEQION[0][i] = object.PEQEL[1][(i - IOFFION[0])]             # <<<<<<<<<<<<<<
@@ -4216,7 +4216,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[0])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[0]))]);
 
-        /* "CF4.pyx":265
+        /* "gases/CF4.pyx":265
  *                 # USE BORN BETHE X-SECTION ABOVE XCF3([NCF3] EV
  *                 object.QION[0][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.7344)
  *             if EN > 2.0 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4225,7 +4225,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":253
+      /* "gases/CF4.pyx":253
  *             object.PEQION[0][i] = 0
  * 
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4234,7 +4234,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":269
+    /* "gases/CF4.pyx":269
  * 
  *         # ION = CF2 +
  *         object.QION[1][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4243,7 +4243,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[1])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":270
+    /* "gases/CF4.pyx":270
  *         # ION = CF2 +
  *         object.QION[1][i] = 0.0
  *         object.PEQION[1][i] = 0.5             # <<<<<<<<<<<<<<
@@ -4252,7 +4252,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[1])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":272
+    /* "gases/CF4.pyx":272
  *         object.PEQION[1][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4262,7 +4262,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":273
+      /* "gases/CF4.pyx":273
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[1][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4271,7 +4271,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":272
+      /* "gases/CF4.pyx":272
  *         object.PEQION[1][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4280,7 +4280,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":275
+    /* "gases/CF4.pyx":275
  *             object.PEQION[1][i] = 0.0
  * 
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4290,7 +4290,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":276
+      /* "gases/CF4.pyx":276
  * 
  *         if EN > object.EION[1]:
  *             if EN <= XCF2[NCF2 - 1]:             # <<<<<<<<<<<<<<
@@ -4300,7 +4300,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF2[(__pyx_v_NCF2 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":277
+        /* "gases/CF4.pyx":277
  *         if EN > object.EION[1]:
  *             if EN <= XCF2[NCF2 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -4309,7 +4309,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":278
+        /* "gases/CF4.pyx":278
  *             if EN <= XCF2[NCF2 - 1]:
  *                 j = 0
  *                 for j in range(1, NCF2):             # <<<<<<<<<<<<<<
@@ -4321,7 +4321,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":279
+          /* "gases/CF4.pyx":279
  *                 j = 0
  *                 for j in range(1, NCF2):
  *                     if EN <= XCF2[j]:             # <<<<<<<<<<<<<<
@@ -4331,7 +4331,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF2[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":280
+            /* "gases/CF4.pyx":280
  *                 for j in range(1, NCF2):
  *                     if EN <= XCF2[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -4340,7 +4340,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L42_break;
 
-            /* "CF4.pyx":279
+            /* "gases/CF4.pyx":279
  *                 j = 0
  *                 for j in range(1, NCF2):
  *                     if EN <= XCF2[j]:             # <<<<<<<<<<<<<<
@@ -4351,7 +4351,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L42_break:;
 
-        /* "CF4.pyx":281
+        /* "gases/CF4.pyx":281
  *                     if EN <= XCF2[j]:
  *                         break
  *                 A = (YCF2[j] - YCF2[j - 1]) / (XCF2[j] - XCF2[j - 1])             # <<<<<<<<<<<<<<
@@ -4360,7 +4360,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF2[__pyx_v_j]) - (__pyx_v_YCF2[(__pyx_v_j - 1)])) / ((__pyx_v_XCF2[__pyx_v_j]) - (__pyx_v_XCF2[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":282
+        /* "gases/CF4.pyx":282
  *                         break
  *                 A = (YCF2[j] - YCF2[j - 1]) / (XCF2[j] - XCF2[j - 1])
  *                 B = (XCF2[j - 1] * YCF2[j] - XCF2[j] * YCF2[j - 1]) / (XCF2[j - 1] - XCF2[j])             # <<<<<<<<<<<<<<
@@ -4369,7 +4369,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF2[(__pyx_v_j - 1)]) * (__pyx_v_YCF2[__pyx_v_j])) - ((__pyx_v_XCF2[__pyx_v_j]) * (__pyx_v_YCF2[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF2[(__pyx_v_j - 1)]) - (__pyx_v_XCF2[__pyx_v_j])));
 
-        /* "CF4.pyx":283
+        /* "gases/CF4.pyx":283
  *                 A = (YCF2[j] - YCF2[j - 1]) / (XCF2[j] - XCF2[j - 1])
  *                 B = (XCF2[j - 1] * YCF2[j] - XCF2[j] * YCF2[j - 1]) / (XCF2[j - 1] - XCF2[j])
  *                 object.QION[1][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -4378,7 +4378,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[1])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":276
+        /* "gases/CF4.pyx":276
  * 
  *         if EN > object.EION[1]:
  *             if EN <= XCF2[NCF2 - 1]:             # <<<<<<<<<<<<<<
@@ -4388,7 +4388,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L40;
       }
 
-      /* "CF4.pyx":286
+      /* "gases/CF4.pyx":286
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF2[NCF2] EV
  *                 object.QION[1][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0534)             # <<<<<<<<<<<<<<
@@ -4400,7 +4400,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L40:;
 
-      /* "CF4.pyx":287
+      /* "gases/CF4.pyx":287
  *                 # USE BORN BETHE X-SECTION ABOVE XCF2[NCF2] EV
  *                 object.QION[1][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0534)
  *             if EN > 2.0 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4410,7 +4410,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[1]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":288
+        /* "gases/CF4.pyx":288
  *                 object.QION[1][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0534)
  *             if EN > 2.0 * object.EION[1]:
  *                 object.PEQION[1][i] = object.PEQEL[1][(i - IOFFION[1])]             # <<<<<<<<<<<<<<
@@ -4419,7 +4419,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[1])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[1]))]);
 
-        /* "CF4.pyx":287
+        /* "gases/CF4.pyx":287
  *                 # USE BORN BETHE X-SECTION ABOVE XCF2[NCF2] EV
  *                 object.QION[1][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0534)
  *             if EN > 2.0 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4428,7 +4428,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":275
+      /* "gases/CF4.pyx":275
  *             object.PEQION[1][i] = 0.0
  * 
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4437,7 +4437,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":291
+    /* "gases/CF4.pyx":291
  * 
  *         #  ION = CF +
  *         object.QION[2][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4446,7 +4446,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[2])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":292
+    /* "gases/CF4.pyx":292
  *         #  ION = CF +
  *         object.QION[2][i] = 0.0
  *         object.PEQION[2][i] = 0.5             # <<<<<<<<<<<<<<
@@ -4455,7 +4455,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[2])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":294
+    /* "gases/CF4.pyx":294
  *         object.PEQION[2][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4465,7 +4465,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":295
+      /* "gases/CF4.pyx":295
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[2][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4474,7 +4474,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":294
+      /* "gases/CF4.pyx":294
  *         object.PEQION[2][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4483,7 +4483,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":297
+    /* "gases/CF4.pyx":297
  *             object.PEQION[2][i] = 0.0
  * 
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4493,7 +4493,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":298
+      /* "gases/CF4.pyx":298
  * 
  *         if EN > object.EION[2]:
  *             if EN <= XCF1[NCF1 - 1]:             # <<<<<<<<<<<<<<
@@ -4503,7 +4503,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF1[(__pyx_v_NCF1 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":299
+        /* "gases/CF4.pyx":299
  *         if EN > object.EION[2]:
  *             if EN <= XCF1[NCF1 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -4512,7 +4512,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":300
+        /* "gases/CF4.pyx":300
  *             if EN <= XCF1[NCF1 - 1]:
  *                 j = 0
  *                 for j in range(1, NCF1):             # <<<<<<<<<<<<<<
@@ -4524,7 +4524,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":301
+          /* "gases/CF4.pyx":301
  *                 j = 0
  *                 for j in range(1, NCF1):
  *                     if EN <= XCF1[j]:             # <<<<<<<<<<<<<<
@@ -4534,7 +4534,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF1[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":302
+            /* "gases/CF4.pyx":302
  *                 for j in range(1, NCF1):
  *                     if EN <= XCF1[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -4543,7 +4543,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L49_break;
 
-            /* "CF4.pyx":301
+            /* "gases/CF4.pyx":301
  *                 j = 0
  *                 for j in range(1, NCF1):
  *                     if EN <= XCF1[j]:             # <<<<<<<<<<<<<<
@@ -4554,7 +4554,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L49_break:;
 
-        /* "CF4.pyx":303
+        /* "gases/CF4.pyx":303
  *                     if EN <= XCF1[j]:
  *                         break
  *                 A = (YCF1[j] - YCF1[j - 1]) / (XCF1[j] - XCF1[j - 1])             # <<<<<<<<<<<<<<
@@ -4563,7 +4563,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF1[__pyx_v_j]) - (__pyx_v_YCF1[(__pyx_v_j - 1)])) / ((__pyx_v_XCF1[__pyx_v_j]) - (__pyx_v_XCF1[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":304
+        /* "gases/CF4.pyx":304
  *                         break
  *                 A = (YCF1[j] - YCF1[j - 1]) / (XCF1[j] - XCF1[j - 1])
  *                 B = (XCF1[j - 1] * YCF1[j] - XCF1[j] * YCF1[j - 1]) / (XCF1[j - 1] - XCF1[j])             # <<<<<<<<<<<<<<
@@ -4572,7 +4572,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF1[(__pyx_v_j - 1)]) * (__pyx_v_YCF1[__pyx_v_j])) - ((__pyx_v_XCF1[__pyx_v_j]) * (__pyx_v_YCF1[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF1[(__pyx_v_j - 1)]) - (__pyx_v_XCF1[__pyx_v_j])));
 
-        /* "CF4.pyx":305
+        /* "gases/CF4.pyx":305
  *                 A = (YCF1[j] - YCF1[j - 1]) / (XCF1[j] - XCF1[j - 1])
  *                 B = (XCF1[j - 1] * YCF1[j] - XCF1[j] * YCF1[j - 1]) / (XCF1[j - 1] - XCF1[j])
  *                 object.QION[2][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -4581,7 +4581,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[2])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":298
+        /* "gases/CF4.pyx":298
  * 
  *         if EN > object.EION[2]:
  *             if EN <= XCF1[NCF1 - 1]:             # <<<<<<<<<<<<<<
@@ -4591,7 +4591,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L47;
       }
 
-      /* "CF4.pyx":308
+      /* "gases/CF4.pyx":308
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF1[NCF1] EV
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -4601,7 +4601,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "CF4.pyx":309
+        /* "gases/CF4.pyx":309
  *                 # USE BORN BETHE X-SECTION ABOVE XCF1[NCF1] EV
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -4610,7 +4610,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "CF4.pyx":310
+        /* "gases/CF4.pyx":310
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[2][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0386)             # <<<<<<<<<<<<<<
@@ -4621,7 +4621,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L47:;
 
-      /* "CF4.pyx":311
+      /* "gases/CF4.pyx":311
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[2][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0386)
  *             if EN > 2.0 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4631,7 +4631,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[2]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":312
+        /* "gases/CF4.pyx":312
  *                 object.QION[2][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0386)
  *             if EN > 2.0 * object.EION[2]:
  *                 object.PEQION[2][i] = object.PEQEL[1][(i - IOFFION[2])]             # <<<<<<<<<<<<<<
@@ -4640,7 +4640,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[2])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[2]))]);
 
-        /* "CF4.pyx":311
+        /* "gases/CF4.pyx":311
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[2][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0386)
  *             if EN > 2.0 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4649,7 +4649,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":297
+      /* "gases/CF4.pyx":297
  *             object.PEQION[2][i] = 0.0
  * 
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4658,7 +4658,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":315
+    /* "gases/CF4.pyx":315
  * 
  *         # ION = F +
  *         object.QION[3][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4667,7 +4667,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[3])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":316
+    /* "gases/CF4.pyx":316
  *         # ION = F +
  *         object.QION[3][i] = 0.0
  *         object.PEQION[3][i] = 0.5             # <<<<<<<<<<<<<<
@@ -4676,7 +4676,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[3])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":318
+    /* "gases/CF4.pyx":318
  *         object.PEQION[3][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4686,7 +4686,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":319
+      /* "gases/CF4.pyx":319
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[3][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4695,7 +4695,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":318
+      /* "gases/CF4.pyx":318
  *         object.PEQION[3][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4704,7 +4704,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":321
+    /* "gases/CF4.pyx":321
  *             object.PEQION[3][i] = 0.0
  * 
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4714,7 +4714,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[3])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":322
+      /* "gases/CF4.pyx":322
  * 
  *         if EN > object.EION[3]:
  *             if EN <= XC0F[NC0F - 1]:             # <<<<<<<<<<<<<<
@@ -4724,7 +4724,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XC0F[(__pyx_v_NC0F - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":323
+        /* "gases/CF4.pyx":323
  *         if EN > object.EION[3]:
  *             if EN <= XC0F[NC0F - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -4733,7 +4733,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":324
+        /* "gases/CF4.pyx":324
  *             if EN <= XC0F[NC0F - 1]:
  *                 j = 0
  *                 for j in range(1, NC0F):             # <<<<<<<<<<<<<<
@@ -4745,7 +4745,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":325
+          /* "gases/CF4.pyx":325
  *                 j = 0
  *                 for j in range(1, NC0F):
  *                     if EN <= XC0F[j]:             # <<<<<<<<<<<<<<
@@ -4755,7 +4755,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XC0F[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":326
+            /* "gases/CF4.pyx":326
  *                 for j in range(1, NC0F):
  *                     if EN <= XC0F[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -4764,7 +4764,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L56_break;
 
-            /* "CF4.pyx":325
+            /* "gases/CF4.pyx":325
  *                 j = 0
  *                 for j in range(1, NC0F):
  *                     if EN <= XC0F[j]:             # <<<<<<<<<<<<<<
@@ -4775,7 +4775,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L56_break:;
 
-        /* "CF4.pyx":327
+        /* "gases/CF4.pyx":327
  *                     if EN <= XC0F[j]:
  *                         break
  *                 A = (YC0F[j] - YC0F[j - 1]) / (XC0F[j] - XC0F[j - 1])             # <<<<<<<<<<<<<<
@@ -4784,7 +4784,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YC0F[__pyx_v_j]) - (__pyx_v_YC0F[(__pyx_v_j - 1)])) / ((__pyx_v_XC0F[__pyx_v_j]) - (__pyx_v_XC0F[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":328
+        /* "gases/CF4.pyx":328
  *                         break
  *                 A = (YC0F[j] - YC0F[j - 1]) / (XC0F[j] - XC0F[j - 1])
  *                 B = (XC0F[j - 1] * YC0F[j] - XC0F[j] * YC0F[j - 1]) / (XC0F[j - 1] - XC0F[j])             # <<<<<<<<<<<<<<
@@ -4793,7 +4793,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XC0F[(__pyx_v_j - 1)]) * (__pyx_v_YC0F[__pyx_v_j])) - ((__pyx_v_XC0F[__pyx_v_j]) * (__pyx_v_YC0F[(__pyx_v_j - 1)]))) / ((__pyx_v_XC0F[(__pyx_v_j - 1)]) - (__pyx_v_XC0F[__pyx_v_j])));
 
-        /* "CF4.pyx":329
+        /* "gases/CF4.pyx":329
  *                 A = (YC0F[j] - YC0F[j - 1]) / (XC0F[j] - XC0F[j - 1])
  *                 B = (XC0F[j - 1] * YC0F[j] - XC0F[j] * YC0F[j - 1]) / (XC0F[j - 1] - XC0F[j])
  *                 object.QION[3][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -4802,7 +4802,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[3])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":322
+        /* "gases/CF4.pyx":322
  * 
  *         if EN > object.EION[3]:
  *             if EN <= XC0F[NC0F - 1]:             # <<<<<<<<<<<<<<
@@ -4812,7 +4812,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L54;
       }
 
-      /* "CF4.pyx":332
+      /* "gases/CF4.pyx":332
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XC0F[NC0F] EV
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -4822,7 +4822,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "CF4.pyx":333
+        /* "gases/CF4.pyx":333
  *                 # USE BORN BETHE X-SECTION ABOVE XC0F[NC0F] EV
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -4831,7 +4831,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "CF4.pyx":334
+        /* "gases/CF4.pyx":334
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[3][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0799)             # <<<<<<<<<<<<<<
@@ -4842,7 +4842,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L54:;
 
-      /* "CF4.pyx":335
+      /* "gases/CF4.pyx":335
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[3][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0799)
  *             if EN > 2.0 * object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4852,7 +4852,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[3]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":336
+        /* "gases/CF4.pyx":336
  *                 object.QION[3][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0799)
  *             if EN > 2.0 * object.EION[3]:
  *                 object.PEQION[3][i] = object.PEQEL[1][(i - IOFFION[3])]             # <<<<<<<<<<<<<<
@@ -4861,7 +4861,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[3])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[3]))]);
 
-        /* "CF4.pyx":335
+        /* "gases/CF4.pyx":335
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[3][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0799)
  *             if EN > 2.0 * object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4870,7 +4870,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":321
+      /* "gases/CF4.pyx":321
  *             object.PEQION[3][i] = 0.0
  * 
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4879,7 +4879,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":339
+    /* "gases/CF4.pyx":339
  * 
  *         # ION = C +
  *         object.QION[4][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4888,7 +4888,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[4])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":340
+    /* "gases/CF4.pyx":340
  *         # ION = C +
  *         object.QION[4][i] = 0.0
  *         object.PEQION[4][i] = 0.5             # <<<<<<<<<<<<<<
@@ -4897,7 +4897,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[4])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":342
+    /* "gases/CF4.pyx":342
  *         object.PEQION[4][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4907,7 +4907,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":343
+      /* "gases/CF4.pyx":343
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[4][i] = 0.0             # <<<<<<<<<<<<<<
@@ -4916,7 +4916,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[4])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":342
+      /* "gases/CF4.pyx":342
  *         object.PEQION[4][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4925,7 +4925,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":345
+    /* "gases/CF4.pyx":345
  *             object.PEQION[4][i] = 0.0
  * 
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -4935,7 +4935,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[4])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":346
+      /* "gases/CF4.pyx":346
  * 
  *         if EN > object.EION[4]:
  *             if EN <= XCF0[NCF0 - 1]:             # <<<<<<<<<<<<<<
@@ -4945,7 +4945,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF0[(__pyx_v_NCF0 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":347
+        /* "gases/CF4.pyx":347
  *         if EN > object.EION[4]:
  *             if EN <= XCF0[NCF0 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -4954,7 +4954,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":348
+        /* "gases/CF4.pyx":348
  *             if EN <= XCF0[NCF0 - 1]:
  *                 j = 0
  *                 for j in range(1, NCF0):             # <<<<<<<<<<<<<<
@@ -4966,7 +4966,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":349
+          /* "gases/CF4.pyx":349
  *                 j = 0
  *                 for j in range(1, NCF0):
  *                     if EN <= XCF0[j]:             # <<<<<<<<<<<<<<
@@ -4976,7 +4976,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF0[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":350
+            /* "gases/CF4.pyx":350
  *                 for j in range(1, NCF0):
  *                     if EN <= XCF0[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -4985,7 +4985,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L63_break;
 
-            /* "CF4.pyx":349
+            /* "gases/CF4.pyx":349
  *                 j = 0
  *                 for j in range(1, NCF0):
  *                     if EN <= XCF0[j]:             # <<<<<<<<<<<<<<
@@ -4996,7 +4996,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L63_break:;
 
-        /* "CF4.pyx":351
+        /* "gases/CF4.pyx":351
  *                     if EN <= XCF0[j]:
  *                         break
  *                 A = (YCF0[j] - YCF0[j - 1]) / (XCF0[j] - XCF0[j - 1])             # <<<<<<<<<<<<<<
@@ -5005,7 +5005,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF0[__pyx_v_j]) - (__pyx_v_YCF0[(__pyx_v_j - 1)])) / ((__pyx_v_XCF0[__pyx_v_j]) - (__pyx_v_XCF0[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":352
+        /* "gases/CF4.pyx":352
  *                         break
  *                 A = (YCF0[j] - YCF0[j - 1]) / (XCF0[j] - XCF0[j - 1])
  *                 B = (XCF0[j - 1] * YCF0[j] - XCF0[j] * YCF0[j - 1]) / (XCF0[j - 1] - XCF0[j])             # <<<<<<<<<<<<<<
@@ -5014,7 +5014,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF0[(__pyx_v_j - 1)]) * (__pyx_v_YCF0[__pyx_v_j])) - ((__pyx_v_XCF0[__pyx_v_j]) * (__pyx_v_YCF0[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF0[(__pyx_v_j - 1)]) - (__pyx_v_XCF0[__pyx_v_j])));
 
-        /* "CF4.pyx":353
+        /* "gases/CF4.pyx":353
  *                 A = (YCF0[j] - YCF0[j - 1]) / (XCF0[j] - XCF0[j - 1])
  *                 B = (XCF0[j - 1] * YCF0[j] - XCF0[j] * YCF0[j - 1]) / (XCF0[j - 1] - XCF0[j])
  *                 object.QION[4][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -5023,7 +5023,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[4])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":346
+        /* "gases/CF4.pyx":346
  * 
  *         if EN > object.EION[4]:
  *             if EN <= XCF0[NCF0 - 1]:             # <<<<<<<<<<<<<<
@@ -5033,7 +5033,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L61;
       }
 
-      /* "CF4.pyx":356
+      /* "gases/CF4.pyx":356
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF0[NCF0] EV
  *                 object.QION[4][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0422)             # <<<<<<<<<<<<<<
@@ -5045,7 +5045,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L61:;
 
-      /* "CF4.pyx":357
+      /* "gases/CF4.pyx":357
  *                 # USE BORN BETHE X-SECTION ABOVE XCF0[NCF0] EV
  *                 object.QION[4][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0422)
  *             if EN > 2.0 * object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5055,7 +5055,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[4]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":358
+        /* "gases/CF4.pyx":358
  *                 object.QION[4][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0422)
  *             if EN > 2.0 * object.EION[4]:
  *                 object.PEQION[4][i] = object.PEQEL[1][(i - IOFFION[4])]             # <<<<<<<<<<<<<<
@@ -5064,7 +5064,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[4])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[4]))]);
 
-        /* "CF4.pyx":357
+        /* "gases/CF4.pyx":357
  *                 # USE BORN BETHE X-SECTION ABOVE XCF0[NCF0] EV
  *                 object.QION[4][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0422)
  *             if EN > 2.0 * object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5073,7 +5073,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":345
+      /* "gases/CF4.pyx":345
  *             object.PEQION[4][i] = 0.0
  * 
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5082,7 +5082,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":361
+    /* "gases/CF4.pyx":361
  * 
  *         # DOUBLE IONS  CF3 +  AND F +
  *         object.QION[5][i] = 0.0             # <<<<<<<<<<<<<<
@@ -5091,7 +5091,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[5])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":362
+    /* "gases/CF4.pyx":362
  *         # DOUBLE IONS  CF3 +  AND F +
  *         object.QION[5][i] = 0.0
  *         object.PEQION[5][i] = 0.5             # <<<<<<<<<<<<<<
@@ -5100,7 +5100,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[5])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":364
+    /* "gases/CF4.pyx":364
  *         object.PEQION[5][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5110,7 +5110,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":365
+      /* "gases/CF4.pyx":365
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[5][i] = 0.0             # <<<<<<<<<<<<<<
@@ -5119,7 +5119,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[5])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":364
+      /* "gases/CF4.pyx":364
  *         object.PEQION[5][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5128,7 +5128,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":367
+    /* "gases/CF4.pyx":367
  *             object.PEQION[5][i] = 0.0
  * 
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5138,7 +5138,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[5])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":368
+      /* "gases/CF4.pyx":368
  * 
  *         if EN > object.EION[5]:
  *             if EN <= XCF3F[NCF3F - 1]:             # <<<<<<<<<<<<<<
@@ -5148,7 +5148,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF3F[(__pyx_v_NCF3F - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":369
+        /* "gases/CF4.pyx":369
  *         if EN > object.EION[5]:
  *             if EN <= XCF3F[NCF3F - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -5157,7 +5157,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":370
+        /* "gases/CF4.pyx":370
  *             if EN <= XCF3F[NCF3F - 1]:
  *                 j = 0
  *                 for j in range(1, NCF3F):             # <<<<<<<<<<<<<<
@@ -5169,7 +5169,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":371
+          /* "gases/CF4.pyx":371
  *                 j = 0
  *                 for j in range(1, NCF3F):
  *                     if EN <= XCF3F[j]:             # <<<<<<<<<<<<<<
@@ -5179,7 +5179,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF3F[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":372
+            /* "gases/CF4.pyx":372
  *                 for j in range(1, NCF3F):
  *                     if EN <= XCF3F[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -5188,7 +5188,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L70_break;
 
-            /* "CF4.pyx":371
+            /* "gases/CF4.pyx":371
  *                 j = 0
  *                 for j in range(1, NCF3F):
  *                     if EN <= XCF3F[j]:             # <<<<<<<<<<<<<<
@@ -5199,7 +5199,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L70_break:;
 
-        /* "CF4.pyx":373
+        /* "gases/CF4.pyx":373
  *                     if EN <= XCF3F[j]:
  *                         break
  *                 A = (YCF3F[j] - YCF3F[j - 1]) / (XCF3F[j] - XCF3F[j - 1])             # <<<<<<<<<<<<<<
@@ -5208,7 +5208,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF3F[__pyx_v_j]) - (__pyx_v_YCF3F[(__pyx_v_j - 1)])) / ((__pyx_v_XCF3F[__pyx_v_j]) - (__pyx_v_XCF3F[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":374
+        /* "gases/CF4.pyx":374
  *                         break
  *                 A = (YCF3F[j] - YCF3F[j - 1]) / (XCF3F[j] - XCF3F[j - 1])
  *                 B = (XCF3F[j - 1] * YCF3F[j] - XCF3F[j] * YCF3F[j - 1]) / (XCF3F[j - 1] - XCF3F[j])             # <<<<<<<<<<<<<<
@@ -5217,7 +5217,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF3F[(__pyx_v_j - 1)]) * (__pyx_v_YCF3F[__pyx_v_j])) - ((__pyx_v_XCF3F[__pyx_v_j]) * (__pyx_v_YCF3F[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF3F[(__pyx_v_j - 1)]) - (__pyx_v_XCF3F[__pyx_v_j])));
 
-        /* "CF4.pyx":375
+        /* "gases/CF4.pyx":375
  *                 A = (YCF3F[j] - YCF3F[j - 1]) / (XCF3F[j] - XCF3F[j - 1])
  *                 B = (XCF3F[j - 1] * YCF3F[j] - XCF3F[j] * YCF3F[j - 1]) / (XCF3F[j - 1] - XCF3F[j])
  *                 object.QION[5][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -5226,7 +5226,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[5])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":368
+        /* "gases/CF4.pyx":368
  * 
  *         if EN > object.EION[5]:
  *             if EN <= XCF3F[NCF3F - 1]:             # <<<<<<<<<<<<<<
@@ -5236,7 +5236,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L68;
       }
 
-      /* "CF4.pyx":378
+      /* "gases/CF4.pyx":378
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF3F[NCF3F] EV
  *                 object.QION[5][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0058)             # <<<<<<<<<<<<<<
@@ -5248,7 +5248,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L68:;
 
-      /* "CF4.pyx":379
+      /* "gases/CF4.pyx":379
  *                 # USE BORN BETHE X-SECTION ABOVE XCF3F[NCF3F] EV
  *                 object.QION[5][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0058)
  *             if EN > 2.0 * object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5258,7 +5258,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[5]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":380
+        /* "gases/CF4.pyx":380
  *                 object.QION[5][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0058)
  *             if EN > 2.0 * object.EION[5]:
  *                 object.PEQION[5][i] = object.PEQEL[1][(i - IOFFION[5])]             # <<<<<<<<<<<<<<
@@ -5267,7 +5267,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[5])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[5]))]);
 
-        /* "CF4.pyx":379
+        /* "gases/CF4.pyx":379
  *                 # USE BORN BETHE X-SECTION ABOVE XCF3F[NCF3F] EV
  *                 object.QION[5][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0058)
  *             if EN > 2.0 * object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5276,7 +5276,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":367
+      /* "gases/CF4.pyx":367
  *             object.PEQION[5][i] = 0.0
  * 
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5285,7 +5285,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":382
+    /* "gases/CF4.pyx":382
  *                 object.PEQION[5][i] = object.PEQEL[1][(i - IOFFION[5])]
  *         # DOUBLE IONS  CF2 +  AND F +
  *         object.QION[6][i] = 0.0             # <<<<<<<<<<<<<<
@@ -5294,7 +5294,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[6])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":383
+    /* "gases/CF4.pyx":383
  *         # DOUBLE IONS  CF2 +  AND F +
  *         object.QION[6][i] = 0.0
  *         object.PEQION[6][i] = 0.5             # <<<<<<<<<<<<<<
@@ -5303,7 +5303,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[6])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":385
+    /* "gases/CF4.pyx":385
  *         object.PEQION[6][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5313,7 +5313,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":386
+      /* "gases/CF4.pyx":386
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[6][i] = 0.0             # <<<<<<<<<<<<<<
@@ -5322,7 +5322,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[6])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":385
+      /* "gases/CF4.pyx":385
  *         object.PEQION[6][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5331,7 +5331,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":388
+    /* "gases/CF4.pyx":388
  *             object.PEQION[6][i] = 0.0
  * 
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5341,7 +5341,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[6])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":389
+      /* "gases/CF4.pyx":389
  * 
  *         if EN > object.EION[6]:
  *             if EN <= XCF2F[NCF2F - 1]:             # <<<<<<<<<<<<<<
@@ -5351,7 +5351,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF2F[(__pyx_v_NCF2F - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":390
+        /* "gases/CF4.pyx":390
  *         if EN > object.EION[6]:
  *             if EN <= XCF2F[NCF2F - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -5360,7 +5360,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":391
+        /* "gases/CF4.pyx":391
  *             if EN <= XCF2F[NCF2F - 1]:
  *                 j = 0
  *                 for j in range(1, NCF2F):             # <<<<<<<<<<<<<<
@@ -5372,7 +5372,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":392
+          /* "gases/CF4.pyx":392
  *                 j = 0
  *                 for j in range(1, NCF2F):
  *                     if EN <= XCF2F[j]:             # <<<<<<<<<<<<<<
@@ -5382,7 +5382,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF2F[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":393
+            /* "gases/CF4.pyx":393
  *                 for j in range(1, NCF2F):
  *                     if EN <= XCF2F[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -5391,7 +5391,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L77_break;
 
-            /* "CF4.pyx":392
+            /* "gases/CF4.pyx":392
  *                 j = 0
  *                 for j in range(1, NCF2F):
  *                     if EN <= XCF2F[j]:             # <<<<<<<<<<<<<<
@@ -5402,7 +5402,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L77_break:;
 
-        /* "CF4.pyx":394
+        /* "gases/CF4.pyx":394
  *                     if EN <= XCF2F[j]:
  *                         break
  *                 A = (YCF2F[j] - YCF2F[j - 1]) / (XCF2F[j] - XCF2F[j - 1])             # <<<<<<<<<<<<<<
@@ -5411,7 +5411,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF2F[__pyx_v_j]) - (__pyx_v_YCF2F[(__pyx_v_j - 1)])) / ((__pyx_v_XCF2F[__pyx_v_j]) - (__pyx_v_XCF2F[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":395
+        /* "gases/CF4.pyx":395
  *                         break
  *                 A = (YCF2F[j] - YCF2F[j - 1]) / (XCF2F[j] - XCF2F[j - 1])
  *                 B = (XCF2F[j - 1] * YCF2F[j] - XCF2F[j] * YCF2F[j - 1]) / (XCF2F[j - 1] - XCF2F[j])             # <<<<<<<<<<<<<<
@@ -5420,7 +5420,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF2F[(__pyx_v_j - 1)]) * (__pyx_v_YCF2F[__pyx_v_j])) - ((__pyx_v_XCF2F[__pyx_v_j]) * (__pyx_v_YCF2F[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF2F[(__pyx_v_j - 1)]) - (__pyx_v_XCF2F[__pyx_v_j])));
 
-        /* "CF4.pyx":396
+        /* "gases/CF4.pyx":396
  *                 A = (YCF2F[j] - YCF2F[j - 1]) / (XCF2F[j] - XCF2F[j - 1])
  *                 B = (XCF2F[j - 1] * YCF2F[j] - XCF2F[j] * YCF2F[j - 1]) / (XCF2F[j - 1] - XCF2F[j])
  *                 object.QION[6][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -5429,7 +5429,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[6])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":389
+        /* "gases/CF4.pyx":389
  * 
  *         if EN > object.EION[6]:
  *             if EN <= XCF2F[NCF2F - 1]:             # <<<<<<<<<<<<<<
@@ -5439,7 +5439,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L75;
       }
 
-      /* "CF4.pyx":399
+      /* "gases/CF4.pyx":399
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF2F[NCF2F] EV
  *                 object.QION[6][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0073)             # <<<<<<<<<<<<<<
@@ -5451,7 +5451,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L75:;
 
-      /* "CF4.pyx":400
+      /* "gases/CF4.pyx":400
  *                 # USE BORN BETHE X-SECTION ABOVE XCF2F[NCF2F] EV
  *                 object.QION[6][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0073)
  *             if EN > 2.0 * object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5461,7 +5461,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[6]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":401
+        /* "gases/CF4.pyx":401
  *                 object.QION[6][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0073)
  *             if EN > 2.0 * object.EION[6]:
  *                 object.PEQION[6][i] = object.PEQEL[1][(i - IOFFION[6])]             # <<<<<<<<<<<<<<
@@ -5470,7 +5470,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[6])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[6]))]);
 
-        /* "CF4.pyx":400
+        /* "gases/CF4.pyx":400
  *                 # USE BORN BETHE X-SECTION ABOVE XCF2F[NCF2F] EV
  *                 object.QION[6][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2.0) + C * X2) * <float>(0.0073)
  *             if EN > 2.0 * object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5479,7 +5479,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":388
+      /* "gases/CF4.pyx":388
  *             object.PEQION[6][i] = 0.0
  * 
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5488,7 +5488,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":404
+    /* "gases/CF4.pyx":404
  * 
  *         # DOUBLE CHARGED ION  CF3 ++
  *         object.QION[7][i] = 0.0             # <<<<<<<<<<<<<<
@@ -5497,7 +5497,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[7])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":405
+    /* "gases/CF4.pyx":405
  *         # DOUBLE CHARGED ION  CF3 ++
  *         object.QION[7][i] = 0.0
  *         object.PEQION[7][i] = 0.5             # <<<<<<<<<<<<<<
@@ -5506,7 +5506,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[7])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":407
+    /* "gases/CF4.pyx":407
  *         object.PEQION[7][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5516,7 +5516,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":408
+      /* "gases/CF4.pyx":408
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[7][i] = 0.0             # <<<<<<<<<<<<<<
@@ -5525,7 +5525,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[7])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":407
+      /* "gases/CF4.pyx":407
  *         object.PEQION[7][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5534,7 +5534,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":410
+    /* "gases/CF4.pyx":410
  *             object.PEQION[7][i] = 0.0
  * 
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5544,7 +5544,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[7])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":411
+      /* "gases/CF4.pyx":411
  * 
  *         if EN > object.EION[7]:
  *             if EN <= XCF32[NCF32 - 1]:             # <<<<<<<<<<<<<<
@@ -5554,7 +5554,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF32[(__pyx_v_NCF32 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":412
+        /* "gases/CF4.pyx":412
  *         if EN > object.EION[7]:
  *             if EN <= XCF32[NCF32 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -5563,7 +5563,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":413
+        /* "gases/CF4.pyx":413
  *             if EN <= XCF32[NCF32 - 1]:
  *                 j = 0
  *                 for j in range(1, NCF32):             # <<<<<<<<<<<<<<
@@ -5575,7 +5575,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":414
+          /* "gases/CF4.pyx":414
  *                 j = 0
  *                 for j in range(1, NCF32):
  *                     if EN <= XCF32[j]:             # <<<<<<<<<<<<<<
@@ -5585,7 +5585,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF32[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":415
+            /* "gases/CF4.pyx":415
  *                 for j in range(1, NCF32):
  *                     if EN <= XCF32[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -5594,7 +5594,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L84_break;
 
-            /* "CF4.pyx":414
+            /* "gases/CF4.pyx":414
  *                 j = 0
  *                 for j in range(1, NCF32):
  *                     if EN <= XCF32[j]:             # <<<<<<<<<<<<<<
@@ -5605,7 +5605,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L84_break:;
 
-        /* "CF4.pyx":416
+        /* "gases/CF4.pyx":416
  *                     if EN <= XCF32[j]:
  *                         break
  *                 A = (YCF32[j] - YCF32[j - 1]) / (XCF32[j] - XCF32[j - 1])             # <<<<<<<<<<<<<<
@@ -5614,7 +5614,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF32[__pyx_v_j]) - (__pyx_v_YCF32[(__pyx_v_j - 1)])) / ((__pyx_v_XCF32[__pyx_v_j]) - (__pyx_v_XCF32[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":417
+        /* "gases/CF4.pyx":417
  *                         break
  *                 A = (YCF32[j] - YCF32[j - 1]) / (XCF32[j] - XCF32[j - 1])
  *                 B = (XCF32[j - 1] * YCF32[j] - XCF32[j] * YCF32[j - 1]) / (XCF32[j - 1] - XCF32[j])             # <<<<<<<<<<<<<<
@@ -5623,7 +5623,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF32[(__pyx_v_j - 1)]) * (__pyx_v_YCF32[__pyx_v_j])) - ((__pyx_v_XCF32[__pyx_v_j]) * (__pyx_v_YCF32[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF32[(__pyx_v_j - 1)]) - (__pyx_v_XCF32[__pyx_v_j])));
 
-        /* "CF4.pyx":418
+        /* "gases/CF4.pyx":418
  *                 A = (YCF32[j] - YCF32[j - 1]) / (XCF32[j] - XCF32[j - 1])
  *                 B = (XCF32[j - 1] * YCF32[j] - XCF32[j] * YCF32[j - 1]) / (XCF32[j - 1] - XCF32[j])
  *                 object.QION[7][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -5632,7 +5632,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[7])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":411
+        /* "gases/CF4.pyx":411
  * 
  *         if EN > object.EION[7]:
  *             if EN <= XCF32[NCF32 - 1]:             # <<<<<<<<<<<<<<
@@ -5642,7 +5642,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L82;
       }
 
-      /* "CF4.pyx":421
+      /* "gases/CF4.pyx":421
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF32[NCF32] EV
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -5652,7 +5652,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "CF4.pyx":422
+        /* "gases/CF4.pyx":422
  *                 # USE BORN BETHE X-SECTION ABOVE XCF32[NCF32] EV
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -5661,7 +5661,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "CF4.pyx":423
+        /* "gases/CF4.pyx":423
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[7][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0031)             # <<<<<<<<<<<<<<
@@ -5672,7 +5672,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L82:;
 
-      /* "CF4.pyx":424
+      /* "gases/CF4.pyx":424
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[7][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0031)
  *             if EN > 2 * object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5682,7 +5682,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[7]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":425
+        /* "gases/CF4.pyx":425
  *                 object.QION[7][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0031)
  *             if EN > 2 * object.EION[7]:
  *                 object.PEQION[7][i] = object.PEQEL[1][(i - IOFFION[7])]             # <<<<<<<<<<<<<<
@@ -5691,7 +5691,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[7])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[7]))]);
 
-        /* "CF4.pyx":424
+        /* "gases/CF4.pyx":424
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[7][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0031)
  *             if EN > 2 * object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5700,7 +5700,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":410
+      /* "gases/CF4.pyx":410
  *             object.PEQION[7][i] = 0.0
  * 
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5709,7 +5709,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":429
+    /* "gases/CF4.pyx":429
  *         # DOUBLE CHARGED ION  CF2 ++
  *         # ADD INTO CF3 ++
  *         if EN > XCF22[0]:             # <<<<<<<<<<<<<<
@@ -5719,7 +5719,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_XCF22[0])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":430
+      /* "gases/CF4.pyx":430
  *         # ADD INTO CF3 ++
  *         if EN > XCF22[0]:
  *             if EN <= XCF22[NCF22 - 1]:             # <<<<<<<<<<<<<<
@@ -5729,7 +5729,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF22[(__pyx_v_NCF22 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":431
+        /* "gases/CF4.pyx":431
  *         if EN > XCF22[0]:
  *             if EN <= XCF22[NCF22 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -5738,7 +5738,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":432
+        /* "gases/CF4.pyx":432
  *             if EN <= XCF22[NCF22 - 1]:
  *                 j = 0
  *                 for j in range(1, NCF22):             # <<<<<<<<<<<<<<
@@ -5750,7 +5750,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":433
+          /* "gases/CF4.pyx":433
  *                 j = 0
  *                 for j in range(1, NCF22):
  *                     if EN <= XCF22[j]:             # <<<<<<<<<<<<<<
@@ -5760,7 +5760,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF22[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":434
+            /* "gases/CF4.pyx":434
  *                 for j in range(1, NCF22):
  *                     if EN <= XCF22[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -5769,7 +5769,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L90_break;
 
-            /* "CF4.pyx":433
+            /* "gases/CF4.pyx":433
  *                 j = 0
  *                 for j in range(1, NCF22):
  *                     if EN <= XCF22[j]:             # <<<<<<<<<<<<<<
@@ -5780,7 +5780,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L90_break:;
 
-        /* "CF4.pyx":435
+        /* "gases/CF4.pyx":435
  *                     if EN <= XCF22[j]:
  *                         break
  *                 A = (YCF22[j] - YCF22[j - 1]) / (XCF22[j] - XCF22[j - 1])             # <<<<<<<<<<<<<<
@@ -5789,7 +5789,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF22[__pyx_v_j]) - (__pyx_v_YCF22[(__pyx_v_j - 1)])) / ((__pyx_v_XCF22[__pyx_v_j]) - (__pyx_v_XCF22[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":436
+        /* "gases/CF4.pyx":436
  *                         break
  *                 A = (YCF22[j] - YCF22[j - 1]) / (XCF22[j] - XCF22[j - 1])
  *                 B = (XCF22[j - 1] * YCF22[j] - XCF22[j] * YCF22[j - 1]) / (XCF22[j - 1] - XCF22[j])             # <<<<<<<<<<<<<<
@@ -5798,7 +5798,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF22[(__pyx_v_j - 1)]) * (__pyx_v_YCF22[__pyx_v_j])) - ((__pyx_v_XCF22[__pyx_v_j]) * (__pyx_v_YCF22[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF22[(__pyx_v_j - 1)]) - (__pyx_v_XCF22[__pyx_v_j])));
 
-        /* "CF4.pyx":437
+        /* "gases/CF4.pyx":437
  *                 A = (YCF22[j] - YCF22[j - 1]) / (XCF22[j] - XCF22[j - 1])
  *                 B = (XCF22[j - 1] * YCF22[j] - XCF22[j] * YCF22[j - 1]) / (XCF22[j - 1] - XCF22[j])
  *                 object.QION[7][i] = object.QION[7][i] + (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -5807,7 +5807,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[7])[__pyx_v_i]) = (((__pyx_v_object->QION[7])[__pyx_v_i]) + (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16));
 
-        /* "CF4.pyx":430
+        /* "gases/CF4.pyx":430
  *         # ADD INTO CF3 ++
  *         if EN > XCF22[0]:
  *             if EN <= XCF22[NCF22 - 1]:             # <<<<<<<<<<<<<<
@@ -5817,7 +5817,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L88;
       }
 
-      /* "CF4.pyx":440
+      /* "gases/CF4.pyx":440
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF22[NCF22] EV
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -5827,7 +5827,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "CF4.pyx":441
+        /* "gases/CF4.pyx":441
  *                 # USE BORN BETHE X-SECTION ABOVE XCF22[NCF22] EV
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -5836,7 +5836,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "CF4.pyx":442
+        /* "gases/CF4.pyx":442
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[7][i] = object.QION[7][i] + CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0077)             # <<<<<<<<<<<<<<
@@ -5847,7 +5847,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L88:;
 
-      /* "CF4.pyx":429
+      /* "gases/CF4.pyx":429
  *         # DOUBLE CHARGED ION  CF2 ++
  *         # ADD INTO CF3 ++
  *         if EN > XCF22[0]:             # <<<<<<<<<<<<<<
@@ -5856,7 +5856,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":445
+    /* "gases/CF4.pyx":445
  * 
  *         # DOUBLE IONS    CF +  AND F +
  *         object.QION[8][i] = 0.0             # <<<<<<<<<<<<<<
@@ -5865,7 +5865,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[8])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":446
+    /* "gases/CF4.pyx":446
  *         # DOUBLE IONS    CF +  AND F +
  *         object.QION[8][i] = 0.0
  *         object.PEQION[8][i] = 0.5             # <<<<<<<<<<<<<<
@@ -5874,7 +5874,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[8])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":448
+    /* "gases/CF4.pyx":448
  *         object.PEQION[8][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5884,7 +5884,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":449
+      /* "gases/CF4.pyx":449
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[8][i] = 0.0             # <<<<<<<<<<<<<<
@@ -5893,7 +5893,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[8])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":448
+      /* "gases/CF4.pyx":448
  *         object.PEQION[8][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5902,7 +5902,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":451
+    /* "gases/CF4.pyx":451
  *             object.PEQION[8][i] = 0.0
  * 
  *         if EN > object.EION[8]:             # <<<<<<<<<<<<<<
@@ -5912,7 +5912,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[8])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":452
+      /* "gases/CF4.pyx":452
  * 
  *         if EN > object.EION[8]:
  *             if EN <= XCFF[NCFF - 1]:             # <<<<<<<<<<<<<<
@@ -5922,7 +5922,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCFF[(__pyx_v_NCFF - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":453
+        /* "gases/CF4.pyx":453
  *         if EN > object.EION[8]:
  *             if EN <= XCFF[NCFF - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -5931,7 +5931,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":454
+        /* "gases/CF4.pyx":454
  *             if EN <= XCFF[NCFF - 1]:
  *                 j = 0
  *                 for j in range(1, NCFF):             # <<<<<<<<<<<<<<
@@ -5943,7 +5943,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":455
+          /* "gases/CF4.pyx":455
  *                 j = 0
  *                 for j in range(1, NCFF):
  *                     if EN <= XCFF[j]:             # <<<<<<<<<<<<<<
@@ -5953,7 +5953,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCFF[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":456
+            /* "gases/CF4.pyx":456
  *                 for j in range(1, NCFF):
  *                     if EN <= XCFF[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -5962,7 +5962,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L96_break;
 
-            /* "CF4.pyx":455
+            /* "gases/CF4.pyx":455
  *                 j = 0
  *                 for j in range(1, NCFF):
  *                     if EN <= XCFF[j]:             # <<<<<<<<<<<<<<
@@ -5973,7 +5973,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L96_break:;
 
-        /* "CF4.pyx":457
+        /* "gases/CF4.pyx":457
  *                     if EN <= XCFF[j]:
  *                         break
  *                 A = (YCFF[j] - YCFF[j - 1]) / (XCFF[j] - XCFF[j - 1])             # <<<<<<<<<<<<<<
@@ -5982,7 +5982,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCFF[__pyx_v_j]) - (__pyx_v_YCFF[(__pyx_v_j - 1)])) / ((__pyx_v_XCFF[__pyx_v_j]) - (__pyx_v_XCFF[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":458
+        /* "gases/CF4.pyx":458
  *                         break
  *                 A = (YCFF[j] - YCFF[j - 1]) / (XCFF[j] - XCFF[j - 1])
  *                 B = (XCFF[j - 1] * YCFF[j] - XCFF[j] * YCFF[j - 1]) / (XCFF[j - 1] - XCFF[j])             # <<<<<<<<<<<<<<
@@ -5991,7 +5991,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCFF[(__pyx_v_j - 1)]) * (__pyx_v_YCFF[__pyx_v_j])) - ((__pyx_v_XCFF[__pyx_v_j]) * (__pyx_v_YCFF[(__pyx_v_j - 1)]))) / ((__pyx_v_XCFF[(__pyx_v_j - 1)]) - (__pyx_v_XCFF[__pyx_v_j])));
 
-        /* "CF4.pyx":459
+        /* "gases/CF4.pyx":459
  *                 A = (YCFF[j] - YCFF[j - 1]) / (XCFF[j] - XCFF[j - 1])
  *                 B = (XCFF[j - 1] * YCFF[j] - XCFF[j] * YCFF[j - 1]) / (XCFF[j - 1] - XCFF[j])
  *                 object.QION[8][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6000,7 +6000,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[8])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":452
+        /* "gases/CF4.pyx":452
  * 
  *         if EN > object.EION[8]:
  *             if EN <= XCFF[NCFF - 1]:             # <<<<<<<<<<<<<<
@@ -6010,7 +6010,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L94;
       }
 
-      /* "CF4.pyx":462
+      /* "gases/CF4.pyx":462
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCFF[NCFF] EV
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -6020,7 +6020,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "CF4.pyx":463
+        /* "gases/CF4.pyx":463
  *                 # USE BORN BETHE X-SECTION ABOVE XCFF[NCFF] EV
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -6029,7 +6029,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "CF4.pyx":464
+        /* "gases/CF4.pyx":464
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[8][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0189)             # <<<<<<<<<<<<<<
@@ -6040,7 +6040,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L94:;
 
-      /* "CF4.pyx":465
+      /* "gases/CF4.pyx":465
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[8][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0189)
  *             if EN > 2 * object.EION[8]:             # <<<<<<<<<<<<<<
@@ -6050,7 +6050,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[8]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":466
+        /* "gases/CF4.pyx":466
  *                 object.QION[8][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0189)
  *             if EN > 2 * object.EION[8]:
  *                 object.PEQION[8][i] = object.PEQEL[1][(i - IOFFION[8])]             # <<<<<<<<<<<<<<
@@ -6059,7 +6059,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[8])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[8]))]);
 
-        /* "CF4.pyx":465
+        /* "gases/CF4.pyx":465
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[8][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0189)
  *             if EN > 2 * object.EION[8]:             # <<<<<<<<<<<<<<
@@ -6068,7 +6068,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":451
+      /* "gases/CF4.pyx":451
  *             object.PEQION[8][i] = 0.0
  * 
  *         if EN > object.EION[8]:             # <<<<<<<<<<<<<<
@@ -6077,7 +6077,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":469
+    /* "gases/CF4.pyx":469
  * 
  *         # DOUBLE IONS    C +  AND F +
  *         object.QION[9][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6086,7 +6086,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[9])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":470
+    /* "gases/CF4.pyx":470
  *         # DOUBLE IONS    C +  AND F +
  *         object.QION[9][i] = 0.0
  *         object.PEQION[9][i] = 0.5             # <<<<<<<<<<<<<<
@@ -6095,7 +6095,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[9])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":472
+    /* "gases/CF4.pyx":472
  *         object.PEQION[9][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6105,7 +6105,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":473
+      /* "gases/CF4.pyx":473
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[9][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6114,7 +6114,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[9])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":472
+      /* "gases/CF4.pyx":472
  *         object.PEQION[9][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6123,7 +6123,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":475
+    /* "gases/CF4.pyx":475
  *             object.PEQION[9][i] = 0.0
  * 
  *         if EN > object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6133,7 +6133,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[9])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":476
+      /* "gases/CF4.pyx":476
  * 
  *         if EN > object.EION[9]:
  *             if EN <= XCF[NCF - 1]:             # <<<<<<<<<<<<<<
@@ -6143,7 +6143,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF[(__pyx_v_NCF - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":477
+        /* "gases/CF4.pyx":477
  *         if EN > object.EION[9]:
  *             if EN <= XCF[NCF - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -6152,7 +6152,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":478
+        /* "gases/CF4.pyx":478
  *             if EN <= XCF[NCF - 1]:
  *                 j = 0
  *                 for j in range(1, NCF):             # <<<<<<<<<<<<<<
@@ -6164,7 +6164,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":479
+          /* "gases/CF4.pyx":479
  *                 j = 0
  *                 for j in range(1, NCF):
  *                     if EN <= XCF[j]:             # <<<<<<<<<<<<<<
@@ -6174,7 +6174,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XCF[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":480
+            /* "gases/CF4.pyx":480
  *                 for j in range(1, NCF):
  *                     if EN <= XCF[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -6183,7 +6183,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L103_break;
 
-            /* "CF4.pyx":479
+            /* "gases/CF4.pyx":479
  *                 j = 0
  *                 for j in range(1, NCF):
  *                     if EN <= XCF[j]:             # <<<<<<<<<<<<<<
@@ -6194,7 +6194,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L103_break:;
 
-        /* "CF4.pyx":481
+        /* "gases/CF4.pyx":481
  *                     if EN <= XCF[j]:
  *                         break
  *                 A = (YCF[j] - YCF[j - 1]) / (XCF[j] - XCF[j - 1])             # <<<<<<<<<<<<<<
@@ -6203,7 +6203,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YCF[__pyx_v_j]) - (__pyx_v_YCF[(__pyx_v_j - 1)])) / ((__pyx_v_XCF[__pyx_v_j]) - (__pyx_v_XCF[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":482
+        /* "gases/CF4.pyx":482
  *                         break
  *                 A = (YCF[j] - YCF[j - 1]) / (XCF[j] - XCF[j - 1])
  *                 B = (XCF[j - 1] * YCF[j] - XCF[j] * YCF[j - 1]) / (XCF[j - 1] - XCF[j])             # <<<<<<<<<<<<<<
@@ -6212,7 +6212,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XCF[(__pyx_v_j - 1)]) * (__pyx_v_YCF[__pyx_v_j])) - ((__pyx_v_XCF[__pyx_v_j]) * (__pyx_v_YCF[(__pyx_v_j - 1)]))) / ((__pyx_v_XCF[(__pyx_v_j - 1)]) - (__pyx_v_XCF[__pyx_v_j])));
 
-        /* "CF4.pyx":483
+        /* "gases/CF4.pyx":483
  *                 A = (YCF[j] - YCF[j - 1]) / (XCF[j] - XCF[j - 1])
  *                 B = (XCF[j - 1] * YCF[j] - XCF[j] * YCF[j - 1]) / (XCF[j - 1] - XCF[j])
  *                 object.QION[9][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6221,7 +6221,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[9])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":476
+        /* "gases/CF4.pyx":476
  * 
  *         if EN > object.EION[9]:
  *             if EN <= XCF[NCF - 1]:             # <<<<<<<<<<<<<<
@@ -6231,7 +6231,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L101;
       }
 
-      /* "CF4.pyx":486
+      /* "gases/CF4.pyx":486
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XCF[NCF] EV
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -6241,7 +6241,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "CF4.pyx":487
+        /* "gases/CF4.pyx":487
  *                 # USE BORN BETHE X-SECTION ABOVE XCF[NCF] EV
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -6250,7 +6250,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "CF4.pyx":488
+        /* "gases/CF4.pyx":488
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[9][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0087)             # <<<<<<<<<<<<<<
@@ -6261,7 +6261,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L101:;
 
-      /* "CF4.pyx":489
+      /* "gases/CF4.pyx":489
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[9][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0087)
  *             if EN > 2 * object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6271,7 +6271,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[9]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":490
+        /* "gases/CF4.pyx":490
  *                 object.QION[9][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0087)
  *             if EN > 2 * object.EION[9]:
  *                 object.PEQION[9][i] = object.PEQEL[1][(i - IOFFION[9])]             # <<<<<<<<<<<<<<
@@ -6280,7 +6280,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[9])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[9]))]);
 
-        /* "CF4.pyx":489
+        /* "gases/CF4.pyx":489
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[9][i] = CONST * (AM2 * (X1 - object.DEN[i] / 2) + C * X2) * <float>(0.0087)
  *             if EN > 2 * object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6289,7 +6289,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":475
+      /* "gases/CF4.pyx":475
  *             object.PEQION[9][i] = 0.0
  * 
  *         if EN > object.EION[9]:             # <<<<<<<<<<<<<<
@@ -6298,7 +6298,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":493
+    /* "gases/CF4.pyx":493
  * 
  *         # CARBON K-SHELL IONISATION
  *         object.QION[10][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6307,7 +6307,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[10])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":494
+    /* "gases/CF4.pyx":494
  *         # CARBON K-SHELL IONISATION
  *         object.QION[10][i] = 0.0
  *         object.PEQION[10][i] = 0.5             # <<<<<<<<<<<<<<
@@ -6316,7 +6316,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[10])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":496
+    /* "gases/CF4.pyx":496
  *         object.PEQION[10][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6326,7 +6326,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":497
+      /* "gases/CF4.pyx":497
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[10][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6335,7 +6335,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[10])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":496
+      /* "gases/CF4.pyx":496
  *         object.PEQION[10][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6344,7 +6344,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":499
+    /* "gases/CF4.pyx":499
  *             object.PEQION[10][i] = 0.0
  * 
  *         if EN > object.EION[10]:             # <<<<<<<<<<<<<<
@@ -6354,7 +6354,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[10])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":500
+      /* "gases/CF4.pyx":500
  * 
  *         if EN > object.EION[10]:
  *             if EN <= XKSHC[NKSHC - 1]:             # <<<<<<<<<<<<<<
@@ -6364,7 +6364,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XKSHC[(__pyx_v_NKSHC - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":501
+        /* "gases/CF4.pyx":501
  *         if EN > object.EION[10]:
  *             if EN <= XKSHC[NKSHC - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -6373,7 +6373,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":502
+        /* "gases/CF4.pyx":502
  *             if EN <= XKSHC[NKSHC - 1]:
  *                 j = 0
  *                 for j in range(1, NKSHC):             # <<<<<<<<<<<<<<
@@ -6385,7 +6385,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":503
+          /* "gases/CF4.pyx":503
  *                 j = 0
  *                 for j in range(1, NKSHC):
  *                     if EN <= XKSHC[j]:             # <<<<<<<<<<<<<<
@@ -6395,7 +6395,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XKSHC[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":504
+            /* "gases/CF4.pyx":504
  *                 for j in range(1, NKSHC):
  *                     if EN <= XKSHC[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -6404,7 +6404,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L110_break;
 
-            /* "CF4.pyx":503
+            /* "gases/CF4.pyx":503
  *                 j = 0
  *                 for j in range(1, NKSHC):
  *                     if EN <= XKSHC[j]:             # <<<<<<<<<<<<<<
@@ -6415,7 +6415,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L110_break:;
 
-        /* "CF4.pyx":505
+        /* "gases/CF4.pyx":505
  *                     if EN <= XKSHC[j]:
  *                         break
  *                 A = (YKSHC[j] - YKSHC[j - 1]) / (XKSHC[j] - XKSHC[j - 1])             # <<<<<<<<<<<<<<
@@ -6424,7 +6424,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YKSHC[__pyx_v_j]) - (__pyx_v_YKSHC[(__pyx_v_j - 1)])) / ((__pyx_v_XKSHC[__pyx_v_j]) - (__pyx_v_XKSHC[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":506
+        /* "gases/CF4.pyx":506
  *                         break
  *                 A = (YKSHC[j] - YKSHC[j - 1]) / (XKSHC[j] - XKSHC[j - 1])
  *                 B = (XKSHC[j - 1] * YKSHC[j] - XKSHC[j] * YKSHC[j - 1]) / (XKSHC[j - 1] - XKSHC[j])             # <<<<<<<<<<<<<<
@@ -6433,7 +6433,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XKSHC[(__pyx_v_j - 1)]) * (__pyx_v_YKSHC[__pyx_v_j])) - ((__pyx_v_XKSHC[__pyx_v_j]) * (__pyx_v_YKSHC[(__pyx_v_j - 1)]))) / ((__pyx_v_XKSHC[(__pyx_v_j - 1)]) - (__pyx_v_XKSHC[__pyx_v_j])));
 
-        /* "CF4.pyx":507
+        /* "gases/CF4.pyx":507
  *                 A = (YKSHC[j] - YKSHC[j - 1]) / (XKSHC[j] - XKSHC[j - 1])
  *                 B = (XKSHC[j - 1] * YKSHC[j] - XKSHC[j] * YKSHC[j - 1]) / (XKSHC[j - 1] - XKSHC[j])
  *                 object.QION[10][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6442,7 +6442,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[10])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":500
+        /* "gases/CF4.pyx":500
  * 
  *         if EN > object.EION[10]:
  *             if EN <= XKSHC[NKSHC - 1]:             # <<<<<<<<<<<<<<
@@ -6451,7 +6451,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":508
+      /* "gases/CF4.pyx":508
  *                 B = (XKSHC[j - 1] * YKSHC[j] - XKSHC[j] * YKSHC[j - 1]) / (XKSHC[j - 1] - XKSHC[j])
  *                 object.QION[10][i] = (A * EN + B) * 1e-16
  *             if EN > 2 * object.EION[10]:             # <<<<<<<<<<<<<<
@@ -6461,7 +6461,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[10]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":509
+        /* "gases/CF4.pyx":509
  *                 object.QION[10][i] = (A * EN + B) * 1e-16
  *             if EN > 2 * object.EION[10]:
  *                 object.PEQION[10][i] = object.PEQEL[1][(i - IOFFION[10])]             # <<<<<<<<<<<<<<
@@ -6470,7 +6470,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[10])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[10]))]);
 
-        /* "CF4.pyx":508
+        /* "gases/CF4.pyx":508
  *                 B = (XKSHC[j - 1] * YKSHC[j] - XKSHC[j] * YKSHC[j - 1]) / (XKSHC[j - 1] - XKSHC[j])
  *                 object.QION[10][i] = (A * EN + B) * 1e-16
  *             if EN > 2 * object.EION[10]:             # <<<<<<<<<<<<<<
@@ -6479,7 +6479,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":499
+      /* "gases/CF4.pyx":499
  *             object.PEQION[10][i] = 0.0
  * 
  *         if EN > object.EION[10]:             # <<<<<<<<<<<<<<
@@ -6488,7 +6488,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":512
+    /* "gases/CF4.pyx":512
  * 
  *         # Fluorine K-SHELL IONISATION
  *         object.QION[11][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6497,7 +6497,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[11])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":513
+    /* "gases/CF4.pyx":513
  *         # Fluorine K-SHELL IONISATION
  *         object.QION[11][i] = 0.0
  *         object.PEQION[11][i] = 0.5             # <<<<<<<<<<<<<<
@@ -6506,7 +6506,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[11])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":515
+    /* "gases/CF4.pyx":515
  *         object.PEQION[11][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6516,7 +6516,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":516
+      /* "gases/CF4.pyx":516
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[11][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6525,7 +6525,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[11])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":515
+      /* "gases/CF4.pyx":515
  *         object.PEQION[11][i] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6534,7 +6534,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":518
+    /* "gases/CF4.pyx":518
  *             object.PEQION[11][i] = 0.0
  * 
  *         if EN > object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6544,7 +6544,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EION[11])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":519
+      /* "gases/CF4.pyx":519
  * 
  *         if EN > object.EION[11]:
  *             if EN <= XKSHF[NKSHF - 1]:             # <<<<<<<<<<<<<<
@@ -6554,7 +6554,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XKSHF[(__pyx_v_NKSHF - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":520
+        /* "gases/CF4.pyx":520
  *         if EN > object.EION[11]:
  *             if EN <= XKSHF[NKSHF - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -6563,7 +6563,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":521
+        /* "gases/CF4.pyx":521
  *             if EN <= XKSHF[NKSHF - 1]:
  *                 j = 0
  *                 for j in range(1, NKSHF):             # <<<<<<<<<<<<<<
@@ -6575,7 +6575,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":522
+          /* "gases/CF4.pyx":522
  *                 j = 0
  *                 for j in range(1, NKSHF):
  *                     if EN <= XKSHF[j]:             # <<<<<<<<<<<<<<
@@ -6585,7 +6585,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XKSHF[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":523
+            /* "gases/CF4.pyx":523
  *                 for j in range(1, NKSHF):
  *                     if EN <= XKSHF[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -6594,7 +6594,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L117_break;
 
-            /* "CF4.pyx":522
+            /* "gases/CF4.pyx":522
  *                 j = 0
  *                 for j in range(1, NKSHF):
  *                     if EN <= XKSHF[j]:             # <<<<<<<<<<<<<<
@@ -6605,7 +6605,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L117_break:;
 
-        /* "CF4.pyx":524
+        /* "gases/CF4.pyx":524
  *                     if EN <= XKSHF[j]:
  *                         break
  *                 A = (YKSHF[j] - YKSHF[j - 1]) / (XKSHF[j] - XKSHF[j - 1])             # <<<<<<<<<<<<<<
@@ -6614,7 +6614,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YKSHF[__pyx_v_j]) - (__pyx_v_YKSHF[(__pyx_v_j - 1)])) / ((__pyx_v_XKSHF[__pyx_v_j]) - (__pyx_v_XKSHF[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":525
+        /* "gases/CF4.pyx":525
  *                         break
  *                 A = (YKSHF[j] - YKSHF[j - 1]) / (XKSHF[j] - XKSHF[j - 1])
  *                 B = (XKSHF[j - 1] * YKSHF[j] - XKSHF[j] * YKSHF[j - 1]) / (XKSHF[j - 1] - XKSHF[j])             # <<<<<<<<<<<<<<
@@ -6623,7 +6623,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XKSHF[(__pyx_v_j - 1)]) * (__pyx_v_YKSHF[__pyx_v_j])) - ((__pyx_v_XKSHF[__pyx_v_j]) * (__pyx_v_YKSHF[(__pyx_v_j - 1)]))) / ((__pyx_v_XKSHF[(__pyx_v_j - 1)]) - (__pyx_v_XKSHF[__pyx_v_j])));
 
-        /* "CF4.pyx":526
+        /* "gases/CF4.pyx":526
  *                 A = (YKSHF[j] - YKSHF[j - 1]) / (XKSHF[j] - XKSHF[j - 1])
  *                 B = (XKSHF[j - 1] * YKSHF[j] - XKSHF[j] * YKSHF[j - 1]) / (XKSHF[j - 1] - XKSHF[j])
  *                 object.QION[11][i] = 4 * (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6632,7 +6632,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[11])[__pyx_v_i]) = ((4.0 * ((__pyx_v_A * __pyx_v_EN) + __pyx_v_B)) * 1e-16);
 
-        /* "CF4.pyx":519
+        /* "gases/CF4.pyx":519
  * 
  *         if EN > object.EION[11]:
  *             if EN <= XKSHF[NKSHF - 1]:             # <<<<<<<<<<<<<<
@@ -6641,7 +6641,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":527
+      /* "gases/CF4.pyx":527
  *                 B = (XKSHF[j - 1] * YKSHF[j] - XKSHF[j] * YKSHF[j - 1]) / (XKSHF[j - 1] - XKSHF[j])
  *                 object.QION[11][i] = 4 * (A * EN + B) * 1e-16
  *             if EN > 2 * object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6651,7 +6651,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[11]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":528
+        /* "gases/CF4.pyx":528
  *                 object.QION[11][i] = 4 * (A * EN + B) * 1e-16
  *             if EN > 2 * object.EION[11]:
  *                 object.PEQION[11][i] = object.PEQEL[1][(i - IOFFION[11])]             # <<<<<<<<<<<<<<
@@ -6660,7 +6660,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[11])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFION[11]))]);
 
-        /* "CF4.pyx":527
+        /* "gases/CF4.pyx":527
  *                 B = (XKSHF[j - 1] * YKSHF[j] - XKSHF[j] * YKSHF[j - 1]) / (XKSHF[j - 1] - XKSHF[j])
  *                 object.QION[11][i] = 4 * (A * EN + B) * 1e-16
  *             if EN > 2 * object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6669,7 +6669,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":518
+      /* "gases/CF4.pyx":518
  *             object.PEQION[11][i] = 0.0
  * 
  *         if EN > object.EION[11]:             # <<<<<<<<<<<<<<
@@ -6678,7 +6678,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":531
+    /* "gases/CF4.pyx":531
  * 
  *         # ATTACHMENT
  *         j = 0             # <<<<<<<<<<<<<<
@@ -6687,7 +6687,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_j = 0;
 
-    /* "CF4.pyx":532
+    /* "gases/CF4.pyx":532
  *         # ATTACHMENT
  *         j = 0
  *         object.Q[3][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6696,7 +6696,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":533
+    /* "gases/CF4.pyx":533
  *         j = 0
  *         object.Q[3][i] = 0.0
  *         if EN > XATT[0]:             # <<<<<<<<<<<<<<
@@ -6706,7 +6706,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_XATT[0])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":534
+      /* "gases/CF4.pyx":534
  *         object.Q[3][i] = 0.0
  *         if EN > XATT[0]:
  *             if EN <= XATT[NATT1 - 1]:             # <<<<<<<<<<<<<<
@@ -6716,7 +6716,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XATT[(__pyx_v_NATT1 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":535
+        /* "gases/CF4.pyx":535
  *         if EN > XATT[0]:
  *             if EN <= XATT[NATT1 - 1]:
  *                 for j in range(1, NATT1):             # <<<<<<<<<<<<<<
@@ -6728,7 +6728,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":536
+          /* "gases/CF4.pyx":536
  *             if EN <= XATT[NATT1 - 1]:
  *                 for j in range(1, NATT1):
  *                     if EN <= XATT[j]:             # <<<<<<<<<<<<<<
@@ -6738,7 +6738,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XATT[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":537
+            /* "gases/CF4.pyx":537
  *                 for j in range(1, NATT1):
  *                     if EN <= XATT[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -6747,7 +6747,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L123_break;
 
-            /* "CF4.pyx":536
+            /* "gases/CF4.pyx":536
  *             if EN <= XATT[NATT1 - 1]:
  *                 for j in range(1, NATT1):
  *                     if EN <= XATT[j]:             # <<<<<<<<<<<<<<
@@ -6758,7 +6758,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L123_break:;
 
-        /* "CF4.pyx":538
+        /* "gases/CF4.pyx":538
  *                     if EN <= XATT[j]:
  *                         break
  *                 A = (YATT[j] - YATT[j - 1]) / (XATT[j] - XATT[j - 1])             # <<<<<<<<<<<<<<
@@ -6767,7 +6767,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YATT[__pyx_v_j]) - (__pyx_v_YATT[(__pyx_v_j - 1)])) / ((__pyx_v_XATT[__pyx_v_j]) - (__pyx_v_XATT[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":539
+        /* "gases/CF4.pyx":539
  *                         break
  *                 A = (YATT[j] - YATT[j - 1]) / (XATT[j] - XATT[j - 1])
  *                 B = (XATT[j - 1] * YATT[j] - XATT[j] * YATT[j - 1]) / (XATT[j - 1] - XATT[j])             # <<<<<<<<<<<<<<
@@ -6776,7 +6776,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XATT[(__pyx_v_j - 1)]) * (__pyx_v_YATT[__pyx_v_j])) - ((__pyx_v_XATT[__pyx_v_j]) * (__pyx_v_YATT[(__pyx_v_j - 1)]))) / ((__pyx_v_XATT[(__pyx_v_j - 1)]) - (__pyx_v_XATT[__pyx_v_j])));
 
-        /* "CF4.pyx":540
+        /* "gases/CF4.pyx":540
  *                 A = (YATT[j] - YATT[j - 1]) / (XATT[j] - XATT[j - 1])
  *                 B = (XATT[j - 1] * YATT[j] - XATT[j] * YATT[j - 1]) / (XATT[j - 1] - XATT[j])
  *                 object.Q[3][i] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6785,7 +6785,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->Q[3])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "CF4.pyx":541
+        /* "gases/CF4.pyx":541
  *                 B = (XATT[j - 1] * YATT[j] - XATT[j] * YATT[j - 1]) / (XATT[j - 1] - XATT[j])
  *                 object.Q[3][i] = (A * EN + B) * 1e-16
  *                 object.QATT[0][i] = object.Q[3][i]             # <<<<<<<<<<<<<<
@@ -6794,7 +6794,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QATT[0])[__pyx_v_i]) = ((__pyx_v_object->Q[3])[__pyx_v_i]);
 
-        /* "CF4.pyx":534
+        /* "gases/CF4.pyx":534
  *         object.Q[3][i] = 0.0
  *         if EN > XATT[0]:
  *             if EN <= XATT[NATT1 - 1]:             # <<<<<<<<<<<<<<
@@ -6803,7 +6803,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":533
+      /* "gases/CF4.pyx":533
  *         j = 0
  *         object.Q[3][i] = 0.0
  *         if EN > XATT[0]:             # <<<<<<<<<<<<<<
@@ -6812,7 +6812,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":542
+    /* "gases/CF4.pyx":542
  *                 object.Q[3][i] = (A * EN + B) * 1e-16
  *                 object.QATT[0][i] = object.Q[3][i]
  *         object.Q[4][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6821,7 +6821,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":543
+    /* "gases/CF4.pyx":543
  *                 object.QATT[0][i] = object.Q[3][i]
  *         object.Q[4][i] = 0.0
  *         object.Q[5][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6830,7 +6830,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":547
+    /* "gases/CF4.pyx":547
  *         # SCALE FACTOR FOR VIBRATIONAL DIPOLE V3 ABOVE 0.4EV
  * 
  *         VDSC = 1.0             # <<<<<<<<<<<<<<
@@ -6839,7 +6839,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_VDSC = 1.0;
 
-    /* "CF4.pyx":548
+    /* "gases/CF4.pyx":548
  * 
  *         VDSC = 1.0
  *         if EN > <float>(0.4):             # <<<<<<<<<<<<<<
@@ -6849,7 +6849,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > ((float)0.4)) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":549
+      /* "gases/CF4.pyx":549
  *         VDSC = 1.0
  *         if EN > <float>(0.4):
  *             EPR = EN             # <<<<<<<<<<<<<<
@@ -6858,7 +6858,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EPR = __pyx_v_EN;
 
-      /* "CF4.pyx":550
+      /* "gases/CF4.pyx":550
  *         if EN > <float>(0.4):
  *             EPR = EN
  *             if EN > 5.0:             # <<<<<<<<<<<<<<
@@ -6868,7 +6868,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > 5.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":551
+        /* "gases/CF4.pyx":551
  *             EPR = EN
  *             if EN > 5.0:
  *                 EPR = 5.0             # <<<<<<<<<<<<<<
@@ -6877,7 +6877,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_EPR = 5.0;
 
-        /* "CF4.pyx":550
+        /* "gases/CF4.pyx":550
  *         if EN > <float>(0.4):
  *             EPR = EN
  *             if EN > 5.0:             # <<<<<<<<<<<<<<
@@ -6886,7 +6886,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":552
+      /* "gases/CF4.pyx":552
  *             if EN > 5.0:
  *                 EPR = 5.0
  *             VDSC = (<float>(14.4) - EPR) / 14.0             # <<<<<<<<<<<<<<
@@ -6895,7 +6895,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_VDSC = ((((float)14.4) - __pyx_v_EPR) / 14.0);
 
-      /* "CF4.pyx":548
+      /* "gases/CF4.pyx":548
  * 
  *         VDSC = 1.0
  *         if EN > <float>(0.4):             # <<<<<<<<<<<<<<
@@ -6904,7 +6904,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":554
+    /* "gases/CF4.pyx":554
  *             VDSC = (<float>(14.4) - EPR) / 14.0
  *         # SUPERELASTIC OF VIBRATION V2 ISOTROPIC  BELOW 100EV
  *         object.QIN[0][i] = 0.0             # <<<<<<<<<<<<<<
@@ -6913,7 +6913,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":555
+    /* "gases/CF4.pyx":555
  *         # SUPERELASTIC OF VIBRATION V2 ISOTROPIC  BELOW 100EV
  *         object.QIN[0][i] = 0.0
  *         object.PEQIN[0][i] = 0.5             # <<<<<<<<<<<<<<
@@ -6922,7 +6922,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[0])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":556
+    /* "gases/CF4.pyx":556
  *         object.QIN[0][i] = 0.0
  *         object.PEQIN[0][i] = 0.5
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -6932,7 +6932,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":558
+      /* "gases/CF4.pyx":558
  *         if EN > 0.0:
  * 
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))             # <<<<<<<<<<<<<<
@@ -6941,7 +6941,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[0]) / __pyx_v_EN)));
 
-      /* "CF4.pyx":559
+      /* "gases/CF4.pyx":559
  * 
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
  *             object.QIN[0][i] = <float>(0.007) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN             # <<<<<<<<<<<<<<
@@ -6950,7 +6950,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_i]) = ((((float)0.007) * log(((__pyx_v_EFAC + 1.0) / (__pyx_v_EFAC - 1.0)))) / __pyx_v_EN);
 
-      /* "CF4.pyx":560
+      /* "gases/CF4.pyx":560
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
  *             object.QIN[0][i] = <float>(0.007) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][i] = object.QIN[0][i] * APOPV2 * 1.0e-16 / DEGV2             # <<<<<<<<<<<<<<
@@ -6959,7 +6959,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_i]) = (((((__pyx_v_object->QIN[0])[__pyx_v_i]) * __pyx_v_APOPV2) * 1.0e-16) / __pyx_v_DEGV2);
 
-      /* "CF4.pyx":561
+      /* "gases/CF4.pyx":561
  *             object.QIN[0][i] = <float>(0.007) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][i] = object.QIN[0][i] * APOPV2 * 1.0e-16 / DEGV2
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -6969,7 +6969,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":562
+        /* "gases/CF4.pyx":562
  *             object.QIN[0][i] = object.QIN[0][i] * APOPV2 * 1.0e-16 / DEGV2
  *             if EN > 100.0:
  *                 object.PEQIN[0][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -6978,7 +6978,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0])[__pyx_v_i]) = (__pyx_v_PQ[1]);
 
-        /* "CF4.pyx":561
+        /* "gases/CF4.pyx":561
  *             object.QIN[0][i] = <float>(0.007) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][i] = object.QIN[0][i] * APOPV2 * 1.0e-16 / DEGV2
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -6987,7 +6987,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":556
+      /* "gases/CF4.pyx":556
  *         object.QIN[0][i] = 0.0
  *         object.PEQIN[0][i] = 0.5
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -6996,7 +6996,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":565
+    /* "gases/CF4.pyx":565
  * 
  *         # VIBRATION V2 ISOTROPIC BELOW 100EV
  *         object.QIN[1][i] = 0.0             # <<<<<<<<<<<<<<
@@ -7005,7 +7005,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[1])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":566
+    /* "gases/CF4.pyx":566
  *         # VIBRATION V2 ISOTROPIC BELOW 100EV
  *         object.QIN[1][i] = 0.0
  *         object.PEQIN[1][i] = 0.5             # <<<<<<<<<<<<<<
@@ -7014,7 +7014,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[1])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":567
+    /* "gases/CF4.pyx":567
  *         object.QIN[1][i] = 0.0
  *         object.PEQIN[1][i] = 0.5
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7024,7 +7024,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":568
+      /* "gases/CF4.pyx":568
  *         object.PEQIN[1][i] = 0.5
  *         if EN > object.EIN[1]:
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))             # <<<<<<<<<<<<<<
@@ -7033,7 +7033,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[1]) / __pyx_v_EN)));
 
-      /* "CF4.pyx":569
+      /* "gases/CF4.pyx":569
  *         if EN > object.EIN[1]:
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
  *             object.QIN[1][i] = <float>(0.007) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN             # <<<<<<<<<<<<<<
@@ -7042,7 +7042,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_i]) = ((((float)0.007) * log(((1.0 + __pyx_v_EFAC) / (1.0 - __pyx_v_EFAC)))) / __pyx_v_EN);
 
-      /* "CF4.pyx":570
+      /* "gases/CF4.pyx":570
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
  *             object.QIN[1][i] = <float>(0.007) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
  *             object.QIN[1][i] = object.QIN[1][i] * APOPGS * 1.0e-16             # <<<<<<<<<<<<<<
@@ -7051,7 +7051,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_i]) = ((((__pyx_v_object->QIN[1])[__pyx_v_i]) * __pyx_v_APOPGS) * 1.0e-16);
 
-      /* "CF4.pyx":571
+      /* "gases/CF4.pyx":571
  *             object.QIN[1][i] = <float>(0.007) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
  *             object.QIN[1][i] = object.QIN[1][i] * APOPGS * 1.0e-16
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -7061,7 +7061,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":572
+        /* "gases/CF4.pyx":572
  *             object.QIN[1][i] = object.QIN[1][i] * APOPGS * 1.0e-16
  *             if EN > 100.0:
  *                 object.PEQIN[1][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -7070,7 +7070,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[1])[__pyx_v_i]) = (__pyx_v_PQ[1]);
 
-        /* "CF4.pyx":571
+        /* "gases/CF4.pyx":571
  *             object.QIN[1][i] = <float>(0.007) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
  *             object.QIN[1][i] = object.QIN[1][i] * APOPGS * 1.0e-16
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -7079,7 +7079,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":567
+      /* "gases/CF4.pyx":567
  *         object.QIN[1][i] = 0.0
  *         object.PEQIN[1][i] = 0.5
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7088,7 +7088,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":575
+    /* "gases/CF4.pyx":575
  * 
  *         # SUPERELASTIC OF VIBRATION V4 ISOTROPIC BELOW 100EV
  *         object.QIN[2][i] = 0.0             # <<<<<<<<<<<<<<
@@ -7097,7 +7097,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[2])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":576
+    /* "gases/CF4.pyx":576
  *         # SUPERELASTIC OF VIBRATION V4 ISOTROPIC BELOW 100EV
  *         object.QIN[2][i] = 0.0
  *         object.PEQIN[2][i] = 0.5             # <<<<<<<<<<<<<<
@@ -7106,7 +7106,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[2])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":577
+    /* "gases/CF4.pyx":577
  *         object.QIN[2][i] = 0.0
  *         object.PEQIN[2][i] = 0.5
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7116,7 +7116,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":578
+      /* "gases/CF4.pyx":578
  *         object.PEQIN[2][i] = 0.5
  *         if EN > 0.0:
  *             if EN - object.EIN[2] <= XVBV4[NVBV4 - 1]:             # <<<<<<<<<<<<<<
@@ -7126,7 +7126,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = (((__pyx_v_EN - (__pyx_v_object->EIN[2])) <= (__pyx_v_XVBV4[(__pyx_v_NVBV4 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":579
+        /* "gases/CF4.pyx":579
  *         if EN > 0.0:
  *             if EN - object.EIN[2] <= XVBV4[NVBV4 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -7135,7 +7135,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":580
+        /* "gases/CF4.pyx":580
  *             if EN - object.EIN[2] <= XVBV4[NVBV4 - 1]:
  *                 j = 0
  *                 for j in range(1, NVBV4):             # <<<<<<<<<<<<<<
@@ -7147,7 +7147,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":581
+          /* "gases/CF4.pyx":581
  *                 j = 0
  *                 for j in range(1, NVBV4):
  *                     if EN - object.EIN[2] <= XVBV4[j]:             # <<<<<<<<<<<<<<
@@ -7157,7 +7157,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = (((__pyx_v_EN - (__pyx_v_object->EIN[2])) <= (__pyx_v_XVBV4[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":582
+            /* "gases/CF4.pyx":582
  *                 for j in range(1, NVBV4):
  *                     if EN - object.EIN[2] <= XVBV4[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7166,7 +7166,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L134_break;
 
-            /* "CF4.pyx":581
+            /* "gases/CF4.pyx":581
  *                 j = 0
  *                 for j in range(1, NVBV4):
  *                     if EN - object.EIN[2] <= XVBV4[j]:             # <<<<<<<<<<<<<<
@@ -7177,7 +7177,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L134_break:;
 
-        /* "CF4.pyx":583
+        /* "gases/CF4.pyx":583
  *                     if EN - object.EIN[2] <= XVBV4[j]:
  *                         break
  *                 A = (YVBV4[j] - YVBV4[j - 1]) / (XVBV4[j] - XVBV4[j - 1])             # <<<<<<<<<<<<<<
@@ -7186,7 +7186,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YVBV4[__pyx_v_j]) - (__pyx_v_YVBV4[(__pyx_v_j - 1)])) / ((__pyx_v_XVBV4[__pyx_v_j]) - (__pyx_v_XVBV4[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":584
+        /* "gases/CF4.pyx":584
  *                         break
  *                 A = (YVBV4[j] - YVBV4[j - 1]) / (XVBV4[j] - XVBV4[j - 1])
  *                 B = (XVBV4[j - 1] * YVBV4[j] - XVBV4[j] * YVBV4[j - 1]) / (XVBV4[j - 1] - XVBV4[j])             # <<<<<<<<<<<<<<
@@ -7195,7 +7195,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XVBV4[(__pyx_v_j - 1)]) * (__pyx_v_YVBV4[__pyx_v_j])) - ((__pyx_v_XVBV4[__pyx_v_j]) * (__pyx_v_YVBV4[(__pyx_v_j - 1)]))) / ((__pyx_v_XVBV4[(__pyx_v_j - 1)]) - (__pyx_v_XVBV4[__pyx_v_j])));
 
-        /* "CF4.pyx":585
+        /* "gases/CF4.pyx":585
  *                 A = (YVBV4[j] - YVBV4[j - 1]) / (XVBV4[j] - XVBV4[j - 1])
  *                 B = (XVBV4[j - 1] * YVBV4[j] - XVBV4[j] * YVBV4[j - 1]) / (XVBV4[j - 1] - XVBV4[j])
  *                 object.QIN[2][i] = (EN - object.EIN[2]) * (A * (EN - object.EIN[2]) + B) / EN             # <<<<<<<<<<<<<<
@@ -7204,7 +7204,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[2])[__pyx_v_i]) = (((__pyx_v_EN - (__pyx_v_object->EIN[2])) * ((__pyx_v_A * (__pyx_v_EN - (__pyx_v_object->EIN[2]))) + __pyx_v_B)) / __pyx_v_EN);
 
-        /* "CF4.pyx":578
+        /* "gases/CF4.pyx":578
  *         object.PEQIN[2][i] = 0.5
  *         if EN > 0.0:
  *             if EN - object.EIN[2] <= XVBV4[NVBV4 - 1]:             # <<<<<<<<<<<<<<
@@ -7214,7 +7214,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L132;
       }
 
-      /* "CF4.pyx":587
+      /* "gases/CF4.pyx":587
  *                 object.QIN[2][i] = (EN - object.EIN[2]) * (A * (EN - object.EIN[2]) + B) / EN
  *             else:
  *                 object.QIN[2][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / (EN * pow((EN - object.EIN[2]) ,2)))             # <<<<<<<<<<<<<<
@@ -7226,7 +7226,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L132:;
 
-      /* "CF4.pyx":588
+      /* "gases/CF4.pyx":588
  *             else:
  *                 object.QIN[2][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / (EN * pow((EN - object.EIN[2]) ,2)))
  *             EFAC = sqrt(1.0 - (object.EIN[2] / EN))             # <<<<<<<<<<<<<<
@@ -7235,7 +7235,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[2]) / __pyx_v_EN)));
 
-      /* "CF4.pyx":589
+      /* "gases/CF4.pyx":589
  *                 object.QIN[2][i] = YVBV4[NVBV4 - 1] * (XVBV4[NVBV4 - 1] / (EN * pow((EN - object.EIN[2]) ,2)))
  *             EFAC = sqrt(1.0 - (object.EIN[2] / EN))
  *             object.QIN[2][i] = object.QIN[2][i] + <float>(0.05) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN             # <<<<<<<<<<<<<<
@@ -7244,7 +7244,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_i]) = (((__pyx_v_object->QIN[2])[__pyx_v_i]) + ((((float)0.05) * log(((__pyx_v_EFAC + 1.0) / (__pyx_v_EFAC - 1.0)))) / __pyx_v_EN));
 
-      /* "CF4.pyx":590
+      /* "gases/CF4.pyx":590
  *             EFAC = sqrt(1.0 - (object.EIN[2] / EN))
  *             object.QIN[2][i] = object.QIN[2][i] + <float>(0.05) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[2][i] = object.QIN[2][i] * APOPV4 * 1.0e-16 / DEGV4             # <<<<<<<<<<<<<<
@@ -7253,7 +7253,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_i]) = (((((__pyx_v_object->QIN[2])[__pyx_v_i]) * __pyx_v_APOPV4) * 1.0e-16) / __pyx_v_DEGV4);
 
-      /* "CF4.pyx":591
+      /* "gases/CF4.pyx":591
  *             object.QIN[2][i] = object.QIN[2][i] + <float>(0.05) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[2][i] = object.QIN[2][i] * APOPV4 * 1.0e-16 / DEGV4
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -7263,7 +7263,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":592
+        /* "gases/CF4.pyx":592
  *             object.QIN[2][i] = object.QIN[2][i] * APOPV4 * 1.0e-16 / DEGV4
  *             if EN > 100.0:
  *                 object.PEQIN[2][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -7272,7 +7272,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[2])[__pyx_v_i]) = (__pyx_v_PQ[1]);
 
-        /* "CF4.pyx":591
+        /* "gases/CF4.pyx":591
  *             object.QIN[2][i] = object.QIN[2][i] + <float>(0.05) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[2][i] = object.QIN[2][i] * APOPV4 * 1.0e-16 / DEGV4
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -7281,7 +7281,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":577
+      /* "gases/CF4.pyx":577
  *         object.QIN[2][i] = 0.0
  *         object.PEQIN[2][i] = 0.5
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7290,7 +7290,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":595
+    /* "gases/CF4.pyx":595
  * 
  *         # VIBRATION V4 ANISOTROPIC
  *         object.QIN[3][i] = 0.0             # <<<<<<<<<<<<<<
@@ -7299,7 +7299,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[3])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":596
+    /* "gases/CF4.pyx":596
  *         # VIBRATION V4 ANISOTROPIC
  *         object.QIN[3][i] = 0.0
  *         object.PEQIN[3][i] = 0.5             # <<<<<<<<<<<<<<
@@ -7308,7 +7308,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[3])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":597
+    /* "gases/CF4.pyx":597
  *         object.QIN[3][i] = 0.0
  *         object.PEQIN[3][i] = 0.5
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7318,7 +7318,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":598
+      /* "gases/CF4.pyx":598
  *         object.PEQIN[3][i] = 0.5
  *         if EN > object.EIN[3]:
  *             if EN <= XVBV4[NVBV4 - 1]:             # <<<<<<<<<<<<<<
@@ -7328,7 +7328,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVBV4[(__pyx_v_NVBV4 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":599
+        /* "gases/CF4.pyx":599
  *         if EN > object.EIN[3]:
  *             if EN <= XVBV4[NVBV4 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -7337,7 +7337,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":600
+        /* "gases/CF4.pyx":600
  *             if EN <= XVBV4[NVBV4 - 1]:
  *                 j = 0
  *                 for j in range(1, NVBV4):             # <<<<<<<<<<<<<<
@@ -7349,7 +7349,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":601
+          /* "gases/CF4.pyx":601
  *                 j = 0
  *                 for j in range(1, NVBV4):
  *                     if EN <= XVBV4[j]:             # <<<<<<<<<<<<<<
@@ -7359,7 +7359,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVBV4[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":602
+            /* "gases/CF4.pyx":602
  *                 for j in range(1, NVBV4):
  *                     if EN <= XVBV4[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7368,7 +7368,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L140_break;
 
-            /* "CF4.pyx":601
+            /* "gases/CF4.pyx":601
  *                 j = 0
  *                 for j in range(1, NVBV4):
  *                     if EN <= XVBV4[j]:             # <<<<<<<<<<<<<<
@@ -7379,7 +7379,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L140_break:;
 
-        /* "CF4.pyx":603
+        /* "gases/CF4.pyx":603
  *                     if EN <= XVBV4[j]:
  *                         break
  *                 A = (YVBV4[j] - YVBV4[j - 1]) / (XVBV4[j] - XVBV4[j - 1])             # <<<<<<<<<<<<<<
@@ -7388,7 +7388,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YVBV4[__pyx_v_j]) - (__pyx_v_YVBV4[(__pyx_v_j - 1)])) / ((__pyx_v_XVBV4[__pyx_v_j]) - (__pyx_v_XVBV4[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":604
+        /* "gases/CF4.pyx":604
  *                         break
  *                 A = (YVBV4[j] - YVBV4[j - 1]) / (XVBV4[j] - XVBV4[j - 1])
  *                 B = (XVBV4[j - 1] * YVBV4[j] - XVBV4[j] * YVBV4[j - 1]) / (XVBV4[j - 1] - XVBV4[j])             # <<<<<<<<<<<<<<
@@ -7397,7 +7397,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XVBV4[(__pyx_v_j - 1)]) * (__pyx_v_YVBV4[__pyx_v_j])) - ((__pyx_v_XVBV4[__pyx_v_j]) * (__pyx_v_YVBV4[(__pyx_v_j - 1)]))) / ((__pyx_v_XVBV4[(__pyx_v_j - 1)]) - (__pyx_v_XVBV4[__pyx_v_j])));
 
-        /* "CF4.pyx":605
+        /* "gases/CF4.pyx":605
  *                 A = (YVBV4[j] - YVBV4[j - 1]) / (XVBV4[j] - XVBV4[j - 1])
  *                 B = (XVBV4[j - 1] * YVBV4[j] - XVBV4[j] * YVBV4[j - 1]) / (XVBV4[j - 1] - XVBV4[j])
  *                 object.QIN[3][i] = A * EN + B             # <<<<<<<<<<<<<<
@@ -7406,7 +7406,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[3])[__pyx_v_i]) = ((__pyx_v_A * __pyx_v_EN) + __pyx_v_B);
 
-        /* "CF4.pyx":598
+        /* "gases/CF4.pyx":598
  *         object.PEQIN[3][i] = 0.5
  *         if EN > object.EIN[3]:
  *             if EN <= XVBV4[NVBV4 - 1]:             # <<<<<<<<<<<<<<
@@ -7416,7 +7416,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L138;
       }
 
-      /* "CF4.pyx":607
+      /* "gases/CF4.pyx":607
  *                 object.QIN[3][i] = A * EN + B
  *             else:
  *                 object.QIN[3][i] = YVBV4[NVBV4 - 1] *pow((XVBV4[NVBV4 - 1] / EN) , 3)             # <<<<<<<<<<<<<<
@@ -7428,7 +7428,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L138:;
 
-      /* "CF4.pyx":608
+      /* "gases/CF4.pyx":608
  *             else:
  *                 object.QIN[3][i] = YVBV4[NVBV4 - 1] *pow((XVBV4[NVBV4 - 1] / EN) , 3)
  *             EFAC = sqrt(1.0 - (object.EIN[3] / EN))             # <<<<<<<<<<<<<<
@@ -7437,7 +7437,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[3]) / __pyx_v_EN)));
 
-      /* "CF4.pyx":609
+      /* "gases/CF4.pyx":609
  *                 object.QIN[3][i] = YVBV4[NVBV4 - 1] *pow((XVBV4[NVBV4 - 1] / EN) , 3)
  *             EFAC = sqrt(1.0 - (object.EIN[3] / EN))
  *             ADIP = <float>(0.05) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN             # <<<<<<<<<<<<<<
@@ -7446,7 +7446,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ADIP = ((((float)0.05) * log(((1.0 + __pyx_v_EFAC) / (1.0 - __pyx_v_EFAC)))) / __pyx_v_EN);
 
-      /* "CF4.pyx":610
+      /* "gases/CF4.pyx":610
  *             EFAC = sqrt(1.0 - (object.EIN[3] / EN))
  *             ADIP = <float>(0.05) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
  *             ELF = EN - object.EIN[3]             # <<<<<<<<<<<<<<
@@ -7455,7 +7455,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ELF = (__pyx_v_EN - (__pyx_v_object->EIN[3]));
 
-      /* "CF4.pyx":611
+      /* "gases/CF4.pyx":611
  *             ADIP = <float>(0.05) * log((1.0 + EFAC) / (1.0 - EFAC)) / EN
  *             ELF = EN - object.EIN[3]
  *             FWD = log((EN + ELF) / (EN + ELF - 2.0 * sqrt(EN * ELF)))             # <<<<<<<<<<<<<<
@@ -7464,7 +7464,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_FWD = log(((__pyx_v_EN + __pyx_v_ELF) / ((__pyx_v_EN + __pyx_v_ELF) - (2.0 * sqrt((__pyx_v_EN * __pyx_v_ELF))))));
 
-      /* "CF4.pyx":612
+      /* "gases/CF4.pyx":612
  *             ELF = EN - object.EIN[3]
  *             FWD = log((EN + ELF) / (EN + ELF - 2.0 * sqrt(EN * ELF)))
  *             BCK = log((EN + ELF + 2.0 * sqrt(EN * ELF)) / (EN + ELF))             # <<<<<<<<<<<<<<
@@ -7473,7 +7473,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BCK = log((((__pyx_v_EN + __pyx_v_ELF) + (2.0 * sqrt((__pyx_v_EN * __pyx_v_ELF)))) / (__pyx_v_EN + __pyx_v_ELF)));
 
-      /* "CF4.pyx":614
+      /* "gases/CF4.pyx":614
  *             BCK = log((EN + ELF + 2.0 * sqrt(EN * ELF)) / (EN + ELF))
  *             # RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART = RAT
  *             XMT = ((1.5 - FWD / (FWD + BCK)) * ADIP + RAT * object.QIN[3][i]) * APOPGS * 1.0e-16             # <<<<<<<<<<<<<<
@@ -7482,7 +7482,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_XMT = (((((1.5 - (__pyx_v_FWD / (__pyx_v_FWD + __pyx_v_BCK))) * __pyx_v_ADIP) + (__pyx_v_RAT * ((__pyx_v_object->QIN[3])[__pyx_v_i]))) * __pyx_v_APOPGS) * 1.0e-16);
 
-      /* "CF4.pyx":615
+      /* "gases/CF4.pyx":615
  *             # RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART = RAT
  *             XMT = ((1.5 - FWD / (FWD + BCK)) * ADIP + RAT * object.QIN[3][i]) * APOPGS * 1.0e-16
  *             object.QIN[3][i] = (object.QIN[3][i] + ADIP) * APOPGS * 1.0e-16             # <<<<<<<<<<<<<<
@@ -7491,7 +7491,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_i]) = (((((__pyx_v_object->QIN[3])[__pyx_v_i]) + __pyx_v_ADIP) * __pyx_v_APOPGS) * 1.0e-16);
 
-      /* "CF4.pyx":616
+      /* "gases/CF4.pyx":616
  *             XMT = ((1.5 - FWD / (FWD + BCK)) * ADIP + RAT * object.QIN[3][i]) * APOPGS * 1.0e-16
  *             object.QIN[3][i] = (object.QIN[3][i] + ADIP) * APOPGS * 1.0e-16
  *             if EN <= 100:             # <<<<<<<<<<<<<<
@@ -7501,7 +7501,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":617
+        /* "gases/CF4.pyx":617
  *             object.QIN[3][i] = (object.QIN[3][i] + ADIP) * APOPGS * 1.0e-16
  *             if EN <= 100:
  *                 object.PEQIN[3][i] = 0.5 + (object.QIN[3][i] - XMT) / object.QIN[3][i]             # <<<<<<<<<<<<<<
@@ -7510,7 +7510,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[3])[__pyx_v_i]) = (0.5 + ((((__pyx_v_object->QIN[3])[__pyx_v_i]) - __pyx_v_XMT) / ((__pyx_v_object->QIN[3])[__pyx_v_i])));
 
-        /* "CF4.pyx":616
+        /* "gases/CF4.pyx":616
  *             XMT = ((1.5 - FWD / (FWD + BCK)) * ADIP + RAT * object.QIN[3][i]) * APOPGS * 1.0e-16
  *             object.QIN[3][i] = (object.QIN[3][i] + ADIP) * APOPGS * 1.0e-16
  *             if EN <= 100:             # <<<<<<<<<<<<<<
@@ -7520,7 +7520,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L142;
       }
 
-      /* "CF4.pyx":619
+      /* "gases/CF4.pyx":619
  *                 object.PEQIN[3][i] = 0.5 + (object.QIN[3][i] - XMT) / object.QIN[3][i]
  *             else:
  *                 object.PEQIN[3][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -7532,7 +7532,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L142:;
 
-      /* "CF4.pyx":597
+      /* "gases/CF4.pyx":597
  *         object.QIN[3][i] = 0.0
  *         object.PEQIN[3][i] = 0.5
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7541,7 +7541,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":622
+    /* "gases/CF4.pyx":622
  * 
  *         # SUPERELASTIC OF VIBRATION V1 ISOTROPIC BELOW 100EV
  *         object.QIN[4][i] = 0.0             # <<<<<<<<<<<<<<
@@ -7550,7 +7550,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[4])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":623
+    /* "gases/CF4.pyx":623
  *         # SUPERELASTIC OF VIBRATION V1 ISOTROPIC BELOW 100EV
  *         object.QIN[4][i] = 0.0
  *         object.PEQIN[4][i] = 0.5             # <<<<<<<<<<<<<<
@@ -7559,7 +7559,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[4])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":624
+    /* "gases/CF4.pyx":624
  *         object.QIN[4][i] = 0.0
  *         object.PEQIN[4][i] = 0.5
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7569,7 +7569,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":625
+      /* "gases/CF4.pyx":625
  *         object.PEQIN[4][i] = 0.5
  *         if EN > 0.0:
  *             if EN - object.EIN[4] <= XVBV1[NVBV1 - 1]:             # <<<<<<<<<<<<<<
@@ -7579,7 +7579,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = (((__pyx_v_EN - (__pyx_v_object->EIN[4])) <= (__pyx_v_XVBV1[(__pyx_v_NVBV1 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":626
+        /* "gases/CF4.pyx":626
  *         if EN > 0.0:
  *             if EN - object.EIN[4] <= XVBV1[NVBV1 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -7588,7 +7588,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":627
+        /* "gases/CF4.pyx":627
  *             if EN - object.EIN[4] <= XVBV1[NVBV1 - 1]:
  *                 j = 0
  *                 for j in range(1, NVBV1):             # <<<<<<<<<<<<<<
@@ -7600,7 +7600,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":628
+          /* "gases/CF4.pyx":628
  *                 j = 0
  *                 for j in range(1, NVBV1):
  *                     if EN - object.EIN[4] <= XVBV1[j]:             # <<<<<<<<<<<<<<
@@ -7610,7 +7610,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = (((__pyx_v_EN - (__pyx_v_object->EIN[4])) <= (__pyx_v_XVBV1[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":629
+            /* "gases/CF4.pyx":629
  *                 for j in range(1, NVBV1):
  *                     if EN - object.EIN[4] <= XVBV1[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7619,7 +7619,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L146_break;
 
-            /* "CF4.pyx":628
+            /* "gases/CF4.pyx":628
  *                 j = 0
  *                 for j in range(1, NVBV1):
  *                     if EN - object.EIN[4] <= XVBV1[j]:             # <<<<<<<<<<<<<<
@@ -7630,7 +7630,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L146_break:;
 
-        /* "CF4.pyx":630
+        /* "gases/CF4.pyx":630
  *                     if EN - object.EIN[4] <= XVBV1[j]:
  *                         break
  *                 A = (YVBV1[j] - YVBV1[j - 1]) / (XVBV1[j] - XVBV1[j - 1])             # <<<<<<<<<<<<<<
@@ -7639,7 +7639,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YVBV1[__pyx_v_j]) - (__pyx_v_YVBV1[(__pyx_v_j - 1)])) / ((__pyx_v_XVBV1[__pyx_v_j]) - (__pyx_v_XVBV1[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":631
+        /* "gases/CF4.pyx":631
  *                         break
  *                 A = (YVBV1[j] - YVBV1[j - 1]) / (XVBV1[j] - XVBV1[j - 1])
  *                 B = (XVBV1[j - 1] * YVBV1[j] - XVBV1[j] * YVBV1[j - 1]) / (XVBV1[j - 1] - XVBV1[j])             # <<<<<<<<<<<<<<
@@ -7648,7 +7648,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XVBV1[(__pyx_v_j - 1)]) * (__pyx_v_YVBV1[__pyx_v_j])) - ((__pyx_v_XVBV1[__pyx_v_j]) * (__pyx_v_YVBV1[(__pyx_v_j - 1)]))) / ((__pyx_v_XVBV1[(__pyx_v_j - 1)]) - (__pyx_v_XVBV1[__pyx_v_j])));
 
-        /* "CF4.pyx":632
+        /* "gases/CF4.pyx":632
  *                 A = (YVBV1[j] - YVBV1[j - 1]) / (XVBV1[j] - XVBV1[j - 1])
  *                 B = (XVBV1[j - 1] * YVBV1[j] - XVBV1[j] * YVBV1[j - 1]) / (XVBV1[j - 1] - XVBV1[j])
  *                 object.QIN[4][i] = (EN - object.EIN[4]) * (A * (EN - object.EIN[4]) + B) / EN             # <<<<<<<<<<<<<<
@@ -7657,7 +7657,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[4])[__pyx_v_i]) = (((__pyx_v_EN - (__pyx_v_object->EIN[4])) * ((__pyx_v_A * (__pyx_v_EN - (__pyx_v_object->EIN[4]))) + __pyx_v_B)) / __pyx_v_EN);
 
-        /* "CF4.pyx":625
+        /* "gases/CF4.pyx":625
  *         object.PEQIN[4][i] = 0.5
  *         if EN > 0.0:
  *             if EN - object.EIN[4] <= XVBV1[NVBV1 - 1]:             # <<<<<<<<<<<<<<
@@ -7667,7 +7667,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L144;
       }
 
-      /* "CF4.pyx":634
+      /* "gases/CF4.pyx":634
  *                 object.QIN[4][i] = (EN - object.EIN[4]) * (A * (EN - object.EIN[4]) + B) / EN
  *             else:
  *                 object.QIN[4][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / (EN * pow((EN - object.EIN[4]) , 2)))             # <<<<<<<<<<<<<<
@@ -7679,7 +7679,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L144:;
 
-      /* "CF4.pyx":635
+      /* "gases/CF4.pyx":635
  *             else:
  *                 object.QIN[4][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / (EN * pow((EN - object.EIN[4]) , 2)))
  *             EFAC = sqrt(1.0 - (object.EIN[4] / EN))             # <<<<<<<<<<<<<<
@@ -7688,7 +7688,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[4]) / __pyx_v_EN)));
 
-      /* "CF4.pyx":636
+      /* "gases/CF4.pyx":636
  *                 object.QIN[4][i] = YVBV1[NVBV1 - 1] * (XVBV1[NVBV1 - 1] / (EN * pow((EN - object.EIN[4]) , 2)))
  *             EFAC = sqrt(1.0 - (object.EIN[4] / EN))
  *             object.QIN[4][i] = object.QIN[4][i] + <float>(0.0224) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN             # <<<<<<<<<<<<<<
@@ -7697,7 +7697,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_i]) = (((__pyx_v_object->QIN[4])[__pyx_v_i]) + ((((float)0.0224) * log(((__pyx_v_EFAC + 1.0) / (__pyx_v_EFAC - 1.0)))) / __pyx_v_EN));
 
-      /* "CF4.pyx":637
+      /* "gases/CF4.pyx":637
  *             EFAC = sqrt(1.0 - (object.EIN[4] / EN))
  *             object.QIN[4][i] = object.QIN[4][i] + <float>(0.0224) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[4][i] = object.QIN[4][i] * APOPV1 * 1.0e-16 / DEGV1             # <<<<<<<<<<<<<<
@@ -7706,7 +7706,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_i]) = (((((__pyx_v_object->QIN[4])[__pyx_v_i]) * __pyx_v_APOPV1) * 1.0e-16) / __pyx_v_DEGV1);
 
-      /* "CF4.pyx":638
+      /* "gases/CF4.pyx":638
  *             object.QIN[4][i] = object.QIN[4][i] + <float>(0.0224) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[4][i] = object.QIN[4][i] * APOPV1 * 1.0e-16 / DEGV1
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -7716,7 +7716,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":639
+        /* "gases/CF4.pyx":639
  *             object.QIN[4][i] = object.QIN[4][i] * APOPV1 * 1.0e-16 / DEGV1
  *             if EN > 100.0:
  *                 object.PEQIN[4][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -7725,7 +7725,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[4])[__pyx_v_i]) = (__pyx_v_PQ[1]);
 
-        /* "CF4.pyx":638
+        /* "gases/CF4.pyx":638
  *             object.QIN[4][i] = object.QIN[4][i] + <float>(0.0224) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[4][i] = object.QIN[4][i] * APOPV1 * 1.0e-16 / DEGV1
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -7734,7 +7734,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":624
+      /* "gases/CF4.pyx":624
  *         object.QIN[4][i] = 0.0
  *         object.PEQIN[4][i] = 0.5
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7743,7 +7743,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":642
+    /* "gases/CF4.pyx":642
  * 
  *         # VIBRATION V1  ISOTROPIC BELOW 100EV
  *         object.QIN[5][i] = 0.0             # <<<<<<<<<<<<<<
@@ -7752,7 +7752,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[5])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":643
+    /* "gases/CF4.pyx":643
  *         # VIBRATION V1  ISOTROPIC BELOW 100EV
  *         object.QIN[5][i] = 0.0
  *         object.PEQIN[5][i] = 0.5             # <<<<<<<<<<<<<<
@@ -7761,7 +7761,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[5])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":644
+    /* "gases/CF4.pyx":644
  *         object.QIN[5][i] = 0.0
  *         object.PEQIN[5][i] = 0.5
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7771,7 +7771,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":645
+      /* "gases/CF4.pyx":645
  *         object.PEQIN[5][i] = 0.5
  *         if EN > object.EIN[5]:
  *             if EN <= XVBV1[NVBV1 - 1]:             # <<<<<<<<<<<<<<
@@ -7781,7 +7781,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVBV1[(__pyx_v_NVBV1 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":646
+        /* "gases/CF4.pyx":646
  *         if EN > object.EIN[5]:
  *             if EN <= XVBV1[NVBV1 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -7790,7 +7790,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":647
+        /* "gases/CF4.pyx":647
  *             if EN <= XVBV1[NVBV1 - 1]:
  *                 j = 0
  *                 for j in range(1, NVBV1):             # <<<<<<<<<<<<<<
@@ -7802,7 +7802,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":648
+          /* "gases/CF4.pyx":648
  *                 j = 0
  *                 for j in range(1, NVBV1):
  *                     if EN <= XVBV1[j]:             # <<<<<<<<<<<<<<
@@ -7812,7 +7812,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVBV1[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":649
+            /* "gases/CF4.pyx":649
  *                 for j in range(1, NVBV1):
  *                     if EN <= XVBV1[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7821,7 +7821,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L152_break;
 
-            /* "CF4.pyx":648
+            /* "gases/CF4.pyx":648
  *                 j = 0
  *                 for j in range(1, NVBV1):
  *                     if EN <= XVBV1[j]:             # <<<<<<<<<<<<<<
@@ -7832,7 +7832,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L152_break:;
 
-        /* "CF4.pyx":650
+        /* "gases/CF4.pyx":650
  *                     if EN <= XVBV1[j]:
  *                         break
  *                 A = (YVBV1[j] - YVBV1[j - 1]) / (XVBV1[j] - XVBV1[j - 1])             # <<<<<<<<<<<<<<
@@ -7841,7 +7841,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YVBV1[__pyx_v_j]) - (__pyx_v_YVBV1[(__pyx_v_j - 1)])) / ((__pyx_v_XVBV1[__pyx_v_j]) - (__pyx_v_XVBV1[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":651
+        /* "gases/CF4.pyx":651
  *                         break
  *                 A = (YVBV1[j] - YVBV1[j - 1]) / (XVBV1[j] - XVBV1[j - 1])
  *                 B = (XVBV1[j - 1] * YVBV1[j] - XVBV1[j] * YVBV1[j - 1]) / (XVBV1[j - 1] - XVBV1[j])             # <<<<<<<<<<<<<<
@@ -7850,7 +7850,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XVBV1[(__pyx_v_j - 1)]) * (__pyx_v_YVBV1[__pyx_v_j])) - ((__pyx_v_XVBV1[__pyx_v_j]) * (__pyx_v_YVBV1[(__pyx_v_j - 1)]))) / ((__pyx_v_XVBV1[(__pyx_v_j - 1)]) - (__pyx_v_XVBV1[__pyx_v_j])));
 
-        /* "CF4.pyx":652
+        /* "gases/CF4.pyx":652
  *                 A = (YVBV1[j] - YVBV1[j - 1]) / (XVBV1[j] - XVBV1[j - 1])
  *                 B = (XVBV1[j - 1] * YVBV1[j] - XVBV1[j] * YVBV1[j - 1]) / (XVBV1[j - 1] - XVBV1[j])
  *                 object.QIN[5][i] = A * EN + B             # <<<<<<<<<<<<<<
@@ -7859,7 +7859,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[5])[__pyx_v_i]) = ((__pyx_v_A * __pyx_v_EN) + __pyx_v_B);
 
-        /* "CF4.pyx":645
+        /* "gases/CF4.pyx":645
  *         object.PEQIN[5][i] = 0.5
  *         if EN > object.EIN[5]:
  *             if EN <= XVBV1[NVBV1 - 1]:             # <<<<<<<<<<<<<<
@@ -7869,7 +7869,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L150;
       }
 
-      /* "CF4.pyx":654
+      /* "gases/CF4.pyx":654
  *                 object.QIN[5][i] = A * EN + B
  *             else:
  *                 object.QIN[5][i] = YVBV1[NVBV1 - 1] * pow((XVBV1[NVBV1 - 1] / EN) , 3)             # <<<<<<<<<<<<<<
@@ -7881,7 +7881,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L150:;
 
-      /* "CF4.pyx":655
+      /* "gases/CF4.pyx":655
  *             else:
  *                 object.QIN[5][i] = YVBV1[NVBV1 - 1] * pow((XVBV1[NVBV1 - 1] / EN) , 3)
  *             EFAC = sqrt(1.0 - (object.EIN[5] / EN))             # <<<<<<<<<<<<<<
@@ -7890,7 +7890,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[5]) / __pyx_v_EN)));
 
-      /* "CF4.pyx":656
+      /* "gases/CF4.pyx":656
  *                 object.QIN[5][i] = YVBV1[NVBV1 - 1] * pow((XVBV1[NVBV1 - 1] / EN) , 3)
  *             EFAC = sqrt(1.0 - (object.EIN[5] / EN))
  *             object.QIN[5][i] = object.QIN[5][i] + <float>(0.0224) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN             # <<<<<<<<<<<<<<
@@ -7899,7 +7899,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_i]) = (((__pyx_v_object->QIN[5])[__pyx_v_i]) + ((((float)0.0224) * log(((__pyx_v_EFAC + 1.0) / (1.0 - __pyx_v_EFAC)))) / __pyx_v_EN));
 
-      /* "CF4.pyx":657
+      /* "gases/CF4.pyx":657
  *             EFAC = sqrt(1.0 - (object.EIN[5] / EN))
  *             object.QIN[5][i] = object.QIN[5][i] + <float>(0.0224) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
  *             object.QIN[5][i] = object.QIN[5][i] * APOPGS * 1.0e-16             # <<<<<<<<<<<<<<
@@ -7908,7 +7908,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_i]) = ((((__pyx_v_object->QIN[5])[__pyx_v_i]) * __pyx_v_APOPGS) * 1.0e-16);
 
-      /* "CF4.pyx":658
+      /* "gases/CF4.pyx":658
  *             object.QIN[5][i] = object.QIN[5][i] + <float>(0.0224) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
  *             object.QIN[5][i] = object.QIN[5][i] * APOPGS * 1.0e-16
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -7918,7 +7918,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":659
+        /* "gases/CF4.pyx":659
  *             object.QIN[5][i] = object.QIN[5][i] * APOPGS * 1.0e-16
  *             if EN > 100.0:
  *                 object.PEQIN[5][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -7927,7 +7927,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[5])[__pyx_v_i]) = (__pyx_v_PQ[1]);
 
-        /* "CF4.pyx":658
+        /* "gases/CF4.pyx":658
  *             object.QIN[5][i] = object.QIN[5][i] + <float>(0.0224) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
  *             object.QIN[5][i] = object.QIN[5][i] * APOPGS * 1.0e-16
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -7936,7 +7936,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":644
+      /* "gases/CF4.pyx":644
  *         object.QIN[5][i] = 0.0
  *         object.PEQIN[5][i] = 0.5
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7945,7 +7945,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":662
+    /* "gases/CF4.pyx":662
  * 
  *         # SUPERELASTIC OF VIBRATION V3 ISOTROPIC BELOW 100EV
  *         object.QIN[6][i] = 0.0             # <<<<<<<<<<<<<<
@@ -7954,7 +7954,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[6])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":663
+    /* "gases/CF4.pyx":663
  *         # SUPERELASTIC OF VIBRATION V3 ISOTROPIC BELOW 100EV
  *         object.QIN[6][i] = 0.0
  *         object.PEQIN[6][i] = 0.5             # <<<<<<<<<<<<<<
@@ -7963,7 +7963,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[6])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":664
+    /* "gases/CF4.pyx":664
  *         object.QIN[6][i] = 0.0
  *         object.PEQIN[6][i] = 0.5
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -7973,7 +7973,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":665
+      /* "gases/CF4.pyx":665
  *         object.PEQIN[6][i] = 0.5
  *         if EN > 0.0:
  *             if EN - object.EIN[6] <= XVBV3[NVBV3 - 1]:             # <<<<<<<<<<<<<<
@@ -7983,7 +7983,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = (((__pyx_v_EN - (__pyx_v_object->EIN[6])) <= (__pyx_v_XVBV3[(__pyx_v_NVBV3 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":666
+        /* "gases/CF4.pyx":666
  *         if EN > 0.0:
  *             if EN - object.EIN[6] <= XVBV3[NVBV3 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -7992,7 +7992,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":667
+        /* "gases/CF4.pyx":667
  *             if EN - object.EIN[6] <= XVBV3[NVBV3 - 1]:
  *                 j = 0
  *                 for j in range(1, NVBV3):             # <<<<<<<<<<<<<<
@@ -8004,7 +8004,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":668
+          /* "gases/CF4.pyx":668
  *                 j = 0
  *                 for j in range(1, NVBV3):
  *                     if EN - object.EIN[6] <= XVBV3[j]:             # <<<<<<<<<<<<<<
@@ -8014,7 +8014,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = (((__pyx_v_EN - (__pyx_v_object->EIN[6])) <= (__pyx_v_XVBV3[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":669
+            /* "gases/CF4.pyx":669
  *                 for j in range(1, NVBV3):
  *                     if EN - object.EIN[6] <= XVBV3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8023,7 +8023,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L158_break;
 
-            /* "CF4.pyx":668
+            /* "gases/CF4.pyx":668
  *                 j = 0
  *                 for j in range(1, NVBV3):
  *                     if EN - object.EIN[6] <= XVBV3[j]:             # <<<<<<<<<<<<<<
@@ -8034,7 +8034,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L158_break:;
 
-        /* "CF4.pyx":670
+        /* "gases/CF4.pyx":670
  *                     if EN - object.EIN[6] <= XVBV3[j]:
  *                         break
  *                 A = (YVBV3[j] - YVBV3[j - 1]) / (XVBV3[j] - XVBV3[j - 1])             # <<<<<<<<<<<<<<
@@ -8043,7 +8043,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YVBV3[__pyx_v_j]) - (__pyx_v_YVBV3[(__pyx_v_j - 1)])) / ((__pyx_v_XVBV3[__pyx_v_j]) - (__pyx_v_XVBV3[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":671
+        /* "gases/CF4.pyx":671
  *                         break
  *                 A = (YVBV3[j] - YVBV3[j - 1]) / (XVBV3[j] - XVBV3[j - 1])
  *                 B = (XVBV3[j - 1] * YVBV3[j] - XVBV3[j] * YVBV3[j - 1]) / (XVBV3[j - 1] - XVBV3[j])             # <<<<<<<<<<<<<<
@@ -8052,7 +8052,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XVBV3[(__pyx_v_j - 1)]) * (__pyx_v_YVBV3[__pyx_v_j])) - ((__pyx_v_XVBV3[__pyx_v_j]) * (__pyx_v_YVBV3[(__pyx_v_j - 1)]))) / ((__pyx_v_XVBV3[(__pyx_v_j - 1)]) - (__pyx_v_XVBV3[__pyx_v_j])));
 
-        /* "CF4.pyx":672
+        /* "gases/CF4.pyx":672
  *                 A = (YVBV3[j] - YVBV3[j - 1]) / (XVBV3[j] - XVBV3[j - 1])
  *                 B = (XVBV3[j - 1] * YVBV3[j] - XVBV3[j] * YVBV3[j - 1]) / (XVBV3[j - 1] - XVBV3[j])
  *                 object.QIN[6][i] = (EN - object.EIN[6]) * (A * (EN - object.EIN[6]) + B) / EN             # <<<<<<<<<<<<<<
@@ -8061,7 +8061,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[6])[__pyx_v_i]) = (((__pyx_v_EN - (__pyx_v_object->EIN[6])) * ((__pyx_v_A * (__pyx_v_EN - (__pyx_v_object->EIN[6]))) + __pyx_v_B)) / __pyx_v_EN);
 
-        /* "CF4.pyx":665
+        /* "gases/CF4.pyx":665
  *         object.PEQIN[6][i] = 0.5
  *         if EN > 0.0:
  *             if EN - object.EIN[6] <= XVBV3[NVBV3 - 1]:             # <<<<<<<<<<<<<<
@@ -8071,7 +8071,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L156;
       }
 
-      /* "CF4.pyx":674
+      /* "gases/CF4.pyx":674
  *                 object.QIN[6][i] = (EN - object.EIN[6]) * (A * (EN - object.EIN[6]) + B) / EN
  *             else:
  *                 object.QIN[6][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / (EN * pow((EN - object.EIN[6]) , 2)))             # <<<<<<<<<<<<<<
@@ -8083,7 +8083,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L156:;
 
-      /* "CF4.pyx":675
+      /* "gases/CF4.pyx":675
  *             else:
  *                 object.QIN[6][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / (EN * pow((EN - object.EIN[6]) , 2)))
  *             EFAC = sqrt(1.0 - (object.EIN[6] / EN))             # <<<<<<<<<<<<<<
@@ -8092,7 +8092,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[6]) / __pyx_v_EN)));
 
-      /* "CF4.pyx":676
+      /* "gases/CF4.pyx":676
  *                 object.QIN[6][i] = YVBV3[NVBV3 - 1] * (XVBV3[NVBV3 - 1] / (EN * pow((EN - object.EIN[6]) , 2)))
  *             EFAC = sqrt(1.0 - (object.EIN[6] / EN))
  *             object.QIN[6][i] = object.QIN[6][i] + VDSC * <float>(1.610) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN             # <<<<<<<<<<<<<<
@@ -8101,7 +8101,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_i]) = (((__pyx_v_object->QIN[6])[__pyx_v_i]) + (((__pyx_v_VDSC * ((float)1.610)) * log(((__pyx_v_EFAC + 1.0) / (__pyx_v_EFAC - 1.0)))) / __pyx_v_EN));
 
-      /* "CF4.pyx":677
+      /* "gases/CF4.pyx":677
  *             EFAC = sqrt(1.0 - (object.EIN[6] / EN))
  *             object.QIN[6][i] = object.QIN[6][i] + VDSC * <float>(1.610) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3             # <<<<<<<<<<<<<<
@@ -8110,7 +8110,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_i]) = (((((__pyx_v_object->QIN[6])[__pyx_v_i]) * __pyx_v_APOPV3) * 1.0e-16) / __pyx_v_DEGV3);
 
-      /* "CF4.pyx":678
+      /* "gases/CF4.pyx":678
  *             object.QIN[6][i] = object.QIN[6][i] + VDSC * <float>(1.610) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -8120,7 +8120,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":679
+        /* "gases/CF4.pyx":679
  *             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
  *             if EN > 100.0:
  *                 object.PEQIN[6][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -8129,7 +8129,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[6])[__pyx_v_i]) = (__pyx_v_PQ[1]);
 
-        /* "CF4.pyx":678
+        /* "gases/CF4.pyx":678
  *             object.QIN[6][i] = object.QIN[6][i] + VDSC * <float>(1.610) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
  *             if EN > 100.0:             # <<<<<<<<<<<<<<
@@ -8138,7 +8138,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":664
+      /* "gases/CF4.pyx":664
  *         object.QIN[6][i] = 0.0
  *         object.PEQIN[6][i] = 0.5
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -8147,7 +8147,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":681
+    /* "gases/CF4.pyx":681
  *                 object.PEQIN[6][i] = PQ[1]
  *         # VIBRATION V3 ANISOTROPIC
  *         object.QIN[7][i] = 0.0             # <<<<<<<<<<<<<<
@@ -8156,7 +8156,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[7])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":682
+    /* "gases/CF4.pyx":682
  *         # VIBRATION V3 ANISOTROPIC
  *         object.QIN[7][i] = 0.0
  *         object.PEQIN[7][i] = 0.5             # <<<<<<<<<<<<<<
@@ -8165,7 +8165,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[7])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":683
+    /* "gases/CF4.pyx":683
  *         object.QIN[7][i] = 0.0
  *         object.PEQIN[7][i] = 0.5
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -8175,7 +8175,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":684
+      /* "gases/CF4.pyx":684
  *         object.PEQIN[7][i] = 0.5
  *         if EN > object.EIN[7]:
  *             if EN <= XVBV3[NVBV3 - 1]:             # <<<<<<<<<<<<<<
@@ -8185,7 +8185,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVBV3[(__pyx_v_NVBV3 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":685
+        /* "gases/CF4.pyx":685
  *         if EN > object.EIN[7]:
  *             if EN <= XVBV3[NVBV3 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -8194,7 +8194,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":686
+        /* "gases/CF4.pyx":686
  *             if EN <= XVBV3[NVBV3 - 1]:
  *                 j = 0
  *                 for j in range(1, NVBV3):             # <<<<<<<<<<<<<<
@@ -8206,7 +8206,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":687
+          /* "gases/CF4.pyx":687
  *                 j = 0
  *                 for j in range(1, NVBV3):
  *                     if EN <= XVBV3[j]:             # <<<<<<<<<<<<<<
@@ -8216,7 +8216,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVBV3[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":688
+            /* "gases/CF4.pyx":688
  *                 for j in range(1, NVBV3):
  *                     if EN <= XVBV3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8225,7 +8225,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L164_break;
 
-            /* "CF4.pyx":687
+            /* "gases/CF4.pyx":687
  *                 j = 0
  *                 for j in range(1, NVBV3):
  *                     if EN <= XVBV3[j]:             # <<<<<<<<<<<<<<
@@ -8236,7 +8236,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L164_break:;
 
-        /* "CF4.pyx":689
+        /* "gases/CF4.pyx":689
  *                     if EN <= XVBV3[j]:
  *                         break
  *                 A = (YVBV3[j] - YVBV3[j - 1]) / (XVBV3[j] - XVBV3[j - 1])             # <<<<<<<<<<<<<<
@@ -8245,7 +8245,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YVBV3[__pyx_v_j]) - (__pyx_v_YVBV3[(__pyx_v_j - 1)])) / ((__pyx_v_XVBV3[__pyx_v_j]) - (__pyx_v_XVBV3[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":690
+        /* "gases/CF4.pyx":690
  *                         break
  *                 A = (YVBV3[j] - YVBV3[j - 1]) / (XVBV3[j] - XVBV3[j - 1])
  *                 B = (XVBV3[j - 1] * YVBV3[j] - XVBV3[j] * YVBV3[j - 1]) / (XVBV3[j - 1] - XVBV3[j])             # <<<<<<<<<<<<<<
@@ -8254,7 +8254,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XVBV3[(__pyx_v_j - 1)]) * (__pyx_v_YVBV3[__pyx_v_j])) - ((__pyx_v_XVBV3[__pyx_v_j]) * (__pyx_v_YVBV3[(__pyx_v_j - 1)]))) / ((__pyx_v_XVBV3[(__pyx_v_j - 1)]) - (__pyx_v_XVBV3[__pyx_v_j])));
 
-        /* "CF4.pyx":691
+        /* "gases/CF4.pyx":691
  *                 A = (YVBV3[j] - YVBV3[j - 1]) / (XVBV3[j] - XVBV3[j - 1])
  *                 B = (XVBV3[j - 1] * YVBV3[j] - XVBV3[j] * YVBV3[j - 1]) / (XVBV3[j - 1] - XVBV3[j])
  *                 object.QIN[7][i] = A * EN + B             # <<<<<<<<<<<<<<
@@ -8263,7 +8263,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[7])[__pyx_v_i]) = ((__pyx_v_A * __pyx_v_EN) + __pyx_v_B);
 
-        /* "CF4.pyx":684
+        /* "gases/CF4.pyx":684
  *         object.PEQIN[7][i] = 0.5
  *         if EN > object.EIN[7]:
  *             if EN <= XVBV3[NVBV3 - 1]:             # <<<<<<<<<<<<<<
@@ -8273,7 +8273,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L162;
       }
 
-      /* "CF4.pyx":693
+      /* "gases/CF4.pyx":693
  *                 object.QIN[7][i] = A * EN + B
  *             else:
  *                 object.QIN[7][i] = YVBV3[NVBV3 - 1] * pow((XVBV3[NVBV3 - 1] / EN) , 3)             # <<<<<<<<<<<<<<
@@ -8285,7 +8285,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L162:;
 
-      /* "CF4.pyx":694
+      /* "gases/CF4.pyx":694
  *             else:
  *                 object.QIN[7][i] = YVBV3[NVBV3 - 1] * pow((XVBV3[NVBV3 - 1] / EN) , 3)
  *             EFAC = sqrt(1.0 - (object.EIN[7] / EN))             # <<<<<<<<<<<<<<
@@ -8294,7 +8294,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[7]) / __pyx_v_EN)));
 
-      /* "CF4.pyx":695
+      /* "gases/CF4.pyx":695
  *                 object.QIN[7][i] = YVBV3[NVBV3 - 1] * pow((XVBV3[NVBV3 - 1] / EN) , 3)
  *             EFAC = sqrt(1.0 - (object.EIN[7] / EN))
  *             ADIP = VDSC * <float>(1.610) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN             # <<<<<<<<<<<<<<
@@ -8303,7 +8303,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ADIP = (((__pyx_v_VDSC * ((float)1.610)) * log(((__pyx_v_EFAC + 1.0) / (1.0 - __pyx_v_EFAC)))) / __pyx_v_EN);
 
-      /* "CF4.pyx":696
+      /* "gases/CF4.pyx":696
  *             EFAC = sqrt(1.0 - (object.EIN[7] / EN))
  *             ADIP = VDSC * <float>(1.610) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
  *             ELF = EN - object.EIN[7]             # <<<<<<<<<<<<<<
@@ -8312,7 +8312,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ELF = (__pyx_v_EN - (__pyx_v_object->EIN[7]));
 
-      /* "CF4.pyx":697
+      /* "gases/CF4.pyx":697
  *             ADIP = VDSC * <float>(1.610) * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
  *             ELF = EN - object.EIN[7]
  *             FWD = log((EN + ELF) / (EN + ELF - 2.0 * sqrt(EN * ELF)))             # <<<<<<<<<<<<<<
@@ -8321,7 +8321,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_FWD = log(((__pyx_v_EN + __pyx_v_ELF) / ((__pyx_v_EN + __pyx_v_ELF) - (2.0 * sqrt((__pyx_v_EN * __pyx_v_ELF))))));
 
-      /* "CF4.pyx":698
+      /* "gases/CF4.pyx":698
  *             ELF = EN - object.EIN[7]
  *             FWD = log((EN + ELF) / (EN + ELF - 2.0 * sqrt(EN * ELF)))
  *             BCK = log((EN + ELF + 2.0 * sqrt(EN * ELF)) / (EN + ELF))             # <<<<<<<<<<<<<<
@@ -8330,7 +8330,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BCK = log((((__pyx_v_EN + __pyx_v_ELF) + (2.0 * sqrt((__pyx_v_EN * __pyx_v_ELF)))) / (__pyx_v_EN + __pyx_v_ELF)));
 
-      /* "CF4.pyx":700
+      /* "gases/CF4.pyx":700
  *             BCK = log((EN + ELF + 2.0 * sqrt(EN * ELF)) / (EN + ELF))
  *             # ASSUME RATIO MOM T./ TOT X-SECT FOR RESONANCE PART = RAT
  *             XMT = ((1.5 - FWD / (FWD + BCK)) * ADIP + RAT * object.QIN[7][i]) * APOPGS * 1.0e-16             # <<<<<<<<<<<<<<
@@ -8339,7 +8339,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_XMT = (((((1.5 - (__pyx_v_FWD / (__pyx_v_FWD + __pyx_v_BCK))) * __pyx_v_ADIP) + (__pyx_v_RAT * ((__pyx_v_object->QIN[7])[__pyx_v_i]))) * __pyx_v_APOPGS) * 1.0e-16);
 
-      /* "CF4.pyx":701
+      /* "gases/CF4.pyx":701
  *             # ASSUME RATIO MOM T./ TOT X-SECT FOR RESONANCE PART = RAT
  *             XMT = ((1.5 - FWD / (FWD + BCK)) * ADIP + RAT * object.QIN[7][i]) * APOPGS * 1.0e-16
  *             object.QIN[7][i] = (object.QIN[7][i] + ADIP) * APOPGS * 1.0e-16             # <<<<<<<<<<<<<<
@@ -8348,7 +8348,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_i]) = (((((__pyx_v_object->QIN[7])[__pyx_v_i]) + __pyx_v_ADIP) * __pyx_v_APOPGS) * 1.0e-16);
 
-      /* "CF4.pyx":702
+      /* "gases/CF4.pyx":702
  *             XMT = ((1.5 - FWD / (FWD + BCK)) * ADIP + RAT * object.QIN[7][i]) * APOPGS * 1.0e-16
  *             object.QIN[7][i] = (object.QIN[7][i] + ADIP) * APOPGS * 1.0e-16
  *             if EN <= 100:             # <<<<<<<<<<<<<<
@@ -8358,7 +8358,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":703
+        /* "gases/CF4.pyx":703
  *             object.QIN[7][i] = (object.QIN[7][i] + ADIP) * APOPGS * 1.0e-16
  *             if EN <= 100:
  *                 object.PEQIN[7][i] = 0.5 + (object.QIN[7][i] - XMT) / object.QIN[7][i]             # <<<<<<<<<<<<<<
@@ -8367,7 +8367,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[7])[__pyx_v_i]) = (0.5 + ((((__pyx_v_object->QIN[7])[__pyx_v_i]) - __pyx_v_XMT) / ((__pyx_v_object->QIN[7])[__pyx_v_i])));
 
-        /* "CF4.pyx":702
+        /* "gases/CF4.pyx":702
  *             XMT = ((1.5 - FWD / (FWD + BCK)) * ADIP + RAT * object.QIN[7][i]) * APOPGS * 1.0e-16
  *             object.QIN[7][i] = (object.QIN[7][i] + ADIP) * APOPGS * 1.0e-16
  *             if EN <= 100:             # <<<<<<<<<<<<<<
@@ -8377,7 +8377,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L166;
       }
 
-      /* "CF4.pyx":705
+      /* "gases/CF4.pyx":705
  *                 object.PEQIN[7][i] = 0.5 + (object.QIN[7][i] - XMT) / object.QIN[7][i]
  *             else:
  *                 object.PEQIN[7][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -8389,7 +8389,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L166:;
 
-      /* "CF4.pyx":683
+      /* "gases/CF4.pyx":683
  *         object.QIN[7][i] = 0.0
  *         object.PEQIN[7][i] = 0.5
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -8398,7 +8398,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":708
+    /* "gases/CF4.pyx":708
  * 
  *         # VIBRATION HARMONIC 2V3
  *         object.QIN[8][i] = 0.0             # <<<<<<<<<<<<<<
@@ -8407,7 +8407,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[8])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":709
+    /* "gases/CF4.pyx":709
  *         # VIBRATION HARMONIC 2V3
  *         object.QIN[8][i] = 0.0
  *         object.PEQIN[8][i] = 0.5             # <<<<<<<<<<<<<<
@@ -8416,7 +8416,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[8])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":710
+    /* "gases/CF4.pyx":710
  *         object.QIN[8][i] = 0.0
  *         object.PEQIN[8][i] = 0.5
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -8426,7 +8426,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":711
+      /* "gases/CF4.pyx":711
  *         object.PEQIN[8][i] = 0.5
  *         if EN > object.EIN[8]:
  *             if EN <= XVIB5[NVIB5 - 1]:             # <<<<<<<<<<<<<<
@@ -8436,7 +8436,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVIB5[(__pyx_v_NVIB5 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":712
+        /* "gases/CF4.pyx":712
  *         if EN > object.EIN[8]:
  *             if EN <= XVIB5[NVIB5 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -8445,7 +8445,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":713
+        /* "gases/CF4.pyx":713
  *             if EN <= XVIB5[NVIB5 - 1]:
  *                 j = 0
  *                 for j in range(1, NVIB5):             # <<<<<<<<<<<<<<
@@ -8457,7 +8457,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":714
+          /* "gases/CF4.pyx":714
  *                 j = 0
  *                 for j in range(1, NVIB5):
  *                     if EN <= XVIB5[j]:             # <<<<<<<<<<<<<<
@@ -8467,7 +8467,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVIB5[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":715
+            /* "gases/CF4.pyx":715
  *                 for j in range(1, NVIB5):
  *                     if EN <= XVIB5[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8476,7 +8476,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L170_break;
 
-            /* "CF4.pyx":714
+            /* "gases/CF4.pyx":714
  *                 j = 0
  *                 for j in range(1, NVIB5):
  *                     if EN <= XVIB5[j]:             # <<<<<<<<<<<<<<
@@ -8487,7 +8487,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L170_break:;
 
-        /* "CF4.pyx":716
+        /* "gases/CF4.pyx":716
  *                     if EN <= XVIB5[j]:
  *                         break
  *                 A = (YVIB5[j] - YVIB5[j - 1]) / (XVIB5[j] - XVIB5[j - 1])             # <<<<<<<<<<<<<<
@@ -8496,7 +8496,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YVIB5[__pyx_v_j]) - (__pyx_v_YVIB5[(__pyx_v_j - 1)])) / ((__pyx_v_XVIB5[__pyx_v_j]) - (__pyx_v_XVIB5[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":717
+        /* "gases/CF4.pyx":717
  *                         break
  *                 A = (YVIB5[j] - YVIB5[j - 1]) / (XVIB5[j] - XVIB5[j - 1])
  *                 B = (XVIB5[j - 1] * YVIB5[j] - XVIB5[j] * YVIB5[j - 1]) / (XVIB5[j - 1] - XVIB5[j])             # <<<<<<<<<<<<<<
@@ -8505,7 +8505,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XVIB5[(__pyx_v_j - 1)]) * (__pyx_v_YVIB5[__pyx_v_j])) - ((__pyx_v_XVIB5[__pyx_v_j]) * (__pyx_v_YVIB5[(__pyx_v_j - 1)]))) / ((__pyx_v_XVIB5[(__pyx_v_j - 1)]) - (__pyx_v_XVIB5[__pyx_v_j])));
 
-        /* "CF4.pyx":718
+        /* "gases/CF4.pyx":718
  *                 A = (YVIB5[j] - YVIB5[j - 1]) / (XVIB5[j] - XVIB5[j - 1])
  *                 B = (XVIB5[j - 1] * YVIB5[j] - XVIB5[j] * YVIB5[j - 1]) / (XVIB5[j - 1] - XVIB5[j])
  *                 object.QIN[8][i] = A * EN + B             # <<<<<<<<<<<<<<
@@ -8514,7 +8514,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[8])[__pyx_v_i]) = ((__pyx_v_A * __pyx_v_EN) + __pyx_v_B);
 
-        /* "CF4.pyx":711
+        /* "gases/CF4.pyx":711
  *         object.PEQIN[8][i] = 0.5
  *         if EN > object.EIN[8]:
  *             if EN <= XVIB5[NVIB5 - 1]:             # <<<<<<<<<<<<<<
@@ -8524,7 +8524,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L168;
       }
 
-      /* "CF4.pyx":720
+      /* "gases/CF4.pyx":720
  *                 object.QIN[8][i] = A * EN + B
  *             else:
  *                 object.QIN[8][i] = YVIB5[NVIB5 - 1] * (XVIB5[NVIB5 - 1] / EN)             # <<<<<<<<<<<<<<
@@ -8536,7 +8536,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L168:;
 
-      /* "CF4.pyx":721
+      /* "gases/CF4.pyx":721
  *             else:
  *                 object.QIN[8][i] = YVIB5[NVIB5 - 1] * (XVIB5[NVIB5 - 1] / EN)
  *             object.QIN[8][i] = object.QIN[8][i] * APOPGS * 1.0e-16             # <<<<<<<<<<<<<<
@@ -8545,7 +8545,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_i]) = ((((__pyx_v_object->QIN[8])[__pyx_v_i]) * __pyx_v_APOPGS) * 1.0e-16);
 
-      /* "CF4.pyx":722
+      /* "gases/CF4.pyx":722
  *                 object.QIN[8][i] = YVIB5[NVIB5 - 1] * (XVIB5[NVIB5 - 1] / EN)
  *             object.QIN[8][i] = object.QIN[8][i] * APOPGS * 1.0e-16
  *             if EN <= 100:             # <<<<<<<<<<<<<<
@@ -8555,7 +8555,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":723
+        /* "gases/CF4.pyx":723
  *             object.QIN[8][i] = object.QIN[8][i] * APOPGS * 1.0e-16
  *             if EN <= 100:
  *                 object.PEQIN[8][i] = 0.5 + (1.0 - RAT)             # <<<<<<<<<<<<<<
@@ -8564,7 +8564,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[8])[__pyx_v_i]) = (0.5 + (1.0 - __pyx_v_RAT));
 
-        /* "CF4.pyx":722
+        /* "gases/CF4.pyx":722
  *                 object.QIN[8][i] = YVIB5[NVIB5 - 1] * (XVIB5[NVIB5 - 1] / EN)
  *             object.QIN[8][i] = object.QIN[8][i] * APOPGS * 1.0e-16
  *             if EN <= 100:             # <<<<<<<<<<<<<<
@@ -8574,7 +8574,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L172;
       }
 
-      /* "CF4.pyx":725
+      /* "gases/CF4.pyx":725
  *                 object.PEQIN[8][i] = 0.5 + (1.0 - RAT)
  *             else:
  *                 object.PEQIN[8][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -8586,7 +8586,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L172:;
 
-      /* "CF4.pyx":710
+      /* "gases/CF4.pyx":710
  *         object.QIN[8][i] = 0.0
  *         object.PEQIN[8][i] = 0.5
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -8595,7 +8595,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":727
+    /* "gases/CF4.pyx":727
  *                 object.PEQIN[8][i] = PQ[1]
  *         # VIBRATION HARMONIC 3V3
  *         object.QIN[9][i] = 0.0             # <<<<<<<<<<<<<<
@@ -8604,7 +8604,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[9])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":728
+    /* "gases/CF4.pyx":728
  *         # VIBRATION HARMONIC 3V3
  *         object.QIN[9][i] = 0.0
  *         object.PEQIN[9][i] = 0.5             # <<<<<<<<<<<<<<
@@ -8613,7 +8613,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[9])[__pyx_v_i]) = 0.5;
 
-    /* "CF4.pyx":729
+    /* "gases/CF4.pyx":729
  *         object.QIN[9][i] = 0.0
  *         object.PEQIN[9][i] = 0.5
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -8623,7 +8623,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":730
+      /* "gases/CF4.pyx":730
  *         object.PEQIN[9][i] = 0.5
  *         if EN > object.EIN[9]:
  *             if EN <= XVIB6[NVIB6 - 1]:             # <<<<<<<<<<<<<<
@@ -8633,7 +8633,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVIB6[(__pyx_v_NVIB6 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":731
+        /* "gases/CF4.pyx":731
  *         if EN > object.EIN[9]:
  *             if EN <= XVIB6[NVIB6 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -8642,7 +8642,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":732
+        /* "gases/CF4.pyx":732
  *             if EN <= XVIB6[NVIB6 - 1]:
  *                 j = 0
  *                 for j in range(1, NVIB6):             # <<<<<<<<<<<<<<
@@ -8654,7 +8654,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":733
+          /* "gases/CF4.pyx":733
  *                 j = 0
  *                 for j in range(1, NVIB6):
  *                     if EN <= XVIB6[j]:             # <<<<<<<<<<<<<<
@@ -8664,7 +8664,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XVIB6[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":734
+            /* "gases/CF4.pyx":734
  *                 for j in range(1, NVIB6):
  *                     if EN <= XVIB6[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8673,7 +8673,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L176_break;
 
-            /* "CF4.pyx":733
+            /* "gases/CF4.pyx":733
  *                 j = 0
  *                 for j in range(1, NVIB6):
  *                     if EN <= XVIB6[j]:             # <<<<<<<<<<<<<<
@@ -8684,7 +8684,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L176_break:;
 
-        /* "CF4.pyx":735
+        /* "gases/CF4.pyx":735
  *                     if EN <= XVIB6[j]:
  *                         break
  *                 A = (YVIB6[j] - YVIB6[j - 1]) / (XVIB6[j] - XVIB6[j - 1])             # <<<<<<<<<<<<<<
@@ -8693,7 +8693,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YVIB6[__pyx_v_j]) - (__pyx_v_YVIB6[(__pyx_v_j - 1)])) / ((__pyx_v_XVIB6[__pyx_v_j]) - (__pyx_v_XVIB6[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":736
+        /* "gases/CF4.pyx":736
  *                         break
  *                 A = (YVIB6[j] - YVIB6[j - 1]) / (XVIB6[j] - XVIB6[j - 1])
  *                 B = (XVIB6[j - 1] * YVIB6[j] - XVIB6[j] * YVIB6[j - 1]) / (XVIB6[j - 1] - XVIB6[j])             # <<<<<<<<<<<<<<
@@ -8702,7 +8702,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XVIB6[(__pyx_v_j - 1)]) * (__pyx_v_YVIB6[__pyx_v_j])) - ((__pyx_v_XVIB6[__pyx_v_j]) * (__pyx_v_YVIB6[(__pyx_v_j - 1)]))) / ((__pyx_v_XVIB6[(__pyx_v_j - 1)]) - (__pyx_v_XVIB6[__pyx_v_j])));
 
-        /* "CF4.pyx":737
+        /* "gases/CF4.pyx":737
  *                 A = (YVIB6[j] - YVIB6[j - 1]) / (XVIB6[j] - XVIB6[j - 1])
  *                 B = (XVIB6[j - 1] * YVIB6[j] - XVIB6[j] * YVIB6[j - 1]) / (XVIB6[j - 1] - XVIB6[j])
  *                 object.QIN[9][i] = A * EN + B             # <<<<<<<<<<<<<<
@@ -8711,7 +8711,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[9])[__pyx_v_i]) = ((__pyx_v_A * __pyx_v_EN) + __pyx_v_B);
 
-        /* "CF4.pyx":730
+        /* "gases/CF4.pyx":730
  *         object.PEQIN[9][i] = 0.5
  *         if EN > object.EIN[9]:
  *             if EN <= XVIB6[NVIB6 - 1]:             # <<<<<<<<<<<<<<
@@ -8721,7 +8721,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L174;
       }
 
-      /* "CF4.pyx":739
+      /* "gases/CF4.pyx":739
  *                 object.QIN[9][i] = A * EN + B
  *             else:
  *                 object.QIN[9][i] = YVIB6[NVIB6 - 1] * (XVIB6[NVIB6 - 1] / EN)             # <<<<<<<<<<<<<<
@@ -8733,7 +8733,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L174:;
 
-      /* "CF4.pyx":740
+      /* "gases/CF4.pyx":740
  *             else:
  *                 object.QIN[9][i] = YVIB6[NVIB6 - 1] * (XVIB6[NVIB6 - 1] / EN)
  *             object.QIN[9][i] = object.QIN[9][i] * APOPGS * 1.0e-16             # <<<<<<<<<<<<<<
@@ -8742,7 +8742,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_i]) = ((((__pyx_v_object->QIN[9])[__pyx_v_i]) * __pyx_v_APOPGS) * 1.0e-16);
 
-      /* "CF4.pyx":741
+      /* "gases/CF4.pyx":741
  *                 object.QIN[9][i] = YVIB6[NVIB6 - 1] * (XVIB6[NVIB6 - 1] / EN)
  *             object.QIN[9][i] = object.QIN[9][i] * APOPGS * 1.0e-16
  *             if EN <= 100:             # <<<<<<<<<<<<<<
@@ -8752,7 +8752,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= 100.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":742
+        /* "gases/CF4.pyx":742
  *             object.QIN[9][i] = object.QIN[9][i] * APOPGS * 1.0e-16
  *             if EN <= 100:
  *                 object.PEQIN[9][i] = 0.5 + (1.0 - RAT)             # <<<<<<<<<<<<<<
@@ -8761,7 +8761,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[9])[__pyx_v_i]) = (0.5 + (1.0 - __pyx_v_RAT));
 
-        /* "CF4.pyx":741
+        /* "gases/CF4.pyx":741
  *                 object.QIN[9][i] = YVIB6[NVIB6 - 1] * (XVIB6[NVIB6 - 1] / EN)
  *             object.QIN[9][i] = object.QIN[9][i] * APOPGS * 1.0e-16
  *             if EN <= 100:             # <<<<<<<<<<<<<<
@@ -8771,7 +8771,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L178;
       }
 
-      /* "CF4.pyx":744
+      /* "gases/CF4.pyx":744
  *                 object.PEQIN[9][i] = 0.5 + (1.0 - RAT)
  *             else:
  *                 object.PEQIN[9][i] = PQ[1]             # <<<<<<<<<<<<<<
@@ -8783,7 +8783,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L178:;
 
-      /* "CF4.pyx":729
+      /* "gases/CF4.pyx":729
  *         object.QIN[9][i] = 0.0
  *         object.PEQIN[9][i] = 0.5
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -8792,7 +8792,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":747
+    /* "gases/CF4.pyx":747
  * 
  *         # TRIPLET NEUTRAL DISSOCIATION ELOSS=11.5 EV
  *         object.QIN[10][i] = 0.0             # <<<<<<<<<<<<<<
@@ -8801,7 +8801,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[10])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":748
+    /* "gases/CF4.pyx":748
  *         # TRIPLET NEUTRAL DISSOCIATION ELOSS=11.5 EV
  *         object.QIN[10][i] = 0.0
  *         object.PEQIN[10][i] = 0.0             # <<<<<<<<<<<<<<
@@ -8810,7 +8810,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[10])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":749
+    /* "gases/CF4.pyx":749
  *         object.QIN[10][i] = 0.0
  *         object.PEQIN[10][i] = 0.0
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8820,7 +8820,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":750
+      /* "gases/CF4.pyx":750
  *         object.PEQIN[10][i] = 0.0
  *         if EN > object.EIN[10]:
  *             if EN <= XTR1[NTR1 - 1]:             # <<<<<<<<<<<<<<
@@ -8830,7 +8830,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XTR1[(__pyx_v_NTR1 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":751
+        /* "gases/CF4.pyx":751
  *         if EN > object.EIN[10]:
  *             if EN <= XTR1[NTR1 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -8839,7 +8839,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":752
+        /* "gases/CF4.pyx":752
  *             if EN <= XTR1[NTR1 - 1]:
  *                 j = 0
  *                 for j in range(1, NTR1):             # <<<<<<<<<<<<<<
@@ -8851,7 +8851,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":753
+          /* "gases/CF4.pyx":753
  *                 j = 0
  *                 for j in range(1, NTR1):
  *                     if EN <= XTR1[j]:             # <<<<<<<<<<<<<<
@@ -8861,7 +8861,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XTR1[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":754
+            /* "gases/CF4.pyx":754
  *                 for j in range(1, NTR1):
  *                     if EN <= XTR1[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8870,7 +8870,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L182_break;
 
-            /* "CF4.pyx":753
+            /* "gases/CF4.pyx":753
  *                 j = 0
  *                 for j in range(1, NTR1):
  *                     if EN <= XTR1[j]:             # <<<<<<<<<<<<<<
@@ -8881,7 +8881,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L182_break:;
 
-        /* "CF4.pyx":755
+        /* "gases/CF4.pyx":755
  *                     if EN <= XTR1[j]:
  *                         break
  *                 A = (YTR1[j] - YTR1[j - 1]) / (XTR1[j] - XTR1[j - 1])             # <<<<<<<<<<<<<<
@@ -8890,7 +8890,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YTR1[__pyx_v_j]) - (__pyx_v_YTR1[(__pyx_v_j - 1)])) / ((__pyx_v_XTR1[__pyx_v_j]) - (__pyx_v_XTR1[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":756
+        /* "gases/CF4.pyx":756
  *                         break
  *                 A = (YTR1[j] - YTR1[j - 1]) / (XTR1[j] - XTR1[j - 1])
  *                 B = (XTR1[j - 1] * YTR1[j] - XTR1[j] * YTR1[j - 1]) / (XTR1[j - 1] - XTR1[j])             # <<<<<<<<<<<<<<
@@ -8899,7 +8899,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XTR1[(__pyx_v_j - 1)]) * (__pyx_v_YTR1[__pyx_v_j])) - ((__pyx_v_XTR1[__pyx_v_j]) * (__pyx_v_YTR1[(__pyx_v_j - 1)]))) / ((__pyx_v_XTR1[(__pyx_v_j - 1)]) - (__pyx_v_XTR1[__pyx_v_j])));
 
-        /* "CF4.pyx":757
+        /* "gases/CF4.pyx":757
  *                 A = (YTR1[j] - YTR1[j - 1]) / (XTR1[j] - XTR1[j - 1])
  *                 B = (XTR1[j - 1] * YTR1[j] - XTR1[j] * YTR1[j - 1]) / (XTR1[j - 1] - XTR1[j])
  *                 object.QIN[10][i] = (A * EN + B) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -8908,7 +8908,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[10])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-16);
 
-        /* "CF4.pyx":750
+        /* "gases/CF4.pyx":750
  *         object.PEQIN[10][i] = 0.0
  *         if EN > object.EIN[10]:
  *             if EN <= XTR1[NTR1 - 1]:             # <<<<<<<<<<<<<<
@@ -8918,7 +8918,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L180;
       }
 
-      /* "CF4.pyx":759
+      /* "gases/CF4.pyx":759
  *                 object.QIN[10][i] = (A * EN + B) * 1.0e-16
  *             else:
  *                 object.QIN[10][i] = YTR1[NTR1 - 1] * pow((XTR1[NTR1 - 1] / EN) , 2) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -8930,7 +8930,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L180:;
 
-      /* "CF4.pyx":760
+      /* "gases/CF4.pyx":760
  *             else:
  *                 object.QIN[10][i] = YTR1[NTR1 - 1] * pow((XTR1[NTR1 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8940,7 +8940,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[10]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":761
+        /* "gases/CF4.pyx":761
  *                 object.QIN[10][i] = YTR1[NTR1 - 1] * pow((XTR1[NTR1 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[10]:
  *                 object.PEQIN[10][i] = object.PEQEL[1][(i - IOFFN[10])]             # <<<<<<<<<<<<<<
@@ -8949,7 +8949,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[10])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[10]))]);
 
-        /* "CF4.pyx":760
+        /* "gases/CF4.pyx":760
  *             else:
  *                 object.QIN[10][i] = YTR1[NTR1 - 1] * pow((XTR1[NTR1 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8958,7 +8958,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":749
+      /* "gases/CF4.pyx":749
  *         object.QIN[10][i] = 0.0
  *         object.PEQIN[10][i] = 0.0
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8967,7 +8967,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":763
+    /* "gases/CF4.pyx":763
  *                 object.PEQIN[10][i] = object.PEQEL[1][(i - IOFFN[10])]
  *         # SINGLET NEUTRAL DISSOCIATION  ELOSS=11.63 EV     F=0.0001893
  *         object.QIN[11][i] = 0.0             # <<<<<<<<<<<<<<
@@ -8976,7 +8976,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[11])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":764
+    /* "gases/CF4.pyx":764
  *         # SINGLET NEUTRAL DISSOCIATION  ELOSS=11.63 EV     F=0.0001893
  *         object.QIN[11][i] = 0.0
  *         object.PEQIN[11][i] = 0.0             # <<<<<<<<<<<<<<
@@ -8985,7 +8985,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[11])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":765
+    /* "gases/CF4.pyx":765
  *         object.QIN[11][i] = 0.0
  *         object.PEQIN[11][i] = 0.0
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -8995,7 +8995,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[11])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":766
+      /* "gases/CF4.pyx":766
  *         object.PEQIN[11][i] = 0.0
  *         if EN > object.EIN[11]:
  *             object.QIN[11][i] = <float>(0.0001893) / (object.EIN[11] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0             # <<<<<<<<<<<<<<
@@ -9004,7 +9004,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[11])[__pyx_v_i]) = ((((((((float)0.0001893) / ((__pyx_v_object->EIN[11]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[11])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[11])) + (__pyx_v_object->E[2]))) * ((float)1.0107));
 
-      /* "CF4.pyx":772
+      /* "gases/CF4.pyx":772
  *                                                                      i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[11] + object.E[2]) * <float>(1.0107)
  *             if object.QIN[11][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9014,7 +9014,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[11])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":773
+        /* "gases/CF4.pyx":773
  *                                         EN + object.EIN[11] + object.E[2]) * <float>(1.0107)
  *             if object.QIN[11][i] < 0.0:
  *                 object.QIN[11][i] = 0             # <<<<<<<<<<<<<<
@@ -9023,7 +9023,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[11])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":772
+        /* "gases/CF4.pyx":772
  *                                                                      i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[11] + object.E[2]) * <float>(1.0107)
  *             if object.QIN[11][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9032,7 +9032,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":774
+      /* "gases/CF4.pyx":774
  *             if object.QIN[11][i] < 0.0:
  *                 object.QIN[11][i] = 0
  *             if EN > 3 * object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -9042,7 +9042,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[11]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":775
+        /* "gases/CF4.pyx":775
  *                 object.QIN[11][i] = 0
  *             if EN > 3 * object.EIN[11]:
  *                 object.PEQIN[11][i] = object.PEQEL[1][i - IOFFN[11]]             # <<<<<<<<<<<<<<
@@ -9051,7 +9051,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[11])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[11]))]);
 
-        /* "CF4.pyx":774
+        /* "gases/CF4.pyx":774
  *             if object.QIN[11][i] < 0.0:
  *                 object.QIN[11][i] = 0
  *             if EN > 3 * object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -9060,7 +9060,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":765
+      /* "gases/CF4.pyx":765
  *         object.QIN[11][i] = 0.0
  *         object.PEQIN[11][i] = 0.0
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -9069,7 +9069,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":778
+    /* "gases/CF4.pyx":778
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=11.88 EV     F=0.001085
  *         object.QIN[12][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9078,7 +9078,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[12])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":779
+    /* "gases/CF4.pyx":779
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=11.88 EV     F=0.001085
  *         object.QIN[12][i] = 0.0
  *         object.PEQIN[12][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9087,7 +9087,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[12])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":780
+    /* "gases/CF4.pyx":780
  *         object.QIN[12][i] = 0.0
  *         object.PEQIN[12][i] = 0.0
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -9097,7 +9097,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":781
+      /* "gases/CF4.pyx":781
  *         object.PEQIN[12][i] = 0.0
  *         if EN > object.EIN[12]:
  *             object.QIN[12][i] = <float>(0.001085) / (object.EIN[12] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0             # <<<<<<<<<<<<<<
@@ -9106,7 +9106,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[12])[__pyx_v_i]) = ((((((((float)0.001085) / ((__pyx_v_object->EIN[12]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[12])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[12])) + (__pyx_v_object->E[2]))) * ((float)1.0105));
 
-      /* "CF4.pyx":786
+      /* "gases/CF4.pyx":786
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[12] + object.E[2]) * <float>(1.0105)
  *             if object.QIN[12][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9116,7 +9116,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[12])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":787
+        /* "gases/CF4.pyx":787
  *                                         EN + object.EIN[12] + object.E[2]) * <float>(1.0105)
  *             if object.QIN[12][i] < 0.0:
  *                 object.QIN[12][i] = 0             # <<<<<<<<<<<<<<
@@ -9125,7 +9125,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[12])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":786
+        /* "gases/CF4.pyx":786
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[12] + object.E[2]) * <float>(1.0105)
  *             if object.QIN[12][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9134,7 +9134,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":788
+      /* "gases/CF4.pyx":788
  *             if object.QIN[12][i] < 0.0:
  *                 object.QIN[12][i] = 0
  *             if EN > 3 * object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -9144,7 +9144,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[12]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":789
+        /* "gases/CF4.pyx":789
  *                 object.QIN[12][i] = 0
  *             if EN > 3 * object.EIN[12]:
  *                 object.PEQIN[12][i] = object.PEQEL[1][i - IOFFN[12]]             # <<<<<<<<<<<<<<
@@ -9153,7 +9153,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[12])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[12]))]);
 
-        /* "CF4.pyx":788
+        /* "gases/CF4.pyx":788
  *             if object.QIN[12][i] < 0.0:
  *                 object.QIN[12][i] = 0
  *             if EN > 3 * object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -9162,7 +9162,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":780
+      /* "gases/CF4.pyx":780
  *         object.QIN[12][i] = 0.0
  *         object.PEQIN[12][i] = 0.0
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -9171,7 +9171,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":792
+    /* "gases/CF4.pyx":792
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=11.88 EV     F=0.004807
  *         object.QIN[13][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9180,7 +9180,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[13])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":793
+    /* "gases/CF4.pyx":793
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=11.88 EV     F=0.004807
  *         object.QIN[13][i] = 0.0
  *         object.PEQIN[13][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9189,7 +9189,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[13])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":794
+    /* "gases/CF4.pyx":794
  *         object.QIN[13][i] = 0.0
  *         object.PEQIN[13][i] = 0.0
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -9199,7 +9199,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[13])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":795
+      /* "gases/CF4.pyx":795
  *         object.PEQIN[13][i] = 0.0
  *         if EN > object.EIN[13]:
  *             object.QIN[13][i] = <float>(0.004807) / (object.EIN[13] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -9208,7 +9208,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[13])[__pyx_v_i]) = ((((((((float)0.004807) / ((__pyx_v_object->EIN[13]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[13])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[13])) + (__pyx_v_object->E[2]))) * ((float)1.0103));
 
-      /* "CF4.pyx":800
+      /* "gases/CF4.pyx":800
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[13] + object.E[2]) * <float>(1.0103)
  *             if object.QIN[13][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9218,7 +9218,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[13])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":801
+        /* "gases/CF4.pyx":801
  *                                         EN + object.EIN[13] + object.E[2]) * <float>(1.0103)
  *             if object.QIN[13][i] < 0.0:
  *                 object.QIN[13][i] = 0             # <<<<<<<<<<<<<<
@@ -9227,7 +9227,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[13])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":800
+        /* "gases/CF4.pyx":800
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[13] + object.E[2]) * <float>(1.0103)
  *             if object.QIN[13][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9236,7 +9236,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":802
+      /* "gases/CF4.pyx":802
  *             if object.QIN[13][i] < 0.0:
  *                 object.QIN[13][i] = 0
  *             if EN > 3 * object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -9246,7 +9246,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[13]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":803
+        /* "gases/CF4.pyx":803
  *                 object.QIN[13][i] = 0
  *             if EN > 3 * object.EIN[13]:
  *                 object.PEQIN[13][i] = object.PEQEL[1][i - IOFFN[13]]             # <<<<<<<<<<<<<<
@@ -9255,7 +9255,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[13])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[13]))]);
 
-        /* "CF4.pyx":802
+        /* "gases/CF4.pyx":802
  *             if object.QIN[13][i] < 0.0:
  *                 object.QIN[13][i] = 0
  *             if EN > 3 * object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -9264,7 +9264,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":794
+      /* "gases/CF4.pyx":794
  *         object.QIN[13][i] = 0.0
  *         object.PEQIN[13][i] = 0.0
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -9273,7 +9273,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":806
+    /* "gases/CF4.pyx":806
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.38 EV     F=0.008819
  *         object.QIN[14][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9282,7 +9282,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[14])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":807
+    /* "gases/CF4.pyx":807
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.38 EV     F=0.008819
  *         object.QIN[14][i] = 0.0
  *         object.PEQIN[14][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9291,7 +9291,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[14])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":808
+    /* "gases/CF4.pyx":808
  *         object.QIN[14][i] = 0.0
  *         object.PEQIN[14][i] = 0.0
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -9301,7 +9301,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[14])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":809
+      /* "gases/CF4.pyx":809
  *         object.PEQIN[14][i] = 0.0
  *         if EN > object.EIN[14]:
  *             object.QIN[14][i] = <float>(0.008819) / (object.EIN[14] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -9310,7 +9310,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[14])[__pyx_v_i]) = ((((((((float)0.008819) / ((__pyx_v_object->EIN[14]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[14])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[14])) + (__pyx_v_object->E[2]))) * ((float)1.0101));
 
-      /* "CF4.pyx":814
+      /* "gases/CF4.pyx":814
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[14] + object.E[2]) * <float>(1.0101)
  *             if object.QIN[14][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9320,7 +9320,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[14])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":815
+        /* "gases/CF4.pyx":815
  *                                         EN + object.EIN[14] + object.E[2]) * <float>(1.0101)
  *             if object.QIN[14][i] < 0.0:
  *                 object.QIN[14][i] = 0             # <<<<<<<<<<<<<<
@@ -9329,7 +9329,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[14])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":814
+        /* "gases/CF4.pyx":814
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[14] + object.E[2]) * <float>(1.0101)
  *             if object.QIN[14][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9338,7 +9338,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":816
+      /* "gases/CF4.pyx":816
  *             if object.QIN[14][i] < 0.0:
  *                 object.QIN[14][i] = 0
  *             if EN > 3 * object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -9348,7 +9348,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[14]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":817
+        /* "gases/CF4.pyx":817
  *                 object.QIN[14][i] = 0
  *             if EN > 3 * object.EIN[14]:
  *                 object.PEQIN[14][i] = object.PEQEL[1][i - IOFFN[14]]             # <<<<<<<<<<<<<<
@@ -9357,7 +9357,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[14])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[14]))]);
 
-        /* "CF4.pyx":816
+        /* "gases/CF4.pyx":816
  *             if object.QIN[14][i] < 0.0:
  *                 object.QIN[14][i] = 0
  *             if EN > 3 * object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -9366,7 +9366,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":808
+      /* "gases/CF4.pyx":808
  *         object.QIN[14][i] = 0.0
  *         object.PEQIN[14][i] = 0.0
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -9375,7 +9375,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":820
+    /* "gases/CF4.pyx":820
  * 
  *         # TRIPLET NEUTRAL DISSOCIATION ELOSS=12.5 EV
  *         object.QIN[15][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9384,7 +9384,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[15])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":821
+    /* "gases/CF4.pyx":821
  *         # TRIPLET NEUTRAL DISSOCIATION ELOSS=12.5 EV
  *         object.QIN[15][i] = 0.0
  *         object.PEQIN[15][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9393,7 +9393,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[15])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":822
+    /* "gases/CF4.pyx":822
  *         object.QIN[15][i] = 0.0
  *         object.PEQIN[15][i] = 0.0
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -9403,7 +9403,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[15])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":823
+      /* "gases/CF4.pyx":823
  *         object.PEQIN[15][i] = 0.0
  *         if EN > object.EIN[15]:
  *             if EN <= XTR2[NTR2 - 1]:             # <<<<<<<<<<<<<<
@@ -9413,7 +9413,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XTR2[(__pyx_v_NTR2 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":824
+        /* "gases/CF4.pyx":824
  *         if EN > object.EIN[15]:
  *             if EN <= XTR2[NTR2 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -9422,7 +9422,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":825
+        /* "gases/CF4.pyx":825
  *             if EN <= XTR2[NTR2 - 1]:
  *                 j = 0
  *                 for j in range(1, NTR2):             # <<<<<<<<<<<<<<
@@ -9434,7 +9434,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":826
+          /* "gases/CF4.pyx":826
  *                 j = 0
  *                 for j in range(1, NTR2):
  *                     if EN <= XTR2[j]:             # <<<<<<<<<<<<<<
@@ -9444,7 +9444,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XTR2[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":827
+            /* "gases/CF4.pyx":827
  *                 for j in range(1, NTR2):
  *                     if EN <= XTR2[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -9453,7 +9453,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L200_break;
 
-            /* "CF4.pyx":826
+            /* "gases/CF4.pyx":826
  *                 j = 0
  *                 for j in range(1, NTR2):
  *                     if EN <= XTR2[j]:             # <<<<<<<<<<<<<<
@@ -9464,7 +9464,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L200_break:;
 
-        /* "CF4.pyx":828
+        /* "gases/CF4.pyx":828
  *                     if EN <= XTR2[j]:
  *                         break
  *                 A = (YTR2[j] - YTR2[j - 1]) / (XTR2[j] - XTR2[j - 1])             # <<<<<<<<<<<<<<
@@ -9473,7 +9473,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YTR2[__pyx_v_j]) - (__pyx_v_YTR2[(__pyx_v_j - 1)])) / ((__pyx_v_XTR2[__pyx_v_j]) - (__pyx_v_XTR2[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":829
+        /* "gases/CF4.pyx":829
  *                         break
  *                 A = (YTR2[j] - YTR2[j - 1]) / (XTR2[j] - XTR2[j - 1])
  *                 B = (XTR2[j - 1] * YTR2[j] - XTR2[j] * YTR2[j - 1]) / (XTR2[j - 1] - XTR2[j])             # <<<<<<<<<<<<<<
@@ -9482,7 +9482,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XTR2[(__pyx_v_j - 1)]) * (__pyx_v_YTR2[__pyx_v_j])) - ((__pyx_v_XTR2[__pyx_v_j]) * (__pyx_v_YTR2[(__pyx_v_j - 1)]))) / ((__pyx_v_XTR2[(__pyx_v_j - 1)]) - (__pyx_v_XTR2[__pyx_v_j])));
 
-        /* "CF4.pyx":830
+        /* "gases/CF4.pyx":830
  *                 A = (YTR2[j] - YTR2[j - 1]) / (XTR2[j] - XTR2[j - 1])
  *                 B = (XTR2[j - 1] * YTR2[j] - XTR2[j] * YTR2[j - 1]) / (XTR2[j - 1] - XTR2[j])
  *                 object.QIN[15][i] = (A * EN + B) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -9491,7 +9491,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[15])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-16);
 
-        /* "CF4.pyx":823
+        /* "gases/CF4.pyx":823
  *         object.PEQIN[15][i] = 0.0
  *         if EN > object.EIN[15]:
  *             if EN <= XTR2[NTR2 - 1]:             # <<<<<<<<<<<<<<
@@ -9501,7 +9501,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L198;
       }
 
-      /* "CF4.pyx":832
+      /* "gases/CF4.pyx":832
  *                 object.QIN[15][i] = (A * EN + B) * 1.0e-16
  *             else:
  *                 object.QIN[15][i] = YTR2[NTR2 - 1] * pow((XTR2[NTR2 - 1] / EN) , 2) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -9513,7 +9513,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L198:;
 
-      /* "CF4.pyx":833
+      /* "gases/CF4.pyx":833
  *             else:
  *                 object.QIN[15][i] = YTR2[NTR2 - 1] * pow((XTR2[NTR2 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -9523,7 +9523,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[15]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":834
+        /* "gases/CF4.pyx":834
  *                 object.QIN[15][i] = YTR2[NTR2 - 1] * pow((XTR2[NTR2 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[15]:
  *                 object.PEQIN[15][i] = object.PEQEL[1][i - IOFFN[15]]             # <<<<<<<<<<<<<<
@@ -9532,7 +9532,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[15])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[15]))]);
 
-        /* "CF4.pyx":833
+        /* "gases/CF4.pyx":833
  *             else:
  *                 object.QIN[15][i] = YTR2[NTR2 - 1] * pow((XTR2[NTR2 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -9541,7 +9541,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":822
+      /* "gases/CF4.pyx":822
  *         object.QIN[15][i] = 0.0
  *         object.PEQIN[15][i] = 0.0
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -9550,7 +9550,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":837
+    /* "gases/CF4.pyx":837
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.63 EV     F=0.008918
  *         object.QIN[16][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9559,7 +9559,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[16])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":838
+    /* "gases/CF4.pyx":838
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.63 EV     F=0.008918
  *         object.QIN[16][i] = 0.0
  *         object.PEQIN[16][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9568,7 +9568,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[16])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":839
+    /* "gases/CF4.pyx":839
  *         object.QIN[16][i] = 0.0
  *         object.PEQIN[16][i] = 0.0
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -9578,7 +9578,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[16])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":840
+      /* "gases/CF4.pyx":840
  *         object.PEQIN[16][i] = 0.0
  *         if EN > object.EIN[16]:
  *             object.QIN[16][i] = <float>(0.008918) / (object.EIN[16] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -9587,7 +9587,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[16])[__pyx_v_i]) = ((((((((float)0.008918) / ((__pyx_v_object->EIN[16]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[16])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[16])) + (__pyx_v_object->E[2]))) * ((float)1.0099));
 
-      /* "CF4.pyx":845
+      /* "gases/CF4.pyx":845
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[16] + object.E[2]) * <float>(1.0099)
  *             if object.QIN[16][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9597,7 +9597,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[16])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":846
+        /* "gases/CF4.pyx":846
  *                                         EN + object.EIN[16] + object.E[2]) * <float>(1.0099)
  *             if object.QIN[16][i] < 0.0:
  *                 object.QIN[16][i] = 0             # <<<<<<<<<<<<<<
@@ -9606,7 +9606,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[16])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":845
+        /* "gases/CF4.pyx":845
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[16] + object.E[2]) * <float>(1.0099)
  *             if object.QIN[16][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9615,7 +9615,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":847
+      /* "gases/CF4.pyx":847
  *             if object.QIN[16][i] < 0.0:
  *                 object.QIN[16][i] = 0
  *             if EN > 3 * object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -9625,7 +9625,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[16]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":848
+        /* "gases/CF4.pyx":848
  *                 object.QIN[16][i] = 0
  *             if EN > 3 * object.EIN[16]:
  *                 object.PEQIN[16][i] = object.PEQEL[1][i - IOFFN[16]]             # <<<<<<<<<<<<<<
@@ -9634,7 +9634,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[16])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[16]))]);
 
-        /* "CF4.pyx":847
+        /* "gases/CF4.pyx":847
  *             if object.QIN[16][i] < 0.0:
  *                 object.QIN[16][i] = 0
  *             if EN > 3 * object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -9643,7 +9643,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":839
+      /* "gases/CF4.pyx":839
  *         object.QIN[16][i] = 0.0
  *         object.PEQIN[16][i] = 0.0
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -9652,7 +9652,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":851
+    /* "gases/CF4.pyx":851
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.88 EV     F=0.008420
  *         object.QIN[17][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9661,7 +9661,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[17])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":852
+    /* "gases/CF4.pyx":852
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=12.88 EV     F=0.008420
  *         object.QIN[17][i] = 0.0
  *         object.PEQIN[17][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9670,7 +9670,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[17])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":853
+    /* "gases/CF4.pyx":853
  *         object.QIN[17][i] = 0.0
  *         object.PEQIN[17][i] = 0.0
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -9680,7 +9680,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[17])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":854
+      /* "gases/CF4.pyx":854
  *         object.PEQIN[17][i] = 0.0
  *         if EN > object.EIN[17]:
  *             object.QIN[17][i] = <float>(0.008420) / (object.EIN[17] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -9689,7 +9689,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[17])[__pyx_v_i]) = ((((((((float)0.008420) / ((__pyx_v_object->EIN[17]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[17])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[17])) + (__pyx_v_object->E[2]))) * ((float)1.0097));
 
-      /* "CF4.pyx":859
+      /* "gases/CF4.pyx":859
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[17] + object.E[2]) * <float>(1.0097)
  *             if object.QIN[17][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9699,7 +9699,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[17])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":860
+        /* "gases/CF4.pyx":860
  *                                         EN + object.EIN[17] + object.E[2]) * <float>(1.0097)
  *             if object.QIN[17][i] < 0.0:
  *                 object.QIN[17][i] = 0             # <<<<<<<<<<<<<<
@@ -9708,7 +9708,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[17])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":859
+        /* "gases/CF4.pyx":859
  *                                                                     i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[17] + object.E[2]) * <float>(1.0097)
  *             if object.QIN[17][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9717,7 +9717,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":861
+      /* "gases/CF4.pyx":861
  *             if object.QIN[17][i] < 0.0:
  *                 object.QIN[17][i] = 0
  *             if EN > 3 * object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -9727,7 +9727,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[17]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":862
+        /* "gases/CF4.pyx":862
  *                 object.QIN[17][i] = 0
  *             if EN > 3 * object.EIN[17]:
  *                 object.PEQIN[17][i] = object.PEQEL[1][i - IOFFN[17]]             # <<<<<<<<<<<<<<
@@ -9736,7 +9736,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[17])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[17]))]);
 
-        /* "CF4.pyx":861
+        /* "gases/CF4.pyx":861
  *             if object.QIN[17][i] < 0.0:
  *                 object.QIN[17][i] = 0
  *             if EN > 3 * object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -9745,7 +9745,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":853
+      /* "gases/CF4.pyx":853
  *         object.QIN[17][i] = 0.0
  *         object.PEQIN[17][i] = 0.0
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -9754,7 +9754,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":865
+    /* "gases/CF4.pyx":865
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.13 EV     F=0.02531
  *         object.QIN[18][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9763,7 +9763,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[18])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":866
+    /* "gases/CF4.pyx":866
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.13 EV     F=0.02531
  *         object.QIN[18][i] = 0.0
  *         object.PEQIN[18][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9772,7 +9772,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[18])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":867
+    /* "gases/CF4.pyx":867
  *         object.QIN[18][i] = 0.0
  *         object.PEQIN[18][i] = 0.0
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -9782,7 +9782,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[18])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":868
+      /* "gases/CF4.pyx":868
  *         object.PEQIN[18][i] = 0.0
  *         if EN > object.EIN[18]:
  *             object.QIN[18][i] = <float>(0.02531) / (object.EIN[18] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -9791,7 +9791,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[18])[__pyx_v_i]) = ((((((((float)0.02531) / ((__pyx_v_object->EIN[18]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[18])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[18])) + (__pyx_v_object->E[2]))) * ((float)1.0095));
 
-      /* "CF4.pyx":873
+      /* "gases/CF4.pyx":873
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[18] + object.E[2]) * <float>(1.0095)
  *             if object.QIN[18][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9801,7 +9801,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[18])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":874
+        /* "gases/CF4.pyx":874
  *                                         EN + object.EIN[18] + object.E[2]) * <float>(1.0095)
  *             if object.QIN[18][i] < 0.0:
  *                 object.QIN[18][i] = 0             # <<<<<<<<<<<<<<
@@ -9810,7 +9810,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[18])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":873
+        /* "gases/CF4.pyx":873
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[18] + object.E[2]) * <float>(1.0095)
  *             if object.QIN[18][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9819,7 +9819,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":875
+      /* "gases/CF4.pyx":875
  *             if object.QIN[18][i] < 0.0:
  *                 object.QIN[18][i] = 0
  *             if EN > 3 * object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -9829,7 +9829,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[18]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":876
+        /* "gases/CF4.pyx":876
  *                 object.QIN[18][i] = 0
  *             if EN > 3 * object.EIN[18]:
  *                 object.PEQIN[18][i] = object.PEQEL[1][i - IOFFN[18]]             # <<<<<<<<<<<<<<
@@ -9838,7 +9838,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[18])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[18]))]);
 
-        /* "CF4.pyx":875
+        /* "gases/CF4.pyx":875
  *             if object.QIN[18][i] < 0.0:
  *                 object.QIN[18][i] = 0
  *             if EN > 3 * object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -9847,7 +9847,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":867
+      /* "gases/CF4.pyx":867
  *         object.QIN[18][i] = 0.0
  *         object.PEQIN[18][i] = 0.0
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -9856,7 +9856,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":879
+    /* "gases/CF4.pyx":879
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.38 EV     F=0.09553
  *         object.QIN[19][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9865,7 +9865,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[19])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":880
+    /* "gases/CF4.pyx":880
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.38 EV     F=0.09553
  *         object.QIN[19][i] = 0.0
  *         object.PEQIN[19][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9874,7 +9874,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[19])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":881
+    /* "gases/CF4.pyx":881
  *         object.QIN[19][i] = 0.0
  *         object.PEQIN[19][i] = 0.0
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -9884,7 +9884,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[19])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":882
+      /* "gases/CF4.pyx":882
  *         object.PEQIN[19][i] = 0.0
  *         if EN > object.EIN[19]:
  *             object.QIN[19][i] = <float>(0.09553) / (object.EIN[19] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -9893,7 +9893,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[19])[__pyx_v_i]) = ((((((((float)0.09553) / ((__pyx_v_object->EIN[19]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[19])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[19])) + (__pyx_v_object->E[2]))) * ((float)1.0093));
 
-      /* "CF4.pyx":887
+      /* "gases/CF4.pyx":887
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[19] + object.E[2]) * <float>(1.0093)
  *             if object.QIN[19][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9903,7 +9903,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[19])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":888
+        /* "gases/CF4.pyx":888
  *                                         EN + object.EIN[19] + object.E[2]) * <float>(1.0093)
  *             if object.QIN[19][i] < 0.0:
  *                 object.QIN[19][i] = 0             # <<<<<<<<<<<<<<
@@ -9912,7 +9912,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[19])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":887
+        /* "gases/CF4.pyx":887
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[19] + object.E[2]) * <float>(1.0093)
  *             if object.QIN[19][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -9921,7 +9921,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":889
+      /* "gases/CF4.pyx":889
  *             if object.QIN[19][i] < 0.0:
  *                 object.QIN[19][i] = 0
  *             if EN > 3 * object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -9931,7 +9931,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[19]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":890
+        /* "gases/CF4.pyx":890
  *                 object.QIN[19][i] = 0
  *             if EN > 3 * object.EIN[19]:
  *                 object.PEQIN[19][i] = object.PEQEL[1][i - IOFFN[19]]             # <<<<<<<<<<<<<<
@@ -9940,7 +9940,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[19])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[19]))]);
 
-        /* "CF4.pyx":889
+        /* "gases/CF4.pyx":889
  *             if object.QIN[19][i] < 0.0:
  *                 object.QIN[19][i] = 0
  *             if EN > 3 * object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -9949,7 +9949,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":881
+      /* "gases/CF4.pyx":881
  *         object.QIN[19][i] = 0.0
  *         object.PEQIN[19][i] = 0.0
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -9958,7 +9958,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":893
+    /* "gases/CF4.pyx":893
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.63 EV     F=0.11193
  *         object.QIN[20][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9967,7 +9967,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[20])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":894
+    /* "gases/CF4.pyx":894
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=13.63 EV     F=0.11193
  *         object.QIN[20][i] = 0.0
  *         object.PEQIN[20][i] = 0.0             # <<<<<<<<<<<<<<
@@ -9976,7 +9976,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[20])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":895
+    /* "gases/CF4.pyx":895
  *         object.QIN[20][i] = 0.0
  *         object.PEQIN[20][i] = 0.0
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -9986,7 +9986,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[20])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":896
+      /* "gases/CF4.pyx":896
  *         object.PEQIN[20][i] = 0.0
  *         if EN > object.EIN[20]:
  *             object.QIN[20][i] = <float>(0.11193) / (object.EIN[20] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -9995,7 +9995,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[20])[__pyx_v_i]) = ((((((((float)0.11193) / ((__pyx_v_object->EIN[20]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[20])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[20])) + (__pyx_v_object->E[2]))) * ((float)1.0092));
 
-      /* "CF4.pyx":901
+      /* "gases/CF4.pyx":901
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[20] + object.E[2]) * <float>(1.0092)
  *             if object.QIN[20][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10005,7 +10005,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[20])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":902
+        /* "gases/CF4.pyx":902
  *                                         EN + object.EIN[20] + object.E[2]) * <float>(1.0092)
  *             if object.QIN[20][i] < 0.0:
  *                 object.QIN[20][i] = 0             # <<<<<<<<<<<<<<
@@ -10014,7 +10014,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[20])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":901
+        /* "gases/CF4.pyx":901
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[20] + object.E[2]) * <float>(1.0092)
  *             if object.QIN[20][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10023,7 +10023,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":903
+      /* "gases/CF4.pyx":903
  *             if object.QIN[20][i] < 0.0:
  *                 object.QIN[20][i] = 0
  *             if EN > 3 * object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -10033,7 +10033,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[20]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":904
+        /* "gases/CF4.pyx":904
  *                 object.QIN[20][i] = 0
  *             if EN > 3 * object.EIN[20]:
  *                 object.PEQIN[20][i] = object.PEQEL[1][i - IOFFN[20]]             # <<<<<<<<<<<<<<
@@ -10042,7 +10042,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[20])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[20]))]);
 
-        /* "CF4.pyx":903
+        /* "gases/CF4.pyx":903
  *             if object.QIN[20][i] < 0.0:
  *                 object.QIN[20][i] = 0
  *             if EN > 3 * object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -10051,7 +10051,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":895
+      /* "gases/CF4.pyx":895
  *         object.QIN[20][i] = 0.0
  *         object.PEQIN[20][i] = 0.0
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -10060,7 +10060,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":907
+    /* "gases/CF4.pyx":907
  * 
  *         # SINGLET NEUTRAL DISSOCIATION    ELOSS=13.88 EV     F=0.10103
  *         object.QIN[21][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10069,7 +10069,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[21])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":908
+    /* "gases/CF4.pyx":908
  *         # SINGLET NEUTRAL DISSOCIATION    ELOSS=13.88 EV     F=0.10103
  *         object.QIN[21][i] = 0.0
  *         object.PEQIN[21][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10078,7 +10078,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[21])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":909
+    /* "gases/CF4.pyx":909
  *         object.QIN[21][i] = 0.0
  *         object.PEQIN[21][i] = 0.0
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -10088,7 +10088,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[21])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":910
+      /* "gases/CF4.pyx":910
  *         object.PEQIN[21][i] = 0.0
  *         if EN > object.EIN[21]:
  *             object.QIN[21][i] = <float>(0.10103) / (object.EIN[21] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -10097,7 +10097,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[21])[__pyx_v_i]) = ((((((((float)0.10103) / ((__pyx_v_object->EIN[21]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[21])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[21])) + (__pyx_v_object->E[2]))) * ((float)1.0090));
 
-      /* "CF4.pyx":915
+      /* "gases/CF4.pyx":915
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[21] + object.E[2]) * <float>(1.0090)
  *             if object.QIN[21][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10107,7 +10107,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[21])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":916
+        /* "gases/CF4.pyx":916
  *                                         EN + object.EIN[21] + object.E[2]) * <float>(1.0090)
  *             if object.QIN[21][i] < 0.0:
  *                 object.QIN[21][i] = 0             # <<<<<<<<<<<<<<
@@ -10116,7 +10116,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[21])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":915
+        /* "gases/CF4.pyx":915
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[21] + object.E[2]) * <float>(1.0090)
  *             if object.QIN[21][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10125,7 +10125,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":917
+      /* "gases/CF4.pyx":917
  *             if object.QIN[21][i] < 0.0:
  *                 object.QIN[21][i] = 0
  *             if EN > 3 * object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -10135,7 +10135,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[21]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":918
+        /* "gases/CF4.pyx":918
  *                 object.QIN[21][i] = 0
  *             if EN > 3 * object.EIN[21]:
  *                 object.PEQIN[21][i] = object.PEQEL[1][i - IOFFN[21]]             # <<<<<<<<<<<<<<
@@ -10144,7 +10144,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[21])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[21]))]);
 
-        /* "CF4.pyx":917
+        /* "gases/CF4.pyx":917
  *             if object.QIN[21][i] < 0.0:
  *                 object.QIN[21][i] = 0
  *             if EN > 3 * object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -10153,7 +10153,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":909
+      /* "gases/CF4.pyx":909
  *         object.QIN[21][i] = 0.0
  *         object.PEQIN[21][i] = 0.0
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -10162,7 +10162,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":921
+    /* "gases/CF4.pyx":921
  * 
  *         # TRIPLET NEUTRAL DISSOCIATION ELOSS=14.0 EV
  *         object.QIN[22][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10171,7 +10171,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[22])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":922
+    /* "gases/CF4.pyx":922
  *         # TRIPLET NEUTRAL DISSOCIATION ELOSS=14.0 EV
  *         object.QIN[22][i] = 0.0
  *         object.PEQIN[22][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10180,7 +10180,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[22])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":923
+    /* "gases/CF4.pyx":923
  *         object.QIN[22][i] = 0.0
  *         object.PEQIN[22][i] = 0.0
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -10190,7 +10190,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[22])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":924
+      /* "gases/CF4.pyx":924
  *         object.PEQIN[22][i] = 0.0
  *         if EN > object.EIN[22]:
  *             if EN <= XTR3[NTR3 - 1]:             # <<<<<<<<<<<<<<
@@ -10200,7 +10200,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XTR3[(__pyx_v_NTR3 - 1)])) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":925
+        /* "gases/CF4.pyx":925
  *         if EN > object.EIN[22]:
  *             if EN <= XTR3[NTR3 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -10209,7 +10209,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "CF4.pyx":926
+        /* "gases/CF4.pyx":926
  *             if EN <= XTR3[NTR3 - 1]:
  *                 j = 0
  *                 for j in range(1, NTR3):             # <<<<<<<<<<<<<<
@@ -10221,7 +10221,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_21 = 1; __pyx_t_21 < __pyx_t_20; __pyx_t_21+=1) {
           __pyx_v_j = __pyx_t_21;
 
-          /* "CF4.pyx":927
+          /* "gases/CF4.pyx":927
  *                 j = 0
  *                 for j in range(1, NTR3):
  *                     if EN <= XTR3[j]:             # <<<<<<<<<<<<<<
@@ -10231,7 +10231,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_22 = ((__pyx_v_EN <= (__pyx_v_XTR3[__pyx_v_j])) != 0);
           if (__pyx_t_22) {
 
-            /* "CF4.pyx":928
+            /* "gases/CF4.pyx":928
  *                 for j in range(1, NTR3):
  *                     if EN <= XTR3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -10240,7 +10240,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L224_break;
 
-            /* "CF4.pyx":927
+            /* "gases/CF4.pyx":927
  *                 j = 0
  *                 for j in range(1, NTR3):
  *                     if EN <= XTR3[j]:             # <<<<<<<<<<<<<<
@@ -10251,7 +10251,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L224_break:;
 
-        /* "CF4.pyx":929
+        /* "gases/CF4.pyx":929
  *                     if EN <= XTR3[j]:
  *                         break
  *                 A = (YTR3[j] - YTR3[j - 1]) / (XTR3[j] - XTR3[j - 1])             # <<<<<<<<<<<<<<
@@ -10260,7 +10260,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YTR3[__pyx_v_j]) - (__pyx_v_YTR3[(__pyx_v_j - 1)])) / ((__pyx_v_XTR3[__pyx_v_j]) - (__pyx_v_XTR3[(__pyx_v_j - 1)])));
 
-        /* "CF4.pyx":930
+        /* "gases/CF4.pyx":930
  *                         break
  *                 A = (YTR3[j] - YTR3[j - 1]) / (XTR3[j] - XTR3[j - 1])
  *                 B = (XTR3[j - 1] * YTR3[j] - XTR3[j] * YTR3[j - 1]) / (XTR3[j - 1] - XTR3[j])             # <<<<<<<<<<<<<<
@@ -10269,7 +10269,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XTR3[(__pyx_v_j - 1)]) * (__pyx_v_YTR3[__pyx_v_j])) - ((__pyx_v_XTR3[__pyx_v_j]) * (__pyx_v_YTR3[(__pyx_v_j - 1)]))) / ((__pyx_v_XTR3[(__pyx_v_j - 1)]) - (__pyx_v_XTR3[__pyx_v_j])));
 
-        /* "CF4.pyx":931
+        /* "gases/CF4.pyx":931
  *                 A = (YTR3[j] - YTR3[j - 1]) / (XTR3[j] - XTR3[j - 1])
  *                 B = (XTR3[j - 1] * YTR3[j] - XTR3[j] * YTR3[j - 1]) / (XTR3[j - 1] - XTR3[j])
  *                 object.QIN[22][i] = (A * EN + B) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -10278,7 +10278,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[22])[__pyx_v_i]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-16);
 
-        /* "CF4.pyx":924
+        /* "gases/CF4.pyx":924
  *         object.PEQIN[22][i] = 0.0
  *         if EN > object.EIN[22]:
  *             if EN <= XTR3[NTR3 - 1]:             # <<<<<<<<<<<<<<
@@ -10288,7 +10288,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L222;
       }
 
-      /* "CF4.pyx":933
+      /* "gases/CF4.pyx":933
  *                 object.QIN[22][i] = (A * EN + B) * 1.0e-16
  *             else:
  *                 object.QIN[22][i] = YTR3[NTR3 - 1] * pow((XTR3[NTR3 - 1] / EN) , 2) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -10300,7 +10300,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L222:;
 
-      /* "CF4.pyx":934
+      /* "gases/CF4.pyx":934
  *             else:
  *                 object.QIN[22][i] = YTR3[NTR3 - 1] * pow((XTR3[NTR3 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -10310,7 +10310,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[22]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":935
+        /* "gases/CF4.pyx":935
  *                 object.QIN[22][i] = YTR3[NTR3 - 1] * pow((XTR3[NTR3 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[22]:
  *                 object.PEQIN[22][i] = object.PEQEL[1][i - IOFFN[22]]             # <<<<<<<<<<<<<<
@@ -10319,7 +10319,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[22])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[22]))]);
 
-        /* "CF4.pyx":934
+        /* "gases/CF4.pyx":934
  *             else:
  *                 object.QIN[22][i] = YTR3[NTR3 - 1] * pow((XTR3[NTR3 - 1] / EN) , 2) * 1.0e-16
  *             if EN > 3 * object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -10328,7 +10328,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":923
+      /* "gases/CF4.pyx":923
  *         object.QIN[22][i] = 0.0
  *         object.PEQIN[22][i] = 0.0
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -10337,7 +10337,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":938
+    /* "gases/CF4.pyx":938
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.13 EV     F=0.06902
  *         object.QIN[23][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10346,7 +10346,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[23])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":939
+    /* "gases/CF4.pyx":939
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.13 EV     F=0.06902
  *         object.QIN[23][i] = 0.0
  *         object.PEQIN[23][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10355,7 +10355,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[23])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":940
+    /* "gases/CF4.pyx":940
  *         object.QIN[23][i] = 0.0
  *         object.PEQIN[23][i] = 0.0
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -10365,7 +10365,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[23])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":941
+      /* "gases/CF4.pyx":941
  *         object.PEQIN[23][i] = 0.0
  *         if EN > object.EIN[23]:
  *             object.QIN[23][i] = <float>(0.06902) / (object.EIN[23] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -10374,7 +10374,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[23])[__pyx_v_i]) = ((((((((float)0.06902) / ((__pyx_v_object->EIN[23]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[23])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[23])) + (__pyx_v_object->E[2]))) * ((float)1.0088));
 
-      /* "CF4.pyx":946
+      /* "gases/CF4.pyx":946
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[23] + object.E[2]) * <float>(1.0088)
  *             if object.QIN[23][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10384,7 +10384,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[23])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":947
+        /* "gases/CF4.pyx":947
  *                                         EN + object.EIN[23] + object.E[2]) * <float>(1.0088)
  *             if object.QIN[23][i] < 0.0:
  *                 object.QIN[23][i] = 0             # <<<<<<<<<<<<<<
@@ -10393,7 +10393,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[23])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":946
+        /* "gases/CF4.pyx":946
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[23] + object.E[2]) * <float>(1.0088)
  *             if object.QIN[23][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10402,7 +10402,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":948
+      /* "gases/CF4.pyx":948
  *             if object.QIN[23][i] < 0.0:
  *                 object.QIN[23][i] = 0
  *             if EN > 3 * object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -10412,7 +10412,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[23]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":949
+        /* "gases/CF4.pyx":949
  *                 object.QIN[23][i] = 0
  *             if EN > 3 * object.EIN[23]:
  *                 object.PEQIN[23][i] = object.PEQEL[1][i - IOFFN[23]]             # <<<<<<<<<<<<<<
@@ -10421,7 +10421,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[23])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[23]))]);
 
-        /* "CF4.pyx":948
+        /* "gases/CF4.pyx":948
  *             if object.QIN[23][i] < 0.0:
  *                 object.QIN[23][i] = 0
  *             if EN > 3 * object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -10430,7 +10430,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":940
+      /* "gases/CF4.pyx":940
  *         object.QIN[23][i] = 0.0
  *         object.PEQIN[23][i] = 0.0
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -10439,7 +10439,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":952
+    /* "gases/CF4.pyx":952
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.38 EV     F=0.03968
  *         object.QIN[24][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10448,7 +10448,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[24])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":953
+    /* "gases/CF4.pyx":953
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.38 EV     F=0.03968
  *         object.QIN[24][i] = 0.0
  *         object.PEQIN[24][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10457,7 +10457,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[24])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":954
+    /* "gases/CF4.pyx":954
  *         object.QIN[24][i] = 0.0
  *         object.PEQIN[24][i] = 0.0
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -10467,7 +10467,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[24])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":955
+      /* "gases/CF4.pyx":955
  *         object.PEQIN[24][i] = 0.0
  *         if EN > object.EIN[24]:
  *             object.QIN[24][i] = <float>(0.03968) / (object.EIN[24] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -10476,7 +10476,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[24])[__pyx_v_i]) = ((((((((float)0.03968) / ((__pyx_v_object->EIN[24]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[24])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[24])) + (__pyx_v_object->E[2]))) * ((float)1.0087));
 
-      /* "CF4.pyx":960
+      /* "gases/CF4.pyx":960
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[24] + object.E[2]) * <float>(1.0087)
  *             if object.QIN[24][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10486,7 +10486,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[24])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":961
+        /* "gases/CF4.pyx":961
  *                                         EN + object.EIN[24] + object.E[2]) * <float>(1.0087)
  *             if object.QIN[24][i] < 0.0:
  *                 object.QIN[24][i] = 0             # <<<<<<<<<<<<<<
@@ -10495,7 +10495,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[24])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":960
+        /* "gases/CF4.pyx":960
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[24] + object.E[2]) * <float>(1.0087)
  *             if object.QIN[24][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10504,7 +10504,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":962
+      /* "gases/CF4.pyx":962
  *             if object.QIN[24][i] < 0.0:
  *                 object.QIN[24][i] = 0
  *             if EN > 3 * object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -10514,7 +10514,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[24]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":963
+        /* "gases/CF4.pyx":963
  *                 object.QIN[24][i] = 0
  *             if EN > 3 * object.EIN[24]:
  *                 object.PEQIN[24][i] = object.PEQEL[1][i - IOFFN[24]]             # <<<<<<<<<<<<<<
@@ -10523,7 +10523,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[24])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[24]))]);
 
-        /* "CF4.pyx":962
+        /* "gases/CF4.pyx":962
  *             if object.QIN[24][i] < 0.0:
  *                 object.QIN[24][i] = 0
  *             if EN > 3 * object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -10532,7 +10532,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":954
+      /* "gases/CF4.pyx":954
  *         object.QIN[24][i] = 0.0
  *         object.PEQIN[24][i] = 0.0
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -10541,7 +10541,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":966
+    /* "gases/CF4.pyx":966
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.63 EV     F=0.02584
  *         object.QIN[25][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10550,7 +10550,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[25])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":967
+    /* "gases/CF4.pyx":967
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.63 EV     F=0.02584
  *         object.QIN[25][i] = 0.0
  *         object.PEQIN[25][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10559,7 +10559,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[25])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":968
+    /* "gases/CF4.pyx":968
  *         object.QIN[25][i] = 0.0
  *         object.PEQIN[25][i] = 0.0
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -10569,7 +10569,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[25])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":969
+      /* "gases/CF4.pyx":969
  *         object.PEQIN[25][i] = 0.0
  *         if EN > object.EIN[25]:
  *             object.QIN[25][i] = <float>(0.02584) / (object.EIN[25] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -10578,7 +10578,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[25])[__pyx_v_i]) = ((((((((float)0.02584) / ((__pyx_v_object->EIN[25]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[25])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[25])) + (__pyx_v_object->E[2]))) * ((float)1.0085));
 
-      /* "CF4.pyx":974
+      /* "gases/CF4.pyx":974
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[25] + object.E[2]) * <float>(1.0085)
  *             if object.QIN[25][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10588,7 +10588,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[25])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":975
+        /* "gases/CF4.pyx":975
  *                                         EN + object.EIN[25] + object.E[2]) * <float>(1.0085)
  *             if object.QIN[25][i] < 0.0:
  *                 object.QIN[25][i] = 0             # <<<<<<<<<<<<<<
@@ -10597,7 +10597,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[25])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":974
+        /* "gases/CF4.pyx":974
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[25] + object.E[2]) * <float>(1.0085)
  *             if object.QIN[25][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10606,7 +10606,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":976
+      /* "gases/CF4.pyx":976
  *             if object.QIN[25][i] < 0.0:
  *                 object.QIN[25][i] = 0
  *             if EN > 3 * object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -10616,7 +10616,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[25]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":977
+        /* "gases/CF4.pyx":977
  *                 object.QIN[25][i] = 0
  *             if EN > 3 * object.EIN[25]:
  *                 object.PEQIN[25][i] = object.PEQEL[1][i - IOFFN[25]]             # <<<<<<<<<<<<<<
@@ -10625,7 +10625,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[25])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[25]))]);
 
-        /* "CF4.pyx":976
+        /* "gases/CF4.pyx":976
  *             if object.QIN[25][i] < 0.0:
  *                 object.QIN[25][i] = 0
  *             if EN > 3 * object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -10634,7 +10634,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":968
+      /* "gases/CF4.pyx":968
  *         object.QIN[25][i] = 0.0
  *         object.PEQIN[25][i] = 0.0
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -10643,7 +10643,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":980
+    /* "gases/CF4.pyx":980
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.88 EV     F=0.02071
  *         object.QIN[26][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10652,7 +10652,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[26])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":981
+    /* "gases/CF4.pyx":981
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=14.88 EV     F=0.02071
  *         object.QIN[26][i] = 0.0
  *         object.PEQIN[26][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10661,7 +10661,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[26])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":982
+    /* "gases/CF4.pyx":982
  *         object.QIN[26][i] = 0.0
  *         object.PEQIN[26][i] = 0.0
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -10671,7 +10671,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[26])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":983
+      /* "gases/CF4.pyx":983
  *         object.PEQIN[26][i] = 0.0
  *         if EN > object.EIN[26]:
  *             object.QIN[26][i] = <float>(0.02071) / (object.EIN[26] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -10680,7 +10680,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[26])[__pyx_v_i]) = ((((((((float)0.02071) / ((__pyx_v_object->EIN[26]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[26])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[26])) + (__pyx_v_object->E[2]))) * ((float)1.0084));
 
-      /* "CF4.pyx":988
+      /* "gases/CF4.pyx":988
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[26] + object.E[2]) * <float>(1.0084)
  *             if object.QIN[26][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10690,7 +10690,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[26])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":989
+        /* "gases/CF4.pyx":989
  *                                         EN + object.EIN[26] + object.E[2]) * <float>(1.0084)
  *             if object.QIN[26][i] < 0.0:
  *                 object.QIN[26][i] = 0             # <<<<<<<<<<<<<<
@@ -10699,7 +10699,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[26])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":988
+        /* "gases/CF4.pyx":988
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[26] + object.E[2]) * <float>(1.0084)
  *             if object.QIN[26][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10708,7 +10708,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":990
+      /* "gases/CF4.pyx":990
  *             if object.QIN[26][i] < 0.0:
  *                 object.QIN[26][i] = 0
  *             if EN > 3 * object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -10718,7 +10718,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[26]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":991
+        /* "gases/CF4.pyx":991
  *                 object.QIN[26][i] = 0
  *             if EN > 3 * object.EIN[26]:
  *                 object.PEQIN[26][i] = object.PEQEL[1][i - IOFFN[26]]             # <<<<<<<<<<<<<<
@@ -10727,7 +10727,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[26])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[26]))]);
 
-        /* "CF4.pyx":990
+        /* "gases/CF4.pyx":990
  *             if object.QIN[26][i] < 0.0:
  *                 object.QIN[26][i] = 0
  *             if EN > 3 * object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -10736,7 +10736,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":982
+      /* "gases/CF4.pyx":982
  *         object.QIN[26][i] = 0.0
  *         object.PEQIN[26][i] = 0.0
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -10745,7 +10745,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":994
+    /* "gases/CF4.pyx":994
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.13 EV     F=0.03122
  *         object.QIN[27][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10754,7 +10754,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[27])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":995
+    /* "gases/CF4.pyx":995
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.13 EV     F=0.03122
  *         object.QIN[27][i] = 0.0
  *         object.PEQIN[27][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10763,7 +10763,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[27])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":996
+    /* "gases/CF4.pyx":996
  *         object.QIN[27][i] = 0.0
  *         object.PEQIN[27][i] = 0.0
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -10773,7 +10773,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[27])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":997
+      /* "gases/CF4.pyx":997
  *         object.PEQIN[27][i] = 0.0
  *         if EN > object.EIN[27]:
  *             object.QIN[27][i] = <float>(0.03122) / (object.EIN[27] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -10782,7 +10782,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[27])[__pyx_v_i]) = ((((((((float)0.03122) / ((__pyx_v_object->EIN[27]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[27])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[27])) + (__pyx_v_object->E[2]))) * ((float)1.0083));
 
-      /* "CF4.pyx":1002
+      /* "gases/CF4.pyx":1002
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[27] + object.E[2]) * <float>(1.0083)
  *             if object.QIN[27][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10792,7 +10792,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[27])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1003
+        /* "gases/CF4.pyx":1003
  *                                         EN + object.EIN[27] + object.E[2]) * <float>(1.0083)
  *             if object.QIN[27][i] < 0.0:
  *                 object.QIN[27][i] = 0             # <<<<<<<<<<<<<<
@@ -10801,7 +10801,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[27])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1002
+        /* "gases/CF4.pyx":1002
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[27] + object.E[2]) * <float>(1.0083)
  *             if object.QIN[27][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10810,7 +10810,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1004
+      /* "gases/CF4.pyx":1004
  *             if object.QIN[27][i] < 0.0:
  *                 object.QIN[27][i] = 0
  *             if EN > 3 * object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -10820,7 +10820,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[27]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1005
+        /* "gases/CF4.pyx":1005
  *                 object.QIN[27][i] = 0
  *             if EN > 3 * object.EIN[27]:
  *                 object.PEQIN[27][i] = object.PEQEL[1][i - IOFFN[27]]             # <<<<<<<<<<<<<<
@@ -10829,7 +10829,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[27])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[27]))]);
 
-        /* "CF4.pyx":1004
+        /* "gases/CF4.pyx":1004
  *             if object.QIN[27][i] < 0.0:
  *                 object.QIN[27][i] = 0
  *             if EN > 3 * object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -10838,7 +10838,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":996
+      /* "gases/CF4.pyx":996
  *         object.QIN[27][i] = 0.0
  *         object.PEQIN[27][i] = 0.0
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -10847,7 +10847,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1008
+    /* "gases/CF4.pyx":1008
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.38 EV     F=0.05580
  *         object.QIN[28][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10856,7 +10856,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[28])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1009
+    /* "gases/CF4.pyx":1009
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.38 EV     F=0.05580
  *         object.QIN[28][i] = 0.0
  *         object.PEQIN[28][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10865,7 +10865,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[28])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1010
+    /* "gases/CF4.pyx":1010
  *         object.QIN[28][i] = 0.0
  *         object.PEQIN[28][i] = 0.0
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -10875,7 +10875,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[28])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1011
+      /* "gases/CF4.pyx":1011
  *         object.PEQIN[28][i] = 0.0
  *         if EN > object.EIN[28]:
  *             object.QIN[28][i] = <float>(0.05580) / (object.EIN[28] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -10884,7 +10884,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[28])[__pyx_v_i]) = ((((((((float)0.05580) / ((__pyx_v_object->EIN[28]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[28])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[28])) + (__pyx_v_object->E[2]))) * ((float)1.0081));
 
-      /* "CF4.pyx":1016
+      /* "gases/CF4.pyx":1016
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[28] + object.E[2]) * <float>(1.0081)
  *             if object.QIN[28][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10894,7 +10894,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[28])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1017
+        /* "gases/CF4.pyx":1017
  *                                         EN + object.EIN[28] + object.E[2]) * <float>(1.0081)
  *             if object.QIN[28][i] < 0.0:
  *                 object.QIN[28][i] = 0             # <<<<<<<<<<<<<<
@@ -10903,7 +10903,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[28])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1016
+        /* "gases/CF4.pyx":1016
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[28] + object.E[2]) * <float>(1.0081)
  *             if object.QIN[28][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10912,7 +10912,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1018
+      /* "gases/CF4.pyx":1018
  *             if object.QIN[28][i] < 0.0:
  *                 object.QIN[28][i] = 0
  *             if EN > 3 * object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -10922,7 +10922,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[28]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1019
+        /* "gases/CF4.pyx":1019
  *                 object.QIN[28][i] = 0
  *             if EN > 3 * object.EIN[28]:
  *                 object.PEQIN[28][i] = object.PEQEL[1][i - IOFFN[28]]             # <<<<<<<<<<<<<<
@@ -10931,7 +10931,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[28])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[28]))]);
 
-        /* "CF4.pyx":1018
+        /* "gases/CF4.pyx":1018
  *             if object.QIN[28][i] < 0.0:
  *                 object.QIN[28][i] = 0
  *             if EN > 3 * object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -10940,7 +10940,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1010
+      /* "gases/CF4.pyx":1010
  *         object.QIN[28][i] = 0.0
  *         object.PEQIN[28][i] = 0.0
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -10949,7 +10949,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1022
+    /* "gases/CF4.pyx":1022
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.63 EV     F=0.10187
  *         object.QIN[29][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10958,7 +10958,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[29])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1023
+    /* "gases/CF4.pyx":1023
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.63 EV     F=0.10187
  *         object.QIN[29][i] = 0.0
  *         object.PEQIN[29][i] = 0.0             # <<<<<<<<<<<<<<
@@ -10967,7 +10967,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[29])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1024
+    /* "gases/CF4.pyx":1024
  *         object.QIN[29][i] = 0.0
  *         object.PEQIN[29][i] = 0.0
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -10977,7 +10977,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[29])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1025
+      /* "gases/CF4.pyx":1025
  *         object.PEQIN[29][i] = 0.0
  *         if EN > object.EIN[29]:
  *             object.QIN[29][i] = <float>(0.10187) / (object.EIN[29] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -10986,7 +10986,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[29])[__pyx_v_i]) = ((((((((float)0.10187) / ((__pyx_v_object->EIN[29]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[29])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[29])) + (__pyx_v_object->E[2]))) * ((float)1.0080));
 
-      /* "CF4.pyx":1030
+      /* "gases/CF4.pyx":1030
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[29] + object.E[2]) * <float>(1.0080)
  *             if object.QIN[29][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -10996,7 +10996,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[29])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1031
+        /* "gases/CF4.pyx":1031
  *                                         EN + object.EIN[29] + object.E[2]) * <float>(1.0080)
  *             if object.QIN[29][i] < 0.0:
  *                 object.QIN[29][i] = 0             # <<<<<<<<<<<<<<
@@ -11005,7 +11005,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[29])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1030
+        /* "gases/CF4.pyx":1030
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[29] + object.E[2]) * <float>(1.0080)
  *             if object.QIN[29][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11014,7 +11014,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1032
+      /* "gases/CF4.pyx":1032
  *             if object.QIN[29][i] < 0.0:
  *                 object.QIN[29][i] = 0
  *             if EN > 3 * object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -11024,7 +11024,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[29]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1033
+        /* "gases/CF4.pyx":1033
  *                 object.QIN[29][i] = 0
  *             if EN > 3 * object.EIN[29]:
  *                 object.PEQIN[29][i] = object.PEQEL[1][i - IOFFN[29]]             # <<<<<<<<<<<<<<
@@ -11033,7 +11033,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[29])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[29]))]);
 
-        /* "CF4.pyx":1032
+        /* "gases/CF4.pyx":1032
  *             if object.QIN[29][i] < 0.0:
  *                 object.QIN[29][i] = 0
  *             if EN > 3 * object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -11042,7 +11042,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1024
+      /* "gases/CF4.pyx":1024
  *         object.QIN[29][i] = 0.0
  *         object.PEQIN[29][i] = 0.0
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -11051,7 +11051,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1036
+    /* "gases/CF4.pyx":1036
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.88 EV     F=0.09427
  *         object.QIN[30][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11060,7 +11060,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[30])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1037
+    /* "gases/CF4.pyx":1037
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=15.88 EV     F=0.09427
  *         object.QIN[30][i] = 0.0
  *         object.PEQIN[30][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11069,7 +11069,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[30])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1038
+    /* "gases/CF4.pyx":1038
  *         object.QIN[30][i] = 0.0
  *         object.PEQIN[30][i] = 0.0
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -11079,7 +11079,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[30])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1039
+      /* "gases/CF4.pyx":1039
  *         object.PEQIN[30][i] = 0.0
  *         if EN > object.EIN[30]:
  *             object.QIN[30][i] = <float>(0.09427) / (object.EIN[30] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11088,7 +11088,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[30])[__pyx_v_i]) = ((((((((float)0.09427) / ((__pyx_v_object->EIN[30]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[30])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[30])) + (__pyx_v_object->E[2]))) * ((float)1.0079));
 
-      /* "CF4.pyx":1044
+      /* "gases/CF4.pyx":1044
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[30] + object.E[2]) * <float>(1.0079)
  *             if object.QIN[30][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11098,7 +11098,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[30])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1045
+        /* "gases/CF4.pyx":1045
  *                                         EN + object.EIN[30] + object.E[2]) * <float>(1.0079)
  *             if object.QIN[30][i] < 0.0:
  *                 object.QIN[30][i] = 0             # <<<<<<<<<<<<<<
@@ -11107,7 +11107,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[30])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1044
+        /* "gases/CF4.pyx":1044
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[30] + object.E[2]) * <float>(1.0079)
  *             if object.QIN[30][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11116,7 +11116,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1046
+      /* "gases/CF4.pyx":1046
  *             if object.QIN[30][i] < 0.0:
  *                 object.QIN[30][i] = 0
  *             if EN > 3 * object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -11126,7 +11126,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[30]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1047
+        /* "gases/CF4.pyx":1047
  *                 object.QIN[30][i] = 0
  *             if EN > 3 * object.EIN[30]:
  *                 object.PEQIN[30][i] = object.PEQEL[1][i - IOFFN[30]]             # <<<<<<<<<<<<<<
@@ -11135,7 +11135,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[30])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[30]))]);
 
-        /* "CF4.pyx":1046
+        /* "gases/CF4.pyx":1046
  *             if object.QIN[30][i] < 0.0:
  *                 object.QIN[30][i] = 0
  *             if EN > 3 * object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -11144,7 +11144,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1038
+      /* "gases/CF4.pyx":1038
  *         object.QIN[30][i] = 0.0
  *         object.PEQIN[30][i] = 0.0
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -11153,7 +11153,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1050
+    /* "gases/CF4.pyx":1050
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.13 EV     F=0.05853
  *         object.QIN[31][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11162,7 +11162,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[31])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1051
+    /* "gases/CF4.pyx":1051
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.13 EV     F=0.05853
  *         object.QIN[31][i] = 0.0
  *         object.PEQIN[31][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11171,7 +11171,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[31])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1052
+    /* "gases/CF4.pyx":1052
  *         object.QIN[31][i] = 0.0
  *         object.PEQIN[31][i] = 0.0
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -11181,7 +11181,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[31])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1053
+      /* "gases/CF4.pyx":1053
  *         object.PEQIN[31][i] = 0.0
  *         if EN > object.EIN[31]:
  *             object.QIN[31][i] = <float>(0.05853) / (object.EIN[31] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11190,7 +11190,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[31])[__pyx_v_i]) = ((((((((float)0.05853) / ((__pyx_v_object->EIN[31]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[31])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[31])) + (__pyx_v_object->E[2]))) * ((float)1.0077));
 
-      /* "CF4.pyx":1058
+      /* "gases/CF4.pyx":1058
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[31] + object.E[2]) * <float>(1.0077)
  *             if object.QIN[31][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11200,7 +11200,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[31])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1059
+        /* "gases/CF4.pyx":1059
  *                                         EN + object.EIN[31] + object.E[2]) * <float>(1.0077)
  *             if object.QIN[31][i] < 0.0:
  *                 object.QIN[31][i] = 0             # <<<<<<<<<<<<<<
@@ -11209,7 +11209,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[31])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1058
+        /* "gases/CF4.pyx":1058
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[31] + object.E[2]) * <float>(1.0077)
  *             if object.QIN[31][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11218,7 +11218,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1060
+      /* "gases/CF4.pyx":1060
  *             if object.QIN[31][i] < 0.0:
  *                 object.QIN[31][i] = 0
  *             if EN > 3 * object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -11228,7 +11228,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[31]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1061
+        /* "gases/CF4.pyx":1061
  *                 object.QIN[31][i] = 0
  *             if EN > 3 * object.EIN[31]:
  *                 object.PEQIN[31][i] = object.PEQEL[1][i - IOFFN[31]]             # <<<<<<<<<<<<<<
@@ -11237,7 +11237,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[31])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[31]))]);
 
-        /* "CF4.pyx":1060
+        /* "gases/CF4.pyx":1060
  *             if object.QIN[31][i] < 0.0:
  *                 object.QIN[31][i] = 0
  *             if EN > 3 * object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -11246,7 +11246,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1052
+      /* "gases/CF4.pyx":1052
  *         object.QIN[31][i] = 0.0
  *         object.PEQIN[31][i] = 0.0
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -11255,7 +11255,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1064
+    /* "gases/CF4.pyx":1064
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.38 EV     F=0.06002
  *         object.QIN[32][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11264,7 +11264,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[32])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1065
+    /* "gases/CF4.pyx":1065
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.38 EV     F=0.06002
  *         object.QIN[32][i] = 0.0
  *         object.PEQIN[32][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11273,7 +11273,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[32])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1066
+    /* "gases/CF4.pyx":1066
  *         object.QIN[32][i] = 0.0
  *         object.PEQIN[32][i] = 0.0
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -11283,7 +11283,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[32])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1067
+      /* "gases/CF4.pyx":1067
  *         object.PEQIN[32][i] = 0.0
  *         if EN > object.EIN[32]:
  *             object.QIN[32][i] = <float>(0.06002) / (object.EIN[32] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11292,7 +11292,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[32])[__pyx_v_i]) = ((((((((float)0.06002) / ((__pyx_v_object->EIN[32]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[32])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[32])) + (__pyx_v_object->E[2]))) * ((float)1.0076));
 
-      /* "CF4.pyx":1066
+      /* "gases/CF4.pyx":1066
  *         object.QIN[32][i] = 0.0
  *         object.PEQIN[32][i] = 0.0
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -11301,7 +11301,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1072
+    /* "gases/CF4.pyx":1072
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[32] + object.E[2]) * <float>(1.0076)
  *         if object.QIN[32][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11311,7 +11311,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((((__pyx_v_object->QIN[32])[__pyx_v_i]) < 0.0) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1073
+      /* "gases/CF4.pyx":1073
  *                                         EN + object.EIN[32] + object.E[2]) * <float>(1.0076)
  *         if object.QIN[32][i] < 0.0:
  *             object.QIN[32][i] = 0             # <<<<<<<<<<<<<<
@@ -11320,7 +11320,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[32])[__pyx_v_i]) = 0.0;
 
-      /* "CF4.pyx":1072
+      /* "gases/CF4.pyx":1072
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[32] + object.E[2]) * <float>(1.0076)
  *         if object.QIN[32][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11329,7 +11329,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1074
+    /* "gases/CF4.pyx":1074
  *         if object.QIN[32][i] < 0.0:
  *             object.QIN[32][i] = 0
  *         if EN > 3 * object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -11339,7 +11339,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[32]))) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1075
+      /* "gases/CF4.pyx":1075
  *             object.QIN[32][i] = 0
  *         if EN > 3 * object.EIN[32]:
  *             object.PEQIN[32][i] = object.PEQEL[1][i - IOFFN[32]]             # <<<<<<<<<<<<<<
@@ -11348,7 +11348,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[32])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[32]))]);
 
-      /* "CF4.pyx":1074
+      /* "gases/CF4.pyx":1074
  *         if object.QIN[32][i] < 0.0:
  *             object.QIN[32][i] = 0
  *         if EN > 3 * object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -11357,7 +11357,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1078
+    /* "gases/CF4.pyx":1078
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.63 EV     F=0.05647
  *         object.QIN[33][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11366,7 +11366,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[33])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1079
+    /* "gases/CF4.pyx":1079
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.63 EV     F=0.05647
  *         object.QIN[33][i] = 0.0
  *         object.PEQIN[33][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11375,7 +11375,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[33])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1080
+    /* "gases/CF4.pyx":1080
  *         object.QIN[33][i] = 0.0
  *         object.PEQIN[33][i] = 0.0
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -11385,7 +11385,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[33])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1081
+      /* "gases/CF4.pyx":1081
  *         object.PEQIN[33][i] = 0.0
  *         if EN > object.EIN[33]:
  *             object.QIN[33][i] = <float>(0.05647) / (object.EIN[33] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11394,7 +11394,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[33])[__pyx_v_i]) = ((((((((float)0.05647) / ((__pyx_v_object->EIN[33]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[33])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[33])) + (__pyx_v_object->E[2]))) * ((float)1.0075));
 
-      /* "CF4.pyx":1086
+      /* "gases/CF4.pyx":1086
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[33] + object.E[2]) * <float>(1.0075)
  *             if object.QIN[33][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11404,7 +11404,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[33])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1087
+        /* "gases/CF4.pyx":1087
  *                                         EN + object.EIN[33] + object.E[2]) * <float>(1.0075)
  *             if object.QIN[33][i] < 0.0:
  *                 object.QIN[33][i] = 0             # <<<<<<<<<<<<<<
@@ -11413,7 +11413,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[33])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1086
+        /* "gases/CF4.pyx":1086
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[33] + object.E[2]) * <float>(1.0075)
  *             if object.QIN[33][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11422,7 +11422,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1088
+      /* "gases/CF4.pyx":1088
  *             if object.QIN[33][i] < 0.0:
  *                 object.QIN[33][i] = 0
  *             if EN > 3 * object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -11432,7 +11432,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[33]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1089
+        /* "gases/CF4.pyx":1089
  *                 object.QIN[33][i] = 0
  *             if EN > 3 * object.EIN[33]:
  *                 object.PEQIN[33][i] = object.PEQEL[1][i - IOFFN[33]]             # <<<<<<<<<<<<<<
@@ -11441,7 +11441,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[33])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[33]))]);
 
-        /* "CF4.pyx":1088
+        /* "gases/CF4.pyx":1088
  *             if object.QIN[33][i] < 0.0:
  *                 object.QIN[33][i] = 0
  *             if EN > 3 * object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -11450,7 +11450,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1080
+      /* "gases/CF4.pyx":1080
  *         object.QIN[33][i] = 0.0
  *         object.PEQIN[33][i] = 0.0
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -11459,7 +11459,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1092
+    /* "gases/CF4.pyx":1092
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.88 EV     F=0.04885
  *         object.QIN[34][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11468,7 +11468,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[34])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1093
+    /* "gases/CF4.pyx":1093
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=16.88 EV     F=0.04885
  *         object.QIN[34][i] = 0.0
  *         object.PEQIN[34][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11477,7 +11477,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[34])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1094
+    /* "gases/CF4.pyx":1094
  *         object.QIN[34][i] = 0.0
  *         object.PEQIN[34][i] = 0.0
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -11487,7 +11487,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[34])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1095
+      /* "gases/CF4.pyx":1095
  *         object.PEQIN[34][i] = 0.0
  *         if EN > object.EIN[34]:
  *             object.QIN[34][i] = <float>(0.04885) / (object.EIN[34] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11496,7 +11496,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[34])[__pyx_v_i]) = ((((((((float)0.04885) / ((__pyx_v_object->EIN[34]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[34])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[34])) + (__pyx_v_object->E[2]))) * ((float)1.0074));
 
-      /* "CF4.pyx":1100
+      /* "gases/CF4.pyx":1100
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[34] + object.E[2]) * <float>(1.0074)
  *             if object.QIN[34][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11506,7 +11506,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[34])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1101
+        /* "gases/CF4.pyx":1101
  *                                         EN + object.EIN[34] + object.E[2]) * <float>(1.0074)
  *             if object.QIN[34][i] < 0.0:
  *                 object.QIN[34][i] = 0             # <<<<<<<<<<<<<<
@@ -11515,7 +11515,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[34])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1100
+        /* "gases/CF4.pyx":1100
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[34] + object.E[2]) * <float>(1.0074)
  *             if object.QIN[34][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11524,7 +11524,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1102
+      /* "gases/CF4.pyx":1102
  *             if object.QIN[34][i] < 0.0:
  *                 object.QIN[34][i] = 0
  *             if EN > 3 * object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -11534,7 +11534,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[34]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1103
+        /* "gases/CF4.pyx":1103
  *                 object.QIN[34][i] = 0
  *             if EN > 3 * object.EIN[34]:
  *                 object.PEQIN[34][i] = object.PEQEL[1][i - IOFFN[34]]             # <<<<<<<<<<<<<<
@@ -11543,7 +11543,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[34])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[34]))]);
 
-        /* "CF4.pyx":1102
+        /* "gases/CF4.pyx":1102
  *             if object.QIN[34][i] < 0.0:
  *                 object.QIN[34][i] = 0
  *             if EN > 3 * object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -11552,7 +11552,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1094
+      /* "gases/CF4.pyx":1094
  *         object.QIN[34][i] = 0.0
  *         object.PEQIN[34][i] = 0.0
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -11561,7 +11561,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1106
+    /* "gases/CF4.pyx":1106
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.13 EV     F=0.04036
  *         object.QIN[35][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11570,7 +11570,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[35])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1107
+    /* "gases/CF4.pyx":1107
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.13 EV     F=0.04036
  *         object.QIN[35][i] = 0.0
  *         object.PEQIN[35][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11579,7 +11579,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[35])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1108
+    /* "gases/CF4.pyx":1108
  *         object.QIN[35][i] = 0.0
  *         object.PEQIN[35][i] = 0.0
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -11589,7 +11589,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[35])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1109
+      /* "gases/CF4.pyx":1109
  *         object.PEQIN[35][i] = 0.0
  *         if EN > object.EIN[35]:
  *             object.QIN[35][i] = <float>(0.04036) / (object.EIN[35] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11598,7 +11598,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[35])[__pyx_v_i]) = ((((((((float)0.04036) / ((__pyx_v_object->EIN[35]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[35])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[35])) + (__pyx_v_object->E[2]))) * ((float)1.0073));
 
-      /* "CF4.pyx":1114
+      /* "gases/CF4.pyx":1114
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[35] + object.E[2]) * <float>(1.0073)
  *             if object.QIN[35][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11608,7 +11608,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[35])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1115
+        /* "gases/CF4.pyx":1115
  *                                         EN + object.EIN[35] + object.E[2]) * <float>(1.0073)
  *             if object.QIN[35][i] < 0.0:
  *                 object.QIN[35][i] = 0             # <<<<<<<<<<<<<<
@@ -11617,7 +11617,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[35])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1114
+        /* "gases/CF4.pyx":1114
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[35] + object.E[2]) * <float>(1.0073)
  *             if object.QIN[35][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11626,7 +11626,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1116
+      /* "gases/CF4.pyx":1116
  *             if object.QIN[35][i] < 0.0:
  *                 object.QIN[35][i] = 0
  *             if EN > 3 * object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -11636,7 +11636,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[35]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1117
+        /* "gases/CF4.pyx":1117
  *                 object.QIN[35][i] = 0
  *             if EN > 3 * object.EIN[35]:
  *                 object.PEQIN[35][i] = object.PEQEL[1][i - IOFFN[35]]             # <<<<<<<<<<<<<<
@@ -11645,7 +11645,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[35])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[35]))]);
 
-        /* "CF4.pyx":1116
+        /* "gases/CF4.pyx":1116
  *             if object.QIN[35][i] < 0.0:
  *                 object.QIN[35][i] = 0
  *             if EN > 3 * object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -11654,7 +11654,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1108
+      /* "gases/CF4.pyx":1108
  *         object.QIN[35][i] = 0.0
  *         object.PEQIN[35][i] = 0.0
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -11663,7 +11663,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1120
+    /* "gases/CF4.pyx":1120
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.38 EV     F=0.03298
  *         object.QIN[36][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11672,7 +11672,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[36])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1121
+    /* "gases/CF4.pyx":1121
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.38 EV     F=0.03298
  *         object.QIN[36][i] = 0.0
  *         object.PEQIN[36][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11681,7 +11681,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[36])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1122
+    /* "gases/CF4.pyx":1122
  *         object.QIN[36][i] = 0.0
  *         object.PEQIN[36][i] = 0.0
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -11691,7 +11691,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[36])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1123
+      /* "gases/CF4.pyx":1123
  *         object.PEQIN[36][i] = 0.0
  *         if EN > object.EIN[36]:
  *             object.QIN[36][i] = <float>(0.03298) / (object.EIN[36] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11700,7 +11700,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[36])[__pyx_v_i]) = ((((((((float)0.03298) / ((__pyx_v_object->EIN[36]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[36])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[36])) + (__pyx_v_object->E[2]))) * ((float)1.0072));
 
-      /* "CF4.pyx":1128
+      /* "gases/CF4.pyx":1128
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[36] + object.E[2]) * <float>(1.0072)
  *             if object.QIN[36][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11710,7 +11710,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[36])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1129
+        /* "gases/CF4.pyx":1129
  *                                         EN + object.EIN[36] + object.E[2]) * <float>(1.0072)
  *             if object.QIN[36][i] < 0.0:
  *                 object.QIN[36][i] = 0             # <<<<<<<<<<<<<<
@@ -11719,7 +11719,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[36])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1128
+        /* "gases/CF4.pyx":1128
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[36] + object.E[2]) * <float>(1.0072)
  *             if object.QIN[36][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11728,7 +11728,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1130
+      /* "gases/CF4.pyx":1130
  *             if object.QIN[36][i] < 0.0:
  *                 object.QIN[36][i] = 0
  *             if EN > 3 * object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -11738,7 +11738,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[36]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1131
+        /* "gases/CF4.pyx":1131
  *                 object.QIN[36][i] = 0
  *             if EN > 3 * object.EIN[36]:
  *                 object.PEQIN[36][i] = object.PEQEL[1][i - IOFFN[36]]             # <<<<<<<<<<<<<<
@@ -11747,7 +11747,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[36])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[36]))]);
 
-        /* "CF4.pyx":1130
+        /* "gases/CF4.pyx":1130
  *             if object.QIN[36][i] < 0.0:
  *                 object.QIN[36][i] = 0
  *             if EN > 3 * object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -11756,7 +11756,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1122
+      /* "gases/CF4.pyx":1122
  *         object.QIN[36][i] = 0.0
  *         object.PEQIN[36][i] = 0.0
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -11765,7 +11765,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1134
+    /* "gases/CF4.pyx":1134
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.63 EV     F=0.02593
  *         object.QIN[37][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11774,7 +11774,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[37])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1135
+    /* "gases/CF4.pyx":1135
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.63 EV     F=0.02593
  *         object.QIN[37][i] = 0.0
  *         object.PEQIN[37][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11783,7 +11783,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[37])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1136
+    /* "gases/CF4.pyx":1136
  *         object.QIN[37][i] = 0.0
  *         object.PEQIN[37][i] = 0.0
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -11793,7 +11793,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[37])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1137
+      /* "gases/CF4.pyx":1137
  *         object.PEQIN[37][i] = 0.0
  *         if EN > object.EIN[37]:
  *             object.QIN[37][i] = <float>(0.02593) / (object.EIN[37] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11802,7 +11802,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[37])[__pyx_v_i]) = ((((((((float)0.02593) / ((__pyx_v_object->EIN[37]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[37])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[37])) + (__pyx_v_object->E[2]))) * ((float)1.0071));
 
-      /* "CF4.pyx":1142
+      /* "gases/CF4.pyx":1142
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[37] + object.E[2]) * <float>(1.0071)
  *             if object.QIN[37][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11812,7 +11812,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[37])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1143
+        /* "gases/CF4.pyx":1143
  *                                         EN + object.EIN[37] + object.E[2]) * <float>(1.0071)
  *             if object.QIN[37][i] < 0.0:
  *                 object.QIN[37][i] = 0             # <<<<<<<<<<<<<<
@@ -11821,7 +11821,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[37])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1142
+        /* "gases/CF4.pyx":1142
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[37] + object.E[2]) * <float>(1.0071)
  *             if object.QIN[37][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11830,7 +11830,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1144
+      /* "gases/CF4.pyx":1144
  *             if object.QIN[37][i] < 0.0:
  *                 object.QIN[37][i] = 0
  *             if EN > 3 * object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -11840,7 +11840,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[37]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1145
+        /* "gases/CF4.pyx":1145
  *                 object.QIN[37][i] = 0
  *             if EN > 3 * object.EIN[37]:
  *                 object.PEQIN[37][i] = object.PEQEL[1][i - IOFFN[37]]             # <<<<<<<<<<<<<<
@@ -11849,7 +11849,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[37])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[37]))]);
 
-        /* "CF4.pyx":1144
+        /* "gases/CF4.pyx":1144
  *             if object.QIN[37][i] < 0.0:
  *                 object.QIN[37][i] = 0
  *             if EN > 3 * object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -11858,7 +11858,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1136
+      /* "gases/CF4.pyx":1136
  *         object.QIN[37][i] = 0.0
  *         object.PEQIN[37][i] = 0.0
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -11867,7 +11867,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1148
+    /* "gases/CF4.pyx":1148
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.88 EV     F=0.01802
  *         object.QIN[38][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11876,7 +11876,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[38])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1149
+    /* "gases/CF4.pyx":1149
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=17.88 EV     F=0.01802
  *         object.QIN[38][i] = 0.0
  *         object.PEQIN[38][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11885,7 +11885,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[38])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1150
+    /* "gases/CF4.pyx":1150
  *         object.QIN[38][i] = 0.0
  *         object.PEQIN[38][i] = 0.0
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -11895,7 +11895,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[38])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1151
+      /* "gases/CF4.pyx":1151
  *         object.PEQIN[38][i] = 0.0
  *         if EN > object.EIN[38]:
  *             object.QIN[38][i] = <float>(0.01802) / (object.EIN[38] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -11904,7 +11904,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[38])[__pyx_v_i]) = ((((((((float)0.01802) / ((__pyx_v_object->EIN[38]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[38])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[38])) + (__pyx_v_object->E[2]))) * ((float)1.0070));
 
-      /* "CF4.pyx":1156
+      /* "gases/CF4.pyx":1156
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[38] + object.E[2]) * <float>(1.0070)
  *             if object.QIN[38][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11914,7 +11914,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[38])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1157
+        /* "gases/CF4.pyx":1157
  *                                         EN + object.EIN[38] + object.E[2]) * <float>(1.0070)
  *             if object.QIN[38][i] < 0.0:
  *                 object.QIN[38][i] = 0             # <<<<<<<<<<<<<<
@@ -11923,7 +11923,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[38])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1156
+        /* "gases/CF4.pyx":1156
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[38] + object.E[2]) * <float>(1.0070)
  *             if object.QIN[38][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -11932,7 +11932,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1158
+      /* "gases/CF4.pyx":1158
  *             if object.QIN[38][i] < 0.0:
  *                 object.QIN[38][i] = 0
  *             if EN > 3 * object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -11942,7 +11942,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[38]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1159
+        /* "gases/CF4.pyx":1159
  *                 object.QIN[38][i] = 0
  *             if EN > 3 * object.EIN[38]:
  *                 object.PEQIN[38][i] = object.PEQEL[1][i - IOFFN[38]]             # <<<<<<<<<<<<<<
@@ -11951,7 +11951,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[38])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[38]))]);
 
-        /* "CF4.pyx":1158
+        /* "gases/CF4.pyx":1158
  *             if object.QIN[38][i] < 0.0:
  *                 object.QIN[38][i] = 0
  *             if EN > 3 * object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -11960,7 +11960,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1150
+      /* "gases/CF4.pyx":1150
  *         object.QIN[38][i] = 0.0
  *         object.PEQIN[38][i] = 0.0
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -11969,7 +11969,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1162
+    /* "gases/CF4.pyx":1162
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.13 EV     F=0.01287
  *         object.QIN[39][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11978,7 +11978,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[39])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1163
+    /* "gases/CF4.pyx":1163
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.13 EV     F=0.01287
  *         object.QIN[39][i] = 0.0
  *         object.PEQIN[39][i] = 0.0             # <<<<<<<<<<<<<<
@@ -11987,7 +11987,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[39])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1164
+    /* "gases/CF4.pyx":1164
  *         object.QIN[39][i] = 0.0
  *         object.PEQIN[39][i] = 0.0
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -11997,7 +11997,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[39])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1165
+      /* "gases/CF4.pyx":1165
  *         object.PEQIN[39][i] = 0.0
  *         if EN > object.EIN[39]:
  *             object.QIN[39][i] = <float>(0.01287) / (object.EIN[39] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -12006,7 +12006,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[39])[__pyx_v_i]) = ((((((((float)0.01287) / ((__pyx_v_object->EIN[39]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[39])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[39])) + (__pyx_v_object->E[2]))) * ((float)1.0069));
 
-      /* "CF4.pyx":1170
+      /* "gases/CF4.pyx":1170
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[39] + object.E[2]) * <float>(1.0069)
  *             if object.QIN[39][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12016,7 +12016,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[39])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1171
+        /* "gases/CF4.pyx":1171
  *                                         EN + object.EIN[39] + object.E[2]) * <float>(1.0069)
  *             if object.QIN[39][i] < 0.0:
  *                 object.QIN[39][i] = 0             # <<<<<<<<<<<<<<
@@ -12025,7 +12025,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[39])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1170
+        /* "gases/CF4.pyx":1170
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[39] + object.E[2]) * <float>(1.0069)
  *             if object.QIN[39][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12034,7 +12034,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1172
+      /* "gases/CF4.pyx":1172
  *             if object.QIN[39][i] < 0.0:
  *                 object.QIN[39][i] = 0
  *             if EN > 3 * object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -12044,7 +12044,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[39]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1173
+        /* "gases/CF4.pyx":1173
  *                 object.QIN[39][i] = 0
  *             if EN > 3 * object.EIN[39]:
  *                 object.PEQIN[39][i] = object.PEQEL[1][i - IOFFN[39]]             # <<<<<<<<<<<<<<
@@ -12053,7 +12053,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[39])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[39]))]);
 
-        /* "CF4.pyx":1172
+        /* "gases/CF4.pyx":1172
  *             if object.QIN[39][i] < 0.0:
  *                 object.QIN[39][i] = 0
  *             if EN > 3 * object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -12062,7 +12062,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1164
+      /* "gases/CF4.pyx":1164
  *         object.QIN[39][i] = 0.0
  *         object.PEQIN[39][i] = 0.0
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -12071,7 +12071,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1176
+    /* "gases/CF4.pyx":1176
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.38 EV     F=0.00830
  *         object.QIN[40][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12080,7 +12080,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[40])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1177
+    /* "gases/CF4.pyx":1177
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.38 EV     F=0.00830
  *         object.QIN[40][i] = 0.0
  *         object.PEQIN[40][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12089,7 +12089,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[40])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1178
+    /* "gases/CF4.pyx":1178
  *         object.QIN[40][i] = 0.0
  *         object.PEQIN[40][i] = 0.0
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -12099,7 +12099,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[40])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1179
+      /* "gases/CF4.pyx":1179
  *         object.PEQIN[40][i] = 0.0
  *         if EN > object.EIN[40]:
  *             object.QIN[40][i] = <float>(0.00830) / (object.EIN[40] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -12108,7 +12108,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[40])[__pyx_v_i]) = ((((((((float)0.00830) / ((__pyx_v_object->EIN[40]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[40])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[40])) + (__pyx_v_object->E[2]))) * ((float)1.0068));
 
-      /* "CF4.pyx":1184
+      /* "gases/CF4.pyx":1184
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[40] + object.E[2]) * <float>(1.0068)
  *             if object.QIN[40][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12118,7 +12118,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[40])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1185
+        /* "gases/CF4.pyx":1185
  *                                         EN + object.EIN[40] + object.E[2]) * <float>(1.0068)
  *             if object.QIN[40][i] < 0.0:
  *                 object.QIN[40][i] = 0             # <<<<<<<<<<<<<<
@@ -12127,7 +12127,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[40])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1184
+        /* "gases/CF4.pyx":1184
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[40] + object.E[2]) * <float>(1.0068)
  *             if object.QIN[40][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12136,7 +12136,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1186
+      /* "gases/CF4.pyx":1186
  *             if object.QIN[40][i] < 0.0:
  *                 object.QIN[40][i] = 0
  *             if EN > 3 * object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -12146,7 +12146,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[40]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1187
+        /* "gases/CF4.pyx":1187
  *                 object.QIN[40][i] = 0
  *             if EN > 3 * object.EIN[40]:
  *                 object.PEQIN[40][i] = object.PEQEL[1][i - IOFFN[40]]             # <<<<<<<<<<<<<<
@@ -12155,7 +12155,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[40])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[40]))]);
 
-        /* "CF4.pyx":1186
+        /* "gases/CF4.pyx":1186
  *             if object.QIN[40][i] < 0.0:
  *                 object.QIN[40][i] = 0
  *             if EN > 3 * object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -12164,7 +12164,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1178
+      /* "gases/CF4.pyx":1178
  *         object.QIN[40][i] = 0.0
  *         object.PEQIN[40][i] = 0.0
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -12173,7 +12173,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1190
+    /* "gases/CF4.pyx":1190
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.63 EV     F=0.00698
  *         object.QIN[41][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12182,7 +12182,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[41])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1191
+    /* "gases/CF4.pyx":1191
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.63 EV     F=0.00698
  *         object.QIN[41][i] = 0.0
  *         object.PEQIN[41][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12191,7 +12191,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[41])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1192
+    /* "gases/CF4.pyx":1192
  *         object.QIN[41][i] = 0.0
  *         object.PEQIN[41][i] = 0.0
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -12201,7 +12201,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[41])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1193
+      /* "gases/CF4.pyx":1193
  *         object.PEQIN[41][i] = 0.0
  *         if EN > object.EIN[41]:
  *             object.QIN[41][i] = <float>(0.00698) / (object.EIN[41] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -12210,7 +12210,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[41])[__pyx_v_i]) = ((((((((float)0.00698) / ((__pyx_v_object->EIN[41]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[41])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[41])) + (__pyx_v_object->E[2]))) * ((float)1.0067));
 
-      /* "CF4.pyx":1198
+      /* "gases/CF4.pyx":1198
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[41] + object.E[2]) * <float>(1.0067)
  *             if object.QIN[41][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12220,7 +12220,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[41])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1199
+        /* "gases/CF4.pyx":1199
  *                                         EN + object.EIN[41] + object.E[2]) * <float>(1.0067)
  *             if object.QIN[41][i] < 0.0:
  *                 object.QIN[41][i] = 0             # <<<<<<<<<<<<<<
@@ -12229,7 +12229,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[41])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1198
+        /* "gases/CF4.pyx":1198
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[41] + object.E[2]) * <float>(1.0067)
  *             if object.QIN[41][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12238,7 +12238,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1200
+      /* "gases/CF4.pyx":1200
  *             if object.QIN[41][i] < 0.0:
  *                 object.QIN[41][i] = 0
  *             if EN > 3 * object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -12248,7 +12248,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[41]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1201
+        /* "gases/CF4.pyx":1201
  *                 object.QIN[41][i] = 0
  *             if EN > 3 * object.EIN[41]:
  *                 object.PEQIN[41][i] = object.PEQEL[1][i - IOFFN[41]]             # <<<<<<<<<<<<<<
@@ -12257,7 +12257,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[41])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[41]))]);
 
-        /* "CF4.pyx":1200
+        /* "gases/CF4.pyx":1200
  *             if object.QIN[41][i] < 0.0:
  *                 object.QIN[41][i] = 0
  *             if EN > 3 * object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -12266,7 +12266,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1192
+      /* "gases/CF4.pyx":1192
  *         object.QIN[41][i] = 0.0
  *         object.PEQIN[41][i] = 0.0
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -12275,7 +12275,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1204
+    /* "gases/CF4.pyx":1204
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.88 EV     F=0.00581
  *         object.QIN[42][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12284,7 +12284,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[42])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1205
+    /* "gases/CF4.pyx":1205
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=18.88 EV     F=0.00581
  *         object.QIN[42][i] = 0.0
  *         object.PEQIN[42][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12293,7 +12293,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[42])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1206
+    /* "gases/CF4.pyx":1206
  *         object.QIN[42][i] = 0.0
  *         object.PEQIN[42][i] = 0.0
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -12303,7 +12303,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[42])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1207
+      /* "gases/CF4.pyx":1207
  *         object.PEQIN[42][i] = 0.0
  *         if EN > object.EIN[42]:
  *             object.QIN[42][i] = <float>(0.00581) / (object.EIN[42] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -12312,7 +12312,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[42])[__pyx_v_i]) = ((((((((float)0.00581) / ((__pyx_v_object->EIN[42]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[42])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[42])) + (__pyx_v_object->E[2]))) * ((float)1.0066));
 
-      /* "CF4.pyx":1212
+      /* "gases/CF4.pyx":1212
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[42] + object.E[2]) * <float>(1.0066)
  *             if object.QIN[42][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12322,7 +12322,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[42])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1213
+        /* "gases/CF4.pyx":1213
  *                                         EN + object.EIN[42] + object.E[2]) * <float>(1.0066)
  *             if object.QIN[42][i] < 0.0:
  *                 object.QIN[42][i] = 0             # <<<<<<<<<<<<<<
@@ -12331,7 +12331,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[42])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1212
+        /* "gases/CF4.pyx":1212
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[42] + object.E[2]) * <float>(1.0066)
  *             if object.QIN[42][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12340,7 +12340,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1214
+      /* "gases/CF4.pyx":1214
  *             if object.QIN[42][i] < 0.0:
  *                 object.QIN[42][i] = 0
  *             if EN > 3 * object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -12350,7 +12350,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[42]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1215
+        /* "gases/CF4.pyx":1215
  *                 object.QIN[42][i] = 0
  *             if EN > 3 * object.EIN[42]:
  *                 object.PEQIN[42][i] = object.PEQEL[1][i - IOFFN[42]]             # <<<<<<<<<<<<<<
@@ -12359,7 +12359,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[42])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[42]))]);
 
-        /* "CF4.pyx":1214
+        /* "gases/CF4.pyx":1214
  *             if object.QIN[42][i] < 0.0:
  *                 object.QIN[42][i] = 0
  *             if EN > 3 * object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -12368,7 +12368,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1206
+      /* "gases/CF4.pyx":1206
  *         object.QIN[42][i] = 0.0
  *         object.PEQIN[42][i] = 0.0
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -12377,7 +12377,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1218
+    /* "gases/CF4.pyx":1218
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.13 EV     F=0.00502
  *         object.QIN[43][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12386,7 +12386,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[43])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1219
+    /* "gases/CF4.pyx":1219
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.13 EV     F=0.00502
  *         object.QIN[43][i] = 0.0
  *         object.PEQIN[43][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12395,7 +12395,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[43])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1220
+    /* "gases/CF4.pyx":1220
  *         object.QIN[43][i] = 0.0
  *         object.PEQIN[43][i] = 0.0
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -12405,7 +12405,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[43])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1221
+      /* "gases/CF4.pyx":1221
  *         object.PEQIN[43][i] = 0.0
  *         if EN > object.EIN[43]:
  *             object.QIN[43][i] = <float>(0.00502) / (object.EIN[43] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -12414,7 +12414,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[43])[__pyx_v_i]) = ((((((((float)0.00502) / ((__pyx_v_object->EIN[43]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[43])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[43])) + (__pyx_v_object->E[2]))) * ((float)1.0065));
 
-      /* "CF4.pyx":1226
+      /* "gases/CF4.pyx":1226
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[43] + object.E[2]) * <float>(1.0065)
  *             if object.QIN[43][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12424,7 +12424,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[43])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1227
+        /* "gases/CF4.pyx":1227
  *                                         EN + object.EIN[43] + object.E[2]) * <float>(1.0065)
  *             if object.QIN[43][i] < 0.0:
  *                 object.QIN[43][i] = 0             # <<<<<<<<<<<<<<
@@ -12433,7 +12433,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[43])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1226
+        /* "gases/CF4.pyx":1226
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[43] + object.E[2]) * <float>(1.0065)
  *             if object.QIN[43][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12442,7 +12442,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1228
+      /* "gases/CF4.pyx":1228
  *             if object.QIN[43][i] < 0.0:
  *                 object.QIN[43][i] = 0
  *             if EN > 3 * object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -12452,7 +12452,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[43]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1229
+        /* "gases/CF4.pyx":1229
  *                 object.QIN[43][i] = 0
  *             if EN > 3 * object.EIN[43]:
  *                 object.PEQIN[43][i] = object.PEQEL[1][i - IOFFN[43]]             # <<<<<<<<<<<<<<
@@ -12461,7 +12461,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[43])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[43]))]);
 
-        /* "CF4.pyx":1228
+        /* "gases/CF4.pyx":1228
  *             if object.QIN[43][i] < 0.0:
  *                 object.QIN[43][i] = 0
  *             if EN > 3 * object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -12470,7 +12470,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1220
+      /* "gases/CF4.pyx":1220
  *         object.QIN[43][i] = 0.0
  *         object.PEQIN[43][i] = 0.0
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -12479,7 +12479,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1232
+    /* "gases/CF4.pyx":1232
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.38 EV     F=0.00398
  *         object.QIN[44][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12488,7 +12488,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[44])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1233
+    /* "gases/CF4.pyx":1233
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.38 EV     F=0.00398
  *         object.QIN[44][i] = 0.0
  *         object.PEQIN[44][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12497,7 +12497,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[44])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1234
+    /* "gases/CF4.pyx":1234
  *         object.QIN[44][i] = 0.0
  *         object.PEQIN[44][i] = 0.0
  *         if EN > object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -12507,7 +12507,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[44])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1235
+      /* "gases/CF4.pyx":1235
  *         object.PEQIN[44][i] = 0.0
  *         if EN > object.EIN[44]:
  *             object.QIN[44][i] = <float>(0.00398) / (object.EIN[44] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -12516,7 +12516,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[44])[__pyx_v_i]) = ((((((((float)0.00398) / ((__pyx_v_object->EIN[44]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[44])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[44])) + (__pyx_v_object->E[2]))) * ((float)1.0064));
 
-      /* "CF4.pyx":1240
+      /* "gases/CF4.pyx":1240
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[44] + object.E[2]) * <float>(1.0064)
  *             if object.QIN[44][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12526,7 +12526,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[44])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1241
+        /* "gases/CF4.pyx":1241
  *                                         EN + object.EIN[44] + object.E[2]) * <float>(1.0064)
  *             if object.QIN[44][i] < 0.0:
  *                 object.QIN[44][i] = 0             # <<<<<<<<<<<<<<
@@ -12535,7 +12535,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[44])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1240
+        /* "gases/CF4.pyx":1240
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[44] + object.E[2]) * <float>(1.0064)
  *             if object.QIN[44][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12544,7 +12544,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1242
+      /* "gases/CF4.pyx":1242
  *             if object.QIN[44][i] < 0.0:
  *                 object.QIN[44][i] = 0
  *             if EN > 3 * object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -12554,7 +12554,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[44]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1243
+        /* "gases/CF4.pyx":1243
  *                 object.QIN[44][i] = 0
  *             if EN > 3 * object.EIN[44]:
  *                 object.PEQIN[44][i] = object.PEQEL[1][i - IOFFN[44]]             # <<<<<<<<<<<<<<
@@ -12563,7 +12563,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[44])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[44]))]);
 
-        /* "CF4.pyx":1242
+        /* "gases/CF4.pyx":1242
  *             if object.QIN[44][i] < 0.0:
  *                 object.QIN[44][i] = 0
  *             if EN > 3 * object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -12572,7 +12572,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1234
+      /* "gases/CF4.pyx":1234
  *         object.QIN[44][i] = 0.0
  *         object.PEQIN[44][i] = 0.0
  *         if EN > object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -12581,7 +12581,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1246
+    /* "gases/CF4.pyx":1246
  * 
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.63 EV     F=0.00189
  *         object.QIN[45][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12590,7 +12590,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[45])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1247
+    /* "gases/CF4.pyx":1247
  *         # SINGLET NEUTRAL DISSOCIATION   ELOSS=19.63 EV     F=0.00189
  *         object.QIN[45][i] = 0.0
  *         object.PEQIN[45][i] = 0.0             # <<<<<<<<<<<<<<
@@ -12599,7 +12599,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQIN[45])[__pyx_v_i]) = 0.0;
 
-    /* "CF4.pyx":1248
+    /* "gases/CF4.pyx":1248
  *         object.QIN[45][i] = 0.0
  *         object.PEQIN[45][i] = 0.0
  *         if EN > object.EIN[45]:             # <<<<<<<<<<<<<<
@@ -12609,7 +12609,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_EN > (__pyx_v_object->EIN[45])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1250
+      /* "gases/CF4.pyx":1250
  *         if EN > object.EIN[45]:
  *             # magboltz code is 0.00198 while the pattern should go to 0.00189
  *             object.QIN[45][i] = <float>(0.00198) / (object.EIN[45] * BETA2) * (log(BETA2 * GAMMA2 * EMASS2 / (4.0 *             # <<<<<<<<<<<<<<
@@ -12618,7 +12618,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[45])[__pyx_v_i]) = ((((((((float)0.00198) / ((__pyx_v_object->EIN[45]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[45])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_i]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[45])) + (__pyx_v_object->E[2]))) * ((float)1.0064));
 
-      /* "CF4.pyx":1255
+      /* "gases/CF4.pyx":1255
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[45] + object.E[2]) * <float>(1.0064)
  *             if object.QIN[45][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12628,7 +12628,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((((__pyx_v_object->QIN[45])[__pyx_v_i]) < 0.0) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1256
+        /* "gases/CF4.pyx":1256
  *                                         EN + object.EIN[45] + object.E[2]) * <float>(1.0064)
  *             if object.QIN[45][i] < 0.0:
  *                 object.QIN[45][i] = 0             # <<<<<<<<<<<<<<
@@ -12637,7 +12637,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[45])[__pyx_v_i]) = 0.0;
 
-        /* "CF4.pyx":1255
+        /* "gases/CF4.pyx":1255
  *                                                                    i] / 2.0) * BBCONST * EN / (
  *                                         EN + object.EIN[45] + object.E[2]) * <float>(1.0064)
  *             if object.QIN[45][i] < 0.0:             # <<<<<<<<<<<<<<
@@ -12646,7 +12646,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1257
+      /* "gases/CF4.pyx":1257
  *             if object.QIN[45][i] < 0.0:
  *                 object.QIN[45][i] = 0
  *             if EN > 3 * object.EIN[45]:             # <<<<<<<<<<<<<<
@@ -12656,7 +12656,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_22 = ((__pyx_v_EN > (3.0 * (__pyx_v_object->EIN[45]))) != 0);
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1258
+        /* "gases/CF4.pyx":1258
  *                 object.QIN[45][i] = 0
  *             if EN > 3 * object.EIN[45]:
  *                 object.PEQIN[45][i] = object.PEQEL[1][i - IOFFN[45]]             # <<<<<<<<<<<<<<
@@ -12665,7 +12665,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[45])[__pyx_v_i]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_i - (__pyx_v_IOFFN[45]))]);
 
-        /* "CF4.pyx":1257
+        /* "gases/CF4.pyx":1257
  *             if object.QIN[45][i] < 0.0:
  *                 object.QIN[45][i] = 0
  *             if EN > 3 * object.EIN[45]:             # <<<<<<<<<<<<<<
@@ -12674,7 +12674,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "CF4.pyx":1248
+      /* "gases/CF4.pyx":1248
  *         object.QIN[45][i] = 0.0
  *         object.PEQIN[45][i] = 0.0
  *         if EN > object.EIN[45]:             # <<<<<<<<<<<<<<
@@ -12683,7 +12683,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "CF4.pyx":1260
+    /* "gases/CF4.pyx":1260
  *                 object.PEQIN[45][i] = object.PEQEL[1][i - IOFFN[45]]
  * 
  *         QIONSUM = 0.0             # <<<<<<<<<<<<<<
@@ -12692,7 +12692,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QIONSUM = 0.0;
 
-    /* "CF4.pyx":1261
+    /* "gases/CF4.pyx":1261
  * 
  *         QIONSUM = 0.0
  *         for J in range(0, 12):             # <<<<<<<<<<<<<<
@@ -12702,7 +12702,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_19 = 0; __pyx_t_19 < 12; __pyx_t_19+=1) {
       __pyx_v_J = __pyx_t_19;
 
-      /* "CF4.pyx":1262
+      /* "gases/CF4.pyx":1262
  *         QIONSUM = 0.0
  *         for J in range(0, 12):
  *             QIONSUM = QIONSUM + object.QION[J][i]             # <<<<<<<<<<<<<<
@@ -12712,7 +12712,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QIONSUM = (__pyx_v_QIONSUM + ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_i]));
     }
 
-    /* "CF4.pyx":1263
+    /* "gases/CF4.pyx":1263
  *         for J in range(0, 12):
  *             QIONSUM = QIONSUM + object.QION[J][i]
  *         QSNGLSUM = 0.0             # <<<<<<<<<<<<<<
@@ -12721,7 +12721,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QSNGLSUM = 0.0;
 
-    /* "CF4.pyx":1264
+    /* "gases/CF4.pyx":1264
  *             QIONSUM = QIONSUM + object.QION[J][i]
  *         QSNGLSUM = 0.0
  *         for J in range(10, 46):             # <<<<<<<<<<<<<<
@@ -12731,7 +12731,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_19 = 10; __pyx_t_19 < 46; __pyx_t_19+=1) {
       __pyx_v_J = __pyx_t_19;
 
-      /* "CF4.pyx":1265
+      /* "gases/CF4.pyx":1265
  *         QSNGLSUM = 0.0
  *         for J in range(10, 46):
  *             if J != 10 and J != 15 and J != 22:             # <<<<<<<<<<<<<<
@@ -12750,7 +12750,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       if (__pyx_t_22) {
 
-        /* "CF4.pyx":1266
+        /* "gases/CF4.pyx":1266
  *         for J in range(10, 46):
  *             if J != 10 and J != 15 and J != 22:
  *                 QSNGLSUM = QSNGLSUM + object.QIN[J][i]             # <<<<<<<<<<<<<<
@@ -12759,7 +12759,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QSNGLSUM = (__pyx_v_QSNGLSUM + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_i]));
 
-        /* "CF4.pyx":1265
+        /* "gases/CF4.pyx":1265
  *         QSNGLSUM = 0.0
  *         for J in range(10, 46):
  *             if J != 10 and J != 15 and J != 22:             # <<<<<<<<<<<<<<
@@ -12769,7 +12769,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "CF4.pyx":1268
+    /* "gases/CF4.pyx":1268
  *                 QSNGLSUM = QSNGLSUM + object.QIN[J][i]
  * 
  *         QTRIPSUM = object.QIN[10][i] + object.QIN[15][i] + object.QIN[22][i]             # <<<<<<<<<<<<<<
@@ -12778,7 +12778,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTRIPSUM = ((((__pyx_v_object->QIN[10])[__pyx_v_i]) + ((__pyx_v_object->QIN[15])[__pyx_v_i])) + ((__pyx_v_object->QIN[22])[__pyx_v_i]));
 
-    /* "CF4.pyx":1270
+    /* "gases/CF4.pyx":1270
  *         QTRIPSUM = object.QIN[10][i] + object.QIN[15][i] + object.QIN[22][i]
  * 
  *         VSUM = 0.0             # <<<<<<<<<<<<<<
@@ -12787,7 +12787,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_VSUM = 0.0;
 
-    /* "CF4.pyx":1271
+    /* "gases/CF4.pyx":1271
  * 
  *         VSUM = 0.0
  *         for J in range(0, 10):             # <<<<<<<<<<<<<<
@@ -12797,7 +12797,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_19 = 0; __pyx_t_19 < 10; __pyx_t_19+=1) {
       __pyx_v_J = __pyx_t_19;
 
-      /* "CF4.pyx":1272
+      /* "gases/CF4.pyx":1272
  *         VSUM = 0.0
  *         for J in range(0, 10):
  *             VSUM = VSUM + object.QIN[J][i]             # <<<<<<<<<<<<<<
@@ -12807,7 +12807,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_VSUM = (__pyx_v_VSUM + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_i]));
     }
 
-    /* "CF4.pyx":1274
+    /* "gases/CF4.pyx":1274
  *             VSUM = VSUM + object.QIN[J][i]
  * 
  *         QIONG = QIONSUM             # <<<<<<<<<<<<<<
@@ -12816,7 +12816,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QIONG = __pyx_v_QIONSUM;
 
-    /* "CF4.pyx":1275
+    /* "gases/CF4.pyx":1275
  * 
  *         QIONG = QIONSUM
  *         for J in range(5, 12):             # <<<<<<<<<<<<<<
@@ -12826,7 +12826,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_19 = 5; __pyx_t_19 < 12; __pyx_t_19+=1) {
       __pyx_v_J = __pyx_t_19;
 
-      /* "CF4.pyx":1276
+      /* "gases/CF4.pyx":1276
  *         QIONG = QIONSUM
  *         for J in range(5, 12):
  *             QIONG = QIONG + object.QION[J][i]             # <<<<<<<<<<<<<<
@@ -12836,7 +12836,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QIONG = (__pyx_v_QIONG + ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_i]));
     }
 
-    /* "CF4.pyx":1278
+    /* "gases/CF4.pyx":1278
  *             QIONG = QIONG + object.QION[J][i]
  * 
  *         DISTOT = QSNGLSUM + QTRIPSUM + QIONSUM             # <<<<<<<<<<<<<<
@@ -12845,7 +12845,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_DISTOT = ((__pyx_v_QSNGLSUM + __pyx_v_QTRIPSUM) + __pyx_v_QIONSUM);
 
-    /* "CF4.pyx":1279
+    /* "gases/CF4.pyx":1279
  * 
  *         DISTOT = QSNGLSUM + QTRIPSUM + QIONSUM
  *         object.Q[0][i] = object.Q[1][i] + object.Q[3][i] + VSUM + DISTOT             # <<<<<<<<<<<<<<
@@ -12855,7 +12855,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->Q[0])[__pyx_v_i]) = (((((__pyx_v_object->Q[1])[__pyx_v_i]) + ((__pyx_v_object->Q[3])[__pyx_v_i])) + __pyx_v_VSUM) + __pyx_v_DISTOT);
   }
 
-  /* "CF4.pyx":1281
+  /* "gases/CF4.pyx":1281
  *         object.Q[0][i] = object.Q[1][i] + object.Q[3][i] + VSUM + DISTOT
  * 
  *     for J in range(10, 46):             # <<<<<<<<<<<<<<
@@ -12865,7 +12865,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 10; __pyx_t_16 < 46; __pyx_t_16+=1) {
     __pyx_v_J = __pyx_t_16;
 
-    /* "CF4.pyx":1282
+    /* "gases/CF4.pyx":1282
  * 
  *     for J in range(10, 46):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12875,7 +12875,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_22 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_22) {
 
-      /* "CF4.pyx":1283
+      /* "gases/CF4.pyx":1283
  *     for J in range(10, 46):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -12883,14 +12883,14 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "CF4.pyx":1284
+      /* "gases/CF4.pyx":1284
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
  */
       goto __pyx_L306_break;
 
-      /* "CF4.pyx":1282
+      /* "gases/CF4.pyx":1282
  * 
  *     for J in range(10, 46):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12901,7 +12901,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L306_break:;
 
-  /* "CF4.pyx":16
+  /* "gases/CF4.pyx":16
  * @cython.fast_getattr(True)
  * 
  * cdef void Gas1(Gas* object):             # <<<<<<<<<<<<<<
@@ -12916,7 +12916,7 @@ static void __pyx_f_3CF4_Gas1(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("CF4.Gas1", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.CF4.Gas1", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -15936,7 +15936,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas1", (void (*)(void))__pyx_f_3CF4_Gas1, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas1", (void (*)(void))__pyx_f_5gases_3CF4_Gas1, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -16176,14 +16176,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_CF4) {
+  if (__pyx_module_is_main_gases__CF4) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "CF4")) {
-      if (unlikely(PyDict_SetItemString(modules, "CF4", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.CF4")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.CF4", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -16204,7 +16204,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "CF4.pyx":3
+  /* "gases/CF4.pyx":3
  * from libc.math cimport sin, cos, acos,asin, log,sqrt,exp,pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -16216,7 +16216,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "CF4.pyx":5
+  /* "gases/CF4.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -16228,7 +16228,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "CF4.pyx":9
+  /* "gases/CF4.pyx":9
  * from cython.parallel import prange
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -16243,7 +16243,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "CF4.pyx":1
+  /* "gases/CF4.pyx":1
  * from libc.math cimport sin, cos, acos,asin, log,sqrt,exp,pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -16269,11 +16269,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init CF4", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.CF4", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init CF4");
+    PyErr_SetString(PyExc_ImportError, "init gases.CF4");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

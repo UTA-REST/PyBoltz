@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "ISOBUTANE",
+        "name": "gases.ISOBUTANE",
         "sources": [
-            "ISOBUTANE.pyx"
+            "gases/ISOBUTANE.pyx"
         ]
     },
-    "module_name": "ISOBUTANE"
+    "module_name": "gases.ISOBUTANE"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__ISOBUTANE
-#define __PYX_HAVE_API__ISOBUTANE
+#define __PYX_HAVE__gases__ISOBUTANE
+#define __PYX_HAVE_API__gases__ISOBUTANE
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "ISOBUTANE.pyx",
+  "gases/ISOBUTANE.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1686,13 +1686,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'ISOBUTANE' */
+/* Module declarations from 'gases.ISOBUTANE' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "ISOBUTANE"
-extern int __pyx_module_is_main_ISOBUTANE;
-int __pyx_module_is_main_ISOBUTANE = 0;
+#define __Pyx_MODULE_NAME "gases.ISOBUTANE"
+extern int __pyx_module_is_main_gases__ISOBUTANE;
+int __pyx_module_is_main_gases__ISOBUTANE = 0;
 
-/* Implementation of 'ISOBUTANE' */
+/* Implementation of 'gases.ISOBUTANE' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1830,7 +1830,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "ISOBUTANE.pyx":17
+/* "gases/ISOBUTANE.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas11(Gas*object):             # <<<<<<<<<<<<<<
@@ -1838,7 +1838,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Isobutane gas.
  */
 
-static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEN[0x9D];
   double __pyx_v_YELM[0x9D];
@@ -1970,7 +1970,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   int __pyx_t_34;
   __Pyx_RefNannySetupContext("Gas11", 0);
 
-  /* "ISOBUTANE.pyx":21
+  /* "gases/ISOBUTANE.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Isobutane gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2018,7 +2018,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "ISOBUTANE.pyx":26
+  /* "gases/ISOBUTANE.pyx":26
  *     cdef double XEXC1[16], YEXC1[16], XEXC2[16], YEXC2[16], Z6T[25], Z1T[25], EBRM[25]
  *     cdef int IOFFN[24], IOFFION[10]
  *     XEN = gd['gas11/XEN']             # <<<<<<<<<<<<<<
@@ -2035,7 +2035,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (0x9D));
 
-  /* "ISOBUTANE.pyx":27
+  /* "gases/ISOBUTANE.pyx":27
  *     cdef int IOFFN[24], IOFFION[10]
  *     XEN = gd['gas11/XEN']
  *     YELM = gd['gas11/YELM']             # <<<<<<<<<<<<<<
@@ -2052,7 +2052,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YELM[0]), __pyx_t_5, sizeof(__pyx_v_YELM[0]) * (0x9D));
 
-  /* "ISOBUTANE.pyx":28
+  /* "gases/ISOBUTANE.pyx":28
  *     XEN = gd['gas11/XEN']
  *     YELM = gd['gas11/YELM']
  *     YELT = gd['gas11/YELT']             # <<<<<<<<<<<<<<
@@ -2069,7 +2069,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YELT[0]), __pyx_t_5, sizeof(__pyx_v_YELT[0]) * (0x9D));
 
-  /* "ISOBUTANE.pyx":29
+  /* "gases/ISOBUTANE.pyx":29
  *     YELM = gd['gas11/YELM']
  *     YELT = gd['gas11/YELT']
  *     YEPS = gd['gas11/YEPS']             # <<<<<<<<<<<<<<
@@ -2086,7 +2086,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_5, sizeof(__pyx_v_YEPS[0]) * (0x9D));
 
-  /* "ISOBUTANE.pyx":30
+  /* "gases/ISOBUTANE.pyx":30
  *     YELT = gd['gas11/YELT']
  *     YEPS = gd['gas11/YEPS']
  *     XION = gd['gas11/XION']             # <<<<<<<<<<<<<<
@@ -2099,7 +2099,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_6, sizeof(__pyx_v_XION[0]) * (42));
 
-  /* "ISOBUTANE.pyx":31
+  /* "gases/ISOBUTANE.pyx":31
  *     YEPS = gd['gas11/YEPS']
  *     XION = gd['gas11/XION']
  *     YION = gd['gas11/YION']             # <<<<<<<<<<<<<<
@@ -2112,7 +2112,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_6, sizeof(__pyx_v_YION[0]) * (42));
 
-  /* "ISOBUTANE.pyx":32
+  /* "gases/ISOBUTANE.pyx":32
  *     XION = gd['gas11/XION']
  *     YION = gd['gas11/YION']
  *     YINC = gd['gas11/YINC']             # <<<<<<<<<<<<<<
@@ -2125,7 +2125,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YINC[0]), __pyx_t_6, sizeof(__pyx_v_YINC[0]) * (42));
 
-  /* "ISOBUTANE.pyx":33
+  /* "gases/ISOBUTANE.pyx":33
  *     YION = gd['gas11/YION']
  *     YINC = gd['gas11/YINC']
  *     XATT = gd['gas11/XATT']             # <<<<<<<<<<<<<<
@@ -2138,7 +2138,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT[0]), __pyx_t_7, sizeof(__pyx_v_XATT[0]) * (10));
 
-  /* "ISOBUTANE.pyx":34
+  /* "gases/ISOBUTANE.pyx":34
  *     YINC = gd['gas11/YINC']
  *     XATT = gd['gas11/XATT']
  *     YATT = gd['gas11/YATT']             # <<<<<<<<<<<<<<
@@ -2151,7 +2151,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT[0]), __pyx_t_7, sizeof(__pyx_v_YATT[0]) * (10));
 
-  /* "ISOBUTANE.pyx":35
+  /* "gases/ISOBUTANE.pyx":35
  *     XATT = gd['gas11/XATT']
  *     YATT = gd['gas11/YATT']
  *     XKSH = gd['gas11/XKSH']             # <<<<<<<<<<<<<<
@@ -2164,7 +2164,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSH[0]), __pyx_t_8, sizeof(__pyx_v_XKSH[0]) * (83));
 
-  /* "ISOBUTANE.pyx":36
+  /* "gases/ISOBUTANE.pyx":36
  *     YATT = gd['gas11/YATT']
  *     XKSH = gd['gas11/XKSH']
  *     YKSH = gd['gas11/YKSH']             # <<<<<<<<<<<<<<
@@ -2177,7 +2177,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSH[0]), __pyx_t_8, sizeof(__pyx_v_YKSH[0]) * (83));
 
-  /* "ISOBUTANE.pyx":37
+  /* "gases/ISOBUTANE.pyx":37
  *     XKSH = gd['gas11/XKSH']
  *     YKSH = gd['gas11/YKSH']
  *     XVIB1 = gd['gas11/XVIB1']             # <<<<<<<<<<<<<<
@@ -2190,7 +2190,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB1[0]), __pyx_t_9, sizeof(__pyx_v_XVIB1[0]) * (30));
 
-  /* "ISOBUTANE.pyx":38
+  /* "gases/ISOBUTANE.pyx":38
  *     YKSH = gd['gas11/YKSH']
  *     XVIB1 = gd['gas11/XVIB1']
  *     YVIB1 = gd['gas11/YVIB1']             # <<<<<<<<<<<<<<
@@ -2203,7 +2203,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB1[0]), __pyx_t_9, sizeof(__pyx_v_YVIB1[0]) * (30));
 
-  /* "ISOBUTANE.pyx":39
+  /* "gases/ISOBUTANE.pyx":39
  *     XVIB1 = gd['gas11/XVIB1']
  *     YVIB1 = gd['gas11/YVIB1']
  *     XVIB2 = gd['gas11/XVIB2']             # <<<<<<<<<<<<<<
@@ -2216,7 +2216,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB2[0]), __pyx_t_10, sizeof(__pyx_v_XVIB2[0]) * (24));
 
-  /* "ISOBUTANE.pyx":40
+  /* "gases/ISOBUTANE.pyx":40
  *     YVIB1 = gd['gas11/YVIB1']
  *     XVIB2 = gd['gas11/XVIB2']
  *     YVIB2 = gd['gas11/YVIB2']             # <<<<<<<<<<<<<<
@@ -2229,7 +2229,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB2[0]), __pyx_t_10, sizeof(__pyx_v_YVIB2[0]) * (24));
 
-  /* "ISOBUTANE.pyx":41
+  /* "gases/ISOBUTANE.pyx":41
  *     XVIB2 = gd['gas11/XVIB2']
  *     YVIB2 = gd['gas11/YVIB2']
  *     XVIB3 = gd['gas11/XVIB3']             # <<<<<<<<<<<<<<
@@ -2242,7 +2242,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB3[0]), __pyx_t_10, sizeof(__pyx_v_XVIB3[0]) * (24));
 
-  /* "ISOBUTANE.pyx":42
+  /* "gases/ISOBUTANE.pyx":42
  *     YVIB2 = gd['gas11/YVIB2']
  *     XVIB3 = gd['gas11/XVIB3']
  *     YVIB3 = gd['gas11/YVIB3']             # <<<<<<<<<<<<<<
@@ -2255,7 +2255,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB3[0]), __pyx_t_10, sizeof(__pyx_v_YVIB3[0]) * (24));
 
-  /* "ISOBUTANE.pyx":43
+  /* "gases/ISOBUTANE.pyx":43
  *     XVIB3 = gd['gas11/XVIB3']
  *     YVIB3 = gd['gas11/YVIB3']
  *     XVIB4 = gd['gas11/XVIB4']             # <<<<<<<<<<<<<<
@@ -2268,7 +2268,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB4[0]), __pyx_t_11, sizeof(__pyx_v_XVIB4[0]) * (29));
 
-  /* "ISOBUTANE.pyx":44
+  /* "gases/ISOBUTANE.pyx":44
  *     YVIB3 = gd['gas11/YVIB3']
  *     XVIB4 = gd['gas11/XVIB4']
  *     YVIB4 = gd['gas11/YVIB4']             # <<<<<<<<<<<<<<
@@ -2281,7 +2281,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB4[0]), __pyx_t_11, sizeof(__pyx_v_YVIB4[0]) * (29));
 
-  /* "ISOBUTANE.pyx":45
+  /* "gases/ISOBUTANE.pyx":45
  *     XVIB4 = gd['gas11/XVIB4']
  *     YVIB4 = gd['gas11/YVIB4']
  *     XVIB5 = gd['gas11/XVIB5']             # <<<<<<<<<<<<<<
@@ -2294,7 +2294,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB5[0]), __pyx_t_12, sizeof(__pyx_v_XVIB5[0]) * (15));
 
-  /* "ISOBUTANE.pyx":46
+  /* "gases/ISOBUTANE.pyx":46
  *     YVIB4 = gd['gas11/YVIB4']
  *     XVIB5 = gd['gas11/XVIB5']
  *     YVIB5 = gd['gas11/YVIB5']             # <<<<<<<<<<<<<<
@@ -2307,7 +2307,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB5[0]), __pyx_t_12, sizeof(__pyx_v_YVIB5[0]) * (15));
 
-  /* "ISOBUTANE.pyx":47
+  /* "gases/ISOBUTANE.pyx":47
  *     XVIB5 = gd['gas11/XVIB5']
  *     YVIB5 = gd['gas11/YVIB5']
  *     XEXC1 = gd['gas11/XEXC1']             # <<<<<<<<<<<<<<
@@ -2320,7 +2320,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC1[0]), __pyx_t_13, sizeof(__pyx_v_XEXC1[0]) * (16));
 
-  /* "ISOBUTANE.pyx":48
+  /* "gases/ISOBUTANE.pyx":48
  *     YVIB5 = gd['gas11/YVIB5']
  *     XEXC1 = gd['gas11/XEXC1']
  *     YEXC1 = gd['gas11/YEXC1']             # <<<<<<<<<<<<<<
@@ -2333,7 +2333,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC1[0]), __pyx_t_13, sizeof(__pyx_v_YEXC1[0]) * (16));
 
-  /* "ISOBUTANE.pyx":49
+  /* "gases/ISOBUTANE.pyx":49
  *     XEXC1 = gd['gas11/XEXC1']
  *     YEXC1 = gd['gas11/YEXC1']
  *     XEXC2 = gd['gas11/XEXC2']             # <<<<<<<<<<<<<<
@@ -2346,7 +2346,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC2[0]), __pyx_t_13, sizeof(__pyx_v_XEXC2[0]) * (16));
 
-  /* "ISOBUTANE.pyx":50
+  /* "gases/ISOBUTANE.pyx":50
  *     YEXC1 = gd['gas11/YEXC1']
  *     XEXC2 = gd['gas11/XEXC2']
  *     YEXC2 = gd['gas11/YEXC2']             # <<<<<<<<<<<<<<
@@ -2359,7 +2359,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC2[0]), __pyx_t_13, sizeof(__pyx_v_YEXC2[0]) * (16));
 
-  /* "ISOBUTANE.pyx":51
+  /* "gases/ISOBUTANE.pyx":51
  *     XEXC2 = gd['gas11/XEXC2']
  *     YEXC2 = gd['gas11/YEXC2']
  *     Z6T = gd['gas11/Z6T']             # <<<<<<<<<<<<<<
@@ -2372,7 +2372,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z6T[0]), __pyx_t_14, sizeof(__pyx_v_Z6T[0]) * (25));
 
-  /* "ISOBUTANE.pyx":52
+  /* "gases/ISOBUTANE.pyx":52
  *     YEXC2 = gd['gas11/YEXC2']
  *     Z6T = gd['gas11/Z6T']
  *     Z1T = gd['gas11/Z1T']             # <<<<<<<<<<<<<<
@@ -2385,7 +2385,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z1T[0]), __pyx_t_14, sizeof(__pyx_v_Z1T[0]) * (25));
 
-  /* "ISOBUTANE.pyx":53
+  /* "gases/ISOBUTANE.pyx":53
  *     Z6T = gd['gas11/Z6T']
  *     Z1T = gd['gas11/Z1T']
  *     EBRM = gd['gas11/EBRM']             # <<<<<<<<<<<<<<
@@ -2398,7 +2398,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_14, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "ISOBUTANE.pyx":58
+  /* "gases/ISOBUTANE.pyx":58
  * 
  *     # BORN-BETHE CONSTANTS
  *     A0 = 0.52917720859e-08             # <<<<<<<<<<<<<<
@@ -2407,7 +2407,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-08;
 
-  /* "ISOBUTANE.pyx":59
+  /* "gases/ISOBUTANE.pyx":59
  *     # BORN-BETHE CONSTANTS
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193             # <<<<<<<<<<<<<<
@@ -2416,7 +2416,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "ISOBUTANE.pyx":60
+  /* "gases/ISOBUTANE.pyx":60
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -2425,7 +2425,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "ISOBUTANE.pyx":61
+  /* "gases/ISOBUTANE.pyx":61
  *     RY = 13.60569193
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804             # <<<<<<<<<<<<<<
@@ -2434,7 +2434,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "ISOBUTANE.pyx":62
+  /* "gases/ISOBUTANE.pyx":62
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)             # <<<<<<<<<<<<<<
@@ -2443,7 +2443,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0e0);
 
-  /* "ISOBUTANE.pyx":63
+  /* "gases/ISOBUTANE.pyx":63
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -2452,7 +2452,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0e0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "ISOBUTANE.pyx":65
+  /* "gases/ISOBUTANE.pyx":65
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
  *     # BORN BETHE VALUES FOR IONISATION
  *     AM2 = 14.8             # <<<<<<<<<<<<<<
@@ -2461,7 +2461,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 14.8;
 
-  /* "ISOBUTANE.pyx":66
+  /* "gases/ISOBUTANE.pyx":66
  *     # BORN BETHE VALUES FOR IONISATION
  *     AM2 = 14.8
  *     C = 141.9             # <<<<<<<<<<<<<<
@@ -2470,7 +2470,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 141.9;
 
-  /* "ISOBUTANE.pyx":69
+  /* "gases/ISOBUTANE.pyx":69
  * 
  *     # AVERAGE AUGER EMISSIONS FROM K-SHELL
  *     AUGK = 2.0             # <<<<<<<<<<<<<<
@@ -2479,7 +2479,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGK = 2.0;
 
-  /* "ISOBUTANE.pyx":73
+  /* "gases/ISOBUTANE.pyx":73
  *     # SCALE SINGLET X-SECTIONS TO ALLOW FOR INCREASED ENERGY LOSS DUE TO 5%
  *     #   STEP IN ENERGY BETWEEN SINGLET LEVELS.
  *     ASING = 1.02             # <<<<<<<<<<<<<<
@@ -2488,7 +2488,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_ASING = 1.02;
 
-  /* "ISOBUTANE.pyx":75
+  /* "gases/ISOBUTANE.pyx":75
  *     ASING = 1.02
  * 
  *     object.NION = 3             # <<<<<<<<<<<<<<
@@ -2497,7 +2497,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 3;
 
-  /* "ISOBUTANE.pyx":76
+  /* "gases/ISOBUTANE.pyx":76
  * 
  *     object.NION = 3
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -2506,7 +2506,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "ISOBUTANE.pyx":77
+  /* "gases/ISOBUTANE.pyx":77
  *     object.NION = 3
  *     object.NATT = 1
  *     object.NIN = 24             # <<<<<<<<<<<<<<
@@ -2515,7 +2515,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 24;
 
-  /* "ISOBUTANE.pyx":78
+  /* "gases/ISOBUTANE.pyx":78
  *     object.NATT = 1
  *     object.NIN = 24
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -2524,7 +2524,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "ISOBUTANE.pyx":81
+  /* "gases/ISOBUTANE.pyx":81
  * 
  *     cdef int NBREM, i, j, I, J, NL, NDATA, NIOND, NATT1, NVIB1, NVIB2, NVIB3, NVIB4, NVIB5, NEXC1, NEXC2, NKSH
  *     NBREM = 25             # <<<<<<<<<<<<<<
@@ -2533,7 +2533,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "ISOBUTANE.pyx":84
+  /* "gases/ISOBUTANE.pyx":84
  * 
  *     # USE NANISO=2 ONLY (OKHRIMOVSKY)
  *     for i in range(6):             # <<<<<<<<<<<<<<
@@ -2543,7 +2543,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_15 = 0; __pyx_t_15 < 6; __pyx_t_15+=1) {
     __pyx_v_i = __pyx_t_15;
 
-    /* "ISOBUTANE.pyx":85
+    /* "gases/ISOBUTANE.pyx":85
  *     # USE NANISO=2 ONLY (OKHRIMOVSKY)
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -2554,7 +2554,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_i]) = __pyx_t_16;
   }
 
-  /* "ISOBUTANE.pyx":86
+  /* "gases/ISOBUTANE.pyx":86
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO
  *     for i in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -2566,7 +2566,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
     __pyx_v_i = __pyx_t_17;
 
-    /* "ISOBUTANE.pyx":87
+    /* "gases/ISOBUTANE.pyx":87
  *         object.KEL[i] = object.NANISO
  *     for i in range(object.NIN):
  *         object.KIN[i] = 2             # <<<<<<<<<<<<<<
@@ -2576,7 +2576,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = 2.0;
   }
 
-  /* "ISOBUTANE.pyx":89
+  /* "gases/ISOBUTANE.pyx":89
  *         object.KIN[i] = 2
  * 
  *     NDATA = 157             # <<<<<<<<<<<<<<
@@ -2585,7 +2585,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 0x9D;
 
-  /* "ISOBUTANE.pyx":90
+  /* "gases/ISOBUTANE.pyx":90
  * 
  *     NDATA = 157
  *     NIOND = 42             # <<<<<<<<<<<<<<
@@ -2594,7 +2594,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIOND = 42;
 
-  /* "ISOBUTANE.pyx":91
+  /* "gases/ISOBUTANE.pyx":91
  *     NDATA = 157
  *     NIOND = 42
  *     NATT1 = 10             # <<<<<<<<<<<<<<
@@ -2603,7 +2603,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 10;
 
-  /* "ISOBUTANE.pyx":92
+  /* "gases/ISOBUTANE.pyx":92
  *     NIOND = 42
  *     NATT1 = 10
  *     NVIB1 = 30             # <<<<<<<<<<<<<<
@@ -2612,7 +2612,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB1 = 30;
 
-  /* "ISOBUTANE.pyx":93
+  /* "gases/ISOBUTANE.pyx":93
  *     NATT1 = 10
  *     NVIB1 = 30
  *     NVIB2 = 24             # <<<<<<<<<<<<<<
@@ -2621,7 +2621,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB2 = 24;
 
-  /* "ISOBUTANE.pyx":94
+  /* "gases/ISOBUTANE.pyx":94
  *     NVIB1 = 30
  *     NVIB2 = 24
  *     NVIB3 = 24             # <<<<<<<<<<<<<<
@@ -2630,7 +2630,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB3 = 24;
 
-  /* "ISOBUTANE.pyx":95
+  /* "gases/ISOBUTANE.pyx":95
  *     NVIB2 = 24
  *     NVIB3 = 24
  *     NVIB4 = 29             # <<<<<<<<<<<<<<
@@ -2639,7 +2639,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB4 = 29;
 
-  /* "ISOBUTANE.pyx":96
+  /* "gases/ISOBUTANE.pyx":96
  *     NVIB3 = 24
  *     NVIB4 = 29
  *     NVIB5 = 15             # <<<<<<<<<<<<<<
@@ -2648,7 +2648,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB5 = 15;
 
-  /* "ISOBUTANE.pyx":97
+  /* "gases/ISOBUTANE.pyx":97
  *     NVIB4 = 29
  *     NVIB5 = 15
  *     NEXC1 = 16             # <<<<<<<<<<<<<<
@@ -2657,7 +2657,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC1 = 16;
 
-  /* "ISOBUTANE.pyx":98
+  /* "gases/ISOBUTANE.pyx":98
  *     NVIB5 = 15
  *     NEXC1 = 16
  *     NEXC2 = 16             # <<<<<<<<<<<<<<
@@ -2666,7 +2666,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC2 = 16;
 
-  /* "ISOBUTANE.pyx":99
+  /* "gases/ISOBUTANE.pyx":99
  *     NEXC1 = 16
  *     NEXC2 = 16
  *     NKSH = 83             # <<<<<<<<<<<<<<
@@ -2675,7 +2675,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSH = 83;
 
-  /* "ISOBUTANE.pyx":101
+  /* "gases/ISOBUTANE.pyx":101
  *     NKSH = 83
  * 
  *     cdef double EMASS = 9.10938291e-31,PENSUM             # <<<<<<<<<<<<<<
@@ -2684,7 +2684,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "ISOBUTANE.pyx":102
+  /* "gases/ISOBUTANE.pyx":102
  * 
  *     cdef double EMASS = 9.10938291e-31,PENSUM
  *     cdef double AMU = 1.660538921e-27, EOBY[3], SCLOBY, QCOUNT = 0.0, QIONC, QIONG             # <<<<<<<<<<<<<<
@@ -2694,7 +2694,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_AMU = 1.660538921e-27;
   __pyx_v_QCOUNT = 0.0;
 
-  /* "ISOBUTANE.pyx":107
+  /* "gases/ISOBUTANE.pyx":107
  * 
  * 
  *     object.E = [0.0, 1.0, 10.67, 0.0, 0.0, 7.0]             # <<<<<<<<<<<<<<
@@ -2709,7 +2709,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_18[5] = 7.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_18, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "ISOBUTANE.pyx":108
+  /* "gases/ISOBUTANE.pyx":108
  * 
  *     object.E = [0.0, 1.0, 10.67, 0.0, 0.0, 7.0]
  *     object.E[1] = 2.0 * EMASS / (58.1234 * AMU)             # <<<<<<<<<<<<<<
@@ -2718,7 +2718,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (58.1234 * __pyx_v_AMU));
 
-  /* "ISOBUTANE.pyx":110
+  /* "gases/ISOBUTANE.pyx":110
  *     object.E[1] = 2.0 * EMASS / (58.1234 * AMU)
  * 
  *     object.EION[0:3] = [10.67, 17.0, 285.0]             # <<<<<<<<<<<<<<
@@ -2730,7 +2730,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_19[2] = 285.0;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_19, sizeof(__pyx_v_object->EION[0]) * (3));
 
-  /* "ISOBUTANE.pyx":114
+  /* "gases/ISOBUTANE.pyx":114
  *     #OPAL BEATY IONISATION  AT LOW ENERGY 0
  *     #OPAL BEATY FOR DISSOCIATION AND K-SHELL 1,2
  *     EOBY[0:3] = [6.8, 6.8, 180.0]             # <<<<<<<<<<<<<<
@@ -2742,7 +2742,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_20[2] = 180.0;
   memcpy(&(__pyx_v_EOBY[0]), __pyx_t_20, sizeof(__pyx_v_EOBY[0]) * (3));
 
-  /* "ISOBUTANE.pyx":116
+  /* "gases/ISOBUTANE.pyx":116
  *     EOBY[0:3] = [6.8, 6.8, 180.0]
  * 
  *     object.NC0[0:3] = [0, 0, 2]             # <<<<<<<<<<<<<<
@@ -2754,7 +2754,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_21[2] = 2.0;
   memcpy(&(__pyx_v_object->NC0[0]), __pyx_t_21, sizeof(__pyx_v_object->NC0[0]) * (3));
 
-  /* "ISOBUTANE.pyx":117
+  /* "gases/ISOBUTANE.pyx":117
  * 
  *     object.NC0[0:3] = [0, 0, 2]
  *     object.EC0[0:3] = [0.0, 0.0, 253.0]             # <<<<<<<<<<<<<<
@@ -2766,7 +2766,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_22[2] = 253.0;
   memcpy(&(__pyx_v_object->EC0[0]), __pyx_t_22, sizeof(__pyx_v_object->EC0[0]) * (3));
 
-  /* "ISOBUTANE.pyx":118
+  /* "gases/ISOBUTANE.pyx":118
  *     object.NC0[0:3] = [0, 0, 2]
  *     object.EC0[0:3] = [0.0, 0.0, 253.0]
  *     object.WK[0:3] = [0.0, 0.0, 0.0026]             # <<<<<<<<<<<<<<
@@ -2778,7 +2778,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_23[2] = 0.0026;
   memcpy(&(__pyx_v_object->WK[0]), __pyx_t_23, sizeof(__pyx_v_object->WK[0]) * (3));
 
-  /* "ISOBUTANE.pyx":119
+  /* "gases/ISOBUTANE.pyx":119
  *     object.EC0[0:3] = [0.0, 0.0, 253.0]
  *     object.WK[0:3] = [0.0, 0.0, 0.0026]
  *     object.EFL[0:3] = [0.0, 0.0, 273.0]             # <<<<<<<<<<<<<<
@@ -2790,7 +2790,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_24[2] = 273.0;
   memcpy(&(__pyx_v_object->EFL[0]), __pyx_t_24, sizeof(__pyx_v_object->EFL[0]) * (3));
 
-  /* "ISOBUTANE.pyx":120
+  /* "gases/ISOBUTANE.pyx":120
  *     object.WK[0:3] = [0.0, 0.0, 0.0026]
  *     object.EFL[0:3] = [0.0, 0.0, 273.0]
  *     object.NG1[0:3] = [0, 0, 1]             # <<<<<<<<<<<<<<
@@ -2802,7 +2802,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_25[2] = 1.0;
   memcpy(&(__pyx_v_object->NG1[0]), __pyx_t_25, sizeof(__pyx_v_object->NG1[0]) * (3));
 
-  /* "ISOBUTANE.pyx":121
+  /* "gases/ISOBUTANE.pyx":121
  *     object.EFL[0:3] = [0.0, 0.0, 273.0]
  *     object.NG1[0:3] = [0, 0, 1]
  *     object.EG1[0:3] = [0.0, 0.0, 253.0]             # <<<<<<<<<<<<<<
@@ -2814,7 +2814,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_26[2] = 253.0;
   memcpy(&(__pyx_v_object->EG1[0]), __pyx_t_26, sizeof(__pyx_v_object->EG1[0]) * (3));
 
-  /* "ISOBUTANE.pyx":122
+  /* "gases/ISOBUTANE.pyx":122
  *     object.NG1[0:3] = [0, 0, 1]
  *     object.EG1[0:3] = [0.0, 0.0, 253.0]
  *     object.NG2[0:3] = [0, 0, 2]             # <<<<<<<<<<<<<<
@@ -2826,7 +2826,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_27[2] = 2.0;
   memcpy(&(__pyx_v_object->NG2[0]), __pyx_t_27, sizeof(__pyx_v_object->NG2[0]) * (3));
 
-  /* "ISOBUTANE.pyx":123
+  /* "gases/ISOBUTANE.pyx":123
  *     object.EG1[0:3] = [0.0, 0.0, 253.0]
  *     object.NG2[0:3] = [0, 0, 2]
  *     object.EG2[0:3] = [0.0, 0.0, 5.0]             # <<<<<<<<<<<<<<
@@ -2838,7 +2838,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_28[2] = 5.0;
   memcpy(&(__pyx_v_object->EG2[0]), __pyx_t_28, sizeof(__pyx_v_object->EG2[0]) * (3));
 
-  /* "ISOBUTANE.pyx":124
+  /* "gases/ISOBUTANE.pyx":124
  *     object.NG2[0:3] = [0, 0, 2]
  *     object.EG2[0:3] = [0.0, 0.0, 5.0]
  *     object.EIN = gd['gas11/EIN']             # <<<<<<<<<<<<<<
@@ -2855,7 +2855,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_29, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "ISOBUTANE.pyx":126
+  /* "gases/ISOBUTANE.pyx":126
  *     object.EIN = gd['gas11/EIN']
  * 
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -2867,7 +2867,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
     __pyx_v_j = __pyx_t_17;
 
-    /* "ISOBUTANE.pyx":127
+    /* "gases/ISOBUTANE.pyx":127
  * 
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -2877,7 +2877,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_30 = 0; __pyx_t_30 < 0xFA0; __pyx_t_30+=1) {
       __pyx_v_i = __pyx_t_30;
 
-      /* "ISOBUTANE.pyx":128
+      /* "gases/ISOBUTANE.pyx":128
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -2887,7 +2887,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":129
+        /* "gases/ISOBUTANE.pyx":129
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -2896,7 +2896,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "ISOBUTANE.pyx":130
+        /* "gases/ISOBUTANE.pyx":130
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -2905,7 +2905,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L10_break;
 
-        /* "ISOBUTANE.pyx":128
+        /* "gases/ISOBUTANE.pyx":128
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -2917,7 +2917,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L10_break:;
   }
 
-  /* "ISOBUTANE.pyx":133
+  /* "gases/ISOBUTANE.pyx":133
  * 
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -2929,7 +2929,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
     __pyx_v_NL = __pyx_t_17;
 
-    /* "ISOBUTANE.pyx":134
+    /* "gases/ISOBUTANE.pyx":134
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -2939,7 +2939,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_30 = 0; __pyx_t_30 < 0xFA0; __pyx_t_30+=1) {
       __pyx_v_i = __pyx_t_30;
 
-      /* "ISOBUTANE.pyx":135
+      /* "gases/ISOBUTANE.pyx":135
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -2949,7 +2949,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EIN[__pyx_v_NL])) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":136
+        /* "gases/ISOBUTANE.pyx":136
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i - 1             # <<<<<<<<<<<<<<
@@ -2958,7 +2958,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
 
-        /* "ISOBUTANE.pyx":137
+        /* "gases/ISOBUTANE.pyx":137
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -2967,7 +2967,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L15_break;
 
-        /* "ISOBUTANE.pyx":135
+        /* "gases/ISOBUTANE.pyx":135
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -2979,7 +2979,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L15_break:;
   }
 
-  /* "ISOBUTANE.pyx":139
+  /* "gases/ISOBUTANE.pyx":139
  *                 break
  * 
  *     for i in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -2991,7 +2991,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
     __pyx_v_i = __pyx_t_17;
 
-    /* "ISOBUTANE.pyx":140
+    /* "gases/ISOBUTANE.pyx":140
  * 
  *     for i in range(object.NIN):
  *         for j in range(3):             # <<<<<<<<<<<<<<
@@ -3001,7 +3001,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_30 = 0; __pyx_t_30 < 3; __pyx_t_30+=1) {
       __pyx_v_j = __pyx_t_30;
 
-      /* "ISOBUTANE.pyx":141
+      /* "gases/ISOBUTANE.pyx":141
  *     for i in range(object.NIN):
  *         for j in range(3):
  *             object.PENFRA[j][i]             # <<<<<<<<<<<<<<
@@ -3012,7 +3012,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "ISOBUTANE.pyx":143
+  /* "gases/ISOBUTANE.pyx":143
  *             object.PENFRA[j][i]
  * 
  *     for i in range(9,24):             # <<<<<<<<<<<<<<
@@ -3022,7 +3022,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_15 = 9; __pyx_t_15 < 24; __pyx_t_15+=1) {
     __pyx_v_i = __pyx_t_15;
 
-    /* "ISOBUTANE.pyx":144
+    /* "gases/ISOBUTANE.pyx":144
  * 
  *     for i in range(9,24):
  *         object.PENFRA[0][i]=0.0             # <<<<<<<<<<<<<<
@@ -3031,7 +3031,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_i]) = 0.0;
 
-    /* "ISOBUTANE.pyx":145
+    /* "gases/ISOBUTANE.pyx":145
  *     for i in range(9,24):
  *         object.PENFRA[0][i]=0.0
  *         object.PENFRA[1][i]=1.0             # <<<<<<<<<<<<<<
@@ -3040,7 +3040,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_i]) = 1.0;
 
-    /* "ISOBUTANE.pyx":146
+    /* "gases/ISOBUTANE.pyx":146
  *         object.PENFRA[0][i]=0.0
  *         object.PENFRA[1][i]=1.0
  *         object.PENFRA[2][i]=1.0             # <<<<<<<<<<<<<<
@@ -3050,7 +3050,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_i]) = 1.0;
   }
 
-  /* "ISOBUTANE.pyx":148
+  /* "gases/ISOBUTANE.pyx":148
  *         object.PENFRA[2][i]=1.0
  * 
  *     APOP1=exp(object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3059,7 +3059,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP1 = exp(((__pyx_v_object->EIN[0]) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":149
+  /* "gases/ISOBUTANE.pyx":149
  * 
  *     APOP1=exp(object.EIN[0]/object.AKT)
  *     APOP2=exp(2.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3068,7 +3068,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP2 = exp(((2.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":150
+  /* "gases/ISOBUTANE.pyx":150
  *     APOP1=exp(object.EIN[0]/object.AKT)
  *     APOP2=exp(2.0*object.EIN[0]/object.AKT)
  *     APOP3=exp(3.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3077,7 +3077,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP3 = exp(((3.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":151
+  /* "gases/ISOBUTANE.pyx":151
  *     APOP2=exp(2.0*object.EIN[0]/object.AKT)
  *     APOP3=exp(3.0*object.EIN[0]/object.AKT)
  *     APOP4=exp(4.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3086,7 +3086,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP4 = exp(((4.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":152
+  /* "gases/ISOBUTANE.pyx":152
  *     APOP3=exp(3.0*object.EIN[0]/object.AKT)
  *     APOP4=exp(4.0*object.EIN[0]/object.AKT)
  *     APOP5=exp(5.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3095,7 +3095,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP5 = exp(((5.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":153
+  /* "gases/ISOBUTANE.pyx":153
  *     APOP4=exp(4.0*object.EIN[0]/object.AKT)
  *     APOP5=exp(5.0*object.EIN[0]/object.AKT)
  *     APOP6=exp(6.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3104,7 +3104,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP6 = exp(((6.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":154
+  /* "gases/ISOBUTANE.pyx":154
  *     APOP5=exp(5.0*object.EIN[0]/object.AKT)
  *     APOP6=exp(6.0*object.EIN[0]/object.AKT)
  *     APOP7=exp(7.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3113,7 +3113,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP7 = exp(((7.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":155
+  /* "gases/ISOBUTANE.pyx":155
  *     APOP6=exp(6.0*object.EIN[0]/object.AKT)
  *     APOP7=exp(7.0*object.EIN[0]/object.AKT)
  *     APOP8=exp(8.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3122,7 +3122,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP8 = exp(((8.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":156
+  /* "gases/ISOBUTANE.pyx":156
  *     APOP7=exp(7.0*object.EIN[0]/object.AKT)
  *     APOP8=exp(8.0*object.EIN[0]/object.AKT)
  *     APOP9=exp(9.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3131,7 +3131,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP9 = exp(((9.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":157
+  /* "gases/ISOBUTANE.pyx":157
  *     APOP8=exp(8.0*object.EIN[0]/object.AKT)
  *     APOP9=exp(9.0*object.EIN[0]/object.AKT)
  *     APOP10=exp(10.0*object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3140,7 +3140,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP10 = exp(((10.0 * (__pyx_v_object->EIN[0])) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":158
+  /* "gases/ISOBUTANE.pyx":158
  *     APOP9=exp(9.0*object.EIN[0]/object.AKT)
  *     APOP10=exp(10.0*object.EIN[0]/object.AKT)
  *     APOPGST=1.0             # <<<<<<<<<<<<<<
@@ -3149,7 +3149,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGST = 1.0;
 
-  /* "ISOBUTANE.pyx":159
+  /* "gases/ISOBUTANE.pyx":159
  *     APOP10=exp(10.0*object.EIN[0]/object.AKT)
  *     APOPGST=1.0
  *     APOPSUM=APOPGST+APOP1+APOP2+APOP3+APOP4+APOP5+APOP6+APOP7+APOP8+APOP9+APOP10             # <<<<<<<<<<<<<<
@@ -3158,7 +3158,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPSUM = ((((((((((__pyx_v_APOPGST + __pyx_v_APOP1) + __pyx_v_APOP2) + __pyx_v_APOP3) + __pyx_v_APOP4) + __pyx_v_APOP5) + __pyx_v_APOP6) + __pyx_v_APOP7) + __pyx_v_APOP8) + __pyx_v_APOP9) + __pyx_v_APOP10);
 
-  /* "ISOBUTANE.pyx":160
+  /* "gases/ISOBUTANE.pyx":160
  *     APOPGST=1.0
  *     APOPSUM=APOPGST+APOP1+APOP2+APOP3+APOP4+APOP5+APOP6+APOP7+APOP8+APOP9+APOP10
  *     APOPGST=1.0/APOPSUM             # <<<<<<<<<<<<<<
@@ -3167,7 +3167,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGST = (1.0 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":161
+  /* "gases/ISOBUTANE.pyx":161
  *     APOPSUM=APOPGST+APOP1+APOP2+APOP3+APOP4+APOP5+APOP6+APOP7+APOP8+APOP9+APOP10
  *     APOPGST=1.0/APOPSUM
  *     APOP1=APOP1/APOPSUM             # <<<<<<<<<<<<<<
@@ -3176,7 +3176,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP1 = (__pyx_v_APOP1 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":162
+  /* "gases/ISOBUTANE.pyx":162
  *     APOPGST=1.0/APOPSUM
  *     APOP1=APOP1/APOPSUM
  *     APOP2=APOP2/APOPSUM             # <<<<<<<<<<<<<<
@@ -3185,7 +3185,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP2 = (__pyx_v_APOP2 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":163
+  /* "gases/ISOBUTANE.pyx":163
  *     APOP1=APOP1/APOPSUM
  *     APOP2=APOP2/APOPSUM
  *     APOP3=APOP3/APOPSUM             # <<<<<<<<<<<<<<
@@ -3194,7 +3194,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP3 = (__pyx_v_APOP3 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":164
+  /* "gases/ISOBUTANE.pyx":164
  *     APOP2=APOP2/APOPSUM
  *     APOP3=APOP3/APOPSUM
  *     APOP4=APOP4/APOPSUM             # <<<<<<<<<<<<<<
@@ -3203,7 +3203,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP4 = (__pyx_v_APOP4 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":165
+  /* "gases/ISOBUTANE.pyx":165
  *     APOP3=APOP3/APOPSUM
  *     APOP4=APOP4/APOPSUM
  *     APOP5=APOP5/APOPSUM             # <<<<<<<<<<<<<<
@@ -3212,7 +3212,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP5 = (__pyx_v_APOP5 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":166
+  /* "gases/ISOBUTANE.pyx":166
  *     APOP4=APOP4/APOPSUM
  *     APOP5=APOP5/APOPSUM
  *     APOP6=APOP6/APOPSUM             # <<<<<<<<<<<<<<
@@ -3221,7 +3221,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP6 = (__pyx_v_APOP6 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":167
+  /* "gases/ISOBUTANE.pyx":167
  *     APOP5=APOP5/APOPSUM
  *     APOP6=APOP6/APOPSUM
  *     APOP7=APOP7/APOPSUM             # <<<<<<<<<<<<<<
@@ -3230,7 +3230,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP7 = (__pyx_v_APOP7 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":168
+  /* "gases/ISOBUTANE.pyx":168
  *     APOP6=APOP6/APOPSUM
  *     APOP7=APOP7/APOPSUM
  *     APOP8=APOP8/APOPSUM             # <<<<<<<<<<<<<<
@@ -3239,7 +3239,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP8 = (__pyx_v_APOP8 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":169
+  /* "gases/ISOBUTANE.pyx":169
  *     APOP7=APOP7/APOPSUM
  *     APOP8=APOP8/APOPSUM
  *     APOP9=APOP9/APOPSUM             # <<<<<<<<<<<<<<
@@ -3248,7 +3248,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP9 = (__pyx_v_APOP9 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":170
+  /* "gases/ISOBUTANE.pyx":170
  *     APOP8=APOP8/APOPSUM
  *     APOP9=APOP9/APOPSUM
  *     APOP10=APOP10/APOPSUM             # <<<<<<<<<<<<<<
@@ -3257,7 +3257,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP10 = (__pyx_v_APOP10 / __pyx_v_APOPSUM);
 
-  /* "ISOBUTANE.pyx":172
+  /* "gases/ISOBUTANE.pyx":172
  *     APOP10=APOP10/APOPSUM
  *     #  USE 2 LEVEL APPROXIMATION FOR TORSION
  *     APOP1=APOP1+APOP2+APOP3+APOP4+APOP5+APOP6+APOP7+APOP8+APOP9+APOP10             # <<<<<<<<<<<<<<
@@ -3266,7 +3266,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP1 = (((((((((__pyx_v_APOP1 + __pyx_v_APOP2) + __pyx_v_APOP3) + __pyx_v_APOP4) + __pyx_v_APOP5) + __pyx_v_APOP6) + __pyx_v_APOP7) + __pyx_v_APOP8) + __pyx_v_APOP9) + __pyx_v_APOP10);
 
-  /* "ISOBUTANE.pyx":173
+  /* "gases/ISOBUTANE.pyx":173
  *     #  USE 2 LEVEL APPROXIMATION FOR TORSION
  *     APOP1=APOP1+APOP2+APOP3+APOP4+APOP5+APOP6+APOP7+APOP8+APOP9+APOP10
  *     APOPGST=1.0             # <<<<<<<<<<<<<<
@@ -3275,7 +3275,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGST = 1.0;
 
-  /* "ISOBUTANE.pyx":176
+  /* "gases/ISOBUTANE.pyx":176
  *     # CALCULATE POPULATION  OF VIBRATIONAL STATES
  *     # ASSUME ALL STATE DEGENERACIES ARE EQUAL
  *     APOPV2=exp(object.EIN[2]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3284,7 +3284,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV2 = exp(((__pyx_v_object->EIN[2]) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":177
+  /* "gases/ISOBUTANE.pyx":177
  *     # ASSUME ALL STATE DEGENERACIES ARE EQUAL
  *     APOPV2=exp(object.EIN[2]/object.AKT)
  *     APOPV3=exp(object.EIN[4]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3293,7 +3293,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV3 = exp(((__pyx_v_object->EIN[4]) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":178
+  /* "gases/ISOBUTANE.pyx":178
  *     APOPV2=exp(object.EIN[2]/object.AKT)
  *     APOPV3=exp(object.EIN[4]/object.AKT)
  *     APOPV4=exp(object.EIN[6]/object.AKT)             # <<<<<<<<<<<<<<
@@ -3302,7 +3302,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV4 = exp(((__pyx_v_object->EIN[6]) / __pyx_v_object->AKT));
 
-  /* "ISOBUTANE.pyx":179
+  /* "gases/ISOBUTANE.pyx":179
  *     APOPV3=exp(object.EIN[4]/object.AKT)
  *     APOPV4=exp(object.EIN[6]/object.AKT)
  *     APOPGS=1.0+APOPV2+APOPV3+APOPV4             # <<<<<<<<<<<<<<
@@ -3311,7 +3311,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = (((1.0 + __pyx_v_APOPV2) + __pyx_v_APOPV3) + __pyx_v_APOPV4);
 
-  /* "ISOBUTANE.pyx":180
+  /* "gases/ISOBUTANE.pyx":180
  *     APOPV4=exp(object.EIN[6]/object.AKT)
  *     APOPGS=1.0+APOPV2+APOPV3+APOPV4
  *     APOPV2=APOPV2/APOPGS             # <<<<<<<<<<<<<<
@@ -3320,7 +3320,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV2 = (__pyx_v_APOPV2 / __pyx_v_APOPGS);
 
-  /* "ISOBUTANE.pyx":181
+  /* "gases/ISOBUTANE.pyx":181
  *     APOPGS=1.0+APOPV2+APOPV3+APOPV4
  *     APOPV2=APOPV2/APOPGS
  *     APOPV3=APOPV3/APOPGS             # <<<<<<<<<<<<<<
@@ -3329,7 +3329,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV3 = (__pyx_v_APOPV3 / __pyx_v_APOPGS);
 
-  /* "ISOBUTANE.pyx":182
+  /* "gases/ISOBUTANE.pyx":182
  *     APOPV2=APOPV2/APOPGS
  *     APOPV3=APOPV3/APOPGS
  *     APOPV4=APOPV4/APOPGS             # <<<<<<<<<<<<<<
@@ -3338,7 +3338,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV4 = (__pyx_v_APOPV4 / __pyx_v_APOPGS);
 
-  /* "ISOBUTANE.pyx":183
+  /* "gases/ISOBUTANE.pyx":183
  *     APOPV3=APOPV3/APOPGS
  *     APOPV4=APOPV4/APOPGS
  *     APOPGS=1.0/APOPGS             # <<<<<<<<<<<<<<
@@ -3347,7 +3347,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = (1.0 / __pyx_v_APOPGS);
 
-  /* "ISOBUTANE.pyx":186
+  /* "gases/ISOBUTANE.pyx":186
  *     # RENORMALISE GROUND STATE POPULATION ( GIVES CORRECTION THAT
  *     # ALLOWS FOR VIBRATIONAL EXCITATION FROM EXCITED VIBRATIONAL STATES)
  *     APOPGS=1.0             # <<<<<<<<<<<<<<
@@ -3356,7 +3356,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = 1.0;
 
-  /* "ISOBUTANE.pyx":188
+  /* "gases/ISOBUTANE.pyx":188
  *     APOPGS=1.0
  * 
  *     cdef double EN, GAMMA1, GAMMA2, BETA, BETA2, QMT, QEL, PQ[3], X1, X2, QBB = 0.0, QSUM, EFAC,F[13],QSNG,QTOTEXC,QTRP             # <<<<<<<<<<<<<<
@@ -3365,7 +3365,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_QBB = 0.0;
 
-  /* "ISOBUTANE.pyx":190
+  /* "gases/ISOBUTANE.pyx":190
  *     cdef double EN, GAMMA1, GAMMA2, BETA, BETA2, QMT, QEL, PQ[3], X1, X2, QBB = 0.0, QSUM, EFAC,F[13],QSNG,QTOTEXC,QTRP
  * 
  *     F = [0.00131,0.0150,0.114,0.157,0.171,0.188,0.205,0.193,0.162,0.103,0.067,0.064,0.028]             # <<<<<<<<<<<<<<
@@ -3387,7 +3387,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_32[12] = 0.028;
   memcpy(&(__pyx_v_F[0]), __pyx_t_32, sizeof(__pyx_v_F[0]) * (13));
 
-  /* "ISOBUTANE.pyx":193
+  /* "gases/ISOBUTANE.pyx":193
  *     cdef int FI
  * 
  *     for I in range(object.NSTEP):             # <<<<<<<<<<<<<<
@@ -3399,7 +3399,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
     __pyx_v_I = __pyx_t_17;
 
-    /* "ISOBUTANE.pyx":194
+    /* "gases/ISOBUTANE.pyx":194
  * 
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -3408,7 +3408,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "ISOBUTANE.pyx":195
+    /* "gases/ISOBUTANE.pyx":195
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         ENLG = log(EN)             # <<<<<<<<<<<<<<
@@ -3417,7 +3417,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_ENLG = log(__pyx_v_EN);
 
-    /* "ISOBUTANE.pyx":196
+    /* "gases/ISOBUTANE.pyx":196
  *         EN = object.EG[I]
  *         ENLG = log(EN)
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -3426,7 +3426,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-    /* "ISOBUTANE.pyx":197
+    /* "gases/ISOBUTANE.pyx":197
  *         ENLG = log(EN)
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -3435,7 +3435,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-    /* "ISOBUTANE.pyx":198
+    /* "gases/ISOBUTANE.pyx":198
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -3444,7 +3444,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-    /* "ISOBUTANE.pyx":199
+    /* "gases/ISOBUTANE.pyx":199
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *         BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -3453,7 +3453,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-    /* "ISOBUTANE.pyx":201
+    /* "gases/ISOBUTANE.pyx":201
  *         BETA2 = BETA * BETA
  * 
  *         QMOM = GasUtil.CALQIONREG(EN, NDATA, YELM, XEN)             # <<<<<<<<<<<<<<
@@ -3462,7 +3462,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QMOM = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YELM, __pyx_v_XEN);
 
-    /* "ISOBUTANE.pyx":202
+    /* "gases/ISOBUTANE.pyx":202
  * 
  *         QMOM = GasUtil.CALQIONREG(EN, NDATA, YELM, XEN)
  *         QELA = GasUtil.CALQIONREG(EN, NDATA, YELT, XEN)             # <<<<<<<<<<<<<<
@@ -3471,7 +3471,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QELA = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YELT, __pyx_v_XEN);
 
-    /* "ISOBUTANE.pyx":203
+    /* "gases/ISOBUTANE.pyx":203
  *         QMOM = GasUtil.CALQIONREG(EN, NDATA, YELM, XEN)
  *         QELA = GasUtil.CALQIONREG(EN, NDATA, YELT, XEN)
  *         PQ[2] = GasUtil.CALPQ3(EN, NDATA, YEPS, XEN)             # <<<<<<<<<<<<<<
@@ -3480,7 +3480,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YEPS, __pyx_v_XEN);
 
-    /* "ISOBUTANE.pyx":205
+    /* "gases/ISOBUTANE.pyx":205
  *         PQ[2] = GasUtil.CALPQ3(EN, NDATA, YEPS, XEN)
  * 
  *         PQ[2] = 1-PQ[2]             # <<<<<<<<<<<<<<
@@ -3489,7 +3489,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = (1.0 - (__pyx_v_PQ[2]));
 
-    /* "ISOBUTANE.pyx":206
+    /* "gases/ISOBUTANE.pyx":206
  * 
  *         PQ[2] = 1-PQ[2]
  *         PQ[1] = 0.5 + (QELA-QMOM) / QELA             # <<<<<<<<<<<<<<
@@ -3498,7 +3498,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[1]) = (0.5 + ((__pyx_v_QELA - __pyx_v_QMOM) / __pyx_v_QELA));
 
-    /* "ISOBUTANE.pyx":207
+    /* "gases/ISOBUTANE.pyx":207
  *         PQ[2] = 1-PQ[2]
  *         PQ[1] = 0.5 + (QELA-QMOM) / QELA
  *         PQ[0] = 0.5             # <<<<<<<<<<<<<<
@@ -3507,7 +3507,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[0]) = 0.5;
 
-    /* "ISOBUTANE.pyx":209
+    /* "gases/ISOBUTANE.pyx":209
  *         PQ[0] = 0.5
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -3516,7 +3516,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "ISOBUTANE.pyx":211
+    /* "gases/ISOBUTANE.pyx":211
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  * 
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -3525,7 +3525,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "ISOBUTANE.pyx":212
+    /* "gases/ISOBUTANE.pyx":212
  * 
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -3535,7 +3535,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":213
+      /* "gases/ISOBUTANE.pyx":213
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -3544,7 +3544,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "ISOBUTANE.pyx":212
+      /* "gases/ISOBUTANE.pyx":212
  * 
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -3553,7 +3553,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":216
+    /* "gases/ISOBUTANE.pyx":216
  * 
  *         # GROSS IONISATION
  *         object.QION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3562,7 +3562,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = 0.0;
 
-    /* "ISOBUTANE.pyx":217
+    /* "gases/ISOBUTANE.pyx":217
  *         # GROSS IONISATION
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5             # <<<<<<<<<<<<<<
@@ -3571,7 +3571,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.5;
 
-    /* "ISOBUTANE.pyx":218
+    /* "gases/ISOBUTANE.pyx":218
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -3581,7 +3581,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":219
+      /* "gases/ISOBUTANE.pyx":219
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO ==2:
  *             object.PEQION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3590,7 +3590,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.0;
 
-      /* "ISOBUTANE.pyx":218
+      /* "gases/ISOBUTANE.pyx":218
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -3599,7 +3599,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":220
+    /* "gases/ISOBUTANE.pyx":220
  *         if object.NANISO ==2:
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -3609,7 +3609,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":221
+      /* "gases/ISOBUTANE.pyx":221
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION,XION,BETA2,1,CONST, object.DEN[I],C, AM2)             # <<<<<<<<<<<<<<
@@ -3618,7 +3618,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YION, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "ISOBUTANE.pyx":220
+      /* "gases/ISOBUTANE.pyx":220
  *         if object.NANISO ==2:
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -3627,7 +3627,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":226
+    /* "gases/ISOBUTANE.pyx":226
  *         # ANISOTROPIC ANGULAR DISTRIBUTION EQUAL TO ELASTIC ANGULAR DISTRIBUTION
  *         # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
  *         if EN > 2*object.EION[0]:             # <<<<<<<<<<<<<<
@@ -3637,7 +3637,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[0]))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":227
+      /* "gases/ISOBUTANE.pyx":227
  *         # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
  *         if EN > 2*object.EION[0]:
  *             object.PEQION[0][I] = object.PEQEL[1][I-IOFFION[0]]             # <<<<<<<<<<<<<<
@@ -3646,7 +3646,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-      /* "ISOBUTANE.pyx":226
+      /* "gases/ISOBUTANE.pyx":226
  *         # ANISOTROPIC ANGULAR DISTRIBUTION EQUAL TO ELASTIC ANGULAR DISTRIBUTION
  *         # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
  *         if EN > 2*object.EION[0]:             # <<<<<<<<<<<<<<
@@ -3655,7 +3655,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":231
+    /* "gases/ISOBUTANE.pyx":231
  *         # CALCULATE IONISATION-EXCITATION AND SPLIT IONISATION INTO
  *         # IONISATION ONLY AND IONISATION +EXCITATION
  *         object.QION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3664,7 +3664,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[1])[__pyx_v_I]) = 0.0;
 
-    /* "ISOBUTANE.pyx":232
+    /* "gases/ISOBUTANE.pyx":232
  *         # IONISATION ONLY AND IONISATION +EXCITATION
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -3673,7 +3673,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.5;
 
-    /* "ISOBUTANE.pyx":233
+    /* "gases/ISOBUTANE.pyx":233
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -3683,7 +3683,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":234
+      /* "gases/ISOBUTANE.pyx":234
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO ==2:
  *             object.PEQION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3692,7 +3692,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.0;
 
-      /* "ISOBUTANE.pyx":233
+      /* "gases/ISOBUTANE.pyx":233
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -3701,7 +3701,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":235
+    /* "gases/ISOBUTANE.pyx":235
  *         if object.NANISO ==2:
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -3711,7 +3711,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":236
+      /* "gases/ISOBUTANE.pyx":236
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = 12.0 / (object.EION[1] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -3720,7 +3720,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = (((((12.0 / ((__pyx_v_object->EION[1]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EION[1])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EION[1])) + (__pyx_v_object->E[2])));
 
-      /* "ISOBUTANE.pyx":239
+      /* "gases/ISOBUTANE.pyx":239
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EION[1])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EION[1] + object.E[2])
  *             if object.QION[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -3730,7 +3730,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":240
+        /* "gases/ISOBUTANE.pyx":240
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EION[1] + object.E[2])
  *             if object.QION[J][I]<0.0:
  *                 object.QION[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3739,7 +3739,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "ISOBUTANE.pyx":239
+        /* "gases/ISOBUTANE.pyx":239
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EION[1])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EION[1] + object.E[2])
  *             if object.QION[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -3748,7 +3748,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":242
+      /* "gases/ISOBUTANE.pyx":242
  *                 object.QION[J][I] = 0.0
  *             # FIND IONISATION ONLY
  *             object.QION[0][I] -= object.QION[1][I]             # <<<<<<<<<<<<<<
@@ -3759,7 +3759,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = __pyx_v_I;
       ((__pyx_v_object->QION[__pyx_t_33])[__pyx_t_30]) = (((__pyx_v_object->QION[__pyx_t_33])[__pyx_t_30]) - ((__pyx_v_object->QION[1])[__pyx_v_I]));
 
-      /* "ISOBUTANE.pyx":235
+      /* "gases/ISOBUTANE.pyx":235
  *         if object.NANISO ==2:
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -3768,7 +3768,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":243
+    /* "gases/ISOBUTANE.pyx":243
  *             # FIND IONISATION ONLY
  *             object.QION[0][I] -= object.QION[1][I]
  *         if EN > 2*object.EION[1]:             # <<<<<<<<<<<<<<
@@ -3778,7 +3778,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[1]))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":244
+      /* "gases/ISOBUTANE.pyx":244
  *             object.QION[0][I] -= object.QION[1][I]
  *         if EN > 2*object.EION[1]:
  *             object.PEQION[1][I] = object.PEQEL[1][I-IOFFION[1]]             # <<<<<<<<<<<<<<
@@ -3787,7 +3787,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-      /* "ISOBUTANE.pyx":243
+      /* "gases/ISOBUTANE.pyx":243
  *             # FIND IONISATION ONLY
  *             object.QION[0][I] -= object.QION[1][I]
  *         if EN > 2*object.EION[1]:             # <<<<<<<<<<<<<<
@@ -3796,7 +3796,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":247
+    /* "gases/ISOBUTANE.pyx":247
  * 
  *         # K-shell IONISATION
  *         object.QION[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3805,7 +3805,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[2])[__pyx_v_I]) = 0.0;
 
-    /* "ISOBUTANE.pyx":248
+    /* "gases/ISOBUTANE.pyx":248
  *         # K-shell IONISATION
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5             # <<<<<<<<<<<<<<
@@ -3814,7 +3814,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.5;
 
-    /* "ISOBUTANE.pyx":249
+    /* "gases/ISOBUTANE.pyx":249
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -3824,7 +3824,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":250
+      /* "gases/ISOBUTANE.pyx":250
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO ==2:
  *             object.PEQION[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3833,7 +3833,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.0;
 
-      /* "ISOBUTANE.pyx":249
+      /* "gases/ISOBUTANE.pyx":249
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -3842,7 +3842,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":251
+    /* "gases/ISOBUTANE.pyx":251
  *         if object.NANISO ==2:
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -3852,7 +3852,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":252
+      /* "gases/ISOBUTANE.pyx":252
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH) * 4.0             # <<<<<<<<<<<<<<
@@ -3861,7 +3861,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NKSH, __pyx_v_YKSH, __pyx_v_XKSH) * 4.0);
 
-      /* "ISOBUTANE.pyx":251
+      /* "gases/ISOBUTANE.pyx":251
  *         if object.NANISO ==2:
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -3870,7 +3870,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":257
+    /* "gases/ISOBUTANE.pyx":257
  *         # ANISOTROPIC ANGULAR DISTRIBUTION EQUAL TO ELASTIC ANGULAR DISTRIBUTION
  *         # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
  *         if EN > 2*object.EION[2]:             # <<<<<<<<<<<<<<
@@ -3880,7 +3880,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[2]))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":258
+      /* "gases/ISOBUTANE.pyx":258
  *         # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
  *         if EN > 2*object.EION[2]:
  *             object.PEQION[2][I] = object.PEQEL[1][I-IOFFION[2]]             # <<<<<<<<<<<<<<
@@ -3889,7 +3889,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[2]))]);
 
-      /* "ISOBUTANE.pyx":257
+      /* "gases/ISOBUTANE.pyx":257
  *         # ANISOTROPIC ANGULAR DISTRIBUTION EQUAL TO ELASTIC ANGULAR DISTRIBUTION
  *         # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
  *         if EN > 2*object.EION[2]:             # <<<<<<<<<<<<<<
@@ -3898,7 +3898,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":261
+    /* "gases/ISOBUTANE.pyx":261
  * 
  *         # CORRECT DISSOCIATIVE IONISATION FOR SPLIT INTO K-SHELL
  *         object.QION[1][I]-=object.QION[2][I]             # <<<<<<<<<<<<<<
@@ -3909,7 +3909,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_30 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_33])[__pyx_t_30]) = (((__pyx_v_object->QION[__pyx_t_33])[__pyx_t_30]) - ((__pyx_v_object->QION[2])[__pyx_v_I]));
 
-    /* "ISOBUTANE.pyx":263
+    /* "gases/ISOBUTANE.pyx":263
  *         object.QION[1][I]-=object.QION[2][I]
  *         # ATTACHMENT (NO ATTACHMENT)
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3918,7 +3918,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "ISOBUTANE.pyx":264
+    /* "gases/ISOBUTANE.pyx":264
  *         # ATTACHMENT (NO ATTACHMENT)
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = object.Q[3][I]             # <<<<<<<<<<<<<<
@@ -3927,7 +3927,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = ((__pyx_v_object->Q[3])[__pyx_v_I]);
 
-    /* "ISOBUTANE.pyx":267
+    /* "gases/ISOBUTANE.pyx":267
  * 
  *         # COUNTING IONISATION
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3936,7 +3936,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "ISOBUTANE.pyx":268
+    /* "gases/ISOBUTANE.pyx":268
  *         # COUNTING IONISATION
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5             # <<<<<<<<<<<<<<
@@ -3945,7 +3945,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.5;
 
-    /* "ISOBUTANE.pyx":269
+    /* "gases/ISOBUTANE.pyx":269
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -3955,7 +3955,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":270
+      /* "gases/ISOBUTANE.pyx":270
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO ==2:
  *             object.PEQEL[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -3964,7 +3964,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.0;
 
-      /* "ISOBUTANE.pyx":269
+      /* "gases/ISOBUTANE.pyx":269
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -3973,7 +3973,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":271
+    /* "gases/ISOBUTANE.pyx":271
  *         if object.NANISO ==2:
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:             # <<<<<<<<<<<<<<
@@ -3983,7 +3983,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->E[2])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":273
+      /* "gases/ISOBUTANE.pyx":273
  *         if EN > object.E[2]:
  *             # SET COUNTING IONISATION = GROSS IONISATION (LACK OF EXPERIMENTAL DATA)
  *             object.Q[4][I] = object.QION[0][I] + AUGK * object.QION[2][I]             # <<<<<<<<<<<<<<
@@ -3992,7 +3992,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[4])[__pyx_v_I]) = (((__pyx_v_object->QION[0])[__pyx_v_I]) + (__pyx_v_AUGK * ((__pyx_v_object->QION[2])[__pyx_v_I])));
 
-      /* "ISOBUTANE.pyx":274
+      /* "gases/ISOBUTANE.pyx":274
  *             # SET COUNTING IONISATION = GROSS IONISATION (LACK OF EXPERIMENTAL DATA)
  *             object.Q[4][I] = object.QION[0][I] + AUGK * object.QION[2][I]
  *             object.Q[4][I]-=object.QION[2][I]             # <<<<<<<<<<<<<<
@@ -4003,7 +4003,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = __pyx_v_I;
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_30]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_30]) - ((__pyx_v_object->QION[2])[__pyx_v_I]));
 
-      /* "ISOBUTANE.pyx":271
+      /* "gases/ISOBUTANE.pyx":271
  *         if object.NANISO ==2:
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:             # <<<<<<<<<<<<<<
@@ -4012,7 +4012,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":275
+    /* "gases/ISOBUTANE.pyx":275
  *             object.Q[4][I] = object.QION[0][I] + AUGK * object.QION[2][I]
  *             object.Q[4][I]-=object.QION[2][I]
  *         if EN > 2*object.E[2]:             # <<<<<<<<<<<<<<
@@ -4022,7 +4022,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->E[2]))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":276
+      /* "gases/ISOBUTANE.pyx":276
  *             object.Q[4][I]-=object.QION[2][I]
  *         if EN > 2*object.E[2]:
  *             object.PEQEL[4][I] = object.PEQEL[1][I-IOFFION[4]]             # <<<<<<<<<<<<<<
@@ -4031,7 +4031,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[4]))]);
 
-      /* "ISOBUTANE.pyx":275
+      /* "gases/ISOBUTANE.pyx":275
  *             object.Q[4][I] = object.QION[0][I] + AUGK * object.QION[2][I]
  *             object.Q[4][I]-=object.QION[2][I]
  *         if EN > 2*object.E[2]:             # <<<<<<<<<<<<<<
@@ -4040,7 +4040,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":278
+    /* "gases/ISOBUTANE.pyx":278
  *             object.PEQEL[4][I] = object.PEQEL[1][I-IOFFION[4]]
  * 
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4049,7 +4049,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "ISOBUTANE.pyx":279
+    /* "gases/ISOBUTANE.pyx":279
  * 
  *         object.Q[5][I] = 0.0
  *         for J in range(10):             # <<<<<<<<<<<<<<
@@ -4059,7 +4059,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_30 = 0; __pyx_t_30 < 10; __pyx_t_30+=1) {
       __pyx_v_J = __pyx_t_30;
 
-      /* "ISOBUTANE.pyx":280
+      /* "gases/ISOBUTANE.pyx":280
  *         object.Q[5][I] = 0.0
  *         for J in range(10):
  *             object.QIN[J][I]=0.0             # <<<<<<<<<<<<<<
@@ -4068,7 +4068,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-      /* "ISOBUTANE.pyx":281
+      /* "gases/ISOBUTANE.pyx":281
  *         for J in range(10):
  *             object.QIN[J][I]=0.0
  *             object.PEQIN[J][I] =0.5             # <<<<<<<<<<<<<<
@@ -4077,7 +4077,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.5;
 
-      /* "ISOBUTANE.pyx":282
+      /* "gases/ISOBUTANE.pyx":282
  *             object.QIN[J][I]=0.0
  *             object.PEQIN[J][I] =0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4087,7 +4087,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":283
+        /* "gases/ISOBUTANE.pyx":283
  *             object.PEQIN[J][I] =0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4096,7 +4096,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "ISOBUTANE.pyx":282
+        /* "gases/ISOBUTANE.pyx":282
  *             object.QIN[J][I]=0.0
  *             object.PEQIN[J][I] =0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4106,7 +4106,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "ISOBUTANE.pyx":286
+    /* "gases/ISOBUTANE.pyx":286
  * 
  *         # SUPERELASTIC TORSION
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -4116,7 +4116,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN != 0.0) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":287
+      /* "gases/ISOBUTANE.pyx":287
  *         # SUPERELASTIC TORSION
  *         if EN != 0.0:
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))             # <<<<<<<<<<<<<<
@@ -4125,7 +4125,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[0]) / __pyx_v_EN)));
 
-      /* "ISOBUTANE.pyx":288
+      /* "gases/ISOBUTANE.pyx":288
  *         if EN != 0.0:
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
  *             object.QIN[0][I] = 0.009 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN             # <<<<<<<<<<<<<<
@@ -4134,7 +4134,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = ((0.009 * log(((__pyx_v_EFAC + 1.0) / (__pyx_v_EFAC - 1.0)))) / __pyx_v_EN);
 
-      /* "ISOBUTANE.pyx":289
+      /* "gases/ISOBUTANE.pyx":289
  *             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
  *             object.QIN[0][I] = 0.009 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][I] *= APOP1 * 1.e-16             # <<<<<<<<<<<<<<
@@ -4145,7 +4145,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_30]) = (((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_30]) * (__pyx_v_APOP1 * 1.e-16));
 
-      /* "ISOBUTANE.pyx":286
+      /* "gases/ISOBUTANE.pyx":286
  * 
  *         # SUPERELASTIC TORSION
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -4154,7 +4154,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":290
+    /* "gases/ISOBUTANE.pyx":290
  *             object.QIN[0][I] = 0.009 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][I] *= APOP1 * 1.e-16
  *         if EN > 5* abs(object.EIN[0]):             # <<<<<<<<<<<<<<
@@ -4164,7 +4164,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (5.0 * fabs((__pyx_v_object->EIN[0])))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":291
+      /* "gases/ISOBUTANE.pyx":291
  *             object.QIN[0][I] *= APOP1 * 1.e-16
  *         if EN > 5* abs(object.EIN[0]):
  *             if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -4174,7 +4174,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":292
+        /* "gases/ISOBUTANE.pyx":292
  *         if EN > 5* abs(object.EIN[0]):
  *             if object.NANISO ==2:
  *                 object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]             # <<<<<<<<<<<<<<
@@ -4183,7 +4183,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0]))]);
 
-        /* "ISOBUTANE.pyx":291
+        /* "gases/ISOBUTANE.pyx":291
  *             object.QIN[0][I] *= APOP1 * 1.e-16
  *         if EN > 5* abs(object.EIN[0]):
  *             if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -4192,7 +4192,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":290
+      /* "gases/ISOBUTANE.pyx":290
  *             object.QIN[0][I] = 0.009 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
  *             object.QIN[0][I] *= APOP1 * 1.e-16
  *         if EN > 5* abs(object.EIN[0]):             # <<<<<<<<<<<<<<
@@ -4201,7 +4201,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":295
+    /* "gases/ISOBUTANE.pyx":295
  * 
  *         # TORSION
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -4211,7 +4211,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":296
+      /* "gases/ISOBUTANE.pyx":296
  *         # TORSION
  *         if EN > object.EIN[1]:
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))             # <<<<<<<<<<<<<<
@@ -4220,7 +4220,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[1]) / __pyx_v_EN)));
 
-      /* "ISOBUTANE.pyx":297
+      /* "gases/ISOBUTANE.pyx":297
  *         if EN > object.EIN[1]:
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
  *             object.QIN[1][I] = 0.009 * log((EFAC + 1.0) / (1.0-EFAC)) / EN             # <<<<<<<<<<<<<<
@@ -4229,7 +4229,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = ((0.009 * log(((__pyx_v_EFAC + 1.0) / (1.0 - __pyx_v_EFAC)))) / __pyx_v_EN);
 
-      /* "ISOBUTANE.pyx":298
+      /* "gases/ISOBUTANE.pyx":298
  *             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
  *             object.QIN[1][I] = 0.009 * log((EFAC + 1.0) / (1.0-EFAC)) / EN
  *             object.QIN[1][I] *= APOPGST * 1.e-16             # <<<<<<<<<<<<<<
@@ -4240,7 +4240,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_30 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_30]) = (((__pyx_v_object->QIN[__pyx_t_33])[__pyx_t_30]) * (__pyx_v_APOPGST * 1.e-16));
 
-      /* "ISOBUTANE.pyx":295
+      /* "gases/ISOBUTANE.pyx":295
  * 
  *         # TORSION
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -4249,7 +4249,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":299
+    /* "gases/ISOBUTANE.pyx":299
  *             object.QIN[1][I] = 0.009 * log((EFAC + 1.0) / (1.0-EFAC)) / EN
  *             object.QIN[1][I] *= APOPGST * 1.e-16
  *         if EN > 5* abs(object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -4259,7 +4259,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (5.0 * fabs((__pyx_v_object->EIN[1])))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":300
+      /* "gases/ISOBUTANE.pyx":300
  *             object.QIN[1][I] *= APOPGST * 1.e-16
  *         if EN > 5* abs(object.EIN[1]):
  *             if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -4269,7 +4269,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":301
+        /* "gases/ISOBUTANE.pyx":301
  *         if EN > 5* abs(object.EIN[1]):
  *             if object.NANISO ==2:
  *                 object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]             # <<<<<<<<<<<<<<
@@ -4278,7 +4278,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[1]))]);
 
-        /* "ISOBUTANE.pyx":300
+        /* "gases/ISOBUTANE.pyx":300
  *             object.QIN[1][I] *= APOPGST * 1.e-16
  *         if EN > 5* abs(object.EIN[1]):
  *             if object.NANISO ==2:             # <<<<<<<<<<<<<<
@@ -4287,7 +4287,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":299
+      /* "gases/ISOBUTANE.pyx":299
  *             object.QIN[1][I] = 0.009 * log((EFAC + 1.0) / (1.0-EFAC)) / EN
  *             object.QIN[1][I] *= APOPGST * 1.e-16
  *         if EN > 5* abs(object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -4296,7 +4296,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":304
+    /* "gases/ISOBUTANE.pyx":304
  * 
  *         # SUPERELASTIC VIB BEND MODES
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -4306,7 +4306,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN != 0.0) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":305
+      /* "gases/ISOBUTANE.pyx":305
  *         # SUPERELASTIC VIB BEND MODES
  *         if EN != 0.0:
  *             if EN <= XVIB2[NVIB2-1]:             # <<<<<<<<<<<<<<
@@ -4316,7 +4316,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_EN <= (__pyx_v_XVIB2[(__pyx_v_NVIB2 - 1)])) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":306
+        /* "gases/ISOBUTANE.pyx":306
  *         if EN != 0.0:
  *             if EN <= XVIB2[NVIB2-1]:
  *                 object.QIN[2][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, APOPV2, object.EIN[3], 1,             # <<<<<<<<<<<<<<
@@ -4325,7 +4325,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2, __pyx_v_APOPV2, (__pyx_v_object->EIN[3]), 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-        /* "ISOBUTANE.pyx":305
+        /* "gases/ISOBUTANE.pyx":305
  *         # SUPERELASTIC VIB BEND MODES
  *         if EN != 0.0:
  *             if EN <= XVIB2[NVIB2-1]:             # <<<<<<<<<<<<<<
@@ -4335,7 +4335,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L49;
       }
 
-      /* "ISOBUTANE.pyx":309
+      /* "gases/ISOBUTANE.pyx":309
  *                                                   -1 * 5 * EN, 0)
  *             else:
  *                 object.QIN[2][I] = APOPV2*YVIB2[NVIB2-1]*(XVIB2[NVIB2-1]/EN)*1e-16             # <<<<<<<<<<<<<<
@@ -4347,7 +4347,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L49:;
 
-      /* "ISOBUTANE.pyx":304
+      /* "gases/ISOBUTANE.pyx":304
  * 
  *         # SUPERELASTIC VIB BEND MODES
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -4356,7 +4356,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":310
+    /* "gases/ISOBUTANE.pyx":310
  *             else:
  *                 object.QIN[2][I] = APOPV2*YVIB2[NVIB2-1]*(XVIB2[NVIB2-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[2])):             # <<<<<<<<<<<<<<
@@ -4366,7 +4366,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (3.0 * fabs((__pyx_v_object->EIN[2])))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":311
+      /* "gases/ISOBUTANE.pyx":311
  *                 object.QIN[2][I] = APOPV2*YVIB2[NVIB2-1]*(XVIB2[NVIB2-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[2])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4376,7 +4376,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":312
+        /* "gases/ISOBUTANE.pyx":312
  *         if EN > (3.0 * abs(object.EIN[2])):
  *             if object.NANISO==2:
  *                 object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -4385,7 +4385,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-        /* "ISOBUTANE.pyx":311
+        /* "gases/ISOBUTANE.pyx":311
  *                 object.QIN[2][I] = APOPV2*YVIB2[NVIB2-1]*(XVIB2[NVIB2-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[2])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4394,7 +4394,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":310
+      /* "gases/ISOBUTANE.pyx":310
  *             else:
  *                 object.QIN[2][I] = APOPV2*YVIB2[NVIB2-1]*(XVIB2[NVIB2-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[2])):             # <<<<<<<<<<<<<<
@@ -4403,7 +4403,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":314
+    /* "gases/ISOBUTANE.pyx":314
  *                 object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
  * 
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -4413,7 +4413,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":315
+      /* "gases/ISOBUTANE.pyx":315
  * 
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINP(EN, NVIB2,YVIB2, XVIB2, 1) * APOPGS * 100             # <<<<<<<<<<<<<<
@@ -4422,7 +4422,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2, 1.0) * __pyx_v_APOPGS) * 100.0);
 
-      /* "ISOBUTANE.pyx":314
+      /* "gases/ISOBUTANE.pyx":314
  *                 object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
  * 
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -4431,7 +4431,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":316
+    /* "gases/ISOBUTANE.pyx":316
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINP(EN, NVIB2,YVIB2, XVIB2, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[2])):             # <<<<<<<<<<<<<<
@@ -4441,7 +4441,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (3.0 * fabs((__pyx_v_object->EIN[2])))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":317
+      /* "gases/ISOBUTANE.pyx":317
  *             object.QIN[3][I] = GasUtil.CALQINP(EN, NVIB2,YVIB2, XVIB2, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[2])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4451,7 +4451,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":318
+        /* "gases/ISOBUTANE.pyx":318
  *         if EN > (3.0 * abs(object.EIN[2])):
  *             if object.NANISO==2:
  *                 object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -4460,7 +4460,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-        /* "ISOBUTANE.pyx":317
+        /* "gases/ISOBUTANE.pyx":317
  *             object.QIN[3][I] = GasUtil.CALQINP(EN, NVIB2,YVIB2, XVIB2, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[2])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4469,7 +4469,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":316
+      /* "gases/ISOBUTANE.pyx":316
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINP(EN, NVIB2,YVIB2, XVIB2, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[2])):             # <<<<<<<<<<<<<<
@@ -4478,7 +4478,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":321
+    /* "gases/ISOBUTANE.pyx":321
  * 
  *         # SUPERELASTIC VIB STRETCH MODES
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -4488,7 +4488,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN != 0.0) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":322
+      /* "gases/ISOBUTANE.pyx":322
  *         # SUPERELASTIC VIB STRETCH MODES
  *         if EN != 0.0:
  *             if EN <= XVIB3[NVIB3-1]:             # <<<<<<<<<<<<<<
@@ -4498,7 +4498,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_EN <= (__pyx_v_XVIB3[(__pyx_v_NVIB3 - 1)])) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":323
+        /* "gases/ISOBUTANE.pyx":323
  *         if EN != 0.0:
  *             if EN <= XVIB3[NVIB3-1]:
  *                 object.QIN[4][I] = GasUtil.CALQINVISO(EN, NVIB3, YVIB3, XVIB3, APOPV3, object.EIN[5], 1,             # <<<<<<<<<<<<<<
@@ -4507,7 +4507,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3, __pyx_v_APOPV3, (__pyx_v_object->EIN[5]), 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-        /* "ISOBUTANE.pyx":322
+        /* "gases/ISOBUTANE.pyx":322
  *         # SUPERELASTIC VIB STRETCH MODES
  *         if EN != 0.0:
  *             if EN <= XVIB3[NVIB3-1]:             # <<<<<<<<<<<<<<
@@ -4517,7 +4517,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L56;
       }
 
-      /* "ISOBUTANE.pyx":326
+      /* "gases/ISOBUTANE.pyx":326
  *                                                   -1 * 5 * EN, 0)
  *             else:
  *                 object.QIN[4][I] = APOPV3*YVIB3[NVIB3-1]*(XVIB3[NVIB3-1]/EN)*1e-16             # <<<<<<<<<<<<<<
@@ -4529,7 +4529,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L56:;
 
-      /* "ISOBUTANE.pyx":321
+      /* "gases/ISOBUTANE.pyx":321
  * 
  *         # SUPERELASTIC VIB STRETCH MODES
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -4538,7 +4538,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":327
+    /* "gases/ISOBUTANE.pyx":327
  *             else:
  *                 object.QIN[4][I] = APOPV3*YVIB3[NVIB3-1]*(XVIB3[NVIB3-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[5])):             # <<<<<<<<<<<<<<
@@ -4548,7 +4548,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (3.0 * fabs((__pyx_v_object->EIN[5])))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":328
+      /* "gases/ISOBUTANE.pyx":328
  *                 object.QIN[4][I] = APOPV3*YVIB3[NVIB3-1]*(XVIB3[NVIB3-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[5])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4558,7 +4558,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":329
+        /* "gases/ISOBUTANE.pyx":329
  *         if EN > (3.0 * abs(object.EIN[5])):
  *             if object.NANISO==2:
  *                 object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -4567,7 +4567,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-        /* "ISOBUTANE.pyx":328
+        /* "gases/ISOBUTANE.pyx":328
  *                 object.QIN[4][I] = APOPV3*YVIB3[NVIB3-1]*(XVIB3[NVIB3-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[5])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4576,7 +4576,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":327
+      /* "gases/ISOBUTANE.pyx":327
  *             else:
  *                 object.QIN[4][I] = APOPV3*YVIB3[NVIB3-1]*(XVIB3[NVIB3-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[5])):             # <<<<<<<<<<<<<<
@@ -4585,7 +4585,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":332
+    /* "gases/ISOBUTANE.pyx":332
  * 
  *         # VIB STRETCH MODES
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -4595,7 +4595,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":333
+      /* "gases/ISOBUTANE.pyx":333
  *         # VIB STRETCH MODES
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NVIB3,YVIB3, XVIB3, 1) * APOPGS * 100             # <<<<<<<<<<<<<<
@@ -4604,7 +4604,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3, 1.0) * __pyx_v_APOPGS) * 100.0);
 
-      /* "ISOBUTANE.pyx":332
+      /* "gases/ISOBUTANE.pyx":332
  * 
  *         # VIB STRETCH MODES
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -4613,7 +4613,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":334
+    /* "gases/ISOBUTANE.pyx":334
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NVIB3,YVIB3, XVIB3, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[5])):             # <<<<<<<<<<<<<<
@@ -4623,7 +4623,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (3.0 * fabs((__pyx_v_object->EIN[5])))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":335
+      /* "gases/ISOBUTANE.pyx":335
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NVIB3,YVIB3, XVIB3, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[5])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4633,7 +4633,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":336
+        /* "gases/ISOBUTANE.pyx":336
  *         if EN > (3.0 * abs(object.EIN[5])):
  *             if object.NANISO==2:
  *                 object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -4642,7 +4642,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-        /* "ISOBUTANE.pyx":335
+        /* "gases/ISOBUTANE.pyx":335
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NVIB3,YVIB3, XVIB3, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[5])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4651,7 +4651,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":334
+      /* "gases/ISOBUTANE.pyx":334
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, NVIB3,YVIB3, XVIB3, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[5])):             # <<<<<<<<<<<<<<
@@ -4660,7 +4660,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":339
+    /* "gases/ISOBUTANE.pyx":339
  * 
  *         # SUPERELASTIC VIB STRETCH MODES
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -4670,7 +4670,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN != 0.0) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":340
+      /* "gases/ISOBUTANE.pyx":340
  *         # SUPERELASTIC VIB STRETCH MODES
  *         if EN != 0.0:
  *             if EN <= XVIB4[NVIB4-1]:             # <<<<<<<<<<<<<<
@@ -4680,7 +4680,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_EN <= (__pyx_v_XVIB4[(__pyx_v_NVIB4 - 1)])) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":341
+        /* "gases/ISOBUTANE.pyx":341
  *         if EN != 0.0:
  *             if EN <= XVIB4[NVIB4-1]:
  *                 object.QIN[6][I] = GasUtil.CALQINVISO(EN, NVIB4, YVIB4, XVIB4, APOPV4, object.EIN[7], 1,             # <<<<<<<<<<<<<<
@@ -4689,7 +4689,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINVISO(__pyx_v_EN, __pyx_v_NVIB4, __pyx_v_YVIB4, __pyx_v_XVIB4, __pyx_v_APOPV4, (__pyx_v_object->EIN[7]), 1.0, (-5.0 * __pyx_v_EN), 0.0);
 
-        /* "ISOBUTANE.pyx":340
+        /* "gases/ISOBUTANE.pyx":340
  *         # SUPERELASTIC VIB STRETCH MODES
  *         if EN != 0.0:
  *             if EN <= XVIB4[NVIB4-1]:             # <<<<<<<<<<<<<<
@@ -4699,7 +4699,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L63;
       }
 
-      /* "ISOBUTANE.pyx":344
+      /* "gases/ISOBUTANE.pyx":344
  *                                                   -1 * 5 * EN, 0)
  *             else:
  *                 object.QIN[6][I] = APOPV4*YVIB4[NVIB4-1]*(XVIB4[NVIB4-1]/EN)*1e-16             # <<<<<<<<<<<<<<
@@ -4711,7 +4711,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L63:;
 
-      /* "ISOBUTANE.pyx":339
+      /* "gases/ISOBUTANE.pyx":339
  * 
  *         # SUPERELASTIC VIB STRETCH MODES
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -4720,7 +4720,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":345
+    /* "gases/ISOBUTANE.pyx":345
  *             else:
  *                 object.QIN[6][I] = APOPV4*YVIB4[NVIB4-1]*(XVIB4[NVIB4-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[6])):             # <<<<<<<<<<<<<<
@@ -4730,7 +4730,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (3.0 * fabs((__pyx_v_object->EIN[6])))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":346
+      /* "gases/ISOBUTANE.pyx":346
  *                 object.QIN[6][I] = APOPV4*YVIB4[NVIB4-1]*(XVIB4[NVIB4-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[6])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4740,7 +4740,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":347
+        /* "gases/ISOBUTANE.pyx":347
  *         if EN > (3.0 * abs(object.EIN[6])):
  *             if object.NANISO==2:
  *                 object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -4749,7 +4749,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-        /* "ISOBUTANE.pyx":346
+        /* "gases/ISOBUTANE.pyx":346
  *                 object.QIN[6][I] = APOPV4*YVIB4[NVIB4-1]*(XVIB4[NVIB4-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[6])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4758,7 +4758,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":345
+      /* "gases/ISOBUTANE.pyx":345
  *             else:
  *                 object.QIN[6][I] = APOPV4*YVIB4[NVIB4-1]*(XVIB4[NVIB4-1]/EN)*1e-16
  *         if EN > (3.0 * abs(object.EIN[6])):             # <<<<<<<<<<<<<<
@@ -4767,7 +4767,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":350
+    /* "gases/ISOBUTANE.pyx":350
  * 
  *         # VIB STRETCH MODES
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -4777,7 +4777,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":351
+      /* "gases/ISOBUTANE.pyx":351
  *         # VIB STRETCH MODES
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, NVIB4,YVIB4, XVIB4, 1) * APOPGS * 100             # <<<<<<<<<<<<<<
@@ -4786,7 +4786,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB4, __pyx_v_YVIB4, __pyx_v_XVIB4, 1.0) * __pyx_v_APOPGS) * 100.0);
 
-      /* "ISOBUTANE.pyx":350
+      /* "gases/ISOBUTANE.pyx":350
  * 
  *         # VIB STRETCH MODES
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -4795,7 +4795,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":352
+    /* "gases/ISOBUTANE.pyx":352
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, NVIB4,YVIB4, XVIB4, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[7])):             # <<<<<<<<<<<<<<
@@ -4805,7 +4805,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (3.0 * fabs((__pyx_v_object->EIN[7])))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":353
+      /* "gases/ISOBUTANE.pyx":353
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, NVIB4,YVIB4, XVIB4, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[7])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4815,7 +4815,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":354
+        /* "gases/ISOBUTANE.pyx":354
  *         if EN > (3.0 * abs(object.EIN[7])):
  *             if object.NANISO==2:
  *                 object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -4824,7 +4824,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-        /* "ISOBUTANE.pyx":353
+        /* "gases/ISOBUTANE.pyx":353
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, NVIB4,YVIB4, XVIB4, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[7])):
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -4833,7 +4833,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":352
+      /* "gases/ISOBUTANE.pyx":352
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, NVIB4,YVIB4, XVIB4, 1) * APOPGS * 100
  *         if EN > (3.0 * abs(object.EIN[7])):             # <<<<<<<<<<<<<<
@@ -4842,7 +4842,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":357
+    /* "gases/ISOBUTANE.pyx":357
  * 
  *         # EXCITATION    TRIPLET  ABOVE XEXC1(NEXC1) SCALE BY 1/EN**3
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -4852,7 +4852,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":358
+      /* "gases/ISOBUTANE.pyx":358
  *         # EXCITATION    TRIPLET  ABOVE XEXC1(NEXC1) SCALE BY 1/EN**3
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, NEXC1,YEXC1, XEXC1, 3) * 100             # <<<<<<<<<<<<<<
@@ -4861,7 +4861,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC1, __pyx_v_YEXC1, __pyx_v_XEXC1, 3.0) * 100.0);
 
-      /* "ISOBUTANE.pyx":357
+      /* "gases/ISOBUTANE.pyx":357
  * 
  *         # EXCITATION    TRIPLET  ABOVE XEXC1(NEXC1) SCALE BY 1/EN**3
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -4870,7 +4870,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":359
+    /* "gases/ISOBUTANE.pyx":359
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, NEXC1,YEXC1, XEXC1, 3) * 100
  *         if EN > 2.0 *object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -4880,7 +4880,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[9]))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":360
+      /* "gases/ISOBUTANE.pyx":360
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, NEXC1,YEXC1, XEXC1, 3) * 100
  *         if EN > 2.0 *object.EIN[9]:
  *             object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]             # <<<<<<<<<<<<<<
@@ -4889,7 +4889,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[9]))]);
 
-      /* "ISOBUTANE.pyx":359
+      /* "gases/ISOBUTANE.pyx":359
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, NEXC1,YEXC1, XEXC1, 3) * 100
  *         if EN > 2.0 *object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -4898,7 +4898,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":363
+    /* "gases/ISOBUTANE.pyx":363
  * 
  *         # EXCITATION    TRIPLET  ABOVE XEXC2(NEXC2) SCALE BY 1/EN**3
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -4908,7 +4908,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":364
+      /* "gases/ISOBUTANE.pyx":364
  *         # EXCITATION    TRIPLET  ABOVE XEXC2(NEXC2) SCALE BY 1/EN**3
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, NEXC2,YEXC2, XEXC2, 3) * 100             # <<<<<<<<<<<<<<
@@ -4917,7 +4917,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC2, __pyx_v_YEXC2, __pyx_v_XEXC2, 3.0) * 100.0);
 
-      /* "ISOBUTANE.pyx":363
+      /* "gases/ISOBUTANE.pyx":363
  * 
  *         # EXCITATION    TRIPLET  ABOVE XEXC2(NEXC2) SCALE BY 1/EN**3
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -4926,7 +4926,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":365
+    /* "gases/ISOBUTANE.pyx":365
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, NEXC2,YEXC2, XEXC2, 3) * 100
  *         if EN > 2.0 *object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -4936,7 +4936,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[10]))) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":366
+      /* "gases/ISOBUTANE.pyx":366
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, NEXC2,YEXC2, XEXC2, 3) * 100
  *         if EN > 2.0 *object.EIN[10]:
  *             object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -4945,7 +4945,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-      /* "ISOBUTANE.pyx":365
+      /* "gases/ISOBUTANE.pyx":365
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, NEXC2,YEXC2, XEXC2, 3) * 100
  *         if EN > 2.0 *object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -4954,7 +4954,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ISOBUTANE.pyx":367
+    /* "gases/ISOBUTANE.pyx":367
  *         if EN > 2.0 *object.EIN[10]:
  *             object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
  *         FI = 0             # <<<<<<<<<<<<<<
@@ -4963,7 +4963,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = 0;
 
-    /* "ISOBUTANE.pyx":369
+    /* "gases/ISOBUTANE.pyx":369
  *         FI = 0
  *         # EXCITATION  F = F[FI]
  *         for J in range(11,24):             # <<<<<<<<<<<<<<
@@ -4973,7 +4973,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_30 = 11; __pyx_t_30 < 24; __pyx_t_30+=1) {
       __pyx_v_J = __pyx_t_30;
 
-      /* "ISOBUTANE.pyx":370
+      /* "gases/ISOBUTANE.pyx":370
  *         # EXCITATION  F = F[FI]
  *         for J in range(11,24):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -4983,7 +4983,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":371
+        /* "gases/ISOBUTANE.pyx":371
  *         for J in range(11,24):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -4992,7 +4992,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = (((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2]))) * __pyx_v_ASING);
 
-        /* "ISOBUTANE.pyx":374
+        /* "gases/ISOBUTANE.pyx":374
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * ASING
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -5002,7 +5002,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_31 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_31) {
 
-          /* "ISOBUTANE.pyx":375
+          /* "gases/ISOBUTANE.pyx":375
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * ASING
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5011,7 +5011,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "ISOBUTANE.pyx":374
+          /* "gases/ISOBUTANE.pyx":374
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * ASING
  *                 if object.QIN[J][I]<0.0:             # <<<<<<<<<<<<<<
@@ -5020,7 +5020,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "ISOBUTANE.pyx":370
+        /* "gases/ISOBUTANE.pyx":370
  *         # EXCITATION  F = F[FI]
  *         for J in range(11,24):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5029,7 +5029,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":376
+      /* "gases/ISOBUTANE.pyx":376
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5039,7 +5039,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_31 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_31) {
 
-        /* "ISOBUTANE.pyx":377
+        /* "gases/ISOBUTANE.pyx":377
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -5048,7 +5048,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "ISOBUTANE.pyx":376
+        /* "gases/ISOBUTANE.pyx":376
  *                 if object.QIN[J][I]<0.0:
  *                     object.QIN[J][I] = 0.0
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5057,7 +5057,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ISOBUTANE.pyx":379
+      /* "gases/ISOBUTANE.pyx":379
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  * 
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -5067,7 +5067,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "ISOBUTANE.pyx":380
+    /* "gases/ISOBUTANE.pyx":380
  * 
  *             FI+=1
  *         QSNG = 0.0             # <<<<<<<<<<<<<<
@@ -5076,7 +5076,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QSNG = 0.0;
 
-    /* "ISOBUTANE.pyx":381
+    /* "gases/ISOBUTANE.pyx":381
  *             FI+=1
  *         QSNG = 0.0
  *         for J in range(11,24):             # <<<<<<<<<<<<<<
@@ -5086,7 +5086,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_30 = 11; __pyx_t_30 < 24; __pyx_t_30+=1) {
       __pyx_v_J = __pyx_t_30;
 
-      /* "ISOBUTANE.pyx":382
+      /* "gases/ISOBUTANE.pyx":382
  *         QSNG = 0.0
  *         for J in range(11,24):
  *             QSNG += object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -5096,7 +5096,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QSNG = (__pyx_v_QSNG + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "ISOBUTANE.pyx":384
+    /* "gases/ISOBUTANE.pyx":384
  *             QSNG += object.QIN[J][I]
  * 
  *         QTRP = object.QIN[9][I] + object.QIN[10][I]             # <<<<<<<<<<<<<<
@@ -5105,7 +5105,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTRP = (((__pyx_v_object->QIN[9])[__pyx_v_I]) + ((__pyx_v_object->QIN[10])[__pyx_v_I]));
 
-    /* "ISOBUTANE.pyx":386
+    /* "gases/ISOBUTANE.pyx":386
  *         QTRP = object.QIN[9][I] + object.QIN[10][I]
  * 
  *         QTOTEXC = QTRP+QSNG             # <<<<<<<<<<<<<<
@@ -5114,7 +5114,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTOTEXC = (__pyx_v_QTRP + __pyx_v_QSNG);
 
-    /* "ISOBUTANE.pyx":387
+    /* "gases/ISOBUTANE.pyx":387
  * 
  *         QTOTEXC = QTRP+QSNG
  *         object.Q[0][I]  = 0.0             # <<<<<<<<<<<<<<
@@ -5123,7 +5123,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = 0.0;
 
-    /* "ISOBUTANE.pyx":388
+    /* "gases/ISOBUTANE.pyx":388
  *         QTOTEXC = QTRP+QSNG
  *         object.Q[0][I]  = 0.0
  *         for J in range(9):             # <<<<<<<<<<<<<<
@@ -5133,7 +5133,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_30 = 0; __pyx_t_30 < 9; __pyx_t_30+=1) {
       __pyx_v_J = __pyx_t_30;
 
-      /* "ISOBUTANE.pyx":389
+      /* "gases/ISOBUTANE.pyx":389
  *         object.Q[0][I]  = 0.0
  *         for J in range(9):
  *             object.Q[0][I] +=object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -5145,7 +5145,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_34]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_34]) + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "ISOBUTANE.pyx":393
+    /* "gases/ISOBUTANE.pyx":393
  *         #object.Q[0][I] += QTOTEXC
  * 
  *         object.Q[0][I] += object.Q[1][I] +object.Q[3][I] + object.Q[4][I]             # <<<<<<<<<<<<<<
@@ -5157,7 +5157,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_30]) = (((__pyx_v_object->Q[__pyx_t_33])[__pyx_t_30]) + ((((__pyx_v_object->Q[1])[__pyx_v_I]) + ((__pyx_v_object->Q[3])[__pyx_v_I])) + ((__pyx_v_object->Q[4])[__pyx_v_I])));
   }
 
-  /* "ISOBUTANE.pyx":395
+  /* "gases/ISOBUTANE.pyx":395
  *         object.Q[0][I] += object.Q[1][I] +object.Q[3][I] + object.Q[4][I]
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -5169,7 +5169,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
     __pyx_v_J = __pyx_t_17;
 
-    /* "ISOBUTANE.pyx":396
+    /* "gases/ISOBUTANE.pyx":396
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5179,7 +5179,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_31 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_31) {
 
-      /* "ISOBUTANE.pyx":397
+      /* "gases/ISOBUTANE.pyx":397
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -5188,7 +5188,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "ISOBUTANE.pyx":398
+      /* "gases/ISOBUTANE.pyx":398
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -5196,7 +5196,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L83_break;
 
-      /* "ISOBUTANE.pyx":396
+      /* "gases/ISOBUTANE.pyx":396
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -5207,14 +5207,14 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L83_break:;
 
-  /* "ISOBUTANE.pyx":399
+  /* "gases/ISOBUTANE.pyx":399
  *             object.NIN = J
  *             break
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "ISOBUTANE.pyx":17
+  /* "gases/ISOBUTANE.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas11(Gas*object):             # <<<<<<<<<<<<<<
@@ -5228,7 +5228,7 @@ static void __pyx_f_9ISOBUTANE_Gas11(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("ISOBUTANE.Gas11", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.ISOBUTANE.Gas11", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -8228,7 +8228,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas11", (void (*)(void))__pyx_f_9ISOBUTANE_Gas11, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas11", (void (*)(void))__pyx_f_5gases_9ISOBUTANE_Gas11, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -8480,14 +8480,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_ISOBUTANE) {
+  if (__pyx_module_is_main_gases__ISOBUTANE) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "ISOBUTANE")) {
-      if (unlikely(PyDict_SetItemString(modules, "ISOBUTANE", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.ISOBUTANE")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.ISOBUTANE", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -8508,7 +8508,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "ISOBUTANE.pyx":3
+  /* "gases/ISOBUTANE.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -8520,7 +8520,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ISOBUTANE.pyx":5
+  /* "gases/ISOBUTANE.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -8532,7 +8532,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ISOBUTANE.pyx":10
+  /* "gases/ISOBUTANE.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -8547,7 +8547,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "ISOBUTANE.pyx":1
+  /* "gases/ISOBUTANE.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -8573,11 +8573,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init ISOBUTANE", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.ISOBUTANE", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init ISOBUTANE");
+    PyErr_SetString(PyExc_ImportError, "init gases.ISOBUTANE");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

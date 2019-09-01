@@ -158,7 +158,7 @@ cpdef MONTET(Magboltz Object):
                 DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
                 # FIND IDENTITY OF GAS FOR COLLISION
                 KGAS = 0
-                if Object.NGAS == 1:
+                if Object.NumberOfGases == 1:
                     R2 = random_uniform(RDUM)
                     KGAS = 0
                 else:
@@ -448,7 +448,7 @@ cpdef MONTET(Magboltz Object):
 
     ANCATT = 0.0
     ANCION = 0.0
-    for I in range(Object.NGAS):
+    for I in range(Object.NumberOfGases):
         ANCATT += Object.ICOLL[I][2]
         ANCION += Object.ICOLL[I][1]
     ANCION += IEXTRA

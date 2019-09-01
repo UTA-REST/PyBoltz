@@ -11,9 +11,9 @@ cdef class Magboltz:
         '''This is a constant that is equal to the electric field / magentic field * 1e-9.'''
         double WB
         '''This is the angular speed of rotation see cycltron frequency.'''
-        double BTHETA
+        double BFieldAngle
         '''This is the angle between the magnetic field and the electric field.'''
-        double BMAG
+        double BFieldMag
         '''This is the magnitude of the magentic field.'''
         double EFINAL
         '''This is the upper limit for the electron energy integration.'''
@@ -189,7 +189,7 @@ cdef class Magboltz:
         '''Constant that is equal to CONST3 / 2.'''
         double TCFMX
         '''Sum of the maximum collision frequency of each gas.'''
-        double ITHRM
+        double EnableThermalMotion
         '''Variable used to indicate wethier to include thermal motion or not.'''
         double CORR
         '''Variable used to calculate the correlation constant between the pressure and tempreture. CORR=ABZERO*TORR/(ATMOS*(ABZERO+TEMPC)*100.0D0).'''
@@ -204,7 +204,7 @@ cdef class Magboltz:
         '''Variable used to calculate the sum of the collision times in the simulation.'''
         double RSTART
         '''Random number generator seed. Not used at the moment.'''
-        long long NGAS
+        long long NumberOfGases
         '''Number of gases in the mixture.'''
         long long NSTEP
         '''Steps for the electron energy integration.'''
@@ -248,7 +248,7 @@ cdef class Magboltz:
         '''Maxwell Boltzman velocity factor for each gas component.'''
         double TCFMXG[6]
         '''Fraction of the maximum collision frequency of each gas over the sum of the maximum collision frequencies of all the gases.'''
-        double NGASN[6]
+        double NumberOfGasesN[6]
         '''Array used to store the number of the 6 gases in the mixture.'''
         double FRAC[6]
         '''Array used to store the percentage of each gas in the mixture.'''

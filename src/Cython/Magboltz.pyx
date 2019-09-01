@@ -2,23 +2,18 @@ from SETUPT import SETUPT
 import math
 from MIXERT import MIXERT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
-from ELIMIT import ELIMIT
-from ELIMITB import ELIMITB
-from ELIMITC import ELIMITC
+from EnergyLimits import *
 from MONTE import MONTE
 from MONTEA import MONTEA
 from MONTEB import MONTEB
 from MONTEC import MONTEC
-from ELIMITT import ELIMITT
-from ELIMITBT import ELIMITBT
-from ELIMITCT import ELIMITCT
 from MONTET import MONTET
 from MONTEAT import MONTEAT
 from MONTEBT import MONTEBT
 from MONTECT import MONTECT
 from MIXER import MIXER
 from SETUP import SETUP
-from COLFT cimport COLFT
+from CollisionFreqT cimport CollisionFreqT
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
 
@@ -100,7 +95,7 @@ cdef class Magboltz:
         memset(self.AMGAS, 0, 6 * sizeof(double))
         memset(self.VTMB, 0, 6 * sizeof(double))
         memset(self.TCFMXG, 0, 6 * sizeof(double))
-        memset(self.NGASN, 0, 6 * sizeof(double))
+        memset(self.NumberOfGasesN, 0, 6 * sizeof(double))
         memset(self.FRAC, 0, 6 * sizeof(double))
         memset(self.ANN, 0, 6 * sizeof(double))
         memset(self.VANN, 0, 6 * sizeof(double))
@@ -231,9 +226,9 @@ cdef class Magboltz:
         self.EOVB = 0.0
         self.WB = 0.0
         self.PIR2 = 0.0
-        self.BTHETA = 0.0
-        self.BMAG = 0.0
-        self.NGAS = 0
+        self.BFieldAngle = 0.0
+        self.BFieldMag = 0.0
+        self.NumberOfGases = 0
         self.NSTEP = 0
         self.NANISO = 2
         self.EFINAL = 0.0
@@ -254,7 +249,7 @@ cdef class Magboltz:
         self.NMAX = 0.0
         self.ALPHA = 0.0
         self.TCFMX = 0.0
-        self.ITHRM = 0.0
+        self.EnableThermalMotion = 0.0
         self.ITMAX = 0
         self.CORR = 0.0
         self.ATTOINT = 0.0
@@ -380,7 +375,7 @@ cdef class Magboltz:
         This is the main function that starts the magboltz simulation/calculation.
 
         The simulation starts by calculating the momentum cross section values for the requested gas mixture. If EFINAL
-        is equal to 0.0 it will then keep calling the ELIMIT functions and the MIXER functions to find the electron
+        is equal to 0.0 it will then keep calling the EnergyLimit functions and the MIXER functions to find the electron
         Integration limit.
 
         Finally Magboltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
@@ -391,7 +386,7 @@ cdef class Magboltz:
         """
         cdef double EOB
         cdef int i = 0
-        if self.ITHRM != 0:
+        if self.EnableThermalMotion != 0:
             SETUPT(self)
             if self.EFINAL == 0.0:
                 self.EFINAL = 0.5
@@ -402,15 +397,15 @@ cdef class Magboltz:
                 while self.IELOW == 1:
                     if self.OF : print("MIXERT")
                     MIXERT(self)
-                    if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        if self.OF : print("ELIMITT")
-                        ELIMITT(self)
-                    elif self.BTHETA == 90:
-                        if self.OF : print("ELIMITBT")
-                        ELIMITBT(self)
+                    if self.BFieldMag == 0 or self.BFieldAngle == 0 or abs(self.BFieldAngle) == 180:
+                        if self.OF : print("EnergyLimitT")
+                        EnergyLimitT(self)
+                    elif self.BFieldAngle == 90:
+                        if self.OF : print("EnergyLimitBT")
+                        EnergyLimitBT(self)
                     else:
-                        if self.OF : print("ELIMITCT")
-                        ELIMITCT(self)
+                        if self.OF : print("EnergyLimitCT")
+                        EnergyLimitCT(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
@@ -421,14 +416,14 @@ cdef class Magboltz:
             else:
                 if self.OF : print("MIXERT")
                 MIXERT(self)
-            if self.BMAG == 0:
+            if self.BFieldMag == 0:
                 if self.OF : print("MONTET")
                 MONTET(self)
             else:
-                if self.BTHETA == 0 or self.BTHETA == 180:
+                if self.BFieldAngle == 0 or self.BFieldAngle == 180:
                     if self.OF : print("MONTEAT")
                     MONTEAT(self)
-                elif self.BTHETA == 90:
+                elif self.BFieldAngle == 90:
                     if self.OF : print("MONTEBT")
                     MONTEBT(self)
                 else:
@@ -443,12 +438,12 @@ cdef class Magboltz:
             if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 self.end()
                 return
-            if self.BMAG == 0.0:
+            if self.BFieldMag == 0.0:
                 if self.OF : print("ALP")
                 ALPCALCT(self)
-            elif self.BTHETA == 0.0 or self.BTHETA == 180:
+            elif self.BFieldAngle == 0.0 or self.BFieldAngle == 180:
                 print("")
-            elif self.BTHETA == 90:
+            elif self.BFieldAngle == 90:
                 print("")
             else:
                 print("")
@@ -465,15 +460,15 @@ cdef class Magboltz:
                 while self.IELOW == 1:
                     if self.OF : print("MIXER")
                     MIXER(self)
-                    if self.BMAG == 0 or self.BTHETA == 0 or abs(self.BTHETA) == 180:
-                        if self.OF : print("ELIMIT")
-                        ELIMIT(self)
-                    elif self.BTHETA == 90:
-                        if self.OF : print("ELIMITB")
-                        ELIMITB(self)
+                    if self.BFieldMag == 0 or self.BFieldAngle == 0 or abs(self.BFieldAngle) == 180:
+                        if self.OF : print("EnergyLimit")
+                        EnergyLimit(self)
+                    elif self.BFieldAngle == 90:
+                        if self.OF : print("EnergyLimitB")
+                        EnergyLimitB(self)
                     else:
-                        if self.OF : print("ELIMITC")
-                        ELIMITC(self)
+                        if self.OF : print("EnergyLimitC")
+                        EnergyLimitC(self)
                     if self.IELOW == 1:
                         self.EFINAL = self.EFINAL * math.sqrt(2)
                         if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
@@ -483,14 +478,14 @@ cdef class Magboltz:
             else:
                 if self.OF : print("MIXER")
                 MIXER(self)
-            if self.BMAG == 0:
+            if self.BFieldMag == 0:
                 if self.OF : print("MONTE")
                 MONTE(self)
             else:
-                if self.BTHETA == 0 or self.BTHETA == 180:
+                if self.BFieldAngle == 0 or self.BFieldAngle == 180:
                     if self.OF : print("MONTEA")
                     MONTEA(self)
-                elif self.BTHETA == 90:
+                elif self.BFieldAngle == 90:
                     if self.OF : print("MONTEB")
                     MONTEB(self)
                 else:
@@ -504,11 +499,11 @@ cdef class Magboltz:
             return
             if abs(self.ALPP - self.ATTP) < self.SSTMIN:
                 return
-            if self.BMAG == 0.0:
+            if self.BFieldMag == 0.0:
                 print("")
-            elif self.BTHETA == 0.0 or self.BTHETA == 180:
+            elif self.BFieldAngle == 0.0 or self.BFieldAngle == 180:
                 print("")
-            elif self.BTHETA == 90:
+            elif self.BFieldAngle == 90:
                 print("")
             else:
                 print("")

@@ -32,16 +32,16 @@ cpdef MIXER(Magboltz object):
         object.EROOT[i] = sqrt(object.E[i])
     object.EROOT[0] = sqrt(EHALF)
     MIXOBJECT = Gasmix()
-    MIXOBJECT.InitWithInfo(object.NGASN, object.QIN, object.NIN, object.PENFRA,
+    MIXOBJECT.InitWithInfo(object.NumberOfGasesN, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
-                           object.DENSY, 0, object.NGAS, object.NSTEP, object.NANISO, object.ESTEP,
+                           object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.NANISO, object.ESTEP,
                            object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN, object.PIR2)
     MIXOBJECT.Run()
 
     EMASS = 9.10938291e-31
     for IE in range(4000):
         NP = 0
-        for KGAS in range(object.NGAS):
+        for KGAS in range(object.NumberOfGases):
             object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].Q[1][IE] * object.VANN[KGAS]
             object.PSCTNT[IE][NP] = 0.5
             object.ANGCTNT[IE][NP] = 1
@@ -256,10 +256,10 @@ cpdef MIXER(Magboltz object):
         NP = 0
         object.NPLASTNT = 0
         NNULLSUM = 0.0
-        for I in range(object.NGAS):
+        for I in range(object.NumberOfGases):
             NNULLSUM += MIXOBJECT.Gases[KGAS].NNULL
         if NNULLSUM != 0:
-            for I in range(object.NGAS):
+            for I in range(object.NumberOfGases):
                 if MIXOBJECT.Gases[KGAS].NNULL > 0:
                     for J in range(MIXOBJECT.Gases[KGAS].NNULL):
                         object.SCLENULNT[NP] = MIXOBJECT.Gases[KGAS].SCLN[J]
@@ -285,11 +285,11 @@ cpdef MIXER(Magboltz object):
 
     KELSUM = 0
 
-    for KGAS in range(object.NGAS):
+    for KGAS in range(object.NumberOfGases):
         for J in range(6):
             KELSUM += MIXOBJECT.Gases[KGAS].KEL[J]
 
-    for KGAS in range(object.NGAS):
+    for KGAS in range(object.NumberOfGases):
         for J in range(250):
             KELSUM += MIXOBJECT.Gases[KGAS].KIN[J]
 
@@ -320,7 +320,7 @@ cpdef MIXER(Magboltz object):
                         object.ANN[2] * MIXOBJECT.Gases[2].Q[1][I] + object.ANN[3] * MIXOBJECT.Gases[3].Q[1][I] + \
                         object.ANN[4] * MIXOBJECT.Gases[4].Q[1][I] + object.ANN[5] * MIXOBJECT.Gases[5].Q[1][I]
 
-        for KGAS in range(object.NGAS):
+        for KGAS in range(object.NumberOfGases):
             object.QION[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[2][I] * object.ANN[KGAS]
             QATT[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[3][I] * object.ANN[KGAS]
             if MIXOBJECT.Gases[KGAS].NION > 1:
@@ -330,7 +330,7 @@ cpdef MIXER(Magboltz object):
         object.QREL[I] = 0.0
         object.QSATT[I] = 0.0
         object.QSUM[I] = 0.0
-        for J in range(object.NGAS):
+        for J in range(object.NumberOfGases):
             object.QSUM[I] = object.QSUM[I] + object.QION[J][I] + QATT[J][I]
             object.QSATT[I] = object.QSATT[I] + QATT[J][I]
             object.QREL[I] = object.QREL[I] + object.QION[J][I] - QATT[J][I]

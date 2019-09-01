@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "OXYGEN",
+        "name": "gases.OXYGEN",
         "sources": [
-            "OXYGEN.pyx"
+            "gases/OXYGEN.pyx"
         ]
     },
-    "module_name": "OXYGEN"
+    "module_name": "gases.OXYGEN"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__OXYGEN
-#define __PYX_HAVE_API__OXYGEN
+#define __PYX_HAVE__gases__OXYGEN
+#define __PYX_HAVE_API__gases__OXYGEN
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "OXYGEN.pyx",
+  "gases/OXYGEN.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1697,13 +1697,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'OXYGEN' */
+/* Module declarations from 'gases.OXYGEN' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "OXYGEN"
-extern int __pyx_module_is_main_OXYGEN;
-int __pyx_module_is_main_OXYGEN = 0;
+#define __Pyx_MODULE_NAME "gases.OXYGEN"
+extern int __pyx_module_is_main_gases__OXYGEN;
+int __pyx_module_is_main_gases__OXYGEN = 0;
 
-/* Implementation of 'OXYGEN' */
+/* Implementation of 'gases.OXYGEN' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -2021,7 +2021,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "OXYGEN.pyx":17
+/* "gases/OXYGEN.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas15(Gas*object):             # <<<<<<<<<<<<<<
@@ -2029,7 +2029,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Oxygen gas.
  */
 
-static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XELA[0x99];
   double __pyx_v_YELA[0x99];
@@ -2283,7 +2283,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   int __pyx_t_44;
   __Pyx_RefNannySetupContext("Gas15", 0);
 
-  /* "OXYGEN.pyx":21
+  /* "gases/OXYGEN.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Oxygen gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2331,7 +2331,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "OXYGEN.pyx":39
+  /* "gases/OXYGEN.pyx":39
  *     cdef int IOFFN[150], IOFFION[8]
  * 
  *     XELA = gd['gas15/XELA']             # <<<<<<<<<<<<<<
@@ -2348,7 +2348,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XELA[0]), __pyx_t_5, sizeof(__pyx_v_XELA[0]) * (0x99));
 
-  /* "OXYGEN.pyx":40
+  /* "gases/OXYGEN.pyx":40
  * 
  *     XELA = gd['gas15/XELA']
  *     YELA = gd['gas15/YELA']             # <<<<<<<<<<<<<<
@@ -2365,7 +2365,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YELA[0]), __pyx_t_5, sizeof(__pyx_v_YELA[0]) * (0x99));
 
-  /* "OXYGEN.pyx":41
+  /* "gases/OXYGEN.pyx":41
  *     XELA = gd['gas15/XELA']
  *     YELA = gd['gas15/YELA']
  *     YMOM = gd['gas15/YMOM']             # <<<<<<<<<<<<<<
@@ -2382,7 +2382,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YMOM[0]), __pyx_t_5, sizeof(__pyx_v_YMOM[0]) * (0x99));
 
-  /* "OXYGEN.pyx":42
+  /* "gases/OXYGEN.pyx":42
  *     YELA = gd['gas15/YELA']
  *     YMOM = gd['gas15/YMOM']
  *     YEPS = gd['gas15/YEPS']             # <<<<<<<<<<<<<<
@@ -2399,7 +2399,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_5, sizeof(__pyx_v_YEPS[0]) * (0x99));
 
-  /* "OXYGEN.pyx":43
+  /* "gases/OXYGEN.pyx":43
  *     YMOM = gd['gas15/YMOM']
  *     YEPS = gd['gas15/YEPS']
  *     XROT13 = gd['gas15/XROT13']             # <<<<<<<<<<<<<<
@@ -2412,7 +2412,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT13[0]), __pyx_t_6, sizeof(__pyx_v_XROT13[0]) * (63));
 
-  /* "OXYGEN.pyx":44
+  /* "gases/OXYGEN.pyx":44
  *     YEPS = gd['gas15/YEPS']
  *     XROT13 = gd['gas15/XROT13']
  *     YROT13 = gd['gas15/YROT13']             # <<<<<<<<<<<<<<
@@ -2425,7 +2425,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT13[0]), __pyx_t_6, sizeof(__pyx_v_YROT13[0]) * (63));
 
-  /* "OXYGEN.pyx":45
+  /* "gases/OXYGEN.pyx":45
  *     XROT13 = gd['gas15/XROT13']
  *     YROT13 = gd['gas15/YROT13']
  *     XROT35 = gd['gas15/XROT35']             # <<<<<<<<<<<<<<
@@ -2438,7 +2438,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT35[0]), __pyx_t_7, sizeof(__pyx_v_XROT35[0]) * (55));
 
-  /* "OXYGEN.pyx":46
+  /* "gases/OXYGEN.pyx":46
  *     YROT13 = gd['gas15/YROT13']
  *     XROT35 = gd['gas15/XROT35']
  *     YROT35 = gd['gas15/YROT35']             # <<<<<<<<<<<<<<
@@ -2451,7 +2451,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT35[0]), __pyx_t_7, sizeof(__pyx_v_YROT35[0]) * (55));
 
-  /* "OXYGEN.pyx":47
+  /* "gases/OXYGEN.pyx":47
  *     XROT35 = gd['gas15/XROT35']
  *     YROT35 = gd['gas15/YROT35']
  *     XROT57 = gd['gas15/XROT57']             # <<<<<<<<<<<<<<
@@ -2464,7 +2464,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT57[0]), __pyx_t_7, sizeof(__pyx_v_XROT57[0]) * (55));
 
-  /* "OXYGEN.pyx":48
+  /* "gases/OXYGEN.pyx":48
  *     YROT35 = gd['gas15/YROT35']
  *     XROT57 = gd['gas15/XROT57']
  *     YROT57 = gd['gas15/YROT57']             # <<<<<<<<<<<<<<
@@ -2477,7 +2477,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT57[0]), __pyx_t_7, sizeof(__pyx_v_YROT57[0]) * (55));
 
-  /* "OXYGEN.pyx":49
+  /* "gases/OXYGEN.pyx":49
  *     XROT57 = gd['gas15/XROT57']
  *     YROT57 = gd['gas15/YROT57']
  *     XROT79 = gd['gas15/XROT79']             # <<<<<<<<<<<<<<
@@ -2490,7 +2490,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT79[0]), __pyx_t_8, sizeof(__pyx_v_XROT79[0]) * (50));
 
-  /* "OXYGEN.pyx":50
+  /* "gases/OXYGEN.pyx":50
  *     YROT57 = gd['gas15/YROT57']
  *     XROT79 = gd['gas15/XROT79']
  *     YROT79 = gd['gas15/YROT79']             # <<<<<<<<<<<<<<
@@ -2503,7 +2503,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT79[0]), __pyx_t_8, sizeof(__pyx_v_YROT79[0]) * (50));
 
-  /* "OXYGEN.pyx":51
+  /* "gases/OXYGEN.pyx":51
  *     XROT79 = gd['gas15/XROT79']
  *     YROT79 = gd['gas15/YROT79']
  *     XROT911 = gd['gas15/XROT911']             # <<<<<<<<<<<<<<
@@ -2516,7 +2516,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT911[0]), __pyx_t_9, sizeof(__pyx_v_XROT911[0]) * (48));
 
-  /* "OXYGEN.pyx":52
+  /* "gases/OXYGEN.pyx":52
  *     YROT79 = gd['gas15/YROT79']
  *     XROT911 = gd['gas15/XROT911']
  *     YROT911 = gd['gas15/YROT911']             # <<<<<<<<<<<<<<
@@ -2529,7 +2529,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT911[0]), __pyx_t_9, sizeof(__pyx_v_YROT911[0]) * (48));
 
-  /* "OXYGEN.pyx":53
+  /* "gases/OXYGEN.pyx":53
  *     XROT911 = gd['gas15/XROT911']
  *     YROT911 = gd['gas15/YROT911']
  *     XROT1113 = gd['gas15/XROT1113']             # <<<<<<<<<<<<<<
@@ -2542,7 +2542,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT1113[0]), __pyx_t_10, sizeof(__pyx_v_XROT1113[0]) * (46));
 
-  /* "OXYGEN.pyx":54
+  /* "gases/OXYGEN.pyx":54
  *     YROT911 = gd['gas15/YROT911']
  *     XROT1113 = gd['gas15/XROT1113']
  *     YROT1113 = gd['gas15/YROT1113']             # <<<<<<<<<<<<<<
@@ -2555,7 +2555,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT1113[0]), __pyx_t_10, sizeof(__pyx_v_YROT1113[0]) * (46));
 
-  /* "OXYGEN.pyx":55
+  /* "gases/OXYGEN.pyx":55
  *     XROT1113 = gd['gas15/XROT1113']
  *     YROT1113 = gd['gas15/YROT1113']
  *     XROT1315 = gd['gas15/XROT1315']             # <<<<<<<<<<<<<<
@@ -2568,7 +2568,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT1315[0]), __pyx_t_11, sizeof(__pyx_v_XROT1315[0]) * (45));
 
-  /* "OXYGEN.pyx":56
+  /* "gases/OXYGEN.pyx":56
  *     YROT1113 = gd['gas15/YROT1113']
  *     XROT1315 = gd['gas15/XROT1315']
  *     YROT1315 = gd['gas15/YROT1315']             # <<<<<<<<<<<<<<
@@ -2581,7 +2581,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT1315[0]), __pyx_t_11, sizeof(__pyx_v_YROT1315[0]) * (45));
 
-  /* "OXYGEN.pyx":57
+  /* "gases/OXYGEN.pyx":57
  *     XROT1315 = gd['gas15/XROT1315']
  *     YROT1315 = gd['gas15/YROT1315']
  *     XROT1517 = gd['gas15/XROT1517']             # <<<<<<<<<<<<<<
@@ -2594,7 +2594,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT1517[0]), __pyx_t_12, sizeof(__pyx_v_XROT1517[0]) * (44));
 
-  /* "OXYGEN.pyx":58
+  /* "gases/OXYGEN.pyx":58
  *     YROT1315 = gd['gas15/YROT1315']
  *     XROT1517 = gd['gas15/XROT1517']
  *     YROT1517 = gd['gas15/YROT1517']             # <<<<<<<<<<<<<<
@@ -2607,7 +2607,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT1517[0]), __pyx_t_12, sizeof(__pyx_v_YROT1517[0]) * (44));
 
-  /* "OXYGEN.pyx":59
+  /* "gases/OXYGEN.pyx":59
  *     XROT1517 = gd['gas15/XROT1517']
  *     YROT1517 = gd['gas15/YROT1517']
  *     XROT1719 = gd['gas15/XROT1719']             # <<<<<<<<<<<<<<
@@ -2620,7 +2620,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT1719[0]), __pyx_t_13, sizeof(__pyx_v_XROT1719[0]) * (43));
 
-  /* "OXYGEN.pyx":60
+  /* "gases/OXYGEN.pyx":60
  *     YROT1517 = gd['gas15/YROT1517']
  *     XROT1719 = gd['gas15/XROT1719']
  *     YROT1719 = gd['gas15/YROT1719']             # <<<<<<<<<<<<<<
@@ -2633,7 +2633,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT1719[0]), __pyx_t_13, sizeof(__pyx_v_YROT1719[0]) * (43));
 
-  /* "OXYGEN.pyx":61
+  /* "gases/OXYGEN.pyx":61
  *     XROT1719 = gd['gas15/XROT1719']
  *     YROT1719 = gd['gas15/YROT1719']
  *     XROT1921 = gd['gas15/XROT1921']             # <<<<<<<<<<<<<<
@@ -2646,7 +2646,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT1921[0]), __pyx_t_14, sizeof(__pyx_v_XROT1921[0]) * (41));
 
-  /* "OXYGEN.pyx":62
+  /* "gases/OXYGEN.pyx":62
  *     YROT1719 = gd['gas15/YROT1719']
  *     XROT1921 = gd['gas15/XROT1921']
  *     YROT1921 = gd['gas15/YROT1921']             # <<<<<<<<<<<<<<
@@ -2659,7 +2659,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT1921[0]), __pyx_t_14, sizeof(__pyx_v_YROT1921[0]) * (41));
 
-  /* "OXYGEN.pyx":63
+  /* "gases/OXYGEN.pyx":63
  *     XROT1921 = gd['gas15/XROT1921']
  *     YROT1921 = gd['gas15/YROT1921']
  *     XROT2123 = gd['gas15/XROT2123']             # <<<<<<<<<<<<<<
@@ -2672,7 +2672,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT2123[0]), __pyx_t_15, sizeof(__pyx_v_XROT2123[0]) * (40));
 
-  /* "OXYGEN.pyx":64
+  /* "gases/OXYGEN.pyx":64
  *     YROT1921 = gd['gas15/YROT1921']
  *     XROT2123 = gd['gas15/XROT2123']
  *     YROT2123 = gd['gas15/YROT2123']             # <<<<<<<<<<<<<<
@@ -2685,7 +2685,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT2123[0]), __pyx_t_15, sizeof(__pyx_v_YROT2123[0]) * (40));
 
-  /* "OXYGEN.pyx":65
+  /* "gases/OXYGEN.pyx":65
  *     XROT2123 = gd['gas15/XROT2123']
  *     YROT2123 = gd['gas15/YROT2123']
  *     XROT2325 = gd['gas15/XROT2325']             # <<<<<<<<<<<<<<
@@ -2698,7 +2698,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT2325[0]), __pyx_t_16, sizeof(__pyx_v_XROT2325[0]) * (39));
 
-  /* "OXYGEN.pyx":66
+  /* "gases/OXYGEN.pyx":66
  *     YROT2123 = gd['gas15/YROT2123']
  *     XROT2325 = gd['gas15/XROT2325']
  *     YROT2325 = gd['gas15/YROT2325']             # <<<<<<<<<<<<<<
@@ -2711,7 +2711,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT2325[0]), __pyx_t_16, sizeof(__pyx_v_YROT2325[0]) * (39));
 
-  /* "OXYGEN.pyx":67
+  /* "gases/OXYGEN.pyx":67
  *     XROT2325 = gd['gas15/XROT2325']
  *     YROT2325 = gd['gas15/YROT2325']
  *     XROT2527 = gd['gas15/XROT2527']             # <<<<<<<<<<<<<<
@@ -2724,7 +2724,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT2527[0]), __pyx_t_17, sizeof(__pyx_v_XROT2527[0]) * (38));
 
-  /* "OXYGEN.pyx":68
+  /* "gases/OXYGEN.pyx":68
  *     YROT2325 = gd['gas15/YROT2325']
  *     XROT2527 = gd['gas15/XROT2527']
  *     YROT2527 = gd['gas15/YROT2527']             # <<<<<<<<<<<<<<
@@ -2737,7 +2737,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT2527[0]), __pyx_t_17, sizeof(__pyx_v_YROT2527[0]) * (38));
 
-  /* "OXYGEN.pyx":69
+  /* "gases/OXYGEN.pyx":69
  *     XROT2527 = gd['gas15/XROT2527']
  *     YROT2527 = gd['gas15/YROT2527']
  *     XROT2729 = gd['gas15/XROT2729']             # <<<<<<<<<<<<<<
@@ -2750,7 +2750,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT2729[0]), __pyx_t_18, sizeof(__pyx_v_XROT2729[0]) * (37));
 
-  /* "OXYGEN.pyx":70
+  /* "gases/OXYGEN.pyx":70
  *     YROT2527 = gd['gas15/YROT2527']
  *     XROT2729 = gd['gas15/XROT2729']
  *     YROT2729 = gd['gas15/YROT2729']             # <<<<<<<<<<<<<<
@@ -2763,7 +2763,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT2729[0]), __pyx_t_18, sizeof(__pyx_v_YROT2729[0]) * (37));
 
-  /* "OXYGEN.pyx":71
+  /* "gases/OXYGEN.pyx":71
  *     XROT2729 = gd['gas15/XROT2729']
  *     YROT2729 = gd['gas15/YROT2729']
  *     XROT2931 = gd['gas15/XROT2931']             # <<<<<<<<<<<<<<
@@ -2776,7 +2776,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT2931[0]), __pyx_t_19, sizeof(__pyx_v_XROT2931[0]) * (36));
 
-  /* "OXYGEN.pyx":72
+  /* "gases/OXYGEN.pyx":72
  *     YROT2729 = gd['gas15/YROT2729']
  *     XROT2931 = gd['gas15/XROT2931']
  *     YROT2931 = gd['gas15/YROT2931']             # <<<<<<<<<<<<<<
@@ -2789,7 +2789,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT2931[0]), __pyx_t_19, sizeof(__pyx_v_YROT2931[0]) * (36));
 
-  /* "OXYGEN.pyx":73
+  /* "gases/OXYGEN.pyx":73
  *     XROT2931 = gd['gas15/XROT2931']
  *     YROT2931 = gd['gas15/YROT2931']
  *     XROT3133 = gd['gas15/XROT3133']             # <<<<<<<<<<<<<<
@@ -2802,7 +2802,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT3133[0]), __pyx_t_20, sizeof(__pyx_v_XROT3133[0]) * (34));
 
-  /* "OXYGEN.pyx":74
+  /* "gases/OXYGEN.pyx":74
  *     YROT2931 = gd['gas15/YROT2931']
  *     XROT3133 = gd['gas15/XROT3133']
  *     YROT3133 = gd['gas15/YROT3133']             # <<<<<<<<<<<<<<
@@ -2815,7 +2815,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT3133[0]), __pyx_t_20, sizeof(__pyx_v_YROT3133[0]) * (34));
 
-  /* "OXYGEN.pyx":75
+  /* "gases/OXYGEN.pyx":75
  *     XROT3133 = gd['gas15/XROT3133']
  *     YROT3133 = gd['gas15/YROT3133']
  *     XROT3335 = gd['gas15/XROT3335']             # <<<<<<<<<<<<<<
@@ -2828,7 +2828,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT3335[0]), __pyx_t_21, sizeof(__pyx_v_XROT3335[0]) * (33));
 
-  /* "OXYGEN.pyx":76
+  /* "gases/OXYGEN.pyx":76
  *     YROT3133 = gd['gas15/YROT3133']
  *     XROT3335 = gd['gas15/XROT3335']
  *     YROT3335 = gd['gas15/YROT3335']             # <<<<<<<<<<<<<<
@@ -2841,7 +2841,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT3335[0]), __pyx_t_21, sizeof(__pyx_v_YROT3335[0]) * (33));
 
-  /* "OXYGEN.pyx":77
+  /* "gases/OXYGEN.pyx":77
  *     XROT3335 = gd['gas15/XROT3335']
  *     YROT3335 = gd['gas15/YROT3335']
  *     XROT3537 = gd['gas15/XROT3537']             # <<<<<<<<<<<<<<
@@ -2854,7 +2854,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT3537[0]), __pyx_t_22, sizeof(__pyx_v_XROT3537[0]) * (32));
 
-  /* "OXYGEN.pyx":78
+  /* "gases/OXYGEN.pyx":78
  *     YROT3335 = gd['gas15/YROT3335']
  *     XROT3537 = gd['gas15/XROT3537']
  *     YROT3537 = gd['gas15/YROT3537']             # <<<<<<<<<<<<<<
@@ -2867,7 +2867,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT3537[0]), __pyx_t_22, sizeof(__pyx_v_YROT3537[0]) * (32));
 
-  /* "OXYGEN.pyx":79
+  /* "gases/OXYGEN.pyx":79
  *     XROT3537 = gd['gas15/XROT3537']
  *     YROT3537 = gd['gas15/YROT3537']
  *     XROT3739 = gd['gas15/XROT3739']             # <<<<<<<<<<<<<<
@@ -2880,7 +2880,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT3739[0]), __pyx_t_22, sizeof(__pyx_v_XROT3739[0]) * (32));
 
-  /* "OXYGEN.pyx":80
+  /* "gases/OXYGEN.pyx":80
  *     YROT3537 = gd['gas15/YROT3537']
  *     XROT3739 = gd['gas15/XROT3739']
  *     YROT3739 = gd['gas15/YROT3739']             # <<<<<<<<<<<<<<
@@ -2893,7 +2893,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT3739[0]), __pyx_t_22, sizeof(__pyx_v_YROT3739[0]) * (32));
 
-  /* "OXYGEN.pyx":81
+  /* "gases/OXYGEN.pyx":81
  *     XROT3739 = gd['gas15/XROT3739']
  *     YROT3739 = gd['gas15/YROT3739']
  *     XROT3941 = gd['gas15/XROT3941']             # <<<<<<<<<<<<<<
@@ -2906,7 +2906,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT3941[0]), __pyx_t_23, sizeof(__pyx_v_XROT3941[0]) * (31));
 
-  /* "OXYGEN.pyx":82
+  /* "gases/OXYGEN.pyx":82
  *     YROT3739 = gd['gas15/YROT3739']
  *     XROT3941 = gd['gas15/XROT3941']
  *     YROT3941 = gd['gas15/YROT3941']             # <<<<<<<<<<<<<<
@@ -2919,7 +2919,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT3941[0]), __pyx_t_23, sizeof(__pyx_v_YROT3941[0]) * (31));
 
-  /* "OXYGEN.pyx":83
+  /* "gases/OXYGEN.pyx":83
  *     XROT3941 = gd['gas15/XROT3941']
  *     YROT3941 = gd['gas15/YROT3941']
  *     XROT4143 = gd['gas15/XROT4143']             # <<<<<<<<<<<<<<
@@ -2932,7 +2932,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT4143[0]), __pyx_t_23, sizeof(__pyx_v_XROT4143[0]) * (31));
 
-  /* "OXYGEN.pyx":84
+  /* "gases/OXYGEN.pyx":84
  *     YROT3941 = gd['gas15/YROT3941']
  *     XROT4143 = gd['gas15/XROT4143']
  *     YROT4143 = gd['gas15/YROT4143']             # <<<<<<<<<<<<<<
@@ -2945,7 +2945,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT4143[0]), __pyx_t_23, sizeof(__pyx_v_YROT4143[0]) * (31));
 
-  /* "OXYGEN.pyx":85
+  /* "gases/OXYGEN.pyx":85
  *     XROT4143 = gd['gas15/XROT4143']
  *     YROT4143 = gd['gas15/YROT4143']
  *     XROT4345 = gd['gas15/XROT4345']             # <<<<<<<<<<<<<<
@@ -2958,7 +2958,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT4345[0]), __pyx_t_24, sizeof(__pyx_v_XROT4345[0]) * (30));
 
-  /* "OXYGEN.pyx":86
+  /* "gases/OXYGEN.pyx":86
  *     YROT4143 = gd['gas15/YROT4143']
  *     XROT4345 = gd['gas15/XROT4345']
  *     YROT4345 = gd['gas15/YROT4345']             # <<<<<<<<<<<<<<
@@ -2971,7 +2971,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT4345[0]), __pyx_t_24, sizeof(__pyx_v_YROT4345[0]) * (30));
 
-  /* "OXYGEN.pyx":87
+  /* "gases/OXYGEN.pyx":87
  *     XROT4345 = gd['gas15/XROT4345']
  *     YROT4345 = gd['gas15/YROT4345']
  *     XROT4547 = gd['gas15/XROT4547']             # <<<<<<<<<<<<<<
@@ -2984,7 +2984,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT4547[0]), __pyx_t_24, sizeof(__pyx_v_XROT4547[0]) * (30));
 
-  /* "OXYGEN.pyx":88
+  /* "gases/OXYGEN.pyx":88
  *     YROT4345 = gd['gas15/YROT4345']
  *     XROT4547 = gd['gas15/XROT4547']
  *     YROT4547 = gd['gas15/YROT4547']             # <<<<<<<<<<<<<<
@@ -2997,7 +2997,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT4547[0]), __pyx_t_24, sizeof(__pyx_v_YROT4547[0]) * (30));
 
-  /* "OXYGEN.pyx":89
+  /* "gases/OXYGEN.pyx":89
  *     XROT4547 = gd['gas15/XROT4547']
  *     YROT4547 = gd['gas15/YROT4547']
  *     XROT4749 = gd['gas15/XROT4749']             # <<<<<<<<<<<<<<
@@ -3010,7 +3010,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT4749[0]), __pyx_t_25, sizeof(__pyx_v_XROT4749[0]) * (29));
 
-  /* "OXYGEN.pyx":90
+  /* "gases/OXYGEN.pyx":90
  *     YROT4547 = gd['gas15/YROT4547']
  *     XROT4749 = gd['gas15/XROT4749']
  *     YROT4749 = gd['gas15/YROT4749']             # <<<<<<<<<<<<<<
@@ -3023,7 +3023,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT4749[0]), __pyx_t_25, sizeof(__pyx_v_YROT4749[0]) * (29));
 
-  /* "OXYGEN.pyx":91
+  /* "gases/OXYGEN.pyx":91
  *     XROT4749 = gd['gas15/XROT4749']
  *     YROT4749 = gd['gas15/YROT4749']
  *     XVIB = gd['gas15/XVIB']             # <<<<<<<<<<<<<<
@@ -3036,7 +3036,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB[0]), __pyx_t_26, sizeof(__pyx_v_XVIB[0]) * (60));
 
-  /* "OXYGEN.pyx":92
+  /* "gases/OXYGEN.pyx":92
  *     YROT4749 = gd['gas15/YROT4749']
  *     XVIB = gd['gas15/XVIB']
  *     YVIB1 = gd['gas15/YVIB1']             # <<<<<<<<<<<<<<
@@ -3049,7 +3049,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB1[0]), __pyx_t_26, sizeof(__pyx_v_YVIB1[0]) * (60));
 
-  /* "OXYGEN.pyx":93
+  /* "gases/OXYGEN.pyx":93
  *     XVIB = gd['gas15/XVIB']
  *     YVIB1 = gd['gas15/YVIB1']
  *     YVIB2 = gd['gas15/YVIB2']             # <<<<<<<<<<<<<<
@@ -3062,7 +3062,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB2[0]), __pyx_t_26, sizeof(__pyx_v_YVIB2[0]) * (60));
 
-  /* "OXYGEN.pyx":94
+  /* "gases/OXYGEN.pyx":94
  *     YVIB1 = gd['gas15/YVIB1']
  *     YVIB2 = gd['gas15/YVIB2']
  *     YVIB3 = gd['gas15/YVIB3']             # <<<<<<<<<<<<<<
@@ -3075,7 +3075,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB3[0]), __pyx_t_26, sizeof(__pyx_v_YVIB3[0]) * (60));
 
-  /* "OXYGEN.pyx":95
+  /* "gases/OXYGEN.pyx":95
  *     YVIB2 = gd['gas15/YVIB2']
  *     YVIB3 = gd['gas15/YVIB3']
  *     YVIB4 = gd['gas15/YVIB4']             # <<<<<<<<<<<<<<
@@ -3088,7 +3088,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB4[0]), __pyx_t_26, sizeof(__pyx_v_YVIB4[0]) * (60));
 
-  /* "OXYGEN.pyx":96
+  /* "gases/OXYGEN.pyx":96
  *     YVIB3 = gd['gas15/YVIB3']
  *     YVIB4 = gd['gas15/YVIB4']
  *     YVIB5 = gd['gas15/YVIB5']             # <<<<<<<<<<<<<<
@@ -3101,7 +3101,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB5[0]), __pyx_t_26, sizeof(__pyx_v_YVIB5[0]) * (60));
 
-  /* "OXYGEN.pyx":97
+  /* "gases/OXYGEN.pyx":97
  *     YVIB4 = gd['gas15/YVIB4']
  *     YVIB5 = gd['gas15/YVIB5']
  *     YVIB6 = gd['gas15/YVIB6']             # <<<<<<<<<<<<<<
@@ -3114,7 +3114,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB6[0]), __pyx_t_26, sizeof(__pyx_v_YVIB6[0]) * (60));
 
-  /* "OXYGEN.pyx":98
+  /* "gases/OXYGEN.pyx":98
  *     YVIB5 = gd['gas15/YVIB5']
  *     YVIB6 = gd['gas15/YVIB6']
  *     YVIB7 = gd['gas15/YVIB7']             # <<<<<<<<<<<<<<
@@ -3127,7 +3127,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB7[0]), __pyx_t_26, sizeof(__pyx_v_YVIB7[0]) * (60));
 
-  /* "OXYGEN.pyx":99
+  /* "gases/OXYGEN.pyx":99
  *     YVIB6 = gd['gas15/YVIB6']
  *     YVIB7 = gd['gas15/YVIB7']
  *     YVIB8 = gd['gas15/YVIB8']             # <<<<<<<<<<<<<<
@@ -3140,7 +3140,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB8[0]), __pyx_t_26, sizeof(__pyx_v_YVIB8[0]) * (60));
 
-  /* "OXYGEN.pyx":100
+  /* "gases/OXYGEN.pyx":100
  *     YVIB7 = gd['gas15/YVIB7']
  *     YVIB8 = gd['gas15/YVIB8']
  *     YVIB9 = gd['gas15/YVIB9']             # <<<<<<<<<<<<<<
@@ -3153,7 +3153,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB9[0]), __pyx_t_26, sizeof(__pyx_v_YVIB9[0]) * (60));
 
-  /* "OXYGEN.pyx":101
+  /* "gases/OXYGEN.pyx":101
  *     YVIB8 = gd['gas15/YVIB8']
  *     YVIB9 = gd['gas15/YVIB9']
  *     YVIB10 = gd['gas15/YVIB10']             # <<<<<<<<<<<<<<
@@ -3166,7 +3166,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB10[0]), __pyx_t_26, sizeof(__pyx_v_YVIB10[0]) * (60));
 
-  /* "OXYGEN.pyx":102
+  /* "gases/OXYGEN.pyx":102
  *     YVIB9 = gd['gas15/YVIB9']
  *     YVIB10 = gd['gas15/YVIB10']
  *     YVIB11 = gd['gas15/YVIB11']             # <<<<<<<<<<<<<<
@@ -3179,7 +3179,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB11[0]), __pyx_t_26, sizeof(__pyx_v_YVIB11[0]) * (60));
 
-  /* "OXYGEN.pyx":103
+  /* "gases/OXYGEN.pyx":103
  *     YVIB10 = gd['gas15/YVIB10']
  *     YVIB11 = gd['gas15/YVIB11']
  *     YVIB12 = gd['gas15/YVIB12']             # <<<<<<<<<<<<<<
@@ -3192,7 +3192,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB12[0]), __pyx_t_26, sizeof(__pyx_v_YVIB12[0]) * (60));
 
-  /* "OXYGEN.pyx":104
+  /* "gases/OXYGEN.pyx":104
  *     YVIB11 = gd['gas15/YVIB11']
  *     YVIB12 = gd['gas15/YVIB12']
  *     YVIB13 = gd['gas15/YVIB13']             # <<<<<<<<<<<<<<
@@ -3205,7 +3205,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB13[0]), __pyx_t_26, sizeof(__pyx_v_YVIB13[0]) * (60));
 
-  /* "OXYGEN.pyx":105
+  /* "gases/OXYGEN.pyx":105
  *     YVIB12 = gd['gas15/YVIB12']
  *     YVIB13 = gd['gas15/YVIB13']
  *     YVIB14 = gd['gas15/YVIB14']             # <<<<<<<<<<<<<<
@@ -3218,7 +3218,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB14[0]), __pyx_t_26, sizeof(__pyx_v_YVIB14[0]) * (60));
 
-  /* "OXYGEN.pyx":106
+  /* "gases/OXYGEN.pyx":106
  *     YVIB13 = gd['gas15/YVIB13']
  *     YVIB14 = gd['gas15/YVIB14']
  *     YVIB15 = gd['gas15/YVIB15']             # <<<<<<<<<<<<<<
@@ -3231,7 +3231,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB15[0]), __pyx_t_26, sizeof(__pyx_v_YVIB15[0]) * (60));
 
-  /* "OXYGEN.pyx":107
+  /* "gases/OXYGEN.pyx":107
  *     YVIB14 = gd['gas15/YVIB14']
  *     YVIB15 = gd['gas15/YVIB15']
  *     YVIB16 = gd['gas15/YVIB16']             # <<<<<<<<<<<<<<
@@ -3244,7 +3244,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB16[0]), __pyx_t_26, sizeof(__pyx_v_YVIB16[0]) * (60));
 
-  /* "OXYGEN.pyx":108
+  /* "gases/OXYGEN.pyx":108
  *     YVIB15 = gd['gas15/YVIB15']
  *     YVIB16 = gd['gas15/YVIB16']
  *     YVIB17 = gd['gas15/YVIB17']             # <<<<<<<<<<<<<<
@@ -3257,7 +3257,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB17[0]), __pyx_t_26, sizeof(__pyx_v_YVIB17[0]) * (60));
 
-  /* "OXYGEN.pyx":109
+  /* "gases/OXYGEN.pyx":109
  *     YVIB16 = gd['gas15/YVIB16']
  *     YVIB17 = gd['gas15/YVIB17']
  *     YVIB18 = gd['gas15/YVIB18']             # <<<<<<<<<<<<<<
@@ -3270,7 +3270,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB18[0]), __pyx_t_26, sizeof(__pyx_v_YVIB18[0]) * (60));
 
-  /* "OXYGEN.pyx":110
+  /* "gases/OXYGEN.pyx":110
  *     YVIB17 = gd['gas15/YVIB17']
  *     YVIB18 = gd['gas15/YVIB18']
  *     YVIB19 = gd['gas15/YVIB19']             # <<<<<<<<<<<<<<
@@ -3283,7 +3283,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB19[0]), __pyx_t_26, sizeof(__pyx_v_YVIB19[0]) * (60));
 
-  /* "OXYGEN.pyx":111
+  /* "gases/OXYGEN.pyx":111
  *     YVIB18 = gd['gas15/YVIB18']
  *     YVIB19 = gd['gas15/YVIB19']
  *     YVIB20 = gd['gas15/YVIB20']             # <<<<<<<<<<<<<<
@@ -3296,7 +3296,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB20[0]), __pyx_t_26, sizeof(__pyx_v_YVIB20[0]) * (60));
 
-  /* "OXYGEN.pyx":112
+  /* "gases/OXYGEN.pyx":112
  *     YVIB19 = gd['gas15/YVIB19']
  *     YVIB20 = gd['gas15/YVIB20']
  *     YVIB21 = gd['gas15/YVIB21']             # <<<<<<<<<<<<<<
@@ -3309,7 +3309,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB21[0]), __pyx_t_26, sizeof(__pyx_v_YVIB21[0]) * (60));
 
-  /* "OXYGEN.pyx":113
+  /* "gases/OXYGEN.pyx":113
  *     YVIB20 = gd['gas15/YVIB20']
  *     YVIB21 = gd['gas15/YVIB21']
  *     X3ATT = gd['gas15/X3ATT']             # <<<<<<<<<<<<<<
@@ -3322,7 +3322,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3ATT[0]), __pyx_t_22, sizeof(__pyx_v_X3ATT[0]) * (32));
 
-  /* "OXYGEN.pyx":114
+  /* "gases/OXYGEN.pyx":114
  *     YVIB21 = gd['gas15/YVIB21']
  *     X3ATT = gd['gas15/X3ATT']
  *     Y3ATT = gd['gas15/Y3ATT']             # <<<<<<<<<<<<<<
@@ -3335,7 +3335,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3ATT[0]), __pyx_t_22, sizeof(__pyx_v_Y3ATT[0]) * (32));
 
-  /* "OXYGEN.pyx":115
+  /* "gases/OXYGEN.pyx":115
  *     X3ATT = gd['gas15/X3ATT']
  *     Y3ATT = gd['gas15/Y3ATT']
  *     XATT = gd['gas15/XATT']             # <<<<<<<<<<<<<<
@@ -3348,7 +3348,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT[0]), __pyx_t_23, sizeof(__pyx_v_XATT[0]) * (31));
 
-  /* "OXYGEN.pyx":116
+  /* "gases/OXYGEN.pyx":116
  *     Y3ATT = gd['gas15/Y3ATT']
  *     XATT = gd['gas15/XATT']
  *     YATT = gd['gas15/YATT']             # <<<<<<<<<<<<<<
@@ -3361,7 +3361,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT[0]), __pyx_t_23, sizeof(__pyx_v_YATT[0]) * (31));
 
-  /* "OXYGEN.pyx":117
+  /* "gases/OXYGEN.pyx":117
  *     XATT = gd['gas15/XATT']
  *     YATT = gd['gas15/YATT']
  *     XEXC1 = gd['gas15/XEXC1']             # <<<<<<<<<<<<<<
@@ -3374,7 +3374,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC1[0]), __pyx_t_15, sizeof(__pyx_v_XEXC1[0]) * (40));
 
-  /* "OXYGEN.pyx":118
+  /* "gases/OXYGEN.pyx":118
  *     YATT = gd['gas15/YATT']
  *     XEXC1 = gd['gas15/XEXC1']
  *     YEXC1 = gd['gas15/YEXC1']             # <<<<<<<<<<<<<<
@@ -3387,7 +3387,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC1[0]), __pyx_t_15, sizeof(__pyx_v_YEXC1[0]) * (40));
 
-  /* "OXYGEN.pyx":119
+  /* "gases/OXYGEN.pyx":119
  *     XEXC1 = gd['gas15/XEXC1']
  *     YEXC1 = gd['gas15/YEXC1']
  *     XEXC2 = gd['gas15/XEXC2']             # <<<<<<<<<<<<<<
@@ -3400,7 +3400,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC2[0]), __pyx_t_23, sizeof(__pyx_v_XEXC2[0]) * (31));
 
-  /* "OXYGEN.pyx":120
+  /* "gases/OXYGEN.pyx":120
  *     YEXC1 = gd['gas15/YEXC1']
  *     XEXC2 = gd['gas15/XEXC2']
  *     YEXC2 = gd['gas15/YEXC2']             # <<<<<<<<<<<<<<
@@ -3413,7 +3413,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC2[0]), __pyx_t_23, sizeof(__pyx_v_YEXC2[0]) * (31));
 
-  /* "OXYGEN.pyx":121
+  /* "gases/OXYGEN.pyx":121
  *     XEXC2 = gd['gas15/XEXC2']
  *     YEXC2 = gd['gas15/YEXC2']
  *     XEXC3 = gd['gas15/XEXC3']             # <<<<<<<<<<<<<<
@@ -3426,7 +3426,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC3[0]), __pyx_t_27, sizeof(__pyx_v_XEXC3[0]) * (16));
 
-  /* "OXYGEN.pyx":122
+  /* "gases/OXYGEN.pyx":122
  *     YEXC2 = gd['gas15/YEXC2']
  *     XEXC3 = gd['gas15/XEXC3']
  *     YEXC3 = gd['gas15/YEXC3']             # <<<<<<<<<<<<<<
@@ -3439,7 +3439,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC3[0]), __pyx_t_27, sizeof(__pyx_v_YEXC3[0]) * (16));
 
-  /* "OXYGEN.pyx":123
+  /* "gases/OXYGEN.pyx":123
  *     XEXC3 = gd['gas15/XEXC3']
  *     YEXC3 = gd['gas15/YEXC3']
  *     XEXC4 = gd['gas15/XEXC4']             # <<<<<<<<<<<<<<
@@ -3452,7 +3452,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC4[0]), __pyx_t_28, sizeof(__pyx_v_XEXC4[0]) * (15));
 
-  /* "OXYGEN.pyx":124
+  /* "gases/OXYGEN.pyx":124
  *     YEXC3 = gd['gas15/YEXC3']
  *     XEXC4 = gd['gas15/XEXC4']
  *     YEXC4 = gd['gas15/YEXC4']             # <<<<<<<<<<<<<<
@@ -3465,7 +3465,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC4[0]), __pyx_t_28, sizeof(__pyx_v_YEXC4[0]) * (15));
 
-  /* "OXYGEN.pyx":125
+  /* "gases/OXYGEN.pyx":125
  *     XEXC4 = gd['gas15/XEXC4']
  *     YEXC4 = gd['gas15/YEXC4']
  *     XEXC5 = gd['gas15/XEXC5']             # <<<<<<<<<<<<<<
@@ -3478,7 +3478,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC5[0]), __pyx_t_29, sizeof(__pyx_v_XEXC5[0]) * (14));
 
-  /* "OXYGEN.pyx":126
+  /* "gases/OXYGEN.pyx":126
  *     YEXC4 = gd['gas15/YEXC4']
  *     XEXC5 = gd['gas15/XEXC5']
  *     YEXC5 = gd['gas15/YEXC5']             # <<<<<<<<<<<<<<
@@ -3491,7 +3491,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC5[0]), __pyx_t_29, sizeof(__pyx_v_YEXC5[0]) * (14));
 
-  /* "OXYGEN.pyx":127
+  /* "gases/OXYGEN.pyx":127
  *     XEXC5 = gd['gas15/XEXC5']
  *     YEXC5 = gd['gas15/YEXC5']
  *     XEXC6 = gd['gas15/XEXC6']             # <<<<<<<<<<<<<<
@@ -3504,7 +3504,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC6[0]), __pyx_t_29, sizeof(__pyx_v_XEXC6[0]) * (14));
 
-  /* "OXYGEN.pyx":128
+  /* "gases/OXYGEN.pyx":128
  *     YEXC5 = gd['gas15/YEXC5']
  *     XEXC6 = gd['gas15/XEXC6']
  *     YEXC6 = gd['gas15/YEXC6']             # <<<<<<<<<<<<<<
@@ -3517,7 +3517,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC6[0]), __pyx_t_29, sizeof(__pyx_v_YEXC6[0]) * (14));
 
-  /* "OXYGEN.pyx":129
+  /* "gases/OXYGEN.pyx":129
  *     XEXC6 = gd['gas15/XEXC6']
  *     YEXC6 = gd['gas15/YEXC6']
  *     XEXC7 = gd['gas15/XEXC7']             # <<<<<<<<<<<<<<
@@ -3530,7 +3530,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC7[0]), __pyx_t_29, sizeof(__pyx_v_XEXC7[0]) * (14));
 
-  /* "OXYGEN.pyx":130
+  /* "gases/OXYGEN.pyx":130
  *     YEXC6 = gd['gas15/YEXC6']
  *     XEXC7 = gd['gas15/XEXC7']
  *     YEXC7 = gd['gas15/YEXC7']             # <<<<<<<<<<<<<<
@@ -3543,7 +3543,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC7[0]), __pyx_t_29, sizeof(__pyx_v_YEXC7[0]) * (14));
 
-  /* "OXYGEN.pyx":131
+  /* "gases/OXYGEN.pyx":131
  *     XEXC7 = gd['gas15/XEXC7']
  *     YEXC7 = gd['gas15/YEXC7']
  *     XEXC8 = gd['gas15/XEXC8']             # <<<<<<<<<<<<<<
@@ -3556,7 +3556,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC8[0]), __pyx_t_28, sizeof(__pyx_v_XEXC8[0]) * (15));
 
-  /* "OXYGEN.pyx":132
+  /* "gases/OXYGEN.pyx":132
  *     YEXC7 = gd['gas15/YEXC7']
  *     XEXC8 = gd['gas15/XEXC8']
  *     YEXC8 = gd['gas15/YEXC8']             # <<<<<<<<<<<<<<
@@ -3569,7 +3569,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC8[0]), __pyx_t_28, sizeof(__pyx_v_YEXC8[0]) * (15));
 
-  /* "OXYGEN.pyx":133
+  /* "gases/OXYGEN.pyx":133
  *     XEXC8 = gd['gas15/XEXC8']
  *     YEXC8 = gd['gas15/YEXC8']
  *     XEXC9 = gd['gas15/XEXC9']             # <<<<<<<<<<<<<<
@@ -3582,7 +3582,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC9[0]), __pyx_t_29, sizeof(__pyx_v_XEXC9[0]) * (14));
 
-  /* "OXYGEN.pyx":134
+  /* "gases/OXYGEN.pyx":134
  *     YEXC8 = gd['gas15/YEXC8']
  *     XEXC9 = gd['gas15/XEXC9']
  *     YEXC9 = gd['gas15/YEXC9']             # <<<<<<<<<<<<<<
@@ -3595,7 +3595,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC9[0]), __pyx_t_29, sizeof(__pyx_v_YEXC9[0]) * (14));
 
-  /* "OXYGEN.pyx":135
+  /* "gases/OXYGEN.pyx":135
  *     XEXC9 = gd['gas15/XEXC9']
  *     YEXC9 = gd['gas15/YEXC9']
  *     XROT = gd['gas15/XROT']             # <<<<<<<<<<<<<<
@@ -3608,7 +3608,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XROT[0]), __pyx_t_9, sizeof(__pyx_v_XROT[0]) * (48));
 
-  /* "OXYGEN.pyx":136
+  /* "gases/OXYGEN.pyx":136
  *     YEXC9 = gd['gas15/YEXC9']
  *     XROT = gd['gas15/XROT']
  *     YROT = gd['gas15/YROT']             # <<<<<<<<<<<<<<
@@ -3621,7 +3621,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YROT[0]), __pyx_t_9, sizeof(__pyx_v_YROT[0]) * (48));
 
-  /* "OXYGEN.pyx":137
+  /* "gases/OXYGEN.pyx":137
  *     XROT = gd['gas15/XROT']
  *     YROT = gd['gas15/YROT']
  *     XIONC = gd['gas15/XIONC']             # <<<<<<<<<<<<<<
@@ -3634,7 +3634,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIONC[0]), __pyx_t_30, sizeof(__pyx_v_XIONC[0]) * (85));
 
-  /* "OXYGEN.pyx":138
+  /* "gases/OXYGEN.pyx":138
  *     YROT = gd['gas15/YROT']
  *     XIONC = gd['gas15/XIONC']
  *     YIONC = gd['gas15/YIONC']             # <<<<<<<<<<<<<<
@@ -3647,7 +3647,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIONC[0]), __pyx_t_30, sizeof(__pyx_v_YIONC[0]) * (85));
 
-  /* "OXYGEN.pyx":139
+  /* "gases/OXYGEN.pyx":139
  *     XIONC = gd['gas15/XIONC']
  *     YIONC = gd['gas15/YIONC']
  *     XION1 = gd['gas15/XION1']             # <<<<<<<<<<<<<<
@@ -3660,7 +3660,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION1[0]), __pyx_t_30, sizeof(__pyx_v_XION1[0]) * (85));
 
-  /* "OXYGEN.pyx":140
+  /* "gases/OXYGEN.pyx":140
  *     YIONC = gd['gas15/YIONC']
  *     XION1 = gd['gas15/XION1']
  *     YION1 = gd['gas15/YION1']             # <<<<<<<<<<<<<<
@@ -3673,7 +3673,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION1[0]), __pyx_t_30, sizeof(__pyx_v_YION1[0]) * (85));
 
-  /* "OXYGEN.pyx":141
+  /* "gases/OXYGEN.pyx":141
  *     XION1 = gd['gas15/XION1']
  *     YION1 = gd['gas15/YION1']
  *     XION2 = gd['gas15/XION2']             # <<<<<<<<<<<<<<
@@ -3686,7 +3686,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION2[0]), __pyx_t_31, sizeof(__pyx_v_XION2[0]) * (70));
 
-  /* "OXYGEN.pyx":142
+  /* "gases/OXYGEN.pyx":142
  *     YION1 = gd['gas15/YION1']
  *     XION2 = gd['gas15/XION2']
  *     YION2 = gd['gas15/YION2']             # <<<<<<<<<<<<<<
@@ -3699,7 +3699,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION2[0]), __pyx_t_31, sizeof(__pyx_v_YION2[0]) * (70));
 
-  /* "OXYGEN.pyx":143
+  /* "gases/OXYGEN.pyx":143
  *     XION2 = gd['gas15/XION2']
  *     YION2 = gd['gas15/YION2']
  *     XION3 = gd['gas15/XION3']             # <<<<<<<<<<<<<<
@@ -3712,7 +3712,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION3[0]), __pyx_t_8, sizeof(__pyx_v_XION3[0]) * (50));
 
-  /* "OXYGEN.pyx":144
+  /* "gases/OXYGEN.pyx":144
  *     YION2 = gd['gas15/YION2']
  *     XION3 = gd['gas15/XION3']
  *     YION3 = gd['gas15/YION3']             # <<<<<<<<<<<<<<
@@ -3725,7 +3725,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION3[0]), __pyx_t_8, sizeof(__pyx_v_YION3[0]) * (50));
 
-  /* "OXYGEN.pyx":145
+  /* "gases/OXYGEN.pyx":145
  *     XION3 = gd['gas15/XION3']
  *     YION3 = gd['gas15/YION3']
  *     XION4 = gd['gas15/XION4']             # <<<<<<<<<<<<<<
@@ -3738,7 +3738,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION4[0]), __pyx_t_32, sizeof(__pyx_v_XION4[0]) * (47));
 
-  /* "OXYGEN.pyx":146
+  /* "gases/OXYGEN.pyx":146
  *     YION3 = gd['gas15/YION3']
  *     XION4 = gd['gas15/XION4']
  *     YION4 = gd['gas15/YION4']             # <<<<<<<<<<<<<<
@@ -3751,7 +3751,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION4[0]), __pyx_t_32, sizeof(__pyx_v_YION4[0]) * (47));
 
-  /* "OXYGEN.pyx":147
+  /* "gases/OXYGEN.pyx":147
  *     XION4 = gd['gas15/XION4']
  *     YION4 = gd['gas15/YION4']
  *     XION5 = gd['gas15/XION5']             # <<<<<<<<<<<<<<
@@ -3764,7 +3764,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION5[0]), __pyx_t_12, sizeof(__pyx_v_XION5[0]) * (44));
 
-  /* "OXYGEN.pyx":148
+  /* "gases/OXYGEN.pyx":148
  *     YION4 = gd['gas15/YION4']
  *     XION5 = gd['gas15/XION5']
  *     YION5 = gd['gas15/YION5']             # <<<<<<<<<<<<<<
@@ -3777,7 +3777,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION5[0]), __pyx_t_12, sizeof(__pyx_v_YION5[0]) * (44));
 
-  /* "OXYGEN.pyx":149
+  /* "gases/OXYGEN.pyx":149
  *     XION5 = gd['gas15/XION5']
  *     YION5 = gd['gas15/YION5']
  *     XKSH = gd['gas15/XKSH']             # <<<<<<<<<<<<<<
@@ -3790,7 +3790,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSH[0]), __pyx_t_33, sizeof(__pyx_v_XKSH[0]) * (81));
 
-  /* "OXYGEN.pyx":150
+  /* "gases/OXYGEN.pyx":150
  *     YION5 = gd['gas15/YION5']
  *     XKSH = gd['gas15/XKSH']
  *     YKSH = gd['gas15/YKSH']             # <<<<<<<<<<<<<<
@@ -3803,7 +3803,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSH[0]), __pyx_t_33, sizeof(__pyx_v_YKSH[0]) * (81));
 
-  /* "OXYGEN.pyx":151
+  /* "gases/OXYGEN.pyx":151
  *     XKSH = gd['gas15/XKSH']
  *     YKSH = gd['gas15/YKSH']
  *     Z8T = gd['gas15/Z8T']             # <<<<<<<<<<<<<<
@@ -3816,7 +3816,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z8T[0]), __pyx_t_34, sizeof(__pyx_v_Z8T[0]) * (25));
 
-  /* "OXYGEN.pyx":152
+  /* "gases/OXYGEN.pyx":152
  *     YKSH = gd['gas15/YKSH']
  *     Z8T = gd['gas15/Z8T']
  *     EBRM = gd['gas15/EBRM']             # <<<<<<<<<<<<<<
@@ -3829,7 +3829,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_34, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "OXYGEN.pyx":155
+  /* "gases/OXYGEN.pyx":155
  * 
  *     cdef int NBREM
  *     object.NION = 8             # <<<<<<<<<<<<<<
@@ -3838,7 +3838,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 8;
 
-  /* "OXYGEN.pyx":156
+  /* "gases/OXYGEN.pyx":156
  *     cdef int NBREM
  *     object.NION = 8
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -3847,7 +3847,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "OXYGEN.pyx":157
+  /* "gases/OXYGEN.pyx":157
  *     object.NION = 8
  *     object.NATT = 1
  *     object.NIN = 148             # <<<<<<<<<<<<<<
@@ -3856,7 +3856,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 0x94;
 
-  /* "OXYGEN.pyx":158
+  /* "gases/OXYGEN.pyx":158
  *     object.NATT = 1
  *     object.NIN = 148
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -3865,7 +3865,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "OXYGEN.pyx":159
+  /* "gases/OXYGEN.pyx":159
  *     object.NIN = 148
  *     object.NNULL = 0
  *     NBREM = 25             # <<<<<<<<<<<<<<
@@ -3874,7 +3874,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "OXYGEN.pyx":162
+  /* "gases/OXYGEN.pyx":162
  *     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AUGK, B0, ROTSCALE, QBQA, QBK, ASUM,
  *     cdef int i, j, I, J,
  *     A0 = 0.52917720859e-08             # <<<<<<<<<<<<<<
@@ -3883,7 +3883,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-08;
 
-  /* "OXYGEN.pyx":163
+  /* "gases/OXYGEN.pyx":163
  *     cdef int i, j, I, J,
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193             # <<<<<<<<<<<<<<
@@ -3892,7 +3892,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "OXYGEN.pyx":164
+  /* "gases/OXYGEN.pyx":164
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -3901,7 +3901,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "OXYGEN.pyx":165
+  /* "gases/OXYGEN.pyx":165
  *     RY = 13.60569193
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804             # <<<<<<<<<<<<<<
@@ -3910,7 +3910,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "OXYGEN.pyx":166
+  /* "gases/OXYGEN.pyx":166
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)             # <<<<<<<<<<<<<<
@@ -3919,7 +3919,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0e0);
 
-  /* "OXYGEN.pyx":167
+  /* "gases/OXYGEN.pyx":167
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -3928,7 +3928,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0e0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "OXYGEN.pyx":169
+  /* "gases/OXYGEN.pyx":169
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
  *     #BORN BETHE VALUES FOR IONISATION
  *     AM2 = 4.00             # <<<<<<<<<<<<<<
@@ -3937,7 +3937,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 4.00;
 
-  /* "OXYGEN.pyx":170
+  /* "gases/OXYGEN.pyx":170
  *     #BORN BETHE VALUES FOR IONISATION
  *     AM2 = 4.00
  *     C = 43.4             # <<<<<<<<<<<<<<
@@ -3946,7 +3946,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 43.4;
 
-  /* "OXYGEN.pyx":172
+  /* "gases/OXYGEN.pyx":172
  *     C = 43.4
  *     # AVERAGE AUGER EMISSION FROM KSHELL
  *     AUGK = 2.0             # <<<<<<<<<<<<<<
@@ -3955,7 +3955,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGK = 2.0;
 
-  /* "OXYGEN.pyx":175
+  /* "gases/OXYGEN.pyx":175
  *     # SCALE ROTATION X-SECTIONS BY ROTSCALE
  * 
  *     ROTSCALE = 0.75             # <<<<<<<<<<<<<<
@@ -3964,7 +3964,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_ROTSCALE = 0.75;
 
-  /* "OXYGEN.pyx":177
+  /* "gases/OXYGEN.pyx":177
  *     ROTSCALE = 0.75
  *     # ROTATIONAL QUADRUPOLE MOMENT
  *     QBQA = 0.9             # <<<<<<<<<<<<<<
@@ -3973,7 +3973,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_QBQA = 0.9;
 
-  /* "OXYGEN.pyx":178
+  /* "gases/OXYGEN.pyx":178
  *     # ROTATIONAL QUADRUPOLE MOMENT
  *     QBQA = 0.9
  *     QBK = 1.67552 * (QBQA * A0) ** 2             # <<<<<<<<<<<<<<
@@ -3982,7 +3982,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_QBK = (1.67552 * pow((__pyx_v_QBQA * __pyx_v_A0), 2.0));
 
-  /* "OXYGEN.pyx":179
+  /* "gases/OXYGEN.pyx":179
  *     QBQA = 0.9
  *     QBK = 1.67552 * (QBQA * A0) ** 2
  *     B0 = 1.783e-4             # <<<<<<<<<<<<<<
@@ -3991,7 +3991,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_B0 = 1.783e-4;
 
-  /* "OXYGEN.pyx":180
+  /* "gases/OXYGEN.pyx":180
  *     QBK = 1.67552 * (QBQA * A0) ** 2
  *     B0 = 1.783e-4
  *     for J in range(2, 49, 2):             # <<<<<<<<<<<<<<
@@ -4001,7 +4001,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 2; __pyx_t_35 < 49; __pyx_t_35+=2) {
     __pyx_v_J = __pyx_t_35;
 
-    /* "OXYGEN.pyx":181
+    /* "gases/OXYGEN.pyx":181
  *     B0 = 1.783e-4
  *     for J in range(2, 49, 2):
  *         PJ[J - 1] = 0.0             # <<<<<<<<<<<<<<
@@ -4011,7 +4011,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_J - 1)]) = 0.0;
   }
 
-  /* "OXYGEN.pyx":183
+  /* "gases/OXYGEN.pyx":183
  *         PJ[J - 1] = 0.0
  * 
  *     for J in range(1, 50, 2):             # <<<<<<<<<<<<<<
@@ -4021,7 +4021,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 1; __pyx_t_35 < 50; __pyx_t_35+=2) {
     __pyx_v_J = __pyx_t_35;
 
-    /* "OXYGEN.pyx":184
+    /* "gases/OXYGEN.pyx":184
  * 
  *     for J in range(1, 50, 2):
  *         PJ[J - 1] = 3.0 * (2.0 * J + 1.0) * exp(-1 * J * (J + 1.0) * B0 / object.AKT)             # <<<<<<<<<<<<<<
@@ -4031,7 +4031,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_J - 1)]) = ((3.0 * ((2.0 * __pyx_v_J) + 1.0)) * exp(((((-1L * __pyx_v_J) * (__pyx_v_J + 1.0)) * __pyx_v_B0) / __pyx_v_object->AKT)));
   }
 
-  /* "OXYGEN.pyx":186
+  /* "gases/OXYGEN.pyx":186
  *         PJ[J - 1] = 3.0 * (2.0 * J + 1.0) * exp(-1 * J * (J + 1.0) * B0 / object.AKT)
  * 
  *     ASUM = 0.0             # <<<<<<<<<<<<<<
@@ -4040,7 +4040,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_ASUM = 0.0;
 
-  /* "OXYGEN.pyx":187
+  /* "gases/OXYGEN.pyx":187
  * 
  *     ASUM = 0.0
  *     for J in range(49):             # <<<<<<<<<<<<<<
@@ -4050,7 +4050,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 0; __pyx_t_35 < 49; __pyx_t_35+=1) {
     __pyx_v_J = __pyx_t_35;
 
-    /* "OXYGEN.pyx":188
+    /* "gases/OXYGEN.pyx":188
  *     ASUM = 0.0
  *     for J in range(49):
  *         ASUM += PJ[J]             # <<<<<<<<<<<<<<
@@ -4060,7 +4060,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_v_ASUM = (__pyx_v_ASUM + (__pyx_v_PJ[__pyx_v_J]));
   }
 
-  /* "OXYGEN.pyx":190
+  /* "gases/OXYGEN.pyx":190
  *         ASUM += PJ[J]
  * 
  *     for J in range(49):             # <<<<<<<<<<<<<<
@@ -4070,7 +4070,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 0; __pyx_t_35 < 49; __pyx_t_35+=1) {
     __pyx_v_J = __pyx_t_35;
 
-    /* "OXYGEN.pyx":191
+    /* "gases/OXYGEN.pyx":191
  * 
  *     for J in range(49):
  *         PJ[J] /= ASUM             # <<<<<<<<<<<<<<
@@ -4081,7 +4081,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[__pyx_t_36]) = ((__pyx_v_PJ[__pyx_t_36]) / __pyx_v_ASUM);
   }
 
-  /* "OXYGEN.pyx":193
+  /* "gases/OXYGEN.pyx":193
  *         PJ[J] /= ASUM
  * 
  *     object.EIN = gd['gas15/EIN']             # <<<<<<<<<<<<<<
@@ -4098,7 +4098,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_37, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "OXYGEN.pyx":195
+  /* "gases/OXYGEN.pyx":195
  *     object.EIN = gd['gas15/EIN']
  * 
  *     for J in range(6):             # <<<<<<<<<<<<<<
@@ -4108,7 +4108,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 0; __pyx_t_35 < 6; __pyx_t_35+=1) {
     __pyx_v_J = __pyx_t_35;
 
-    /* "OXYGEN.pyx":196
+    /* "gases/OXYGEN.pyx":196
  * 
  *     for J in range(6):
  *         object.KEL[J] = object.NANISO             # <<<<<<<<<<<<<<
@@ -4119,7 +4119,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_J]) = __pyx_t_36;
   }
 
-  /* "OXYGEN.pyx":197
+  /* "gases/OXYGEN.pyx":197
  *     for J in range(6):
  *         object.KEL[J] = object.NANISO
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4131,7 +4131,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_36; __pyx_t_38+=1) {
     __pyx_v_J = __pyx_t_38;
 
-    /* "OXYGEN.pyx":198
+    /* "gases/OXYGEN.pyx":198
  *         object.KEL[J] = object.NANISO
  *     for J in range(object.NIN):
  *         object.KIN[J] = object.NANISO             # <<<<<<<<<<<<<<
@@ -4142,7 +4142,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_J]) = __pyx_t_39;
   }
 
-  /* "OXYGEN.pyx":205
+  /* "gases/OXYGEN.pyx":205
  *     cdef int NIONC, NION1, NION2, NION3, NION4, NION5, NKSH
  * 
  *     NROT = 48             # <<<<<<<<<<<<<<
@@ -4151,7 +4151,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT = 48;
 
-  /* "OXYGEN.pyx":206
+  /* "gases/OXYGEN.pyx":206
  * 
  *     NROT = 48
  *     NROT13 = 63             # <<<<<<<<<<<<<<
@@ -4160,7 +4160,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT13 = 63;
 
-  /* "OXYGEN.pyx":207
+  /* "gases/OXYGEN.pyx":207
  *     NROT = 48
  *     NROT13 = 63
  *     NROT35 = 55             # <<<<<<<<<<<<<<
@@ -4169,7 +4169,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT35 = 55;
 
-  /* "OXYGEN.pyx":208
+  /* "gases/OXYGEN.pyx":208
  *     NROT13 = 63
  *     NROT35 = 55
  *     NROT57 = 55             # <<<<<<<<<<<<<<
@@ -4178,7 +4178,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT57 = 55;
 
-  /* "OXYGEN.pyx":209
+  /* "gases/OXYGEN.pyx":209
  *     NROT35 = 55
  *     NROT57 = 55
  *     NROT79 = 50             # <<<<<<<<<<<<<<
@@ -4187,7 +4187,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT79 = 50;
 
-  /* "OXYGEN.pyx":210
+  /* "gases/OXYGEN.pyx":210
  *     NROT57 = 55
  *     NROT79 = 50
  *     NROT911 = 48             # <<<<<<<<<<<<<<
@@ -4196,7 +4196,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT911 = 48;
 
-  /* "OXYGEN.pyx":211
+  /* "gases/OXYGEN.pyx":211
  *     NROT79 = 50
  *     NROT911 = 48
  *     NROT1113 = 46             # <<<<<<<<<<<<<<
@@ -4205,7 +4205,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT1113 = 46;
 
-  /* "OXYGEN.pyx":212
+  /* "gases/OXYGEN.pyx":212
  *     NROT911 = 48
  *     NROT1113 = 46
  *     NROT1315 = 45             # <<<<<<<<<<<<<<
@@ -4214,7 +4214,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT1315 = 45;
 
-  /* "OXYGEN.pyx":213
+  /* "gases/OXYGEN.pyx":213
  *     NROT1113 = 46
  *     NROT1315 = 45
  *     NROT1517 = 44             # <<<<<<<<<<<<<<
@@ -4223,7 +4223,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT1517 = 44;
 
-  /* "OXYGEN.pyx":214
+  /* "gases/OXYGEN.pyx":214
  *     NROT1315 = 45
  *     NROT1517 = 44
  *     NROT1719 = 43             # <<<<<<<<<<<<<<
@@ -4232,7 +4232,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT1719 = 43;
 
-  /* "OXYGEN.pyx":215
+  /* "gases/OXYGEN.pyx":215
  *     NROT1517 = 44
  *     NROT1719 = 43
  *     NROT1921 = 41             # <<<<<<<<<<<<<<
@@ -4241,7 +4241,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT1921 = 41;
 
-  /* "OXYGEN.pyx":216
+  /* "gases/OXYGEN.pyx":216
  *     NROT1719 = 43
  *     NROT1921 = 41
  *     NROT2123 = 40             # <<<<<<<<<<<<<<
@@ -4250,7 +4250,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT2123 = 40;
 
-  /* "OXYGEN.pyx":217
+  /* "gases/OXYGEN.pyx":217
  *     NROT1921 = 41
  *     NROT2123 = 40
  *     NROT2325 = 39             # <<<<<<<<<<<<<<
@@ -4259,7 +4259,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT2325 = 39;
 
-  /* "OXYGEN.pyx":218
+  /* "gases/OXYGEN.pyx":218
  *     NROT2123 = 40
  *     NROT2325 = 39
  *     NROT2527 = 38             # <<<<<<<<<<<<<<
@@ -4268,7 +4268,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT2527 = 38;
 
-  /* "OXYGEN.pyx":219
+  /* "gases/OXYGEN.pyx":219
  *     NROT2325 = 39
  *     NROT2527 = 38
  *     NROT2729 = 37             # <<<<<<<<<<<<<<
@@ -4277,7 +4277,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT2729 = 37;
 
-  /* "OXYGEN.pyx":220
+  /* "gases/OXYGEN.pyx":220
  *     NROT2527 = 38
  *     NROT2729 = 37
  *     NROT2931 = 36             # <<<<<<<<<<<<<<
@@ -4286,7 +4286,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT2931 = 36;
 
-  /* "OXYGEN.pyx":221
+  /* "gases/OXYGEN.pyx":221
  *     NROT2729 = 37
  *     NROT2931 = 36
  *     NROT3133 = 34             # <<<<<<<<<<<<<<
@@ -4295,7 +4295,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT3133 = 34;
 
-  /* "OXYGEN.pyx":222
+  /* "gases/OXYGEN.pyx":222
  *     NROT2931 = 36
  *     NROT3133 = 34
  *     NROT3335 = 33             # <<<<<<<<<<<<<<
@@ -4304,7 +4304,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT3335 = 33;
 
-  /* "OXYGEN.pyx":223
+  /* "gases/OXYGEN.pyx":223
  *     NROT3133 = 34
  *     NROT3335 = 33
  *     NROT3537 = 32             # <<<<<<<<<<<<<<
@@ -4313,7 +4313,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT3537 = 32;
 
-  /* "OXYGEN.pyx":224
+  /* "gases/OXYGEN.pyx":224
  *     NROT3335 = 33
  *     NROT3537 = 32
  *     NROT3739 = 32             # <<<<<<<<<<<<<<
@@ -4322,7 +4322,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT3739 = 32;
 
-  /* "OXYGEN.pyx":225
+  /* "gases/OXYGEN.pyx":225
  *     NROT3537 = 32
  *     NROT3739 = 32
  *     NROT3941 = 31             # <<<<<<<<<<<<<<
@@ -4331,7 +4331,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT3941 = 31;
 
-  /* "OXYGEN.pyx":226
+  /* "gases/OXYGEN.pyx":226
  *     NROT3739 = 32
  *     NROT3941 = 31
  *     NROT4143 = 31             # <<<<<<<<<<<<<<
@@ -4340,7 +4340,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT4143 = 31;
 
-  /* "OXYGEN.pyx":227
+  /* "gases/OXYGEN.pyx":227
  *     NROT3941 = 31
  *     NROT4143 = 31
  *     NROT4345 = 30             # <<<<<<<<<<<<<<
@@ -4349,7 +4349,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT4345 = 30;
 
-  /* "OXYGEN.pyx":228
+  /* "gases/OXYGEN.pyx":228
  *     NROT4143 = 31
  *     NROT4345 = 30
  *     NROT4547 = 30             # <<<<<<<<<<<<<<
@@ -4358,7 +4358,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT4547 = 30;
 
-  /* "OXYGEN.pyx":229
+  /* "gases/OXYGEN.pyx":229
  *     NROT4345 = 30
  *     NROT4547 = 30
  *     NROT4749 = 29             # <<<<<<<<<<<<<<
@@ -4367,7 +4367,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NROT4749 = 29;
 
-  /* "OXYGEN.pyx":230
+  /* "gases/OXYGEN.pyx":230
  *     NROT4547 = 30
  *     NROT4749 = 29
  *     NELA = 153             # <<<<<<<<<<<<<<
@@ -4376,7 +4376,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NELA = 0x99;
 
-  /* "OXYGEN.pyx":231
+  /* "gases/OXYGEN.pyx":231
  *     NROT4749 = 29
  *     NELA = 153
  *     NVIB = 60             # <<<<<<<<<<<<<<
@@ -4385,7 +4385,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB = 60;
 
-  /* "OXYGEN.pyx":232
+  /* "gases/OXYGEN.pyx":232
  *     NELA = 153
  *     NVIB = 60
  *     NATT1 = 31             # <<<<<<<<<<<<<<
@@ -4394,7 +4394,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 31;
 
-  /* "OXYGEN.pyx":233
+  /* "gases/OXYGEN.pyx":233
  *     NVIB = 60
  *     NATT1 = 31
  *     N3ATT = 32             # <<<<<<<<<<<<<<
@@ -4403,7 +4403,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3ATT = 32;
 
-  /* "OXYGEN.pyx":234
+  /* "gases/OXYGEN.pyx":234
  *     NATT1 = 31
  *     N3ATT = 32
  *     NEXC1 = 40             # <<<<<<<<<<<<<<
@@ -4412,7 +4412,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC1 = 40;
 
-  /* "OXYGEN.pyx":235
+  /* "gases/OXYGEN.pyx":235
  *     N3ATT = 32
  *     NEXC1 = 40
  *     NEXC2 = 31             # <<<<<<<<<<<<<<
@@ -4421,7 +4421,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC2 = 31;
 
-  /* "OXYGEN.pyx":236
+  /* "gases/OXYGEN.pyx":236
  *     NEXC1 = 40
  *     NEXC2 = 31
  *     NEXC3 = 16             # <<<<<<<<<<<<<<
@@ -4430,7 +4430,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC3 = 16;
 
-  /* "OXYGEN.pyx":237
+  /* "gases/OXYGEN.pyx":237
  *     NEXC2 = 31
  *     NEXC3 = 16
  *     NEXC4 = 15             # <<<<<<<<<<<<<<
@@ -4439,7 +4439,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC4 = 15;
 
-  /* "OXYGEN.pyx":238
+  /* "gases/OXYGEN.pyx":238
  *     NEXC3 = 16
  *     NEXC4 = 15
  *     NEXC5 = 14             # <<<<<<<<<<<<<<
@@ -4448,7 +4448,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC5 = 14;
 
-  /* "OXYGEN.pyx":239
+  /* "gases/OXYGEN.pyx":239
  *     NEXC4 = 15
  *     NEXC5 = 14
  *     NEXC6 = 14             # <<<<<<<<<<<<<<
@@ -4457,7 +4457,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC6 = 14;
 
-  /* "OXYGEN.pyx":240
+  /* "gases/OXYGEN.pyx":240
  *     NEXC5 = 14
  *     NEXC6 = 14
  *     NEXC7 = 14             # <<<<<<<<<<<<<<
@@ -4466,7 +4466,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC7 = 14;
 
-  /* "OXYGEN.pyx":241
+  /* "gases/OXYGEN.pyx":241
  *     NEXC6 = 14
  *     NEXC7 = 14
  *     NEXC8 = 15             # <<<<<<<<<<<<<<
@@ -4475,7 +4475,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC8 = 15;
 
-  /* "OXYGEN.pyx":242
+  /* "gases/OXYGEN.pyx":242
  *     NEXC7 = 14
  *     NEXC8 = 15
  *     NEXC9 = 14             # <<<<<<<<<<<<<<
@@ -4484,7 +4484,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC9 = 14;
 
-  /* "OXYGEN.pyx":243
+  /* "gases/OXYGEN.pyx":243
  *     NEXC8 = 15
  *     NEXC9 = 14
  *     NIONC = 85             # <<<<<<<<<<<<<<
@@ -4493,7 +4493,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONC = 85;
 
-  /* "OXYGEN.pyx":244
+  /* "gases/OXYGEN.pyx":244
  *     NEXC9 = 14
  *     NIONC = 85
  *     NION1 = 85             # <<<<<<<<<<<<<<
@@ -4502,7 +4502,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION1 = 85;
 
-  /* "OXYGEN.pyx":245
+  /* "gases/OXYGEN.pyx":245
  *     NIONC = 85
  *     NION1 = 85
  *     NION2 = 70             # <<<<<<<<<<<<<<
@@ -4511,7 +4511,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 70;
 
-  /* "OXYGEN.pyx":246
+  /* "gases/OXYGEN.pyx":246
  *     NION1 = 85
  *     NION2 = 70
  *     NION3 = 50             # <<<<<<<<<<<<<<
@@ -4520,7 +4520,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 50;
 
-  /* "OXYGEN.pyx":247
+  /* "gases/OXYGEN.pyx":247
  *     NION2 = 70
  *     NION3 = 50
  *     NION4 = 47             # <<<<<<<<<<<<<<
@@ -4529,7 +4529,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION4 = 47;
 
-  /* "OXYGEN.pyx":248
+  /* "gases/OXYGEN.pyx":248
  *     NION3 = 50
  *     NION4 = 47
  *     NION5 = 44             # <<<<<<<<<<<<<<
@@ -4538,7 +4538,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION5 = 44;
 
-  /* "OXYGEN.pyx":249
+  /* "gases/OXYGEN.pyx":249
  *     NION4 = 47
  *     NION5 = 44
  *     NKSH = 81             # <<<<<<<<<<<<<<
@@ -4547,7 +4547,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSH = 81;
 
-  /* "OXYGEN.pyx":251
+  /* "gases/OXYGEN.pyx":251
  *     NKSH = 81
  * 
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -4556,7 +4556,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "OXYGEN.pyx":252
+  /* "gases/OXYGEN.pyx":252
  * 
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27, EOBY[8], FAC, APOP2             # <<<<<<<<<<<<<<
@@ -4565,7 +4565,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "OXYGEN.pyx":254
+  /* "gases/OXYGEN.pyx":254
  *     cdef double AMU = 1.660538921e-27, EOBY[8], FAC, APOP2
  * 
  *     object.E = [0.0, 1.0, 12.071, 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -4580,7 +4580,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_40[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_40, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "OXYGEN.pyx":255
+  /* "gases/OXYGEN.pyx":255
  * 
  *     object.E = [0.0, 1.0, 12.071, 0.0, 0.0, 0.0]
  *     object.E[1] = 2.0 * EMASS / (31.9988 * AMU)             # <<<<<<<<<<<<<<
@@ -4589,7 +4589,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (31.9988 * __pyx_v_AMU));
 
-  /* "OXYGEN.pyx":257
+  /* "gases/OXYGEN.pyx":257
  *     object.E[1] = 2.0 * EMASS / (31.9988 * AMU)
  * 
  *     object.EION[0:8] = [12.071, 16.104, 18.171, 20.701, 38.46, 68.0, 90.0, 532.0]             # <<<<<<<<<<<<<<
@@ -4606,7 +4606,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_41[7] = 532.0;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_41, sizeof(__pyx_v_object->EION[0]) * (8));
 
-  /* "OXYGEN.pyx":258
+  /* "gases/OXYGEN.pyx":258
  * 
  *     object.EION[0:8] = [12.071, 16.104, 18.171, 20.701, 38.46, 68.0, 90.0, 532.0]
  *     for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -4618,7 +4618,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_36; __pyx_t_38+=1) {
     __pyx_v_J = __pyx_t_38;
 
-    /* "OXYGEN.pyx":259
+    /* "gases/OXYGEN.pyx":259
  *     object.EION[0:8] = [12.071, 16.104, 18.171, 20.701, 38.46, 68.0, 90.0, 532.0]
  *     for J in range(object.NION):
  *         EOBY[J] = 12.9             # <<<<<<<<<<<<<<
@@ -4628,7 +4628,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_EOBY[__pyx_v_J]) = 12.9;
   }
 
-  /* "OXYGEN.pyx":261
+  /* "gases/OXYGEN.pyx":261
  *         EOBY[J] = 12.9
  * 
  *     for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -4640,7 +4640,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_36; __pyx_t_38+=1) {
     __pyx_v_J = __pyx_t_38;
 
-    /* "OXYGEN.pyx":262
+    /* "gases/OXYGEN.pyx":262
  * 
  *     for J in range(object.NION):
  *         object.NC0[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4649,7 +4649,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NC0[__pyx_v_J]) = 0.0;
 
-    /* "OXYGEN.pyx":263
+    /* "gases/OXYGEN.pyx":263
  *     for J in range(object.NION):
  *         object.NC0[J] = 0.0
  *         object.EC0[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4658,7 +4658,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EC0[__pyx_v_J]) = 0.0;
 
-    /* "OXYGEN.pyx":264
+    /* "gases/OXYGEN.pyx":264
  *         object.NC0[J] = 0.0
  *         object.EC0[J] = 0.0
  *         object.WK[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4667,7 +4667,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->WK[__pyx_v_J]) = 0.0;
 
-    /* "OXYGEN.pyx":265
+    /* "gases/OXYGEN.pyx":265
  *         object.EC0[J] = 0.0
  *         object.WK[J] = 0.0
  *         object.EFL[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4676,7 +4676,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EFL[__pyx_v_J]) = 0.0;
 
-    /* "OXYGEN.pyx":266
+    /* "gases/OXYGEN.pyx":266
  *         object.WK[J] = 0.0
  *         object.EFL[J] = 0.0
  *         object.NG1[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4685,7 +4685,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG1[__pyx_v_J]) = 0.0;
 
-    /* "OXYGEN.pyx":267
+    /* "gases/OXYGEN.pyx":267
  *         object.EFL[J] = 0.0
  *         object.NG1[J] = 0.0
  *         object.EG1[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4694,7 +4694,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EG1[__pyx_v_J]) = 0.0;
 
-    /* "OXYGEN.pyx":268
+    /* "gases/OXYGEN.pyx":268
  *         object.NG1[J] = 0.0
  *         object.EG1[J] = 0.0
  *         object.NG2[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4703,7 +4703,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG2[__pyx_v_J]) = 0.0;
 
-    /* "OXYGEN.pyx":269
+    /* "gases/OXYGEN.pyx":269
  *         object.EG1[J] = 0.0
  *         object.NG2[J] = 0.0
  *         object.EG2[J] = 0.0             # <<<<<<<<<<<<<<
@@ -4713,7 +4713,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EG2[__pyx_v_J]) = 0.0;
   }
 
-  /* "OXYGEN.pyx":271
+  /* "gases/OXYGEN.pyx":271
  *         object.EG2[J] = 0.0
  *     #DOUBLE CHARGED STATES
  *     object.NC0[4] = 1             # <<<<<<<<<<<<<<
@@ -4722,7 +4722,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[4]) = 1.0;
 
-  /* "OXYGEN.pyx":272
+  /* "gases/OXYGEN.pyx":272
  *     #DOUBLE CHARGED STATES
  *     object.NC0[4] = 1
  *     object.EC0[4] = 6.0             # <<<<<<<<<<<<<<
@@ -4731,7 +4731,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[4]) = 6.0;
 
-  /* "OXYGEN.pyx":273
+  /* "gases/OXYGEN.pyx":273
  *     object.NC0[4] = 1
  *     object.EC0[4] = 6.0
  *     object.NC0[5] = 1             # <<<<<<<<<<<<<<
@@ -4740,7 +4740,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[5]) = 1.0;
 
-  /* "OXYGEN.pyx":274
+  /* "gases/OXYGEN.pyx":274
  *     object.EC0[4] = 6.0
  *     object.NC0[5] = 1
  *     object.EC0[5] = 6.0             # <<<<<<<<<<<<<<
@@ -4749,7 +4749,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[5]) = 6.0;
 
-  /* "OXYGEN.pyx":276
+  /* "gases/OXYGEN.pyx":276
  *     object.EC0[5] = 6.0
  *     #TRIPLE CHARGED STATES
  *     object.NC0[6] = 2             # <<<<<<<<<<<<<<
@@ -4758,7 +4758,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[6]) = 2.0;
 
-  /* "OXYGEN.pyx":277
+  /* "gases/OXYGEN.pyx":277
  *     #TRIPLE CHARGED STATES
  *     object.NC0[6] = 2
  *     object.EC0[6] = 6.0             # <<<<<<<<<<<<<<
@@ -4767,7 +4767,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[6]) = 6.0;
 
-  /* "OXYGEN.pyx":279
+  /* "gases/OXYGEN.pyx":279
  *     object.EC0[6] = 6.0
  *     #FLUORESCENCE DATA
  *     object.NC0[7] = 3             # <<<<<<<<<<<<<<
@@ -4776,7 +4776,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[7]) = 3.0;
 
-  /* "OXYGEN.pyx":280
+  /* "gases/OXYGEN.pyx":280
  *     #FLUORESCENCE DATA
  *     object.NC0[7] = 3
  *     object.EC0[7] = 485             # <<<<<<<<<<<<<<
@@ -4785,7 +4785,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[7]) = 485.0;
 
-  /* "OXYGEN.pyx":281
+  /* "gases/OXYGEN.pyx":281
  *     object.NC0[7] = 3
  *     object.EC0[7] = 485
  *     object.WK[7] = 0.0069             # <<<<<<<<<<<<<<
@@ -4794,7 +4794,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->WK[7]) = 0.0069;
 
-  /* "OXYGEN.pyx":282
+  /* "gases/OXYGEN.pyx":282
  *     object.EC0[7] = 485
  *     object.WK[7] = 0.0069
  *     object.EFL[7] = 518             # <<<<<<<<<<<<<<
@@ -4803,7 +4803,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EFL[7]) = 518.0;
 
-  /* "OXYGEN.pyx":283
+  /* "gases/OXYGEN.pyx":283
  *     object.WK[7] = 0.0069
  *     object.EFL[7] = 518
  *     object.NG1[7] = 1             # <<<<<<<<<<<<<<
@@ -4812,7 +4812,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG1[7]) = 1.0;
 
-  /* "OXYGEN.pyx":284
+  /* "gases/OXYGEN.pyx":284
  *     object.EFL[7] = 518
  *     object.NG1[7] = 1
  *     object.EG1[7] = 480             # <<<<<<<<<<<<<<
@@ -4821,7 +4821,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG1[7]) = 480.0;
 
-  /* "OXYGEN.pyx":285
+  /* "gases/OXYGEN.pyx":285
  *     object.NG1[7] = 1
  *     object.EG1[7] = 480
  *     object.NG2[7] = 2             # <<<<<<<<<<<<<<
@@ -4830,7 +4830,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG2[7]) = 2.0;
 
-  /* "OXYGEN.pyx":286
+  /* "gases/OXYGEN.pyx":286
  *     object.EG1[7] = 480
  *     object.NG2[7] = 2
  *     object.EG2[7] = 5.0             # <<<<<<<<<<<<<<
@@ -4839,7 +4839,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG2[7]) = 5.0;
 
-  /* "OXYGEN.pyx":289
+  /* "gases/OXYGEN.pyx":289
  * 
  *     # OFFSET ENERGY FOR I   ONISATION ELECTRON ANGULAR DISTRIBUTION
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -4851,7 +4851,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_36; __pyx_t_38+=1) {
     __pyx_v_j = __pyx_t_38;
 
-    /* "OXYGEN.pyx":290
+    /* "gases/OXYGEN.pyx":290
  *     # OFFSET ENERGY FOR I   ONISATION ELECTRON ANGULAR DISTRIBUTION
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -4861,7 +4861,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_39 = 0; __pyx_t_39 < 0xFA0; __pyx_t_39+=1) {
       __pyx_v_i = __pyx_t_39;
 
-      /* "OXYGEN.pyx":291
+      /* "gases/OXYGEN.pyx":291
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -4871,7 +4871,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":292
+        /* "gases/OXYGEN.pyx":292
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -4880,7 +4880,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "OXYGEN.pyx":293
+        /* "gases/OXYGEN.pyx":293
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4889,7 +4889,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L22_break;
 
-        /* "OXYGEN.pyx":291
+        /* "gases/OXYGEN.pyx":291
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -4901,7 +4901,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L22_break:;
   }
 
-  /* "OXYGEN.pyx":295
+  /* "gases/OXYGEN.pyx":295
  *                 break
  * 
  *     cdef int NL = 0, FI             # <<<<<<<<<<<<<<
@@ -4910,7 +4910,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL = 0;
 
-  /* "OXYGEN.pyx":296
+  /* "gases/OXYGEN.pyx":296
  * 
  *     cdef int NL = 0, FI
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4922,7 +4922,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_36; __pyx_t_38+=1) {
     __pyx_v_NL = __pyx_t_38;
 
-    /* "OXYGEN.pyx":297
+    /* "gases/OXYGEN.pyx":297
  *     cdef int NL = 0, FI
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -4932,7 +4932,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_39 = 0; __pyx_t_39 < 0xFA0; __pyx_t_39+=1) {
       __pyx_v_i = __pyx_t_39;
 
-      /* "OXYGEN.pyx":298
+      /* "gases/OXYGEN.pyx":298
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -4942,7 +4942,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = (((__pyx_v_object->EG[__pyx_v_i]) > fabs((__pyx_v_object->EIN[__pyx_v_NL]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":299
+        /* "gases/OXYGEN.pyx":299
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i - 1             # <<<<<<<<<<<<<<
@@ -4951,7 +4951,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
 
-        /* "OXYGEN.pyx":300
+        /* "gases/OXYGEN.pyx":300
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4960,7 +4960,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L27_break;
 
-        /* "OXYGEN.pyx":298
+        /* "gases/OXYGEN.pyx":298
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -4972,7 +4972,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L27_break:;
   }
 
-  /* "OXYGEN.pyx":302
+  /* "gases/OXYGEN.pyx":302
  *                 break
  *     cdef double F[70]
  *     F = [.00026, .000408, .000623, .001016, .001562, .002312, .003234, .004362, .005573, .006930, .008342, .009692,             # <<<<<<<<<<<<<<
@@ -5051,7 +5051,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_31[69] = .001469;
   memcpy(&(__pyx_v_F[0]), __pyx_t_31, sizeof(__pyx_v_F[0]) * (70));
 
-  /* "OXYGEN.pyx":309
+  /* "gases/OXYGEN.pyx":309
  *          .004962, .006520, .008432, .011304, .015172, .022139, .032682, .039457, .029498, .018923, .017762, .015115,
  *          .013220, .009540, .005854, .008733, .007914, .008002, .006519, .003528, .001469]
  *     for J in range(75, object.NIN):             # <<<<<<<<<<<<<<
@@ -5063,7 +5063,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_38 = 75; __pyx_t_38 < __pyx_t_36; __pyx_t_38+=1) {
     __pyx_v_J = __pyx_t_38;
 
-    /* "OXYGEN.pyx":310
+    /* "gases/OXYGEN.pyx":310
  *          .013220, .009540, .005854, .008733, .007914, .008002, .006519, .003528, .001469]
  *     for J in range(75, object.NIN):
  *         object.PENFRA[0][J] = 0.0             # <<<<<<<<<<<<<<
@@ -5072,7 +5072,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_J]) = 0.0;
 
-    /* "OXYGEN.pyx":311
+    /* "gases/OXYGEN.pyx":311
  *     for J in range(75, object.NIN):
  *         object.PENFRA[0][J] = 0.0
  *         object.PENFRA[1][J] = 1.0             # <<<<<<<<<<<<<<
@@ -5081,7 +5081,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_J]) = 1.0;
 
-    /* "OXYGEN.pyx":312
+    /* "gases/OXYGEN.pyx":312
  *         object.PENFRA[0][J] = 0.0
  *         object.PENFRA[1][J] = 1.0
  *         object.PENFRA[2][J] = 1.0             # <<<<<<<<<<<<<<
@@ -5091,7 +5091,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_J]) = 1.0;
   }
 
-  /* "OXYGEN.pyx":315
+  /* "gases/OXYGEN.pyx":315
  *     cdef double EN, QMOM, QELA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE, T3B, THREEB, SFAC, QRES1, ETEMP
  *     # CALCULATE DENSITY CORRECTION FOR THREE BODY ATTACHMENT CROSS-SECTION
  *     FAC = 273.15 * object.TORR / ((object.TEMPC + 273.15) * 760.0)             # <<<<<<<<<<<<<<
@@ -5100,7 +5100,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_FAC = ((273.15 * __pyx_v_object->TORR) / ((__pyx_v_object->TEMPC + 273.15) * 760.0));
 
-  /* "OXYGEN.pyx":317
+  /* "gases/OXYGEN.pyx":317
  *     FAC = 273.15 * object.TORR / ((object.TEMPC + 273.15) * 760.0)
  *     # FIRST VIBRATIONAL LEVEL POPULATION
  *     APOP2 = exp(object.EIN[48] / object.AKT)             # <<<<<<<<<<<<<<
@@ -5109,7 +5109,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP2 = exp(((__pyx_v_object->EIN[48]) / __pyx_v_object->AKT));
 
-  /* "OXYGEN.pyx":318
+  /* "gases/OXYGEN.pyx":318
  *     # FIRST VIBRATIONAL LEVEL POPULATION
  *     APOP2 = exp(object.EIN[48] / object.AKT)
  *     for J in range(NBREM):             # <<<<<<<<<<<<<<
@@ -5121,7 +5121,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_38 = 0; __pyx_t_38 < __pyx_t_36; __pyx_t_38+=1) {
     __pyx_v_J = __pyx_t_38;
 
-    /* "OXYGEN.pyx":319
+    /* "gases/OXYGEN.pyx":319
  *     APOP2 = exp(object.EIN[48] / object.AKT)
  *     for J in range(NBREM):
  *         EBRM[J] = exp(EBRM[J])             # <<<<<<<<<<<<<<
@@ -5131,7 +5131,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_EBRM[__pyx_v_J]) = exp((__pyx_v_EBRM[__pyx_v_J]));
   }
 
-  /* "OXYGEN.pyx":320
+  /* "gases/OXYGEN.pyx":320
  *     for J in range(NBREM):
  *         EBRM[J] = exp(EBRM[J])
  *     for I in range(4000):             # <<<<<<<<<<<<<<
@@ -5141,7 +5141,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 0; __pyx_t_35 < 0xFA0; __pyx_t_35+=1) {
     __pyx_v_I = __pyx_t_35;
 
-    /* "OXYGEN.pyx":321
+    /* "gases/OXYGEN.pyx":321
  *         EBRM[J] = exp(EBRM[J])
  *     for I in range(4000):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -5150,7 +5150,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "OXYGEN.pyx":322
+    /* "gases/OXYGEN.pyx":322
  *     for I in range(4000):
  *         EN = object.EG[I]
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -5159,7 +5159,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-    /* "OXYGEN.pyx":323
+    /* "gases/OXYGEN.pyx":323
  *         EN = object.EG[I]
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -5168,7 +5168,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-    /* "OXYGEN.pyx":324
+    /* "gases/OXYGEN.pyx":324
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -5177,7 +5177,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-    /* "OXYGEN.pyx":325
+    /* "gases/OXYGEN.pyx":325
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *         BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -5186,7 +5186,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-    /* "OXYGEN.pyx":327
+    /* "gases/OXYGEN.pyx":327
  *         BETA2 = BETA * BETA
  *         # ELASTIC (+ROTATIONAL)
  *         QELA = GasUtil.CALQIONREG(EN, NELA, YELA, XELA)             # <<<<<<<<<<<<<<
@@ -5195,7 +5195,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QELA = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NELA, __pyx_v_YELA, __pyx_v_XELA);
 
-    /* "OXYGEN.pyx":328
+    /* "gases/OXYGEN.pyx":328
  *         # ELASTIC (+ROTATIONAL)
  *         QELA = GasUtil.CALQIONREG(EN, NELA, YELA, XELA)
  *         QMOM = GasUtil.CALQIONREG(EN, NELA, YMOM, XELA)             # <<<<<<<<<<<<<<
@@ -5204,7 +5204,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QMOM = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NELA, __pyx_v_YMOM, __pyx_v_XELA);
 
-    /* "OXYGEN.pyx":329
+    /* "gases/OXYGEN.pyx":329
  *         QELA = GasUtil.CALQIONREG(EN, NELA, YELA, XELA)
  *         QMOM = GasUtil.CALQIONREG(EN, NELA, YMOM, XELA)
  *         PQ[2] = GasUtil.CALPQ3(EN, NELA, YEPS, XELA)             # <<<<<<<<<<<<<<
@@ -5213,7 +5213,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NELA, __pyx_v_YEPS, __pyx_v_XELA);
 
-    /* "OXYGEN.pyx":331
+    /* "gases/OXYGEN.pyx":331
  *         PQ[2] = GasUtil.CALPQ3(EN, NELA, YEPS, XELA)
  * 
  *         PQ[2] = 1 - PQ[2]             # <<<<<<<<<<<<<<
@@ -5222,7 +5222,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = (1.0 - (__pyx_v_PQ[2]));
 
-    /* "OXYGEN.pyx":332
+    /* "gases/OXYGEN.pyx":332
  * 
  *         PQ[2] = 1 - PQ[2]
  *         PQ[1] = 0.5 + (QELA - QMOM) / QELA             # <<<<<<<<<<<<<<
@@ -5231,7 +5231,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[1]) = (0.5 + ((__pyx_v_QELA - __pyx_v_QMOM) / __pyx_v_QELA));
 
-    /* "OXYGEN.pyx":333
+    /* "gases/OXYGEN.pyx":333
  *         PQ[2] = 1 - PQ[2]
  *         PQ[1] = 0.5 + (QELA - QMOM) / QELA
  *         PQ[0] = 0.5             # <<<<<<<<<<<<<<
@@ -5240,7 +5240,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[0]) = 0.5;
 
-    /* "OXYGEN.pyx":335
+    /* "gases/OXYGEN.pyx":335
  *         PQ[0] = 0.5
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -5249,7 +5249,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "OXYGEN.pyx":337
+    /* "gases/OXYGEN.pyx":337
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  * 
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -5258,7 +5258,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "OXYGEN.pyx":338
+    /* "gases/OXYGEN.pyx":338
  * 
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -5268,7 +5268,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":339
+      /* "gases/OXYGEN.pyx":339
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -5277,7 +5277,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "OXYGEN.pyx":338
+      /* "gases/OXYGEN.pyx":338
  * 
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -5286,7 +5286,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":342
+    /* "gases/OXYGEN.pyx":342
  *         # IONISATION CALCULATION
  * 
  *         for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -5298,7 +5298,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_39 = 0; __pyx_t_39 < __pyx_t_38; __pyx_t_39+=1) {
       __pyx_v_J = __pyx_t_39;
 
-      /* "OXYGEN.pyx":343
+      /* "gases/OXYGEN.pyx":343
  * 
  *         for J in range(object.NION):
  *             object.PEQION[J][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5307,7 +5307,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[__pyx_v_J])[__pyx_v_I]) = 0.5;
 
-      /* "OXYGEN.pyx":344
+      /* "gases/OXYGEN.pyx":344
  *         for J in range(object.NION):
  *             object.PEQION[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5317,7 +5317,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":345
+        /* "gases/OXYGEN.pyx":345
  *             object.PEQION[J][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQION[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5326,7 +5326,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "OXYGEN.pyx":344
+        /* "gases/OXYGEN.pyx":344
  *         for J in range(object.NION):
  *             object.PEQION[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5335,7 +5335,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":346
+      /* "gases/OXYGEN.pyx":346
  *             if object.NANISO == 2:
  *                 object.PEQION[J][I] = 0.0
  *             object.QION[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5345,7 +5345,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]) = 0.0;
     }
 
-    /* "OXYGEN.pyx":349
+    /* "gases/OXYGEN.pyx":349
  *         # IONISATION TO ALL CHANNELS WITH O2+
  *         # IONISATION TO O2+ X2PI
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5355,7 +5355,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":350
+      /* "gases/OXYGEN.pyx":350
  *         # IONISATION TO O2+ X2PI
  *         if EN > object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, 0.6475 * 0.558, CONST, object.DEN[I],             # <<<<<<<<<<<<<<
@@ -5364,7 +5364,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION1, __pyx_v_YION1, __pyx_v_XION1, __pyx_v_BETA2, (0.6475 * 0.558), __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "OXYGEN.pyx":349
+      /* "gases/OXYGEN.pyx":349
  *         # IONISATION TO ALL CHANNELS WITH O2+
  *         # IONISATION TO O2+ X2PI
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5373,7 +5373,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":354
+    /* "gases/OXYGEN.pyx":354
  * 
  *         # IONISATION TO O2+ X2PI
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5383,7 +5383,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":355
+      /* "gases/OXYGEN.pyx":355
  *         # IONISATION TO O2+ X2PI
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX((EN - (object.EION[1] - object.EION[0])), NION1, YION1, XION1, BETA2,             # <<<<<<<<<<<<<<
@@ -5392,7 +5392,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONX((__pyx_v_EN - ((__pyx_v_object->EION[1]) - (__pyx_v_object->EION[0]))), __pyx_v_NION1, __pyx_v_YION1, __pyx_v_XION1, __pyx_v_BETA2, 0.6475, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2) * 0.308);
 
-      /* "OXYGEN.pyx":357
+      /* "gases/OXYGEN.pyx":357
  *             object.QION[1][I] = GasUtil.CALQIONX((EN - (object.EION[1] - object.EION[0])), NION1, YION1, XION1, BETA2,
  *                                                  0.6475, CONST, object.DEN[I], C, AM2) * 0.308
  *             if (EN - (object.EION[1] - object.EION[0])) <= XION1[NION1 - 1]:             # <<<<<<<<<<<<<<
@@ -5402,7 +5402,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = (((__pyx_v_EN - ((__pyx_v_object->EION[1]) - (__pyx_v_object->EION[0]))) <= (__pyx_v_XION1[(__pyx_v_NION1 - 1)])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":358
+        /* "gases/OXYGEN.pyx":358
  *                                                  0.6475, CONST, object.DEN[I], C, AM2) * 0.308
  *             if (EN - (object.EION[1] - object.EION[0])) <= XION1[NION1 - 1]:
  *                 object.QION[0][i] -= object.QION[1][I]             # <<<<<<<<<<<<<<
@@ -5413,7 +5413,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_36 = __pyx_v_i;
         ((__pyx_v_object->QION[__pyx_t_43])[__pyx_t_36]) = (((__pyx_v_object->QION[__pyx_t_43])[__pyx_t_36]) - ((__pyx_v_object->QION[1])[__pyx_v_I]));
 
-        /* "OXYGEN.pyx":357
+        /* "gases/OXYGEN.pyx":357
  *             object.QION[1][I] = GasUtil.CALQIONX((EN - (object.EION[1] - object.EION[0])), NION1, YION1, XION1, BETA2,
  *                                                  0.6475, CONST, object.DEN[I], C, AM2) * 0.308
  *             if (EN - (object.EION[1] - object.EION[0])) <= XION1[NION1 - 1]:             # <<<<<<<<<<<<<<
@@ -5422,7 +5422,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":354
+      /* "gases/OXYGEN.pyx":354
  * 
  *         # IONISATION TO O2+ X2PI
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5431,7 +5431,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":361
+    /* "gases/OXYGEN.pyx":361
  * 
  *         # IONISATION TO O2+ B4SIGMA
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5441,7 +5441,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":362
+      /* "gases/OXYGEN.pyx":362
  *         # IONISATION TO O2+ B4SIGMA
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONX((EN - (object.EION[2] - object.EION[0])), NION1, YION1, XION1, BETA2,             # <<<<<<<<<<<<<<
@@ -5450,7 +5450,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONX((__pyx_v_EN - ((__pyx_v_object->EION[2]) - (__pyx_v_object->EION[0]))), __pyx_v_NION1, __pyx_v_YION1, __pyx_v_XION1, __pyx_v_BETA2, 0.6475, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2) * 0.136);
 
-      /* "OXYGEN.pyx":364
+      /* "gases/OXYGEN.pyx":364
  *             object.QION[2][I] = GasUtil.CALQIONX((EN - (object.EION[2] - object.EION[0])), NION1, YION1, XION1, BETA2,
  *                                                  0.6475, CONST, object.DEN[I], C, AM2) * 0.136
  *             if (EN - (object.EION[2] - object.EION[0])) <= XION1[NION1 - 1]:             # <<<<<<<<<<<<<<
@@ -5460,7 +5460,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = (((__pyx_v_EN - ((__pyx_v_object->EION[2]) - (__pyx_v_object->EION[0]))) <= (__pyx_v_XION1[(__pyx_v_NION1 - 1)])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":365
+        /* "gases/OXYGEN.pyx":365
  *                                                  0.6475, CONST, object.DEN[I], C, AM2) * 0.136
  *             if (EN - (object.EION[2] - object.EION[0])) <= XION1[NION1 - 1]:
  *                 object.QION[0][i] -= object.QION[2][I]             # <<<<<<<<<<<<<<
@@ -5471,7 +5471,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_36 = __pyx_v_i;
         ((__pyx_v_object->QION[__pyx_t_43])[__pyx_t_36]) = (((__pyx_v_object->QION[__pyx_t_43])[__pyx_t_36]) - ((__pyx_v_object->QION[2])[__pyx_v_I]));
 
-        /* "OXYGEN.pyx":364
+        /* "gases/OXYGEN.pyx":364
  *             object.QION[2][I] = GasUtil.CALQIONX((EN - (object.EION[2] - object.EION[0])), NION1, YION1, XION1, BETA2,
  *                                                  0.6475, CONST, object.DEN[I], C, AM2) * 0.136
  *             if (EN - (object.EION[2] - object.EION[0])) <= XION1[NION1 - 1]:             # <<<<<<<<<<<<<<
@@ -5480,7 +5480,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":361
+      /* "gases/OXYGEN.pyx":361
  * 
  *         # IONISATION TO O2+ B4SIGMA
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5489,7 +5489,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":368
+    /* "gases/OXYGEN.pyx":368
  * 
  *         # DISSOCIATIVE IONISATION TO O+ + O
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5499,7 +5499,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EION[3])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":369
+      /* "gases/OXYGEN.pyx":369
  *         # DISSOCIATIVE IONISATION TO O+ + O
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQIONX(EN, NION2, YION2, XION2, BETA2, 0.2993, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5508,7 +5508,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION2, __pyx_v_YION2, __pyx_v_XION2, __pyx_v_BETA2, 0.2993, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "OXYGEN.pyx":368
+      /* "gases/OXYGEN.pyx":368
  * 
  *         # DISSOCIATIVE IONISATION TO O+ + O
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -5517,7 +5517,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":372
+    /* "gases/OXYGEN.pyx":372
  * 
  *         # DISSOCIATIVE DOUBLE IONISATION TO O+ + O
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5527,7 +5527,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EION[4])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":373
+      /* "gases/OXYGEN.pyx":373
  *         # DISSOCIATIVE DOUBLE IONISATION TO O+ + O
  *         if EN > object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQIONX(EN, NION3, YION3, XION3, BETA2, 0.0446, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5536,7 +5536,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION3, __pyx_v_YION3, __pyx_v_XION3, __pyx_v_BETA2, 0.0446, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "OXYGEN.pyx":372
+      /* "gases/OXYGEN.pyx":372
  * 
  *         # DISSOCIATIVE DOUBLE IONISATION TO O+ + O
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -5545,7 +5545,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":376
+    /* "gases/OXYGEN.pyx":376
  * 
  *         # DISSOCIATIVE DOUBLE IONISATION TO O++ + O
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5555,7 +5555,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EION[5])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":377
+      /* "gases/OXYGEN.pyx":377
  *         # DISSOCIATIVE DOUBLE IONISATION TO O++ + O
  *         if EN > object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQIONX(EN, NION4, YION4, XION4, BETA2, 0.0061, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5564,7 +5564,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION4, __pyx_v_YION4, __pyx_v_XION4, __pyx_v_BETA2, 0.0061, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "OXYGEN.pyx":376
+      /* "gases/OXYGEN.pyx":376
  * 
  *         # DISSOCIATIVE DOUBLE IONISATION TO O++ + O
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -5573,7 +5573,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":380
+    /* "gases/OXYGEN.pyx":380
  * 
  *         # DISSOCIATIVE DOUBLE IONISATION TO O++ + O+
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5583,7 +5583,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EION[6])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":381
+      /* "gases/OXYGEN.pyx":381
  *         # DISSOCIATIVE DOUBLE IONISATION TO O++ + O+
  *         if EN > object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQIONX(EN, NION5, YION5, XION5, BETA2, 0.0025, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5592,7 +5592,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION5, __pyx_v_YION5, __pyx_v_XION5, __pyx_v_BETA2, 0.0025, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "OXYGEN.pyx":380
+      /* "gases/OXYGEN.pyx":380
  * 
  *         # DISSOCIATIVE DOUBLE IONISATION TO O++ + O+
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -5601,7 +5601,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":384
+    /* "gases/OXYGEN.pyx":384
  * 
  *         # K-SHELL IONISATION
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5611,7 +5611,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EION[7])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":385
+      /* "gases/OXYGEN.pyx":385
  *         # K-SHELL IONISATION
  *         if EN > object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH) * 2             # <<<<<<<<<<<<<<
@@ -5620,7 +5620,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[7])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NKSH, __pyx_v_YKSH, __pyx_v_XKSH) * 2.0);
 
-      /* "OXYGEN.pyx":384
+      /* "gases/OXYGEN.pyx":384
  * 
  *         # K-SHELL IONISATION
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -5629,7 +5629,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":387
+    /* "gases/OXYGEN.pyx":387
  *             object.QION[7][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH) * 2
  * 
  *         for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -5641,7 +5641,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_39 = 0; __pyx_t_39 < __pyx_t_38; __pyx_t_39+=1) {
       __pyx_v_J = __pyx_t_39;
 
-      /* "OXYGEN.pyx":388
+      /* "gases/OXYGEN.pyx":388
  * 
  *         for J in range(object.NION):
  *             if EN > 2.0 * object.EION[J]:             # <<<<<<<<<<<<<<
@@ -5651,7 +5651,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[__pyx_v_J]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":389
+        /* "gases/OXYGEN.pyx":389
  *         for J in range(object.NION):
  *             if EN > 2.0 * object.EION[J]:
  *                 object.PEQION[J][I] = object.PEQEL[1][I - IOFFION[J]]             # <<<<<<<<<<<<<<
@@ -5660,7 +5660,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[__pyx_v_J]))]);
 
-        /* "OXYGEN.pyx":388
+        /* "gases/OXYGEN.pyx":388
  * 
  *         for J in range(object.NION):
  *             if EN > 2.0 * object.EION[J]:             # <<<<<<<<<<<<<<
@@ -5670,7 +5670,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "OXYGEN.pyx":392
+    /* "gases/OXYGEN.pyx":392
  * 
  *         # CORRECTION TO IONISATION FO AUGER EMISSION FROM KSHELL
  *         object.QION[0][I] -= AUGK * object.QION[7][I]             # <<<<<<<<<<<<<<
@@ -5681,7 +5681,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_36 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_43])[__pyx_t_36]) = (((__pyx_v_object->QION[__pyx_t_43])[__pyx_t_36]) - (__pyx_v_AUGK * ((__pyx_v_object->QION[7])[__pyx_v_I])));
 
-    /* "OXYGEN.pyx":395
+    /* "gases/OXYGEN.pyx":395
  * 
  *         # TWO BODY ATTACHMENT
  *         SINGLE = 0.0             # <<<<<<<<<<<<<<
@@ -5690,7 +5690,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_SINGLE = 0.0;
 
-    /* "OXYGEN.pyx":397
+    /* "gases/OXYGEN.pyx":397
  *         SINGLE = 0.0
  *         # OFFSET FOR ENERGY SCALE
  *         if EN > XATT[0]:             # <<<<<<<<<<<<<<
@@ -5700,7 +5700,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_XATT[0])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":398
+      /* "gases/OXYGEN.pyx":398
  *         # OFFSET FOR ENERGY SCALE
  *         if EN > XATT[0]:
  *             SINGLE = GasUtil.CALQINP(EN, NATT1, YATT, XATT, 3) * 100             # <<<<<<<<<<<<<<
@@ -5709,7 +5709,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_SINGLE = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NATT1, __pyx_v_YATT, __pyx_v_XATT, 3.0) * 100.0);
 
-      /* "OXYGEN.pyx":397
+      /* "gases/OXYGEN.pyx":397
  *         SINGLE = 0.0
  *         # OFFSET FOR ENERGY SCALE
  *         if EN > XATT[0]:             # <<<<<<<<<<<<<<
@@ -5718,7 +5718,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":404
+    /* "gases/OXYGEN.pyx":404
  *         #  ENTER HERE SCALING FACTOR FOR THREE BODY ATTACHMENT IN MIXTURES:
  *         #  FOR NORMAL SCALING T3B=1.0
  *         T3B = 1.0             # <<<<<<<<<<<<<<
@@ -5727,7 +5727,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_T3B = 1.0;
 
-    /* "OXYGEN.pyx":410
+    /* "gases/OXYGEN.pyx":410
  *         #***********************************************************
  * 
  *         THREEB = 0.0             # <<<<<<<<<<<<<<
@@ -5736,7 +5736,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_THREEB = 0.0;
 
-    /* "OXYGEN.pyx":411
+    /* "gases/OXYGEN.pyx":411
  * 
  *         THREEB = 0.0
  *         if EN > X3ATT[0]:             # <<<<<<<<<<<<<<
@@ -5746,7 +5746,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_X3ATT[0])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":412
+      /* "gases/OXYGEN.pyx":412
  *         THREEB = 0.0
  *         if EN > X3ATT[0]:
  *             THREEB = GasUtil.CALQION(EN, N3ATT, Y3ATT, X3ATT) * FAC * T3B             # <<<<<<<<<<<<<<
@@ -5755,7 +5755,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_THREEB = ((__pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_N3ATT, __pyx_v_Y3ATT, __pyx_v_X3ATT) * __pyx_v_FAC) * __pyx_v_T3B);
 
-      /* "OXYGEN.pyx":411
+      /* "gases/OXYGEN.pyx":411
  * 
  *         THREEB = 0.0
  *         if EN > X3ATT[0]:             # <<<<<<<<<<<<<<
@@ -5764,7 +5764,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":414
+    /* "gases/OXYGEN.pyx":414
  *             THREEB = GasUtil.CALQION(EN, N3ATT, Y3ATT, X3ATT) * FAC * T3B
  * 
  *         object.Q[3][I] = SINGLE + THREEB             # <<<<<<<<<<<<<<
@@ -5773,7 +5773,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = (__pyx_v_SINGLE + __pyx_v_THREEB);
 
-    /* "OXYGEN.pyx":415
+    /* "gases/OXYGEN.pyx":415
  * 
  *         object.Q[3][I] = SINGLE + THREEB
  *         object.QATT[0][I] = object.Q[3][I]             # <<<<<<<<<<<<<<
@@ -5782,7 +5782,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = ((__pyx_v_object->Q[3])[__pyx_v_I]);
 
-    /* "OXYGEN.pyx":417
+    /* "gases/OXYGEN.pyx":417
  *         object.QATT[0][I] = object.Q[3][I]
  * 
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5791,7 +5791,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "OXYGEN.pyx":418
+    /* "gases/OXYGEN.pyx":418
  * 
  *         object.Q[4][I] = 0.0
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5800,7 +5800,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "OXYGEN.pyx":421
+    /* "gases/OXYGEN.pyx":421
  * 
  *         # SET ZERO
  *         for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -5812,7 +5812,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_39 = 0; __pyx_t_39 < __pyx_t_38; __pyx_t_39+=1) {
       __pyx_v_J = __pyx_t_39;
 
-      /* "OXYGEN.pyx":422
+      /* "gases/OXYGEN.pyx":422
  *         # SET ZERO
  *         for J in range(object.NIN):
  *             object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5821,7 +5821,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-      /* "OXYGEN.pyx":423
+      /* "gases/OXYGEN.pyx":423
  *         for J in range(object.NIN):
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5830,7 +5830,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.5;
 
-      /* "OXYGEN.pyx":424
+      /* "gases/OXYGEN.pyx":424
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5840,7 +5840,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":425
+        /* "gases/OXYGEN.pyx":425
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5849,7 +5849,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-        /* "OXYGEN.pyx":424
+        /* "gases/OXYGEN.pyx":424
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5859,7 +5859,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "OXYGEN.pyx":428
+    /* "gases/OXYGEN.pyx":428
  * 
  *         # SUPERELASTIC ROTATION
  *         for J in range(1, 25):             # <<<<<<<<<<<<<<
@@ -5869,7 +5869,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 1; __pyx_t_36 < 25; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "OXYGEN.pyx":429
+      /* "gases/OXYGEN.pyx":429
  *         # SUPERELASTIC ROTATION
  *         for J in range(1, 25):
  *             SFAC = (4.0 * J - 1.0) / (4.0 * J + 3.0)             # <<<<<<<<<<<<<<
@@ -5878,7 +5878,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_SFAC = (((4.0 * __pyx_v_J) - 1.0) / ((4.0 * __pyx_v_J) + 3.0));
 
-      /* "OXYGEN.pyx":430
+      /* "gases/OXYGEN.pyx":430
  *         for J in range(1, 25):
  *             SFAC = (4.0 * J - 1.0) / (4.0 * J + 3.0)
  *             object.QIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5887,7 +5887,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-      /* "OXYGEN.pyx":431
+      /* "gases/OXYGEN.pyx":431
  *             SFAC = (4.0 * J - 1.0) / (4.0 * J + 3.0)
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5896,7 +5896,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.5;
 
-      /* "OXYGEN.pyx":432
+      /* "gases/OXYGEN.pyx":432
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5906,7 +5906,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":433
+        /* "gases/OXYGEN.pyx":433
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5915,7 +5915,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-        /* "OXYGEN.pyx":432
+        /* "gases/OXYGEN.pyx":432
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5924,7 +5924,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":434
+      /* "gases/OXYGEN.pyx":434
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN < 0.0:             # <<<<<<<<<<<<<<
@@ -5934,7 +5934,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN < 0.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":435
+        /* "gases/OXYGEN.pyx":435
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN < 0.0:
  *                 continue             # <<<<<<<<<<<<<<
@@ -5943,7 +5943,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L57_continue;
 
-        /* "OXYGEN.pyx":434
+        /* "gases/OXYGEN.pyx":434
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN < 0.0:             # <<<<<<<<<<<<<<
@@ -5952,7 +5952,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":436
+      /* "gases/OXYGEN.pyx":436
  *             if EN < 0.0:
  *                 continue
  *             ETEMP = EN - object.EIN[J - 1]             # <<<<<<<<<<<<<<
@@ -5961,7 +5961,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ETEMP = (__pyx_v_EN - (__pyx_v_object->EIN[(__pyx_v_J - 1)]));
 
-      /* "OXYGEN.pyx":437
+      /* "gases/OXYGEN.pyx":437
  *                 continue
  *             ETEMP = EN - object.EIN[J - 1]
  *             if J == 1:             # <<<<<<<<<<<<<<
@@ -5971,7 +5971,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       switch (__pyx_v_J) {
         case 1:
 
-        /* "OXYGEN.pyx":438
+        /* "gases/OXYGEN.pyx":438
  *             ETEMP = EN - object.EIN[J - 1]
  *             if J == 1:
  *                 if (ETEMP <= XROT13[NROT13 - 1]):             # <<<<<<<<<<<<<<
@@ -5981,7 +5981,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT13[(__pyx_v_NROT13 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":439
+          /* "gases/OXYGEN.pyx":439
  *             if J == 1:
  *                 if (ETEMP <= XROT13[NROT13 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -5990,7 +5990,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT13, __pyx_v_YROT13, __pyx_v_XROT13)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":438
+          /* "gases/OXYGEN.pyx":438
  *             ETEMP = EN - object.EIN[J - 1]
  *             if J == 1:
  *                 if (ETEMP <= XROT13[NROT13 - 1]):             # <<<<<<<<<<<<<<
@@ -6000,7 +6000,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L61;
         }
 
-        /* "OXYGEN.pyx":443
+        /* "gases/OXYGEN.pyx":443
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,
  *                                                                               XROT13,1) * 100             # <<<<<<<<<<<<<<
@@ -6009,7 +6009,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":442
+          /* "gases/OXYGEN.pyx":442
  *                         ETEMP, NROT13, YROT13, XROT13) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,             # <<<<<<<<<<<<<<
@@ -6020,7 +6020,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L61:;
 
-        /* "OXYGEN.pyx":444
+        /* "gases/OXYGEN.pyx":444
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,
  *                                                                               XROT13,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6030,7 +6030,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":445
+          /* "gases/OXYGEN.pyx":445
  *                                                                               XROT13,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6039,7 +6039,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":444
+          /* "gases/OXYGEN.pyx":444
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,
  *                                                                               XROT13,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6048,7 +6048,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":437
+        /* "gases/OXYGEN.pyx":437
  *                 continue
  *             ETEMP = EN - object.EIN[J - 1]
  *             if J == 1:             # <<<<<<<<<<<<<<
@@ -6058,7 +6058,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 2:
 
-        /* "OXYGEN.pyx":447
+        /* "gases/OXYGEN.pyx":447
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 2:
  *                 if (ETEMP <= XROT35[NROT35 - 1]):             # <<<<<<<<<<<<<<
@@ -6068,7 +6068,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT35[(__pyx_v_NROT35 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":448
+          /* "gases/OXYGEN.pyx":448
  *             elif J == 2:
  *                 if (ETEMP <= XROT35[NROT35 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6077,7 +6077,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT35, __pyx_v_YROT35, __pyx_v_XROT35)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":447
+          /* "gases/OXYGEN.pyx":447
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 2:
  *                 if (ETEMP <= XROT35[NROT35 - 1]):             # <<<<<<<<<<<<<<
@@ -6087,7 +6087,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L63;
         }
 
-        /* "OXYGEN.pyx":451
+        /* "gases/OXYGEN.pyx":451
  *                         ETEMP, NROT35, YROT35, XROT35) / EN
  *                 else:
  *                     if I ==3999:             # <<<<<<<<<<<<<<
@@ -6098,7 +6098,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_42 = ((__pyx_v_I == 0xF9F) != 0);
           if (__pyx_t_42) {
 
-            /* "OXYGEN.pyx":452
+            /* "gases/OXYGEN.pyx":452
  *                 else:
  *                     if I ==3999:
  *                         print("HERE")             # <<<<<<<<<<<<<<
@@ -6107,7 +6107,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             if (__Pyx_PrintOne(0, __pyx_n_s_HERE) < 0) __PYX_ERR(0, 452, __pyx_L1_error)
 
-            /* "OXYGEN.pyx":451
+            /* "gases/OXYGEN.pyx":451
  *                         ETEMP, NROT35, YROT35, XROT35) / EN
  *                 else:
  *                     if I ==3999:             # <<<<<<<<<<<<<<
@@ -6116,7 +6116,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           }
 
-          /* "OXYGEN.pyx":453
+          /* "gases/OXYGEN.pyx":453
  *                     if I ==3999:
  *                         print("HERE")
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,             # <<<<<<<<<<<<<<
@@ -6127,7 +6127,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L63:;
 
-        /* "OXYGEN.pyx":455
+        /* "gases/OXYGEN.pyx":455
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,
  *                                                                               XROT35,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6137,7 +6137,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":456
+          /* "gases/OXYGEN.pyx":456
  *                                                                               XROT35,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6146,7 +6146,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":455
+          /* "gases/OXYGEN.pyx":455
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,
  *                                                                               XROT35,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6155,7 +6155,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":446
+        /* "gases/OXYGEN.pyx":446
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 2:             # <<<<<<<<<<<<<<
@@ -6165,7 +6165,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 3:
 
-        /* "OXYGEN.pyx":458
+        /* "gases/OXYGEN.pyx":458
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 3:
  *                 if (ETEMP <= XROT57[NROT57 - 1]):             # <<<<<<<<<<<<<<
@@ -6175,7 +6175,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT57[(__pyx_v_NROT57 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":459
+          /* "gases/OXYGEN.pyx":459
  *             elif J == 3:
  *                 if (ETEMP <= XROT57[NROT57 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6184,7 +6184,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT57, __pyx_v_YROT57, __pyx_v_XROT57)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":458
+          /* "gases/OXYGEN.pyx":458
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 3:
  *                 if (ETEMP <= XROT57[NROT57 - 1]):             # <<<<<<<<<<<<<<
@@ -6194,7 +6194,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L66;
         }
 
-        /* "OXYGEN.pyx":463
+        /* "gases/OXYGEN.pyx":463
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,
  *                                                                               XROT57,1) * 100             # <<<<<<<<<<<<<<
@@ -6203,7 +6203,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":462
+          /* "gases/OXYGEN.pyx":462
  *                         ETEMP, NROT57, YROT57, XROT57) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,             # <<<<<<<<<<<<<<
@@ -6214,7 +6214,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L66:;
 
-        /* "OXYGEN.pyx":464
+        /* "gases/OXYGEN.pyx":464
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,
  *                                                                               XROT57,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6224,7 +6224,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":465
+          /* "gases/OXYGEN.pyx":465
  *                                                                               XROT57,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6233,7 +6233,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":464
+          /* "gases/OXYGEN.pyx":464
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,
  *                                                                               XROT57,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6242,7 +6242,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":457
+        /* "gases/OXYGEN.pyx":457
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 3:             # <<<<<<<<<<<<<<
@@ -6252,7 +6252,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 4:
 
-        /* "OXYGEN.pyx":467
+        /* "gases/OXYGEN.pyx":467
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 4:
  *                 if (ETEMP <= XROT79[NROT79 - 1]):             # <<<<<<<<<<<<<<
@@ -6262,7 +6262,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT79[(__pyx_v_NROT79 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":468
+          /* "gases/OXYGEN.pyx":468
  *             elif J == 4:
  *                 if (ETEMP <= XROT79[NROT79 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6271,7 +6271,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT79, __pyx_v_YROT79, __pyx_v_XROT79)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":467
+          /* "gases/OXYGEN.pyx":467
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 4:
  *                 if (ETEMP <= XROT79[NROT79 - 1]):             # <<<<<<<<<<<<<<
@@ -6281,7 +6281,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L68;
         }
 
-        /* "OXYGEN.pyx":472
+        /* "gases/OXYGEN.pyx":472
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,
  *                                                                               XROT79,1) * 100             # <<<<<<<<<<<<<<
@@ -6290,7 +6290,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":471
+          /* "gases/OXYGEN.pyx":471
  *                         ETEMP, NROT79, YROT79, XROT79) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,             # <<<<<<<<<<<<<<
@@ -6301,7 +6301,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L68:;
 
-        /* "OXYGEN.pyx":473
+        /* "gases/OXYGEN.pyx":473
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,
  *                                                                               XROT79,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6311,7 +6311,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":474
+          /* "gases/OXYGEN.pyx":474
  *                                                                               XROT79,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6320,7 +6320,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":473
+          /* "gases/OXYGEN.pyx":473
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,
  *                                                                               XROT79,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6329,7 +6329,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":466
+        /* "gases/OXYGEN.pyx":466
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 4:             # <<<<<<<<<<<<<<
@@ -6339,7 +6339,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 5:
 
-        /* "OXYGEN.pyx":476
+        /* "gases/OXYGEN.pyx":476
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 5:
  *                 if (ETEMP <= XROT911[NROT911 - 1]):             # <<<<<<<<<<<<<<
@@ -6349,7 +6349,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT911[(__pyx_v_NROT911 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":477
+          /* "gases/OXYGEN.pyx":477
  *             elif J == 5:
  *                 if (ETEMP <= XROT911[NROT911 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6358,7 +6358,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT911, __pyx_v_YROT911, __pyx_v_XROT911)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":476
+          /* "gases/OXYGEN.pyx":476
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 5:
  *                 if (ETEMP <= XROT911[NROT911 - 1]):             # <<<<<<<<<<<<<<
@@ -6368,7 +6368,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L70;
         }
 
-        /* "OXYGEN.pyx":481
+        /* "gases/OXYGEN.pyx":481
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,
  *                                                                               XROT911,1) * 100             # <<<<<<<<<<<<<<
@@ -6377,7 +6377,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":480
+          /* "gases/OXYGEN.pyx":480
  *                         ETEMP, NROT911, YROT911, XROT911) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,             # <<<<<<<<<<<<<<
@@ -6388,7 +6388,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L70:;
 
-        /* "OXYGEN.pyx":482
+        /* "gases/OXYGEN.pyx":482
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,
  *                                                                               XROT911,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6398,7 +6398,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":483
+          /* "gases/OXYGEN.pyx":483
  *                                                                               XROT911,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6407,7 +6407,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":482
+          /* "gases/OXYGEN.pyx":482
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,
  *                                                                               XROT911,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6416,7 +6416,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":475
+        /* "gases/OXYGEN.pyx":475
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 5:             # <<<<<<<<<<<<<<
@@ -6426,7 +6426,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 6:
 
-        /* "OXYGEN.pyx":485
+        /* "gases/OXYGEN.pyx":485
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 6:
  *                 if (ETEMP <= XROT1113[NROT1113 - 1]):             # <<<<<<<<<<<<<<
@@ -6436,7 +6436,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1113[(__pyx_v_NROT1113 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":486
+          /* "gases/OXYGEN.pyx":486
  *             elif J == 6:
  *                 if (ETEMP <= XROT1113[NROT1113 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6445,7 +6445,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1113, __pyx_v_YROT1113, __pyx_v_XROT1113)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":485
+          /* "gases/OXYGEN.pyx":485
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 6:
  *                 if (ETEMP <= XROT1113[NROT1113 - 1]):             # <<<<<<<<<<<<<<
@@ -6455,7 +6455,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L72;
         }
 
-        /* "OXYGEN.pyx":490
+        /* "gases/OXYGEN.pyx":490
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,
  *                                                                               YROT1113, XROT1113,1) * 100             # <<<<<<<<<<<<<<
@@ -6464,7 +6464,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":489
+          /* "gases/OXYGEN.pyx":489
  *                         ETEMP, NROT1113, YROT1113, XROT1113) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,             # <<<<<<<<<<<<<<
@@ -6475,7 +6475,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L72:;
 
-        /* "OXYGEN.pyx":491
+        /* "gases/OXYGEN.pyx":491
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,
  *                                                                               YROT1113, XROT1113,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6485,7 +6485,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":492
+          /* "gases/OXYGEN.pyx":492
  *                                                                               YROT1113, XROT1113,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6494,7 +6494,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":491
+          /* "gases/OXYGEN.pyx":491
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,
  *                                                                               YROT1113, XROT1113,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6503,7 +6503,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":484
+        /* "gases/OXYGEN.pyx":484
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 6:             # <<<<<<<<<<<<<<
@@ -6513,7 +6513,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 7:
 
-        /* "OXYGEN.pyx":494
+        /* "gases/OXYGEN.pyx":494
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 7:
  *                 if (ETEMP <= XROT1315[NROT1315 - 1]):             # <<<<<<<<<<<<<<
@@ -6523,7 +6523,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1315[(__pyx_v_NROT1315 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":495
+          /* "gases/OXYGEN.pyx":495
  *             elif J == 7:
  *                 if (ETEMP <= XROT1315[NROT1315 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6532,7 +6532,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1315, __pyx_v_YROT1315, __pyx_v_XROT1315)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":494
+          /* "gases/OXYGEN.pyx":494
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 7:
  *                 if (ETEMP <= XROT1315[NROT1315 - 1]):             # <<<<<<<<<<<<<<
@@ -6542,7 +6542,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L74;
         }
 
-        /* "OXYGEN.pyx":499
+        /* "gases/OXYGEN.pyx":499
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,
  *                                                                               YROT1315, XROT1315,1) * 100             # <<<<<<<<<<<<<<
@@ -6551,7 +6551,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":498
+          /* "gases/OXYGEN.pyx":498
  *                         ETEMP, NROT1315, YROT1315, XROT1315) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,             # <<<<<<<<<<<<<<
@@ -6562,7 +6562,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L74:;
 
-        /* "OXYGEN.pyx":500
+        /* "gases/OXYGEN.pyx":500
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,
  *                                                                               YROT1315, XROT1315,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6572,7 +6572,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":501
+          /* "gases/OXYGEN.pyx":501
  *                                                                               YROT1315, XROT1315,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6581,7 +6581,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":500
+          /* "gases/OXYGEN.pyx":500
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,
  *                                                                               YROT1315, XROT1315,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6590,7 +6590,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":493
+        /* "gases/OXYGEN.pyx":493
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 7:             # <<<<<<<<<<<<<<
@@ -6600,7 +6600,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 8:
 
-        /* "OXYGEN.pyx":503
+        /* "gases/OXYGEN.pyx":503
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 8:
  *                 if (ETEMP <= XROT1517[NROT1517 - 1]):             # <<<<<<<<<<<<<<
@@ -6610,7 +6610,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1517[(__pyx_v_NROT1517 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":504
+          /* "gases/OXYGEN.pyx":504
  *             elif J == 8:
  *                 if (ETEMP <= XROT1517[NROT1517 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6619,7 +6619,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1517, __pyx_v_YROT1517, __pyx_v_XROT1517)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":503
+          /* "gases/OXYGEN.pyx":503
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 8:
  *                 if (ETEMP <= XROT1517[NROT1517 - 1]):             # <<<<<<<<<<<<<<
@@ -6629,7 +6629,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L76;
         }
 
-        /* "OXYGEN.pyx":508
+        /* "gases/OXYGEN.pyx":508
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,
  *                                                                               YROT1517, XROT1517,1) * 100             # <<<<<<<<<<<<<<
@@ -6638,7 +6638,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":507
+          /* "gases/OXYGEN.pyx":507
  *                         ETEMP, NROT1517, YROT1517, XROT1517) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,             # <<<<<<<<<<<<<<
@@ -6649,7 +6649,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L76:;
 
-        /* "OXYGEN.pyx":509
+        /* "gases/OXYGEN.pyx":509
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,
  *                                                                               YROT1517, XROT1517,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6659,7 +6659,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":510
+          /* "gases/OXYGEN.pyx":510
  *                                                                               YROT1517, XROT1517,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6668,7 +6668,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":509
+          /* "gases/OXYGEN.pyx":509
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,
  *                                                                               YROT1517, XROT1517,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6677,7 +6677,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":502
+        /* "gases/OXYGEN.pyx":502
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 8:             # <<<<<<<<<<<<<<
@@ -6687,7 +6687,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 9:
 
-        /* "OXYGEN.pyx":512
+        /* "gases/OXYGEN.pyx":512
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 9:
  *                 if (ETEMP <= XROT1719[NROT1719 - 1]):             # <<<<<<<<<<<<<<
@@ -6697,7 +6697,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1719[(__pyx_v_NROT1719 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":513
+          /* "gases/OXYGEN.pyx":513
  *             elif J == 9:
  *                 if (ETEMP <= XROT1719[NROT1719 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6706,7 +6706,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1719, __pyx_v_YROT1719, __pyx_v_XROT1719)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":512
+          /* "gases/OXYGEN.pyx":512
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 9:
  *                 if (ETEMP <= XROT1719[NROT1719 - 1]):             # <<<<<<<<<<<<<<
@@ -6716,7 +6716,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L78;
         }
 
-        /* "OXYGEN.pyx":517
+        /* "gases/OXYGEN.pyx":517
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,
  *                                                                               YROT1719, XROT1719,1) * 100             # <<<<<<<<<<<<<<
@@ -6725,7 +6725,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":516
+          /* "gases/OXYGEN.pyx":516
  *                         ETEMP, NROT1719, YROT1719, XROT1719) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,             # <<<<<<<<<<<<<<
@@ -6736,7 +6736,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L78:;
 
-        /* "OXYGEN.pyx":518
+        /* "gases/OXYGEN.pyx":518
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,
  *                                                                               YROT1719, XROT1719,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6746,7 +6746,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":519
+          /* "gases/OXYGEN.pyx":519
  *                                                                               YROT1719, XROT1719,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6755,7 +6755,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":518
+          /* "gases/OXYGEN.pyx":518
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,
  *                                                                               YROT1719, XROT1719,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6764,7 +6764,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":511
+        /* "gases/OXYGEN.pyx":511
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 9:             # <<<<<<<<<<<<<<
@@ -6774,7 +6774,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 10:
 
-        /* "OXYGEN.pyx":521
+        /* "gases/OXYGEN.pyx":521
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 10:
  *                 if (ETEMP <= XROT1921[NROT1921 - 1]):             # <<<<<<<<<<<<<<
@@ -6784,7 +6784,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1921[(__pyx_v_NROT1921 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":522
+          /* "gases/OXYGEN.pyx":522
  *             elif J == 10:
  *                 if (ETEMP <= XROT1921[NROT1921 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6793,7 +6793,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1921, __pyx_v_YROT1921, __pyx_v_XROT1921)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":521
+          /* "gases/OXYGEN.pyx":521
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 10:
  *                 if (ETEMP <= XROT1921[NROT1921 - 1]):             # <<<<<<<<<<<<<<
@@ -6803,7 +6803,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L80;
         }
 
-        /* "OXYGEN.pyx":526
+        /* "gases/OXYGEN.pyx":526
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,
  *                                                                               YROT1921, XROT1921,1) * 100             # <<<<<<<<<<<<<<
@@ -6812,7 +6812,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":525
+          /* "gases/OXYGEN.pyx":525
  *                         ETEMP, NROT1921, YROT1921, XROT1921) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,             # <<<<<<<<<<<<<<
@@ -6823,7 +6823,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L80:;
 
-        /* "OXYGEN.pyx":527
+        /* "gases/OXYGEN.pyx":527
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,
  *                                                                               YROT1921, XROT1921,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6833,7 +6833,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":528
+          /* "gases/OXYGEN.pyx":528
  *                                                                               YROT1921, XROT1921,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6842,7 +6842,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":527
+          /* "gases/OXYGEN.pyx":527
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,
  *                                                                               YROT1921, XROT1921,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6851,7 +6851,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":520
+        /* "gases/OXYGEN.pyx":520
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 10:             # <<<<<<<<<<<<<<
@@ -6861,7 +6861,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 11:
 
-        /* "OXYGEN.pyx":530
+        /* "gases/OXYGEN.pyx":530
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 11:
  *                 if (ETEMP <= XROT2123[NROT2123 - 1]):             # <<<<<<<<<<<<<<
@@ -6871,7 +6871,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2123[(__pyx_v_NROT2123 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":531
+          /* "gases/OXYGEN.pyx":531
  *             elif J == 11:
  *                 if (ETEMP <= XROT2123[NROT2123 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6880,7 +6880,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2123, __pyx_v_YROT2123, __pyx_v_XROT2123)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":530
+          /* "gases/OXYGEN.pyx":530
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 11:
  *                 if (ETEMP <= XROT2123[NROT2123 - 1]):             # <<<<<<<<<<<<<<
@@ -6890,7 +6890,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L82;
         }
 
-        /* "OXYGEN.pyx":535
+        /* "gases/OXYGEN.pyx":535
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,
  *                                                                               YROT2123, XROT2123,1) * 100             # <<<<<<<<<<<<<<
@@ -6899,7 +6899,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":534
+          /* "gases/OXYGEN.pyx":534
  *                         ETEMP, NROT2123, YROT2123, XROT2123) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,             # <<<<<<<<<<<<<<
@@ -6910,7 +6910,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L82:;
 
-        /* "OXYGEN.pyx":536
+        /* "gases/OXYGEN.pyx":536
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,
  *                                                                               YROT2123, XROT2123,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6920,7 +6920,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":537
+          /* "gases/OXYGEN.pyx":537
  *                                                                               YROT2123, XROT2123,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -6929,7 +6929,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":536
+          /* "gases/OXYGEN.pyx":536
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,
  *                                                                               YROT2123, XROT2123,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -6938,7 +6938,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":529
+        /* "gases/OXYGEN.pyx":529
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 11:             # <<<<<<<<<<<<<<
@@ -6948,7 +6948,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 12:
 
-        /* "OXYGEN.pyx":539
+        /* "gases/OXYGEN.pyx":539
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 12:
  *                 if (ETEMP <= XROT2325[NROT2325 - 1]):             # <<<<<<<<<<<<<<
@@ -6958,7 +6958,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2325[(__pyx_v_NROT2325 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":540
+          /* "gases/OXYGEN.pyx":540
  *             elif J == 12:
  *                 if (ETEMP <= XROT2325[NROT2325 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -6967,7 +6967,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2325, __pyx_v_YROT2325, __pyx_v_XROT2325)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":539
+          /* "gases/OXYGEN.pyx":539
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 12:
  *                 if (ETEMP <= XROT2325[NROT2325 - 1]):             # <<<<<<<<<<<<<<
@@ -6977,7 +6977,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L84;
         }
 
-        /* "OXYGEN.pyx":544
+        /* "gases/OXYGEN.pyx":544
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,
  *                                                                               YROT2325, XROT2325,1) * 100             # <<<<<<<<<<<<<<
@@ -6986,7 +6986,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":543
+          /* "gases/OXYGEN.pyx":543
  *                         ETEMP, NROT2325, YROT2325, XROT2325) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,             # <<<<<<<<<<<<<<
@@ -6997,7 +6997,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L84:;
 
-        /* "OXYGEN.pyx":545
+        /* "gases/OXYGEN.pyx":545
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,
  *                                                                               YROT2325, XROT2325,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7007,7 +7007,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":546
+          /* "gases/OXYGEN.pyx":546
  *                                                                               YROT2325, XROT2325,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7016,7 +7016,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":545
+          /* "gases/OXYGEN.pyx":545
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,
  *                                                                               YROT2325, XROT2325,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7025,7 +7025,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":538
+        /* "gases/OXYGEN.pyx":538
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 12:             # <<<<<<<<<<<<<<
@@ -7035,7 +7035,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 13:
 
-        /* "OXYGEN.pyx":548
+        /* "gases/OXYGEN.pyx":548
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 13:
  *                 if (ETEMP <= XROT2527[NROT2527 - 1]):             # <<<<<<<<<<<<<<
@@ -7045,7 +7045,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2527[(__pyx_v_NROT2527 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":549
+          /* "gases/OXYGEN.pyx":549
  *             elif J == 13:
  *                 if (ETEMP <= XROT2527[NROT2527 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7054,7 +7054,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2527, __pyx_v_YROT2527, __pyx_v_XROT2527)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":548
+          /* "gases/OXYGEN.pyx":548
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 13:
  *                 if (ETEMP <= XROT2527[NROT2527 - 1]):             # <<<<<<<<<<<<<<
@@ -7064,7 +7064,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L86;
         }
 
-        /* "OXYGEN.pyx":553
+        /* "gases/OXYGEN.pyx":553
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,
  *                                                                               YROT2527, XROT2527,1) * 100             # <<<<<<<<<<<<<<
@@ -7073,7 +7073,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":552
+          /* "gases/OXYGEN.pyx":552
  *                         ETEMP, NROT2527, YROT2527, XROT2527) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,             # <<<<<<<<<<<<<<
@@ -7084,7 +7084,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L86:;
 
-        /* "OXYGEN.pyx":554
+        /* "gases/OXYGEN.pyx":554
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,
  *                                                                               YROT2527, XROT2527,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7094,7 +7094,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":555
+          /* "gases/OXYGEN.pyx":555
  *                                                                               YROT2527, XROT2527,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7103,7 +7103,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":554
+          /* "gases/OXYGEN.pyx":554
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,
  *                                                                               YROT2527, XROT2527,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7112,7 +7112,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":547
+        /* "gases/OXYGEN.pyx":547
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 13:             # <<<<<<<<<<<<<<
@@ -7122,7 +7122,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 14:
 
-        /* "OXYGEN.pyx":557
+        /* "gases/OXYGEN.pyx":557
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 14:
  *                 if (ETEMP <= XROT2729[NROT2729 - 1]):             # <<<<<<<<<<<<<<
@@ -7132,7 +7132,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2729[(__pyx_v_NROT2729 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":558
+          /* "gases/OXYGEN.pyx":558
  *             elif J == 14:
  *                 if (ETEMP <= XROT2729[NROT2729 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7141,7 +7141,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2729, __pyx_v_YROT2729, __pyx_v_XROT2729)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":557
+          /* "gases/OXYGEN.pyx":557
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 14:
  *                 if (ETEMP <= XROT2729[NROT2729 - 1]):             # <<<<<<<<<<<<<<
@@ -7151,7 +7151,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L88;
         }
 
-        /* "OXYGEN.pyx":562
+        /* "gases/OXYGEN.pyx":562
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,
  *                                                                               YROT2729, XROT2729,1) * 100             # <<<<<<<<<<<<<<
@@ -7160,7 +7160,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":561
+          /* "gases/OXYGEN.pyx":561
  *                         ETEMP, NROT2729, YROT2729, XROT2729) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,             # <<<<<<<<<<<<<<
@@ -7171,7 +7171,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L88:;
 
-        /* "OXYGEN.pyx":563
+        /* "gases/OXYGEN.pyx":563
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,
  *                                                                               YROT2729, XROT2729,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7181,7 +7181,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":564
+          /* "gases/OXYGEN.pyx":564
  *                                                                               YROT2729, XROT2729,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7190,7 +7190,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":563
+          /* "gases/OXYGEN.pyx":563
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,
  *                                                                               YROT2729, XROT2729,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7199,7 +7199,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":556
+        /* "gases/OXYGEN.pyx":556
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 14:             # <<<<<<<<<<<<<<
@@ -7209,7 +7209,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 15:
 
-        /* "OXYGEN.pyx":566
+        /* "gases/OXYGEN.pyx":566
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 15:
  *                 if (ETEMP <= XROT2931[NROT2931 - 1]):             # <<<<<<<<<<<<<<
@@ -7219,7 +7219,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2931[(__pyx_v_NROT2931 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":567
+          /* "gases/OXYGEN.pyx":567
  *             elif J == 15:
  *                 if (ETEMP <= XROT2931[NROT2931 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7228,7 +7228,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2931, __pyx_v_YROT2931, __pyx_v_XROT2931)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":566
+          /* "gases/OXYGEN.pyx":566
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 15:
  *                 if (ETEMP <= XROT2931[NROT2931 - 1]):             # <<<<<<<<<<<<<<
@@ -7238,7 +7238,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L90;
         }
 
-        /* "OXYGEN.pyx":571
+        /* "gases/OXYGEN.pyx":571
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,
  *                                                                               YROT2931, XROT2931,1) * 100             # <<<<<<<<<<<<<<
@@ -7247,7 +7247,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":570
+          /* "gases/OXYGEN.pyx":570
  *                         ETEMP, NROT2931, YROT2931, XROT2931) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,             # <<<<<<<<<<<<<<
@@ -7258,7 +7258,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L90:;
 
-        /* "OXYGEN.pyx":572
+        /* "gases/OXYGEN.pyx":572
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,
  *                                                                               YROT2931, XROT2931,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7268,7 +7268,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":573
+          /* "gases/OXYGEN.pyx":573
  *                                                                               YROT2931, XROT2931,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7277,7 +7277,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":572
+          /* "gases/OXYGEN.pyx":572
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,
  *                                                                               YROT2931, XROT2931,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7286,7 +7286,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":565
+        /* "gases/OXYGEN.pyx":565
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 15:             # <<<<<<<<<<<<<<
@@ -7296,7 +7296,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 16:
 
-        /* "OXYGEN.pyx":575
+        /* "gases/OXYGEN.pyx":575
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 16:
  *                 if (ETEMP <= XROT3133[NROT3133 - 1]):             # <<<<<<<<<<<<<<
@@ -7306,7 +7306,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3133[(__pyx_v_NROT3133 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":576
+          /* "gases/OXYGEN.pyx":576
  *             elif J == 16:
  *                 if (ETEMP <= XROT3133[NROT3133 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7315,7 +7315,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3133, __pyx_v_YROT3133, __pyx_v_XROT3133)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":575
+          /* "gases/OXYGEN.pyx":575
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 16:
  *                 if (ETEMP <= XROT3133[NROT3133 - 1]):             # <<<<<<<<<<<<<<
@@ -7325,7 +7325,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L92;
         }
 
-        /* "OXYGEN.pyx":580
+        /* "gases/OXYGEN.pyx":580
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,
  *                                                                               YROT3133, XROT3133,1) * 100             # <<<<<<<<<<<<<<
@@ -7334,7 +7334,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":579
+          /* "gases/OXYGEN.pyx":579
  *                         ETEMP, NROT3133, YROT3133, XROT3133) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,             # <<<<<<<<<<<<<<
@@ -7345,7 +7345,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L92:;
 
-        /* "OXYGEN.pyx":581
+        /* "gases/OXYGEN.pyx":581
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,
  *                                                                               YROT3133, XROT3133,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7355,7 +7355,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":582
+          /* "gases/OXYGEN.pyx":582
  *                                                                               YROT3133, XROT3133,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7364,7 +7364,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":581
+          /* "gases/OXYGEN.pyx":581
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,
  *                                                                               YROT3133, XROT3133,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7373,7 +7373,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":574
+        /* "gases/OXYGEN.pyx":574
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 16:             # <<<<<<<<<<<<<<
@@ -7383,7 +7383,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 17:
 
-        /* "OXYGEN.pyx":584
+        /* "gases/OXYGEN.pyx":584
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 17:
  *                 if (ETEMP <= XROT3335[NROT3335 - 1]):             # <<<<<<<<<<<<<<
@@ -7393,7 +7393,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3335[(__pyx_v_NROT3335 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":585
+          /* "gases/OXYGEN.pyx":585
  *             elif J == 17:
  *                 if (ETEMP <= XROT3335[NROT3335 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7402,7 +7402,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3335, __pyx_v_YROT3335, __pyx_v_XROT3335)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":584
+          /* "gases/OXYGEN.pyx":584
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 17:
  *                 if (ETEMP <= XROT3335[NROT3335 - 1]):             # <<<<<<<<<<<<<<
@@ -7412,7 +7412,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L94;
         }
 
-        /* "OXYGEN.pyx":589
+        /* "gases/OXYGEN.pyx":589
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,
  *                                                                               YROT3335, XROT3335,1) * 100             # <<<<<<<<<<<<<<
@@ -7421,7 +7421,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":588
+          /* "gases/OXYGEN.pyx":588
  *                         ETEMP, NROT3335, YROT3335, XROT3335) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,             # <<<<<<<<<<<<<<
@@ -7432,7 +7432,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L94:;
 
-        /* "OXYGEN.pyx":590
+        /* "gases/OXYGEN.pyx":590
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,
  *                                                                               YROT3335, XROT3335,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7442,7 +7442,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":591
+          /* "gases/OXYGEN.pyx":591
  *                                                                               YROT3335, XROT3335,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7451,7 +7451,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":590
+          /* "gases/OXYGEN.pyx":590
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,
  *                                                                               YROT3335, XROT3335,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7460,7 +7460,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":583
+        /* "gases/OXYGEN.pyx":583
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 17:             # <<<<<<<<<<<<<<
@@ -7470,7 +7470,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 18:
 
-        /* "OXYGEN.pyx":593
+        /* "gases/OXYGEN.pyx":593
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 18:
  *                 if (ETEMP <= XROT3537[NROT3537 - 1]):             # <<<<<<<<<<<<<<
@@ -7480,7 +7480,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3537[(__pyx_v_NROT3537 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":594
+          /* "gases/OXYGEN.pyx":594
  *             elif J == 18:
  *                 if (ETEMP <= XROT3537[NROT3537 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7489,7 +7489,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3537, __pyx_v_YROT3537, __pyx_v_XROT3537)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":593
+          /* "gases/OXYGEN.pyx":593
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 18:
  *                 if (ETEMP <= XROT3537[NROT3537 - 1]):             # <<<<<<<<<<<<<<
@@ -7499,7 +7499,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L96;
         }
 
-        /* "OXYGEN.pyx":598
+        /* "gases/OXYGEN.pyx":598
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,
  *                                                                               YROT3537, XROT3537,1) * 100             # <<<<<<<<<<<<<<
@@ -7508,7 +7508,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":597
+          /* "gases/OXYGEN.pyx":597
  *                         ETEMP, NROT3537, YROT3537, XROT3537) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,             # <<<<<<<<<<<<<<
@@ -7519,7 +7519,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L96:;
 
-        /* "OXYGEN.pyx":599
+        /* "gases/OXYGEN.pyx":599
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,
  *                                                                               YROT3537, XROT3537,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7529,7 +7529,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":600
+          /* "gases/OXYGEN.pyx":600
  *                                                                               YROT3537, XROT3537,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7538,7 +7538,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":599
+          /* "gases/OXYGEN.pyx":599
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,
  *                                                                               YROT3537, XROT3537,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7547,7 +7547,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":592
+        /* "gases/OXYGEN.pyx":592
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 18:             # <<<<<<<<<<<<<<
@@ -7557,7 +7557,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 19:
 
-        /* "OXYGEN.pyx":602
+        /* "gases/OXYGEN.pyx":602
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 19:
  *                 if (ETEMP <= XROT3739[NROT3739 - 1]):             # <<<<<<<<<<<<<<
@@ -7567,7 +7567,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3739[(__pyx_v_NROT3739 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":603
+          /* "gases/OXYGEN.pyx":603
  *             elif J == 19:
  *                 if (ETEMP <= XROT3739[NROT3739 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7576,7 +7576,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3739, __pyx_v_YROT3739, __pyx_v_XROT3739)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":602
+          /* "gases/OXYGEN.pyx":602
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 19:
  *                 if (ETEMP <= XROT3739[NROT3739 - 1]):             # <<<<<<<<<<<<<<
@@ -7586,7 +7586,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L98;
         }
 
-        /* "OXYGEN.pyx":607
+        /* "gases/OXYGEN.pyx":607
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,
  *                                                                               YROT3739, XROT3739,1) * 100             # <<<<<<<<<<<<<<
@@ -7595,7 +7595,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":606
+          /* "gases/OXYGEN.pyx":606
  *                         ETEMP, NROT3739, YROT3739, XROT3739) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,             # <<<<<<<<<<<<<<
@@ -7606,7 +7606,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L98:;
 
-        /* "OXYGEN.pyx":608
+        /* "gases/OXYGEN.pyx":608
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,
  *                                                                               YROT3739, XROT3739,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7616,7 +7616,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":609
+          /* "gases/OXYGEN.pyx":609
  *                                                                               YROT3739, XROT3739,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7625,7 +7625,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":608
+          /* "gases/OXYGEN.pyx":608
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,
  *                                                                               YROT3739, XROT3739,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7634,7 +7634,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":601
+        /* "gases/OXYGEN.pyx":601
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 19:             # <<<<<<<<<<<<<<
@@ -7644,7 +7644,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 20:
 
-        /* "OXYGEN.pyx":611
+        /* "gases/OXYGEN.pyx":611
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 20:
  *                 if (ETEMP <= XROT3941[NROT3941 - 1]):             # <<<<<<<<<<<<<<
@@ -7654,7 +7654,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3941[(__pyx_v_NROT3941 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":612
+          /* "gases/OXYGEN.pyx":612
  *             elif J == 20:
  *                 if (ETEMP <= XROT3941[NROT3941 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7663,7 +7663,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3941, __pyx_v_YROT3941, __pyx_v_XROT3941)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":611
+          /* "gases/OXYGEN.pyx":611
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 20:
  *                 if (ETEMP <= XROT3941[NROT3941 - 1]):             # <<<<<<<<<<<<<<
@@ -7673,7 +7673,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L100;
         }
 
-        /* "OXYGEN.pyx":616
+        /* "gases/OXYGEN.pyx":616
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,
  *                                                                               YROT3941, XROT3941,1) * 100             # <<<<<<<<<<<<<<
@@ -7682,7 +7682,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":615
+          /* "gases/OXYGEN.pyx":615
  *                         ETEMP, NROT3941, YROT3941, XROT3941) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,             # <<<<<<<<<<<<<<
@@ -7693,7 +7693,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L100:;
 
-        /* "OXYGEN.pyx":617
+        /* "gases/OXYGEN.pyx":617
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,
  *                                                                               YROT3941, XROT3941,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7703,7 +7703,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":618
+          /* "gases/OXYGEN.pyx":618
  *                                                                               YROT3941, XROT3941,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7712,7 +7712,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":617
+          /* "gases/OXYGEN.pyx":617
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,
  *                                                                               YROT3941, XROT3941,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7721,7 +7721,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":610
+        /* "gases/OXYGEN.pyx":610
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 20:             # <<<<<<<<<<<<<<
@@ -7731,7 +7731,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 21:
 
-        /* "OXYGEN.pyx":620
+        /* "gases/OXYGEN.pyx":620
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 21:
  *                 if (ETEMP <= XROT4143[NROT4143 - 1]):             # <<<<<<<<<<<<<<
@@ -7741,7 +7741,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT4143[(__pyx_v_NROT4143 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":621
+          /* "gases/OXYGEN.pyx":621
  *             elif J == 21:
  *                 if (ETEMP <= XROT4143[NROT4143 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7750,7 +7750,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT4143, __pyx_v_YROT4143, __pyx_v_XROT4143)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":620
+          /* "gases/OXYGEN.pyx":620
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 21:
  *                 if (ETEMP <= XROT4143[NROT4143 - 1]):             # <<<<<<<<<<<<<<
@@ -7760,7 +7760,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L102;
         }
 
-        /* "OXYGEN.pyx":625
+        /* "gases/OXYGEN.pyx":625
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,
  *                                                                               YROT4143, XROT4143,1) * 100             # <<<<<<<<<<<<<<
@@ -7769,7 +7769,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":624
+          /* "gases/OXYGEN.pyx":624
  *                         ETEMP, NROT4143, YROT4143, XROT4143) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,             # <<<<<<<<<<<<<<
@@ -7780,7 +7780,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L102:;
 
-        /* "OXYGEN.pyx":626
+        /* "gases/OXYGEN.pyx":626
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,
  *                                                                               YROT4143, XROT4143,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7790,7 +7790,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":627
+          /* "gases/OXYGEN.pyx":627
  *                                                                               YROT4143, XROT4143,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7799,7 +7799,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":626
+          /* "gases/OXYGEN.pyx":626
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,
  *                                                                               YROT4143, XROT4143,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7808,7 +7808,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":619
+        /* "gases/OXYGEN.pyx":619
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 21:             # <<<<<<<<<<<<<<
@@ -7818,7 +7818,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 22:
 
-        /* "OXYGEN.pyx":629
+        /* "gases/OXYGEN.pyx":629
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 22:
  *                 if (ETEMP <= XROT4345[NROT4345 - 1]):             # <<<<<<<<<<<<<<
@@ -7828,7 +7828,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT4345[(__pyx_v_NROT4345 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":630
+          /* "gases/OXYGEN.pyx":630
  *             elif J == 22:
  *                 if (ETEMP <= XROT4345[NROT4345 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7837,7 +7837,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT4345, __pyx_v_YROT4345, __pyx_v_XROT4345)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":629
+          /* "gases/OXYGEN.pyx":629
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 22:
  *                 if (ETEMP <= XROT4345[NROT4345 - 1]):             # <<<<<<<<<<<<<<
@@ -7847,7 +7847,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L104;
         }
 
-        /* "OXYGEN.pyx":634
+        /* "gases/OXYGEN.pyx":634
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,
  *                                                                               YROT4345, XROT4345,1) * 100             # <<<<<<<<<<<<<<
@@ -7856,7 +7856,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":633
+          /* "gases/OXYGEN.pyx":633
  *                         ETEMP, NROT4345, YROT4345, XROT4345) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,             # <<<<<<<<<<<<<<
@@ -7867,7 +7867,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L104:;
 
-        /* "OXYGEN.pyx":635
+        /* "gases/OXYGEN.pyx":635
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,
  *                                                                               YROT4345, XROT4345,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7877,7 +7877,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":636
+          /* "gases/OXYGEN.pyx":636
  *                                                                               YROT4345, XROT4345,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7886,7 +7886,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":635
+          /* "gases/OXYGEN.pyx":635
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,
  *                                                                               YROT4345, XROT4345,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7895,7 +7895,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":628
+        /* "gases/OXYGEN.pyx":628
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 22:             # <<<<<<<<<<<<<<
@@ -7905,7 +7905,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 23:
 
-        /* "OXYGEN.pyx":638
+        /* "gases/OXYGEN.pyx":638
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 23:
  *                 if (ETEMP <= XROT4547[NROT4547 - 1]):             # <<<<<<<<<<<<<<
@@ -7915,7 +7915,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT4547[(__pyx_v_NROT4547 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":639
+          /* "gases/OXYGEN.pyx":639
  *             elif J == 23:
  *                 if (ETEMP <= XROT4547[NROT4547 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -7924,7 +7924,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT4547, __pyx_v_YROT4547, __pyx_v_XROT4547)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":638
+          /* "gases/OXYGEN.pyx":638
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 23:
  *                 if (ETEMP <= XROT4547[NROT4547 - 1]):             # <<<<<<<<<<<<<<
@@ -7934,7 +7934,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L106;
         }
 
-        /* "OXYGEN.pyx":643
+        /* "gases/OXYGEN.pyx":643
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,
  *                                                                               YROT4547, XROT4547,1) * 100             # <<<<<<<<<<<<<<
@@ -7943,7 +7943,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":642
+          /* "gases/OXYGEN.pyx":642
  *                         ETEMP, NROT4547, YROT4547, XROT4547) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,             # <<<<<<<<<<<<<<
@@ -7954,7 +7954,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L106:;
 
-        /* "OXYGEN.pyx":644
+        /* "gases/OXYGEN.pyx":644
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,
  *                                                                               YROT4547, XROT4547,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7964,7 +7964,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":645
+          /* "gases/OXYGEN.pyx":645
  *                                                                               YROT4547, XROT4547,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -7973,7 +7973,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":644
+          /* "gases/OXYGEN.pyx":644
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,
  *                                                                               YROT4547, XROT4547,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -7982,7 +7982,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":637
+        /* "gases/OXYGEN.pyx":637
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 23:             # <<<<<<<<<<<<<<
@@ -7992,7 +7992,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 24:
 
-        /* "OXYGEN.pyx":647
+        /* "gases/OXYGEN.pyx":647
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 24:
  *                 if (ETEMP <= XROT4749[NROT4749 - 1]):             # <<<<<<<<<<<<<<
@@ -8002,7 +8002,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT4749[(__pyx_v_NROT4749 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":648
+          /* "gases/OXYGEN.pyx":648
  *             elif J == 24:
  *                 if (ETEMP <= XROT4749[NROT4749 - 1]):
  *                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8011,7 +8011,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((((__pyx_v_ETEMP * (__pyx_v_PJ[(2 * __pyx_v_J)])) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT4749, __pyx_v_YROT4749, __pyx_v_XROT4749)) / __pyx_v_EN);
 
-          /* "OXYGEN.pyx":647
+          /* "gases/OXYGEN.pyx":647
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 24:
  *                 if (ETEMP <= XROT4749[NROT4749 - 1]):             # <<<<<<<<<<<<<<
@@ -8021,7 +8021,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L108;
         }
 
-        /* "OXYGEN.pyx":652
+        /* "gases/OXYGEN.pyx":652
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,
  *                                                                               YROT4749, XROT4749,1) * 100             # <<<<<<<<<<<<<<
@@ -8030,7 +8030,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":651
+          /* "gases/OXYGEN.pyx":651
  *                         ETEMP, NROT4749, YROT4749, XROT4749) / EN
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,             # <<<<<<<<<<<<<<
@@ -8041,7 +8041,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L108:;
 
-        /* "OXYGEN.pyx":653
+        /* "gases/OXYGEN.pyx":653
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,
  *                                                                               YROT4749, XROT4749,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8051,7 +8051,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":654
+          /* "gases/OXYGEN.pyx":654
  *                                                                               YROT4749, XROT4749,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8060,7 +8060,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":653
+          /* "gases/OXYGEN.pyx":653
  *                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,
  *                                                                               YROT4749, XROT4749,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8069,7 +8069,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":646
+        /* "gases/OXYGEN.pyx":646
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif J == 24:             # <<<<<<<<<<<<<<
@@ -8080,7 +8080,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         default: break;
       }
 
-      /* "OXYGEN.pyx":655
+      /* "gases/OXYGEN.pyx":655
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             QRES1 = 0.0             # <<<<<<<<<<<<<<
@@ -8089,7 +8089,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QRES1 = 0.0;
 
-      /* "OXYGEN.pyx":657
+      /* "gases/OXYGEN.pyx":657
  *             QRES1 = 0.0
  *             #CALCULATE ENHANCEMENT OF ROTATION DUE TO VIBRATIONAL RESONANCES
  *             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:             # <<<<<<<<<<<<<<
@@ -8107,7 +8107,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_L111_bool_binop_done:;
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":658
+        /* "gases/OXYGEN.pyx":658
  *             #CALCULATE ENHANCEMENT OF ROTATION DUE TO VIBRATIONAL RESONANCES
  *             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:
  *                 QRES1 = GasUtil.CALQION(EN, NROT, YROT, XROT) * (ETEMP) * PJ[2 * J]             # <<<<<<<<<<<<<<
@@ -8116,7 +8116,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QRES1 = ((__pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NROT, __pyx_v_YROT, __pyx_v_XROT) * __pyx_v_ETEMP) * (__pyx_v_PJ[(2 * __pyx_v_J)]));
 
-        /* "OXYGEN.pyx":657
+        /* "gases/OXYGEN.pyx":657
  *             QRES1 = 0.0
  *             #CALCULATE ENHANCEMENT OF ROTATION DUE TO VIBRATIONAL RESONANCES
  *             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:             # <<<<<<<<<<<<<<
@@ -8125,7 +8125,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":659
+      /* "gases/OXYGEN.pyx":659
  *             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:
  *                 QRES1 = GasUtil.CALQION(EN, NROT, YROT, XROT) * (ETEMP) * PJ[2 * J]
  *             object.QIN[J - 1][I] += QRES1             # <<<<<<<<<<<<<<
@@ -8138,7 +8138,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_L57_continue:;
     }
 
-    /* "OXYGEN.pyx":662
+    /* "gases/OXYGEN.pyx":662
  * 
  *         # INELASTIC ROTATION
  *         for J in range(25, 49):             # <<<<<<<<<<<<<<
@@ -8148,7 +8148,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 25; __pyx_t_36 < 49; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "OXYGEN.pyx":663
+      /* "gases/OXYGEN.pyx":663
  *         # INELASTIC ROTATION
  *         for J in range(25, 49):
  *             SFAC = 1             # <<<<<<<<<<<<<<
@@ -8157,7 +8157,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_SFAC = 1.0;
 
-      /* "OXYGEN.pyx":664
+      /* "gases/OXYGEN.pyx":664
  *         for J in range(25, 49):
  *             SFAC = 1
  *             i = J - 24             # <<<<<<<<<<<<<<
@@ -8166,7 +8166,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_i = (__pyx_v_J - 24);
 
-      /* "OXYGEN.pyx":665
+      /* "gases/OXYGEN.pyx":665
  *             SFAC = 1
  *             i = J - 24
  *             object.QIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8175,7 +8175,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-      /* "OXYGEN.pyx":666
+      /* "gases/OXYGEN.pyx":666
  *             i = J - 24
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -8184,7 +8184,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.5;
 
-      /* "OXYGEN.pyx":667
+      /* "gases/OXYGEN.pyx":667
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8194,7 +8194,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":668
+        /* "gases/OXYGEN.pyx":668
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -8203,7 +8203,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-        /* "OXYGEN.pyx":667
+        /* "gases/OXYGEN.pyx":667
  *             object.QIN[J - 1][I] = 0.0
  *             object.PEQIN[J - 1][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -8212,7 +8212,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":669
+      /* "gases/OXYGEN.pyx":669
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN < 0.0:             # <<<<<<<<<<<<<<
@@ -8222,7 +8222,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN < 0.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":670
+        /* "gases/OXYGEN.pyx":670
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN < 0.0:
  *                 continue             # <<<<<<<<<<<<<<
@@ -8231,7 +8231,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L113_continue;
 
-        /* "OXYGEN.pyx":669
+        /* "gases/OXYGEN.pyx":669
  *             if object.NANISO == 2:
  *                 object.PEQIN[J - 1][I] = 0.0
  *             if EN < 0.0:             # <<<<<<<<<<<<<<
@@ -8240,7 +8240,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":671
+      /* "gases/OXYGEN.pyx":671
  *             if EN < 0.0:
  *                 continue
  *             ETEMP = EN             # <<<<<<<<<<<<<<
@@ -8249,7 +8249,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ETEMP = __pyx_v_EN;
 
-      /* "OXYGEN.pyx":672
+      /* "gases/OXYGEN.pyx":672
  *                 continue
  *             ETEMP = EN
  *             if i == 1:             # <<<<<<<<<<<<<<
@@ -8259,7 +8259,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       switch (__pyx_v_i) {
         case 1:
 
-        /* "OXYGEN.pyx":673
+        /* "gases/OXYGEN.pyx":673
  *             ETEMP = EN
  *             if i == 1:
  *                 if (ETEMP <= XROT13[NROT13 - 1]):             # <<<<<<<<<<<<<<
@@ -8269,7 +8269,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT13[(__pyx_v_NROT13 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":674
+          /* "gases/OXYGEN.pyx":674
  *             if i == 1:
  *                 if (ETEMP <= XROT13[NROT13 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8278,7 +8278,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT13, __pyx_v_YROT13, __pyx_v_XROT13));
 
-          /* "OXYGEN.pyx":673
+          /* "gases/OXYGEN.pyx":673
  *             ETEMP = EN
  *             if i == 1:
  *                 if (ETEMP <= XROT13[NROT13 - 1]):             # <<<<<<<<<<<<<<
@@ -8288,7 +8288,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L117;
         }
 
-        /* "OXYGEN.pyx":678
+        /* "gases/OXYGEN.pyx":678
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,
  *                                                                                    XROT13,1) * 100             # <<<<<<<<<<<<<<
@@ -8297,7 +8297,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":677
+          /* "gases/OXYGEN.pyx":677
  *                         ETEMP, NROT13, YROT13, XROT13)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,             # <<<<<<<<<<<<<<
@@ -8308,7 +8308,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L117:;
 
-        /* "OXYGEN.pyx":679
+        /* "gases/OXYGEN.pyx":679
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,
  *                                                                                    XROT13,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8318,7 +8318,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":680
+          /* "gases/OXYGEN.pyx":680
  *                                                                                    XROT13,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8327,7 +8327,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":679
+          /* "gases/OXYGEN.pyx":679
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,
  *                                                                                    XROT13,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8336,7 +8336,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":672
+        /* "gases/OXYGEN.pyx":672
  *                 continue
  *             ETEMP = EN
  *             if i == 1:             # <<<<<<<<<<<<<<
@@ -8346,7 +8346,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 2:
 
-        /* "OXYGEN.pyx":682
+        /* "gases/OXYGEN.pyx":682
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 2:
  *                 if (ETEMP <= XROT35[NROT35 - 1]):             # <<<<<<<<<<<<<<
@@ -8356,7 +8356,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT35[(__pyx_v_NROT35 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":683
+          /* "gases/OXYGEN.pyx":683
  *             elif i == 2:
  *                 if (ETEMP <= XROT35[NROT35 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8365,7 +8365,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT35, __pyx_v_YROT35, __pyx_v_XROT35));
 
-          /* "OXYGEN.pyx":682
+          /* "gases/OXYGEN.pyx":682
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 2:
  *                 if (ETEMP <= XROT35[NROT35 - 1]):             # <<<<<<<<<<<<<<
@@ -8375,7 +8375,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L119;
         }
 
-        /* "OXYGEN.pyx":687
+        /* "gases/OXYGEN.pyx":687
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,
  *                                                                                    XROT35,1) * 100             # <<<<<<<<<<<<<<
@@ -8384,7 +8384,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":686
+          /* "gases/OXYGEN.pyx":686
  *                         ETEMP, NROT35, YROT35, XROT35)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,             # <<<<<<<<<<<<<<
@@ -8395,7 +8395,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L119:;
 
-        /* "OXYGEN.pyx":688
+        /* "gases/OXYGEN.pyx":688
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,
  *                                                                                    XROT35,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8405,7 +8405,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":689
+          /* "gases/OXYGEN.pyx":689
  *                                                                                    XROT35,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8414,7 +8414,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":688
+          /* "gases/OXYGEN.pyx":688
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,
  *                                                                                    XROT35,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8423,7 +8423,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":681
+        /* "gases/OXYGEN.pyx":681
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 2:             # <<<<<<<<<<<<<<
@@ -8433,7 +8433,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 3:
 
-        /* "OXYGEN.pyx":691
+        /* "gases/OXYGEN.pyx":691
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 3:
  *                 if (ETEMP <= XROT57[NROT57 - 1]):             # <<<<<<<<<<<<<<
@@ -8443,7 +8443,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT57[(__pyx_v_NROT57 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":692
+          /* "gases/OXYGEN.pyx":692
  *             elif i == 3:
  *                 if (ETEMP <= XROT57[NROT57 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8452,7 +8452,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT57, __pyx_v_YROT57, __pyx_v_XROT57));
 
-          /* "OXYGEN.pyx":691
+          /* "gases/OXYGEN.pyx":691
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 3:
  *                 if (ETEMP <= XROT57[NROT57 - 1]):             # <<<<<<<<<<<<<<
@@ -8462,7 +8462,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L121;
         }
 
-        /* "OXYGEN.pyx":696
+        /* "gases/OXYGEN.pyx":696
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,
  *                                                                                    XROT57,1) * 100             # <<<<<<<<<<<<<<
@@ -8471,7 +8471,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":695
+          /* "gases/OXYGEN.pyx":695
  *                         ETEMP, NROT57, YROT57, XROT57)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,             # <<<<<<<<<<<<<<
@@ -8482,7 +8482,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L121:;
 
-        /* "OXYGEN.pyx":697
+        /* "gases/OXYGEN.pyx":697
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,
  *                                                                                    XROT57,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8492,7 +8492,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":698
+          /* "gases/OXYGEN.pyx":698
  *                                                                                    XROT57,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8501,7 +8501,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":697
+          /* "gases/OXYGEN.pyx":697
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,
  *                                                                                    XROT57,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8510,7 +8510,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":690
+        /* "gases/OXYGEN.pyx":690
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 3:             # <<<<<<<<<<<<<<
@@ -8520,7 +8520,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 4:
 
-        /* "OXYGEN.pyx":700
+        /* "gases/OXYGEN.pyx":700
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 4:
  *                 if (ETEMP <= XROT79[NROT79 - 1]):             # <<<<<<<<<<<<<<
@@ -8530,7 +8530,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT79[(__pyx_v_NROT79 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":701
+          /* "gases/OXYGEN.pyx":701
  *             elif i == 4:
  *                 if (ETEMP <= XROT79[NROT79 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8539,7 +8539,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT79, __pyx_v_YROT79, __pyx_v_XROT79));
 
-          /* "OXYGEN.pyx":700
+          /* "gases/OXYGEN.pyx":700
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 4:
  *                 if (ETEMP <= XROT79[NROT79 - 1]):             # <<<<<<<<<<<<<<
@@ -8549,7 +8549,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L123;
         }
 
-        /* "OXYGEN.pyx":705
+        /* "gases/OXYGEN.pyx":705
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,
  *                                                                                    XROT79,1) * 100             # <<<<<<<<<<<<<<
@@ -8558,7 +8558,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":704
+          /* "gases/OXYGEN.pyx":704
  *                         ETEMP, NROT79, YROT79, XROT79)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,             # <<<<<<<<<<<<<<
@@ -8569,7 +8569,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L123:;
 
-        /* "OXYGEN.pyx":706
+        /* "gases/OXYGEN.pyx":706
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,
  *                                                                                    XROT79,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8579,7 +8579,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":707
+          /* "gases/OXYGEN.pyx":707
  *                                                                                    XROT79,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8588,7 +8588,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":706
+          /* "gases/OXYGEN.pyx":706
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,
  *                                                                                    XROT79,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8597,7 +8597,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":699
+        /* "gases/OXYGEN.pyx":699
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 4:             # <<<<<<<<<<<<<<
@@ -8607,7 +8607,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 5:
 
-        /* "OXYGEN.pyx":709
+        /* "gases/OXYGEN.pyx":709
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 5:
  *                 if (ETEMP <= XROT911[NROT911 - 1]):             # <<<<<<<<<<<<<<
@@ -8617,7 +8617,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT911[(__pyx_v_NROT911 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":710
+          /* "gases/OXYGEN.pyx":710
  *             elif i == 5:
  *                 if (ETEMP <= XROT911[NROT911 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8626,7 +8626,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT911, __pyx_v_YROT911, __pyx_v_XROT911));
 
-          /* "OXYGEN.pyx":709
+          /* "gases/OXYGEN.pyx":709
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 5:
  *                 if (ETEMP <= XROT911[NROT911 - 1]):             # <<<<<<<<<<<<<<
@@ -8636,7 +8636,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L125;
         }
 
-        /* "OXYGEN.pyx":714
+        /* "gases/OXYGEN.pyx":714
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,
  *                                                                                    XROT911,1) * 100             # <<<<<<<<<<<<<<
@@ -8645,7 +8645,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":713
+          /* "gases/OXYGEN.pyx":713
  *                         ETEMP, NROT911, YROT911, XROT911)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,             # <<<<<<<<<<<<<<
@@ -8656,7 +8656,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L125:;
 
-        /* "OXYGEN.pyx":715
+        /* "gases/OXYGEN.pyx":715
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,
  *                                                                                    XROT911,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8666,7 +8666,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":716
+          /* "gases/OXYGEN.pyx":716
  *                                                                                    XROT911,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8675,7 +8675,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":715
+          /* "gases/OXYGEN.pyx":715
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,
  *                                                                                    XROT911,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8684,7 +8684,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":708
+        /* "gases/OXYGEN.pyx":708
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 5:             # <<<<<<<<<<<<<<
@@ -8694,7 +8694,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 6:
 
-        /* "OXYGEN.pyx":718
+        /* "gases/OXYGEN.pyx":718
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 6:
  *                 if (ETEMP <= XROT1113[NROT1113 - 1]):             # <<<<<<<<<<<<<<
@@ -8704,7 +8704,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1113[(__pyx_v_NROT1113 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":719
+          /* "gases/OXYGEN.pyx":719
  *             elif i == 6:
  *                 if (ETEMP <= XROT1113[NROT1113 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8713,7 +8713,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1113, __pyx_v_YROT1113, __pyx_v_XROT1113));
 
-          /* "OXYGEN.pyx":718
+          /* "gases/OXYGEN.pyx":718
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 6:
  *                 if (ETEMP <= XROT1113[NROT1113 - 1]):             # <<<<<<<<<<<<<<
@@ -8723,7 +8723,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L127;
         }
 
-        /* "OXYGEN.pyx":723
+        /* "gases/OXYGEN.pyx":723
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,
  *                                                                                    YROT1113, XROT1113,1) * 100             # <<<<<<<<<<<<<<
@@ -8732,7 +8732,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":722
+          /* "gases/OXYGEN.pyx":722
  *                         ETEMP, NROT1113, YROT1113, XROT1113)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,             # <<<<<<<<<<<<<<
@@ -8743,7 +8743,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L127:;
 
-        /* "OXYGEN.pyx":724
+        /* "gases/OXYGEN.pyx":724
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,
  *                                                                                    YROT1113, XROT1113,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8753,7 +8753,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":725
+          /* "gases/OXYGEN.pyx":725
  *                                                                                    YROT1113, XROT1113,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8762,7 +8762,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":724
+          /* "gases/OXYGEN.pyx":724
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,
  *                                                                                    YROT1113, XROT1113,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8771,7 +8771,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":717
+        /* "gases/OXYGEN.pyx":717
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 6:             # <<<<<<<<<<<<<<
@@ -8781,7 +8781,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 7:
 
-        /* "OXYGEN.pyx":727
+        /* "gases/OXYGEN.pyx":727
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 7:
  *                 if (ETEMP <= XROT1315[NROT1315 - 1]):             # <<<<<<<<<<<<<<
@@ -8791,7 +8791,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1315[(__pyx_v_NROT1315 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":728
+          /* "gases/OXYGEN.pyx":728
  *             elif i == 7:
  *                 if (ETEMP <= XROT1315[NROT1315 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8800,7 +8800,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1315, __pyx_v_YROT1315, __pyx_v_XROT1315));
 
-          /* "OXYGEN.pyx":727
+          /* "gases/OXYGEN.pyx":727
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 7:
  *                 if (ETEMP <= XROT1315[NROT1315 - 1]):             # <<<<<<<<<<<<<<
@@ -8810,7 +8810,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L129;
         }
 
-        /* "OXYGEN.pyx":732
+        /* "gases/OXYGEN.pyx":732
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,
  *                                                                                    YROT1315, XROT1315,1) * 100             # <<<<<<<<<<<<<<
@@ -8819,7 +8819,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":731
+          /* "gases/OXYGEN.pyx":731
  *                         ETEMP, NROT1315, YROT1315, XROT1315)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,             # <<<<<<<<<<<<<<
@@ -8830,7 +8830,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L129:;
 
-        /* "OXYGEN.pyx":733
+        /* "gases/OXYGEN.pyx":733
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,
  *                                                                                    YROT1315, XROT1315,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8840,7 +8840,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":734
+          /* "gases/OXYGEN.pyx":734
  *                                                                                    YROT1315, XROT1315,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8849,7 +8849,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":733
+          /* "gases/OXYGEN.pyx":733
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,
  *                                                                                    YROT1315, XROT1315,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8858,7 +8858,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":726
+        /* "gases/OXYGEN.pyx":726
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 7:             # <<<<<<<<<<<<<<
@@ -8868,7 +8868,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 8:
 
-        /* "OXYGEN.pyx":736
+        /* "gases/OXYGEN.pyx":736
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 8:
  *                 if (ETEMP <= XROT1517[NROT1517 - 1]):             # <<<<<<<<<<<<<<
@@ -8878,7 +8878,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1517[(__pyx_v_NROT1517 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":737
+          /* "gases/OXYGEN.pyx":737
  *             elif i == 8:
  *                 if (ETEMP <= XROT1517[NROT1517 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8887,7 +8887,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1517, __pyx_v_YROT1517, __pyx_v_XROT1517));
 
-          /* "OXYGEN.pyx":736
+          /* "gases/OXYGEN.pyx":736
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 8:
  *                 if (ETEMP <= XROT1517[NROT1517 - 1]):             # <<<<<<<<<<<<<<
@@ -8897,7 +8897,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L131;
         }
 
-        /* "OXYGEN.pyx":741
+        /* "gases/OXYGEN.pyx":741
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,
  *                                                                                    YROT1517, XROT1517,1) * 100             # <<<<<<<<<<<<<<
@@ -8906,7 +8906,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":740
+          /* "gases/OXYGEN.pyx":740
  *                         ETEMP, NROT1517, YROT1517, XROT1517)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,             # <<<<<<<<<<<<<<
@@ -8917,7 +8917,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L131:;
 
-        /* "OXYGEN.pyx":742
+        /* "gases/OXYGEN.pyx":742
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,
  *                                                                                    YROT1517, XROT1517,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8927,7 +8927,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":743
+          /* "gases/OXYGEN.pyx":743
  *                                                                                    YROT1517, XROT1517,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -8936,7 +8936,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":742
+          /* "gases/OXYGEN.pyx":742
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,
  *                                                                                    YROT1517, XROT1517,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -8945,7 +8945,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":735
+        /* "gases/OXYGEN.pyx":735
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 8:             # <<<<<<<<<<<<<<
@@ -8955,7 +8955,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 9:
 
-        /* "OXYGEN.pyx":745
+        /* "gases/OXYGEN.pyx":745
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 9:
  *                 if (ETEMP <= XROT1719[NROT1719 - 1]):             # <<<<<<<<<<<<<<
@@ -8965,7 +8965,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1719[(__pyx_v_NROT1719 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":746
+          /* "gases/OXYGEN.pyx":746
  *             elif i == 9:
  *                 if (ETEMP <= XROT1719[NROT1719 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -8974,7 +8974,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1719, __pyx_v_YROT1719, __pyx_v_XROT1719));
 
-          /* "OXYGEN.pyx":745
+          /* "gases/OXYGEN.pyx":745
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 9:
  *                 if (ETEMP <= XROT1719[NROT1719 - 1]):             # <<<<<<<<<<<<<<
@@ -8984,7 +8984,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L133;
         }
 
-        /* "OXYGEN.pyx":750
+        /* "gases/OXYGEN.pyx":750
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,
  *                                                                                    YROT1719, XROT1719,1) * 100             # <<<<<<<<<<<<<<
@@ -8993,7 +8993,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":749
+          /* "gases/OXYGEN.pyx":749
  *                         ETEMP, NROT1719, YROT1719, XROT1719)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,             # <<<<<<<<<<<<<<
@@ -9004,7 +9004,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L133:;
 
-        /* "OXYGEN.pyx":751
+        /* "gases/OXYGEN.pyx":751
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,
  *                                                                                    YROT1719, XROT1719,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9014,7 +9014,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":752
+          /* "gases/OXYGEN.pyx":752
  *                                                                                    YROT1719, XROT1719,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9023,7 +9023,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":751
+          /* "gases/OXYGEN.pyx":751
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,
  *                                                                                    YROT1719, XROT1719,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9032,7 +9032,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":744
+        /* "gases/OXYGEN.pyx":744
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 9:             # <<<<<<<<<<<<<<
@@ -9042,7 +9042,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 10:
 
-        /* "OXYGEN.pyx":754
+        /* "gases/OXYGEN.pyx":754
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 10:
  *                 if (ETEMP <= XROT1921[NROT1921 - 1]):             # <<<<<<<<<<<<<<
@@ -9052,7 +9052,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT1921[(__pyx_v_NROT1921 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":755
+          /* "gases/OXYGEN.pyx":755
  *             elif i == 10:
  *                 if (ETEMP <= XROT1921[NROT1921 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9061,7 +9061,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT1921, __pyx_v_YROT1921, __pyx_v_XROT1921));
 
-          /* "OXYGEN.pyx":754
+          /* "gases/OXYGEN.pyx":754
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 10:
  *                 if (ETEMP <= XROT1921[NROT1921 - 1]):             # <<<<<<<<<<<<<<
@@ -9071,7 +9071,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L135;
         }
 
-        /* "OXYGEN.pyx":759
+        /* "gases/OXYGEN.pyx":759
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,
  *                                                                                    YROT1921, XROT1921,1) * 100             # <<<<<<<<<<<<<<
@@ -9080,7 +9080,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":758
+          /* "gases/OXYGEN.pyx":758
  *                         ETEMP, NROT1921, YROT1921, XROT1921)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,             # <<<<<<<<<<<<<<
@@ -9091,7 +9091,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L135:;
 
-        /* "OXYGEN.pyx":760
+        /* "gases/OXYGEN.pyx":760
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,
  *                                                                                    YROT1921, XROT1921,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9101,7 +9101,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":761
+          /* "gases/OXYGEN.pyx":761
  *                                                                                    YROT1921, XROT1921,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9110,7 +9110,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":760
+          /* "gases/OXYGEN.pyx":760
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,
  *                                                                                    YROT1921, XROT1921,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9119,7 +9119,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":753
+        /* "gases/OXYGEN.pyx":753
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 10:             # <<<<<<<<<<<<<<
@@ -9129,7 +9129,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 11:
 
-        /* "OXYGEN.pyx":763
+        /* "gases/OXYGEN.pyx":763
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 11:
  *                 if (ETEMP <= XROT2123[NROT2123 - 1]):             # <<<<<<<<<<<<<<
@@ -9139,7 +9139,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2123[(__pyx_v_NROT2123 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":764
+          /* "gases/OXYGEN.pyx":764
  *             elif i == 11:
  *                 if (ETEMP <= XROT2123[NROT2123 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9148,7 +9148,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2123, __pyx_v_YROT2123, __pyx_v_XROT2123));
 
-          /* "OXYGEN.pyx":763
+          /* "gases/OXYGEN.pyx":763
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 11:
  *                 if (ETEMP <= XROT2123[NROT2123 - 1]):             # <<<<<<<<<<<<<<
@@ -9158,7 +9158,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L137;
         }
 
-        /* "OXYGEN.pyx":768
+        /* "gases/OXYGEN.pyx":768
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,
  *                                                                                    YROT2123, XROT2123,1) * 100             # <<<<<<<<<<<<<<
@@ -9167,7 +9167,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":767
+          /* "gases/OXYGEN.pyx":767
  *                         ETEMP, NROT2123, YROT2123, XROT2123)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,             # <<<<<<<<<<<<<<
@@ -9178,7 +9178,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L137:;
 
-        /* "OXYGEN.pyx":769
+        /* "gases/OXYGEN.pyx":769
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,
  *                                                                                    YROT2123, XROT2123,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9188,7 +9188,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":770
+          /* "gases/OXYGEN.pyx":770
  *                                                                                    YROT2123, XROT2123,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9197,7 +9197,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":769
+          /* "gases/OXYGEN.pyx":769
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,
  *                                                                                    YROT2123, XROT2123,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9206,7 +9206,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":762
+        /* "gases/OXYGEN.pyx":762
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 11:             # <<<<<<<<<<<<<<
@@ -9216,7 +9216,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 12:
 
-        /* "OXYGEN.pyx":772
+        /* "gases/OXYGEN.pyx":772
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 12:
  *                 if (ETEMP <= XROT2325[NROT2325 - 1]):             # <<<<<<<<<<<<<<
@@ -9226,7 +9226,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2325[(__pyx_v_NROT2325 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":773
+          /* "gases/OXYGEN.pyx":773
  *             elif i == 12:
  *                 if (ETEMP <= XROT2325[NROT2325 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9235,7 +9235,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2325, __pyx_v_YROT2325, __pyx_v_XROT2325));
 
-          /* "OXYGEN.pyx":772
+          /* "gases/OXYGEN.pyx":772
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 12:
  *                 if (ETEMP <= XROT2325[NROT2325 - 1]):             # <<<<<<<<<<<<<<
@@ -9245,7 +9245,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L139;
         }
 
-        /* "OXYGEN.pyx":777
+        /* "gases/OXYGEN.pyx":777
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,
  *                                                                                    YROT2325, XROT2325,1) * 100             # <<<<<<<<<<<<<<
@@ -9254,7 +9254,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":776
+          /* "gases/OXYGEN.pyx":776
  *                         ETEMP, NROT2325, YROT2325, XROT2325)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,             # <<<<<<<<<<<<<<
@@ -9265,7 +9265,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L139:;
 
-        /* "OXYGEN.pyx":778
+        /* "gases/OXYGEN.pyx":778
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,
  *                                                                                    YROT2325, XROT2325,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9275,7 +9275,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":779
+          /* "gases/OXYGEN.pyx":779
  *                                                                                    YROT2325, XROT2325,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9284,7 +9284,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":778
+          /* "gases/OXYGEN.pyx":778
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,
  *                                                                                    YROT2325, XROT2325,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9293,7 +9293,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":771
+        /* "gases/OXYGEN.pyx":771
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 12:             # <<<<<<<<<<<<<<
@@ -9303,7 +9303,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 13:
 
-        /* "OXYGEN.pyx":781
+        /* "gases/OXYGEN.pyx":781
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 13:
  *                 if (ETEMP <= XROT2527[NROT2527 - 1]):             # <<<<<<<<<<<<<<
@@ -9313,7 +9313,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2527[(__pyx_v_NROT2527 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":782
+          /* "gases/OXYGEN.pyx":782
  *             elif i == 13:
  *                 if (ETEMP <= XROT2527[NROT2527 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9322,7 +9322,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2527, __pyx_v_YROT2527, __pyx_v_XROT2527));
 
-          /* "OXYGEN.pyx":781
+          /* "gases/OXYGEN.pyx":781
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 13:
  *                 if (ETEMP <= XROT2527[NROT2527 - 1]):             # <<<<<<<<<<<<<<
@@ -9332,7 +9332,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L141;
         }
 
-        /* "OXYGEN.pyx":786
+        /* "gases/OXYGEN.pyx":786
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,
  *                                                                                    YROT2527, XROT2527,1) * 100             # <<<<<<<<<<<<<<
@@ -9341,7 +9341,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":785
+          /* "gases/OXYGEN.pyx":785
  *                         ETEMP, NROT2527, YROT2527, XROT2527)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,             # <<<<<<<<<<<<<<
@@ -9352,7 +9352,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L141:;
 
-        /* "OXYGEN.pyx":787
+        /* "gases/OXYGEN.pyx":787
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,
  *                                                                                    YROT2527, XROT2527,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9362,7 +9362,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":788
+          /* "gases/OXYGEN.pyx":788
  *                                                                                    YROT2527, XROT2527,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9371,7 +9371,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":787
+          /* "gases/OXYGEN.pyx":787
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,
  *                                                                                    YROT2527, XROT2527,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9380,7 +9380,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":780
+        /* "gases/OXYGEN.pyx":780
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 13:             # <<<<<<<<<<<<<<
@@ -9390,7 +9390,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 14:
 
-        /* "OXYGEN.pyx":790
+        /* "gases/OXYGEN.pyx":790
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 14:
  *                 if (ETEMP <= XROT2729[NROT2729 - 1]):             # <<<<<<<<<<<<<<
@@ -9400,7 +9400,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2729[(__pyx_v_NROT2729 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":791
+          /* "gases/OXYGEN.pyx":791
  *             elif i == 14:
  *                 if (ETEMP <= XROT2729[NROT2729 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9409,7 +9409,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2729, __pyx_v_YROT2729, __pyx_v_XROT2729));
 
-          /* "OXYGEN.pyx":790
+          /* "gases/OXYGEN.pyx":790
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 14:
  *                 if (ETEMP <= XROT2729[NROT2729 - 1]):             # <<<<<<<<<<<<<<
@@ -9419,7 +9419,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L143;
         }
 
-        /* "OXYGEN.pyx":795
+        /* "gases/OXYGEN.pyx":795
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,
  *                                                                                    YROT2729, XROT2729,1) * 100             # <<<<<<<<<<<<<<
@@ -9428,7 +9428,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":794
+          /* "gases/OXYGEN.pyx":794
  *                         ETEMP, NROT2729, YROT2729, XROT2729)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,             # <<<<<<<<<<<<<<
@@ -9439,7 +9439,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L143:;
 
-        /* "OXYGEN.pyx":796
+        /* "gases/OXYGEN.pyx":796
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,
  *                                                                                    YROT2729, XROT2729,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9449,7 +9449,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":797
+          /* "gases/OXYGEN.pyx":797
  *                                                                                    YROT2729, XROT2729,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9458,7 +9458,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":796
+          /* "gases/OXYGEN.pyx":796
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,
  *                                                                                    YROT2729, XROT2729,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9467,7 +9467,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":789
+        /* "gases/OXYGEN.pyx":789
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 14:             # <<<<<<<<<<<<<<
@@ -9477,7 +9477,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 15:
 
-        /* "OXYGEN.pyx":799
+        /* "gases/OXYGEN.pyx":799
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 15:
  *                 if (ETEMP <= XROT2931[NROT2931 - 1]):             # <<<<<<<<<<<<<<
@@ -9487,7 +9487,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT2931[(__pyx_v_NROT2931 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":800
+          /* "gases/OXYGEN.pyx":800
  *             elif i == 15:
  *                 if (ETEMP <= XROT2931[NROT2931 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9496,7 +9496,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT2931, __pyx_v_YROT2931, __pyx_v_XROT2931));
 
-          /* "OXYGEN.pyx":799
+          /* "gases/OXYGEN.pyx":799
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 15:
  *                 if (ETEMP <= XROT2931[NROT2931 - 1]):             # <<<<<<<<<<<<<<
@@ -9506,7 +9506,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L145;
         }
 
-        /* "OXYGEN.pyx":804
+        /* "gases/OXYGEN.pyx":804
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,
  *                                                                                    YROT2931, XROT2931,1) * 100             # <<<<<<<<<<<<<<
@@ -9515,7 +9515,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":803
+          /* "gases/OXYGEN.pyx":803
  *                         ETEMP, NROT2931, YROT2931, XROT2931)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,             # <<<<<<<<<<<<<<
@@ -9526,7 +9526,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L145:;
 
-        /* "OXYGEN.pyx":805
+        /* "gases/OXYGEN.pyx":805
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,
  *                                                                                    YROT2931, XROT2931,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9536,7 +9536,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":806
+          /* "gases/OXYGEN.pyx":806
  *                                                                                    YROT2931, XROT2931,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9545,7 +9545,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":805
+          /* "gases/OXYGEN.pyx":805
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,
  *                                                                                    YROT2931, XROT2931,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9554,7 +9554,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":798
+        /* "gases/OXYGEN.pyx":798
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 15:             # <<<<<<<<<<<<<<
@@ -9564,7 +9564,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 16:
 
-        /* "OXYGEN.pyx":808
+        /* "gases/OXYGEN.pyx":808
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 16:
  *                 if (ETEMP <= XROT3133[NROT3133 - 1]):             # <<<<<<<<<<<<<<
@@ -9574,7 +9574,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3133[(__pyx_v_NROT3133 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":809
+          /* "gases/OXYGEN.pyx":809
  *             elif i == 16:
  *                 if (ETEMP <= XROT3133[NROT3133 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9583,7 +9583,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3133, __pyx_v_YROT3133, __pyx_v_XROT3133));
 
-          /* "OXYGEN.pyx":808
+          /* "gases/OXYGEN.pyx":808
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 16:
  *                 if (ETEMP <= XROT3133[NROT3133 - 1]):             # <<<<<<<<<<<<<<
@@ -9593,7 +9593,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L147;
         }
 
-        /* "OXYGEN.pyx":813
+        /* "gases/OXYGEN.pyx":813
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,
  *                                                                                    YROT3133, XROT3133,1) * 100             # <<<<<<<<<<<<<<
@@ -9602,7 +9602,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":812
+          /* "gases/OXYGEN.pyx":812
  *                         ETEMP, NROT3133, YROT3133, XROT3133)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,             # <<<<<<<<<<<<<<
@@ -9613,7 +9613,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L147:;
 
-        /* "OXYGEN.pyx":814
+        /* "gases/OXYGEN.pyx":814
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,
  *                                                                                    YROT3133, XROT3133,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9623,7 +9623,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":815
+          /* "gases/OXYGEN.pyx":815
  *                                                                                    YROT3133, XROT3133,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9632,7 +9632,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":814
+          /* "gases/OXYGEN.pyx":814
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,
  *                                                                                    YROT3133, XROT3133,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9641,7 +9641,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":807
+        /* "gases/OXYGEN.pyx":807
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 16:             # <<<<<<<<<<<<<<
@@ -9651,7 +9651,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 17:
 
-        /* "OXYGEN.pyx":817
+        /* "gases/OXYGEN.pyx":817
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 17:
  *                 if (ETEMP <= XROT3335[NROT3335 - 1]):             # <<<<<<<<<<<<<<
@@ -9661,7 +9661,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3335[(__pyx_v_NROT3335 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":818
+          /* "gases/OXYGEN.pyx":818
  *             elif i == 17:
  *                 if (ETEMP <= XROT3335[NROT3335 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9670,7 +9670,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3335, __pyx_v_YROT3335, __pyx_v_XROT3335));
 
-          /* "OXYGEN.pyx":817
+          /* "gases/OXYGEN.pyx":817
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 17:
  *                 if (ETEMP <= XROT3335[NROT3335 - 1]):             # <<<<<<<<<<<<<<
@@ -9680,7 +9680,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L149;
         }
 
-        /* "OXYGEN.pyx":822
+        /* "gases/OXYGEN.pyx":822
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,
  *                                                                                    YROT3335, XROT3335,1) * 100             # <<<<<<<<<<<<<<
@@ -9689,7 +9689,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":821
+          /* "gases/OXYGEN.pyx":821
  *                         ETEMP, NROT3335, YROT3335, XROT3335)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,             # <<<<<<<<<<<<<<
@@ -9700,7 +9700,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L149:;
 
-        /* "OXYGEN.pyx":823
+        /* "gases/OXYGEN.pyx":823
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,
  *                                                                                    YROT3335, XROT3335,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9710,7 +9710,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":824
+          /* "gases/OXYGEN.pyx":824
  *                                                                                    YROT3335, XROT3335,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9719,7 +9719,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":823
+          /* "gases/OXYGEN.pyx":823
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,
  *                                                                                    YROT3335, XROT3335,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9728,7 +9728,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":816
+        /* "gases/OXYGEN.pyx":816
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 17:             # <<<<<<<<<<<<<<
@@ -9738,7 +9738,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 18:
 
-        /* "OXYGEN.pyx":826
+        /* "gases/OXYGEN.pyx":826
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 18:
  *                 if (ETEMP <= XROT3537[NROT3537 - 1]):             # <<<<<<<<<<<<<<
@@ -9748,7 +9748,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3537[(__pyx_v_NROT3537 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":827
+          /* "gases/OXYGEN.pyx":827
  *             elif i == 18:
  *                 if (ETEMP <= XROT3537[NROT3537 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9757,7 +9757,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3537, __pyx_v_YROT3537, __pyx_v_XROT3537));
 
-          /* "OXYGEN.pyx":826
+          /* "gases/OXYGEN.pyx":826
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 18:
  *                 if (ETEMP <= XROT3537[NROT3537 - 1]):             # <<<<<<<<<<<<<<
@@ -9767,7 +9767,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L151;
         }
 
-        /* "OXYGEN.pyx":831
+        /* "gases/OXYGEN.pyx":831
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,
  *                                                                                    YROT3537, XROT3537,1) * 100             # <<<<<<<<<<<<<<
@@ -9776,7 +9776,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":830
+          /* "gases/OXYGEN.pyx":830
  *                         ETEMP, NROT3537, YROT3537, XROT3537)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,             # <<<<<<<<<<<<<<
@@ -9787,7 +9787,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L151:;
 
-        /* "OXYGEN.pyx":832
+        /* "gases/OXYGEN.pyx":832
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,
  *                                                                                    YROT3537, XROT3537,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9797,7 +9797,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":833
+          /* "gases/OXYGEN.pyx":833
  *                                                                                    YROT3537, XROT3537,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9806,7 +9806,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":832
+          /* "gases/OXYGEN.pyx":832
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,
  *                                                                                    YROT3537, XROT3537,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9815,7 +9815,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":825
+        /* "gases/OXYGEN.pyx":825
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 18:             # <<<<<<<<<<<<<<
@@ -9825,7 +9825,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 19:
 
-        /* "OXYGEN.pyx":835
+        /* "gases/OXYGEN.pyx":835
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 19:
  *                 if (ETEMP <= XROT3739[NROT3739 - 1]):             # <<<<<<<<<<<<<<
@@ -9835,7 +9835,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3739[(__pyx_v_NROT3739 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":836
+          /* "gases/OXYGEN.pyx":836
  *             elif i == 19:
  *                 if (ETEMP <= XROT3739[NROT3739 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9844,7 +9844,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3739, __pyx_v_YROT3739, __pyx_v_XROT3739));
 
-          /* "OXYGEN.pyx":835
+          /* "gases/OXYGEN.pyx":835
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 19:
  *                 if (ETEMP <= XROT3739[NROT3739 - 1]):             # <<<<<<<<<<<<<<
@@ -9854,7 +9854,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L153;
         }
 
-        /* "OXYGEN.pyx":840
+        /* "gases/OXYGEN.pyx":840
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,
  *                                                                                    YROT3739, XROT3739,1) * 100             # <<<<<<<<<<<<<<
@@ -9863,7 +9863,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":839
+          /* "gases/OXYGEN.pyx":839
  *                         ETEMP, NROT3739, YROT3739, XROT3739)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,             # <<<<<<<<<<<<<<
@@ -9874,7 +9874,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L153:;
 
-        /* "OXYGEN.pyx":841
+        /* "gases/OXYGEN.pyx":841
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,
  *                                                                                    YROT3739, XROT3739,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9884,7 +9884,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":842
+          /* "gases/OXYGEN.pyx":842
  *                                                                                    YROT3739, XROT3739,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9893,7 +9893,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":841
+          /* "gases/OXYGEN.pyx":841
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,
  *                                                                                    YROT3739, XROT3739,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9902,7 +9902,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":834
+        /* "gases/OXYGEN.pyx":834
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 19:             # <<<<<<<<<<<<<<
@@ -9912,7 +9912,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 20:
 
-        /* "OXYGEN.pyx":844
+        /* "gases/OXYGEN.pyx":844
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 20:
  *                 if (ETEMP <= XROT3941[NROT3941 - 1]):             # <<<<<<<<<<<<<<
@@ -9922,7 +9922,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT3941[(__pyx_v_NROT3941 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":845
+          /* "gases/OXYGEN.pyx":845
  *             elif i == 20:
  *                 if (ETEMP <= XROT3941[NROT3941 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -9931,7 +9931,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT3941, __pyx_v_YROT3941, __pyx_v_XROT3941));
 
-          /* "OXYGEN.pyx":844
+          /* "gases/OXYGEN.pyx":844
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 20:
  *                 if (ETEMP <= XROT3941[NROT3941 - 1]):             # <<<<<<<<<<<<<<
@@ -9941,7 +9941,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L155;
         }
 
-        /* "OXYGEN.pyx":849
+        /* "gases/OXYGEN.pyx":849
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,
  *                                                                                    YROT3941, XROT3941,1) * 100             # <<<<<<<<<<<<<<
@@ -9950,7 +9950,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":848
+          /* "gases/OXYGEN.pyx":848
  *                         ETEMP, NROT3941, YROT3941, XROT3941)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,             # <<<<<<<<<<<<<<
@@ -9961,7 +9961,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L155:;
 
-        /* "OXYGEN.pyx":850
+        /* "gases/OXYGEN.pyx":850
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,
  *                                                                                    YROT3941, XROT3941,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9971,7 +9971,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":851
+          /* "gases/OXYGEN.pyx":851
  *                                                                                    YROT3941, XROT3941,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -9980,7 +9980,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":850
+          /* "gases/OXYGEN.pyx":850
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,
  *                                                                                    YROT3941, XROT3941,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -9989,7 +9989,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":843
+        /* "gases/OXYGEN.pyx":843
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 20:             # <<<<<<<<<<<<<<
@@ -9999,7 +9999,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 21:
 
-        /* "OXYGEN.pyx":853
+        /* "gases/OXYGEN.pyx":853
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 21:
  *                 if (ETEMP <= XROT4143[NROT4143 - 1]):             # <<<<<<<<<<<<<<
@@ -10009,7 +10009,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT4143[(__pyx_v_NROT4143 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":854
+          /* "gases/OXYGEN.pyx":854
  *             elif i == 21:
  *                 if (ETEMP <= XROT4143[NROT4143 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -10018,7 +10018,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT4143, __pyx_v_YROT4143, __pyx_v_XROT4143));
 
-          /* "OXYGEN.pyx":853
+          /* "gases/OXYGEN.pyx":853
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 21:
  *                 if (ETEMP <= XROT4143[NROT4143 - 1]):             # <<<<<<<<<<<<<<
@@ -10028,7 +10028,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L157;
         }
 
-        /* "OXYGEN.pyx":858
+        /* "gases/OXYGEN.pyx":858
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,
  *                                                                                    YROT4143, XROT4143,1) * 100             # <<<<<<<<<<<<<<
@@ -10037,7 +10037,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":857
+          /* "gases/OXYGEN.pyx":857
  *                         ETEMP, NROT4143, YROT4143, XROT4143)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,             # <<<<<<<<<<<<<<
@@ -10048,7 +10048,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L157:;
 
-        /* "OXYGEN.pyx":859
+        /* "gases/OXYGEN.pyx":859
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,
  *                                                                                    YROT4143, XROT4143,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -10058,7 +10058,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":860
+          /* "gases/OXYGEN.pyx":860
  *                                                                                    YROT4143, XROT4143,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -10067,7 +10067,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":859
+          /* "gases/OXYGEN.pyx":859
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,
  *                                                                                    YROT4143, XROT4143,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -10076,7 +10076,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":852
+        /* "gases/OXYGEN.pyx":852
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 21:             # <<<<<<<<<<<<<<
@@ -10086,7 +10086,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 22:
 
-        /* "OXYGEN.pyx":862
+        /* "gases/OXYGEN.pyx":862
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 22:
  *                 if (ETEMP <= XROT4345[NROT4345 - 1]):             # <<<<<<<<<<<<<<
@@ -10096,7 +10096,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT4345[(__pyx_v_NROT4345 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":863
+          /* "gases/OXYGEN.pyx":863
  *             elif i == 22:
  *                 if (ETEMP <= XROT4345[NROT4345 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -10105,7 +10105,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT4345, __pyx_v_YROT4345, __pyx_v_XROT4345));
 
-          /* "OXYGEN.pyx":862
+          /* "gases/OXYGEN.pyx":862
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 22:
  *                 if (ETEMP <= XROT4345[NROT4345 - 1]):             # <<<<<<<<<<<<<<
@@ -10115,7 +10115,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L159;
         }
 
-        /* "OXYGEN.pyx":867
+        /* "gases/OXYGEN.pyx":867
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,
  *                                                                                    YROT4345, XROT4345,1) * 100             # <<<<<<<<<<<<<<
@@ -10124,7 +10124,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":866
+          /* "gases/OXYGEN.pyx":866
  *                         ETEMP, NROT4345, YROT4345, XROT4345)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,             # <<<<<<<<<<<<<<
@@ -10135,7 +10135,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L159:;
 
-        /* "OXYGEN.pyx":868
+        /* "gases/OXYGEN.pyx":868
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,
  *                                                                                    YROT4345, XROT4345,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -10145,7 +10145,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":869
+          /* "gases/OXYGEN.pyx":869
  *                                                                                    YROT4345, XROT4345,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -10154,7 +10154,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":868
+          /* "gases/OXYGEN.pyx":868
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,
  *                                                                                    YROT4345, XROT4345,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -10163,7 +10163,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":861
+        /* "gases/OXYGEN.pyx":861
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 22:             # <<<<<<<<<<<<<<
@@ -10173,7 +10173,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 23:
 
-        /* "OXYGEN.pyx":871
+        /* "gases/OXYGEN.pyx":871
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 23:
  *                 if (ETEMP <= XROT4547[NROT4547 - 1]):             # <<<<<<<<<<<<<<
@@ -10183,7 +10183,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT4547[(__pyx_v_NROT4547 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":872
+          /* "gases/OXYGEN.pyx":872
  *             elif i == 23:
  *                 if (ETEMP <= XROT4547[NROT4547 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -10192,7 +10192,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT4547, __pyx_v_YROT4547, __pyx_v_XROT4547));
 
-          /* "OXYGEN.pyx":871
+          /* "gases/OXYGEN.pyx":871
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 23:
  *                 if (ETEMP <= XROT4547[NROT4547 - 1]):             # <<<<<<<<<<<<<<
@@ -10202,7 +10202,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L161;
         }
 
-        /* "OXYGEN.pyx":876
+        /* "gases/OXYGEN.pyx":876
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,
  *                                                                                    YROT4547, XROT4547,1) * 100             # <<<<<<<<<<<<<<
@@ -10211,7 +10211,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":875
+          /* "gases/OXYGEN.pyx":875
  *                         ETEMP, NROT4547, YROT4547, XROT4547)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,             # <<<<<<<<<<<<<<
@@ -10222,7 +10222,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L161:;
 
-        /* "OXYGEN.pyx":877
+        /* "gases/OXYGEN.pyx":877
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,
  *                                                                                    YROT4547, XROT4547,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -10232,7 +10232,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":878
+          /* "gases/OXYGEN.pyx":878
  *                                                                                    YROT4547, XROT4547,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -10241,7 +10241,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":877
+          /* "gases/OXYGEN.pyx":877
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,
  *                                                                                    YROT4547, XROT4547,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -10250,7 +10250,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":870
+        /* "gases/OXYGEN.pyx":870
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 23:             # <<<<<<<<<<<<<<
@@ -10260,7 +10260,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         break;
         case 24:
 
-        /* "OXYGEN.pyx":880
+        /* "gases/OXYGEN.pyx":880
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 24:
  *                 if (ETEMP <= XROT4749[NROT4749 - 1]):             # <<<<<<<<<<<<<<
@@ -10270,7 +10270,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XROT4749[(__pyx_v_NROT4749 - 1)])) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":881
+          /* "gases/OXYGEN.pyx":881
  *             elif i == 24:
  *                 if (ETEMP <= XROT4749[NROT4749 - 1]):
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.QLSCALE(             # <<<<<<<<<<<<<<
@@ -10279,7 +10279,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((__pyx_v_PJ[((2 * __pyx_v_J) - 50)]) * __pyx_v_SFAC) * __pyx_f_7GasUtil_QLSCALE(__pyx_v_ETEMP, __pyx_v_NROT4749, __pyx_v_YROT4749, __pyx_v_XROT4749));
 
-          /* "OXYGEN.pyx":880
+          /* "gases/OXYGEN.pyx":880
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 24:
  *                 if (ETEMP <= XROT4749[NROT4749 - 1]):             # <<<<<<<<<<<<<<
@@ -10289,7 +10289,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L163;
         }
 
-        /* "OXYGEN.pyx":885
+        /* "gases/OXYGEN.pyx":885
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,
  *                                                                                    YROT4749, XROT4749,1) * 100             # <<<<<<<<<<<<<<
@@ -10298,7 +10298,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         /*else*/ {
 
-          /* "OXYGEN.pyx":884
+          /* "gases/OXYGEN.pyx":884
  *                         ETEMP, NROT4749, YROT4749, XROT4749)
  *                 else:
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,             # <<<<<<<<<<<<<<
@@ -10309,7 +10309,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L163:;
 
-        /* "OXYGEN.pyx":886
+        /* "gases/OXYGEN.pyx":886
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,
  *                                                                                    YROT4749, XROT4749,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -10319,7 +10319,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_42 = ((__pyx_v_EN > 3.0) != 0);
         if (__pyx_t_42) {
 
-          /* "OXYGEN.pyx":887
+          /* "gases/OXYGEN.pyx":887
  *                                                                                    YROT4749, XROT4749,1) * 100
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]             # <<<<<<<<<<<<<<
@@ -10328,7 +10328,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[(__pyx_v_J - 1)]))]);
 
-          /* "OXYGEN.pyx":886
+          /* "gases/OXYGEN.pyx":886
  *                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,
  *                                                                                    YROT4749, XROT4749,1) * 100
  *                 if EN > 3.0:             # <<<<<<<<<<<<<<
@@ -10337,7 +10337,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "OXYGEN.pyx":879
+        /* "gases/OXYGEN.pyx":879
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             elif i == 24:             # <<<<<<<<<<<<<<
@@ -10348,7 +10348,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         default: break;
       }
 
-      /* "OXYGEN.pyx":888
+      /* "gases/OXYGEN.pyx":888
  *                 if EN > 3.0:
  *                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
  *             QRES1 = 0.0             # <<<<<<<<<<<<<<
@@ -10357,7 +10357,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QRES1 = 0.0;
 
-      /* "OXYGEN.pyx":890
+      /* "gases/OXYGEN.pyx":890
  *             QRES1 = 0.0
  *             #CALCULATE ENHANCEMENT OF ROTATION DUE TO VIBRATIONAL RESONANCES
  *             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:             # <<<<<<<<<<<<<<
@@ -10375,7 +10375,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_L166_bool_binop_done:;
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":891
+        /* "gases/OXYGEN.pyx":891
  *             #CALCULATE ENHANCEMENT OF ROTATION DUE TO VIBRATIONAL RESONANCES
  *             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:
  *                 QRES1 = GasUtil.CALQION(EN, NROT, YROT, XROT) * PJ[2 * J - 50]             # <<<<<<<<<<<<<<
@@ -10384,7 +10384,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QRES1 = (__pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NROT, __pyx_v_YROT, __pyx_v_XROT) * (__pyx_v_PJ[((2 * __pyx_v_J) - 50)]));
 
-        /* "OXYGEN.pyx":890
+        /* "gases/OXYGEN.pyx":890
  *             QRES1 = 0.0
  *             #CALCULATE ENHANCEMENT OF ROTATION DUE TO VIBRATIONAL RESONANCES
  *             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:             # <<<<<<<<<<<<<<
@@ -10393,7 +10393,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":892
+      /* "gases/OXYGEN.pyx":892
  *             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:
  *                 QRES1 = GasUtil.CALQION(EN, NROT, YROT, XROT) * PJ[2 * J - 50]
  *             object.QIN[J - 1][I] += QRES1             # <<<<<<<<<<<<<<
@@ -10406,7 +10406,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_L113_continue:;
     }
 
-    /* "OXYGEN.pyx":896
+    /* "gases/OXYGEN.pyx":896
  *         # FORCE ROTATIONAL X-SECTION TO FALL AS 1/E**2 ABOVE 3 EV
  *         # NB 1/E ALREADY USED SO ONLY 1/E EXTRA
  *         if EN >= 3.0:             # <<<<<<<<<<<<<<
@@ -10416,7 +10416,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN >= 3.0) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":897
+      /* "gases/OXYGEN.pyx":897
  *         # NB 1/E ALREADY USED SO ONLY 1/E EXTRA
  *         if EN >= 3.0:
  *             for J in range(48):             # <<<<<<<<<<<<<<
@@ -10426,7 +10426,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_36 = 0; __pyx_t_36 < 48; __pyx_t_36+=1) {
         __pyx_v_J = __pyx_t_36;
 
-        /* "OXYGEN.pyx":898
+        /* "gases/OXYGEN.pyx":898
  *         if EN >= 3.0:
  *             for J in range(48):
  *                 object.QIN[J][I] *= (3.0 / EN)             # <<<<<<<<<<<<<<
@@ -10438,7 +10438,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         ((__pyx_v_object->QIN[__pyx_t_38])[__pyx_t_39]) = (((__pyx_v_object->QIN[__pyx_t_38])[__pyx_t_39]) * (3.0 / __pyx_v_EN));
       }
 
-      /* "OXYGEN.pyx":896
+      /* "gases/OXYGEN.pyx":896
  *         # FORCE ROTATIONAL X-SECTION TO FALL AS 1/E**2 ABOVE 3 EV
  *         # NB 1/E ALREADY USED SO ONLY 1/E EXTRA
  *         if EN >= 3.0:             # <<<<<<<<<<<<<<
@@ -10447,7 +10447,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":901
+    /* "gases/OXYGEN.pyx":901
  * 
  *         # SCALE ROTATION X-SECTIONS BY ROTSCALE
  *         for J in range(48):             # <<<<<<<<<<<<<<
@@ -10457,7 +10457,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0; __pyx_t_36 < 48; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "OXYGEN.pyx":902
+      /* "gases/OXYGEN.pyx":902
  *         # SCALE ROTATION X-SECTIONS BY ROTSCALE
  *         for J in range(48):
  *             object.QIN[J][I] *= ROTSCALE             # <<<<<<<<<<<<<<
@@ -10469,7 +10469,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->QIN[__pyx_t_38])[__pyx_t_39]) = (((__pyx_v_object->QIN[__pyx_t_38])[__pyx_t_39]) * __pyx_v_ROTSCALE);
     }
 
-    /* "OXYGEN.pyx":905
+    /* "gases/OXYGEN.pyx":905
  * 
  *         # SUPERELASTIC V1
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -10479,7 +10479,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN != 0.0) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":906
+      /* "gases/OXYGEN.pyx":906
  *         # SUPERELASTIC V1
  *         if EN != 0.0:
  *             ETEMP = EN + object.EIN[49]             # <<<<<<<<<<<<<<
@@ -10488,7 +10488,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ETEMP = (__pyx_v_EN + (__pyx_v_object->EIN[49]));
 
-      /* "OXYGEN.pyx":907
+      /* "gases/OXYGEN.pyx":907
  *         if EN != 0.0:
  *             ETEMP = EN + object.EIN[49]
  *             object.QIN[48][I] = GasUtil.CALQINP(ETEMP, NVIB, YVIB1, XVIB, 1) * 100 * (APOP2 / (1 + APOP2))             # <<<<<<<<<<<<<<
@@ -10497,7 +10497,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[48])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_ETEMP, __pyx_v_NVIB, __pyx_v_YVIB1, __pyx_v_XVIB, 1.0) * 100.0) * (__pyx_v_APOP2 / (1.0 + __pyx_v_APOP2)));
 
-      /* "OXYGEN.pyx":908
+      /* "gases/OXYGEN.pyx":908
  *             ETEMP = EN + object.EIN[49]
  *             object.QIN[48][I] = GasUtil.CALQINP(ETEMP, NVIB, YVIB1, XVIB, 1) * 100 * (APOP2 / (1 + APOP2))
  *             if ETEMP <= XVIB[NVIB - 1]:             # <<<<<<<<<<<<<<
@@ -10507,7 +10507,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_ETEMP <= (__pyx_v_XVIB[(__pyx_v_NVIB - 1)])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":909
+        /* "gases/OXYGEN.pyx":909
  *             object.QIN[48][I] = GasUtil.CALQINP(ETEMP, NVIB, YVIB1, XVIB, 1) * 100 * (APOP2 / (1 + APOP2))
  *             if ETEMP <= XVIB[NVIB - 1]:
  *                 object.QIN[48][I] *= (ETEMP / EN)             # <<<<<<<<<<<<<<
@@ -10518,7 +10518,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_36 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_43])[__pyx_t_36]) = (((__pyx_v_object->QIN[__pyx_t_43])[__pyx_t_36]) * (__pyx_v_ETEMP / __pyx_v_EN));
 
-        /* "OXYGEN.pyx":908
+        /* "gases/OXYGEN.pyx":908
  *             ETEMP = EN + object.EIN[49]
  *             object.QIN[48][I] = GasUtil.CALQINP(ETEMP, NVIB, YVIB1, XVIB, 1) * 100 * (APOP2 / (1 + APOP2))
  *             if ETEMP <= XVIB[NVIB - 1]:             # <<<<<<<<<<<<<<
@@ -10527,7 +10527,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":910
+      /* "gases/OXYGEN.pyx":910
  *             if ETEMP <= XVIB[NVIB - 1]:
  *                 object.QIN[48][I] *= (ETEMP / EN)
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10537,7 +10537,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":911
+        /* "gases/OXYGEN.pyx":911
  *                 object.QIN[48][I] *= (ETEMP / EN)
  *             if EN > 6.0:
  *                 object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]             # <<<<<<<<<<<<<<
@@ -10546,7 +10546,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[48])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[48]))]);
 
-        /* "OXYGEN.pyx":910
+        /* "gases/OXYGEN.pyx":910
  *             if ETEMP <= XVIB[NVIB - 1]:
  *                 object.QIN[48][I] *= (ETEMP / EN)
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10555,7 +10555,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":905
+      /* "gases/OXYGEN.pyx":905
  * 
  *         # SUPERELASTIC V1
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -10564,7 +10564,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":914
+    /* "gases/OXYGEN.pyx":914
  * 
  *         # VIB1
  *         if EN > object.EIN[49]:             # <<<<<<<<<<<<<<
@@ -10574,7 +10574,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[49])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":915
+      /* "gases/OXYGEN.pyx":915
  *         # VIB1
  *         if EN > object.EIN[49]:
  *             object.QIN[49][I] = GasUtil.CALQINP(EN, NVIB, YVIB1, XVIB, 1) * 100 * (1 / (1 + APOP2))             # <<<<<<<<<<<<<<
@@ -10583,7 +10583,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[49])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB1, __pyx_v_XVIB, 1.0) * 100.0) * (1.0 / (1.0 + __pyx_v_APOP2)));
 
-      /* "OXYGEN.pyx":916
+      /* "gases/OXYGEN.pyx":916
  *         if EN > object.EIN[49]:
  *             object.QIN[49][I] = GasUtil.CALQINP(EN, NVIB, YVIB1, XVIB, 1) * 100 * (1 / (1 + APOP2))
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10593,7 +10593,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":917
+        /* "gases/OXYGEN.pyx":917
  *             object.QIN[49][I] = GasUtil.CALQINP(EN, NVIB, YVIB1, XVIB, 1) * 100 * (1 / (1 + APOP2))
  *             if EN > 6.0:
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]             # <<<<<<<<<<<<<<
@@ -10602,7 +10602,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[49])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[49]))]);
 
-        /* "OXYGEN.pyx":916
+        /* "gases/OXYGEN.pyx":916
  *         if EN > object.EIN[49]:
  *             object.QIN[49][I] = GasUtil.CALQINP(EN, NVIB, YVIB1, XVIB, 1) * 100 * (1 / (1 + APOP2))
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10611,7 +10611,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":914
+      /* "gases/OXYGEN.pyx":914
  * 
  *         # VIB1
  *         if EN > object.EIN[49]:             # <<<<<<<<<<<<<<
@@ -10620,7 +10620,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":919
+    /* "gases/OXYGEN.pyx":919
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]
  * 
  *         if EN > object.EIN[49]:             # <<<<<<<<<<<<<<
@@ -10630,7 +10630,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[49])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":920
+      /* "gases/OXYGEN.pyx":920
  * 
  *         if EN > object.EIN[49]:
  *             object.QIN[49][I] = GasUtil.CALQINP(EN, NVIB, YVIB1, XVIB, 1) * 100 * (1 / (1 + APOP2))             # <<<<<<<<<<<<<<
@@ -10639,7 +10639,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[49])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB1, __pyx_v_XVIB, 1.0) * 100.0) * (1.0 / (1.0 + __pyx_v_APOP2)));
 
-      /* "OXYGEN.pyx":921
+      /* "gases/OXYGEN.pyx":921
  *         if EN > object.EIN[49]:
  *             object.QIN[49][I] = GasUtil.CALQINP(EN, NVIB, YVIB1, XVIB, 1) * 100 * (1 / (1 + APOP2))
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10649,7 +10649,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":922
+        /* "gases/OXYGEN.pyx":922
  *             object.QIN[49][I] = GasUtil.CALQINP(EN, NVIB, YVIB1, XVIB, 1) * 100 * (1 / (1 + APOP2))
  *             if EN > 6.0:
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]             # <<<<<<<<<<<<<<
@@ -10658,7 +10658,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[49])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[49]))]);
 
-        /* "OXYGEN.pyx":921
+        /* "gases/OXYGEN.pyx":921
  *         if EN > object.EIN[49]:
  *             object.QIN[49][I] = GasUtil.CALQINP(EN, NVIB, YVIB1, XVIB, 1) * 100 * (1 / (1 + APOP2))
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10667,7 +10667,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":919
+      /* "gases/OXYGEN.pyx":919
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]
  * 
  *         if EN > object.EIN[49]:             # <<<<<<<<<<<<<<
@@ -10676,7 +10676,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":924
+    /* "gases/OXYGEN.pyx":924
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]
  * 
  *         if EN > object.EIN[50]:             # <<<<<<<<<<<<<<
@@ -10686,7 +10686,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[50])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":925
+      /* "gases/OXYGEN.pyx":925
  * 
  *         if EN > object.EIN[50]:
  *             object.QIN[50][I] = GasUtil.CALQINP(EN, NVIB, YVIB2, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -10695,7 +10695,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[50])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB2, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":926
+      /* "gases/OXYGEN.pyx":926
  *         if EN > object.EIN[50]:
  *             object.QIN[50][I] = GasUtil.CALQINP(EN, NVIB, YVIB2, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10705,7 +10705,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":927
+        /* "gases/OXYGEN.pyx":927
  *             object.QIN[50][I] = GasUtil.CALQINP(EN, NVIB, YVIB2, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[50][I] = object.PEQEL[1][I - IOFFN[50]]             # <<<<<<<<<<<<<<
@@ -10714,7 +10714,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[50])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[50]))]);
 
-        /* "OXYGEN.pyx":926
+        /* "gases/OXYGEN.pyx":926
  *         if EN > object.EIN[50]:
  *             object.QIN[50][I] = GasUtil.CALQINP(EN, NVIB, YVIB2, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10723,7 +10723,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":924
+      /* "gases/OXYGEN.pyx":924
  *                 object.PEQIN[49][I] = object.PEQEL[1][I - IOFFN[49]]
  * 
  *         if EN > object.EIN[50]:             # <<<<<<<<<<<<<<
@@ -10732,7 +10732,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":929
+    /* "gases/OXYGEN.pyx":929
  *                 object.PEQIN[50][I] = object.PEQEL[1][I - IOFFN[50]]
  * 
  *         if EN > object.EIN[51]:             # <<<<<<<<<<<<<<
@@ -10742,7 +10742,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[51])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":930
+      /* "gases/OXYGEN.pyx":930
  * 
  *         if EN > object.EIN[51]:
  *             object.QIN[51][I] = GasUtil.CALQINP(EN, NVIB, YVIB3, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -10751,7 +10751,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[51])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB3, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":931
+      /* "gases/OXYGEN.pyx":931
  *         if EN > object.EIN[51]:
  *             object.QIN[51][I] = GasUtil.CALQINP(EN, NVIB, YVIB3, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10761,7 +10761,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":932
+        /* "gases/OXYGEN.pyx":932
  *             object.QIN[51][I] = GasUtil.CALQINP(EN, NVIB, YVIB3, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[51][I] = object.PEQEL[1][I - IOFFN[51]]             # <<<<<<<<<<<<<<
@@ -10770,7 +10770,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[51])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[51]))]);
 
-        /* "OXYGEN.pyx":931
+        /* "gases/OXYGEN.pyx":931
  *         if EN > object.EIN[51]:
  *             object.QIN[51][I] = GasUtil.CALQINP(EN, NVIB, YVIB3, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10779,7 +10779,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":929
+      /* "gases/OXYGEN.pyx":929
  *                 object.PEQIN[50][I] = object.PEQEL[1][I - IOFFN[50]]
  * 
  *         if EN > object.EIN[51]:             # <<<<<<<<<<<<<<
@@ -10788,7 +10788,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":934
+    /* "gases/OXYGEN.pyx":934
  *                 object.PEQIN[51][I] = object.PEQEL[1][I - IOFFN[51]]
  * 
  *         if EN > object.EIN[52]:             # <<<<<<<<<<<<<<
@@ -10798,7 +10798,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[52])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":935
+      /* "gases/OXYGEN.pyx":935
  * 
  *         if EN > object.EIN[52]:
  *             object.QIN[52][I] = GasUtil.CALQINP(EN, NVIB, YVIB4, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -10807,7 +10807,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[52])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB4, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":936
+      /* "gases/OXYGEN.pyx":936
  *         if EN > object.EIN[52]:
  *             object.QIN[52][I] = GasUtil.CALQINP(EN, NVIB, YVIB4, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10817,7 +10817,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":937
+        /* "gases/OXYGEN.pyx":937
  *             object.QIN[52][I] = GasUtil.CALQINP(EN, NVIB, YVIB4, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[52][I] = object.PEQEL[1][I - IOFFN[52]]             # <<<<<<<<<<<<<<
@@ -10826,7 +10826,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[52])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[52]))]);
 
-        /* "OXYGEN.pyx":936
+        /* "gases/OXYGEN.pyx":936
  *         if EN > object.EIN[52]:
  *             object.QIN[52][I] = GasUtil.CALQINP(EN, NVIB, YVIB4, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10835,7 +10835,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":934
+      /* "gases/OXYGEN.pyx":934
  *                 object.PEQIN[51][I] = object.PEQEL[1][I - IOFFN[51]]
  * 
  *         if EN > object.EIN[52]:             # <<<<<<<<<<<<<<
@@ -10844,7 +10844,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":939
+    /* "gases/OXYGEN.pyx":939
  *                 object.PEQIN[52][I] = object.PEQEL[1][I - IOFFN[52]]
  * 
  *         if EN > object.EIN[53]:             # <<<<<<<<<<<<<<
@@ -10854,7 +10854,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[53])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":940
+      /* "gases/OXYGEN.pyx":940
  * 
  *         if EN > object.EIN[53]:
  *             object.QIN[53][I] = GasUtil.CALQINP(EN, NVIB, YVIB5, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -10863,7 +10863,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[53])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB5, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":941
+      /* "gases/OXYGEN.pyx":941
  *         if EN > object.EIN[53]:
  *             object.QIN[53][I] = GasUtil.CALQINP(EN, NVIB, YVIB5, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10873,7 +10873,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":942
+        /* "gases/OXYGEN.pyx":942
  *             object.QIN[53][I] = GasUtil.CALQINP(EN, NVIB, YVIB5, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[53][I] = object.PEQEL[1][I - IOFFN[53]]             # <<<<<<<<<<<<<<
@@ -10882,7 +10882,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[53])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[53]))]);
 
-        /* "OXYGEN.pyx":941
+        /* "gases/OXYGEN.pyx":941
  *         if EN > object.EIN[53]:
  *             object.QIN[53][I] = GasUtil.CALQINP(EN, NVIB, YVIB5, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10891,7 +10891,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":939
+      /* "gases/OXYGEN.pyx":939
  *                 object.PEQIN[52][I] = object.PEQEL[1][I - IOFFN[52]]
  * 
  *         if EN > object.EIN[53]:             # <<<<<<<<<<<<<<
@@ -10900,7 +10900,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":945
+    /* "gases/OXYGEN.pyx":945
  * 
  *         # A1 DELTA
  *         if EN > object.EIN[54]:             # <<<<<<<<<<<<<<
@@ -10910,7 +10910,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[54])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":946
+      /* "gases/OXYGEN.pyx":946
  *         # A1 DELTA
  *         if EN > object.EIN[54]:
  *             object.QIN[54][I] = GasUtil.CALQINP(EN, NEXC1, YEXC1, XEXC1, 2) * 100             # <<<<<<<<<<<<<<
@@ -10919,7 +10919,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[54])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC1, __pyx_v_YEXC1, __pyx_v_XEXC1, 2.0) * 100.0);
 
-      /* "OXYGEN.pyx":947
+      /* "gases/OXYGEN.pyx":947
  *         if EN > object.EIN[54]:
  *             object.QIN[54][I] = GasUtil.CALQINP(EN, NEXC1, YEXC1, XEXC1, 2) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10929,7 +10929,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":948
+        /* "gases/OXYGEN.pyx":948
  *             object.QIN[54][I] = GasUtil.CALQINP(EN, NEXC1, YEXC1, XEXC1, 2) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[54][I] = object.PEQEL[1][I - IOFFN[54]]             # <<<<<<<<<<<<<<
@@ -10938,7 +10938,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[54])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[54]))]);
 
-        /* "OXYGEN.pyx":947
+        /* "gases/OXYGEN.pyx":947
  *         if EN > object.EIN[54]:
  *             object.QIN[54][I] = GasUtil.CALQINP(EN, NEXC1, YEXC1, XEXC1, 2) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10947,7 +10947,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":945
+      /* "gases/OXYGEN.pyx":945
  * 
  *         # A1 DELTA
  *         if EN > object.EIN[54]:             # <<<<<<<<<<<<<<
@@ -10956,7 +10956,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":950
+    /* "gases/OXYGEN.pyx":950
  *                 object.PEQIN[54][I] = object.PEQEL[1][I - IOFFN[54]]
  * 
  *         if EN > object.EIN[55]:             # <<<<<<<<<<<<<<
@@ -10966,7 +10966,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[55])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":951
+      /* "gases/OXYGEN.pyx":951
  * 
  *         if EN > object.EIN[55]:
  *             object.QIN[55][I] = GasUtil.CALQINP(EN, NVIB, YVIB6, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -10975,7 +10975,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[55])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB6, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":952
+      /* "gases/OXYGEN.pyx":952
  *         if EN > object.EIN[55]:
  *             object.QIN[55][I] = GasUtil.CALQINP(EN, NVIB, YVIB6, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -10985,7 +10985,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":953
+        /* "gases/OXYGEN.pyx":953
  *             object.QIN[55][I] = GasUtil.CALQINP(EN, NVIB, YVIB6, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[55][I] = object.PEQEL[1][I - IOFFN[55]]             # <<<<<<<<<<<<<<
@@ -10994,7 +10994,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[55])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[55]))]);
 
-        /* "OXYGEN.pyx":952
+        /* "gases/OXYGEN.pyx":952
  *         if EN > object.EIN[55]:
  *             object.QIN[55][I] = GasUtil.CALQINP(EN, NVIB, YVIB6, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11003,7 +11003,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":950
+      /* "gases/OXYGEN.pyx":950
  *                 object.PEQIN[54][I] = object.PEQEL[1][I - IOFFN[54]]
  * 
  *         if EN > object.EIN[55]:             # <<<<<<<<<<<<<<
@@ -11012,7 +11012,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":955
+    /* "gases/OXYGEN.pyx":955
  *                 object.PEQIN[55][I] = object.PEQEL[1][I - IOFFN[55]]
  * 
  *         if EN > object.EIN[56]:             # <<<<<<<<<<<<<<
@@ -11022,7 +11022,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[56])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":956
+      /* "gases/OXYGEN.pyx":956
  * 
  *         if EN > object.EIN[56]:
  *             object.QIN[56][I] = GasUtil.CALQINP(EN, NVIB, YVIB7, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11031,7 +11031,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[56])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB7, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":957
+      /* "gases/OXYGEN.pyx":957
  *         if EN > object.EIN[56]:
  *             object.QIN[56][I] = GasUtil.CALQINP(EN, NVIB, YVIB7, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11041,7 +11041,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":958
+        /* "gases/OXYGEN.pyx":958
  *             object.QIN[56][I] = GasUtil.CALQINP(EN, NVIB, YVIB7, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[56][I] = object.PEQEL[1][I - IOFFN[56]]             # <<<<<<<<<<<<<<
@@ -11050,7 +11050,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[56])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[56]))]);
 
-        /* "OXYGEN.pyx":957
+        /* "gases/OXYGEN.pyx":957
  *         if EN > object.EIN[56]:
  *             object.QIN[56][I] = GasUtil.CALQINP(EN, NVIB, YVIB7, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11059,7 +11059,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":955
+      /* "gases/OXYGEN.pyx":955
  *                 object.PEQIN[55][I] = object.PEQEL[1][I - IOFFN[55]]
  * 
  *         if EN > object.EIN[56]:             # <<<<<<<<<<<<<<
@@ -11068,7 +11068,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":960
+    /* "gases/OXYGEN.pyx":960
  *                 object.PEQIN[56][I] = object.PEQEL[1][I - IOFFN[56]]
  * 
  *         if EN > object.EIN[57]:             # <<<<<<<<<<<<<<
@@ -11078,7 +11078,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[57])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":961
+      /* "gases/OXYGEN.pyx":961
  * 
  *         if EN > object.EIN[57]:
  *             object.QIN[57][I] = GasUtil.CALQINP(EN, NVIB, YVIB8, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11087,7 +11087,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[57])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB8, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":962
+      /* "gases/OXYGEN.pyx":962
  *         if EN > object.EIN[57]:
  *             object.QIN[57][I] = GasUtil.CALQINP(EN, NVIB, YVIB8, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11097,7 +11097,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":963
+        /* "gases/OXYGEN.pyx":963
  *             object.QIN[57][I] = GasUtil.CALQINP(EN, NVIB, YVIB8, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[57][I] = object.PEQEL[1][I - IOFFN[57]]             # <<<<<<<<<<<<<<
@@ -11106,7 +11106,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[57])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[57]))]);
 
-        /* "OXYGEN.pyx":962
+        /* "gases/OXYGEN.pyx":962
  *         if EN > object.EIN[57]:
  *             object.QIN[57][I] = GasUtil.CALQINP(EN, NVIB, YVIB8, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11115,7 +11115,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":960
+      /* "gases/OXYGEN.pyx":960
  *                 object.PEQIN[56][I] = object.PEQEL[1][I - IOFFN[56]]
  * 
  *         if EN > object.EIN[57]:             # <<<<<<<<<<<<<<
@@ -11124,7 +11124,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":966
+    /* "gases/OXYGEN.pyx":966
  * 
  *         # B1 SIGMA
  *         if EN > object.EIN[58]:             # <<<<<<<<<<<<<<
@@ -11134,7 +11134,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[58])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":967
+      /* "gases/OXYGEN.pyx":967
  *         # B1 SIGMA
  *         if EN > object.EIN[58]:
  *             object.QIN[58][I] = GasUtil.CALQINP(EN, NEXC2, YEXC2, XEXC2, 2) * 100             # <<<<<<<<<<<<<<
@@ -11143,7 +11143,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[58])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC2, __pyx_v_YEXC2, __pyx_v_XEXC2, 2.0) * 100.0);
 
-      /* "OXYGEN.pyx":968
+      /* "gases/OXYGEN.pyx":968
  *         if EN > object.EIN[58]:
  *             object.QIN[58][I] = GasUtil.CALQINP(EN, NEXC2, YEXC2, XEXC2, 2) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11153,7 +11153,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":969
+        /* "gases/OXYGEN.pyx":969
  *             object.QIN[58][I] = GasUtil.CALQINP(EN, NEXC2, YEXC2, XEXC2, 2) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[58][I] = object.PEQEL[1][I - IOFFN[58]]             # <<<<<<<<<<<<<<
@@ -11162,7 +11162,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[58])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[58]))]);
 
-        /* "OXYGEN.pyx":968
+        /* "gases/OXYGEN.pyx":968
  *         if EN > object.EIN[58]:
  *             object.QIN[58][I] = GasUtil.CALQINP(EN, NEXC2, YEXC2, XEXC2, 2) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11171,7 +11171,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":966
+      /* "gases/OXYGEN.pyx":966
  * 
  *         # B1 SIGMA
  *         if EN > object.EIN[58]:             # <<<<<<<<<<<<<<
@@ -11180,7 +11180,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":971
+    /* "gases/OXYGEN.pyx":971
  *                 object.PEQIN[58][I] = object.PEQEL[1][I - IOFFN[58]]
  * 
  *         if EN > object.EIN[59]:             # <<<<<<<<<<<<<<
@@ -11190,7 +11190,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[59])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":972
+      /* "gases/OXYGEN.pyx":972
  * 
  *         if EN > object.EIN[59]:
  *             object.QIN[59][I] = GasUtil.CALQINP(EN, NVIB, YVIB9, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11199,7 +11199,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[59])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB9, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":973
+      /* "gases/OXYGEN.pyx":973
  *         if EN > object.EIN[59]:
  *             object.QIN[59][I] = GasUtil.CALQINP(EN, NVIB, YVIB9, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11209,7 +11209,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":974
+        /* "gases/OXYGEN.pyx":974
  *             object.QIN[59][I] = GasUtil.CALQINP(EN, NVIB, YVIB9, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[59][I] = object.PEQEL[1][I - IOFFN[59]]             # <<<<<<<<<<<<<<
@@ -11218,7 +11218,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[59])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[59]))]);
 
-        /* "OXYGEN.pyx":973
+        /* "gases/OXYGEN.pyx":973
  *         if EN > object.EIN[59]:
  *             object.QIN[59][I] = GasUtil.CALQINP(EN, NVIB, YVIB9, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11227,7 +11227,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":971
+      /* "gases/OXYGEN.pyx":971
  *                 object.PEQIN[58][I] = object.PEQEL[1][I - IOFFN[58]]
  * 
  *         if EN > object.EIN[59]:             # <<<<<<<<<<<<<<
@@ -11236,7 +11236,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":976
+    /* "gases/OXYGEN.pyx":976
  *                 object.PEQIN[59][I] = object.PEQEL[1][I - IOFFN[59]]
  * 
  *         if EN > object.EIN[60]:             # <<<<<<<<<<<<<<
@@ -11246,7 +11246,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[60])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":977
+      /* "gases/OXYGEN.pyx":977
  * 
  *         if EN > object.EIN[60]:
  *             object.QIN[60][I] = GasUtil.CALQINP(EN, NVIB, YVIB10, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11255,7 +11255,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[60])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB10, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":978
+      /* "gases/OXYGEN.pyx":978
  *         if EN > object.EIN[60]:
  *             object.QIN[60][I] = GasUtil.CALQINP(EN, NVIB, YVIB10, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11265,7 +11265,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":979
+        /* "gases/OXYGEN.pyx":979
  *             object.QIN[60][I] = GasUtil.CALQINP(EN, NVIB, YVIB10, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[60][I] = object.PEQEL[1][I - IOFFN[60]]             # <<<<<<<<<<<<<<
@@ -11274,7 +11274,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[60])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[60]))]);
 
-        /* "OXYGEN.pyx":978
+        /* "gases/OXYGEN.pyx":978
  *         if EN > object.EIN[60]:
  *             object.QIN[60][I] = GasUtil.CALQINP(EN, NVIB, YVIB10, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11283,7 +11283,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":976
+      /* "gases/OXYGEN.pyx":976
  *                 object.PEQIN[59][I] = object.PEQEL[1][I - IOFFN[59]]
  * 
  *         if EN > object.EIN[60]:             # <<<<<<<<<<<<<<
@@ -11292,7 +11292,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":981
+    /* "gases/OXYGEN.pyx":981
  *                 object.PEQIN[60][I] = object.PEQEL[1][I - IOFFN[60]]
  * 
  *         if EN > object.EIN[61]:             # <<<<<<<<<<<<<<
@@ -11302,7 +11302,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[61])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":982
+      /* "gases/OXYGEN.pyx":982
  * 
  *         if EN > object.EIN[61]:
  *             object.QIN[61][I] = GasUtil.CALQINP(EN, NVIB, YVIB11, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11311,7 +11311,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[61])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB11, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":983
+      /* "gases/OXYGEN.pyx":983
  *         if EN > object.EIN[61]:
  *             object.QIN[61][I] = GasUtil.CALQINP(EN, NVIB, YVIB11, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11321,7 +11321,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":984
+        /* "gases/OXYGEN.pyx":984
  *             object.QIN[61][I] = GasUtil.CALQINP(EN, NVIB, YVIB11, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[61][I] = object.PEQEL[1][I - IOFFN[61]]             # <<<<<<<<<<<<<<
@@ -11330,7 +11330,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[61])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[61]))]);
 
-        /* "OXYGEN.pyx":983
+        /* "gases/OXYGEN.pyx":983
  *         if EN > object.EIN[61]:
  *             object.QIN[61][I] = GasUtil.CALQINP(EN, NVIB, YVIB11, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11339,7 +11339,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":981
+      /* "gases/OXYGEN.pyx":981
  *                 object.PEQIN[60][I] = object.PEQEL[1][I - IOFFN[60]]
  * 
  *         if EN > object.EIN[61]:             # <<<<<<<<<<<<<<
@@ -11348,7 +11348,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":986
+    /* "gases/OXYGEN.pyx":986
  *                 object.PEQIN[61][I] = object.PEQEL[1][I - IOFFN[61]]
  * 
  *         if EN > object.EIN[62]:             # <<<<<<<<<<<<<<
@@ -11358,7 +11358,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[62])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":987
+      /* "gases/OXYGEN.pyx":987
  * 
  *         if EN > object.EIN[62]:
  *             object.QIN[62][I] = GasUtil.CALQINP(EN, NVIB, YVIB12, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11367,7 +11367,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[62])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB12, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":988
+      /* "gases/OXYGEN.pyx":988
  *         if EN > object.EIN[62]:
  *             object.QIN[62][I] = GasUtil.CALQINP(EN, NVIB, YVIB12, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11377,7 +11377,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":989
+        /* "gases/OXYGEN.pyx":989
  *             object.QIN[62][I] = GasUtil.CALQINP(EN, NVIB, YVIB12, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[62][I] = object.PEQEL[1][I - IOFFN[62]]             # <<<<<<<<<<<<<<
@@ -11386,7 +11386,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[62])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[62]))]);
 
-        /* "OXYGEN.pyx":988
+        /* "gases/OXYGEN.pyx":988
  *         if EN > object.EIN[62]:
  *             object.QIN[62][I] = GasUtil.CALQINP(EN, NVIB, YVIB12, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11395,7 +11395,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":986
+      /* "gases/OXYGEN.pyx":986
  *                 object.PEQIN[61][I] = object.PEQEL[1][I - IOFFN[61]]
  * 
  *         if EN > object.EIN[62]:             # <<<<<<<<<<<<<<
@@ -11404,7 +11404,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":991
+    /* "gases/OXYGEN.pyx":991
  *                 object.PEQIN[62][I] = object.PEQEL[1][I - IOFFN[62]]
  * 
  *         if EN > object.EIN[63]:             # <<<<<<<<<<<<<<
@@ -11414,7 +11414,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[63])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":992
+      /* "gases/OXYGEN.pyx":992
  * 
  *         if EN > object.EIN[63]:
  *             object.QIN[63][I] = GasUtil.CALQINP(EN, NVIB, YVIB13, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11423,7 +11423,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[63])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB13, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":993
+      /* "gases/OXYGEN.pyx":993
  *         if EN > object.EIN[63]:
  *             object.QIN[63][I] = GasUtil.CALQINP(EN, NVIB, YVIB13, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11433,7 +11433,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":994
+        /* "gases/OXYGEN.pyx":994
  *             object.QIN[63][I] = GasUtil.CALQINP(EN, NVIB, YVIB13, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[63][I] = object.PEQEL[1][I - IOFFN[63]]             # <<<<<<<<<<<<<<
@@ -11442,7 +11442,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[63])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[63]))]);
 
-        /* "OXYGEN.pyx":993
+        /* "gases/OXYGEN.pyx":993
  *         if EN > object.EIN[63]:
  *             object.QIN[63][I] = GasUtil.CALQINP(EN, NVIB, YVIB13, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11451,7 +11451,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":991
+      /* "gases/OXYGEN.pyx":991
  *                 object.PEQIN[62][I] = object.PEQEL[1][I - IOFFN[62]]
  * 
  *         if EN > object.EIN[63]:             # <<<<<<<<<<<<<<
@@ -11460,7 +11460,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":996
+    /* "gases/OXYGEN.pyx":996
  *                 object.PEQIN[63][I] = object.PEQEL[1][I - IOFFN[63]]
  * 
  *         if EN > object.EIN[64]:             # <<<<<<<<<<<<<<
@@ -11470,7 +11470,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[64])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":997
+      /* "gases/OXYGEN.pyx":997
  * 
  *         if EN > object.EIN[64]:
  *             object.QIN[64][I] = GasUtil.CALQINP(EN, NVIB, YVIB14, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11479,7 +11479,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[64])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB14, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":998
+      /* "gases/OXYGEN.pyx":998
  *         if EN > object.EIN[64]:
  *             object.QIN[64][I] = GasUtil.CALQINP(EN, NVIB, YVIB14, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11489,7 +11489,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":999
+        /* "gases/OXYGEN.pyx":999
  *             object.QIN[64][I] = GasUtil.CALQINP(EN, NVIB, YVIB14, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[64][I] = object.PEQEL[1][I - IOFFN[64]]             # <<<<<<<<<<<<<<
@@ -11498,7 +11498,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[64])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[64]))]);
 
-        /* "OXYGEN.pyx":998
+        /* "gases/OXYGEN.pyx":998
  *         if EN > object.EIN[64]:
  *             object.QIN[64][I] = GasUtil.CALQINP(EN, NVIB, YVIB14, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11507,7 +11507,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":996
+      /* "gases/OXYGEN.pyx":996
  *                 object.PEQIN[63][I] = object.PEQEL[1][I - IOFFN[63]]
  * 
  *         if EN > object.EIN[64]:             # <<<<<<<<<<<<<<
@@ -11516,7 +11516,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1001
+    /* "gases/OXYGEN.pyx":1001
  *                 object.PEQIN[64][I] = object.PEQEL[1][I - IOFFN[64]]
  * 
  *         if EN > object.EIN[65]:             # <<<<<<<<<<<<<<
@@ -11526,7 +11526,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[65])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1002
+      /* "gases/OXYGEN.pyx":1002
  * 
  *         if EN > object.EIN[65]:
  *             object.QIN[65][I] = GasUtil.CALQINP(EN, NVIB, YVIB15, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11535,7 +11535,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[65])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB15, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1003
+      /* "gases/OXYGEN.pyx":1003
  *         if EN > object.EIN[65]:
  *             object.QIN[65][I] = GasUtil.CALQINP(EN, NVIB, YVIB15, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11545,7 +11545,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1004
+        /* "gases/OXYGEN.pyx":1004
  *             object.QIN[65][I] = GasUtil.CALQINP(EN, NVIB, YVIB15, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[65][I] = object.PEQEL[1][I - IOFFN[65]]             # <<<<<<<<<<<<<<
@@ -11554,7 +11554,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[65])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[65]))]);
 
-        /* "OXYGEN.pyx":1003
+        /* "gases/OXYGEN.pyx":1003
  *         if EN > object.EIN[65]:
  *             object.QIN[65][I] = GasUtil.CALQINP(EN, NVIB, YVIB15, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11563,7 +11563,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1001
+      /* "gases/OXYGEN.pyx":1001
  *                 object.PEQIN[64][I] = object.PEQEL[1][I - IOFFN[64]]
  * 
  *         if EN > object.EIN[65]:             # <<<<<<<<<<<<<<
@@ -11572,7 +11572,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1006
+    /* "gases/OXYGEN.pyx":1006
  *                 object.PEQIN[65][I] = object.PEQEL[1][I - IOFFN[65]]
  * 
  *         if EN > object.EIN[66]:             # <<<<<<<<<<<<<<
@@ -11582,7 +11582,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[66])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1007
+      /* "gases/OXYGEN.pyx":1007
  * 
  *         if EN > object.EIN[66]:
  *             object.QIN[66][I] = GasUtil.CALQINP(EN, NVIB, YVIB16, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11591,7 +11591,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[66])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB16, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1008
+      /* "gases/OXYGEN.pyx":1008
  *         if EN > object.EIN[66]:
  *             object.QIN[66][I] = GasUtil.CALQINP(EN, NVIB, YVIB16, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11601,7 +11601,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1009
+        /* "gases/OXYGEN.pyx":1009
  *             object.QIN[66][I] = GasUtil.CALQINP(EN, NVIB, YVIB16, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[66][I] = object.PEQEL[1][I - IOFFN[66]]             # <<<<<<<<<<<<<<
@@ -11610,7 +11610,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[66])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[66]))]);
 
-        /* "OXYGEN.pyx":1008
+        /* "gases/OXYGEN.pyx":1008
  *         if EN > object.EIN[66]:
  *             object.QIN[66][I] = GasUtil.CALQINP(EN, NVIB, YVIB16, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11619,7 +11619,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1006
+      /* "gases/OXYGEN.pyx":1006
  *                 object.PEQIN[65][I] = object.PEQEL[1][I - IOFFN[65]]
  * 
  *         if EN > object.EIN[66]:             # <<<<<<<<<<<<<<
@@ -11628,7 +11628,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1011
+    /* "gases/OXYGEN.pyx":1011
  *                 object.PEQIN[66][I] = object.PEQEL[1][I - IOFFN[66]]
  * 
  *         if EN > object.EIN[67]:             # <<<<<<<<<<<<<<
@@ -11638,7 +11638,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[67])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1012
+      /* "gases/OXYGEN.pyx":1012
  * 
  *         if EN > object.EIN[67]:
  *             object.QIN[67][I] = GasUtil.CALQINP(EN, NVIB, YVIB17, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11647,7 +11647,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[67])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB17, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1013
+      /* "gases/OXYGEN.pyx":1013
  *         if EN > object.EIN[67]:
  *             object.QIN[67][I] = GasUtil.CALQINP(EN, NVIB, YVIB17, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11657,7 +11657,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1014
+        /* "gases/OXYGEN.pyx":1014
  *             object.QIN[67][I] = GasUtil.CALQINP(EN, NVIB, YVIB17, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[67][I] = object.PEQEL[1][I - IOFFN[67]]             # <<<<<<<<<<<<<<
@@ -11666,7 +11666,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[67])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[67]))]);
 
-        /* "OXYGEN.pyx":1013
+        /* "gases/OXYGEN.pyx":1013
  *         if EN > object.EIN[67]:
  *             object.QIN[67][I] = GasUtil.CALQINP(EN, NVIB, YVIB17, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11675,7 +11675,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1011
+      /* "gases/OXYGEN.pyx":1011
  *                 object.PEQIN[66][I] = object.PEQEL[1][I - IOFFN[66]]
  * 
  *         if EN > object.EIN[67]:             # <<<<<<<<<<<<<<
@@ -11684,7 +11684,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1016
+    /* "gases/OXYGEN.pyx":1016
  *                 object.PEQIN[67][I] = object.PEQEL[1][I - IOFFN[67]]
  * 
  *         if EN > object.EIN[68]:             # <<<<<<<<<<<<<<
@@ -11694,7 +11694,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[68])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1017
+      /* "gases/OXYGEN.pyx":1017
  * 
  *         if EN > object.EIN[68]:
  *             object.QIN[68][I] = GasUtil.CALQINP(EN, NVIB, YVIB18, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11703,7 +11703,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[68])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB18, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1018
+      /* "gases/OXYGEN.pyx":1018
  *         if EN > object.EIN[68]:
  *             object.QIN[68][I] = GasUtil.CALQINP(EN, NVIB, YVIB18, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11713,7 +11713,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1019
+        /* "gases/OXYGEN.pyx":1019
  *             object.QIN[68][I] = GasUtil.CALQINP(EN, NVIB, YVIB18, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[68][I] = object.PEQEL[1][I - IOFFN[68]]             # <<<<<<<<<<<<<<
@@ -11722,7 +11722,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[68])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[68]))]);
 
-        /* "OXYGEN.pyx":1018
+        /* "gases/OXYGEN.pyx":1018
  *         if EN > object.EIN[68]:
  *             object.QIN[68][I] = GasUtil.CALQINP(EN, NVIB, YVIB18, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11731,7 +11731,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1016
+      /* "gases/OXYGEN.pyx":1016
  *                 object.PEQIN[67][I] = object.PEQEL[1][I - IOFFN[67]]
  * 
  *         if EN > object.EIN[68]:             # <<<<<<<<<<<<<<
@@ -11740,7 +11740,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1021
+    /* "gases/OXYGEN.pyx":1021
  *                 object.PEQIN[68][I] = object.PEQEL[1][I - IOFFN[68]]
  * 
  *         if EN > object.EIN[69]:             # <<<<<<<<<<<<<<
@@ -11750,7 +11750,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[69])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1022
+      /* "gases/OXYGEN.pyx":1022
  * 
  *         if EN > object.EIN[69]:
  *             object.QIN[69][I] = GasUtil.CALQINP(EN, NVIB, YVIB19, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11759,7 +11759,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[69])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB19, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1023
+      /* "gases/OXYGEN.pyx":1023
  *         if EN > object.EIN[69]:
  *             object.QIN[69][I] = GasUtil.CALQINP(EN, NVIB, YVIB19, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11769,7 +11769,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1024
+        /* "gases/OXYGEN.pyx":1024
  *             object.QIN[69][I] = GasUtil.CALQINP(EN, NVIB, YVIB19, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[69][I] = object.PEQEL[1][I - IOFFN[69]]             # <<<<<<<<<<<<<<
@@ -11778,7 +11778,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[69])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[69]))]);
 
-        /* "OXYGEN.pyx":1023
+        /* "gases/OXYGEN.pyx":1023
  *         if EN > object.EIN[69]:
  *             object.QIN[69][I] = GasUtil.CALQINP(EN, NVIB, YVIB19, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11787,7 +11787,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1021
+      /* "gases/OXYGEN.pyx":1021
  *                 object.PEQIN[68][I] = object.PEQEL[1][I - IOFFN[68]]
  * 
  *         if EN > object.EIN[69]:             # <<<<<<<<<<<<<<
@@ -11796,7 +11796,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1026
+    /* "gases/OXYGEN.pyx":1026
  *                 object.PEQIN[69][I] = object.PEQEL[1][I - IOFFN[69]]
  * 
  *         if EN > object.EIN[70]:             # <<<<<<<<<<<<<<
@@ -11806,7 +11806,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[70])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1027
+      /* "gases/OXYGEN.pyx":1027
  * 
  *         if EN > object.EIN[70]:
  *             object.QIN[70][I] = GasUtil.CALQINP(EN, NVIB, YVIB20, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11815,7 +11815,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[70])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB20, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1028
+      /* "gases/OXYGEN.pyx":1028
  *         if EN > object.EIN[70]:
  *             object.QIN[70][I] = GasUtil.CALQINP(EN, NVIB, YVIB20, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11825,7 +11825,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1029
+        /* "gases/OXYGEN.pyx":1029
  *             object.QIN[70][I] = GasUtil.CALQINP(EN, NVIB, YVIB20, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[70][I] = object.PEQEL[1][I - IOFFN[70]]             # <<<<<<<<<<<<<<
@@ -11834,7 +11834,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[70])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[70]))]);
 
-        /* "OXYGEN.pyx":1028
+        /* "gases/OXYGEN.pyx":1028
  *         if EN > object.EIN[70]:
  *             object.QIN[70][I] = GasUtil.CALQINP(EN, NVIB, YVIB20, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11843,7 +11843,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1026
+      /* "gases/OXYGEN.pyx":1026
  *                 object.PEQIN[69][I] = object.PEQEL[1][I - IOFFN[69]]
  * 
  *         if EN > object.EIN[70]:             # <<<<<<<<<<<<<<
@@ -11852,7 +11852,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1031
+    /* "gases/OXYGEN.pyx":1031
  *                 object.PEQIN[70][I] = object.PEQEL[1][I - IOFFN[70]]
  * 
  *         if EN > object.EIN[71]:             # <<<<<<<<<<<<<<
@@ -11862,7 +11862,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[71])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1032
+      /* "gases/OXYGEN.pyx":1032
  * 
  *         if EN > object.EIN[71]:
  *             object.QIN[71][I] = GasUtil.CALQINP(EN, NVIB, YVIB21, XVIB, 1) * 100             # <<<<<<<<<<<<<<
@@ -11871,7 +11871,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[71])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB, __pyx_v_YVIB21, __pyx_v_XVIB, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1033
+      /* "gases/OXYGEN.pyx":1033
  *         if EN > object.EIN[71]:
  *             object.QIN[71][I] = GasUtil.CALQINP(EN, NVIB, YVIB21, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11881,7 +11881,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > 6.0) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1034
+        /* "gases/OXYGEN.pyx":1034
  *             object.QIN[71][I] = GasUtil.CALQINP(EN, NVIB, YVIB21, XVIB, 1) * 100
  *             if EN > 6.0:
  *                 object.PEQIN[71][I] = object.PEQEL[1][I - IOFFN[71]]             # <<<<<<<<<<<<<<
@@ -11890,7 +11890,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[71])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[71]))]);
 
-        /* "OXYGEN.pyx":1033
+        /* "gases/OXYGEN.pyx":1033
  *         if EN > object.EIN[71]:
  *             object.QIN[71][I] = GasUtil.CALQINP(EN, NVIB, YVIB21, XVIB, 1) * 100
  *             if EN > 6.0:             # <<<<<<<<<<<<<<
@@ -11899,7 +11899,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1031
+      /* "gases/OXYGEN.pyx":1031
  *                 object.PEQIN[70][I] = object.PEQEL[1][I - IOFFN[70]]
  * 
  *         if EN > object.EIN[71]:             # <<<<<<<<<<<<<<
@@ -11908,7 +11908,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1038
+    /* "gases/OXYGEN.pyx":1038
  *         #   HERZBERG CONTINUUM  C1SIG +A!3DEL + A3SIG
  *         # PART1
  *         if EN > object.EIN[72]:             # <<<<<<<<<<<<<<
@@ -11918,7 +11918,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[72])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1039
+      /* "gases/OXYGEN.pyx":1039
  *         # PART1
  *         if EN > object.EIN[72]:
  *             object.QIN[72][I] = GasUtil.CALQINP(EN, NEXC3, YEXC3, XEXC3, 1) * 100             # <<<<<<<<<<<<<<
@@ -11927,7 +11927,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[72])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC3, __pyx_v_YEXC3, __pyx_v_XEXC3, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1040
+      /* "gases/OXYGEN.pyx":1040
  *         if EN > object.EIN[72]:
  *             object.QIN[72][I] = GasUtil.CALQINP(EN, NEXC3, YEXC3, XEXC3, 1) * 100
  *             if EN > 2 * object.EIN[72]:             # <<<<<<<<<<<<<<
@@ -11937,7 +11937,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[72]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1041
+        /* "gases/OXYGEN.pyx":1041
  *             object.QIN[72][I] = GasUtil.CALQINP(EN, NEXC3, YEXC3, XEXC3, 1) * 100
  *             if EN > 2 * object.EIN[72]:
  *                 object.PEQIN[72][I] = object.PEQEL[1][I - IOFFN[72]]             # <<<<<<<<<<<<<<
@@ -11946,7 +11946,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[72])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[72]))]);
 
-        /* "OXYGEN.pyx":1040
+        /* "gases/OXYGEN.pyx":1040
  *         if EN > object.EIN[72]:
  *             object.QIN[72][I] = GasUtil.CALQINP(EN, NEXC3, YEXC3, XEXC3, 1) * 100
  *             if EN > 2 * object.EIN[72]:             # <<<<<<<<<<<<<<
@@ -11955,7 +11955,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1038
+      /* "gases/OXYGEN.pyx":1038
  *         #   HERZBERG CONTINUUM  C1SIG +A!3DEL + A3SIG
  *         # PART1
  *         if EN > object.EIN[72]:             # <<<<<<<<<<<<<<
@@ -11964,7 +11964,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1044
+    /* "gases/OXYGEN.pyx":1044
  * 
  *         # PART2
  *         if EN > object.EIN[73]:             # <<<<<<<<<<<<<<
@@ -11974,7 +11974,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[73])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1045
+      /* "gases/OXYGEN.pyx":1045
  *         # PART2
  *         if EN > object.EIN[73]:
  *             object.QIN[73][I] = GasUtil.CALQINP(EN, NEXC4, YEXC4, XEXC4, 1) * 100             # <<<<<<<<<<<<<<
@@ -11983,7 +11983,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[73])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC4, __pyx_v_YEXC4, __pyx_v_XEXC4, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1046
+      /* "gases/OXYGEN.pyx":1046
  *         if EN > object.EIN[73]:
  *             object.QIN[73][I] = GasUtil.CALQINP(EN, NEXC4, YEXC4, XEXC4, 1) * 100
  *             if EN > 2 * object.EIN[73]:             # <<<<<<<<<<<<<<
@@ -11993,7 +11993,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[73]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1047
+        /* "gases/OXYGEN.pyx":1047
  *             object.QIN[73][I] = GasUtil.CALQINP(EN, NEXC4, YEXC4, XEXC4, 1) * 100
  *             if EN > 2 * object.EIN[73]:
  *                 object.PEQIN[73][I] = object.PEQEL[1][I - IOFFN[73]]             # <<<<<<<<<<<<<<
@@ -12002,7 +12002,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[73])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[73]))]);
 
-        /* "OXYGEN.pyx":1046
+        /* "gases/OXYGEN.pyx":1046
  *         if EN > object.EIN[73]:
  *             object.QIN[73][I] = GasUtil.CALQINP(EN, NEXC4, YEXC4, XEXC4, 1) * 100
  *             if EN > 2 * object.EIN[73]:             # <<<<<<<<<<<<<<
@@ -12011,7 +12011,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1044
+      /* "gases/OXYGEN.pyx":1044
  * 
  *         # PART2
  *         if EN > object.EIN[73]:             # <<<<<<<<<<<<<<
@@ -12020,7 +12020,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1050
+    /* "gases/OXYGEN.pyx":1050
  * 
  *         # PART3
  *         if EN > object.EIN[74]:             # <<<<<<<<<<<<<<
@@ -12030,7 +12030,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[74])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1051
+      /* "gases/OXYGEN.pyx":1051
  *         # PART3
  *         if EN > object.EIN[74]:
  *             object.QIN[74][I] = GasUtil.CALQINP(EN, NEXC5, YEXC5, XEXC5, 1) * 100             # <<<<<<<<<<<<<<
@@ -12039,7 +12039,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[74])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC5, __pyx_v_YEXC5, __pyx_v_XEXC5, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1052
+      /* "gases/OXYGEN.pyx":1052
  *         if EN > object.EIN[74]:
  *             object.QIN[74][I] = GasUtil.CALQINP(EN, NEXC5, YEXC5, XEXC5, 1) * 100
  *             if EN > 2 * object.EIN[74]:             # <<<<<<<<<<<<<<
@@ -12049,7 +12049,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[74]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1053
+        /* "gases/OXYGEN.pyx":1053
  *             object.QIN[74][I] = GasUtil.CALQINP(EN, NEXC5, YEXC5, XEXC5, 1) * 100
  *             if EN > 2 * object.EIN[74]:
  *                 object.PEQIN[74][I] = object.PEQEL[1][I - IOFFN[74]]             # <<<<<<<<<<<<<<
@@ -12058,7 +12058,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[74])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[74]))]);
 
-        /* "OXYGEN.pyx":1052
+        /* "gases/OXYGEN.pyx":1052
  *         if EN > object.EIN[74]:
  *             object.QIN[74][I] = GasUtil.CALQINP(EN, NEXC5, YEXC5, XEXC5, 1) * 100
  *             if EN > 2 * object.EIN[74]:             # <<<<<<<<<<<<<<
@@ -12067,7 +12067,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1050
+      /* "gases/OXYGEN.pyx":1050
  * 
  *         # PART3
  *         if EN > object.EIN[74]:             # <<<<<<<<<<<<<<
@@ -12076,7 +12076,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1055
+    /* "gases/OXYGEN.pyx":1055
  *                 object.PEQIN[74][I] = object.PEQEL[1][I - IOFFN[74]]
  * 
  *         FI = 0             # <<<<<<<<<<<<<<
@@ -12085,7 +12085,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = 0;
 
-    /* "OXYGEN.pyx":1056
+    /* "gases/OXYGEN.pyx":1056
  * 
  *         FI = 0
  *         for J in range(75, 87):             # <<<<<<<<<<<<<<
@@ -12095,7 +12095,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 75; __pyx_t_36 < 87; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "OXYGEN.pyx":1057
+      /* "gases/OXYGEN.pyx":1057
  *         FI = 0
  *         for J in range(75, 87):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12105,7 +12105,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1058
+        /* "gases/OXYGEN.pyx":1058
  *         for J in range(75, 87):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12114,7 +12114,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "OXYGEN.pyx":1057
+        /* "gases/OXYGEN.pyx":1057
  *         FI = 0
  *         for J in range(75, 87):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12123,7 +12123,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1061
+      /* "gases/OXYGEN.pyx":1061
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12133,7 +12133,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1062
+        /* "gases/OXYGEN.pyx":1062
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -12142,7 +12142,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "OXYGEN.pyx":1061
+        /* "gases/OXYGEN.pyx":1061
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12151,7 +12151,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1063
+      /* "gases/OXYGEN.pyx":1063
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -12161,7 +12161,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "OXYGEN.pyx":1065
+    /* "gases/OXYGEN.pyx":1065
  *             FI += 1
  * 
  *         if object.QIN[75][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12171,7 +12171,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((((__pyx_v_object->QIN[75])[__pyx_v_I]) < 0.0) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1066
+      /* "gases/OXYGEN.pyx":1066
  * 
  *         if object.QIN[75][I] < 0.0:
  *             object.QIN[75][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12180,7 +12180,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[75])[__pyx_v_I]) = 0.0;
 
-      /* "OXYGEN.pyx":1065
+      /* "gases/OXYGEN.pyx":1065
  *             FI += 1
  * 
  *         if object.QIN[75][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -12189,7 +12189,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1069
+    /* "gases/OXYGEN.pyx":1069
  * 
  *         # SUM OF RESONANCES (NON-DIPOLE) IN S-R CONTINUUM AT 8.20EV
  *         if EN > object.EIN[87]:             # <<<<<<<<<<<<<<
@@ -12199,7 +12199,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[87])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1070
+      /* "gases/OXYGEN.pyx":1070
  *         # SUM OF RESONANCES (NON-DIPOLE) IN S-R CONTINUUM AT 8.20EV
  *         if EN > object.EIN[87]:
  *             object.QIN[87][I] = GasUtil.CALQINP(EN, NEXC6, YEXC6, XEXC6, 1) * 100             # <<<<<<<<<<<<<<
@@ -12208,7 +12208,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[87])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC6, __pyx_v_YEXC6, __pyx_v_XEXC6, 1.0) * 100.0);
 
-      /* "OXYGEN.pyx":1071
+      /* "gases/OXYGEN.pyx":1071
  *         if EN > object.EIN[87]:
  *             object.QIN[87][I] = GasUtil.CALQINP(EN, NEXC6, YEXC6, XEXC6, 1) * 100
  *             if EN > 2 * object.EIN[87]:             # <<<<<<<<<<<<<<
@@ -12218,7 +12218,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[87]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1072
+        /* "gases/OXYGEN.pyx":1072
  *             object.QIN[87][I] = GasUtil.CALQINP(EN, NEXC6, YEXC6, XEXC6, 1) * 100
  *             if EN > 2 * object.EIN[87]:
  *                 object.PEQIN[87][I] = object.PEQEL[1][I - IOFFN[87]]             # <<<<<<<<<<<<<<
@@ -12227,7 +12227,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[87])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[87]))]);
 
-        /* "OXYGEN.pyx":1071
+        /* "gases/OXYGEN.pyx":1071
  *         if EN > object.EIN[87]:
  *             object.QIN[87][I] = GasUtil.CALQINP(EN, NEXC6, YEXC6, XEXC6, 1) * 100
  *             if EN > 2 * object.EIN[87]:             # <<<<<<<<<<<<<<
@@ -12236,7 +12236,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1069
+      /* "gases/OXYGEN.pyx":1069
  * 
  *         # SUM OF RESONANCES (NON-DIPOLE) IN S-R CONTINUUM AT 8.20EV
  *         if EN > object.EIN[87]:             # <<<<<<<<<<<<<<
@@ -12245,7 +12245,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1074
+    /* "gases/OXYGEN.pyx":1074
  *                 object.PEQIN[87][I] = object.PEQEL[1][I - IOFFN[87]]
  * 
  *         for J in range(88, 104):             # <<<<<<<<<<<<<<
@@ -12255,7 +12255,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 88; __pyx_t_36 < 0x68; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "OXYGEN.pyx":1075
+      /* "gases/OXYGEN.pyx":1075
  * 
  *         for J in range(88, 104):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12265,7 +12265,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1076
+        /* "gases/OXYGEN.pyx":1076
  *         for J in range(88, 104):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12274,7 +12274,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "OXYGEN.pyx":1075
+        /* "gases/OXYGEN.pyx":1075
  * 
  *         for J in range(88, 104):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12283,7 +12283,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1079
+      /* "gases/OXYGEN.pyx":1079
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12293,7 +12293,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1080
+        /* "gases/OXYGEN.pyx":1080
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -12302,7 +12302,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "OXYGEN.pyx":1079
+        /* "gases/OXYGEN.pyx":1079
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12311,7 +12311,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1081
+      /* "gases/OXYGEN.pyx":1081
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -12321,7 +12321,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "OXYGEN.pyx":1084
+    /* "gases/OXYGEN.pyx":1084
  * 
  *         # ADD RESONANT COMPONENT TO LONG BAND
  *         if EN > object.EIN[103]:             # <<<<<<<<<<<<<<
@@ -12331,7 +12331,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x67])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1085
+      /* "gases/OXYGEN.pyx":1085
  *         # ADD RESONANT COMPONENT TO LONG BAND
  *         if EN > object.EIN[103]:
  *             object.QIN[103][I] += GasUtil.CALQINP(EN, NEXC7, YEXC7, XEXC7, 1) * 100             # <<<<<<<<<<<<<<
@@ -12342,7 +12342,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_36 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_43])[__pyx_t_36]) = (((__pyx_v_object->QIN[__pyx_t_43])[__pyx_t_36]) + (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC7, __pyx_v_YEXC7, __pyx_v_XEXC7, 1.0) * 100.0));
 
-      /* "OXYGEN.pyx":1086
+      /* "gases/OXYGEN.pyx":1086
  *         if EN > object.EIN[103]:
  *             object.QIN[103][I] += GasUtil.CALQINP(EN, NEXC7, YEXC7, XEXC7, 1) * 100
  *             if EN > 2 * object.EIN[103]:             # <<<<<<<<<<<<<<
@@ -12352,7 +12352,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0x67]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1087
+        /* "gases/OXYGEN.pyx":1087
  *             object.QIN[103][I] += GasUtil.CALQINP(EN, NEXC7, YEXC7, XEXC7, 1) * 100
  *             if EN > 2 * object.EIN[103]:
  *                 object.PEQIN[103][I] = object.PEQEL[1][I - IOFFN[103]]             # <<<<<<<<<<<<<<
@@ -12361,7 +12361,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x67])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x67]))]);
 
-        /* "OXYGEN.pyx":1086
+        /* "gases/OXYGEN.pyx":1086
  *         if EN > object.EIN[103]:
  *             object.QIN[103][I] += GasUtil.CALQINP(EN, NEXC7, YEXC7, XEXC7, 1) * 100
  *             if EN > 2 * object.EIN[103]:             # <<<<<<<<<<<<<<
@@ -12370,7 +12370,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1084
+      /* "gases/OXYGEN.pyx":1084
  * 
  *         # ADD RESONANT COMPONENT TO LONG BAND
  *         if EN > object.EIN[103]:             # <<<<<<<<<<<<<<
@@ -12379,7 +12379,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1089
+    /* "gases/OXYGEN.pyx":1089
  *                 object.PEQIN[103][I] = object.PEQEL[1][I - IOFFN[103]]
  * 
  *         for J in range(104, 106):             # <<<<<<<<<<<<<<
@@ -12389,7 +12389,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0x68; __pyx_t_36 < 0x6A; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "OXYGEN.pyx":1090
+      /* "gases/OXYGEN.pyx":1090
  * 
  *         for J in range(104, 106):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12399,7 +12399,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1091
+        /* "gases/OXYGEN.pyx":1091
  *         for J in range(104, 106):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12408,7 +12408,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "OXYGEN.pyx":1090
+        /* "gases/OXYGEN.pyx":1090
  * 
  *         for J in range(104, 106):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12417,7 +12417,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1094
+      /* "gases/OXYGEN.pyx":1094
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12427,7 +12427,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1095
+        /* "gases/OXYGEN.pyx":1095
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -12436,7 +12436,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "OXYGEN.pyx":1094
+        /* "gases/OXYGEN.pyx":1094
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12445,7 +12445,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1096
+      /* "gases/OXYGEN.pyx":1096
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -12455,7 +12455,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "OXYGEN.pyx":1099
+    /* "gases/OXYGEN.pyx":1099
  * 
  *         # TRIPLET SUM BELOW IP
  *         if EN > object.EIN[106]:             # <<<<<<<<<<<<<<
@@ -12465,7 +12465,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x6A])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1100
+      /* "gases/OXYGEN.pyx":1100
  *         # TRIPLET SUM BELOW IP
  *         if EN > object.EIN[106]:
  *             object.QIN[106][I] += GasUtil.CALQINP(EN, NEXC8, YEXC8, XEXC8, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -12476,7 +12476,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_36 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_43])[__pyx_t_36]) = (((__pyx_v_object->QIN[__pyx_t_43])[__pyx_t_36]) + (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC8, __pyx_v_YEXC8, __pyx_v_XEXC8, 1.5) * 100.0));
 
-      /* "OXYGEN.pyx":1101
+      /* "gases/OXYGEN.pyx":1101
  *         if EN > object.EIN[106]:
  *             object.QIN[106][I] += GasUtil.CALQINP(EN, NEXC8, YEXC8, XEXC8, 1.5) * 100
  *             if EN > 2 * object.EIN[106]:             # <<<<<<<<<<<<<<
@@ -12486,7 +12486,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0x6A]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1102
+        /* "gases/OXYGEN.pyx":1102
  *             object.QIN[106][I] += GasUtil.CALQINP(EN, NEXC8, YEXC8, XEXC8, 1.5) * 100
  *             if EN > 2 * object.EIN[106]:
  *                 object.PEQIN[106][I] = object.PEQEL[1][I - IOFFN[106]]             # <<<<<<<<<<<<<<
@@ -12495,7 +12495,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x6A])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x6A]))]);
 
-        /* "OXYGEN.pyx":1101
+        /* "gases/OXYGEN.pyx":1101
  *         if EN > object.EIN[106]:
  *             object.QIN[106][I] += GasUtil.CALQINP(EN, NEXC8, YEXC8, XEXC8, 1.5) * 100
  *             if EN > 2 * object.EIN[106]:             # <<<<<<<<<<<<<<
@@ -12504,7 +12504,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1099
+      /* "gases/OXYGEN.pyx":1099
  * 
  *         # TRIPLET SUM BELOW IP
  *         if EN > object.EIN[106]:             # <<<<<<<<<<<<<<
@@ -12513,7 +12513,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1104
+    /* "gases/OXYGEN.pyx":1104
  *                 object.PEQIN[106][I] = object.PEQEL[1][I - IOFFN[106]]
  * 
  *         for J in range(107, 122):             # <<<<<<<<<<<<<<
@@ -12523,7 +12523,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0x6B; __pyx_t_36 < 0x7A; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "OXYGEN.pyx":1105
+      /* "gases/OXYGEN.pyx":1105
  * 
  *         for J in range(107, 122):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12533,7 +12533,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1106
+        /* "gases/OXYGEN.pyx":1106
  *         for J in range(107, 122):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12542,7 +12542,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "OXYGEN.pyx":1105
+        /* "gases/OXYGEN.pyx":1105
  * 
  *         for J in range(107, 122):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12551,7 +12551,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1109
+      /* "gases/OXYGEN.pyx":1109
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12561,7 +12561,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1110
+        /* "gases/OXYGEN.pyx":1110
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -12570,7 +12570,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "OXYGEN.pyx":1109
+        /* "gases/OXYGEN.pyx":1109
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12579,7 +12579,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1111
+      /* "gases/OXYGEN.pyx":1111
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -12589,7 +12589,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "OXYGEN.pyx":1114
+    /* "gases/OXYGEN.pyx":1114
  * 
  *         # TRIPLET SUM ABOVE IP
  *         if EN > object.EIN[122]:             # <<<<<<<<<<<<<<
@@ -12599,7 +12599,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[0x7A])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1115
+      /* "gases/OXYGEN.pyx":1115
  *         # TRIPLET SUM ABOVE IP
  *         if EN > object.EIN[122]:
  *             object.QIN[122][I] += GasUtil.CALQINP(EN, NEXC9, YEXC9, XEXC9, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -12610,7 +12610,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_36 = __pyx_v_I;
       ((__pyx_v_object->QIN[__pyx_t_43])[__pyx_t_36]) = (((__pyx_v_object->QIN[__pyx_t_43])[__pyx_t_36]) + (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NEXC9, __pyx_v_YEXC9, __pyx_v_XEXC9, 1.5) * 100.0));
 
-      /* "OXYGEN.pyx":1116
+      /* "gases/OXYGEN.pyx":1116
  *         if EN > object.EIN[122]:
  *             object.QIN[122][I] += GasUtil.CALQINP(EN, NEXC9, YEXC9, XEXC9, 1.5) * 100
  *             if EN > 2 * object.EIN[122]:             # <<<<<<<<<<<<<<
@@ -12620,7 +12620,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0x7A]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1117
+        /* "gases/OXYGEN.pyx":1117
  *             object.QIN[122][I] += GasUtil.CALQINP(EN, NEXC9, YEXC9, XEXC9, 1.5) * 100
  *             if EN > 2 * object.EIN[122]:
  *                 object.PEQIN[122][I] = object.PEQEL[1][I - IOFFN[122]]             # <<<<<<<<<<<<<<
@@ -12629,7 +12629,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0x7A])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0x7A]))]);
 
-        /* "OXYGEN.pyx":1116
+        /* "gases/OXYGEN.pyx":1116
  *         if EN > object.EIN[122]:
  *             object.QIN[122][I] += GasUtil.CALQINP(EN, NEXC9, YEXC9, XEXC9, 1.5) * 100
  *             if EN > 2 * object.EIN[122]:             # <<<<<<<<<<<<<<
@@ -12638,7 +12638,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1114
+      /* "gases/OXYGEN.pyx":1114
  * 
  *         # TRIPLET SUM ABOVE IP
  *         if EN > object.EIN[122]:             # <<<<<<<<<<<<<<
@@ -12647,7 +12647,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1119
+    /* "gases/OXYGEN.pyx":1119
  *                 object.PEQIN[122][I] = object.PEQEL[1][I - IOFFN[122]]
  * 
  *         for J in range(123, 148):             # <<<<<<<<<<<<<<
@@ -12657,7 +12657,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0x7B; __pyx_t_36 < 0x94; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "OXYGEN.pyx":1120
+      /* "gases/OXYGEN.pyx":1120
  * 
  *         for J in range(123, 148):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12667,7 +12667,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1121
+        /* "gases/OXYGEN.pyx":1121
  *         for J in range(123, 148):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12676,7 +12676,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "OXYGEN.pyx":1120
+        /* "gases/OXYGEN.pyx":1120
  * 
  *         for J in range(123, 148):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12685,7 +12685,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1124
+      /* "gases/OXYGEN.pyx":1124
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12695,7 +12695,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_42 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_42) {
 
-        /* "OXYGEN.pyx":1125
+        /* "gases/OXYGEN.pyx":1125
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -12704,7 +12704,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "OXYGEN.pyx":1124
+        /* "gases/OXYGEN.pyx":1124
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12713,7 +12713,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "OXYGEN.pyx":1126
+      /* "gases/OXYGEN.pyx":1126
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -12723,7 +12723,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "OXYGEN.pyx":1129
+    /* "gases/OXYGEN.pyx":1129
  * 
  *         #LOAD BREMSSTRAHLUNG X-SECTIONS
  *         object.QIN[148][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12732,7 +12732,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0x94])[__pyx_v_I]) = 0.0;
 
-    /* "OXYGEN.pyx":1130
+    /* "gases/OXYGEN.pyx":1130
  *         #LOAD BREMSSTRAHLUNG X-SECTIONS
  *         object.QIN[148][I] = 0.0
  *         if EN > 1000:             # <<<<<<<<<<<<<<
@@ -12742,7 +12742,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_EN > 1000.0) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1131
+      /* "gases/OXYGEN.pyx":1131
  *         object.QIN[148][I] = 0.0
  *         if EN > 1000:
  *             object.QIN[148][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z8T, EBRM) * 2e-8             # <<<<<<<<<<<<<<
@@ -12751,7 +12751,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0x94])[__pyx_v_I]) = (__pyx_f_7GasUtil_QLSCALE(exp(__pyx_v_EN), __pyx_v_NBREM, __pyx_v_Z8T, __pyx_v_EBRM) * 2e-8);
 
-      /* "OXYGEN.pyx":1130
+      /* "gases/OXYGEN.pyx":1130
  *         #LOAD BREMSSTRAHLUNG X-SECTIONS
  *         object.QIN[148][I] = 0.0
  *         if EN > 1000:             # <<<<<<<<<<<<<<
@@ -12760,7 +12760,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "OXYGEN.pyx":1133
+    /* "gases/OXYGEN.pyx":1133
  *             object.QIN[148][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z8T, EBRM) * 2e-8
  * 
  *         SUMION = 0.0             # <<<<<<<<<<<<<<
@@ -12769,7 +12769,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_SUMION = 0.0;
 
-    /* "OXYGEN.pyx":1134
+    /* "gases/OXYGEN.pyx":1134
  * 
  *         SUMION = 0.0
  *         for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -12781,7 +12781,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_39 = 0; __pyx_t_39 < __pyx_t_38; __pyx_t_39+=1) {
       __pyx_v_J = __pyx_t_39;
 
-      /* "OXYGEN.pyx":1135
+      /* "gases/OXYGEN.pyx":1135
  *         SUMION = 0.0
  *         for J in range(object.NION):
  *             SUMION += object.QION[J][I]             # <<<<<<<<<<<<<<
@@ -12791,7 +12791,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_SUMION = (__pyx_v_SUMION + ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "OXYGEN.pyx":1137
+    /* "gases/OXYGEN.pyx":1137
  *             SUMION += object.QION[J][I]
  * 
  *         SUMEXC = 0.0             # <<<<<<<<<<<<<<
@@ -12800,7 +12800,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_SUMEXC = 0.0;
 
-    /* "OXYGEN.pyx":1138
+    /* "gases/OXYGEN.pyx":1138
  * 
  *         SUMEXC = 0.0
  *         for J in range(48, object.NIN):             # <<<<<<<<<<<<<<
@@ -12812,7 +12812,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_39 = 48; __pyx_t_39 < __pyx_t_38; __pyx_t_39+=1) {
       __pyx_v_J = __pyx_t_39;
 
-      /* "OXYGEN.pyx":1139
+      /* "gases/OXYGEN.pyx":1139
  *         SUMEXC = 0.0
  *         for J in range(48, object.NIN):
  *             SUMEXC += object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -12822,7 +12822,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_SUMEXC = (__pyx_v_SUMEXC + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "OXYGEN.pyx":1141
+    /* "gases/OXYGEN.pyx":1141
  *             SUMEXC += object.QIN[J][I]
  * 
  *         SUMEXC += object.Q[3][I]             # <<<<<<<<<<<<<<
@@ -12831,7 +12831,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_SUMEXC = (__pyx_v_SUMEXC + ((__pyx_v_object->Q[3])[__pyx_v_I]));
 
-    /* "OXYGEN.pyx":1143
+    /* "gases/OXYGEN.pyx":1143
  *         SUMEXC += object.Q[3][I]
  * 
  *         object.Q[0][I] = object.Q[1][I] + SUMION + SUMEXC             # <<<<<<<<<<<<<<
@@ -12841,7 +12841,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = ((((__pyx_v_object->Q[1])[__pyx_v_I]) + __pyx_v_SUMION) + __pyx_v_SUMEXC);
   }
 
-  /* "OXYGEN.pyx":1145
+  /* "gases/OXYGEN.pyx":1145
  *         object.Q[0][I] = object.Q[1][I] + SUMION + SUMEXC
  * 
  *     for I in range(1, 149):             # <<<<<<<<<<<<<<
@@ -12851,7 +12851,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_35 = 1; __pyx_t_35 < 0x95; __pyx_t_35+=1) {
     __pyx_v_I = __pyx_t_35;
 
-    /* "OXYGEN.pyx":1146
+    /* "gases/OXYGEN.pyx":1146
  * 
  *     for I in range(1, 149):
  *         J = 149 - I - 1             # <<<<<<<<<<<<<<
@@ -12860,7 +12860,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_J = ((0x95 - __pyx_v_I) - 1);
 
-    /* "OXYGEN.pyx":1147
+    /* "gases/OXYGEN.pyx":1147
  *     for I in range(1, 149):
  *         J = 149 - I - 1
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12870,7 +12870,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_42 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_42) {
 
-      /* "OXYGEN.pyx":1148
+      /* "gases/OXYGEN.pyx":1148
  *         J = 149 - I - 1
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -12879,7 +12879,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "OXYGEN.pyx":1147
+      /* "gases/OXYGEN.pyx":1147
  *     for I in range(1, 149):
  *         J = 149 - I - 1
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -12889,7 +12889,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "OXYGEN.pyx":1149
+  /* "gases/OXYGEN.pyx":1149
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *     if object.NIN < 52:             # <<<<<<<<<<<<<<
@@ -12899,7 +12899,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_42 = ((__pyx_v_object->NIN < 52) != 0);
   if (__pyx_t_42) {
 
-    /* "OXYGEN.pyx":1150
+    /* "gases/OXYGEN.pyx":1150
  *             object.NIN = J
  *     if object.NIN < 52:
  *         object.NIN = 52             # <<<<<<<<<<<<<<
@@ -12907,7 +12907,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_object->NIN = 52;
 
-    /* "OXYGEN.pyx":1149
+    /* "gases/OXYGEN.pyx":1149
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *     if object.NIN < 52:             # <<<<<<<<<<<<<<
@@ -12916,14 +12916,14 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   }
 
-  /* "OXYGEN.pyx":1151
+  /* "gases/OXYGEN.pyx":1151
  *     if object.NIN < 52:
  *         object.NIN = 52
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "OXYGEN.pyx":17
+  /* "gases/OXYGEN.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas15(Gas*object):             # <<<<<<<<<<<<<<
@@ -12937,7 +12937,7 @@ static void __pyx_f_6OXYGEN_Gas15(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("OXYGEN.Gas15", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.OXYGEN.Gas15", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -16027,7 +16027,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas15", (void (*)(void))__pyx_f_6OXYGEN_Gas15, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas15", (void (*)(void))__pyx_f_5gases_6OXYGEN_Gas15, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -16280,14 +16280,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_OXYGEN) {
+  if (__pyx_module_is_main_gases__OXYGEN) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "OXYGEN")) {
-      if (unlikely(PyDict_SetItemString(modules, "OXYGEN", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.OXYGEN")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.OXYGEN", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -16308,7 +16308,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "OXYGEN.pyx":3
+  /* "gases/OXYGEN.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -16320,7 +16320,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "OXYGEN.pyx":5
+  /* "gases/OXYGEN.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -16332,7 +16332,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "OXYGEN.pyx":10
+  /* "gases/OXYGEN.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -16347,7 +16347,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "OXYGEN.pyx":1
+  /* "gases/OXYGEN.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -16373,11 +16373,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init OXYGEN", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.OXYGEN", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init OXYGEN");
+    PyErr_SetString(PyExc_ImportError, "init gases.OXYGEN");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

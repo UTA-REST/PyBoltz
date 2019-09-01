@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "ARGON",
+        "name": "gases.ARGON",
         "sources": [
-            "ARGON.pyx"
+            "gases/ARGON.pyx"
         ]
     },
-    "module_name": "ARGON"
+    "module_name": "gases.ARGON"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__ARGON
-#define __PYX_HAVE_API__ARGON
+#define __PYX_HAVE__gases__ARGON
+#define __PYX_HAVE_API__gases__ARGON
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "ARGON.pyx",
+  "gases/ARGON.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1684,13 +1684,13 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, cha
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'ARGON' */
+/* Module declarations from 'gases.ARGON' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "ARGON"
-extern int __pyx_module_is_main_ARGON;
-int __pyx_module_is_main_ARGON = 0;
+#define __Pyx_MODULE_NAME "gases.ARGON"
+extern int __pyx_module_is_main_gases__ARGON;
+int __pyx_module_is_main_gases__ARGON = 0;
 
-/* Implementation of 'ARGON' */
+/* Implementation of 'gases.ARGON' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1980,7 +1980,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "ARGON.pyx":14
+/* "gases/ARGON.pyx":14
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef void Gas2(Gas *object):             # <<<<<<<<<<<<<<
@@ -1988,7 +1988,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Argon gas.
  */
 
-static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_APOL;
   double __pyx_v_AA;
@@ -2238,7 +2238,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   double __pyx_t_47[3];
   __Pyx_RefNannySetupContext("Gas2", 0);
 
-  /* "ARGON.pyx":18
+  /* "gases/ARGON.pyx":18
  *     This function is used to calculate the needed momentum cross sections for Argon gas.
  *     '''
  *     print("ARGON")             # <<<<<<<<<<<<<<
@@ -2247,7 +2247,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   if (__Pyx_PrintOne(0, __pyx_n_s_ARGON) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
 
-  /* "ARGON.pyx":19
+  /* "gases/ARGON.pyx":19
  *     '''
  *     print("ARGON")
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2295,7 +2295,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "ARGON.pyx":21
+  /* "gases/ARGON.pyx":21
  *     gd = np.load('gases.npy').item()
  *     cdef double APOL, AA, DD, FF, A1, EMASS2, API, A0, RY, BBCONST, CONST, AM2, C, PSCALE, AUGL3, AUGL2, AUGL1, AUGK
  *     cdef int NION, NATT, NIN, NNULL, NBREM, NDATA, NEPSI, NIDATA, NION2, NION3, NKSH, NL1S, NL2S, NL3S, N1S5, NIS4, NIS3, NIS2,N1S4=79,N1S3=70,N1S2=70             # <<<<<<<<<<<<<<
@@ -2306,7 +2306,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_N1S3 = 70;
   __pyx_v_N1S2 = 70;
 
-  /* "ARGON.pyx":24
+  /* "gases/ARGON.pyx":24
  *     cdef int N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N2P4, N2P3, N2P2, N2P1, N3D6, N3D5, N3D3, N3D4P, N3D4, N3D1PP, N2S5, N3D1P
  *     cdef int N3S1PPPP, N3S1PP, N3S1PPP, N2S3
  *     APOL = <float>(11.08)             # <<<<<<<<<<<<<<
@@ -2315,7 +2315,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOL = ((float)11.08);
 
-  /* "ARGON.pyx":25
+  /* "gases/ARGON.pyx":25
  *     cdef int N3S1PPPP, N3S1PP, N3S1PPP, N2S3
  *     APOL = <float>(11.08)
  *     LMAX = 100             # <<<<<<<<<<<<<<
@@ -2324,7 +2324,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_LMAX = 0x64;
 
-  /* "ARGON.pyx":26
+  /* "gases/ARGON.pyx":26
  *     APOL = <float>(11.08)
  *     LMAX = 100
  *     AA = <float>(-1.459)             # <<<<<<<<<<<<<<
@@ -2333,7 +2333,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AA = ((float)-1.459);
 
-  /* "ARGON.pyx":27
+  /* "gases/ARGON.pyx":27
  *     LMAX = 100
  *     AA = <float>(-1.459)
  *     DD = <float>(68.93)             # <<<<<<<<<<<<<<
@@ -2342,7 +2342,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_DD = ((float)68.93);
 
-  /* "ARGON.pyx":28
+  /* "gases/ARGON.pyx":28
  *     AA = <float>(-1.459)
  *     DD = <float>(68.93)
  *     FF = <float>(-97.0)             # <<<<<<<<<<<<<<
@@ -2351,7 +2351,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_FF = ((float)-97.0);
 
-  /* "ARGON.pyx":29
+  /* "gases/ARGON.pyx":29
  *     DD = <float>(68.93)
  *     FF = <float>(-97.0)
  *     A1 = <float>(8.69)             # <<<<<<<<<<<<<<
@@ -2360,7 +2360,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A1 = ((float)8.69);
 
-  /* "ARGON.pyx":30
+  /* "gases/ARGON.pyx":30
  *     FF = <float>(-97.0)
  *     A1 = <float>(8.69)
  *     EMASS2 = <float>(1021997.804)             # <<<<<<<<<<<<<<
@@ -2369,7 +2369,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = ((float)1021997.804);
 
-  /* "ARGON.pyx":31
+  /* "gases/ARGON.pyx":31
  *     A1 = <float>(8.69)
  *     EMASS2 = <float>(1021997.804)
  *     API = acos(-1)             # <<<<<<<<<<<<<<
@@ -2378,7 +2378,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0);
 
-  /* "ARGON.pyx":32
+  /* "gases/ARGON.pyx":32
  *     EMASS2 = <float>(1021997.804)
  *     API = acos(-1)
  *     A0 = 0.52917720859e-8             # <<<<<<<<<<<<<<
@@ -2387,7 +2387,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-8;
 
-  /* "ARGON.pyx":33
+  /* "gases/ARGON.pyx":33
  *     API = acos(-1)
  *     A0 = 0.52917720859e-8
  *     RY = <float>(13.60569193)             # <<<<<<<<<<<<<<
@@ -2396,7 +2396,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = ((float)13.60569193);
 
-  /* "ARGON.pyx":34
+  /* "gases/ARGON.pyx":34
  *     A0 = 0.52917720859e-8
  *     RY = <float>(13.60569193)
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -2405,7 +2405,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "ARGON.pyx":35
+  /* "gases/ARGON.pyx":35
  *     RY = <float>(13.60569193)
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -2414,7 +2414,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "ARGON.pyx":36
+  /* "gases/ARGON.pyx":36
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
  *     CONST = 1.873884e-20
  *     AM2 = <float>(3.593)             # <<<<<<<<<<<<<<
@@ -2423,7 +2423,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = ((float)3.593);
 
-  /* "ARGON.pyx":37
+  /* "gases/ARGON.pyx":37
  *     CONST = 1.873884e-20
  *     AM2 = <float>(3.593)
  *     C = <float>(39.70)             # <<<<<<<<<<<<<<
@@ -2432,7 +2432,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = ((float)39.70);
 
-  /* "ARGON.pyx":38
+  /* "gases/ARGON.pyx":38
  *     AM2 = <float>(3.593)
  *     C = <float>(39.70)
  *     PSCALE = <float>(0.9)             # <<<<<<<<<<<<<<
@@ -2441,7 +2441,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_PSCALE = ((float)0.9);
 
-  /* "ARGON.pyx":39
+  /* "gases/ARGON.pyx":39
  *     C = <float>(39.70)
  *     PSCALE = <float>(0.9)
  *     AUGL3 = 2.0             # <<<<<<<<<<<<<<
@@ -2450,7 +2450,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL3 = 2.0;
 
-  /* "ARGON.pyx":40
+  /* "gases/ARGON.pyx":40
  *     PSCALE = <float>(0.9)
  *     AUGL3 = 2.0
  *     AUGL2 = 1.0             # <<<<<<<<<<<<<<
@@ -2459,7 +2459,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL2 = 1.0;
 
-  /* "ARGON.pyx":41
+  /* "gases/ARGON.pyx":41
  *     AUGL3 = 2.0
  *     AUGL2 = 1.0
  *     AUGL1 = <float>(2.63)             # <<<<<<<<<<<<<<
@@ -2468,7 +2468,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL1 = ((float)2.63);
 
-  /* "ARGON.pyx":42
+  /* "gases/ARGON.pyx":42
  *     AUGL2 = 1.0
  *     AUGL1 = <float>(2.63)
  *     AUGK = <float>(3.39)             # <<<<<<<<<<<<<<
@@ -2477,7 +2477,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGK = ((float)3.39);
 
-  /* "ARGON.pyx":43
+  /* "gases/ARGON.pyx":43
  *     AUGL1 = <float>(2.63)
  *     AUGK = <float>(3.39)
  *     object.NION = 7             # <<<<<<<<<<<<<<
@@ -2486,7 +2486,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 7;
 
-  /* "ARGON.pyx":44
+  /* "gases/ARGON.pyx":44
  *     AUGK = <float>(3.39)
  *     object.NION = 7
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -2495,7 +2495,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "ARGON.pyx":45
+  /* "gases/ARGON.pyx":45
  *     object.NION = 7
  *     object.NATT = 1
  *     object.NIN = 44             # <<<<<<<<<<<<<<
@@ -2504,7 +2504,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 44;
 
-  /* "ARGON.pyx":46
+  /* "gases/ARGON.pyx":46
  *     object.NATT = 1
  *     object.NIN = 44
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -2513,7 +2513,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "ARGON.pyx":47
+  /* "gases/ARGON.pyx":47
  *     object.NIN = 44
  *     object.NNULL = 0
  *     NBREM = 25             # <<<<<<<<<<<<<<
@@ -2522,7 +2522,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "ARGON.pyx":48
+  /* "gases/ARGON.pyx":48
  *     object.NNULL = 0
  *     NBREM = 25
  *     cdef int i = 0, j = 0             # <<<<<<<<<<<<<<
@@ -2532,7 +2532,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_i = 0;
   __pyx_v_j = 0;
 
-  /* "ARGON.pyx":50
+  /* "gases/ARGON.pyx":50
  *     cdef int i = 0, j = 0
  * 
  *     for i in range(0, 6):             # <<<<<<<<<<<<<<
@@ -2542,7 +2542,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_5 = 0; __pyx_t_5 < 6; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "ARGON.pyx":51
+    /* "gases/ARGON.pyx":51
  * 
  *     for i in range(0, 6):
  *         object.KEL[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -2553,7 +2553,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_i]) = __pyx_t_6;
   }
 
-  /* "ARGON.pyx":52
+  /* "gases/ARGON.pyx":52
  *     for i in range(0, 6):
  *         object.KEL[i] = object.NANISO
  *     for i in range(0, object.NIN):             # <<<<<<<<<<<<<<
@@ -2565,7 +2565,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "ARGON.pyx":53
+    /* "gases/ARGON.pyx":53
  *         object.KEL[i] = object.NANISO
  *     for i in range(0, object.NIN):
  *         object.KIN[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -2576,7 +2576,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = __pyx_t_8;
   }
 
-  /* "ARGON.pyx":54
+  /* "gases/ARGON.pyx":54
  *     for i in range(0, object.NIN):
  *         object.KIN[i] = object.NANISO
  *     NDATA = 117             # <<<<<<<<<<<<<<
@@ -2585,7 +2585,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 0x75;
 
-  /* "ARGON.pyx":55
+  /* "gases/ARGON.pyx":55
  *         object.KIN[i] = object.NANISO
  *     NDATA = 117
  *     NEPSI = 217             # <<<<<<<<<<<<<<
@@ -2594,7 +2594,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEPSI = 0xD9;
 
-  /* "ARGON.pyx":56
+  /* "gases/ARGON.pyx":56
  *     NDATA = 117
  *     NEPSI = 217
  *     NIDATA = 75             # <<<<<<<<<<<<<<
@@ -2603,7 +2603,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIDATA = 75;
 
-  /* "ARGON.pyx":57
+  /* "gases/ARGON.pyx":57
  *     NEPSI = 217
  *     NIDATA = 75
  *     NION2 = 47             # <<<<<<<<<<<<<<
@@ -2612,7 +2612,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 47;
 
-  /* "ARGON.pyx":58
+  /* "gases/ARGON.pyx":58
  *     NIDATA = 75
  *     NION2 = 47
  *     NION3 = 36             # <<<<<<<<<<<<<<
@@ -2621,7 +2621,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 36;
 
-  /* "ARGON.pyx":59
+  /* "gases/ARGON.pyx":59
  *     NION2 = 47
  *     NION3 = 36
  *     NKSH = 89             # <<<<<<<<<<<<<<
@@ -2630,7 +2630,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSH = 89;
 
-  /* "ARGON.pyx":60
+  /* "gases/ARGON.pyx":60
  *     NION3 = 36
  *     NKSH = 89
  *     NL1S = 101             # <<<<<<<<<<<<<<
@@ -2639,7 +2639,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL1S = 0x65;
 
-  /* "ARGON.pyx":61
+  /* "gases/ARGON.pyx":61
  *     NKSH = 89
  *     NL1S = 101
  *     NL2S = 104             # <<<<<<<<<<<<<<
@@ -2648,7 +2648,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL2S = 0x68;
 
-  /* "ARGON.pyx":62
+  /* "gases/ARGON.pyx":62
  *     NL1S = 101
  *     NL2S = 104
  *     NL3S = 104             # <<<<<<<<<<<<<<
@@ -2657,7 +2657,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL3S = 0x68;
 
-  /* "ARGON.pyx":63
+  /* "gases/ARGON.pyx":63
  *     NL2S = 104
  *     NL3S = 104
  *     N1S5 = 71             # <<<<<<<<<<<<<<
@@ -2666,7 +2666,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S5 = 71;
 
-  /* "ARGON.pyx":64
+  /* "gases/ARGON.pyx":64
  *     NL3S = 104
  *     N1S5 = 71
  *     N1S4 = 79             # <<<<<<<<<<<<<<
@@ -2675,7 +2675,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S4 = 79;
 
-  /* "ARGON.pyx":65
+  /* "gases/ARGON.pyx":65
  *     N1S5 = 71
  *     N1S4 = 79
  *     N1S3 = 70             # <<<<<<<<<<<<<<
@@ -2684,7 +2684,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S3 = 70;
 
-  /* "ARGON.pyx":66
+  /* "gases/ARGON.pyx":66
  *     N1S4 = 79
  *     N1S3 = 70
  *     N1S2 = 70             # <<<<<<<<<<<<<<
@@ -2693,7 +2693,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S2 = 70;
 
-  /* "ARGON.pyx":67
+  /* "gases/ARGON.pyx":67
  *     N1S3 = 70
  *     N1S2 = 70
  *     N2P10 = 54             # <<<<<<<<<<<<<<
@@ -2702,7 +2702,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P10 = 54;
 
-  /* "ARGON.pyx":68
+  /* "gases/ARGON.pyx":68
  *     N1S2 = 70
  *     N2P10 = 54
  *     N2P9 = 17             # <<<<<<<<<<<<<<
@@ -2711,7 +2711,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P9 = 17;
 
-  /* "ARGON.pyx":69
+  /* "gases/ARGON.pyx":69
  *     N2P10 = 54
  *     N2P9 = 17
  *     N2P8 = 15             # <<<<<<<<<<<<<<
@@ -2720,7 +2720,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P8 = 15;
 
-  /* "ARGON.pyx":70
+  /* "gases/ARGON.pyx":70
  *     N2P9 = 17
  *     N2P8 = 15
  *     N2P7 = 17             # <<<<<<<<<<<<<<
@@ -2729,7 +2729,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P7 = 17;
 
-  /* "ARGON.pyx":71
+  /* "gases/ARGON.pyx":71
  *     N2P8 = 15
  *     N2P7 = 17
  *     N2P6 = 16             # <<<<<<<<<<<<<<
@@ -2738,7 +2738,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P6 = 16;
 
-  /* "ARGON.pyx":72
+  /* "gases/ARGON.pyx":72
  *     N2P7 = 17
  *     N2P6 = 16
  *     N2P5 = 17             # <<<<<<<<<<<<<<
@@ -2747,7 +2747,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P5 = 17;
 
-  /* "ARGON.pyx":73
+  /* "gases/ARGON.pyx":73
  *     N2P6 = 16
  *     N2P5 = 17
  *     N2P4 = 17             # <<<<<<<<<<<<<<
@@ -2756,7 +2756,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P4 = 17;
 
-  /* "ARGON.pyx":74
+  /* "gases/ARGON.pyx":74
  *     N2P5 = 17
  *     N2P4 = 17
  *     N2P3 = 17             # <<<<<<<<<<<<<<
@@ -2765,7 +2765,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P3 = 17;
 
-  /* "ARGON.pyx":75
+  /* "gases/ARGON.pyx":75
  *     N2P4 = 17
  *     N2P3 = 17
  *     N2P2 = 16             # <<<<<<<<<<<<<<
@@ -2774,7 +2774,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P2 = 16;
 
-  /* "ARGON.pyx":76
+  /* "gases/ARGON.pyx":76
  *     N2P3 = 17
  *     N2P2 = 16
  *     N2P1 = 17             # <<<<<<<<<<<<<<
@@ -2783,7 +2783,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P1 = 17;
 
-  /* "ARGON.pyx":77
+  /* "gases/ARGON.pyx":77
  *     N2P2 = 16
  *     N2P1 = 17
  *     N3D6 = 19             # <<<<<<<<<<<<<<
@@ -2792,7 +2792,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D6 = 19;
 
-  /* "ARGON.pyx":78
+  /* "gases/ARGON.pyx":78
  *     N2P1 = 17
  *     N3D6 = 19
  *     N3D5 = 26             # <<<<<<<<<<<<<<
@@ -2801,7 +2801,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D5 = 26;
 
-  /* "ARGON.pyx":79
+  /* "gases/ARGON.pyx":79
  *     N3D6 = 19
  *     N3D5 = 26
  *     N3D3 = 20             # <<<<<<<<<<<<<<
@@ -2810,7 +2810,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D3 = 20;
 
-  /* "ARGON.pyx":80
+  /* "gases/ARGON.pyx":80
  *     N3D5 = 26
  *     N3D3 = 20
  *     N3D4P = 20             # <<<<<<<<<<<<<<
@@ -2819,7 +2819,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D4P = 20;
 
-  /* "ARGON.pyx":81
+  /* "gases/ARGON.pyx":81
  *     N3D3 = 20
  *     N3D4P = 20
  *     N3D4 = 23             # <<<<<<<<<<<<<<
@@ -2828,7 +2828,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D4 = 23;
 
-  /* "ARGON.pyx":82
+  /* "gases/ARGON.pyx":82
  *     N3D4P = 20
  *     N3D4 = 23
  *     N3D1PP = 19             # <<<<<<<<<<<<<<
@@ -2837,7 +2837,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D1PP = 19;
 
-  /* "ARGON.pyx":83
+  /* "gases/ARGON.pyx":83
  *     N3D4 = 23
  *     N3D1PP = 19
  *     N2S5 = 19             # <<<<<<<<<<<<<<
@@ -2846,7 +2846,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2S5 = 19;
 
-  /* "ARGON.pyx":84
+  /* "gases/ARGON.pyx":84
  *     N3D1PP = 19
  *     N2S5 = 19
  *     N3D1P = 16             # <<<<<<<<<<<<<<
@@ -2855,7 +2855,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D1P = 16;
 
-  /* "ARGON.pyx":85
+  /* "gases/ARGON.pyx":85
  *     N2S5 = 19
  *     N3D1P = 16
  *     N3S1PPPP = 21             # <<<<<<<<<<<<<<
@@ -2864,7 +2864,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PPPP = 21;
 
-  /* "ARGON.pyx":86
+  /* "gases/ARGON.pyx":86
  *     N3D1P = 16
  *     N3S1PPPP = 21
  *     N3S1PP = 21             # <<<<<<<<<<<<<<
@@ -2873,7 +2873,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PP = 21;
 
-  /* "ARGON.pyx":87
+  /* "gases/ARGON.pyx":87
  *     N3S1PPPP = 21
  *     N3S1PP = 21
  *     N3S1PPP = 16             # <<<<<<<<<<<<<<
@@ -2882,7 +2882,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PPP = 16;
 
-  /* "ARGON.pyx":88
+  /* "gases/ARGON.pyx":88
  *     N3S1PP = 21
  *     N3S1PPP = 16
  *     N2S3 = 19             # <<<<<<<<<<<<<<
@@ -2891,7 +2891,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2S3 = 19;
 
-  /* "ARGON.pyx":89
+  /* "gases/ARGON.pyx":89
  *     N3S1PPP = 16
  *     N2S3 = 19
  *     EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -2900,7 +2900,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "ARGON.pyx":90
+  /* "gases/ARGON.pyx":90
  *     N2S3 = 19
  *     EMASS = 9.10938291e-31
  *     AMU = 1.660538921e-27             # <<<<<<<<<<<<<<
@@ -2909,7 +2909,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "ARGON.pyx":91
+  /* "gases/ARGON.pyx":91
  *     EMASS = 9.10938291e-31
  *     AMU = 1.660538921e-27
  *     object.E = [0.0, 1.0, <float>(15.75961), 0.0, 0.0, <float>(15.0)]             # <<<<<<<<<<<<<<
@@ -2924,7 +2924,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_9[5] = ((float)15.0);
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_9, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "ARGON.pyx":92
+  /* "gases/ARGON.pyx":92
  *     AMU = 1.660538921e-27
  *     object.E = [0.0, 1.0, <float>(15.75961), 0.0, 0.0, <float>(15.0)]
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(39.948) * AMU)             # <<<<<<<<<<<<<<
@@ -2933,7 +2933,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((((float)2.0) * __pyx_v_EMASS) / (((float)39.948) * __pyx_v_AMU));
 
-  /* "ARGON.pyx":94
+  /* "gases/ARGON.pyx":94
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(39.948) * AMU)
  *     cdef double EOBY[30], ISHELL[30], LEGAS[30], WKLM[30]
  *     EOBY[0:7] = [<float>(9.5), <float>(18.0), <float>(34.0), <float>(110.0), <float>(110.0), <float>(150.0), <float>(1800)]             # <<<<<<<<<<<<<<
@@ -2949,7 +2949,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_10[6] = ((float)0x708);
   memcpy(&(__pyx_v_EOBY[0]), __pyx_t_10, sizeof(__pyx_v_EOBY[0]) * (7));
 
-  /* "ARGON.pyx":96
+  /* "gases/ARGON.pyx":96
  *     EOBY[0:7] = [<float>(9.5), <float>(18.0), <float>(34.0), <float>(110.0), <float>(110.0), <float>(150.0), <float>(1800)]
  * 
  *     object.EION[0:7] = [<float>(15.75961), <float>(43.38928), <float>(84.124), <float>(248.4), <float>(250.6), <float>(326.3), <float>(3205.9)]             # <<<<<<<<<<<<<<
@@ -2965,7 +2965,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_11[6] = ((float)3205.9);
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_11, sizeof(__pyx_v_object->EION[0]) * (7));
 
-  /* "ARGON.pyx":97
+  /* "gases/ARGON.pyx":97
  * 
  *     object.EION[0:7] = [<float>(15.75961), <float>(43.38928), <float>(84.124), <float>(248.4), <float>(250.6), <float>(326.3), <float>(3205.9)]
  *     LEGAS[0:7] = [0, 0, 0, 1, 1, 1, 1]             # <<<<<<<<<<<<<<
@@ -2981,7 +2981,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_12[6] = 1.0;
   memcpy(&(__pyx_v_LEGAS[0]), __pyx_t_12, sizeof(__pyx_v_LEGAS[0]) * (7));
 
-  /* "ARGON.pyx":98
+  /* "gases/ARGON.pyx":98
  *     object.EION[0:7] = [<float>(15.75961), <float>(43.38928), <float>(84.124), <float>(248.4), <float>(250.6), <float>(326.3), <float>(3205.9)]
  *     LEGAS[0:7] = [0, 0, 0, 1, 1, 1, 1]
  *     ISHELL[0:7] = [0, 0, 0, 4, 3, 2, 1]             # <<<<<<<<<<<<<<
@@ -2997,7 +2997,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_13[6] = 1.0;
   memcpy(&(__pyx_v_ISHELL[0]), __pyx_t_13, sizeof(__pyx_v_ISHELL[0]) * (7));
 
-  /* "ARGON.pyx":99
+  /* "gases/ARGON.pyx":99
  *     LEGAS[0:7] = [0, 0, 0, 1, 1, 1, 1]
  *     ISHELL[0:7] = [0, 0, 0, 4, 3, 2, 1]
  *     object.NC0[0:7] = [0, 1, 2, 2, 2, 3, 4]             # <<<<<<<<<<<<<<
@@ -3013,7 +3013,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_14[6] = 4.0;
   memcpy(&(__pyx_v_object->NC0[0]), __pyx_t_14, sizeof(__pyx_v_object->NC0[0]) * (7));
 
-  /* "ARGON.pyx":100
+  /* "gases/ARGON.pyx":100
  *     ISHELL[0:7] = [0, 0, 0, 4, 3, 2, 1]
  *     object.NC0[0:7] = [0, 1, 2, 2, 2, 3, 4]
  *     object.EC0[0:7] = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]             # <<<<<<<<<<<<<<
@@ -3029,7 +3029,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_15[6] = 3071.0;
   memcpy(&(__pyx_v_object->EC0[0]), __pyx_t_15, sizeof(__pyx_v_object->EC0[0]) * (7));
 
-  /* "ARGON.pyx":101
+  /* "gases/ARGON.pyx":101
  *     object.NC0[0:7] = [0, 1, 2, 2, 2, 3, 4]
  *     object.EC0[0:7] = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]
  *     WKLM[0:7] = [0.0, 0.0, 0.0, <float>(0.00147), <float>(0.00147), <float>(0.00147), <float>(0.12)]             # <<<<<<<<<<<<<<
@@ -3045,7 +3045,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_16[6] = ((float)0.12);
   memcpy(&(__pyx_v_WKLM[0]), __pyx_t_16, sizeof(__pyx_v_WKLM[0]) * (7));
 
-  /* "ARGON.pyx":102
+  /* "gases/ARGON.pyx":102
  *     object.EC0[0:7] = [0.0, 6.0, 12.0, 210.5, 202.2, 240.8, 3071]
  *     WKLM[0:7] = [0.0, 0.0, 0.0, <float>(0.00147), <float>(0.00147), <float>(0.00147), <float>(0.12)]
  *     object.WK=WKLM             # <<<<<<<<<<<<<<
@@ -3054,7 +3054,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   memcpy(&(__pyx_v_object->WK[0]), __pyx_v_WKLM, sizeof(__pyx_v_object->WK[0]) * (30));
 
-  /* "ARGON.pyx":103
+  /* "gases/ARGON.pyx":103
  *     WKLM[0:7] = [0.0, 0.0, 0.0, <float>(0.00147), <float>(0.00147), <float>(0.00147), <float>(0.12)]
  *     object.WK=WKLM
  *     object.EFL[0:7] = [0.0, 0.0, 0.0, 232, 235, 310, 2957]             # <<<<<<<<<<<<<<
@@ -3070,7 +3070,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_17[6] = 2957.0;
   memcpy(&(__pyx_v_object->EFL[0]), __pyx_t_17, sizeof(__pyx_v_object->EFL[0]) * (7));
 
-  /* "ARGON.pyx":104
+  /* "gases/ARGON.pyx":104
  *     object.WK=WKLM
  *     object.EFL[0:7] = [0.0, 0.0, 0.0, 232, 235, 310, 2957]
  *     object.NG1[0:7] = [0, 0, 0, 1, 1, 2, 3]             # <<<<<<<<<<<<<<
@@ -3086,7 +3086,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_18[6] = 3.0;
   memcpy(&(__pyx_v_object->NG1[0]), __pyx_t_18, sizeof(__pyx_v_object->NG1[0]) * (7));
 
-  /* "ARGON.pyx":105
+  /* "gases/ARGON.pyx":105
  *     object.EFL[0:7] = [0.0, 0.0, 0.0, 232, 235, 310, 2957]
  *     object.NG1[0:7] = [0, 0, 0, 1, 1, 2, 3]
  *     object.EG1[0:7] = [0.0, 0.0, 0.0, 210.5, 202.2, 240.8, 2850]             # <<<<<<<<<<<<<<
@@ -3102,7 +3102,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_19[6] = 2850.0;
   memcpy(&(__pyx_v_object->EG1[0]), __pyx_t_19, sizeof(__pyx_v_object->EG1[0]) * (7));
 
-  /* "ARGON.pyx":106
+  /* "gases/ARGON.pyx":106
  *     object.NG1[0:7] = [0, 0, 0, 1, 1, 2, 3]
  *     object.EG1[0:7] = [0.0, 0.0, 0.0, 210.5, 202.2, 240.8, 2850]
  *     object.NG2[0:7] = [0.0, 0.0, 0.0, 1, 1, 1, 2]             # <<<<<<<<<<<<<<
@@ -3118,7 +3118,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_20[6] = 2.0;
   memcpy(&(__pyx_v_object->NG2[0]), __pyx_t_20, sizeof(__pyx_v_object->NG2[0]) * (7));
 
-  /* "ARGON.pyx":108
+  /* "gases/ARGON.pyx":108
  *     object.NG2[0:7] = [0.0, 0.0, 0.0, 1, 1, 1, 2]
  *     #TODO: typo in magboltz
  *     object.EG2[0:7] = [0.0, 0.0, 0.0, 5.0, 5.0, 5.0, 220]             # <<<<<<<<<<<<<<
@@ -3134,7 +3134,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_21[6] = 220.0;
   memcpy(&(__pyx_v_object->EG2[0]), __pyx_t_21, sizeof(__pyx_v_object->EG2[0]) * (7));
 
-  /* "ARGON.pyx":111
+  /* "gases/ARGON.pyx":111
  * 
  *     cdef int IOFFION[10]
  *     IOFFION = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]             # <<<<<<<<<<<<<<
@@ -3153,7 +3153,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_22[9] = 0;
   memcpy(&(__pyx_v_IOFFION[0]), __pyx_t_22, sizeof(__pyx_v_IOFFION[0]) * (10));
 
-  /* "ARGON.pyx":114
+  /* "gases/ARGON.pyx":114
  *     cdef int IOFFN[44]
  * 
  *     for i in range(44):             # <<<<<<<<<<<<<<
@@ -3163,7 +3163,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_5 = 0; __pyx_t_5 < 44; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "ARGON.pyx":115
+    /* "gases/ARGON.pyx":115
  * 
  *     for i in range(44):
  *         IOFFN[i] = 0             # <<<<<<<<<<<<<<
@@ -3173,7 +3173,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_IOFFN[__pyx_v_i]) = 0;
   }
 
-  /* "ARGON.pyx":117
+  /* "gases/ARGON.pyx":117
  *         IOFFN[i] = 0
  * 
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -3185,7 +3185,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_j = __pyx_t_7;
 
-    /* "ARGON.pyx":118
+    /* "gases/ARGON.pyx":118
  * 
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -3195,7 +3195,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_8 = 0; __pyx_t_8 < 0xFA0; __pyx_t_8+=1) {
       __pyx_v_i = __pyx_t_8;
 
-      /* "ARGON.pyx":119
+      /* "gases/ARGON.pyx":119
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if object.EG[i] > object.EION[j]:             # <<<<<<<<<<<<<<
@@ -3205,7 +3205,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":120
+        /* "gases/ARGON.pyx":120
  *         for i in range(0, 4000):
  *             if object.EG[i] > object.EION[j]:
  *                 IOFFION[j] = i             # <<<<<<<<<<<<<<
@@ -3214,7 +3214,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = __pyx_v_i;
 
-        /* "ARGON.pyx":121
+        /* "gases/ARGON.pyx":121
  *             if object.EG[i] > object.EION[j]:
  *                 IOFFION[j] = i
  *                 break             # <<<<<<<<<<<<<<
@@ -3223,7 +3223,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L12_break;
 
-        /* "ARGON.pyx":119
+        /* "gases/ARGON.pyx":119
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if object.EG[i] > object.EION[j]:             # <<<<<<<<<<<<<<
@@ -3235,7 +3235,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L12_break:;
   }
 
-  /* "ARGON.pyx":131
+  /* "gases/ARGON.pyx":131
  *     cdef double YEP3D4[23],X3D3[20],Y3D3[20],YEP3D3[20],X3D1PP[19],Y3D1PP[19],YEP3D1PP[19],X3D1P[16],Y3D1P[16],YEP3D1P[16],X3S1PPPP[21]
  *     cdef double Y3S1PPPP[21],YEP3S1PPPP[21],X3S1PPP[16],Y3S1PPP[16],YEP3S1PPP[16],X3S1PP[21],Y3S1PP[21],YEP3S1PP[21],X2S5[19],Y2S5[19],YEP2S5[19],X2S3[19],Y2S3[19],YEP2S3[19]
  *     object.EIN = gd['gas2/EIN']             # <<<<<<<<<<<<<<
@@ -3252,7 +3252,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_24, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "ARGON.pyx":132
+  /* "gases/ARGON.pyx":132
  *     cdef double Y3S1PPPP[21],YEP3S1PPPP[21],X3S1PPP[16],Y3S1PPP[16],YEP3S1PPP[16],X3S1PP[21],Y3S1PP[21],YEP3S1PP[21],X2S5[19],Y2S5[19],YEP2S5[19],X2S3[19],Y2S3[19],YEP2S3[19]
  *     object.EIN = gd['gas2/EIN']
  *     XEN = gd['gas2/XEN']             # <<<<<<<<<<<<<<
@@ -3269,7 +3269,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_25, sizeof(__pyx_v_XEN[0]) * (0x75));
 
-  /* "ARGON.pyx":133
+  /* "gases/ARGON.pyx":133
  *     object.EIN = gd['gas2/EIN']
  *     XEN = gd['gas2/XEN']
  *     YSEC = gd['gas2/YSEC']             # <<<<<<<<<<<<<<
@@ -3286,7 +3286,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YSEC[0]), __pyx_t_25, sizeof(__pyx_v_YSEC[0]) * (0x75));
 
-  /* "ARGON.pyx":134
+  /* "gases/ARGON.pyx":134
  *     XEN = gd['gas2/XEN']
  *     YSEC = gd['gas2/YSEC']
  *     YEL = gd['gas2/YEL']             # <<<<<<<<<<<<<<
@@ -3303,7 +3303,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEL[0]), __pyx_t_25, sizeof(__pyx_v_YEL[0]) * (0x75));
 
-  /* "ARGON.pyx":135
+  /* "gases/ARGON.pyx":135
  *     YSEC = gd['gas2/YSEC']
  *     YEL = gd['gas2/YEL']
  *     XEPS = gd['gas2/XEPS']             # <<<<<<<<<<<<<<
@@ -3320,7 +3320,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEPS[0]), __pyx_t_26, sizeof(__pyx_v_XEPS[0]) * (0xD9));
 
-  /* "ARGON.pyx":136
+  /* "gases/ARGON.pyx":136
  *     YEL = gd['gas2/YEL']
  *     XEPS = gd['gas2/XEPS']
  *     YEPS = gd['gas2/YEPS']             # <<<<<<<<<<<<<<
@@ -3337,7 +3337,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_26, sizeof(__pyx_v_YEPS[0]) * (0xD9));
 
-  /* "ARGON.pyx":137
+  /* "gases/ARGON.pyx":137
  *     XEPS = gd['gas2/XEPS']
  *     YEPS = gd['gas2/YEPS']
  *     XENI = gd['gas2/XENI']             # <<<<<<<<<<<<<<
@@ -3350,7 +3350,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XENI[0]), __pyx_t_27, sizeof(__pyx_v_XENI[0]) * (75));
 
-  /* "ARGON.pyx":138
+  /* "gases/ARGON.pyx":138
  *     YEPS = gd['gas2/YEPS']
  *     XENI = gd['gas2/XENI']
  *     YENI = gd['gas2/YENI']             # <<<<<<<<<<<<<<
@@ -3363,7 +3363,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YENI[0]), __pyx_t_27, sizeof(__pyx_v_YENI[0]) * (75));
 
-  /* "ARGON.pyx":139
+  /* "gases/ARGON.pyx":139
  *     XENI = gd['gas2/XENI']
  *     YENI = gd['gas2/YENI']
  *     YENC = gd['gas2/YENC']             # <<<<<<<<<<<<<<
@@ -3376,7 +3376,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YENC[0]), __pyx_t_27, sizeof(__pyx_v_YENC[0]) * (75));
 
-  /* "ARGON.pyx":140
+  /* "gases/ARGON.pyx":140
  *     YENI = gd['gas2/YENI']
  *     YENC = gd['gas2/YENC']
  *     YEN1 = gd['gas2/YEN1']             # <<<<<<<<<<<<<<
@@ -3389,7 +3389,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEN1[0]), __pyx_t_27, sizeof(__pyx_v_YEN1[0]) * (75));
 
-  /* "ARGON.pyx":141
+  /* "gases/ARGON.pyx":141
  *     YENC = gd['gas2/YENC']
  *     YEN1 = gd['gas2/YEN1']
  *     XEN2 = gd['gas2/XEN2']             # <<<<<<<<<<<<<<
@@ -3402,7 +3402,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEN2[0]), __pyx_t_28, sizeof(__pyx_v_XEN2[0]) * (47));
 
-  /* "ARGON.pyx":142
+  /* "gases/ARGON.pyx":142
  *     YEN1 = gd['gas2/YEN1']
  *     XEN2 = gd['gas2/XEN2']
  *     YEN2 = gd['gas2/YEN2']             # <<<<<<<<<<<<<<
@@ -3415,7 +3415,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEN2[0]), __pyx_t_28, sizeof(__pyx_v_YEN2[0]) * (47));
 
-  /* "ARGON.pyx":143
+  /* "gases/ARGON.pyx":143
  *     XEN2 = gd['gas2/XEN2']
  *     YEN2 = gd['gas2/YEN2']
  *     XEN3 = gd['gas2/XEN3']             # <<<<<<<<<<<<<<
@@ -3428,7 +3428,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEN3[0]), __pyx_t_29, sizeof(__pyx_v_XEN3[0]) * (36));
 
-  /* "ARGON.pyx":144
+  /* "gases/ARGON.pyx":144
  *     YEN2 = gd['gas2/YEN2']
  *     XEN3 = gd['gas2/XEN3']
  *     YEN3 = gd['gas2/YEN3']             # <<<<<<<<<<<<<<
@@ -3441,7 +3441,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEN3[0]), __pyx_t_29, sizeof(__pyx_v_YEN3[0]) * (36));
 
-  /* "ARGON.pyx":145
+  /* "gases/ARGON.pyx":145
  *     XEN3 = gd['gas2/XEN3']
  *     YEN3 = gd['gas2/YEN3']
  *     XKSH = gd['gas2/XKSH']             # <<<<<<<<<<<<<<
@@ -3454,7 +3454,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSH[0]), __pyx_t_30, sizeof(__pyx_v_XKSH[0]) * (89));
 
-  /* "ARGON.pyx":146
+  /* "gases/ARGON.pyx":146
  *     YEN3 = gd['gas2/YEN3']
  *     XKSH = gd['gas2/XKSH']
  *     YKSH = gd['gas2/YKSH']             # <<<<<<<<<<<<<<
@@ -3467,7 +3467,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSH[0]), __pyx_t_30, sizeof(__pyx_v_YKSH[0]) * (89));
 
-  /* "ARGON.pyx":147
+  /* "gases/ARGON.pyx":147
  *     XKSH = gd['gas2/XKSH']
  *     YKSH = gd['gas2/YKSH']
  *     XL1S = gd['gas2/XL1S']             # <<<<<<<<<<<<<<
@@ -3484,7 +3484,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XL1S[0]), __pyx_t_31, sizeof(__pyx_v_XL1S[0]) * (0x65));
 
-  /* "ARGON.pyx":148
+  /* "gases/ARGON.pyx":148
  *     YKSH = gd['gas2/YKSH']
  *     XL1S = gd['gas2/XL1S']
  *     YL1S = gd['gas2/YL1S']             # <<<<<<<<<<<<<<
@@ -3501,7 +3501,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YL1S[0]), __pyx_t_31, sizeof(__pyx_v_YL1S[0]) * (0x65));
 
-  /* "ARGON.pyx":149
+  /* "gases/ARGON.pyx":149
  *     XL1S = gd['gas2/XL1S']
  *     YL1S = gd['gas2/YL1S']
  *     XL2S = gd['gas2/XL2S']             # <<<<<<<<<<<<<<
@@ -3518,7 +3518,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XL2S[0]), __pyx_t_32, sizeof(__pyx_v_XL2S[0]) * (0x68));
 
-  /* "ARGON.pyx":150
+  /* "gases/ARGON.pyx":150
  *     YL1S = gd['gas2/YL1S']
  *     XL2S = gd['gas2/XL2S']
  *     YL2S = gd['gas2/YL2S']             # <<<<<<<<<<<<<<
@@ -3535,7 +3535,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YL2S[0]), __pyx_t_32, sizeof(__pyx_v_YL2S[0]) * (0x68));
 
-  /* "ARGON.pyx":151
+  /* "gases/ARGON.pyx":151
  *     XL2S = gd['gas2/XL2S']
  *     YL2S = gd['gas2/YL2S']
  *     XL3S = gd['gas2/XL3S']             # <<<<<<<<<<<<<<
@@ -3552,7 +3552,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XL3S[0]), __pyx_t_32, sizeof(__pyx_v_XL3S[0]) * (0x68));
 
-  /* "ARGON.pyx":152
+  /* "gases/ARGON.pyx":152
  *     YL2S = gd['gas2/YL2S']
  *     XL3S = gd['gas2/XL3S']
  *     YL3S = gd['gas2/YL3S']             # <<<<<<<<<<<<<<
@@ -3569,7 +3569,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YL3S[0]), __pyx_t_32, sizeof(__pyx_v_YL3S[0]) * (0x68));
 
-  /* "ARGON.pyx":153
+  /* "gases/ARGON.pyx":153
  *     XL3S = gd['gas2/XL3S']
  *     YL3S = gd['gas2/YL3S']
  *     X1S5 = gd['gas2/X1S5']             # <<<<<<<<<<<<<<
@@ -3582,7 +3582,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X1S5[0]), __pyx_t_33, sizeof(__pyx_v_X1S5[0]) * (71));
 
-  /* "ARGON.pyx":154
+  /* "gases/ARGON.pyx":154
  *     YL3S = gd['gas2/YL3S']
  *     X1S5 = gd['gas2/X1S5']
  *     Y1S5 = gd['gas2/Y1S5']             # <<<<<<<<<<<<<<
@@ -3595,7 +3595,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y1S5[0]), __pyx_t_33, sizeof(__pyx_v_Y1S5[0]) * (71));
 
-  /* "ARGON.pyx":155
+  /* "gases/ARGON.pyx":155
  *     X1S5 = gd['gas2/X1S5']
  *     Y1S5 = gd['gas2/Y1S5']
  *     YEPS1 = gd['gas2/YEPS1']             # <<<<<<<<<<<<<<
@@ -3608,7 +3608,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEPS1[0]), __pyx_t_33, sizeof(__pyx_v_YEPS1[0]) * (71));
 
-  /* "ARGON.pyx":156
+  /* "gases/ARGON.pyx":156
  *     Y1S5 = gd['gas2/Y1S5']
  *     YEPS1 = gd['gas2/YEPS1']
  *     X1S4 = gd['gas2/X1S4']             # <<<<<<<<<<<<<<
@@ -3621,7 +3621,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X1S4[0]), __pyx_t_34, sizeof(__pyx_v_X1S4[0]) * (79));
 
-  /* "ARGON.pyx":157
+  /* "gases/ARGON.pyx":157
  *     YEPS1 = gd['gas2/YEPS1']
  *     X1S4 = gd['gas2/X1S4']
  *     Y1S4 = gd['gas2/Y1S4']             # <<<<<<<<<<<<<<
@@ -3634,7 +3634,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y1S4[0]), __pyx_t_34, sizeof(__pyx_v_Y1S4[0]) * (79));
 
-  /* "ARGON.pyx":158
+  /* "gases/ARGON.pyx":158
  *     X1S4 = gd['gas2/X1S4']
  *     Y1S4 = gd['gas2/Y1S4']
  *     YEPS2 = gd['gas2/YEPS2']             # <<<<<<<<<<<<<<
@@ -3647,7 +3647,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEPS2[0]), __pyx_t_34, sizeof(__pyx_v_YEPS2[0]) * (79));
 
-  /* "ARGON.pyx":159
+  /* "gases/ARGON.pyx":159
  *     Y1S4 = gd['gas2/Y1S4']
  *     YEPS2 = gd['gas2/YEPS2']
  *     X1S3 = gd['gas2/X1S3']             # <<<<<<<<<<<<<<
@@ -3660,7 +3660,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X1S3[0]), __pyx_t_35, sizeof(__pyx_v_X1S3[0]) * (70));
 
-  /* "ARGON.pyx":160
+  /* "gases/ARGON.pyx":160
  *     YEPS2 = gd['gas2/YEPS2']
  *     X1S3 = gd['gas2/X1S3']
  *     Y1S3 = gd['gas2/Y1S3']             # <<<<<<<<<<<<<<
@@ -3673,7 +3673,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y1S3[0]), __pyx_t_35, sizeof(__pyx_v_Y1S3[0]) * (70));
 
-  /* "ARGON.pyx":161
+  /* "gases/ARGON.pyx":161
  *     X1S3 = gd['gas2/X1S3']
  *     Y1S3 = gd['gas2/Y1S3']
  *     YEPS3 = gd['gas2/YEPS3']             # <<<<<<<<<<<<<<
@@ -3686,7 +3686,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEPS3[0]), __pyx_t_35, sizeof(__pyx_v_YEPS3[0]) * (70));
 
-  /* "ARGON.pyx":162
+  /* "gases/ARGON.pyx":162
  *     Y1S3 = gd['gas2/Y1S3']
  *     YEPS3 = gd['gas2/YEPS3']
  *     X1S2 = gd['gas2/X1S2']             # <<<<<<<<<<<<<<
@@ -3699,7 +3699,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X1S2[0]), __pyx_t_35, sizeof(__pyx_v_X1S2[0]) * (70));
 
-  /* "ARGON.pyx":163
+  /* "gases/ARGON.pyx":163
  *     YEPS3 = gd['gas2/YEPS3']
  *     X1S2 = gd['gas2/X1S2']
  *     Y1S2 = gd['gas2/Y1S2']             # <<<<<<<<<<<<<<
@@ -3712,7 +3712,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y1S2[0]), __pyx_t_35, sizeof(__pyx_v_Y1S2[0]) * (70));
 
-  /* "ARGON.pyx":164
+  /* "gases/ARGON.pyx":164
  *     X1S2 = gd['gas2/X1S2']
  *     Y1S2 = gd['gas2/Y1S2']
  *     YEPS4 = gd['gas2/YEPS4']             # <<<<<<<<<<<<<<
@@ -3725,7 +3725,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEPS4[0]), __pyx_t_35, sizeof(__pyx_v_YEPS4[0]) * (70));
 
-  /* "ARGON.pyx":165
+  /* "gases/ARGON.pyx":165
  *     Y1S2 = gd['gas2/Y1S2']
  *     YEPS4 = gd['gas2/YEPS4']
  *     X2P10 = gd['gas2/X2P10']             # <<<<<<<<<<<<<<
@@ -3738,7 +3738,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P10[0]), __pyx_t_36, sizeof(__pyx_v_X2P10[0]) * (54));
 
-  /* "ARGON.pyx":166
+  /* "gases/ARGON.pyx":166
  *     YEPS4 = gd['gas2/YEPS4']
  *     X2P10 = gd['gas2/X2P10']
  *     Y2P10 = gd['gas2/Y2P10']             # <<<<<<<<<<<<<<
@@ -3751,7 +3751,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P10[0]), __pyx_t_36, sizeof(__pyx_v_Y2P10[0]) * (54));
 
-  /* "ARGON.pyx":167
+  /* "gases/ARGON.pyx":167
  *     X2P10 = gd['gas2/X2P10']
  *     Y2P10 = gd['gas2/Y2P10']
  *     YEP2P10 = gd['gas2/YEP2P10']             # <<<<<<<<<<<<<<
@@ -3764,7 +3764,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P10[0]), __pyx_t_36, sizeof(__pyx_v_YEP2P10[0]) * (54));
 
-  /* "ARGON.pyx":168
+  /* "gases/ARGON.pyx":168
  *     Y2P10 = gd['gas2/Y2P10']
  *     YEP2P10 = gd['gas2/YEP2P10']
  *     X2P9 = gd['gas2/X2P9']             # <<<<<<<<<<<<<<
@@ -3777,7 +3777,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P9[0]), __pyx_t_37, sizeof(__pyx_v_X2P9[0]) * (17));
 
-  /* "ARGON.pyx":169
+  /* "gases/ARGON.pyx":169
  *     YEP2P10 = gd['gas2/YEP2P10']
  *     X2P9 = gd['gas2/X2P9']
  *     Y2P9 = gd['gas2/Y2P9']             # <<<<<<<<<<<<<<
@@ -3790,7 +3790,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P9[0]), __pyx_t_37, sizeof(__pyx_v_Y2P9[0]) * (17));
 
-  /* "ARGON.pyx":170
+  /* "gases/ARGON.pyx":170
  *     X2P9 = gd['gas2/X2P9']
  *     Y2P9 = gd['gas2/Y2P9']
  *     YEP2P9 = gd['gas2/YEP2P9']             # <<<<<<<<<<<<<<
@@ -3803,7 +3803,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P9[0]), __pyx_t_37, sizeof(__pyx_v_YEP2P9[0]) * (17));
 
-  /* "ARGON.pyx":171
+  /* "gases/ARGON.pyx":171
  *     Y2P9 = gd['gas2/Y2P9']
  *     YEP2P9 = gd['gas2/YEP2P9']
  *     X2P8 = gd['gas2/X2P8']             # <<<<<<<<<<<<<<
@@ -3816,7 +3816,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P8[0]), __pyx_t_38, sizeof(__pyx_v_X2P8[0]) * (15));
 
-  /* "ARGON.pyx":172
+  /* "gases/ARGON.pyx":172
  *     YEP2P9 = gd['gas2/YEP2P9']
  *     X2P8 = gd['gas2/X2P8']
  *     Y2P8 = gd['gas2/Y2P8']             # <<<<<<<<<<<<<<
@@ -3829,7 +3829,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P8[0]), __pyx_t_38, sizeof(__pyx_v_Y2P8[0]) * (15));
 
-  /* "ARGON.pyx":173
+  /* "gases/ARGON.pyx":173
  *     X2P8 = gd['gas2/X2P8']
  *     Y2P8 = gd['gas2/Y2P8']
  *     YEP2P8 = gd['gas2/YEP2P8']             # <<<<<<<<<<<<<<
@@ -3842,7 +3842,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P8[0]), __pyx_t_38, sizeof(__pyx_v_YEP2P8[0]) * (15));
 
-  /* "ARGON.pyx":174
+  /* "gases/ARGON.pyx":174
  *     Y2P8 = gd['gas2/Y2P8']
  *     YEP2P8 = gd['gas2/YEP2P8']
  *     X2P7 = gd['gas2/X2P7']             # <<<<<<<<<<<<<<
@@ -3855,7 +3855,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P7[0]), __pyx_t_37, sizeof(__pyx_v_X2P7[0]) * (17));
 
-  /* "ARGON.pyx":175
+  /* "gases/ARGON.pyx":175
  *     YEP2P8 = gd['gas2/YEP2P8']
  *     X2P7 = gd['gas2/X2P7']
  *     Y2P7 = gd['gas2/Y2P7']             # <<<<<<<<<<<<<<
@@ -3868,7 +3868,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P7[0]), __pyx_t_37, sizeof(__pyx_v_Y2P7[0]) * (17));
 
-  /* "ARGON.pyx":176
+  /* "gases/ARGON.pyx":176
  *     X2P7 = gd['gas2/X2P7']
  *     Y2P7 = gd['gas2/Y2P7']
  *     YEP2P7 = gd['gas2/YEP2P7']             # <<<<<<<<<<<<<<
@@ -3881,7 +3881,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P7[0]), __pyx_t_37, sizeof(__pyx_v_YEP2P7[0]) * (17));
 
-  /* "ARGON.pyx":177
+  /* "gases/ARGON.pyx":177
  *     Y2P7 = gd['gas2/Y2P7']
  *     YEP2P7 = gd['gas2/YEP2P7']
  *     X2P6 = gd['gas2/X2P6']             # <<<<<<<<<<<<<<
@@ -3894,7 +3894,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P6[0]), __pyx_t_39, sizeof(__pyx_v_X2P6[0]) * (16));
 
-  /* "ARGON.pyx":178
+  /* "gases/ARGON.pyx":178
  *     YEP2P7 = gd['gas2/YEP2P7']
  *     X2P6 = gd['gas2/X2P6']
  *     Y2P6 = gd['gas2/Y2P6']             # <<<<<<<<<<<<<<
@@ -3907,7 +3907,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P6[0]), __pyx_t_39, sizeof(__pyx_v_Y2P6[0]) * (16));
 
-  /* "ARGON.pyx":179
+  /* "gases/ARGON.pyx":179
  *     X2P6 = gd['gas2/X2P6']
  *     Y2P6 = gd['gas2/Y2P6']
  *     YEP2P6 = gd['gas2/YEP2P6']             # <<<<<<<<<<<<<<
@@ -3920,7 +3920,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P6[0]), __pyx_t_39, sizeof(__pyx_v_YEP2P6[0]) * (16));
 
-  /* "ARGON.pyx":180
+  /* "gases/ARGON.pyx":180
  *     Y2P6 = gd['gas2/Y2P6']
  *     YEP2P6 = gd['gas2/YEP2P6']
  *     X2P5 = gd['gas2/X2P5']             # <<<<<<<<<<<<<<
@@ -3933,7 +3933,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P5[0]), __pyx_t_37, sizeof(__pyx_v_X2P5[0]) * (17));
 
-  /* "ARGON.pyx":181
+  /* "gases/ARGON.pyx":181
  *     YEP2P6 = gd['gas2/YEP2P6']
  *     X2P5 = gd['gas2/X2P5']
  *     Y2P5 = gd['gas2/Y2P5']             # <<<<<<<<<<<<<<
@@ -3946,7 +3946,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P5[0]), __pyx_t_37, sizeof(__pyx_v_Y2P5[0]) * (17));
 
-  /* "ARGON.pyx":182
+  /* "gases/ARGON.pyx":182
  *     X2P5 = gd['gas2/X2P5']
  *     Y2P5 = gd['gas2/Y2P5']
  *     YEP2P5 = gd['gas2/YEP2P5']             # <<<<<<<<<<<<<<
@@ -3959,7 +3959,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P5[0]), __pyx_t_37, sizeof(__pyx_v_YEP2P5[0]) * (17));
 
-  /* "ARGON.pyx":183
+  /* "gases/ARGON.pyx":183
  *     Y2P5 = gd['gas2/Y2P5']
  *     YEP2P5 = gd['gas2/YEP2P5']
  *     X2P4 = gd['gas2/X2P4']             # <<<<<<<<<<<<<<
@@ -3972,7 +3972,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P4[0]), __pyx_t_37, sizeof(__pyx_v_X2P4[0]) * (17));
 
-  /* "ARGON.pyx":184
+  /* "gases/ARGON.pyx":184
  *     YEP2P5 = gd['gas2/YEP2P5']
  *     X2P4 = gd['gas2/X2P4']
  *     Y2P4 = gd['gas2/Y2P4']             # <<<<<<<<<<<<<<
@@ -3985,7 +3985,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P4[0]), __pyx_t_37, sizeof(__pyx_v_Y2P4[0]) * (17));
 
-  /* "ARGON.pyx":185
+  /* "gases/ARGON.pyx":185
  *     X2P4 = gd['gas2/X2P4']
  *     Y2P4 = gd['gas2/Y2P4']
  *     YEP2P4 = gd['gas2/YEP2P4']             # <<<<<<<<<<<<<<
@@ -3998,7 +3998,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P4[0]), __pyx_t_37, sizeof(__pyx_v_YEP2P4[0]) * (17));
 
-  /* "ARGON.pyx":186
+  /* "gases/ARGON.pyx":186
  *     Y2P4 = gd['gas2/Y2P4']
  *     YEP2P4 = gd['gas2/YEP2P4']
  *     X2P3 = gd['gas2/X2P3']             # <<<<<<<<<<<<<<
@@ -4011,7 +4011,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P3[0]), __pyx_t_37, sizeof(__pyx_v_X2P3[0]) * (17));
 
-  /* "ARGON.pyx":187
+  /* "gases/ARGON.pyx":187
  *     YEP2P4 = gd['gas2/YEP2P4']
  *     X2P3 = gd['gas2/X2P3']
  *     Y2P3 = gd['gas2/Y2P3']             # <<<<<<<<<<<<<<
@@ -4024,7 +4024,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P3[0]), __pyx_t_37, sizeof(__pyx_v_Y2P3[0]) * (17));
 
-  /* "ARGON.pyx":188
+  /* "gases/ARGON.pyx":188
  *     X2P3 = gd['gas2/X2P3']
  *     Y2P3 = gd['gas2/Y2P3']
  *     YEP2P3 = gd['gas2/YEP2P3']             # <<<<<<<<<<<<<<
@@ -4037,7 +4037,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P3[0]), __pyx_t_37, sizeof(__pyx_v_YEP2P3[0]) * (17));
 
-  /* "ARGON.pyx":189
+  /* "gases/ARGON.pyx":189
  *     Y2P3 = gd['gas2/Y2P3']
  *     YEP2P3 = gd['gas2/YEP2P3']
  *     X2P2 = gd['gas2/X2P2']             # <<<<<<<<<<<<<<
@@ -4050,7 +4050,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P2[0]), __pyx_t_39, sizeof(__pyx_v_X2P2[0]) * (16));
 
-  /* "ARGON.pyx":190
+  /* "gases/ARGON.pyx":190
  *     YEP2P3 = gd['gas2/YEP2P3']
  *     X2P2 = gd['gas2/X2P2']
  *     Y2P2 = gd['gas2/Y2P2']             # <<<<<<<<<<<<<<
@@ -4063,7 +4063,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P2[0]), __pyx_t_39, sizeof(__pyx_v_Y2P2[0]) * (16));
 
-  /* "ARGON.pyx":191
+  /* "gases/ARGON.pyx":191
  *     X2P2 = gd['gas2/X2P2']
  *     Y2P2 = gd['gas2/Y2P2']
  *     YEP2P2 = gd['gas2/YEP2P2']             # <<<<<<<<<<<<<<
@@ -4076,7 +4076,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P2[0]), __pyx_t_39, sizeof(__pyx_v_YEP2P2[0]) * (16));
 
-  /* "ARGON.pyx":192
+  /* "gases/ARGON.pyx":192
  *     Y2P2 = gd['gas2/Y2P2']
  *     YEP2P2 = gd['gas2/YEP2P2']
  *     X2P1 = gd['gas2/X2P1']             # <<<<<<<<<<<<<<
@@ -4089,7 +4089,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P1[0]), __pyx_t_37, sizeof(__pyx_v_X2P1[0]) * (17));
 
-  /* "ARGON.pyx":193
+  /* "gases/ARGON.pyx":193
  *     YEP2P2 = gd['gas2/YEP2P2']
  *     X2P1 = gd['gas2/X2P1']
  *     Y2P1 = gd['gas2/Y2P1']             # <<<<<<<<<<<<<<
@@ -4102,7 +4102,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P1[0]), __pyx_t_37, sizeof(__pyx_v_Y2P1[0]) * (17));
 
-  /* "ARGON.pyx":194
+  /* "gases/ARGON.pyx":194
  *     X2P1 = gd['gas2/X2P1']
  *     Y2P1 = gd['gas2/Y2P1']
  *     YEP2P1 = gd['gas2/YEP2P1']             # <<<<<<<<<<<<<<
@@ -4115,7 +4115,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2P1[0]), __pyx_t_37, sizeof(__pyx_v_YEP2P1[0]) * (17));
 
-  /* "ARGON.pyx":195
+  /* "gases/ARGON.pyx":195
  *     Y2P1 = gd['gas2/Y2P1']
  *     YEP2P1 = gd['gas2/YEP2P1']
  *     X3D6 = gd['gas2/X3D6']             # <<<<<<<<<<<<<<
@@ -4128,7 +4128,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D6[0]), __pyx_t_40, sizeof(__pyx_v_X3D6[0]) * (19));
 
-  /* "ARGON.pyx":196
+  /* "gases/ARGON.pyx":196
  *     YEP2P1 = gd['gas2/YEP2P1']
  *     X3D6 = gd['gas2/X3D6']
  *     Y3D6 = gd['gas2/Y3D6']             # <<<<<<<<<<<<<<
@@ -4141,7 +4141,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D6[0]), __pyx_t_40, sizeof(__pyx_v_Y3D6[0]) * (19));
 
-  /* "ARGON.pyx":197
+  /* "gases/ARGON.pyx":197
  *     X3D6 = gd['gas2/X3D6']
  *     Y3D6 = gd['gas2/Y3D6']
  *     YEP3D6 = gd['gas2/YEP3D6']             # <<<<<<<<<<<<<<
@@ -4154,7 +4154,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3D6[0]), __pyx_t_40, sizeof(__pyx_v_YEP3D6[0]) * (19));
 
-  /* "ARGON.pyx":198
+  /* "gases/ARGON.pyx":198
  *     Y3D6 = gd['gas2/Y3D6']
  *     YEP3D6 = gd['gas2/YEP3D6']
  *     X3D5 = gd['gas2/X3D5']             # <<<<<<<<<<<<<<
@@ -4167,7 +4167,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D5[0]), __pyx_t_41, sizeof(__pyx_v_X3D5[0]) * (26));
 
-  /* "ARGON.pyx":199
+  /* "gases/ARGON.pyx":199
  *     YEP3D6 = gd['gas2/YEP3D6']
  *     X3D5 = gd['gas2/X3D5']
  *     Y3D5 = gd['gas2/Y3D5']             # <<<<<<<<<<<<<<
@@ -4180,7 +4180,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D5[0]), __pyx_t_41, sizeof(__pyx_v_Y3D5[0]) * (26));
 
-  /* "ARGON.pyx":200
+  /* "gases/ARGON.pyx":200
  *     X3D5 = gd['gas2/X3D5']
  *     Y3D5 = gd['gas2/Y3D5']
  *     YEP3D5 = gd['gas2/YEP3D5']             # <<<<<<<<<<<<<<
@@ -4193,7 +4193,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3D5[0]), __pyx_t_41, sizeof(__pyx_v_YEP3D5[0]) * (26));
 
-  /* "ARGON.pyx":201
+  /* "gases/ARGON.pyx":201
  *     Y3D5 = gd['gas2/Y3D5']
  *     YEP3D5 = gd['gas2/YEP3D5']
  *     X3D4P = gd['gas2/X3D4P']             # <<<<<<<<<<<<<<
@@ -4206,7 +4206,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D4P[0]), __pyx_t_42, sizeof(__pyx_v_X3D4P[0]) * (20));
 
-  /* "ARGON.pyx":202
+  /* "gases/ARGON.pyx":202
  *     YEP3D5 = gd['gas2/YEP3D5']
  *     X3D4P = gd['gas2/X3D4P']
  *     Y3D4P = gd['gas2/Y3D4P']             # <<<<<<<<<<<<<<
@@ -4219,7 +4219,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D4P[0]), __pyx_t_42, sizeof(__pyx_v_Y3D4P[0]) * (20));
 
-  /* "ARGON.pyx":203
+  /* "gases/ARGON.pyx":203
  *     X3D4P = gd['gas2/X3D4P']
  *     Y3D4P = gd['gas2/Y3D4P']
  *     YEP3D4P = gd['gas2/YEP3D4P']             # <<<<<<<<<<<<<<
@@ -4232,7 +4232,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3D4P[0]), __pyx_t_42, sizeof(__pyx_v_YEP3D4P[0]) * (20));
 
-  /* "ARGON.pyx":204
+  /* "gases/ARGON.pyx":204
  *     Y3D4P = gd['gas2/Y3D4P']
  *     YEP3D4P = gd['gas2/YEP3D4P']
  *     X3D4 = gd['gas2/X3D4']             # <<<<<<<<<<<<<<
@@ -4245,7 +4245,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D4[0]), __pyx_t_43, sizeof(__pyx_v_X3D4[0]) * (23));
 
-  /* "ARGON.pyx":205
+  /* "gases/ARGON.pyx":205
  *     YEP3D4P = gd['gas2/YEP3D4P']
  *     X3D4 = gd['gas2/X3D4']
  *     Y3D4 = gd['gas2/Y3D4']             # <<<<<<<<<<<<<<
@@ -4258,7 +4258,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D4[0]), __pyx_t_43, sizeof(__pyx_v_Y3D4[0]) * (23));
 
-  /* "ARGON.pyx":206
+  /* "gases/ARGON.pyx":206
  *     X3D4 = gd['gas2/X3D4']
  *     Y3D4 = gd['gas2/Y3D4']
  *     YEP3D4 = gd['gas2/YEP3D4']             # <<<<<<<<<<<<<<
@@ -4271,7 +4271,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3D4[0]), __pyx_t_43, sizeof(__pyx_v_YEP3D4[0]) * (23));
 
-  /* "ARGON.pyx":207
+  /* "gases/ARGON.pyx":207
  *     Y3D4 = gd['gas2/Y3D4']
  *     YEP3D4 = gd['gas2/YEP3D4']
  *     X3D3 = gd['gas2/X3D3']             # <<<<<<<<<<<<<<
@@ -4284,7 +4284,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D3[0]), __pyx_t_42, sizeof(__pyx_v_X3D3[0]) * (20));
 
-  /* "ARGON.pyx":208
+  /* "gases/ARGON.pyx":208
  *     YEP3D4 = gd['gas2/YEP3D4']
  *     X3D3 = gd['gas2/X3D3']
  *     Y3D3 = gd['gas2/Y3D3']             # <<<<<<<<<<<<<<
@@ -4297,7 +4297,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D3[0]), __pyx_t_42, sizeof(__pyx_v_Y3D3[0]) * (20));
 
-  /* "ARGON.pyx":209
+  /* "gases/ARGON.pyx":209
  *     X3D3 = gd['gas2/X3D3']
  *     Y3D3 = gd['gas2/Y3D3']
  *     YEP3D3 = gd['gas2/YEP3D3']             # <<<<<<<<<<<<<<
@@ -4310,7 +4310,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3D3[0]), __pyx_t_42, sizeof(__pyx_v_YEP3D3[0]) * (20));
 
-  /* "ARGON.pyx":210
+  /* "gases/ARGON.pyx":210
  *     Y3D3 = gd['gas2/Y3D3']
  *     YEP3D3 = gd['gas2/YEP3D3']
  *     X3D1PP = gd['gas2/X3D1PP']             # <<<<<<<<<<<<<<
@@ -4323,7 +4323,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D1PP[0]), __pyx_t_40, sizeof(__pyx_v_X3D1PP[0]) * (19));
 
-  /* "ARGON.pyx":211
+  /* "gases/ARGON.pyx":211
  *     YEP3D3 = gd['gas2/YEP3D3']
  *     X3D1PP = gd['gas2/X3D1PP']
  *     Y3D1PP = gd['gas2/Y3D1PP']             # <<<<<<<<<<<<<<
@@ -4336,7 +4336,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D1PP[0]), __pyx_t_40, sizeof(__pyx_v_Y3D1PP[0]) * (19));
 
-  /* "ARGON.pyx":212
+  /* "gases/ARGON.pyx":212
  *     X3D1PP = gd['gas2/X3D1PP']
  *     Y3D1PP = gd['gas2/Y3D1PP']
  *     YEP3D1PP = gd['gas2/YEP3D1PP']             # <<<<<<<<<<<<<<
@@ -4349,7 +4349,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3D1PP[0]), __pyx_t_40, sizeof(__pyx_v_YEP3D1PP[0]) * (19));
 
-  /* "ARGON.pyx":213
+  /* "gases/ARGON.pyx":213
  *     Y3D1PP = gd['gas2/Y3D1PP']
  *     YEP3D1PP = gd['gas2/YEP3D1PP']
  *     X3D1P = gd['gas2/X3D1P']             # <<<<<<<<<<<<<<
@@ -4362,7 +4362,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D1P[0]), __pyx_t_39, sizeof(__pyx_v_X3D1P[0]) * (16));
 
-  /* "ARGON.pyx":214
+  /* "gases/ARGON.pyx":214
  *     YEP3D1PP = gd['gas2/YEP3D1PP']
  *     X3D1P = gd['gas2/X3D1P']
  *     Y3D1P = gd['gas2/Y3D1P']             # <<<<<<<<<<<<<<
@@ -4375,7 +4375,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D1P[0]), __pyx_t_39, sizeof(__pyx_v_Y3D1P[0]) * (16));
 
-  /* "ARGON.pyx":215
+  /* "gases/ARGON.pyx":215
  *     X3D1P = gd['gas2/X3D1P']
  *     Y3D1P = gd['gas2/Y3D1P']
  *     YEP3D1P = gd['gas2/YEP3D1P']             # <<<<<<<<<<<<<<
@@ -4388,7 +4388,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3D1P[0]), __pyx_t_39, sizeof(__pyx_v_YEP3D1P[0]) * (16));
 
-  /* "ARGON.pyx":216
+  /* "gases/ARGON.pyx":216
  *     Y3D1P = gd['gas2/Y3D1P']
  *     YEP3D1P = gd['gas2/YEP3D1P']
  *     X3S1PPPP = gd['gas2/X3S1PPPP']             # <<<<<<<<<<<<<<
@@ -4401,7 +4401,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PPPP[0]), __pyx_t_44, sizeof(__pyx_v_X3S1PPPP[0]) * (21));
 
-  /* "ARGON.pyx":217
+  /* "gases/ARGON.pyx":217
  *     YEP3D1P = gd['gas2/YEP3D1P']
  *     X3S1PPPP = gd['gas2/X3S1PPPP']
  *     Y3S1PPPP = gd['gas2/Y3S1PPPP']             # <<<<<<<<<<<<<<
@@ -4414,7 +4414,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PPPP[0]), __pyx_t_44, sizeof(__pyx_v_Y3S1PPPP[0]) * (21));
 
-  /* "ARGON.pyx":218
+  /* "gases/ARGON.pyx":218
  *     X3S1PPPP = gd['gas2/X3S1PPPP']
  *     Y3S1PPPP = gd['gas2/Y3S1PPPP']
  *     YEP3S1PPPP = gd['gas2/YEP3S1PPPP']             # <<<<<<<<<<<<<<
@@ -4427,7 +4427,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3S1PPPP[0]), __pyx_t_44, sizeof(__pyx_v_YEP3S1PPPP[0]) * (21));
 
-  /* "ARGON.pyx":219
+  /* "gases/ARGON.pyx":219
  *     Y3S1PPPP = gd['gas2/Y3S1PPPP']
  *     YEP3S1PPPP = gd['gas2/YEP3S1PPPP']
  *     X3S1PPP = gd['gas2/X3S1PPP']             # <<<<<<<<<<<<<<
@@ -4440,7 +4440,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PPP[0]), __pyx_t_39, sizeof(__pyx_v_X3S1PPP[0]) * (16));
 
-  /* "ARGON.pyx":220
+  /* "gases/ARGON.pyx":220
  *     YEP3S1PPPP = gd['gas2/YEP3S1PPPP']
  *     X3S1PPP = gd['gas2/X3S1PPP']
  *     Y3S1PPP = gd['gas2/Y3S1PPP']             # <<<<<<<<<<<<<<
@@ -4453,7 +4453,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PPP[0]), __pyx_t_39, sizeof(__pyx_v_Y3S1PPP[0]) * (16));
 
-  /* "ARGON.pyx":221
+  /* "gases/ARGON.pyx":221
  *     X3S1PPP = gd['gas2/X3S1PPP']
  *     Y3S1PPP = gd['gas2/Y3S1PPP']
  *     YEP3S1PPP = gd['gas2/YEP3S1PPP']             # <<<<<<<<<<<<<<
@@ -4466,7 +4466,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3S1PPP[0]), __pyx_t_39, sizeof(__pyx_v_YEP3S1PPP[0]) * (16));
 
-  /* "ARGON.pyx":222
+  /* "gases/ARGON.pyx":222
  *     Y3S1PPP = gd['gas2/Y3S1PPP']
  *     YEP3S1PPP = gd['gas2/YEP3S1PPP']
  *     X3S1PP = gd['gas2/X3S1PP']             # <<<<<<<<<<<<<<
@@ -4479,7 +4479,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PP[0]), __pyx_t_44, sizeof(__pyx_v_X3S1PP[0]) * (21));
 
-  /* "ARGON.pyx":223
+  /* "gases/ARGON.pyx":223
  *     YEP3S1PPP = gd['gas2/YEP3S1PPP']
  *     X3S1PP = gd['gas2/X3S1PP']
  *     Y3S1PP = gd['gas2/Y3S1PP']             # <<<<<<<<<<<<<<
@@ -4492,7 +4492,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PP[0]), __pyx_t_44, sizeof(__pyx_v_Y3S1PP[0]) * (21));
 
-  /* "ARGON.pyx":224
+  /* "gases/ARGON.pyx":224
  *     X3S1PP = gd['gas2/X3S1PP']
  *     Y3S1PP = gd['gas2/Y3S1PP']
  *     YEP3S1PP = gd['gas2/YEP3S1PP']             # <<<<<<<<<<<<<<
@@ -4505,7 +4505,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP3S1PP[0]), __pyx_t_44, sizeof(__pyx_v_YEP3S1PP[0]) * (21));
 
-  /* "ARGON.pyx":225
+  /* "gases/ARGON.pyx":225
  *     Y3S1PP = gd['gas2/Y3S1PP']
  *     YEP3S1PP = gd['gas2/YEP3S1PP']
  *     X2S5 = gd['gas2/X2S5']             # <<<<<<<<<<<<<<
@@ -4518,7 +4518,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2S5[0]), __pyx_t_40, sizeof(__pyx_v_X2S5[0]) * (19));
 
-  /* "ARGON.pyx":226
+  /* "gases/ARGON.pyx":226
  *     YEP3S1PP = gd['gas2/YEP3S1PP']
  *     X2S5 = gd['gas2/X2S5']
  *     Y2S5 = gd['gas2/Y2S5']             # <<<<<<<<<<<<<<
@@ -4531,7 +4531,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2S5[0]), __pyx_t_40, sizeof(__pyx_v_Y2S5[0]) * (19));
 
-  /* "ARGON.pyx":227
+  /* "gases/ARGON.pyx":227
  *     X2S5 = gd['gas2/X2S5']
  *     Y2S5 = gd['gas2/Y2S5']
  *     YEP2S5 = gd['gas2/YEP2S5']             # <<<<<<<<<<<<<<
@@ -4544,7 +4544,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2S5[0]), __pyx_t_40, sizeof(__pyx_v_YEP2S5[0]) * (19));
 
-  /* "ARGON.pyx":228
+  /* "gases/ARGON.pyx":228
  *     Y2S5 = gd['gas2/Y2S5']
  *     YEP2S5 = gd['gas2/YEP2S5']
  *     X2S3 = gd['gas2/X2S3']             # <<<<<<<<<<<<<<
@@ -4557,7 +4557,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2S3[0]), __pyx_t_40, sizeof(__pyx_v_X2S3[0]) * (19));
 
-  /* "ARGON.pyx":229
+  /* "gases/ARGON.pyx":229
  *     YEP2S5 = gd['gas2/YEP2S5']
  *     X2S3 = gd['gas2/X2S3']
  *     Y2S3 = gd['gas2/Y2S3']             # <<<<<<<<<<<<<<
@@ -4570,7 +4570,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2S3[0]), __pyx_t_40, sizeof(__pyx_v_Y2S3[0]) * (19));
 
-  /* "ARGON.pyx":230
+  /* "gases/ARGON.pyx":230
  *     X2S3 = gd['gas2/X2S3']
  *     Y2S3 = gd['gas2/Y2S3']
  *     YEP2S3 = gd['gas2/YEP2S3']             # <<<<<<<<<<<<<<
@@ -4583,7 +4583,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEP2S3[0]), __pyx_t_40, sizeof(__pyx_v_YEP2S3[0]) * (19));
 
-  /* "ARGON.pyx":231
+  /* "gases/ARGON.pyx":231
  *     Y2S3 = gd['gas2/Y2S3']
  *     YEP2S3 = gd['gas2/YEP2S3']
  *     for i in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4595,7 +4595,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "ARGON.pyx":232
+    /* "gases/ARGON.pyx":232
  *     YEP2S3 = gd['gas2/YEP2S3']
  *     for i in range(object.NIN):
  *         object.PENFRA[0][i] = 0.2             # <<<<<<<<<<<<<<
@@ -4604,7 +4604,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_i]) = 0.2;
 
-    /* "ARGON.pyx":233
+    /* "gases/ARGON.pyx":233
  *     for i in range(object.NIN):
  *         object.PENFRA[0][i] = 0.2
  *         object.PENFRA[1][i] = 1.0             # <<<<<<<<<<<<<<
@@ -4613,7 +4613,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_i]) = 1.0;
 
-    /* "ARGON.pyx":234
+    /* "gases/ARGON.pyx":234
  *         object.PENFRA[0][i] = 0.2
  *         object.PENFRA[1][i] = 1.0
  *         object.PENFRA[2][i] = 1.0             # <<<<<<<<<<<<<<
@@ -4623,7 +4623,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_i]) = 1.0;
   }
 
-  /* "ARGON.pyx":235
+  /* "gases/ARGON.pyx":235
  *         object.PENFRA[1][i] = 1.0
  *         object.PENFRA[2][i] = 1.0
  *     for i in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4635,7 +4635,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "ARGON.pyx":236
+    /* "gases/ARGON.pyx":236
  *         object.PENFRA[2][i] = 1.0
  *     for i in range(object.NIN):
  *         for j in range(4000):             # <<<<<<<<<<<<<<
@@ -4645,7 +4645,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_8 = 0; __pyx_t_8 < 0xFA0; __pyx_t_8+=1) {
       __pyx_v_j = __pyx_t_8;
 
-      /* "ARGON.pyx":237
+      /* "gases/ARGON.pyx":237
  *     for i in range(object.NIN):
  *         for j in range(4000):
  *             if object.EG[j] > object.EIN[i]:             # <<<<<<<<<<<<<<
@@ -4655,7 +4655,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = (((__pyx_v_object->EG[__pyx_v_j]) > (__pyx_v_object->EIN[__pyx_v_i])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":238
+        /* "gases/ARGON.pyx":238
  *         for j in range(4000):
  *             if object.EG[j] > object.EIN[i]:
  *                 IOFFN[i] = j             # <<<<<<<<<<<<<<
@@ -4664,7 +4664,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_i]) = __pyx_v_j;
 
-        /* "ARGON.pyx":239
+        /* "gases/ARGON.pyx":239
  *             if object.EG[j] > object.EIN[i]:
  *                 IOFFN[i] = j
  *                 break             # <<<<<<<<<<<<<<
@@ -4673,7 +4673,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L19_break;
 
-        /* "ARGON.pyx":237
+        /* "gases/ARGON.pyx":237
  *     for i in range(object.NIN):
  *         for j in range(4000):
  *             if object.EG[j] > object.EIN[i]:             # <<<<<<<<<<<<<<
@@ -4685,7 +4685,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L19_break:;
   }
 
-  /* "ARGON.pyx":243
+  /* "gases/ARGON.pyx":243
  *     cdef double GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, AK, AK2, AK3, AK4, AN0, AN1, AN2, ANHIGH, SUM, SIFEL, ANLOW, PQ[3], QCORR, QTEMP
  *     cdef double QPSSUM,QDSSUM,TOTSUM,Q1SSUM,PQ1,PQ2,PQ3
  *     for I in range(4000):             # <<<<<<<<<<<<<<
@@ -4695,7 +4695,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_5 = 0; __pyx_t_5 < 0xFA0; __pyx_t_5+=1) {
     __pyx_v_I = __pyx_t_5;
 
-    /* "ARGON.pyx":244
+    /* "gases/ARGON.pyx":244
  *     cdef double QPSSUM,QDSSUM,TOTSUM,Q1SSUM,PQ1,PQ2,PQ3
  *     for I in range(4000):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -4704,7 +4704,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "ARGON.pyx":247
+    /* "gases/ARGON.pyx":247
  * 
  *         # EN=EN+object.ESTEP
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -4714,7 +4714,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":248
+      /* "gases/ARGON.pyx":248
  *         # EN=EN+object.ESTEP
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -4723,7 +4723,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-      /* "ARGON.pyx":249
+      /* "gases/ARGON.pyx":249
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -4732,7 +4732,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-      /* "ARGON.pyx":250
+      /* "gases/ARGON.pyx":250
  *             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.00 - 1.00 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -4741,7 +4741,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA = sqrt((1.00 - (1.00 / __pyx_v_GAMMA2)));
 
-      /* "ARGON.pyx":251
+      /* "gases/ARGON.pyx":251
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.00 - 1.00 / GAMMA2)
  *             BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -4750,7 +4750,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-      /* "ARGON.pyx":247
+      /* "gases/ARGON.pyx":247
  * 
  *         # EN=EN+object.ESTEP
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -4759,7 +4759,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":252
+    /* "gases/ARGON.pyx":252
  *             BETA = sqrt(1.00 - 1.00 / GAMMA2)
  *             BETA2 = BETA * BETA
  *         if EN <= 1:             # <<<<<<<<<<<<<<
@@ -4769,7 +4769,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN <= 1.0) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":253
+      /* "gases/ARGON.pyx":253
  *             BETA2 = BETA * BETA
  *         if EN <= 1:
  *             if EN == 0:             # <<<<<<<<<<<<<<
@@ -4779,7 +4779,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN == 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":254
+        /* "gases/ARGON.pyx":254
  *         if EN <= 1:
  *             if EN == 0:
  *                 QELA = 7.491e-16             # <<<<<<<<<<<<<<
@@ -4788,7 +4788,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QELA = 7.491e-16;
 
-        /* "ARGON.pyx":255
+        /* "gases/ARGON.pyx":255
  *             if EN == 0:
  *                 QELA = 7.491e-16
  *                 QMOM = 7.491e-16             # <<<<<<<<<<<<<<
@@ -4797,7 +4797,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QMOM = 7.491e-16;
 
-        /* "ARGON.pyx":253
+        /* "gases/ARGON.pyx":253
  *             BETA2 = BETA * BETA
  *         if EN <= 1:
  *             if EN == 0:             # <<<<<<<<<<<<<<
@@ -4806,7 +4806,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":256
+      /* "gases/ARGON.pyx":256
  *                 QELA = 7.491e-16
  *                 QMOM = 7.491e-16
  *             if EN != 0:             # <<<<<<<<<<<<<<
@@ -4816,7 +4816,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN != 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":257
+        /* "gases/ARGON.pyx":257
  *                 QMOM = 7.491e-16
  *             if EN != 0:
  *                 AK = sqrt(EN / object.ARY)             # <<<<<<<<<<<<<<
@@ -4825,7 +4825,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AK = sqrt((__pyx_v_EN / __pyx_v_object->ARY));
 
-        /* "ARGON.pyx":258
+        /* "gases/ARGON.pyx":258
  *             if EN != 0:
  *                 AK = sqrt(EN / object.ARY)
  *                 AK2 = AK * AK             # <<<<<<<<<<<<<<
@@ -4834,7 +4834,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AK2 = (__pyx_v_AK * __pyx_v_AK);
 
-        /* "ARGON.pyx":259
+        /* "gases/ARGON.pyx":259
  *                 AK = sqrt(EN / object.ARY)
  *                 AK2 = AK * AK
  *                 AK3 = AK2 * AK             # <<<<<<<<<<<<<<
@@ -4843,7 +4843,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AK3 = (__pyx_v_AK2 * __pyx_v_AK);
 
-        /* "ARGON.pyx":260
+        /* "gases/ARGON.pyx":260
  *                 AK2 = AK * AK
  *                 AK3 = AK2 * AK
  *                 AK4 = AK3 * AK             # <<<<<<<<<<<<<<
@@ -4852,7 +4852,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AK4 = (__pyx_v_AK3 * __pyx_v_AK);
 
-        /* "ARGON.pyx":262
+        /* "gases/ARGON.pyx":262
  *                 AK4 = AK3 * AK
  *                 AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (
  *                         API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4             # <<<<<<<<<<<<<<
@@ -4861,7 +4861,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AN0 = ((((((-__pyx_v_AA) * __pyx_v_AK) * (1.0 + ((((4.0 * __pyx_v_APOL) / 3.0) * __pyx_v_AK2) * log(__pyx_v_AK)))) - (((__pyx_v_API * __pyx_v_APOL) / 3.0) * __pyx_v_AK2)) + (__pyx_v_DD * __pyx_v_AK3)) + (__pyx_v_FF * __pyx_v_AK4));
 
-        /* "ARGON.pyx":263
+        /* "gases/ARGON.pyx":263
  *                 AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (
  *                         API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
  *                 AN1 = (API / 15.0) * APOL * AK2 - A1 * AK3             # <<<<<<<<<<<<<<
@@ -4870,7 +4870,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AN1 = ((((__pyx_v_API / 15.0) * __pyx_v_APOL) * __pyx_v_AK2) - (__pyx_v_A1 * __pyx_v_AK3));
 
-        /* "ARGON.pyx":264
+        /* "gases/ARGON.pyx":264
  *                         API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
  *                 AN1 = (API / 15.0) * APOL * AK2 - A1 * AK3
  *                 AN2 = API * APOL * AK2 / 105.0             # <<<<<<<<<<<<<<
@@ -4879,7 +4879,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AN2 = (((__pyx_v_API * __pyx_v_APOL) * __pyx_v_AK2) / 105.0);
 
-        /* "ARGON.pyx":265
+        /* "gases/ARGON.pyx":265
  *                 AN1 = (API / 15.0) * APOL * AK2 - A1 * AK3
  *                 AN2 = API * APOL * AK2 / 105.0
  *                 AN0 = atan(AN0)             # <<<<<<<<<<<<<<
@@ -4888,7 +4888,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AN0 = atan(__pyx_v_AN0);
 
-        /* "ARGON.pyx":266
+        /* "gases/ARGON.pyx":266
  *                 AN2 = API * APOL * AK2 / 105.0
  *                 AN0 = atan(AN0)
  *                 AN1 = atan(AN1)             # <<<<<<<<<<<<<<
@@ -4897,7 +4897,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AN1 = atan(__pyx_v_AN1);
 
-        /* "ARGON.pyx":267
+        /* "gases/ARGON.pyx":267
  *                 AN0 = atan(AN0)
  *                 AN1 = atan(AN1)
  *                 AN2 = atan(AN2)             # <<<<<<<<<<<<<<
@@ -4906,7 +4906,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AN2 = atan(__pyx_v_AN2);
 
-        /* "ARGON.pyx":268
+        /* "gases/ARGON.pyx":268
  *                 AN1 = atan(AN1)
  *                 AN2 = atan(AN2)
  *                 ANHIGH = AN2             # <<<<<<<<<<<<<<
@@ -4915,7 +4915,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_ANHIGH = __pyx_v_AN2;
 
-        /* "ARGON.pyx":269
+        /* "gases/ARGON.pyx":269
  *                 AN2 = atan(AN2)
  *                 ANHIGH = AN2
  *                 SUM = (sin(AN0 - AN1)) ** 2             # <<<<<<<<<<<<<<
@@ -4924,7 +4924,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_SUM = pow(sin((__pyx_v_AN0 - __pyx_v_AN1)), 2.0);
 
-        /* "ARGON.pyx":270
+        /* "gases/ARGON.pyx":270
  *                 ANHIGH = AN2
  *                 SUM = (sin(AN0 - AN1)) ** 2
  *                 SUM = SUM + 2.0 * (sin(AN1 - AN2)) ** 2             # <<<<<<<<<<<<<<
@@ -4933,7 +4933,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_SUM = (__pyx_v_SUM + (2.0 * pow(sin((__pyx_v_AN1 - __pyx_v_AN2)), 2.0)));
 
-        /* "ARGON.pyx":271
+        /* "gases/ARGON.pyx":271
  *                 SUM = (sin(AN0 - AN1)) ** 2
  *                 SUM = SUM + 2.0 * (sin(AN1 - AN2)) ** 2
  *                 SIGEL = (sin(AN0)) ** 2 + 3.0 * (sin(AN1)) ** 2             # <<<<<<<<<<<<<<
@@ -4942,7 +4942,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_SIGEL = (pow(sin(__pyx_v_AN0), 2.0) + (3.0 * pow(sin(__pyx_v_AN1), 2.0)));
 
-        /* "ARGON.pyx":272
+        /* "gases/ARGON.pyx":272
  *                 SUM = SUM + 2.0 * (sin(AN1 - AN2)) ** 2
  *                 SIGEL = (sin(AN0)) ** 2 + 3.0 * (sin(AN1)) ** 2
  *                 for j in range(2, LMAX):             # <<<<<<<<<<<<<<
@@ -4954,7 +4954,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_6 = 2; __pyx_t_6 < __pyx_t_46; __pyx_t_6+=1) {
           __pyx_v_j = __pyx_t_6;
 
-          /* "ARGON.pyx":273
+          /* "gases/ARGON.pyx":273
  *                 SIGEL = (sin(AN0)) ** 2 + 3.0 * (sin(AN1)) ** 2
  *                 for j in range(2, LMAX):
  *                     ANLOW = ANHIGH             # <<<<<<<<<<<<<<
@@ -4963,7 +4963,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           __pyx_v_ANLOW = __pyx_v_ANHIGH;
 
-          /* "ARGON.pyx":274
+          /* "gases/ARGON.pyx":274
  *                 for j in range(2, LMAX):
  *                     ANLOW = ANHIGH
  *                     SUMI = 6.0 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0) * (2.0 * j - 1.0))             # <<<<<<<<<<<<<<
@@ -4972,7 +4972,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           __pyx_v_SUMI = (6.0 / (((((2.0 * __pyx_v_j) + 5.0) * ((2.0 * __pyx_v_j) + 3.0)) * ((2.0 * __pyx_v_j) + 1.0)) * ((2.0 * __pyx_v_j) - 1.0)));
 
-          /* "ARGON.pyx":275
+          /* "gases/ARGON.pyx":275
  *                     ANLOW = ANHIGH
  *                     SUMI = 6.0 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0) * (2.0 * j - 1.0))
  *                     SUM = SUM + (j + 1.0) * (sin(atan(API * APOL * AK2 * SUMI))) ** 2             # <<<<<<<<<<<<<<
@@ -4981,7 +4981,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           __pyx_v_SUM = (__pyx_v_SUM + ((__pyx_v_j + 1.0) * pow(sin(atan((((__pyx_v_API * __pyx_v_APOL) * __pyx_v_AK2) * __pyx_v_SUMI))), 2.0)));
 
-          /* "ARGON.pyx":276
+          /* "gases/ARGON.pyx":276
  *                     SUMI = 6.0 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0) * (2.0 * j - 1.0))
  *                     SUM = SUM + (j + 1.0) * (sin(atan(API * APOL * AK2 * SUMI))) ** 2
  *                     ANHIGH = atan(API * APOL * AK2 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0)))             # <<<<<<<<<<<<<<
@@ -4990,7 +4990,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           __pyx_v_ANHIGH = atan((((__pyx_v_API * __pyx_v_APOL) * __pyx_v_AK2) / ((((2.0 * __pyx_v_j) + 5.0) * ((2.0 * __pyx_v_j) + 3.0)) * ((2.0 * __pyx_v_j) + 1.0))));
 
-          /* "ARGON.pyx":277
+          /* "gases/ARGON.pyx":277
  *                     SUM = SUM + (j + 1.0) * (sin(atan(API * APOL * AK2 * SUMI))) ** 2
  *                     ANHIGH = atan(API * APOL * AK2 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0)))
  *                     SIGEL = SIGEL + (2.0 * j + 1.0) * (sin(ANLOW)) ** 2             # <<<<<<<<<<<<<<
@@ -5000,7 +5000,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_v_SIGEL = (__pyx_v_SIGEL + (((2.0 * __pyx_v_j) + 1.0) * pow(sin(__pyx_v_ANLOW), 2.0)));
         }
 
-        /* "ARGON.pyx":278
+        /* "gases/ARGON.pyx":278
  *                     ANHIGH = atan(API * APOL * AK2 / ((2.0 * j + 5.0) * (2.0 * j + 3.0) * (2.0 * j + 1.0)))
  *                     SIGEL = SIGEL + (2.0 * j + 1.0) * (sin(ANLOW)) ** 2
  *                 QELA = SIGEL * 4.0 * object.PIR2 / AK2             # <<<<<<<<<<<<<<
@@ -5009,7 +5009,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QELA = (((__pyx_v_SIGEL * 4.0) * __pyx_v_object->PIR2) / __pyx_v_AK2);
 
-        /* "ARGON.pyx":279
+        /* "gases/ARGON.pyx":279
  *                     SIGEL = SIGEL + (2.0 * j + 1.0) * (sin(ANLOW)) ** 2
  *                 QELA = SIGEL * 4.0 * object.PIR2 / AK2
  *                 QMOM = SUM * 4.0 * object.PIR2 / AK2             # <<<<<<<<<<<<<<
@@ -5018,7 +5018,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QMOM = (((__pyx_v_SUM * 4.0) * __pyx_v_object->PIR2) / __pyx_v_AK2);
 
-        /* "ARGON.pyx":256
+        /* "gases/ARGON.pyx":256
  *                 QELA = 7.491e-16
  *                 QMOM = 7.491e-16
  *             if EN != 0:             # <<<<<<<<<<<<<<
@@ -5027,7 +5027,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":252
+      /* "gases/ARGON.pyx":252
  *             BETA = sqrt(1.00 - 1.00 / GAMMA2)
  *             BETA2 = BETA * BETA
  *         if EN <= 1:             # <<<<<<<<<<<<<<
@@ -5036,7 +5036,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":280
+    /* "gases/ARGON.pyx":280
  *                 QELA = SIGEL * 4.0 * object.PIR2 / AK2
  *                 QMOM = SUM * 4.0 * object.PIR2 / AK2
  *         if EN >1:             # <<<<<<<<<<<<<<
@@ -5046,7 +5046,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > 1.0) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":281
+      /* "gases/ARGON.pyx":281
  *                 QMOM = SUM * 4.0 * object.PIR2 / AK2
  *         if EN >1:
  *             for j in range(1, NDATA):             # <<<<<<<<<<<<<<
@@ -5058,7 +5058,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_j = __pyx_t_8;
 
-        /* "ARGON.pyx":282
+        /* "gases/ARGON.pyx":282
  *         if EN >1:
  *             for j in range(1, NDATA):
  *                 if EN < XEN[j]:             # <<<<<<<<<<<<<<
@@ -5068,7 +5068,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_23 = ((__pyx_v_EN < (__pyx_v_XEN[__pyx_v_j])) != 0);
         if (__pyx_t_23) {
 
-          /* "ARGON.pyx":283
+          /* "gases/ARGON.pyx":283
  *             for j in range(1, NDATA):
  *                 if EN < XEN[j]:
  *                     break             # <<<<<<<<<<<<<<
@@ -5077,7 +5077,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           goto __pyx_L31_break;
 
-          /* "ARGON.pyx":282
+          /* "gases/ARGON.pyx":282
  *         if EN >1:
  *             for j in range(1, NDATA):
  *                 if EN < XEN[j]:             # <<<<<<<<<<<<<<
@@ -5088,7 +5088,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L31_break:;
 
-      /* "ARGON.pyx":285
+      /* "gases/ARGON.pyx":285
  *                     break
  * 
  *             A = (YEL[j] - YEL[j - 1]) / (XEN[j] - XEN[j - 1])             # <<<<<<<<<<<<<<
@@ -5097,7 +5097,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_A = (((__pyx_v_YEL[__pyx_v_j]) - (__pyx_v_YEL[(__pyx_v_j - 1)])) / ((__pyx_v_XEN[__pyx_v_j]) - (__pyx_v_XEN[(__pyx_v_j - 1)])));
 
-      /* "ARGON.pyx":286
+      /* "gases/ARGON.pyx":286
  * 
  *             A = (YEL[j] - YEL[j - 1]) / (XEN[j] - XEN[j - 1])
  *             B = (XEN[j - 1] * YEL[j] - XEN[j] * YEL[j - 1]) / (XEN[j - 1] - XEN[j])             # <<<<<<<<<<<<<<
@@ -5106,7 +5106,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_B = ((((__pyx_v_XEN[(__pyx_v_j - 1)]) * (__pyx_v_YEL[__pyx_v_j])) - ((__pyx_v_XEN[__pyx_v_j]) * (__pyx_v_YEL[(__pyx_v_j - 1)]))) / ((__pyx_v_XEN[(__pyx_v_j - 1)]) - (__pyx_v_XEN[__pyx_v_j])));
 
-      /* "ARGON.pyx":287
+      /* "gases/ARGON.pyx":287
  *             A = (YEL[j] - YEL[j - 1]) / (XEN[j] - XEN[j - 1])
  *             B = (XEN[j - 1] * YEL[j] - XEN[j] * YEL[j - 1]) / (XEN[j - 1] - XEN[j])
  *             QELA = (A * EN + B) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -5115,7 +5115,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QELA = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-16);
 
-      /* "ARGON.pyx":288
+      /* "gases/ARGON.pyx":288
  *             B = (XEN[j - 1] * YEL[j] - XEN[j] * YEL[j - 1]) / (XEN[j - 1] - XEN[j])
  *             QELA = (A * EN + B) * 1.0e-16
  *             A = (YSEC[j] - YSEC[j - 1]) / (XEN[j] - XEN[j - 1])             # <<<<<<<<<<<<<<
@@ -5124,7 +5124,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_A = (((__pyx_v_YSEC[__pyx_v_j]) - (__pyx_v_YSEC[(__pyx_v_j - 1)])) / ((__pyx_v_XEN[__pyx_v_j]) - (__pyx_v_XEN[(__pyx_v_j - 1)])));
 
-      /* "ARGON.pyx":289
+      /* "gases/ARGON.pyx":289
  *             QELA = (A * EN + B) * 1.0e-16
  *             A = (YSEC[j] - YSEC[j - 1]) / (XEN[j] - XEN[j - 1])
  *             B = (XEN[j - 1] * YSEC[j] - XEN[j] * YSEC[j - 1]) / (XEN[j - 1] - XEN[j])             # <<<<<<<<<<<<<<
@@ -5133,7 +5133,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_B = ((((__pyx_v_XEN[(__pyx_v_j - 1)]) * (__pyx_v_YSEC[__pyx_v_j])) - ((__pyx_v_XEN[__pyx_v_j]) * (__pyx_v_YSEC[(__pyx_v_j - 1)]))) / ((__pyx_v_XEN[(__pyx_v_j - 1)]) - (__pyx_v_XEN[__pyx_v_j])));
 
-      /* "ARGON.pyx":290
+      /* "gases/ARGON.pyx":290
  *             A = (YSEC[j] - YSEC[j - 1]) / (XEN[j] - XEN[j - 1])
  *             B = (XEN[j - 1] * YSEC[j] - XEN[j] * YSEC[j - 1]) / (XEN[j - 1] - XEN[j])
  *             QMOM = (A * EN + B) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -5142,7 +5142,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMOM = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-16);
 
-      /* "ARGON.pyx":280
+      /* "gases/ARGON.pyx":280
  *                 QELA = SIGEL * 4.0 * object.PIR2 / AK2
  *                 QMOM = SUM * 4.0 * object.PIR2 / AK2
  *         if EN >1:             # <<<<<<<<<<<<<<
@@ -5151,7 +5151,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":292
+    /* "gases/ARGON.pyx":292
  *             QMOM = (A * EN + B) * 1.0e-16
  * 
  *         PQ1 = 0.5 + (QELA - QMOM) / QELA             # <<<<<<<<<<<<<<
@@ -5160,7 +5160,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_PQ1 = (0.5 + ((__pyx_v_QELA - __pyx_v_QMOM) / __pyx_v_QELA));
 
-    /* "ARGON.pyx":293
+    /* "gases/ARGON.pyx":293
  * 
  *         PQ1 = 0.5 + (QELA - QMOM) / QELA
  *         for j in range(1, NEPSI):             # <<<<<<<<<<<<<<
@@ -5172,7 +5172,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_j = __pyx_t_8;
 
-      /* "ARGON.pyx":294
+      /* "gases/ARGON.pyx":294
  *         PQ1 = 0.5 + (QELA - QMOM) / QELA
  *         for j in range(1, NEPSI):
  *             if EN < XEPS[j]:             # <<<<<<<<<<<<<<
@@ -5182,7 +5182,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN < (__pyx_v_XEPS[__pyx_v_j])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":295
+        /* "gases/ARGON.pyx":295
  *         for j in range(1, NEPSI):
  *             if EN < XEPS[j]:
  *                 break             # <<<<<<<<<<<<<<
@@ -5191,7 +5191,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L34_break;
 
-        /* "ARGON.pyx":294
+        /* "gases/ARGON.pyx":294
  *         PQ1 = 0.5 + (QELA - QMOM) / QELA
  *         for j in range(1, NEPSI):
  *             if EN < XEPS[j]:             # <<<<<<<<<<<<<<
@@ -5202,7 +5202,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L34_break:;
 
-    /* "ARGON.pyx":296
+    /* "gases/ARGON.pyx":296
  *             if EN < XEPS[j]:
  *                 break
  *         A = (YEPS[j] - YEPS[j - 1]) / (XEPS[j] - XEPS[j - 1])             # <<<<<<<<<<<<<<
@@ -5211,7 +5211,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_A = (((__pyx_v_YEPS[__pyx_v_j]) - (__pyx_v_YEPS[(__pyx_v_j - 1)])) / ((__pyx_v_XEPS[__pyx_v_j]) - (__pyx_v_XEPS[(__pyx_v_j - 1)])));
 
-    /* "ARGON.pyx":297
+    /* "gases/ARGON.pyx":297
  *                 break
  *         A = (YEPS[j] - YEPS[j - 1]) / (XEPS[j] - XEPS[j - 1])
  *         B = (XEPS[j - 1] * YEPS[j] - XEPS[j] * YEPS[j - 1]) / (XEPS[j - 1] - XEPS[j])             # <<<<<<<<<<<<<<
@@ -5220,7 +5220,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_B = ((((__pyx_v_XEPS[(__pyx_v_j - 1)]) * (__pyx_v_YEPS[__pyx_v_j])) - ((__pyx_v_XEPS[__pyx_v_j]) * (__pyx_v_YEPS[(__pyx_v_j - 1)]))) / ((__pyx_v_XEPS[(__pyx_v_j - 1)]) - (__pyx_v_XEPS[__pyx_v_j])));
 
-    /* "ARGON.pyx":298
+    /* "gases/ARGON.pyx":298
  *         A = (YEPS[j] - YEPS[j - 1]) / (XEPS[j] - XEPS[j - 1])
  *         B = (XEPS[j - 1] * YEPS[j] - XEPS[j] * YEPS[j - 1]) / (XEPS[j - 1] - XEPS[j])
  *         PQ2 = A * EN + B             # <<<<<<<<<<<<<<
@@ -5229,7 +5229,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_PQ2 = ((__pyx_v_A * __pyx_v_EN) + __pyx_v_B);
 
-    /* "ARGON.pyx":301
+    /* "gases/ARGON.pyx":301
  * 
  *         # EPSILON = 1 - PQ2
  *         PQ2 = 1.0 - PQ2             # <<<<<<<<<<<<<<
@@ -5238,7 +5238,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_PQ2 = (1.0 - __pyx_v_PQ2);
 
-    /* "ARGON.pyx":302
+    /* "gases/ARGON.pyx":302
  *         # EPSILON = 1 - PQ2
  *         PQ2 = 1.0 - PQ2
  *         PQ = [0.5, PQ1, PQ2]             # <<<<<<<<<<<<<<
@@ -5250,7 +5250,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_47[2] = __pyx_v_PQ2;
     memcpy(&(__pyx_v_PQ[0]), __pyx_t_47, sizeof(__pyx_v_PQ[0]) * (3));
 
-    /* "ARGON.pyx":304
+    /* "gases/ARGON.pyx":304
  *         PQ = [0.5, PQ1, PQ2]
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -5259,7 +5259,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "ARGON.pyx":305
+    /* "gases/ARGON.pyx":305
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -5268,7 +5268,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "ARGON.pyx":306
+    /* "gases/ARGON.pyx":306
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -5278,7 +5278,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":307
+      /* "gases/ARGON.pyx":307
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -5287,7 +5287,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "ARGON.pyx":306
+      /* "gases/ARGON.pyx":306
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -5296,7 +5296,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":308
+    /* "gases/ARGON.pyx":308
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM
  *         object.QION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5305,7 +5305,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":309
+    /* "gases/ARGON.pyx":309
  *             object.Q[1][I] = QMOM
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5314,7 +5314,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.5;
 
-    /* "ARGON.pyx":311
+    /* "gases/ARGON.pyx":311
  *         object.PEQION[0][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5324,7 +5324,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":312
+      /* "gases/ARGON.pyx":312
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0             # <<<<<<<<<<<<<<
@@ -5333,7 +5333,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":311
+      /* "gases/ARGON.pyx":311
  *         object.PEQION[0][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5342,7 +5342,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":313
+    /* "gases/ARGON.pyx":313
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5352,7 +5352,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":314
+      /* "gases/ARGON.pyx":314
  *             object.PEQION[0][I] = 0
  *         if EN > object.EION[0]:
  *             if EN <= XENI[NIDATA - 1]:             # <<<<<<<<<<<<<<
@@ -5362,7 +5362,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XENI[(__pyx_v_NIDATA - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":315
+        /* "gases/ARGON.pyx":315
  *         if EN > object.EION[0]:
  *             if EN <= XENI[NIDATA - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -5371,7 +5371,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "ARGON.pyx":316
+        /* "gases/ARGON.pyx":316
  *             if EN <= XENI[NIDATA - 1]:
  *                 j = 0
  *                 for j in range(1, NIDATA):             # <<<<<<<<<<<<<<
@@ -5383,7 +5383,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":317
+          /* "gases/ARGON.pyx":317
  *                 j = 0
  *                 for j in range(1, NIDATA):
  *                     if EN <= XENI[j]:             # <<<<<<<<<<<<<<
@@ -5393,7 +5393,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XENI[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":318
+            /* "gases/ARGON.pyx":318
  *                 for j in range(1, NIDATA):
  *                     if EN <= XENI[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -5402,7 +5402,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L41_break;
 
-            /* "ARGON.pyx":317
+            /* "gases/ARGON.pyx":317
  *                 j = 0
  *                 for j in range(1, NIDATA):
  *                     if EN <= XENI[j]:             # <<<<<<<<<<<<<<
@@ -5413,7 +5413,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L41_break:;
 
-        /* "ARGON.pyx":319
+        /* "gases/ARGON.pyx":319
  *                     if EN <= XENI[j]:
  *                         break
  *                 A = (YEN1[j] - YEN1[j - 1]) / (XENI[j] - XENI[j - 1])             # <<<<<<<<<<<<<<
@@ -5422,7 +5422,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YEN1[__pyx_v_j]) - (__pyx_v_YEN1[(__pyx_v_j - 1)])) / ((__pyx_v_XENI[__pyx_v_j]) - (__pyx_v_XENI[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":320
+        /* "gases/ARGON.pyx":320
  *                         break
  *                 A = (YEN1[j] - YEN1[j - 1]) / (XENI[j] - XENI[j - 1])
  *                 B = (XENI[j - 1] * YEN1[j] - XENI[j] * YEN1[j - 1]) / (XENI[j - 1] - XENI[j])             # <<<<<<<<<<<<<<
@@ -5431,7 +5431,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XENI[(__pyx_v_j - 1)]) * (__pyx_v_YEN1[__pyx_v_j])) - ((__pyx_v_XENI[__pyx_v_j]) * (__pyx_v_YEN1[(__pyx_v_j - 1)]))) / ((__pyx_v_XENI[(__pyx_v_j - 1)]) - (__pyx_v_XENI[__pyx_v_j])));
 
-        /* "ARGON.pyx":321
+        /* "gases/ARGON.pyx":321
  *                 A = (YEN1[j] - YEN1[j - 1]) / (XENI[j] - XENI[j - 1])
  *                 B = (XENI[j - 1] * YEN1[j] - XENI[j] * YEN1[j - 1]) / (XENI[j - 1] - XENI[j])
  *                 object.QION[0][I] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -5440,7 +5440,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[0])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "ARGON.pyx":314
+        /* "gases/ARGON.pyx":314
  *             object.PEQION[0][I] = 0
  *         if EN > object.EION[0]:
  *             if EN <= XENI[NIDATA - 1]:             # <<<<<<<<<<<<<<
@@ -5450,7 +5450,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L39;
       }
 
-      /* "ARGON.pyx":325
+      /* "gases/ARGON.pyx":325
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XENI[NIDATA] EV
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -5460,7 +5460,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "ARGON.pyx":326
+        /* "gases/ARGON.pyx":326
  *                 # USE BORN BETHE X-SECTION ABOVE XENI[NIDATA] EV
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -5469,7 +5469,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "ARGON.pyx":327
+        /* "gases/ARGON.pyx":327
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[0][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2) * <float>(0.9466)             # <<<<<<<<<<<<<<
@@ -5480,7 +5480,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L39:;
 
-      /* "ARGON.pyx":328
+      /* "gases/ARGON.pyx":328
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[0][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2) * <float>(0.9466)
  *             if EN > 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5490,7 +5490,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[0]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":329
+        /* "gases/ARGON.pyx":329
  *                 object.QION[0][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2) * <float>(0.9466)
  *             if EN > 2 * object.EION[0]:
  *                 object.PEQION[0][I] = object.PEQEL[1][(I - IOFFION[0])]             # <<<<<<<<<<<<<<
@@ -5499,7 +5499,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-        /* "ARGON.pyx":328
+        /* "gases/ARGON.pyx":328
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[0][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2) + C * X2) * <float>(0.9466)
  *             if EN > 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5508,7 +5508,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":313
+      /* "gases/ARGON.pyx":313
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -5517,7 +5517,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":331
+    /* "gases/ARGON.pyx":331
  *                 object.PEQION[0][I] = object.PEQEL[1][(I - IOFFION[0])]
  * 
  *         object.QION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5526,7 +5526,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[1])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":332
+    /* "gases/ARGON.pyx":332
  * 
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5535,7 +5535,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.5;
 
-    /* "ARGON.pyx":333
+    /* "gases/ARGON.pyx":333
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5545,7 +5545,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":334
+      /* "gases/ARGON.pyx":334
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0             # <<<<<<<<<<<<<<
@@ -5554,7 +5554,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":333
+      /* "gases/ARGON.pyx":333
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5563,7 +5563,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":335
+    /* "gases/ARGON.pyx":335
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5573,7 +5573,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":336
+      /* "gases/ARGON.pyx":336
  *             object.PEQION[1][I] = 0
  *         if EN > object.EION[1]:
  *             if EN <= XEN2[NION2 - 1]:             # <<<<<<<<<<<<<<
@@ -5583,7 +5583,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XEN2[(__pyx_v_NION2 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":337
+        /* "gases/ARGON.pyx":337
  *         if EN > object.EION[1]:
  *             if EN <= XEN2[NION2 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -5592,7 +5592,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "ARGON.pyx":338
+        /* "gases/ARGON.pyx":338
  *             if EN <= XEN2[NION2 - 1]:
  *                 j = 0
  *                 for j in range(1, NION2):             # <<<<<<<<<<<<<<
@@ -5604,7 +5604,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":339
+          /* "gases/ARGON.pyx":339
  *                 j = 0
  *                 for j in range(1, NION2):
  *                     if EN <= XEN2[j]:             # <<<<<<<<<<<<<<
@@ -5614,7 +5614,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XEN2[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":340
+            /* "gases/ARGON.pyx":340
  *                 for j in range(1, NION2):
  *                     if EN <= XEN2[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -5623,7 +5623,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L48_break;
 
-            /* "ARGON.pyx":339
+            /* "gases/ARGON.pyx":339
  *                 j = 0
  *                 for j in range(1, NION2):
  *                     if EN <= XEN2[j]:             # <<<<<<<<<<<<<<
@@ -5634,7 +5634,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L48_break:;
 
-        /* "ARGON.pyx":341
+        /* "gases/ARGON.pyx":341
  *                     if EN <= XEN2[j]:
  *                         break
  *                 A = (YEN2[j] - YEN2[j - 1]) / (XEN2[j] - XEN2[j - 1])             # <<<<<<<<<<<<<<
@@ -5643,7 +5643,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YEN2[__pyx_v_j]) - (__pyx_v_YEN2[(__pyx_v_j - 1)])) / ((__pyx_v_XEN2[__pyx_v_j]) - (__pyx_v_XEN2[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":342
+        /* "gases/ARGON.pyx":342
  *                         break
  *                 A = (YEN2[j] - YEN2[j - 1]) / (XEN2[j] - XEN2[j - 1])
  *                 B = (XEN2[j - 1] * YEN2[j] - XEN2[j] * YEN2[j - 1]) / (XEN2[j - 1] - XEN2[j])             # <<<<<<<<<<<<<<
@@ -5652,7 +5652,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XEN2[(__pyx_v_j - 1)]) * (__pyx_v_YEN2[__pyx_v_j])) - ((__pyx_v_XEN2[__pyx_v_j]) * (__pyx_v_YEN2[(__pyx_v_j - 1)]))) / ((__pyx_v_XEN2[(__pyx_v_j - 1)]) - (__pyx_v_XEN2[__pyx_v_j])));
 
-        /* "ARGON.pyx":343
+        /* "gases/ARGON.pyx":343
  *                 A = (YEN2[j] - YEN2[j - 1]) / (XEN2[j] - XEN2[j - 1])
  *                 B = (XEN2[j - 1] * YEN2[j] - XEN2[j] * YEN2[j - 1]) / (XEN2[j - 1] - XEN2[j])
  *                 object.QION[1][I] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -5661,7 +5661,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[1])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "ARGON.pyx":344
+        /* "gases/ARGON.pyx":344
  *                 B = (XEN2[j - 1] * YEN2[j] - XEN2[j] * YEN2[j - 1]) / (XEN2[j - 1] - XEN2[j])
  *                 object.QION[1][I] = (A * EN + B) * 1e-16
  *                 if object.QION[1][I] < 0:             # <<<<<<<<<<<<<<
@@ -5671,7 +5671,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_23 = ((((__pyx_v_object->QION[1])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_23) {
 
-          /* "ARGON.pyx":345
+          /* "gases/ARGON.pyx":345
  *                 object.QION[1][I] = (A * EN + B) * 1e-16
  *                 if object.QION[1][I] < 0:
  *                     object.QION[1][I] = 0             # <<<<<<<<<<<<<<
@@ -5680,7 +5680,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[1])[__pyx_v_I]) = 0.0;
 
-          /* "ARGON.pyx":344
+          /* "gases/ARGON.pyx":344
  *                 B = (XEN2[j - 1] * YEN2[j] - XEN2[j] * YEN2[j - 1]) / (XEN2[j - 1] - XEN2[j])
  *                 object.QION[1][I] = (A * EN + B) * 1e-16
  *                 if object.QION[1][I] < 0:             # <<<<<<<<<<<<<<
@@ -5689,7 +5689,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "ARGON.pyx":336
+        /* "gases/ARGON.pyx":336
  *             object.PEQION[1][I] = 0
  *         if EN > object.EION[1]:
  *             if EN <= XEN2[NION2 - 1]:             # <<<<<<<<<<<<<<
@@ -5699,7 +5699,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L46;
       }
 
-      /* "ARGON.pyx":348
+      /* "gases/ARGON.pyx":348
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XEN2[NION2] EV
  *                 X2 = 1.0 / BETA2             # <<<<<<<<<<<<<<
@@ -5709,7 +5709,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "ARGON.pyx":349
+        /* "gases/ARGON.pyx":349
  *                 # USE BORN BETHE X-SECTION ABOVE XEN2[NION2] EV
  *                 X2 = 1.0 / BETA2
  *                 X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0             # <<<<<<<<<<<<<<
@@ -5718,7 +5718,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "ARGON.pyx":350
+        /* "gases/ARGON.pyx":350
  *                 X2 = 1.0 / BETA2
  *                 X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0
  *                 object.QION[1][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.04448)             # <<<<<<<<<<<<<<
@@ -5729,7 +5729,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L46:;
 
-      /* "ARGON.pyx":351
+      /* "gases/ARGON.pyx":351
  *                 X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0
  *                 object.QION[1][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.04448)
  *             if EN > 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5739,7 +5739,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[1]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":352
+        /* "gases/ARGON.pyx":352
  *                 object.QION[1][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.04448)
  *             if EN > 2 * object.EION[1]:
  *                 object.PEQION[1][I] = object.PEQEL[1][(I - IOFFION[1])]             # <<<<<<<<<<<<<<
@@ -5748,7 +5748,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-        /* "ARGON.pyx":351
+        /* "gases/ARGON.pyx":351
  *                 X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0
  *                 object.QION[1][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.04448)
  *             if EN > 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5757,7 +5757,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":335
+      /* "gases/ARGON.pyx":335
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -5766,7 +5766,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":354
+    /* "gases/ARGON.pyx":354
  *                 object.PEQION[1][I] = object.PEQEL[1][(I - IOFFION[1])]
  * 
  *         object.QION[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5775,7 +5775,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[2])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":355
+    /* "gases/ARGON.pyx":355
  * 
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5784,7 +5784,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.5;
 
-    /* "ARGON.pyx":356
+    /* "gases/ARGON.pyx":356
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5794,7 +5794,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":357
+      /* "gases/ARGON.pyx":357
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0             # <<<<<<<<<<<<<<
@@ -5803,7 +5803,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":356
+      /* "gases/ARGON.pyx":356
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5812,7 +5812,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":358
+    /* "gases/ARGON.pyx":358
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5822,7 +5822,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":359
+      /* "gases/ARGON.pyx":359
  *             object.PEQION[2][I] = 0
  *         if EN > object.EION[2]:
  *             if EN <= XEN3[NION3 - 1]:             # <<<<<<<<<<<<<<
@@ -5832,7 +5832,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XEN3[(__pyx_v_NION3 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":360
+        /* "gases/ARGON.pyx":360
  *         if EN > object.EION[2]:
  *             if EN <= XEN3[NION3 - 1]:
  *                 j = 0             # <<<<<<<<<<<<<<
@@ -5841,7 +5841,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_j = 0;
 
-        /* "ARGON.pyx":361
+        /* "gases/ARGON.pyx":361
  *             if EN <= XEN3[NION3 - 1]:
  *                 j = 0
  *                 for j in range(1, NION3):             # <<<<<<<<<<<<<<
@@ -5853,7 +5853,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":362
+          /* "gases/ARGON.pyx":362
  *                 j = 0
  *                 for j in range(1, NION3):
  *                     if EN <= XEN3[j]:             # <<<<<<<<<<<<<<
@@ -5863,7 +5863,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XEN3[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":363
+            /* "gases/ARGON.pyx":363
  *                 for j in range(1, NION3):
  *                     if EN <= XEN3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -5872,7 +5872,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L56_break;
 
-            /* "ARGON.pyx":362
+            /* "gases/ARGON.pyx":362
  *                 j = 0
  *                 for j in range(1, NION3):
  *                     if EN <= XEN3[j]:             # <<<<<<<<<<<<<<
@@ -5883,7 +5883,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L56_break:;
 
-        /* "ARGON.pyx":364
+        /* "gases/ARGON.pyx":364
  *                     if EN <= XEN3[j]:
  *                         break
  *                 A = (YEN3[j] - YEN3[j - 1]) / (XEN3[j] - XEN3[j - 1])             # <<<<<<<<<<<<<<
@@ -5892,7 +5892,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YEN3[__pyx_v_j]) - (__pyx_v_YEN3[(__pyx_v_j - 1)])) / ((__pyx_v_XEN3[__pyx_v_j]) - (__pyx_v_XEN3[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":365
+        /* "gases/ARGON.pyx":365
  *                         break
  *                 A = (YEN3[j] - YEN3[j - 1]) / (XEN3[j] - XEN3[j - 1])
  *                 B = (XEN3[j - 1] * YEN3[j] - XEN3[j] * YEN3[j - 1]) / (XEN3[j - 1] - XEN3[j])             # <<<<<<<<<<<<<<
@@ -5901,7 +5901,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XEN3[(__pyx_v_j - 1)]) * (__pyx_v_YEN3[__pyx_v_j])) - ((__pyx_v_XEN3[__pyx_v_j]) * (__pyx_v_YEN3[(__pyx_v_j - 1)]))) / ((__pyx_v_XEN3[(__pyx_v_j - 1)]) - (__pyx_v_XEN3[__pyx_v_j])));
 
-        /* "ARGON.pyx":366
+        /* "gases/ARGON.pyx":366
  *                 A = (YEN3[j] - YEN3[j - 1]) / (XEN3[j] - XEN3[j - 1])
  *                 B = (XEN3[j - 1] * YEN3[j] - XEN3[j] * YEN3[j - 1]) / (XEN3[j - 1] - XEN3[j])
  *                 object.QION[2][I] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -5910,7 +5910,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[2])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-        /* "ARGON.pyx":367
+        /* "gases/ARGON.pyx":367
  *                 B = (XEN3[j - 1] * YEN3[j] - XEN3[j] * YEN3[j - 1]) / (XEN3[j - 1] - XEN3[j])
  *                 object.QION[2][I] = (A * EN + B) * 1e-16
  *                 if object.QION[2][I] < 0:             # <<<<<<<<<<<<<<
@@ -5920,7 +5920,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_23 = ((((__pyx_v_object->QION[2])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_23) {
 
-          /* "ARGON.pyx":368
+          /* "gases/ARGON.pyx":368
  *                 object.QION[2][I] = (A * EN + B) * 1e-16
  *                 if object.QION[2][I] < 0:
  *                     object.QION[2][I] = 0             # <<<<<<<<<<<<<<
@@ -5929,7 +5929,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QION[2])[__pyx_v_I]) = 0.0;
 
-          /* "ARGON.pyx":367
+          /* "gases/ARGON.pyx":367
  *                 B = (XEN3[j - 1] * YEN3[j] - XEN3[j] * YEN3[j - 1]) / (XEN3[j - 1] - XEN3[j])
  *                 object.QION[2][I] = (A * EN + B) * 1e-16
  *                 if object.QION[2][I] < 0:             # <<<<<<<<<<<<<<
@@ -5938,7 +5938,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "ARGON.pyx":359
+        /* "gases/ARGON.pyx":359
  *             object.PEQION[2][I] = 0
  *         if EN > object.EION[2]:
  *             if EN <= XEN3[NION3 - 1]:             # <<<<<<<<<<<<<<
@@ -5948,7 +5948,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L54;
       }
 
-      /* "ARGON.pyx":371
+      /* "gases/ARGON.pyx":371
  *             else:
  *                 # USE BORN BETHE X-SECTION ABOVE XEN3[NION3] EV
  *                 X2 = 1 / BETA2             # <<<<<<<<<<<<<<
@@ -5958,7 +5958,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_X2 = (1.0 / __pyx_v_BETA2);
 
-        /* "ARGON.pyx":372
+        /* "gases/ARGON.pyx":372
  *                 # USE BORN BETHE X-SECTION ABOVE XEN3[NION3] EV
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1             # <<<<<<<<<<<<<<
@@ -5967,7 +5967,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_X1 = ((__pyx_v_X2 * log((__pyx_v_BETA2 / (1.0 - __pyx_v_BETA2)))) - 1.0);
 
-        /* "ARGON.pyx":373
+        /* "gases/ARGON.pyx":373
  *                 X2 = 1 / BETA2
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[2][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.00987)             # <<<<<<<<<<<<<<
@@ -5978,7 +5978,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L54:;
 
-      /* "ARGON.pyx":374
+      /* "gases/ARGON.pyx":374
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[2][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.00987)
  *             if EN > 2 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -5988,7 +5988,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[2]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":375
+        /* "gases/ARGON.pyx":375
  *                 object.QION[2][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.00987)
  *             if EN > 2 * object.EION[2]:
  *                 object.PEQION[2][I] = object.PEQEL[1][(I - IOFFION[2])]             # <<<<<<<<<<<<<<
@@ -5997,7 +5997,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[2]))]);
 
-        /* "ARGON.pyx":374
+        /* "gases/ARGON.pyx":374
  *                 X1 = X2 * log(BETA2 / (1 - BETA2)) - 1
  *                 object.QION[2][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2) * <float>(0.00987)
  *             if EN > 2 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -6006,7 +6006,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":358
+      /* "gases/ARGON.pyx":358
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -6015,7 +6015,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":377
+    /* "gases/ARGON.pyx":377
  *                 object.PEQION[2][I] = object.PEQEL[1][(I - IOFFION[2])]
  *         # L3 Shell ionisation
  *         object.QION[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6024,7 +6024,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[3])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":378
+    /* "gases/ARGON.pyx":378
  *         # L3 Shell ionisation
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6033,7 +6033,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = 0.5;
 
-    /* "ARGON.pyx":380
+    /* "gases/ARGON.pyx":380
  *         object.PEQION[3][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6043,7 +6043,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":381
+      /* "gases/ARGON.pyx":381
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6052,7 +6052,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":380
+      /* "gases/ARGON.pyx":380
  *         object.PEQION[3][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6061,7 +6061,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":383
+    /* "gases/ARGON.pyx":383
  *             object.PEQION[3][I] = 0.0
  * 
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -6071,7 +6071,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EION[3])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":384
+      /* "gases/ARGON.pyx":384
  * 
  *         if EN > object.EION[3]:
  *             for j in range(1, NL3S):             # <<<<<<<<<<<<<<
@@ -6083,7 +6083,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_j = __pyx_t_8;
 
-        /* "ARGON.pyx":385
+        /* "gases/ARGON.pyx":385
  *         if EN > object.EION[3]:
  *             for j in range(1, NL3S):
  *                 if EN <= XL3S[j]:             # <<<<<<<<<<<<<<
@@ -6093,7 +6093,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XL3S[__pyx_v_j])) != 0);
         if (__pyx_t_23) {
 
-          /* "ARGON.pyx":386
+          /* "gases/ARGON.pyx":386
  *             for j in range(1, NL3S):
  *                 if EN <= XL3S[j]:
  *                     break             # <<<<<<<<<<<<<<
@@ -6102,7 +6102,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           goto __pyx_L63_break;
 
-          /* "ARGON.pyx":385
+          /* "gases/ARGON.pyx":385
  *         if EN > object.EION[3]:
  *             for j in range(1, NL3S):
  *                 if EN <= XL3S[j]:             # <<<<<<<<<<<<<<
@@ -6113,7 +6113,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L63_break:;
 
-      /* "ARGON.pyx":387
+      /* "gases/ARGON.pyx":387
  *                 if EN <= XL3S[j]:
  *                     break
  *             A = (YL3S[j] - YL3S[j - 1]) / (XL3S[j] - XL3S[j - 1])             # <<<<<<<<<<<<<<
@@ -6122,7 +6122,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_A = (((__pyx_v_YL3S[__pyx_v_j]) - (__pyx_v_YL3S[(__pyx_v_j - 1)])) / ((__pyx_v_XL3S[__pyx_v_j]) - (__pyx_v_XL3S[(__pyx_v_j - 1)])));
 
-      /* "ARGON.pyx":388
+      /* "gases/ARGON.pyx":388
  *                     break
  *             A = (YL3S[j] - YL3S[j - 1]) / (XL3S[j] - XL3S[j - 1])
  *             B = (XL3S[j - 1] * YL3S[j] - XL3S[j] * YL3S[j - 1]) / (XL3S[j - 1] - XL3S[j])             # <<<<<<<<<<<<<<
@@ -6131,7 +6131,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_B = ((((__pyx_v_XL3S[(__pyx_v_j - 1)]) * (__pyx_v_YL3S[__pyx_v_j])) - ((__pyx_v_XL3S[__pyx_v_j]) * (__pyx_v_YL3S[(__pyx_v_j - 1)]))) / ((__pyx_v_XL3S[(__pyx_v_j - 1)]) - (__pyx_v_XL3S[__pyx_v_j])));
 
-      /* "ARGON.pyx":389
+      /* "gases/ARGON.pyx":389
  *             A = (YL3S[j] - YL3S[j - 1]) / (XL3S[j] - XL3S[j - 1])
  *             B = (XL3S[j - 1] * YL3S[j] - XL3S[j] * YL3S[j - 1]) / (XL3S[j - 1] - XL3S[j])
  *             object.QION[3][I] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6140,7 +6140,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-      /* "ARGON.pyx":390
+      /* "gases/ARGON.pyx":390
  *             B = (XL3S[j - 1] * YL3S[j] - XL3S[j] * YL3S[j - 1]) / (XL3S[j - 1] - XL3S[j])
  *             object.QION[3][I] = (A * EN + B) * 1e-16
  *             object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]             # <<<<<<<<<<<<<<
@@ -6149,7 +6149,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[3]))]);
 
-      /* "ARGON.pyx":383
+      /* "gases/ARGON.pyx":383
  *             object.PEQION[3][I] = 0.0
  * 
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -6158,7 +6158,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":393
+    /* "gases/ARGON.pyx":393
  * 
  *         # L2 Shell ionisation
  *         object.QION[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6167,7 +6167,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[4])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":394
+    /* "gases/ARGON.pyx":394
  *         # L2 Shell ionisation
  *         object.QION[4][I] = 0.0
  *         object.PEQION[4][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6176,7 +6176,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = 0.5;
 
-    /* "ARGON.pyx":396
+    /* "gases/ARGON.pyx":396
  *         object.PEQION[4][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6186,7 +6186,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":397
+      /* "gases/ARGON.pyx":397
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6195,7 +6195,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":396
+      /* "gases/ARGON.pyx":396
  *         object.PEQION[4][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6204,7 +6204,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":399
+    /* "gases/ARGON.pyx":399
  *             object.PEQION[4][I] = 0.0
  * 
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -6214,7 +6214,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EION[4])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":400
+      /* "gases/ARGON.pyx":400
  * 
  *         if EN > object.EION[4]:
  *             for j in range(1, NL2S):             # <<<<<<<<<<<<<<
@@ -6226,7 +6226,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_j = __pyx_t_8;
 
-        /* "ARGON.pyx":401
+        /* "gases/ARGON.pyx":401
  *         if EN > object.EION[4]:
  *             for j in range(1, NL2S):
  *                 if EN <= XL2S[j]:             # <<<<<<<<<<<<<<
@@ -6236,7 +6236,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XL2S[__pyx_v_j])) != 0);
         if (__pyx_t_23) {
 
-          /* "ARGON.pyx":402
+          /* "gases/ARGON.pyx":402
  *             for j in range(1, NL2S):
  *                 if EN <= XL2S[j]:
  *                     break             # <<<<<<<<<<<<<<
@@ -6245,7 +6245,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           goto __pyx_L68_break;
 
-          /* "ARGON.pyx":401
+          /* "gases/ARGON.pyx":401
  *         if EN > object.EION[4]:
  *             for j in range(1, NL2S):
  *                 if EN <= XL2S[j]:             # <<<<<<<<<<<<<<
@@ -6256,7 +6256,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L68_break:;
 
-      /* "ARGON.pyx":403
+      /* "gases/ARGON.pyx":403
  *                 if EN <= XL2S[j]:
  *                     break
  *             A = (YL2S[j] - YL2S[j - 1]) / (XL2S[j] - XL2S[j - 1])             # <<<<<<<<<<<<<<
@@ -6265,7 +6265,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_A = (((__pyx_v_YL2S[__pyx_v_j]) - (__pyx_v_YL2S[(__pyx_v_j - 1)])) / ((__pyx_v_XL2S[__pyx_v_j]) - (__pyx_v_XL2S[(__pyx_v_j - 1)])));
 
-      /* "ARGON.pyx":404
+      /* "gases/ARGON.pyx":404
  *                     break
  *             A = (YL2S[j] - YL2S[j - 1]) / (XL2S[j] - XL2S[j - 1])
  *             B = (XL2S[j - 1] * YL2S[j] - XL2S[j] * YL2S[j - 1]) / (XL2S[j - 1] - XL2S[j])             # <<<<<<<<<<<<<<
@@ -6274,7 +6274,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_B = ((((__pyx_v_XL2S[(__pyx_v_j - 1)]) * (__pyx_v_YL2S[__pyx_v_j])) - ((__pyx_v_XL2S[__pyx_v_j]) * (__pyx_v_YL2S[(__pyx_v_j - 1)]))) / ((__pyx_v_XL2S[(__pyx_v_j - 1)]) - (__pyx_v_XL2S[__pyx_v_j])));
 
-      /* "ARGON.pyx":405
+      /* "gases/ARGON.pyx":405
  *             A = (YL2S[j] - YL2S[j - 1]) / (XL2S[j] - XL2S[j - 1])
  *             B = (XL2S[j - 1] * YL2S[j] - XL2S[j] * YL2S[j - 1]) / (XL2S[j - 1] - XL2S[j])
  *             object.QION[4][I] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6283,7 +6283,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-      /* "ARGON.pyx":406
+      /* "gases/ARGON.pyx":406
  *             B = (XL2S[j - 1] * YL2S[j] - XL2S[j] * YL2S[j - 1]) / (XL2S[j - 1] - XL2S[j])
  *             object.QION[4][I] = (A * EN + B) * 1e-16
  *             object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]             # <<<<<<<<<<<<<<
@@ -6292,7 +6292,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[4]))]);
 
-      /* "ARGON.pyx":399
+      /* "gases/ARGON.pyx":399
  *             object.PEQION[4][I] = 0.0
  * 
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -6301,7 +6301,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":408
+    /* "gases/ARGON.pyx":408
  *             object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]
  *         # L1 Shell ionisation
  *         object.QION[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6310,7 +6310,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[5])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":409
+    /* "gases/ARGON.pyx":409
  *         # L1 Shell ionisation
  *         object.QION[5][I] = 0.0
  *         object.PEQION[5][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6319,7 +6319,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = 0.5;
 
-    /* "ARGON.pyx":411
+    /* "gases/ARGON.pyx":411
  *         object.PEQION[5][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6329,7 +6329,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":412
+      /* "gases/ARGON.pyx":412
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6338,7 +6338,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":411
+      /* "gases/ARGON.pyx":411
  *         object.PEQION[5][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6347,7 +6347,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":414
+    /* "gases/ARGON.pyx":414
  *             object.PEQION[5][I] = 0.0
  * 
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -6357,7 +6357,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EION[5])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":415
+      /* "gases/ARGON.pyx":415
  * 
  *         if EN > object.EION[5]:
  *             for j in range(1, NL1S):             # <<<<<<<<<<<<<<
@@ -6369,7 +6369,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_j = __pyx_t_8;
 
-        /* "ARGON.pyx":416
+        /* "gases/ARGON.pyx":416
  *         if EN > object.EION[5]:
  *             for j in range(1, NL1S):
  *                 if EN <= XL1S[j]:             # <<<<<<<<<<<<<<
@@ -6379,7 +6379,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XL1S[__pyx_v_j])) != 0);
         if (__pyx_t_23) {
 
-          /* "ARGON.pyx":417
+          /* "gases/ARGON.pyx":417
  *             for j in range(1, NL1S):
  *                 if EN <= XL1S[j]:
  *                     break             # <<<<<<<<<<<<<<
@@ -6388,7 +6388,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           goto __pyx_L73_break;
 
-          /* "ARGON.pyx":416
+          /* "gases/ARGON.pyx":416
  *         if EN > object.EION[5]:
  *             for j in range(1, NL1S):
  *                 if EN <= XL1S[j]:             # <<<<<<<<<<<<<<
@@ -6399,7 +6399,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L73_break:;
 
-      /* "ARGON.pyx":418
+      /* "gases/ARGON.pyx":418
  *                 if EN <= XL1S[j]:
  *                     break
  *             A = (YL1S[j] - YL1S[j - 1]) / (XL1S[j] - XL1S[j - 1])             # <<<<<<<<<<<<<<
@@ -6408,7 +6408,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_A = (((__pyx_v_YL1S[__pyx_v_j]) - (__pyx_v_YL1S[(__pyx_v_j - 1)])) / ((__pyx_v_XL1S[__pyx_v_j]) - (__pyx_v_XL1S[(__pyx_v_j - 1)])));
 
-      /* "ARGON.pyx":419
+      /* "gases/ARGON.pyx":419
  *                     break
  *             A = (YL1S[j] - YL1S[j - 1]) / (XL1S[j] - XL1S[j - 1])
  *             B = (XL1S[j - 1] * YL1S[j] - XL1S[j] * YL1S[j - 1]) / (XL1S[j - 1] - XL1S[j])             # <<<<<<<<<<<<<<
@@ -6417,7 +6417,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_B = ((((__pyx_v_XL1S[(__pyx_v_j - 1)]) * (__pyx_v_YL1S[__pyx_v_j])) - ((__pyx_v_XL1S[__pyx_v_j]) * (__pyx_v_YL1S[(__pyx_v_j - 1)]))) / ((__pyx_v_XL1S[(__pyx_v_j - 1)]) - (__pyx_v_XL1S[__pyx_v_j])));
 
-      /* "ARGON.pyx":420
+      /* "gases/ARGON.pyx":420
  *             A = (YL1S[j] - YL1S[j - 1]) / (XL1S[j] - XL1S[j - 1])
  *             B = (XL1S[j - 1] * YL1S[j] - XL1S[j] * YL1S[j - 1]) / (XL1S[j - 1] - XL1S[j])
  *             object.QION[5][I] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6426,7 +6426,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-      /* "ARGON.pyx":421
+      /* "gases/ARGON.pyx":421
  *             B = (XL1S[j - 1] * YL1S[j] - XL1S[j] * YL1S[j - 1]) / (XL1S[j - 1] - XL1S[j])
  *             object.QION[5][I] = (A * EN + B) * 1e-16
  *             object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]             # <<<<<<<<<<<<<<
@@ -6435,7 +6435,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[5]))]);
 
-      /* "ARGON.pyx":414
+      /* "gases/ARGON.pyx":414
  *             object.PEQION[5][I] = 0.0
  * 
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -6444,7 +6444,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":424
+    /* "gases/ARGON.pyx":424
  * 
  *         # K Shell ionisation
  *         object.QION[6][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6453,7 +6453,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[6])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":425
+    /* "gases/ARGON.pyx":425
  *         # K Shell ionisation
  *         object.QION[6][I] = 0.0
  *         object.PEQION[6][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6462,7 +6462,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = 0.5;
 
-    /* "ARGON.pyx":427
+    /* "gases/ARGON.pyx":427
  *         object.PEQION[6][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6472,7 +6472,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":428
+      /* "gases/ARGON.pyx":428
  * 
  *         if object.NANISO == 2:
  *             object.PEQION[6][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6481,7 +6481,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":427
+      /* "gases/ARGON.pyx":427
  *         object.PEQION[6][I] = 0.5
  * 
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6490,7 +6490,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":430
+    /* "gases/ARGON.pyx":430
  *             object.PEQION[6][I] = 0.0
  * 
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -6500,7 +6500,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EION[6])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":431
+      /* "gases/ARGON.pyx":431
  * 
  *         if EN > object.EION[6]:
  *             for j in range(1, NKSH):             # <<<<<<<<<<<<<<
@@ -6512,7 +6512,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_j = __pyx_t_8;
 
-        /* "ARGON.pyx":432
+        /* "gases/ARGON.pyx":432
  *         if EN > object.EION[6]:
  *             for j in range(1, NKSH):
  *                 if EN <= XKSH[j]:             # <<<<<<<<<<<<<<
@@ -6522,7 +6522,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XKSH[__pyx_v_j])) != 0);
         if (__pyx_t_23) {
 
-          /* "ARGON.pyx":433
+          /* "gases/ARGON.pyx":433
  *             for j in range(1, NKSH):
  *                 if EN <= XKSH[j]:
  *                     break             # <<<<<<<<<<<<<<
@@ -6531,7 +6531,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           goto __pyx_L78_break;
 
-          /* "ARGON.pyx":432
+          /* "gases/ARGON.pyx":432
  *         if EN > object.EION[6]:
  *             for j in range(1, NKSH):
  *                 if EN <= XKSH[j]:             # <<<<<<<<<<<<<<
@@ -6542,7 +6542,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L78_break:;
 
-      /* "ARGON.pyx":434
+      /* "gases/ARGON.pyx":434
  *                 if EN <= XKSH[j]:
  *                     break
  *             A = (YKSH[j] - YKSH[j - 1]) / (XKSH[j] - XKSH[j - 1])             # <<<<<<<<<<<<<<
@@ -6551,7 +6551,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_A = (((__pyx_v_YKSH[__pyx_v_j]) - (__pyx_v_YKSH[(__pyx_v_j - 1)])) / ((__pyx_v_XKSH[__pyx_v_j]) - (__pyx_v_XKSH[(__pyx_v_j - 1)])));
 
-      /* "ARGON.pyx":435
+      /* "gases/ARGON.pyx":435
  *                     break
  *             A = (YKSH[j] - YKSH[j - 1]) / (XKSH[j] - XKSH[j - 1])
  *             B = (XKSH[j - 1] * YKSH[j] - XKSH[j] * YKSH[j - 1]) / (XKSH[j - 1] - XKSH[j])             # <<<<<<<<<<<<<<
@@ -6560,7 +6560,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_B = ((((__pyx_v_XKSH[(__pyx_v_j - 1)]) * (__pyx_v_YKSH[__pyx_v_j])) - ((__pyx_v_XKSH[__pyx_v_j]) * (__pyx_v_YKSH[(__pyx_v_j - 1)]))) / ((__pyx_v_XKSH[(__pyx_v_j - 1)]) - (__pyx_v_XKSH[__pyx_v_j])));
 
-      /* "ARGON.pyx":436
+      /* "gases/ARGON.pyx":436
  *             A = (YKSH[j] - YKSH[j - 1]) / (XKSH[j] - XKSH[j - 1])
  *             B = (XKSH[j - 1] * YKSH[j] - XKSH[j] * YKSH[j - 1]) / (XKSH[j - 1] - XKSH[j])
  *             object.QION[6][I] = (A * EN + B) * 1e-16             # <<<<<<<<<<<<<<
@@ -6569,7 +6569,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[6])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1e-16);
 
-      /* "ARGON.pyx":437
+      /* "gases/ARGON.pyx":437
  *             B = (XKSH[j - 1] * YKSH[j] - XKSH[j] * YKSH[j - 1]) / (XKSH[j - 1] - XKSH[j])
  *             object.QION[6][I] = (A * EN + B) * 1e-16
  *             object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]             # <<<<<<<<<<<<<<
@@ -6578,7 +6578,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[6]))]);
 
-      /* "ARGON.pyx":430
+      /* "gases/ARGON.pyx":430
  *             object.PEQION[6][I] = 0.0
  * 
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -6587,7 +6587,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":439
+    /* "gases/ARGON.pyx":439
  *             object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]
  *         # ATTAchment
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6596,7 +6596,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":440
+    /* "gases/ARGON.pyx":440
  *         # ATTAchment
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6605,7 +6605,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":443
+    /* "gases/ARGON.pyx":443
  * 
  *         # Counting ionisation
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6614,7 +6614,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":444
+    /* "gases/ARGON.pyx":444
  *         # Counting ionisation
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6623,7 +6623,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.5;
 
-    /* "ARGON.pyx":445
+    /* "gases/ARGON.pyx":445
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6633,7 +6633,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":446
+      /* "gases/ARGON.pyx":446
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6642,7 +6642,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":445
+      /* "gases/ARGON.pyx":445
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6651,7 +6651,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":447
+    /* "gases/ARGON.pyx":447
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:             # <<<<<<<<<<<<<<
@@ -6661,7 +6661,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->E[2])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":448
+      /* "gases/ARGON.pyx":448
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:
  *             if EN <= XENI[NIDATA-1]:             # <<<<<<<<<<<<<<
@@ -6671,7 +6671,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XENI[(__pyx_v_NIDATA - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":449
+        /* "gases/ARGON.pyx":449
  *         if EN > object.E[2]:
  *             if EN <= XENI[NIDATA-1]:
  *                 for j in range(1, NIDATA):             # <<<<<<<<<<<<<<
@@ -6683,7 +6683,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":450
+          /* "gases/ARGON.pyx":450
  *             if EN <= XENI[NIDATA-1]:
  *                 for j in range(1, NIDATA):
  *                     if EN <= XENI[j]:             # <<<<<<<<<<<<<<
@@ -6693,7 +6693,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_XENI[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":451
+            /* "gases/ARGON.pyx":451
  *                 for j in range(1, NIDATA):
  *                     if EN <= XENI[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -6702,7 +6702,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L84_break;
 
-            /* "ARGON.pyx":450
+            /* "gases/ARGON.pyx":450
  *             if EN <= XENI[NIDATA-1]:
  *                 for j in range(1, NIDATA):
  *                     if EN <= XENI[j]:             # <<<<<<<<<<<<<<
@@ -6713,7 +6713,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L84_break:;
 
-        /* "ARGON.pyx":452
+        /* "gases/ARGON.pyx":452
  *                     if EN <= XENI[j]:
  *                         break
  *                 A = (YENC[j] - YENC[j - 1]) / (XENI[j] - XENI[j - 1])             # <<<<<<<<<<<<<<
@@ -6722,7 +6722,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_YENC[__pyx_v_j]) - (__pyx_v_YENC[(__pyx_v_j - 1)])) / ((__pyx_v_XENI[__pyx_v_j]) - (__pyx_v_XENI[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":453
+        /* "gases/ARGON.pyx":453
  *                         break
  *                 A = (YENC[j] - YENC[j - 1]) / (XENI[j] - XENI[j - 1])
  *                 B = (XENI[j - 1] * YENC[j] - XENI[j] * YENC[j - 1]) / (XENI[j - 1] - XENI[j])             # <<<<<<<<<<<<<<
@@ -6731,7 +6731,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_XENI[(__pyx_v_j - 1)]) * (__pyx_v_YENC[__pyx_v_j])) - ((__pyx_v_XENI[__pyx_v_j]) * (__pyx_v_YENC[(__pyx_v_j - 1)]))) / ((__pyx_v_XENI[(__pyx_v_j - 1)]) - (__pyx_v_XENI[__pyx_v_j])));
 
-        /* "ARGON.pyx":454
+        /* "gases/ARGON.pyx":454
  *                 A = (YENC[j] - YENC[j - 1]) / (XENI[j] - XENI[j - 1])
  *                 B = (XENI[j - 1] * YENC[j] - XENI[j] * YENC[j - 1]) / (XENI[j - 1] - XENI[j])
  *                 object.Q[4][I] = (A * EN + B) * 1.0e-16             # <<<<<<<<<<<<<<
@@ -6740,7 +6740,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->Q[4])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-16);
 
-        /* "ARGON.pyx":448
+        /* "gases/ARGON.pyx":448
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:
  *             if EN <= XENI[NIDATA-1]:             # <<<<<<<<<<<<<<
@@ -6750,7 +6750,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L82;
       }
 
-      /* "ARGON.pyx":456
+      /* "gases/ARGON.pyx":456
  *                 object.Q[4][I] = (A * EN + B) * 1.0e-16
  *             else:
  *                 object.Q[4][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2)             # <<<<<<<<<<<<<<
@@ -6762,7 +6762,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L82:;
 
-      /* "ARGON.pyx":447
+      /* "gases/ARGON.pyx":447
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:             # <<<<<<<<<<<<<<
@@ -6771,7 +6771,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":457
+    /* "gases/ARGON.pyx":457
  *             else:
  *                 object.Q[4][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2)
  *         QTEMP = object.QION[3][I] + object.QION[4][I] + object.QION[5][I] + object.QION[6][I]             # <<<<<<<<<<<<<<
@@ -6780,7 +6780,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTEMP = (((((__pyx_v_object->QION[3])[__pyx_v_I]) + ((__pyx_v_object->QION[4])[__pyx_v_I])) + ((__pyx_v_object->QION[5])[__pyx_v_I])) + ((__pyx_v_object->QION[6])[__pyx_v_I]));
 
-    /* "ARGON.pyx":458
+    /* "gases/ARGON.pyx":458
  *                 object.Q[4][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2)
  *         QTEMP = object.QION[3][I] + object.QION[4][I] + object.QION[5][I] + object.QION[6][I]
  *         if object.Q[4][I] == 0.0:             # <<<<<<<<<<<<<<
@@ -6790,7 +6790,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((((__pyx_v_object->Q[4])[__pyx_v_I]) == 0.0) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":459
+      /* "gases/ARGON.pyx":459
  *         QTEMP = object.QION[3][I] + object.QION[4][I] + object.QION[5][I] + object.QION[6][I]
  *         if object.Q[4][I] == 0.0:
  *             QCORR = 1.0             # <<<<<<<<<<<<<<
@@ -6799,7 +6799,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QCORR = 1.0;
 
-      /* "ARGON.pyx":458
+      /* "gases/ARGON.pyx":458
  *                 object.Q[4][I] = CONST * (AM2 * (X1 - object.DEN[I] / 2.0) + C * X2)
  *         QTEMP = object.QION[3][I] + object.QION[4][I] + object.QION[5][I] + object.QION[6][I]
  *         if object.Q[4][I] == 0.0:             # <<<<<<<<<<<<<<
@@ -6809,7 +6809,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L86;
     }
 
-    /* "ARGON.pyx":461
+    /* "gases/ARGON.pyx":461
  *             QCORR = 1.0
  *         else:
  *             QCORR = (object.Q[4][I] - QTEMP) / object.Q[4][I]             # <<<<<<<<<<<<<<
@@ -6821,7 +6821,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L86:;
 
-    /* "ARGON.pyx":462
+    /* "gases/ARGON.pyx":462
  *         else:
  *             QCORR = (object.Q[4][I] - QTEMP) / object.Q[4][I]
  *         object.QION[0][I] = object.QION[0][I] * QCORR             # <<<<<<<<<<<<<<
@@ -6830,7 +6830,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = (((__pyx_v_object->QION[0])[__pyx_v_I]) * __pyx_v_QCORR);
 
-    /* "ARGON.pyx":463
+    /* "gases/ARGON.pyx":463
  *             QCORR = (object.Q[4][I] - QTEMP) / object.Q[4][I]
  *         object.QION[0][I] = object.QION[0][I] * QCORR
  *         object.QION[1][I] = object.QION[1][I] * QCORR             # <<<<<<<<<<<<<<
@@ -6839,7 +6839,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[1])[__pyx_v_I]) = (((__pyx_v_object->QION[1])[__pyx_v_I]) * __pyx_v_QCORR);
 
-    /* "ARGON.pyx":464
+    /* "gases/ARGON.pyx":464
  *         object.QION[0][I] = object.QION[0][I] * QCORR
  *         object.QION[1][I] = object.QION[1][I] * QCORR
  *         object.QION[2][I] = object.QION[2][I] * QCORR             # <<<<<<<<<<<<<<
@@ -6848,7 +6848,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[2])[__pyx_v_I]) = (((__pyx_v_object->QION[2])[__pyx_v_I]) * __pyx_v_QCORR);
 
-    /* "ARGON.pyx":466
+    /* "gases/ARGON.pyx":466
  *         object.QION[2][I] = object.QION[2][I] * QCORR
  * 
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6857,7 +6857,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "ARGON.pyx":467
+    /* "gases/ARGON.pyx":467
  * 
  *         object.Q[5][I] = 0.0
  *         for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -6869,7 +6869,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_NL = __pyx_t_8;
 
-      /* "ARGON.pyx":468
+      /* "gases/ARGON.pyx":468
  *         object.Q[5][I] = 0.0
  *         for NL in range(object.NIN):
  *             object.QIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6878,7 +6878,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-      /* "ARGON.pyx":469
+      /* "gases/ARGON.pyx":469
  *         for NL in range(object.NIN):
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6887,7 +6887,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.5;
 
-      /* "ARGON.pyx":470
+      /* "gases/ARGON.pyx":470
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6897,7 +6897,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":471
+        /* "gases/ARGON.pyx":471
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6906,7 +6906,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":470
+        /* "gases/ARGON.pyx":470
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6916,7 +6916,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "ARGON.pyx":475
+    /* "gases/ARGON.pyx":475
  *         # 1S5
  * 
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -6926,7 +6926,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":476
+      /* "gases/ARGON.pyx":476
  * 
  *         if EN > object.EIN[0]:
  *             if EN <= X1S5[N1S5 - 1]:             # <<<<<<<<<<<<<<
@@ -6936,7 +6936,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X1S5[(__pyx_v_N1S5 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":477
+        /* "gases/ARGON.pyx":477
  *         if EN > object.EIN[0]:
  *             if EN <= X1S5[N1S5 - 1]:
  *                 for j in range(1, N1S5):             # <<<<<<<<<<<<<<
@@ -6948,7 +6948,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":478
+          /* "gases/ARGON.pyx":478
  *             if EN <= X1S5[N1S5 - 1]:
  *                 for j in range(1, N1S5):
  *                     if EN <= X1S5[j]:             # <<<<<<<<<<<<<<
@@ -6958,7 +6958,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X1S5[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":479
+            /* "gases/ARGON.pyx":479
  *                 for j in range(1, N1S5):
  *                     if EN <= X1S5[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -6967,7 +6967,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L93_break;
 
-            /* "ARGON.pyx":478
+            /* "gases/ARGON.pyx":478
  *             if EN <= X1S5[N1S5 - 1]:
  *                 for j in range(1, N1S5):
  *                     if EN <= X1S5[j]:             # <<<<<<<<<<<<<<
@@ -6978,7 +6978,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L93_break:;
 
-        /* "ARGON.pyx":480
+        /* "gases/ARGON.pyx":480
  *                     if EN <= X1S5[j]:
  *                         break
  *                 A = (Y1S5[j] - Y1S5[j - 1]) / (X1S5[j] - X1S5[j - 1])             # <<<<<<<<<<<<<<
@@ -6987,7 +6987,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y1S5[__pyx_v_j]) - (__pyx_v_Y1S5[(__pyx_v_j - 1)])) / ((__pyx_v_X1S5[__pyx_v_j]) - (__pyx_v_X1S5[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":481
+        /* "gases/ARGON.pyx":481
  *                         break
  *                 A = (Y1S5[j] - Y1S5[j - 1]) / (X1S5[j] - X1S5[j - 1])
  *                 B = (X1S5[j - 1] * Y1S5[j] - X1S5[j] * Y1S5[j - 1]) / (X1S5[j - 1] - X1S5[j])             # <<<<<<<<<<<<<<
@@ -6996,7 +6996,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X1S5[(__pyx_v_j - 1)]) * (__pyx_v_Y1S5[__pyx_v_j])) - ((__pyx_v_X1S5[__pyx_v_j]) * (__pyx_v_Y1S5[(__pyx_v_j - 1)]))) / ((__pyx_v_X1S5[(__pyx_v_j - 1)]) - (__pyx_v_X1S5[__pyx_v_j])));
 
-        /* "ARGON.pyx":482
+        /* "gases/ARGON.pyx":482
  *                 A = (Y1S5[j] - Y1S5[j - 1]) / (X1S5[j] - X1S5[j - 1])
  *                 B = (X1S5[j - 1] * Y1S5[j] - X1S5[j] * Y1S5[j - 1]) / (X1S5[j - 1] - X1S5[j])
  *                 object.QIN[0][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -7005,7 +7005,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":476
+        /* "gases/ARGON.pyx":476
  * 
  *         if EN > object.EIN[0]:
  *             if EN <= X1S5[N1S5 - 1]:             # <<<<<<<<<<<<<<
@@ -7015,7 +7015,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L91;
       }
 
-      /* "ARGON.pyx":484
+      /* "gases/ARGON.pyx":484
  *                 object.QIN[0][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[0][I] = Y1S5[N1S5 - 1] * (X1S5[N1S5 - 1] / EN) ** 3 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -7027,7 +7027,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L91:;
 
-      /* "ARGON.pyx":485
+      /* "gases/ARGON.pyx":485
  *             else:
  *                 object.QIN[0][I] = Y1S5[N1S5 - 1] * (X1S5[N1S5 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[0]):             # <<<<<<<<<<<<<<
@@ -7037,7 +7037,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":486
+        /* "gases/ARGON.pyx":486
  *                 object.QIN[0][I] = Y1S5[N1S5 - 1] * (X1S5[N1S5 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[0]):
  *                 object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]             # <<<<<<<<<<<<<<
@@ -7046,7 +7046,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0]))]);
 
-        /* "ARGON.pyx":485
+        /* "gases/ARGON.pyx":485
  *             else:
  *                 object.QIN[0][I] = Y1S5[N1S5 - 1] * (X1S5[N1S5 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[0]):             # <<<<<<<<<<<<<<
@@ -7055,7 +7055,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":475
+      /* "gases/ARGON.pyx":475
  *         # 1S5
  * 
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -7064,7 +7064,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":488
+    /* "gases/ARGON.pyx":488
  *                 object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
  * 
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7074,7 +7074,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":489
+      /* "gases/ARGON.pyx":489
  * 
  *         if EN > object.EIN[1]:
  *             if EN <= X1S4[N1S4 - 1]:             # <<<<<<<<<<<<<<
@@ -7084,7 +7084,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X1S4[(__pyx_v_N1S4 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":490
+        /* "gases/ARGON.pyx":490
  *         if EN > object.EIN[1]:
  *             if EN <= X1S4[N1S4 - 1]:
  *                 for j in range(1, N1S4):             # <<<<<<<<<<<<<<
@@ -7096,7 +7096,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":491
+          /* "gases/ARGON.pyx":491
  *             if EN <= X1S4[N1S4 - 1]:
  *                 for j in range(1, N1S4):
  *                     if EN <= X1S4[j]:             # <<<<<<<<<<<<<<
@@ -7106,7 +7106,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X1S4[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":492
+            /* "gases/ARGON.pyx":492
  *                 for j in range(1, N1S4):
  *                     if EN <= X1S4[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7115,7 +7115,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L99_break;
 
-            /* "ARGON.pyx":491
+            /* "gases/ARGON.pyx":491
  *             if EN <= X1S4[N1S4 - 1]:
  *                 for j in range(1, N1S4):
  *                     if EN <= X1S4[j]:             # <<<<<<<<<<<<<<
@@ -7126,7 +7126,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L99_break:;
 
-        /* "ARGON.pyx":493
+        /* "gases/ARGON.pyx":493
  *                     if EN <= X1S4[j]:
  *                         break
  *                 A = (Y1S4[j] - Y1S4[j - 1]) / (X1S4[j] - X1S4[j - 1])             # <<<<<<<<<<<<<<
@@ -7135,7 +7135,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y1S4[__pyx_v_j]) - (__pyx_v_Y1S4[(__pyx_v_j - 1)])) / ((__pyx_v_X1S4[__pyx_v_j]) - (__pyx_v_X1S4[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":494
+        /* "gases/ARGON.pyx":494
  *                         break
  *                 A = (Y1S4[j] - Y1S4[j - 1]) / (X1S4[j] - X1S4[j - 1])
  *                 B = (X1S4[j - 1] * Y1S4[j] - X1S4[j] * Y1S4[j - 1]) / (X1S4[j - 1] - X1S4[j])             # <<<<<<<<<<<<<<
@@ -7144,7 +7144,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X1S4[(__pyx_v_j - 1)]) * (__pyx_v_Y1S4[__pyx_v_j])) - ((__pyx_v_X1S4[__pyx_v_j]) * (__pyx_v_Y1S4[(__pyx_v_j - 1)]))) / ((__pyx_v_X1S4[(__pyx_v_j - 1)]) - (__pyx_v_X1S4[__pyx_v_j])));
 
-        /* "ARGON.pyx":495
+        /* "gases/ARGON.pyx":495
  *                 A = (Y1S4[j] - Y1S4[j - 1]) / (X1S4[j] - X1S4[j - 1])
  *                 B = (X1S4[j - 1] * Y1S4[j] - X1S4[j] * Y1S4[j - 1]) / (X1S4[j - 1] - X1S4[j])
  *                 object.QIN[1][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -7153,7 +7153,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[1])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":489
+        /* "gases/ARGON.pyx":489
  * 
  *         if EN > object.EIN[1]:
  *             if EN <= X1S4[N1S4 - 1]:             # <<<<<<<<<<<<<<
@@ -7163,7 +7163,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L97;
       }
 
-      /* "ARGON.pyx":499
+      /* "gases/ARGON.pyx":499
  *                 object.QIN[1][I] = <float>(0.0580) / (object.EIN[1] * BETA2) * (
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[1])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (             # <<<<<<<<<<<<<<
@@ -7172,7 +7172,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       /*else*/ {
 
-        /* "ARGON.pyx":497
+        /* "gases/ARGON.pyx":497
  *                 object.QIN[1][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[1][I] = <float>(0.0580) / (object.EIN[1] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7183,7 +7183,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L97:;
 
-      /* "ARGON.pyx":501
+      /* "gases/ARGON.pyx":501
  *                     I] / 2.0) * BBCONST * EN / (
  *                                            EN + object.E[2] + object.EIN[1])
  *             if EN > (2.0 * object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -7193,7 +7193,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[1]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":502
+        /* "gases/ARGON.pyx":502
  *                                            EN + object.E[2] + object.EIN[1])
  *             if EN > (2.0 * object.EIN[1]):
  *                 object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]             # <<<<<<<<<<<<<<
@@ -7202,7 +7202,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[1]))]);
 
-        /* "ARGON.pyx":501
+        /* "gases/ARGON.pyx":501
  *                     I] / 2.0) * BBCONST * EN / (
  *                                            EN + object.E[2] + object.EIN[1])
  *             if EN > (2.0 * object.EIN[1]):             # <<<<<<<<<<<<<<
@@ -7211,7 +7211,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":488
+      /* "gases/ARGON.pyx":488
  *                 object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
  * 
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7220,7 +7220,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":505
+    /* "gases/ARGON.pyx":505
  * 
  *         # 1S3
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -7230,7 +7230,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[2])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":506
+      /* "gases/ARGON.pyx":506
  *         # 1S3
  *         if EN > object.EIN[2]:
  *             if EN <= X1S3[N1S3 - 1]:             # <<<<<<<<<<<<<<
@@ -7240,7 +7240,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X1S3[(__pyx_v_N1S3 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":507
+        /* "gases/ARGON.pyx":507
  *         if EN > object.EIN[2]:
  *             if EN <= X1S3[N1S3 - 1]:
  *                 for j in range(1, N1S3):             # <<<<<<<<<<<<<<
@@ -7252,7 +7252,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":508
+          /* "gases/ARGON.pyx":508
  *             if EN <= X1S3[N1S3 - 1]:
  *                 for j in range(1, N1S3):
  *                     if EN <= X1S3[j]:             # <<<<<<<<<<<<<<
@@ -7262,7 +7262,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X1S3[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":509
+            /* "gases/ARGON.pyx":509
  *                 for j in range(1, N1S3):
  *                     if EN <= X1S3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7271,7 +7271,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L105_break;
 
-            /* "ARGON.pyx":508
+            /* "gases/ARGON.pyx":508
  *             if EN <= X1S3[N1S3 - 1]:
  *                 for j in range(1, N1S3):
  *                     if EN <= X1S3[j]:             # <<<<<<<<<<<<<<
@@ -7282,7 +7282,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L105_break:;
 
-        /* "ARGON.pyx":510
+        /* "gases/ARGON.pyx":510
  *                     if EN <= X1S3[j]:
  *                         break
  *                 A = (Y1S3[j] - Y1S3[j - 1]) / (X1S3[j] - X1S3[j - 1])             # <<<<<<<<<<<<<<
@@ -7291,7 +7291,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y1S3[__pyx_v_j]) - (__pyx_v_Y1S3[(__pyx_v_j - 1)])) / ((__pyx_v_X1S3[__pyx_v_j]) - (__pyx_v_X1S3[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":511
+        /* "gases/ARGON.pyx":511
  *                         break
  *                 A = (Y1S3[j] - Y1S3[j - 1]) / (X1S3[j] - X1S3[j - 1])
  *                 B = (X1S3[j - 1] * Y1S3[j] - X1S3[j] * Y1S3[j - 1]) / (X1S3[j - 1] - X1S3[j])             # <<<<<<<<<<<<<<
@@ -7300,7 +7300,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X1S3[(__pyx_v_j - 1)]) * (__pyx_v_Y1S3[__pyx_v_j])) - ((__pyx_v_X1S3[__pyx_v_j]) * (__pyx_v_Y1S3[(__pyx_v_j - 1)]))) / ((__pyx_v_X1S3[(__pyx_v_j - 1)]) - (__pyx_v_X1S3[__pyx_v_j])));
 
-        /* "ARGON.pyx":512
+        /* "gases/ARGON.pyx":512
  *                 A = (Y1S3[j] - Y1S3[j - 1]) / (X1S3[j] - X1S3[j - 1])
  *                 B = (X1S3[j - 1] * Y1S3[j] - X1S3[j] * Y1S3[j - 1]) / (X1S3[j - 1] - X1S3[j])
  *                 object.QIN[2][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -7309,7 +7309,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[2])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":506
+        /* "gases/ARGON.pyx":506
  *         # 1S3
  *         if EN > object.EIN[2]:
  *             if EN <= X1S3[N1S3 - 1]:             # <<<<<<<<<<<<<<
@@ -7319,7 +7319,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L103;
       }
 
-      /* "ARGON.pyx":514
+      /* "gases/ARGON.pyx":514
  *                 object.QIN[2][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[2][I] = Y1S3[N1S3 - 1] * (X1S3[N1S3 - 1] / EN) ** 3 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -7331,7 +7331,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L103:;
 
-      /* "ARGON.pyx":515
+      /* "gases/ARGON.pyx":515
  *             else:
  *                 object.QIN[2][I] = Y1S3[N1S3 - 1] * (X1S3[N1S3 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[2]):             # <<<<<<<<<<<<<<
@@ -7341,7 +7341,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[2]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":516
+        /* "gases/ARGON.pyx":516
  *                 object.QIN[2][I] = Y1S3[N1S3 - 1] * (X1S3[N1S3 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[2]):
  *                 object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -7350,7 +7350,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-        /* "ARGON.pyx":515
+        /* "gases/ARGON.pyx":515
  *             else:
  *                 object.QIN[2][I] = Y1S3[N1S3 - 1] * (X1S3[N1S3 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[2]):             # <<<<<<<<<<<<<<
@@ -7359,7 +7359,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":505
+      /* "gases/ARGON.pyx":505
  * 
  *         # 1S3
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -7368,7 +7368,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":519
+    /* "gases/ARGON.pyx":519
  * 
  *         # 1S2 F=0.2260
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7378,7 +7378,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":520
+      /* "gases/ARGON.pyx":520
  *         # 1S2 F=0.2260
  *         if EN > object.EIN[3]:
  *             if EN <= X1S2[N1S2 - 1]:             # <<<<<<<<<<<<<<
@@ -7388,7 +7388,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X1S2[(__pyx_v_N1S2 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":521
+        /* "gases/ARGON.pyx":521
  *         if EN > object.EIN[3]:
  *             if EN <= X1S2[N1S2 - 1]:
  *                 for j in range(1, N1S2):             # <<<<<<<<<<<<<<
@@ -7400,7 +7400,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":522
+          /* "gases/ARGON.pyx":522
  *             if EN <= X1S2[N1S2 - 1]:
  *                 for j in range(1, N1S2):
  *                     if EN <= X1S2[j]:             # <<<<<<<<<<<<<<
@@ -7410,7 +7410,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X1S2[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":523
+            /* "gases/ARGON.pyx":523
  *                 for j in range(1, N1S2):
  *                     if EN <= X1S2[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7419,7 +7419,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L111_break;
 
-            /* "ARGON.pyx":522
+            /* "gases/ARGON.pyx":522
  *             if EN <= X1S2[N1S2 - 1]:
  *                 for j in range(1, N1S2):
  *                     if EN <= X1S2[j]:             # <<<<<<<<<<<<<<
@@ -7430,7 +7430,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L111_break:;
 
-        /* "ARGON.pyx":524
+        /* "gases/ARGON.pyx":524
  *                     if EN <= X1S2[j]:
  *                         break
  *                 A = (Y1S2[j] - Y1S2[j - 1]) / (X1S2[j] - X1S2[j - 1])             # <<<<<<<<<<<<<<
@@ -7439,7 +7439,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y1S2[__pyx_v_j]) - (__pyx_v_Y1S2[(__pyx_v_j - 1)])) / ((__pyx_v_X1S2[__pyx_v_j]) - (__pyx_v_X1S2[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":525
+        /* "gases/ARGON.pyx":525
  *                         break
  *                 A = (Y1S2[j] - Y1S2[j - 1]) / (X1S2[j] - X1S2[j - 1])
  *                 B = (X1S2[j - 1] * Y1S2[j] - X1S2[j] * Y1S2[j - 1]) / (X1S2[j - 1] - X1S2[j])             # <<<<<<<<<<<<<<
@@ -7448,7 +7448,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X1S2[(__pyx_v_j - 1)]) * (__pyx_v_Y1S2[__pyx_v_j])) - ((__pyx_v_X1S2[__pyx_v_j]) * (__pyx_v_Y1S2[(__pyx_v_j - 1)]))) / ((__pyx_v_X1S2[(__pyx_v_j - 1)]) - (__pyx_v_X1S2[__pyx_v_j])));
 
-        /* "ARGON.pyx":526
+        /* "gases/ARGON.pyx":526
  *                 A = (Y1S2[j] - Y1S2[j - 1]) / (X1S2[j] - X1S2[j - 1])
  *                 B = (X1S2[j - 1] * Y1S2[j] - X1S2[j] * Y1S2[j - 1]) / (X1S2[j - 1] - X1S2[j])
  *                 object.QIN[3][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -7457,7 +7457,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[3])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":520
+        /* "gases/ARGON.pyx":520
  *         # 1S2 F=0.2260
  *         if EN > object.EIN[3]:
  *             if EN <= X1S2[N1S2 - 1]:             # <<<<<<<<<<<<<<
@@ -7467,7 +7467,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L109;
       }
 
-      /* "ARGON.pyx":530
+      /* "gases/ARGON.pyx":530
  *                 object.QIN[3][I] = <float>(0.2260) / (object.EIN[3] * BETA2) * (
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[3])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (             # <<<<<<<<<<<<<<
@@ -7476,7 +7476,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       /*else*/ {
 
-        /* "ARGON.pyx":528
+        /* "gases/ARGON.pyx":528
  *                 object.QIN[3][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[3][I] = <float>(0.2260) / (object.EIN[3] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7487,7 +7487,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L109:;
 
-      /* "ARGON.pyx":532
+      /* "gases/ARGON.pyx":532
  *                     I] / 2.0) * BBCONST * EN / (
  *                                            EN + object.E[2] + object.EIN[3])
  *             if EN > (2.0 * object.EIN[3]):             # <<<<<<<<<<<<<<
@@ -7497,7 +7497,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[3]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":533
+        /* "gases/ARGON.pyx":533
  *                                            EN + object.E[2] + object.EIN[3])
  *             if EN > (2.0 * object.EIN[3]):
  *                 object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -7506,7 +7506,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-        /* "ARGON.pyx":532
+        /* "gases/ARGON.pyx":532
  *                     I] / 2.0) * BBCONST * EN / (
  *                                            EN + object.E[2] + object.EIN[3])
  *             if EN > (2.0 * object.EIN[3]):             # <<<<<<<<<<<<<<
@@ -7515,7 +7515,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":519
+      /* "gases/ARGON.pyx":519
  * 
  *         # 1S2 F=0.2260
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7524,7 +7524,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":535
+    /* "gases/ARGON.pyx":535
  *                 object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
  *         # P states, 2P10
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -7534,7 +7534,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[4])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":536
+      /* "gases/ARGON.pyx":536
  *         # P states, 2P10
  *         if EN > object.EIN[4]:
  *             if EN <= X2P10[N2P10 - 1]:             # <<<<<<<<<<<<<<
@@ -7544,7 +7544,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P10[(__pyx_v_N2P10 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":537
+        /* "gases/ARGON.pyx":537
  *         if EN > object.EIN[4]:
  *             if EN <= X2P10[N2P10 - 1]:
  *                 for j in range(1, N2P10):             # <<<<<<<<<<<<<<
@@ -7556,7 +7556,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":538
+          /* "gases/ARGON.pyx":538
  *             if EN <= X2P10[N2P10 - 1]:
  *                 for j in range(1, N2P10):
  *                     if EN <= X2P10[j]:             # <<<<<<<<<<<<<<
@@ -7566,7 +7566,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P10[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":539
+            /* "gases/ARGON.pyx":539
  *                 for j in range(1, N2P10):
  *                     if EN <= X2P10[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7575,7 +7575,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L117_break;
 
-            /* "ARGON.pyx":538
+            /* "gases/ARGON.pyx":538
  *             if EN <= X2P10[N2P10 - 1]:
  *                 for j in range(1, N2P10):
  *                     if EN <= X2P10[j]:             # <<<<<<<<<<<<<<
@@ -7586,7 +7586,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L117_break:;
 
-        /* "ARGON.pyx":540
+        /* "gases/ARGON.pyx":540
  *                     if EN <= X2P10[j]:
  *                         break
  *                 A = (Y2P10[j] - Y2P10[j - 1]) / (X2P10[j] - X2P10[j - 1])             # <<<<<<<<<<<<<<
@@ -7595,7 +7595,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P10[__pyx_v_j]) - (__pyx_v_Y2P10[(__pyx_v_j - 1)])) / ((__pyx_v_X2P10[__pyx_v_j]) - (__pyx_v_X2P10[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":541
+        /* "gases/ARGON.pyx":541
  *                         break
  *                 A = (Y2P10[j] - Y2P10[j - 1]) / (X2P10[j] - X2P10[j - 1])
  *                 B = (X2P10[j - 1] * Y2P10[j] - X2P10[j] * Y2P10[j - 1]) / (X2P10[j - 1] - X2P10[j])             # <<<<<<<<<<<<<<
@@ -7604,7 +7604,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P10[(__pyx_v_j - 1)]) * (__pyx_v_Y2P10[__pyx_v_j])) - ((__pyx_v_X2P10[__pyx_v_j]) * (__pyx_v_Y2P10[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P10[(__pyx_v_j - 1)]) - (__pyx_v_X2P10[__pyx_v_j])));
 
-        /* "ARGON.pyx":542
+        /* "gases/ARGON.pyx":542
  *                 A = (Y2P10[j] - Y2P10[j - 1]) / (X2P10[j] - X2P10[j - 1])
  *                 B = (X2P10[j - 1] * Y2P10[j] - X2P10[j] * Y2P10[j - 1]) / (X2P10[j - 1] - X2P10[j])
  *                 object.QIN[4][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -7613,7 +7613,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[4])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":536
+        /* "gases/ARGON.pyx":536
  *         # P states, 2P10
  *         if EN > object.EIN[4]:
  *             if EN <= X2P10[N2P10 - 1]:             # <<<<<<<<<<<<<<
@@ -7623,7 +7623,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L115;
       }
 
-      /* "ARGON.pyx":544
+      /* "gases/ARGON.pyx":544
  *                 object.QIN[4][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[4][I] = Y2P10[N2P10 - 1] * (X2P10[N2P10 - 1] / EN) ** 2 * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -7635,7 +7635,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L115:;
 
-      /* "ARGON.pyx":545
+      /* "gases/ARGON.pyx":545
  *             else:
  *                 object.QIN[4][I] = Y2P10[N2P10 - 1] * (X2P10[N2P10 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[4]):             # <<<<<<<<<<<<<<
@@ -7645,7 +7645,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[4]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":546
+        /* "gases/ARGON.pyx":546
  *                 object.QIN[4][I] = Y2P10[N2P10 - 1] * (X2P10[N2P10 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[4]):
  *                 object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -7654,7 +7654,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-        /* "ARGON.pyx":545
+        /* "gases/ARGON.pyx":545
  *             else:
  *                 object.QIN[4][I] = Y2P10[N2P10 - 1] * (X2P10[N2P10 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[4]):             # <<<<<<<<<<<<<<
@@ -7663,7 +7663,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":535
+      /* "gases/ARGON.pyx":535
  *                 object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
  *         # P states, 2P10
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -7672,7 +7672,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":549
+    /* "gases/ARGON.pyx":549
  * 
  *         # P states, 2P9
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7682,7 +7682,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":550
+      /* "gases/ARGON.pyx":550
  *         # P states, 2P9
  *         if EN > object.EIN[5]:
  *             if EN <= X2P9[N2P9 - 1]:             # <<<<<<<<<<<<<<
@@ -7692,7 +7692,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P9[(__pyx_v_N2P9 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":551
+        /* "gases/ARGON.pyx":551
  *         if EN > object.EIN[5]:
  *             if EN <= X2P9[N2P9 - 1]:
  *                 for j in range(1, N2P9):             # <<<<<<<<<<<<<<
@@ -7704,7 +7704,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":552
+          /* "gases/ARGON.pyx":552
  *             if EN <= X2P9[N2P9 - 1]:
  *                 for j in range(1, N2P9):
  *                     if EN <= X2P9[j]:             # <<<<<<<<<<<<<<
@@ -7714,7 +7714,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P9[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":553
+            /* "gases/ARGON.pyx":553
  *                 for j in range(1, N2P9):
  *                     if EN <= X2P9[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7723,7 +7723,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L123_break;
 
-            /* "ARGON.pyx":552
+            /* "gases/ARGON.pyx":552
  *             if EN <= X2P9[N2P9 - 1]:
  *                 for j in range(1, N2P9):
  *                     if EN <= X2P9[j]:             # <<<<<<<<<<<<<<
@@ -7734,7 +7734,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L123_break:;
 
-        /* "ARGON.pyx":554
+        /* "gases/ARGON.pyx":554
  *                     if EN <= X2P9[j]:
  *                         break
  *                 A = (Y2P9[j] - Y2P9[j - 1]) / (X2P9[j] - X2P9[j - 1])             # <<<<<<<<<<<<<<
@@ -7743,7 +7743,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P9[__pyx_v_j]) - (__pyx_v_Y2P9[(__pyx_v_j - 1)])) / ((__pyx_v_X2P9[__pyx_v_j]) - (__pyx_v_X2P9[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":555
+        /* "gases/ARGON.pyx":555
  *                         break
  *                 A = (Y2P9[j] - Y2P9[j - 1]) / (X2P9[j] - X2P9[j - 1])
  *                 B = (X2P9[j - 1] * Y2P9[j] - X2P9[j] * Y2P9[j - 1]) / (X2P9[j - 1] - X2P9[j])             # <<<<<<<<<<<<<<
@@ -7752,7 +7752,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P9[(__pyx_v_j - 1)]) * (__pyx_v_Y2P9[__pyx_v_j])) - ((__pyx_v_X2P9[__pyx_v_j]) * (__pyx_v_Y2P9[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P9[(__pyx_v_j - 1)]) - (__pyx_v_X2P9[__pyx_v_j])));
 
-        /* "ARGON.pyx":556
+        /* "gases/ARGON.pyx":556
  *                 A = (Y2P9[j] - Y2P9[j - 1]) / (X2P9[j] - X2P9[j - 1])
  *                 B = (X2P9[j - 1] * Y2P9[j] - X2P9[j] * Y2P9[j - 1]) / (X2P9[j - 1] - X2P9[j])
  *                 object.QIN[5][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -7761,7 +7761,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[5])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":550
+        /* "gases/ARGON.pyx":550
  *         # P states, 2P9
  *         if EN > object.EIN[5]:
  *             if EN <= X2P9[N2P9 - 1]:             # <<<<<<<<<<<<<<
@@ -7771,7 +7771,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L121;
       }
 
-      /* "ARGON.pyx":558
+      /* "gases/ARGON.pyx":558
  *                 object.QIN[5][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[5][I] = Y2P9[N2P9 - 1] * (X2P9[N2P9 - 1] / EN) ** 2 * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -7783,7 +7783,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L121:;
 
-      /* "ARGON.pyx":559
+      /* "gases/ARGON.pyx":559
  *             else:
  *                 object.QIN[5][I] = Y2P9[N2P9 - 1] * (X2P9[N2P9 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[5]):             # <<<<<<<<<<<<<<
@@ -7793,7 +7793,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[5]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":560
+        /* "gases/ARGON.pyx":560
  *                 object.QIN[5][I] = Y2P9[N2P9 - 1] * (X2P9[N2P9 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[5]):
  *                 object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -7802,7 +7802,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-        /* "ARGON.pyx":559
+        /* "gases/ARGON.pyx":559
  *             else:
  *                 object.QIN[5][I] = Y2P9[N2P9 - 1] * (X2P9[N2P9 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[5]):             # <<<<<<<<<<<<<<
@@ -7811,7 +7811,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":549
+      /* "gases/ARGON.pyx":549
  * 
  *         # P states, 2P9
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7820,7 +7820,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":563
+    /* "gases/ARGON.pyx":563
  * 
  *         # P states, 2P8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7830,7 +7830,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":564
+      /* "gases/ARGON.pyx":564
  *         # P states, 2P8
  *         if EN > object.EIN[6]:
  *             if EN <= X2P8[N2P8 - 1]:             # <<<<<<<<<<<<<<
@@ -7840,7 +7840,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P8[(__pyx_v_N2P8 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":565
+        /* "gases/ARGON.pyx":565
  *         if EN > object.EIN[6]:
  *             if EN <= X2P8[N2P8 - 1]:
  *                 for j in range(1, N2P8):             # <<<<<<<<<<<<<<
@@ -7852,7 +7852,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":566
+          /* "gases/ARGON.pyx":566
  *             if EN <= X2P8[N2P8 - 1]:
  *                 for j in range(1, N2P8):
  *                     if EN <= X2P8[j]:             # <<<<<<<<<<<<<<
@@ -7862,7 +7862,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P8[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":567
+            /* "gases/ARGON.pyx":567
  *                 for j in range(1, N2P8):
  *                     if EN <= X2P8[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -7871,7 +7871,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L129_break;
 
-            /* "ARGON.pyx":566
+            /* "gases/ARGON.pyx":566
  *             if EN <= X2P8[N2P8 - 1]:
  *                 for j in range(1, N2P8):
  *                     if EN <= X2P8[j]:             # <<<<<<<<<<<<<<
@@ -7882,7 +7882,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L129_break:;
 
-        /* "ARGON.pyx":568
+        /* "gases/ARGON.pyx":568
  *                     if EN <= X2P8[j]:
  *                         break
  *                 A = (Y2P8[j] - Y2P8[j - 1]) / (X2P8[j] - X2P8[j - 1])             # <<<<<<<<<<<<<<
@@ -7891,7 +7891,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P8[__pyx_v_j]) - (__pyx_v_Y2P8[(__pyx_v_j - 1)])) / ((__pyx_v_X2P8[__pyx_v_j]) - (__pyx_v_X2P8[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":569
+        /* "gases/ARGON.pyx":569
  *                         break
  *                 A = (Y2P8[j] - Y2P8[j - 1]) / (X2P8[j] - X2P8[j - 1])
  *                 B = (X2P8[j - 1] * Y2P8[j] - X2P8[j] * Y2P8[j - 1]) / (X2P8[j - 1] - X2P8[j])             # <<<<<<<<<<<<<<
@@ -7900,7 +7900,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P8[(__pyx_v_j - 1)]) * (__pyx_v_Y2P8[__pyx_v_j])) - ((__pyx_v_X2P8[__pyx_v_j]) * (__pyx_v_Y2P8[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P8[(__pyx_v_j - 1)]) - (__pyx_v_X2P8[__pyx_v_j])));
 
-        /* "ARGON.pyx":570
+        /* "gases/ARGON.pyx":570
  *                 A = (Y2P8[j] - Y2P8[j - 1]) / (X2P8[j] - X2P8[j - 1])
  *                 B = (X2P8[j - 1] * Y2P8[j] - X2P8[j] * Y2P8[j - 1]) / (X2P8[j - 1] - X2P8[j])
  *                 object.QIN[6][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -7909,7 +7909,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[6])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":564
+        /* "gases/ARGON.pyx":564
  *         # P states, 2P8
  *         if EN > object.EIN[6]:
  *             if EN <= X2P8[N2P8 - 1]:             # <<<<<<<<<<<<<<
@@ -7919,7 +7919,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L127;
       }
 
-      /* "ARGON.pyx":572
+      /* "gases/ARGON.pyx":572
  *                 object.QIN[6][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[6][I] = Y2P8[N2P8 - 1] * (X2P8[N2P8 - 1] / EN) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -7931,7 +7931,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L127:;
 
-      /* "ARGON.pyx":573
+      /* "gases/ARGON.pyx":573
  *             else:
  *                 object.QIN[6][I] = Y2P8[N2P8 - 1] * (X2P8[N2P8 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[6]):             # <<<<<<<<<<<<<<
@@ -7941,7 +7941,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[6]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":574
+        /* "gases/ARGON.pyx":574
  *                 object.QIN[6][I] = Y2P8[N2P8 - 1] * (X2P8[N2P8 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[6]):
  *                 object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -7950,7 +7950,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-        /* "ARGON.pyx":573
+        /* "gases/ARGON.pyx":573
  *             else:
  *                 object.QIN[6][I] = Y2P8[N2P8 - 1] * (X2P8[N2P8 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[6]):             # <<<<<<<<<<<<<<
@@ -7959,7 +7959,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":563
+      /* "gases/ARGON.pyx":563
  * 
  *         # P states, 2P8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7968,7 +7968,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":577
+    /* "gases/ARGON.pyx":577
  * 
  *         # P states, 2P7
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7978,7 +7978,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":578
+      /* "gases/ARGON.pyx":578
  *         # P states, 2P7
  *         if EN > object.EIN[7]:
  *             if EN <= X2P7[N2P7 - 1]:             # <<<<<<<<<<<<<<
@@ -7988,7 +7988,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P7[(__pyx_v_N2P7 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":579
+        /* "gases/ARGON.pyx":579
  *         if EN > object.EIN[7]:
  *             if EN <= X2P7[N2P7 - 1]:
  *                 for j in range(1, N2P7):             # <<<<<<<<<<<<<<
@@ -8000,7 +8000,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":580
+          /* "gases/ARGON.pyx":580
  *             if EN <= X2P7[N2P7 - 1]:
  *                 for j in range(1, N2P7):
  *                     if EN <= X2P7[j]:             # <<<<<<<<<<<<<<
@@ -8010,7 +8010,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P7[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":581
+            /* "gases/ARGON.pyx":581
  *                 for j in range(1, N2P7):
  *                     if EN <= X2P7[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8019,7 +8019,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L135_break;
 
-            /* "ARGON.pyx":580
+            /* "gases/ARGON.pyx":580
  *             if EN <= X2P7[N2P7 - 1]:
  *                 for j in range(1, N2P7):
  *                     if EN <= X2P7[j]:             # <<<<<<<<<<<<<<
@@ -8030,7 +8030,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L135_break:;
 
-        /* "ARGON.pyx":582
+        /* "gases/ARGON.pyx":582
  *                     if EN <= X2P7[j]:
  *                         break
  *                 A = (Y2P7[j] - Y2P7[j - 1]) / (X2P7[j] - X2P7[j - 1])             # <<<<<<<<<<<<<<
@@ -8039,7 +8039,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P7[__pyx_v_j]) - (__pyx_v_Y2P7[(__pyx_v_j - 1)])) / ((__pyx_v_X2P7[__pyx_v_j]) - (__pyx_v_X2P7[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":583
+        /* "gases/ARGON.pyx":583
  *                         break
  *                 A = (Y2P7[j] - Y2P7[j - 1]) / (X2P7[j] - X2P7[j - 1])
  *                 B = (X2P7[j - 1] * Y2P7[j] - X2P7[j] * Y2P7[j - 1]) / (X2P7[j - 1] - X2P7[j])             # <<<<<<<<<<<<<<
@@ -8048,7 +8048,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P7[(__pyx_v_j - 1)]) * (__pyx_v_Y2P7[__pyx_v_j])) - ((__pyx_v_X2P7[__pyx_v_j]) * (__pyx_v_Y2P7[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P7[(__pyx_v_j - 1)]) - (__pyx_v_X2P7[__pyx_v_j])));
 
-        /* "ARGON.pyx":584
+        /* "gases/ARGON.pyx":584
  *                 A = (Y2P7[j] - Y2P7[j - 1]) / (X2P7[j] - X2P7[j - 1])
  *                 B = (X2P7[j - 1] * Y2P7[j] - X2P7[j] * Y2P7[j - 1]) / (X2P7[j - 1] - X2P7[j])
  *                 object.QIN[7][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8057,7 +8057,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[7])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":578
+        /* "gases/ARGON.pyx":578
  *         # P states, 2P7
  *         if EN > object.EIN[7]:
  *             if EN <= X2P7[N2P7 - 1]:             # <<<<<<<<<<<<<<
@@ -8067,7 +8067,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L133;
       }
 
-      /* "ARGON.pyx":586
+      /* "gases/ARGON.pyx":586
  *                 object.QIN[7][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[7][I] = Y2P7[N2P7 - 1] * (X2P7[N2P7 - 1] / EN) ** 2 * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8079,7 +8079,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L133:;
 
-      /* "ARGON.pyx":587
+      /* "gases/ARGON.pyx":587
  *             else:
  *                 object.QIN[7][I] = Y2P7[N2P7 - 1] * (X2P7[N2P7 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[7]):             # <<<<<<<<<<<<<<
@@ -8089,7 +8089,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[7]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":588
+        /* "gases/ARGON.pyx":588
  *                 object.QIN[7][I] = Y2P7[N2P7 - 1] * (X2P7[N2P7 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[7]):
  *                 object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -8098,7 +8098,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-        /* "ARGON.pyx":587
+        /* "gases/ARGON.pyx":587
  *             else:
  *                 object.QIN[7][I] = Y2P7[N2P7 - 1] * (X2P7[N2P7 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[7]):             # <<<<<<<<<<<<<<
@@ -8107,7 +8107,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":577
+      /* "gases/ARGON.pyx":577
  * 
  *         # P states, 2P7
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -8116,7 +8116,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":591
+    /* "gases/ARGON.pyx":591
  * 
  *         # P states, 2P6
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -8126,7 +8126,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":592
+      /* "gases/ARGON.pyx":592
  *         # P states, 2P6
  *         if EN > object.EIN[8]:
  *             if EN <= X2P6[N2P6 - 1]:             # <<<<<<<<<<<<<<
@@ -8136,7 +8136,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P6[(__pyx_v_N2P6 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":593
+        /* "gases/ARGON.pyx":593
  *         if EN > object.EIN[8]:
  *             if EN <= X2P6[N2P6 - 1]:
  *                 for j in range(1, N2P6):             # <<<<<<<<<<<<<<
@@ -8148,7 +8148,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":594
+          /* "gases/ARGON.pyx":594
  *             if EN <= X2P6[N2P6 - 1]:
  *                 for j in range(1, N2P6):
  *                     if EN <= X2P6[j]:             # <<<<<<<<<<<<<<
@@ -8158,7 +8158,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P6[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":595
+            /* "gases/ARGON.pyx":595
  *                 for j in range(1, N2P6):
  *                     if EN <= X2P6[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8167,7 +8167,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L141_break;
 
-            /* "ARGON.pyx":594
+            /* "gases/ARGON.pyx":594
  *             if EN <= X2P6[N2P6 - 1]:
  *                 for j in range(1, N2P6):
  *                     if EN <= X2P6[j]:             # <<<<<<<<<<<<<<
@@ -8178,7 +8178,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L141_break:;
 
-        /* "ARGON.pyx":596
+        /* "gases/ARGON.pyx":596
  *                     if EN <= X2P6[j]:
  *                         break
  *                 A = (Y2P6[j] - Y2P6[j - 1]) / (X2P6[j] - X2P6[j - 1])             # <<<<<<<<<<<<<<
@@ -8187,7 +8187,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P6[__pyx_v_j]) - (__pyx_v_Y2P6[(__pyx_v_j - 1)])) / ((__pyx_v_X2P6[__pyx_v_j]) - (__pyx_v_X2P6[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":597
+        /* "gases/ARGON.pyx":597
  *                         break
  *                 A = (Y2P6[j] - Y2P6[j - 1]) / (X2P6[j] - X2P6[j - 1])
  *                 B = (X2P6[j - 1] * Y2P6[j] - X2P6[j] * Y2P6[j - 1]) / (X2P6[j - 1] - X2P6[j])             # <<<<<<<<<<<<<<
@@ -8196,7 +8196,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P6[(__pyx_v_j - 1)]) * (__pyx_v_Y2P6[__pyx_v_j])) - ((__pyx_v_X2P6[__pyx_v_j]) * (__pyx_v_Y2P6[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P6[(__pyx_v_j - 1)]) - (__pyx_v_X2P6[__pyx_v_j])));
 
-        /* "ARGON.pyx":598
+        /* "gases/ARGON.pyx":598
  *                 A = (Y2P6[j] - Y2P6[j - 1]) / (X2P6[j] - X2P6[j - 1])
  *                 B = (X2P6[j - 1] * Y2P6[j] - X2P6[j] * Y2P6[j - 1]) / (X2P6[j - 1] - X2P6[j])
  *                 object.QIN[8][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8205,7 +8205,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[8])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":592
+        /* "gases/ARGON.pyx":592
  *         # P states, 2P6
  *         if EN > object.EIN[8]:
  *             if EN <= X2P6[N2P6 - 1]:             # <<<<<<<<<<<<<<
@@ -8215,7 +8215,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L139;
       }
 
-      /* "ARGON.pyx":600
+      /* "gases/ARGON.pyx":600
  *                 object.QIN[8][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[8][I] = Y2P6[N2P6 - 1] * (X2P6[N2P6 - 1] / EN) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8227,7 +8227,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L139:;
 
-      /* "ARGON.pyx":601
+      /* "gases/ARGON.pyx":601
  *             else:
  *                 object.QIN[8][I] = Y2P6[N2P6 - 1] * (X2P6[N2P6 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[8]):             # <<<<<<<<<<<<<<
@@ -8237,7 +8237,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[8]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":602
+        /* "gases/ARGON.pyx":602
  *                 object.QIN[8][I] = Y2P6[N2P6 - 1] * (X2P6[N2P6 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[8]):
  *                 object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]             # <<<<<<<<<<<<<<
@@ -8246,7 +8246,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[8]))]);
 
-        /* "ARGON.pyx":601
+        /* "gases/ARGON.pyx":601
  *             else:
  *                 object.QIN[8][I] = Y2P6[N2P6 - 1] * (X2P6[N2P6 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[8]):             # <<<<<<<<<<<<<<
@@ -8255,7 +8255,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":591
+      /* "gases/ARGON.pyx":591
  * 
  *         # P states, 2P6
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -8264,7 +8264,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":605
+    /* "gases/ARGON.pyx":605
  * 
  *         # P states, 2P5
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -8274,7 +8274,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":606
+      /* "gases/ARGON.pyx":606
  *         # P states, 2P5
  *         if EN > object.EIN[9]:
  *             if EN <= X2P5[N2P5 - 1]:             # <<<<<<<<<<<<<<
@@ -8284,7 +8284,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P5[(__pyx_v_N2P5 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":607
+        /* "gases/ARGON.pyx":607
  *         if EN > object.EIN[9]:
  *             if EN <= X2P5[N2P5 - 1]:
  *                 for j in range(1, N2P5):             # <<<<<<<<<<<<<<
@@ -8296,7 +8296,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":608
+          /* "gases/ARGON.pyx":608
  *             if EN <= X2P5[N2P5 - 1]:
  *                 for j in range(1, N2P5):
  *                     if EN <= X2P5[j]:             # <<<<<<<<<<<<<<
@@ -8306,7 +8306,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P5[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":609
+            /* "gases/ARGON.pyx":609
  *                 for j in range(1, N2P5):
  *                     if EN <= X2P5[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8315,7 +8315,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L147_break;
 
-            /* "ARGON.pyx":608
+            /* "gases/ARGON.pyx":608
  *             if EN <= X2P5[N2P5 - 1]:
  *                 for j in range(1, N2P5):
  *                     if EN <= X2P5[j]:             # <<<<<<<<<<<<<<
@@ -8326,7 +8326,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L147_break:;
 
-        /* "ARGON.pyx":610
+        /* "gases/ARGON.pyx":610
  *                     if EN <= X2P5[j]:
  *                         break
  *                 A = (Y2P5[j] - Y2P5[j - 1]) / (X2P5[j] - X2P5[j - 1])             # <<<<<<<<<<<<<<
@@ -8335,7 +8335,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P5[__pyx_v_j]) - (__pyx_v_Y2P5[(__pyx_v_j - 1)])) / ((__pyx_v_X2P5[__pyx_v_j]) - (__pyx_v_X2P5[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":611
+        /* "gases/ARGON.pyx":611
  *                         break
  *                 A = (Y2P5[j] - Y2P5[j - 1]) / (X2P5[j] - X2P5[j - 1])
  *                 B = (X2P5[j - 1] * Y2P5[j] - X2P5[j] * Y2P5[j - 1]) / (X2P5[j - 1] - X2P5[j])             # <<<<<<<<<<<<<<
@@ -8344,7 +8344,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P5[(__pyx_v_j - 1)]) * (__pyx_v_Y2P5[__pyx_v_j])) - ((__pyx_v_X2P5[__pyx_v_j]) * (__pyx_v_Y2P5[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P5[(__pyx_v_j - 1)]) - (__pyx_v_X2P5[__pyx_v_j])));
 
-        /* "ARGON.pyx":612
+        /* "gases/ARGON.pyx":612
  *                 A = (Y2P5[j] - Y2P5[j - 1]) / (X2P5[j] - X2P5[j - 1])
  *                 B = (X2P5[j - 1] * Y2P5[j] - X2P5[j] * Y2P5[j - 1]) / (X2P5[j - 1] - X2P5[j])
  *                 object.QIN[9][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8353,7 +8353,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[9])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":606
+        /* "gases/ARGON.pyx":606
  *         # P states, 2P5
  *         if EN > object.EIN[9]:
  *             if EN <= X2P5[N2P5 - 1]:             # <<<<<<<<<<<<<<
@@ -8363,7 +8363,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L145;
       }
 
-      /* "ARGON.pyx":614
+      /* "gases/ARGON.pyx":614
  *                 object.QIN[9][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[9][I] = Y2P5[N2P5 - 1] * (X2P5[N2P5 - 1] / EN) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8375,7 +8375,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L145:;
 
-      /* "ARGON.pyx":615
+      /* "gases/ARGON.pyx":615
  *             else:
  *                 object.QIN[9][I] = Y2P5[N2P5 - 1] * (X2P5[N2P5 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[9]):             # <<<<<<<<<<<<<<
@@ -8385,7 +8385,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[9]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":616
+        /* "gases/ARGON.pyx":616
  *                 object.QIN[9][I] = Y2P5[N2P5 - 1] * (X2P5[N2P5 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[9]):
  *                 object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]             # <<<<<<<<<<<<<<
@@ -8394,7 +8394,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[9]))]);
 
-        /* "ARGON.pyx":615
+        /* "gases/ARGON.pyx":615
  *             else:
  *                 object.QIN[9][I] = Y2P5[N2P5 - 1] * (X2P5[N2P5 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[9]):             # <<<<<<<<<<<<<<
@@ -8403,7 +8403,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":605
+      /* "gases/ARGON.pyx":605
  * 
  *         # P states, 2P5
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -8412,7 +8412,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":619
+    /* "gases/ARGON.pyx":619
  * 
  *         # P states, 2P4
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8422,7 +8422,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":620
+      /* "gases/ARGON.pyx":620
  *         # P states, 2P4
  *         if EN > object.EIN[10]:
  *             if EN <= X2P4[N2P4 - 1]:             # <<<<<<<<<<<<<<
@@ -8432,7 +8432,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P4[(__pyx_v_N2P4 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":621
+        /* "gases/ARGON.pyx":621
  *         if EN > object.EIN[10]:
  *             if EN <= X2P4[N2P4 - 1]:
  *                 for j in range(1, N2P4):             # <<<<<<<<<<<<<<
@@ -8444,7 +8444,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":622
+          /* "gases/ARGON.pyx":622
  *             if EN <= X2P4[N2P4 - 1]:
  *                 for j in range(1, N2P4):
  *                     if EN <= X2P4[j]:             # <<<<<<<<<<<<<<
@@ -8454,7 +8454,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P4[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":623
+            /* "gases/ARGON.pyx":623
  *                 for j in range(1, N2P4):
  *                     if EN <= X2P4[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8463,7 +8463,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L153_break;
 
-            /* "ARGON.pyx":622
+            /* "gases/ARGON.pyx":622
  *             if EN <= X2P4[N2P4 - 1]:
  *                 for j in range(1, N2P4):
  *                     if EN <= X2P4[j]:             # <<<<<<<<<<<<<<
@@ -8474,7 +8474,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L153_break:;
 
-        /* "ARGON.pyx":624
+        /* "gases/ARGON.pyx":624
  *                     if EN <= X2P4[j]:
  *                         break
  *                 A = (Y2P4[j] - Y2P4[j - 1]) / (X2P4[j] - X2P4[j - 1])             # <<<<<<<<<<<<<<
@@ -8483,7 +8483,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P4[__pyx_v_j]) - (__pyx_v_Y2P4[(__pyx_v_j - 1)])) / ((__pyx_v_X2P4[__pyx_v_j]) - (__pyx_v_X2P4[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":625
+        /* "gases/ARGON.pyx":625
  *                         break
  *                 A = (Y2P4[j] - Y2P4[j - 1]) / (X2P4[j] - X2P4[j - 1])
  *                 B = (X2P4[j - 1] * Y2P4[j] - X2P4[j] * Y2P4[j - 1]) / (X2P4[j - 1] - X2P4[j])             # <<<<<<<<<<<<<<
@@ -8492,7 +8492,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P4[(__pyx_v_j - 1)]) * (__pyx_v_Y2P4[__pyx_v_j])) - ((__pyx_v_X2P4[__pyx_v_j]) * (__pyx_v_Y2P4[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P4[(__pyx_v_j - 1)]) - (__pyx_v_X2P4[__pyx_v_j])));
 
-        /* "ARGON.pyx":626
+        /* "gases/ARGON.pyx":626
  *                 A = (Y2P4[j] - Y2P4[j - 1]) / (X2P4[j] - X2P4[j - 1])
  *                 B = (X2P4[j - 1] * Y2P4[j] - X2P4[j] * Y2P4[j - 1]) / (X2P4[j - 1] - X2P4[j])
  *                 object.QIN[10][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8501,7 +8501,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[10])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":620
+        /* "gases/ARGON.pyx":620
  *         # P states, 2P4
  *         if EN > object.EIN[10]:
  *             if EN <= X2P4[N2P4 - 1]:             # <<<<<<<<<<<<<<
@@ -8511,7 +8511,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L151;
       }
 
-      /* "ARGON.pyx":628
+      /* "gases/ARGON.pyx":628
  *                 object.QIN[10][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[10][I] = Y2P4[N2P4 - 1] * (X2P4[N2P4 - 1] / EN) ** 2 * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8523,7 +8523,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L151:;
 
-      /* "ARGON.pyx":629
+      /* "gases/ARGON.pyx":629
  *             else:
  *                 object.QIN[10][I] = Y2P4[N2P4 - 1] * (X2P4[N2P4 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[10]):             # <<<<<<<<<<<<<<
@@ -8533,7 +8533,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[10]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":630
+        /* "gases/ARGON.pyx":630
  *                 object.QIN[10][I] = Y2P4[N2P4 - 1] * (X2P4[N2P4 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[10]):
  *                 object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -8542,7 +8542,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-        /* "ARGON.pyx":629
+        /* "gases/ARGON.pyx":629
  *             else:
  *                 object.QIN[10][I] = Y2P4[N2P4 - 1] * (X2P4[N2P4 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[10]):             # <<<<<<<<<<<<<<
@@ -8551,7 +8551,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":619
+      /* "gases/ARGON.pyx":619
  * 
  *         # P states, 2P4
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8560,7 +8560,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":633
+    /* "gases/ARGON.pyx":633
  * 
  *         # P states, 2P3
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -8570,7 +8570,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[11])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":634
+      /* "gases/ARGON.pyx":634
  *         # P states, 2P3
  *         if EN > object.EIN[11]:
  *             if EN <= X2P3[N2P3 - 1]:             # <<<<<<<<<<<<<<
@@ -8580,7 +8580,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P3[(__pyx_v_N2P3 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":635
+        /* "gases/ARGON.pyx":635
  *         if EN > object.EIN[11]:
  *             if EN <= X2P3[N2P3 - 1]:
  *                 for j in range(1, N2P3):             # <<<<<<<<<<<<<<
@@ -8592,7 +8592,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":636
+          /* "gases/ARGON.pyx":636
  *             if EN <= X2P3[N2P3 - 1]:
  *                 for j in range(1, N2P3):
  *                     if EN <= X2P3[j]:             # <<<<<<<<<<<<<<
@@ -8602,7 +8602,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P3[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":637
+            /* "gases/ARGON.pyx":637
  *                 for j in range(1, N2P3):
  *                     if EN <= X2P3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8611,7 +8611,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L159_break;
 
-            /* "ARGON.pyx":636
+            /* "gases/ARGON.pyx":636
  *             if EN <= X2P3[N2P3 - 1]:
  *                 for j in range(1, N2P3):
  *                     if EN <= X2P3[j]:             # <<<<<<<<<<<<<<
@@ -8622,7 +8622,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L159_break:;
 
-        /* "ARGON.pyx":638
+        /* "gases/ARGON.pyx":638
  *                     if EN <= X2P3[j]:
  *                         break
  *                 A = (Y2P3[j] - Y2P3[j - 1]) / (X2P3[j] - X2P3[j - 1])             # <<<<<<<<<<<<<<
@@ -8631,7 +8631,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P3[__pyx_v_j]) - (__pyx_v_Y2P3[(__pyx_v_j - 1)])) / ((__pyx_v_X2P3[__pyx_v_j]) - (__pyx_v_X2P3[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":639
+        /* "gases/ARGON.pyx":639
  *                         break
  *                 A = (Y2P3[j] - Y2P3[j - 1]) / (X2P3[j] - X2P3[j - 1])
  *                 B = (X2P3[j - 1] * Y2P3[j] - X2P3[j] * Y2P3[j - 1]) / (X2P3[j - 1] - X2P3[j])             # <<<<<<<<<<<<<<
@@ -8640,7 +8640,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P3[(__pyx_v_j - 1)]) * (__pyx_v_Y2P3[__pyx_v_j])) - ((__pyx_v_X2P3[__pyx_v_j]) * (__pyx_v_Y2P3[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P3[(__pyx_v_j - 1)]) - (__pyx_v_X2P3[__pyx_v_j])));
 
-        /* "ARGON.pyx":640
+        /* "gases/ARGON.pyx":640
  *                 A = (Y2P3[j] - Y2P3[j - 1]) / (X2P3[j] - X2P3[j - 1])
  *                 B = (X2P3[j - 1] * Y2P3[j] - X2P3[j] * Y2P3[j - 1]) / (X2P3[j - 1] - X2P3[j])
  *                 object.QIN[11][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8649,7 +8649,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[11])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":634
+        /* "gases/ARGON.pyx":634
  *         # P states, 2P3
  *         if EN > object.EIN[11]:
  *             if EN <= X2P3[N2P3 - 1]:             # <<<<<<<<<<<<<<
@@ -8659,7 +8659,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L157;
       }
 
-      /* "ARGON.pyx":642
+      /* "gases/ARGON.pyx":642
  *                 object.QIN[11][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[11][I] = Y2P3[N2P3 - 1] * (X2P3[N2P3 - 1] / EN) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8671,7 +8671,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L157:;
 
-      /* "ARGON.pyx":643
+      /* "gases/ARGON.pyx":643
  *             else:
  *                 object.QIN[11][I] = Y2P3[N2P3 - 1] * (X2P3[N2P3 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[11]):             # <<<<<<<<<<<<<<
@@ -8681,7 +8681,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[11]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":644
+        /* "gases/ARGON.pyx":644
  *                 object.QIN[11][I] = Y2P3[N2P3 - 1] * (X2P3[N2P3 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[11]):
  *                 object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]             # <<<<<<<<<<<<<<
@@ -8690,7 +8690,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[11]))]);
 
-        /* "ARGON.pyx":643
+        /* "gases/ARGON.pyx":643
  *             else:
  *                 object.QIN[11][I] = Y2P3[N2P3 - 1] * (X2P3[N2P3 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[11]):             # <<<<<<<<<<<<<<
@@ -8699,7 +8699,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":633
+      /* "gases/ARGON.pyx":633
  * 
  *         # P states, 2P3
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -8708,7 +8708,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":647
+    /* "gases/ARGON.pyx":647
  * 
  *         # P states, 2P2
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -8718,7 +8718,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":648
+      /* "gases/ARGON.pyx":648
  *         # P states, 2P2
  *         if EN > object.EIN[12]:
  *             if EN <= X2P2[N2P2 - 1]:             # <<<<<<<<<<<<<<
@@ -8728,7 +8728,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P2[(__pyx_v_N2P2 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":649
+        /* "gases/ARGON.pyx":649
  *         if EN > object.EIN[12]:
  *             if EN <= X2P2[N2P2 - 1]:
  *                 for j in range(1, N2P2):             # <<<<<<<<<<<<<<
@@ -8740,7 +8740,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":650
+          /* "gases/ARGON.pyx":650
  *             if EN <= X2P2[N2P2 - 1]:
  *                 for j in range(1, N2P2):
  *                     if EN <= X2P2[j]:             # <<<<<<<<<<<<<<
@@ -8750,7 +8750,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P2[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":651
+            /* "gases/ARGON.pyx":651
  *                 for j in range(1, N2P2):
  *                     if EN <= X2P2[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8759,7 +8759,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L165_break;
 
-            /* "ARGON.pyx":650
+            /* "gases/ARGON.pyx":650
  *             if EN <= X2P2[N2P2 - 1]:
  *                 for j in range(1, N2P2):
  *                     if EN <= X2P2[j]:             # <<<<<<<<<<<<<<
@@ -8770,7 +8770,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L165_break:;
 
-        /* "ARGON.pyx":652
+        /* "gases/ARGON.pyx":652
  *                     if EN <= X2P2[j]:
  *                         break
  *                 A = (Y2P2[j] - Y2P2[j - 1]) / (X2P2[j] - X2P2[j - 1])             # <<<<<<<<<<<<<<
@@ -8779,7 +8779,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P2[__pyx_v_j]) - (__pyx_v_Y2P2[(__pyx_v_j - 1)])) / ((__pyx_v_X2P2[__pyx_v_j]) - (__pyx_v_X2P2[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":653
+        /* "gases/ARGON.pyx":653
  *                         break
  *                 A = (Y2P2[j] - Y2P2[j - 1]) / (X2P2[j] - X2P2[j - 1])
  *                 B = (X2P2[j - 1] * Y2P2[j] - X2P2[j] * Y2P2[j - 1]) / (X2P2[j - 1] - X2P2[j])             # <<<<<<<<<<<<<<
@@ -8788,7 +8788,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P2[(__pyx_v_j - 1)]) * (__pyx_v_Y2P2[__pyx_v_j])) - ((__pyx_v_X2P2[__pyx_v_j]) * (__pyx_v_Y2P2[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P2[(__pyx_v_j - 1)]) - (__pyx_v_X2P2[__pyx_v_j])));
 
-        /* "ARGON.pyx":654
+        /* "gases/ARGON.pyx":654
  *                 A = (Y2P2[j] - Y2P2[j - 1]) / (X2P2[j] - X2P2[j - 1])
  *                 B = (X2P2[j - 1] * Y2P2[j] - X2P2[j] * Y2P2[j - 1]) / (X2P2[j - 1] - X2P2[j])
  *                 object.QIN[12][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8797,7 +8797,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[12])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":648
+        /* "gases/ARGON.pyx":648
  *         # P states, 2P2
  *         if EN > object.EIN[12]:
  *             if EN <= X2P2[N2P2 - 1]:             # <<<<<<<<<<<<<<
@@ -8807,7 +8807,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L163;
       }
 
-      /* "ARGON.pyx":656
+      /* "gases/ARGON.pyx":656
  *                 object.QIN[12][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[12][I] = Y2P2[N2P2 - 1] * (X2P2[N2P2 - 1] / EN) ** 2 * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8819,7 +8819,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L163:;
 
-      /* "ARGON.pyx":657
+      /* "gases/ARGON.pyx":657
  *             else:
  *                 object.QIN[12][I] = Y2P2[N2P2 - 1] * (X2P2[N2P2 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[12]):             # <<<<<<<<<<<<<<
@@ -8829,7 +8829,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[12]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":658
+        /* "gases/ARGON.pyx":658
  *                 object.QIN[12][I] = Y2P2[N2P2 - 1] * (X2P2[N2P2 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[12]):
  *                 object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]             # <<<<<<<<<<<<<<
@@ -8838,7 +8838,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[12]))]);
 
-        /* "ARGON.pyx":657
+        /* "gases/ARGON.pyx":657
  *             else:
  *                 object.QIN[12][I] = Y2P2[N2P2 - 1] * (X2P2[N2P2 - 1] / EN) ** 2 * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[12]):             # <<<<<<<<<<<<<<
@@ -8847,7 +8847,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":647
+      /* "gases/ARGON.pyx":647
  * 
  *         # P states, 2P2
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -8856,7 +8856,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":661
+    /* "gases/ARGON.pyx":661
  * 
  *         # P states, 2P1
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -8866,7 +8866,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[13])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":662
+      /* "gases/ARGON.pyx":662
  *         # P states, 2P1
  *         if EN > object.EIN[13]:
  *             if EN <= X2P1[N2P1 - 1]:             # <<<<<<<<<<<<<<
@@ -8876,7 +8876,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P1[(__pyx_v_N2P1 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":663
+        /* "gases/ARGON.pyx":663
  *         if EN > object.EIN[13]:
  *             if EN <= X2P1[N2P1 - 1]:
  *                 for j in range(1, N2P1):             # <<<<<<<<<<<<<<
@@ -8888,7 +8888,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":664
+          /* "gases/ARGON.pyx":664
  *             if EN <= X2P1[N2P1 - 1]:
  *                 for j in range(1, N2P1):
  *                     if EN <= X2P1[j]:             # <<<<<<<<<<<<<<
@@ -8898,7 +8898,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2P1[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":665
+            /* "gases/ARGON.pyx":665
  *                 for j in range(1, N2P1):
  *                     if EN <= X2P1[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -8907,7 +8907,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L171_break;
 
-            /* "ARGON.pyx":664
+            /* "gases/ARGON.pyx":664
  *             if EN <= X2P1[N2P1 - 1]:
  *                 for j in range(1, N2P1):
  *                     if EN <= X2P1[j]:             # <<<<<<<<<<<<<<
@@ -8918,7 +8918,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L171_break:;
 
-        /* "ARGON.pyx":666
+        /* "gases/ARGON.pyx":666
  *                     if EN <= X2P1[j]:
  *                         break
  *                 A = (Y2P1[j] - Y2P1[j - 1]) / (X2P1[j] - X2P1[j - 1])             # <<<<<<<<<<<<<<
@@ -8927,7 +8927,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2P1[__pyx_v_j]) - (__pyx_v_Y2P1[(__pyx_v_j - 1)])) / ((__pyx_v_X2P1[__pyx_v_j]) - (__pyx_v_X2P1[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":667
+        /* "gases/ARGON.pyx":667
  *                         break
  *                 A = (Y2P1[j] - Y2P1[j - 1]) / (X2P1[j] - X2P1[j - 1])
  *                 B = (X2P1[j - 1] * Y2P1[j] - X2P1[j] * Y2P1[j - 1]) / (X2P1[j - 1] - X2P1[j])             # <<<<<<<<<<<<<<
@@ -8936,7 +8936,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2P1[(__pyx_v_j - 1)]) * (__pyx_v_Y2P1[__pyx_v_j])) - ((__pyx_v_X2P1[__pyx_v_j]) * (__pyx_v_Y2P1[(__pyx_v_j - 1)]))) / ((__pyx_v_X2P1[(__pyx_v_j - 1)]) - (__pyx_v_X2P1[__pyx_v_j])));
 
-        /* "ARGON.pyx":668
+        /* "gases/ARGON.pyx":668
  *                 A = (Y2P1[j] - Y2P1[j - 1]) / (X2P1[j] - X2P1[j - 1])
  *                 B = (X2P1[j - 1] * Y2P1[j] - X2P1[j] * Y2P1[j - 1]) / (X2P1[j - 1] - X2P1[j])
  *                 object.QIN[13][I] = (A * EN + B) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8945,7 +8945,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[13])[__pyx_v_I]) = ((((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18) * __pyx_v_PSCALE);
 
-        /* "ARGON.pyx":662
+        /* "gases/ARGON.pyx":662
  *         # P states, 2P1
  *         if EN > object.EIN[13]:
  *             if EN <= X2P1[N2P1 - 1]:             # <<<<<<<<<<<<<<
@@ -8955,7 +8955,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L169;
       }
 
-      /* "ARGON.pyx":670
+      /* "gases/ARGON.pyx":670
  *                 object.QIN[13][I] = (A * EN + B) * 1.0e-18 * PSCALE
  *             else:
  *                 object.QIN[13][I] = Y2P1[N2P1 - 1] * (X2P1[N2P1 - 1] / EN) * 1.0e-18 * PSCALE             # <<<<<<<<<<<<<<
@@ -8967,7 +8967,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L169:;
 
-      /* "ARGON.pyx":671
+      /* "gases/ARGON.pyx":671
  *             else:
  *                 object.QIN[13][I] = Y2P1[N2P1 - 1] * (X2P1[N2P1 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[13]):             # <<<<<<<<<<<<<<
@@ -8977,7 +8977,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[13]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":672
+        /* "gases/ARGON.pyx":672
  *                 object.QIN[13][I] = Y2P1[N2P1 - 1] * (X2P1[N2P1 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[13]):
  *                 object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]             # <<<<<<<<<<<<<<
@@ -8986,7 +8986,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[13])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[13]))]);
 
-        /* "ARGON.pyx":671
+        /* "gases/ARGON.pyx":671
  *             else:
  *                 object.QIN[13][I] = Y2P1[N2P1 - 1] * (X2P1[N2P1 - 1] / EN) * 1.0e-18 * PSCALE
  *             if EN > (2.0 * object.EIN[13]):             # <<<<<<<<<<<<<<
@@ -8995,7 +8995,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":661
+      /* "gases/ARGON.pyx":661
  * 
  *         # P states, 2P1
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -9004,7 +9004,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":675
+    /* "gases/ARGON.pyx":675
  * 
  *         # D states, 3D6
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -9014,7 +9014,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[14])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":676
+      /* "gases/ARGON.pyx":676
  *         # D states, 3D6
  *         if EN > object.EIN[14]:
  *             if EN <= X3D6[N3D6 - 1]:             # <<<<<<<<<<<<<<
@@ -9024,7 +9024,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D6[(__pyx_v_N3D6 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":677
+        /* "gases/ARGON.pyx":677
  *         if EN > object.EIN[14]:
  *             if EN <= X3D6[N3D6 - 1]:
  *                 for j in range(1, N3D6):             # <<<<<<<<<<<<<<
@@ -9036,7 +9036,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":678
+          /* "gases/ARGON.pyx":678
  *             if EN <= X3D6[N3D6 - 1]:
  *                 for j in range(1, N3D6):
  *                     if EN <= X3D6[j]:             # <<<<<<<<<<<<<<
@@ -9046,7 +9046,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D6[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":679
+            /* "gases/ARGON.pyx":679
  *                 for j in range(1, N3D6):
  *                     if EN <= X3D6[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -9055,7 +9055,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L177_break;
 
-            /* "ARGON.pyx":678
+            /* "gases/ARGON.pyx":678
  *             if EN <= X3D6[N3D6 - 1]:
  *                 for j in range(1, N3D6):
  *                     if EN <= X3D6[j]:             # <<<<<<<<<<<<<<
@@ -9066,7 +9066,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L177_break:;
 
-        /* "ARGON.pyx":680
+        /* "gases/ARGON.pyx":680
  *                     if EN <= X3D6[j]:
  *                         break
  *                 A = (Y3D6[j] - Y3D6[j - 1]) / (X3D6[j] - X3D6[j - 1])             # <<<<<<<<<<<<<<
@@ -9075,7 +9075,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3D6[__pyx_v_j]) - (__pyx_v_Y3D6[(__pyx_v_j - 1)])) / ((__pyx_v_X3D6[__pyx_v_j]) - (__pyx_v_X3D6[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":681
+        /* "gases/ARGON.pyx":681
  *                         break
  *                 A = (Y3D6[j] - Y3D6[j - 1]) / (X3D6[j] - X3D6[j - 1])
  *                 B = (X3D6[j - 1] * Y3D6[j] - X3D6[j] * Y3D6[j - 1]) / (X3D6[j - 1] - X3D6[j])             # <<<<<<<<<<<<<<
@@ -9084,7 +9084,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3D6[(__pyx_v_j - 1)]) * (__pyx_v_Y3D6[__pyx_v_j])) - ((__pyx_v_X3D6[__pyx_v_j]) * (__pyx_v_Y3D6[(__pyx_v_j - 1)]))) / ((__pyx_v_X3D6[(__pyx_v_j - 1)]) - (__pyx_v_X3D6[__pyx_v_j])));
 
-        /* "ARGON.pyx":682
+        /* "gases/ARGON.pyx":682
  *                 A = (Y3D6[j] - Y3D6[j - 1]) / (X3D6[j] - X3D6[j - 1])
  *                 B = (X3D6[j - 1] * Y3D6[j] - X3D6[j] * Y3D6[j - 1]) / (X3D6[j - 1] - X3D6[j])
  *                 object.QIN[14][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9093,7 +9093,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[14])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":676
+        /* "gases/ARGON.pyx":676
  *         # D states, 3D6
  *         if EN > object.EIN[14]:
  *             if EN <= X3D6[N3D6 - 1]:             # <<<<<<<<<<<<<<
@@ -9103,7 +9103,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L175;
       }
 
-      /* "ARGON.pyx":684
+      /* "gases/ARGON.pyx":684
  *                 object.QIN[14][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[14][I] = Y3D6[N3D6 - 1] * (X3D6[N3D6 - 1] / EN) ** 3 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9115,7 +9115,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L175:;
 
-      /* "ARGON.pyx":685
+      /* "gases/ARGON.pyx":685
  *             else:
  *                 object.QIN[14][I] = Y3D6[N3D6 - 1] * (X3D6[N3D6 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[14]):             # <<<<<<<<<<<<<<
@@ -9125,7 +9125,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[14]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":686
+        /* "gases/ARGON.pyx":686
  *                 object.QIN[14][I] = Y3D6[N3D6 - 1] * (X3D6[N3D6 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[14]):
  *                 object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]             # <<<<<<<<<<<<<<
@@ -9134,7 +9134,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[14])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[14]))]);
 
-        /* "ARGON.pyx":685
+        /* "gases/ARGON.pyx":685
  *             else:
  *                 object.QIN[14][I] = Y3D6[N3D6 - 1] * (X3D6[N3D6 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[14]):             # <<<<<<<<<<<<<<
@@ -9143,7 +9143,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":675
+      /* "gases/ARGON.pyx":675
  * 
  *         # D states, 3D6
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -9152,7 +9152,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":689
+    /* "gases/ARGON.pyx":689
  * 
  *         # D states, 3D5
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -9162,7 +9162,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[15])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":690
+      /* "gases/ARGON.pyx":690
  *         # D states, 3D5
  *         if EN > object.EIN[15]:
  *             if EN <= X3D5[N3D5 - 1]:             # <<<<<<<<<<<<<<
@@ -9172,7 +9172,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D5[(__pyx_v_N3D5 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":691
+        /* "gases/ARGON.pyx":691
  *         if EN > object.EIN[15]:
  *             if EN <= X3D5[N3D5 - 1]:
  *                 for j in range(1, N3D5):             # <<<<<<<<<<<<<<
@@ -9184,7 +9184,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":692
+          /* "gases/ARGON.pyx":692
  *             if EN <= X3D5[N3D5 - 1]:
  *                 for j in range(1, N3D5):
  *                     if EN <= X3D5[j]:             # <<<<<<<<<<<<<<
@@ -9194,7 +9194,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D5[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":693
+            /* "gases/ARGON.pyx":693
  *                 for j in range(1, N3D5):
  *                     if EN <= X3D5[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -9203,7 +9203,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L183_break;
 
-            /* "ARGON.pyx":692
+            /* "gases/ARGON.pyx":692
  *             if EN <= X3D5[N3D5 - 1]:
  *                 for j in range(1, N3D5):
  *                     if EN <= X3D5[j]:             # <<<<<<<<<<<<<<
@@ -9214,7 +9214,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L183_break:;
 
-        /* "ARGON.pyx":694
+        /* "gases/ARGON.pyx":694
  *                     if EN <= X3D5[j]:
  *                         break
  *                 A = (Y3D5[j] - Y3D5[j - 1]) / (X3D5[j] - X3D5[j - 1])             # <<<<<<<<<<<<<<
@@ -9223,7 +9223,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3D5[__pyx_v_j]) - (__pyx_v_Y3D5[(__pyx_v_j - 1)])) / ((__pyx_v_X3D5[__pyx_v_j]) - (__pyx_v_X3D5[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":695
+        /* "gases/ARGON.pyx":695
  *                         break
  *                 A = (Y3D5[j] - Y3D5[j - 1]) / (X3D5[j] - X3D5[j - 1])
  *                 B = (X3D5[j - 1] * Y3D5[j] - X3D5[j] * Y3D5[j - 1]) / (X3D5[j - 1] - X3D5[j])             # <<<<<<<<<<<<<<
@@ -9232,7 +9232,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3D5[(__pyx_v_j - 1)]) * (__pyx_v_Y3D5[__pyx_v_j])) - ((__pyx_v_X3D5[__pyx_v_j]) * (__pyx_v_Y3D5[(__pyx_v_j - 1)]))) / ((__pyx_v_X3D5[(__pyx_v_j - 1)]) - (__pyx_v_X3D5[__pyx_v_j])));
 
-        /* "ARGON.pyx":696
+        /* "gases/ARGON.pyx":696
  *                 A = (Y3D5[j] - Y3D5[j - 1]) / (X3D5[j] - X3D5[j - 1])
  *                 B = (X3D5[j - 1] * Y3D5[j] - X3D5[j] * Y3D5[j - 1]) / (X3D5[j - 1] - X3D5[j])
  *                 object.QIN[15][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9241,7 +9241,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[15])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":690
+        /* "gases/ARGON.pyx":690
  *         # D states, 3D5
  *         if EN > object.EIN[15]:
  *             if EN <= X3D5[N3D5 - 1]:             # <<<<<<<<<<<<<<
@@ -9251,7 +9251,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L181;
       }
 
-      /* "ARGON.pyx":700
+      /* "gases/ARGON.pyx":700
  *                 object.QIN[15][I] =<float>( 0.0010) / (object.EIN[15] * BETA2) * (
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[15])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (             # <<<<<<<<<<<<<<
@@ -9260,7 +9260,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       /*else*/ {
 
-        /* "ARGON.pyx":698
+        /* "gases/ARGON.pyx":698
  *                 object.QIN[15][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[15][I] =<float>( 0.0010) / (object.EIN[15] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9271,7 +9271,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L181:;
 
-      /* "ARGON.pyx":702
+      /* "gases/ARGON.pyx":702
  *                     I] / 2.0) * BBCONST * EN / (
  *                                             EN + object.E[2] + object.EIN[15])
  *             if EN > (2.0 * object.EIN[15]):             # <<<<<<<<<<<<<<
@@ -9281,7 +9281,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[15]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":703
+        /* "gases/ARGON.pyx":703
  *                                             EN + object.E[2] + object.EIN[15])
  *             if EN > (2.0 * object.EIN[15]):
  *                 object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]             # <<<<<<<<<<<<<<
@@ -9290,7 +9290,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[15])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[15]))]);
 
-        /* "ARGON.pyx":702
+        /* "gases/ARGON.pyx":702
  *                     I] / 2.0) * BBCONST * EN / (
  *                                             EN + object.E[2] + object.EIN[15])
  *             if EN > (2.0 * object.EIN[15]):             # <<<<<<<<<<<<<<
@@ -9299,7 +9299,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":689
+      /* "gases/ARGON.pyx":689
  * 
  *         # D states, 3D5
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -9308,7 +9308,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":706
+    /* "gases/ARGON.pyx":706
  * 
  *         # D states, 3D3
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -9318,7 +9318,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[16])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":707
+      /* "gases/ARGON.pyx":707
  *         # D states, 3D3
  *         if EN > object.EIN[16]:
  *             if EN <= X3D3[N3D3 - 1]:             # <<<<<<<<<<<<<<
@@ -9328,7 +9328,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D3[(__pyx_v_N3D3 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":708
+        /* "gases/ARGON.pyx":708
  *         if EN > object.EIN[16]:
  *             if EN <= X3D3[N3D3 - 1]:
  *                 for j in range(1, N3D3):             # <<<<<<<<<<<<<<
@@ -9340,7 +9340,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":709
+          /* "gases/ARGON.pyx":709
  *             if EN <= X3D3[N3D3 - 1]:
  *                 for j in range(1, N3D3):
  *                     if EN <= X3D3[j]:             # <<<<<<<<<<<<<<
@@ -9350,7 +9350,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D3[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":710
+            /* "gases/ARGON.pyx":710
  *                 for j in range(1, N3D3):
  *                     if EN <= X3D3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -9359,7 +9359,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L189_break;
 
-            /* "ARGON.pyx":709
+            /* "gases/ARGON.pyx":709
  *             if EN <= X3D3[N3D3 - 1]:
  *                 for j in range(1, N3D3):
  *                     if EN <= X3D3[j]:             # <<<<<<<<<<<<<<
@@ -9370,7 +9370,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L189_break:;
 
-        /* "ARGON.pyx":711
+        /* "gases/ARGON.pyx":711
  *                     if EN <= X3D3[j]:
  *                         break
  *                 A = (Y3D3[j] - Y3D3[j - 1]) / (X3D3[j] - X3D3[j - 1])             # <<<<<<<<<<<<<<
@@ -9379,7 +9379,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3D3[__pyx_v_j]) - (__pyx_v_Y3D3[(__pyx_v_j - 1)])) / ((__pyx_v_X3D3[__pyx_v_j]) - (__pyx_v_X3D3[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":712
+        /* "gases/ARGON.pyx":712
  *                         break
  *                 A = (Y3D3[j] - Y3D3[j - 1]) / (X3D3[j] - X3D3[j - 1])
  *                 B = (X3D3[j - 1] * Y3D3[j] - X3D3[j] * Y3D3[j - 1]) / (X3D3[j - 1] - X3D3[j])             # <<<<<<<<<<<<<<
@@ -9388,7 +9388,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3D3[(__pyx_v_j - 1)]) * (__pyx_v_Y3D3[__pyx_v_j])) - ((__pyx_v_X3D3[__pyx_v_j]) * (__pyx_v_Y3D3[(__pyx_v_j - 1)]))) / ((__pyx_v_X3D3[(__pyx_v_j - 1)]) - (__pyx_v_X3D3[__pyx_v_j])));
 
-        /* "ARGON.pyx":713
+        /* "gases/ARGON.pyx":713
  *                 A = (Y3D3[j] - Y3D3[j - 1]) / (X3D3[j] - X3D3[j - 1])
  *                 B = (X3D3[j - 1] * Y3D3[j] - X3D3[j] * Y3D3[j - 1]) / (X3D3[j - 1] - X3D3[j])
  *                 object.QIN[16][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9397,7 +9397,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[16])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":707
+        /* "gases/ARGON.pyx":707
  *         # D states, 3D3
  *         if EN > object.EIN[16]:
  *             if EN <= X3D3[N3D3 - 1]:             # <<<<<<<<<<<<<<
@@ -9407,7 +9407,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L187;
       }
 
-      /* "ARGON.pyx":715
+      /* "gases/ARGON.pyx":715
  *                 object.QIN[16][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[16][I] = Y3D3[N3D3 - 1] * (X3D3[N3D3 - 1] / EN) ** 3 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9419,7 +9419,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L187:;
 
-      /* "ARGON.pyx":716
+      /* "gases/ARGON.pyx":716
  *             else:
  *                 object.QIN[16][I] = Y3D3[N3D3 - 1] * (X3D3[N3D3 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[16]):             # <<<<<<<<<<<<<<
@@ -9429,7 +9429,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[16]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":717
+        /* "gases/ARGON.pyx":717
  *                 object.QIN[16][I] = Y3D3[N3D3 - 1] * (X3D3[N3D3 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[16]):
  *                 object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]             # <<<<<<<<<<<<<<
@@ -9438,7 +9438,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[16])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[16]))]);
 
-        /* "ARGON.pyx":716
+        /* "gases/ARGON.pyx":716
  *             else:
  *                 object.QIN[16][I] = Y3D3[N3D3 - 1] * (X3D3[N3D3 - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[16]):             # <<<<<<<<<<<<<<
@@ -9447,7 +9447,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":706
+      /* "gases/ARGON.pyx":706
  * 
  *         # D states, 3D3
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -9456,7 +9456,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":720
+    /* "gases/ARGON.pyx":720
  * 
  *         # D states, 3D4'
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -9466,7 +9466,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[17])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":721
+      /* "gases/ARGON.pyx":721
  *         # D states, 3D4'
  *         if EN > object.EIN[17]:
  *             if EN <= X3D4P[N3D4P - 1]:             # <<<<<<<<<<<<<<
@@ -9476,7 +9476,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D4P[(__pyx_v_N3D4P - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":722
+        /* "gases/ARGON.pyx":722
  *         if EN > object.EIN[17]:
  *             if EN <= X3D4P[N3D4P - 1]:
  *                 for j in range(1, N3D4P):             # <<<<<<<<<<<<<<
@@ -9488,7 +9488,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":723
+          /* "gases/ARGON.pyx":723
  *             if EN <= X3D4P[N3D4P - 1]:
  *                 for j in range(1, N3D4P):
  *                     if EN <= X3D4P[j]:             # <<<<<<<<<<<<<<
@@ -9498,7 +9498,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D4P[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":724
+            /* "gases/ARGON.pyx":724
  *                 for j in range(1, N3D4P):
  *                     if EN <= X3D4P[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -9507,7 +9507,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L195_break;
 
-            /* "ARGON.pyx":723
+            /* "gases/ARGON.pyx":723
  *             if EN <= X3D4P[N3D4P - 1]:
  *                 for j in range(1, N3D4P):
  *                     if EN <= X3D4P[j]:             # <<<<<<<<<<<<<<
@@ -9518,7 +9518,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L195_break:;
 
-        /* "ARGON.pyx":725
+        /* "gases/ARGON.pyx":725
  *                     if EN <= X3D4P[j]:
  *                         break
  *                 A = (Y3D4P[j] - Y3D4P[j - 1]) / (X3D4P[j] - X3D4P[j - 1])             # <<<<<<<<<<<<<<
@@ -9527,7 +9527,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3D4P[__pyx_v_j]) - (__pyx_v_Y3D4P[(__pyx_v_j - 1)])) / ((__pyx_v_X3D4P[__pyx_v_j]) - (__pyx_v_X3D4P[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":726
+        /* "gases/ARGON.pyx":726
  *                         break
  *                 A = (Y3D4P[j] - Y3D4P[j - 1]) / (X3D4P[j] - X3D4P[j - 1])
  *                 B = (X3D4P[j - 1] * Y3D4P[j] - X3D4P[j] * Y3D4P[j - 1]) / (X3D4P[j - 1] - X3D4P[j])             # <<<<<<<<<<<<<<
@@ -9536,7 +9536,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3D4P[(__pyx_v_j - 1)]) * (__pyx_v_Y3D4P[__pyx_v_j])) - ((__pyx_v_X3D4P[__pyx_v_j]) * (__pyx_v_Y3D4P[(__pyx_v_j - 1)]))) / ((__pyx_v_X3D4P[(__pyx_v_j - 1)]) - (__pyx_v_X3D4P[__pyx_v_j])));
 
-        /* "ARGON.pyx":727
+        /* "gases/ARGON.pyx":727
  *                 A = (Y3D4P[j] - Y3D4P[j - 1]) / (X3D4P[j] - X3D4P[j - 1])
  *                 B = (X3D4P[j - 1] * Y3D4P[j] - X3D4P[j] * Y3D4P[j - 1]) / (X3D4P[j - 1] - X3D4P[j])
  *                 object.QIN[17][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9545,7 +9545,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[17])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":721
+        /* "gases/ARGON.pyx":721
  *         # D states, 3D4'
  *         if EN > object.EIN[17]:
  *             if EN <= X3D4P[N3D4P - 1]:             # <<<<<<<<<<<<<<
@@ -9555,7 +9555,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L193;
       }
 
-      /* "ARGON.pyx":729
+      /* "gases/ARGON.pyx":729
  *                 object.QIN[17][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[17][I] = Y3D4P[N3D4P - 1] * (X3D4P[N3D4P - 1] / EN) ** 3 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9567,7 +9567,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L193:;
 
-      /* "ARGON.pyx":730
+      /* "gases/ARGON.pyx":730
  *             else:
  *                 object.QIN[17][I] = Y3D4P[N3D4P - 1] * (X3D4P[N3D4P - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[17]):             # <<<<<<<<<<<<<<
@@ -9577,7 +9577,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[17]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":731
+        /* "gases/ARGON.pyx":731
  *                 object.QIN[17][I] = Y3D4P[N3D4P - 1] * (X3D4P[N3D4P - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[17]):
  *                 object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]             # <<<<<<<<<<<<<<
@@ -9586,7 +9586,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[17])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[17]))]);
 
-        /* "ARGON.pyx":730
+        /* "gases/ARGON.pyx":730
  *             else:
  *                 object.QIN[17][I] = Y3D4P[N3D4P - 1] * (X3D4P[N3D4P - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[17]):             # <<<<<<<<<<<<<<
@@ -9595,7 +9595,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":720
+      /* "gases/ARGON.pyx":720
  * 
  *         # D states, 3D4'
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -9604,7 +9604,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":734
+    /* "gases/ARGON.pyx":734
  * 
  *         # D states, 3D4
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -9614,7 +9614,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[18])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":735
+      /* "gases/ARGON.pyx":735
  *         # D states, 3D4
  *         if EN > object.EIN[18]:
  *             if EN <= X3D4[N3D4 - 1]:             # <<<<<<<<<<<<<<
@@ -9624,7 +9624,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D4[(__pyx_v_N3D4 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":736
+        /* "gases/ARGON.pyx":736
  *         if EN > object.EIN[18]:
  *             if EN <= X3D4[N3D4 - 1]:
  *                 for j in range(1, N3D4):             # <<<<<<<<<<<<<<
@@ -9636,7 +9636,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":737
+          /* "gases/ARGON.pyx":737
  *             if EN <= X3D4[N3D4 - 1]:
  *                 for j in range(1, N3D4):
  *                     if EN <= X3D4[j]:             # <<<<<<<<<<<<<<
@@ -9646,7 +9646,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D4[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":738
+            /* "gases/ARGON.pyx":738
  *                 for j in range(1, N3D4):
  *                     if EN <= X3D4[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -9655,7 +9655,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L201_break;
 
-            /* "ARGON.pyx":737
+            /* "gases/ARGON.pyx":737
  *             if EN <= X3D4[N3D4 - 1]:
  *                 for j in range(1, N3D4):
  *                     if EN <= X3D4[j]:             # <<<<<<<<<<<<<<
@@ -9666,7 +9666,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L201_break:;
 
-        /* "ARGON.pyx":739
+        /* "gases/ARGON.pyx":739
  *                     if EN <= X3D4[j]:
  *                         break
  *                 A = (Y3D4[j] - Y3D4[j - 1]) / (X3D4[j] - X3D4[j - 1])             # <<<<<<<<<<<<<<
@@ -9675,7 +9675,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3D4[__pyx_v_j]) - (__pyx_v_Y3D4[(__pyx_v_j - 1)])) / ((__pyx_v_X3D4[__pyx_v_j]) - (__pyx_v_X3D4[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":740
+        /* "gases/ARGON.pyx":740
  *                         break
  *                 A = (Y3D4[j] - Y3D4[j - 1]) / (X3D4[j] - X3D4[j - 1])
  *                 B = (X3D4[j - 1] * Y3D4[j] - X3D4[j] * Y3D4[j - 1]) / (X3D4[j - 1] - X3D4[j])             # <<<<<<<<<<<<<<
@@ -9684,7 +9684,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3D4[(__pyx_v_j - 1)]) * (__pyx_v_Y3D4[__pyx_v_j])) - ((__pyx_v_X3D4[__pyx_v_j]) * (__pyx_v_Y3D4[(__pyx_v_j - 1)]))) / ((__pyx_v_X3D4[(__pyx_v_j - 1)]) - (__pyx_v_X3D4[__pyx_v_j])));
 
-        /* "ARGON.pyx":741
+        /* "gases/ARGON.pyx":741
  *                 A = (Y3D4[j] - Y3D4[j - 1]) / (X3D4[j] - X3D4[j - 1])
  *                 B = (X3D4[j - 1] * Y3D4[j] - X3D4[j] * Y3D4[j - 1]) / (X3D4[j - 1] - X3D4[j])
  *                 object.QIN[18][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9693,7 +9693,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[18])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":735
+        /* "gases/ARGON.pyx":735
  *         # D states, 3D4
  *         if EN > object.EIN[18]:
  *             if EN <= X3D4[N3D4 - 1]:             # <<<<<<<<<<<<<<
@@ -9703,7 +9703,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L199;
       }
 
-      /* "ARGON.pyx":743
+      /* "gases/ARGON.pyx":743
  *                 object.QIN[18][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[18][I] = Y3D4[N3D4 - 1] * (X3D4[N3D4 - 1] / EN) ** 2 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9715,7 +9715,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L199:;
 
-      /* "ARGON.pyx":744
+      /* "gases/ARGON.pyx":744
  *             else:
  *                 object.QIN[18][I] = Y3D4[N3D4 - 1] * (X3D4[N3D4 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[18]):             # <<<<<<<<<<<<<<
@@ -9725,7 +9725,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[18]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":745
+        /* "gases/ARGON.pyx":745
  *                 object.QIN[18][I] = Y3D4[N3D4 - 1] * (X3D4[N3D4 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[18]):
  *                 object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]             # <<<<<<<<<<<<<<
@@ -9734,7 +9734,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[18])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[18]))]);
 
-        /* "ARGON.pyx":744
+        /* "gases/ARGON.pyx":744
  *             else:
  *                 object.QIN[18][I] = Y3D4[N3D4 - 1] * (X3D4[N3D4 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[18]):             # <<<<<<<<<<<<<<
@@ -9743,7 +9743,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":734
+      /* "gases/ARGON.pyx":734
  * 
  *         # D states, 3D4
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -9752,7 +9752,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":748
+    /* "gases/ARGON.pyx":748
  * 
  *         # D states, 3D1''
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -9762,7 +9762,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[19])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":749
+      /* "gases/ARGON.pyx":749
  *         # D states, 3D1''
  *         if EN > object.EIN[19]:
  *             if EN <= X3D1PP[N3D1PP - 1]:             # <<<<<<<<<<<<<<
@@ -9772,7 +9772,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D1PP[(__pyx_v_N3D1PP - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":750
+        /* "gases/ARGON.pyx":750
  *         if EN > object.EIN[19]:
  *             if EN <= X3D1PP[N3D1PP - 1]:
  *                 for j in range(1, N3D1PP):             # <<<<<<<<<<<<<<
@@ -9784,7 +9784,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":751
+          /* "gases/ARGON.pyx":751
  *             if EN <= X3D1PP[N3D1PP - 1]:
  *                 for j in range(1, N3D1PP):
  *                     if EN <= X3D1PP[j]:             # <<<<<<<<<<<<<<
@@ -9794,7 +9794,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D1PP[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":752
+            /* "gases/ARGON.pyx":752
  *                 for j in range(1, N3D1PP):
  *                     if EN <= X3D1PP[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -9803,7 +9803,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L207_break;
 
-            /* "ARGON.pyx":751
+            /* "gases/ARGON.pyx":751
  *             if EN <= X3D1PP[N3D1PP - 1]:
  *                 for j in range(1, N3D1PP):
  *                     if EN <= X3D1PP[j]:             # <<<<<<<<<<<<<<
@@ -9814,7 +9814,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L207_break:;
 
-        /* "ARGON.pyx":753
+        /* "gases/ARGON.pyx":753
  *                     if EN <= X3D1PP[j]:
  *                         break
  *                 A = (Y3D1PP[j] - Y3D1PP[j - 1]) / (X3D1PP[j] - X3D1PP[j - 1])             # <<<<<<<<<<<<<<
@@ -9823,7 +9823,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3D1PP[__pyx_v_j]) - (__pyx_v_Y3D1PP[(__pyx_v_j - 1)])) / ((__pyx_v_X3D1PP[__pyx_v_j]) - (__pyx_v_X3D1PP[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":754
+        /* "gases/ARGON.pyx":754
  *                         break
  *                 A = (Y3D1PP[j] - Y3D1PP[j - 1]) / (X3D1PP[j] - X3D1PP[j - 1])
  *                 B = (X3D1PP[j - 1] * Y3D1PP[j] - X3D1PP[j] * Y3D1PP[j - 1]) / (X3D1PP[j - 1] - X3D1PP[j])             # <<<<<<<<<<<<<<
@@ -9832,7 +9832,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3D1PP[(__pyx_v_j - 1)]) * (__pyx_v_Y3D1PP[__pyx_v_j])) - ((__pyx_v_X3D1PP[__pyx_v_j]) * (__pyx_v_Y3D1PP[(__pyx_v_j - 1)]))) / ((__pyx_v_X3D1PP[(__pyx_v_j - 1)]) - (__pyx_v_X3D1PP[__pyx_v_j])));
 
-        /* "ARGON.pyx":755
+        /* "gases/ARGON.pyx":755
  *                 A = (Y3D1PP[j] - Y3D1PP[j - 1]) / (X3D1PP[j] - X3D1PP[j - 1])
  *                 B = (X3D1PP[j - 1] * Y3D1PP[j] - X3D1PP[j] * Y3D1PP[j - 1]) / (X3D1PP[j - 1] - X3D1PP[j])
  *                 object.QIN[19][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9841,7 +9841,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[19])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":749
+        /* "gases/ARGON.pyx":749
  *         # D states, 3D1''
  *         if EN > object.EIN[19]:
  *             if EN <= X3D1PP[N3D1PP - 1]:             # <<<<<<<<<<<<<<
@@ -9851,7 +9851,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L205;
       }
 
-      /* "ARGON.pyx":757
+      /* "gases/ARGON.pyx":757
  *                 object.QIN[19][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[19][I] = Y3D1PP[N3D1PP - 1] * (X3D1PP[N3D1PP - 1] / EN) ** 2 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9863,7 +9863,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L205:;
 
-      /* "ARGON.pyx":758
+      /* "gases/ARGON.pyx":758
  *             else:
  *                 object.QIN[19][I] = Y3D1PP[N3D1PP - 1] * (X3D1PP[N3D1PP - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[19]):             # <<<<<<<<<<<<<<
@@ -9873,7 +9873,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[19]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":759
+        /* "gases/ARGON.pyx":759
  *                 object.QIN[19][I] = Y3D1PP[N3D1PP - 1] * (X3D1PP[N3D1PP - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[19]):
  *                 object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]             # <<<<<<<<<<<<<<
@@ -9882,7 +9882,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[19])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[19]))]);
 
-        /* "ARGON.pyx":758
+        /* "gases/ARGON.pyx":758
  *             else:
  *                 object.QIN[19][I] = Y3D1PP[N3D1PP - 1] * (X3D1PP[N3D1PP - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[19]):             # <<<<<<<<<<<<<<
@@ -9891,7 +9891,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":748
+      /* "gases/ARGON.pyx":748
  * 
  *         # D states, 3D1''
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -9900,7 +9900,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":762
+    /* "gases/ARGON.pyx":762
  * 
  *         # S states, 2S5
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -9910,7 +9910,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[20])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":763
+      /* "gases/ARGON.pyx":763
  *         # S states, 2S5
  *         if EN > object.EIN[20]:
  *             if EN <= X2S5[N2S5 - 1]:             # <<<<<<<<<<<<<<
@@ -9920,7 +9920,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2S5[(__pyx_v_N2S5 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":764
+        /* "gases/ARGON.pyx":764
  *         if EN > object.EIN[20]:
  *             if EN <= X2S5[N2S5 - 1]:
  *                 for j in range(1, N2S5):             # <<<<<<<<<<<<<<
@@ -9932,7 +9932,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":765
+          /* "gases/ARGON.pyx":765
  *             if EN <= X2S5[N2S5 - 1]:
  *                 for j in range(1, N2S5):
  *                     if EN <= X2S5[j]:             # <<<<<<<<<<<<<<
@@ -9942,7 +9942,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2S5[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":766
+            /* "gases/ARGON.pyx":766
  *                 for j in range(1, N2S5):
  *                     if EN <= X2S5[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -9951,7 +9951,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L213_break;
 
-            /* "ARGON.pyx":765
+            /* "gases/ARGON.pyx":765
  *             if EN <= X2S5[N2S5 - 1]:
  *                 for j in range(1, N2S5):
  *                     if EN <= X2S5[j]:             # <<<<<<<<<<<<<<
@@ -9962,7 +9962,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L213_break:;
 
-        /* "ARGON.pyx":767
+        /* "gases/ARGON.pyx":767
  *                     if EN <= X2S5[j]:
  *                         break
  *                 A = (Y2S5[j] - Y2S5[j - 1]) / (X2S5[j] - X2S5[j - 1])             # <<<<<<<<<<<<<<
@@ -9971,7 +9971,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2S5[__pyx_v_j]) - (__pyx_v_Y2S5[(__pyx_v_j - 1)])) / ((__pyx_v_X2S5[__pyx_v_j]) - (__pyx_v_X2S5[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":768
+        /* "gases/ARGON.pyx":768
  *                         break
  *                 A = (Y2S5[j] - Y2S5[j - 1]) / (X2S5[j] - X2S5[j - 1])
  *                 B = (X2S5[j - 1] * Y2S5[j] - X2S5[j] * Y2S5[j - 1]) / (X2S5[j - 1] - X2S5[j])             # <<<<<<<<<<<<<<
@@ -9980,7 +9980,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2S5[(__pyx_v_j - 1)]) * (__pyx_v_Y2S5[__pyx_v_j])) - ((__pyx_v_X2S5[__pyx_v_j]) * (__pyx_v_Y2S5[(__pyx_v_j - 1)]))) / ((__pyx_v_X2S5[(__pyx_v_j - 1)]) - (__pyx_v_X2S5[__pyx_v_j])));
 
-        /* "ARGON.pyx":769
+        /* "gases/ARGON.pyx":769
  *                 A = (Y2S5[j] - Y2S5[j - 1]) / (X2S5[j] - X2S5[j - 1])
  *                 B = (X2S5[j - 1] * Y2S5[j] - X2S5[j] * Y2S5[j - 1]) / (X2S5[j - 1] - X2S5[j])
  *                 object.QIN[20][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -9989,7 +9989,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[20])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":763
+        /* "gases/ARGON.pyx":763
  *         # S states, 2S5
  *         if EN > object.EIN[20]:
  *             if EN <= X2S5[N2S5 - 1]:             # <<<<<<<<<<<<<<
@@ -9999,7 +9999,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L211;
       }
 
-      /* "ARGON.pyx":771
+      /* "gases/ARGON.pyx":771
  *                 object.QIN[20][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[20][I] = Y2S5[N2S5 - 1] * (X2S5[N2S5 - 1] / EN) ** 2 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10011,7 +10011,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L211:;
 
-      /* "ARGON.pyx":772
+      /* "gases/ARGON.pyx":772
  *             else:
  *                 object.QIN[20][I] = Y2S5[N2S5 - 1] * (X2S5[N2S5 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[20]):             # <<<<<<<<<<<<<<
@@ -10021,7 +10021,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[20]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":773
+        /* "gases/ARGON.pyx":773
  *                 object.QIN[20][I] = Y2S5[N2S5 - 1] * (X2S5[N2S5 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[20]):
  *                 object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[20]]             # <<<<<<<<<<<<<<
@@ -10030,7 +10030,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[20])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[20]))]);
 
-        /* "ARGON.pyx":772
+        /* "gases/ARGON.pyx":772
  *             else:
  *                 object.QIN[20][I] = Y2S5[N2S5 - 1] * (X2S5[N2S5 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[20]):             # <<<<<<<<<<<<<<
@@ -10039,7 +10039,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":762
+      /* "gases/ARGON.pyx":762
  * 
  *         # S states, 2S5
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -10048,7 +10048,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":776
+    /* "gases/ARGON.pyx":776
  * 
  *         # S states, 2S4 F=0.0257
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -10058,7 +10058,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[21])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":777
+      /* "gases/ARGON.pyx":777
  *         # S states, 2S4 F=0.0257
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = <float>(0.0257) / (object.EIN[21] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -10067,7 +10067,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[21])[__pyx_v_I]) = (((((((float)0.0257) / ((__pyx_v_object->EIN[21]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[21])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[21])));
 
-      /* "ARGON.pyx":780
+      /* "gases/ARGON.pyx":780
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[21])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[21])
  *             if object.QIN[21][I] < 0:             # <<<<<<<<<<<<<<
@@ -10077,7 +10077,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[21])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":781
+        /* "gases/ARGON.pyx":781
  *                                         EN + object.E[2] + object.EIN[21])
  *             if object.QIN[21][I] < 0:
  *                 object.QIN[21][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10086,7 +10086,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[21])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":780
+        /* "gases/ARGON.pyx":780
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[21])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[21])
  *             if object.QIN[21][I] < 0:             # <<<<<<<<<<<<<<
@@ -10095,7 +10095,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":782
+      /* "gases/ARGON.pyx":782
  *             if object.QIN[21][I] < 0:
  *                 object.QIN[21][I] = 0.0
  *             if EN > (2.0 * object.EIN[21]):             # <<<<<<<<<<<<<<
@@ -10105,7 +10105,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[21]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":783
+        /* "gases/ARGON.pyx":783
  *                 object.QIN[21][I] = 0.0
  *             if EN > (2.0 * object.EIN[21]):
  *                 object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]             # <<<<<<<<<<<<<<
@@ -10114,7 +10114,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[21])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[21]))]);
 
-        /* "ARGON.pyx":782
+        /* "gases/ARGON.pyx":782
  *             if object.QIN[21][I] < 0:
  *                 object.QIN[21][I] = 0.0
  *             if EN > (2.0 * object.EIN[21]):             # <<<<<<<<<<<<<<
@@ -10123,7 +10123,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":776
+      /* "gases/ARGON.pyx":776
  * 
  *         # S states, 2S4 F=0.0257
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -10132,7 +10132,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":786
+    /* "gases/ARGON.pyx":786
  * 
  *         # D states, 3D1'
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -10142,7 +10142,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[22])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":787
+      /* "gases/ARGON.pyx":787
  *         # D states, 3D1'
  *         if EN > object.EIN[22]:
  *             if EN <= X3D1P[N3D1P - 1]:             # <<<<<<<<<<<<<<
@@ -10152,7 +10152,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D1P[(__pyx_v_N3D1P - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":788
+        /* "gases/ARGON.pyx":788
  *         if EN > object.EIN[22]:
  *             if EN <= X3D1P[N3D1P - 1]:
  *                 for j in range(1, N3D1P):             # <<<<<<<<<<<<<<
@@ -10164,7 +10164,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":789
+          /* "gases/ARGON.pyx":789
  *             if EN <= X3D1P[N3D1P - 1]:
  *                 for j in range(1, N3D1P):
  *                     if EN <= X3D1P[j]:             # <<<<<<<<<<<<<<
@@ -10174,7 +10174,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3D1P[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":790
+            /* "gases/ARGON.pyx":790
  *                 for j in range(1, N3D1P):
  *                     if EN <= X3D1P[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -10183,7 +10183,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L222_break;
 
-            /* "ARGON.pyx":789
+            /* "gases/ARGON.pyx":789
  *             if EN <= X3D1P[N3D1P - 1]:
  *                 for j in range(1, N3D1P):
  *                     if EN <= X3D1P[j]:             # <<<<<<<<<<<<<<
@@ -10194,7 +10194,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L222_break:;
 
-        /* "ARGON.pyx":791
+        /* "gases/ARGON.pyx":791
  *                     if EN <= X3D1P[j]:
  *                         break
  *                 A = (Y3D1P[j] - Y3D1P[j - 1]) / (X3D1P[j] - X3D1P[j - 1])             # <<<<<<<<<<<<<<
@@ -10203,7 +10203,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3D1P[__pyx_v_j]) - (__pyx_v_Y3D1P[(__pyx_v_j - 1)])) / ((__pyx_v_X3D1P[__pyx_v_j]) - (__pyx_v_X3D1P[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":792
+        /* "gases/ARGON.pyx":792
  *                         break
  *                 A = (Y3D1P[j] - Y3D1P[j - 1]) / (X3D1P[j] - X3D1P[j - 1])
  *                 B = (X3D1P[j - 1] * Y3D1P[j] - X3D1P[j] * Y3D1P[j - 1]) / (X3D1P[j - 1] - X3D1P[j])             # <<<<<<<<<<<<<<
@@ -10212,7 +10212,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3D1P[(__pyx_v_j - 1)]) * (__pyx_v_Y3D1P[__pyx_v_j])) - ((__pyx_v_X3D1P[__pyx_v_j]) * (__pyx_v_Y3D1P[(__pyx_v_j - 1)]))) / ((__pyx_v_X3D1P[(__pyx_v_j - 1)]) - (__pyx_v_X3D1P[__pyx_v_j])));
 
-        /* "ARGON.pyx":793
+        /* "gases/ARGON.pyx":793
  *                 A = (Y3D1P[j] - Y3D1P[j - 1]) / (X3D1P[j] - X3D1P[j - 1])
  *                 B = (X3D1P[j - 1] * Y3D1P[j] - X3D1P[j] * Y3D1P[j - 1]) / (X3D1P[j - 1] - X3D1P[j])
  *                 object.QIN[22][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10221,7 +10221,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[22])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":787
+        /* "gases/ARGON.pyx":787
  *         # D states, 3D1'
  *         if EN > object.EIN[22]:
  *             if EN <= X3D1P[N3D1P - 1]:             # <<<<<<<<<<<<<<
@@ -10231,7 +10231,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L220;
       }
 
-      /* "ARGON.pyx":795
+      /* "gases/ARGON.pyx":795
  *                 object.QIN[22][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[22][I] = Y3D1P[N3D1P - 1] * (X3D1P[N3D1P - 1] / EN) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10243,7 +10243,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L220:;
 
-      /* "ARGON.pyx":796
+      /* "gases/ARGON.pyx":796
  *             else:
  *                 object.QIN[22][I] = Y3D1P[N3D1P - 1] * (X3D1P[N3D1P - 1] / EN) * 1.0e-18
  *             if EN > (2.0 * object.EIN[22]):             # <<<<<<<<<<<<<<
@@ -10253,7 +10253,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[22]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":797
+        /* "gases/ARGON.pyx":797
  *                 object.QIN[22][I] = Y3D1P[N3D1P - 1] * (X3D1P[N3D1P - 1] / EN) * 1.0e-18
  *             if EN > (2.0 * object.EIN[22]):
  *                 object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]             # <<<<<<<<<<<<<<
@@ -10262,7 +10262,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[22])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[22]))]);
 
-        /* "ARGON.pyx":796
+        /* "gases/ARGON.pyx":796
  *             else:
  *                 object.QIN[22][I] = Y3D1P[N3D1P - 1] * (X3D1P[N3D1P - 1] / EN) * 1.0e-18
  *             if EN > (2.0 * object.EIN[22]):             # <<<<<<<<<<<<<<
@@ -10271,7 +10271,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":786
+      /* "gases/ARGON.pyx":786
  * 
  *         # D states, 3D1'
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -10280,7 +10280,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":800
+    /* "gases/ARGON.pyx":800
  * 
  *         # D states, 3D2 F=0.074
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -10290,7 +10290,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[23])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":801
+      /* "gases/ARGON.pyx":801
  *         # D states, 3D2 F=0.074
  *         if EN > object.EIN[23]:
  *             object.QIN[23][I] = <float>(0.074) / (object.EIN[23] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -10299,7 +10299,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[23])[__pyx_v_I]) = (((((((float)0.074) / ((__pyx_v_object->EIN[23]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[23])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[23])));
 
-      /* "ARGON.pyx":804
+      /* "gases/ARGON.pyx":804
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[23])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[23])
  *             if object.QIN[23][I] < 0:             # <<<<<<<<<<<<<<
@@ -10309,7 +10309,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[23])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":805
+        /* "gases/ARGON.pyx":805
  *                                         EN + object.E[2] + object.EIN[23])
  *             if object.QIN[23][I] < 0:
  *                 object.QIN[23][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10318,7 +10318,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[23])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":804
+        /* "gases/ARGON.pyx":804
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[23])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[23])
  *             if object.QIN[23][I] < 0:             # <<<<<<<<<<<<<<
@@ -10327,7 +10327,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":806
+      /* "gases/ARGON.pyx":806
  *             if object.QIN[23][I] < 0:
  *                 object.QIN[23][I] = 0.0
  *             if EN > (2.0 * object.EIN[23]):             # <<<<<<<<<<<<<<
@@ -10337,7 +10337,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[23]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":807
+        /* "gases/ARGON.pyx":807
  *                 object.QIN[23][I] = 0.0
  *             if EN > (2.0 * object.EIN[23]):
  *                 object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]             # <<<<<<<<<<<<<<
@@ -10346,7 +10346,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[23])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[23]))]);
 
-        /* "ARGON.pyx":806
+        /* "gases/ARGON.pyx":806
  *             if object.QIN[23][I] < 0:
  *                 object.QIN[23][I] = 0.0
  *             if EN > (2.0 * object.EIN[23]):             # <<<<<<<<<<<<<<
@@ -10355,7 +10355,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":800
+      /* "gases/ARGON.pyx":800
  * 
  *         # D states, 3D2 F=0.074
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -10364,7 +10364,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":810
+    /* "gases/ARGON.pyx":810
  * 
  *         # S states, 3S1''''
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -10374,7 +10374,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[24])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":811
+      /* "gases/ARGON.pyx":811
  *         # S states, 3S1''''
  *         if EN > object.EIN[24]:
  *             if EN <= X3S1PPPP[N3S1PPPP - 1]:             # <<<<<<<<<<<<<<
@@ -10384,7 +10384,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3S1PPPP[(__pyx_v_N3S1PPPP - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":812
+        /* "gases/ARGON.pyx":812
  *         if EN > object.EIN[24]:
  *             if EN <= X3S1PPPP[N3S1PPPP - 1]:
  *                 for j in range(1, N3S1PPPP):             # <<<<<<<<<<<<<<
@@ -10396,7 +10396,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":813
+          /* "gases/ARGON.pyx":813
  *             if EN <= X3S1PPPP[N3S1PPPP - 1]:
  *                 for j in range(1, N3S1PPPP):
  *                     if EN <= X3S1PPPP[j]:             # <<<<<<<<<<<<<<
@@ -10406,7 +10406,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3S1PPPP[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":814
+            /* "gases/ARGON.pyx":814
  *                 for j in range(1, N3S1PPPP):
  *                     if EN <= X3S1PPPP[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -10415,7 +10415,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L231_break;
 
-            /* "ARGON.pyx":813
+            /* "gases/ARGON.pyx":813
  *             if EN <= X3S1PPPP[N3S1PPPP - 1]:
  *                 for j in range(1, N3S1PPPP):
  *                     if EN <= X3S1PPPP[j]:             # <<<<<<<<<<<<<<
@@ -10426,7 +10426,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L231_break:;
 
-        /* "ARGON.pyx":815
+        /* "gases/ARGON.pyx":815
  *                     if EN <= X3S1PPPP[j]:
  *                         break
  *                 A = (Y3S1PPPP[j] - Y3S1PPPP[j - 1]) / (X3S1PPPP[j] - X3S1PPPP[j - 1])             # <<<<<<<<<<<<<<
@@ -10435,7 +10435,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3S1PPPP[__pyx_v_j]) - (__pyx_v_Y3S1PPPP[(__pyx_v_j - 1)])) / ((__pyx_v_X3S1PPPP[__pyx_v_j]) - (__pyx_v_X3S1PPPP[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":816
+        /* "gases/ARGON.pyx":816
  *                         break
  *                 A = (Y3S1PPPP[j] - Y3S1PPPP[j - 1]) / (X3S1PPPP[j] - X3S1PPPP[j - 1])
  *                 B = (X3S1PPPP[j - 1] * Y3S1PPPP[j] - X3S1PPPP[j] * Y3S1PPPP[j - 1]) / (X3S1PPPP[j - 1] - X3S1PPPP[j])             # <<<<<<<<<<<<<<
@@ -10444,7 +10444,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3S1PPPP[(__pyx_v_j - 1)]) * (__pyx_v_Y3S1PPPP[__pyx_v_j])) - ((__pyx_v_X3S1PPPP[__pyx_v_j]) * (__pyx_v_Y3S1PPPP[(__pyx_v_j - 1)]))) / ((__pyx_v_X3S1PPPP[(__pyx_v_j - 1)]) - (__pyx_v_X3S1PPPP[__pyx_v_j])));
 
-        /* "ARGON.pyx":817
+        /* "gases/ARGON.pyx":817
  *                 A = (Y3S1PPPP[j] - Y3S1PPPP[j - 1]) / (X3S1PPPP[j] - X3S1PPPP[j - 1])
  *                 B = (X3S1PPPP[j - 1] * Y3S1PPPP[j] - X3S1PPPP[j] * Y3S1PPPP[j - 1]) / (X3S1PPPP[j - 1] - X3S1PPPP[j])
  *                 object.QIN[24][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10453,7 +10453,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[24])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":811
+        /* "gases/ARGON.pyx":811
  *         # S states, 3S1''''
  *         if EN > object.EIN[24]:
  *             if EN <= X3S1PPPP[N3S1PPPP - 1]:             # <<<<<<<<<<<<<<
@@ -10463,7 +10463,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L229;
       }
 
-      /* "ARGON.pyx":819
+      /* "gases/ARGON.pyx":819
  *                 object.QIN[24][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[24][I] = Y3S1PPPP[N3S1PPPP - 1] * (X3S1PPPP[N3S1PPPP - 1] / EN) ** 3 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10475,7 +10475,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L229:;
 
-      /* "ARGON.pyx":820
+      /* "gases/ARGON.pyx":820
  *             else:
  *                 object.QIN[24][I] = Y3S1PPPP[N3S1PPPP - 1] * (X3S1PPPP[N3S1PPPP - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[24]):             # <<<<<<<<<<<<<<
@@ -10485,7 +10485,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[24]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":821
+        /* "gases/ARGON.pyx":821
  *                 object.QIN[24][I] = Y3S1PPPP[N3S1PPPP - 1] * (X3S1PPPP[N3S1PPPP - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[24]):
  *                 object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]             # <<<<<<<<<<<<<<
@@ -10494,7 +10494,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[24])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[24]))]);
 
-        /* "ARGON.pyx":820
+        /* "gases/ARGON.pyx":820
  *             else:
  *                 object.QIN[24][I] = Y3S1PPPP[N3S1PPPP - 1] * (X3S1PPPP[N3S1PPPP - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[24]):             # <<<<<<<<<<<<<<
@@ -10503,7 +10503,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":810
+      /* "gases/ARGON.pyx":810
  * 
  *         # S states, 3S1''''
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -10512,7 +10512,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":824
+    /* "gases/ARGON.pyx":824
  * 
  *         # S states, 3S1''
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -10522,7 +10522,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[25])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":825
+      /* "gases/ARGON.pyx":825
  *         # S states, 3S1''
  *         if EN > object.EIN[25]:
  *             if EN <= X3S1PP[N3S1PP - 1]:             # <<<<<<<<<<<<<<
@@ -10532,7 +10532,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3S1PP[(__pyx_v_N3S1PP - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":826
+        /* "gases/ARGON.pyx":826
  *         if EN > object.EIN[25]:
  *             if EN <= X3S1PP[N3S1PP - 1]:
  *                 for j in range(1, N3S1PP):             # <<<<<<<<<<<<<<
@@ -10544,7 +10544,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":827
+          /* "gases/ARGON.pyx":827
  *             if EN <= X3S1PP[N3S1PP - 1]:
  *                 for j in range(1, N3S1PP):
  *                     if EN <= X3S1PP[j]:             # <<<<<<<<<<<<<<
@@ -10554,7 +10554,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3S1PP[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":828
+            /* "gases/ARGON.pyx":828
  *                 for j in range(1, N3S1PP):
  *                     if EN <= X3S1PP[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -10563,7 +10563,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L237_break;
 
-            /* "ARGON.pyx":827
+            /* "gases/ARGON.pyx":827
  *             if EN <= X3S1PP[N3S1PP - 1]:
  *                 for j in range(1, N3S1PP):
  *                     if EN <= X3S1PP[j]:             # <<<<<<<<<<<<<<
@@ -10574,7 +10574,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L237_break:;
 
-        /* "ARGON.pyx":829
+        /* "gases/ARGON.pyx":829
  *                     if EN <= X3S1PP[j]:
  *                         break
  *                 A = (Y3S1PP[j] - Y3S1PP[j - 1]) / (X3S1PP[j] - X3S1PP[j - 1])             # <<<<<<<<<<<<<<
@@ -10583,7 +10583,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3S1PP[__pyx_v_j]) - (__pyx_v_Y3S1PP[(__pyx_v_j - 1)])) / ((__pyx_v_X3S1PP[__pyx_v_j]) - (__pyx_v_X3S1PP[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":830
+        /* "gases/ARGON.pyx":830
  *                         break
  *                 A = (Y3S1PP[j] - Y3S1PP[j - 1]) / (X3S1PP[j] - X3S1PP[j - 1])
  *                 B = (X3S1PP[j - 1] * Y3S1PP[j] - X3S1PP[j] * Y3S1PP[j - 1]) / (X3S1PP[j - 1] - X3S1PP[j])             # <<<<<<<<<<<<<<
@@ -10592,7 +10592,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3S1PP[(__pyx_v_j - 1)]) * (__pyx_v_Y3S1PP[__pyx_v_j])) - ((__pyx_v_X3S1PP[__pyx_v_j]) * (__pyx_v_Y3S1PP[(__pyx_v_j - 1)]))) / ((__pyx_v_X3S1PP[(__pyx_v_j - 1)]) - (__pyx_v_X3S1PP[__pyx_v_j])));
 
-        /* "ARGON.pyx":831
+        /* "gases/ARGON.pyx":831
  *                 A = (Y3S1PP[j] - Y3S1PP[j - 1]) / (X3S1PP[j] - X3S1PP[j - 1])
  *                 B = (X3S1PP[j - 1] * Y3S1PP[j] - X3S1PP[j] * Y3S1PP[j - 1]) / (X3S1PP[j - 1] - X3S1PP[j])
  *                 object.QIN[25][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10601,7 +10601,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[25])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":825
+        /* "gases/ARGON.pyx":825
  *         # S states, 3S1''
  *         if EN > object.EIN[25]:
  *             if EN <= X3S1PP[N3S1PP - 1]:             # <<<<<<<<<<<<<<
@@ -10611,7 +10611,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L235;
       }
 
-      /* "ARGON.pyx":833
+      /* "gases/ARGON.pyx":833
  *                 object.QIN[25][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[25][I] = Y3S1PP[N3S1PP - 1] * (X3S1PP[N3S1PP - 1] / EN) ** 3 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10623,7 +10623,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L235:;
 
-      /* "ARGON.pyx":834
+      /* "gases/ARGON.pyx":834
  *             else:
  *                 object.QIN[25][I] = Y3S1PP[N3S1PP - 1] * (X3S1PP[N3S1PP - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[25]):             # <<<<<<<<<<<<<<
@@ -10633,7 +10633,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[25]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":835
+        /* "gases/ARGON.pyx":835
  *                 object.QIN[25][I] = Y3S1PP[N3S1PP - 1] * (X3S1PP[N3S1PP - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[25]):
  *                 object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]             # <<<<<<<<<<<<<<
@@ -10642,7 +10642,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[25])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[25]))]);
 
-        /* "ARGON.pyx":834
+        /* "gases/ARGON.pyx":834
  *             else:
  *                 object.QIN[25][I] = Y3S1PP[N3S1PP - 1] * (X3S1PP[N3S1PP - 1] / EN) ** 3 * 1.0e-18
  *             if EN > (2.0 * object.EIN[25]):             # <<<<<<<<<<<<<<
@@ -10651,7 +10651,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":824
+      /* "gases/ARGON.pyx":824
  * 
  *         # S states, 3S1''
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -10660,7 +10660,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":838
+    /* "gases/ARGON.pyx":838
  * 
  *         # S states, 3S'''
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -10670,7 +10670,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[26])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":839
+      /* "gases/ARGON.pyx":839
  *         # S states, 3S'''
  *         if EN > object.EIN[26]:
  *             if EN <= X3S1PPP[N3S1PPP - 1]:             # <<<<<<<<<<<<<<
@@ -10680,7 +10680,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3S1PPP[(__pyx_v_N3S1PPP - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":840
+        /* "gases/ARGON.pyx":840
  *         if EN > object.EIN[26]:
  *             if EN <= X3S1PPP[N3S1PPP - 1]:
  *                 for j in range(1, N3S1PPP):             # <<<<<<<<<<<<<<
@@ -10692,7 +10692,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":841
+          /* "gases/ARGON.pyx":841
  *             if EN <= X3S1PPP[N3S1PPP - 1]:
  *                 for j in range(1, N3S1PPP):
  *                     if EN <= X3S1PPP[j]:             # <<<<<<<<<<<<<<
@@ -10702,7 +10702,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X3S1PPP[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":842
+            /* "gases/ARGON.pyx":842
  *                 for j in range(1, N3S1PPP):
  *                     if EN <= X3S1PPP[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -10711,7 +10711,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L243_break;
 
-            /* "ARGON.pyx":841
+            /* "gases/ARGON.pyx":841
  *             if EN <= X3S1PPP[N3S1PPP - 1]:
  *                 for j in range(1, N3S1PPP):
  *                     if EN <= X3S1PPP[j]:             # <<<<<<<<<<<<<<
@@ -10722,7 +10722,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L243_break:;
 
-        /* "ARGON.pyx":843
+        /* "gases/ARGON.pyx":843
  *                     if EN <= X3S1PPP[j]:
  *                         break
  *                 A = (Y3S1PPP[j] - Y3S1PPP[j - 1]) / (X3S1PPP[j] - X3S1PPP[j - 1])             # <<<<<<<<<<<<<<
@@ -10731,7 +10731,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y3S1PPP[__pyx_v_j]) - (__pyx_v_Y3S1PPP[(__pyx_v_j - 1)])) / ((__pyx_v_X3S1PPP[__pyx_v_j]) - (__pyx_v_X3S1PPP[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":844
+        /* "gases/ARGON.pyx":844
  *                         break
  *                 A = (Y3S1PPP[j] - Y3S1PPP[j - 1]) / (X3S1PPP[j] - X3S1PPP[j - 1])
  *                 B = (X3S1PPP[j - 1] * Y3S1PPP[j] - X3S1PPP[j] * Y3S1PPP[j - 1]) / (X3S1PPP[j - 1] - X3S1PPP[j])             # <<<<<<<<<<<<<<
@@ -10740,7 +10740,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X3S1PPP[(__pyx_v_j - 1)]) * (__pyx_v_Y3S1PPP[__pyx_v_j])) - ((__pyx_v_X3S1PPP[__pyx_v_j]) * (__pyx_v_Y3S1PPP[(__pyx_v_j - 1)]))) / ((__pyx_v_X3S1PPP[(__pyx_v_j - 1)]) - (__pyx_v_X3S1PPP[__pyx_v_j])));
 
-        /* "ARGON.pyx":845
+        /* "gases/ARGON.pyx":845
  *                 A = (Y3S1PPP[j] - Y3S1PPP[j - 1]) / (X3S1PPP[j] - X3S1PPP[j - 1])
  *                 B = (X3S1PPP[j - 1] * Y3S1PPP[j] - X3S1PPP[j] * Y3S1PPP[j - 1]) / (X3S1PPP[j - 1] - X3S1PPP[j])
  *                 object.QIN[26][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10749,7 +10749,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[26])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":839
+        /* "gases/ARGON.pyx":839
  *         # S states, 3S'''
  *         if EN > object.EIN[26]:
  *             if EN <= X3S1PPP[N3S1PPP - 1]:             # <<<<<<<<<<<<<<
@@ -10759,7 +10759,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L241;
       }
 
-      /* "ARGON.pyx":847
+      /* "gases/ARGON.pyx":847
  *                 object.QIN[26][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[26][I] = Y3S1PPP[N3S1PPP - 1] * (X3S1PPP[N3S1PPP - 1] / EN) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10771,7 +10771,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L241:;
 
-      /* "ARGON.pyx":848
+      /* "gases/ARGON.pyx":848
  *             else:
  *                 object.QIN[26][I] = Y3S1PPP[N3S1PPP - 1] * (X3S1PPP[N3S1PPP - 1] / EN) * 1.0e-18
  *             if EN > (2.0 * object.EIN[26]):             # <<<<<<<<<<<<<<
@@ -10781,7 +10781,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[26]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":849
+        /* "gases/ARGON.pyx":849
  *                 object.QIN[26][I] = Y3S1PPP[N3S1PPP - 1] * (X3S1PPP[N3S1PPP - 1] / EN) * 1.0e-18
  *             if EN > (2.0 * object.EIN[26]):
  *                 object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]             # <<<<<<<<<<<<<<
@@ -10790,7 +10790,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[26])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[26]))]);
 
-        /* "ARGON.pyx":848
+        /* "gases/ARGON.pyx":848
  *             else:
  *                 object.QIN[26][I] = Y3S1PPP[N3S1PPP - 1] * (X3S1PPP[N3S1PPP - 1] / EN) * 1.0e-18
  *             if EN > (2.0 * object.EIN[26]):             # <<<<<<<<<<<<<<
@@ -10799,7 +10799,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":838
+      /* "gases/ARGON.pyx":838
  * 
  *         # S states, 3S'''
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -10808,7 +10808,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":852
+    /* "gases/ARGON.pyx":852
  * 
  *         # S states, 2S3
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -10818,7 +10818,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[27])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":853
+      /* "gases/ARGON.pyx":853
  *         # S states, 2S3
  *         if EN > object.EIN[27]:
  *             if EN <= X2S3[N2S3 - 1]:             # <<<<<<<<<<<<<<
@@ -10828,7 +10828,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2S3[(__pyx_v_N2S3 - 1)])) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":854
+        /* "gases/ARGON.pyx":854
  *         if EN > object.EIN[27]:
  *             if EN <= X2S3[N2S3 - 1]:
  *                 for j in range(1, N2S3):             # <<<<<<<<<<<<<<
@@ -10840,7 +10840,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "ARGON.pyx":855
+          /* "gases/ARGON.pyx":855
  *             if EN <= X2S3[N2S3 - 1]:
  *                 for j in range(1, N2S3):
  *                     if EN <= X2S3[j]:             # <<<<<<<<<<<<<<
@@ -10850,7 +10850,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_23 = ((__pyx_v_EN <= (__pyx_v_X2S3[__pyx_v_j])) != 0);
           if (__pyx_t_23) {
 
-            /* "ARGON.pyx":856
+            /* "gases/ARGON.pyx":856
  *                 for j in range(1, N2S3):
  *                     if EN <= X2S3[j]:
  *                         break             # <<<<<<<<<<<<<<
@@ -10859,7 +10859,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
             goto __pyx_L249_break;
 
-            /* "ARGON.pyx":855
+            /* "gases/ARGON.pyx":855
  *             if EN <= X2S3[N2S3 - 1]:
  *                 for j in range(1, N2S3):
  *                     if EN <= X2S3[j]:             # <<<<<<<<<<<<<<
@@ -10870,7 +10870,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L249_break:;
 
-        /* "ARGON.pyx":857
+        /* "gases/ARGON.pyx":857
  *                     if EN <= X2S3[j]:
  *                         break
  *                 A = (Y2S3[j] - Y2S3[j - 1]) / (X2S3[j] - X2S3[j - 1])             # <<<<<<<<<<<<<<
@@ -10879,7 +10879,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_A = (((__pyx_v_Y2S3[__pyx_v_j]) - (__pyx_v_Y2S3[(__pyx_v_j - 1)])) / ((__pyx_v_X2S3[__pyx_v_j]) - (__pyx_v_X2S3[(__pyx_v_j - 1)])));
 
-        /* "ARGON.pyx":858
+        /* "gases/ARGON.pyx":858
  *                         break
  *                 A = (Y2S3[j] - Y2S3[j - 1]) / (X2S3[j] - X2S3[j - 1])
  *                 B = (X2S3[j - 1] * Y2S3[j] - X2S3[j] * Y2S3[j - 1]) / (X2S3[j - 1] - X2S3[j])             # <<<<<<<<<<<<<<
@@ -10888,7 +10888,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_B = ((((__pyx_v_X2S3[(__pyx_v_j - 1)]) * (__pyx_v_Y2S3[__pyx_v_j])) - ((__pyx_v_X2S3[__pyx_v_j]) * (__pyx_v_Y2S3[(__pyx_v_j - 1)]))) / ((__pyx_v_X2S3[(__pyx_v_j - 1)]) - (__pyx_v_X2S3[__pyx_v_j])));
 
-        /* "ARGON.pyx":859
+        /* "gases/ARGON.pyx":859
  *                 A = (Y2S3[j] - Y2S3[j - 1]) / (X2S3[j] - X2S3[j - 1])
  *                 B = (X2S3[j - 1] * Y2S3[j] - X2S3[j] * Y2S3[j - 1]) / (X2S3[j - 1] - X2S3[j])
  *                 object.QIN[27][I] = (A * EN + B) * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10897,7 +10897,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[27])[__pyx_v_I]) = (((__pyx_v_A * __pyx_v_EN) + __pyx_v_B) * 1.0e-18);
 
-        /* "ARGON.pyx":853
+        /* "gases/ARGON.pyx":853
  *         # S states, 2S3
  *         if EN > object.EIN[27]:
  *             if EN <= X2S3[N2S3 - 1]:             # <<<<<<<<<<<<<<
@@ -10907,7 +10907,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L247;
       }
 
-      /* "ARGON.pyx":861
+      /* "gases/ARGON.pyx":861
  *                 object.QIN[27][I] = (A * EN + B) * 1.0e-18
  *             else:
  *                 object.QIN[27][I] = Y2S3[N2S3 - 1] * (X2S3[N2S3 - 1] / EN) ** 2 * 1.0e-18             # <<<<<<<<<<<<<<
@@ -10919,7 +10919,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L247:;
 
-      /* "ARGON.pyx":862
+      /* "gases/ARGON.pyx":862
  *             else:
  *                 object.QIN[27][I] = Y2S3[N2S3 - 1] * (X2S3[N2S3 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[27]):             # <<<<<<<<<<<<<<
@@ -10929,7 +10929,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[27]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":863
+        /* "gases/ARGON.pyx":863
  *                 object.QIN[27][I] = Y2S3[N2S3 - 1] * (X2S3[N2S3 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[27]):
  *                 object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]             # <<<<<<<<<<<<<<
@@ -10938,7 +10938,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[27])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[27]))]);
 
-        /* "ARGON.pyx":862
+        /* "gases/ARGON.pyx":862
  *             else:
  *                 object.QIN[27][I] = Y2S3[N2S3 - 1] * (X2S3[N2S3 - 1] / EN) ** 2 * 1.0e-18
  *             if EN > (2.0 * object.EIN[27]):             # <<<<<<<<<<<<<<
@@ -10947,7 +10947,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":852
+      /* "gases/ARGON.pyx":852
  * 
  *         # S states, 2S3
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -10956,7 +10956,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":866
+    /* "gases/ARGON.pyx":866
  * 
  *         # S states, 2S2 F=0.011
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -10966,7 +10966,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[28])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":867
+      /* "gases/ARGON.pyx":867
  *         # S states, 2S2 F=0.011
  *         if EN > object.EIN[28]:
  *             object.QIN[28][I] = <float>(0.011) / (object.EIN[28] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -10975,7 +10975,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[28])[__pyx_v_I]) = (((((((float)0.011) / ((__pyx_v_object->EIN[28]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[28])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[28])));
 
-      /* "ARGON.pyx":870
+      /* "gases/ARGON.pyx":870
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[28])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[28])
  *             if object.QIN[28][I] < 0:             # <<<<<<<<<<<<<<
@@ -10985,7 +10985,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[28])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":871
+        /* "gases/ARGON.pyx":871
  *                                         EN + object.E[2] + object.EIN[28])
  *             if object.QIN[28][I] < 0:
  *                 object.QIN[28][I] = 0.0             # <<<<<<<<<<<<<<
@@ -10994,7 +10994,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[28])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":870
+        /* "gases/ARGON.pyx":870
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[28])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[28])
  *             if object.QIN[28][I] < 0:             # <<<<<<<<<<<<<<
@@ -11003,7 +11003,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":872
+      /* "gases/ARGON.pyx":872
  *             if object.QIN[28][I] < 0:
  *                 object.QIN[28][I] = 0.0
  *             if EN > (2.0 * object.EIN[28]):             # <<<<<<<<<<<<<<
@@ -11013,7 +11013,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[28]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":873
+        /* "gases/ARGON.pyx":873
  *                 object.QIN[28][I] = 0.0
  *             if EN > (2.0 * object.EIN[28]):
  *                 object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]             # <<<<<<<<<<<<<<
@@ -11022,7 +11022,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[28])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[28]))]);
 
-        /* "ARGON.pyx":872
+        /* "gases/ARGON.pyx":872
  *             if object.QIN[28][I] < 0:
  *                 object.QIN[28][I] = 0.0
  *             if EN > (2.0 * object.EIN[28]):             # <<<<<<<<<<<<<<
@@ -11031,7 +11031,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":866
+      /* "gases/ARGON.pyx":866
  * 
  *         # S states, 2S2 F=0.011
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -11040,7 +11040,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":876
+    /* "gases/ARGON.pyx":876
  * 
  *         # S states, 3S1' F=0.092
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -11050,7 +11050,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[29])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":877
+      /* "gases/ARGON.pyx":877
  *         # S states, 3S1' F=0.092
  *         if EN > object.EIN[29]:
  *             object.QIN[29][I] = <float>(0.092) / (object.EIN[29] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11059,7 +11059,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[29])[__pyx_v_I]) = (((((((float)0.092) / ((__pyx_v_object->EIN[29]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[29])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[29])));
 
-      /* "ARGON.pyx":880
+      /* "gases/ARGON.pyx":880
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[29])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[29])
  *             if object.QIN[29][I] < 0:             # <<<<<<<<<<<<<<
@@ -11069,7 +11069,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[29])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":881
+        /* "gases/ARGON.pyx":881
  *                                         EN + object.E[2] + object.EIN[29])
  *             if object.QIN[29][I] < 0:
  *                 object.QIN[29][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11078,7 +11078,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[29])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":880
+        /* "gases/ARGON.pyx":880
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[29])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[29])
  *             if object.QIN[29][I] < 0:             # <<<<<<<<<<<<<<
@@ -11087,7 +11087,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":882
+      /* "gases/ARGON.pyx":882
  *             if object.QIN[29][I] < 0:
  *                 object.QIN[29][I] = 0.0
  *             if EN > (2.0 * object.EIN[29]):             # <<<<<<<<<<<<<<
@@ -11097,7 +11097,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[29]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":883
+        /* "gases/ARGON.pyx":883
  *                 object.QIN[29][I] = 0.0
  *             if EN > (2.0 * object.EIN[29]):
  *                 object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]             # <<<<<<<<<<<<<<
@@ -11106,7 +11106,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[29])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[29]))]);
 
-        /* "ARGON.pyx":882
+        /* "gases/ARGON.pyx":882
  *             if object.QIN[29][I] < 0:
  *                 object.QIN[29][I] = 0.0
  *             if EN > (2.0 * object.EIN[29]):             # <<<<<<<<<<<<<<
@@ -11115,7 +11115,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":876
+      /* "gases/ARGON.pyx":876
  * 
  *         # S states, 3S1' F=0.092
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -11124,7 +11124,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":886
+    /* "gases/ARGON.pyx":886
  * 
  *         # D states, 4D5 F=0.019
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -11134,7 +11134,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[30])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":887
+      /* "gases/ARGON.pyx":887
  *         # D states, 4D5 F=0.019
  *         if EN > object.EIN[30]:
  *             object.QIN[30][I] = <float>(0.019) / (object.EIN[30] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11143,7 +11143,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[30])[__pyx_v_I]) = (((((((float)0.019) / ((__pyx_v_object->EIN[30]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[30])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[30])));
 
-      /* "ARGON.pyx":890
+      /* "gases/ARGON.pyx":890
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[30])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[30])
  *             if object.QIN[30][I] < 0:             # <<<<<<<<<<<<<<
@@ -11153,7 +11153,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[30])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":891
+        /* "gases/ARGON.pyx":891
  *                                         EN + object.E[2] + object.EIN[30])
  *             if object.QIN[30][I] < 0:
  *                 object.QIN[30][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11162,7 +11162,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[30])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":890
+        /* "gases/ARGON.pyx":890
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[30])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[30])
  *             if object.QIN[30][I] < 0:             # <<<<<<<<<<<<<<
@@ -11171,7 +11171,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":892
+      /* "gases/ARGON.pyx":892
  *             if object.QIN[30][I] < 0:
  *                 object.QIN[30][I] = 0.0
  *             if EN > (2.0 * object.EIN[30]):             # <<<<<<<<<<<<<<
@@ -11181,7 +11181,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[30]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":893
+        /* "gases/ARGON.pyx":893
  *                 object.QIN[30][I] = 0.0
  *             if EN > (2.0 * object.EIN[30]):
  *                 object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]             # <<<<<<<<<<<<<<
@@ -11190,7 +11190,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[30])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[30]))]);
 
-        /* "ARGON.pyx":892
+        /* "gases/ARGON.pyx":892
  *             if object.QIN[30][I] < 0:
  *                 object.QIN[30][I] = 0.0
  *             if EN > (2.0 * object.EIN[30]):             # <<<<<<<<<<<<<<
@@ -11199,7 +11199,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":886
+      /* "gases/ARGON.pyx":886
  * 
  *         # D states, 4D5 F=0.019
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -11208,7 +11208,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":896
+    /* "gases/ARGON.pyx":896
  * 
  *         # S states, 3S4 F=0.0144
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -11218,7 +11218,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[31])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":897
+      /* "gases/ARGON.pyx":897
  *         # S states, 3S4 F=0.0144
  *         if EN > object.EIN[31]:
  *             object.QIN[31][I] = <float>(0.0144) / (object.EIN[31] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11227,7 +11227,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[31])[__pyx_v_I]) = (((((((float)0.0144) / ((__pyx_v_object->EIN[31]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[31])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[31])));
 
-      /* "ARGON.pyx":900
+      /* "gases/ARGON.pyx":900
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[31])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[31])
  *             if object.QIN[31][I] < 0:             # <<<<<<<<<<<<<<
@@ -11237,7 +11237,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[31])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":901
+        /* "gases/ARGON.pyx":901
  *                                         EN + object.E[2] + object.EIN[31])
  *             if object.QIN[31][I] < 0:
  *                 object.QIN[31][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11246,7 +11246,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[31])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":900
+        /* "gases/ARGON.pyx":900
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[31])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[31])
  *             if object.QIN[31][I] < 0:             # <<<<<<<<<<<<<<
@@ -11255,7 +11255,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":902
+      /* "gases/ARGON.pyx":902
  *             if object.QIN[31][I] < 0:
  *                 object.QIN[31][I] = 0.0
  *             if EN > (2.0 * object.EIN[31]):             # <<<<<<<<<<<<<<
@@ -11265,7 +11265,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[31]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":903
+        /* "gases/ARGON.pyx":903
  *                 object.QIN[31][I] = 0.0
  *             if EN > (2.0 * object.EIN[31]):
  *                 object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]             # <<<<<<<<<<<<<<
@@ -11274,7 +11274,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[31])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[31]))]);
 
-        /* "ARGON.pyx":902
+        /* "gases/ARGON.pyx":902
  *             if object.QIN[31][I] < 0:
  *                 object.QIN[31][I] = 0.0
  *             if EN > (2.0 * object.EIN[31]):             # <<<<<<<<<<<<<<
@@ -11283,7 +11283,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":896
+      /* "gases/ARGON.pyx":896
  * 
  *         # S states, 3S4 F=0.0144
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -11292,7 +11292,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":906
+    /* "gases/ARGON.pyx":906
  * 
  *         # D states, 4D2 F=0.0484
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -11302,7 +11302,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[32])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":907
+      /* "gases/ARGON.pyx":907
  *         # D states, 4D2 F=0.0484
  *         if EN > object.EIN[32]:
  *             object.QIN[32][I] = <float>(0.0484) / (object.EIN[32] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11311,7 +11311,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[32])[__pyx_v_I]) = (((((((float)0.0484) / ((__pyx_v_object->EIN[32]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[32])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[32])));
 
-      /* "ARGON.pyx":910
+      /* "gases/ARGON.pyx":910
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[32])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[32])
  *             if object.QIN[32][I] < 0:             # <<<<<<<<<<<<<<
@@ -11321,7 +11321,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[32])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":911
+        /* "gases/ARGON.pyx":911
  *                                         EN + object.E[2] + object.EIN[32])
  *             if object.QIN[32][I] < 0:
  *                 object.QIN[32][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11330,7 +11330,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[32])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":910
+        /* "gases/ARGON.pyx":910
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[32])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[32])
  *             if object.QIN[32][I] < 0:             # <<<<<<<<<<<<<<
@@ -11339,7 +11339,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":912
+      /* "gases/ARGON.pyx":912
  *             if object.QIN[32][I] < 0:
  *                 object.QIN[32][I] = 0.0
  *             if EN > (2.0 * object.EIN[32]):             # <<<<<<<<<<<<<<
@@ -11349,7 +11349,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[32]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":913
+        /* "gases/ARGON.pyx":913
  *                 object.QIN[32][I] = 0.0
  *             if EN > (2.0 * object.EIN[32]):
  *                 object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]             # <<<<<<<<<<<<<<
@@ -11358,7 +11358,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[32])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[32]))]);
 
-        /* "ARGON.pyx":912
+        /* "gases/ARGON.pyx":912
  *             if object.QIN[32][I] < 0:
  *                 object.QIN[32][I] = 0.0
  *             if EN > (2.0 * object.EIN[32]):             # <<<<<<<<<<<<<<
@@ -11367,7 +11367,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":906
+      /* "gases/ARGON.pyx":906
  * 
  *         # D states, 4D2 F=0.0484
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -11376,7 +11376,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":916
+    /* "gases/ARGON.pyx":916
  * 
  *         # S states, 4S1' F=0.0209
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -11386,7 +11386,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[33])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":917
+      /* "gases/ARGON.pyx":917
  *         # S states, 4S1' F=0.0209
  *         if EN > object.EIN[33]:
  *             object.QIN[33][I] = <float>(0.0209 )/ (object.EIN[33] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11395,7 +11395,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[33])[__pyx_v_I]) = (((((((float)0.0209) / ((__pyx_v_object->EIN[33]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[33])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[33])));
 
-      /* "ARGON.pyx":920
+      /* "gases/ARGON.pyx":920
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[33])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[33])
  *             if object.QIN[33][I] < 0:             # <<<<<<<<<<<<<<
@@ -11405,7 +11405,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[33])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":921
+        /* "gases/ARGON.pyx":921
  *                                         EN + object.E[2] + object.EIN[33])
  *             if object.QIN[33][I] < 0:
  *                 object.QIN[33][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11414,7 +11414,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[33])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":920
+        /* "gases/ARGON.pyx":920
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[33])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[33])
  *             if object.QIN[33][I] < 0:             # <<<<<<<<<<<<<<
@@ -11423,7 +11423,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":922
+      /* "gases/ARGON.pyx":922
  *             if object.QIN[33][I] < 0:
  *                 object.QIN[33][I] = 0.0
  *             if EN > (2.0 * object.EIN[33]):             # <<<<<<<<<<<<<<
@@ -11433,7 +11433,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[33]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":923
+        /* "gases/ARGON.pyx":923
  *                 object.QIN[33][I] = 0.0
  *             if EN > (2.0 * object.EIN[33]):
  *                 object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]             # <<<<<<<<<<<<<<
@@ -11442,7 +11442,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[33])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[33]))]);
 
-        /* "ARGON.pyx":922
+        /* "gases/ARGON.pyx":922
  *             if object.QIN[33][I] < 0:
  *                 object.QIN[33][I] = 0.0
  *             if EN > (2.0 * object.EIN[33]):             # <<<<<<<<<<<<<<
@@ -11451,7 +11451,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":916
+      /* "gases/ARGON.pyx":916
  * 
  *         # S states, 4S1' F=0.0209
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -11460,7 +11460,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":926
+    /* "gases/ARGON.pyx":926
  * 
  *         # S states, 3S2 F=0.022
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -11470,7 +11470,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[34])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":927
+      /* "gases/ARGON.pyx":927
  *         # S states, 3S2 F=0.022
  *         if EN > object.EIN[34]:
  *             object.QIN[34][I] = <float>(0.022) / (object.EIN[34] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11479,7 +11479,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[34])[__pyx_v_I]) = (((((((float)0.022) / ((__pyx_v_object->EIN[34]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[34])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[34])));
 
-      /* "ARGON.pyx":930
+      /* "gases/ARGON.pyx":930
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[34])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[34])
  *             if object.QIN[34][I] < 0:             # <<<<<<<<<<<<<<
@@ -11489,7 +11489,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[34])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":931
+        /* "gases/ARGON.pyx":931
  *                                         EN + object.E[2] + object.EIN[34])
  *             if object.QIN[34][I] < 0:
  *                 object.QIN[34][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11498,7 +11498,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[34])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":930
+        /* "gases/ARGON.pyx":930
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[34])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[34])
  *             if object.QIN[34][I] < 0:             # <<<<<<<<<<<<<<
@@ -11507,7 +11507,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":932
+      /* "gases/ARGON.pyx":932
  *             if object.QIN[34][I] < 0:
  *                 object.QIN[34][I] = 0.0
  *             if EN > (2.0 * object.EIN[34]):             # <<<<<<<<<<<<<<
@@ -11517,7 +11517,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[34]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":933
+        /* "gases/ARGON.pyx":933
  *                 object.QIN[34][I] = 0.0
  *             if EN > (2.0 * object.EIN[34]):
  *                 object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]             # <<<<<<<<<<<<<<
@@ -11526,7 +11526,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[34])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[34]))]);
 
-        /* "ARGON.pyx":932
+        /* "gases/ARGON.pyx":932
  *             if object.QIN[34][I] < 0:
  *                 object.QIN[34][I] = 0.0
  *             if EN > (2.0 * object.EIN[34]):             # <<<<<<<<<<<<<<
@@ -11535,7 +11535,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":926
+      /* "gases/ARGON.pyx":926
  * 
  *         # S states, 3S2 F=0.022
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -11544,7 +11544,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":936
+    /* "gases/ARGON.pyx":936
  * 
  *         # D states, 5D5 F=0.0041
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -11554,7 +11554,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[35])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":937
+      /* "gases/ARGON.pyx":937
  *         # D states, 5D5 F=0.0041
  *         if EN > object.EIN[35]:
  *             object.QIN[35][I] =<float>( 0.0041) / (object.EIN[35] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11563,7 +11563,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[35])[__pyx_v_I]) = (((((((float)0.0041) / ((__pyx_v_object->EIN[35]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[35])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[35])));
 
-      /* "ARGON.pyx":940
+      /* "gases/ARGON.pyx":940
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[35])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[35])
  *             if object.QIN[35][I] < 0:             # <<<<<<<<<<<<<<
@@ -11573,7 +11573,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[35])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":941
+        /* "gases/ARGON.pyx":941
  *                                         EN + object.E[2] + object.EIN[35])
  *             if object.QIN[35][I] < 0:
  *                 object.QIN[35][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11582,7 +11582,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[35])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":940
+        /* "gases/ARGON.pyx":940
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[35])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[35])
  *             if object.QIN[35][I] < 0:             # <<<<<<<<<<<<<<
@@ -11591,7 +11591,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":942
+      /* "gases/ARGON.pyx":942
  *             if object.QIN[35][I] < 0:
  *                 object.QIN[35][I] = 0.0
  *             if EN > (2.0 * object.EIN[35]):             # <<<<<<<<<<<<<<
@@ -11601,7 +11601,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[35]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":943
+        /* "gases/ARGON.pyx":943
  *                 object.QIN[35][I] = 0.0
  *             if EN > (2.0 * object.EIN[35]):
  *                 object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]             # <<<<<<<<<<<<<<
@@ -11610,7 +11610,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[35])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[35]))]);
 
-        /* "ARGON.pyx":942
+        /* "gases/ARGON.pyx":942
  *             if object.QIN[35][I] < 0:
  *                 object.QIN[35][I] = 0.0
  *             if EN > (2.0 * object.EIN[35]):             # <<<<<<<<<<<<<<
@@ -11619,7 +11619,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":936
+      /* "gases/ARGON.pyx":936
  * 
  *         # D states, 5D5 F=0.0041
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -11628,7 +11628,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":946
+    /* "gases/ARGON.pyx":946
  * 
  *         # S states, 4S4 F=0.0426
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -11638,7 +11638,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[36])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":947
+      /* "gases/ARGON.pyx":947
  *         # S states, 4S4 F=0.0426
  *         if EN > object.EIN[36]:
  *             object.QIN[36][I] = <float>(0.0426 )/ (object.EIN[36] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11647,7 +11647,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[36])[__pyx_v_I]) = (((((((float)0.0426) / ((__pyx_v_object->EIN[36]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[36])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[36])));
 
-      /* "ARGON.pyx":950
+      /* "gases/ARGON.pyx":950
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[36])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[36])
  *             if object.QIN[36][I] < 0:             # <<<<<<<<<<<<<<
@@ -11657,7 +11657,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[36])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":951
+        /* "gases/ARGON.pyx":951
  *                                         EN + object.E[2] + object.EIN[36])
  *             if object.QIN[36][I] < 0:
  *                 object.QIN[36][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11666,7 +11666,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[36])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":950
+        /* "gases/ARGON.pyx":950
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[36])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[36])
  *             if object.QIN[36][I] < 0:             # <<<<<<<<<<<<<<
@@ -11675,7 +11675,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":952
+      /* "gases/ARGON.pyx":952
  *             if object.QIN[36][I] < 0:
  *                 object.QIN[36][I] = 0.0
  *             if EN > (2.0 * object.EIN[36]):             # <<<<<<<<<<<<<<
@@ -11685,7 +11685,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[36]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":953
+        /* "gases/ARGON.pyx":953
  *                 object.QIN[36][I] = 0.0
  *             if EN > (2.0 * object.EIN[36]):
  *                 object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]             # <<<<<<<<<<<<<<
@@ -11694,7 +11694,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[36])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[36]))]);
 
-        /* "ARGON.pyx":952
+        /* "gases/ARGON.pyx":952
  *             if object.QIN[36][I] < 0:
  *                 object.QIN[36][I] = 0.0
  *             if EN > (2.0 * object.EIN[36]):             # <<<<<<<<<<<<<<
@@ -11703,7 +11703,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":946
+      /* "gases/ARGON.pyx":946
  * 
  *         # S states, 4S4 F=0.0426
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -11712,7 +11712,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":956
+    /* "gases/ARGON.pyx":956
  * 
  *         # D states, 5D2 F=0.0426
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -11722,7 +11722,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[37])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":957
+      /* "gases/ARGON.pyx":957
  *         # D states, 5D2 F=0.0426
  *         if EN > object.EIN[37]:
  *             object.QIN[37][I] = <float>(0.0426) / (object.EIN[37] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11731,7 +11731,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[37])[__pyx_v_I]) = (((((((float)0.0426) / ((__pyx_v_object->EIN[37]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[37])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[37])));
 
-      /* "ARGON.pyx":960
+      /* "gases/ARGON.pyx":960
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[37])
  *             if object.QIN[37][I] < 0:             # <<<<<<<<<<<<<<
@@ -11741,7 +11741,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[37])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":961
+        /* "gases/ARGON.pyx":961
  *                                         EN + object.E[2] + object.EIN[37])
  *             if object.QIN[37][I] < 0:
  *                 object.QIN[37][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11750,7 +11750,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[37])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":960
+        /* "gases/ARGON.pyx":960
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[37])
  *             if object.QIN[37][I] < 0:             # <<<<<<<<<<<<<<
@@ -11759,7 +11759,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":962
+      /* "gases/ARGON.pyx":962
  *             if object.QIN[37][I] < 0:
  *                 object.QIN[37][I] = 0.0
  *             if EN > (2.0 * object.EIN[37]):             # <<<<<<<<<<<<<<
@@ -11769,7 +11769,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[37]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":963
+        /* "gases/ARGON.pyx":963
  *                 object.QIN[37][I] = 0.0
  *             if EN > (2.0 * object.EIN[37]):
  *                 object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]             # <<<<<<<<<<<<<<
@@ -11778,7 +11778,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[37])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[37]))]);
 
-        /* "ARGON.pyx":962
+        /* "gases/ARGON.pyx":962
  *             if object.QIN[37][I] < 0:
  *                 object.QIN[37][I] = 0.0
  *             if EN > (2.0 * object.EIN[37]):             # <<<<<<<<<<<<<<
@@ -11787,7 +11787,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":956
+      /* "gases/ARGON.pyx":956
  * 
  *         # D states, 5D2 F=0.0426
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -11796,7 +11796,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":966
+    /* "gases/ARGON.pyx":966
  * 
  *         # D states, 6D5 F=0.00075
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -11806,7 +11806,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[38])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":967
+      /* "gases/ARGON.pyx":967
  *         # D states, 6D5 F=0.00075
  *         if EN > object.EIN[38]:
  *             object.QIN[38][I] = <float>(0.00075) / (object.EIN[38] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11815,7 +11815,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[38])[__pyx_v_I]) = (((((((float)0.00075) / ((__pyx_v_object->EIN[38]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[38])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[38])));
 
-      /* "ARGON.pyx":970
+      /* "gases/ARGON.pyx":970
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[38])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[38])
  *             if object.QIN[38][I] < 0:             # <<<<<<<<<<<<<<
@@ -11825,7 +11825,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[38])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":971
+        /* "gases/ARGON.pyx":971
  *                                         EN + object.E[2] + object.EIN[38])
  *             if object.QIN[38][I] < 0:
  *                 object.QIN[38][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11834,7 +11834,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[38])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":970
+        /* "gases/ARGON.pyx":970
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[38])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[38])
  *             if object.QIN[38][I] < 0:             # <<<<<<<<<<<<<<
@@ -11843,7 +11843,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":972
+      /* "gases/ARGON.pyx":972
  *             if object.QIN[38][I] < 0:
  *                 object.QIN[38][I] = 0.0
  *             if EN > (2.0 * object.EIN[38]):             # <<<<<<<<<<<<<<
@@ -11853,7 +11853,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[38]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":973
+        /* "gases/ARGON.pyx":973
  *                 object.QIN[38][I] = 0.0
  *             if EN > (2.0 * object.EIN[38]):
  *                 object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]             # <<<<<<<<<<<<<<
@@ -11862,7 +11862,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[38])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[38]))]);
 
-        /* "ARGON.pyx":972
+        /* "gases/ARGON.pyx":972
  *             if object.QIN[38][I] < 0:
  *                 object.QIN[38][I] = 0.0
  *             if EN > (2.0 * object.EIN[38]):             # <<<<<<<<<<<<<<
@@ -11871,7 +11871,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":966
+      /* "gases/ARGON.pyx":966
  * 
  *         # D states, 6D5 F=0.00075
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -11880,7 +11880,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":976
+    /* "gases/ARGON.pyx":976
  * 
  *         # S states, 5S1' F=0.00051
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -11890,7 +11890,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[39])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":977
+      /* "gases/ARGON.pyx":977
  *         # S states, 5S1' F=0.00051
  *         if EN > object.EIN[39]:
  *             object.QIN[39][I] = <float>(0.00051) / (object.EIN[39] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11899,7 +11899,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[39])[__pyx_v_I]) = (((((((float)0.00051) / ((__pyx_v_object->EIN[39]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[39])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[39])));
 
-      /* "ARGON.pyx":980
+      /* "gases/ARGON.pyx":980
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[39])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[39])
  *             if object.QIN[39][I] < 0:             # <<<<<<<<<<<<<<
@@ -11909,7 +11909,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[39])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":981
+        /* "gases/ARGON.pyx":981
  *                                         EN + object.E[2] + object.EIN[39])
  *             if object.QIN[39][I] < 0:
  *                 object.QIN[39][I] = 0.0             # <<<<<<<<<<<<<<
@@ -11918,7 +11918,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[39])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":980
+        /* "gases/ARGON.pyx":980
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[39])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[39])
  *             if object.QIN[39][I] < 0:             # <<<<<<<<<<<<<<
@@ -11927,7 +11927,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":982
+      /* "gases/ARGON.pyx":982
  *             if object.QIN[39][I] < 0:
  *                 object.QIN[39][I] = 0.0
  *             if EN > (2.0 * object.EIN[39]):             # <<<<<<<<<<<<<<
@@ -11937,7 +11937,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[39]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":983
+        /* "gases/ARGON.pyx":983
  *                 object.QIN[39][I] = 0.0
  *             if EN > (2.0 * object.EIN[39]):
  *                 object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]             # <<<<<<<<<<<<<<
@@ -11946,7 +11946,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[39])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[39]))]);
 
-        /* "ARGON.pyx":982
+        /* "gases/ARGON.pyx":982
  *             if object.QIN[39][I] < 0:
  *                 object.QIN[39][I] = 0.0
  *             if EN > (2.0 * object.EIN[39]):             # <<<<<<<<<<<<<<
@@ -11955,7 +11955,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":976
+      /* "gases/ARGON.pyx":976
  * 
  *         # S states, 5S1' F=0.00051
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -11964,7 +11964,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":986
+    /* "gases/ARGON.pyx":986
  * 
  *         # S states, 4S2 F=0.00074
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -11974,7 +11974,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[40])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":987
+      /* "gases/ARGON.pyx":987
  *         # S states, 4S2 F=0.00074
  *         if EN > object.EIN[40]:
  *             object.QIN[40][I] = <float>(0.00074) / (object.EIN[40] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -11983,7 +11983,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[40])[__pyx_v_I]) = (((((((float)0.00074) / ((__pyx_v_object->EIN[40]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[40])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[40])));
 
-      /* "ARGON.pyx":990
+      /* "gases/ARGON.pyx":990
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[40])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[40])
  *             if object.QIN[40][I] < 0:             # <<<<<<<<<<<<<<
@@ -11993,7 +11993,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[40])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":991
+        /* "gases/ARGON.pyx":991
  *                                         EN + object.E[2] + object.EIN[40])
  *             if object.QIN[40][I] < 0:
  *                 object.QIN[40][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12002,7 +12002,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[40])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":990
+        /* "gases/ARGON.pyx":990
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[40])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[40])
  *             if object.QIN[40][I] < 0:             # <<<<<<<<<<<<<<
@@ -12011,7 +12011,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":992
+      /* "gases/ARGON.pyx":992
  *             if object.QIN[40][I] < 0:
  *                 object.QIN[40][I] = 0.0
  *             if EN > (2.0 * object.EIN[40]):             # <<<<<<<<<<<<<<
@@ -12021,7 +12021,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[40]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":993
+        /* "gases/ARGON.pyx":993
  *                 object.QIN[40][I] = 0.0
  *             if EN > (2.0 * object.EIN[40]):
  *                 object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]             # <<<<<<<<<<<<<<
@@ -12030,7 +12030,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[40])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[40]))]);
 
-        /* "ARGON.pyx":992
+        /* "gases/ARGON.pyx":992
  *             if object.QIN[40][I] < 0:
  *                 object.QIN[40][I] = 0.0
  *             if EN > (2.0 * object.EIN[40]):             # <<<<<<<<<<<<<<
@@ -12039,7 +12039,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":986
+      /* "gases/ARGON.pyx":986
  * 
  *         # S states, 4S2 F=0.00074
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -12048,7 +12048,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":996
+    /* "gases/ARGON.pyx":996
  * 
  *         # S states, 5S4 F=0.013
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -12058,7 +12058,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[41])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":997
+      /* "gases/ARGON.pyx":997
  *         # S states, 5S4 F=0.013
  *         if EN > object.EIN[41]:
  *             object.QIN[41][I] = <float>(0.013) / (object.EIN[41] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12067,7 +12067,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[41])[__pyx_v_I]) = (((((((float)0.013) / ((__pyx_v_object->EIN[41]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[41])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[41])));
 
-      /* "ARGON.pyx":1000
+      /* "gases/ARGON.pyx":1000
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[41])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[41])
  *             if object.QIN[41][I] < 0:             # <<<<<<<<<<<<<<
@@ -12077,7 +12077,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[41])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":1001
+        /* "gases/ARGON.pyx":1001
  *                                         EN + object.E[2] + object.EIN[41])
  *             if object.QIN[41][I] < 0:
  *                 object.QIN[41][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12086,7 +12086,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[41])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":1000
+        /* "gases/ARGON.pyx":1000
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[41])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[41])
  *             if object.QIN[41][I] < 0:             # <<<<<<<<<<<<<<
@@ -12095,7 +12095,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":1002
+      /* "gases/ARGON.pyx":1002
  *             if object.QIN[41][I] < 0:
  *                 object.QIN[41][I] = 0.0
  *             if EN > (2.0 * object.EIN[41]):             # <<<<<<<<<<<<<<
@@ -12105,7 +12105,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[41]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":1003
+        /* "gases/ARGON.pyx":1003
  *                 object.QIN[41][I] = 0.0
  *             if EN > (2.0 * object.EIN[41]):
  *                 object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]             # <<<<<<<<<<<<<<
@@ -12114,7 +12114,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[41])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[41]))]);
 
-        /* "ARGON.pyx":1002
+        /* "gases/ARGON.pyx":1002
  *             if object.QIN[41][I] < 0:
  *                 object.QIN[41][I] = 0.0
  *             if EN > (2.0 * object.EIN[41]):             # <<<<<<<<<<<<<<
@@ -12123,7 +12123,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":996
+      /* "gases/ARGON.pyx":996
  * 
  *         # S states, 5S4 F=0.013
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -12132,7 +12132,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":1006
+    /* "gases/ARGON.pyx":1006
  * 
  *         # S states, 6D2 F=0.029
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -12142,7 +12142,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[42])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":1007
+      /* "gases/ARGON.pyx":1007
  *         # S states, 6D2 F=0.029
  *         if EN > object.EIN[42]:
  *             object.QIN[42][I] = <float>(0.029) / (object.EIN[42] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12151,7 +12151,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[42])[__pyx_v_I]) = (((((((float)0.029) / ((__pyx_v_object->EIN[42]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[42])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[42])));
 
-      /* "ARGON.pyx":1010
+      /* "gases/ARGON.pyx":1010
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[42])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[42])
  *             if object.QIN[42][I] < 0:             # <<<<<<<<<<<<<<
@@ -12161,7 +12161,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[42])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":1011
+        /* "gases/ARGON.pyx":1011
  *                                         EN + object.E[2] + object.EIN[42])
  *             if object.QIN[42][I] < 0:
  *                 object.QIN[42][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12170,7 +12170,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[42])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":1010
+        /* "gases/ARGON.pyx":1010
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[42])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[42])
  *             if object.QIN[42][I] < 0:             # <<<<<<<<<<<<<<
@@ -12179,7 +12179,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":1012
+      /* "gases/ARGON.pyx":1012
  *             if object.QIN[42][I] < 0:
  *                 object.QIN[42][I] = 0.0
  *             if EN > (2.0 * object.EIN[42]):             # <<<<<<<<<<<<<<
@@ -12189,7 +12189,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[42]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":1013
+        /* "gases/ARGON.pyx":1013
  *                 object.QIN[42][I] = 0.0
  *             if EN > (2.0 * object.EIN[42]):
  *                 object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]             # <<<<<<<<<<<<<<
@@ -12198,7 +12198,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[42])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[42]))]);
 
-        /* "ARGON.pyx":1012
+        /* "gases/ARGON.pyx":1012
  *             if object.QIN[42][I] < 0:
  *                 object.QIN[42][I] = 0.0
  *             if EN > (2.0 * object.EIN[42]):             # <<<<<<<<<<<<<<
@@ -12207,7 +12207,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":1006
+      /* "gases/ARGON.pyx":1006
  * 
  *         # S states, 6D2 F=0.029
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -12216,7 +12216,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":1016
+    /* "gases/ARGON.pyx":1016
  * 
  *         # sum higher j=1 states f=0.1315
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -12226,7 +12226,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_EN > (__pyx_v_object->EIN[43])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":1017
+      /* "gases/ARGON.pyx":1017
  *         # sum higher j=1 states f=0.1315
  *         if EN > object.EIN[43]:
  *             object.QIN[43][I] = <float>(0.1315) / (object.EIN[43] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -12235,7 +12235,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[43])[__pyx_v_I]) = (((((((float)0.1315) / ((__pyx_v_object->EIN[43]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[43])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->E[2])) + (__pyx_v_object->EIN[43])));
 
-      /* "ARGON.pyx":1020
+      /* "gases/ARGON.pyx":1020
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[43])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[43])
  *             if object.QIN[43][I] < 0:             # <<<<<<<<<<<<<<
@@ -12245,7 +12245,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((((__pyx_v_object->QIN[43])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":1021
+        /* "gases/ARGON.pyx":1021
  *                                         EN + object.E[2] + object.EIN[43])
  *             if object.QIN[43][I] < 0:
  *                 object.QIN[43][I] = 0.0             # <<<<<<<<<<<<<<
@@ -12254,7 +12254,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[43])[__pyx_v_I]) = 0.0;
 
-        /* "ARGON.pyx":1020
+        /* "gases/ARGON.pyx":1020
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[43])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
  *                                         EN + object.E[2] + object.EIN[43])
  *             if object.QIN[43][I] < 0:             # <<<<<<<<<<<<<<
@@ -12263,7 +12263,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":1022
+      /* "gases/ARGON.pyx":1022
  *             if object.QIN[43][I] < 0:
  *                 object.QIN[43][I] = 0.0
  *             if EN > (2.0 * object.EIN[43]):             # <<<<<<<<<<<<<<
@@ -12273,7 +12273,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_23 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[43]))) != 0);
       if (__pyx_t_23) {
 
-        /* "ARGON.pyx":1023
+        /* "gases/ARGON.pyx":1023
  *                 object.QIN[43][I] = 0.0
  *             if EN > (2.0 * object.EIN[43]):
  *                 object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]             # <<<<<<<<<<<<<<
@@ -12282,7 +12282,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[43])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[43]))]);
 
-        /* "ARGON.pyx":1022
+        /* "gases/ARGON.pyx":1022
  *             if object.QIN[43][I] < 0:
  *                 object.QIN[43][I] = 0.0
  *             if EN > (2.0 * object.EIN[43]):             # <<<<<<<<<<<<<<
@@ -12291,7 +12291,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "ARGON.pyx":1016
+      /* "gases/ARGON.pyx":1016
  * 
  *         # sum higher j=1 states f=0.1315
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -12300,7 +12300,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "ARGON.pyx":1025
+    /* "gases/ARGON.pyx":1025
  *                 object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]
  * 
  *         Q1SSUM = object.QIN[0][I] + object.QIN[1][I] + object.QIN[2][I] + object.QIN[3][I]             # <<<<<<<<<<<<<<
@@ -12309,7 +12309,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_Q1SSUM = (((((__pyx_v_object->QIN[0])[__pyx_v_I]) + ((__pyx_v_object->QIN[1])[__pyx_v_I])) + ((__pyx_v_object->QIN[2])[__pyx_v_I])) + ((__pyx_v_object->QIN[3])[__pyx_v_I]));
 
-    /* "ARGON.pyx":1026
+    /* "gases/ARGON.pyx":1026
  * 
  *         Q1SSUM = object.QIN[0][I] + object.QIN[1][I] + object.QIN[2][I] + object.QIN[3][I]
  *         QPSSUM = 0             # <<<<<<<<<<<<<<
@@ -12318,7 +12318,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QPSSUM = 0.0;
 
-    /* "ARGON.pyx":1027
+    /* "gases/ARGON.pyx":1027
  *         Q1SSUM = object.QIN[0][I] + object.QIN[1][I] + object.QIN[2][I] + object.QIN[3][I]
  *         QPSSUM = 0
  *         QDSSUM = 0             # <<<<<<<<<<<<<<
@@ -12327,7 +12327,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QDSSUM = 0.0;
 
-    /* "ARGON.pyx":1028
+    /* "gases/ARGON.pyx":1028
  *         QPSSUM = 0
  *         QDSSUM = 0
  *         for i in range(14, 44):             # <<<<<<<<<<<<<<
@@ -12337,7 +12337,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_6 = 14; __pyx_t_6 < 44; __pyx_t_6+=1) {
       __pyx_v_i = __pyx_t_6;
 
-      /* "ARGON.pyx":1029
+      /* "gases/ARGON.pyx":1029
  *         QDSSUM = 0
  *         for i in range(14, 44):
  *             QDSSUM += object.QIN[i][I]             # <<<<<<<<<<<<<<
@@ -12347,7 +12347,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QDSSUM = (__pyx_v_QDSSUM + ((__pyx_v_object->QIN[__pyx_v_i])[__pyx_v_I]));
     }
 
-    /* "ARGON.pyx":1030
+    /* "gases/ARGON.pyx":1030
  *         for i in range(14, 44):
  *             QDSSUM += object.QIN[i][I]
  *         for i in range(4, 14):             # <<<<<<<<<<<<<<
@@ -12357,7 +12357,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_6 = 4; __pyx_t_6 < 14; __pyx_t_6+=1) {
       __pyx_v_i = __pyx_t_6;
 
-      /* "ARGON.pyx":1031
+      /* "gases/ARGON.pyx":1031
  *             QDSSUM += object.QIN[i][I]
  *         for i in range(4, 14):
  *             QPSSUM += object.QIN[i][I]             # <<<<<<<<<<<<<<
@@ -12367,7 +12367,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QPSSUM = (__pyx_v_QPSSUM + ((__pyx_v_object->QIN[__pyx_v_i])[__pyx_v_I]));
     }
 
-    /* "ARGON.pyx":1032
+    /* "gases/ARGON.pyx":1032
  *         for i in range(4, 14):
  *             QPSSUM += object.QIN[i][I]
  *         TOTSUM = Q1SSUM + QPSSUM + QDSSUM             # <<<<<<<<<<<<<<
@@ -12376,7 +12376,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_TOTSUM = ((__pyx_v_Q1SSUM + __pyx_v_QPSSUM) + __pyx_v_QDSSUM);
 
-    /* "ARGON.pyx":1034
+    /* "gases/ARGON.pyx":1034
  *         TOTSUM = Q1SSUM + QPSSUM + QDSSUM
  * 
  *         object.Q[0][I] = QELA + Q1SSUM + QPSSUM + QDSSUM             # <<<<<<<<<<<<<<
@@ -12385,7 +12385,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = (((__pyx_v_QELA + __pyx_v_Q1SSUM) + __pyx_v_QPSSUM) + __pyx_v_QDSSUM);
 
-    /* "ARGON.pyx":1035
+    /* "gases/ARGON.pyx":1035
  * 
  *         object.Q[0][I] = QELA + Q1SSUM + QPSSUM + QDSSUM
  *         for i in range(0, 7):             # <<<<<<<<<<<<<<
@@ -12395,7 +12395,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_6 = 0; __pyx_t_6 < 7; __pyx_t_6+=1) {
       __pyx_v_i = __pyx_t_6;
 
-      /* "ARGON.pyx":1036
+      /* "gases/ARGON.pyx":1036
  *         object.Q[0][I] = QELA + Q1SSUM + QPSSUM + QDSSUM
  *         for i in range(0, 7):
  *             object.Q[0][I] += object.QION[i][I]             # <<<<<<<<<<<<<<
@@ -12408,7 +12408,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "ARGON.pyx":1038
+  /* "gases/ARGON.pyx":1038
  *             object.Q[0][I] += object.QION[i][I]
  * 
  *     for j in range(0, object.NIN):             # <<<<<<<<<<<<<<
@@ -12420,7 +12420,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_j = __pyx_t_7;
 
-    /* "ARGON.pyx":1039
+    /* "gases/ARGON.pyx":1039
  * 
  *     for j in range(0, object.NIN):
  *         if object.EFINAL <= object.EIN[j]:             # <<<<<<<<<<<<<<
@@ -12430,7 +12430,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_23 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_j])) != 0);
     if (__pyx_t_23) {
 
-      /* "ARGON.pyx":1040
+      /* "gases/ARGON.pyx":1040
  *     for j in range(0, object.NIN):
  *         if object.EFINAL <= object.EIN[j]:
  *             object.NIN = j             # <<<<<<<<<<<<<<
@@ -12439,7 +12439,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_j;
 
-      /* "ARGON.pyx":1041
+      /* "gases/ARGON.pyx":1041
  *         if object.EFINAL <= object.EIN[j]:
  *             object.NIN = j
  *             break             # <<<<<<<<<<<<<<
@@ -12447,7 +12447,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L307_break;
 
-      /* "ARGON.pyx":1039
+      /* "gases/ARGON.pyx":1039
  * 
  *     for j in range(0, object.NIN):
  *         if object.EFINAL <= object.EIN[j]:             # <<<<<<<<<<<<<<
@@ -12458,7 +12458,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L307_break:;
 
-  /* "ARGON.pyx":14
+  /* "gases/ARGON.pyx":14
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef void Gas2(Gas *object):             # <<<<<<<<<<<<<<
@@ -12473,7 +12473,7 @@ static void __pyx_f_5ARGON_Gas2(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("ARGON.Gas2", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.ARGON.Gas2", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -15542,7 +15542,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas2", (void (*)(void))__pyx_f_5ARGON_Gas2, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas2", (void (*)(void))__pyx_f_5gases_5ARGON_Gas2, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -15782,14 +15782,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_ARGON) {
+  if (__pyx_module_is_main_gases__ARGON) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "ARGON")) {
-      if (unlikely(PyDict_SetItemString(modules, "ARGON", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.ARGON")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.ARGON", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -15810,7 +15810,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "ARGON.pyx":2
+  /* "gases/ARGON.pyx":2
  * from libc.math cimport sin, cos, acos,asin, log,sqrt,exp,atan
  * import math             # <<<<<<<<<<<<<<
  * import sys
@@ -15821,7 +15821,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_math, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ARGON.pyx":3
+  /* "gases/ARGON.pyx":3
  * from libc.math cimport sin, cos, acos,asin, log,sqrt,exp,atan
  * import math
  * import sys             # <<<<<<<<<<<<<<
@@ -15833,7 +15833,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ARGON.pyx":5
+  /* "gases/ARGON.pyx":5
  * import sys
  * from Gas cimport Gas
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -15845,7 +15845,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ARGON.pyx":8
+  /* "gases/ARGON.pyx":8
  * cimport numpy as np
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -15860,7 +15860,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "ARGON.pyx":1
+  /* "gases/ARGON.pyx":1
  * from libc.math cimport sin, cos, acos,asin, log,sqrt,exp,atan             # <<<<<<<<<<<<<<
  * import math
  * import sys
@@ -15886,11 +15886,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init ARGON", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.ARGON", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init ARGON");
+    PyErr_SetString(PyExc_ImportError, "init gases.ARGON");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

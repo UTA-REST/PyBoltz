@@ -6,7 +6,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double* COLFT(Magboltz object):
+cdef double* CollisionFreqT(Magboltz object):
     """
     This function calculates real collision frequencies for event types.
     """
@@ -16,7 +16,7 @@ cdef double* COLFT(Magboltz object):
     NELA = 0
     NATT = 0
     NION = 0
-    for J in range(object.NGAS):
+    for J in range(object.NumberOfGases):
         NINEL+=object.ICOLL[J][3]+object.ICOLL[J][4]
         NELA+=object.ICOLL[J][0]
         NATT+=object.ICOLL[J][2]

@@ -245,7 +245,7 @@ cpdef MONTEFTT(Magboltz object, int JPRT):
             E = 0.001
 
         R2 = random_uniform(RDUM)
-        if object.NGAS == 1:
+        if object.NumberOfGases == 1:
             KGAS = 0
         while (object.TCFMXG[KGAS] < R2):
             KGAS = KGAS + 1

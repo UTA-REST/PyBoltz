@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "KRYPTON",
+        "name": "gases.KRYPTON",
         "sources": [
-            "KRYPTON.pyx"
+            "gases/KRYPTON.pyx"
         ]
     },
-    "module_name": "KRYPTON"
+    "module_name": "gases.KRYPTON"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__KRYPTON
-#define __PYX_HAVE_API__KRYPTON
+#define __PYX_HAVE__gases__KRYPTON
+#define __PYX_HAVE_API__gases__KRYPTON
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "KRYPTON.pyx",
+  "gases/KRYPTON.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1687,13 +1687,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'KRYPTON' */
+/* Module declarations from 'gases.KRYPTON' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "KRYPTON"
-extern int __pyx_module_is_main_KRYPTON;
-int __pyx_module_is_main_KRYPTON = 0;
+#define __Pyx_MODULE_NAME "gases.KRYPTON"
+extern int __pyx_module_is_main_gases__KRYPTON;
+int __pyx_module_is_main_gases__KRYPTON = 0;
 
-/* Implementation of 'KRYPTON' */
+/* Implementation of 'gases.KRYPTON' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -2087,7 +2087,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "KRYPTON.pyx":17
+/* "gases/KRYPTON.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas6(Gas*object):             # <<<<<<<<<<<<<<
@@ -2095,7 +2095,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Krypton gas.
  */
 
-static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEN[0xA2];
   double __pyx_v_YXSEC[0xA2];
@@ -2423,7 +2423,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   int __pyx_t_63;
   __Pyx_RefNannySetupContext("Gas6", 0);
 
-  /* "KRYPTON.pyx":21
+  /* "gases/KRYPTON.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Krypton gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2471,7 +2471,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "KRYPTON.pyx":38
+  /* "gases/KRYPTON.pyx":38
  *     cdef int IOFFN[51], IOFFION[11]
  * 
  *     XEN = gd['gas6/XEN']             # <<<<<<<<<<<<<<
@@ -2488,7 +2488,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (0xA2));
 
-  /* "KRYPTON.pyx":39
+  /* "gases/KRYPTON.pyx":39
  * 
  *     XEN = gd['gas6/XEN']
  *     YXSEC = gd['gas6/YXSEC']             # <<<<<<<<<<<<<<
@@ -2505,7 +2505,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YXSEC[0]), __pyx_t_5, sizeof(__pyx_v_YXSEC[0]) * (0xA2));
 
-  /* "KRYPTON.pyx":40
+  /* "gases/KRYPTON.pyx":40
  *     XEN = gd['gas6/XEN']
  *     YXSEC = gd['gas6/YXSEC']
  *     XEL = gd['gas6/XEL']             # <<<<<<<<<<<<<<
@@ -2522,7 +2522,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEL[0]), __pyx_t_6, sizeof(__pyx_v_XEL[0]) * (0x97));
 
-  /* "KRYPTON.pyx":41
+  /* "gases/KRYPTON.pyx":41
  *     YXSEC = gd['gas6/YXSEC']
  *     XEL = gd['gas6/XEL']
  *     YEL = gd['gas6/YEL']             # <<<<<<<<<<<<<<
@@ -2539,7 +2539,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEL[0]), __pyx_t_6, sizeof(__pyx_v_YEL[0]) * (0x97));
 
-  /* "KRYPTON.pyx":42
+  /* "gases/KRYPTON.pyx":42
  *     XEL = gd['gas6/XEL']
  *     YEL = gd['gas6/YEL']
  *     XEPS = gd['gas6/XEPS']             # <<<<<<<<<<<<<<
@@ -2556,7 +2556,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEPS[0]), __pyx_t_7, sizeof(__pyx_v_XEPS[0]) * (0xBA));
 
-  /* "KRYPTON.pyx":43
+  /* "gases/KRYPTON.pyx":43
  *     YEL = gd['gas6/YEL']
  *     XEPS = gd['gas6/XEPS']
  *     YEPS = gd['gas6/YEPS']             # <<<<<<<<<<<<<<
@@ -2573,7 +2573,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_7, sizeof(__pyx_v_YEPS[0]) * (0xBA));
 
-  /* "KRYPTON.pyx":44
+  /* "gases/KRYPTON.pyx":44
  *     XEPS = gd['gas6/XEPS']
  *     YEPS = gd['gas6/YEPS']
  *     XION = gd['gas6/XION']             # <<<<<<<<<<<<<<
@@ -2586,7 +2586,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_8, sizeof(__pyx_v_XION[0]) * (65));
 
-  /* "KRYPTON.pyx":45
+  /* "gases/KRYPTON.pyx":45
  *     YEPS = gd['gas6/YEPS']
  *     XION = gd['gas6/XION']
  *     YION = gd['gas6/YION']             # <<<<<<<<<<<<<<
@@ -2599,7 +2599,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_8, sizeof(__pyx_v_YION[0]) * (65));
 
-  /* "KRYPTON.pyx":46
+  /* "gases/KRYPTON.pyx":46
  *     XION = gd['gas6/XION']
  *     YION = gd['gas6/YION']
  *     YINC = gd['gas6/YINC']             # <<<<<<<<<<<<<<
@@ -2612,7 +2612,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YINC[0]), __pyx_t_8, sizeof(__pyx_v_YINC[0]) * (65));
 
-  /* "KRYPTON.pyx":47
+  /* "gases/KRYPTON.pyx":47
  *     YION = gd['gas6/YION']
  *     YINC = gd['gas6/YINC']
  *     YIN1 = gd['gas6/YIN1']             # <<<<<<<<<<<<<<
@@ -2625,7 +2625,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN1[0]), __pyx_t_8, sizeof(__pyx_v_YIN1[0]) * (65));
 
-  /* "KRYPTON.pyx":48
+  /* "gases/KRYPTON.pyx":48
  *     YINC = gd['gas6/YINC']
  *     YIN1 = gd['gas6/YIN1']
  *     XIN2 = gd['gas6/XIN2']             # <<<<<<<<<<<<<<
@@ -2638,7 +2638,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN2[0]), __pyx_t_9, sizeof(__pyx_v_XIN2[0]) * (41));
 
-  /* "KRYPTON.pyx":49
+  /* "gases/KRYPTON.pyx":49
  *     YIN1 = gd['gas6/YIN1']
  *     XIN2 = gd['gas6/XIN2']
  *     YIN2 = gd['gas6/YIN2']             # <<<<<<<<<<<<<<
@@ -2651,7 +2651,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN2[0]), __pyx_t_9, sizeof(__pyx_v_YIN2[0]) * (41));
 
-  /* "KRYPTON.pyx":50
+  /* "gases/KRYPTON.pyx":50
  *     XIN2 = gd['gas6/XIN2']
  *     YIN2 = gd['gas6/YIN2']
  *     XIN3 = gd['gas6/XIN3']             # <<<<<<<<<<<<<<
@@ -2664,7 +2664,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN3[0]), __pyx_t_10, sizeof(__pyx_v_XIN3[0]) * (35));
 
-  /* "KRYPTON.pyx":51
+  /* "gases/KRYPTON.pyx":51
  *     YIN2 = gd['gas6/YIN2']
  *     XIN3 = gd['gas6/XIN3']
  *     YIN3 = gd['gas6/YIN3']             # <<<<<<<<<<<<<<
@@ -2677,7 +2677,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN3[0]), __pyx_t_10, sizeof(__pyx_v_YIN3[0]) * (35));
 
-  /* "KRYPTON.pyx":52
+  /* "gases/KRYPTON.pyx":52
  *     XIN3 = gd['gas6/XIN3']
  *     YIN3 = gd['gas6/YIN3']
  *     XIN4 = gd['gas6/XIN4']             # <<<<<<<<<<<<<<
@@ -2690,7 +2690,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN4[0]), __pyx_t_11, sizeof(__pyx_v_XIN4[0]) * (32));
 
-  /* "KRYPTON.pyx":53
+  /* "gases/KRYPTON.pyx":53
  *     YIN3 = gd['gas6/YIN3']
  *     XIN4 = gd['gas6/XIN4']
  *     YIN4 = gd['gas6/YIN4']             # <<<<<<<<<<<<<<
@@ -2703,7 +2703,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN4[0]), __pyx_t_11, sizeof(__pyx_v_YIN4[0]) * (32));
 
-  /* "KRYPTON.pyx":54
+  /* "gases/KRYPTON.pyx":54
  *     XIN4 = gd['gas6/XIN4']
  *     YIN4 = gd['gas6/YIN4']
  *     XKSH = gd['gas6/XKSH']             # <<<<<<<<<<<<<<
@@ -2716,7 +2716,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSH[0]), __pyx_t_12, sizeof(__pyx_v_XKSH[0]) * (74));
 
-  /* "KRYPTON.pyx":55
+  /* "gases/KRYPTON.pyx":55
  *     YIN4 = gd['gas6/YIN4']
  *     XKSH = gd['gas6/XKSH']
  *     YKSH = gd['gas6/YKSH']             # <<<<<<<<<<<<<<
@@ -2729,7 +2729,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSH[0]), __pyx_t_12, sizeof(__pyx_v_YKSH[0]) * (74));
 
-  /* "KRYPTON.pyx":56
+  /* "gases/KRYPTON.pyx":56
  *     XKSH = gd['gas6/XKSH']
  *     YKSH = gd['gas6/YKSH']
  *     XL1S = gd['gas6/XL1S']             # <<<<<<<<<<<<<<
@@ -2742,7 +2742,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XL1S[0]), __pyx_t_13, sizeof(__pyx_v_XL1S[0]) * (83));
 
-  /* "KRYPTON.pyx":57
+  /* "gases/KRYPTON.pyx":57
  *     YKSH = gd['gas6/YKSH']
  *     XL1S = gd['gas6/XL1S']
  *     YL1S = gd['gas6/YL1S']             # <<<<<<<<<<<<<<
@@ -2755,7 +2755,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YL1S[0]), __pyx_t_13, sizeof(__pyx_v_YL1S[0]) * (83));
 
-  /* "KRYPTON.pyx":58
+  /* "gases/KRYPTON.pyx":58
  *     XL1S = gd['gas6/XL1S']
  *     YL1S = gd['gas6/YL1S']
  *     XL2S = gd['gas6/XL2S']             # <<<<<<<<<<<<<<
@@ -2768,7 +2768,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XL2S[0]), __pyx_t_14, sizeof(__pyx_v_XL2S[0]) * (82));
 
-  /* "KRYPTON.pyx":59
+  /* "gases/KRYPTON.pyx":59
  *     YL1S = gd['gas6/YL1S']
  *     XL2S = gd['gas6/XL2S']
  *     YL2S = gd['gas6/YL2S']             # <<<<<<<<<<<<<<
@@ -2781,7 +2781,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YL2S[0]), __pyx_t_14, sizeof(__pyx_v_YL2S[0]) * (82));
 
-  /* "KRYPTON.pyx":60
+  /* "gases/KRYPTON.pyx":60
  *     XL2S = gd['gas6/XL2S']
  *     YL2S = gd['gas6/YL2S']
  *     XL3S = gd['gas6/XL3S']             # <<<<<<<<<<<<<<
@@ -2794,7 +2794,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XL3S[0]), __pyx_t_15, sizeof(__pyx_v_XL3S[0]) * (84));
 
-  /* "KRYPTON.pyx":61
+  /* "gases/KRYPTON.pyx":61
  *     YL2S = gd['gas6/YL2S']
  *     XL3S = gd['gas6/XL3S']
  *     YL3S = gd['gas6/YL3S']             # <<<<<<<<<<<<<<
@@ -2807,7 +2807,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YL3S[0]), __pyx_t_15, sizeof(__pyx_v_YL3S[0]) * (84));
 
-  /* "KRYPTON.pyx":62
+  /* "gases/KRYPTON.pyx":62
  *     XL3S = gd['gas6/XL3S']
  *     YL3S = gd['gas6/YL3S']
  *     XM1S = gd['gas6/XM1S']             # <<<<<<<<<<<<<<
@@ -2820,7 +2820,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XM1S[0]), __pyx_t_16, sizeof(__pyx_v_XM1S[0]) * (91));
 
-  /* "KRYPTON.pyx":63
+  /* "gases/KRYPTON.pyx":63
  *     YL3S = gd['gas6/YL3S']
  *     XM1S = gd['gas6/XM1S']
  *     YM1S = gd['gas6/YM1S']             # <<<<<<<<<<<<<<
@@ -2833,7 +2833,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YM1S[0]), __pyx_t_16, sizeof(__pyx_v_YM1S[0]) * (91));
 
-  /* "KRYPTON.pyx":64
+  /* "gases/KRYPTON.pyx":64
  *     XM1S = gd['gas6/XM1S']
  *     YM1S = gd['gas6/YM1S']
  *     XM2S = gd['gas6/XM2S']             # <<<<<<<<<<<<<<
@@ -2846,7 +2846,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XM2S[0]), __pyx_t_17, sizeof(__pyx_v_XM2S[0]) * (98));
 
-  /* "KRYPTON.pyx":65
+  /* "gases/KRYPTON.pyx":65
  *     YM1S = gd['gas6/YM1S']
  *     XM2S = gd['gas6/XM2S']
  *     YM2S = gd['gas6/YM2S']             # <<<<<<<<<<<<<<
@@ -2859,7 +2859,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YM2S[0]), __pyx_t_17, sizeof(__pyx_v_YM2S[0]) * (98));
 
-  /* "KRYPTON.pyx":66
+  /* "gases/KRYPTON.pyx":66
  *     XM2S = gd['gas6/XM2S']
  *     YM2S = gd['gas6/YM2S']
  *     XM3S = gd['gas6/XM3S']             # <<<<<<<<<<<<<<
@@ -2872,7 +2872,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XM3S[0]), __pyx_t_18, sizeof(__pyx_v_XM3S[0]) * (99));
 
-  /* "KRYPTON.pyx":67
+  /* "gases/KRYPTON.pyx":67
  *     YM2S = gd['gas6/YM2S']
  *     XM3S = gd['gas6/XM3S']
  *     YM3S = gd['gas6/YM3S']             # <<<<<<<<<<<<<<
@@ -2885,7 +2885,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YM3S[0]), __pyx_t_18, sizeof(__pyx_v_YM3S[0]) * (99));
 
-  /* "KRYPTON.pyx":68
+  /* "gases/KRYPTON.pyx":68
  *     XM3S = gd['gas6/XM3S']
  *     YM3S = gd['gas6/YM3S']
  *     XM4S = gd['gas6/XM4S']             # <<<<<<<<<<<<<<
@@ -2902,7 +2902,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XM4S[0]), __pyx_t_19, sizeof(__pyx_v_XM4S[0]) * (0x69));
 
-  /* "KRYPTON.pyx":69
+  /* "gases/KRYPTON.pyx":69
  *     YM3S = gd['gas6/YM3S']
  *     XM4S = gd['gas6/XM4S']
  *     YM4S = gd['gas6/YM4S']             # <<<<<<<<<<<<<<
@@ -2919,7 +2919,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YM4S[0]), __pyx_t_19, sizeof(__pyx_v_YM4S[0]) * (0x69));
 
-  /* "KRYPTON.pyx":70
+  /* "gases/KRYPTON.pyx":70
  *     XM4S = gd['gas6/XM4S']
  *     YM4S = gd['gas6/YM4S']
  *     XM5S = gd['gas6/XM5S']             # <<<<<<<<<<<<<<
@@ -2936,7 +2936,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XM5S[0]), __pyx_t_20, sizeof(__pyx_v_XM5S[0]) * (0x6A));
 
-  /* "KRYPTON.pyx":71
+  /* "gases/KRYPTON.pyx":71
  *     YM4S = gd['gas6/YM4S']
  *     XM5S = gd['gas6/XM5S']
  *     YM5S = gd['gas6/YM5S']             # <<<<<<<<<<<<<<
@@ -2953,7 +2953,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YM5S[0]), __pyx_t_20, sizeof(__pyx_v_YM5S[0]) * (0x6A));
 
-  /* "KRYPTON.pyx":72
+  /* "gases/KRYPTON.pyx":72
  *     XM5S = gd['gas6/XM5S']
  *     YM5S = gd['gas6/YM5S']
  *     X1S5 = gd['gas6/X1S5']             # <<<<<<<<<<<<<<
@@ -2970,7 +2970,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X1S5[0]), __pyx_t_21, sizeof(__pyx_v_X1S5[0]) * (0xA9));
 
-  /* "KRYPTON.pyx":73
+  /* "gases/KRYPTON.pyx":73
  *     YM5S = gd['gas6/YM5S']
  *     X1S5 = gd['gas6/X1S5']
  *     Y1S5 = gd['gas6/Y1S5']             # <<<<<<<<<<<<<<
@@ -2987,7 +2987,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y1S5[0]), __pyx_t_21, sizeof(__pyx_v_Y1S5[0]) * (0xA9));
 
-  /* "KRYPTON.pyx":74
+  /* "gases/KRYPTON.pyx":74
  *     X1S5 = gd['gas6/X1S5']
  *     Y1S5 = gd['gas6/Y1S5']
  *     YP1S5 = gd['gas6/YP1S5']             # <<<<<<<<<<<<<<
@@ -3004,7 +3004,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP1S5[0]), __pyx_t_21, sizeof(__pyx_v_YP1S5[0]) * (0xA9));
 
-  /* "KRYPTON.pyx":75
+  /* "gases/KRYPTON.pyx":75
  *     Y1S5 = gd['gas6/Y1S5']
  *     YP1S5 = gd['gas6/YP1S5']
  *     X1S4 = gd['gas6/X1S4']             # <<<<<<<<<<<<<<
@@ -3021,7 +3021,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X1S4[0]), __pyx_t_22, sizeof(__pyx_v_X1S4[0]) * (0x82));
 
-  /* "KRYPTON.pyx":76
+  /* "gases/KRYPTON.pyx":76
  *     YP1S5 = gd['gas6/YP1S5']
  *     X1S4 = gd['gas6/X1S4']
  *     Y1S4 = gd['gas6/Y1S4']             # <<<<<<<<<<<<<<
@@ -3038,7 +3038,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y1S4[0]), __pyx_t_22, sizeof(__pyx_v_Y1S4[0]) * (0x82));
 
-  /* "KRYPTON.pyx":77
+  /* "gases/KRYPTON.pyx":77
  *     X1S4 = gd['gas6/X1S4']
  *     Y1S4 = gd['gas6/Y1S4']
  *     YP1S4 = gd['gas6/YP1S4']             # <<<<<<<<<<<<<<
@@ -3055,7 +3055,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP1S4[0]), __pyx_t_22, sizeof(__pyx_v_YP1S4[0]) * (0x82));
 
-  /* "KRYPTON.pyx":78
+  /* "gases/KRYPTON.pyx":78
  *     Y1S4 = gd['gas6/Y1S4']
  *     YP1S4 = gd['gas6/YP1S4']
  *     X1S3 = gd['gas6/X1S3']             # <<<<<<<<<<<<<<
@@ -3072,7 +3072,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X1S3[0]), __pyx_t_23, sizeof(__pyx_v_X1S3[0]) * (0xA8));
 
-  /* "KRYPTON.pyx":79
+  /* "gases/KRYPTON.pyx":79
  *     YP1S4 = gd['gas6/YP1S4']
  *     X1S3 = gd['gas6/X1S3']
  *     Y1S3 = gd['gas6/Y1S3']             # <<<<<<<<<<<<<<
@@ -3089,7 +3089,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y1S3[0]), __pyx_t_23, sizeof(__pyx_v_Y1S3[0]) * (0xA8));
 
-  /* "KRYPTON.pyx":80
+  /* "gases/KRYPTON.pyx":80
  *     X1S3 = gd['gas6/X1S3']
  *     Y1S3 = gd['gas6/Y1S3']
  *     YP1S3 = gd['gas6/YP1S3']             # <<<<<<<<<<<<<<
@@ -3106,7 +3106,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP1S3[0]), __pyx_t_23, sizeof(__pyx_v_YP1S3[0]) * (0xA8));
 
-  /* "KRYPTON.pyx":81
+  /* "gases/KRYPTON.pyx":81
  *     Y1S3 = gd['gas6/Y1S3']
  *     YP1S3 = gd['gas6/YP1S3']
  *     X1S2 = gd['gas6/X1S2']             # <<<<<<<<<<<<<<
@@ -3123,7 +3123,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X1S2[0]), __pyx_t_24, sizeof(__pyx_v_X1S2[0]) * (0x96));
 
-  /* "KRYPTON.pyx":82
+  /* "gases/KRYPTON.pyx":82
  *     YP1S3 = gd['gas6/YP1S3']
  *     X1S2 = gd['gas6/X1S2']
  *     Y1S2 = gd['gas6/Y1S2']             # <<<<<<<<<<<<<<
@@ -3140,7 +3140,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y1S2[0]), __pyx_t_24, sizeof(__pyx_v_Y1S2[0]) * (0x96));
 
-  /* "KRYPTON.pyx":83
+  /* "gases/KRYPTON.pyx":83
  *     X1S2 = gd['gas6/X1S2']
  *     Y1S2 = gd['gas6/Y1S2']
  *     YP1S2 = gd['gas6/YP1S2']             # <<<<<<<<<<<<<<
@@ -3157,7 +3157,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP1S2[0]), __pyx_t_24, sizeof(__pyx_v_YP1S2[0]) * (0x96));
 
-  /* "KRYPTON.pyx":84
+  /* "gases/KRYPTON.pyx":84
  *     Y1S2 = gd['gas6/Y1S2']
  *     YP1S2 = gd['gas6/YP1S2']
  *     X2P10 = gd['gas6/X2P10']             # <<<<<<<<<<<<<<
@@ -3174,7 +3174,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X2P10[0]), __pyx_t_25, sizeof(__pyx_v_X2P10[0]) * (0x8E));
 
-  /* "KRYPTON.pyx":85
+  /* "gases/KRYPTON.pyx":85
  *     YP1S2 = gd['gas6/YP1S2']
  *     X2P10 = gd['gas6/X2P10']
  *     Y2P10 = gd['gas6/Y2P10']             # <<<<<<<<<<<<<<
@@ -3191,7 +3191,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y2P10[0]), __pyx_t_25, sizeof(__pyx_v_Y2P10[0]) * (0x8E));
 
-  /* "KRYPTON.pyx":86
+  /* "gases/KRYPTON.pyx":86
  *     X2P10 = gd['gas6/X2P10']
  *     Y2P10 = gd['gas6/Y2P10']
  *     YP2P10 = gd['gas6/YP2P10']             # <<<<<<<<<<<<<<
@@ -3208,7 +3208,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP2P10[0]), __pyx_t_25, sizeof(__pyx_v_YP2P10[0]) * (0x8E));
 
-  /* "KRYPTON.pyx":87
+  /* "gases/KRYPTON.pyx":87
  *     Y2P10 = gd['gas6/Y2P10']
  *     YP2P10 = gd['gas6/YP2P10']
  *     X2P9 = gd['gas6/X2P9']             # <<<<<<<<<<<<<<
@@ -3225,7 +3225,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X2P9[0]), __pyx_t_26, sizeof(__pyx_v_X2P9[0]) * (0x75));
 
-  /* "KRYPTON.pyx":88
+  /* "gases/KRYPTON.pyx":88
  *     YP2P10 = gd['gas6/YP2P10']
  *     X2P9 = gd['gas6/X2P9']
  *     Y2P9 = gd['gas6/Y2P9']             # <<<<<<<<<<<<<<
@@ -3242,7 +3242,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y2P9[0]), __pyx_t_26, sizeof(__pyx_v_Y2P9[0]) * (0x75));
 
-  /* "KRYPTON.pyx":89
+  /* "gases/KRYPTON.pyx":89
  *     X2P9 = gd['gas6/X2P9']
  *     Y2P9 = gd['gas6/Y2P9']
  *     YP2P9 = gd['gas6/YP2P9']             # <<<<<<<<<<<<<<
@@ -3259,7 +3259,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP2P9[0]), __pyx_t_26, sizeof(__pyx_v_YP2P9[0]) * (0x75));
 
-  /* "KRYPTON.pyx":90
+  /* "gases/KRYPTON.pyx":90
  *     Y2P9 = gd['gas6/Y2P9']
  *     YP2P9 = gd['gas6/YP2P9']
  *     X2P8 = gd['gas6/X2P8']             # <<<<<<<<<<<<<<
@@ -3276,7 +3276,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X2P8[0]), __pyx_t_27, sizeof(__pyx_v_X2P8[0]) * (0x78));
 
-  /* "KRYPTON.pyx":91
+  /* "gases/KRYPTON.pyx":91
  *     YP2P9 = gd['gas6/YP2P9']
  *     X2P8 = gd['gas6/X2P8']
  *     Y2P8 = gd['gas6/Y2P8']             # <<<<<<<<<<<<<<
@@ -3293,7 +3293,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y2P8[0]), __pyx_t_27, sizeof(__pyx_v_Y2P8[0]) * (0x78));
 
-  /* "KRYPTON.pyx":92
+  /* "gases/KRYPTON.pyx":92
  *     X2P8 = gd['gas6/X2P8']
  *     Y2P8 = gd['gas6/Y2P8']
  *     YP2P8 = gd['gas6/YP2P8']             # <<<<<<<<<<<<<<
@@ -3310,7 +3310,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP2P8[0]), __pyx_t_27, sizeof(__pyx_v_YP2P8[0]) * (0x78));
 
-  /* "KRYPTON.pyx":93
+  /* "gases/KRYPTON.pyx":93
  *     Y2P8 = gd['gas6/Y2P8']
  *     YP2P8 = gd['gas6/YP2P8']
  *     X2P7 = gd['gas6/X2P7']             # <<<<<<<<<<<<<<
@@ -3327,7 +3327,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X2P7[0]), __pyx_t_28, sizeof(__pyx_v_X2P7[0]) * (0x6F));
 
-  /* "KRYPTON.pyx":94
+  /* "gases/KRYPTON.pyx":94
  *     YP2P8 = gd['gas6/YP2P8']
  *     X2P7 = gd['gas6/X2P7']
  *     Y2P7 = gd['gas6/Y2P7']             # <<<<<<<<<<<<<<
@@ -3344,7 +3344,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y2P7[0]), __pyx_t_28, sizeof(__pyx_v_Y2P7[0]) * (0x6F));
 
-  /* "KRYPTON.pyx":95
+  /* "gases/KRYPTON.pyx":95
  *     X2P7 = gd['gas6/X2P7']
  *     Y2P7 = gd['gas6/Y2P7']
  *     YP2P7 = gd['gas6/YP2P7']             # <<<<<<<<<<<<<<
@@ -3361,7 +3361,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP2P7[0]), __pyx_t_28, sizeof(__pyx_v_YP2P7[0]) * (0x6F));
 
-  /* "KRYPTON.pyx":96
+  /* "gases/KRYPTON.pyx":96
  *     Y2P7 = gd['gas6/Y2P7']
  *     YP2P7 = gd['gas6/YP2P7']
  *     X2P6 = gd['gas6/X2P6']             # <<<<<<<<<<<<<<
@@ -3378,7 +3378,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X2P6[0]), __pyx_t_29, sizeof(__pyx_v_X2P6[0]) * (0x64));
 
-  /* "KRYPTON.pyx":97
+  /* "gases/KRYPTON.pyx":97
  *     YP2P7 = gd['gas6/YP2P7']
  *     X2P6 = gd['gas6/X2P6']
  *     Y2P6 = gd['gas6/Y2P6']             # <<<<<<<<<<<<<<
@@ -3395,7 +3395,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y2P6[0]), __pyx_t_29, sizeof(__pyx_v_Y2P6[0]) * (0x64));
 
-  /* "KRYPTON.pyx":98
+  /* "gases/KRYPTON.pyx":98
  *     X2P6 = gd['gas6/X2P6']
  *     Y2P6 = gd['gas6/Y2P6']
  *     YP2P6 = gd['gas6/YP2P6']             # <<<<<<<<<<<<<<
@@ -3412,7 +3412,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP2P6[0]), __pyx_t_29, sizeof(__pyx_v_YP2P6[0]) * (0x64));
 
-  /* "KRYPTON.pyx":99
+  /* "gases/KRYPTON.pyx":99
  *     Y2P6 = gd['gas6/Y2P6']
  *     YP2P6 = gd['gas6/YP2P6']
  *     X2P5 = gd['gas6/X2P5']             # <<<<<<<<<<<<<<
@@ -3429,7 +3429,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X2P5[0]), __pyx_t_30, sizeof(__pyx_v_X2P5[0]) * (0x66));
 
-  /* "KRYPTON.pyx":100
+  /* "gases/KRYPTON.pyx":100
  *     YP2P6 = gd['gas6/YP2P6']
  *     X2P5 = gd['gas6/X2P5']
  *     Y2P5 = gd['gas6/Y2P5']             # <<<<<<<<<<<<<<
@@ -3446,7 +3446,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y2P5[0]), __pyx_t_30, sizeof(__pyx_v_Y2P5[0]) * (0x66));
 
-  /* "KRYPTON.pyx":101
+  /* "gases/KRYPTON.pyx":101
  *     X2P5 = gd['gas6/X2P5']
  *     Y2P5 = gd['gas6/Y2P5']
  *     YP2P5 = gd['gas6/YP2P5']             # <<<<<<<<<<<<<<
@@ -3463,7 +3463,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YP2P5[0]), __pyx_t_30, sizeof(__pyx_v_YP2P5[0]) * (0x66));
 
-  /* "KRYPTON.pyx":102
+  /* "gases/KRYPTON.pyx":102
  *     Y2P5 = gd['gas6/Y2P5']
  *     YP2P5 = gd['gas6/YP2P5']
  *     X3D6 = gd['gas6/X3D6']             # <<<<<<<<<<<<<<
@@ -3476,7 +3476,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D6[0]), __pyx_t_31, sizeof(__pyx_v_X3D6[0]) * (69));
 
-  /* "KRYPTON.pyx":103
+  /* "gases/KRYPTON.pyx":103
  *     YP2P5 = gd['gas6/YP2P5']
  *     X3D6 = gd['gas6/X3D6']
  *     Y3D6 = gd['gas6/Y3D6']             # <<<<<<<<<<<<<<
@@ -3489,7 +3489,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D6[0]), __pyx_t_31, sizeof(__pyx_v_Y3D6[0]) * (69));
 
-  /* "KRYPTON.pyx":104
+  /* "gases/KRYPTON.pyx":104
  *     X3D6 = gd['gas6/X3D6']
  *     Y3D6 = gd['gas6/Y3D6']
  *     YP3D6 = gd['gas6/YP3D6']             # <<<<<<<<<<<<<<
@@ -3502,7 +3502,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D6[0]), __pyx_t_31, sizeof(__pyx_v_YP3D6[0]) * (69));
 
-  /* "KRYPTON.pyx":105
+  /* "gases/KRYPTON.pyx":105
  *     Y3D6 = gd['gas6/Y3D6']
  *     YP3D6 = gd['gas6/YP3D6']
  *     X3D5 = gd['gas6/X3D5']             # <<<<<<<<<<<<<<
@@ -3515,7 +3515,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D5[0]), __pyx_t_32, sizeof(__pyx_v_X3D5[0]) * (75));
 
-  /* "KRYPTON.pyx":106
+  /* "gases/KRYPTON.pyx":106
  *     YP3D6 = gd['gas6/YP3D6']
  *     X3D5 = gd['gas6/X3D5']
  *     Y3D5 = gd['gas6/Y3D5']             # <<<<<<<<<<<<<<
@@ -3528,7 +3528,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D5[0]), __pyx_t_32, sizeof(__pyx_v_Y3D5[0]) * (75));
 
-  /* "KRYPTON.pyx":107
+  /* "gases/KRYPTON.pyx":107
  *     X3D5 = gd['gas6/X3D5']
  *     Y3D5 = gd['gas6/Y3D5']
  *     YP3D5 = gd['gas6/YP3D5']             # <<<<<<<<<<<<<<
@@ -3541,7 +3541,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D5[0]), __pyx_t_32, sizeof(__pyx_v_YP3D5[0]) * (75));
 
-  /* "KRYPTON.pyx":108
+  /* "gases/KRYPTON.pyx":108
  *     Y3D5 = gd['gas6/Y3D5']
  *     YP3D5 = gd['gas6/YP3D5']
  *     X2P4 = gd['gas6/X2P4']             # <<<<<<<<<<<<<<
@@ -3554,7 +3554,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P4[0]), __pyx_t_33, sizeof(__pyx_v_X2P4[0]) * (64));
 
-  /* "KRYPTON.pyx":109
+  /* "gases/KRYPTON.pyx":109
  *     YP3D5 = gd['gas6/YP3D5']
  *     X2P4 = gd['gas6/X2P4']
  *     Y2P4 = gd['gas6/Y2P4']             # <<<<<<<<<<<<<<
@@ -3567,7 +3567,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P4[0]), __pyx_t_33, sizeof(__pyx_v_Y2P4[0]) * (64));
 
-  /* "KRYPTON.pyx":110
+  /* "gases/KRYPTON.pyx":110
  *     X2P4 = gd['gas6/X2P4']
  *     Y2P4 = gd['gas6/Y2P4']
  *     YP2P4 = gd['gas6/YP2P4']             # <<<<<<<<<<<<<<
@@ -3580,7 +3580,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P4[0]), __pyx_t_33, sizeof(__pyx_v_YP2P4[0]) * (64));
 
-  /* "KRYPTON.pyx":111
+  /* "gases/KRYPTON.pyx":111
  *     Y2P4 = gd['gas6/Y2P4']
  *     YP2P4 = gd['gas6/YP2P4']
  *     X3D3 = gd['gas6/X3D3']             # <<<<<<<<<<<<<<
@@ -3593,7 +3593,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D3[0]), __pyx_t_12, sizeof(__pyx_v_X3D3[0]) * (74));
 
-  /* "KRYPTON.pyx":112
+  /* "gases/KRYPTON.pyx":112
  *     YP2P4 = gd['gas6/YP2P4']
  *     X3D3 = gd['gas6/X3D3']
  *     Y3D3 = gd['gas6/Y3D3']             # <<<<<<<<<<<<<<
@@ -3606,7 +3606,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D3[0]), __pyx_t_12, sizeof(__pyx_v_Y3D3[0]) * (74));
 
-  /* "KRYPTON.pyx":113
+  /* "gases/KRYPTON.pyx":113
  *     X3D3 = gd['gas6/X3D3']
  *     Y3D3 = gd['gas6/Y3D3']
  *     YP3D3 = gd['gas6/YP3D3']             # <<<<<<<<<<<<<<
@@ -3619,7 +3619,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D3[0]), __pyx_t_12, sizeof(__pyx_v_YP3D3[0]) * (74));
 
-  /* "KRYPTON.pyx":114
+  /* "gases/KRYPTON.pyx":114
  *     Y3D3 = gd['gas6/Y3D3']
  *     YP3D3 = gd['gas6/YP3D3']
  *     X3D4P = gd['gas6/X3D4P']             # <<<<<<<<<<<<<<
@@ -3632,7 +3632,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D4P[0]), __pyx_t_34, sizeof(__pyx_v_X3D4P[0]) * (73));
 
-  /* "KRYPTON.pyx":115
+  /* "gases/KRYPTON.pyx":115
  *     YP3D3 = gd['gas6/YP3D3']
  *     X3D4P = gd['gas6/X3D4P']
  *     Y3D4P = gd['gas6/Y3D4P']             # <<<<<<<<<<<<<<
@@ -3645,7 +3645,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D4P[0]), __pyx_t_34, sizeof(__pyx_v_Y3D4P[0]) * (73));
 
-  /* "KRYPTON.pyx":116
+  /* "gases/KRYPTON.pyx":116
  *     X3D4P = gd['gas6/X3D4P']
  *     Y3D4P = gd['gas6/Y3D4P']
  *     YP3D4P = gd['gas6/YP3D4P']             # <<<<<<<<<<<<<<
@@ -3658,7 +3658,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D4P[0]), __pyx_t_34, sizeof(__pyx_v_YP3D4P[0]) * (73));
 
-  /* "KRYPTON.pyx":117
+  /* "gases/KRYPTON.pyx":117
  *     Y3D4P = gd['gas6/Y3D4P']
  *     YP3D4P = gd['gas6/YP3D4P']
  *     X2P3 = gd['gas6/X2P3']             # <<<<<<<<<<<<<<
@@ -3671,7 +3671,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P3[0]), __pyx_t_34, sizeof(__pyx_v_X2P3[0]) * (73));
 
-  /* "KRYPTON.pyx":118
+  /* "gases/KRYPTON.pyx":118
  *     YP3D4P = gd['gas6/YP3D4P']
  *     X2P3 = gd['gas6/X2P3']
  *     Y2P3 = gd['gas6/Y2P3']             # <<<<<<<<<<<<<<
@@ -3684,7 +3684,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P3[0]), __pyx_t_34, sizeof(__pyx_v_Y2P3[0]) * (73));
 
-  /* "KRYPTON.pyx":119
+  /* "gases/KRYPTON.pyx":119
  *     X2P3 = gd['gas6/X2P3']
  *     Y2P3 = gd['gas6/Y2P3']
  *     YP2P3 = gd['gas6/YP2P3']             # <<<<<<<<<<<<<<
@@ -3697,7 +3697,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P3[0]), __pyx_t_34, sizeof(__pyx_v_YP2P3[0]) * (73));
 
-  /* "KRYPTON.pyx":120
+  /* "gases/KRYPTON.pyx":120
  *     Y2P3 = gd['gas6/Y2P3']
  *     YP2P3 = gd['gas6/YP2P3']
  *     X2P2 = gd['gas6/X2P2']             # <<<<<<<<<<<<<<
@@ -3710,7 +3710,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P2[0]), __pyx_t_32, sizeof(__pyx_v_X2P2[0]) * (75));
 
-  /* "KRYPTON.pyx":121
+  /* "gases/KRYPTON.pyx":121
  *     YP2P3 = gd['gas6/YP2P3']
  *     X2P2 = gd['gas6/X2P2']
  *     Y2P2 = gd['gas6/Y2P2']             # <<<<<<<<<<<<<<
@@ -3723,7 +3723,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P2[0]), __pyx_t_32, sizeof(__pyx_v_Y2P2[0]) * (75));
 
-  /* "KRYPTON.pyx":122
+  /* "gases/KRYPTON.pyx":122
  *     X2P2 = gd['gas6/X2P2']
  *     Y2P2 = gd['gas6/Y2P2']
  *     YP2P2 = gd['gas6/YP2P2']             # <<<<<<<<<<<<<<
@@ -3736,7 +3736,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P2[0]), __pyx_t_32, sizeof(__pyx_v_YP2P2[0]) * (75));
 
-  /* "KRYPTON.pyx":123
+  /* "gases/KRYPTON.pyx":123
  *     Y2P2 = gd['gas6/Y2P2']
  *     YP2P2 = gd['gas6/YP2P2']
  *     X3D4 = gd['gas6/X3D4']             # <<<<<<<<<<<<<<
@@ -3749,7 +3749,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D4[0]), __pyx_t_35, sizeof(__pyx_v_X3D4[0]) * (59));
 
-  /* "KRYPTON.pyx":124
+  /* "gases/KRYPTON.pyx":124
  *     YP2P2 = gd['gas6/YP2P2']
  *     X3D4 = gd['gas6/X3D4']
  *     Y3D4 = gd['gas6/Y3D4']             # <<<<<<<<<<<<<<
@@ -3762,7 +3762,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D4[0]), __pyx_t_35, sizeof(__pyx_v_Y3D4[0]) * (59));
 
-  /* "KRYPTON.pyx":125
+  /* "gases/KRYPTON.pyx":125
  *     X3D4 = gd['gas6/X3D4']
  *     Y3D4 = gd['gas6/Y3D4']
  *     YP3D4 = gd['gas6/YP3D4']             # <<<<<<<<<<<<<<
@@ -3775,7 +3775,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D4[0]), __pyx_t_35, sizeof(__pyx_v_YP3D4[0]) * (59));
 
-  /* "KRYPTON.pyx":126
+  /* "gases/KRYPTON.pyx":126
  *     Y3D4 = gd['gas6/Y3D4']
  *     YP3D4 = gd['gas6/YP3D4']
  *     X2P1 = gd['gas6/X2P1']             # <<<<<<<<<<<<<<
@@ -3788,7 +3788,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P1[0]), __pyx_t_36, sizeof(__pyx_v_X2P1[0]) * (51));
 
-  /* "KRYPTON.pyx":127
+  /* "gases/KRYPTON.pyx":127
  *     YP3D4 = gd['gas6/YP3D4']
  *     X2P1 = gd['gas6/X2P1']
  *     Y2P1 = gd['gas6/Y2P1']             # <<<<<<<<<<<<<<
@@ -3801,7 +3801,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P1[0]), __pyx_t_36, sizeof(__pyx_v_Y2P1[0]) * (51));
 
-  /* "KRYPTON.pyx":128
+  /* "gases/KRYPTON.pyx":128
  *     X2P1 = gd['gas6/X2P1']
  *     Y2P1 = gd['gas6/Y2P1']
  *     YP2P1 = gd['gas6/YP2P1']             # <<<<<<<<<<<<<<
@@ -3814,7 +3814,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2P1[0]), __pyx_t_36, sizeof(__pyx_v_YP2P1[0]) * (51));
 
-  /* "KRYPTON.pyx":129
+  /* "gases/KRYPTON.pyx":129
  *     Y2P1 = gd['gas6/Y2P1']
  *     YP2P1 = gd['gas6/YP2P1']
  *     X3D1PP = gd['gas6/X3D1PP']             # <<<<<<<<<<<<<<
@@ -3827,7 +3827,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D1PP[0]), __pyx_t_37, sizeof(__pyx_v_X3D1PP[0]) * (48));
 
-  /* "KRYPTON.pyx":130
+  /* "gases/KRYPTON.pyx":130
  *     YP2P1 = gd['gas6/YP2P1']
  *     X3D1PP = gd['gas6/X3D1PP']
  *     Y3D1PP = gd['gas6/Y3D1PP']             # <<<<<<<<<<<<<<
@@ -3840,7 +3840,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D1PP[0]), __pyx_t_37, sizeof(__pyx_v_Y3D1PP[0]) * (48));
 
-  /* "KRYPTON.pyx":131
+  /* "gases/KRYPTON.pyx":131
  *     X3D1PP = gd['gas6/X3D1PP']
  *     Y3D1PP = gd['gas6/Y3D1PP']
  *     YP3D1PP = gd['gas6/YP3D1PP']             # <<<<<<<<<<<<<<
@@ -3853,7 +3853,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D1PP[0]), __pyx_t_37, sizeof(__pyx_v_YP3D1PP[0]) * (48));
 
-  /* "KRYPTON.pyx":132
+  /* "gases/KRYPTON.pyx":132
  *     Y3D1PP = gd['gas6/Y3D1PP']
  *     YP3D1PP = gd['gas6/YP3D1PP']
  *     X3D1P = gd['gas6/X3D1P']             # <<<<<<<<<<<<<<
@@ -3866,7 +3866,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D1P[0]), __pyx_t_9, sizeof(__pyx_v_X3D1P[0]) * (41));
 
-  /* "KRYPTON.pyx":133
+  /* "gases/KRYPTON.pyx":133
  *     YP3D1PP = gd['gas6/YP3D1PP']
  *     X3D1P = gd['gas6/X3D1P']
  *     Y3D1P = gd['gas6/Y3D1P']             # <<<<<<<<<<<<<<
@@ -3879,7 +3879,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D1P[0]), __pyx_t_9, sizeof(__pyx_v_Y3D1P[0]) * (41));
 
-  /* "KRYPTON.pyx":134
+  /* "gases/KRYPTON.pyx":134
  *     X3D1P = gd['gas6/X3D1P']
  *     Y3D1P = gd['gas6/Y3D1P']
  *     YP3D1P = gd['gas6/YP3D1P']             # <<<<<<<<<<<<<<
@@ -3892,7 +3892,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3D1P[0]), __pyx_t_9, sizeof(__pyx_v_YP3D1P[0]) * (41));
 
-  /* "KRYPTON.pyx":135
+  /* "gases/KRYPTON.pyx":135
  *     Y3D1P = gd['gas6/Y3D1P']
  *     YP3D1P = gd['gas6/YP3D1P']
  *     X2S5 = gd['gas6/X2S5']             # <<<<<<<<<<<<<<
@@ -3905,7 +3905,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2S5[0]), __pyx_t_38, sizeof(__pyx_v_X2S5[0]) * (44));
 
-  /* "KRYPTON.pyx":136
+  /* "gases/KRYPTON.pyx":136
  *     YP3D1P = gd['gas6/YP3D1P']
  *     X2S5 = gd['gas6/X2S5']
  *     Y2S5 = gd['gas6/Y2S5']             # <<<<<<<<<<<<<<
@@ -3918,7 +3918,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2S5[0]), __pyx_t_38, sizeof(__pyx_v_Y2S5[0]) * (44));
 
-  /* "KRYPTON.pyx":137
+  /* "gases/KRYPTON.pyx":137
  *     X2S5 = gd['gas6/X2S5']
  *     Y2S5 = gd['gas6/Y2S5']
  *     YP2S5 = gd['gas6/YP2S5']             # <<<<<<<<<<<<<<
@@ -3931,7 +3931,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2S5[0]), __pyx_t_38, sizeof(__pyx_v_YP2S5[0]) * (44));
 
-  /* "KRYPTON.pyx":138
+  /* "gases/KRYPTON.pyx":138
  *     Y2S5 = gd['gas6/Y2S5']
  *     YP2S5 = gd['gas6/YP2S5']
  *     X3P10 = gd['gas6/X3P10']             # <<<<<<<<<<<<<<
@@ -3944,7 +3944,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P10[0]), __pyx_t_39, sizeof(__pyx_v_X3P10[0]) * (20));
 
-  /* "KRYPTON.pyx":139
+  /* "gases/KRYPTON.pyx":139
  *     YP2S5 = gd['gas6/YP2S5']
  *     X3P10 = gd['gas6/X3P10']
  *     Y3P10 = gd['gas6/Y3P10']             # <<<<<<<<<<<<<<
@@ -3957,7 +3957,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P10[0]), __pyx_t_39, sizeof(__pyx_v_Y3P10[0]) * (20));
 
-  /* "KRYPTON.pyx":140
+  /* "gases/KRYPTON.pyx":140
  *     X3P10 = gd['gas6/X3P10']
  *     Y3P10 = gd['gas6/Y3P10']
  *     YP3P10 = gd['gas6/YP3P10']             # <<<<<<<<<<<<<<
@@ -3970,7 +3970,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3P10[0]), __pyx_t_39, sizeof(__pyx_v_YP3P10[0]) * (20));
 
-  /* "KRYPTON.pyx":141
+  /* "gases/KRYPTON.pyx":141
  *     Y3P10 = gd['gas6/Y3P10']
  *     YP3P10 = gd['gas6/YP3P10']
  *     X3P9 = gd['gas6/X3P9']             # <<<<<<<<<<<<<<
@@ -3983,7 +3983,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P9[0]), __pyx_t_39, sizeof(__pyx_v_X3P9[0]) * (20));
 
-  /* "KRYPTON.pyx":142
+  /* "gases/KRYPTON.pyx":142
  *     YP3P10 = gd['gas6/YP3P10']
  *     X3P9 = gd['gas6/X3P9']
  *     Y3P9 = gd['gas6/Y3P9']             # <<<<<<<<<<<<<<
@@ -3996,7 +3996,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P9[0]), __pyx_t_39, sizeof(__pyx_v_Y3P9[0]) * (20));
 
-  /* "KRYPTON.pyx":143
+  /* "gases/KRYPTON.pyx":143
  *     X3P9 = gd['gas6/X3P9']
  *     Y3P9 = gd['gas6/Y3P9']
  *     YP3P9 = gd['gas6/YP3P9']             # <<<<<<<<<<<<<<
@@ -4009,7 +4009,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3P9[0]), __pyx_t_39, sizeof(__pyx_v_YP3P9[0]) * (20));
 
-  /* "KRYPTON.pyx":144
+  /* "gases/KRYPTON.pyx":144
  *     Y3P9 = gd['gas6/Y3P9']
  *     YP3P9 = gd['gas6/YP3P9']
  *     X3P8 = gd['gas6/X3P8']             # <<<<<<<<<<<<<<
@@ -4022,7 +4022,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P8[0]), __pyx_t_39, sizeof(__pyx_v_X3P8[0]) * (20));
 
-  /* "KRYPTON.pyx":145
+  /* "gases/KRYPTON.pyx":145
  *     YP3P9 = gd['gas6/YP3P9']
  *     X3P8 = gd['gas6/X3P8']
  *     Y3P8 = gd['gas6/Y3P8']             # <<<<<<<<<<<<<<
@@ -4035,7 +4035,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P8[0]), __pyx_t_39, sizeof(__pyx_v_Y3P8[0]) * (20));
 
-  /* "KRYPTON.pyx":146
+  /* "gases/KRYPTON.pyx":146
  *     X3P8 = gd['gas6/X3P8']
  *     Y3P8 = gd['gas6/Y3P8']
  *     YP3P8 = gd['gas6/YP3P8']             # <<<<<<<<<<<<<<
@@ -4048,7 +4048,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3P8[0]), __pyx_t_39, sizeof(__pyx_v_YP3P8[0]) * (20));
 
-  /* "KRYPTON.pyx":147
+  /* "gases/KRYPTON.pyx":147
  *     Y3P8 = gd['gas6/Y3P8']
  *     YP3P8 = gd['gas6/YP3P8']
  *     X3S1PP = gd['gas6/X3S1PP']             # <<<<<<<<<<<<<<
@@ -4061,7 +4061,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PP[0]), __pyx_t_39, sizeof(__pyx_v_X3S1PP[0]) * (20));
 
-  /* "KRYPTON.pyx":148
+  /* "gases/KRYPTON.pyx":148
  *     YP3P8 = gd['gas6/YP3P8']
  *     X3S1PP = gd['gas6/X3S1PP']
  *     Y3S1PP = gd['gas6/Y3S1PP']             # <<<<<<<<<<<<<<
@@ -4074,7 +4074,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PP[0]), __pyx_t_39, sizeof(__pyx_v_Y3S1PP[0]) * (20));
 
-  /* "KRYPTON.pyx":149
+  /* "gases/KRYPTON.pyx":149
  *     X3S1PP = gd['gas6/X3S1PP']
  *     Y3S1PP = gd['gas6/Y3S1PP']
  *     YP3S1PP = gd['gas6/YP3S1PP']             # <<<<<<<<<<<<<<
@@ -4087,7 +4087,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3S1PP[0]), __pyx_t_39, sizeof(__pyx_v_YP3S1PP[0]) * (20));
 
-  /* "KRYPTON.pyx":150
+  /* "gases/KRYPTON.pyx":150
  *     Y3S1PP = gd['gas6/Y3S1PP']
  *     YP3S1PP = gd['gas6/YP3S1PP']
  *     X3P7 = gd['gas6/X3P7']             # <<<<<<<<<<<<<<
@@ -4100,7 +4100,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P7[0]), __pyx_t_39, sizeof(__pyx_v_X3P7[0]) * (20));
 
-  /* "KRYPTON.pyx":151
+  /* "gases/KRYPTON.pyx":151
  *     YP3S1PP = gd['gas6/YP3S1PP']
  *     X3P7 = gd['gas6/X3P7']
  *     Y3P7 = gd['gas6/Y3P7']             # <<<<<<<<<<<<<<
@@ -4113,7 +4113,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P7[0]), __pyx_t_39, sizeof(__pyx_v_Y3P7[0]) * (20));
 
-  /* "KRYPTON.pyx":152
+  /* "gases/KRYPTON.pyx":152
  *     X3P7 = gd['gas6/X3P7']
  *     Y3P7 = gd['gas6/Y3P7']
  *     YP3P7 = gd['gas6/YP3P7']             # <<<<<<<<<<<<<<
@@ -4126,7 +4126,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3P7[0]), __pyx_t_39, sizeof(__pyx_v_YP3P7[0]) * (20));
 
-  /* "KRYPTON.pyx":153
+  /* "gases/KRYPTON.pyx":153
  *     Y3P7 = gd['gas6/Y3P7']
  *     YP3P7 = gd['gas6/YP3P7']
  *     X3P6 = gd['gas6/X3P6']             # <<<<<<<<<<<<<<
@@ -4139,7 +4139,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P6[0]), __pyx_t_39, sizeof(__pyx_v_X3P6[0]) * (20));
 
-  /* "KRYPTON.pyx":154
+  /* "gases/KRYPTON.pyx":154
  *     YP3P7 = gd['gas6/YP3P7']
  *     X3P6 = gd['gas6/X3P6']
  *     Y3P6 = gd['gas6/Y3P6']             # <<<<<<<<<<<<<<
@@ -4152,7 +4152,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P6[0]), __pyx_t_39, sizeof(__pyx_v_Y3P6[0]) * (20));
 
-  /* "KRYPTON.pyx":155
+  /* "gases/KRYPTON.pyx":155
  *     X3P6 = gd['gas6/X3P6']
  *     Y3P6 = gd['gas6/Y3P6']
  *     YP3P6 = gd['gas6/YP3P6']             # <<<<<<<<<<<<<<
@@ -4165,7 +4165,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3P6[0]), __pyx_t_39, sizeof(__pyx_v_YP3P6[0]) * (20));
 
-  /* "KRYPTON.pyx":156
+  /* "gases/KRYPTON.pyx":156
  *     Y3P6 = gd['gas6/Y3P6']
  *     YP3P6 = gd['gas6/YP3P6']
  *     X3S1PPPP = gd['gas6/X3S1PPPP']             # <<<<<<<<<<<<<<
@@ -4178,7 +4178,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PPPP[0]), __pyx_t_39, sizeof(__pyx_v_X3S1PPPP[0]) * (20));
 
-  /* "KRYPTON.pyx":157
+  /* "gases/KRYPTON.pyx":157
  *     YP3P6 = gd['gas6/YP3P6']
  *     X3S1PPPP = gd['gas6/X3S1PPPP']
  *     Y3S1PPPP = gd['gas6/Y3S1PPPP']             # <<<<<<<<<<<<<<
@@ -4191,7 +4191,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PPPP[0]), __pyx_t_39, sizeof(__pyx_v_Y3S1PPPP[0]) * (20));
 
-  /* "KRYPTON.pyx":158
+  /* "gases/KRYPTON.pyx":158
  *     X3S1PPPP = gd['gas6/X3S1PPPP']
  *     Y3S1PPPP = gd['gas6/Y3S1PPPP']
  *     YP3S1PPPP = gd['gas6/YP3S1PPPP']             # <<<<<<<<<<<<<<
@@ -4204,7 +4204,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3S1PPPP[0]), __pyx_t_39, sizeof(__pyx_v_YP3S1PPPP[0]) * (20));
 
-  /* "KRYPTON.pyx":159
+  /* "gases/KRYPTON.pyx":159
  *     Y3S1PPPP = gd['gas6/Y3S1PPPP']
  *     YP3S1PPPP = gd['gas6/YP3S1PPPP']
  *     X3S1PPP = gd['gas6/X3S1PPP']             # <<<<<<<<<<<<<<
@@ -4217,7 +4217,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PPP[0]), __pyx_t_39, sizeof(__pyx_v_X3S1PPP[0]) * (20));
 
-  /* "KRYPTON.pyx":160
+  /* "gases/KRYPTON.pyx":160
  *     YP3S1PPPP = gd['gas6/YP3S1PPPP']
  *     X3S1PPP = gd['gas6/X3S1PPP']
  *     Y3S1PPP = gd['gas6/Y3S1PPP']             # <<<<<<<<<<<<<<
@@ -4230,7 +4230,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PPP[0]), __pyx_t_39, sizeof(__pyx_v_Y3S1PPP[0]) * (20));
 
-  /* "KRYPTON.pyx":161
+  /* "gases/KRYPTON.pyx":161
  *     X3S1PPP = gd['gas6/X3S1PPP']
  *     Y3S1PPP = gd['gas6/Y3S1PPP']
  *     YP3S1PPP = gd['gas6/YP3S1PPP']             # <<<<<<<<<<<<<<
@@ -4243,7 +4243,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3S1PPP[0]), __pyx_t_39, sizeof(__pyx_v_YP3S1PPP[0]) * (20));
 
-  /* "KRYPTON.pyx":162
+  /* "gases/KRYPTON.pyx":162
  *     Y3S1PPP = gd['gas6/Y3S1PPP']
  *     YP3S1PPP = gd['gas6/YP3S1PPP']
  *     X3P5 = gd['gas6/X3P5']             # <<<<<<<<<<<<<<
@@ -4256,7 +4256,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P5[0]), __pyx_t_39, sizeof(__pyx_v_X3P5[0]) * (20));
 
-  /* "KRYPTON.pyx":163
+  /* "gases/KRYPTON.pyx":163
  *     YP3S1PPP = gd['gas6/YP3S1PPP']
  *     X3P5 = gd['gas6/X3P5']
  *     Y3P5 = gd['gas6/Y3P5']             # <<<<<<<<<<<<<<
@@ -4269,7 +4269,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P5[0]), __pyx_t_39, sizeof(__pyx_v_Y3P5[0]) * (20));
 
-  /* "KRYPTON.pyx":164
+  /* "gases/KRYPTON.pyx":164
  *     X3P5 = gd['gas6/X3P5']
  *     Y3P5 = gd['gas6/Y3P5']
  *     YP3P5 = gd['gas6/YP3P5']             # <<<<<<<<<<<<<<
@@ -4282,7 +4282,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3P5[0]), __pyx_t_39, sizeof(__pyx_v_YP3P5[0]) * (20));
 
-  /* "KRYPTON.pyx":165
+  /* "gases/KRYPTON.pyx":165
  *     Y3P5 = gd['gas6/Y3P5']
  *     YP3P5 = gd['gas6/YP3P5']
  *     X4D6 = gd['gas6/X4D6']             # <<<<<<<<<<<<<<
@@ -4295,7 +4295,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X4D6[0]), __pyx_t_39, sizeof(__pyx_v_X4D6[0]) * (20));
 
-  /* "KRYPTON.pyx":166
+  /* "gases/KRYPTON.pyx":166
  *     YP3P5 = gd['gas6/YP3P5']
  *     X4D6 = gd['gas6/X4D6']
  *     Y4D6 = gd['gas6/Y4D6']             # <<<<<<<<<<<<<<
@@ -4308,7 +4308,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y4D6[0]), __pyx_t_39, sizeof(__pyx_v_Y4D6[0]) * (20));
 
-  /* "KRYPTON.pyx":167
+  /* "gases/KRYPTON.pyx":167
  *     X4D6 = gd['gas6/X4D6']
  *     Y4D6 = gd['gas6/Y4D6']
  *     YP4D6 = gd['gas6/YP4D6']             # <<<<<<<<<<<<<<
@@ -4321,7 +4321,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP4D6[0]), __pyx_t_39, sizeof(__pyx_v_YP4D6[0]) * (20));
 
-  /* "KRYPTON.pyx":168
+  /* "gases/KRYPTON.pyx":168
  *     Y4D6 = gd['gas6/Y4D6']
  *     YP4D6 = gd['gas6/YP4D6']
  *     X4D4P = gd['gas6/X4D4P']             # <<<<<<<<<<<<<<
@@ -4334,7 +4334,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X4D4P[0]), __pyx_t_39, sizeof(__pyx_v_X4D4P[0]) * (20));
 
-  /* "KRYPTON.pyx":169
+  /* "gases/KRYPTON.pyx":169
  *     YP4D6 = gd['gas6/YP4D6']
  *     X4D4P = gd['gas6/X4D4P']
  *     Y4D4P = gd['gas6/Y4D4P']             # <<<<<<<<<<<<<<
@@ -4347,7 +4347,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y4D4P[0]), __pyx_t_39, sizeof(__pyx_v_Y4D4P[0]) * (20));
 
-  /* "KRYPTON.pyx":170
+  /* "gases/KRYPTON.pyx":170
  *     X4D4P = gd['gas6/X4D4P']
  *     Y4D4P = gd['gas6/Y4D4P']
  *     YP4D4P = gd['gas6/YP4D4P']             # <<<<<<<<<<<<<<
@@ -4360,7 +4360,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP4D4P[0]), __pyx_t_39, sizeof(__pyx_v_YP4D4P[0]) * (20));
 
-  /* "KRYPTON.pyx":171
+  /* "gases/KRYPTON.pyx":171
  *     Y4D4P = gd['gas6/Y4D4P']
  *     YP4D4P = gd['gas6/YP4D4P']
  *     X4D4 = gd['gas6/X4D4']             # <<<<<<<<<<<<<<
@@ -4373,7 +4373,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X4D4[0]), __pyx_t_40, sizeof(__pyx_v_X4D4[0]) * (19));
 
-  /* "KRYPTON.pyx":172
+  /* "gases/KRYPTON.pyx":172
  *     YP4D4P = gd['gas6/YP4D4P']
  *     X4D4 = gd['gas6/X4D4']
  *     Y4D4 = gd['gas6/Y4D4']             # <<<<<<<<<<<<<<
@@ -4386,7 +4386,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y4D4[0]), __pyx_t_40, sizeof(__pyx_v_Y4D4[0]) * (19));
 
-  /* "KRYPTON.pyx":173
+  /* "gases/KRYPTON.pyx":173
  *     X4D4 = gd['gas6/X4D4']
  *     Y4D4 = gd['gas6/Y4D4']
  *     YP4D4 = gd['gas6/YP4D4']             # <<<<<<<<<<<<<<
@@ -4399,7 +4399,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP4D4[0]), __pyx_t_40, sizeof(__pyx_v_YP4D4[0]) * (19));
 
-  /* "KRYPTON.pyx":174
+  /* "gases/KRYPTON.pyx":174
  *     Y4D4 = gd['gas6/Y4D4']
  *     YP4D4 = gd['gas6/YP4D4']
  *     X4D3 = gd['gas6/X4D3']             # <<<<<<<<<<<<<<
@@ -4412,7 +4412,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X4D3[0]), __pyx_t_40, sizeof(__pyx_v_X4D3[0]) * (19));
 
-  /* "KRYPTON.pyx":175
+  /* "gases/KRYPTON.pyx":175
  *     YP4D4 = gd['gas6/YP4D4']
  *     X4D3 = gd['gas6/X4D3']
  *     Y4D3 = gd['gas6/Y4D3']             # <<<<<<<<<<<<<<
@@ -4425,7 +4425,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y4D3[0]), __pyx_t_40, sizeof(__pyx_v_Y4D3[0]) * (19));
 
-  /* "KRYPTON.pyx":176
+  /* "gases/KRYPTON.pyx":176
  *     X4D3 = gd['gas6/X4D3']
  *     Y4D3 = gd['gas6/Y4D3']
  *     YP4D3 = gd['gas6/YP4D3']             # <<<<<<<<<<<<<<
@@ -4438,7 +4438,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP4D3[0]), __pyx_t_40, sizeof(__pyx_v_YP4D3[0]) * (19));
 
-  /* "KRYPTON.pyx":177
+  /* "gases/KRYPTON.pyx":177
  *     Y4D3 = gd['gas6/Y4D3']
  *     YP4D3 = gd['gas6/YP4D3']
  *     X2S3 = gd['gas6/X2S3']             # <<<<<<<<<<<<<<
@@ -4451,7 +4451,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2S3[0]), __pyx_t_40, sizeof(__pyx_v_X2S3[0]) * (19));
 
-  /* "KRYPTON.pyx":178
+  /* "gases/KRYPTON.pyx":178
  *     YP4D3 = gd['gas6/YP4D3']
  *     X2S3 = gd['gas6/X2S3']
  *     Y2S3 = gd['gas6/Y2S3']             # <<<<<<<<<<<<<<
@@ -4464,7 +4464,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2S3[0]), __pyx_t_40, sizeof(__pyx_v_Y2S3[0]) * (19));
 
-  /* "KRYPTON.pyx":179
+  /* "gases/KRYPTON.pyx":179
  *     X2S3 = gd['gas6/X2S3']
  *     Y2S3 = gd['gas6/Y2S3']
  *     YP2S3 = gd['gas6/YP2S3']             # <<<<<<<<<<<<<<
@@ -4477,7 +4477,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP2S3[0]), __pyx_t_40, sizeof(__pyx_v_YP2S3[0]) * (19));
 
-  /* "KRYPTON.pyx":180
+  /* "gases/KRYPTON.pyx":180
  *     Y2S3 = gd['gas6/Y2S3']
  *     YP2S3 = gd['gas6/YP2S3']
  *     X4D1PP = gd['gas6/X4D1PP']             # <<<<<<<<<<<<<<
@@ -4490,7 +4490,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X4D1PP[0]), __pyx_t_40, sizeof(__pyx_v_X4D1PP[0]) * (19));
 
-  /* "KRYPTON.pyx":181
+  /* "gases/KRYPTON.pyx":181
  *     YP2S3 = gd['gas6/YP2S3']
  *     X4D1PP = gd['gas6/X4D1PP']
  *     Y4D1PP = gd['gas6/Y4D1PP']             # <<<<<<<<<<<<<<
@@ -4503,7 +4503,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y4D1PP[0]), __pyx_t_40, sizeof(__pyx_v_Y4D1PP[0]) * (19));
 
-  /* "KRYPTON.pyx":182
+  /* "gases/KRYPTON.pyx":182
  *     X4D1PP = gd['gas6/X4D1PP']
  *     Y4D1PP = gd['gas6/Y4D1PP']
  *     YP4D1PP = gd['gas6/YP4D1PP']             # <<<<<<<<<<<<<<
@@ -4516,7 +4516,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP4D1PP[0]), __pyx_t_40, sizeof(__pyx_v_YP4D1PP[0]) * (19));
 
-  /* "KRYPTON.pyx":183
+  /* "gases/KRYPTON.pyx":183
  *     Y4D1PP = gd['gas6/Y4D1PP']
  *     YP4D1PP = gd['gas6/YP4D1PP']
  *     X4D1P = gd['gas6/X4D1P']             # <<<<<<<<<<<<<<
@@ -4529,7 +4529,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X4D1P[0]), __pyx_t_40, sizeof(__pyx_v_X4D1P[0]) * (19));
 
-  /* "KRYPTON.pyx":184
+  /* "gases/KRYPTON.pyx":184
  *     YP4D1PP = gd['gas6/YP4D1PP']
  *     X4D1P = gd['gas6/X4D1P']
  *     Y4D1P = gd['gas6/Y4D1P']             # <<<<<<<<<<<<<<
@@ -4542,7 +4542,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y4D1P[0]), __pyx_t_40, sizeof(__pyx_v_Y4D1P[0]) * (19));
 
-  /* "KRYPTON.pyx":185
+  /* "gases/KRYPTON.pyx":185
  *     X4D1P = gd['gas6/X4D1P']
  *     Y4D1P = gd['gas6/Y4D1P']
  *     YP4D1P = gd['gas6/YP4D1P']             # <<<<<<<<<<<<<<
@@ -4555,7 +4555,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP4D1P[0]), __pyx_t_40, sizeof(__pyx_v_YP4D1P[0]) * (19));
 
-  /* "KRYPTON.pyx":186
+  /* "gases/KRYPTON.pyx":186
  *     Y4D1P = gd['gas6/Y4D1P']
  *     YP4D1P = gd['gas6/YP4D1P']
  *     X3S5 = gd['gas6/X3S5']             # <<<<<<<<<<<<<<
@@ -4568,7 +4568,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S5[0]), __pyx_t_40, sizeof(__pyx_v_X3S5[0]) * (19));
 
-  /* "KRYPTON.pyx":187
+  /* "gases/KRYPTON.pyx":187
  *     YP4D1P = gd['gas6/YP4D1P']
  *     X3S5 = gd['gas6/X3S5']
  *     Y3S5 = gd['gas6/Y3S5']             # <<<<<<<<<<<<<<
@@ -4581,7 +4581,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S5[0]), __pyx_t_40, sizeof(__pyx_v_Y3S5[0]) * (19));
 
-  /* "KRYPTON.pyx":188
+  /* "gases/KRYPTON.pyx":188
  *     X3S5 = gd['gas6/X3S5']
  *     Y3S5 = gd['gas6/Y3S5']
  *     YP3S5 = gd['gas6/YP3S5']             # <<<<<<<<<<<<<<
@@ -4594,7 +4594,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP3S5[0]), __pyx_t_40, sizeof(__pyx_v_YP3S5[0]) * (19));
 
-  /* "KRYPTON.pyx":189
+  /* "gases/KRYPTON.pyx":189
  *     Y3S5 = gd['gas6/Y3S5']
  *     YP3S5 = gd['gas6/YP3S5']
  *     X4FS = gd['gas6/X4FS']             # <<<<<<<<<<<<<<
@@ -4607,7 +4607,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X4FS[0]), __pyx_t_40, sizeof(__pyx_v_X4FS[0]) * (19));
 
-  /* "KRYPTON.pyx":190
+  /* "gases/KRYPTON.pyx":190
  *     YP3S5 = gd['gas6/YP3S5']
  *     X4FS = gd['gas6/X4FS']
  *     Y4FS = gd['gas6/Y4FS']             # <<<<<<<<<<<<<<
@@ -4620,7 +4620,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y4FS[0]), __pyx_t_40, sizeof(__pyx_v_Y4FS[0]) * (19));
 
-  /* "KRYPTON.pyx":191
+  /* "gases/KRYPTON.pyx":191
  *     X4FS = gd['gas6/X4FS']
  *     Y4FS = gd['gas6/Y4FS']
  *     YP4FS = gd['gas6/YP4FS']             # <<<<<<<<<<<<<<
@@ -4633,7 +4633,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YP4FS[0]), __pyx_t_40, sizeof(__pyx_v_YP4FS[0]) * (19));
 
-  /* "KRYPTON.pyx":192
+  /* "gases/KRYPTON.pyx":192
  *     Y4FS = gd['gas6/Y4FS']
  *     YP4FS = gd['gas6/YP4FS']
  *     Z36T = gd['gas6/Z36T']             # <<<<<<<<<<<<<<
@@ -4646,7 +4646,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z36T[0]), __pyx_t_41, sizeof(__pyx_v_Z36T[0]) * (25));
 
-  /* "KRYPTON.pyx":193
+  /* "gases/KRYPTON.pyx":193
  *     YP4FS = gd['gas6/YP4FS']
  *     Z36T = gd['gas6/Z36T']
  *     EBRM = gd['gas6/EBRM']             # <<<<<<<<<<<<<<
@@ -4659,7 +4659,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_41, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "KRYPTON.pyx":200
+  /* "gases/KRYPTON.pyx":200
  *     cdef int N1S4, N1S3, N1S2, N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N3D6, N3D5, N2P4, N3D3, N3D4P, N2P3, N2P2, N3D4, N2P1, N3D1PP, N3D1P
  *     cdef int N2S5, N3P10, N3P9, N3P8, N3S1PP, N3P7, N3P6, N3S1PPPP, N3S1PPP, N3P5, N4D6, N4D4P, N4D4, N4D3, N2S3, N4D1PP, N4D1P, N3S5, N4FS
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -4668,7 +4668,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "KRYPTON.pyx":201
+  /* "gases/KRYPTON.pyx":201
  *     cdef int N2S5, N3P10, N3P9, N3P8, N3S1PP, N3P7, N3P6, N3S1PPPP, N3S1PPP, N3P5, N4D6, N4D4P, N4D4, N4D3, N2S3, N4D1PP, N4D1P, N3S5, N4FS
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804             # <<<<<<<<<<<<<<
@@ -4677,7 +4677,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "KRYPTON.pyx":202
+  /* "gases/KRYPTON.pyx":202
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804
  *     AM2 = 4.65             # <<<<<<<<<<<<<<
@@ -4686,7 +4686,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 4.65;
 
-  /* "KRYPTON.pyx":203
+  /* "gases/KRYPTON.pyx":203
  *     EMASS2 = 1021997.804
  *     AM2 = 4.65
  *     C = 52.7             # <<<<<<<<<<<<<<
@@ -4695,7 +4695,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 52.7;
 
-  /* "KRYPTON.pyx":205
+  /* "gases/KRYPTON.pyx":205
  *     C = 52.7
  *     # BORN BETHE CONSTANT
  *     A0 = 0.52917720859e-8             # <<<<<<<<<<<<<<
@@ -4704,7 +4704,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-8;
 
-  /* "KRYPTON.pyx":206
+  /* "gases/KRYPTON.pyx":206
  *     # BORN BETHE CONSTANT
  *     A0 = 0.52917720859e-8
  *     RY = 13.60569193             # <<<<<<<<<<<<<<
@@ -4713,7 +4713,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "KRYPTON.pyx":207
+  /* "gases/KRYPTON.pyx":207
  *     A0 = 0.52917720859e-8
  *     RY = 13.60569193
  *     API = acos(-1.0)             # <<<<<<<<<<<<<<
@@ -4722,7 +4722,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0);
 
-  /* "KRYPTON.pyx":208
+  /* "gases/KRYPTON.pyx":208
  *     RY = 13.60569193
  *     API = acos(-1.0)
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -4731,7 +4731,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "KRYPTON.pyx":210
+  /* "gases/KRYPTON.pyx":210
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
  *     # SCALING CONSTANTS
  *     AN1S = 0.87             # <<<<<<<<<<<<<<
@@ -4740,7 +4740,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN1S = 0.87;
 
-  /* "KRYPTON.pyx":211
+  /* "gases/KRYPTON.pyx":211
  *     # SCALING CONSTANTS
  *     AN1S = 0.87
  *     AN2P10 = 0.4             # <<<<<<<<<<<<<<
@@ -4749,7 +4749,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN2P10 = 0.4;
 
-  /* "KRYPTON.pyx":212
+  /* "gases/KRYPTON.pyx":212
  *     AN1S = 0.87
  *     AN2P10 = 0.4
  *     AN2P5 = 0.4             # <<<<<<<<<<<<<<
@@ -4758,7 +4758,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN2P5 = 0.4;
 
-  /* "KRYPTON.pyx":213
+  /* "gases/KRYPTON.pyx":213
  *     AN2P10 = 0.4
  *     AN2P5 = 0.4
  *     AN2P1 = 0.4             # <<<<<<<<<<<<<<
@@ -4767,7 +4767,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN2P1 = 0.4;
 
-  /* "KRYPTON.pyx":214
+  /* "gases/KRYPTON.pyx":214
  *     AN2P5 = 0.4
  *     AN2P1 = 0.4
  *     AN2P = 0.75             # <<<<<<<<<<<<<<
@@ -4776,7 +4776,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN2P = 0.75;
 
-  /* "KRYPTON.pyx":215
+  /* "gases/KRYPTON.pyx":215
  *     AN2P1 = 0.4
  *     AN2P = 0.75
  *     AN3P = 0.60             # <<<<<<<<<<<<<<
@@ -4785,7 +4785,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN3P = 0.60;
 
-  /* "KRYPTON.pyx":216
+  /* "gases/KRYPTON.pyx":216
  *     AN2P = 0.75
  *     AN3P = 0.60
  *     AN3P5 = 0.4             # <<<<<<<<<<<<<<
@@ -4794,7 +4794,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN3P5 = 0.4;
 
-  /* "KRYPTON.pyx":217
+  /* "gases/KRYPTON.pyx":217
  *     AN3P = 0.60
  *     AN3P5 = 0.4
  *     AN3D = 0.65             # <<<<<<<<<<<<<<
@@ -4803,7 +4803,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN3D = 0.65;
 
-  /* "KRYPTON.pyx":218
+  /* "gases/KRYPTON.pyx":218
  *     AN3P5 = 0.4
  *     AN3D = 0.65
  *     AN4D = 0.4             # <<<<<<<<<<<<<<
@@ -4812,7 +4812,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AN4D = 0.4;
 
-  /* "KRYPTON.pyx":220
+  /* "gases/KRYPTON.pyx":220
  *     AN4D = 0.4
  *     # AVERAGE AUGER EMISSIONS FROM EACH SHELL
  *     AUGM5 = 2.0             # <<<<<<<<<<<<<<
@@ -4821,7 +4821,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM5 = 2.0;
 
-  /* "KRYPTON.pyx":221
+  /* "gases/KRYPTON.pyx":221
  *     # AVERAGE AUGER EMISSIONS FROM EACH SHELL
  *     AUGM5 = 2.0
  *     AUGM4 = 2.0             # <<<<<<<<<<<<<<
@@ -4830,7 +4830,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM4 = 2.0;
 
-  /* "KRYPTON.pyx":222
+  /* "gases/KRYPTON.pyx":222
  *     AUGM5 = 2.0
  *     AUGM4 = 2.0
  *     AUGM3 = 3.43             # <<<<<<<<<<<<<<
@@ -4839,7 +4839,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM3 = 3.43;
 
-  /* "KRYPTON.pyx":223
+  /* "gases/KRYPTON.pyx":223
  *     AUGM4 = 2.0
  *     AUGM3 = 3.43
  *     AUGM2 = 2.0             # <<<<<<<<<<<<<<
@@ -4848,7 +4848,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM2 = 2.0;
 
-  /* "KRYPTON.pyx":224
+  /* "gases/KRYPTON.pyx":224
  *     AUGM3 = 3.43
  *     AUGM2 = 2.0
  *     AUGM1 = 3.81             # <<<<<<<<<<<<<<
@@ -4857,7 +4857,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGM1 = 3.81;
 
-  /* "KRYPTON.pyx":225
+  /* "gases/KRYPTON.pyx":225
  *     AUGM2 = 2.0
  *     AUGM1 = 3.81
  *     AUGL3 = 4.85             # <<<<<<<<<<<<<<
@@ -4866,7 +4866,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL3 = 4.85;
 
-  /* "KRYPTON.pyx":226
+  /* "gases/KRYPTON.pyx":226
  *     AUGM1 = 3.81
  *     AUGL3 = 4.85
  *     AUGL2 = 4.41             # <<<<<<<<<<<<<<
@@ -4875,7 +4875,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL2 = 4.41;
 
-  /* "KRYPTON.pyx":227
+  /* "gases/KRYPTON.pyx":227
  *     AUGL3 = 4.85
  *     AUGL2 = 4.41
  *     AUGL1 = 6.47             # <<<<<<<<<<<<<<
@@ -4884,7 +4884,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGL1 = 6.47;
 
-  /* "KRYPTON.pyx":228
+  /* "gases/KRYPTON.pyx":228
  *     AUGL2 = 4.41
  *     AUGL1 = 6.47
  *     AUGK = 5.91             # <<<<<<<<<<<<<<
@@ -4893,7 +4893,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGK = 5.91;
 
-  /* "KRYPTON.pyx":230
+  /* "gases/KRYPTON.pyx":230
  *     AUGK = 5.91
  * 
  *     object.NION = 11             # <<<<<<<<<<<<<<
@@ -4902,7 +4902,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 11;
 
-  /* "KRYPTON.pyx":231
+  /* "gases/KRYPTON.pyx":231
  * 
  *     object.NION = 11
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -4911,7 +4911,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "KRYPTON.pyx":232
+  /* "gases/KRYPTON.pyx":232
  *     object.NION = 11
  *     object.NATT = 1
  *     object.NIN = 51             # <<<<<<<<<<<<<<
@@ -4920,7 +4920,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 51;
 
-  /* "KRYPTON.pyx":233
+  /* "gases/KRYPTON.pyx":233
  *     object.NATT = 1
  *     object.NIN = 51
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -4929,7 +4929,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "KRYPTON.pyx":235
+  /* "gases/KRYPTON.pyx":235
  *     object.NNULL = 0
  * 
  *     for i in range(6):             # <<<<<<<<<<<<<<
@@ -4939,7 +4939,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_42 = 0; __pyx_t_42 < 6; __pyx_t_42+=1) {
     __pyx_v_i = __pyx_t_42;
 
-    /* "KRYPTON.pyx":236
+    /* "gases/KRYPTON.pyx":236
  * 
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -4950,7 +4950,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_i]) = __pyx_t_43;
   }
 
-  /* "KRYPTON.pyx":237
+  /* "gases/KRYPTON.pyx":237
  *     for i in range(6):
  *         object.KEL[i] = object.NANISO
  *     for i in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4962,7 +4962,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
     __pyx_v_i = __pyx_t_44;
 
-    /* "KRYPTON.pyx":238
+    /* "gases/KRYPTON.pyx":238
  *         object.KEL[i] = object.NANISO
  *     for i in range(object.NIN):
  *         object.KIN[i] = object.NANISO             # <<<<<<<<<<<<<<
@@ -4973,7 +4973,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_i]) = __pyx_t_45;
   }
 
-  /* "KRYPTON.pyx":239
+  /* "gases/KRYPTON.pyx":239
  *     for i in range(object.NIN):
  *         object.KIN[i] = object.NANISO
  *     NEL = 151             # <<<<<<<<<<<<<<
@@ -4982,7 +4982,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEL = 0x97;
 
-  /* "KRYPTON.pyx":240
+  /* "gases/KRYPTON.pyx":240
  *         object.KIN[i] = object.NANISO
  *     NEL = 151
  *     NDATA = 162             # <<<<<<<<<<<<<<
@@ -4991,7 +4991,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 0xA2;
 
-  /* "KRYPTON.pyx":241
+  /* "gases/KRYPTON.pyx":241
  *     NEL = 151
  *     NDATA = 162
  *     NEPSI = 186             # <<<<<<<<<<<<<<
@@ -5000,7 +5000,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEPSI = 0xBA;
 
-  /* "KRYPTON.pyx":242
+  /* "gases/KRYPTON.pyx":242
  *     NDATA = 162
  *     NEPSI = 186
  *     NIONG = 65             # <<<<<<<<<<<<<<
@@ -5009,7 +5009,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONG = 65;
 
-  /* "KRYPTON.pyx":243
+  /* "gases/KRYPTON.pyx":243
  *     NEPSI = 186
  *     NIONG = 65
  *     NION2 = 41             # <<<<<<<<<<<<<<
@@ -5018,7 +5018,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 41;
 
-  /* "KRYPTON.pyx":244
+  /* "gases/KRYPTON.pyx":244
  *     NIONG = 65
  *     NION2 = 41
  *     NION3 = 35             # <<<<<<<<<<<<<<
@@ -5027,7 +5027,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 35;
 
-  /* "KRYPTON.pyx":245
+  /* "gases/KRYPTON.pyx":245
  *     NION2 = 41
  *     NION3 = 35
  *     NION4 = 32             # <<<<<<<<<<<<<<
@@ -5036,7 +5036,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION4 = 32;
 
-  /* "KRYPTON.pyx":246
+  /* "gases/KRYPTON.pyx":246
  *     NION3 = 35
  *     NION4 = 32
  *     NKSH = 74             # <<<<<<<<<<<<<<
@@ -5045,7 +5045,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSH = 74;
 
-  /* "KRYPTON.pyx":247
+  /* "gases/KRYPTON.pyx":247
  *     NION4 = 32
  *     NKSH = 74
  *     NL1S = 83             # <<<<<<<<<<<<<<
@@ -5054,7 +5054,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL1S = 83;
 
-  /* "KRYPTON.pyx":248
+  /* "gases/KRYPTON.pyx":248
  *     NKSH = 74
  *     NL1S = 83
  *     NL2S = 82             # <<<<<<<<<<<<<<
@@ -5063,7 +5063,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL2S = 82;
 
-  /* "KRYPTON.pyx":249
+  /* "gases/KRYPTON.pyx":249
  *     NL1S = 83
  *     NL2S = 82
  *     NL3S = 84             # <<<<<<<<<<<<<<
@@ -5072,7 +5072,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL3S = 84;
 
-  /* "KRYPTON.pyx":250
+  /* "gases/KRYPTON.pyx":250
  *     NL2S = 82
  *     NL3S = 84
  *     NM1S = 91             # <<<<<<<<<<<<<<
@@ -5081,7 +5081,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NM1S = 91;
 
-  /* "KRYPTON.pyx":251
+  /* "gases/KRYPTON.pyx":251
  *     NL3S = 84
  *     NM1S = 91
  *     NM2S = 98             # <<<<<<<<<<<<<<
@@ -5090,7 +5090,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NM2S = 98;
 
-  /* "KRYPTON.pyx":252
+  /* "gases/KRYPTON.pyx":252
  *     NM1S = 91
  *     NM2S = 98
  *     NM3S = 99             # <<<<<<<<<<<<<<
@@ -5099,7 +5099,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NM3S = 99;
 
-  /* "KRYPTON.pyx":253
+  /* "gases/KRYPTON.pyx":253
  *     NM2S = 98
  *     NM3S = 99
  *     NM4S = 105             # <<<<<<<<<<<<<<
@@ -5108,7 +5108,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NM4S = 0x69;
 
-  /* "KRYPTON.pyx":254
+  /* "gases/KRYPTON.pyx":254
  *     NM3S = 99
  *     NM4S = 105
  *     NM5S = 106             # <<<<<<<<<<<<<<
@@ -5117,7 +5117,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NM5S = 0x6A;
 
-  /* "KRYPTON.pyx":255
+  /* "gases/KRYPTON.pyx":255
  *     NM4S = 105
  *     NM5S = 106
  *     N1S5 = 169             # <<<<<<<<<<<<<<
@@ -5126,7 +5126,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S5 = 0xA9;
 
-  /* "KRYPTON.pyx":256
+  /* "gases/KRYPTON.pyx":256
  *     NM5S = 106
  *     N1S5 = 169
  *     N1S4 = 130             # <<<<<<<<<<<<<<
@@ -5135,7 +5135,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S4 = 0x82;
 
-  /* "KRYPTON.pyx":257
+  /* "gases/KRYPTON.pyx":257
  *     N1S5 = 169
  *     N1S4 = 130
  *     N1S3 = 168             # <<<<<<<<<<<<<<
@@ -5144,7 +5144,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S3 = 0xA8;
 
-  /* "KRYPTON.pyx":258
+  /* "gases/KRYPTON.pyx":258
  *     N1S4 = 130
  *     N1S3 = 168
  *     N1S2 = 150             # <<<<<<<<<<<<<<
@@ -5153,7 +5153,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S2 = 0x96;
 
-  /* "KRYPTON.pyx":259
+  /* "gases/KRYPTON.pyx":259
  *     N1S3 = 168
  *     N1S2 = 150
  *     N2P10 = 142             # <<<<<<<<<<<<<<
@@ -5162,7 +5162,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P10 = 0x8E;
 
-  /* "KRYPTON.pyx":260
+  /* "gases/KRYPTON.pyx":260
  *     N1S2 = 150
  *     N2P10 = 142
  *     N2P9 = 117             # <<<<<<<<<<<<<<
@@ -5171,7 +5171,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P9 = 0x75;
 
-  /* "KRYPTON.pyx":261
+  /* "gases/KRYPTON.pyx":261
  *     N2P10 = 142
  *     N2P9 = 117
  *     N2P8 = 120             # <<<<<<<<<<<<<<
@@ -5180,7 +5180,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P8 = 0x78;
 
-  /* "KRYPTON.pyx":262
+  /* "gases/KRYPTON.pyx":262
  *     N2P9 = 117
  *     N2P8 = 120
  *     N2P7 = 111             # <<<<<<<<<<<<<<
@@ -5189,7 +5189,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P7 = 0x6F;
 
-  /* "KRYPTON.pyx":263
+  /* "gases/KRYPTON.pyx":263
  *     N2P8 = 120
  *     N2P7 = 111
  *     N2P6 = 100             # <<<<<<<<<<<<<<
@@ -5198,7 +5198,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P6 = 0x64;
 
-  /* "KRYPTON.pyx":264
+  /* "gases/KRYPTON.pyx":264
  *     N2P7 = 111
  *     N2P6 = 100
  *     N2P5 = 102             # <<<<<<<<<<<<<<
@@ -5207,7 +5207,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P5 = 0x66;
 
-  /* "KRYPTON.pyx":265
+  /* "gases/KRYPTON.pyx":265
  *     N2P6 = 100
  *     N2P5 = 102
  *     N3D6 = 69             # <<<<<<<<<<<<<<
@@ -5216,7 +5216,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D6 = 69;
 
-  /* "KRYPTON.pyx":266
+  /* "gases/KRYPTON.pyx":266
  *     N2P5 = 102
  *     N3D6 = 69
  *     N3D5 = 75             # <<<<<<<<<<<<<<
@@ -5225,7 +5225,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D5 = 75;
 
-  /* "KRYPTON.pyx":267
+  /* "gases/KRYPTON.pyx":267
  *     N3D6 = 69
  *     N3D5 = 75
  *     N2P4 = 64             # <<<<<<<<<<<<<<
@@ -5234,7 +5234,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P4 = 64;
 
-  /* "KRYPTON.pyx":268
+  /* "gases/KRYPTON.pyx":268
  *     N3D5 = 75
  *     N2P4 = 64
  *     N3D3 = 74             # <<<<<<<<<<<<<<
@@ -5243,7 +5243,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D3 = 74;
 
-  /* "KRYPTON.pyx":269
+  /* "gases/KRYPTON.pyx":269
  *     N2P4 = 64
  *     N3D3 = 74
  *     N3D4P = 73             # <<<<<<<<<<<<<<
@@ -5252,7 +5252,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D4P = 73;
 
-  /* "KRYPTON.pyx":270
+  /* "gases/KRYPTON.pyx":270
  *     N3D3 = 74
  *     N3D4P = 73
  *     N2P3 = 73             # <<<<<<<<<<<<<<
@@ -5261,7 +5261,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P3 = 73;
 
-  /* "KRYPTON.pyx":271
+  /* "gases/KRYPTON.pyx":271
  *     N3D4P = 73
  *     N2P3 = 73
  *     N2P2 = 75             # <<<<<<<<<<<<<<
@@ -5270,7 +5270,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P2 = 75;
 
-  /* "KRYPTON.pyx":272
+  /* "gases/KRYPTON.pyx":272
  *     N2P3 = 73
  *     N2P2 = 75
  *     N3D4 = 59             # <<<<<<<<<<<<<<
@@ -5279,7 +5279,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D4 = 59;
 
-  /* "KRYPTON.pyx":273
+  /* "gases/KRYPTON.pyx":273
  *     N2P2 = 75
  *     N3D4 = 59
  *     N2P1 = 51             # <<<<<<<<<<<<<<
@@ -5288,7 +5288,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P1 = 51;
 
-  /* "KRYPTON.pyx":274
+  /* "gases/KRYPTON.pyx":274
  *     N3D4 = 59
  *     N2P1 = 51
  *     N3D1PP = 48             # <<<<<<<<<<<<<<
@@ -5297,7 +5297,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D1PP = 48;
 
-  /* "KRYPTON.pyx":275
+  /* "gases/KRYPTON.pyx":275
  *     N2P1 = 51
  *     N3D1PP = 48
  *     N3D1P = 41             # <<<<<<<<<<<<<<
@@ -5306,7 +5306,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D1P = 41;
 
-  /* "KRYPTON.pyx":276
+  /* "gases/KRYPTON.pyx":276
  *     N3D1PP = 48
  *     N3D1P = 41
  *     N2S5 = 44             # <<<<<<<<<<<<<<
@@ -5315,7 +5315,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2S5 = 44;
 
-  /* "KRYPTON.pyx":277
+  /* "gases/KRYPTON.pyx":277
  *     N3D1P = 41
  *     N2S5 = 44
  *     N3P10 = 20             # <<<<<<<<<<<<<<
@@ -5324,7 +5324,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P10 = 20;
 
-  /* "KRYPTON.pyx":278
+  /* "gases/KRYPTON.pyx":278
  *     N2S5 = 44
  *     N3P10 = 20
  *     N3P9 = 20             # <<<<<<<<<<<<<<
@@ -5333,7 +5333,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P9 = 20;
 
-  /* "KRYPTON.pyx":279
+  /* "gases/KRYPTON.pyx":279
  *     N3P10 = 20
  *     N3P9 = 20
  *     N3P8 = 20             # <<<<<<<<<<<<<<
@@ -5342,7 +5342,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P8 = 20;
 
-  /* "KRYPTON.pyx":280
+  /* "gases/KRYPTON.pyx":280
  *     N3P9 = 20
  *     N3P8 = 20
  *     N3S1PP = 20             # <<<<<<<<<<<<<<
@@ -5351,7 +5351,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PP = 20;
 
-  /* "KRYPTON.pyx":281
+  /* "gases/KRYPTON.pyx":281
  *     N3P8 = 20
  *     N3S1PP = 20
  *     N3P7 = 20             # <<<<<<<<<<<<<<
@@ -5360,7 +5360,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P7 = 20;
 
-  /* "KRYPTON.pyx":282
+  /* "gases/KRYPTON.pyx":282
  *     N3S1PP = 20
  *     N3P7 = 20
  *     N3P6 = 20             # <<<<<<<<<<<<<<
@@ -5369,7 +5369,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P6 = 20;
 
-  /* "KRYPTON.pyx":283
+  /* "gases/KRYPTON.pyx":283
  *     N3P7 = 20
  *     N3P6 = 20
  *     N3S1PPPP = 20             # <<<<<<<<<<<<<<
@@ -5378,7 +5378,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PPPP = 20;
 
-  /* "KRYPTON.pyx":284
+  /* "gases/KRYPTON.pyx":284
  *     N3P6 = 20
  *     N3S1PPPP = 20
  *     N3S1PPP = 20             # <<<<<<<<<<<<<<
@@ -5387,7 +5387,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PPP = 20;
 
-  /* "KRYPTON.pyx":285
+  /* "gases/KRYPTON.pyx":285
  *     N3S1PPPP = 20
  *     N3S1PPP = 20
  *     N3P5 = 20             # <<<<<<<<<<<<<<
@@ -5396,7 +5396,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P5 = 20;
 
-  /* "KRYPTON.pyx":286
+  /* "gases/KRYPTON.pyx":286
  *     N3S1PPP = 20
  *     N3P5 = 20
  *     N4D6 = 20             # <<<<<<<<<<<<<<
@@ -5405,7 +5405,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N4D6 = 20;
 
-  /* "KRYPTON.pyx":287
+  /* "gases/KRYPTON.pyx":287
  *     N3P5 = 20
  *     N4D6 = 20
  *     N4D4P = 20             # <<<<<<<<<<<<<<
@@ -5414,7 +5414,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N4D4P = 20;
 
-  /* "KRYPTON.pyx":288
+  /* "gases/KRYPTON.pyx":288
  *     N4D6 = 20
  *     N4D4P = 20
  *     N4D4 = 19             # <<<<<<<<<<<<<<
@@ -5423,7 +5423,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N4D4 = 19;
 
-  /* "KRYPTON.pyx":289
+  /* "gases/KRYPTON.pyx":289
  *     N4D4P = 20
  *     N4D4 = 19
  *     N4D3 = 19             # <<<<<<<<<<<<<<
@@ -5432,7 +5432,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N4D3 = 19;
 
-  /* "KRYPTON.pyx":290
+  /* "gases/KRYPTON.pyx":290
  *     N4D4 = 19
  *     N4D3 = 19
  *     N2S3 = 19             # <<<<<<<<<<<<<<
@@ -5441,7 +5441,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2S3 = 19;
 
-  /* "KRYPTON.pyx":291
+  /* "gases/KRYPTON.pyx":291
  *     N4D3 = 19
  *     N2S3 = 19
  *     N4D1PP = 19             # <<<<<<<<<<<<<<
@@ -5450,7 +5450,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N4D1PP = 19;
 
-  /* "KRYPTON.pyx":292
+  /* "gases/KRYPTON.pyx":292
  *     N2S3 = 19
  *     N4D1PP = 19
  *     N4D1P = 19             # <<<<<<<<<<<<<<
@@ -5459,7 +5459,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N4D1P = 19;
 
-  /* "KRYPTON.pyx":293
+  /* "gases/KRYPTON.pyx":293
  *     N4D1PP = 19
  *     N4D1P = 19
  *     N3S5 = 19             # <<<<<<<<<<<<<<
@@ -5468,7 +5468,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S5 = 19;
 
-  /* "KRYPTON.pyx":294
+  /* "gases/KRYPTON.pyx":294
  *     N4D1P = 19
  *     N3S5 = 19
  *     N4FS = 19             # <<<<<<<<<<<<<<
@@ -5477,7 +5477,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N4FS = 19;
 
-  /* "KRYPTON.pyx":296
+  /* "gases/KRYPTON.pyx":296
  *     N4FS = 19
  * 
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -5486,7 +5486,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "KRYPTON.pyx":297
+  /* "gases/KRYPTON.pyx":297
  * 
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27, EOBY[11]             # <<<<<<<<<<<<<<
@@ -5495,7 +5495,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "KRYPTON.pyx":299
+  /* "gases/KRYPTON.pyx":299
  *     cdef double AMU = 1.660538921e-27, EOBY[11]
  * 
  *     object.E = [0.0, 1.0, 13.9996, 0.0, 0.0, 23.0]             # <<<<<<<<<<<<<<
@@ -5510,7 +5510,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_46[5] = 23.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_46, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "KRYPTON.pyx":300
+  /* "gases/KRYPTON.pyx":300
  * 
  *     object.E = [0.0, 1.0, 13.9996, 0.0, 0.0, 23.0]
  *     object.E[1] = 2.0 * EMASS / (83.798 * AMU)             # <<<<<<<<<<<<<<
@@ -5519,7 +5519,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (83.798 * __pyx_v_AMU));
 
-  /* "KRYPTON.pyx":302
+  /* "gases/KRYPTON.pyx":302
  *     object.E[1] = 2.0 * EMASS / (83.798 * AMU)
  *     # EOBY at low energy 0-3, EOBY for shells 4-10
  *     EOBY[0:11] = [10.0, 30.0, 60.0, 100., 175.0, 180.0, 250.0, 1678.4, 1730.9, 1921.0, 14327.26]             # <<<<<<<<<<<<<<
@@ -5539,7 +5539,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_47[10] = 14327.26;
   memcpy(&(__pyx_v_EOBY[0]), __pyx_t_47, sizeof(__pyx_v_EOBY[0]) * (11));
 
-  /* "KRYPTON.pyx":305
+  /* "gases/KRYPTON.pyx":305
  * 
  *     # AUGER AND FLUORESCENCE DATA
  *     object.NC0[0:11] = [0, 1, 2, 3, 3, 2, 4, 5, 4, 7, 10]             # <<<<<<<<<<<<<<
@@ -5559,7 +5559,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_48[10] = 10.0;
   memcpy(&(__pyx_v_object->NC0[0]), __pyx_t_48, sizeof(__pyx_v_object->NC0[0]) * (11));
 
-  /* "KRYPTON.pyx":306
+  /* "gases/KRYPTON.pyx":306
  *     # AUGER AND FLUORESCENCE DATA
  *     object.NC0[0:11] = [0, 1, 2, 3, 3, 2, 4, 5, 4, 7, 10]
  *     object.EC0[0:11] = [0.0, 5.0, 10.0, 15.0, 135.1, 186.8, 200.9, 1555, 1619.9, 1698.4, 13993]             # <<<<<<<<<<<<<<
@@ -5579,7 +5579,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_49[10] = 13993.0;
   memcpy(&(__pyx_v_object->EC0[0]), __pyx_t_49, sizeof(__pyx_v_object->EC0[0]) * (11));
 
-  /* "KRYPTON.pyx":307
+  /* "gases/KRYPTON.pyx":307
  *     object.NC0[0:11] = [0, 1, 2, 3, 3, 2, 4, 5, 4, 7, 10]
  *     object.EC0[0:11] = [0.0, 5.0, 10.0, 15.0, 135.1, 186.8, 200.9, 1555, 1619.9, 1698.4, 13993]
  *     object.WK[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0216, 0.0211, 0.0022, 0.65]             # <<<<<<<<<<<<<<
@@ -5599,7 +5599,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_50[10] = 0.65;
   memcpy(&(__pyx_v_object->WK[0]), __pyx_t_50, sizeof(__pyx_v_object->WK[0]) * (11));
 
-  /* "KRYPTON.pyx":308
+  /* "gases/KRYPTON.pyx":308
  *     object.EC0[0:11] = [0.0, 5.0, 10.0, 15.0, 135.1, 186.8, 200.9, 1555, 1619.9, 1698.4, 13993]
  *     object.WK[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0216, 0.0211, 0.0022, 0.65]
  *     object.EFL[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1584, 1636, 1700, 12649]             # <<<<<<<<<<<<<<
@@ -5619,7 +5619,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_51[10] = 12649.0;
   memcpy(&(__pyx_v_object->EFL[0]), __pyx_t_51, sizeof(__pyx_v_object->EFL[0]) * (11));
 
-  /* "KRYPTON.pyx":309
+  /* "gases/KRYPTON.pyx":309
  *     object.WK[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0216, 0.0211, 0.0022, 0.65]
  *     object.EFL[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1584, 1636, 1700, 12649]
  *     object.NG1[0:11] = [0, 0, 0, 0, 0, 0, 0, 3, 3, 5, 5]             # <<<<<<<<<<<<<<
@@ -5639,7 +5639,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_52[10] = 5.0;
   memcpy(&(__pyx_v_object->NG1[0]), __pyx_t_52, sizeof(__pyx_v_object->NG1[0]) * (11));
 
-  /* "KRYPTON.pyx":310
+  /* "gases/KRYPTON.pyx":310
  *     object.EFL[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1584, 1636, 1700, 12649]
  *     object.NG1[0:11] = [0, 0, 0, 0, 0, 0, 0, 3, 3, 5, 5]
  *     object.EG1[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1490, 1580, 1538, 12438]             # <<<<<<<<<<<<<<
@@ -5659,7 +5659,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_53[10] = 12438.0;
   memcpy(&(__pyx_v_object->EG1[0]), __pyx_t_53, sizeof(__pyx_v_object->EG1[0]) * (11));
 
-  /* "KRYPTON.pyx":311
+  /* "gases/KRYPTON.pyx":311
  *     object.NG1[0:11] = [0, 0, 0, 0, 0, 0, 0, 3, 3, 5, 5]
  *     object.EG1[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1490, 1580, 1538, 12438]
  *     object.NG2[0:11] = [0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 5]             # <<<<<<<<<<<<<<
@@ -5679,7 +5679,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_54[10] = 5.0;
   memcpy(&(__pyx_v_object->NG2[0]), __pyx_t_54, sizeof(__pyx_v_object->NG2[0]) * (11));
 
-  /* "KRYPTON.pyx":312
+  /* "gases/KRYPTON.pyx":312
  *     object.EG1[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1490, 1580, 1538, 12438]
  *     object.NG2[0:11] = [0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 5]
  *     object.EG2[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 54, 60, 160, 1555]             # <<<<<<<<<<<<<<
@@ -5699,7 +5699,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_55[10] = 1555.0;
   memcpy(&(__pyx_v_object->EG2[0]), __pyx_t_55, sizeof(__pyx_v_object->EG2[0]) * (11));
 
-  /* "KRYPTON.pyx":313
+  /* "gases/KRYPTON.pyx":313
  *     object.NG2[0:11] = [0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 5]
  *     object.EG2[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 54, 60, 160, 1555]
  *     object.EION[0:11] = [13.99960, 38.35944, 74.029, 124.88, 214.4, 222.2, 292.8, 1678.4, 1730.9, 1921.0, 14327.26]             # <<<<<<<<<<<<<<
@@ -5719,7 +5719,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_56[10] = 14327.26;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_56, sizeof(__pyx_v_object->EION[0]) * (11));
 
-  /* "KRYPTON.pyx":315
+  /* "gases/KRYPTON.pyx":315
  *     object.EION[0:11] = [13.99960, 38.35944, 74.029, 124.88, 214.4, 222.2, 292.8, 1678.4, 1730.9, 1921.0, 14327.26]
  * 
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -5731,7 +5731,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
     __pyx_v_j = __pyx_t_44;
 
-    /* "KRYPTON.pyx":316
+    /* "gases/KRYPTON.pyx":316
  * 
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -5741,7 +5741,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 0; __pyx_t_45 < 0xFA0; __pyx_t_45+=1) {
       __pyx_v_i = __pyx_t_45;
 
-      /* "KRYPTON.pyx":317
+      /* "gases/KRYPTON.pyx":317
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -5751,7 +5751,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":318
+        /* "gases/KRYPTON.pyx":318
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -5760,7 +5760,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "KRYPTON.pyx":319
+        /* "gases/KRYPTON.pyx":319
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -5769,7 +5769,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L10_break;
 
-        /* "KRYPTON.pyx":317
+        /* "gases/KRYPTON.pyx":317
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -5781,7 +5781,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L10_break:;
   }
 
-  /* "KRYPTON.pyx":320
+  /* "gases/KRYPTON.pyx":320
  *                 IOFFION[j] = i - 1
  *                 break
  *     object.EIN = gd['gas6/EIN']             # <<<<<<<<<<<<<<
@@ -5798,7 +5798,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_58, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "KRYPTON.pyx":323
+  /* "gases/KRYPTON.pyx":323
  *     # ENTER PENNING TRANSFER FRACTION FOR EACH LEVEL
  *     # USE PENNING TRANSFER FRACTION BETWEEN 0.0 AND 0.2
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -5810,7 +5810,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
     __pyx_v_NL = __pyx_t_44;
 
-    /* "KRYPTON.pyx":324
+    /* "gases/KRYPTON.pyx":324
  *     # USE PENNING TRANSFER FRACTION BETWEEN 0.0 AND 0.2
  *     for NL in range(object.NIN):
  *         object.PENFRA[0][NL] = 0.0             # <<<<<<<<<<<<<<
@@ -5819,7 +5819,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_NL]) = 0.0;
 
-    /* "KRYPTON.pyx":326
+    /* "gases/KRYPTON.pyx":326
  *         object.PENFRA[0][NL] = 0.0
  *         #PENNING TRANSFER DISTANCE MICRONS
  *         object.PENFRA[1][NL] = 1.0             # <<<<<<<<<<<<<<
@@ -5828,7 +5828,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_NL]) = 1.0;
 
-    /* "KRYPTON.pyx":328
+    /* "gases/KRYPTON.pyx":328
  *         object.PENFRA[1][NL] = 1.0
  *         #PENNING TRANSFER TIME
  *         object.PENFRA[3][NL] = 1.0             # <<<<<<<<<<<<<<
@@ -5838,7 +5838,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[3])[__pyx_v_NL]) = 1.0;
   }
 
-  /* "KRYPTON.pyx":330
+  /* "gases/KRYPTON.pyx":330
  *         object.PENFRA[3][NL] = 1.0
  * 
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -5850,7 +5850,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
     __pyx_v_NL = __pyx_t_44;
 
-    /* "KRYPTON.pyx":331
+    /* "gases/KRYPTON.pyx":331
  * 
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -5860,7 +5860,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 0; __pyx_t_45 < 0xFA0; __pyx_t_45+=1) {
       __pyx_v_i = __pyx_t_45;
 
-      /* "KRYPTON.pyx":332
+      /* "gases/KRYPTON.pyx":332
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -5870,7 +5870,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EIN[__pyx_v_NL])) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":333
+        /* "gases/KRYPTON.pyx":333
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i -1             # <<<<<<<<<<<<<<
@@ -5879,7 +5879,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
 
-        /* "KRYPTON.pyx":334
+        /* "gases/KRYPTON.pyx":334
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i -1
  *                 break             # <<<<<<<<<<<<<<
@@ -5888,7 +5888,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L17_break;
 
-        /* "KRYPTON.pyx":332
+        /* "gases/KRYPTON.pyx":332
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -5900,7 +5900,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L17_break:;
   }
 
-  /* "KRYPTON.pyx":338
+  /* "gases/KRYPTON.pyx":338
  *     cdef int FI
  * 
  *     F = [0.082,0.154,0.0140,0.0435,0.0105,0.0970,0.0808,0.0015,0.0439,0.0203,0.1680]             # <<<<<<<<<<<<<<
@@ -5920,7 +5920,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_59[10] = 0.1680;
   memcpy(&(__pyx_v_F[0]), __pyx_t_59, sizeof(__pyx_v_F[0]) * (11));
 
-  /* "KRYPTON.pyx":341
+  /* "gases/KRYPTON.pyx":341
  * 
  *     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,QELA,QMOM,PQ[3],QTEMP,QCORR
  *     object.NSTEP = 4000             # <<<<<<<<<<<<<<
@@ -5929,7 +5929,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NSTEP = 0xFA0;
 
-  /* "KRYPTON.pyx":342
+  /* "gases/KRYPTON.pyx":342
  *     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,QELA,QMOM,PQ[3],QTEMP,QCORR
  *     object.NSTEP = 4000
  *     for I in range(object.NSTEP):             # <<<<<<<<<<<<<<
@@ -5941,7 +5941,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
     __pyx_v_I = __pyx_t_44;
 
-    /* "KRYPTON.pyx":343
+    /* "gases/KRYPTON.pyx":343
  *     object.NSTEP = 4000
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -5950,7 +5950,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "KRYPTON.pyx":344
+    /* "gases/KRYPTON.pyx":344
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -5960,7 +5960,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":345
+      /* "gases/KRYPTON.pyx":345
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -5969,7 +5969,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-      /* "KRYPTON.pyx":346
+      /* "gases/KRYPTON.pyx":346
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -5978,7 +5978,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-      /* "KRYPTON.pyx":347
+      /* "gases/KRYPTON.pyx":347
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -5987,7 +5987,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-      /* "KRYPTON.pyx":348
+      /* "gases/KRYPTON.pyx":348
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -5996,7 +5996,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-      /* "KRYPTON.pyx":344
+      /* "gases/KRYPTON.pyx":344
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -6005,7 +6005,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":349
+    /* "gases/KRYPTON.pyx":349
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA
  *         if EN == 0:             # <<<<<<<<<<<<<<
@@ -6015,7 +6015,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN == 0.0) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":350
+      /* "gases/KRYPTON.pyx":350
  *             BETA2 = BETA * BETA
  *         if EN == 0:
  *             QELA = 37.8e-16             # <<<<<<<<<<<<<<
@@ -6024,7 +6024,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QELA = 37.8e-16;
 
-      /* "KRYPTON.pyx":351
+      /* "gases/KRYPTON.pyx":351
  *         if EN == 0:
  *             QELA = 37.8e-16
  *             QMOM = 37.8e-16             # <<<<<<<<<<<<<<
@@ -6033,7 +6033,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMOM = 37.8e-16;
 
-      /* "KRYPTON.pyx":349
+      /* "gases/KRYPTON.pyx":349
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA
  *         if EN == 0:             # <<<<<<<<<<<<<<
@@ -6043,7 +6043,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L22;
     }
 
-    /* "KRYPTON.pyx":353
+    /* "gases/KRYPTON.pyx":353
  *             QMOM = 37.8e-16
  *         else:
  *             QELA = GasUtil.QLSCALE(EN, NEL, YEL, XEL)             # <<<<<<<<<<<<<<
@@ -6053,7 +6053,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     /*else*/ {
       __pyx_v_QELA = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NEL, __pyx_v_YEL, __pyx_v_XEL);
 
-      /* "KRYPTON.pyx":354
+      /* "gases/KRYPTON.pyx":354
  *         else:
  *             QELA = GasUtil.QLSCALE(EN, NEL, YEL, XEL)
  *             QMOM = GasUtil.QLSCALE(EN, NDATA, YXSEC, XEN)             # <<<<<<<<<<<<<<
@@ -6064,7 +6064,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L22:;
 
-    /* "KRYPTON.pyx":355
+    /* "gases/KRYPTON.pyx":355
  *             QELA = GasUtil.QLSCALE(EN, NEL, YEL, XEL)
  *             QMOM = GasUtil.QLSCALE(EN, NDATA, YXSEC, XEN)
  *         PQ=[0,0.5+(QELA-QMOM)/QELA,1-GasUtil.CALPQ3(EN,NEPSI, YEPS, XEPS)]             # <<<<<<<<<<<<<<
@@ -6076,7 +6076,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_60[2] = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NEPSI, __pyx_v_YEPS, __pyx_v_XEPS));
     memcpy(&(__pyx_v_PQ[0]), __pyx_t_60, sizeof(__pyx_v_PQ[0]) * (3));
 
-    /* "KRYPTON.pyx":357
+    /* "gases/KRYPTON.pyx":357
  *         PQ=[0,0.5+(QELA-QMOM)/QELA,1-GasUtil.CALPQ3(EN,NEPSI, YEPS, XEPS)]
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -6085,7 +6085,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "KRYPTON.pyx":358
+    /* "gases/KRYPTON.pyx":358
  * 
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -6094,7 +6094,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "KRYPTON.pyx":359
+    /* "gases/KRYPTON.pyx":359
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA
  *         if object.NANISO==0:             # <<<<<<<<<<<<<<
@@ -6104,7 +6104,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":360
+      /* "gases/KRYPTON.pyx":360
  *         object.Q[1][I] = QELA
  *         if object.NANISO==0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -6113,7 +6113,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "KRYPTON.pyx":359
+      /* "gases/KRYPTON.pyx":359
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA
  *         if object.NANISO==0:             # <<<<<<<<<<<<<<
@@ -6122,7 +6122,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":364
+    /* "gases/KRYPTON.pyx":364
  * 
  *         #IONISATION FOR CHARGE STATE =1
  *         object.QION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6131,7 +6131,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":365
+    /* "gases/KRYPTON.pyx":365
  *         #IONISATION FOR CHARGE STATE =1
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6140,7 +6140,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":366
+    /* "gases/KRYPTON.pyx":366
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6150,7 +6150,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":367
+      /* "gases/KRYPTON.pyx":367
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6159,7 +6159,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":366
+      /* "gases/KRYPTON.pyx":366
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6168,7 +6168,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":368
+    /* "gases/KRYPTON.pyx":368
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -6178,7 +6178,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":369
+      /* "gases/KRYPTON.pyx":369
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YIN1, XION, BETA2, 0.9009, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -6187,7 +6187,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIONG, __pyx_v_YIN1, __pyx_v_XION, __pyx_v_BETA2, 0.9009, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "KRYPTON.pyx":368
+      /* "gases/KRYPTON.pyx":368
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -6196,7 +6196,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":374
+    /* "gases/KRYPTON.pyx":374
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # THE IONISATION ENERGY
  *         if EN > 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -6206,7 +6206,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[0]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":375
+      /* "gases/KRYPTON.pyx":375
  *         # THE IONISATION ENERGY
  *         if EN > 2 * object.EION[0]:
  *             object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]             # <<<<<<<<<<<<<<
@@ -6215,7 +6215,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-      /* "KRYPTON.pyx":374
+      /* "gases/KRYPTON.pyx":374
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # THE IONISATION ENERGY
  *         if EN > 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -6224,7 +6224,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":378
+    /* "gases/KRYPTON.pyx":378
  * 
  *         #IONISATION FOR CHARGE STATE =2
  *         object.QION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6233,7 +6233,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[1])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":379
+    /* "gases/KRYPTON.pyx":379
  *         #IONISATION FOR CHARGE STATE =2
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6242,7 +6242,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":380
+    /* "gases/KRYPTON.pyx":380
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6252,7 +6252,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":381
+      /* "gases/KRYPTON.pyx":381
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6261,7 +6261,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":380
+      /* "gases/KRYPTON.pyx":380
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6270,7 +6270,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":382
+    /* "gases/KRYPTON.pyx":382
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -6280,7 +6280,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":383
+      /* "gases/KRYPTON.pyx":383
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, 0.0613, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -6289,7 +6289,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION2, __pyx_v_YIN2, __pyx_v_XIN2, __pyx_v_BETA2, 0.0613, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "KRYPTON.pyx":382
+      /* "gases/KRYPTON.pyx":382
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -6298,7 +6298,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":384
+    /* "gases/KRYPTON.pyx":384
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, 0.0613, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -6308,7 +6308,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[1]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":385
+      /* "gases/KRYPTON.pyx":385
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, 0.0613, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[1]:
  *             object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]             # <<<<<<<<<<<<<<
@@ -6317,7 +6317,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-      /* "KRYPTON.pyx":384
+      /* "gases/KRYPTON.pyx":384
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, 0.0613, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -6326,7 +6326,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":388
+    /* "gases/KRYPTON.pyx":388
  * 
  *         #IONISATION FOR CHARGE STATE =3
  *         object.QION[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6335,7 +6335,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[2])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":389
+    /* "gases/KRYPTON.pyx":389
  *         #IONISATION FOR CHARGE STATE =3
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6344,7 +6344,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":390
+    /* "gases/KRYPTON.pyx":390
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6354,7 +6354,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":391
+      /* "gases/KRYPTON.pyx":391
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6363,7 +6363,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":390
+      /* "gases/KRYPTON.pyx":390
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6372,7 +6372,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":392
+    /* "gases/KRYPTON.pyx":392
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -6382,7 +6382,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":393
+      /* "gases/KRYPTON.pyx":393
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, 0.0291, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -6391,7 +6391,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION3, __pyx_v_YIN3, __pyx_v_XIN3, __pyx_v_BETA2, 0.0291, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "KRYPTON.pyx":392
+      /* "gases/KRYPTON.pyx":392
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -6400,7 +6400,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":394
+    /* "gases/KRYPTON.pyx":394
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, 0.0291, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -6410,7 +6410,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[2]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":395
+      /* "gases/KRYPTON.pyx":395
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, 0.0291, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[2]:
  *             object.PEQION[2][I] = object.PEQEL[1][I - IOFFION[2]]             # <<<<<<<<<<<<<<
@@ -6419,7 +6419,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[2]))]);
 
-      /* "KRYPTON.pyx":394
+      /* "gases/KRYPTON.pyx":394
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, 0.0291, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -6428,7 +6428,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":398
+    /* "gases/KRYPTON.pyx":398
  * 
  *         #IONISATION FOR CHARGE STATE =4
  *         object.QION[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6437,7 +6437,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[3])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":399
+    /* "gases/KRYPTON.pyx":399
  *         #IONISATION FOR CHARGE STATE =4
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6446,7 +6446,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":400
+    /* "gases/KRYPTON.pyx":400
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6456,7 +6456,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":401
+      /* "gases/KRYPTON.pyx":401
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6465,7 +6465,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":400
+      /* "gases/KRYPTON.pyx":400
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6474,7 +6474,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":402
+    /* "gases/KRYPTON.pyx":402
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0.0
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -6484,7 +6484,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[3])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":403
+      /* "gases/KRYPTON.pyx":403
  *             object.PEQION[3][I] = 0.0
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQIONX(EN, NION4, YIN4, XIN4, BETA2, 0.0082, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -6493,7 +6493,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION4, __pyx_v_YIN4, __pyx_v_XIN4, __pyx_v_BETA2, 0.0082, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "KRYPTON.pyx":402
+      /* "gases/KRYPTON.pyx":402
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0.0
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -6502,7 +6502,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":404
+    /* "gases/KRYPTON.pyx":404
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQIONX(EN, NION4, YIN4, XIN4, BETA2, 0.0082, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[3]:             # <<<<<<<<<<<<<<
@@ -6512,7 +6512,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[3]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":405
+      /* "gases/KRYPTON.pyx":405
  *             object.QION[3][I] = GasUtil.CALQIONX(EN, NION4, YIN4, XIN4, BETA2, 0.0082, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[3]:
  *             object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]             # <<<<<<<<<<<<<<
@@ -6521,7 +6521,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[3]))]);
 
-      /* "KRYPTON.pyx":404
+      /* "gases/KRYPTON.pyx":404
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQIONX(EN, NION4, YIN4, XIN4, BETA2, 0.0082, CONST, object.DEN[I], C, AM2)
  *         if EN > 2 * object.EION[3]:             # <<<<<<<<<<<<<<
@@ -6530,7 +6530,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":408
+    /* "gases/KRYPTON.pyx":408
  * 
  *         # M3 SHELL IONISATION
  *         object.QION[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6539,7 +6539,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[4])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":409
+    /* "gases/KRYPTON.pyx":409
  *         # M3 SHELL IONISATION
  *         object.QION[4][I] = 0.0
  *         object.PEQION[4][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6548,7 +6548,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":410
+    /* "gases/KRYPTON.pyx":410
  *         object.QION[4][I] = 0.0
  *         object.PEQION[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6558,7 +6558,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":411
+      /* "gases/KRYPTON.pyx":411
  *         object.PEQION[4][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6567,7 +6567,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":410
+      /* "gases/KRYPTON.pyx":410
  *         object.QION[4][I] = 0.0
  *         object.PEQION[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6576,7 +6576,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":412
+    /* "gases/KRYPTON.pyx":412
  *         if object.NANISO == 2:
  *             object.PEQION[4][I] = 0.0
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -6586,7 +6586,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[4])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":413
+      /* "gases/KRYPTON.pyx":413
  *             object.PEQION[4][I] = 0.0
  *         if EN > object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQIONREG(EN, NM3S, YM3S, XM3S)             # <<<<<<<<<<<<<<
@@ -6595,7 +6595,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NM3S, __pyx_v_YM3S, __pyx_v_XM3S);
 
-      /* "KRYPTON.pyx":414
+      /* "gases/KRYPTON.pyx":414
  *         if EN > object.EION[4]:
  *             object.QION[4][I] = GasUtil.CALQIONREG(EN, NM3S, YM3S, XM3S)
  *             object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]             # <<<<<<<<<<<<<<
@@ -6604,7 +6604,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[4]))]);
 
-      /* "KRYPTON.pyx":412
+      /* "gases/KRYPTON.pyx":412
  *         if object.NANISO == 2:
  *             object.PEQION[4][I] = 0.0
  *         if EN > object.EION[4]:             # <<<<<<<<<<<<<<
@@ -6613,7 +6613,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":417
+    /* "gases/KRYPTON.pyx":417
  * 
  *         # M2 SHELL IONISATION
  *         object.QION[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6622,7 +6622,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[5])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":418
+    /* "gases/KRYPTON.pyx":418
  *         # M2 SHELL IONISATION
  *         object.QION[5][I] = 0.0
  *         object.PEQION[5][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6631,7 +6631,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":419
+    /* "gases/KRYPTON.pyx":419
  *         object.QION[5][I] = 0.0
  *         object.PEQION[5][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6641,7 +6641,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":420
+      /* "gases/KRYPTON.pyx":420
  *         object.PEQION[5][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6650,7 +6650,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":419
+      /* "gases/KRYPTON.pyx":419
  *         object.QION[5][I] = 0.0
  *         object.PEQION[5][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6659,7 +6659,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":421
+    /* "gases/KRYPTON.pyx":421
  *         if object.NANISO == 2:
  *             object.PEQION[5][I] = 0.0
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -6669,7 +6669,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[5])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":422
+      /* "gases/KRYPTON.pyx":422
  *             object.PEQION[5][I] = 0.0
  *         if EN > object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQIONREG(EN, NM2S, YM2S, XM2S)             # <<<<<<<<<<<<<<
@@ -6678,7 +6678,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NM2S, __pyx_v_YM2S, __pyx_v_XM2S);
 
-      /* "KRYPTON.pyx":423
+      /* "gases/KRYPTON.pyx":423
  *         if EN > object.EION[5]:
  *             object.QION[5][I] = GasUtil.CALQIONREG(EN, NM2S, YM2S, XM2S)
  *             object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]             # <<<<<<<<<<<<<<
@@ -6687,7 +6687,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[5]))]);
 
-      /* "KRYPTON.pyx":421
+      /* "gases/KRYPTON.pyx":421
  *         if object.NANISO == 2:
  *             object.PEQION[5][I] = 0.0
  *         if EN > object.EION[5]:             # <<<<<<<<<<<<<<
@@ -6696,7 +6696,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":427
+    /* "gases/KRYPTON.pyx":427
  * 
  *         # M1 SHELL IONISATION
  *         object.QION[6][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6705,7 +6705,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[6])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":428
+    /* "gases/KRYPTON.pyx":428
  *         # M1 SHELL IONISATION
  *         object.QION[6][I] = 0.0
  *         object.PEQION[6][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6714,7 +6714,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":429
+    /* "gases/KRYPTON.pyx":429
  *         object.QION[6][I] = 0.0
  *         object.PEQION[6][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6724,7 +6724,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":430
+      /* "gases/KRYPTON.pyx":430
  *         object.PEQION[6][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[6][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6733,7 +6733,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":429
+      /* "gases/KRYPTON.pyx":429
  *         object.QION[6][I] = 0.0
  *         object.PEQION[6][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6742,7 +6742,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":431
+    /* "gases/KRYPTON.pyx":431
  *         if object.NANISO == 2:
  *             object.PEQION[6][I] = 0.0
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -6752,7 +6752,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[6])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":432
+      /* "gases/KRYPTON.pyx":432
  *             object.PEQION[6][I] = 0.0
  *         if EN > object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQIONREG(EN, NM1S, YM1S, XM1S)             # <<<<<<<<<<<<<<
@@ -6761,7 +6761,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NM1S, __pyx_v_YM1S, __pyx_v_XM1S);
 
-      /* "KRYPTON.pyx":433
+      /* "gases/KRYPTON.pyx":433
  *         if EN > object.EION[6]:
  *             object.QION[6][I] = GasUtil.CALQIONREG(EN, NM1S, YM1S, XM1S)
  *             object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]             # <<<<<<<<<<<<<<
@@ -6770,7 +6770,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[6]))]);
 
-      /* "KRYPTON.pyx":431
+      /* "gases/KRYPTON.pyx":431
  *         if object.NANISO == 2:
  *             object.PEQION[6][I] = 0.0
  *         if EN > object.EION[6]:             # <<<<<<<<<<<<<<
@@ -6779,7 +6779,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":436
+    /* "gases/KRYPTON.pyx":436
  * 
  *         # L3 SHELL IONISATION
  *         object.QION[7][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6788,7 +6788,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[7])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":437
+    /* "gases/KRYPTON.pyx":437
  *         # L3 SHELL IONISATION
  *         object.QION[7][I] = 0.0
  *         object.PEQION[7][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6797,7 +6797,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[7])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":438
+    /* "gases/KRYPTON.pyx":438
  *         object.QION[7][I] = 0.0
  *         object.PEQION[7][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6807,7 +6807,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":439
+      /* "gases/KRYPTON.pyx":439
  *         object.PEQION[7][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[7][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6816,7 +6816,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[7])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":438
+      /* "gases/KRYPTON.pyx":438
  *         object.QION[7][I] = 0.0
  *         object.PEQION[7][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6825,7 +6825,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":440
+    /* "gases/KRYPTON.pyx":440
  *         if object.NANISO == 2:
  *             object.PEQION[7][I] = 0.0
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -6835,7 +6835,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[7])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":441
+      /* "gases/KRYPTON.pyx":441
  *             object.PEQION[7][I] = 0.0
  *         if EN > object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQIONREG(EN, NL3S, YL3S, XL3S)             # <<<<<<<<<<<<<<
@@ -6844,7 +6844,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NL3S, __pyx_v_YL3S, __pyx_v_XL3S);
 
-      /* "KRYPTON.pyx":442
+      /* "gases/KRYPTON.pyx":442
  *         if EN > object.EION[7]:
  *             object.QION[7][I] = GasUtil.CALQIONREG(EN, NL3S, YL3S, XL3S)
  *             object.PEQION[7][I] = object.PEQEL[1][I - IOFFION[7]]             # <<<<<<<<<<<<<<
@@ -6853,7 +6853,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[7]))]);
 
-      /* "KRYPTON.pyx":440
+      /* "gases/KRYPTON.pyx":440
  *         if object.NANISO == 2:
  *             object.PEQION[7][I] = 0.0
  *         if EN > object.EION[7]:             # <<<<<<<<<<<<<<
@@ -6862,7 +6862,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":445
+    /* "gases/KRYPTON.pyx":445
  * 
  *         # L2 SHELL IONISATION
  *         object.QION[8][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6871,7 +6871,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[8])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":446
+    /* "gases/KRYPTON.pyx":446
  *         # L2 SHELL IONISATION
  *         object.QION[8][I] = 0.0
  *         object.PEQION[8][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6880,7 +6880,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[8])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":447
+    /* "gases/KRYPTON.pyx":447
  *         object.QION[8][I] = 0.0
  *         object.PEQION[8][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6890,7 +6890,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":448
+      /* "gases/KRYPTON.pyx":448
  *         object.PEQION[8][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[8][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6899,7 +6899,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[8])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":447
+      /* "gases/KRYPTON.pyx":447
  *         object.QION[8][I] = 0.0
  *         object.PEQION[8][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6908,7 +6908,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":449
+    /* "gases/KRYPTON.pyx":449
  *         if object.NANISO == 2:
  *             object.PEQION[8][I] = 0.0
  *         if EN > object.EION[8]:             # <<<<<<<<<<<<<<
@@ -6918,7 +6918,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[8])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":450
+      /* "gases/KRYPTON.pyx":450
  *             object.PEQION[8][I] = 0.0
  *         if EN > object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQIONREG(EN, NL2S, YL2S, XL2S)             # <<<<<<<<<<<<<<
@@ -6927,7 +6927,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NL2S, __pyx_v_YL2S, __pyx_v_XL2S);
 
-      /* "KRYPTON.pyx":451
+      /* "gases/KRYPTON.pyx":451
  *         if EN > object.EION[8]:
  *             object.QION[8][I] = GasUtil.CALQIONREG(EN, NL2S, YL2S, XL2S)
  *             object.PEQION[8][I] = object.PEQEL[1][I - IOFFION[8]]             # <<<<<<<<<<<<<<
@@ -6936,7 +6936,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[8]))]);
 
-      /* "KRYPTON.pyx":449
+      /* "gases/KRYPTON.pyx":449
  *         if object.NANISO == 2:
  *             object.PEQION[8][I] = 0.0
  *         if EN > object.EION[8]:             # <<<<<<<<<<<<<<
@@ -6945,7 +6945,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":454
+    /* "gases/KRYPTON.pyx":454
  * 
  *         # L1 SHELL IONISATION
  *         object.QION[9][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6954,7 +6954,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[9])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":455
+    /* "gases/KRYPTON.pyx":455
  *         # L1 SHELL IONISATION
  *         object.QION[9][I] = 0.0
  *         object.PEQION[9][I] = 0.5             # <<<<<<<<<<<<<<
@@ -6963,7 +6963,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[9])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":456
+    /* "gases/KRYPTON.pyx":456
  *         object.QION[9][I] = 0.0
  *         object.PEQION[9][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6973,7 +6973,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":457
+      /* "gases/KRYPTON.pyx":457
  *         object.PEQION[9][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[9][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6982,7 +6982,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[9])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":456
+      /* "gases/KRYPTON.pyx":456
  *         object.QION[9][I] = 0.0
  *         object.PEQION[9][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -6991,7 +6991,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":458
+    /* "gases/KRYPTON.pyx":458
  *         if object.NANISO == 2:
  *             object.PEQION[9][I] = 0.0
  *         if EN > object.EION[9]:             # <<<<<<<<<<<<<<
@@ -7001,7 +7001,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[9])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":459
+      /* "gases/KRYPTON.pyx":459
  *             object.PEQION[9][I] = 0.0
  *         if EN > object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQIONREG(EN, NL1S, YL1S, XL1S)             # <<<<<<<<<<<<<<
@@ -7010,7 +7010,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NL1S, __pyx_v_YL1S, __pyx_v_XL1S);
 
-      /* "KRYPTON.pyx":460
+      /* "gases/KRYPTON.pyx":460
  *         if EN > object.EION[9]:
  *             object.QION[9][I] = GasUtil.CALQIONREG(EN, NL1S, YL1S, XL1S)
  *             object.PEQION[9][I] = object.PEQEL[1][I - IOFFION[9]]             # <<<<<<<<<<<<<<
@@ -7019,7 +7019,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[9]))]);
 
-      /* "KRYPTON.pyx":458
+      /* "gases/KRYPTON.pyx":458
  *         if object.NANISO == 2:
  *             object.PEQION[9][I] = 0.0
  *         if EN > object.EION[9]:             # <<<<<<<<<<<<<<
@@ -7028,7 +7028,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":463
+    /* "gases/KRYPTON.pyx":463
  * 
  *         # K-SHELL IONISATION
  *         object.QION[10][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7037,7 +7037,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[10])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":464
+    /* "gases/KRYPTON.pyx":464
  *         # K-SHELL IONISATION
  *         object.QION[10][I] = 0.0
  *         object.PEQION[10][I] = 0.5             # <<<<<<<<<<<<<<
@@ -7046,7 +7046,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[10])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":465
+    /* "gases/KRYPTON.pyx":465
  *         object.QION[10][I] = 0.0
  *         object.PEQION[10][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7056,7 +7056,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":466
+      /* "gases/KRYPTON.pyx":466
  *         object.PEQION[10][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[10][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7065,7 +7065,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[10])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":465
+      /* "gases/KRYPTON.pyx":465
  *         object.QION[10][I] = 0.0
  *         object.PEQION[10][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7074,7 +7074,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":467
+    /* "gases/KRYPTON.pyx":467
  *         if object.NANISO == 2:
  *             object.PEQION[10][I] = 0.0
  *         if EN > object.EION[10]:             # <<<<<<<<<<<<<<
@@ -7084,7 +7084,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EION[10])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":468
+      /* "gases/KRYPTON.pyx":468
  *             object.PEQION[10][I] = 0.0
  *         if EN > object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)             # <<<<<<<<<<<<<<
@@ -7093,7 +7093,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[10])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NKSH, __pyx_v_YKSH, __pyx_v_XKSH);
 
-      /* "KRYPTON.pyx":469
+      /* "gases/KRYPTON.pyx":469
  *         if EN > object.EION[10]:
  *             object.QION[10][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
  *             object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]             # <<<<<<<<<<<<<<
@@ -7102,7 +7102,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[10]))]);
 
-      /* "KRYPTON.pyx":467
+      /* "gases/KRYPTON.pyx":467
  *         if object.NANISO == 2:
  *             object.PEQION[10][I] = 0.0
  *         if EN > object.EION[10]:             # <<<<<<<<<<<<<<
@@ -7111,7 +7111,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":470
+    /* "gases/KRYPTON.pyx":470
  *             object.QION[10][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
  *             object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7120,7 +7120,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":471
+    /* "gases/KRYPTON.pyx":471
  *             object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] =0.0             # <<<<<<<<<<<<<<
@@ -7129,7 +7129,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":474
+    /* "gases/KRYPTON.pyx":474
  * 
  *         #COUNTING IONISATION
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7138,7 +7138,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":475
+    /* "gases/KRYPTON.pyx":475
  *         #COUNTING IONISATION
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5             # <<<<<<<<<<<<<<
@@ -7147,7 +7147,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.5;
 
-    /* "KRYPTON.pyx":476
+    /* "gases/KRYPTON.pyx":476
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7157,7 +7157,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":477
+      /* "gases/KRYPTON.pyx":477
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7166,7 +7166,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":476
+      /* "gases/KRYPTON.pyx":476
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -7175,7 +7175,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":478
+    /* "gases/KRYPTON.pyx":478
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:             # <<<<<<<<<<<<<<
@@ -7185,7 +7185,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->E[2])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":479
+      /* "gases/KRYPTON.pyx":479
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:
  *             object.Q[4][I] = GasUtil.CALQIONX(EN, NIONG, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -7194,7 +7194,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIONG, __pyx_v_YINC, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "KRYPTON.pyx":478
+      /* "gases/KRYPTON.pyx":478
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0
  *         if EN > object.E[2]:             # <<<<<<<<<<<<<<
@@ -7203,7 +7203,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":480
+    /* "gases/KRYPTON.pyx":480
  *         if EN > object.E[2]:
  *             object.Q[4][I] = GasUtil.CALQIONX(EN, NIONG, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *         QTEMP = 0.0             # <<<<<<<<<<<<<<
@@ -7212,7 +7212,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QTEMP = 0.0;
 
-    /* "KRYPTON.pyx":481
+    /* "gases/KRYPTON.pyx":481
  *             object.Q[4][I] = GasUtil.CALQIONX(EN, NIONG, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *         QTEMP = 0.0
  *         for i in range(4,11):             # <<<<<<<<<<<<<<
@@ -7222,7 +7222,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 4; __pyx_t_45 < 11; __pyx_t_45+=1) {
       __pyx_v_i = __pyx_t_45;
 
-      /* "KRYPTON.pyx":482
+      /* "gases/KRYPTON.pyx":482
  *         QTEMP = 0.0
  *         for i in range(4,11):
  *             QTEMP +=object.QION[i][I]             # <<<<<<<<<<<<<<
@@ -7232,7 +7232,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QTEMP = (__pyx_v_QTEMP + ((__pyx_v_object->QION[__pyx_v_i])[__pyx_v_I]));
     }
 
-    /* "KRYPTON.pyx":484
+    /* "gases/KRYPTON.pyx":484
  *             QTEMP +=object.QION[i][I]
  * 
  *         if object.Q[4][I] ==0:             # <<<<<<<<<<<<<<
@@ -7242,7 +7242,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((((__pyx_v_object->Q[4])[__pyx_v_I]) == 0.0) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":485
+      /* "gases/KRYPTON.pyx":485
  * 
  *         if object.Q[4][I] ==0:
  *             QCORR = 1.0             # <<<<<<<<<<<<<<
@@ -7251,7 +7251,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QCORR = 1.0;
 
-      /* "KRYPTON.pyx":484
+      /* "gases/KRYPTON.pyx":484
  *             QTEMP +=object.QION[i][I]
  * 
  *         if object.Q[4][I] ==0:             # <<<<<<<<<<<<<<
@@ -7261,7 +7261,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L54;
     }
 
-    /* "KRYPTON.pyx":487
+    /* "gases/KRYPTON.pyx":487
  *             QCORR = 1.0
  *         else:
  *             QCORR = (object.Q[4][I]-QTEMP)/object.Q[4][I]             # <<<<<<<<<<<<<<
@@ -7273,7 +7273,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L54:;
 
-    /* "KRYPTON.pyx":489
+    /* "gases/KRYPTON.pyx":489
  *             QCORR = (object.Q[4][I]-QTEMP)/object.Q[4][I]
  * 
  *         object.QION[0][I] *=QCORR             # <<<<<<<<<<<<<<
@@ -7284,7 +7284,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_45 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_61])[__pyx_t_45]) = (((__pyx_v_object->QION[__pyx_t_61])[__pyx_t_45]) * __pyx_v_QCORR);
 
-    /* "KRYPTON.pyx":490
+    /* "gases/KRYPTON.pyx":490
  * 
  *         object.QION[0][I] *=QCORR
  *         object.QION[1][I] *=QCORR             # <<<<<<<<<<<<<<
@@ -7295,7 +7295,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_45 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_61])[__pyx_t_45]) = (((__pyx_v_object->QION[__pyx_t_61])[__pyx_t_45]) * __pyx_v_QCORR);
 
-    /* "KRYPTON.pyx":491
+    /* "gases/KRYPTON.pyx":491
  *         object.QION[0][I] *=QCORR
  *         object.QION[1][I] *=QCORR
  *         object.QION[2][I] *=QCORR             # <<<<<<<<<<<<<<
@@ -7306,7 +7306,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_45 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_61])[__pyx_t_45]) = (((__pyx_v_object->QION[__pyx_t_61])[__pyx_t_45]) * __pyx_v_QCORR);
 
-    /* "KRYPTON.pyx":492
+    /* "gases/KRYPTON.pyx":492
  *         object.QION[1][I] *=QCORR
  *         object.QION[2][I] *=QCORR
  *         object.QION[3][I] *=QCORR             # <<<<<<<<<<<<<<
@@ -7317,7 +7317,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_45 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_61])[__pyx_t_45]) = (((__pyx_v_object->QION[__pyx_t_61])[__pyx_t_45]) * __pyx_v_QCORR);
 
-    /* "KRYPTON.pyx":494
+    /* "gases/KRYPTON.pyx":494
  *         object.QION[3][I] *=QCORR
  * 
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7326,7 +7326,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "KRYPTON.pyx":496
+    /* "gases/KRYPTON.pyx":496
  *         object.Q[5][I] = 0.0
  * 
  *         for NL in range(object.NIN+1):             # <<<<<<<<<<<<<<
@@ -7338,7 +7338,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 0; __pyx_t_45 < __pyx_t_62; __pyx_t_45+=1) {
       __pyx_v_NL = __pyx_t_45;
 
-      /* "KRYPTON.pyx":497
+      /* "gases/KRYPTON.pyx":497
  * 
  *         for NL in range(object.NIN+1):
  *             object.QIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7347,7 +7347,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-      /* "KRYPTON.pyx":498
+      /* "gases/KRYPTON.pyx":498
  *         for NL in range(object.NIN+1):
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5             # <<<<<<<<<<<<<<
@@ -7356,7 +7356,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.5;
 
-      /* "KRYPTON.pyx":499
+      /* "gases/KRYPTON.pyx":499
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -7366,7 +7366,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":500
+        /* "gases/KRYPTON.pyx":500
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO==2:
  *                 object.PEQIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7375,7 +7375,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-        /* "KRYPTON.pyx":499
+        /* "gases/KRYPTON.pyx":499
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO==2:             # <<<<<<<<<<<<<<
@@ -7385,7 +7385,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "KRYPTON.pyx":503
+    /* "gases/KRYPTON.pyx":503
  * 
  *         #1S5
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -7395,7 +7395,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":504
+      /* "gases/KRYPTON.pyx":504
  *         #1S5
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)*AN1S             # <<<<<<<<<<<<<<
@@ -7404,7 +7404,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N1S5, __pyx_v_Y1S5, __pyx_v_X1S5, 3.0) * __pyx_v_AN1S);
 
-      /* "KRYPTON.pyx":503
+      /* "gases/KRYPTON.pyx":503
  * 
  *         #1S5
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -7413,7 +7413,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":505
+    /* "gases/KRYPTON.pyx":505
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)*AN1S
  *         if EN > 2 * object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -7423,7 +7423,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":506
+      /* "gases/KRYPTON.pyx":506
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)*AN1S
  *         if EN > 2 * object.EIN[0]:
  *             object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]             # <<<<<<<<<<<<<<
@@ -7432,7 +7432,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0]))]);
 
-      /* "KRYPTON.pyx":505
+      /* "gases/KRYPTON.pyx":505
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)*AN1S
  *         if EN > 2 * object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -7441,7 +7441,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":509
+    /* "gases/KRYPTON.pyx":509
  * 
  *         #1S4  F=0.203
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7451,7 +7451,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":510
+      /* "gases/KRYPTON.pyx":510
  *         #1S4  F=0.203
  *         if EN > object.EIN[1]:
  *             object.QIN[1][I] = GasUtil.CALQINBEF(EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,             # <<<<<<<<<<<<<<
@@ -7460,7 +7460,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N1S4, __pyx_v_Y1S4, __pyx_v_X1S4, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[1]), (__pyx_v_object->E[2]), 0.203);
 
-      /* "KRYPTON.pyx":512
+      /* "gases/KRYPTON.pyx":512
  *             object.QIN[1][I] = GasUtil.CALQINBEF(EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[1], object.E[2], 0.203)
  *             if EN<=X1S4[N1S4-1]:             # <<<<<<<<<<<<<<
@@ -7470,7 +7470,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_EN <= (__pyx_v_X1S4[(__pyx_v_N1S4 - 1)])) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":513
+        /* "gases/KRYPTON.pyx":513
  *                                                  object.EIN[1], object.E[2], 0.203)
  *             if EN<=X1S4[N1S4-1]:
  *                 object.QIN[1][I]*=AN1S             # <<<<<<<<<<<<<<
@@ -7481,7 +7481,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_45 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_61])[__pyx_t_45]) = (((__pyx_v_object->QIN[__pyx_t_61])[__pyx_t_45]) * __pyx_v_AN1S);
 
-        /* "KRYPTON.pyx":512
+        /* "gases/KRYPTON.pyx":512
  *             object.QIN[1][I] = GasUtil.CALQINBEF(EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[1], object.E[2], 0.203)
  *             if EN<=X1S4[N1S4-1]:             # <<<<<<<<<<<<<<
@@ -7490,7 +7490,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":509
+      /* "gases/KRYPTON.pyx":509
  * 
  *         #1S4  F=0.203
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7499,7 +7499,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":514
+    /* "gases/KRYPTON.pyx":514
  *             if EN<=X1S4[N1S4-1]:
  *                 object.QIN[1][I]*=AN1S
  *         if EN > 2 * object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7509,7 +7509,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[1]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":515
+      /* "gases/KRYPTON.pyx":515
  *                 object.QIN[1][I]*=AN1S
  *         if EN > 2 * object.EIN[1]:
  *             object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]             # <<<<<<<<<<<<<<
@@ -7518,7 +7518,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[1]))]);
 
-      /* "KRYPTON.pyx":514
+      /* "gases/KRYPTON.pyx":514
  *             if EN<=X1S4[N1S4-1]:
  *                 object.QIN[1][I]*=AN1S
  *         if EN > 2 * object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -7527,7 +7527,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":518
+    /* "gases/KRYPTON.pyx":518
  * 
  *         #1S3
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -7537,7 +7537,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[2])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":519
+      /* "gases/KRYPTON.pyx":519
  *         #1S3
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)*AN1S             # <<<<<<<<<<<<<<
@@ -7546,7 +7546,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N1S3, __pyx_v_Y1S3, __pyx_v_X1S3, 3.0) * __pyx_v_AN1S);
 
-      /* "KRYPTON.pyx":518
+      /* "gases/KRYPTON.pyx":518
  * 
  *         #1S3
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -7555,7 +7555,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":520
+    /* "gases/KRYPTON.pyx":520
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)*AN1S
  *         if EN > 2 * object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -7565,7 +7565,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[2]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":521
+      /* "gases/KRYPTON.pyx":521
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)*AN1S
  *         if EN > 2 * object.EIN[2]:
  *             object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -7574,7 +7574,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-      /* "KRYPTON.pyx":520
+      /* "gases/KRYPTON.pyx":520
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)*AN1S
  *         if EN > 2 * object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -7583,7 +7583,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":524
+    /* "gases/KRYPTON.pyx":524
  * 
  *         #1S2  F=0.182
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7593,7 +7593,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":525
+      /* "gases/KRYPTON.pyx":525
  *         #1S2  F=0.182
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINBEF(EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,             # <<<<<<<<<<<<<<
@@ -7602,7 +7602,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N1S2, __pyx_v_Y1S2, __pyx_v_X1S2, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[1]), (__pyx_v_object->E[2]), 0.182);
 
-      /* "KRYPTON.pyx":527
+      /* "gases/KRYPTON.pyx":527
  *             object.QIN[3][I] = GasUtil.CALQINBEF(EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[1], object.E[2], 0.182)
  *             if EN<=X1S2[N1S2-1]:             # <<<<<<<<<<<<<<
@@ -7612,7 +7612,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_EN <= (__pyx_v_X1S2[(__pyx_v_N1S2 - 1)])) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":528
+        /* "gases/KRYPTON.pyx":528
  *                                                  object.EIN[1], object.E[2], 0.182)
  *             if EN<=X1S2[N1S2-1]:
  *                 object.QIN[3][I]*=AN1S             # <<<<<<<<<<<<<<
@@ -7623,7 +7623,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_45 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_61])[__pyx_t_45]) = (((__pyx_v_object->QIN[__pyx_t_61])[__pyx_t_45]) * __pyx_v_AN1S);
 
-        /* "KRYPTON.pyx":527
+        /* "gases/KRYPTON.pyx":527
  *             object.QIN[3][I] = GasUtil.CALQINBEF(EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[1], object.E[2], 0.182)
  *             if EN<=X1S2[N1S2-1]:             # <<<<<<<<<<<<<<
@@ -7632,7 +7632,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":524
+      /* "gases/KRYPTON.pyx":524
  * 
  *         #1S2  F=0.182
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7641,7 +7641,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":529
+    /* "gases/KRYPTON.pyx":529
  *             if EN<=X1S2[N1S2-1]:
  *                 object.QIN[3][I]*=AN1S
  *         if EN > 2 * object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7651,7 +7651,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[3]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":530
+      /* "gases/KRYPTON.pyx":530
  *                 object.QIN[3][I]*=AN1S
  *         if EN > 2 * object.EIN[3]:
  *             object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -7660,7 +7660,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-      /* "KRYPTON.pyx":529
+      /* "gases/KRYPTON.pyx":529
  *             if EN<=X1S2[N1S2-1]:
  *                 object.QIN[3][I]*=AN1S
  *         if EN > 2 * object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -7669,7 +7669,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":533
+    /* "gases/KRYPTON.pyx":533
  * 
  *         #2P10
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -7679,7 +7679,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[4])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":534
+      /* "gases/KRYPTON.pyx":534
  *         #2P10
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3)*AN2P10             # <<<<<<<<<<<<<<
@@ -7688,7 +7688,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P10, __pyx_v_Y2P10, __pyx_v_X2P10, 3.0) * __pyx_v_AN2P10);
 
-      /* "KRYPTON.pyx":533
+      /* "gases/KRYPTON.pyx":533
  * 
  *         #2P10
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -7697,7 +7697,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":535
+    /* "gases/KRYPTON.pyx":535
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3)*AN2P10
  *         if EN > 2 * object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -7707,7 +7707,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[4]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":536
+      /* "gases/KRYPTON.pyx":536
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3)*AN2P10
  *         if EN > 2 * object.EIN[4]:
  *             object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -7716,7 +7716,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-      /* "KRYPTON.pyx":535
+      /* "gases/KRYPTON.pyx":535
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3)*AN2P10
  *         if EN > 2 * object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -7725,7 +7725,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":539
+    /* "gases/KRYPTON.pyx":539
  * 
  *         #2P9
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7735,7 +7735,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":540
+      /* "gases/KRYPTON.pyx":540
  *         #2P9
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 3)*AN2P             # <<<<<<<<<<<<<<
@@ -7744,7 +7744,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P9, __pyx_v_Y2P9, __pyx_v_X2P9, 3.0) * __pyx_v_AN2P);
 
-      /* "KRYPTON.pyx":539
+      /* "gases/KRYPTON.pyx":539
  * 
  *         #2P9
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7753,7 +7753,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":541
+    /* "gases/KRYPTON.pyx":541
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 3)*AN2P
  *         if EN > 2 * object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7763,7 +7763,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[5]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":542
+      /* "gases/KRYPTON.pyx":542
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 3)*AN2P
  *         if EN > 2 * object.EIN[5]:
  *             object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -7772,7 +7772,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-      /* "KRYPTON.pyx":541
+      /* "gases/KRYPTON.pyx":541
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 3)*AN2P
  *         if EN > 2 * object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -7781,7 +7781,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":545
+    /* "gases/KRYPTON.pyx":545
  * 
  *         #2P8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7791,7 +7791,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":546
+      /* "gases/KRYPTON.pyx":546
  *         #2P8
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1)*AN2P             # <<<<<<<<<<<<<<
@@ -7800,7 +7800,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P8, __pyx_v_Y2P8, __pyx_v_X2P8, 1.0) * __pyx_v_AN2P);
 
-      /* "KRYPTON.pyx":545
+      /* "gases/KRYPTON.pyx":545
  * 
  *         #2P8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7809,7 +7809,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":547
+    /* "gases/KRYPTON.pyx":547
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1)*AN2P
  *         if EN > 2 * object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7819,7 +7819,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[6]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":548
+      /* "gases/KRYPTON.pyx":548
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1)*AN2P
  *         if EN > 2 * object.EIN[6]:
  *             object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -7828,7 +7828,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-      /* "KRYPTON.pyx":547
+      /* "gases/KRYPTON.pyx":547
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1)*AN2P
  *         if EN > 2 * object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -7837,7 +7837,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":551
+    /* "gases/KRYPTON.pyx":551
  * 
  *         #2P7
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7847,7 +7847,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":552
+      /* "gases/KRYPTON.pyx":552
  *         #2P7
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 3)*AN2P             # <<<<<<<<<<<<<<
@@ -7856,7 +7856,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P7, __pyx_v_Y2P7, __pyx_v_X2P7, 3.0) * __pyx_v_AN2P);
 
-      /* "KRYPTON.pyx":551
+      /* "gases/KRYPTON.pyx":551
  * 
  *         #2P7
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7865,7 +7865,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":553
+    /* "gases/KRYPTON.pyx":553
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 3)*AN2P
  *         if EN > 2 * object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7875,7 +7875,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[7]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":554
+      /* "gases/KRYPTON.pyx":554
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 3)*AN2P
  *         if EN > 2 * object.EIN[7]:
  *             object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -7884,7 +7884,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-      /* "KRYPTON.pyx":553
+      /* "gases/KRYPTON.pyx":553
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 3)*AN2P
  *         if EN > 2 * object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -7893,7 +7893,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":557
+    /* "gases/KRYPTON.pyx":557
  * 
  *         #2P6
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -7903,7 +7903,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":558
+      /* "gases/KRYPTON.pyx":558
  *         #2P6
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)*AN2P             # <<<<<<<<<<<<<<
@@ -7912,7 +7912,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P6, __pyx_v_Y2P6, __pyx_v_X2P6, 1.0) * __pyx_v_AN2P);
 
-      /* "KRYPTON.pyx":557
+      /* "gases/KRYPTON.pyx":557
  * 
  *         #2P6
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -7921,7 +7921,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":559
+    /* "gases/KRYPTON.pyx":559
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)*AN2P
  *         if EN > 2 * object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -7931,7 +7931,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[8]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":560
+      /* "gases/KRYPTON.pyx":560
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)*AN2P
  *         if EN > 2 * object.EIN[8]:
  *             object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]             # <<<<<<<<<<<<<<
@@ -7940,7 +7940,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[8]))]);
 
-      /* "KRYPTON.pyx":559
+      /* "gases/KRYPTON.pyx":559
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)*AN2P
  *         if EN > 2 * object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -7949,7 +7949,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":563
+    /* "gases/KRYPTON.pyx":563
  * 
  *         #2P5
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -7959,7 +7959,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":564
+      /* "gases/KRYPTON.pyx":564
  *         #2P5
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1)*AN2P5             # <<<<<<<<<<<<<<
@@ -7968,7 +7968,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P5, __pyx_v_Y2P5, __pyx_v_X2P5, 1.0) * __pyx_v_AN2P5);
 
-      /* "KRYPTON.pyx":563
+      /* "gases/KRYPTON.pyx":563
  * 
  *         #2P5
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -7977,7 +7977,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":565
+    /* "gases/KRYPTON.pyx":565
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1)*AN2P5
  *         if EN > 2 * object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -7987,7 +7987,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[9]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":566
+      /* "gases/KRYPTON.pyx":566
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1)*AN2P5
  *         if EN > 2 * object.EIN[9]:
  *             object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]             # <<<<<<<<<<<<<<
@@ -7996,7 +7996,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[9]))]);
 
-      /* "KRYPTON.pyx":565
+      /* "gases/KRYPTON.pyx":565
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1)*AN2P5
  *         if EN > 2 * object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -8005,7 +8005,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":569
+    /* "gases/KRYPTON.pyx":569
  * 
  *         #3D6
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8015,7 +8015,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":570
+      /* "gases/KRYPTON.pyx":570
  *         #3D6
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 3)*AN3D             # <<<<<<<<<<<<<<
@@ -8024,7 +8024,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D6, __pyx_v_Y3D6, __pyx_v_X3D6, 3.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":569
+      /* "gases/KRYPTON.pyx":569
  * 
  *         #3D6
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8033,7 +8033,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":571
+    /* "gases/KRYPTON.pyx":571
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 3)*AN3D
  *         if EN > 2 * object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8043,7 +8043,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[10]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":572
+      /* "gases/KRYPTON.pyx":572
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 3)*AN3D
  *         if EN > 2 * object.EIN[10]:
  *             object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -8052,7 +8052,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-      /* "KRYPTON.pyx":571
+      /* "gases/KRYPTON.pyx":571
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 3)*AN3D
  *         if EN > 2 * object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -8061,7 +8061,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":575
+    /* "gases/KRYPTON.pyx":575
  * 
  *         #3D5  BEF SCALING
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -8071,7 +8071,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[11])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":576
+      /* "gases/KRYPTON.pyx":576
  *         #3D5  BEF SCALING
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = 0.0053 / (object.EIN[11] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8080,7 +8080,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[11])[__pyx_v_I]) = (((((0.0053 / ((__pyx_v_object->EIN[11]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[11])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[11])) + (__pyx_v_object->E[2])));
 
-      /* "KRYPTON.pyx":579
+      /* "gases/KRYPTON.pyx":579
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[11])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[11] + object.E[2])
  *             if object.QIN[11][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8090,7 +8090,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((((__pyx_v_object->QIN[11])[__pyx_v_I]) < 0.0) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":580
+        /* "gases/KRYPTON.pyx":580
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[11] + object.E[2])
  *             if object.QIN[11][I]<0.0:
  *                 object.QIN[11][I]=0.0             # <<<<<<<<<<<<<<
@@ -8099,7 +8099,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[11])[__pyx_v_I]) = 0.0;
 
-        /* "KRYPTON.pyx":579
+        /* "gases/KRYPTON.pyx":579
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[11])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[11] + object.E[2])
  *             if object.QIN[11][I]<0.0:             # <<<<<<<<<<<<<<
@@ -8108,7 +8108,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":575
+      /* "gases/KRYPTON.pyx":575
  * 
  *         #3D5  BEF SCALING
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -8117,7 +8117,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":581
+    /* "gases/KRYPTON.pyx":581
  *             if object.QIN[11][I]<0.0:
  *                 object.QIN[11][I]=0.0
  *         if EN > 2 * object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -8127,7 +8127,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[11]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":582
+      /* "gases/KRYPTON.pyx":582
  *                 object.QIN[11][I]=0.0
  *         if EN > 2 * object.EIN[11]:
  *             object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]             # <<<<<<<<<<<<<<
@@ -8136,7 +8136,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[11]))]);
 
-      /* "KRYPTON.pyx":581
+      /* "gases/KRYPTON.pyx":581
  *             if object.QIN[11][I]<0.0:
  *                 object.QIN[11][I]=0.0
  *         if EN > 2 * object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -8145,7 +8145,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":585
+    /* "gases/KRYPTON.pyx":585
  * 
  *         #2P4
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -8155,7 +8155,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":586
+      /* "gases/KRYPTON.pyx":586
  *         #2P4
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 3)*AN2P             # <<<<<<<<<<<<<<
@@ -8164,7 +8164,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[12])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P4, __pyx_v_Y2P4, __pyx_v_X2P4, 3.0) * __pyx_v_AN2P);
 
-      /* "KRYPTON.pyx":585
+      /* "gases/KRYPTON.pyx":585
  * 
  *         #2P4
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -8173,7 +8173,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":587
+    /* "gases/KRYPTON.pyx":587
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 3)*AN2P
  *         if EN > 2 * object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -8183,7 +8183,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[12]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":588
+      /* "gases/KRYPTON.pyx":588
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 3)*AN2P
  *         if EN > 2 * object.EIN[12]:
  *             object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]             # <<<<<<<<<<<<<<
@@ -8192,7 +8192,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[12]))]);
 
-      /* "KRYPTON.pyx":587
+      /* "gases/KRYPTON.pyx":587
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 3)*AN2P
  *         if EN > 2 * object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -8201,7 +8201,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":591
+    /* "gases/KRYPTON.pyx":591
  * 
  *         #3D3
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -8211,7 +8211,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[13])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":592
+      /* "gases/KRYPTON.pyx":592
  *         #3D3
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 3)*AN3D             # <<<<<<<<<<<<<<
@@ -8220,7 +8220,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[13])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D3, __pyx_v_Y3D3, __pyx_v_X3D3, 3.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":591
+      /* "gases/KRYPTON.pyx":591
  * 
  *         #3D3
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -8229,7 +8229,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":593
+    /* "gases/KRYPTON.pyx":593
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 3)*AN3D
  *         if EN > 2 * object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -8239,7 +8239,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[13]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":594
+      /* "gases/KRYPTON.pyx":594
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 3)*AN3D
  *         if EN > 2 * object.EIN[13]:
  *             object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]             # <<<<<<<<<<<<<<
@@ -8248,7 +8248,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[13])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[13]))]);
 
-      /* "KRYPTON.pyx":593
+      /* "gases/KRYPTON.pyx":593
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 3)*AN3D
  *         if EN > 2 * object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -8257,7 +8257,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":597
+    /* "gases/KRYPTON.pyx":597
  * 
  *         #3D4P
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -8267,7 +8267,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[14])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":598
+      /* "gases/KRYPTON.pyx":598
  *         #3D4P
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 3)*AN3D             # <<<<<<<<<<<<<<
@@ -8276,7 +8276,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[14])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D4P, __pyx_v_Y3D4P, __pyx_v_X3D4P, 3.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":597
+      /* "gases/KRYPTON.pyx":597
  * 
  *         #3D4P
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -8285,7 +8285,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":599
+    /* "gases/KRYPTON.pyx":599
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 3)*AN3D
  *         if EN > 2 * object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -8295,7 +8295,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[14]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":600
+      /* "gases/KRYPTON.pyx":600
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 3)*AN3D
  *         if EN > 2 * object.EIN[14]:
  *             object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]             # <<<<<<<<<<<<<<
@@ -8304,7 +8304,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[14])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[14]))]);
 
-      /* "KRYPTON.pyx":599
+      /* "gases/KRYPTON.pyx":599
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 3)*AN3D
  *         if EN > 2 * object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -8313,7 +8313,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":603
+    /* "gases/KRYPTON.pyx":603
  * 
  *         #2P3
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -8323,7 +8323,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[15])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":604
+      /* "gases/KRYPTON.pyx":604
  *         #2P3
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 3)*AN2P             # <<<<<<<<<<<<<<
@@ -8332,7 +8332,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[15])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P3, __pyx_v_Y2P3, __pyx_v_X2P3, 3.0) * __pyx_v_AN2P);
 
-      /* "KRYPTON.pyx":603
+      /* "gases/KRYPTON.pyx":603
  * 
  *         #2P3
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -8341,7 +8341,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":605
+    /* "gases/KRYPTON.pyx":605
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 3)*AN2P
  *         if EN > 2 * object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -8351,7 +8351,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[15]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":606
+      /* "gases/KRYPTON.pyx":606
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 3)*AN2P
  *         if EN > 2 * object.EIN[15]:
  *             object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]             # <<<<<<<<<<<<<<
@@ -8360,7 +8360,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[15])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[15]))]);
 
-      /* "KRYPTON.pyx":605
+      /* "gases/KRYPTON.pyx":605
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 3)*AN2P
  *         if EN > 2 * object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -8369,7 +8369,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":609
+    /* "gases/KRYPTON.pyx":609
  * 
  *         #2P2
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -8379,7 +8379,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[16])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":610
+      /* "gases/KRYPTON.pyx":610
  *         #2P2
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 1)*AN2P             # <<<<<<<<<<<<<<
@@ -8388,7 +8388,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[16])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P2, __pyx_v_Y2P2, __pyx_v_X2P2, 1.0) * __pyx_v_AN2P);
 
-      /* "KRYPTON.pyx":609
+      /* "gases/KRYPTON.pyx":609
  * 
  *         #2P2
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -8397,7 +8397,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":611
+    /* "gases/KRYPTON.pyx":611
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 1)*AN2P
  *         if EN > 2 * object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -8407,7 +8407,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[16]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":612
+      /* "gases/KRYPTON.pyx":612
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 1)*AN2P
  *         if EN > 2 * object.EIN[16]:
  *             object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]             # <<<<<<<<<<<<<<
@@ -8416,7 +8416,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[16])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[16]))]);
 
-      /* "KRYPTON.pyx":611
+      /* "gases/KRYPTON.pyx":611
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 1)*AN2P
  *         if EN > 2 * object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -8425,7 +8425,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":615
+    /* "gases/KRYPTON.pyx":615
  * 
  *         #3D4
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -8435,7 +8435,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[17])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":616
+      /* "gases/KRYPTON.pyx":616
  *         #3D4
  *         if EN > object.EIN[17]:
  *             object.QIN[17][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 1)*AN3D             # <<<<<<<<<<<<<<
@@ -8444,7 +8444,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[17])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D4, __pyx_v_Y3D4, __pyx_v_X3D4, 1.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":615
+      /* "gases/KRYPTON.pyx":615
  * 
  *         #3D4
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -8453,7 +8453,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":617
+    /* "gases/KRYPTON.pyx":617
  *         if EN > object.EIN[17]:
  *             object.QIN[17][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 1)*AN3D
  *         if EN > 2 * object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -8463,7 +8463,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[17]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":618
+      /* "gases/KRYPTON.pyx":618
  *             object.QIN[17][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 1)*AN3D
  *         if EN > 2 * object.EIN[17]:
  *             object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]             # <<<<<<<<<<<<<<
@@ -8472,7 +8472,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[17])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[17]))]);
 
-      /* "KRYPTON.pyx":617
+      /* "gases/KRYPTON.pyx":617
  *         if EN > object.EIN[17]:
  *             object.QIN[17][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 1)*AN3D
  *         if EN > 2 * object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -8481,7 +8481,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":621
+    /* "gases/KRYPTON.pyx":621
  * 
  *         #2P1
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -8491,7 +8491,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[18])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":622
+      /* "gases/KRYPTON.pyx":622
  *         #2P1
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)*AN2P1             # <<<<<<<<<<<<<<
@@ -8500,7 +8500,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[18])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P1, __pyx_v_Y2P1, __pyx_v_X2P1, 1.0) * __pyx_v_AN2P1);
 
-      /* "KRYPTON.pyx":621
+      /* "gases/KRYPTON.pyx":621
  * 
  *         #2P1
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -8509,7 +8509,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":623
+    /* "gases/KRYPTON.pyx":623
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)*AN2P1
  *         if EN > 2 * object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -8519,7 +8519,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[18]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":624
+      /* "gases/KRYPTON.pyx":624
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)*AN2P1
  *         if EN > 2 * object.EIN[18]:
  *             object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]             # <<<<<<<<<<<<<<
@@ -8528,7 +8528,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[18])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[18]))]);
 
-      /* "KRYPTON.pyx":623
+      /* "gases/KRYPTON.pyx":623
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)*AN2P1
  *         if EN > 2 * object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -8537,7 +8537,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":627
+    /* "gases/KRYPTON.pyx":627
  * 
  *         #3D41PP
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -8547,7 +8547,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[19])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":628
+      /* "gases/KRYPTON.pyx":628
  *         #3D41PP
  *         if EN > object.EIN[19]:
  *             object.QIN[19][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)*AN3D             # <<<<<<<<<<<<<<
@@ -8556,7 +8556,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[19])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D1PP, __pyx_v_Y3D1PP, __pyx_v_X3D1PP, 3.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":627
+      /* "gases/KRYPTON.pyx":627
  * 
  *         #3D41PP
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -8565,7 +8565,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":629
+    /* "gases/KRYPTON.pyx":629
  *         if EN > object.EIN[19]:
  *             object.QIN[19][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)*AN3D
  *         if EN > 2 * object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -8575,7 +8575,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[19]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":630
+      /* "gases/KRYPTON.pyx":630
  *             object.QIN[19][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)*AN3D
  *         if EN > 2 * object.EIN[19]:
  *             object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]             # <<<<<<<<<<<<<<
@@ -8584,7 +8584,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[19])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[19]))]);
 
-      /* "KRYPTON.pyx":629
+      /* "gases/KRYPTON.pyx":629
  *         if EN > object.EIN[19]:
  *             object.QIN[19][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)*AN3D
  *         if EN > 2 * object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -8593,7 +8593,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":633
+    /* "gases/KRYPTON.pyx":633
  * 
  *         #3D41P
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -8603,7 +8603,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[20])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":634
+      /* "gases/KRYPTON.pyx":634
  *         #3D41P
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1)*AN3D             # <<<<<<<<<<<<<<
@@ -8612,7 +8612,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[20])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D1P, __pyx_v_Y3D1P, __pyx_v_X3D1P, 1.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":633
+      /* "gases/KRYPTON.pyx":633
  * 
  *         #3D41P
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -8621,7 +8621,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":635
+    /* "gases/KRYPTON.pyx":635
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1)*AN3D
  *         if EN > 2 * object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -8631,7 +8631,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[20]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":636
+      /* "gases/KRYPTON.pyx":636
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1)*AN3D
  *         if EN > 2 * object.EIN[20]:
  *             object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -8640,7 +8640,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[20])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-      /* "KRYPTON.pyx":635
+      /* "gases/KRYPTON.pyx":635
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1)*AN3D
  *         if EN > 2 * object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -8649,7 +8649,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":639
+    /* "gases/KRYPTON.pyx":639
  * 
  *         #2S5
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -8659,7 +8659,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[21])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":640
+      /* "gases/KRYPTON.pyx":640
  *         #2S5
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3)*AN1S             # <<<<<<<<<<<<<<
@@ -8668,7 +8668,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[21])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2S5, __pyx_v_Y2S5, __pyx_v_X2S5, 3.0) * __pyx_v_AN1S);
 
-      /* "KRYPTON.pyx":639
+      /* "gases/KRYPTON.pyx":639
  * 
  *         #2S5
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -8677,7 +8677,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":641
+    /* "gases/KRYPTON.pyx":641
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3)*AN1S
  *         if EN > 2 * object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -8687,7 +8687,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[21]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":642
+      /* "gases/KRYPTON.pyx":642
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3)*AN1S
  *         if EN > 2 * object.EIN[21]:
  *             object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]             # <<<<<<<<<<<<<<
@@ -8696,7 +8696,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[21])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[21]))]);
 
-      /* "KRYPTON.pyx":641
+      /* "gases/KRYPTON.pyx":641
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3)*AN1S
  *         if EN > 2 * object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -8705,7 +8705,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":645
+    /* "gases/KRYPTON.pyx":645
  * 
  * 
  *         FI = 0             # <<<<<<<<<<<<<<
@@ -8714,7 +8714,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = 0;
 
-    /* "KRYPTON.pyx":646
+    /* "gases/KRYPTON.pyx":646
  * 
  *         FI = 0
  *         for J in range(22,24):             # <<<<<<<<<<<<<<
@@ -8724,7 +8724,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 22; __pyx_t_45 < 24; __pyx_t_45+=1) {
       __pyx_v_J = __pyx_t_45;
 
-      /* "KRYPTON.pyx":647
+      /* "gases/KRYPTON.pyx":647
  *         FI = 0
  *         for J in range(22,24):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8734,7 +8734,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":648
+        /* "gases/KRYPTON.pyx":648
  *         for J in range(22,24):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -8743,7 +8743,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "KRYPTON.pyx":647
+        /* "gases/KRYPTON.pyx":647
  *         FI = 0
  *         for J in range(22,24):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8752,7 +8752,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":651
+      /* "gases/KRYPTON.pyx":651
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8762,7 +8762,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":652
+        /* "gases/KRYPTON.pyx":652
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -8771,7 +8771,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "KRYPTON.pyx":651
+        /* "gases/KRYPTON.pyx":651
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -8780,7 +8780,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":653
+      /* "gases/KRYPTON.pyx":653
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -8790,7 +8790,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "KRYPTON.pyx":657
+    /* "gases/KRYPTON.pyx":657
  * 
  *         #3P10
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -8800,7 +8800,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[24])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":658
+      /* "gases/KRYPTON.pyx":658
  *         #3P10
  *         if EN > object.EIN[24]:
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N3P10, Y3P10, X3P10, 3)*AN3P             # <<<<<<<<<<<<<<
@@ -8809,7 +8809,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[24])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P10, __pyx_v_Y3P10, __pyx_v_X3P10, 3.0) * __pyx_v_AN3P);
 
-      /* "KRYPTON.pyx":657
+      /* "gases/KRYPTON.pyx":657
  * 
  *         #3P10
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -8818,7 +8818,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":659
+    /* "gases/KRYPTON.pyx":659
  *         if EN > object.EIN[24]:
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N3P10, Y3P10, X3P10, 3)*AN3P
  *         if EN > 2 * object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -8828,7 +8828,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[24]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":660
+      /* "gases/KRYPTON.pyx":660
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N3P10, Y3P10, X3P10, 3)*AN3P
  *         if EN > 2 * object.EIN[24]:
  *             object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]             # <<<<<<<<<<<<<<
@@ -8837,7 +8837,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[24])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[24]))]);
 
-      /* "KRYPTON.pyx":659
+      /* "gases/KRYPTON.pyx":659
  *         if EN > object.EIN[24]:
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N3P10, Y3P10, X3P10, 3)*AN3P
  *         if EN > 2 * object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -8846,7 +8846,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":664
+    /* "gases/KRYPTON.pyx":664
  * 
  *         #3P9
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -8856,7 +8856,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[25])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":665
+      /* "gases/KRYPTON.pyx":665
  *         #3P9
  *         if EN > object.EIN[25]:
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N3P9, Y3P9, X3P9, 3)*AN3P             # <<<<<<<<<<<<<<
@@ -8865,7 +8865,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[25])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P9, __pyx_v_Y3P9, __pyx_v_X3P9, 3.0) * __pyx_v_AN3P);
 
-      /* "KRYPTON.pyx":664
+      /* "gases/KRYPTON.pyx":664
  * 
  *         #3P9
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -8874,7 +8874,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":666
+    /* "gases/KRYPTON.pyx":666
  *         if EN > object.EIN[25]:
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N3P9, Y3P9, X3P9, 3)*AN3P
  *         if EN > 2 * object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -8884,7 +8884,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[25]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":667
+      /* "gases/KRYPTON.pyx":667
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N3P9, Y3P9, X3P9, 3)*AN3P
  *         if EN > 2 * object.EIN[25]:
  *             object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]             # <<<<<<<<<<<<<<
@@ -8893,7 +8893,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[25])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[25]))]);
 
-      /* "KRYPTON.pyx":666
+      /* "gases/KRYPTON.pyx":666
  *         if EN > object.EIN[25]:
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N3P9, Y3P9, X3P9, 3)*AN3P
  *         if EN > 2 * object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -8902,7 +8902,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":670
+    /* "gases/KRYPTON.pyx":670
  * 
  *         #3P8
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -8912,7 +8912,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[26])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":671
+      /* "gases/KRYPTON.pyx":671
  *         #3P8
  *         if EN > object.EIN[26]:
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N3P8, Y3P8, X3P8, 1)*AN3P             # <<<<<<<<<<<<<<
@@ -8921,7 +8921,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[26])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P8, __pyx_v_Y3P8, __pyx_v_X3P8, 1.0) * __pyx_v_AN3P);
 
-      /* "KRYPTON.pyx":670
+      /* "gases/KRYPTON.pyx":670
  * 
  *         #3P8
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -8930,7 +8930,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":672
+    /* "gases/KRYPTON.pyx":672
  *         if EN > object.EIN[26]:
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N3P8, Y3P8, X3P8, 1)*AN3P
  *         if EN > 2 * object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -8940,7 +8940,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[26]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":673
+      /* "gases/KRYPTON.pyx":673
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N3P8, Y3P8, X3P8, 1)*AN3P
  *         if EN > 2 * object.EIN[26]:
  *             object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]             # <<<<<<<<<<<<<<
@@ -8949,7 +8949,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[26])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[26]))]);
 
-      /* "KRYPTON.pyx":672
+      /* "gases/KRYPTON.pyx":672
  *         if EN > object.EIN[26]:
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N3P8, Y3P8, X3P8, 1)*AN3P
  *         if EN > 2 * object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -8958,7 +8958,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":676
+    /* "gases/KRYPTON.pyx":676
  * 
  *         #3S1PP
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -8968,7 +8968,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[27])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":677
+      /* "gases/KRYPTON.pyx":677
  *         #3S1PP
  *         if EN > object.EIN[27]:
  *             object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 3)*AN3D             # <<<<<<<<<<<<<<
@@ -8977,7 +8977,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[27])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3S1PP, __pyx_v_Y3S1PP, __pyx_v_X3S1PP, 3.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":676
+      /* "gases/KRYPTON.pyx":676
  * 
  *         #3S1PP
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -8986,7 +8986,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":678
+    /* "gases/KRYPTON.pyx":678
  *         if EN > object.EIN[27]:
  *             object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 3)*AN3D
  *         if EN > 2 * object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -8996,7 +8996,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[27]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":679
+      /* "gases/KRYPTON.pyx":679
  *             object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 3)*AN3D
  *         if EN > 2 * object.EIN[27]:
  *             object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]             # <<<<<<<<<<<<<<
@@ -9005,7 +9005,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[27])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[27]))]);
 
-      /* "KRYPTON.pyx":678
+      /* "gases/KRYPTON.pyx":678
  *         if EN > object.EIN[27]:
  *             object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 3)*AN3D
  *         if EN > 2 * object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -9014,7 +9014,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":682
+    /* "gases/KRYPTON.pyx":682
  * 
  *         #3P7
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -9024,7 +9024,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[28])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":683
+      /* "gases/KRYPTON.pyx":683
  *         #3P7
  *         if EN > object.EIN[28]:
  *             object.QIN[28][I] = GasUtil.CALQINP(EN, N3P7, Y3P7, X3P7, 3)*AN3P             # <<<<<<<<<<<<<<
@@ -9033,7 +9033,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[28])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P7, __pyx_v_Y3P7, __pyx_v_X3P7, 3.0) * __pyx_v_AN3P);
 
-      /* "KRYPTON.pyx":682
+      /* "gases/KRYPTON.pyx":682
  * 
  *         #3P7
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -9042,7 +9042,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":684
+    /* "gases/KRYPTON.pyx":684
  *         if EN > object.EIN[28]:
  *             object.QIN[28][I] = GasUtil.CALQINP(EN, N3P7, Y3P7, X3P7, 3)*AN3P
  *         if EN > 2 * object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -9052,7 +9052,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[28]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":685
+      /* "gases/KRYPTON.pyx":685
  *             object.QIN[28][I] = GasUtil.CALQINP(EN, N3P7, Y3P7, X3P7, 3)*AN3P
  *         if EN > 2 * object.EIN[28]:
  *             object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]             # <<<<<<<<<<<<<<
@@ -9061,7 +9061,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[28])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[28]))]);
 
-      /* "KRYPTON.pyx":684
+      /* "gases/KRYPTON.pyx":684
  *         if EN > object.EIN[28]:
  *             object.QIN[28][I] = GasUtil.CALQINP(EN, N3P7, Y3P7, X3P7, 3)*AN3P
  *         if EN > 2 * object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -9070,7 +9070,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":688
+    /* "gases/KRYPTON.pyx":688
  * 
  *         #3P6
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -9080,7 +9080,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[29])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":689
+      /* "gases/KRYPTON.pyx":689
  *         #3P6
  *         if EN > object.EIN[29]:
  *             object.QIN[29][I] = GasUtil.CALQINP(EN, N3P6, Y3P6, X3P6, 1)*AN3P             # <<<<<<<<<<<<<<
@@ -9089,7 +9089,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[29])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P6, __pyx_v_Y3P6, __pyx_v_X3P6, 1.0) * __pyx_v_AN3P);
 
-      /* "KRYPTON.pyx":688
+      /* "gases/KRYPTON.pyx":688
  * 
  *         #3P6
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -9098,7 +9098,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":690
+    /* "gases/KRYPTON.pyx":690
  *         if EN > object.EIN[29]:
  *             object.QIN[29][I] = GasUtil.CALQINP(EN, N3P6, Y3P6, X3P6, 1)*AN3P
  *         if EN > 2 * object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -9108,7 +9108,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[29]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":691
+      /* "gases/KRYPTON.pyx":691
  *             object.QIN[29][I] = GasUtil.CALQINP(EN, N3P6, Y3P6, X3P6, 1)*AN3P
  *         if EN > 2 * object.EIN[29]:
  *             object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]             # <<<<<<<<<<<<<<
@@ -9117,7 +9117,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[29])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[29]))]);
 
-      /* "KRYPTON.pyx":690
+      /* "gases/KRYPTON.pyx":690
  *         if EN > object.EIN[29]:
  *             object.QIN[29][I] = GasUtil.CALQINP(EN, N3P6, Y3P6, X3P6, 1)*AN3P
  *         if EN > 2 * object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -9126,7 +9126,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":694
+    /* "gases/KRYPTON.pyx":694
  * 
  *         #3S1PPPP
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -9136,7 +9136,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[30])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":695
+      /* "gases/KRYPTON.pyx":695
  *         #3S1PPPP
  *         if EN > object.EIN[30]:
  *             object.QIN[30][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 3)*AN3D             # <<<<<<<<<<<<<<
@@ -9145,7 +9145,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[30])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3S1PPPP, __pyx_v_Y3S1PPPP, __pyx_v_X3S1PPPP, 3.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":694
+      /* "gases/KRYPTON.pyx":694
  * 
  *         #3S1PPPP
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -9154,7 +9154,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":696
+    /* "gases/KRYPTON.pyx":696
  *         if EN > object.EIN[30]:
  *             object.QIN[30][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 3)*AN3D
  *         if EN > 2 * object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -9164,7 +9164,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[30]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":697
+      /* "gases/KRYPTON.pyx":697
  *             object.QIN[30][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 3)*AN3D
  *         if EN > 2 * object.EIN[30]:
  *             object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]             # <<<<<<<<<<<<<<
@@ -9173,7 +9173,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[30])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[30]))]);
 
-      /* "KRYPTON.pyx":696
+      /* "gases/KRYPTON.pyx":696
  *         if EN > object.EIN[30]:
  *             object.QIN[30][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 3)*AN3D
  *         if EN > 2 * object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -9182,7 +9182,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":700
+    /* "gases/KRYPTON.pyx":700
  * 
  *         #3S1PPP
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -9192,7 +9192,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[31])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":701
+      /* "gases/KRYPTON.pyx":701
  *         #3S1PPP
  *         if EN > object.EIN[31]:
  *             object.QIN[31][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 1)*AN3D             # <<<<<<<<<<<<<<
@@ -9201,7 +9201,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[31])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3S1PPP, __pyx_v_Y3S1PPP, __pyx_v_X3S1PPP, 1.0) * __pyx_v_AN3D);
 
-      /* "KRYPTON.pyx":700
+      /* "gases/KRYPTON.pyx":700
  * 
  *         #3S1PPP
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -9210,7 +9210,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":702
+    /* "gases/KRYPTON.pyx":702
  *         if EN > object.EIN[31]:
  *             object.QIN[31][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 1)*AN3D
  *         if EN > 2 * object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -9220,7 +9220,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[31]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":703
+      /* "gases/KRYPTON.pyx":703
  *             object.QIN[31][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 1)*AN3D
  *         if EN > 2 * object.EIN[31]:
  *             object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -9229,7 +9229,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[31])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-      /* "KRYPTON.pyx":702
+      /* "gases/KRYPTON.pyx":702
  *         if EN > object.EIN[31]:
  *             object.QIN[31][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 1)*AN3D
  *         if EN > 2 * object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -9238,7 +9238,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":706
+    /* "gases/KRYPTON.pyx":706
  * 
  *         #3P5
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -9248,7 +9248,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[32])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":707
+      /* "gases/KRYPTON.pyx":707
  *         #3P5
  *         if EN > object.EIN[32]:
  *             object.QIN[32][I] = GasUtil.CALQINP(EN, N3P5, Y3P5, X3P5, 1)*AN3P5             # <<<<<<<<<<<<<<
@@ -9257,7 +9257,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[32])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P5, __pyx_v_Y3P5, __pyx_v_X3P5, 1.0) * __pyx_v_AN3P5);
 
-      /* "KRYPTON.pyx":706
+      /* "gases/KRYPTON.pyx":706
  * 
  *         #3P5
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -9266,7 +9266,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":708
+    /* "gases/KRYPTON.pyx":708
  *         if EN > object.EIN[32]:
  *             object.QIN[32][I] = GasUtil.CALQINP(EN, N3P5, Y3P5, X3P5, 1)*AN3P5
  *         if EN > 2 * object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -9276,7 +9276,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[32]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":709
+      /* "gases/KRYPTON.pyx":709
  *             object.QIN[32][I] = GasUtil.CALQINP(EN, N3P5, Y3P5, X3P5, 1)*AN3P5
  *         if EN > 2 * object.EIN[32]:
  *             object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]             # <<<<<<<<<<<<<<
@@ -9285,7 +9285,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[32])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[32]))]);
 
-      /* "KRYPTON.pyx":708
+      /* "gases/KRYPTON.pyx":708
  *         if EN > object.EIN[32]:
  *             object.QIN[32][I] = GasUtil.CALQINP(EN, N3P5, Y3P5, X3P5, 1)*AN3P5
  *         if EN > 2 * object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -9294,7 +9294,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":711
+    /* "gases/KRYPTON.pyx":711
  *             object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]
  * 
  *         J=33             # <<<<<<<<<<<<<<
@@ -9303,7 +9303,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_J = 33;
 
-    /* "KRYPTON.pyx":712
+    /* "gases/KRYPTON.pyx":712
  * 
  *         J=33
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9313,7 +9313,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":713
+      /* "gases/KRYPTON.pyx":713
  *         J=33
  *         if EN > object.EIN[J]:
  *             object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9322,7 +9322,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-      /* "KRYPTON.pyx":712
+      /* "gases/KRYPTON.pyx":712
  * 
  *         J=33
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9331,7 +9331,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":716
+    /* "gases/KRYPTON.pyx":716
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9341,7 +9341,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":717
+      /* "gases/KRYPTON.pyx":717
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -9350,7 +9350,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-      /* "KRYPTON.pyx":716
+      /* "gases/KRYPTON.pyx":716
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9359,7 +9359,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":718
+    /* "gases/KRYPTON.pyx":718
  *         if EN > 2 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *         FI+=1             # <<<<<<<<<<<<<<
@@ -9368,7 +9368,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = (__pyx_v_FI + 1);
 
-    /* "KRYPTON.pyx":721
+    /* "gases/KRYPTON.pyx":721
  * 
  *         #4D6
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -9378,7 +9378,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[34])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":722
+      /* "gases/KRYPTON.pyx":722
  *         #4D6
  *         if EN > object.EIN[34]:
  *             object.QIN[34][I] = GasUtil.CALQINP(EN, N4D6, Y4D6, X4D6, 3)*AN4D             # <<<<<<<<<<<<<<
@@ -9387,7 +9387,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[34])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N4D6, __pyx_v_Y4D6, __pyx_v_X4D6, 3.0) * __pyx_v_AN4D);
 
-      /* "KRYPTON.pyx":721
+      /* "gases/KRYPTON.pyx":721
  * 
  *         #4D6
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -9396,7 +9396,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":723
+    /* "gases/KRYPTON.pyx":723
  *         if EN > object.EIN[34]:
  *             object.QIN[34][I] = GasUtil.CALQINP(EN, N4D6, Y4D6, X4D6, 3)*AN4D
  *         if EN > 2 * object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -9406,7 +9406,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[34]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":724
+      /* "gases/KRYPTON.pyx":724
  *             object.QIN[34][I] = GasUtil.CALQINP(EN, N4D6, Y4D6, X4D6, 3)*AN4D
  *         if EN > 2 * object.EIN[34]:
  *             object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]             # <<<<<<<<<<<<<<
@@ -9415,7 +9415,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[34])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[34]))]);
 
-      /* "KRYPTON.pyx":723
+      /* "gases/KRYPTON.pyx":723
  *         if EN > object.EIN[34]:
  *             object.QIN[34][I] = GasUtil.CALQINP(EN, N4D6, Y4D6, X4D6, 3)*AN4D
  *         if EN > 2 * object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -9424,7 +9424,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":727
+    /* "gases/KRYPTON.pyx":727
  * 
  *         #4D4P
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -9434,7 +9434,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[35])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":728
+      /* "gases/KRYPTON.pyx":728
  *         #4D4P
  *         if EN > object.EIN[35]:
  *             object.QIN[35][I] = GasUtil.CALQINP(EN, N4D4P, Y4D4P, X4D4P, 3)*AN4D             # <<<<<<<<<<<<<<
@@ -9443,7 +9443,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[35])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N4D4P, __pyx_v_Y4D4P, __pyx_v_X4D4P, 3.0) * __pyx_v_AN4D);
 
-      /* "KRYPTON.pyx":727
+      /* "gases/KRYPTON.pyx":727
  * 
  *         #4D4P
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -9452,7 +9452,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":729
+    /* "gases/KRYPTON.pyx":729
  *         if EN > object.EIN[35]:
  *             object.QIN[35][I] = GasUtil.CALQINP(EN, N4D4P, Y4D4P, X4D4P, 3)*AN4D
  *         if EN > 2 * object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -9462,7 +9462,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[35]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":730
+      /* "gases/KRYPTON.pyx":730
  *             object.QIN[35][I] = GasUtil.CALQINP(EN, N4D4P, Y4D4P, X4D4P, 3)*AN4D
  *         if EN > 2 * object.EIN[35]:
  *             object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]             # <<<<<<<<<<<<<<
@@ -9471,7 +9471,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[35])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[35]))]);
 
-      /* "KRYPTON.pyx":729
+      /* "gases/KRYPTON.pyx":729
  *         if EN > object.EIN[35]:
  *             object.QIN[35][I] = GasUtil.CALQINP(EN, N4D4P, Y4D4P, X4D4P, 3)*AN4D
  *         if EN > 2 * object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -9480,7 +9480,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":732
+    /* "gases/KRYPTON.pyx":732
  *             object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]
  * 
  *         J=36             # <<<<<<<<<<<<<<
@@ -9489,7 +9489,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_J = 36;
 
-    /* "KRYPTON.pyx":733
+    /* "gases/KRYPTON.pyx":733
  * 
  *         J=36
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9499,7 +9499,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":734
+      /* "gases/KRYPTON.pyx":734
  *         J=36
  *         if EN > object.EIN[J]:
  *             object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9508,7 +9508,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-      /* "KRYPTON.pyx":733
+      /* "gases/KRYPTON.pyx":733
  * 
  *         J=36
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9517,7 +9517,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":737
+    /* "gases/KRYPTON.pyx":737
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9527,7 +9527,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":738
+      /* "gases/KRYPTON.pyx":738
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -9536,7 +9536,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-      /* "KRYPTON.pyx":737
+      /* "gases/KRYPTON.pyx":737
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9545,7 +9545,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":739
+    /* "gases/KRYPTON.pyx":739
  *         if EN > 2 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *         FI+=1             # <<<<<<<<<<<<<<
@@ -9554,7 +9554,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = (__pyx_v_FI + 1);
 
-    /* "KRYPTON.pyx":742
+    /* "gases/KRYPTON.pyx":742
  * 
  *         #4D4
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -9564,7 +9564,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[37])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":743
+      /* "gases/KRYPTON.pyx":743
  *         #4D4
  *         if EN > object.EIN[37]:
  *             object.QIN[37][I] = GasUtil.CALQINP(EN, N4D4, Y4D4, X4D4, 1)*AN4D             # <<<<<<<<<<<<<<
@@ -9573,7 +9573,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[37])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N4D4, __pyx_v_Y4D4, __pyx_v_X4D4, 1.0) * __pyx_v_AN4D);
 
-      /* "KRYPTON.pyx":742
+      /* "gases/KRYPTON.pyx":742
  * 
  *         #4D4
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -9582,7 +9582,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":744
+    /* "gases/KRYPTON.pyx":744
  *         if EN > object.EIN[37]:
  *             object.QIN[37][I] = GasUtil.CALQINP(EN, N4D4, Y4D4, X4D4, 1)*AN4D
  *         if EN > 2 * object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -9592,7 +9592,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[37]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":745
+      /* "gases/KRYPTON.pyx":745
  *             object.QIN[37][I] = GasUtil.CALQINP(EN, N4D4, Y4D4, X4D4, 1)*AN4D
  *         if EN > 2 * object.EIN[37]:
  *             object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]             # <<<<<<<<<<<<<<
@@ -9601,7 +9601,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[37])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[37]))]);
 
-      /* "KRYPTON.pyx":744
+      /* "gases/KRYPTON.pyx":744
  *         if EN > object.EIN[37]:
  *             object.QIN[37][I] = GasUtil.CALQINP(EN, N4D4, Y4D4, X4D4, 1)*AN4D
  *         if EN > 2 * object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -9610,7 +9610,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":748
+    /* "gases/KRYPTON.pyx":748
  * 
  *         #4D3
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -9620,7 +9620,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[38])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":749
+      /* "gases/KRYPTON.pyx":749
  *         #4D3
  *         if EN > object.EIN[38]:
  *             object.QIN[38][I] = GasUtil.CALQINP(EN, N4D3, Y4D3, X4D3, 3)*AN4D             # <<<<<<<<<<<<<<
@@ -9629,7 +9629,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[38])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N4D3, __pyx_v_Y4D3, __pyx_v_X4D3, 3.0) * __pyx_v_AN4D);
 
-      /* "KRYPTON.pyx":748
+      /* "gases/KRYPTON.pyx":748
  * 
  *         #4D3
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -9638,7 +9638,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":750
+    /* "gases/KRYPTON.pyx":750
  *         if EN > object.EIN[38]:
  *             object.QIN[38][I] = GasUtil.CALQINP(EN, N4D3, Y4D3, X4D3, 3)*AN4D
  *         if EN > 2 * object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -9648,7 +9648,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[38]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":751
+      /* "gases/KRYPTON.pyx":751
  *             object.QIN[38][I] = GasUtil.CALQINP(EN, N4D3, Y4D3, X4D3, 3)*AN4D
  *         if EN > 2 * object.EIN[38]:
  *             object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]             # <<<<<<<<<<<<<<
@@ -9657,7 +9657,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[38])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[38]))]);
 
-      /* "KRYPTON.pyx":750
+      /* "gases/KRYPTON.pyx":750
  *         if EN > object.EIN[38]:
  *             object.QIN[38][I] = GasUtil.CALQINP(EN, N4D3, Y4D3, X4D3, 3)*AN4D
  *         if EN > 2 * object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -9666,7 +9666,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":754
+    /* "gases/KRYPTON.pyx":754
  * 
  *         #2S3
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -9676,7 +9676,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[39])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":755
+      /* "gases/KRYPTON.pyx":755
  *         #2S3
  *         if EN > object.EIN[39]:
  *             object.QIN[39][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 3)*AN1S             # <<<<<<<<<<<<<<
@@ -9685,7 +9685,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[39])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2S3, __pyx_v_Y2S3, __pyx_v_X2S3, 3.0) * __pyx_v_AN1S);
 
-      /* "KRYPTON.pyx":754
+      /* "gases/KRYPTON.pyx":754
  * 
  *         #2S3
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -9694,7 +9694,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":756
+    /* "gases/KRYPTON.pyx":756
  *         if EN > object.EIN[39]:
  *             object.QIN[39][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 3)*AN1S
  *         if EN > 2 * object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -9704,7 +9704,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[39]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":757
+      /* "gases/KRYPTON.pyx":757
  *             object.QIN[39][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 3)*AN1S
  *         if EN > 2 * object.EIN[39]:
  *             object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]             # <<<<<<<<<<<<<<
@@ -9713,7 +9713,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[39])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[39]))]);
 
-      /* "KRYPTON.pyx":756
+      /* "gases/KRYPTON.pyx":756
  *         if EN > object.EIN[39]:
  *             object.QIN[39][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 3)*AN1S
  *         if EN > 2 * object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -9722,7 +9722,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":759
+    /* "gases/KRYPTON.pyx":759
  *             object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]
  * 
  *         J=40             # <<<<<<<<<<<<<<
@@ -9731,7 +9731,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_J = 40;
 
-    /* "KRYPTON.pyx":760
+    /* "gases/KRYPTON.pyx":760
  * 
  *         J=40
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9741,7 +9741,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":761
+      /* "gases/KRYPTON.pyx":761
  *         J=40
  *         if EN > object.EIN[J]:
  *             object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9750,7 +9750,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-      /* "KRYPTON.pyx":760
+      /* "gases/KRYPTON.pyx":760
  * 
  *         J=40
  *         if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9759,7 +9759,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":764
+    /* "gases/KRYPTON.pyx":764
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9769,7 +9769,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":765
+      /* "gases/KRYPTON.pyx":765
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -9778,7 +9778,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-      /* "KRYPTON.pyx":764
+      /* "gases/KRYPTON.pyx":764
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *         if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9787,7 +9787,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":766
+    /* "gases/KRYPTON.pyx":766
  *         if EN > 2 * object.EIN[J]:
  *             object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *         FI+=1             # <<<<<<<<<<<<<<
@@ -9796,7 +9796,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = (__pyx_v_FI + 1);
 
-    /* "KRYPTON.pyx":769
+    /* "gases/KRYPTON.pyx":769
  * 
  *         #4D1PP
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -9806,7 +9806,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[41])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":770
+      /* "gases/KRYPTON.pyx":770
  *         #4D1PP
  *         if EN > object.EIN[41]:
  *             object.QIN[41][I] = GasUtil.CALQINP(EN, N4D1PP, Y4D1PP, X4D1PP, 3)*AN4D             # <<<<<<<<<<<<<<
@@ -9815,7 +9815,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[41])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N4D1PP, __pyx_v_Y4D1PP, __pyx_v_X4D1PP, 3.0) * __pyx_v_AN4D);
 
-      /* "KRYPTON.pyx":769
+      /* "gases/KRYPTON.pyx":769
  * 
  *         #4D1PP
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -9824,7 +9824,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":771
+    /* "gases/KRYPTON.pyx":771
  *         if EN > object.EIN[41]:
  *             object.QIN[41][I] = GasUtil.CALQINP(EN, N4D1PP, Y4D1PP, X4D1PP, 3)*AN4D
  *         if EN > 2 * object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -9834,7 +9834,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[41]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":772
+      /* "gases/KRYPTON.pyx":772
  *             object.QIN[41][I] = GasUtil.CALQINP(EN, N4D1PP, Y4D1PP, X4D1PP, 3)*AN4D
  *         if EN > 2 * object.EIN[41]:
  *             object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]             # <<<<<<<<<<<<<<
@@ -9843,7 +9843,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[41])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[41]))]);
 
-      /* "KRYPTON.pyx":771
+      /* "gases/KRYPTON.pyx":771
  *         if EN > object.EIN[41]:
  *             object.QIN[41][I] = GasUtil.CALQINP(EN, N4D1PP, Y4D1PP, X4D1PP, 3)*AN4D
  *         if EN > 2 * object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -9852,7 +9852,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":775
+    /* "gases/KRYPTON.pyx":775
  * 
  *         #4D1P
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -9862,7 +9862,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[42])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":776
+      /* "gases/KRYPTON.pyx":776
  *         #4D1P
  *         if EN > object.EIN[42]:
  *             object.QIN[42][I] = GasUtil.CALQINP(EN, N4D1P, Y4D1P, X4D1P, 3)*AN4D             # <<<<<<<<<<<<<<
@@ -9871,7 +9871,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[42])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N4D1P, __pyx_v_Y4D1P, __pyx_v_X4D1P, 3.0) * __pyx_v_AN4D);
 
-      /* "KRYPTON.pyx":775
+      /* "gases/KRYPTON.pyx":775
  * 
  *         #4D1P
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -9880,7 +9880,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":777
+    /* "gases/KRYPTON.pyx":777
  *         if EN > object.EIN[42]:
  *             object.QIN[42][I] = GasUtil.CALQINP(EN, N4D1P, Y4D1P, X4D1P, 3)*AN4D
  *         if EN > 2 * object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -9890,7 +9890,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[42]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":778
+      /* "gases/KRYPTON.pyx":778
  *             object.QIN[42][I] = GasUtil.CALQINP(EN, N4D1P, Y4D1P, X4D1P, 3)*AN4D
  *         if EN > 2 * object.EIN[42]:
  *             object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]             # <<<<<<<<<<<<<<
@@ -9899,7 +9899,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[42])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[42]))]);
 
-      /* "KRYPTON.pyx":777
+      /* "gases/KRYPTON.pyx":777
  *         if EN > object.EIN[42]:
  *             object.QIN[42][I] = GasUtil.CALQINP(EN, N4D1P, Y4D1P, X4D1P, 3)*AN4D
  *         if EN > 2 * object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -9908,7 +9908,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":781
+    /* "gases/KRYPTON.pyx":781
  * 
  *         #3S5
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -9918,7 +9918,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[43])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":782
+      /* "gases/KRYPTON.pyx":782
  *         #3S5
  *         if EN > object.EIN[43]:
  *             object.QIN[43][I] = GasUtil.CALQINP(EN, N3S5, Y3S5, X3S5, 3)*AN1S             # <<<<<<<<<<<<<<
@@ -9927,7 +9927,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[43])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3S5, __pyx_v_Y3S5, __pyx_v_X3S5, 3.0) * __pyx_v_AN1S);
 
-      /* "KRYPTON.pyx":781
+      /* "gases/KRYPTON.pyx":781
  * 
  *         #3S5
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -9936,7 +9936,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":783
+    /* "gases/KRYPTON.pyx":783
  *         if EN > object.EIN[43]:
  *             object.QIN[43][I] = GasUtil.CALQINP(EN, N3S5, Y3S5, X3S5, 3)*AN1S
  *         if EN > 2 * object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -9946,7 +9946,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[43]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":784
+      /* "gases/KRYPTON.pyx":784
  *             object.QIN[43][I] = GasUtil.CALQINP(EN, N3S5, Y3S5, X3S5, 3)*AN1S
  *         if EN > 2 * object.EIN[43]:
  *             object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]             # <<<<<<<<<<<<<<
@@ -9955,7 +9955,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[43])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[43]))]);
 
-      /* "KRYPTON.pyx":783
+      /* "gases/KRYPTON.pyx":783
  *         if EN > object.EIN[43]:
  *             object.QIN[43][I] = GasUtil.CALQINP(EN, N3S5, Y3S5, X3S5, 3)*AN1S
  *         if EN > 2 * object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -9964,7 +9964,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":787
+    /* "gases/KRYPTON.pyx":787
  * 
  * 
  *         for J in range(44,46):             # <<<<<<<<<<<<<<
@@ -9974,7 +9974,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 44; __pyx_t_45 < 46; __pyx_t_45+=1) {
       __pyx_v_J = __pyx_t_45;
 
-      /* "KRYPTON.pyx":788
+      /* "gases/KRYPTON.pyx":788
  * 
  *         for J in range(44,46):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -9984,7 +9984,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":789
+        /* "gases/KRYPTON.pyx":789
  *         for J in range(44,46):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -9993,7 +9993,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "KRYPTON.pyx":788
+        /* "gases/KRYPTON.pyx":788
  * 
  *         for J in range(44,46):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10002,7 +10002,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":792
+      /* "gases/KRYPTON.pyx":792
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10012,7 +10012,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":793
+        /* "gases/KRYPTON.pyx":793
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -10021,7 +10021,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "KRYPTON.pyx":792
+        /* "gases/KRYPTON.pyx":792
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10030,7 +10030,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":794
+      /* "gases/KRYPTON.pyx":794
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -10040,7 +10040,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "KRYPTON.pyx":797
+    /* "gases/KRYPTON.pyx":797
  * 
  *         #4FS
  *         if EN > object.EIN[46]:             # <<<<<<<<<<<<<<
@@ -10050,7 +10050,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[46])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":798
+      /* "gases/KRYPTON.pyx":798
  *         #4FS
  *         if EN > object.EIN[46]:
  *             object.QIN[46][I] = GasUtil.CALQINP(EN, N4FS, Y4FS, X4FS, 1)*AN4D             # <<<<<<<<<<<<<<
@@ -10059,7 +10059,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[46])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N4FS, __pyx_v_Y4FS, __pyx_v_X4FS, 1.0) * __pyx_v_AN4D);
 
-      /* "KRYPTON.pyx":797
+      /* "gases/KRYPTON.pyx":797
  * 
  *         #4FS
  *         if EN > object.EIN[46]:             # <<<<<<<<<<<<<<
@@ -10068,7 +10068,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":799
+    /* "gases/KRYPTON.pyx":799
  *         if EN > object.EIN[46]:
  *             object.QIN[46][I] = GasUtil.CALQINP(EN, N4FS, Y4FS, X4FS, 1)*AN4D
  *         if EN > 2 * object.EIN[46]:             # <<<<<<<<<<<<<<
@@ -10078,7 +10078,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[46]))) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":800
+      /* "gases/KRYPTON.pyx":800
  *             object.QIN[46][I] = GasUtil.CALQINP(EN, N4FS, Y4FS, X4FS, 1)*AN4D
  *         if EN > 2 * object.EIN[46]:
  *             object.PEQIN[46][I] = object.PEQEL[1][I - IOFFN[46]]             # <<<<<<<<<<<<<<
@@ -10087,7 +10087,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[46])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[46]))]);
 
-      /* "KRYPTON.pyx":799
+      /* "gases/KRYPTON.pyx":799
  *         if EN > object.EIN[46]:
  *             object.QIN[46][I] = GasUtil.CALQINP(EN, N4FS, Y4FS, X4FS, 1)*AN4D
  *         if EN > 2 * object.EIN[46]:             # <<<<<<<<<<<<<<
@@ -10096,7 +10096,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "KRYPTON.pyx":803
+    /* "gases/KRYPTON.pyx":803
  * 
  * 
  *         for J in range(47,51):             # <<<<<<<<<<<<<<
@@ -10106,7 +10106,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 47; __pyx_t_45 < 51; __pyx_t_45+=1) {
       __pyx_v_J = __pyx_t_45;
 
-      /* "KRYPTON.pyx":804
+      /* "gases/KRYPTON.pyx":804
  * 
  *         for J in range(47,51):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10116,7 +10116,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":805
+        /* "gases/KRYPTON.pyx":805
  *         for J in range(47,51):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -10125,7 +10125,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "KRYPTON.pyx":804
+        /* "gases/KRYPTON.pyx":804
  * 
  *         for J in range(47,51):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10134,7 +10134,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":808
+      /* "gases/KRYPTON.pyx":808
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10144,7 +10144,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_57 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[__pyx_v_J]))) != 0);
       if (__pyx_t_57) {
 
-        /* "KRYPTON.pyx":809
+        /* "gases/KRYPTON.pyx":809
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -10153,7 +10153,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[__pyx_v_J]))]);
 
-        /* "KRYPTON.pyx":808
+        /* "gases/KRYPTON.pyx":808
  *                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *             if EN > 2 * object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10162,7 +10162,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "KRYPTON.pyx":810
+      /* "gases/KRYPTON.pyx":810
  *             if EN > 2 * object.EIN[J]:
  *                 object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI+=1             # <<<<<<<<<<<<<<
@@ -10172,7 +10172,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "KRYPTON.pyx":812
+    /* "gases/KRYPTON.pyx":812
  *             FI+=1
  * 
  *         object.Q[0][I] = QELA             # <<<<<<<<<<<<<<
@@ -10181,7 +10181,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "KRYPTON.pyx":813
+    /* "gases/KRYPTON.pyx":813
  * 
  *         object.Q[0][I] = QELA
  *         for J in range(51):             # <<<<<<<<<<<<<<
@@ -10191,7 +10191,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 0; __pyx_t_45 < 51; __pyx_t_45+=1) {
       __pyx_v_J = __pyx_t_45;
 
-      /* "KRYPTON.pyx":814
+      /* "gases/KRYPTON.pyx":814
  *         object.Q[0][I] = QELA
  *         for J in range(51):
  *             object.Q[0][I]+=object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -10203,7 +10203,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->Q[__pyx_t_61])[__pyx_t_63]) = (((__pyx_v_object->Q[__pyx_t_61])[__pyx_t_63]) + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "KRYPTON.pyx":816
+    /* "gases/KRYPTON.pyx":816
  *             object.Q[0][I]+=object.QIN[J][I]
  * 
  *         for J in range(11):             # <<<<<<<<<<<<<<
@@ -10213,7 +10213,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_45 = 0; __pyx_t_45 < 11; __pyx_t_45+=1) {
       __pyx_v_J = __pyx_t_45;
 
-      /* "KRYPTON.pyx":817
+      /* "gases/KRYPTON.pyx":817
  * 
  *         for J in range(11):
  *             object.Q[0][I]+=object.QION[J][I]             # <<<<<<<<<<<<<<
@@ -10226,7 +10226,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "KRYPTON.pyx":819
+  /* "gases/KRYPTON.pyx":819
  *             object.Q[0][I]+=object.QION[J][I]
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -10238,7 +10238,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_44 = 0; __pyx_t_44 < __pyx_t_43; __pyx_t_44+=1) {
     __pyx_v_J = __pyx_t_44;
 
-    /* "KRYPTON.pyx":820
+    /* "gases/KRYPTON.pyx":820
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10248,7 +10248,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_57 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_57) {
 
-      /* "KRYPTON.pyx":821
+      /* "gases/KRYPTON.pyx":821
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -10257,7 +10257,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "KRYPTON.pyx":822
+      /* "gases/KRYPTON.pyx":822
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -10265,7 +10265,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L164_break;
 
-      /* "KRYPTON.pyx":820
+      /* "gases/KRYPTON.pyx":820
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -10276,14 +10276,14 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L164_break:;
 
-  /* "KRYPTON.pyx":823
+  /* "gases/KRYPTON.pyx":823
  *             object.NIN = J
  *             break
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "KRYPTON.pyx":17
+  /* "gases/KRYPTON.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas6(Gas*object):             # <<<<<<<<<<<<<<
@@ -10297,7 +10297,7 @@ static void __pyx_f_7KRYPTON_Gas6(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("KRYPTON.Gas6", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.KRYPTON.Gas6", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -13425,7 +13425,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas6", (void (*)(void))__pyx_f_7KRYPTON_Gas6, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas6", (void (*)(void))__pyx_f_5gases_7KRYPTON_Gas6, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -13678,14 +13678,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_KRYPTON) {
+  if (__pyx_module_is_main_gases__KRYPTON) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "KRYPTON")) {
-      if (unlikely(PyDict_SetItemString(modules, "KRYPTON", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.KRYPTON")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.KRYPTON", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -13706,7 +13706,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "KRYPTON.pyx":3
+  /* "gases/KRYPTON.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -13718,7 +13718,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KRYPTON.pyx":5
+  /* "gases/KRYPTON.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -13730,7 +13730,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "KRYPTON.pyx":10
+  /* "gases/KRYPTON.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -13745,7 +13745,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "KRYPTON.pyx":1
+  /* "gases/KRYPTON.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -13771,11 +13771,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init KRYPTON", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.KRYPTON", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init KRYPTON");
+    PyErr_SetString(PyExc_ImportError, "init gases.KRYPTON");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

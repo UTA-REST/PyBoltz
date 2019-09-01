@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "H2O",
+        "name": "gases.H2O",
         "sources": [
-            "H2O.pyx"
+            "gases/H2O.pyx"
         ]
     },
-    "module_name": "H2O"
+    "module_name": "gases.H2O"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__H2O
-#define __PYX_HAVE_API__H2O
+#define __PYX_HAVE__gases__H2O
+#define __PYX_HAVE_API__gases__H2O
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "H2O.pyx",
+  "gases/H2O.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1687,14 +1687,14 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'H2O' */
+/* Module declarations from 'gases.H2O' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
 static int __Pyx_carray_from_py_int(PyObject *, int *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "H2O"
-extern int __pyx_module_is_main_H2O;
-int __pyx_module_is_main_H2O = 0;
+#define __Pyx_MODULE_NAME "gases.H2O"
+extern int __pyx_module_is_main_gases__H2O;
+int __pyx_module_is_main_gases__H2O = 0;
 
-/* Implementation of 'H2O' */
+/* Implementation of 'gases.H2O' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1909,7 +1909,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "H2O.pyx":17
+/* "gases/H2O.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas14(Gas*object):             # <<<<<<<<<<<<<<
@@ -1917,7 +1917,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for H2O gas.
  */
 
-static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEL[0x9F];
   double __pyx_v_YEL[0x9F];
@@ -2105,7 +2105,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   long __pyx_t_40;
   __Pyx_RefNannySetupContext("Gas14", 0);
 
-  /* "H2O.pyx":21
+  /* "gases/H2O.pyx":21
  *     This function is used to calculate the needed momentum cross sections for H2O gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2153,7 +2153,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "H2O.pyx":34
+  /* "gases/H2O.pyx":34
  *     cdef double PJ[100], ELEV[100], AJL[100], SALPHA[105], EROT[105], AJIN[210]
  *     cdef int IMAP[210]
  *     EROT = gd['gas14/EROT']             # <<<<<<<<<<<<<<
@@ -2170,7 +2170,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_EROT[0]), __pyx_t_5, sizeof(__pyx_v_EROT[0]) * (0x69));
 
-  /* "H2O.pyx":35
+  /* "gases/H2O.pyx":35
  *     cdef int IMAP[210]
  *     EROT = gd['gas14/EROT']
  *     AJL = gd['gas14/AJL']             # <<<<<<<<<<<<<<
@@ -2187,7 +2187,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_AJL[0]), __pyx_t_6, sizeof(__pyx_v_AJL[0]) * (0x64));
 
-  /* "H2O.pyx":36
+  /* "gases/H2O.pyx":36
  *     EROT = gd['gas14/EROT']
  *     AJL = gd['gas14/AJL']
  *     ELEV = gd['gas14/ELEV']             # <<<<<<<<<<<<<<
@@ -2204,7 +2204,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_ELEV[0]), __pyx_t_6, sizeof(__pyx_v_ELEV[0]) * (0x64));
 
-  /* "H2O.pyx":37
+  /* "gases/H2O.pyx":37
  *     AJL = gd['gas14/AJL']
  *     ELEV = gd['gas14/ELEV']
  *     SALPHA = gd['gas14/SALPHA']             # <<<<<<<<<<<<<<
@@ -2221,7 +2221,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_SALPHA[0]), __pyx_t_5, sizeof(__pyx_v_SALPHA[0]) * (0x69));
 
-  /* "H2O.pyx":38
+  /* "gases/H2O.pyx":38
  *     ELEV = gd['gas14/ELEV']
  *     SALPHA = gd['gas14/SALPHA']
  *     AJIN = gd['gas14/AJIN']             # <<<<<<<<<<<<<<
@@ -2238,7 +2238,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_AJIN[0]), __pyx_t_7, sizeof(__pyx_v_AJIN[0]) * (0xD2));
 
-  /* "H2O.pyx":39
+  /* "gases/H2O.pyx":39
  *     SALPHA = gd['gas14/SALPHA']
  *     AJIN = gd['gas14/AJIN']
  *     IMAP = gd['gas14/IMAP']             # <<<<<<<<<<<<<<
@@ -2255,7 +2255,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_IMAP[0]), __pyx_t_8, sizeof(__pyx_v_IMAP[0]) * (0xD2));
 
-  /* "H2O.pyx":40
+  /* "gases/H2O.pyx":40
  *     AJIN = gd['gas14/AJIN']
  *     IMAP = gd['gas14/IMAP']
  *     XEL = gd['gas14/XEL']             # <<<<<<<<<<<<<<
@@ -2272,7 +2272,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEL[0]), __pyx_t_9, sizeof(__pyx_v_XEL[0]) * (0x9F));
 
-  /* "H2O.pyx":41
+  /* "gases/H2O.pyx":41
  *     IMAP = gd['gas14/IMAP']
  *     XEL = gd['gas14/XEL']
  *     YEL = gd['gas14/YEL']             # <<<<<<<<<<<<<<
@@ -2289,7 +2289,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEL[0]), __pyx_t_9, sizeof(__pyx_v_YEL[0]) * (0x9F));
 
-  /* "H2O.pyx":42
+  /* "gases/H2O.pyx":42
  *     XEL = gd['gas14/XEL']
  *     YEL = gd['gas14/YEL']
  *     XMT = gd['gas14/XMT']             # <<<<<<<<<<<<<<
@@ -2306,7 +2306,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XMT[0]), __pyx_t_10, sizeof(__pyx_v_XMT[0]) * (0x9C));
 
-  /* "H2O.pyx":43
+  /* "gases/H2O.pyx":43
  *     YEL = gd['gas14/YEL']
  *     XMT = gd['gas14/XMT']
  *     YMT = gd['gas14/YMT']             # <<<<<<<<<<<<<<
@@ -2323,7 +2323,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YMT[0]), __pyx_t_10, sizeof(__pyx_v_YMT[0]) * (0x9C));
 
-  /* "H2O.pyx":44
+  /* "gases/H2O.pyx":44
  *     XMT = gd['gas14/XMT']
  *     YMT = gd['gas14/YMT']
  *     XEPS = gd['gas14/XEPS']             # <<<<<<<<<<<<<<
@@ -2340,7 +2340,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEPS[0]), __pyx_t_10, sizeof(__pyx_v_XEPS[0]) * (0x9C));
 
-  /* "H2O.pyx":45
+  /* "gases/H2O.pyx":45
  *     YMT = gd['gas14/YMT']
  *     XEPS = gd['gas14/XEPS']
  *     YEPS = gd['gas14/YEPS']             # <<<<<<<<<<<<<<
@@ -2357,7 +2357,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_10, sizeof(__pyx_v_YEPS[0]) * (0x9C));
 
-  /* "H2O.pyx":46
+  /* "gases/H2O.pyx":46
  *     XEPS = gd['gas14/XEPS']
  *     YEPS = gd['gas14/YEPS']
  *     XVIB1 = gd['gas14/XVIB1']             # <<<<<<<<<<<<<<
@@ -2370,7 +2370,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB1[0]), __pyx_t_11, sizeof(__pyx_v_XVIB1[0]) * (17));
 
-  /* "H2O.pyx":47
+  /* "gases/H2O.pyx":47
  *     YEPS = gd['gas14/YEPS']
  *     XVIB1 = gd['gas14/XVIB1']
  *     YVIB1 = gd['gas14/YVIB1']             # <<<<<<<<<<<<<<
@@ -2383,7 +2383,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB1[0]), __pyx_t_11, sizeof(__pyx_v_YVIB1[0]) * (17));
 
-  /* "H2O.pyx":48
+  /* "gases/H2O.pyx":48
  *     XVIB1 = gd['gas14/XVIB1']
  *     YVIB1 = gd['gas14/YVIB1']
  *     XVIB2 = gd['gas14/XVIB2']             # <<<<<<<<<<<<<<
@@ -2396,7 +2396,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB2[0]), __pyx_t_12, sizeof(__pyx_v_XVIB2[0]) * (18));
 
-  /* "H2O.pyx":49
+  /* "gases/H2O.pyx":49
  *     YVIB1 = gd['gas14/YVIB1']
  *     XVIB2 = gd['gas14/XVIB2']
  *     YVIB2 = gd['gas14/YVIB2']             # <<<<<<<<<<<<<<
@@ -2409,7 +2409,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB2[0]), __pyx_t_12, sizeof(__pyx_v_YVIB2[0]) * (18));
 
-  /* "H2O.pyx":50
+  /* "gases/H2O.pyx":50
  *     XVIB2 = gd['gas14/XVIB2']
  *     YVIB2 = gd['gas14/YVIB2']
  *     XVIB3 = gd['gas14/XVIB3']             # <<<<<<<<<<<<<<
@@ -2422,7 +2422,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB3[0]), __pyx_t_13, sizeof(__pyx_v_XVIB3[0]) * (12));
 
-  /* "H2O.pyx":51
+  /* "gases/H2O.pyx":51
  *     YVIB2 = gd['gas14/YVIB2']
  *     XVIB3 = gd['gas14/XVIB3']
  *     YVIB3 = gd['gas14/YVIB3']             # <<<<<<<<<<<<<<
@@ -2435,7 +2435,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB3[0]), __pyx_t_13, sizeof(__pyx_v_YVIB3[0]) * (12));
 
-  /* "H2O.pyx":52
+  /* "gases/H2O.pyx":52
  *     XVIB3 = gd['gas14/XVIB3']
  *     YVIB3 = gd['gas14/YVIB3']
  *     XION = gd['gas14/XION']             # <<<<<<<<<<<<<<
@@ -2448,7 +2448,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_14, sizeof(__pyx_v_XION[0]) * (55));
 
-  /* "H2O.pyx":53
+  /* "gases/H2O.pyx":53
  *     YVIB3 = gd['gas14/YVIB3']
  *     XION = gd['gas14/XION']
  *     YIONC = gd['gas14/YIONC']             # <<<<<<<<<<<<<<
@@ -2461,7 +2461,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIONC[0]), __pyx_t_14, sizeof(__pyx_v_YIONC[0]) * (55));
 
-  /* "H2O.pyx":54
+  /* "gases/H2O.pyx":54
  *     XION = gd['gas14/XION']
  *     YIONC = gd['gas14/YIONC']
  *     YIONG = gd['gas14/YIONG']             # <<<<<<<<<<<<<<
@@ -2474,7 +2474,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIONG[0]), __pyx_t_14, sizeof(__pyx_v_YIONG[0]) * (55));
 
-  /* "H2O.pyx":55
+  /* "gases/H2O.pyx":55
  *     YIONC = gd['gas14/YIONC']
  *     YIONG = gd['gas14/YIONG']
  *     XION1 = gd['gas14/XION1']             # <<<<<<<<<<<<<<
@@ -2487,7 +2487,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION1[0]), __pyx_t_15, sizeof(__pyx_v_XION1[0]) * (31));
 
-  /* "H2O.pyx":56
+  /* "gases/H2O.pyx":56
  *     YIONG = gd['gas14/YIONG']
  *     XION1 = gd['gas14/XION1']
  *     YION1 = gd['gas14/YION1']             # <<<<<<<<<<<<<<
@@ -2500,7 +2500,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION1[0]), __pyx_t_15, sizeof(__pyx_v_YION1[0]) * (31));
 
-  /* "H2O.pyx":57
+  /* "gases/H2O.pyx":57
  *     XION1 = gd['gas14/XION1']
  *     YION1 = gd['gas14/YION1']
  *     XION2 = gd['gas14/XION2']             # <<<<<<<<<<<<<<
@@ -2513,7 +2513,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION2[0]), __pyx_t_16, sizeof(__pyx_v_XION2[0]) * (28));
 
-  /* "H2O.pyx":58
+  /* "gases/H2O.pyx":58
  *     YION1 = gd['gas14/YION1']
  *     XION2 = gd['gas14/XION2']
  *     YION2 = gd['gas14/YION2']             # <<<<<<<<<<<<<<
@@ -2526,7 +2526,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION2[0]), __pyx_t_16, sizeof(__pyx_v_YION2[0]) * (28));
 
-  /* "H2O.pyx":59
+  /* "gases/H2O.pyx":59
  *     XION2 = gd['gas14/XION2']
  *     YION2 = gd['gas14/YION2']
  *     XION3 = gd['gas14/XION3']             # <<<<<<<<<<<<<<
@@ -2539,7 +2539,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION3[0]), __pyx_t_16, sizeof(__pyx_v_XION3[0]) * (28));
 
-  /* "H2O.pyx":60
+  /* "gases/H2O.pyx":60
  *     YION2 = gd['gas14/YION2']
  *     XION3 = gd['gas14/XION3']
  *     YION3 = gd['gas14/YION3']             # <<<<<<<<<<<<<<
@@ -2552,7 +2552,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION3[0]), __pyx_t_16, sizeof(__pyx_v_YION3[0]) * (28));
 
-  /* "H2O.pyx":61
+  /* "gases/H2O.pyx":61
  *     XION3 = gd['gas14/XION3']
  *     YION3 = gd['gas14/YION3']
  *     XION4 = gd['gas14/XION4']             # <<<<<<<<<<<<<<
@@ -2565,7 +2565,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION4[0]), __pyx_t_17, sizeof(__pyx_v_XION4[0]) * (26));
 
-  /* "H2O.pyx":62
+  /* "gases/H2O.pyx":62
  *     YION3 = gd['gas14/YION3']
  *     XION4 = gd['gas14/XION4']
  *     YION4 = gd['gas14/YION4']             # <<<<<<<<<<<<<<
@@ -2578,7 +2578,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION4[0]), __pyx_t_17, sizeof(__pyx_v_YION4[0]) * (26));
 
-  /* "H2O.pyx":63
+  /* "gases/H2O.pyx":63
  *     XION4 = gd['gas14/XION4']
  *     YION4 = gd['gas14/YION4']
  *     XION5 = gd['gas14/XION5']             # <<<<<<<<<<<<<<
@@ -2591,7 +2591,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION5[0]), __pyx_t_18, sizeof(__pyx_v_XION5[0]) * (25));
 
-  /* "H2O.pyx":64
+  /* "gases/H2O.pyx":64
  *     YION4 = gd['gas14/YION4']
  *     XION5 = gd['gas14/XION5']
  *     YION5 = gd['gas14/YION5']             # <<<<<<<<<<<<<<
@@ -2604,7 +2604,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION5[0]), __pyx_t_18, sizeof(__pyx_v_YION5[0]) * (25));
 
-  /* "H2O.pyx":65
+  /* "gases/H2O.pyx":65
  *     XION5 = gd['gas14/XION5']
  *     YION5 = gd['gas14/YION5']
  *     XION6 = gd['gas14/XION6']             # <<<<<<<<<<<<<<
@@ -2617,7 +2617,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION6[0]), __pyx_t_19, sizeof(__pyx_v_XION6[0]) * (23));
 
-  /* "H2O.pyx":66
+  /* "gases/H2O.pyx":66
  *     YION5 = gd['gas14/YION5']
  *     XION6 = gd['gas14/XION6']
  *     YION6 = gd['gas14/YION6']             # <<<<<<<<<<<<<<
@@ -2630,7 +2630,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION6[0]), __pyx_t_19, sizeof(__pyx_v_YION6[0]) * (23));
 
-  /* "H2O.pyx":67
+  /* "gases/H2O.pyx":67
  *     XION6 = gd['gas14/XION6']
  *     YION6 = gd['gas14/YION6']
  *     XION7 = gd['gas14/XION7']             # <<<<<<<<<<<<<<
@@ -2643,7 +2643,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION7[0]), __pyx_t_20, sizeof(__pyx_v_XION7[0]) * (21));
 
-  /* "H2O.pyx":68
+  /* "gases/H2O.pyx":68
  *     YION6 = gd['gas14/YION6']
  *     XION7 = gd['gas14/XION7']
  *     YION7 = gd['gas14/YION7']             # <<<<<<<<<<<<<<
@@ -2656,7 +2656,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION7[0]), __pyx_t_20, sizeof(__pyx_v_YION7[0]) * (21));
 
-  /* "H2O.pyx":69
+  /* "gases/H2O.pyx":69
  *     XION7 = gd['gas14/XION7']
  *     YION7 = gd['gas14/YION7']
  *     XION8 = gd['gas14/XION8']             # <<<<<<<<<<<<<<
@@ -2669,7 +2669,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION8[0]), __pyx_t_11, sizeof(__pyx_v_XION8[0]) * (17));
 
-  /* "H2O.pyx":70
+  /* "gases/H2O.pyx":70
  *     YION7 = gd['gas14/YION7']
  *     XION8 = gd['gas14/XION8']
  *     YION8 = gd['gas14/YION8']             # <<<<<<<<<<<<<<
@@ -2682,7 +2682,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION8[0]), __pyx_t_11, sizeof(__pyx_v_YION8[0]) * (17));
 
-  /* "H2O.pyx":71
+  /* "gases/H2O.pyx":71
  *     XION8 = gd['gas14/XION8']
  *     YION8 = gd['gas14/YION8']
  *     XKSH = gd['gas14/XKSH']             # <<<<<<<<<<<<<<
@@ -2695,7 +2695,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSH[0]), __pyx_t_21, sizeof(__pyx_v_XKSH[0]) * (81));
 
-  /* "H2O.pyx":72
+  /* "gases/H2O.pyx":72
  *     YION8 = gd['gas14/YION8']
  *     XKSH = gd['gas14/XKSH']
  *     YKSH = gd['gas14/YKSH']             # <<<<<<<<<<<<<<
@@ -2708,7 +2708,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSH[0]), __pyx_t_21, sizeof(__pyx_v_YKSH[0]) * (81));
 
-  /* "H2O.pyx":73
+  /* "gases/H2O.pyx":73
  *     XKSH = gd['gas14/XKSH']
  *     YKSH = gd['gas14/YKSH']
  *     XATT1 = gd['gas14/XATT1']             # <<<<<<<<<<<<<<
@@ -2721,7 +2721,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT1[0]), __pyx_t_22, sizeof(__pyx_v_XATT1[0]) * (38));
 
-  /* "H2O.pyx":74
+  /* "gases/H2O.pyx":74
  *     YKSH = gd['gas14/YKSH']
  *     XATT1 = gd['gas14/XATT1']
  *     YATT1 = gd['gas14/YATT1']             # <<<<<<<<<<<<<<
@@ -2734,7 +2734,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT1[0]), __pyx_t_22, sizeof(__pyx_v_YATT1[0]) * (38));
 
-  /* "H2O.pyx":75
+  /* "gases/H2O.pyx":75
  *     XATT1 = gd['gas14/XATT1']
  *     YATT1 = gd['gas14/YATT1']
  *     XATT2 = gd['gas14/XATT2']             # <<<<<<<<<<<<<<
@@ -2747,7 +2747,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT2[0]), __pyx_t_23, sizeof(__pyx_v_XATT2[0]) * (30));
 
-  /* "H2O.pyx":76
+  /* "gases/H2O.pyx":76
  *     YATT1 = gd['gas14/YATT1']
  *     XATT2 = gd['gas14/XATT2']
  *     YATT2 = gd['gas14/YATT2']             # <<<<<<<<<<<<<<
@@ -2760,7 +2760,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT2[0]), __pyx_t_23, sizeof(__pyx_v_YATT2[0]) * (30));
 
-  /* "H2O.pyx":77
+  /* "gases/H2O.pyx":77
  *     XATT2 = gd['gas14/XATT2']
  *     YATT2 = gd['gas14/YATT2']
  *     XATT3 = gd['gas14/XATT3']             # <<<<<<<<<<<<<<
@@ -2773,7 +2773,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT3[0]), __pyx_t_16, sizeof(__pyx_v_XATT3[0]) * (28));
 
-  /* "H2O.pyx":78
+  /* "gases/H2O.pyx":78
  *     YATT2 = gd['gas14/YATT2']
  *     XATT3 = gd['gas14/XATT3']
  *     YATT3 = gd['gas14/YATT3']             # <<<<<<<<<<<<<<
@@ -2786,7 +2786,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT3[0]), __pyx_t_16, sizeof(__pyx_v_YATT3[0]) * (28));
 
-  /* "H2O.pyx":79
+  /* "gases/H2O.pyx":79
  *     XATT3 = gd['gas14/XATT3']
  *     YATT3 = gd['gas14/YATT3']
  *     XTRP1 = gd['gas14/XTRP1']             # <<<<<<<<<<<<<<
@@ -2799,7 +2799,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP1[0]), __pyx_t_24, sizeof(__pyx_v_XTRP1[0]) * (11));
 
-  /* "H2O.pyx":80
+  /* "gases/H2O.pyx":80
  *     YATT3 = gd['gas14/YATT3']
  *     XTRP1 = gd['gas14/XTRP1']
  *     YTRP1 = gd['gas14/YTRP1']             # <<<<<<<<<<<<<<
@@ -2812,7 +2812,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP1[0]), __pyx_t_24, sizeof(__pyx_v_YTRP1[0]) * (11));
 
-  /* "H2O.pyx":81
+  /* "gases/H2O.pyx":81
  *     XTRP1 = gd['gas14/XTRP1']
  *     YTRP1 = gd['gas14/YTRP1']
  *     XTRP2 = gd['gas14/XTRP2']             # <<<<<<<<<<<<<<
@@ -2825,7 +2825,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP2[0]), __pyx_t_25, sizeof(__pyx_v_XTRP2[0]) * (10));
 
-  /* "H2O.pyx":82
+  /* "gases/H2O.pyx":82
  *     YTRP1 = gd['gas14/YTRP1']
  *     XTRP2 = gd['gas14/XTRP2']
  *     YTRP2 = gd['gas14/YTRP2']             # <<<<<<<<<<<<<<
@@ -2838,7 +2838,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP2[0]), __pyx_t_25, sizeof(__pyx_v_YTRP2[0]) * (10));
 
-  /* "H2O.pyx":83
+  /* "gases/H2O.pyx":83
  *     XTRP2 = gd['gas14/XTRP2']
  *     YTRP2 = gd['gas14/YTRP2']
  *     XTRP3 = gd['gas14/XTRP3']             # <<<<<<<<<<<<<<
@@ -2851,7 +2851,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP3[0]), __pyx_t_25, sizeof(__pyx_v_XTRP3[0]) * (10));
 
-  /* "H2O.pyx":84
+  /* "gases/H2O.pyx":84
  *     YTRP2 = gd['gas14/YTRP2']
  *     XTRP3 = gd['gas14/XTRP3']
  *     YTRP3 = gd['gas14/YTRP3']             # <<<<<<<<<<<<<<
@@ -2864,7 +2864,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP3[0]), __pyx_t_25, sizeof(__pyx_v_YTRP3[0]) * (10));
 
-  /* "H2O.pyx":85
+  /* "gases/H2O.pyx":85
  *     XTRP3 = gd['gas14/XTRP3']
  *     YTRP3 = gd['gas14/YTRP3']
  *     XTRP4 = gd['gas14/XTRP4']             # <<<<<<<<<<<<<<
@@ -2877,7 +2877,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XTRP4[0]), __pyx_t_26, sizeof(__pyx_v_XTRP4[0]) * (9));
 
-  /* "H2O.pyx":86
+  /* "gases/H2O.pyx":86
  *     YTRP3 = gd['gas14/YTRP3']
  *     XTRP4 = gd['gas14/XTRP4']
  *     YTRP4 = gd['gas14/YTRP4']             # <<<<<<<<<<<<<<
@@ -2890,7 +2890,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YTRP4[0]), __pyx_t_26, sizeof(__pyx_v_YTRP4[0]) * (9));
 
-  /* "H2O.pyx":87
+  /* "gases/H2O.pyx":87
  *     XTRP4 = gd['gas14/XTRP4']
  *     YTRP4 = gd['gas14/YTRP4']
  *     XNUL1 = gd['gas14/XNUL1']             # <<<<<<<<<<<<<<
@@ -2903,7 +2903,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL1[0]), __pyx_t_13, sizeof(__pyx_v_XNUL1[0]) * (12));
 
-  /* "H2O.pyx":88
+  /* "gases/H2O.pyx":88
  *     YTRP4 = gd['gas14/YTRP4']
  *     XNUL1 = gd['gas14/XNUL1']
  *     YNUL1 = gd['gas14/YNUL1']             # <<<<<<<<<<<<<<
@@ -2916,7 +2916,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL1[0]), __pyx_t_13, sizeof(__pyx_v_YNUL1[0]) * (12));
 
-  /* "H2O.pyx":89
+  /* "gases/H2O.pyx":89
  *     XNUL1 = gd['gas14/XNUL1']
  *     YNUL1 = gd['gas14/YNUL1']
  *     XNUL2 = gd['gas14/XNUL2']             # <<<<<<<<<<<<<<
@@ -2929,7 +2929,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL2[0]), __pyx_t_27, sizeof(__pyx_v_XNUL2[0]) * (33));
 
-  /* "H2O.pyx":90
+  /* "gases/H2O.pyx":90
  *     YNUL1 = gd['gas14/YNUL1']
  *     XNUL2 = gd['gas14/XNUL2']
  *     YNUL2 = gd['gas14/YNUL2']             # <<<<<<<<<<<<<<
@@ -2942,7 +2942,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL2[0]), __pyx_t_27, sizeof(__pyx_v_YNUL2[0]) * (33));
 
-  /* "H2O.pyx":91
+  /* "gases/H2O.pyx":91
  *     XNUL2 = gd['gas14/XNUL2']
  *     YNUL2 = gd['gas14/YNUL2']
  *     XNUL3 = gd['gas14/XNUL3']             # <<<<<<<<<<<<<<
@@ -2955,7 +2955,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL3[0]), __pyx_t_28, sizeof(__pyx_v_XNUL3[0]) * (20));
 
-  /* "H2O.pyx":92
+  /* "gases/H2O.pyx":92
  *     YNUL2 = gd['gas14/YNUL2']
  *     XNUL3 = gd['gas14/XNUL3']
  *     YNUL3 = gd['gas14/YNUL3']             # <<<<<<<<<<<<<<
@@ -2968,7 +2968,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL3[0]), __pyx_t_28, sizeof(__pyx_v_YNUL3[0]) * (20));
 
-  /* "H2O.pyx":93
+  /* "gases/H2O.pyx":93
  *     XNUL3 = gd['gas14/XNUL3']
  *     YNUL3 = gd['gas14/YNUL3']
  *     XNUL4 = gd['gas14/XNUL4']             # <<<<<<<<<<<<<<
@@ -2981,7 +2981,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XNUL4[0]), __pyx_t_12, sizeof(__pyx_v_XNUL4[0]) * (18));
 
-  /* "H2O.pyx":94
+  /* "gases/H2O.pyx":94
  *     YNUL3 = gd['gas14/YNUL3']
  *     XNUL4 = gd['gas14/XNUL4']
  *     YNUL4 = gd['gas14/YNUL4']             # <<<<<<<<<<<<<<
@@ -2994,7 +2994,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YNUL4[0]), __pyx_t_12, sizeof(__pyx_v_YNUL4[0]) * (18));
 
-  /* "H2O.pyx":95
+  /* "gases/H2O.pyx":95
  *     XNUL4 = gd['gas14/XNUL4']
  *     YNUL4 = gd['gas14/YNUL4']
  *     ENROT = gd['gas14/ENROT']             # <<<<<<<<<<<<<<
@@ -3011,7 +3011,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_ENROT[0]), __pyx_t_29, sizeof(__pyx_v_ENROT[0]) * (0x91));
 
-  /* "H2O.pyx":96
+  /* "gases/H2O.pyx":96
  *     YNUL4 = gd['gas14/YNUL4']
  *     ENROT = gd['gas14/ENROT']
  *     ENRTS = gd['gas14/ENRTS']             # <<<<<<<<<<<<<<
@@ -3028,7 +3028,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_ENRTS[0]), __pyx_t_29, sizeof(__pyx_v_ENRTS[0]) * (0x91));
 
-  /* "H2O.pyx":97
+  /* "gases/H2O.pyx":97
  *     ENROT = gd['gas14/ENROT']
  *     ENRTS = gd['gas14/ENRTS']
  *     YEPSR = gd['gas14/YEPSR']             # <<<<<<<<<<<<<<
@@ -3045,7 +3045,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPSR[0]), __pyx_t_29, sizeof(__pyx_v_YEPSR[0]) * (0x91));
 
-  /* "H2O.pyx":98
+  /* "gases/H2O.pyx":98
  *     ENRTS = gd['gas14/ENRTS']
  *     YEPSR = gd['gas14/YEPSR']
  *     YMTRT = gd['gas14/YMTRT']             # <<<<<<<<<<<<<<
@@ -3062,7 +3062,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YMTRT[0]), __pyx_t_29, sizeof(__pyx_v_YMTRT[0]) * (0x91));
 
-  /* "H2O.pyx":99
+  /* "gases/H2O.pyx":99
  *     YEPSR = gd['gas14/YEPSR']
  *     YMTRT = gd['gas14/YMTRT']
  *     Z8T = gd['gas14/Z8T']             # <<<<<<<<<<<<<<
@@ -3075,7 +3075,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z8T[0]), __pyx_t_18, sizeof(__pyx_v_Z8T[0]) * (25));
 
-  /* "H2O.pyx":100
+  /* "gases/H2O.pyx":100
  *     YMTRT = gd['gas14/YMTRT']
  *     Z8T = gd['gas14/Z8T']
  *     EBRM = gd['gas14/EBRM']             # <<<<<<<<<<<<<<
@@ -3088,7 +3088,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_18, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "H2O.pyx":104
+  /* "gases/H2O.pyx":104
  *     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AUGK, AMPROT,
  *     cdef int NBREM, i, j, I, J, NTRANG
  *     A0 = 0.52917720859e-08             # <<<<<<<<<<<<<<
@@ -3097,7 +3097,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-08;
 
-  /* "H2O.pyx":105
+  /* "gases/H2O.pyx":105
  *     cdef int NBREM, i, j, I, J, NTRANG
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193             # <<<<<<<<<<<<<<
@@ -3106,7 +3106,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = 13.60569193;
 
-  /* "H2O.pyx":106
+  /* "gases/H2O.pyx":106
  *     A0 = 0.52917720859e-08
  *     RY = 13.60569193
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -3115,7 +3115,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "H2O.pyx":107
+  /* "gases/H2O.pyx":107
  *     RY = 13.60569193
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804             # <<<<<<<<<<<<<<
@@ -3124,7 +3124,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = 1021997.804;
 
-  /* "H2O.pyx":108
+  /* "gases/H2O.pyx":108
  *     CONST = 1.873884e-20
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)             # <<<<<<<<<<<<<<
@@ -3133,7 +3133,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0e0);
 
-  /* "H2O.pyx":109
+  /* "gases/H2O.pyx":109
  *     EMASS2 = 1021997.804
  *     API = acos(-1.0e0)
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -3142,7 +3142,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0e0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "H2O.pyx":111
+  /* "gases/H2O.pyx":111
  *     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
  *     #BORN BETHE VALUES FOR IONISATION
  *     AM2 = 2.895             # <<<<<<<<<<<<<<
@@ -3151,7 +3151,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = 2.895;
 
-  /* "H2O.pyx":112
+  /* "gases/H2O.pyx":112
  *     #BORN BETHE VALUES FOR IONISATION
  *     AM2 = 2.895
  *     C = 30.7             # <<<<<<<<<<<<<<
@@ -3160,7 +3160,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = 30.7;
 
-  /* "H2O.pyx":114
+  /* "gases/H2O.pyx":114
  *     C = 30.7
  *     # AVERAGE AUGER EMISSION FROM OXYGEN KSHELL
  *     AUGK = 2.0             # <<<<<<<<<<<<<<
@@ -3169,7 +3169,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGK = 2.0;
 
-  /* "H2O.pyx":115
+  /* "gases/H2O.pyx":115
  *     # AVERAGE AUGER EMISSION FROM OXYGEN KSHELL
  *     AUGK = 2.0
  *     AMPROT = 0.98             # <<<<<<<<<<<<<<
@@ -3178,7 +3178,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMPROT = 0.98;
 
-  /* "H2O.pyx":116
+  /* "gases/H2O.pyx":116
  *     AUGK = 2.0
  *     AMPROT = 0.98
  *     object.NION = 9             # <<<<<<<<<<<<<<
@@ -3187,7 +3187,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 9;
 
-  /* "H2O.pyx":117
+  /* "gases/H2O.pyx":117
  *     AMPROT = 0.98
  *     object.NION = 9
  *     object.NATT = 3             # <<<<<<<<<<<<<<
@@ -3196,7 +3196,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 3;
 
-  /* "H2O.pyx":118
+  /* "gases/H2O.pyx":118
  *     object.NION = 9
  *     object.NATT = 3
  *     object.NIN = 250             # <<<<<<<<<<<<<<
@@ -3205,7 +3205,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 0xFA;
 
-  /* "H2O.pyx":119
+  /* "gases/H2O.pyx":119
  *     object.NATT = 3
  *     object.NIN = 250
  *     object.NNULL = 4             # <<<<<<<<<<<<<<
@@ -3214,7 +3214,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 4;
 
-  /* "H2O.pyx":120
+  /* "gases/H2O.pyx":120
  *     object.NIN = 250
  *     object.NNULL = 4
  *     NBREM = 25             # <<<<<<<<<<<<<<
@@ -3223,7 +3223,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "H2O.pyx":121
+  /* "gases/H2O.pyx":121
  *     object.NNULL = 4
  *     NBREM = 25
  *     NRTANG = 145             # <<<<<<<<<<<<<<
@@ -3233,7 +3233,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_INCREF(__pyx_int_145);
   __pyx_v_NRTANG = __pyx_int_145;
 
-  /* "H2O.pyx":124
+  /* "gases/H2O.pyx":124
  * 
  *     # USE OKRIMOVSKKY
  *     for J in range(6):             # <<<<<<<<<<<<<<
@@ -3243,7 +3243,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_30 = 0; __pyx_t_30 < 6; __pyx_t_30+=1) {
     __pyx_v_J = __pyx_t_30;
 
-    /* "H2O.pyx":125
+    /* "gases/H2O.pyx":125
  *     # USE OKRIMOVSKKY
  *     for J in range(6):
  *         object.KEL[J] = 2             # <<<<<<<<<<<<<<
@@ -3253,7 +3253,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_J]) = 2.0;
   }
 
-  /* "H2O.pyx":126
+  /* "gases/H2O.pyx":126
  *     for J in range(6):
  *         object.KEL[J] = 2
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3265,7 +3265,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_J = __pyx_t_32;
 
-    /* "H2O.pyx":127
+    /* "gases/H2O.pyx":127
  *         object.KEL[J] = 2
  *     for J in range(object.NIN):
  *         object.KIN[J] = 2             # <<<<<<<<<<<<<<
@@ -3275,7 +3275,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_J]) = 2.0;
   }
 
-  /* "H2O.pyx":131
+  /* "gases/H2O.pyx":131
  *     cdef int NELA, NMMT, NEPS, NVIB1, NVIB2, NVIB3, NIONC, NION1, NION2, NION3, NION4, NION5, NION6, NION7, NION8, NKSH, NATT1, NATT2
  *     cdef int NATT3, NTRP1, NTRP2, NTRP3, NTRP4, NUL1, NUL2, NUL3, NUL4,
  *     NELA = 159             # <<<<<<<<<<<<<<
@@ -3284,7 +3284,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NELA = 0x9F;
 
-  /* "H2O.pyx":132
+  /* "gases/H2O.pyx":132
  *     cdef int NATT3, NTRP1, NTRP2, NTRP3, NTRP4, NUL1, NUL2, NUL3, NUL4,
  *     NELA = 159
  *     NMMT = 156             # <<<<<<<<<<<<<<
@@ -3293,7 +3293,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NMMT = 0x9C;
 
-  /* "H2O.pyx":133
+  /* "gases/H2O.pyx":133
  *     NELA = 159
  *     NMMT = 156
  *     NEPS = 156             # <<<<<<<<<<<<<<
@@ -3302,7 +3302,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEPS = 0x9C;
 
-  /* "H2O.pyx":134
+  /* "gases/H2O.pyx":134
  *     NMMT = 156
  *     NEPS = 156
  *     NVIB1 = 17             # <<<<<<<<<<<<<<
@@ -3311,7 +3311,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB1 = 17;
 
-  /* "H2O.pyx":135
+  /* "gases/H2O.pyx":135
  *     NEPS = 156
  *     NVIB1 = 17
  *     NVIB2 = 18             # <<<<<<<<<<<<<<
@@ -3320,7 +3320,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB2 = 18;
 
-  /* "H2O.pyx":136
+  /* "gases/H2O.pyx":136
  *     NVIB1 = 17
  *     NVIB2 = 18
  *     NVIB3 = 12             # <<<<<<<<<<<<<<
@@ -3329,7 +3329,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB3 = 12;
 
-  /* "H2O.pyx":137
+  /* "gases/H2O.pyx":137
  *     NVIB2 = 18
  *     NVIB3 = 12
  *     NIONC = 55             # <<<<<<<<<<<<<<
@@ -3338,7 +3338,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIONC = 55;
 
-  /* "H2O.pyx":138
+  /* "gases/H2O.pyx":138
  *     NVIB3 = 12
  *     NIONC = 55
  *     NION1 = 31             # <<<<<<<<<<<<<<
@@ -3347,7 +3347,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION1 = 31;
 
-  /* "H2O.pyx":139
+  /* "gases/H2O.pyx":139
  *     NIONC = 55
  *     NION1 = 31
  *     NION2 = 28             # <<<<<<<<<<<<<<
@@ -3356,7 +3356,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 28;
 
-  /* "H2O.pyx":140
+  /* "gases/H2O.pyx":140
  *     NION1 = 31
  *     NION2 = 28
  *     NION3 = 28             # <<<<<<<<<<<<<<
@@ -3365,7 +3365,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 28;
 
-  /* "H2O.pyx":141
+  /* "gases/H2O.pyx":141
  *     NION2 = 28
  *     NION3 = 28
  *     NION4 = 26             # <<<<<<<<<<<<<<
@@ -3374,7 +3374,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION4 = 26;
 
-  /* "H2O.pyx":142
+  /* "gases/H2O.pyx":142
  *     NION3 = 28
  *     NION4 = 26
  *     NION5 = 25             # <<<<<<<<<<<<<<
@@ -3383,7 +3383,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION5 = 25;
 
-  /* "H2O.pyx":143
+  /* "gases/H2O.pyx":143
  *     NION4 = 26
  *     NION5 = 25
  *     NION6 = 23             # <<<<<<<<<<<<<<
@@ -3392,7 +3392,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION6 = 23;
 
-  /* "H2O.pyx":144
+  /* "gases/H2O.pyx":144
  *     NION5 = 25
  *     NION6 = 23
  *     NION7 = 21             # <<<<<<<<<<<<<<
@@ -3401,7 +3401,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION7 = 21;
 
-  /* "H2O.pyx":145
+  /* "gases/H2O.pyx":145
  *     NION6 = 23
  *     NION7 = 21
  *     NION8 = 17             # <<<<<<<<<<<<<<
@@ -3410,7 +3410,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION8 = 17;
 
-  /* "H2O.pyx":146
+  /* "gases/H2O.pyx":146
  *     NION7 = 21
  *     NION8 = 17
  *     NKSH = 81             # <<<<<<<<<<<<<<
@@ -3419,7 +3419,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSH = 81;
 
-  /* "H2O.pyx":147
+  /* "gases/H2O.pyx":147
  *     NION8 = 17
  *     NKSH = 81
  *     NATT1 = 38             # <<<<<<<<<<<<<<
@@ -3428,7 +3428,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 38;
 
-  /* "H2O.pyx":148
+  /* "gases/H2O.pyx":148
  *     NKSH = 81
  *     NATT1 = 38
  *     NATT2 = 30             # <<<<<<<<<<<<<<
@@ -3437,7 +3437,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT2 = 30;
 
-  /* "H2O.pyx":149
+  /* "gases/H2O.pyx":149
  *     NATT1 = 38
  *     NATT2 = 30
  *     NATT3 = 28             # <<<<<<<<<<<<<<
@@ -3446,7 +3446,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT3 = 28;
 
-  /* "H2O.pyx":150
+  /* "gases/H2O.pyx":150
  *     NATT2 = 30
  *     NATT3 = 28
  *     NTRP1 = 11             # <<<<<<<<<<<<<<
@@ -3455,7 +3455,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP1 = 11;
 
-  /* "H2O.pyx":151
+  /* "gases/H2O.pyx":151
  *     NATT3 = 28
  *     NTRP1 = 11
  *     NTRP2 = 10             # <<<<<<<<<<<<<<
@@ -3464,7 +3464,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP2 = 10;
 
-  /* "H2O.pyx":152
+  /* "gases/H2O.pyx":152
  *     NTRP1 = 11
  *     NTRP2 = 10
  *     NTRP3 = 10             # <<<<<<<<<<<<<<
@@ -3473,7 +3473,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP3 = 10;
 
-  /* "H2O.pyx":153
+  /* "gases/H2O.pyx":153
  *     NTRP2 = 10
  *     NTRP3 = 10
  *     NTRP4 = 9             # <<<<<<<<<<<<<<
@@ -3482,7 +3482,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NTRP4 = 9;
 
-  /* "H2O.pyx":154
+  /* "gases/H2O.pyx":154
  *     NTRP3 = 10
  *     NTRP4 = 9
  *     NUL1 = 12             # <<<<<<<<<<<<<<
@@ -3491,7 +3491,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL1 = 12;
 
-  /* "H2O.pyx":155
+  /* "gases/H2O.pyx":155
  *     NTRP4 = 9
  *     NUL1 = 12
  *     NUL2 = 33             # <<<<<<<<<<<<<<
@@ -3500,7 +3500,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL2 = 33;
 
-  /* "H2O.pyx":156
+  /* "gases/H2O.pyx":156
  *     NUL1 = 12
  *     NUL2 = 33
  *     NUL3 = 20             # <<<<<<<<<<<<<<
@@ -3509,7 +3509,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL3 = 20;
 
-  /* "H2O.pyx":157
+  /* "gases/H2O.pyx":157
  *     NUL2 = 33
  *     NUL3 = 20
  *     NUL4 = 18             # <<<<<<<<<<<<<<
@@ -3518,7 +3518,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NUL4 = 18;
 
-  /* "H2O.pyx":160
+  /* "gases/H2O.pyx":160
  * 
  *     # SCALING OF NULL COLLISIONS
  *     object.SCLN[0:4] = [1.0, 1.0, 1.0, 1.0]             # <<<<<<<<<<<<<<
@@ -3531,7 +3531,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_33[3] = 1.0;
   memcpy(&(__pyx_v_object->SCLN[0]), __pyx_t_33, sizeof(__pyx_v_object->SCLN[0]) * (4));
 
-  /* "H2O.pyx":161
+  /* "gases/H2O.pyx":161
  *     # SCALING OF NULL COLLISIONS
  *     object.SCLN[0:4] = [1.0, 1.0, 1.0, 1.0]
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -3540,7 +3540,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "H2O.pyx":162
+  /* "gases/H2O.pyx":162
  *     object.SCLN[0:4] = [1.0, 1.0, 1.0, 1.0]
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27, GPARA, GORTHO, DBA, DRAT, DBK, RSUM, EOBY[9], ENRT, AL             # <<<<<<<<<<<<<<
@@ -3549,7 +3549,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "H2O.pyx":165
+  /* "gases/H2O.pyx":165
  *     cdef int L2,
  * 
  *     object.E = [0.0, 1.0, 12.617, 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -3564,7 +3564,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_34[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_34, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "H2O.pyx":166
+  /* "gases/H2O.pyx":166
  * 
  *     object.E = [0.0, 1.0, 12.617, 0.0, 0.0, 0.0]
  *     object.E[1] = 2.0 * EMASS / (18.01528 * AMU)             # <<<<<<<<<<<<<<
@@ -3573,7 +3573,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((2.0 * __pyx_v_EMASS) / (18.01528 * __pyx_v_AMU));
 
-  /* "H2O.pyx":168
+  /* "gases/H2O.pyx":168
  *     object.E[1] = 2.0 * EMASS / (18.01528 * AMU)
  * 
  *     object.EION[0:9] = [12.617, 18.1, 18.72, 21.0, 23.0, 35.4, 45.0, 70.0, 532.0]             # <<<<<<<<<<<<<<
@@ -3591,7 +3591,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_26[8] = 532.0;
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_26, sizeof(__pyx_v_object->EION[0]) * (9));
 
-  /* "H2O.pyx":172
+  /* "gases/H2O.pyx":172
  *     # DBA IS DIPOLE MOMENT
  *     # DRAT IS RATIO OF MOMENTUM TRANSFER TO TOTAL X-SECTION FOR DIPOLE
  *     GPARA = 1.0             # <<<<<<<<<<<<<<
@@ -3600,7 +3600,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_GPARA = 1.0;
 
-  /* "H2O.pyx":173
+  /* "gases/H2O.pyx":173
  *     # DRAT IS RATIO OF MOMENTUM TRANSFER TO TOTAL X-SECTION FOR DIPOLE
  *     GPARA = 1.0
  *     GORTHO = 3.0             # <<<<<<<<<<<<<<
@@ -3609,7 +3609,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_GORTHO = 3.0;
 
-  /* "H2O.pyx":174
+  /* "gases/H2O.pyx":174
  *     GPARA = 1.0
  *     GORTHO = 3.0
  *     DBA = 0.728             # <<<<<<<<<<<<<<
@@ -3618,7 +3618,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_DBA = 0.728;
 
-  /* "H2O.pyx":175
+  /* "gases/H2O.pyx":175
  *     GORTHO = 3.0
  *     DBA = 0.728
  *     DRAT = 0.07             # <<<<<<<<<<<<<<
@@ -3627,7 +3627,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_DRAT = 0.07;
 
-  /* "H2O.pyx":176
+  /* "gases/H2O.pyx":176
  *     DBA = 0.728
  *     DRAT = 0.07
  *     DBK = 8.37758 * RY * (DBA * A0) ** 2             # <<<<<<<<<<<<<<
@@ -3636,7 +3636,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_DBK = ((8.37758 * __pyx_v_RY) * pow((__pyx_v_DBA * __pyx_v_A0), 2.0));
 
-  /* "H2O.pyx":179
+  /* "gases/H2O.pyx":179
  * 
  *     #CALCULATE POPULATION DENSITIES OF ROTATIONAL LEVELS
  *     for J in range(1, 100, 2):             # <<<<<<<<<<<<<<
@@ -3646,7 +3646,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_30 = 1; __pyx_t_30 < 0x64; __pyx_t_30+=2) {
     __pyx_v_J = __pyx_t_30;
 
-    /* "H2O.pyx":180
+    /* "gases/H2O.pyx":180
  *     #CALCULATE POPULATION DENSITIES OF ROTATIONAL LEVELS
  *     for J in range(1, 100, 2):
  *         PJ[J - 1] = GPARA * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.AKT)             # <<<<<<<<<<<<<<
@@ -3656,7 +3656,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_J - 1)]) = ((__pyx_v_GPARA * ((2.0 * (__pyx_v_AJL[(__pyx_v_J - 1)])) + 1.0)) * exp((((-1.0 * (__pyx_v_ELEV[(__pyx_v_J - 1)])) * 1e-3) / __pyx_v_object->AKT)));
   }
 
-  /* "H2O.pyx":181
+  /* "gases/H2O.pyx":181
  *     for J in range(1, 100, 2):
  *         PJ[J - 1] = GPARA * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.AKT)
  *     for J in range(2, 101, 2):             # <<<<<<<<<<<<<<
@@ -3666,7 +3666,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_30 = 2; __pyx_t_30 < 0x65; __pyx_t_30+=2) {
     __pyx_v_J = __pyx_t_30;
 
-    /* "H2O.pyx":182
+    /* "gases/H2O.pyx":182
  *         PJ[J - 1] = GPARA * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.AKT)
  *     for J in range(2, 101, 2):
  *         PJ[J - 1] = GORTHO * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.AKT)             # <<<<<<<<<<<<<<
@@ -3676,7 +3676,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[(__pyx_v_J - 1)]) = ((__pyx_v_GORTHO * ((2.0 * (__pyx_v_AJL[(__pyx_v_J - 1)])) + 1.0)) * exp((((-1.0 * (__pyx_v_ELEV[(__pyx_v_J - 1)])) * 1e-3) / __pyx_v_object->AKT)));
   }
 
-  /* "H2O.pyx":183
+  /* "gases/H2O.pyx":183
  *     for J in range(2, 101, 2):
  *         PJ[J - 1] = GORTHO * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.AKT)
  *     RSUM = 0.0             # <<<<<<<<<<<<<<
@@ -3685,7 +3685,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RSUM = 0.0;
 
-  /* "H2O.pyx":184
+  /* "gases/H2O.pyx":184
  *         PJ[J - 1] = GORTHO * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.AKT)
  *     RSUM = 0.0
  *     for J in range(100):             # <<<<<<<<<<<<<<
@@ -3695,7 +3695,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_30 = 0; __pyx_t_30 < 0x64; __pyx_t_30+=1) {
     __pyx_v_J = __pyx_t_30;
 
-    /* "H2O.pyx":185
+    /* "gases/H2O.pyx":185
  *     RSUM = 0.0
  *     for J in range(100):
  *         RSUM += PJ[J]             # <<<<<<<<<<<<<<
@@ -3705,7 +3705,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_v_RSUM = (__pyx_v_RSUM + (__pyx_v_PJ[__pyx_v_J]));
   }
 
-  /* "H2O.pyx":186
+  /* "gases/H2O.pyx":186
  *     for J in range(100):
  *         RSUM += PJ[J]
  *     for J in range(100):             # <<<<<<<<<<<<<<
@@ -3715,7 +3715,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_30 = 0; __pyx_t_30 < 0x64; __pyx_t_30+=1) {
     __pyx_v_J = __pyx_t_30;
 
-    /* "H2O.pyx":187
+    /* "gases/H2O.pyx":187
  *         RSUM += PJ[J]
  *     for J in range(100):
  *         PJ[J] /= RSUM             # <<<<<<<<<<<<<<
@@ -3726,7 +3726,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_PJ[__pyx_t_31]) = ((__pyx_v_PJ[__pyx_t_31]) / __pyx_v_RSUM);
   }
 
-  /* "H2O.pyx":189
+  /* "gases/H2O.pyx":189
  *         PJ[J] /= RSUM
  * 
  *     for J in range(1, 106):             # <<<<<<<<<<<<<<
@@ -3736,7 +3736,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_30 = 1; __pyx_t_30 < 0x6A; __pyx_t_30+=1) {
     __pyx_v_J = __pyx_t_30;
 
-    /* "H2O.pyx":190
+    /* "gases/H2O.pyx":190
  * 
  *     for J in range(1, 106):
  *         object.EIN[(2 * J) - 2] = EROT[J - 1] * 1e-3             # <<<<<<<<<<<<<<
@@ -3745,7 +3745,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EIN[((2 * __pyx_v_J) - 2)]) = ((__pyx_v_EROT[(__pyx_v_J - 1)]) * 1e-3);
 
-    /* "H2O.pyx":191
+    /* "gases/H2O.pyx":191
  *     for J in range(1, 106):
  *         object.EIN[(2 * J) - 2] = EROT[J - 1] * 1e-3
  *         object.EIN[(2 * J) - 1] = -1 * EROT[J - 1] * 1e-3             # <<<<<<<<<<<<<<
@@ -3755,7 +3755,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EIN[((2 * __pyx_v_J) - 1)]) = ((-1.0 * (__pyx_v_EROT[(__pyx_v_J - 1)])) * 1e-3);
   }
 
-  /* "H2O.pyx":192
+  /* "gases/H2O.pyx":192
  *         object.EIN[(2 * J) - 2] = EROT[J - 1] * 1e-3
  *         object.EIN[(2 * J) - 1] = -1 * EROT[J - 1] * 1e-3
  *     object.EIN[210:250] = [-0.1977, 0.1977, 0.4535, 0.919, 7.04, 6.8425, 7.2675, 7.7725, 8.3575, 9.1, 8.91, 9.43, 9.95,             # <<<<<<<<<<<<<<
@@ -3808,7 +3808,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0xD2]), __pyx_t_35, sizeof(__pyx_v_object->EIN[0]) * (40));
 
-  /* "H2O.pyx":197
+  /* "gases/H2O.pyx":197
  *                            19.117, 20.117, 21.117]
  * 
  *     for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -3820,7 +3820,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_J = __pyx_t_32;
 
-    /* "H2O.pyx":198
+    /* "gases/H2O.pyx":198
  * 
  *     for J in range(object.NION):
  *         EOBY[J] = object.EION[0] * 0.93             # <<<<<<<<<<<<<<
@@ -3830,7 +3830,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_EOBY[__pyx_v_J]) = ((__pyx_v_object->EION[0]) * 0.93);
   }
 
-  /* "H2O.pyx":200
+  /* "gases/H2O.pyx":200
  *         EOBY[J] = object.EION[0] * 0.93
  * 
  *     for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -3842,7 +3842,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_J = __pyx_t_32;
 
-    /* "H2O.pyx":201
+    /* "gases/H2O.pyx":201
  * 
  *     for J in range(object.NION):
  *         object.NC0[J] = 0             # <<<<<<<<<<<<<<
@@ -3851,7 +3851,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NC0[__pyx_v_J]) = 0.0;
 
-    /* "H2O.pyx":202
+    /* "gases/H2O.pyx":202
  *     for J in range(object.NION):
  *         object.NC0[J] = 0
  *         object.EC0[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3860,7 +3860,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EC0[__pyx_v_J]) = 0.0;
 
-    /* "H2O.pyx":203
+    /* "gases/H2O.pyx":203
  *         object.NC0[J] = 0
  *         object.EC0[J] = 0.0
  *         object.WK[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3869,7 +3869,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->WK[__pyx_v_J]) = 0.0;
 
-    /* "H2O.pyx":204
+    /* "gases/H2O.pyx":204
  *         object.EC0[J] = 0.0
  *         object.WK[J] = 0.0
  *         object.EFL[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3878,7 +3878,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EFL[__pyx_v_J]) = 0.0;
 
-    /* "H2O.pyx":205
+    /* "gases/H2O.pyx":205
  *         object.WK[J] = 0.0
  *         object.EFL[J] = 0.0
  *         object.NG1[J] = 0             # <<<<<<<<<<<<<<
@@ -3887,7 +3887,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG1[__pyx_v_J]) = 0.0;
 
-    /* "H2O.pyx":206
+    /* "gases/H2O.pyx":206
  *         object.EFL[J] = 0.0
  *         object.NG1[J] = 0
  *         object.EG1[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3896,7 +3896,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->EG1[__pyx_v_J]) = 0.0;
 
-    /* "H2O.pyx":207
+    /* "gases/H2O.pyx":207
  *         object.NG1[J] = 0
  *         object.EG1[J] = 0.0
  *         object.NG2[J] = 0             # <<<<<<<<<<<<<<
@@ -3905,7 +3905,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_object->NG2[__pyx_v_J]) = 0.0;
 
-    /* "H2O.pyx":208
+    /* "gases/H2O.pyx":208
  *         object.EG1[J] = 0.0
  *         object.NG2[J] = 0
  *         object.EG2[J] = 0.0             # <<<<<<<<<<<<<<
@@ -3915,7 +3915,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->EG2[__pyx_v_J]) = 0.0;
   }
 
-  /* "H2O.pyx":210
+  /* "gases/H2O.pyx":210
  *         object.EG2[J] = 0.0
  *     # DOUBLE CHARGED STATES
  *     object.NC0[5] = 1             # <<<<<<<<<<<<<<
@@ -3924,7 +3924,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[5]) = 1.0;
 
-  /* "H2O.pyx":211
+  /* "gases/H2O.pyx":211
  *     # DOUBLE CHARGED STATES
  *     object.NC0[5] = 1
  *     object.EC0[5] = 6.0             # <<<<<<<<<<<<<<
@@ -3933,7 +3933,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[5]) = 6.0;
 
-  /* "H2O.pyx":212
+  /* "gases/H2O.pyx":212
  *     object.NC0[5] = 1
  *     object.EC0[5] = 6.0
  *     object.NC0[6] = 1             # <<<<<<<<<<<<<<
@@ -3942,7 +3942,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[6]) = 1.0;
 
-  /* "H2O.pyx":213
+  /* "gases/H2O.pyx":213
  *     object.EC0[5] = 6.0
  *     object.NC0[6] = 1
  *     object.EC0[6] = 6.0             # <<<<<<<<<<<<<<
@@ -3951,7 +3951,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[6]) = 6.0;
 
-  /* "H2O.pyx":214
+  /* "gases/H2O.pyx":214
  *     object.NC0[6] = 1
  *     object.EC0[6] = 6.0
  *     object.NC0[7] = 1             # <<<<<<<<<<<<<<
@@ -3960,7 +3960,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[7]) = 1.0;
 
-  /* "H2O.pyx":215
+  /* "gases/H2O.pyx":215
  *     object.EC0[6] = 6.0
  *     object.NC0[7] = 1
  *     object.EC0[7] = 6.0             # <<<<<<<<<<<<<<
@@ -3969,7 +3969,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[7]) = 6.0;
 
-  /* "H2O.pyx":217
+  /* "gases/H2O.pyx":217
  *     object.EC0[7] = 6.0
  *     # FLUORESCENCE DATA
  *     object.NC0[8] = 3             # <<<<<<<<<<<<<<
@@ -3978,7 +3978,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NC0[8]) = 3.0;
 
-  /* "H2O.pyx":218
+  /* "gases/H2O.pyx":218
  *     # FLUORESCENCE DATA
  *     object.NC0[8] = 3
  *     object.EC0[8] = 485             # <<<<<<<<<<<<<<
@@ -3987,7 +3987,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EC0[8]) = 485.0;
 
-  /* "H2O.pyx":219
+  /* "gases/H2O.pyx":219
  *     object.NC0[8] = 3
  *     object.EC0[8] = 485
  *     object.WK[8] = 0.0069             # <<<<<<<<<<<<<<
@@ -3996,7 +3996,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->WK[8]) = 0.0069;
 
-  /* "H2O.pyx":220
+  /* "gases/H2O.pyx":220
  *     object.EC0[8] = 485
  *     object.WK[8] = 0.0069
  *     object.EFL[8] = 518             # <<<<<<<<<<<<<<
@@ -4005,7 +4005,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EFL[8]) = 518.0;
 
-  /* "H2O.pyx":221
+  /* "gases/H2O.pyx":221
  *     object.WK[8] = 0.0069
  *     object.EFL[8] = 518
  *     object.NG1[8] = 1             # <<<<<<<<<<<<<<
@@ -4014,7 +4014,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG1[8]) = 1.0;
 
-  /* "H2O.pyx":222
+  /* "gases/H2O.pyx":222
  *     object.EFL[8] = 518
  *     object.NG1[8] = 1
  *     object.EG1[8] = 480             # <<<<<<<<<<<<<<
@@ -4023,7 +4023,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG1[8]) = 480.0;
 
-  /* "H2O.pyx":223
+  /* "gases/H2O.pyx":223
  *     object.NG1[8] = 1
  *     object.EG1[8] = 480
  *     object.NG2[8] = 2             # <<<<<<<<<<<<<<
@@ -4032,7 +4032,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->NG2[8]) = 2.0;
 
-  /* "H2O.pyx":224
+  /* "gases/H2O.pyx":224
  *     object.EG1[8] = 480
  *     object.NG2[8] = 2
  *     object.EG2[8] = 5.0             # <<<<<<<<<<<<<<
@@ -4041,7 +4041,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->EG2[8]) = 5.0;
 
-  /* "H2O.pyx":226
+  /* "gases/H2O.pyx":226
  *     object.EG2[8] = 5.0
  * 
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -4053,7 +4053,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_j = __pyx_t_32;
 
-    /* "H2O.pyx":227
+    /* "gases/H2O.pyx":227
  * 
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -4063,7 +4063,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0; __pyx_t_36 < 0xFA0; __pyx_t_36+=1) {
       __pyx_v_i = __pyx_t_36;
 
-      /* "H2O.pyx":228
+      /* "gases/H2O.pyx":228
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -4073,7 +4073,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":229
+        /* "gases/H2O.pyx":229
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1             # <<<<<<<<<<<<<<
@@ -4082,7 +4082,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = (__pyx_v_i - 1);
 
-        /* "H2O.pyx":230
+        /* "gases/H2O.pyx":230
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4091,7 +4091,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L24_break;
 
-        /* "H2O.pyx":228
+        /* "gases/H2O.pyx":228
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -4103,7 +4103,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L24_break:;
   }
 
-  /* "H2O.pyx":233
+  /* "gases/H2O.pyx":233
  * 
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  *     cdef int NL = 0             # <<<<<<<<<<<<<<
@@ -4112,7 +4112,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NL = 0;
 
-  /* "H2O.pyx":234
+  /* "gases/H2O.pyx":234
  *     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
  *     cdef int NL = 0
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4124,7 +4124,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_NL = __pyx_t_32;
 
-    /* "H2O.pyx":235
+    /* "gases/H2O.pyx":235
  *     cdef int NL = 0
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -4134,7 +4134,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0; __pyx_t_36 < 0xFA0; __pyx_t_36+=1) {
       __pyx_v_i = __pyx_t_36;
 
-      /* "H2O.pyx":236
+      /* "gases/H2O.pyx":236
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -4144,7 +4144,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = (((__pyx_v_object->EG[__pyx_v_i]) > fabs((__pyx_v_object->EIN[__pyx_v_NL]))) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":237
+        /* "gases/H2O.pyx":237
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i - 1             # <<<<<<<<<<<<<<
@@ -4153,7 +4153,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = (__pyx_v_i - 1);
 
-        /* "H2O.pyx":238
+        /* "gases/H2O.pyx":238
  *             if object.EG[i] > abs(object.EIN[NL]):
  *                 IOFFN[NL] = i - 1
  *                 break             # <<<<<<<<<<<<<<
@@ -4162,7 +4162,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L29_break;
 
-        /* "H2O.pyx":236
+        /* "gases/H2O.pyx":236
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > abs(object.EIN[NL]):             # <<<<<<<<<<<<<<
@@ -4174,7 +4174,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L29_break:;
   }
 
-  /* "H2O.pyx":240
+  /* "gases/H2O.pyx":240
  *                 break
  * 
  *     for I in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -4186,7 +4186,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_I = __pyx_t_32;
 
-    /* "H2O.pyx":241
+    /* "gases/H2O.pyx":241
  * 
  *     for I in range(object.NIN):
  *         object.PENFRA[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4196,7 +4196,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[0])[__pyx_v_I]) = 0.0;
   }
 
-  /* "H2O.pyx":243
+  /* "gases/H2O.pyx":243
  *         object.PENFRA[0][I] = 0.0
  * 
  *     for J in range(214, object.NIN):             # <<<<<<<<<<<<<<
@@ -4208,7 +4208,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0xD6; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_J = __pyx_t_32;
 
-    /* "H2O.pyx":244
+    /* "gases/H2O.pyx":244
  * 
  *     for J in range(214, object.NIN):
  *         object.PENFRA[0][J] = 0.0             # <<<<<<<<<<<<<<
@@ -4217,7 +4217,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_J]) = 0.0;
 
-    /* "H2O.pyx":245
+    /* "gases/H2O.pyx":245
  *     for J in range(214, object.NIN):
  *         object.PENFRA[0][J] = 0.0
  *         object.PENFRA[1][J] = 1.0             # <<<<<<<<<<<<<<
@@ -4226,7 +4226,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_J]) = 1.0;
 
-    /* "H2O.pyx":246
+    /* "gases/H2O.pyx":246
  *         object.PENFRA[0][J] = 0.0
  *         object.PENFRA[1][J] = 1.0
  *         object.PENFRA[2][J] = 1.0             # <<<<<<<<<<<<<<
@@ -4236,7 +4236,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_J]) = 1.0;
   }
 
-  /* "H2O.pyx":250
+  /* "gases/H2O.pyx":250
  *     cdef double APOPV1, APOPGS, APOPSUM, GAMMA1, GAMMA2, BETA, BETA2, EN, QELA, QMMT, PQ[3], EPS, QCOUNT, QGROSS, EPOINT
  *     cdef double F[32]
  *     F = [.003437, .017166, .019703, .005486, .006609, .030025, .030025, .006609, .005200, .014000, .010700, .009200,             # <<<<<<<<<<<<<<
@@ -4277,7 +4277,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_38[31] = .002614;
   memcpy(&(__pyx_v_F[0]), __pyx_t_38, sizeof(__pyx_v_F[0]) * (32));
 
-  /* "H2O.pyx":255
+  /* "gases/H2O.pyx":255
  *     cdef int FI
  *     # CALC POPULATION OF LOW ENERGY VIBRATIONAL STATE
  *     APOPV1 = exp(object.EIN[210] / object.AKT)             # <<<<<<<<<<<<<<
@@ -4286,7 +4286,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV1 = exp(((__pyx_v_object->EIN[0xD2]) / __pyx_v_object->AKT));
 
-  /* "H2O.pyx":256
+  /* "gases/H2O.pyx":256
  *     # CALC POPULATION OF LOW ENERGY VIBRATIONAL STATE
  *     APOPV1 = exp(object.EIN[210] / object.AKT)
  *     APOPGS = 1.0             # <<<<<<<<<<<<<<
@@ -4295,7 +4295,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPGS = 1.0;
 
-  /* "H2O.pyx":257
+  /* "gases/H2O.pyx":257
  *     APOPV1 = exp(object.EIN[210] / object.AKT)
  *     APOPGS = 1.0
  *     APOPSUM = APOPGS + APOPV1             # <<<<<<<<<<<<<<
@@ -4304,7 +4304,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPSUM = (__pyx_v_APOPGS + __pyx_v_APOPV1);
 
-  /* "H2O.pyx":258
+  /* "gases/H2O.pyx":258
  *     APOPGS = 1.0
  *     APOPSUM = APOPGS + APOPV1
  *     APOPV1 = APOPV1 / APOPSUM             # <<<<<<<<<<<<<<
@@ -4313,7 +4313,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOPV1 = (__pyx_v_APOPV1 / __pyx_v_APOPSUM);
 
-  /* "H2O.pyx":262
+  /* "gases/H2O.pyx":262
  *     #KEEP APOPGS=1 TO ALLOW FOR EXCITATIONS FROM UPPER STATE
  * 
  *     for I in range(4000):             # <<<<<<<<<<<<<<
@@ -4323,7 +4323,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_30 = 0; __pyx_t_30 < 0xFA0; __pyx_t_30+=1) {
     __pyx_v_I = __pyx_t_30;
 
-    /* "H2O.pyx":263
+    /* "gases/H2O.pyx":263
  * 
  *     for I in range(4000):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -4332,7 +4332,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "H2O.pyx":264
+    /* "gases/H2O.pyx":264
  *     for I in range(4000):
  *         EN = object.EG[I]
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -4341,7 +4341,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-    /* "H2O.pyx":265
+    /* "gases/H2O.pyx":265
  *         EN = object.EG[I]
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -4350,7 +4350,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-    /* "H2O.pyx":266
+    /* "gases/H2O.pyx":266
  *         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -4359,7 +4359,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-    /* "H2O.pyx":267
+    /* "gases/H2O.pyx":267
  *         GAMMA2 = GAMMA1 * GAMMA1
  *         BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *         BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -4368,7 +4368,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-    /* "H2O.pyx":270
+    /* "gases/H2O.pyx":270
  * 
  *         # ELASTIC
  *         if EN <= XEL[0]:             # <<<<<<<<<<<<<<
@@ -4378,7 +4378,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN <= (__pyx_v_XEL[0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":271
+      /* "gases/H2O.pyx":271
  *         # ELASTIC
  *         if EN <= XEL[0]:
  *             QELA = YEL[0] * 1e-16             # <<<<<<<<<<<<<<
@@ -4387,7 +4387,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QELA = ((__pyx_v_YEL[0]) * 1e-16);
 
-      /* "H2O.pyx":270
+      /* "gases/H2O.pyx":270
  * 
  *         # ELASTIC
  *         if EN <= XEL[0]:             # <<<<<<<<<<<<<<
@@ -4397,7 +4397,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L37;
     }
 
-    /* "H2O.pyx":273
+    /* "gases/H2O.pyx":273
  *             QELA = YEL[0] * 1e-16
  *         else:
  *             QELA = GasUtil.QLSCALE(EN, NELA, YEL, XEL)             # <<<<<<<<<<<<<<
@@ -4409,7 +4409,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L37:;
 
-    /* "H2O.pyx":276
+    /* "gases/H2O.pyx":276
  * 
  *         #MOMENTUM TRANSFER ELASTIC
  *         if EN <= XMT[0]:             # <<<<<<<<<<<<<<
@@ -4419,7 +4419,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN <= (__pyx_v_XMT[0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":277
+      /* "gases/H2O.pyx":277
  *         #MOMENTUM TRANSFER ELASTIC
  *         if EN <= XMT[0]:
  *             QMMT = YMT[0] * 1e-16             # <<<<<<<<<<<<<<
@@ -4428,7 +4428,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMMT = ((__pyx_v_YMT[0]) * 1e-16);
 
-      /* "H2O.pyx":276
+      /* "gases/H2O.pyx":276
  * 
  *         #MOMENTUM TRANSFER ELASTIC
  *         if EN <= XMT[0]:             # <<<<<<<<<<<<<<
@@ -4438,7 +4438,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L38;
     }
 
-    /* "H2O.pyx":279
+    /* "gases/H2O.pyx":279
  *             QMMT = YMT[0] * 1e-16
  *         else:
  *             QMMT = GasUtil.QLSCALE(EN, NMMT, YMT, XMT)             # <<<<<<<<<<<<<<
@@ -4450,7 +4450,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L38:;
 
-    /* "H2O.pyx":282
+    /* "gases/H2O.pyx":282
  * 
  *         #ANGULAR DISTRIBUTION FUNCTION OKHRIMOVSKY
  *         if EN <= XEPS[0]:             # <<<<<<<<<<<<<<
@@ -4460,7 +4460,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN <= (__pyx_v_XEPS[0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":283
+      /* "gases/H2O.pyx":283
  *         #ANGULAR DISTRIBUTION FUNCTION OKHRIMOVSKY
  *         if EN <= XEPS[0]:
  *             PQ[2] = YEPS[0]             # <<<<<<<<<<<<<<
@@ -4469,7 +4469,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       (__pyx_v_PQ[2]) = (__pyx_v_YEPS[0]);
 
-      /* "H2O.pyx":282
+      /* "gases/H2O.pyx":282
  * 
  *         #ANGULAR DISTRIBUTION FUNCTION OKHRIMOVSKY
  *         if EN <= XEPS[0]:             # <<<<<<<<<<<<<<
@@ -4479,7 +4479,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L39;
     }
 
-    /* "H2O.pyx":285
+    /* "gases/H2O.pyx":285
  *             PQ[2] = YEPS[0]
  *         else:
  *             PQ[2] = GasUtil.CALPQ3(EN, NEPS, YEPS, XEPS)             # <<<<<<<<<<<<<<
@@ -4491,7 +4491,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L39:;
 
-    /* "H2O.pyx":286
+    /* "gases/H2O.pyx":286
  *         else:
  *             PQ[2] = GasUtil.CALPQ3(EN, NEPS, YEPS, XEPS)
  *         PQ[2] = 1 - PQ[2]             # <<<<<<<<<<<<<<
@@ -4500,7 +4500,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = (1.0 - (__pyx_v_PQ[2]));
 
-    /* "H2O.pyx":287
+    /* "gases/H2O.pyx":287
  *             PQ[2] = GasUtil.CALPQ3(EN, NEPS, YEPS, XEPS)
  *         PQ[2] = 1 - PQ[2]
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -4509,7 +4509,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "H2O.pyx":288
+    /* "gases/H2O.pyx":288
  *         PQ[2] = 1 - PQ[2]
  *         object.Q[1][I] = QELA
  *         object.PEQEL[1][I] = PQ[2]             # <<<<<<<<<<<<<<
@@ -4518,7 +4518,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[2]);
 
-    /* "H2O.pyx":291
+    /* "gases/H2O.pyx":291
  * 
  *         # IONISATION CALCULATION
  *         for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -4530,7 +4530,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_32; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "H2O.pyx":292
+      /* "gases/H2O.pyx":292
  *         # IONISATION CALCULATION
  *         for J in range(object.NION):
  *             object.PEQION[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4539,7 +4539,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-      /* "H2O.pyx":293
+      /* "gases/H2O.pyx":293
  *         for J in range(object.NION):
  *             object.PEQION[J][I] = 0.0
  *             object.QION[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4549,7 +4549,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->QION[__pyx_v_J])[__pyx_v_I]) = 0.0;
     }
 
-    /* "H2O.pyx":295
+    /* "gases/H2O.pyx":295
  *             object.QION[J][I] = 0.0
  *         #IF ENERGY LESS THAN 5KEV CALCULATE TOTAL COUNTING AND GROSS IONISATION
  *         if EN <= 5000:             # <<<<<<<<<<<<<<
@@ -4559,7 +4559,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN <= 5000.0) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":296
+      /* "gases/H2O.pyx":296
  *         #IF ENERGY LESS THAN 5KEV CALCULATE TOTAL COUNTING AND GROSS IONISATION
  *         if EN <= 5000:
  *             if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4569,7 +4569,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":297
+        /* "gases/H2O.pyx":297
  *         if EN <= 5000:
  *             if EN > object.EION[0]:
  *                 QCOUNT = GasUtil.CALQIONX(EN, NIONC, YIONC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -4578,7 +4578,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QCOUNT = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIONC, __pyx_v_YIONC, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-        /* "H2O.pyx":298
+        /* "gases/H2O.pyx":298
  *             if EN > object.EION[0]:
  *                 QCOUNT = GasUtil.CALQIONX(EN, NIONC, YIONC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *                 QGROSS = GasUtil.CALQIONX(EN, NIONC, YIONG, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -4587,7 +4587,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_QGROSS = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIONC, __pyx_v_YIONG, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-        /* "H2O.pyx":296
+        /* "gases/H2O.pyx":296
  *         #IF ENERGY LESS THAN 5KEV CALCULATE TOTAL COUNTING AND GROSS IONISATION
  *         if EN <= 5000:
  *             if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4596,7 +4596,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":295
+      /* "gases/H2O.pyx":295
  *             object.QION[J][I] = 0.0
  *         #IF ENERGY LESS THAN 5KEV CALCULATE TOTAL COUNTING AND GROSS IONISATION
  *         if EN <= 5000:             # <<<<<<<<<<<<<<
@@ -4606,7 +4606,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L42;
     }
 
-    /* "H2O.pyx":300
+    /* "gases/H2O.pyx":300
  *                 QGROSS = GasUtil.CALQIONX(EN, NIONC, YIONG, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *         else:
  *             QCOUNT = GasUtil.CALQIONX(EN, NIONC, YIONC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -4616,7 +4616,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     /*else*/ {
       __pyx_v_QCOUNT = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIONC, __pyx_v_YIONC, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "H2O.pyx":301
+      /* "gases/H2O.pyx":301
  *         else:
  *             QCOUNT = GasUtil.CALQIONX(EN, NIONC, YIONC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
  *             QGROSS = QCOUNT * 1.022             # <<<<<<<<<<<<<<
@@ -4627,7 +4627,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L42:;
 
-    /* "H2O.pyx":304
+    /* "gases/H2O.pyx":304
  * 
  *         #IONISATION TO H2O+
  *         if EN <= XION1[NION1 - 1] and EN > XION1[0]:             # <<<<<<<<<<<<<<
@@ -4645,7 +4645,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L45_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":305
+      /* "gases/H2O.pyx":305
  *         #IONISATION TO H2O+
  *         if EN <= XION1[NION1 - 1] and EN > XION1[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)             # <<<<<<<<<<<<<<
@@ -4654,7 +4654,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION1, __pyx_v_YION1, __pyx_v_XION1);
 
-      /* "H2O.pyx":306
+      /* "gases/H2O.pyx":306
  *         if EN <= XION1[NION1 - 1] and EN > XION1[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
  *             if object.QION[0][I] == 0:             # <<<<<<<<<<<<<<
@@ -4664,7 +4664,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((((__pyx_v_object->QION[0])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":307
+        /* "gases/H2O.pyx":307
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
  *             if object.QION[0][I] == 0:
  *                 object.QION[0][I] = QCOUNT * 0.62996             # <<<<<<<<<<<<<<
@@ -4673,7 +4673,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[0])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.62996);
 
-        /* "H2O.pyx":306
+        /* "gases/H2O.pyx":306
  *         if EN <= XION1[NION1 - 1] and EN > XION1[0]:
  *             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
  *             if object.QION[0][I] == 0:             # <<<<<<<<<<<<<<
@@ -4682,7 +4682,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":304
+      /* "gases/H2O.pyx":304
  * 
  *         #IONISATION TO H2O+
  *         if EN <= XION1[NION1 - 1] and EN > XION1[0]:             # <<<<<<<<<<<<<<
@@ -4691,7 +4691,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":310
+    /* "gases/H2O.pyx":310
  * 
  *         #IONISATION TO OH+
  *         if EN <= XION2[NION2 - 1] and EN > XION2[0]:             # <<<<<<<<<<<<<<
@@ -4709,7 +4709,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L49_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":311
+      /* "gases/H2O.pyx":311
  *         #IONISATION TO OH+
  *         if EN <= XION2[NION2 - 1] and EN > XION2[0]:
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)             # <<<<<<<<<<<<<<
@@ -4718,7 +4718,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION2, __pyx_v_YION2, __pyx_v_XION2);
 
-      /* "H2O.pyx":312
+      /* "gases/H2O.pyx":312
  *         if EN <= XION2[NION2 - 1] and EN > XION2[0]:
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
  *             if object.QION[1][I] == 0:             # <<<<<<<<<<<<<<
@@ -4728,7 +4728,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((((__pyx_v_object->QION[1])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":313
+        /* "gases/H2O.pyx":313
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
  *             if object.QION[1][I] == 0:
  *                 object.QION[1][I] = QCOUNT * 0.19383             # <<<<<<<<<<<<<<
@@ -4737,7 +4737,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[1])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.19383);
 
-        /* "H2O.pyx":312
+        /* "gases/H2O.pyx":312
  *         if EN <= XION2[NION2 - 1] and EN > XION2[0]:
  *             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
  *             if object.QION[1][I] == 0:             # <<<<<<<<<<<<<<
@@ -4746,7 +4746,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":310
+      /* "gases/H2O.pyx":310
  * 
  *         #IONISATION TO OH+
  *         if EN <= XION2[NION2 - 1] and EN > XION2[0]:             # <<<<<<<<<<<<<<
@@ -4755,7 +4755,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":316
+    /* "gases/H2O.pyx":316
  * 
  *         #IONISATION TO H+
  *         if EN <= XION3[NION3 - 1] and EN > XION3[0]:             # <<<<<<<<<<<<<<
@@ -4773,7 +4773,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L53_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":317
+      /* "gases/H2O.pyx":317
  *         #IONISATION TO H+
  *         if EN <= XION3[NION3 - 1] and EN > XION3[0]:
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)             # <<<<<<<<<<<<<<
@@ -4782,7 +4782,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION3, __pyx_v_YION3, __pyx_v_XION3);
 
-      /* "H2O.pyx":318
+      /* "gases/H2O.pyx":318
  *         if EN <= XION3[NION3 - 1] and EN > XION3[0]:
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
  *             if object.QION[2][I] == 0:             # <<<<<<<<<<<<<<
@@ -4792,7 +4792,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((((__pyx_v_object->QION[2])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":319
+        /* "gases/H2O.pyx":319
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
  *             if object.QION[2][I] == 0:
  *                 object.QION[2][I] = QCOUNT * 0.13275             # <<<<<<<<<<<<<<
@@ -4801,7 +4801,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[2])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.13275);
 
-        /* "H2O.pyx":318
+        /* "gases/H2O.pyx":318
  *         if EN <= XION3[NION3 - 1] and EN > XION3[0]:
  *             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
  *             if object.QION[2][I] == 0:             # <<<<<<<<<<<<<<
@@ -4810,7 +4810,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":316
+      /* "gases/H2O.pyx":316
  * 
  *         #IONISATION TO H+
  *         if EN <= XION3[NION3 - 1] and EN > XION3[0]:             # <<<<<<<<<<<<<<
@@ -4819,7 +4819,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":322
+    /* "gases/H2O.pyx":322
  * 
  *         #IONISATION TO O+
  *         if EN <= XION4[NION4 - 1] and EN > XION4[0]:             # <<<<<<<<<<<<<<
@@ -4837,7 +4837,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L57_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":323
+      /* "gases/H2O.pyx":323
  *         #IONISATION TO O+
  *         if EN <= XION4[NION4 - 1] and EN > XION4[0]:
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)             # <<<<<<<<<<<<<<
@@ -4846,7 +4846,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION4, __pyx_v_YION4, __pyx_v_XION4);
 
-      /* "H2O.pyx":324
+      /* "gases/H2O.pyx":324
  *         if EN <= XION4[NION4 - 1] and EN > XION4[0]:
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
  *             if object.QION[3][I] == 0:             # <<<<<<<<<<<<<<
@@ -4856,7 +4856,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((((__pyx_v_object->QION[3])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":325
+        /* "gases/H2O.pyx":325
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
  *             if object.QION[3][I] == 0:
  *                 object.QION[3][I] = QCOUNT * 0.02129             # <<<<<<<<<<<<<<
@@ -4865,7 +4865,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[3])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.02129);
 
-        /* "H2O.pyx":324
+        /* "gases/H2O.pyx":324
  *         if EN <= XION4[NION4 - 1] and EN > XION4[0]:
  *             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
  *             if object.QION[3][I] == 0:             # <<<<<<<<<<<<<<
@@ -4874,7 +4874,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":322
+      /* "gases/H2O.pyx":322
  * 
  *         #IONISATION TO O+
  *         if EN <= XION4[NION4 - 1] and EN > XION4[0]:             # <<<<<<<<<<<<<<
@@ -4883,7 +4883,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":328
+    /* "gases/H2O.pyx":328
  * 
  *         #IONISATION TO H2+
  *         if EN <= XION5[NION5 - 1] and EN > XION5[0]:             # <<<<<<<<<<<<<<
@@ -4901,7 +4901,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L61_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":329
+      /* "gases/H2O.pyx":329
  *         #IONISATION TO H2+
  *         if EN <= XION5[NION5 - 1] and EN > XION5[0]:
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)             # <<<<<<<<<<<<<<
@@ -4910,7 +4910,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION5, __pyx_v_YION5, __pyx_v_XION5);
 
-      /* "H2O.pyx":330
+      /* "gases/H2O.pyx":330
  *         if EN <= XION5[NION5 - 1] and EN > XION5[0]:
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
  *             if object.QION[4][I] == 0:             # <<<<<<<<<<<<<<
@@ -4920,7 +4920,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((((__pyx_v_object->QION[4])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":331
+        /* "gases/H2O.pyx":331
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
  *             if object.QION[4][I] == 0:
  *                 object.QION[4][I] = QCOUNT * 0.00035             # <<<<<<<<<<<<<<
@@ -4929,7 +4929,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[4])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.00035);
 
-        /* "H2O.pyx":330
+        /* "gases/H2O.pyx":330
  *         if EN <= XION5[NION5 - 1] and EN > XION5[0]:
  *             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
  *             if object.QION[4][I] == 0:             # <<<<<<<<<<<<<<
@@ -4938,7 +4938,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":328
+      /* "gases/H2O.pyx":328
  * 
  *         #IONISATION TO H2+
  *         if EN <= XION5[NION5 - 1] and EN > XION5[0]:             # <<<<<<<<<<<<<<
@@ -4947,7 +4947,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":334
+    /* "gases/H2O.pyx":334
  * 
  *         #IONISATION TO H+ + OH+
  *         if EN <= XION6[NION6 - 1] and EN > XION6[0]:             # <<<<<<<<<<<<<<
@@ -4965,7 +4965,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L65_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":335
+      /* "gases/H2O.pyx":335
  *         #IONISATION TO H+ + OH+
  *         if EN <= XION6[NION6 - 1] and EN > XION6[0]:
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)             # <<<<<<<<<<<<<<
@@ -4974,7 +4974,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION6, __pyx_v_YION6, __pyx_v_XION6);
 
-      /* "H2O.pyx":336
+      /* "gases/H2O.pyx":336
  *         if EN <= XION6[NION6 - 1] and EN > XION6[0]:
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
  *             if object.QION[5][I] == 0:             # <<<<<<<<<<<<<<
@@ -4984,7 +4984,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((((__pyx_v_object->QION[5])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":337
+        /* "gases/H2O.pyx":337
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
  *             if object.QION[5][I] == 0:
  *                 object.QION[5][I] = QCOUNT * 0.01395             # <<<<<<<<<<<<<<
@@ -4993,7 +4993,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[5])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.01395);
 
-        /* "H2O.pyx":336
+        /* "gases/H2O.pyx":336
  *         if EN <= XION6[NION6 - 1] and EN > XION6[0]:
  *             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
  *             if object.QION[5][I] == 0:             # <<<<<<<<<<<<<<
@@ -5002,7 +5002,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":334
+      /* "gases/H2O.pyx":334
  * 
  *         #IONISATION TO H+ + OH+
  *         if EN <= XION6[NION6 - 1] and EN > XION6[0]:             # <<<<<<<<<<<<<<
@@ -5011,7 +5011,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":340
+    /* "gases/H2O.pyx":340
  * 
  *         #IONISATION TO H+ + O+
  *         if EN <= XION7[NION7 - 1] and EN > XION7[0]:             # <<<<<<<<<<<<<<
@@ -5029,7 +5029,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L69_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":341
+      /* "gases/H2O.pyx":341
  *         #IONISATION TO H+ + O+
  *         if EN <= XION7[NION7 - 1] and EN > XION7[0]:
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)             # <<<<<<<<<<<<<<
@@ -5038,7 +5038,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION7, __pyx_v_YION7, __pyx_v_XION7);
 
-      /* "H2O.pyx":342
+      /* "gases/H2O.pyx":342
  *         if EN <= XION7[NION7 - 1] and EN > XION7[0]:
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
  *             if object.QION[6][I] == 0:             # <<<<<<<<<<<<<<
@@ -5048,7 +5048,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((((__pyx_v_object->QION[6])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":343
+        /* "gases/H2O.pyx":343
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
  *             if object.QION[6][I] == 0:
  *                 object.QION[6][I] = QCOUNT * 0.00705             # <<<<<<<<<<<<<<
@@ -5057,7 +5057,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[6])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.00705);
 
-        /* "H2O.pyx":342
+        /* "gases/H2O.pyx":342
  *         if EN <= XION7[NION7 - 1] and EN > XION7[0]:
  *             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
  *             if object.QION[6][I] == 0:             # <<<<<<<<<<<<<<
@@ -5066,7 +5066,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":340
+      /* "gases/H2O.pyx":340
  * 
  *         #IONISATION TO H+ + O+
  *         if EN <= XION7[NION7 - 1] and EN > XION7[0]:             # <<<<<<<<<<<<<<
@@ -5075,7 +5075,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":346
+    /* "gases/H2O.pyx":346
  * 
  *         #IONISATION TO O++
  *         if EN <= XION8[NION8 - 1] and EN > XION8[0]:             # <<<<<<<<<<<<<<
@@ -5093,7 +5093,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L73_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":347
+      /* "gases/H2O.pyx":347
  *         #IONISATION TO O++
  *         if EN <= XION8[NION8 - 1] and EN > XION8[0]:
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)             # <<<<<<<<<<<<<<
@@ -5102,7 +5102,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NION8, __pyx_v_YION8, __pyx_v_XION8);
 
-      /* "H2O.pyx":348
+      /* "gases/H2O.pyx":348
  *         if EN <= XION8[NION8 - 1] and EN > XION8[0]:
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
  *             if object.QION[7][I] == 0:             # <<<<<<<<<<<<<<
@@ -5112,7 +5112,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((((__pyx_v_object->QION[7])[__pyx_v_I]) == 0.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":349
+        /* "gases/H2O.pyx":349
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
  *             if object.QION[7][I] == 0:
  *                 object.QION[7][I] = QCOUNT * 0.00085             # <<<<<<<<<<<<<<
@@ -5121,7 +5121,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QION[7])[__pyx_v_I]) = (__pyx_v_QCOUNT * 0.00085);
 
-        /* "H2O.pyx":348
+        /* "gases/H2O.pyx":348
  *         if EN <= XION8[NION8 - 1] and EN > XION8[0]:
  *             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
  *             if object.QION[7][I] == 0:             # <<<<<<<<<<<<<<
@@ -5130,7 +5130,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":346
+      /* "gases/H2O.pyx":346
  * 
  *         #IONISATION TO O++
  *         if EN <= XION8[NION8 - 1] and EN > XION8[0]:             # <<<<<<<<<<<<<<
@@ -5139,7 +5139,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":352
+    /* "gases/H2O.pyx":352
  * 
  *         #IONISATION TO OXYGEN K-SHELL
  *         if EN > XKSH[0]:             # <<<<<<<<<<<<<<
@@ -5149,7 +5149,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_XKSH[0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":353
+      /* "gases/H2O.pyx":353
  *         #IONISATION TO OXYGEN K-SHELL
  *         if EN > XKSH[0]:
  *             object.QION[8][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)             # <<<<<<<<<<<<<<
@@ -5158,7 +5158,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NKSH, __pyx_v_YKSH, __pyx_v_XKSH);
 
-      /* "H2O.pyx":352
+      /* "gases/H2O.pyx":352
  * 
  *         #IONISATION TO OXYGEN K-SHELL
  *         if EN > XKSH[0]:             # <<<<<<<<<<<<<<
@@ -5167,7 +5167,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":355
+    /* "gases/H2O.pyx":355
  *             object.QION[8][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
  * 
  *         for J in range(object.NION):             # <<<<<<<<<<<<<<
@@ -5179,7 +5179,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_32; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "H2O.pyx":356
+      /* "gases/H2O.pyx":356
  * 
  *         for J in range(object.NION):
  *             if EN > 2 * object.EION[J]:             # <<<<<<<<<<<<<<
@@ -5189,7 +5189,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[__pyx_v_J]))) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":357
+        /* "gases/H2O.pyx":357
  *         for J in range(object.NION):
  *             if EN > 2 * object.EION[J]:
  *                 object.PEQION[J][I] = object.PEQEL[1][I - IOFFION[J]]             # <<<<<<<<<<<<<<
@@ -5198,7 +5198,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[__pyx_v_J])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[__pyx_v_J]))]);
 
-        /* "H2O.pyx":356
+        /* "gases/H2O.pyx":356
  * 
  *         for J in range(object.NION):
  *             if EN > 2 * object.EION[J]:             # <<<<<<<<<<<<<<
@@ -5208,7 +5208,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "H2O.pyx":360
+    /* "gases/H2O.pyx":360
  * 
  *         # ATTACHMENT H-
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5217,7 +5217,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":361
+    /* "gases/H2O.pyx":361
  *         # ATTACHMENT H-
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5226,7 +5226,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":362
+    /* "gases/H2O.pyx":362
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0
  *         if EN > XATT1[0] and EN < XATT1[NATT1 - 1]:             # <<<<<<<<<<<<<<
@@ -5244,7 +5244,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L81_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":363
+      /* "gases/H2O.pyx":363
  *         object.QATT[0][I] = 0.0
  *         if EN > XATT1[0] and EN < XATT1[NATT1 - 1]:
  *             object.QATT[0][I] = GasUtil.QLSCALE(EN, NATT1, YATT1, XATT1) * 1e-5             # <<<<<<<<<<<<<<
@@ -5253,7 +5253,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[0])[__pyx_v_I]) = (__pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NATT1, __pyx_v_YATT1, __pyx_v_XATT1) * 1e-5);
 
-      /* "H2O.pyx":362
+      /* "gases/H2O.pyx":362
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0
  *         if EN > XATT1[0] and EN < XATT1[NATT1 - 1]:             # <<<<<<<<<<<<<<
@@ -5262,7 +5262,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":366
+    /* "gases/H2O.pyx":366
  * 
  *         # ATTACHMENT O-
  *         object.QATT[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5271,7 +5271,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[1])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":367
+    /* "gases/H2O.pyx":367
  *         # ATTACHMENT O-
  *         object.QATT[1][I] = 0.0
  *         if EN > XATT2[0] and EN < XATT2[NATT2 - 1]:             # <<<<<<<<<<<<<<
@@ -5289,7 +5289,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L84_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":368
+      /* "gases/H2O.pyx":368
  *         object.QATT[1][I] = 0.0
  *         if EN > XATT2[0] and EN < XATT2[NATT2 - 1]:
  *             object.QATT[1][I] = GasUtil.QLSCALE(EN, NATT2, YATT2, XATT2) * 1e-5             # <<<<<<<<<<<<<<
@@ -5298,7 +5298,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[1])[__pyx_v_I]) = (__pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NATT2, __pyx_v_YATT2, __pyx_v_XATT2) * 1e-5);
 
-      /* "H2O.pyx":367
+      /* "gases/H2O.pyx":367
  *         # ATTACHMENT O-
  *         object.QATT[1][I] = 0.0
  *         if EN > XATT2[0] and EN < XATT2[NATT2 - 1]:             # <<<<<<<<<<<<<<
@@ -5307,7 +5307,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":371
+    /* "gases/H2O.pyx":371
  * 
  *         #ATTACHMENT OH-
  *         object.QATT[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5316,7 +5316,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[2])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":372
+    /* "gases/H2O.pyx":372
  *         #ATTACHMENT OH-
  *         object.QATT[2][I] = 0.0
  *         if EN > XATT3[0] and EN < XATT3[NATT3 - 1]:             # <<<<<<<<<<<<<<
@@ -5334,7 +5334,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L87_bool_binop_done:;
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":373
+      /* "gases/H2O.pyx":373
  *         object.QATT[2][I] = 0.0
  *         if EN > XATT3[0] and EN < XATT3[NATT3 - 1]:
  *             object.QATT[2][I] = GasUtil.QLSCALE(EN, NATT3, YATT3, XATT3) * 1e-5             # <<<<<<<<<<<<<<
@@ -5343,7 +5343,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[2])[__pyx_v_I]) = (__pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NATT3, __pyx_v_YATT3, __pyx_v_XATT3) * 1e-5);
 
-      /* "H2O.pyx":372
+      /* "gases/H2O.pyx":372
  *         #ATTACHMENT OH-
  *         object.QATT[2][I] = 0.0
  *         if EN > XATT3[0] and EN < XATT3[NATT3 - 1]:             # <<<<<<<<<<<<<<
@@ -5352,7 +5352,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":375
+    /* "gases/H2O.pyx":375
  *             object.QATT[2][I] = GasUtil.QLSCALE(EN, NATT3, YATT3, XATT3) * 1e-5
  * 
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5361,7 +5361,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":376
+    /* "gases/H2O.pyx":376
  * 
  *         object.Q[3][I] = 0.0
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5370,7 +5370,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":377
+    /* "gases/H2O.pyx":377
  *         object.Q[3][I] = 0.0
  *         object.Q[4][I] = 0.0
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5379,7 +5379,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":379
+    /* "gases/H2O.pyx":379
  *         object.Q[5][I] = 0.0
  *         # ZERO INELASTIC ARRAYS
  *         for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -5391,7 +5391,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_36 = 0; __pyx_t_36 < __pyx_t_32; __pyx_t_36+=1) {
       __pyx_v_J = __pyx_t_36;
 
-      /* "H2O.pyx":380
+      /* "gases/H2O.pyx":380
  *         # ZERO INELASTIC ARRAYS
  *         for J in range(object.NIN):
  *             object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5400,7 +5400,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-      /* "H2O.pyx":381
+      /* "gases/H2O.pyx":381
  *         for J in range(object.NIN):
  *             object.QIN[J][I] = 0.0
  *             object.PEQIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5410,7 +5410,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
     }
 
-    /* "H2O.pyx":384
+    /* "gases/H2O.pyx":384
  * 
  *         # DIPOLE BORN ROTATIONAL STATES
  *         ENRT = sqrt(EN)             # <<<<<<<<<<<<<<
@@ -5419,7 +5419,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_ENRT = sqrt(__pyx_v_EN);
 
-    /* "H2O.pyx":387
+    /* "gases/H2O.pyx":387
  * 
  *         # SUPER ELASTIC ROTATIONAL COLLISIONS
  *         for J in range(2, 211, 2):             # <<<<<<<<<<<<<<
@@ -5429,7 +5429,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_31 = 2; __pyx_t_31 < 0xD3; __pyx_t_31+=2) {
       __pyx_v_J = __pyx_t_31;
 
-      /* "H2O.pyx":388
+      /* "gases/H2O.pyx":388
  *         # SUPER ELASTIC ROTATIONAL COLLISIONS
  *         for J in range(2, 211, 2):
  *             AL = AJIN[J - 1]             # <<<<<<<<<<<<<<
@@ -5438,7 +5438,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AL = (__pyx_v_AJIN[(__pyx_v_J - 1)]);
 
-      /* "H2O.pyx":389
+      /* "gases/H2O.pyx":389
  *         for J in range(2, 211, 2):
  *             AL = AJIN[J - 1]
  *             L2 = J / 2             # <<<<<<<<<<<<<<
@@ -5447,7 +5447,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_L2 = (__pyx_v_J / 2);
 
-      /* "H2O.pyx":390
+      /* "gases/H2O.pyx":390
  *             AL = AJIN[J - 1]
  *             L2 = J / 2
  *             object.QIN[J - 1][I] = DBK * SALPHA[L2 - 1] * PJ[IMAP[J - 1] - 1] * log(             # <<<<<<<<<<<<<<
@@ -5456,7 +5456,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((((__pyx_v_DBK * (__pyx_v_SALPHA[(__pyx_v_L2 - 1)])) * (__pyx_v_PJ[((__pyx_v_IMAP[(__pyx_v_J - 1)]) - 1)])) * log(((__pyx_v_ENRT + sqrt((__pyx_v_EN - (__pyx_v_object->EIN[(__pyx_v_J - 1)])))) / (sqrt((__pyx_v_EN - (__pyx_v_object->EIN[(__pyx_v_J - 1)]))) - __pyx_v_ENRT)))) / (((2.0 * __pyx_v_AL) + 1.0) * __pyx_v_EN)) * __pyx_v_AMPROT);
 
-      /* "H2O.pyx":393
+      /* "gases/H2O.pyx":393
  *                 (ENRT + sqrt(EN - object.EIN[J - 1])) / (sqrt(EN - object.EIN[J - 1]) - ENRT)) / (
  *                                            (2.0 * AL + 1.0) * EN) * AMPROT
  *             if EN > 2000:             # <<<<<<<<<<<<<<
@@ -5466,7 +5466,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > 2000.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":394
+        /* "gases/H2O.pyx":394
  *                                            (2.0 * AL + 1.0) * EN) * AMPROT
  *             if EN > 2000:
  *                 object.QIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5475,7 +5475,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-        /* "H2O.pyx":395
+        /* "gases/H2O.pyx":395
  *             if EN > 2000:
  *                 object.QIN[J - 1][I] = 0.0
  *                 continue             # <<<<<<<<<<<<<<
@@ -5484,7 +5484,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L91_continue;
 
-        /* "H2O.pyx":393
+        /* "gases/H2O.pyx":393
  *                 (ENRT + sqrt(EN - object.EIN[J - 1])) / (sqrt(EN - object.EIN[J - 1]) - ENRT)) / (
  *                                            (2.0 * AL + 1.0) * EN) * AMPROT
  *             if EN > 2000:             # <<<<<<<<<<<<<<
@@ -5493,7 +5493,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":397
+      /* "gases/H2O.pyx":397
  *                 continue
  * 
  *             EPOINT = EN / abs(object.EIN[J - 1])             # <<<<<<<<<<<<<<
@@ -5502,7 +5502,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[(__pyx_v_J - 1)])));
 
-      /* "H2O.pyx":400
+      /* "gases/H2O.pyx":400
  *             #TODO: PRINT ERROR STATEMENT
  * 
  *             object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENRTS)             # <<<<<<<<<<<<<<
@@ -5512,7 +5512,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_32 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_32 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 400, __pyx_L1_error)
       ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_32, __pyx_v_YEPSR, __pyx_v_ENRTS));
 
-      /* "H2O.pyx":401
+      /* "gases/H2O.pyx":401
  * 
  *             object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENRTS)
  *             XSECDUM[J - 1] = GasUtil.CALPQ3(EPOINT, NRTANG, YMTRT, ENRTS) * object.QIN[J - 1][I]             # <<<<<<<<<<<<<<
@@ -5524,7 +5524,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_L91_continue:;
     }
 
-    /* "H2O.pyx":404
+    /* "gases/H2O.pyx":404
  * 
  *         # ROTATIONAL COLLISIONS
  *         for J in range(1, 210, 2):             # <<<<<<<<<<<<<<
@@ -5534,7 +5534,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_31 = 1; __pyx_t_31 < 0xD2; __pyx_t_31+=2) {
       __pyx_v_J = __pyx_t_31;
 
-      /* "H2O.pyx":405
+      /* "gases/H2O.pyx":405
  *         # ROTATIONAL COLLISIONS
  *         for J in range(1, 210, 2):
  *             object.QIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5543,7 +5543,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-      /* "H2O.pyx":406
+      /* "gases/H2O.pyx":406
  *         for J in range(1, 210, 2):
  *             object.QIN[J - 1][I] = 0.0
  *             if EN > object.EIN[J - 1]:             # <<<<<<<<<<<<<<
@@ -5553,7 +5553,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[(__pyx_v_J - 1)])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":407
+        /* "gases/H2O.pyx":407
  *             object.QIN[J - 1][I] = 0.0
  *             if EN > object.EIN[J - 1]:
  *                 AL = AJIN[J - 1]             # <<<<<<<<<<<<<<
@@ -5562,7 +5562,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_AL = (__pyx_v_AJIN[(__pyx_v_J - 1)]);
 
-        /* "H2O.pyx":408
+        /* "gases/H2O.pyx":408
  *             if EN > object.EIN[J - 1]:
  *                 AL = AJIN[J - 1]
  *                 L2 = (J + 1) / 2             # <<<<<<<<<<<<<<
@@ -5571,7 +5571,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_L2 = ((__pyx_v_J + 1) / 2);
 
-        /* "H2O.pyx":409
+        /* "gases/H2O.pyx":409
  *                 AL = AJIN[J - 1]
  *                 L2 = (J + 1) / 2
  *                 object.QIN[J - 1][I] = DBK * SALPHA[L2 - 1] * PJ[IMAP[J - 1] - 1] * log(             # <<<<<<<<<<<<<<
@@ -5580,7 +5580,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (((((__pyx_v_DBK * (__pyx_v_SALPHA[(__pyx_v_L2 - 1)])) * (__pyx_v_PJ[((__pyx_v_IMAP[(__pyx_v_J - 1)]) - 1)])) * log(((__pyx_v_ENRT + sqrt((__pyx_v_EN - (__pyx_v_object->EIN[(__pyx_v_J - 1)])))) / (__pyx_v_ENRT - sqrt((__pyx_v_EN - (__pyx_v_object->EIN[(__pyx_v_J - 1)]))))))) / (((2.0 * __pyx_v_AL) + 1.0) * __pyx_v_EN)) * __pyx_v_AMPROT);
 
-        /* "H2O.pyx":412
+        /* "gases/H2O.pyx":412
  *                     (ENRT + sqrt(EN - object.EIN[J - 1])) / (ENRT - sqrt(EN - object.EIN[J - 1]))) / (
  *                                                (2.0 * AL + 1.0) * EN) * AMPROT
  *                 if EN > 2000:             # <<<<<<<<<<<<<<
@@ -5590,7 +5590,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((__pyx_v_EN > 2000.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":413
+          /* "gases/H2O.pyx":413
  *                                                (2.0 * AL + 1.0) * EN) * AMPROT
  *                 if EN > 2000:
  *                     object.QIN[J - 1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5599,7 +5599,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]) = 0.0;
 
-          /* "H2O.pyx":414
+          /* "gases/H2O.pyx":414
  *                 if EN > 2000:
  *                     object.QIN[J - 1][I] = 0.0
  *                     continue             # <<<<<<<<<<<<<<
@@ -5608,7 +5608,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           goto __pyx_L94_continue;
 
-          /* "H2O.pyx":412
+          /* "gases/H2O.pyx":412
  *                     (ENRT + sqrt(EN - object.EIN[J - 1])) / (ENRT - sqrt(EN - object.EIN[J - 1]))) / (
  *                                                (2.0 * AL + 1.0) * EN) * AMPROT
  *                 if EN > 2000:             # <<<<<<<<<<<<<<
@@ -5617,7 +5617,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "H2O.pyx":416
+        /* "gases/H2O.pyx":416
  *                     continue
  * 
  *                 EPOINT = EN / abs(object.EIN[J - 1])             # <<<<<<<<<<<<<<
@@ -5626,7 +5626,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[(__pyx_v_J - 1)])));
 
-        /* "H2O.pyx":419
+        /* "gases/H2O.pyx":419
  *                 #TODO: PRINT ERROR STATEMENT
  * 
  *                 object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENRTS)             # <<<<<<<<<<<<<<
@@ -5636,7 +5636,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_32 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_32 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 419, __pyx_L1_error)
         ((__pyx_v_object->PEQIN[(__pyx_v_J - 1)])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_32, __pyx_v_YEPSR, __pyx_v_ENRTS));
 
-        /* "H2O.pyx":420
+        /* "gases/H2O.pyx":420
  * 
  *                 object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENRTS)
  *                 XSECDUM[J - 1] = GasUtil.CALPQ3(EPOINT, NRTANG, YMTRT, ENRTS) * object.QIN[J - 1][I]             # <<<<<<<<<<<<<<
@@ -5646,7 +5646,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_32 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_32 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 420, __pyx_L1_error)
         (__pyx_v_XSECDUM[(__pyx_v_J - 1)]) = (__pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_32, __pyx_v_YMTRT, __pyx_v_ENRTS) * ((__pyx_v_object->QIN[(__pyx_v_J - 1)])[__pyx_v_I]));
 
-        /* "H2O.pyx":406
+        /* "gases/H2O.pyx":406
  *         for J in range(1, 210, 2):
  *             object.QIN[J - 1][I] = 0.0
  *             if EN > object.EIN[J - 1]:             # <<<<<<<<<<<<<<
@@ -5657,7 +5657,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_L94_continue:;
     }
 
-    /* "H2O.pyx":424
+    /* "gases/H2O.pyx":424
  *         # VIBRATION BEND V2 SUPERELASTIC (DIPOLE 1/E FALL OFF ABOVE ENERGY OF
  *         # XVIB1(NVIB1) EV )
  *         object.QIN[210][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5666,7 +5666,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0xD2])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":425
+    /* "gases/H2O.pyx":425
  *         # XVIB1(NVIB1) EV )
  *         object.QIN[210][I] = 0.0
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -5676,7 +5676,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > 0.0) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":426
+      /* "gases/H2O.pyx":426
  *         object.QIN[210][I] = 0.0
  *         if EN > 0.0:
  *             object.QIN[210][I] = GasUtil.CALQINP(EN+object.EIN[211], NVIB1, YVIB1, XVIB1,1)*APOPV1*100/EN             # <<<<<<<<<<<<<<
@@ -5685,7 +5685,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0xD2])[__pyx_v_I]) = (((__pyx_f_7GasUtil_CALQINP((__pyx_v_EN + (__pyx_v_object->EIN[0xD3])), __pyx_v_NVIB1, __pyx_v_YVIB1, __pyx_v_XVIB1, 1.0) * __pyx_v_APOPV1) * 100.0) / __pyx_v_EN);
 
-      /* "H2O.pyx":427
+      /* "gases/H2O.pyx":427
  *         if EN > 0.0:
  *             object.QIN[210][I] = GasUtil.CALQINP(EN+object.EIN[211], NVIB1, YVIB1, XVIB1,1)*APOPV1*100/EN
  *             if EN+object.EIN[211] <= XVIB1[NVIB1-1]:             # <<<<<<<<<<<<<<
@@ -5695,7 +5695,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = (((__pyx_v_EN + (__pyx_v_object->EIN[0xD3])) <= (__pyx_v_XVIB1[(__pyx_v_NVIB1 - 1)])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":428
+        /* "gases/H2O.pyx":428
  *             object.QIN[210][I] = GasUtil.CALQINP(EN+object.EIN[211], NVIB1, YVIB1, XVIB1,1)*APOPV1*100/EN
  *             if EN+object.EIN[211] <= XVIB1[NVIB1-1]:
  *                 object.QIN[210][I] *=(EN + object.EIN[211])             # <<<<<<<<<<<<<<
@@ -5706,7 +5706,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_31 = __pyx_v_I;
         ((__pyx_v_object->QIN[__pyx_t_40])[__pyx_t_31]) = (((__pyx_v_object->QIN[__pyx_t_40])[__pyx_t_31]) * (__pyx_v_EN + (__pyx_v_object->EIN[0xD3])));
 
-        /* "H2O.pyx":427
+        /* "gases/H2O.pyx":427
  *         if EN > 0.0:
  *             object.QIN[210][I] = GasUtil.CALQINP(EN+object.EIN[211], NVIB1, YVIB1, XVIB1,1)*APOPV1*100/EN
  *             if EN+object.EIN[211] <= XVIB1[NVIB1-1]:             # <<<<<<<<<<<<<<
@@ -5715,7 +5715,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":429
+      /* "gases/H2O.pyx":429
  *             if EN+object.EIN[211] <= XVIB1[NVIB1-1]:
  *                 object.QIN[210][I] *=(EN + object.EIN[211])
  *             object.PEQIN[210][I] = object.PEQEL[1][I - IOFFN[210]]             # <<<<<<<<<<<<<<
@@ -5724,7 +5724,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0xD2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0xD2]))]);
 
-      /* "H2O.pyx":425
+      /* "gases/H2O.pyx":425
  *         # XVIB1(NVIB1) EV )
  *         object.QIN[210][I] = 0.0
  *         if EN > 0.0:             # <<<<<<<<<<<<<<
@@ -5733,7 +5733,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":433
+    /* "gases/H2O.pyx":433
  *         # VIBRATION BEND V2  (DIPOLE 1/E FALL OFF ABOVE ENERGY OF
  *         # XVIB1(NVIB1) EV )
  *         object.QIN[211][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5742,7 +5742,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0xD3])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":434
+    /* "gases/H2O.pyx":434
  *         # XVIB1(NVIB1) EV )
  *         object.QIN[211][I] = 0.0
  *         if EN > object.EIN[211]:             # <<<<<<<<<<<<<<
@@ -5752,7 +5752,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[0xD3])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":435
+      /* "gases/H2O.pyx":435
  *         object.QIN[211][I] = 0.0
  *         if EN > object.EIN[211]:
  *             object.QIN[211][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1,1)*APOPGS*100             # <<<<<<<<<<<<<<
@@ -5761,7 +5761,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0xD3])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB1, __pyx_v_YVIB1, __pyx_v_XVIB1, 1.0) * __pyx_v_APOPGS) * 100.0);
 
-      /* "H2O.pyx":436
+      /* "gases/H2O.pyx":436
  *         if EN > object.EIN[211]:
  *             object.QIN[211][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1,1)*APOPGS*100
  *             object.PEQIN[211][I] = object.PEQEL[1][I - IOFFN[211]]             # <<<<<<<<<<<<<<
@@ -5770,7 +5770,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[0xD3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0xD3]))]);
 
-      /* "H2O.pyx":438
+      /* "gases/H2O.pyx":438
  *             object.PEQIN[211][I] = object.PEQEL[1][I - IOFFN[211]]
  *             # CALCULATE DIPOLE ANGULAR DISTRIBUTION FACTOR FOR TRANSITION
  *             EPOINT = EN / abs(object.EIN[211])             # <<<<<<<<<<<<<<
@@ -5779,7 +5779,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[0xD3])));
 
-      /* "H2O.pyx":439
+      /* "gases/H2O.pyx":439
  *             # CALCULATE DIPOLE ANGULAR DISTRIBUTION FACTOR FOR TRANSITION
  *             EPOINT = EN / abs(object.EIN[211])
  *             if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -5789,7 +5789,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EPOINT <= 500.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":440
+        /* "gases/H2O.pyx":440
  *             EPOINT = EN / abs(object.EIN[211])
  *             if EPOINT <= 500:
  *                 object.PEQIN[211][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)             # <<<<<<<<<<<<<<
@@ -5799,7 +5799,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_31 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_31 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 440, __pyx_L1_error)
         ((__pyx_v_object->PEQIN[0xD3])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_31, __pyx_v_YEPSR, __pyx_v_ENROT));
 
-        /* "H2O.pyx":439
+        /* "gases/H2O.pyx":439
  *             # CALCULATE DIPOLE ANGULAR DISTRIBUTION FACTOR FOR TRANSITION
  *             EPOINT = EN / abs(object.EIN[211])
  *             if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -5809,7 +5809,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L101;
       }
 
-      /* "H2O.pyx":442
+      /* "gases/H2O.pyx":442
  *                 object.PEQIN[211][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
  *             else:
  *                 object.PEQIN[211][I] = object.PEQEL[1][I - IOFFN[211]]             # <<<<<<<<<<<<<<
@@ -5821,7 +5821,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L101:;
 
-      /* "H2O.pyx":434
+      /* "gases/H2O.pyx":434
  *         # XVIB1(NVIB1) EV )
  *         object.QIN[211][I] = 0.0
  *         if EN > object.EIN[211]:             # <<<<<<<<<<<<<<
@@ -5830,7 +5830,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":445
+    /* "gases/H2O.pyx":445
  * 
  *         # VIBRATION STRETCH V1+V3
  *         object.QIN[212][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5839,7 +5839,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0xD4])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":446
+    /* "gases/H2O.pyx":446
  *         # VIBRATION STRETCH V1+V3
  *         object.QIN[212][I] = 0.0
  *         if EN > object.EIN[212]:             # <<<<<<<<<<<<<<
@@ -5849,7 +5849,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[0xD4])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":447
+      /* "gases/H2O.pyx":447
  *         object.QIN[212][I] = 0.0
  *         if EN > object.EIN[212]:
  *             object.QIN[212][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -5858,7 +5858,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0xD4])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB2, __pyx_v_YVIB2, __pyx_v_XVIB2, 1.5) * 100.0);
 
-      /* "H2O.pyx":448
+      /* "gases/H2O.pyx":448
  *         if EN > object.EIN[212]:
  *             object.QIN[212][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1.5) * 100
  *             if EN < 1.5:             # <<<<<<<<<<<<<<
@@ -5868,7 +5868,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN < 1.5) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":449
+        /* "gases/H2O.pyx":449
  *             object.QIN[212][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1.5) * 100
  *             if EN < 1.5:
  *                 object.PEQIN[212][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5877,7 +5877,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0xD4])[__pyx_v_I]) = 0.0;
 
-        /* "H2O.pyx":448
+        /* "gases/H2O.pyx":448
  *         if EN > object.EIN[212]:
  *             object.QIN[212][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1.5) * 100
  *             if EN < 1.5:             # <<<<<<<<<<<<<<
@@ -5887,7 +5887,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L103;
       }
 
-      /* "H2O.pyx":451
+      /* "gases/H2O.pyx":451
  *                 object.PEQIN[212][I] = 0.0
  *             else:
  *                 EPOINT = EN / abs(object.EIN[212])             # <<<<<<<<<<<<<<
@@ -5897,7 +5897,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       /*else*/ {
         __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[0xD4])));
 
-        /* "H2O.pyx":452
+        /* "gases/H2O.pyx":452
  *             else:
  *                 EPOINT = EN / abs(object.EIN[212])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -5907,7 +5907,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((__pyx_v_EPOINT <= 500.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":453
+          /* "gases/H2O.pyx":453
  *                 EPOINT = EN / abs(object.EIN[212])
  *                 if EPOINT <= 500:
  *                     object.PEQIN[212][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)             # <<<<<<<<<<<<<<
@@ -5917,7 +5917,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_31 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_31 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 453, __pyx_L1_error)
           ((__pyx_v_object->PEQIN[0xD4])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_31, __pyx_v_YEPSR, __pyx_v_ENROT));
 
-          /* "H2O.pyx":452
+          /* "gases/H2O.pyx":452
  *             else:
  *                 EPOINT = EN / abs(object.EIN[212])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -5927,7 +5927,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L104;
         }
 
-        /* "H2O.pyx":455
+        /* "gases/H2O.pyx":455
  *                     object.PEQIN[212][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
  *                 else:
  *                     object.PEQIN[212][I] = object.PEQEL[1][I - IOFFN[212]]             # <<<<<<<<<<<<<<
@@ -5941,7 +5941,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L103:;
 
-      /* "H2O.pyx":446
+      /* "gases/H2O.pyx":446
  *         # VIBRATION STRETCH V1+V3
  *         object.QIN[212][I] = 0.0
  *         if EN > object.EIN[212]:             # <<<<<<<<<<<<<<
@@ -5950,7 +5950,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":458
+    /* "gases/H2O.pyx":458
  * 
  *         # VIBRATION HARMONICS NV2+ NV1+NV3
  *         object.QIN[213][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5959,7 +5959,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0xD5])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":459
+    /* "gases/H2O.pyx":459
  *         # VIBRATION HARMONICS NV2+ NV1+NV3
  *         object.QIN[213][I] = 0.0
  *         if EN > object.EIN[213]:             # <<<<<<<<<<<<<<
@@ -5969,7 +5969,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[0xD5])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":460
+      /* "gases/H2O.pyx":460
  *         object.QIN[213][I] = 0.0
  *         if EN > object.EIN[213]:
  *             object.QIN[213][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1.5) * 100             # <<<<<<<<<<<<<<
@@ -5978,7 +5978,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0xD5])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3, 1.5) * 100.0);
 
-      /* "H2O.pyx":461
+      /* "gases/H2O.pyx":461
  *         if EN > object.EIN[213]:
  *             object.QIN[213][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1.5) * 100
  *             EPOINT = EN / abs(object.EIN[213])             # <<<<<<<<<<<<<<
@@ -5987,7 +5987,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[0xD5])));
 
-      /* "H2O.pyx":462
+      /* "gases/H2O.pyx":462
  *             object.QIN[213][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1.5) * 100
  *             EPOINT = EN / abs(object.EIN[213])
  *             if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -5997,7 +5997,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EPOINT <= 500.0) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":463
+        /* "gases/H2O.pyx":463
  *             EPOINT = EN / abs(object.EIN[213])
  *             if EPOINT <= 500:
  *                 object.PEQIN[213][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)             # <<<<<<<<<<<<<<
@@ -6007,7 +6007,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_31 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_31 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 463, __pyx_L1_error)
         ((__pyx_v_object->PEQIN[0xD5])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_31, __pyx_v_YEPSR, __pyx_v_ENROT));
 
-        /* "H2O.pyx":462
+        /* "gases/H2O.pyx":462
  *             object.QIN[213][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1.5) * 100
  *             EPOINT = EN / abs(object.EIN[213])
  *             if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6017,7 +6017,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L106;
       }
 
-      /* "H2O.pyx":465
+      /* "gases/H2O.pyx":465
  *                 object.PEQIN[213][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
  *             else:
  *                 object.PEQIN[213][I] = object.PEQEL[1][I - IOFFN[213]]             # <<<<<<<<<<<<<<
@@ -6029,7 +6029,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L106:;
 
-      /* "H2O.pyx":459
+      /* "gases/H2O.pyx":459
  *         # VIBRATION HARMONICS NV2+ NV1+NV3
  *         object.QIN[213][I] = 0.0
  *         if EN > object.EIN[213]:             # <<<<<<<<<<<<<<
@@ -6038,7 +6038,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":468
+    /* "gases/H2O.pyx":468
  * 
  *         # TRIPLET 3B1
  *         if EN > object.EIN[214]:             # <<<<<<<<<<<<<<
@@ -6048,7 +6048,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[0xD6])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":469
+      /* "gases/H2O.pyx":469
  *         # TRIPLET 3B1
  *         if EN > object.EIN[214]:
  *             if EN <= XTRP1[NTRP1 - 1]:             # <<<<<<<<<<<<<<
@@ -6058,7 +6058,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN <= (__pyx_v_XTRP1[(__pyx_v_NTRP1 - 1)])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":470
+        /* "gases/H2O.pyx":470
  *         if EN > object.EIN[214]:
  *             if EN <= XTRP1[NTRP1 - 1]:
  *                 object.QIN[214][I] = GasUtil.QLSCALE(EN, NTRP1, YTRP1, XTRP1)             # <<<<<<<<<<<<<<
@@ -6067,7 +6067,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0xD6])[__pyx_v_I]) = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NTRP1, __pyx_v_YTRP1, __pyx_v_XTRP1);
 
-        /* "H2O.pyx":469
+        /* "gases/H2O.pyx":469
  *         # TRIPLET 3B1
  *         if EN > object.EIN[214]:
  *             if EN <= XTRP1[NTRP1 - 1]:             # <<<<<<<<<<<<<<
@@ -6077,7 +6077,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L108;
       }
 
-      /* "H2O.pyx":472
+      /* "gases/H2O.pyx":472
  *                 object.QIN[214][I] = GasUtil.QLSCALE(EN, NTRP1, YTRP1, XTRP1)
  *             else:
  *                 object.QIN[214][I] = YTRP1[NTRP1 - 1] * (XTRP1[NTRP1 - 1] / EN) ** 1.5 * 1e-16             # <<<<<<<<<<<<<<
@@ -6089,7 +6089,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L108:;
 
-      /* "H2O.pyx":474
+      /* "gases/H2O.pyx":474
  *                 object.QIN[214][I] = YTRP1[NTRP1 - 1] * (XTRP1[NTRP1 - 1] / EN) ** 1.5 * 1e-16
  * 
  *             if EN > 2.0 * object.EIN[214]:             # <<<<<<<<<<<<<<
@@ -6099,7 +6099,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0xD6]))) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":475
+        /* "gases/H2O.pyx":475
  * 
  *             if EN > 2.0 * object.EIN[214]:
  *                 object.PEQIN[214][I] = object.PEQEL[1][I - IOFFN[214]]             # <<<<<<<<<<<<<<
@@ -6108,7 +6108,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0xD6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0xD6]))]);
 
-        /* "H2O.pyx":474
+        /* "gases/H2O.pyx":474
  *                 object.QIN[214][I] = YTRP1[NTRP1 - 1] * (XTRP1[NTRP1 - 1] / EN) ** 1.5 * 1e-16
  * 
  *             if EN > 2.0 * object.EIN[214]:             # <<<<<<<<<<<<<<
@@ -6117,7 +6117,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":468
+      /* "gases/H2O.pyx":468
  * 
  *         # TRIPLET 3B1
  *         if EN > object.EIN[214]:             # <<<<<<<<<<<<<<
@@ -6126,7 +6126,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":477
+    /* "gases/H2O.pyx":477
  *                 object.PEQIN[214][I] = object.PEQEL[1][I - IOFFN[214]]
  * 
  *         FI = 0             # <<<<<<<<<<<<<<
@@ -6135,7 +6135,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_FI = 0;
 
-    /* "H2O.pyx":479
+    /* "gases/H2O.pyx":479
  *         FI = 0
  *         # EXCITATION  1B1 (7.48EV LEVEL SPLIT INTO 4 GROUPS)
  *         for J in range(215, 219):             # <<<<<<<<<<<<<<
@@ -6145,7 +6145,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_31 = 0xD7; __pyx_t_31 < 0xDB; __pyx_t_31+=1) {
       __pyx_v_J = __pyx_t_31;
 
-      /* "H2O.pyx":480
+      /* "gases/H2O.pyx":480
  *         # EXCITATION  1B1 (7.48EV LEVEL SPLIT INTO 4 GROUPS)
  *         for J in range(215, 219):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6155,7 +6155,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":481
+        /* "gases/H2O.pyx":481
  *         for J in range(215, 219):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6164,7 +6164,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "H2O.pyx":484
+        /* "gases/H2O.pyx":484
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6174,7 +6174,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":485
+          /* "gases/H2O.pyx":485
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6183,7 +6183,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "H2O.pyx":484
+          /* "gases/H2O.pyx":484
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6192,7 +6192,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "H2O.pyx":486
+        /* "gases/H2O.pyx":486
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])             # <<<<<<<<<<<<<<
@@ -6201,7 +6201,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[__pyx_v_J])));
 
-        /* "H2O.pyx":487
+        /* "gases/H2O.pyx":487
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6211,7 +6211,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((__pyx_v_EPOINT <= 500.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":488
+          /* "gases/H2O.pyx":488
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:
  *                     object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)             # <<<<<<<<<<<<<<
@@ -6221,7 +6221,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_32 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_32 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L1_error)
           ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_32, __pyx_v_YEPSR, __pyx_v_ENROT));
 
-          /* "H2O.pyx":487
+          /* "gases/H2O.pyx":487
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6231,7 +6231,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L114;
         }
 
-        /* "H2O.pyx":490
+        /* "gases/H2O.pyx":490
  *                     object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
  *                 else:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6243,7 +6243,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L114:;
 
-        /* "H2O.pyx":480
+        /* "gases/H2O.pyx":480
  *         # EXCITATION  1B1 (7.48EV LEVEL SPLIT INTO 4 GROUPS)
  *         for J in range(215, 219):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6252,7 +6252,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":491
+      /* "gases/H2O.pyx":491
  *                 else:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -6262,7 +6262,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "H2O.pyx":494
+    /* "gases/H2O.pyx":494
  * 
  *         # TRIPLET 3A2 + 1A2 + 3A1 9.1EV
  *         if EN > object.EIN[219]:             # <<<<<<<<<<<<<<
@@ -6272,7 +6272,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[0xDB])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":495
+      /* "gases/H2O.pyx":495
  *         # TRIPLET 3A2 + 1A2 + 3A1 9.1EV
  *         if EN > object.EIN[219]:
  *             if EN <= XTRP2[NTRP2 - 1]:             # <<<<<<<<<<<<<<
@@ -6282,7 +6282,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN <= (__pyx_v_XTRP2[(__pyx_v_NTRP2 - 1)])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":496
+        /* "gases/H2O.pyx":496
  *         if EN > object.EIN[219]:
  *             if EN <= XTRP2[NTRP2 - 1]:
  *                 object.QIN[219][I] = GasUtil.QLSCALE(EN, NTRP2, YTRP2, XTRP2)             # <<<<<<<<<<<<<<
@@ -6291,7 +6291,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0xDB])[__pyx_v_I]) = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NTRP2, __pyx_v_YTRP2, __pyx_v_XTRP2);
 
-        /* "H2O.pyx":495
+        /* "gases/H2O.pyx":495
  *         # TRIPLET 3A2 + 1A2 + 3A1 9.1EV
  *         if EN > object.EIN[219]:
  *             if EN <= XTRP2[NTRP2 - 1]:             # <<<<<<<<<<<<<<
@@ -6301,7 +6301,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L116;
       }
 
-      /* "H2O.pyx":498
+      /* "gases/H2O.pyx":498
  *                 object.QIN[219][I] = GasUtil.QLSCALE(EN, NTRP2, YTRP2, XTRP2)
  *             else:
  *                 object.QIN[219][I] = YTRP2[NTRP2 - 1] * (XTRP2[NTRP2 - 1] / EN) ** 1.5 * 1e-16             # <<<<<<<<<<<<<<
@@ -6313,7 +6313,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L116:;
 
-      /* "H2O.pyx":500
+      /* "gases/H2O.pyx":500
  *                 object.QIN[219][I] = YTRP2[NTRP2 - 1] * (XTRP2[NTRP2 - 1] / EN) ** 1.5 * 1e-16
  * 
  *             if EN > 2.0 * object.EIN[219]:             # <<<<<<<<<<<<<<
@@ -6323,7 +6323,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0xDB]))) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":501
+        /* "gases/H2O.pyx":501
  * 
  *             if EN > 2.0 * object.EIN[219]:
  *                 object.PEQIN[219][I] = object.PEQEL[1][I - IOFFN[219]]             # <<<<<<<<<<<<<<
@@ -6332,7 +6332,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0xDB])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0xDB]))]);
 
-        /* "H2O.pyx":500
+        /* "gases/H2O.pyx":500
  *                 object.QIN[219][I] = YTRP2[NTRP2 - 1] * (XTRP2[NTRP2 - 1] / EN) ** 1.5 * 1e-16
  * 
  *             if EN > 2.0 * object.EIN[219]:             # <<<<<<<<<<<<<<
@@ -6341,7 +6341,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":494
+      /* "gases/H2O.pyx":494
  * 
  *         # TRIPLET 3A2 + 1A2 + 3A1 9.1EV
  *         if EN > object.EIN[219]:             # <<<<<<<<<<<<<<
@@ -6350,7 +6350,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":504
+    /* "gases/H2O.pyx":504
  * 
  *         # EXCITATION  1A1 (9.69EV LEVEL SPLIT INTO 4 GROUPS)
  *         for J in range(220, 224):             # <<<<<<<<<<<<<<
@@ -6360,7 +6360,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_31 = 0xDC; __pyx_t_31 < 0xE0; __pyx_t_31+=1) {
       __pyx_v_J = __pyx_t_31;
 
-      /* "H2O.pyx":505
+      /* "gases/H2O.pyx":505
  *         # EXCITATION  1A1 (9.69EV LEVEL SPLIT INTO 4 GROUPS)
  *         for J in range(220, 224):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6370,7 +6370,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":506
+        /* "gases/H2O.pyx":506
  *         for J in range(220, 224):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6379,7 +6379,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "H2O.pyx":509
+        /* "gases/H2O.pyx":509
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6389,7 +6389,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":510
+          /* "gases/H2O.pyx":510
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6398,7 +6398,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "H2O.pyx":509
+          /* "gases/H2O.pyx":509
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6407,7 +6407,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "H2O.pyx":511
+        /* "gases/H2O.pyx":511
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])             # <<<<<<<<<<<<<<
@@ -6416,7 +6416,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[__pyx_v_J])));
 
-        /* "H2O.pyx":512
+        /* "gases/H2O.pyx":512
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6426,7 +6426,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((__pyx_v_EPOINT <= 500.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":513
+          /* "gases/H2O.pyx":513
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:
  *                     object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)             # <<<<<<<<<<<<<<
@@ -6436,7 +6436,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_32 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_32 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 513, __pyx_L1_error)
           ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_32, __pyx_v_YEPSR, __pyx_v_ENROT));
 
-          /* "H2O.pyx":512
+          /* "gases/H2O.pyx":512
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6446,7 +6446,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L122;
         }
 
-        /* "H2O.pyx":515
+        /* "gases/H2O.pyx":515
  *                     object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
  *                 else:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6458,7 +6458,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L122:;
 
-        /* "H2O.pyx":505
+        /* "gases/H2O.pyx":505
  *         # EXCITATION  1A1 (9.69EV LEVEL SPLIT INTO 4 GROUPS)
  *         for J in range(220, 224):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6467,7 +6467,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":516
+      /* "gases/H2O.pyx":516
  *                 else:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -6477,7 +6477,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "H2O.pyx":519
+    /* "gases/H2O.pyx":519
  * 
  *         # TRIPLET 3B1 9.95EV
  *         if EN > object.EIN[224]:             # <<<<<<<<<<<<<<
@@ -6487,7 +6487,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[0xE0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":520
+      /* "gases/H2O.pyx":520
  *         # TRIPLET 3B1 9.95EV
  *         if EN > object.EIN[224]:
  *             if EN <= XTRP3[NTRP3 - 1]:             # <<<<<<<<<<<<<<
@@ -6497,7 +6497,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN <= (__pyx_v_XTRP3[(__pyx_v_NTRP3 - 1)])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":521
+        /* "gases/H2O.pyx":521
  *         if EN > object.EIN[224]:
  *             if EN <= XTRP3[NTRP3 - 1]:
  *                 object.QIN[224][I] = GasUtil.QLSCALE(EN, NTRP3, YTRP3, XTRP3)             # <<<<<<<<<<<<<<
@@ -6506,7 +6506,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0xE0])[__pyx_v_I]) = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NTRP3, __pyx_v_YTRP3, __pyx_v_XTRP3);
 
-        /* "H2O.pyx":520
+        /* "gases/H2O.pyx":520
  *         # TRIPLET 3B1 9.95EV
  *         if EN > object.EIN[224]:
  *             if EN <= XTRP3[NTRP3 - 1]:             # <<<<<<<<<<<<<<
@@ -6516,7 +6516,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L124;
       }
 
-      /* "H2O.pyx":523
+      /* "gases/H2O.pyx":523
  *                 object.QIN[224][I] = GasUtil.QLSCALE(EN, NTRP3, YTRP3, XTRP3)
  *             else:
  *                 object.QIN[224][I] = YTRP3[NTRP3 - 1] * (XTRP3[NTRP3 - 1] / EN) ** 1.5 * 1e-16             # <<<<<<<<<<<<<<
@@ -6528,7 +6528,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L124:;
 
-      /* "H2O.pyx":525
+      /* "gases/H2O.pyx":525
  *                 object.QIN[224][I] = YTRP3[NTRP3 - 1] * (XTRP3[NTRP3 - 1] / EN) ** 1.5 * 1e-16
  * 
  *             if EN > 2.0 * object.EIN[224]:             # <<<<<<<<<<<<<<
@@ -6538,7 +6538,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0xE0]))) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":526
+        /* "gases/H2O.pyx":526
  * 
  *             if EN > 2.0 * object.EIN[224]:
  *                 object.PEQIN[224][I] = object.PEQEL[1][I - IOFFN[224]]             # <<<<<<<<<<<<<<
@@ -6547,7 +6547,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0xE0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0xE0]))]);
 
-        /* "H2O.pyx":525
+        /* "gases/H2O.pyx":525
  *                 object.QIN[224][I] = YTRP3[NTRP3 - 1] * (XTRP3[NTRP3 - 1] / EN) ** 1.5 * 1e-16
  * 
  *             if EN > 2.0 * object.EIN[224]:             # <<<<<<<<<<<<<<
@@ -6556,7 +6556,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":519
+      /* "gases/H2O.pyx":519
  * 
  *         # TRIPLET 3B1 9.95EV
  *         if EN > object.EIN[224]:             # <<<<<<<<<<<<<<
@@ -6565,7 +6565,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":529
+    /* "gases/H2O.pyx":529
  * 
  *         # EXCITATION  1B1 (3pa1) 9.994 EV
  *         for J in range(225, 240):             # <<<<<<<<<<<<<<
@@ -6575,7 +6575,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_31 = 0xE1; __pyx_t_31 < 0xF0; __pyx_t_31+=1) {
       __pyx_v_J = __pyx_t_31;
 
-      /* "H2O.pyx":530
+      /* "gases/H2O.pyx":530
  *         # EXCITATION  1B1 (3pa1) 9.994 EV
  *         for J in range(225, 240):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6585,7 +6585,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":531
+        /* "gases/H2O.pyx":531
  *         for J in range(225, 240):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6594,7 +6594,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "H2O.pyx":534
+        /* "gases/H2O.pyx":534
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6604,7 +6604,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":535
+          /* "gases/H2O.pyx":535
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6613,7 +6613,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "H2O.pyx":534
+          /* "gases/H2O.pyx":534
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6622,7 +6622,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "H2O.pyx":536
+        /* "gases/H2O.pyx":536
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])             # <<<<<<<<<<<<<<
@@ -6631,7 +6631,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[__pyx_v_J])));
 
-        /* "H2O.pyx":537
+        /* "gases/H2O.pyx":537
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6641,7 +6641,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((__pyx_v_EPOINT <= 500.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":538
+          /* "gases/H2O.pyx":538
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:
  *                     object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)             # <<<<<<<<<<<<<<
@@ -6651,7 +6651,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_32 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_32 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 538, __pyx_L1_error)
           ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_32, __pyx_v_YEPSR, __pyx_v_ENROT));
 
-          /* "H2O.pyx":537
+          /* "gases/H2O.pyx":537
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6661,7 +6661,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L130;
         }
 
-        /* "H2O.pyx":540
+        /* "gases/H2O.pyx":540
  *                     object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
  *                 else:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6673,7 +6673,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L130:;
 
-        /* "H2O.pyx":530
+        /* "gases/H2O.pyx":530
  *         # EXCITATION  1B1 (3pa1) 9.994 EV
  *         for J in range(225, 240):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6682,7 +6682,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":541
+      /* "gases/H2O.pyx":541
  *                 else:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -6692,7 +6692,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "H2O.pyx":544
+    /* "gases/H2O.pyx":544
  * 
  *         # TRIPLET SUM OF HIGHER TRIPLETS   13.0 EV
  *         if EN > object.EIN[240]:             # <<<<<<<<<<<<<<
@@ -6702,7 +6702,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[0xF0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":545
+      /* "gases/H2O.pyx":545
  *         # TRIPLET SUM OF HIGHER TRIPLETS   13.0 EV
  *         if EN > object.EIN[240]:
  *             if EN <= XTRP4[NTRP4 - 1]:             # <<<<<<<<<<<<<<
@@ -6712,7 +6712,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN <= (__pyx_v_XTRP4[(__pyx_v_NTRP4 - 1)])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":546
+        /* "gases/H2O.pyx":546
  *         if EN > object.EIN[240]:
  *             if EN <= XTRP4[NTRP4 - 1]:
  *                 object.QIN[240][I] = GasUtil.QLSCALE(EN, NTRP4, YTRP4, XTRP4)             # <<<<<<<<<<<<<<
@@ -6721,7 +6721,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[0xF0])[__pyx_v_I]) = __pyx_f_7GasUtil_QLSCALE(__pyx_v_EN, __pyx_v_NTRP4, __pyx_v_YTRP4, __pyx_v_XTRP4);
 
-        /* "H2O.pyx":545
+        /* "gases/H2O.pyx":545
  *         # TRIPLET SUM OF HIGHER TRIPLETS   13.0 EV
  *         if EN > object.EIN[240]:
  *             if EN <= XTRP4[NTRP4 - 1]:             # <<<<<<<<<<<<<<
@@ -6731,7 +6731,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         goto __pyx_L132;
       }
 
-      /* "H2O.pyx":548
+      /* "gases/H2O.pyx":548
  *                 object.QIN[240][I] = GasUtil.QLSCALE(EN, NTRP4, YTRP4, XTRP4)
  *             else:
  *                 object.QIN[240][I] = YTRP4[NTRP4 - 1] * (XTRP4[NTRP4 - 1] / EN) ** 1.5 * 1e-16             # <<<<<<<<<<<<<<
@@ -6743,7 +6743,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
       __pyx_L132:;
 
-      /* "H2O.pyx":550
+      /* "gases/H2O.pyx":550
  *                 object.QIN[240][I] = YTRP4[NTRP4 - 1] * (XTRP4[NTRP4 - 1] / EN) ** 1.5 * 1e-16
  * 
  *             if EN > 2.0 * object.EIN[240]:             # <<<<<<<<<<<<<<
@@ -6753,7 +6753,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0xF0]))) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":551
+        /* "gases/H2O.pyx":551
  * 
  *             if EN > 2.0 * object.EIN[240]:
  *                 object.PEQIN[240][I] = object.PEQEL[1][I - IOFFN[240]]             # <<<<<<<<<<<<<<
@@ -6762,7 +6762,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0xF0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0xF0]))]);
 
-        /* "H2O.pyx":550
+        /* "gases/H2O.pyx":550
  *                 object.QIN[240][I] = YTRP4[NTRP4 - 1] * (XTRP4[NTRP4 - 1] / EN) ** 1.5 * 1e-16
  * 
  *             if EN > 2.0 * object.EIN[240]:             # <<<<<<<<<<<<<<
@@ -6771,7 +6771,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":544
+      /* "gases/H2O.pyx":544
  * 
  *         # TRIPLET SUM OF HIGHER TRIPLETS   13.0 EV
  *         if EN > object.EIN[240]:             # <<<<<<<<<<<<<<
@@ -6780,7 +6780,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":554
+    /* "gases/H2O.pyx":554
  * 
  *         # EXCITATION  1B1 (3pa1) 9.994 EV
  *         for J in range(241, 250):             # <<<<<<<<<<<<<<
@@ -6790,7 +6790,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_31 = 0xF1; __pyx_t_31 < 0xFA; __pyx_t_31+=1) {
       __pyx_v_J = __pyx_t_31;
 
-      /* "H2O.pyx":555
+      /* "gases/H2O.pyx":555
  *         # EXCITATION  1B1 (3pa1) 9.994 EV
  *         for J in range(241, 250):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6800,7 +6800,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_object->EIN[__pyx_v_J])) != 0);
       if (__pyx_t_37) {
 
-        /* "H2O.pyx":556
+        /* "gases/H2O.pyx":556
  *         for J in range(241, 250):
  *             if EN > object.EIN[J]:
  *                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6809,7 +6809,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = ((((((__pyx_v_F[__pyx_v_FI]) / ((__pyx_v_object->EIN[__pyx_v_J]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[__pyx_v_J])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[__pyx_v_J])) + (__pyx_v_object->E[2])));
 
-        /* "H2O.pyx":559
+        /* "gases/H2O.pyx":559
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6819,7 +6819,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) < 0.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":560
+          /* "gases/H2O.pyx":560
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6828,7 +6828,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
           ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]) = 0.0;
 
-          /* "H2O.pyx":559
+          /* "gases/H2O.pyx":559
  *                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
  *                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
  *                 if object.QIN[J][I] < 0.0:             # <<<<<<<<<<<<<<
@@ -6837,7 +6837,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         }
 
-        /* "H2O.pyx":561
+        /* "gases/H2O.pyx":561
  *                 if object.QIN[J][I] < 0.0:
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])             # <<<<<<<<<<<<<<
@@ -6846,7 +6846,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_EPOINT = (__pyx_v_EN / fabs((__pyx_v_object->EIN[__pyx_v_J])));
 
-        /* "H2O.pyx":562
+        /* "gases/H2O.pyx":562
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6856,7 +6856,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_t_37 = ((__pyx_v_EPOINT <= 500.0) != 0);
         if (__pyx_t_37) {
 
-          /* "H2O.pyx":563
+          /* "gases/H2O.pyx":563
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:
  *                     object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)             # <<<<<<<<<<<<<<
@@ -6866,7 +6866,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           __pyx_t_32 = __Pyx_PyInt_As_int(__pyx_v_NRTANG); if (unlikely((__pyx_t_32 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 563, __pyx_L1_error)
           ((__pyx_v_object->PEQIN[__pyx_v_J])[__pyx_v_I]) = (1.0 - __pyx_f_7GasUtil_CALPQ3(__pyx_v_EPOINT, __pyx_t_32, __pyx_v_YEPSR, __pyx_v_ENROT));
 
-          /* "H2O.pyx":562
+          /* "gases/H2O.pyx":562
  *                     object.QIN[J][I] = 0.0
  *                 EPOINT = EN / abs(object.EIN[J])
  *                 if EPOINT <= 500:             # <<<<<<<<<<<<<<
@@ -6876,7 +6876,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
           goto __pyx_L138;
         }
 
-        /* "H2O.pyx":565
+        /* "gases/H2O.pyx":565
  *                     object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
  *                 else:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]             # <<<<<<<<<<<<<<
@@ -6888,7 +6888,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
         }
         __pyx_L138:;
 
-        /* "H2O.pyx":555
+        /* "gases/H2O.pyx":555
  *         # EXCITATION  1B1 (3pa1) 9.994 EV
  *         for J in range(241, 250):
  *             if EN > object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -6897,7 +6897,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "H2O.pyx":566
+      /* "gases/H2O.pyx":566
  *                 else:
  *                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
  *             FI += 1             # <<<<<<<<<<<<<<
@@ -6907,7 +6907,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_FI = (__pyx_v_FI + 1);
     }
 
-    /* "H2O.pyx":571
+    /* "gases/H2O.pyx":571
  *         #  OH PRODUCTION FROM DISSOCIATION HARB ET AL J.CHEM.PHYS. 115(2001)5507
  *         # SCALED ABOVE 200EV BY 1/ENERGY
  *         object.QNULL[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6916,7 +6916,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[0])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":572
+    /* "gases/H2O.pyx":572
  *         # SCALED ABOVE 200EV BY 1/ENERGY
  *         object.QNULL[0][I] = 0.0
  *         if EN > XNUL1[0]:             # <<<<<<<<<<<<<<
@@ -6926,7 +6926,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_XNUL1[0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":573
+      /* "gases/H2O.pyx":573
  *         object.QNULL[0][I] = 0.0
  *         if EN > XNUL1[0]:
  *             object.QNULL[0][I] = GasUtil.CALQINP(EN, NUL1,YNUL1,XNUL1, 1)*100*object.SCLN[0]             # <<<<<<<<<<<<<<
@@ -6935,7 +6935,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[0])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL1, __pyx_v_YNUL1, __pyx_v_XNUL1, 1.0) * 100.0) * (__pyx_v_object->SCLN[0]));
 
-      /* "H2O.pyx":572
+      /* "gases/H2O.pyx":572
  *         # SCALED ABOVE 200EV BY 1/ENERGY
  *         object.QNULL[0][I] = 0.0
  *         if EN > XNUL1[0]:             # <<<<<<<<<<<<<<
@@ -6944,7 +6944,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":576
+    /* "gases/H2O.pyx":576
  * 
  *         # LIGHT EMISSION FROM OH(A2-X) MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6953,7 +6953,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[1])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":577
+    /* "gases/H2O.pyx":577
  *         # LIGHT EMISSION FROM OH(A2-X) MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[1][I] = 0.0
  *         if EN > XNUL2[0]:             # <<<<<<<<<<<<<<
@@ -6963,7 +6963,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_XNUL2[0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":578
+      /* "gases/H2O.pyx":578
  *         object.QNULL[1][I] = 0.0
  *         if EN > XNUL2[0]:
  *             object.QNULL[1][I] = GasUtil.CALQINP(EN, NUL2,YNUL2,XNUL2, 1)*100*object.SCLN[1]             # <<<<<<<<<<<<<<
@@ -6972,7 +6972,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[1])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL2, __pyx_v_YNUL2, __pyx_v_XNUL2, 1.0) * 100.0) * (__pyx_v_object->SCLN[1]));
 
-      /* "H2O.pyx":577
+      /* "gases/H2O.pyx":577
  *         # LIGHT EMISSION FROM OH(A2-X) MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[1][I] = 0.0
  *         if EN > XNUL2[0]:             # <<<<<<<<<<<<<<
@@ -6981,7 +6981,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":581
+    /* "gases/H2O.pyx":581
  * 
  *         # LIGHT EMISSION FROM H(3-2) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -6990,7 +6990,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[2])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":582
+    /* "gases/H2O.pyx":582
  *         # LIGHT EMISSION FROM H(3-2) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[2][I] = 0.0
  *         if EN > XNUL3[0]:             # <<<<<<<<<<<<<<
@@ -7000,7 +7000,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_XNUL3[0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":583
+      /* "gases/H2O.pyx":583
  *         object.QNULL[2][I] = 0.0
  *         if EN > XNUL3[0]:
  *             object.QNULL[2][I] = GasUtil.CALQINP(EN, NUL3,YNUL3,XNUL3, 1)*100*object.SCLN[2]             # <<<<<<<<<<<<<<
@@ -7009,7 +7009,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[2])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL3, __pyx_v_YNUL3, __pyx_v_XNUL3, 1.0) * 100.0) * (__pyx_v_object->SCLN[2]));
 
-      /* "H2O.pyx":582
+      /* "gases/H2O.pyx":582
  *         # LIGHT EMISSION FROM H(3-2) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[2][I] = 0.0
  *         if EN > XNUL3[0]:             # <<<<<<<<<<<<<<
@@ -7018,7 +7018,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "H2O.pyx":586
+    /* "gases/H2O.pyx":586
  * 
  *         # LIGHT EMISSION FROM H(2-1) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -7027,7 +7027,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QNULL[3])[__pyx_v_I]) = 0.0;
 
-    /* "H2O.pyx":587
+    /* "gases/H2O.pyx":587
  *         # LIGHT EMISSION FROM H(2-1) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[3][I] = 0.0
  *         if EN > XNUL4[0]:             # <<<<<<<<<<<<<<
@@ -7037,7 +7037,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_EN > (__pyx_v_XNUL4[0])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":588
+      /* "gases/H2O.pyx":588
  *         object.QNULL[3][I] = 0.0
  *         if EN > XNUL4[0]:
  *             object.QNULL[3][I] = GasUtil.CALQINP(EN, NUL4,YNUL4,XNUL4, 1)*100*object.SCLN[3]             # <<<<<<<<<<<<<<
@@ -7046,7 +7046,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QNULL[3])[__pyx_v_I]) = ((__pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_NUL4, __pyx_v_YNUL4, __pyx_v_XNUL4, 1.0) * 100.0) * (__pyx_v_object->SCLN[3]));
 
-      /* "H2O.pyx":587
+      /* "gases/H2O.pyx":587
  *         # LIGHT EMISSION FROM H(2-1) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
  *         object.QNULL[3][I] = 0.0
  *         if EN > XNUL4[0]:             # <<<<<<<<<<<<<<
@@ -7056,7 +7056,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "H2O.pyx":591
+  /* "gases/H2O.pyx":591
  * 
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -7068,7 +7068,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_31; __pyx_t_32+=1) {
     __pyx_v_J = __pyx_t_32;
 
-    /* "H2O.pyx":592
+    /* "gases/H2O.pyx":592
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7078,7 +7078,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_37 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_37) {
 
-      /* "H2O.pyx":593
+      /* "gases/H2O.pyx":593
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -7087,7 +7087,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "H2O.pyx":594
+      /* "gases/H2O.pyx":594
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -7095,7 +7095,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L144_break;
 
-      /* "H2O.pyx":592
+      /* "gases/H2O.pyx":592
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7106,14 +7106,14 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L144_break:;
 
-  /* "H2O.pyx":595
+  /* "gases/H2O.pyx":595
  *             object.NIN = J
  *             break
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "H2O.pyx":17
+  /* "gases/H2O.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas14(Gas*object):             # <<<<<<<<<<<<<<
@@ -7127,7 +7127,7 @@ static void __pyx_f_3H2O_Gas14(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("H2O.Gas14", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.H2O.Gas14", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_XDECREF(__pyx_v_NRTANG);
@@ -10484,7 +10484,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas14", (void (*)(void))__pyx_f_3H2O_Gas14, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas14", (void (*)(void))__pyx_f_5gases_3H2O_Gas14, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -10737,14 +10737,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_H2O) {
+  if (__pyx_module_is_main_gases__H2O) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "H2O")) {
-      if (unlikely(PyDict_SetItemString(modules, "H2O", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.H2O")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.H2O", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -10765,7 +10765,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "H2O.pyx":3
+  /* "gases/H2O.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -10777,7 +10777,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "H2O.pyx":5
+  /* "gases/H2O.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -10789,7 +10789,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "H2O.pyx":10
+  /* "gases/H2O.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -10804,7 +10804,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "H2O.pyx":1
+  /* "gases/H2O.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -10830,11 +10830,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init H2O", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.H2O", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init H2O");
+    PyErr_SetString(PyExc_ImportError, "init gases.H2O");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

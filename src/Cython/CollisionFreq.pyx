@@ -5,7 +5,7 @@ cimport cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef double* COLF(Magboltz object):
+cdef double* CollisionFreq(Magboltz object):
     """
     This function calculates real collision frequencies for event types.
     """

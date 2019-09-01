@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "NEON",
+        "name": "gases.NEON",
         "sources": [
-            "NEON.pyx"
+            "gases/NEON.pyx"
         ]
     },
-    "module_name": "NEON"
+    "module_name": "gases.NEON"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__NEON
-#define __PYX_HAVE_API__NEON
+#define __PYX_HAVE__gases__NEON
+#define __PYX_HAVE_API__gases__NEON
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "NEON.pyx",
+  "gases/NEON.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1686,13 +1686,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'NEON' */
+/* Module declarations from 'gases.NEON' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "NEON"
-extern int __pyx_module_is_main_NEON;
-int __pyx_module_is_main_NEON = 0;
+#define __Pyx_MODULE_NAME "gases.NEON"
+extern int __pyx_module_is_main_gases__NEON;
+int __pyx_module_is_main_gases__NEON = 0;
 
-/* Implementation of 'NEON' */
+/* Implementation of 'gases.NEON' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1922,7 +1922,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "NEON.pyx":17
+/* "gases/NEON.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas5(Gas* object):             # <<<<<<<<<<<<<<
@@ -1930,7 +1930,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for Neon gas.
  */
 
-static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEN[0x7D];
   double __pyx_v_YXSEC[0x7D];
@@ -2143,7 +2143,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   long __pyx_t_48;
   __Pyx_RefNannySetupContext("Gas5", 0);
 
-  /* "NEON.pyx":21
+  /* "gases/NEON.pyx":21
  *     This function is used to calculate the needed momentum cross sections for Neon gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -2191,7 +2191,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NEON.pyx":32
+  /* "gases/NEON.pyx":32
  *     cdef double CONST, EMASS2, API, A0, RY, BBCONST, AM2, C, AUGK
  *     # BORN BETHE VALUES FOR IONISATION
  *     CONST = 1.873884e-20             # <<<<<<<<<<<<<<
@@ -2200,7 +2200,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_CONST = 1.873884e-20;
 
-  /* "NEON.pyx":33
+  /* "gases/NEON.pyx":33
  *     # BORN BETHE VALUES FOR IONISATION
  *     CONST = 1.873884e-20
  *     EMASS2 = <float>(1021997.804)             # <<<<<<<<<<<<<<
@@ -2209,7 +2209,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS2 = ((float)1021997.804);
 
-  /* "NEON.pyx":34
+  /* "gases/NEON.pyx":34
  *     CONST = 1.873884e-20
  *     EMASS2 = <float>(1021997.804)
  *     API = acos(-1)             # <<<<<<<<<<<<<<
@@ -2218,7 +2218,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_API = acos(-1.0);
 
-  /* "NEON.pyx":35
+  /* "gases/NEON.pyx":35
  *     EMASS2 = <float>(1021997.804)
  *     API = acos(-1)
  *     A0 = 0.52917720859e-8             # <<<<<<<<<<<<<<
@@ -2227,7 +2227,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A0 = 0.52917720859e-8;
 
-  /* "NEON.pyx":36
+  /* "gases/NEON.pyx":36
  *     API = acos(-1)
  *     A0 = 0.52917720859e-8
  *     RY = <float>(13.60569193)             # <<<<<<<<<<<<<<
@@ -2236,7 +2236,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_RY = ((float)13.60569193);
 
-  /* "NEON.pyx":37
+  /* "gases/NEON.pyx":37
  *     A0 = 0.52917720859e-8
  *     RY = <float>(13.60569193)
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2             # <<<<<<<<<<<<<<
@@ -2245,7 +2245,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_BBCONST = ((((((16.0 * __pyx_v_API) * __pyx_v_A0) * __pyx_v_A0) * __pyx_v_RY) * __pyx_v_RY) / __pyx_v_EMASS2);
 
-  /* "NEON.pyx":38
+  /* "gases/NEON.pyx":38
  *     RY = <float>(13.60569193)
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
  *     AM2 = <float>(1.69)             # <<<<<<<<<<<<<<
@@ -2254,7 +2254,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AM2 = ((float)1.69);
 
-  /* "NEON.pyx":39
+  /* "gases/NEON.pyx":39
  *     BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
  *     AM2 = <float>(1.69)
  *     C = <float>(17.80)             # <<<<<<<<<<<<<<
@@ -2263,7 +2263,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_C = ((float)17.80);
 
-  /* "NEON.pyx":41
+  /* "gases/NEON.pyx":41
  *     C = <float>(17.80)
  *     #AVERAGE AUGER EMISSION FOR EACH SHELL
  *     AUGK = <float>(1.99)             # <<<<<<<<<<<<<<
@@ -2272,7 +2272,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AUGK = ((float)1.99);
 
-  /* "NEON.pyx":43
+  /* "gases/NEON.pyx":43
  *     AUGK = <float>(1.99)
  * 
  *     object.NION = 4             # <<<<<<<<<<<<<<
@@ -2281,7 +2281,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 4;
 
-  /* "NEON.pyx":44
+  /* "gases/NEON.pyx":44
  * 
  *     object.NION = 4
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -2290,7 +2290,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "NEON.pyx":45
+  /* "gases/NEON.pyx":45
  *     object.NION = 4
  *     object.NATT = 1
  *     object.NIN = 45             # <<<<<<<<<<<<<<
@@ -2299,7 +2299,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 45;
 
-  /* "NEON.pyx":46
+  /* "gases/NEON.pyx":46
  *     object.NATT = 1
  *     object.NIN = 45
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -2308,7 +2308,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "NEON.pyx":48
+  /* "gases/NEON.pyx":48
  *     object.NNULL = 0
  * 
  *     NBREM = 25             # <<<<<<<<<<<<<<
@@ -2317,7 +2317,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NBREM = 25;
 
-  /* "NEON.pyx":49
+  /* "gases/NEON.pyx":49
  * 
  *     NBREM = 25
  *     XEN = gd['gas5/XEN']             # <<<<<<<<<<<<<<
@@ -2334,7 +2334,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (0x7D));
 
-  /* "NEON.pyx":50
+  /* "gases/NEON.pyx":50
  *     NBREM = 25
  *     XEN = gd['gas5/XEN']
  *     YXSEC = gd['gas5/YXSEC']             # <<<<<<<<<<<<<<
@@ -2351,7 +2351,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YXSEC[0]), __pyx_t_5, sizeof(__pyx_v_YXSEC[0]) * (0x7D));
 
-  /* "NEON.pyx":51
+  /* "gases/NEON.pyx":51
  *     XEN = gd['gas5/XEN']
  *     YXSEC = gd['gas5/YXSEC']
  *     XEL = gd['gas5/XEL']             # <<<<<<<<<<<<<<
@@ -2368,7 +2368,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEL[0]), __pyx_t_6, sizeof(__pyx_v_XEL[0]) * (0x78));
 
-  /* "NEON.pyx":52
+  /* "gases/NEON.pyx":52
  *     YXSEC = gd['gas5/YXSEC']
  *     XEL = gd['gas5/XEL']
  *     YEL = gd['gas5/YEL']             # <<<<<<<<<<<<<<
@@ -2385,7 +2385,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEL[0]), __pyx_t_6, sizeof(__pyx_v_YEL[0]) * (0x78));
 
-  /* "NEON.pyx":53
+  /* "gases/NEON.pyx":53
  *     XEL = gd['gas5/XEL']
  *     YEL = gd['gas5/YEL']
  *     XEPS = gd['gas5/XEPS']             # <<<<<<<<<<<<<<
@@ -2402,7 +2402,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_XEPS[0]), __pyx_t_7, sizeof(__pyx_v_XEPS[0]) * (0xC4));
 
-  /* "NEON.pyx":54
+  /* "gases/NEON.pyx":54
  *     YEL = gd['gas5/YEL']
  *     XEPS = gd['gas5/XEPS']
  *     YEPS = gd['gas5/YEPS']             # <<<<<<<<<<<<<<
@@ -2419,7 +2419,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_YEPS[0]), __pyx_t_7, sizeof(__pyx_v_YEPS[0]) * (0xC4));
 
-  /* "NEON.pyx":55
+  /* "gases/NEON.pyx":55
  *     XEPS = gd['gas5/XEPS']
  *     YEPS = gd['gas5/YEPS']
  *     XION = gd['gas5/XION']             # <<<<<<<<<<<<<<
@@ -2432,7 +2432,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_8, sizeof(__pyx_v_XION[0]) * (74));
 
-  /* "NEON.pyx":56
+  /* "gases/NEON.pyx":56
  *     YEPS = gd['gas5/YEPS']
  *     XION = gd['gas5/XION']
  *     YION = gd['gas5/YION']             # <<<<<<<<<<<<<<
@@ -2445,7 +2445,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_8, sizeof(__pyx_v_YION[0]) * (74));
 
-  /* "NEON.pyx":57
+  /* "gases/NEON.pyx":57
  *     XION = gd['gas5/XION']
  *     YION = gd['gas5/YION']
  *     YINC = gd['gas5/YINC']             # <<<<<<<<<<<<<<
@@ -2458,7 +2458,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YINC[0]), __pyx_t_8, sizeof(__pyx_v_YINC[0]) * (74));
 
-  /* "NEON.pyx":58
+  /* "gases/NEON.pyx":58
  *     YION = gd['gas5/YION']
  *     YINC = gd['gas5/YINC']
  *     YIN1 = gd['gas5/YIN1']             # <<<<<<<<<<<<<<
@@ -2471,7 +2471,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN1[0]), __pyx_t_8, sizeof(__pyx_v_YIN1[0]) * (74));
 
-  /* "NEON.pyx":59
+  /* "gases/NEON.pyx":59
  *     YINC = gd['gas5/YINC']
  *     YIN1 = gd['gas5/YIN1']
  *     XIN2 = gd['gas5/XIN2']             # <<<<<<<<<<<<<<
@@ -2484,7 +2484,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN2[0]), __pyx_t_9, sizeof(__pyx_v_XIN2[0]) * (49));
 
-  /* "NEON.pyx":60
+  /* "gases/NEON.pyx":60
  *     YIN1 = gd['gas5/YIN1']
  *     XIN2 = gd['gas5/XIN2']
  *     YIN2 = gd['gas5/YIN2']             # <<<<<<<<<<<<<<
@@ -2497,7 +2497,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN2[0]), __pyx_t_9, sizeof(__pyx_v_YIN2[0]) * (49));
 
-  /* "NEON.pyx":61
+  /* "gases/NEON.pyx":61
  *     XIN2 = gd['gas5/XIN2']
  *     YIN2 = gd['gas5/YIN2']
  *     XIN3 = gd['gas5/XIN3']             # <<<<<<<<<<<<<<
@@ -2510,7 +2510,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XIN3[0]), __pyx_t_10, sizeof(__pyx_v_XIN3[0]) * (41));
 
-  /* "NEON.pyx":62
+  /* "gases/NEON.pyx":62
  *     YIN2 = gd['gas5/YIN2']
  *     XIN3 = gd['gas5/XIN3']
  *     YIN3 = gd['gas5/YIN3']             # <<<<<<<<<<<<<<
@@ -2523,7 +2523,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YIN3[0]), __pyx_t_10, sizeof(__pyx_v_YIN3[0]) * (41));
 
-  /* "NEON.pyx":63
+  /* "gases/NEON.pyx":63
  *     XIN3 = gd['gas5/XIN3']
  *     YIN3 = gd['gas5/YIN3']
  *     XKSH = gd['gas5/XKSH']             # <<<<<<<<<<<<<<
@@ -2536,7 +2536,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XKSH[0]), __pyx_t_11, sizeof(__pyx_v_XKSH[0]) * (99));
 
-  /* "NEON.pyx":64
+  /* "gases/NEON.pyx":64
  *     YIN3 = gd['gas5/YIN3']
  *     XKSH = gd['gas5/XKSH']
  *     YKSH = gd['gas5/YKSH']             # <<<<<<<<<<<<<<
@@ -2549,7 +2549,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YKSH[0]), __pyx_t_11, sizeof(__pyx_v_YKSH[0]) * (99));
 
-  /* "NEON.pyx":65
+  /* "gases/NEON.pyx":65
  *     XKSH = gd['gas5/XKSH']
  *     YKSH = gd['gas5/YKSH']
  *     X1S5 = gd['gas5/X1S5']             # <<<<<<<<<<<<<<
@@ -2566,7 +2566,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X1S5[0]), __pyx_t_12, sizeof(__pyx_v_X1S5[0]) * (0x6F));
 
-  /* "NEON.pyx":66
+  /* "gases/NEON.pyx":66
  *     YKSH = gd['gas5/YKSH']
  *     X1S5 = gd['gas5/X1S5']
  *     Y1S5 = gd['gas5/Y1S5']             # <<<<<<<<<<<<<<
@@ -2583,7 +2583,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y1S5[0]), __pyx_t_12, sizeof(__pyx_v_Y1S5[0]) * (0x6F));
 
-  /* "NEON.pyx":67
+  /* "gases/NEON.pyx":67
  *     X1S5 = gd['gas5/X1S5']
  *     Y1S5 = gd['gas5/Y1S5']
  *     X1S4 = gd['gas5/X1S4']             # <<<<<<<<<<<<<<
@@ -2600,7 +2600,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X1S4[0]), __pyx_t_13, sizeof(__pyx_v_X1S4[0]) * (0x89));
 
-  /* "NEON.pyx":68
+  /* "gases/NEON.pyx":68
  *     Y1S5 = gd['gas5/Y1S5']
  *     X1S4 = gd['gas5/X1S4']
  *     Y1S4 = gd['gas5/Y1S4']             # <<<<<<<<<<<<<<
@@ -2617,7 +2617,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y1S4[0]), __pyx_t_13, sizeof(__pyx_v_Y1S4[0]) * (0x89));
 
-  /* "NEON.pyx":69
+  /* "gases/NEON.pyx":69
  *     X1S4 = gd['gas5/X1S4']
  *     Y1S4 = gd['gas5/Y1S4']
  *     X1S3 = gd['gas5/X1S3']             # <<<<<<<<<<<<<<
@@ -2634,7 +2634,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X1S3[0]), __pyx_t_14, sizeof(__pyx_v_X1S3[0]) * (0x75));
 
-  /* "NEON.pyx":70
+  /* "gases/NEON.pyx":70
  *     Y1S4 = gd['gas5/Y1S4']
  *     X1S3 = gd['gas5/X1S3']
  *     Y1S3 = gd['gas5/Y1S3']             # <<<<<<<<<<<<<<
@@ -2651,7 +2651,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y1S3[0]), __pyx_t_14, sizeof(__pyx_v_Y1S3[0]) * (0x75));
 
-  /* "NEON.pyx":71
+  /* "gases/NEON.pyx":71
  *     X1S3 = gd['gas5/X1S3']
  *     Y1S3 = gd['gas5/Y1S3']
  *     X1S2 = gd['gas5/X1S2']             # <<<<<<<<<<<<<<
@@ -2668,7 +2668,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_X1S2[0]), __pyx_t_15, sizeof(__pyx_v_X1S2[0]) * (0x77));
 
-  /* "NEON.pyx":72
+  /* "gases/NEON.pyx":72
  *     Y1S3 = gd['gas5/Y1S3']
  *     X1S2 = gd['gas5/X1S2']
  *     Y1S2 = gd['gas5/Y1S2']             # <<<<<<<<<<<<<<
@@ -2685,7 +2685,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_Y1S2[0]), __pyx_t_15, sizeof(__pyx_v_Y1S2[0]) * (0x77));
 
-  /* "NEON.pyx":73
+  /* "gases/NEON.pyx":73
  *     X1S2 = gd['gas5/X1S2']
  *     Y1S2 = gd['gas5/Y1S2']
  *     X2P10 = gd['gas5/X2P10']             # <<<<<<<<<<<<<<
@@ -2698,7 +2698,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P10[0]), __pyx_t_16, sizeof(__pyx_v_X2P10[0]) * (73));
 
-  /* "NEON.pyx":74
+  /* "gases/NEON.pyx":74
  *     Y1S2 = gd['gas5/Y1S2']
  *     X2P10 = gd['gas5/X2P10']
  *     Y2P10 = gd['gas5/Y2P10']             # <<<<<<<<<<<<<<
@@ -2711,7 +2711,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P10[0]), __pyx_t_16, sizeof(__pyx_v_Y2P10[0]) * (73));
 
-  /* "NEON.pyx":75
+  /* "gases/NEON.pyx":75
  *     X2P10 = gd['gas5/X2P10']
  *     Y2P10 = gd['gas5/Y2P10']
  *     X2P9 = gd['gas5/X2P9']             # <<<<<<<<<<<<<<
@@ -2724,7 +2724,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P9[0]), __pyx_t_17, sizeof(__pyx_v_X2P9[0]) * (70));
 
-  /* "NEON.pyx":76
+  /* "gases/NEON.pyx":76
  *     Y2P10 = gd['gas5/Y2P10']
  *     X2P9 = gd['gas5/X2P9']
  *     Y2P9 = gd['gas5/Y2P9']             # <<<<<<<<<<<<<<
@@ -2737,7 +2737,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P9[0]), __pyx_t_17, sizeof(__pyx_v_Y2P9[0]) * (70));
 
-  /* "NEON.pyx":77
+  /* "gases/NEON.pyx":77
  *     X2P9 = gd['gas5/X2P9']
  *     Y2P9 = gd['gas5/Y2P9']
  *     X2P8 = gd['gas5/X2P8']             # <<<<<<<<<<<<<<
@@ -2750,7 +2750,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P8[0]), __pyx_t_18, sizeof(__pyx_v_X2P8[0]) * (72));
 
-  /* "NEON.pyx":78
+  /* "gases/NEON.pyx":78
  *     Y2P9 = gd['gas5/Y2P9']
  *     X2P8 = gd['gas5/X2P8']
  *     Y2P8 = gd['gas5/Y2P8']             # <<<<<<<<<<<<<<
@@ -2763,7 +2763,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P8[0]), __pyx_t_18, sizeof(__pyx_v_Y2P8[0]) * (72));
 
-  /* "NEON.pyx":79
+  /* "gases/NEON.pyx":79
  *     X2P8 = gd['gas5/X2P8']
  *     Y2P8 = gd['gas5/Y2P8']
  *     X2P7 = gd['gas5/X2P7']             # <<<<<<<<<<<<<<
@@ -2776,7 +2776,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P7[0]), __pyx_t_19, sizeof(__pyx_v_X2P7[0]) * (65));
 
-  /* "NEON.pyx":80
+  /* "gases/NEON.pyx":80
  *     Y2P8 = gd['gas5/Y2P8']
  *     X2P7 = gd['gas5/X2P7']
  *     Y2P7 = gd['gas5/Y2P7']             # <<<<<<<<<<<<<<
@@ -2789,7 +2789,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P7[0]), __pyx_t_19, sizeof(__pyx_v_Y2P7[0]) * (65));
 
-  /* "NEON.pyx":81
+  /* "gases/NEON.pyx":81
  *     X2P7 = gd['gas5/X2P7']
  *     Y2P7 = gd['gas5/Y2P7']
  *     X2P6 = gd['gas5/X2P6']             # <<<<<<<<<<<<<<
@@ -2802,7 +2802,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P6[0]), __pyx_t_20, sizeof(__pyx_v_X2P6[0]) * (59));
 
-  /* "NEON.pyx":82
+  /* "gases/NEON.pyx":82
  *     Y2P7 = gd['gas5/Y2P7']
  *     X2P6 = gd['gas5/X2P6']
  *     Y2P6 = gd['gas5/Y2P6']             # <<<<<<<<<<<<<<
@@ -2815,7 +2815,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P6[0]), __pyx_t_20, sizeof(__pyx_v_Y2P6[0]) * (59));
 
-  /* "NEON.pyx":83
+  /* "gases/NEON.pyx":83
  *     X2P6 = gd['gas5/X2P6']
  *     Y2P6 = gd['gas5/Y2P6']
  *     X2P5 = gd['gas5/X2P5']             # <<<<<<<<<<<<<<
@@ -2828,7 +2828,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P5[0]), __pyx_t_21, sizeof(__pyx_v_X2P5[0]) * (63));
 
-  /* "NEON.pyx":84
+  /* "gases/NEON.pyx":84
  *     Y2P6 = gd['gas5/Y2P6']
  *     X2P5 = gd['gas5/X2P5']
  *     Y2P5 = gd['gas5/Y2P5']             # <<<<<<<<<<<<<<
@@ -2841,7 +2841,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P5[0]), __pyx_t_21, sizeof(__pyx_v_Y2P5[0]) * (63));
 
-  /* "NEON.pyx":85
+  /* "gases/NEON.pyx":85
  *     X2P5 = gd['gas5/X2P5']
  *     Y2P5 = gd['gas5/Y2P5']
  *     X2P4 = gd['gas5/X2P4']             # <<<<<<<<<<<<<<
@@ -2854,7 +2854,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P4[0]), __pyx_t_22, sizeof(__pyx_v_X2P4[0]) * (66));
 
-  /* "NEON.pyx":86
+  /* "gases/NEON.pyx":86
  *     Y2P5 = gd['gas5/Y2P5']
  *     X2P4 = gd['gas5/X2P4']
  *     Y2P4 = gd['gas5/Y2P4']             # <<<<<<<<<<<<<<
@@ -2867,7 +2867,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P4[0]), __pyx_t_22, sizeof(__pyx_v_Y2P4[0]) * (66));
 
-  /* "NEON.pyx":87
+  /* "gases/NEON.pyx":87
  *     X2P4 = gd['gas5/X2P4']
  *     Y2P4 = gd['gas5/Y2P4']
  *     X2P3 = gd['gas5/X2P3']             # <<<<<<<<<<<<<<
@@ -2880,7 +2880,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P3[0]), __pyx_t_23, sizeof(__pyx_v_X2P3[0]) * (62));
 
-  /* "NEON.pyx":88
+  /* "gases/NEON.pyx":88
  *     Y2P4 = gd['gas5/Y2P4']
  *     X2P3 = gd['gas5/X2P3']
  *     Y2P3 = gd['gas5/Y2P3']             # <<<<<<<<<<<<<<
@@ -2893,7 +2893,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P3[0]), __pyx_t_23, sizeof(__pyx_v_Y2P3[0]) * (62));
 
-  /* "NEON.pyx":89
+  /* "gases/NEON.pyx":89
  *     X2P3 = gd['gas5/X2P3']
  *     Y2P3 = gd['gas5/Y2P3']
  *     X2P2 = gd['gas5/X2P2']             # <<<<<<<<<<<<<<
@@ -2906,7 +2906,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P2[0]), __pyx_t_23, sizeof(__pyx_v_X2P2[0]) * (62));
 
-  /* "NEON.pyx":90
+  /* "gases/NEON.pyx":90
  *     Y2P3 = gd['gas5/Y2P3']
  *     X2P2 = gd['gas5/X2P2']
  *     Y2P2 = gd['gas5/Y2P2']             # <<<<<<<<<<<<<<
@@ -2919,7 +2919,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P2[0]), __pyx_t_23, sizeof(__pyx_v_Y2P2[0]) * (62));
 
-  /* "NEON.pyx":91
+  /* "gases/NEON.pyx":91
  *     X2P2 = gd['gas5/X2P2']
  *     Y2P2 = gd['gas5/Y2P2']
  *     X2P1 = gd['gas5/X2P1']             # <<<<<<<<<<<<<<
@@ -2932,7 +2932,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2P1[0]), __pyx_t_20, sizeof(__pyx_v_X2P1[0]) * (59));
 
-  /* "NEON.pyx":92
+  /* "gases/NEON.pyx":92
  *     Y2P2 = gd['gas5/Y2P2']
  *     X2P1 = gd['gas5/X2P1']
  *     Y2P1 = gd['gas5/Y2P1']             # <<<<<<<<<<<<<<
@@ -2945,7 +2945,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2P1[0]), __pyx_t_20, sizeof(__pyx_v_Y2P1[0]) * (59));
 
-  /* "NEON.pyx":93
+  /* "gases/NEON.pyx":93
  *     X2P1 = gd['gas5/X2P1']
  *     Y2P1 = gd['gas5/Y2P1']
  *     X2S5 = gd['gas5/X2S5']             # <<<<<<<<<<<<<<
@@ -2958,7 +2958,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2S5[0]), __pyx_t_24, sizeof(__pyx_v_X2S5[0]) * (19));
 
-  /* "NEON.pyx":94
+  /* "gases/NEON.pyx":94
  *     Y2P1 = gd['gas5/Y2P1']
  *     X2S5 = gd['gas5/X2S5']
  *     Y2S5 = gd['gas5/Y2S5']             # <<<<<<<<<<<<<<
@@ -2971,7 +2971,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2S5[0]), __pyx_t_24, sizeof(__pyx_v_Y2S5[0]) * (19));
 
-  /* "NEON.pyx":95
+  /* "gases/NEON.pyx":95
  *     X2S5 = gd['gas5/X2S5']
  *     Y2S5 = gd['gas5/Y2S5']
  *     X2S3 = gd['gas5/X2S3']             # <<<<<<<<<<<<<<
@@ -2984,7 +2984,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X2S3[0]), __pyx_t_24, sizeof(__pyx_v_X2S3[0]) * (19));
 
-  /* "NEON.pyx":96
+  /* "gases/NEON.pyx":96
  *     Y2S5 = gd['gas5/Y2S5']
  *     X2S3 = gd['gas5/X2S3']
  *     Y2S3 = gd['gas5/Y2S3']             # <<<<<<<<<<<<<<
@@ -2997,7 +2997,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y2S3[0]), __pyx_t_24, sizeof(__pyx_v_Y2S3[0]) * (19));
 
-  /* "NEON.pyx":97
+  /* "gases/NEON.pyx":97
  *     X2S3 = gd['gas5/X2S3']
  *     Y2S3 = gd['gas5/Y2S3']
  *     X3D6 = gd['gas5/X3D6']             # <<<<<<<<<<<<<<
@@ -3010,7 +3010,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D6[0]), __pyx_t_25, sizeof(__pyx_v_X3D6[0]) * (12));
 
-  /* "NEON.pyx":98
+  /* "gases/NEON.pyx":98
  *     Y2S3 = gd['gas5/Y2S3']
  *     X3D6 = gd['gas5/X3D6']
  *     Y3D6 = gd['gas5/Y3D6']             # <<<<<<<<<<<<<<
@@ -3023,7 +3023,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D6[0]), __pyx_t_25, sizeof(__pyx_v_Y3D6[0]) * (12));
 
-  /* "NEON.pyx":99
+  /* "gases/NEON.pyx":99
  *     X3D6 = gd['gas5/X3D6']
  *     Y3D6 = gd['gas5/Y3D6']
  *     X3D4P = gd['gas5/X3D4P']             # <<<<<<<<<<<<<<
@@ -3036,7 +3036,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D4P[0]), __pyx_t_25, sizeof(__pyx_v_X3D4P[0]) * (12));
 
-  /* "NEON.pyx":100
+  /* "gases/NEON.pyx":100
  *     Y3D6 = gd['gas5/Y3D6']
  *     X3D4P = gd['gas5/X3D4P']
  *     Y3D4P = gd['gas5/Y3D4P']             # <<<<<<<<<<<<<<
@@ -3049,7 +3049,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D4P[0]), __pyx_t_25, sizeof(__pyx_v_Y3D4P[0]) * (12));
 
-  /* "NEON.pyx":101
+  /* "gases/NEON.pyx":101
  *     X3D4P = gd['gas5/X3D4P']
  *     Y3D4P = gd['gas5/Y3D4P']
  *     X3D4 = gd['gas5/X3D4']             # <<<<<<<<<<<<<<
@@ -3062,7 +3062,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D4[0]), __pyx_t_25, sizeof(__pyx_v_X3D4[0]) * (12));
 
-  /* "NEON.pyx":102
+  /* "gases/NEON.pyx":102
  *     Y3D4P = gd['gas5/Y3D4P']
  *     X3D4 = gd['gas5/X3D4']
  *     Y3D4 = gd['gas5/Y3D4']             # <<<<<<<<<<<<<<
@@ -3075,7 +3075,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D4[0]), __pyx_t_25, sizeof(__pyx_v_Y3D4[0]) * (12));
 
-  /* "NEON.pyx":103
+  /* "gases/NEON.pyx":103
  *     X3D4 = gd['gas5/X3D4']
  *     Y3D4 = gd['gas5/Y3D4']
  *     X3D3 = gd['gas5/X3D3']             # <<<<<<<<<<<<<<
@@ -3088,7 +3088,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D3[0]), __pyx_t_25, sizeof(__pyx_v_X3D3[0]) * (12));
 
-  /* "NEON.pyx":104
+  /* "gases/NEON.pyx":104
  *     Y3D4 = gd['gas5/Y3D4']
  *     X3D3 = gd['gas5/X3D3']
  *     Y3D3 = gd['gas5/Y3D3']             # <<<<<<<<<<<<<<
@@ -3101,7 +3101,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D3[0]), __pyx_t_25, sizeof(__pyx_v_Y3D3[0]) * (12));
 
-  /* "NEON.pyx":105
+  /* "gases/NEON.pyx":105
  *     X3D3 = gd['gas5/X3D3']
  *     Y3D3 = gd['gas5/Y3D3']
  *     X3D1PP = gd['gas5/X3D1PP']             # <<<<<<<<<<<<<<
@@ -3114,7 +3114,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D1PP[0]), __pyx_t_25, sizeof(__pyx_v_X3D1PP[0]) * (12));
 
-  /* "NEON.pyx":106
+  /* "gases/NEON.pyx":106
  *     Y3D3 = gd['gas5/Y3D3']
  *     X3D1PP = gd['gas5/X3D1PP']
  *     Y3D1PP = gd['gas5/Y3D1PP']             # <<<<<<<<<<<<<<
@@ -3127,7 +3127,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D1PP[0]), __pyx_t_25, sizeof(__pyx_v_Y3D1PP[0]) * (12));
 
-  /* "NEON.pyx":107
+  /* "gases/NEON.pyx":107
  *     X3D1PP = gd['gas5/X3D1PP']
  *     Y3D1PP = gd['gas5/Y3D1PP']
  *     X3D1P = gd['gas5/X3D1P']             # <<<<<<<<<<<<<<
@@ -3140,7 +3140,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3D1P[0]), __pyx_t_25, sizeof(__pyx_v_X3D1P[0]) * (12));
 
-  /* "NEON.pyx":108
+  /* "gases/NEON.pyx":108
  *     Y3D1PP = gd['gas5/Y3D1PP']
  *     X3D1P = gd['gas5/X3D1P']
  *     Y3D1P = gd['gas5/Y3D1P']             # <<<<<<<<<<<<<<
@@ -3153,7 +3153,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3D1P[0]), __pyx_t_25, sizeof(__pyx_v_Y3D1P[0]) * (12));
 
-  /* "NEON.pyx":109
+  /* "gases/NEON.pyx":109
  *     X3D1P = gd['gas5/X3D1P']
  *     Y3D1P = gd['gas5/Y3D1P']
  *     X3S1PPPP = gd['gas5/X3S1PPPP']             # <<<<<<<<<<<<<<
@@ -3166,7 +3166,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PPPP[0]), __pyx_t_25, sizeof(__pyx_v_X3S1PPPP[0]) * (12));
 
-  /* "NEON.pyx":110
+  /* "gases/NEON.pyx":110
  *     Y3D1P = gd['gas5/Y3D1P']
  *     X3S1PPPP = gd['gas5/X3S1PPPP']
  *     Y3S1PPPP = gd['gas5/Y3S1PPPP']             # <<<<<<<<<<<<<<
@@ -3179,7 +3179,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PPPP[0]), __pyx_t_25, sizeof(__pyx_v_Y3S1PPPP[0]) * (12));
 
-  /* "NEON.pyx":111
+  /* "gases/NEON.pyx":111
  *     X3S1PPPP = gd['gas5/X3S1PPPP']
  *     Y3S1PPPP = gd['gas5/Y3S1PPPP']
  *     X3S1PPP = gd['gas5/X3S1PPP']             # <<<<<<<<<<<<<<
@@ -3192,7 +3192,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PPP[0]), __pyx_t_25, sizeof(__pyx_v_X3S1PPP[0]) * (12));
 
-  /* "NEON.pyx":112
+  /* "gases/NEON.pyx":112
  *     Y3S1PPPP = gd['gas5/Y3S1PPPP']
  *     X3S1PPP = gd['gas5/X3S1PPP']
  *     Y3S1PPP = gd['gas5/Y3S1PPP']             # <<<<<<<<<<<<<<
@@ -3205,7 +3205,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PPP[0]), __pyx_t_25, sizeof(__pyx_v_Y3S1PPP[0]) * (12));
 
-  /* "NEON.pyx":113
+  /* "gases/NEON.pyx":113
  *     X3S1PPP = gd['gas5/X3S1PPP']
  *     Y3S1PPP = gd['gas5/Y3S1PPP']
  *     X3S1PP = gd['gas5/X3S1PP']             # <<<<<<<<<<<<<<
@@ -3218,7 +3218,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3S1PP[0]), __pyx_t_25, sizeof(__pyx_v_X3S1PP[0]) * (12));
 
-  /* "NEON.pyx":114
+  /* "gases/NEON.pyx":114
  *     Y3S1PPP = gd['gas5/Y3S1PPP']
  *     X3S1PP = gd['gas5/X3S1PP']
  *     Y3S1PP = gd['gas5/Y3S1PP']             # <<<<<<<<<<<<<<
@@ -3231,7 +3231,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3S1PP[0]), __pyx_t_25, sizeof(__pyx_v_Y3S1PP[0]) * (12));
 
-  /* "NEON.pyx":115
+  /* "gases/NEON.pyx":115
  *     X3S1PP = gd['gas5/X3S1PP']
  *     Y3S1PP = gd['gas5/Y3S1PP']
  *     X3P106 = gd['gas5/X3P106']             # <<<<<<<<<<<<<<
@@ -3244,7 +3244,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P106[0]), __pyx_t_26, sizeof(__pyx_v_X3P106[0]) * (16));
 
-  /* "NEON.pyx":116
+  /* "gases/NEON.pyx":116
  *     Y3S1PP = gd['gas5/Y3S1PP']
  *     X3P106 = gd['gas5/X3P106']
  *     Y3P106 = gd['gas5/Y3P106']             # <<<<<<<<<<<<<<
@@ -3257,7 +3257,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P106[0]), __pyx_t_26, sizeof(__pyx_v_Y3P106[0]) * (16));
 
-  /* "NEON.pyx":117
+  /* "gases/NEON.pyx":117
  *     X3P106 = gd['gas5/X3P106']
  *     Y3P106 = gd['gas5/Y3P106']
  *     X3P52 = gd['gas5/X3P52']             # <<<<<<<<<<<<<<
@@ -3270,7 +3270,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P52[0]), __pyx_t_26, sizeof(__pyx_v_X3P52[0]) * (16));
 
-  /* "NEON.pyx":118
+  /* "gases/NEON.pyx":118
  *     Y3P106 = gd['gas5/Y3P106']
  *     X3P52 = gd['gas5/X3P52']
  *     Y3P52 = gd['gas5/Y3P52']             # <<<<<<<<<<<<<<
@@ -3283,7 +3283,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P52[0]), __pyx_t_26, sizeof(__pyx_v_Y3P52[0]) * (16));
 
-  /* "NEON.pyx":119
+  /* "gases/NEON.pyx":119
  *     X3P52 = gd['gas5/X3P52']
  *     Y3P52 = gd['gas5/Y3P52']
  *     X3P1 = gd['gas5/X3P1']             # <<<<<<<<<<<<<<
@@ -3296,7 +3296,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_X3P1[0]), __pyx_t_26, sizeof(__pyx_v_X3P1[0]) * (16));
 
-  /* "NEON.pyx":120
+  /* "gases/NEON.pyx":120
  *     Y3P52 = gd['gas5/Y3P52']
  *     X3P1 = gd['gas5/X3P1']
  *     Y3P1 = gd['gas5/Y3P1']             # <<<<<<<<<<<<<<
@@ -3309,7 +3309,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Y3P1[0]), __pyx_t_26, sizeof(__pyx_v_Y3P1[0]) * (16));
 
-  /* "NEON.pyx":121
+  /* "gases/NEON.pyx":121
  *     X3P1 = gd['gas5/X3P1']
  *     Y3P1 = gd['gas5/Y3P1']
  *     Z10T = gd['gas5/Z10T']             # <<<<<<<<<<<<<<
@@ -3322,7 +3322,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_Z10T[0]), __pyx_t_27, sizeof(__pyx_v_Z10T[0]) * (25));
 
-  /* "NEON.pyx":122
+  /* "gases/NEON.pyx":122
  *     Y3P1 = gd['gas5/Y3P1']
  *     Z10T = gd['gas5/Z10T']
  *     EBRM = gd['gas5/EBRM']             # <<<<<<<<<<<<<<
@@ -3335,7 +3335,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_EBRM[0]), __pyx_t_27, sizeof(__pyx_v_EBRM[0]) * (25));
 
-  /* "NEON.pyx":123
+  /* "gases/NEON.pyx":123
  *     Z10T = gd['gas5/Z10T']
  *     EBRM = gd['gas5/EBRM']
  *     object.EIN = gd['gas5/EIN']             # <<<<<<<<<<<<<<
@@ -3352,7 +3352,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_28, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "NEON.pyx":124
+  /* "gases/NEON.pyx":124
  *     EBRM = gd['gas5/EBRM']
  *     object.EIN = gd['gas5/EIN']
  *     for J in range(6):             # <<<<<<<<<<<<<<
@@ -3362,7 +3362,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_29 = 0; __pyx_t_29 < 6; __pyx_t_29+=1) {
     __pyx_v_J = __pyx_t_29;
 
-    /* "NEON.pyx":125
+    /* "gases/NEON.pyx":125
  *     object.EIN = gd['gas5/EIN']
  *     for J in range(6):
  *         object.KEL[J] = object.NANISO             # <<<<<<<<<<<<<<
@@ -3373,7 +3373,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_J]) = __pyx_t_30;
   }
 
-  /* "NEON.pyx":126
+  /* "gases/NEON.pyx":126
  *     for J in range(6):
  *         object.KEL[J] = object.NANISO
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3385,7 +3385,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_31 = 0; __pyx_t_31 < __pyx_t_30; __pyx_t_31+=1) {
     __pyx_v_J = __pyx_t_31;
 
-    /* "NEON.pyx":127
+    /* "gases/NEON.pyx":127
  *         object.KEL[J] = object.NANISO
  *     for J in range(object.NIN):
  *         object.KIN[J] = object.NANISO             # <<<<<<<<<<<<<<
@@ -3396,7 +3396,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_J]) = __pyx_t_32;
   }
 
-  /* "NEON.pyx":131
+  /* "gases/NEON.pyx":131
  *     cdef int N2P1, N2S5, N2S3, N3D6, N3D4P, N3D4, N3D3, N3D1PP, N3D1P, N3S1PPPP, N3S1PPP, N3S1PP, N3P106, N3P52, N3P1
  * 
  *     NEL = 120             # <<<<<<<<<<<<<<
@@ -3405,7 +3405,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEL = 0x78;
 
-  /* "NEON.pyx":132
+  /* "gases/NEON.pyx":132
  * 
  *     NEL = 120
  *     NDATA = 125             # <<<<<<<<<<<<<<
@@ -3414,7 +3414,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 0x7D;
 
-  /* "NEON.pyx":133
+  /* "gases/NEON.pyx":133
  *     NEL = 120
  *     NDATA = 125
  *     NEPSI = 196             # <<<<<<<<<<<<<<
@@ -3423,7 +3423,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEPSI = 0xC4;
 
-  /* "NEON.pyx":134
+  /* "gases/NEON.pyx":134
  *     NDATA = 125
  *     NEPSI = 196
  *     NIOND = 74             # <<<<<<<<<<<<<<
@@ -3432,7 +3432,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIOND = 74;
 
-  /* "NEON.pyx":135
+  /* "gases/NEON.pyx":135
  *     NEPSI = 196
  *     NIOND = 74
  *     NION2 = 49             # <<<<<<<<<<<<<<
@@ -3441,7 +3441,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION2 = 49;
 
-  /* "NEON.pyx":136
+  /* "gases/NEON.pyx":136
  *     NIOND = 74
  *     NION2 = 49
  *     NION3 = 41             # <<<<<<<<<<<<<<
@@ -3450,7 +3450,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NION3 = 41;
 
-  /* "NEON.pyx":137
+  /* "gases/NEON.pyx":137
  *     NION2 = 49
  *     NION3 = 41
  *     NKSH = 99             # <<<<<<<<<<<<<<
@@ -3459,7 +3459,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NKSH = 99;
 
-  /* "NEON.pyx":138
+  /* "gases/NEON.pyx":138
  *     NION3 = 41
  *     NKSH = 99
  *     N1S5 = 111             # <<<<<<<<<<<<<<
@@ -3468,7 +3468,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S5 = 0x6F;
 
-  /* "NEON.pyx":139
+  /* "gases/NEON.pyx":139
  *     NKSH = 99
  *     N1S5 = 111
  *     N1S4 = 137             # <<<<<<<<<<<<<<
@@ -3477,7 +3477,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S4 = 0x89;
 
-  /* "NEON.pyx":140
+  /* "gases/NEON.pyx":140
  *     N1S5 = 111
  *     N1S4 = 137
  *     N1S3 = 117             # <<<<<<<<<<<<<<
@@ -3486,7 +3486,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S3 = 0x75;
 
-  /* "NEON.pyx":141
+  /* "gases/NEON.pyx":141
  *     N1S4 = 137
  *     N1S3 = 117
  *     N1S2 = 119             # <<<<<<<<<<<<<<
@@ -3495,7 +3495,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N1S2 = 0x77;
 
-  /* "NEON.pyx":142
+  /* "gases/NEON.pyx":142
  *     N1S3 = 117
  *     N1S2 = 119
  *     N2P10 = 73             # <<<<<<<<<<<<<<
@@ -3504,7 +3504,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P10 = 73;
 
-  /* "NEON.pyx":143
+  /* "gases/NEON.pyx":143
  *     N1S2 = 119
  *     N2P10 = 73
  *     N2P9 = 70             # <<<<<<<<<<<<<<
@@ -3513,7 +3513,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P9 = 70;
 
-  /* "NEON.pyx":144
+  /* "gases/NEON.pyx":144
  *     N2P10 = 73
  *     N2P9 = 70
  *     N2P8 = 72             # <<<<<<<<<<<<<<
@@ -3522,7 +3522,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P8 = 72;
 
-  /* "NEON.pyx":145
+  /* "gases/NEON.pyx":145
  *     N2P9 = 70
  *     N2P8 = 72
  *     N2P7 = 65             # <<<<<<<<<<<<<<
@@ -3531,7 +3531,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P7 = 65;
 
-  /* "NEON.pyx":146
+  /* "gases/NEON.pyx":146
  *     N2P8 = 72
  *     N2P7 = 65
  *     N2P6 = 59             # <<<<<<<<<<<<<<
@@ -3540,7 +3540,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P6 = 59;
 
-  /* "NEON.pyx":147
+  /* "gases/NEON.pyx":147
  *     N2P7 = 65
  *     N2P6 = 59
  *     N2P5 = 63             # <<<<<<<<<<<<<<
@@ -3549,7 +3549,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P5 = 63;
 
-  /* "NEON.pyx":148
+  /* "gases/NEON.pyx":148
  *     N2P6 = 59
  *     N2P5 = 63
  *     N2P4 = 66             # <<<<<<<<<<<<<<
@@ -3558,7 +3558,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P4 = 66;
 
-  /* "NEON.pyx":149
+  /* "gases/NEON.pyx":149
  *     N2P5 = 63
  *     N2P4 = 66
  *     N2P3 = 62             # <<<<<<<<<<<<<<
@@ -3567,7 +3567,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P3 = 62;
 
-  /* "NEON.pyx":150
+  /* "gases/NEON.pyx":150
  *     N2P4 = 66
  *     N2P3 = 62
  *     N2P2 = 62             # <<<<<<<<<<<<<<
@@ -3576,7 +3576,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P2 = 62;
 
-  /* "NEON.pyx":151
+  /* "gases/NEON.pyx":151
  *     N2P3 = 62
  *     N2P2 = 62
  *     N2P1 = 59             # <<<<<<<<<<<<<<
@@ -3585,7 +3585,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2P1 = 59;
 
-  /* "NEON.pyx":152
+  /* "gases/NEON.pyx":152
  *     N2P2 = 62
  *     N2P1 = 59
  *     N2S5 = 19             # <<<<<<<<<<<<<<
@@ -3594,7 +3594,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2S5 = 19;
 
-  /* "NEON.pyx":153
+  /* "gases/NEON.pyx":153
  *     N2P1 = 59
  *     N2S5 = 19
  *     N2S3 = 19             # <<<<<<<<<<<<<<
@@ -3603,7 +3603,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N2S3 = 19;
 
-  /* "NEON.pyx":154
+  /* "gases/NEON.pyx":154
  *     N2S5 = 19
  *     N2S3 = 19
  *     N3D6 = 12             # <<<<<<<<<<<<<<
@@ -3612,7 +3612,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D6 = 12;
 
-  /* "NEON.pyx":155
+  /* "gases/NEON.pyx":155
  *     N2S3 = 19
  *     N3D6 = 12
  *     N3D4P = 12             # <<<<<<<<<<<<<<
@@ -3621,7 +3621,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D4P = 12;
 
-  /* "NEON.pyx":156
+  /* "gases/NEON.pyx":156
  *     N3D6 = 12
  *     N3D4P = 12
  *     N3D4 = 12             # <<<<<<<<<<<<<<
@@ -3630,7 +3630,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D4 = 12;
 
-  /* "NEON.pyx":157
+  /* "gases/NEON.pyx":157
  *     N3D4P = 12
  *     N3D4 = 12
  *     N3D3 = 12             # <<<<<<<<<<<<<<
@@ -3639,7 +3639,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D3 = 12;
 
-  /* "NEON.pyx":158
+  /* "gases/NEON.pyx":158
  *     N3D4 = 12
  *     N3D3 = 12
  *     N3D1PP = 12             # <<<<<<<<<<<<<<
@@ -3648,7 +3648,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D1PP = 12;
 
-  /* "NEON.pyx":159
+  /* "gases/NEON.pyx":159
  *     N3D3 = 12
  *     N3D1PP = 12
  *     N3D1P = 12             # <<<<<<<<<<<<<<
@@ -3657,7 +3657,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3D1P = 12;
 
-  /* "NEON.pyx":160
+  /* "gases/NEON.pyx":160
  *     N3D1PP = 12
  *     N3D1P = 12
  *     N3S1PPPP = 12             # <<<<<<<<<<<<<<
@@ -3666,7 +3666,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PPPP = 12;
 
-  /* "NEON.pyx":161
+  /* "gases/NEON.pyx":161
  *     N3D1P = 12
  *     N3S1PPPP = 12
  *     N3S1PPP = 12             # <<<<<<<<<<<<<<
@@ -3675,7 +3675,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PPP = 12;
 
-  /* "NEON.pyx":162
+  /* "gases/NEON.pyx":162
  *     N3S1PPPP = 12
  *     N3S1PPP = 12
  *     N3S1PP = 12             # <<<<<<<<<<<<<<
@@ -3684,7 +3684,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3S1PP = 12;
 
-  /* "NEON.pyx":163
+  /* "gases/NEON.pyx":163
  *     N3S1PPP = 12
  *     N3S1PP = 12
  *     N3P106 = 16             # <<<<<<<<<<<<<<
@@ -3693,7 +3693,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P106 = 16;
 
-  /* "NEON.pyx":164
+  /* "gases/NEON.pyx":164
  *     N3S1PP = 12
  *     N3P106 = 16
  *     N3P52 = 16             # <<<<<<<<<<<<<<
@@ -3702,7 +3702,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P52 = 16;
 
-  /* "NEON.pyx":165
+  /* "gases/NEON.pyx":165
  *     N3P106 = 16
  *     N3P52 = 16
  *     N3P1 = 16             # <<<<<<<<<<<<<<
@@ -3711,7 +3711,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_N3P1 = 16;
 
-  /* "NEON.pyx":167
+  /* "gases/NEON.pyx":167
  *     N3P1 = 16
  * 
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -3720,7 +3720,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "NEON.pyx":168
+  /* "gases/NEON.pyx":168
  * 
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27, EOBY[5]             # <<<<<<<<<<<<<<
@@ -3729,7 +3729,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "NEON.pyx":170
+  /* "gases/NEON.pyx":170
  *     cdef double AMU = 1.660538921e-27, EOBY[5]
  * 
  *     object.E = [0.0, 1.0, <float>(21.56454), 0.0, 0.0, <float>(19.5)]             # <<<<<<<<<<<<<<
@@ -3744,7 +3744,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_33[5] = ((float)19.5);
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_33, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "NEON.pyx":171
+  /* "gases/NEON.pyx":171
  * 
  *     object.E = [0.0, 1.0, <float>(21.56454), 0.0, 0.0, <float>(19.5)]
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(20.1797) * AMU)             # <<<<<<<<<<<<<<
@@ -3753,7 +3753,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((((float)2.0) * __pyx_v_EMASS) / (((float)20.1797) * __pyx_v_AMU));
 
-  /* "NEON.pyx":173
+  /* "gases/NEON.pyx":173
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(20.1797) * AMU)
  * 
  *     EOBY[0:4] = [17.4, 36, 73, 500]             # <<<<<<<<<<<<<<
@@ -3766,7 +3766,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_34[3] = 500.0;
   memcpy(&(__pyx_v_EOBY[0]), __pyx_t_34, sizeof(__pyx_v_EOBY[0]) * (4));
 
-  /* "NEON.pyx":174
+  /* "gases/NEON.pyx":174
  * 
  *     EOBY[0:4] = [17.4, 36, 73, 500]
  *     object.EION[0:4] = [<float>(21.56454), <float>(62.5275), <float>(125.9508), <float>(870.2)]             # <<<<<<<<<<<<<<
@@ -3779,7 +3779,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_35[3] = ((float)870.2);
   memcpy(&(__pyx_v_object->EION[0]), __pyx_t_35, sizeof(__pyx_v_object->EION[0]) * (4));
 
-  /* "NEON.pyx":175
+  /* "gases/NEON.pyx":175
  *     EOBY[0:4] = [17.4, 36, 73, 500]
  *     object.EION[0:4] = [<float>(21.56454), <float>(62.5275), <float>(125.9508), <float>(870.2)]
  *     object.NC0[0:4] = [0, 1, 2, 2]             # <<<<<<<<<<<<<<
@@ -3792,7 +3792,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_36[3] = 2.0;
   memcpy(&(__pyx_v_object->NC0[0]), __pyx_t_36, sizeof(__pyx_v_object->NC0[0]) * (4));
 
-  /* "NEON.pyx":176
+  /* "gases/NEON.pyx":176
  *     object.EION[0:4] = [<float>(21.56454), <float>(62.5275), <float>(125.9508), <float>(870.2)]
  *     object.NC0[0:4] = [0, 1, 2, 2]
  *     object.EC0[0:4] = [0.0, 5.0, 10.0, <float>(806.6)]             # <<<<<<<<<<<<<<
@@ -3805,7 +3805,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_37[3] = ((float)806.6);
   memcpy(&(__pyx_v_object->EC0[0]), __pyx_t_37, sizeof(__pyx_v_object->EC0[0]) * (4));
 
-  /* "NEON.pyx":177
+  /* "gases/NEON.pyx":177
  *     object.NC0[0:4] = [0, 1, 2, 2]
  *     object.EC0[0:4] = [0.0, 5.0, 10.0, <float>(806.6)]
  *     object.WK[0:4] = [0.0, 0.0, 0.0, 0.015]             # <<<<<<<<<<<<<<
@@ -3818,7 +3818,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_38[3] = 0.015;
   memcpy(&(__pyx_v_object->WK[0]), __pyx_t_38, sizeof(__pyx_v_object->WK[0]) * (4));
 
-  /* "NEON.pyx":178
+  /* "gases/NEON.pyx":178
  *     object.EC0[0:4] = [0.0, 5.0, 10.0, <float>(806.6)]
  *     object.WK[0:4] = [0.0, 0.0, 0.0, 0.015]
  *     object.EFL[0:4] = [0.0, 0.0, 0.0, 849]             # <<<<<<<<<<<<<<
@@ -3831,7 +3831,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_39[3] = 849.0;
   memcpy(&(__pyx_v_object->EFL[0]), __pyx_t_39, sizeof(__pyx_v_object->EFL[0]) * (4));
 
-  /* "NEON.pyx":179
+  /* "gases/NEON.pyx":179
  *     object.WK[0:4] = [0.0, 0.0, 0.0, 0.015]
  *     object.EFL[0:4] = [0.0, 0.0, 0.0, 849]
  *     object.NG1[0:4] = [0, 0, 0, 2]             # <<<<<<<<<<<<<<
@@ -3844,7 +3844,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_40[3] = 2.0;
   memcpy(&(__pyx_v_object->NG1[0]), __pyx_t_40, sizeof(__pyx_v_object->NG1[0]) * (4));
 
-  /* "NEON.pyx":180
+  /* "gases/NEON.pyx":180
  *     object.EFL[0:4] = [0.0, 0.0, 0.0, 849]
  *     object.NG1[0:4] = [0, 0, 0, 2]
  *     object.NG2[0:4] = [0, 0, 0, 1]             # <<<<<<<<<<<<<<
@@ -3857,7 +3857,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_41[3] = 1.0;
   memcpy(&(__pyx_v_object->NG2[0]), __pyx_t_41, sizeof(__pyx_v_object->NG2[0]) * (4));
 
-  /* "NEON.pyx":181
+  /* "gases/NEON.pyx":181
  *     object.NG1[0:4] = [0, 0, 0, 2]
  *     object.NG2[0:4] = [0, 0, 0, 1]
  *     object.EG1[0:4] = [0.0, 0.0, 0.0, 801]             # <<<<<<<<<<<<<<
@@ -3870,7 +3870,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_42[3] = 801.0;
   memcpy(&(__pyx_v_object->EG1[0]), __pyx_t_42, sizeof(__pyx_v_object->EG1[0]) * (4));
 
-  /* "NEON.pyx":182
+  /* "gases/NEON.pyx":182
  *     object.NG2[0:4] = [0, 0, 0, 1]
  *     object.EG1[0:4] = [0.0, 0.0, 0.0, 801]
  *     object.EG2[0:4] = [0.0, 0.0, 0.0, 5.0]             # <<<<<<<<<<<<<<
@@ -3883,7 +3883,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_43[3] = 5.0;
   memcpy(&(__pyx_v_object->EG2[0]), __pyx_t_43, sizeof(__pyx_v_object->EG2[0]) * (4));
 
-  /* "NEON.pyx":184
+  /* "gases/NEON.pyx":184
  *     object.EG2[0:4] = [0.0, 0.0, 0.0, 5.0]
  * 
  *     for j in range(0, object.NION):             # <<<<<<<<<<<<<<
@@ -3895,7 +3895,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_31 = 0; __pyx_t_31 < __pyx_t_30; __pyx_t_31+=1) {
     __pyx_v_j = __pyx_t_31;
 
-    /* "NEON.pyx":185
+    /* "gases/NEON.pyx":185
  * 
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):             # <<<<<<<<<<<<<<
@@ -3905,7 +3905,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_32 = 0; __pyx_t_32 < 0xFA0; __pyx_t_32+=1) {
       __pyx_v_i = __pyx_t_32;
 
-      /* "NEON.pyx":186
+      /* "gases/NEON.pyx":186
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -3915,7 +3915,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EION[__pyx_v_j])) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":187
+        /* "gases/NEON.pyx":187
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i             # <<<<<<<<<<<<<<
@@ -3924,7 +3924,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFION[__pyx_v_j]) = __pyx_v_i;
 
-        /* "NEON.pyx":188
+        /* "gases/NEON.pyx":188
  *             if (object.EG[i] > object.EION[j]):
  *                 IOFFION[j] = i
  *                 break             # <<<<<<<<<<<<<<
@@ -3933,7 +3933,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L10_break;
 
-        /* "NEON.pyx":186
+        /* "gases/NEON.pyx":186
  *     for j in range(0, object.NION):
  *         for i in range(0, 4000):
  *             if (object.EG[i] > object.EION[j]):             # <<<<<<<<<<<<<<
@@ -3945,7 +3945,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L10_break:;
   }
 
-  /* "NEON.pyx":189
+  /* "gases/NEON.pyx":189
  *                 IOFFION[j] = i
  *                 break
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3957,7 +3957,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_31 = 0; __pyx_t_31 < __pyx_t_30; __pyx_t_31+=1) {
     __pyx_v_NL = __pyx_t_31;
 
-    /* "NEON.pyx":190
+    /* "gases/NEON.pyx":190
  *                 break
  *     for NL in range(object.NIN):
  *         object.PENFRA[0][NL] = 0.5             # <<<<<<<<<<<<<<
@@ -3966,7 +3966,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[0])[__pyx_v_NL]) = 0.5;
 
-    /* "NEON.pyx":191
+    /* "gases/NEON.pyx":191
  *     for NL in range(object.NIN):
  *         object.PENFRA[0][NL] = 0.5
  *         object.PENFRA[1][NL] = 1             # <<<<<<<<<<<<<<
@@ -3975,7 +3975,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PENFRA[1])[__pyx_v_NL]) = 1.0;
 
-    /* "NEON.pyx":192
+    /* "gases/NEON.pyx":192
  *         object.PENFRA[0][NL] = 0.5
  *         object.PENFRA[1][NL] = 1
  *         object.PENFRA[2][NL] = 1             # <<<<<<<<<<<<<<
@@ -3985,7 +3985,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->PENFRA[2])[__pyx_v_NL]) = 1.0;
   }
 
-  /* "NEON.pyx":194
+  /* "gases/NEON.pyx":194
  *         object.PENFRA[2][NL] = 1
  * 
  *     for NL in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -3997,7 +3997,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_31 = 0; __pyx_t_31 < __pyx_t_30; __pyx_t_31+=1) {
     __pyx_v_NL = __pyx_t_31;
 
-    /* "NEON.pyx":195
+    /* "gases/NEON.pyx":195
  * 
  *     for NL in range(object.NIN):
  *         for i in range(4000):             # <<<<<<<<<<<<<<
@@ -4007,7 +4007,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_32 = 0; __pyx_t_32 < 0xFA0; __pyx_t_32+=1) {
       __pyx_v_i = __pyx_t_32;
 
-      /* "NEON.pyx":196
+      /* "gases/NEON.pyx":196
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -4017,7 +4017,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = (((__pyx_v_object->EG[__pyx_v_i]) > (__pyx_v_object->EIN[__pyx_v_NL])) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":197
+        /* "gases/NEON.pyx":197
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i             # <<<<<<<<<<<<<<
@@ -4026,7 +4026,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         (__pyx_v_IOFFN[__pyx_v_NL]) = __pyx_v_i;
 
-        /* "NEON.pyx":198
+        /* "gases/NEON.pyx":198
  *             if object.EG[i] > object.EIN[NL]:
  *                 IOFFN[NL] = i
  *                 break             # <<<<<<<<<<<<<<
@@ -4035,7 +4035,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         goto __pyx_L17_break;
 
-        /* "NEON.pyx":196
+        /* "gases/NEON.pyx":196
  *     for NL in range(object.NIN):
  *         for i in range(4000):
  *             if object.EG[i] > object.EIN[NL]:             # <<<<<<<<<<<<<<
@@ -4047,7 +4047,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_L17_break:;
   }
 
-  /* "NEON.pyx":203
+  /* "gases/NEON.pyx":203
  *     cdef double AK5, AN0, AN1, AN2,  ANHIGH, SUM, SIGEL, ANLOW, SUMI, QELA, QMOM, PQ[3], QCORR, QINEL,
  *     # PARAMETERS OF PHASE SHIFT ANALYSIS
  *     APOL = <float>(2.672)             # <<<<<<<<<<<<<<
@@ -4056,7 +4056,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOL = ((float)2.672);
 
-  /* "NEON.pyx":204
+  /* "gases/NEON.pyx":204
  *     # PARAMETERS OF PHASE SHIFT ANALYSIS
  *     APOL = <float>(2.672)
  *     LMAX = 100             # <<<<<<<<<<<<<<
@@ -4065,7 +4065,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_LMAX = 0x64;
 
-  /* "NEON.pyx":205
+  /* "gases/NEON.pyx":205
  *     APOL = <float>(2.672)
  *     LMAX = 100
  *     AA = <float>(0.2135)             # <<<<<<<<<<<<<<
@@ -4074,7 +4074,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AA = ((float)0.2135);
 
-  /* "NEON.pyx":206
+  /* "gases/NEON.pyx":206
  *     LMAX = 100
  *     AA = <float>(0.2135)
  *     DD = <float>(3.86)             # <<<<<<<<<<<<<<
@@ -4083,7 +4083,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_DD = ((float)3.86);
 
-  /* "NEON.pyx":207
+  /* "gases/NEON.pyx":207
  *     AA = <float>(0.2135)
  *     DD = <float>(3.86)
  *     FF = <float>(-2.656)             # <<<<<<<<<<<<<<
@@ -4092,7 +4092,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_FF = ((float)-2.656);
 
-  /* "NEON.pyx":208
+  /* "gases/NEON.pyx":208
  *     DD = <float>(3.86)
  *     FF = <float>(-2.656)
  *     A1 = <float>(1.846)             # <<<<<<<<<<<<<<
@@ -4101,7 +4101,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A1 = ((float)1.846);
 
-  /* "NEON.pyx":209
+  /* "gases/NEON.pyx":209
  *     FF = <float>(-2.656)
  *     A1 = <float>(1.846)
  *     B1 = <float>(3.29)             # <<<<<<<<<<<<<<
@@ -4110,7 +4110,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_B1 = ((float)3.29);
 
-  /* "NEON.pyx":210
+  /* "gases/NEON.pyx":210
  *     A1 = <float>(1.846)
  *     B1 = <float>(3.29)
  *     A2 = <float>(-0.037)             # <<<<<<<<<<<<<<
@@ -4119,7 +4119,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_A2 = ((float)-0.037);
 
-  /* "NEON.pyx":211
+  /* "gases/NEON.pyx":211
  *     B1 = <float>(3.29)
  *     A2 = <float>(-0.037)
  *     object.NSTEP = 4000             # <<<<<<<<<<<<<<
@@ -4128,7 +4128,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NSTEP = 0xFA0;
 
-  /* "NEON.pyx":213
+  /* "gases/NEON.pyx":213
  *     object.NSTEP = 4000
  * 
  *     for I in range(object.NSTEP):             # <<<<<<<<<<<<<<
@@ -4140,7 +4140,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_31 = 0; __pyx_t_31 < __pyx_t_30; __pyx_t_31+=1) {
     __pyx_v_I = __pyx_t_31;
 
-    /* "NEON.pyx":214
+    /* "gases/NEON.pyx":214
  * 
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]             # <<<<<<<<<<<<<<
@@ -4149,7 +4149,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_object->EG[__pyx_v_I]);
 
-    /* "NEON.pyx":215
+    /* "gases/NEON.pyx":215
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -4159,7 +4159,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":216
+      /* "gases/NEON.pyx":216
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2             # <<<<<<<<<<<<<<
@@ -4168,7 +4168,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA1 = ((__pyx_v_EMASS2 + (2.0 * __pyx_v_EN)) / __pyx_v_EMASS2);
 
-      /* "NEON.pyx":217
+      /* "gases/NEON.pyx":217
  *         if EN > object.EIN[0]:
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1             # <<<<<<<<<<<<<<
@@ -4177,7 +4177,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_GAMMA2 = (__pyx_v_GAMMA1 * __pyx_v_GAMMA1);
 
-      /* "NEON.pyx":218
+      /* "gases/NEON.pyx":218
  *             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)             # <<<<<<<<<<<<<<
@@ -4186,7 +4186,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA = sqrt((1.0 - (1.0 / __pyx_v_GAMMA2)));
 
-      /* "NEON.pyx":219
+      /* "gases/NEON.pyx":219
  *             GAMMA2 = GAMMA1 * GAMMA1
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA             # <<<<<<<<<<<<<<
@@ -4195,7 +4195,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_BETA2 = (__pyx_v_BETA * __pyx_v_BETA);
 
-      /* "NEON.pyx":215
+      /* "gases/NEON.pyx":215
  *     for I in range(object.NSTEP):
  *         EN = object.EG[I]
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -4204,7 +4204,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":220
+    /* "gases/NEON.pyx":220
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA
  *         if EN == 0:             # <<<<<<<<<<<<<<
@@ -4214,7 +4214,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN == 0.0) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":221
+      /* "gases/NEON.pyx":221
  *             BETA2 = BETA * BETA
  *         if EN == 0:
  *             QELA = 0.161e-16             # <<<<<<<<<<<<<<
@@ -4223,7 +4223,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QELA = 0.161e-16;
 
-      /* "NEON.pyx":222
+      /* "gases/NEON.pyx":222
  *         if EN == 0:
  *             QELA = 0.161e-16
  *             QMOM = 0.161e-16             # <<<<<<<<<<<<<<
@@ -4232,7 +4232,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMOM = 0.161e-16;
 
-      /* "NEON.pyx":220
+      /* "gases/NEON.pyx":220
  *             BETA = sqrt(1.0 - 1.0 / GAMMA2)
  *             BETA2 = BETA * BETA
  *         if EN == 0:             # <<<<<<<<<<<<<<
@@ -4242,7 +4242,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L22;
     }
 
-    /* "NEON.pyx":223
+    /* "gases/NEON.pyx":223
  *             QELA = 0.161e-16
  *             QMOM = 0.161e-16
  *         elif EN <= 1:             # <<<<<<<<<<<<<<
@@ -4252,7 +4252,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN <= 1.0) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":224
+      /* "gases/NEON.pyx":224
  *             QMOM = 0.161e-16
  *         elif EN <= 1:
  *             AK = sqrt(EN / object.ARY)             # <<<<<<<<<<<<<<
@@ -4261,7 +4261,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AK = sqrt((__pyx_v_EN / __pyx_v_object->ARY));
 
-      /* "NEON.pyx":225
+      /* "gases/NEON.pyx":225
  *         elif EN <= 1:
  *             AK = sqrt(EN / object.ARY)
  *             AK2 = AK * AK             # <<<<<<<<<<<<<<
@@ -4270,7 +4270,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AK2 = (__pyx_v_AK * __pyx_v_AK);
 
-      /* "NEON.pyx":226
+      /* "gases/NEON.pyx":226
  *             AK = sqrt(EN / object.ARY)
  *             AK2 = AK * AK
  *             AK3 = AK2 * AK             # <<<<<<<<<<<<<<
@@ -4279,7 +4279,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AK3 = (__pyx_v_AK2 * __pyx_v_AK);
 
-      /* "NEON.pyx":227
+      /* "gases/NEON.pyx":227
  *             AK2 = AK * AK
  *             AK3 = AK2 * AK
  *             AK4 = AK3 * AK             # <<<<<<<<<<<<<<
@@ -4288,7 +4288,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AK4 = (__pyx_v_AK3 * __pyx_v_AK);
 
-      /* "NEON.pyx":228
+      /* "gases/NEON.pyx":228
  *             AK3 = AK2 * AK
  *             AK4 = AK3 * AK
  *             AK5 = AK4 * AK             # <<<<<<<<<<<<<<
@@ -4297,7 +4297,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AK5 = (__pyx_v_AK4 * __pyx_v_AK);
 
-      /* "NEON.pyx":229
+      /* "gases/NEON.pyx":229
  *             AK4 = AK3 * AK
  *             AK5 = AK4 * AK
  *             AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4             # <<<<<<<<<<<<<<
@@ -4306,7 +4306,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AN0 = ((((((-__pyx_v_AA) * __pyx_v_AK) * (1.0 + ((((4.0 * __pyx_v_APOL) / 3.0) * __pyx_v_AK2) * log(__pyx_v_AK)))) - (((__pyx_v_API * __pyx_v_APOL) / 3.0) * __pyx_v_AK2)) + (__pyx_v_DD * __pyx_v_AK3)) + (__pyx_v_FF * __pyx_v_AK4));
 
-      /* "NEON.pyx":230
+      /* "gases/NEON.pyx":230
  *             AK5 = AK4 * AK
  *             AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
  *             AN1 = ((API / 15.0) * APOL * AK2 - A1 * AK3) / (1.0 + B1 * AK2)             # <<<<<<<<<<<<<<
@@ -4315,7 +4315,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AN1 = (((((__pyx_v_API / 15.0) * __pyx_v_APOL) * __pyx_v_AK2) - (__pyx_v_A1 * __pyx_v_AK3)) / (1.0 + (__pyx_v_B1 * __pyx_v_AK2)));
 
-      /* "NEON.pyx":231
+      /* "gases/NEON.pyx":231
  *             AN0 = -AA * AK * (1.0 + (4.0 * APOL / 3.0) * AK2 * log(AK)) - (API * APOL / 3.0) * AK2 + DD * AK3 + FF * AK4
  *             AN1 = ((API / 15.0) * APOL * AK2 - A1 * AK3) / (1.0 + B1 * AK2)
  *             AN2 = API * APOL * AK2 / 105.0 - A2 * AK5             # <<<<<<<<<<<<<<
@@ -4324,7 +4324,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_AN2 = ((((__pyx_v_API * __pyx_v_APOL) * __pyx_v_AK2) / 105.0) - (__pyx_v_A2 * __pyx_v_AK5));
 
-      /* "NEON.pyx":232
+      /* "gases/NEON.pyx":232
  *             AN1 = ((API / 15.0) * APOL * AK2 - A1 * AK3) / (1.0 + B1 * AK2)
  *             AN2 = API * APOL * AK2 / 105.0 - A2 * AK5
  *             ANHIGH = AN2             # <<<<<<<<<<<<<<
@@ -4333,7 +4333,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_ANHIGH = __pyx_v_AN2;
 
-      /* "NEON.pyx":233
+      /* "gases/NEON.pyx":233
  *             AN2 = API * APOL * AK2 / 105.0 - A2 * AK5
  *             ANHIGH = AN2
  *             SUM = (sin(AN0 - AN1)) ** 2             # <<<<<<<<<<<<<<
@@ -4342,7 +4342,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_SUM = pow(sin((__pyx_v_AN0 - __pyx_v_AN1)), 2.0);
 
-      /* "NEON.pyx":234
+      /* "gases/NEON.pyx":234
  *             ANHIGH = AN2
  *             SUM = (sin(AN0 - AN1)) ** 2
  *             SUM = SUM + 2.0 * (sin(AN1 - AN2)) ** 2             # <<<<<<<<<<<<<<
@@ -4351,7 +4351,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_SUM = (__pyx_v_SUM + (2.0 * pow(sin((__pyx_v_AN1 - __pyx_v_AN2)), 2.0)));
 
-      /* "NEON.pyx":235
+      /* "gases/NEON.pyx":235
  *             SUM = (sin(AN0 - AN1)) ** 2
  *             SUM = SUM + 2.0 * (sin(AN1 - AN2)) ** 2
  *             SIGEL = (sin(AN0)) ** 2 + 3.0 * (sin(AN1)) ** 2             # <<<<<<<<<<<<<<
@@ -4360,7 +4360,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_SIGEL = (pow(sin(__pyx_v_AN0), 2.0) + (3.0 * pow(sin(__pyx_v_AN1), 2.0)));
 
-      /* "NEON.pyx":236
+      /* "gases/NEON.pyx":236
  *             SUM = SUM + 2.0 * (sin(AN1 - AN2)) ** 2
  *             SIGEL = (sin(AN0)) ** 2 + 3.0 * (sin(AN1)) ** 2
  *             for J in range(2, LMAX):             # <<<<<<<<<<<<<<
@@ -4372,7 +4372,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       for (__pyx_t_46 = 2; __pyx_t_46 < __pyx_t_45; __pyx_t_46+=1) {
         __pyx_v_J = __pyx_t_46;
 
-        /* "NEON.pyx":237
+        /* "gases/NEON.pyx":237
  *             SIGEL = (sin(AN0)) ** 2 + 3.0 * (sin(AN1)) ** 2
  *             for J in range(2, LMAX):
  *                 ANLOW = ANHIGH             # <<<<<<<<<<<<<<
@@ -4381,7 +4381,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_ANLOW = __pyx_v_ANHIGH;
 
-        /* "NEON.pyx":238
+        /* "gases/NEON.pyx":238
  *             for J in range(2, LMAX):
  *                 ANLOW = ANHIGH
  *                 ANHIGH = API * APOL * AK2 / ((2. * J + 5.0) * (2. * J + 3.0) * (2. * J + 1.0))             # <<<<<<<<<<<<<<
@@ -4390,7 +4390,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_ANHIGH = (((__pyx_v_API * __pyx_v_APOL) * __pyx_v_AK2) / ((((2. * __pyx_v_J) + 5.0) * ((2. * __pyx_v_J) + 3.0)) * ((2. * __pyx_v_J) + 1.0)));
 
-        /* "NEON.pyx":239
+        /* "gases/NEON.pyx":239
  *                 ANLOW = ANHIGH
  *                 ANHIGH = API * APOL * AK2 / ((2. * J + 5.0) * (2. * J + 3.0) * (2. * J + 1.0))
  *                 SUMI = 6.0 / ((2.0 * J + 5.0) * (2.0 * J + 3.0) * (2.0 * J + 1.0) * (2.0 * J - 1.0))             # <<<<<<<<<<<<<<
@@ -4399,7 +4399,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_SUMI = (6.0 / (((((2.0 * __pyx_v_J) + 5.0) * ((2.0 * __pyx_v_J) + 3.0)) * ((2.0 * __pyx_v_J) + 1.0)) * ((2.0 * __pyx_v_J) - 1.0)));
 
-        /* "NEON.pyx":240
+        /* "gases/NEON.pyx":240
  *                 ANHIGH = API * APOL * AK2 / ((2. * J + 5.0) * (2. * J + 3.0) * (2. * J + 1.0))
  *                 SUMI = 6.0 / ((2.0 * J + 5.0) * (2.0 * J + 3.0) * (2.0 * J + 1.0) * (2.0 * J - 1.0))
  *                 SUM = SUM + (J + 1.0) * (sin(API * APOL * AK2 * SUMI)) ** 2             # <<<<<<<<<<<<<<
@@ -4408,7 +4408,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         __pyx_v_SUM = (__pyx_v_SUM + ((__pyx_v_J + 1.0) * pow(sin((((__pyx_v_API * __pyx_v_APOL) * __pyx_v_AK2) * __pyx_v_SUMI)), 2.0)));
 
-        /* "NEON.pyx":241
+        /* "gases/NEON.pyx":241
  *                 SUMI = 6.0 / ((2.0 * J + 5.0) * (2.0 * J + 3.0) * (2.0 * J + 1.0) * (2.0 * J - 1.0))
  *                 SUM = SUM + (J + 1.0) * (sin(API * APOL * AK2 * SUMI)) ** 2
  *                 SIGEL = SIGEL + (2.0 * J + 1.0) * (sin(ANLOW)) ** 2             # <<<<<<<<<<<<<<
@@ -4418,7 +4418,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
         __pyx_v_SIGEL = (__pyx_v_SIGEL + (((2.0 * __pyx_v_J) + 1.0) * pow(sin(__pyx_v_ANLOW), 2.0)));
       }
 
-      /* "NEON.pyx":242
+      /* "gases/NEON.pyx":242
  *                 SUM = SUM + (J + 1.0) * (sin(API * APOL * AK2 * SUMI)) ** 2
  *                 SIGEL = SIGEL + (2.0 * J + 1.0) * (sin(ANLOW)) ** 2
  *             QELA = SIGEL * 4.0 * object.PIR2 / AK2             # <<<<<<<<<<<<<<
@@ -4427,7 +4427,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QELA = (((__pyx_v_SIGEL * 4.0) * __pyx_v_object->PIR2) / __pyx_v_AK2);
 
-      /* "NEON.pyx":243
+      /* "gases/NEON.pyx":243
  *                 SIGEL = SIGEL + (2.0 * J + 1.0) * (sin(ANLOW)) ** 2
  *             QELA = SIGEL * 4.0 * object.PIR2 / AK2
  *             QMOM = SUM * 4.0 * object.PIR2 / AK2             # <<<<<<<<<<<<<<
@@ -4436,7 +4436,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QMOM = (((__pyx_v_SUM * 4.0) * __pyx_v_object->PIR2) / __pyx_v_AK2);
 
-      /* "NEON.pyx":223
+      /* "gases/NEON.pyx":223
  *             QELA = 0.161e-16
  *             QMOM = 0.161e-16
  *         elif EN <= 1:             # <<<<<<<<<<<<<<
@@ -4446,7 +4446,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L22;
     }
 
-    /* "NEON.pyx":245
+    /* "gases/NEON.pyx":245
  *             QMOM = SUM * 4.0 * object.PIR2 / AK2
  *         else:
  *             QELA = GasUtil.CALQIONREG(EN, NEL, YEL, XEL)             # <<<<<<<<<<<<<<
@@ -4456,7 +4456,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     /*else*/ {
       __pyx_v_QELA = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NEL, __pyx_v_YEL, __pyx_v_XEL);
 
-      /* "NEON.pyx":246
+      /* "gases/NEON.pyx":246
  *         else:
  *             QELA = GasUtil.CALQIONREG(EN, NEL, YEL, XEL)
  *             QMOM = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)             # <<<<<<<<<<<<<<
@@ -4467,7 +4467,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L22:;
 
-    /* "NEON.pyx":247
+    /* "gases/NEON.pyx":247
  *             QELA = GasUtil.CALQIONREG(EN, NEL, YEL, XEL)
  *             QMOM = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)
  *         PQ[1] = 0.5 + (QELA - QMOM) / QELA             # <<<<<<<<<<<<<<
@@ -4476,7 +4476,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[1]) = (0.5 + ((__pyx_v_QELA - __pyx_v_QMOM) / __pyx_v_QELA));
 
-    /* "NEON.pyx":248
+    /* "gases/NEON.pyx":248
  *             QMOM = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)
  *         PQ[1] = 0.5 + (QELA - QMOM) / QELA
  *         PQ[0] = 0.5             # <<<<<<<<<<<<<<
@@ -4485,7 +4485,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[0]) = 0.5;
 
-    /* "NEON.pyx":249
+    /* "gases/NEON.pyx":249
  *         PQ[1] = 0.5 + (QELA - QMOM) / QELA
  *         PQ[0] = 0.5
  *         PQ[2] = GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)             # <<<<<<<<<<<<<<
@@ -4494,7 +4494,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NEPSI, __pyx_v_YEPS, __pyx_v_XEPS);
 
-    /* "NEON.pyx":250
+    /* "gases/NEON.pyx":250
  *         PQ[0] = 0.5
  *         PQ[2] = GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)
  *         PQ[2] = 1-PQ[2]             # <<<<<<<<<<<<<<
@@ -4503,7 +4503,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     (__pyx_v_PQ[2]) = (1.0 - (__pyx_v_PQ[2]));
 
-    /* "NEON.pyx":251
+    /* "gases/NEON.pyx":251
  *         PQ[2] = GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)
  *         PQ[2] = 1-PQ[2]
  *         object.PEQEL[1][I] = PQ[object.NANISO]             # <<<<<<<<<<<<<<
@@ -4512,7 +4512,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[1])[__pyx_v_I]) = (__pyx_v_PQ[__pyx_v_object->NANISO]);
 
-    /* "NEON.pyx":252
+    /* "gases/NEON.pyx":252
  *         PQ[2] = 1-PQ[2]
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA             # <<<<<<<<<<<<<<
@@ -4521,7 +4521,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QELA;
 
-    /* "NEON.pyx":253
+    /* "gases/NEON.pyx":253
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -4531,7 +4531,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_object->NANISO == 0) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":254
+      /* "gases/NEON.pyx":254
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:
  *             object.Q[1][I] = QMOM             # <<<<<<<<<<<<<<
@@ -4540,7 +4540,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_v_QMOM;
 
-      /* "NEON.pyx":253
+      /* "gases/NEON.pyx":253
  *         object.PEQEL[1][I] = PQ[object.NANISO]
  *         object.Q[1][I] = QELA
  *         if object.NANISO == 0:             # <<<<<<<<<<<<<<
@@ -4549,7 +4549,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":257
+    /* "gases/NEON.pyx":257
  * 
  *         #IONISATION FOR CHARGE STATE =1
  *         object.QION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4558,7 +4558,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[0])[__pyx_v_I]) = 0.0;
 
-    /* "NEON.pyx":258
+    /* "gases/NEON.pyx":258
  *         #IONISATION FOR CHARGE STATE =1
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4567,7 +4567,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.5;
 
-    /* "NEON.pyx":259
+    /* "gases/NEON.pyx":259
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4577,7 +4577,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":260
+      /* "gases/NEON.pyx":260
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4586,7 +4586,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = 0.0;
 
-      /* "NEON.pyx":259
+      /* "gases/NEON.pyx":259
  *         object.QION[0][I] = 0.0
  *         object.PEQION[0][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4595,7 +4595,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":261
+    /* "gases/NEON.pyx":261
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4605,7 +4605,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EION[0])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":262
+      /* "gases/NEON.pyx":262
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:
  *             object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YIN1, XION, BETA2, <float>(0.9594), CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -4614,7 +4614,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YIN1, __pyx_v_XION, __pyx_v_BETA2, ((float)0.9594), __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "NEON.pyx":267
+      /* "gases/NEON.pyx":267
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # THE IONISATION ENERGY
  *             if EN > 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4624,7 +4624,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[0]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":268
+        /* "gases/NEON.pyx":268
  *         # THE IONISATION ENERGY
  *             if EN > 2 * object.EION[0]:
  *                 object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]             # <<<<<<<<<<<<<<
@@ -4633,7 +4633,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[0]))]);
 
-        /* "NEON.pyx":267
+        /* "gases/NEON.pyx":267
  *         # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
  *         # THE IONISATION ENERGY
  *             if EN > 2 * object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4642,7 +4642,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":261
+      /* "gases/NEON.pyx":261
  *         if object.NANISO == 2:
  *             object.PEQION[0][I] = 0.0
  *         if EN > object.EION[0]:             # <<<<<<<<<<<<<<
@@ -4651,7 +4651,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":271
+    /* "gases/NEON.pyx":271
  * 
  *         #IONISATION FOR CHARGE STATE =2
  *         object.QION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4660,7 +4660,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[1])[__pyx_v_I]) = 0.0;
 
-    /* "NEON.pyx":272
+    /* "gases/NEON.pyx":272
  *         #IONISATION FOR CHARGE STATE =2
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4669,7 +4669,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.5;
 
-    /* "NEON.pyx":273
+    /* "gases/NEON.pyx":273
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4679,7 +4679,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":274
+      /* "gases/NEON.pyx":274
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4688,7 +4688,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = 0.0;
 
-      /* "NEON.pyx":273
+      /* "gases/NEON.pyx":273
  *         object.QION[1][I] = 0.0
  *         object.PEQION[1][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4697,7 +4697,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":275
+    /* "gases/NEON.pyx":275
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4707,7 +4707,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EION[1])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":276
+      /* "gases/NEON.pyx":276
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, <float>(0.0388), CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -4716,7 +4716,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION2, __pyx_v_YIN2, __pyx_v_XIN2, __pyx_v_BETA2, ((float)0.0388), __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "NEON.pyx":277
+      /* "gases/NEON.pyx":277
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, <float>(0.0388), CONST, object.DEN[I], C, AM2)
  *             if EN > 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4726,7 +4726,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[1]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":278
+        /* "gases/NEON.pyx":278
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, <float>(0.0388), CONST, object.DEN[I], C, AM2)
  *             if EN > 2 * object.EION[1]:
  *                 object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]             # <<<<<<<<<<<<<<
@@ -4735,7 +4735,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[1]))]);
 
-        /* "NEON.pyx":277
+        /* "gases/NEON.pyx":277
  *         if EN > object.EION[1]:
  *             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, <float>(0.0388), CONST, object.DEN[I], C, AM2)
  *             if EN > 2 * object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4744,7 +4744,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":275
+      /* "gases/NEON.pyx":275
  *         if object.NANISO == 2:
  *             object.PEQION[1][I] = 0.0
  *         if EN > object.EION[1]:             # <<<<<<<<<<<<<<
@@ -4753,7 +4753,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":281
+    /* "gases/NEON.pyx":281
  * 
  *         #IONISATION FOR CHARGE STATE =3
  *         object.QION[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4762,7 +4762,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[2])[__pyx_v_I]) = 0.0;
 
-    /* "NEON.pyx":282
+    /* "gases/NEON.pyx":282
  *         #IONISATION FOR CHARGE STATE =3
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4771,7 +4771,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.5;
 
-    /* "NEON.pyx":283
+    /* "gases/NEON.pyx":283
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4781,7 +4781,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":284
+      /* "gases/NEON.pyx":284
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4790,7 +4790,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = 0.0;
 
-      /* "NEON.pyx":283
+      /* "gases/NEON.pyx":283
  *         object.QION[2][I] = 0.0
  *         object.PEQION[2][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4799,7 +4799,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":285
+    /* "gases/NEON.pyx":285
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4809,7 +4809,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EION[2])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":286
+      /* "gases/NEON.pyx":286
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, <float>(0.00215), CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -4818,7 +4818,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NION3, __pyx_v_YIN3, __pyx_v_XIN3, __pyx_v_BETA2, ((float)0.00215), __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-      /* "NEON.pyx":287
+      /* "gases/NEON.pyx":287
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, <float>(0.00215), CONST, object.DEN[I], C, AM2)
  *             if EN > 2 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4828,7 +4828,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EION[2]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":288
+        /* "gases/NEON.pyx":288
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, <float>(0.00215), CONST, object.DEN[I], C, AM2)
  *             if EN > 2 * object.EION[2]:
  *                 object.PEQION[2][I] = object.PEQEL[1][I - IOFFION[2]]             # <<<<<<<<<<<<<<
@@ -4837,7 +4837,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQION[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[2]))]);
 
-        /* "NEON.pyx":287
+        /* "gases/NEON.pyx":287
  *         if EN > object.EION[2]:
  *             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, <float>(0.00215), CONST, object.DEN[I], C, AM2)
  *             if EN > 2 * object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4846,7 +4846,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":285
+      /* "gases/NEON.pyx":285
  *         if object.NANISO == 2:
  *             object.PEQION[2][I] = 0.0
  *         if EN > object.EION[2]:             # <<<<<<<<<<<<<<
@@ -4855,7 +4855,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":291
+    /* "gases/NEON.pyx":291
  * 
  *         # K-SHELL IONISATION
  *         object.QION[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4864,7 +4864,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QION[3])[__pyx_v_I]) = 0.0;
 
-    /* "NEON.pyx":292
+    /* "gases/NEON.pyx":292
  *         # K-SHELL IONISATION
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4873,7 +4873,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = 0.5;
 
-    /* "NEON.pyx":293
+    /* "gases/NEON.pyx":293
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4883,7 +4883,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":294
+      /* "gases/NEON.pyx":294
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4892,7 +4892,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = 0.0;
 
-      /* "NEON.pyx":293
+      /* "gases/NEON.pyx":293
  *         object.QION[3][I] = 0.0
  *         object.PEQION[3][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4901,7 +4901,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":295
+    /* "gases/NEON.pyx":295
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0.0
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4911,7 +4911,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EION[3])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":296
+      /* "gases/NEON.pyx":296
  *             object.PEQION[3][I] = 0.0
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)             # <<<<<<<<<<<<<<
@@ -4920,7 +4920,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QION[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NKSH, __pyx_v_YKSH, __pyx_v_XKSH);
 
-      /* "NEON.pyx":297
+      /* "gases/NEON.pyx":297
  *         if EN > object.EION[3]:
  *             object.QION[3][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
  *             object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]             # <<<<<<<<<<<<<<
@@ -4929,7 +4929,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQION[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFION[3]))]);
 
-      /* "NEON.pyx":295
+      /* "gases/NEON.pyx":295
  *         if object.NANISO == 2:
  *             object.PEQION[3][I] = 0.0
  *         if EN > object.EION[3]:             # <<<<<<<<<<<<<<
@@ -4938,7 +4938,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":300
+    /* "gases/NEON.pyx":300
  * 
  *         # ATTACHMENT
  *         object.Q[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4947,7 +4947,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "NEON.pyx":301
+    /* "gases/NEON.pyx":301
  *         # ATTACHMENT
  *         object.Q[3][I] = 0.0
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4956,7 +4956,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "NEON.pyx":304
+    /* "gases/NEON.pyx":304
  * 
  *         #COUNTING IONISATION
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4965,7 +4965,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "NEON.pyx":305
+    /* "gases/NEON.pyx":305
  *         #COUNTING IONISATION
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5             # <<<<<<<<<<<<<<
@@ -4974,7 +4974,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.5;
 
-    /* "NEON.pyx":306
+    /* "gases/NEON.pyx":306
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -4984,7 +4984,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_object->NANISO == 2) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":307
+      /* "gases/NEON.pyx":307
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -4993,7 +4993,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQEL[4])[__pyx_v_I]) = 0.0;
 
-      /* "NEON.pyx":308
+      /* "gases/NEON.pyx":308
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0
  *             if EN > object.E[2]:             # <<<<<<<<<<<<<<
@@ -5003,7 +5003,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->E[2])) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":309
+        /* "gases/NEON.pyx":309
  *             object.PEQEL[4][I] = 0.0
  *             if EN > object.E[2]:
  *                 object.Q[4][I] = GasUtil.CALQIONX(EN, NIOND, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)             # <<<<<<<<<<<<<<
@@ -5012,7 +5012,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->Q[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONX(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YINC, __pyx_v_XION, __pyx_v_BETA2, 1.0, __pyx_v_CONST, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_C, __pyx_v_AM2);
 
-        /* "NEON.pyx":308
+        /* "gases/NEON.pyx":308
  *         if object.NANISO == 2:
  *             object.PEQEL[4][I] = 0.0
  *             if EN > object.E[2]:             # <<<<<<<<<<<<<<
@@ -5021,7 +5021,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":306
+      /* "gases/NEON.pyx":306
  *         object.Q[4][I] = 0.0
  *         object.PEQEL[4][I] = 0.5
  *         if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5030,7 +5030,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":314
+    /* "gases/NEON.pyx":314
  *         # GIVES TOTAL IONISATION EQUAL TO OSCILLATOR SUM
  * 
  *         if object.Q[4][I] == 0.0:             # <<<<<<<<<<<<<<
@@ -5040,7 +5040,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((((__pyx_v_object->Q[4])[__pyx_v_I]) == 0.0) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":315
+      /* "gases/NEON.pyx":315
  * 
  *         if object.Q[4][I] == 0.0:
  *             QCORR = 1.0             # <<<<<<<<<<<<<<
@@ -5049,7 +5049,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_QCORR = 1.0;
 
-      /* "NEON.pyx":314
+      /* "gases/NEON.pyx":314
  *         # GIVES TOTAL IONISATION EQUAL TO OSCILLATOR SUM
  * 
  *         if object.Q[4][I] == 0.0:             # <<<<<<<<<<<<<<
@@ -5059,7 +5059,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       goto __pyx_L39;
     }
 
-    /* "NEON.pyx":317
+    /* "gases/NEON.pyx":317
  *             QCORR = 1.0
  *         else:
  *             QCORR = (object.Q[4][I] - object.QION[3][I]) / object.Q[4][I]             # <<<<<<<<<<<<<<
@@ -5071,7 +5071,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
     __pyx_L39:;
 
-    /* "NEON.pyx":318
+    /* "gases/NEON.pyx":318
  *         else:
  *             QCORR = (object.Q[4][I] - object.QION[3][I]) / object.Q[4][I]
  *         object.QION[0][I] *= QCORR             # <<<<<<<<<<<<<<
@@ -5082,7 +5082,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_32 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_47])[__pyx_t_32]) = (((__pyx_v_object->QION[__pyx_t_47])[__pyx_t_32]) * __pyx_v_QCORR);
 
-    /* "NEON.pyx":319
+    /* "gases/NEON.pyx":319
  *             QCORR = (object.Q[4][I] - object.QION[3][I]) / object.Q[4][I]
  *         object.QION[0][I] *= QCORR
  *         object.QION[1][I] *= QCORR             # <<<<<<<<<<<<<<
@@ -5093,7 +5093,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_32 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_47])[__pyx_t_32]) = (((__pyx_v_object->QION[__pyx_t_47])[__pyx_t_32]) * __pyx_v_QCORR);
 
-    /* "NEON.pyx":320
+    /* "gases/NEON.pyx":320
  *         object.QION[0][I] *= QCORR
  *         object.QION[1][I] *= QCORR
  *         object.QION[2][I] *= QCORR             # <<<<<<<<<<<<<<
@@ -5104,7 +5104,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_32 = __pyx_v_I;
     ((__pyx_v_object->QION[__pyx_t_47])[__pyx_t_32]) = (((__pyx_v_object->QION[__pyx_t_47])[__pyx_t_32]) * __pyx_v_QCORR);
 
-    /* "NEON.pyx":322
+    /* "gases/NEON.pyx":322
  *         object.QION[2][I] *= QCORR
  * 
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5113,7 +5113,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "NEON.pyx":324
+    /* "gases/NEON.pyx":324
  *         object.Q[5][I] = 0.0
  * 
  *         for NL in range(object.NIN + 1):             # <<<<<<<<<<<<<<
@@ -5125,7 +5125,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_32 = 0; __pyx_t_32 < __pyx_t_48; __pyx_t_32+=1) {
       __pyx_v_NL = __pyx_t_32;
 
-      /* "NEON.pyx":325
+      /* "gases/NEON.pyx":325
  * 
  *         for NL in range(object.NIN + 1):
  *             object.QIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5134,7 +5134,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-      /* "NEON.pyx":326
+      /* "gases/NEON.pyx":326
  *         for NL in range(object.NIN + 1):
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5             # <<<<<<<<<<<<<<
@@ -5143,7 +5143,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.5;
 
-      /* "NEON.pyx":327
+      /* "gases/NEON.pyx":327
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5153,7 +5153,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_object->NANISO == 2) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":328
+        /* "gases/NEON.pyx":328
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:
  *                 object.PEQIN[NL][I] = 0.0             # <<<<<<<<<<<<<<
@@ -5162,7 +5162,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[__pyx_v_NL])[__pyx_v_I]) = 0.0;
 
-        /* "NEON.pyx":327
+        /* "gases/NEON.pyx":327
  *             object.QIN[NL][I] = 0.0
  *             object.PEQIN[NL][I] = 0.5
  *             if object.NANISO == 2:             # <<<<<<<<<<<<<<
@@ -5172,7 +5172,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       }
     }
 
-    /* "NEON.pyx":331
+    /* "gases/NEON.pyx":331
  * 
  *         #1S5 METASTABLE LEVEL
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -5182,7 +5182,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[0])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":332
+      /* "gases/NEON.pyx":332
  *         #1S5 METASTABLE LEVEL
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)             # <<<<<<<<<<<<<<
@@ -5191,7 +5191,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N1S5, __pyx_v_Y1S5, __pyx_v_X1S5, 3.0);
 
-      /* "NEON.pyx":333
+      /* "gases/NEON.pyx":333
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)
  *             if EN > 2 * object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -5201,7 +5201,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[0]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":334
+        /* "gases/NEON.pyx":334
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)
  *             if EN > 2 * object.EIN[0]:
  *                 object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]             # <<<<<<<<<<<<<<
@@ -5210,7 +5210,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[0])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[0]))]);
 
-        /* "NEON.pyx":333
+        /* "gases/NEON.pyx":333
  *         if EN > object.EIN[0]:
  *             object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3)
  *             if EN > 2 * object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -5219,7 +5219,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":331
+      /* "gases/NEON.pyx":331
  * 
  *         #1S5 METASTABLE LEVEL
  *         if EN > object.EIN[0]:             # <<<<<<<<<<<<<<
@@ -5228,7 +5228,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":337
+    /* "gases/NEON.pyx":337
  * 
  *         #1S4 RESONANCE LEVEL  F=0.0118
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -5238,7 +5238,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":338
+      /* "gases/NEON.pyx":338
  *         #1S4 RESONANCE LEVEL  F=0.0118
  *         if EN > object.EIN[1]:
  *             object.QIN[1][I] = GasUtil.CALQINBEF(EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,             # <<<<<<<<<<<<<<
@@ -5247,7 +5247,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N1S4, __pyx_v_Y1S4, __pyx_v_X1S4, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[1]), (__pyx_v_object->E[2]), ((float)0.0118));
 
-      /* "NEON.pyx":340
+      /* "gases/NEON.pyx":340
  *             object.QIN[1][I] = GasUtil.CALQINBEF(EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[1], object.E[2], <float>(0.0118))
  *             object.QIN[1][I] = abs(object.QIN[1][I])             # <<<<<<<<<<<<<<
@@ -5256,7 +5256,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[1])[__pyx_v_I]));
 
-      /* "NEON.pyx":341
+      /* "gases/NEON.pyx":341
  *                                                  object.EIN[1], object.E[2], <float>(0.0118))
  *             object.QIN[1][I] = abs(object.QIN[1][I])
  *             if EN > 2 * object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -5266,7 +5266,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[1]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":342
+        /* "gases/NEON.pyx":342
  *             object.QIN[1][I] = abs(object.QIN[1][I])
  *             if EN > 2 * object.EIN[1]:
  *                 object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]             # <<<<<<<<<<<<<<
@@ -5275,7 +5275,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[1])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[1]))]);
 
-        /* "NEON.pyx":341
+        /* "gases/NEON.pyx":341
  *                                                  object.EIN[1], object.E[2], <float>(0.0118))
  *             object.QIN[1][I] = abs(object.QIN[1][I])
  *             if EN > 2 * object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -5284,7 +5284,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":337
+      /* "gases/NEON.pyx":337
  * 
  *         #1S4 RESONANCE LEVEL  F=0.0118
  *         if EN > object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -5293,7 +5293,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":345
+    /* "gases/NEON.pyx":345
  * 
  *         #1S3 METASTABLE LEVEL
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -5303,7 +5303,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[2])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":346
+      /* "gases/NEON.pyx":346
  *         #1S3 METASTABLE LEVEL
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)             # <<<<<<<<<<<<<<
@@ -5312,7 +5312,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N1S3, __pyx_v_Y1S3, __pyx_v_X1S3, 3.0);
 
-      /* "NEON.pyx":347
+      /* "gases/NEON.pyx":347
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)
  *             if EN > 2 * object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -5322,7 +5322,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[2]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":348
+        /* "gases/NEON.pyx":348
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)
  *             if EN > 2 * object.EIN[2]:
  *                 object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]             # <<<<<<<<<<<<<<
@@ -5331,7 +5331,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[2])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[2]))]);
 
-        /* "NEON.pyx":347
+        /* "gases/NEON.pyx":347
  *         if EN > object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3)
  *             if EN > 2 * object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -5340,7 +5340,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":345
+      /* "gases/NEON.pyx":345
  * 
  *         #1S3 METASTABLE LEVEL
  *         if EN > object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -5349,7 +5349,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":351
+    /* "gases/NEON.pyx":351
  * 
  *         #1S2 RESONANCE LEVEL  F=0.159
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -5359,7 +5359,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":352
+      /* "gases/NEON.pyx":352
  *         #1S2 RESONANCE LEVEL  F=0.159
  *         if EN > object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQINBEF(EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,             # <<<<<<<<<<<<<<
@@ -5368,7 +5368,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINBEF(__pyx_v_EN, __pyx_v_N1S2, __pyx_v_Y1S2, __pyx_v_X1S2, __pyx_v_BETA2, __pyx_v_GAMMA2, __pyx_v_EMASS2, (__pyx_v_object->DEN[__pyx_v_I]), __pyx_v_BBCONST, (__pyx_v_object->EIN[3]), (__pyx_v_object->E[2]), ((float)0.159));
 
-      /* "NEON.pyx":354
+      /* "gases/NEON.pyx":354
  *             object.QIN[3][I] = GasUtil.CALQINBEF(EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
  *                                                  object.EIN[3], object.E[2], <float>(0.159))
  *             object.QIN[3][I] = abs(object.QIN[3][I])             # <<<<<<<<<<<<<<
@@ -5377,7 +5377,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[3])[__pyx_v_I]));
 
-      /* "NEON.pyx":355
+      /* "gases/NEON.pyx":355
  *                                                  object.EIN[3], object.E[2], <float>(0.159))
  *             object.QIN[3][I] = abs(object.QIN[3][I])
  *             if EN > 2 * object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -5387,7 +5387,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[3]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":356
+        /* "gases/NEON.pyx":356
  *             object.QIN[3][I] = abs(object.QIN[3][I])
  *             if EN > 2 * object.EIN[3]:
  *                 object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]             # <<<<<<<<<<<<<<
@@ -5396,7 +5396,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[3])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[3]))]);
 
-        /* "NEON.pyx":355
+        /* "gases/NEON.pyx":355
  *                                                  object.EIN[3], object.E[2], <float>(0.159))
  *             object.QIN[3][I] = abs(object.QIN[3][I])
  *             if EN > 2 * object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -5405,7 +5405,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":351
+      /* "gases/NEON.pyx":351
  * 
  *         #1S2 RESONANCE LEVEL  F=0.159
  *         if EN > object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -5414,7 +5414,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":359
+    /* "gases/NEON.pyx":359
  * 
  *         #2P10
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -5424,7 +5424,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[4])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":360
+      /* "gases/NEON.pyx":360
  *         #2P10
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 2)             # <<<<<<<<<<<<<<
@@ -5433,7 +5433,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P10, __pyx_v_Y2P10, __pyx_v_X2P10, 2.0);
 
-      /* "NEON.pyx":361
+      /* "gases/NEON.pyx":361
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 2)
  *             if EN > 2 * object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -5443,7 +5443,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[4]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":362
+        /* "gases/NEON.pyx":362
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 2)
  *             if EN > 2 * object.EIN[4]:
  *                 object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]             # <<<<<<<<<<<<<<
@@ -5452,7 +5452,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[4])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[4]))]);
 
-        /* "NEON.pyx":361
+        /* "gases/NEON.pyx":361
  *         if EN > object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 2)
  *             if EN > 2 * object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -5461,7 +5461,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":359
+      /* "gases/NEON.pyx":359
  * 
  *         #2P10
  *         if EN > object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -5470,7 +5470,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":365
+    /* "gases/NEON.pyx":365
  * 
  *         #2P9
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -5480,7 +5480,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":366
+      /* "gases/NEON.pyx":366
  *         #2P9
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 2)             # <<<<<<<<<<<<<<
@@ -5489,7 +5489,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P9, __pyx_v_Y2P9, __pyx_v_X2P9, 2.0);
 
-      /* "NEON.pyx":367
+      /* "gases/NEON.pyx":367
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 2)
  *             if EN > 2 * object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -5499,7 +5499,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[5]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":368
+        /* "gases/NEON.pyx":368
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 2)
  *             if EN > 2 * object.EIN[5]:
  *                 object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]             # <<<<<<<<<<<<<<
@@ -5508,7 +5508,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[5])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[5]))]);
 
-        /* "NEON.pyx":367
+        /* "gases/NEON.pyx":367
  *         if EN > object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 2)
  *             if EN > 2 * object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -5517,7 +5517,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":365
+      /* "gases/NEON.pyx":365
  * 
  *         #2P9
  *         if EN > object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -5526,7 +5526,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":371
+    /* "gases/NEON.pyx":371
  * 
  *         #2P8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -5536,7 +5536,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":372
+      /* "gases/NEON.pyx":372
  *         #2P8
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1)             # <<<<<<<<<<<<<<
@@ -5545,7 +5545,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P8, __pyx_v_Y2P8, __pyx_v_X2P8, 1.0);
 
-      /* "NEON.pyx":373
+      /* "gases/NEON.pyx":373
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1)
  *             if EN > 2 * object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -5555,7 +5555,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[6]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":374
+        /* "gases/NEON.pyx":374
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1)
  *             if EN > 2 * object.EIN[6]:
  *                 object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]             # <<<<<<<<<<<<<<
@@ -5564,7 +5564,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[6])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[6]))]);
 
-        /* "NEON.pyx":373
+        /* "gases/NEON.pyx":373
  *         if EN > object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1)
  *             if EN > 2 * object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -5573,7 +5573,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":371
+      /* "gases/NEON.pyx":371
  * 
  *         #2P8
  *         if EN > object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -5582,7 +5582,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":377
+    /* "gases/NEON.pyx":377
  * 
  *         #2P7
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -5592,7 +5592,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":378
+      /* "gases/NEON.pyx":378
  *         #2P7
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 2)             # <<<<<<<<<<<<<<
@@ -5601,7 +5601,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P7, __pyx_v_Y2P7, __pyx_v_X2P7, 2.0);
 
-      /* "NEON.pyx":379
+      /* "gases/NEON.pyx":379
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 2)
  *             if EN > 2 * object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -5611,7 +5611,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[7]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":380
+        /* "gases/NEON.pyx":380
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 2)
  *             if EN > 2 * object.EIN[7]:
  *                 object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]             # <<<<<<<<<<<<<<
@@ -5620,7 +5620,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[7])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[7]))]);
 
-        /* "NEON.pyx":379
+        /* "gases/NEON.pyx":379
  *         if EN > object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 2)
  *             if EN > 2 * object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -5629,7 +5629,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":377
+      /* "gases/NEON.pyx":377
  * 
  *         #2P7
  *         if EN > object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -5638,7 +5638,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":383
+    /* "gases/NEON.pyx":383
  * 
  *         #2P6
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -5648,7 +5648,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[8])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":384
+      /* "gases/NEON.pyx":384
  *         #2P6
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)             # <<<<<<<<<<<<<<
@@ -5657,7 +5657,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[8])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P6, __pyx_v_Y2P6, __pyx_v_X2P6, 1.0);
 
-      /* "NEON.pyx":385
+      /* "gases/NEON.pyx":385
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)
  *             if EN > 2 * object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -5667,7 +5667,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[8]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":386
+        /* "gases/NEON.pyx":386
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)
  *             if EN > 2 * object.EIN[8]:
  *                 object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]             # <<<<<<<<<<<<<<
@@ -5676,7 +5676,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[8])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[8]))]);
 
-        /* "NEON.pyx":385
+        /* "gases/NEON.pyx":385
  *         if EN > object.EIN[8]:
  *             object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1)
  *             if EN > 2 * object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -5685,7 +5685,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":383
+      /* "gases/NEON.pyx":383
  * 
  *         #2P6
  *         if EN > object.EIN[8]:             # <<<<<<<<<<<<<<
@@ -5694,7 +5694,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":389
+    /* "gases/NEON.pyx":389
  * 
  *         #2P5
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5704,7 +5704,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[9])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":390
+      /* "gases/NEON.pyx":390
  *         #2P5
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 2)             # <<<<<<<<<<<<<<
@@ -5713,7 +5713,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[9])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P5, __pyx_v_Y2P5, __pyx_v_X2P5, 2.0);
 
-      /* "NEON.pyx":391
+      /* "gases/NEON.pyx":391
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 2)
  *             if EN > 2 * object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5723,7 +5723,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[9]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":392
+        /* "gases/NEON.pyx":392
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 2)
  *             if EN > 2 * object.EIN[9]:
  *                 object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]             # <<<<<<<<<<<<<<
@@ -5732,7 +5732,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[9])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[9]))]);
 
-        /* "NEON.pyx":391
+        /* "gases/NEON.pyx":391
  *         if EN > object.EIN[9]:
  *             object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 2)
  *             if EN > 2 * object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5741,7 +5741,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":389
+      /* "gases/NEON.pyx":389
  * 
  *         #2P5
  *         if EN > object.EIN[9]:             # <<<<<<<<<<<<<<
@@ -5750,7 +5750,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":395
+    /* "gases/NEON.pyx":395
  * 
  *         #2P4
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5760,7 +5760,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[10])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":396
+      /* "gases/NEON.pyx":396
  *         #2P4
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 1)             # <<<<<<<<<<<<<<
@@ -5769,7 +5769,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[10])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P4, __pyx_v_Y2P4, __pyx_v_X2P4, 1.0);
 
-      /* "NEON.pyx":397
+      /* "gases/NEON.pyx":397
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 1)
  *             if EN > 2 * object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5779,7 +5779,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[10]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":398
+        /* "gases/NEON.pyx":398
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 1)
  *             if EN > 2 * object.EIN[10]:
  *                 object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]             # <<<<<<<<<<<<<<
@@ -5788,7 +5788,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[10])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[10]))]);
 
-        /* "NEON.pyx":397
+        /* "gases/NEON.pyx":397
  *         if EN > object.EIN[10]:
  *             object.QIN[10][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 1)
  *             if EN > 2 * object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5797,7 +5797,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":395
+      /* "gases/NEON.pyx":395
  * 
  *         #2P4
  *         if EN > object.EIN[10]:             # <<<<<<<<<<<<<<
@@ -5806,7 +5806,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":401
+    /* "gases/NEON.pyx":401
  * 
  *         #2P3
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5816,7 +5816,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[11])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":402
+      /* "gases/NEON.pyx":402
  *         #2P3
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 1)             # <<<<<<<<<<<<<<
@@ -5825,7 +5825,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[11])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P3, __pyx_v_Y2P3, __pyx_v_X2P3, 1.0);
 
-      /* "NEON.pyx":403
+      /* "gases/NEON.pyx":403
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 1)
  *             if EN > 2 * object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5835,7 +5835,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[11]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":404
+        /* "gases/NEON.pyx":404
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 1)
  *             if EN > 2 * object.EIN[11]:
  *                 object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]             # <<<<<<<<<<<<<<
@@ -5844,7 +5844,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[11])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[11]))]);
 
-        /* "NEON.pyx":403
+        /* "gases/NEON.pyx":403
  *         if EN > object.EIN[11]:
  *             object.QIN[11][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 1)
  *             if EN > 2 * object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5853,7 +5853,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":401
+      /* "gases/NEON.pyx":401
  * 
  *         #2P3
  *         if EN > object.EIN[11]:             # <<<<<<<<<<<<<<
@@ -5862,7 +5862,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":407
+    /* "gases/NEON.pyx":407
  * 
  *         #2P2
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5872,7 +5872,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[12])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":408
+      /* "gases/NEON.pyx":408
  *         #2P2
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 2)             # <<<<<<<<<<<<<<
@@ -5881,7 +5881,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[12])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P2, __pyx_v_Y2P2, __pyx_v_X2P2, 2.0);
 
-      /* "NEON.pyx":409
+      /* "gases/NEON.pyx":409
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 2)
  *             if EN > 2 * object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5891,7 +5891,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[12]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":410
+        /* "gases/NEON.pyx":410
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 2)
  *             if EN > 2 * object.EIN[12]:
  *                 object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]             # <<<<<<<<<<<<<<
@@ -5900,7 +5900,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[12])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[12]))]);
 
-        /* "NEON.pyx":409
+        /* "gases/NEON.pyx":409
  *         if EN > object.EIN[12]:
  *             object.QIN[12][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 2)
  *             if EN > 2 * object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5909,7 +5909,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":407
+      /* "gases/NEON.pyx":407
  * 
  *         #2P2
  *         if EN > object.EIN[12]:             # <<<<<<<<<<<<<<
@@ -5918,7 +5918,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":413
+    /* "gases/NEON.pyx":413
  * 
  *         #2P1
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5928,7 +5928,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[13])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":414
+      /* "gases/NEON.pyx":414
  *         #2P1
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)             # <<<<<<<<<<<<<<
@@ -5937,7 +5937,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[13])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2P1, __pyx_v_Y2P1, __pyx_v_X2P1, 1.0);
 
-      /* "NEON.pyx":415
+      /* "gases/NEON.pyx":415
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)
  *             if EN > 2 * object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5947,7 +5947,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[13]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":416
+        /* "gases/NEON.pyx":416
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)
  *             if EN > 2 * object.EIN[13]:
  *                 object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]             # <<<<<<<<<<<<<<
@@ -5956,7 +5956,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[13])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[13]))]);
 
-        /* "NEON.pyx":415
+        /* "gases/NEON.pyx":415
  *         if EN > object.EIN[13]:
  *             object.QIN[13][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1)
  *             if EN > 2 * object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5965,7 +5965,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":413
+      /* "gases/NEON.pyx":413
  * 
  *         #2P1
  *         if EN > object.EIN[13]:             # <<<<<<<<<<<<<<
@@ -5974,7 +5974,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":419
+    /* "gases/NEON.pyx":419
  * 
  *         #2S5
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -5984,7 +5984,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[14])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":420
+      /* "gases/NEON.pyx":420
  *         #2S5
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 2)             # <<<<<<<<<<<<<<
@@ -5993,7 +5993,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[14])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2S5, __pyx_v_Y2S5, __pyx_v_X2S5, 2.0);
 
-      /* "NEON.pyx":421
+      /* "gases/NEON.pyx":421
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 2)
  *             if EN > 2 * object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -6003,7 +6003,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[14]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":422
+        /* "gases/NEON.pyx":422
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 2)
  *             if EN > 2 * object.EIN[14]:
  *                 object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]             # <<<<<<<<<<<<<<
@@ -6012,7 +6012,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[14])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[14]))]);
 
-        /* "NEON.pyx":421
+        /* "gases/NEON.pyx":421
  *         if EN > object.EIN[14]:
  *             object.QIN[14][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 2)
  *             if EN > 2 * object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -6021,7 +6021,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":419
+      /* "gases/NEON.pyx":419
  * 
  *         #2S5
  *         if EN > object.EIN[14]:             # <<<<<<<<<<<<<<
@@ -6030,7 +6030,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":425
+    /* "gases/NEON.pyx":425
  * 
  *         #2S4  BEF SCALING
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -6040,7 +6040,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[15])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":426
+      /* "gases/NEON.pyx":426
  *         #2S4  BEF SCALING
  *         if EN > object.EIN[15]:
  *             object.QIN[15][I] = <float>(0.0128) / (object.EIN[15] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6049,7 +6049,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[15])[__pyx_v_I]) = (((((((float)0.0128) / ((__pyx_v_object->EIN[15]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[15])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[15])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":429
+      /* "gases/NEON.pyx":429
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[15])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[15] + object.E[2])
  *             object.QIN[15][I] = abs(object.QIN[15][I])             # <<<<<<<<<<<<<<
@@ -6058,7 +6058,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[15])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[15])[__pyx_v_I]));
 
-      /* "NEON.pyx":430
+      /* "gases/NEON.pyx":430
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[15] + object.E[2])
  *             object.QIN[15][I] = abs(object.QIN[15][I])
  *             if EN > 2 * object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -6068,7 +6068,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[15]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":431
+        /* "gases/NEON.pyx":431
  *             object.QIN[15][I] = abs(object.QIN[15][I])
  *             if EN > 2 * object.EIN[15]:
  *                 object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]             # <<<<<<<<<<<<<<
@@ -6077,7 +6077,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[15])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[15]))]);
 
-        /* "NEON.pyx":430
+        /* "gases/NEON.pyx":430
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[15] + object.E[2])
  *             object.QIN[15][I] = abs(object.QIN[15][I])
  *             if EN > 2 * object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -6086,7 +6086,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":425
+      /* "gases/NEON.pyx":425
  * 
  *         #2S4  BEF SCALING
  *         if EN > object.EIN[15]:             # <<<<<<<<<<<<<<
@@ -6095,7 +6095,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":434
+    /* "gases/NEON.pyx":434
  * 
  *         #2S3
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -6105,7 +6105,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[16])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":435
+      /* "gases/NEON.pyx":435
  *         #2S3
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 2)             # <<<<<<<<<<<<<<
@@ -6114,7 +6114,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[16])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N2S3, __pyx_v_Y2S3, __pyx_v_X2S3, 2.0);
 
-      /* "NEON.pyx":436
+      /* "gases/NEON.pyx":436
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 2)
  *             if EN > 2 * object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -6124,7 +6124,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[16]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":437
+        /* "gases/NEON.pyx":437
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 2)
  *             if EN > 2 * object.EIN[16]:
  *                 object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]             # <<<<<<<<<<<<<<
@@ -6133,7 +6133,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[16])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[16]))]);
 
-        /* "NEON.pyx":436
+        /* "gases/NEON.pyx":436
  *         if EN > object.EIN[16]:
  *             object.QIN[16][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 2)
  *             if EN > 2 * object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -6142,7 +6142,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":434
+      /* "gases/NEON.pyx":434
  * 
  *         #2S3
  *         if EN > object.EIN[16]:             # <<<<<<<<<<<<<<
@@ -6151,7 +6151,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":440
+    /* "gases/NEON.pyx":440
  * 
  *         #2S2  BEF SCALING
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -6161,7 +6161,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[17])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":441
+      /* "gases/NEON.pyx":441
  *         #2S2  BEF SCALING
  *         if EN > object.EIN[17]:
  *             object.QIN[17][I] = <float>(0.0166) / (object.EIN[17] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6170,7 +6170,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[17])[__pyx_v_I]) = (((((((float)0.0166) / ((__pyx_v_object->EIN[17]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[17])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[17])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":444
+      /* "gases/NEON.pyx":444
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[17])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[17] + object.E[2])
  *             object.QIN[17][I] = abs(object.QIN[17][I])             # <<<<<<<<<<<<<<
@@ -6179,7 +6179,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[17])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[17])[__pyx_v_I]));
 
-      /* "NEON.pyx":445
+      /* "gases/NEON.pyx":445
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[17] + object.E[2])
  *             object.QIN[17][I] = abs(object.QIN[17][I])
  *             if EN > 2 * object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -6189,7 +6189,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[17]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":446
+        /* "gases/NEON.pyx":446
  *             object.QIN[17][I] = abs(object.QIN[17][I])
  *             if EN > 2 * object.EIN[17]:
  *                 object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]             # <<<<<<<<<<<<<<
@@ -6198,7 +6198,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[17])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[17]))]);
 
-        /* "NEON.pyx":445
+        /* "gases/NEON.pyx":445
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[17] + object.E[2])
  *             object.QIN[17][I] = abs(object.QIN[17][I])
  *             if EN > 2 * object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -6207,7 +6207,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":440
+      /* "gases/NEON.pyx":440
  * 
  *         #2S2  BEF SCALING
  *         if EN > object.EIN[17]:             # <<<<<<<<<<<<<<
@@ -6216,7 +6216,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":449
+    /* "gases/NEON.pyx":449
  * 
  *         #3D6
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -6226,7 +6226,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[18])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":450
+      /* "gases/NEON.pyx":450
  *         #3D6
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 2)             # <<<<<<<<<<<<<<
@@ -6235,7 +6235,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[18])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D6, __pyx_v_Y3D6, __pyx_v_X3D6, 2.0);
 
-      /* "NEON.pyx":451
+      /* "gases/NEON.pyx":451
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 2)
  *             if EN > 2 * object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -6245,7 +6245,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[18]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":452
+        /* "gases/NEON.pyx":452
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 2)
  *             if EN > 2 * object.EIN[18]:
  *                 object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]             # <<<<<<<<<<<<<<
@@ -6254,7 +6254,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[18])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[18]))]);
 
-        /* "NEON.pyx":451
+        /* "gases/NEON.pyx":451
  *         if EN > object.EIN[18]:
  *             object.QIN[18][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 2)
  *             if EN > 2 * object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -6263,7 +6263,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":449
+      /* "gases/NEON.pyx":449
  * 
  *         #3D6
  *         if EN > object.EIN[18]:             # <<<<<<<<<<<<<<
@@ -6272,7 +6272,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":455
+    /* "gases/NEON.pyx":455
  * 
  *         #3D5  BEF SCALING
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -6282,7 +6282,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[19])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":456
+      /* "gases/NEON.pyx":456
  *         #3D5  BEF SCALING
  *         if EN > object.EIN[19]:
  *             object.QIN[19][I] = <float>(0.0048) / (object.EIN[19] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6291,7 +6291,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[19])[__pyx_v_I]) = (((((((float)0.0048) / ((__pyx_v_object->EIN[19]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[19])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[19])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":459
+      /* "gases/NEON.pyx":459
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[19])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[19] + object.E[2])
  *             object.QIN[19][I] = abs(object.QIN[19][I])             # <<<<<<<<<<<<<<
@@ -6300,7 +6300,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[19])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[19])[__pyx_v_I]));
 
-      /* "NEON.pyx":460
+      /* "gases/NEON.pyx":460
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[19] + object.E[2])
  *             object.QIN[19][I] = abs(object.QIN[19][I])
  *             if EN > 2 * object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -6310,7 +6310,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[19]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":461
+        /* "gases/NEON.pyx":461
  *             object.QIN[19][I] = abs(object.QIN[19][I])
  *             if EN > 2 * object.EIN[19]:
  *                 object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]             # <<<<<<<<<<<<<<
@@ -6319,7 +6319,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[19])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[19]))]);
 
-        /* "NEON.pyx":460
+        /* "gases/NEON.pyx":460
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[19] + object.E[2])
  *             object.QIN[19][I] = abs(object.QIN[19][I])
  *             if EN > 2 * object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -6328,7 +6328,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":455
+      /* "gases/NEON.pyx":455
  * 
  *         #3D5  BEF SCALING
  *         if EN > object.EIN[19]:             # <<<<<<<<<<<<<<
@@ -6337,7 +6337,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":464
+    /* "gases/NEON.pyx":464
  * 
  *         #3D4!
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -6347,7 +6347,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[20])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":465
+      /* "gases/NEON.pyx":465
  *         #3D4!
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 2)             # <<<<<<<<<<<<<<
@@ -6356,7 +6356,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[20])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D4P, __pyx_v_Y3D4P, __pyx_v_X3D4P, 2.0);
 
-      /* "NEON.pyx":466
+      /* "gases/NEON.pyx":466
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 2)
  *             if EN > 2 * object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -6366,7 +6366,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[20]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":467
+        /* "gases/NEON.pyx":467
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 2)
  *             if EN > 2 * object.EIN[20]:
  *                 object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[20]]             # <<<<<<<<<<<<<<
@@ -6375,7 +6375,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[20])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[20]))]);
 
-        /* "NEON.pyx":466
+        /* "gases/NEON.pyx":466
  *         if EN > object.EIN[20]:
  *             object.QIN[20][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 2)
  *             if EN > 2 * object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -6384,7 +6384,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":464
+      /* "gases/NEON.pyx":464
  * 
  *         #3D4!
  *         if EN > object.EIN[20]:             # <<<<<<<<<<<<<<
@@ -6393,7 +6393,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":470
+    /* "gases/NEON.pyx":470
  * 
  *         #3D4
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -6403,7 +6403,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[21])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":471
+      /* "gases/NEON.pyx":471
  *         #3D4
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 2)             # <<<<<<<<<<<<<<
@@ -6412,7 +6412,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[21])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D4, __pyx_v_Y3D4, __pyx_v_X3D4, 2.0);
 
-      /* "NEON.pyx":472
+      /* "gases/NEON.pyx":472
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 2)
  *             if EN > 2 * object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -6422,7 +6422,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[21]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":473
+        /* "gases/NEON.pyx":473
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 2)
  *             if EN > 2 * object.EIN[21]:
  *                 object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]             # <<<<<<<<<<<<<<
@@ -6431,7 +6431,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[21])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[21]))]);
 
-        /* "NEON.pyx":472
+        /* "gases/NEON.pyx":472
  *         if EN > object.EIN[21]:
  *             object.QIN[21][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 2)
  *             if EN > 2 * object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -6440,7 +6440,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":470
+      /* "gases/NEON.pyx":470
  * 
  *         #3D4
  *         if EN > object.EIN[21]:             # <<<<<<<<<<<<<<
@@ -6449,7 +6449,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":476
+    /* "gases/NEON.pyx":476
  * 
  *         #3D3
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -6459,7 +6459,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[22])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":477
+      /* "gases/NEON.pyx":477
  *         #3D3
  *         if EN > object.EIN[22]:
  *             object.QIN[22][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 2)             # <<<<<<<<<<<<<<
@@ -6468,7 +6468,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[22])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D3, __pyx_v_Y3D3, __pyx_v_X3D3, 2.0);
 
-      /* "NEON.pyx":478
+      /* "gases/NEON.pyx":478
  *         if EN > object.EIN[22]:
  *             object.QIN[22][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 2)
  *             if EN > 2 * object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -6478,7 +6478,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[22]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":479
+        /* "gases/NEON.pyx":479
  *             object.QIN[22][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 2)
  *             if EN > 2 * object.EIN[22]:
  *                 object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]             # <<<<<<<<<<<<<<
@@ -6487,7 +6487,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[22])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[22]))]);
 
-        /* "NEON.pyx":478
+        /* "gases/NEON.pyx":478
  *         if EN > object.EIN[22]:
  *             object.QIN[22][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 2)
  *             if EN > 2 * object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -6496,7 +6496,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":476
+      /* "gases/NEON.pyx":476
  * 
  *         #3D3
  *         if EN > object.EIN[22]:             # <<<<<<<<<<<<<<
@@ -6505,7 +6505,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":482
+    /* "gases/NEON.pyx":482
  * 
  *         #3D2  BEF SCALING
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -6515,7 +6515,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[23])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":483
+      /* "gases/NEON.pyx":483
  *         #3D2  BEF SCALING
  *         if EN > object.EIN[23]:
  *             object.QIN[23][I] = <float>(0.0146) / (object.EIN[23] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6524,7 +6524,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[23])[__pyx_v_I]) = (((((((float)0.0146) / ((__pyx_v_object->EIN[23]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[23])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[23])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":486
+      /* "gases/NEON.pyx":486
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[23])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[23] + object.E[2])
  *             object.QIN[23][I] = abs(object.QIN[23][I])             # <<<<<<<<<<<<<<
@@ -6533,7 +6533,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[23])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[23])[__pyx_v_I]));
 
-      /* "NEON.pyx":487
+      /* "gases/NEON.pyx":487
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[23] + object.E[2])
  *             object.QIN[23][I] = abs(object.QIN[23][I])
  *             if EN > 2 * object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -6543,7 +6543,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[23]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":488
+        /* "gases/NEON.pyx":488
  *             object.QIN[23][I] = abs(object.QIN[23][I])
  *             if EN > 2 * object.EIN[23]:
  *                 object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]             # <<<<<<<<<<<<<<
@@ -6552,7 +6552,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[23])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[23]))]);
 
-        /* "NEON.pyx":487
+        /* "gases/NEON.pyx":487
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[23] + object.E[2])
  *             object.QIN[23][I] = abs(object.QIN[23][I])
  *             if EN > 2 * object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -6561,7 +6561,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":482
+      /* "gases/NEON.pyx":482
  * 
  *         #3D2  BEF SCALING
  *         if EN > object.EIN[23]:             # <<<<<<<<<<<<<<
@@ -6570,7 +6570,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":491
+    /* "gases/NEON.pyx":491
  * 
  *         #3D1!!
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -6580,7 +6580,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[24])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":492
+      /* "gases/NEON.pyx":492
  *         #3D1!!
  *         if EN > object.EIN[24]:
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 2)             # <<<<<<<<<<<<<<
@@ -6589,7 +6589,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[24])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D1PP, __pyx_v_Y3D1PP, __pyx_v_X3D1PP, 2.0);
 
-      /* "NEON.pyx":493
+      /* "gases/NEON.pyx":493
  *         if EN > object.EIN[24]:
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 2)
  *             if EN > 2 * object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -6599,7 +6599,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[24]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":494
+        /* "gases/NEON.pyx":494
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 2)
  *             if EN > 2 * object.EIN[24]:
  *                 object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]             # <<<<<<<<<<<<<<
@@ -6608,7 +6608,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[24])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[24]))]);
 
-        /* "NEON.pyx":493
+        /* "gases/NEON.pyx":493
  *         if EN > object.EIN[24]:
  *             object.QIN[24][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 2)
  *             if EN > 2 * object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -6617,7 +6617,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":491
+      /* "gases/NEON.pyx":491
  * 
  *         #3D1!!
  *         if EN > object.EIN[24]:             # <<<<<<<<<<<<<<
@@ -6626,7 +6626,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":497
+    /* "gases/NEON.pyx":497
  * 
  *         #3D1!
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -6636,7 +6636,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[25])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":498
+      /* "gases/NEON.pyx":498
  *         #3D1!
  *         if EN > object.EIN[25]:
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 2)             # <<<<<<<<<<<<<<
@@ -6645,7 +6645,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[25])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3D1P, __pyx_v_Y3D1P, __pyx_v_X3D1P, 2.0);
 
-      /* "NEON.pyx":499
+      /* "gases/NEON.pyx":499
  *         if EN > object.EIN[25]:
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 2)
  *             if EN > 2 * object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -6655,7 +6655,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[25]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":500
+        /* "gases/NEON.pyx":500
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 2)
  *             if EN > 2 * object.EIN[25]:
  *                 object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]             # <<<<<<<<<<<<<<
@@ -6664,7 +6664,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[25])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[25]))]);
 
-        /* "NEON.pyx":499
+        /* "gases/NEON.pyx":499
  *         if EN > object.EIN[25]:
  *             object.QIN[25][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 2)
  *             if EN > 2 * object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -6673,7 +6673,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":497
+      /* "gases/NEON.pyx":497
  * 
  *         #3D1!
  *         if EN > object.EIN[25]:             # <<<<<<<<<<<<<<
@@ -6682,7 +6682,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":503
+    /* "gases/NEON.pyx":503
  * 
  *         #3S1!!!!
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -6692,7 +6692,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[26])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":504
+      /* "gases/NEON.pyx":504
  *         #3S1!!!!
  *         if EN > object.EIN[26]:
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 2)             # <<<<<<<<<<<<<<
@@ -6701,7 +6701,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[26])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3S1PPPP, __pyx_v_Y3S1PPPP, __pyx_v_X3S1PPPP, 2.0);
 
-      /* "NEON.pyx":505
+      /* "gases/NEON.pyx":505
  *         if EN > object.EIN[26]:
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 2)
  *             if EN > 2 * object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -6711,7 +6711,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[26]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":506
+        /* "gases/NEON.pyx":506
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 2)
  *             if EN > 2 * object.EIN[26]:
  *                 object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]             # <<<<<<<<<<<<<<
@@ -6720,7 +6720,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[26])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[26]))]);
 
-        /* "NEON.pyx":505
+        /* "gases/NEON.pyx":505
  *         if EN > object.EIN[26]:
  *             object.QIN[26][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 2)
  *             if EN > 2 * object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -6729,7 +6729,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":503
+      /* "gases/NEON.pyx":503
  * 
  *         #3S1!!!!
  *         if EN > object.EIN[26]:             # <<<<<<<<<<<<<<
@@ -6738,7 +6738,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":509
+    /* "gases/NEON.pyx":509
  * 
  *         #3S1!!!
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -6748,7 +6748,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[27])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":510
+      /* "gases/NEON.pyx":510
  *         #3S1!!!
  *         if EN > object.EIN[27]:
  *             object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 2)             # <<<<<<<<<<<<<<
@@ -6757,7 +6757,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[27])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3S1PPP, __pyx_v_Y3S1PPP, __pyx_v_X3S1PPP, 2.0);
 
-      /* "NEON.pyx":511
+      /* "gases/NEON.pyx":511
  *         if EN > object.EIN[27]:
  *             object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 2)
  *             if EN > 2 * object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -6767,7 +6767,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[27]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":512
+        /* "gases/NEON.pyx":512
  *             object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 2)
  *             if EN > 2 * object.EIN[27]:
  *                 object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]             # <<<<<<<<<<<<<<
@@ -6776,7 +6776,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[27])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[27]))]);
 
-        /* "NEON.pyx":511
+        /* "gases/NEON.pyx":511
  *         if EN > object.EIN[27]:
  *             object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 2)
  *             if EN > 2 * object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -6785,7 +6785,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":509
+      /* "gases/NEON.pyx":509
  * 
  *         #3S1!!!
  *         if EN > object.EIN[27]:             # <<<<<<<<<<<<<<
@@ -6794,7 +6794,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":515
+    /* "gases/NEON.pyx":515
  * 
  *         #3S1!!
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -6804,7 +6804,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[28])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":516
+      /* "gases/NEON.pyx":516
  *         #3S1!!
  *         if EN > object.EIN[28]:
  *             object.QIN[28][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 2)             # <<<<<<<<<<<<<<
@@ -6813,7 +6813,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[28])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3S1PP, __pyx_v_Y3S1PP, __pyx_v_X3S1PP, 2.0);
 
-      /* "NEON.pyx":517
+      /* "gases/NEON.pyx":517
  *         if EN > object.EIN[28]:
  *             object.QIN[28][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 2)
  *             if EN > 2 * object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -6823,7 +6823,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[28]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":518
+        /* "gases/NEON.pyx":518
  *             object.QIN[28][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 2)
  *             if EN > 2 * object.EIN[28]:
  *                 object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]             # <<<<<<<<<<<<<<
@@ -6832,7 +6832,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[28])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[28]))]);
 
-        /* "NEON.pyx":517
+        /* "gases/NEON.pyx":517
  *         if EN > object.EIN[28]:
  *             object.QIN[28][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 2)
  *             if EN > 2 * object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -6841,7 +6841,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":515
+      /* "gases/NEON.pyx":515
  * 
  *         #3S1!!
  *         if EN > object.EIN[28]:             # <<<<<<<<<<<<<<
@@ -6850,7 +6850,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":521
+    /* "gases/NEON.pyx":521
  * 
  *         #3S1!  BEF SCALING
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -6860,7 +6860,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[29])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":522
+      /* "gases/NEON.pyx":522
  *         #3S1!  BEF SCALING
  *         if EN > object.EIN[29]:
  *             object.QIN[29][I] = <float>(0.00676) / (object.EIN[29] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -6869,7 +6869,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[29])[__pyx_v_I]) = (((((((float)0.00676) / ((__pyx_v_object->EIN[29]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[29])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[29])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":525
+      /* "gases/NEON.pyx":525
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[29])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[29] + object.E[2])
  *             object.QIN[29][I] = abs(object.QIN[29][I])             # <<<<<<<<<<<<<<
@@ -6878,7 +6878,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[29])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[29])[__pyx_v_I]));
 
-      /* "NEON.pyx":526
+      /* "gases/NEON.pyx":526
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[29] + object.E[2])
  *             object.QIN[29][I] = abs(object.QIN[29][I])
  *             if EN > 2 * object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -6888,7 +6888,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[29]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":527
+        /* "gases/NEON.pyx":527
  *             object.QIN[29][I] = abs(object.QIN[29][I])
  *             if EN > 2 * object.EIN[29]:
  *                 object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]             # <<<<<<<<<<<<<<
@@ -6897,7 +6897,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[29])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[29]))]);
 
-        /* "NEON.pyx":526
+        /* "gases/NEON.pyx":526
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[29] + object.E[2])
  *             object.QIN[29][I] = abs(object.QIN[29][I])
  *             if EN > 2 * object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -6906,7 +6906,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":521
+      /* "gases/NEON.pyx":521
  * 
  *         #3S1!  BEF SCALING
  *         if EN > object.EIN[29]:             # <<<<<<<<<<<<<<
@@ -6915,7 +6915,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":530
+    /* "gases/NEON.pyx":530
  * 
  *         #SUM 3P10 -- 3P6
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -6925,7 +6925,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[30])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":531
+      /* "gases/NEON.pyx":531
  *         #SUM 3P10 -- 3P6
  *         if EN > object.EIN[30]:
  *             object.QIN[30][I] = GasUtil.CALQINP(EN, N3P106, Y3P106, X3P106, 1.5)             # <<<<<<<<<<<<<<
@@ -6934,7 +6934,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[30])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P106, __pyx_v_Y3P106, __pyx_v_X3P106, 1.5);
 
-      /* "NEON.pyx":532
+      /* "gases/NEON.pyx":532
  *         if EN > object.EIN[30]:
  *             object.QIN[30][I] = GasUtil.CALQINP(EN, N3P106, Y3P106, X3P106, 1.5)
  *             if EN > 2 * object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -6944,7 +6944,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[30]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":533
+        /* "gases/NEON.pyx":533
  *             object.QIN[30][I] = GasUtil.CALQINP(EN, N3P106, Y3P106, X3P106, 1.5)
  *             if EN > 2 * object.EIN[30]:
  *                 object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]             # <<<<<<<<<<<<<<
@@ -6953,7 +6953,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[30])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[30]))]);
 
-        /* "NEON.pyx":532
+        /* "gases/NEON.pyx":532
  *         if EN > object.EIN[30]:
  *             object.QIN[30][I] = GasUtil.CALQINP(EN, N3P106, Y3P106, X3P106, 1.5)
  *             if EN > 2 * object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -6962,7 +6962,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":530
+      /* "gases/NEON.pyx":530
  * 
  *         #SUM 3P10 -- 3P6
  *         if EN > object.EIN[30]:             # <<<<<<<<<<<<<<
@@ -6971,7 +6971,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":536
+    /* "gases/NEON.pyx":536
  * 
  *         #SUM 3P5 -- 3P2
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -6981,7 +6981,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[31])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":537
+      /* "gases/NEON.pyx":537
  *         #SUM 3P5 -- 3P2
  *         if EN > object.EIN[31]:
  *             object.QIN[31][I] = GasUtil.CALQINP(EN, N3P52, Y3P52, X3P52, 1.5)             # <<<<<<<<<<<<<<
@@ -6990,7 +6990,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[31])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P52, __pyx_v_Y3P52, __pyx_v_X3P52, 1.5);
 
-      /* "NEON.pyx":538
+      /* "gases/NEON.pyx":538
  *         if EN > object.EIN[31]:
  *             object.QIN[31][I] = GasUtil.CALQINP(EN, N3P52, Y3P52, X3P52, 1.5)
  *             if EN > 2 * object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -7000,7 +7000,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[31]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":539
+        /* "gases/NEON.pyx":539
  *             object.QIN[31][I] = GasUtil.CALQINP(EN, N3P52, Y3P52, X3P52, 1.5)
  *             if EN > 2 * object.EIN[31]:
  *                 object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]             # <<<<<<<<<<<<<<
@@ -7009,7 +7009,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[31])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[31]))]);
 
-        /* "NEON.pyx":538
+        /* "gases/NEON.pyx":538
  *         if EN > object.EIN[31]:
  *             object.QIN[31][I] = GasUtil.CALQINP(EN, N3P52, Y3P52, X3P52, 1.5)
  *             if EN > 2 * object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -7018,7 +7018,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":536
+      /* "gases/NEON.pyx":536
  * 
  *         #SUM 3P5 -- 3P2
  *         if EN > object.EIN[31]:             # <<<<<<<<<<<<<<
@@ -7027,7 +7027,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":542
+    /* "gases/NEON.pyx":542
  * 
  *         #3P1
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -7037,7 +7037,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[32])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":543
+      /* "gases/NEON.pyx":543
  *         #3P1
  *         if EN > object.EIN[32]:
  *             object.QIN[32][I] = GasUtil.CALQINP(EN, N3P1, Y3P1, X3P1, 1)             # <<<<<<<<<<<<<<
@@ -7046,7 +7046,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[32])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQINP(__pyx_v_EN, __pyx_v_N3P1, __pyx_v_Y3P1, __pyx_v_X3P1, 1.0);
 
-      /* "NEON.pyx":544
+      /* "gases/NEON.pyx":544
  *         if EN > object.EIN[32]:
  *             object.QIN[32][I] = GasUtil.CALQINP(EN, N3P1, Y3P1, X3P1, 1)
  *             if EN > 2 * object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -7056,7 +7056,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[32]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":545
+        /* "gases/NEON.pyx":545
  *             object.QIN[32][I] = GasUtil.CALQINP(EN, N3P1, Y3P1, X3P1, 1)
  *             if EN > 2 * object.EIN[32]:
  *                 object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]             # <<<<<<<<<<<<<<
@@ -7065,7 +7065,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[32])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[32]))]);
 
-        /* "NEON.pyx":544
+        /* "gases/NEON.pyx":544
  *         if EN > object.EIN[32]:
  *             object.QIN[32][I] = GasUtil.CALQINP(EN, N3P1, Y3P1, X3P1, 1)
  *             if EN > 2 * object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -7074,7 +7074,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":542
+      /* "gases/NEON.pyx":542
  * 
  *         #3P1
  *         if EN > object.EIN[32]:             # <<<<<<<<<<<<<<
@@ -7083,7 +7083,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":548
+    /* "gases/NEON.pyx":548
  * 
  *         #3S4  BEF SCALING
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -7093,7 +7093,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[33])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":549
+      /* "gases/NEON.pyx":549
  *         #3S4  BEF SCALING
  *         if EN > object.EIN[33]:
  *             object.QIN[33][I] = <float>(0.00635) / (object.EIN[33] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7102,7 +7102,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[33])[__pyx_v_I]) = (((((((float)0.00635) / ((__pyx_v_object->EIN[33]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[33])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[33])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":552
+      /* "gases/NEON.pyx":552
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[33])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[33] + object.E[2])
  *             object.QIN[33][I] = abs(object.QIN[33][I])             # <<<<<<<<<<<<<<
@@ -7111,7 +7111,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[33])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[33])[__pyx_v_I]));
 
-      /* "NEON.pyx":553
+      /* "gases/NEON.pyx":553
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[33] + object.E[2])
  *             object.QIN[33][I] = abs(object.QIN[33][I])
  *             if EN > 2 * object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -7121,7 +7121,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[33]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":554
+        /* "gases/NEON.pyx":554
  *             object.QIN[33][I] = abs(object.QIN[33][I])
  *             if EN > 2 * object.EIN[33]:
  *                 object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]             # <<<<<<<<<<<<<<
@@ -7130,7 +7130,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[33])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[33]))]);
 
-        /* "NEON.pyx":553
+        /* "gases/NEON.pyx":553
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[33] + object.E[2])
  *             object.QIN[33][I] = abs(object.QIN[33][I])
  *             if EN > 2 * object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -7139,7 +7139,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":548
+      /* "gases/NEON.pyx":548
  * 
  *         #3S4  BEF SCALING
  *         if EN > object.EIN[33]:             # <<<<<<<<<<<<<<
@@ -7148,7 +7148,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":557
+    /* "gases/NEON.pyx":557
  * 
  *         #3S2  BEF SCALING
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -7158,7 +7158,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[34])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":558
+      /* "gases/NEON.pyx":558
  *         #3S2  BEF SCALING
  *         if EN > object.EIN[34]:
  *             object.QIN[34][I] = <float>(0.00440) / (object.EIN[34] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7167,7 +7167,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[34])[__pyx_v_I]) = (((((((float)0.00440) / ((__pyx_v_object->EIN[34]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[34])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[34])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":561
+      /* "gases/NEON.pyx":561
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[34])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[34] + object.E[2])
  *             object.QIN[34][I] = abs(object.QIN[34][I])             # <<<<<<<<<<<<<<
@@ -7176,7 +7176,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[34])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[34])[__pyx_v_I]));
 
-      /* "NEON.pyx":562
+      /* "gases/NEON.pyx":562
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[34] + object.E[2])
  *             object.QIN[34][I] = abs(object.QIN[34][I])
  *             if EN > 2 * object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -7186,7 +7186,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[34]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":563
+        /* "gases/NEON.pyx":563
  *             object.QIN[34][I] = abs(object.QIN[34][I])
  *             if EN > 2 * object.EIN[34]:
  *                 object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]             # <<<<<<<<<<<<<<
@@ -7195,7 +7195,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[34])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[34]))]);
 
-        /* "NEON.pyx":562
+        /* "gases/NEON.pyx":562
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[34] + object.E[2])
  *             object.QIN[34][I] = abs(object.QIN[34][I])
  *             if EN > 2 * object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -7204,7 +7204,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":557
+      /* "gases/NEON.pyx":557
  * 
  *         #3S2  BEF SCALING
  *         if EN > object.EIN[34]:             # <<<<<<<<<<<<<<
@@ -7213,7 +7213,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":566
+    /* "gases/NEON.pyx":566
  * 
  *         #4D5  BEF SCALING
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -7223,7 +7223,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[35])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":567
+      /* "gases/NEON.pyx":567
  *         #4D5  BEF SCALING
  *         if EN > object.EIN[35]:
  *             object.QIN[35][I] = <float>(0.00705) / (object.EIN[35] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7232,7 +7232,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[35])[__pyx_v_I]) = (((((((float)0.00705) / ((__pyx_v_object->EIN[35]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[35])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[35])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":570
+      /* "gases/NEON.pyx":570
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[35])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[35] + object.E[2])
  *             object.QIN[35][I] = abs(object.QIN[35][I])             # <<<<<<<<<<<<<<
@@ -7241,7 +7241,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[35])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[35])[__pyx_v_I]));
 
-      /* "NEON.pyx":571
+      /* "gases/NEON.pyx":571
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[35] + object.E[2])
  *             object.QIN[35][I] = abs(object.QIN[35][I])
  *             if EN > 2 * object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -7251,7 +7251,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[35]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":572
+        /* "gases/NEON.pyx":572
  *             object.QIN[35][I] = abs(object.QIN[35][I])
  *             if EN > 2 * object.EIN[35]:
  *                 object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]             # <<<<<<<<<<<<<<
@@ -7260,7 +7260,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[35])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[35]))]);
 
-        /* "NEON.pyx":571
+        /* "gases/NEON.pyx":571
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[35] + object.E[2])
  *             object.QIN[35][I] = abs(object.QIN[35][I])
  *             if EN > 2 * object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -7269,7 +7269,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":566
+      /* "gases/NEON.pyx":566
  * 
  *         #4D5  BEF SCALING
  *         if EN > object.EIN[35]:             # <<<<<<<<<<<<<<
@@ -7278,7 +7278,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":575
+    /* "gases/NEON.pyx":575
  * 
  *         #4D2  BEF SCALING
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -7288,7 +7288,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[36])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":576
+      /* "gases/NEON.pyx":576
  *         #4D2  BEF SCALING
  *         if EN > object.EIN[36]:
  *             object.QIN[36][I] = <float>(0.00235) / (object.EIN[36] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7297,7 +7297,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[36])[__pyx_v_I]) = (((((((float)0.00235) / ((__pyx_v_object->EIN[36]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[36])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[36])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":579
+      /* "gases/NEON.pyx":579
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[36])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[36] + object.E[2])
  *             object.QIN[36][I] = abs(object.QIN[36][I])             # <<<<<<<<<<<<<<
@@ -7306,7 +7306,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[36])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[36])[__pyx_v_I]));
 
-      /* "NEON.pyx":580
+      /* "gases/NEON.pyx":580
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[36] + object.E[2])
  *             object.QIN[36][I] = abs(object.QIN[36][I])
  *             if EN > 2 * object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -7316,7 +7316,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[36]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":581
+        /* "gases/NEON.pyx":581
  *             object.QIN[36][I] = abs(object.QIN[36][I])
  *             if EN > 2 * object.EIN[36]:
  *                 object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]             # <<<<<<<<<<<<<<
@@ -7325,7 +7325,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[36])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[36]))]);
 
-        /* "NEON.pyx":580
+        /* "gases/NEON.pyx":580
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[36] + object.E[2])
  *             object.QIN[36][I] = abs(object.QIN[36][I])
  *             if EN > 2 * object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -7334,7 +7334,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":575
+      /* "gases/NEON.pyx":575
  * 
  *         #4D2  BEF SCALING
  *         if EN > object.EIN[36]:             # <<<<<<<<<<<<<<
@@ -7343,7 +7343,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":584
+    /* "gases/NEON.pyx":584
  * 
  *         #4S1!  BEF SCALING
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -7353,7 +7353,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[37])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":585
+      /* "gases/NEON.pyx":585
  *         #4S1!  BEF SCALING
  *         if EN > object.EIN[37]:
  *             object.QIN[37][I] = <float>(0.00435) / (object.EIN[37] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7362,7 +7362,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[37])[__pyx_v_I]) = (((((((float)0.00435) / ((__pyx_v_object->EIN[37]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[37])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[37])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":588
+      /* "gases/NEON.pyx":588
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[37])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             object.QIN[37][I] = abs(object.QIN[37][I])             # <<<<<<<<<<<<<<
@@ -7371,7 +7371,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[37])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[37])[__pyx_v_I]));
 
-      /* "NEON.pyx":589
+      /* "gases/NEON.pyx":589
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             object.QIN[37][I] = abs(object.QIN[37][I])
  *             if EN > 2 * object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -7381,7 +7381,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[37]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":590
+        /* "gases/NEON.pyx":590
  *             object.QIN[37][I] = abs(object.QIN[37][I])
  *             if EN > 2 * object.EIN[37]:
  *                 object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]             # <<<<<<<<<<<<<<
@@ -7390,7 +7390,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[37])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[37]))]);
 
-        /* "NEON.pyx":589
+        /* "gases/NEON.pyx":589
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[37] + object.E[2])
  *             object.QIN[37][I] = abs(object.QIN[37][I])
  *             if EN > 2 * object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -7399,7 +7399,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":584
+      /* "gases/NEON.pyx":584
  * 
  *         #4S1!  BEF SCALING
  *         if EN > object.EIN[37]:             # <<<<<<<<<<<<<<
@@ -7408,7 +7408,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":593
+    /* "gases/NEON.pyx":593
  * 
  *         #4S4  BEF SCALING
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -7418,7 +7418,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[38])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":594
+      /* "gases/NEON.pyx":594
  *         #4S4  BEF SCALING
  *         if EN > object.EIN[38]:
  *             object.QIN[38][I] = <float>(0.00325) / (object.EIN[38] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7427,7 +7427,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[38])[__pyx_v_I]) = (((((((float)0.00325) / ((__pyx_v_object->EIN[38]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[38])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[38])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":597
+      /* "gases/NEON.pyx":597
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[38])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[38] + object.E[2])
  *             object.QIN[38][I] = abs(object.QIN[38][I])             # <<<<<<<<<<<<<<
@@ -7436,7 +7436,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[38])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[38])[__pyx_v_I]));
 
-      /* "NEON.pyx":598
+      /* "gases/NEON.pyx":598
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[38] + object.E[2])
  *             object.QIN[38][I] = abs(object.QIN[38][I])
  *             if EN > 2 * object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -7446,7 +7446,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[38]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":599
+        /* "gases/NEON.pyx":599
  *             object.QIN[38][I] = abs(object.QIN[38][I])
  *             if EN > 2 * object.EIN[38]:
  *                 object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]             # <<<<<<<<<<<<<<
@@ -7455,7 +7455,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[38])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[38]))]);
 
-        /* "NEON.pyx":598
+        /* "gases/NEON.pyx":598
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[38] + object.E[2])
  *             object.QIN[38][I] = abs(object.QIN[38][I])
  *             if EN > 2 * object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -7464,7 +7464,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":593
+      /* "gases/NEON.pyx":593
  * 
  *         #4S4  BEF SCALING
  *         if EN > object.EIN[38]:             # <<<<<<<<<<<<<<
@@ -7473,7 +7473,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":602
+    /* "gases/NEON.pyx":602
  * 
  *         #5D5 BEF SCALING
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -7483,7 +7483,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[39])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":603
+      /* "gases/NEON.pyx":603
  *         #5D5 BEF SCALING
  *         if EN > object.EIN[39]:
  *             object.QIN[39][I] = <float>(0.00383) / (object.EIN[39] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7492,7 +7492,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[39])[__pyx_v_I]) = (((((((float)0.00383) / ((__pyx_v_object->EIN[39]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[39])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[39])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":606
+      /* "gases/NEON.pyx":606
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[39])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[39] + object.E[2])
  *             object.QIN[39][I] = abs(object.QIN[39][I])             # <<<<<<<<<<<<<<
@@ -7501,7 +7501,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[39])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[39])[__pyx_v_I]));
 
-      /* "NEON.pyx":607
+      /* "gases/NEON.pyx":607
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[39] + object.E[2])
  *             object.QIN[39][I] = abs(object.QIN[39][I])
  *             if EN > 2 * object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -7511,7 +7511,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[39]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":608
+        /* "gases/NEON.pyx":608
  *             object.QIN[39][I] = abs(object.QIN[39][I])
  *             if EN > 2 * object.EIN[39]:
  *                 object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]             # <<<<<<<<<<<<<<
@@ -7520,7 +7520,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[39])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[39]))]);
 
-        /* "NEON.pyx":607
+        /* "gases/NEON.pyx":607
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[39] + object.E[2])
  *             object.QIN[39][I] = abs(object.QIN[39][I])
  *             if EN > 2 * object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -7529,7 +7529,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":602
+      /* "gases/NEON.pyx":602
  * 
  *         #5D5 BEF SCALING
  *         if EN > object.EIN[39]:             # <<<<<<<<<<<<<<
@@ -7538,7 +7538,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":611
+    /* "gases/NEON.pyx":611
  * 
  *         #5D2 BEF SCALING
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -7548,7 +7548,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[40])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":612
+      /* "gases/NEON.pyx":612
  *         #5D2 BEF SCALING
  *         if EN > object.EIN[40]:
  *             object.QIN[40][I] = <float>(0.00127) / (object.EIN[40] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7557,7 +7557,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[40])[__pyx_v_I]) = (((((((float)0.00127) / ((__pyx_v_object->EIN[40]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[40])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[40])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":615
+      /* "gases/NEON.pyx":615
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[40])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[40] + object.E[2])
  *             object.QIN[40][I] = abs(object.QIN[40][I])             # <<<<<<<<<<<<<<
@@ -7566,7 +7566,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[40])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[40])[__pyx_v_I]));
 
-      /* "NEON.pyx":616
+      /* "gases/NEON.pyx":616
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[40] + object.E[2])
  *             object.QIN[40][I] = abs(object.QIN[40][I])
  *             if EN > 2 * object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -7576,7 +7576,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[40]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":617
+        /* "gases/NEON.pyx":617
  *             object.QIN[40][I] = abs(object.QIN[40][I])
  *             if EN > 2 * object.EIN[40]:
  *                 object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]             # <<<<<<<<<<<<<<
@@ -7585,7 +7585,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[40])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[40]))]);
 
-        /* "NEON.pyx":616
+        /* "gases/NEON.pyx":616
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[40] + object.E[2])
  *             object.QIN[40][I] = abs(object.QIN[40][I])
  *             if EN > 2 * object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -7594,7 +7594,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":611
+      /* "gases/NEON.pyx":611
  * 
  *         #5D2 BEF SCALING
  *         if EN > object.EIN[40]:             # <<<<<<<<<<<<<<
@@ -7603,7 +7603,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":620
+    /* "gases/NEON.pyx":620
  * 
  *         #4S2 BEF SCALING
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -7613,7 +7613,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[41])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":621
+      /* "gases/NEON.pyx":621
  *         #4S2 BEF SCALING
  *         if EN > object.EIN[41]:
  *             object.QIN[41][I] = <float>(0.00165) / (object.EIN[41] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7622,7 +7622,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[41])[__pyx_v_I]) = (((((((float)0.00165) / ((__pyx_v_object->EIN[41]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[41])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[41])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":624
+      /* "gases/NEON.pyx":624
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[41])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[41] + object.E[2])
  *             object.QIN[41][I] = abs(object.QIN[41][I])             # <<<<<<<<<<<<<<
@@ -7631,7 +7631,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[41])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[41])[__pyx_v_I]));
 
-      /* "NEON.pyx":625
+      /* "gases/NEON.pyx":625
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[41] + object.E[2])
  *             object.QIN[41][I] = abs(object.QIN[41][I])
  *             if EN > 2 * object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -7641,7 +7641,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[41]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":626
+        /* "gases/NEON.pyx":626
  *             object.QIN[41][I] = abs(object.QIN[41][I])
  *             if EN > 2 * object.EIN[41]:
  *                 object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]             # <<<<<<<<<<<<<<
@@ -7650,7 +7650,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[41])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[41]))]);
 
-        /* "NEON.pyx":625
+        /* "gases/NEON.pyx":625
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[41] + object.E[2])
  *             object.QIN[41][I] = abs(object.QIN[41][I])
  *             if EN > 2 * object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -7659,7 +7659,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":620
+      /* "gases/NEON.pyx":620
  * 
  *         #4S2 BEF SCALING
  *         if EN > object.EIN[41]:             # <<<<<<<<<<<<<<
@@ -7668,7 +7668,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":629
+    /* "gases/NEON.pyx":629
  * 
  *         #5S1! BEF SCALING
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -7678,7 +7678,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[42])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":630
+      /* "gases/NEON.pyx":630
  *         #5S1! BEF SCALING
  *         if EN > object.EIN[42]:
  *             object.QIN[42][I] =<float>(0.00250) / (object.EIN[42] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7687,7 +7687,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[42])[__pyx_v_I]) = (((((((float)0.00250) / ((__pyx_v_object->EIN[42]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[42])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[42])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":633
+      /* "gases/NEON.pyx":633
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[42])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[42] + object.E[2])
  *             object.QIN[42][I] = abs(object.QIN[42][I])             # <<<<<<<<<<<<<<
@@ -7696,7 +7696,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[42])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[42])[__pyx_v_I]));
 
-      /* "NEON.pyx":634
+      /* "gases/NEON.pyx":634
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[42] + object.E[2])
  *             object.QIN[42][I] = abs(object.QIN[42][I])
  *             if EN > 2 * object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -7706,7 +7706,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[42]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":635
+        /* "gases/NEON.pyx":635
  *             object.QIN[42][I] = abs(object.QIN[42][I])
  *             if EN > 2 * object.EIN[42]:
  *                 object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]             # <<<<<<<<<<<<<<
@@ -7715,7 +7715,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[42])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[42]))]);
 
-        /* "NEON.pyx":634
+        /* "gases/NEON.pyx":634
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[42] + object.E[2])
  *             object.QIN[42][I] = abs(object.QIN[42][I])
  *             if EN > 2 * object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -7724,7 +7724,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":629
+      /* "gases/NEON.pyx":629
  * 
  *         #5S1! BEF SCALING
  *         if EN > object.EIN[42]:             # <<<<<<<<<<<<<<
@@ -7733,7 +7733,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":638
+    /* "gases/NEON.pyx":638
  * 
  *         #SUM HIGHER RESONANCE S STATES
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -7743,7 +7743,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[43])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":639
+      /* "gases/NEON.pyx":639
  *         #SUM HIGHER RESONANCE S STATES
  *         if EN > object.EIN[43]:
  *             object.QIN[43][I] = <float>(0.00962) / (object.EIN[43] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7752,7 +7752,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[43])[__pyx_v_I]) = (((((((float)0.00962) / ((__pyx_v_object->EIN[43]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[43])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[43])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":642
+      /* "gases/NEON.pyx":642
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[43])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[43] + object.E[2])
  *             object.QIN[43][I] = abs(object.QIN[43][I])             # <<<<<<<<<<<<<<
@@ -7761,7 +7761,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[43])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[43])[__pyx_v_I]));
 
-      /* "NEON.pyx":643
+      /* "gases/NEON.pyx":643
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[43] + object.E[2])
  *             object.QIN[43][I] = abs(object.QIN[43][I])
  *             if EN > 2 * object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -7771,7 +7771,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[43]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":644
+        /* "gases/NEON.pyx":644
  *             object.QIN[43][I] = abs(object.QIN[43][I])
  *             if EN > 2 * object.EIN[43]:
  *                 object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]             # <<<<<<<<<<<<<<
@@ -7780,7 +7780,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[43])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[43]))]);
 
-        /* "NEON.pyx":643
+        /* "gases/NEON.pyx":643
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[43] + object.E[2])
  *             object.QIN[43][I] = abs(object.QIN[43][I])
  *             if EN > 2 * object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -7789,7 +7789,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":638
+      /* "gases/NEON.pyx":638
  * 
  *         #SUM HIGHER RESONANCE S STATES
  *         if EN > object.EIN[43]:             # <<<<<<<<<<<<<<
@@ -7798,7 +7798,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":647
+    /* "gases/NEON.pyx":647
  * 
  *         #SUM HIGHER RESONANCE S STATES
  *         if EN > object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -7808,7 +7808,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_EN > (__pyx_v_object->EIN[44])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":648
+      /* "gases/NEON.pyx":648
  *         #SUM HIGHER RESONANCE S STATES
  *         if EN > object.EIN[44]:
  *             object.QIN[44][I] = <float>(0.01695) / (object.EIN[44] * BETA2) * (             # <<<<<<<<<<<<<<
@@ -7817,7 +7817,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[44])[__pyx_v_I]) = (((((((float)0.01695) / ((__pyx_v_object->EIN[44]) * __pyx_v_BETA2)) * ((log((((__pyx_v_BETA2 * __pyx_v_GAMMA2) * __pyx_v_EMASS2) / (4.0 * (__pyx_v_object->EIN[44])))) - __pyx_v_BETA2) - ((__pyx_v_object->DEN[__pyx_v_I]) / 2.0))) * __pyx_v_BBCONST) * __pyx_v_EN) / ((__pyx_v_EN + (__pyx_v_object->EIN[44])) + (__pyx_v_object->E[2])));
 
-      /* "NEON.pyx":651
+      /* "gases/NEON.pyx":651
  *                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[44])) - BETA2 - object.DEN[
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[44] + object.E[2])
  *             object.QIN[44][I] = abs(object.QIN[44][I])             # <<<<<<<<<<<<<<
@@ -7826,7 +7826,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[44])[__pyx_v_I]) = fabs(((__pyx_v_object->QIN[44])[__pyx_v_I]));
 
-      /* "NEON.pyx":652
+      /* "gases/NEON.pyx":652
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[44] + object.E[2])
  *             object.QIN[44][I] = abs(object.QIN[44][I])
  *             if EN > 2 * object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -7836,7 +7836,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_t_44 = ((__pyx_v_EN > (2.0 * (__pyx_v_object->EIN[44]))) != 0);
       if (__pyx_t_44) {
 
-        /* "NEON.pyx":653
+        /* "gases/NEON.pyx":653
  *             object.QIN[44][I] = abs(object.QIN[44][I])
  *             if EN > 2 * object.EIN[44]:
  *                 object.PEQIN[44][I] = object.PEQEL[1][I - IOFFN[44]]             # <<<<<<<<<<<<<<
@@ -7845,7 +7845,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
         ((__pyx_v_object->PEQIN[44])[__pyx_v_I]) = ((__pyx_v_object->PEQEL[1])[(__pyx_v_I - (__pyx_v_IOFFN[44]))]);
 
-        /* "NEON.pyx":652
+        /* "gases/NEON.pyx":652
  *                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[44] + object.E[2])
  *             object.QIN[44][I] = abs(object.QIN[44][I])
  *             if EN > 2 * object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -7854,7 +7854,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       }
 
-      /* "NEON.pyx":647
+      /* "gases/NEON.pyx":647
  * 
  *         #SUM HIGHER RESONANCE S STATES
  *         if EN > object.EIN[44]:             # <<<<<<<<<<<<<<
@@ -7863,7 +7863,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "NEON.pyx":655
+    /* "gases/NEON.pyx":655
  *                 object.PEQIN[44][I] = object.PEQEL[1][I - IOFFN[44]]
  * 
  *         QINEL = 0             # <<<<<<<<<<<<<<
@@ -7872,7 +7872,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_QINEL = 0.0;
 
-    /* "NEON.pyx":656
+    /* "gases/NEON.pyx":656
  * 
  *         QINEL = 0
  *         for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -7884,7 +7884,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_46 = 0; __pyx_t_46 < __pyx_t_45; __pyx_t_46+=1) {
       __pyx_v_J = __pyx_t_46;
 
-      /* "NEON.pyx":657
+      /* "gases/NEON.pyx":657
  *         QINEL = 0
  *         for J in range(object.NIN):
  *             QINEL += object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -7894,7 +7894,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
       __pyx_v_QINEL = (__pyx_v_QINEL + ((__pyx_v_object->QIN[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "NEON.pyx":659
+    /* "gases/NEON.pyx":659
  *             QINEL += object.QIN[J][I]
  * 
  *         object.Q[0][I] = QELA + object.QION[0][I] + object.QION[1][I] + object.QION[2][I] + object.QION[3][I] + QINEL             # <<<<<<<<<<<<<<
@@ -7904,7 +7904,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = (((((__pyx_v_QELA + ((__pyx_v_object->QION[0])[__pyx_v_I])) + ((__pyx_v_object->QION[1])[__pyx_v_I])) + ((__pyx_v_object->QION[2])[__pyx_v_I])) + ((__pyx_v_object->QION[3])[__pyx_v_I])) + __pyx_v_QINEL);
   }
 
-  /* "NEON.pyx":661
+  /* "gases/NEON.pyx":661
  *         object.Q[0][I] = QELA + object.QION[0][I] + object.QION[1][I] + object.QION[2][I] + object.QION[3][I] + QINEL
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -7916,7 +7916,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_31 = 0; __pyx_t_31 < __pyx_t_30; __pyx_t_31+=1) {
     __pyx_v_J = __pyx_t_31;
 
-    /* "NEON.pyx":662
+    /* "gases/NEON.pyx":662
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7926,7 +7926,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_44 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_44) {
 
-      /* "NEON.pyx":663
+      /* "gases/NEON.pyx":663
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -7935,7 +7935,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "NEON.pyx":664
+      /* "gases/NEON.pyx":664
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -7943,7 +7943,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L136_break;
 
-      /* "NEON.pyx":662
+      /* "gases/NEON.pyx":662
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -7954,14 +7954,14 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L136_break:;
 
-  /* "NEON.pyx":665
+  /* "gases/NEON.pyx":665
  *             object.NIN = J
  *             break
  *     return             # <<<<<<<<<<<<<<
  */
   goto __pyx_L0;
 
-  /* "NEON.pyx":17
+  /* "gases/NEON.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas5(Gas* object):             # <<<<<<<<<<<<<<
@@ -7975,7 +7975,7 @@ static void __pyx_f_4NEON_Gas5(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("NEON.Gas5", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.NEON.Gas5", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -11021,7 +11021,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas5", (void (*)(void))__pyx_f_4NEON_Gas5, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas5", (void (*)(void))__pyx_f_5gases_4NEON_Gas5, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -11273,14 +11273,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_NEON) {
+  if (__pyx_module_is_main_gases__NEON) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "NEON")) {
-      if (unlikely(PyDict_SetItemString(modules, "NEON", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.NEON")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.NEON", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -11301,7 +11301,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "NEON.pyx":3
+  /* "gases/NEON.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -11313,7 +11313,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "NEON.pyx":5
+  /* "gases/NEON.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -11325,7 +11325,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "NEON.pyx":10
+  /* "gases/NEON.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -11340,7 +11340,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "NEON.pyx":1
+  /* "gases/NEON.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -11366,11 +11366,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init NEON", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.NEON", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init NEON");
+    PyErr_SetString(PyExc_ImportError, "init gases.NEON");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

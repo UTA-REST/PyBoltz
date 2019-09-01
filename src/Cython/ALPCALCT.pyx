@@ -55,8 +55,8 @@ cpdef ALPCALCT(Magboltz object):
             object.TSTEP = TCUTH
         if object.TSTEP < TCUTL:
             object.TSTEP = TCUTL
-        for J in range(object.NGAS):
-            object.TCFMAX[J] += abs(object.FAKEI) / object.NGAS
+        for J in range(object.NumberOfGases):
+            object.TCFMAX[J] += abs(object.FAKEI) / object.NumberOfGases
 
         # CONVERT TO PICOSECONDS
         object.TSTEP *= 1e12
@@ -70,8 +70,8 @@ cpdef ALPCALCT(Magboltz object):
         ALP1ER = object.RALPER * ALP1 / 100
         ATT1 = object.RATTOF / object.TOFWR * 1e7
         ATT1ER = object.RATOFER * ATT1 / 100
-        for J in range(object.NGAS):
-            object.TCFMAX[J] -= abs(object.FAKEI) / object.NGAS
+        for J in range(object.NumberOfGases):
+            object.TCFMAX[J] -= abs(object.FAKEI) / object.NumberOfGases
         ALPHAD = ATT1 * 1.2
         if ALP1 - ATT1 > 30 * object.CORR:
             ALPHAD = abs(ATT1) * 0.4
@@ -99,8 +99,8 @@ cpdef ALPCALCT(Magboltz object):
         object.TSTEP = TCUTH
     if object.ZSTEP > ZCUTH and ALPHAD != 0.0:
         object.ZSTEP = ZCUTH
-    for J in range(object.NGAS):
-        object.TCFMAX[J] += abs(object.FAKEI) / object.NGAS
+    for J in range(object.NumberOfGases):
+        object.TCFMAX[J] += abs(object.FAKEI) / object.NumberOfGases
     ANET2 = ALP1 - ATT1
     object.TSTEP *= 1e12
     object.ZSTEP *= 0.01

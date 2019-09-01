@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "DME",
+        "name": "gases.DME",
         "sources": [
-            "DME.pyx"
+            "gases/DME.pyx"
         ]
     },
-    "module_name": "DME"
+    "module_name": "gases.DME"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__DME
-#define __PYX_HAVE_API__DME
+#define __PYX_HAVE__gases__DME
+#define __PYX_HAVE_API__gases__DME
 /* Early includes */
 #include <math.h>
 #include <string.h>
@@ -841,7 +841,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "DME.pyx",
+  "gases/DME.pyx",
   "__init__.pxd",
   "stringsource",
   "type.pxd",
@@ -1066,7 +1066,7 @@ typedef struct __pyx_t_3Gas_Gas __pyx_t_3Gas_Gas;
 
 /* "Gas.pxd":1
  * ctypedef struct Gas:             # <<<<<<<<<<<<<<
- *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NGAS
+ *     int NGS, NIN, NSTEP, NANISO, NATT, NNULL, NION, IPEN, NumberOfGases
  *     double TORR, TEMPC, ARY, ESTEP, AKT, EFINAL, DENS,PIR2
  */
 struct __pyx_t_3Gas_Gas {
@@ -1078,7 +1078,7 @@ struct __pyx_t_3Gas_Gas {
   int NNULL;
   int NION;
   int IPEN;
-  int NGAS;
+  int NumberOfGases;
   double TORR;
   double TEMPC;
   double ARY;
@@ -1684,13 +1684,13 @@ static double (*__pyx_f_7GasUtil_CALQIONREG)(double, int, double *, double *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'DME' */
+/* Module declarations from 'gases.DME' */
 static int __Pyx_carray_from_py_double(PyObject *, double *, Py_ssize_t); /*proto*/
-#define __Pyx_MODULE_NAME "DME"
-extern int __pyx_module_is_main_DME;
-int __pyx_module_is_main_DME = 0;
+#define __Pyx_MODULE_NAME "gases.DME"
+extern int __pyx_module_is_main_gases__DME;
+int __pyx_module_is_main_gases__DME = 0;
 
-/* Implementation of 'DME' */
+/* Implementation of 'gases.DME' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1808,7 +1808,7 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "DME.pyx":17
+/* "gases/DME.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas25(Gas*object):             # <<<<<<<<<<<<<<
@@ -1816,7 +1816,7 @@ static PyObject *__pyx_tuple__7;
  *     This function is used to calculate the needed momentum cross sections for DME gas.
  */
 
-static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
+static void __pyx_f_5gases_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   PyObject *__pyx_v_gd = NULL;
   double __pyx_v_XEN[54];
   double __pyx_v_YXSEC[54];
@@ -1877,7 +1877,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   long __pyx_t_19;
   __Pyx_RefNannySetupContext("Gas25", 0);
 
-  /* "DME.pyx":21
+  /* "gases/DME.pyx":21
  *     This function is used to calculate the needed momentum cross sections for DME gas.
  *     """
  *     gd = np.load('gases.npy').item()             # <<<<<<<<<<<<<<
@@ -1925,7 +1925,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_v_gd = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "DME.pyx":26
+  /* "gases/DME.pyx":26
  * 
  *     cdef int NDATA,NVIB3,NVIB4,NVIB5,NVIB6,NIOND,NATT1,NEXC,NEXC1
  *     XEN=gd['gas25/XEN']             # <<<<<<<<<<<<<<
@@ -1938,7 +1938,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEN[0]), __pyx_t_5, sizeof(__pyx_v_XEN[0]) * (54));
 
-  /* "DME.pyx":27
+  /* "gases/DME.pyx":27
  *     cdef int NDATA,NVIB3,NVIB4,NVIB5,NVIB6,NIOND,NATT1,NEXC,NEXC1
  *     XEN=gd['gas25/XEN']
  *     YXSEC=gd['gas25/YXSEC']             # <<<<<<<<<<<<<<
@@ -1951,7 +1951,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YXSEC[0]), __pyx_t_5, sizeof(__pyx_v_YXSEC[0]) * (54));
 
-  /* "DME.pyx":28
+  /* "gases/DME.pyx":28
  *     XEN=gd['gas25/XEN']
  *     YXSEC=gd['gas25/YXSEC']
  *     XION=gd['gas25/XION']             # <<<<<<<<<<<<<<
@@ -1964,7 +1964,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XION[0]), __pyx_t_6, sizeof(__pyx_v_XION[0]) * (29));
 
-  /* "DME.pyx":29
+  /* "gases/DME.pyx":29
  *     YXSEC=gd['gas25/YXSEC']
  *     XION=gd['gas25/XION']
  *     YION=gd['gas25/YION']             # <<<<<<<<<<<<<<
@@ -1977,7 +1977,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YION[0]), __pyx_t_6, sizeof(__pyx_v_YION[0]) * (29));
 
-  /* "DME.pyx":30
+  /* "gases/DME.pyx":30
  *     XION=gd['gas25/XION']
  *     YION=gd['gas25/YION']
  *     XATT=gd['gas25/XATT']             # <<<<<<<<<<<<<<
@@ -1990,7 +1990,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XATT[0]), __pyx_t_7, sizeof(__pyx_v_XATT[0]) * (16));
 
-  /* "DME.pyx":31
+  /* "gases/DME.pyx":31
  *     YION=gd['gas25/YION']
  *     XATT=gd['gas25/XATT']
  *     YATT=gd['gas25/YATT']             # <<<<<<<<<<<<<<
@@ -2003,7 +2003,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YATT[0]), __pyx_t_7, sizeof(__pyx_v_YATT[0]) * (16));
 
-  /* "DME.pyx":32
+  /* "gases/DME.pyx":32
  *     XATT=gd['gas25/XATT']
  *     YATT=gd['gas25/YATT']
  *     XVIB3=gd['gas25/XVIB3']             # <<<<<<<<<<<<<<
@@ -2016,7 +2016,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB3[0]), __pyx_t_8, sizeof(__pyx_v_XVIB3[0]) * (19));
 
-  /* "DME.pyx":33
+  /* "gases/DME.pyx":33
  *     YATT=gd['gas25/YATT']
  *     XVIB3=gd['gas25/XVIB3']
  *     YVIB3=gd['gas25/YVIB3']             # <<<<<<<<<<<<<<
@@ -2029,7 +2029,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB3[0]), __pyx_t_8, sizeof(__pyx_v_YVIB3[0]) * (19));
 
-  /* "DME.pyx":34
+  /* "gases/DME.pyx":34
  *     XVIB3=gd['gas25/XVIB3']
  *     YVIB3=gd['gas25/YVIB3']
  *     XVIB4=gd['gas25/XVIB4']             # <<<<<<<<<<<<<<
@@ -2042,7 +2042,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB4[0]), __pyx_t_9, sizeof(__pyx_v_XVIB4[0]) * (28));
 
-  /* "DME.pyx":35
+  /* "gases/DME.pyx":35
  *     YVIB3=gd['gas25/YVIB3']
  *     XVIB4=gd['gas25/XVIB4']
  *     YVIB4=gd['gas25/YVIB4']             # <<<<<<<<<<<<<<
@@ -2055,7 +2055,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB4[0]), __pyx_t_9, sizeof(__pyx_v_YVIB4[0]) * (28));
 
-  /* "DME.pyx":36
+  /* "gases/DME.pyx":36
  *     XVIB4=gd['gas25/XVIB4']
  *     YVIB4=gd['gas25/YVIB4']
  *     XVIB5=gd['gas25/XVIB5']             # <<<<<<<<<<<<<<
@@ -2068,7 +2068,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB5[0]), __pyx_t_10, sizeof(__pyx_v_XVIB5[0]) * (25));
 
-  /* "DME.pyx":37
+  /* "gases/DME.pyx":37
  *     YVIB4=gd['gas25/YVIB4']
  *     XVIB5=gd['gas25/XVIB5']
  *     YVIB5=gd['gas25/YVIB5']             # <<<<<<<<<<<<<<
@@ -2081,7 +2081,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB5[0]), __pyx_t_10, sizeof(__pyx_v_YVIB5[0]) * (25));
 
-  /* "DME.pyx":38
+  /* "gases/DME.pyx":38
  *     XVIB5=gd['gas25/XVIB5']
  *     YVIB5=gd['gas25/YVIB5']
  *     XVIB6=gd['gas25/XVIB6']             # <<<<<<<<<<<<<<
@@ -2094,7 +2094,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XVIB6[0]), __pyx_t_8, sizeof(__pyx_v_XVIB6[0]) * (19));
 
-  /* "DME.pyx":39
+  /* "gases/DME.pyx":39
  *     YVIB5=gd['gas25/YVIB5']
  *     XVIB6=gd['gas25/XVIB6']
  *     YVIB6=gd['gas25/YVIB6']             # <<<<<<<<<<<<<<
@@ -2107,7 +2107,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YVIB6[0]), __pyx_t_8, sizeof(__pyx_v_YVIB6[0]) * (19));
 
-  /* "DME.pyx":40
+  /* "gases/DME.pyx":40
  *     XVIB6=gd['gas25/XVIB6']
  *     YVIB6=gd['gas25/YVIB6']
  *     XEXC=gd['gas25/XEXC']             # <<<<<<<<<<<<<<
@@ -2120,7 +2120,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC[0]), __pyx_t_11, sizeof(__pyx_v_XEXC[0]) * (27));
 
-  /* "DME.pyx":41
+  /* "gases/DME.pyx":41
  *     YVIB6=gd['gas25/YVIB6']
  *     XEXC=gd['gas25/XEXC']
  *     YEXC=gd['gas25/YEXC']             # <<<<<<<<<<<<<<
@@ -2133,7 +2133,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC[0]), __pyx_t_11, sizeof(__pyx_v_YEXC[0]) * (27));
 
-  /* "DME.pyx":42
+  /* "gases/DME.pyx":42
  *     XEXC=gd['gas25/XEXC']
  *     YEXC=gd['gas25/YEXC']
  *     XEXC1=gd['gas25/XEXC1']             # <<<<<<<<<<<<<<
@@ -2146,7 +2146,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_XEXC1[0]), __pyx_t_12, sizeof(__pyx_v_XEXC1[0]) * (35));
 
-  /* "DME.pyx":43
+  /* "gases/DME.pyx":43
  *     YEXC=gd['gas25/YEXC']
  *     XEXC1=gd['gas25/XEXC1']
  *     YEXC1=gd['gas25/YEXC1']             # <<<<<<<<<<<<<<
@@ -2159,7 +2159,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_YEXC1[0]), __pyx_t_12, sizeof(__pyx_v_YEXC1[0]) * (35));
 
-  /* "DME.pyx":44
+  /* "gases/DME.pyx":44
  *     XEXC1=gd['gas25/XEXC1']
  *     YEXC1=gd['gas25/YEXC1']
  *     object.EIN = gd['gas25/EIN']             # <<<<<<<<<<<<<<
@@ -2176,7 +2176,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   memcpy(&(__pyx_v_object->EIN[0]), __pyx_t_13, sizeof(__pyx_v_object->EIN[0]) * (0xFA));
 
-  /* "DME.pyx":53
+  /* "gases/DME.pyx":53
  *     cdef double AVIB1,AVIB2
  *     cdef int i,j,I,J
  *     object.NION = 1             # <<<<<<<<<<<<<<
@@ -2185,7 +2185,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NION = 1;
 
-  /* "DME.pyx":54
+  /* "gases/DME.pyx":54
  *     cdef int i,j,I,J
  *     object.NION = 1
  *     object.NATT = 1             # <<<<<<<<<<<<<<
@@ -2194,7 +2194,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NATT = 1;
 
-  /* "DME.pyx":55
+  /* "gases/DME.pyx":55
  *     object.NION = 1
  *     object.NATT = 1
  *     object.NIN = 8             # <<<<<<<<<<<<<<
@@ -2203,7 +2203,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NIN = 8;
 
-  /* "DME.pyx":56
+  /* "gases/DME.pyx":56
  *     object.NATT = 1
  *     object.NIN = 8
  *     object.NNULL = 0             # <<<<<<<<<<<<<<
@@ -2212,7 +2212,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_object->NNULL = 0;
 
-  /* "DME.pyx":57
+  /* "gases/DME.pyx":57
  *     object.NIN = 8
  *     object.NNULL = 0
  *     AVIB1=<float>(0.06)             # <<<<<<<<<<<<<<
@@ -2221,7 +2221,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AVIB1 = ((float)0.06);
 
-  /* "DME.pyx":58
+  /* "gases/DME.pyx":58
  *     object.NNULL = 0
  *     AVIB1=<float>(0.06)
  *     AVIB2=<float>(0.35)             # <<<<<<<<<<<<<<
@@ -2230,7 +2230,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AVIB2 = ((float)0.35);
 
-  /* "DME.pyx":59
+  /* "gases/DME.pyx":59
  *     AVIB1=<float>(0.06)
  *     AVIB2=<float>(0.35)
  *     for J in range(6):             # <<<<<<<<<<<<<<
@@ -2240,7 +2240,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_14 = 0; __pyx_t_14 < 6; __pyx_t_14+=1) {
     __pyx_v_J = __pyx_t_14;
 
-    /* "DME.pyx":60
+    /* "gases/DME.pyx":60
  *     AVIB2=<float>(0.35)
  *     for J in range(6):
  *         object.KEL[J] = 0             # <<<<<<<<<<<<<<
@@ -2250,7 +2250,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KEL[__pyx_v_J]) = 0.0;
   }
 
-  /* "DME.pyx":62
+  /* "gases/DME.pyx":62
  *         object.KEL[J] = 0
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -2262,7 +2262,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
     __pyx_v_J = __pyx_t_16;
 
-    /* "DME.pyx":63
+    /* "gases/DME.pyx":63
  * 
  *     for J in range(object.NIN):
  *         object.KIN[J] = 0             # <<<<<<<<<<<<<<
@@ -2272,7 +2272,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     (__pyx_v_object->KIN[__pyx_v_J]) = 0.0;
   }
 
-  /* "DME.pyx":65
+  /* "gases/DME.pyx":65
  *         object.KIN[J] = 0
  * 
  *     NDATA=54             # <<<<<<<<<<<<<<
@@ -2281,7 +2281,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NDATA = 54;
 
-  /* "DME.pyx":66
+  /* "gases/DME.pyx":66
  * 
  *     NDATA=54
  *     NVIB3=19             # <<<<<<<<<<<<<<
@@ -2290,7 +2290,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB3 = 19;
 
-  /* "DME.pyx":67
+  /* "gases/DME.pyx":67
  *     NDATA=54
  *     NVIB3=19
  *     NVIB4=28             # <<<<<<<<<<<<<<
@@ -2299,7 +2299,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB4 = 28;
 
-  /* "DME.pyx":68
+  /* "gases/DME.pyx":68
  *     NVIB3=19
  *     NVIB4=28
  *     NVIB5=25             # <<<<<<<<<<<<<<
@@ -2308,7 +2308,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB5 = 25;
 
-  /* "DME.pyx":69
+  /* "gases/DME.pyx":69
  *     NVIB4=28
  *     NVIB5=25
  *     NVIB6=19             # <<<<<<<<<<<<<<
@@ -2317,7 +2317,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NVIB6 = 19;
 
-  /* "DME.pyx":70
+  /* "gases/DME.pyx":70
  *     NVIB5=25
  *     NVIB6=19
  *     NIOND=29             # <<<<<<<<<<<<<<
@@ -2326,7 +2326,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NIOND = 29;
 
-  /* "DME.pyx":71
+  /* "gases/DME.pyx":71
  *     NVIB6=19
  *     NIOND=29
  *     NATT1=16             # <<<<<<<<<<<<<<
@@ -2335,7 +2335,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NATT1 = 16;
 
-  /* "DME.pyx":72
+  /* "gases/DME.pyx":72
  *     NIOND=29
  *     NATT1=16
  *     NEXC=27             # <<<<<<<<<<<<<<
@@ -2344,7 +2344,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC = 27;
 
-  /* "DME.pyx":73
+  /* "gases/DME.pyx":73
  *     NATT1=16
  *     NEXC=27
  *     NEXC1=35             # <<<<<<<<<<<<<<
@@ -2353,7 +2353,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_NEXC1 = 35;
 
-  /* "DME.pyx":75
+  /* "gases/DME.pyx":75
  *     NEXC1=35
  * 
  *     cdef double EMASS = 9.10938291e-31             # <<<<<<<<<<<<<<
@@ -2362,7 +2362,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EMASS = 9.10938291e-31;
 
-  /* "DME.pyx":76
+  /* "gases/DME.pyx":76
  * 
  *     cdef double EMASS = 9.10938291e-31
  *     cdef double AMU = 1.660538921e-27,EOBY             # <<<<<<<<<<<<<<
@@ -2371,7 +2371,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_AMU = 1.660538921e-27;
 
-  /* "DME.pyx":78
+  /* "gases/DME.pyx":78
  *     cdef double AMU = 1.660538921e-27,EOBY
  * 
  *     object.E = [0.0, 1.0, <float>(10.04), 0.0, 0.0, 0.0]             # <<<<<<<<<<<<<<
@@ -2386,7 +2386,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __pyx_t_17[5] = 0.0;
   memcpy(&(__pyx_v_object->E[0]), __pyx_t_17, sizeof(__pyx_v_object->E[0]) * (6));
 
-  /* "DME.pyx":79
+  /* "gases/DME.pyx":79
  * 
  *     object.E = [0.0, 1.0, <float>(10.04), 0.0, 0.0, 0.0]
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(46.06904) * AMU)             # <<<<<<<<<<<<<<
@@ -2395,7 +2395,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   (__pyx_v_object->E[1]) = ((((float)2.0) * __pyx_v_EMASS) / (((float)46.06904) * __pyx_v_AMU));
 
-  /* "DME.pyx":81
+  /* "gases/DME.pyx":81
  *     object.E[1] = <float>(2.0) * EMASS / (<float>(46.06904) * AMU)
  * 
  *     EOBY = <float>(10.04)             # <<<<<<<<<<<<<<
@@ -2404,7 +2404,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EOBY = ((float)10.04);
 
-  /* "DME.pyx":84
+  /* "gases/DME.pyx":84
  * 
  *     cdef double APOP, EN,EFAC
  *     APOP = exp(object.EIN[0]/object.AKT)             # <<<<<<<<<<<<<<
@@ -2413,7 +2413,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_APOP = exp(((__pyx_v_object->EIN[0]) / __pyx_v_object->AKT));
 
-  /* "DME.pyx":86
+  /* "gases/DME.pyx":86
  *     APOP = exp(object.EIN[0]/object.AKT)
  * 
  *     EN = -1*object.ESTEP/<float>(2.0)             # <<<<<<<<<<<<<<
@@ -2422,7 +2422,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   __pyx_v_EN = ((-1.0 * __pyx_v_object->ESTEP) / ((float)2.0));
 
-  /* "DME.pyx":87
+  /* "gases/DME.pyx":87
  * 
  *     EN = -1*object.ESTEP/<float>(2.0)
  *     for I in range(4000):             # <<<<<<<<<<<<<<
@@ -2432,7 +2432,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_14 = 0; __pyx_t_14 < 0xFA0; __pyx_t_14+=1) {
     __pyx_v_I = __pyx_t_14;
 
-    /* "DME.pyx":88
+    /* "gases/DME.pyx":88
  *     EN = -1*object.ESTEP/<float>(2.0)
  *     for I in range(4000):
  *         EN+=object.ESTEP             # <<<<<<<<<<<<<<
@@ -2441,7 +2441,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     __pyx_v_EN = (__pyx_v_EN + __pyx_v_object->ESTEP);
 
-    /* "DME.pyx":90
+    /* "gases/DME.pyx":90
  *         EN+=object.ESTEP
  * 
  *         object.Q[1][I] = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)             # <<<<<<<<<<<<<<
@@ -2450,7 +2450,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[1])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NDATA, __pyx_v_YXSEC, __pyx_v_XEN);
 
-    /* "DME.pyx":92
+    /* "gases/DME.pyx":92
  *         object.Q[1][I] = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)
  * 
  *         object.Q[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2459,7 +2459,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[2])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":93
+    /* "gases/DME.pyx":93
  * 
  *         object.Q[2][I] = 0.0
  *         if EN>object.E[2]:             # <<<<<<<<<<<<<<
@@ -2469,7 +2469,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_object->E[2])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":94
+      /* "gases/DME.pyx":94
  *         object.Q[2][I] = 0.0
  *         if EN>object.E[2]:
  *             object.Q[2][I] = GasUtil.CALQIONREG(EN, NIOND, YION, XION)             # <<<<<<<<<<<<<<
@@ -2478,7 +2478,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NIOND, __pyx_v_YION, __pyx_v_XION);
 
-      /* "DME.pyx":93
+      /* "gases/DME.pyx":93
  * 
  *         object.Q[2][I] = 0.0
  *         if EN>object.E[2]:             # <<<<<<<<<<<<<<
@@ -2487,7 +2487,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":97
+    /* "gases/DME.pyx":97
  * 
  * 
  *         object.Q[3][I] = 0             # <<<<<<<<<<<<<<
@@ -2496,7 +2496,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[3])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":98
+    /* "gases/DME.pyx":98
  * 
  *         object.Q[3][I] = 0
  *         object.QATT[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2505,7 +2505,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QATT[0])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":99
+    /* "gases/DME.pyx":99
  *         object.Q[3][I] = 0
  *         object.QATT[0][I] = 0.0
  *         if EN>XATT[0]:             # <<<<<<<<<<<<<<
@@ -2515,7 +2515,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_XATT[0])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":100
+      /* "gases/DME.pyx":100
  *         object.QATT[0][I] = 0.0
  *         if EN>XATT[0]:
  *             object.Q[3][I] = GasUtil.CALQION(EN, NATT1, YATT, XATT)*1e-5             # <<<<<<<<<<<<<<
@@ -2524,7 +2524,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->Q[3])[__pyx_v_I]) = (__pyx_f_7GasUtil_CALQION(__pyx_v_EN, __pyx_v_NATT1, __pyx_v_YATT, __pyx_v_XATT) * 1e-5);
 
-      /* "DME.pyx":101
+      /* "gases/DME.pyx":101
  *         if EN>XATT[0]:
  *             object.Q[3][I] = GasUtil.CALQION(EN, NATT1, YATT, XATT)*1e-5
  *             object.QATT[0][I] = object.Q[3][I]             # <<<<<<<<<<<<<<
@@ -2533,7 +2533,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QATT[0])[__pyx_v_I]) = ((__pyx_v_object->Q[3])[__pyx_v_I]);
 
-      /* "DME.pyx":99
+      /* "gases/DME.pyx":99
  *         object.Q[3][I] = 0
  *         object.QATT[0][I] = 0.0
  *         if EN>XATT[0]:             # <<<<<<<<<<<<<<
@@ -2542,7 +2542,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":103
+    /* "gases/DME.pyx":103
  *             object.QATT[0][I] = object.Q[3][I]
  * 
  *         object.Q[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2551,7 +2551,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[4])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":104
+    /* "gases/DME.pyx":104
  * 
  *         object.Q[4][I] = 0.0
  *         object.Q[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2560,7 +2560,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[5])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":107
+    /* "gases/DME.pyx":107
  * 
  *         #SUPERELASTIC OF VIBRATION
  *         object.QIN[0][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2569,7 +2569,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[0])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":108
+    /* "gases/DME.pyx":108
  *         #SUPERELASTIC OF VIBRATION
  *         object.QIN[0][I] = 0.0
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -2579,7 +2579,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN != 0.0) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":109
+      /* "gases/DME.pyx":109
  *         object.QIN[0][I] = 0.0
  *         if EN != 0.0:
  *             EFAC = sqrt(1.0 - (object.EIN[0]/EN))             # <<<<<<<<<<<<<<
@@ -2588,7 +2588,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[0]) / __pyx_v_EN)));
 
-      /* "DME.pyx":110
+      /* "gases/DME.pyx":110
  *         if EN != 0.0:
  *             EFAC = sqrt(1.0 - (object.EIN[0]/EN))
  *             object.QIN[0][I] = AVIB1 *log((EFAC+<float>(1.0))/(EFAC-<float>(1.0)))/EN             # <<<<<<<<<<<<<<
@@ -2597,7 +2597,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = ((__pyx_v_AVIB1 * log(((__pyx_v_EFAC + ((float)1.0)) / (__pyx_v_EFAC - ((float)1.0))))) / __pyx_v_EN);
 
-      /* "DME.pyx":111
+      /* "gases/DME.pyx":111
  *             EFAC = sqrt(1.0 - (object.EIN[0]/EN))
  *             object.QIN[0][I] = AVIB1 *log((EFAC+<float>(1.0))/(EFAC-<float>(1.0)))/EN
  *             object.QIN[0][I]  = object.QIN[0][I] * APOP/(<float>(1.0)+APOP)*1e-16             # <<<<<<<<<<<<<<
@@ -2606,7 +2606,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[0])[__pyx_v_I]) = (((((__pyx_v_object->QIN[0])[__pyx_v_I]) * __pyx_v_APOP) / (((float)1.0) + __pyx_v_APOP)) * 1e-16);
 
-      /* "DME.pyx":108
+      /* "gases/DME.pyx":108
  *         #SUPERELASTIC OF VIBRATION
  *         object.QIN[0][I] = 0.0
  *         if EN != 0.0:             # <<<<<<<<<<<<<<
@@ -2615,7 +2615,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":113
+    /* "gases/DME.pyx":113
  *             object.QIN[0][I]  = object.QIN[0][I] * APOP/(<float>(1.0)+APOP)*1e-16
  * 
  *         object.QIN[1][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2624,7 +2624,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[1])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":114
+    /* "gases/DME.pyx":114
  * 
  *         object.QIN[1][I] = 0.0
  *         if EN >object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -2634,7 +2634,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_object->EIN[1])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":115
+      /* "gases/DME.pyx":115
  *         object.QIN[1][I] = 0.0
  *         if EN >object.EIN[1]:
  *             EFAC = sqrt(<float>(1.0) - (object.EIN[1]/EN))             # <<<<<<<<<<<<<<
@@ -2643,7 +2643,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((((float)1.0) - ((__pyx_v_object->EIN[1]) / __pyx_v_EN)));
 
-      /* "DME.pyx":116
+      /* "gases/DME.pyx":116
  *         if EN >object.EIN[1]:
  *             EFAC = sqrt(<float>(1.0) - (object.EIN[1]/EN))
  *             object.QIN[1][I] = AVIB1 *log((EFAC+<float>(1.0))/(<float>(1.0)-EFAC))/EN             # <<<<<<<<<<<<<<
@@ -2652,7 +2652,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = ((__pyx_v_AVIB1 * log(((__pyx_v_EFAC + ((float)1.0)) / (((float)1.0) - __pyx_v_EFAC)))) / __pyx_v_EN);
 
-      /* "DME.pyx":117
+      /* "gases/DME.pyx":117
  *             EFAC = sqrt(<float>(1.0) - (object.EIN[1]/EN))
  *             object.QIN[1][I] = AVIB1 *log((EFAC+<float>(1.0))/(<float>(1.0)-EFAC))/EN
  *             object.QIN[1][I]  = object.QIN[1][I] * 1/(<float>(1.0)+APOP)*1e-16             # <<<<<<<<<<<<<<
@@ -2661,7 +2661,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[1])[__pyx_v_I]) = (((((__pyx_v_object->QIN[1])[__pyx_v_I]) * 1.0) / (((float)1.0) + __pyx_v_APOP)) * 1e-16);
 
-      /* "DME.pyx":114
+      /* "gases/DME.pyx":114
  * 
  *         object.QIN[1][I] = 0.0
  *         if EN >object.EIN[1]:             # <<<<<<<<<<<<<<
@@ -2670,7 +2670,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":119
+    /* "gases/DME.pyx":119
  *             object.QIN[1][I]  = object.QIN[1][I] * 1/(<float>(1.0)+APOP)*1e-16
  * 
  *         object.QIN[2][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2679,7 +2679,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[2])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":120
+    /* "gases/DME.pyx":120
  * 
  *         object.QIN[2][I] = 0.0
  *         if EN >object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -2689,7 +2689,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_object->EIN[2])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":121
+      /* "gases/DME.pyx":121
  *         object.QIN[2][I] = 0.0
  *         if EN >object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALPQ3(EN, NVIB3, YVIB3, XVIB3)             # <<<<<<<<<<<<<<
@@ -2698,7 +2698,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = __pyx_f_7GasUtil_CALPQ3(__pyx_v_EN, __pyx_v_NVIB3, __pyx_v_YVIB3, __pyx_v_XVIB3);
 
-      /* "DME.pyx":122
+      /* "gases/DME.pyx":122
  *         if EN >object.EIN[2]:
  *             object.QIN[2][I] = GasUtil.CALPQ3(EN, NVIB3, YVIB3, XVIB3)
  *             EFAC = sqrt(1.0 - (object.EIN[2]/EN))             # <<<<<<<<<<<<<<
@@ -2707,7 +2707,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_EFAC = sqrt((1.0 - ((__pyx_v_object->EIN[2]) / __pyx_v_EN)));
 
-      /* "DME.pyx":123
+      /* "gases/DME.pyx":123
  *             object.QIN[2][I] = GasUtil.CALPQ3(EN, NVIB3, YVIB3, XVIB3)
  *             EFAC = sqrt(1.0 - (object.EIN[2]/EN))
  *             object.QIN[2][I] = (object.QIN[2][I]+ AVIB2 *log((EFAC+<float>(1.0))/(<float>(1.0)-EFAC))/EN)*1e-16             # <<<<<<<<<<<<<<
@@ -2716,7 +2716,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[2])[__pyx_v_I]) = ((((__pyx_v_object->QIN[2])[__pyx_v_I]) + ((__pyx_v_AVIB2 * log(((__pyx_v_EFAC + ((float)1.0)) / (((float)1.0) - __pyx_v_EFAC)))) / __pyx_v_EN)) * 1e-16);
 
-      /* "DME.pyx":120
+      /* "gases/DME.pyx":120
  * 
  *         object.QIN[2][I] = 0.0
  *         if EN >object.EIN[2]:             # <<<<<<<<<<<<<<
@@ -2725,7 +2725,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":125
+    /* "gases/DME.pyx":125
  *             object.QIN[2][I] = (object.QIN[2][I]+ AVIB2 *log((EFAC+<float>(1.0))/(<float>(1.0)-EFAC))/EN)*1e-16
  * 
  *         object.QIN[3][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2734,7 +2734,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[3])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":126
+    /* "gases/DME.pyx":126
  * 
  *         object.QIN[3][I] = 0.0
  *         if EN >object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -2744,7 +2744,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_object->EIN[3])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":127
+      /* "gases/DME.pyx":127
  *         object.QIN[3][I] = 0.0
  *         if EN >object.EIN[3]:
  *             object.QIN[3][I] = GasUtil.CALQIONREG(EN, NVIB4, YVIB4, XVIB4)             # <<<<<<<<<<<<<<
@@ -2753,7 +2753,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[3])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NVIB4, __pyx_v_YVIB4, __pyx_v_XVIB4);
 
-      /* "DME.pyx":126
+      /* "gases/DME.pyx":126
  * 
  *         object.QIN[3][I] = 0.0
  *         if EN >object.EIN[3]:             # <<<<<<<<<<<<<<
@@ -2762,7 +2762,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":129
+    /* "gases/DME.pyx":129
  *             object.QIN[3][I] = GasUtil.CALQIONREG(EN, NVIB4, YVIB4, XVIB4)
  * 
  *         object.QIN[4][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2771,7 +2771,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[4])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":130
+    /* "gases/DME.pyx":130
  * 
  *         object.QIN[4][I] = 0.0
  *         if EN >object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -2781,7 +2781,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_object->EIN[4])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":131
+      /* "gases/DME.pyx":131
  *         object.QIN[4][I] = 0.0
  *         if EN >object.EIN[4]:
  *             object.QIN[4][I] = GasUtil.CALQIONREG(EN, NVIB5, YVIB5, XVIB5)             # <<<<<<<<<<<<<<
@@ -2790,7 +2790,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[4])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NVIB5, __pyx_v_YVIB5, __pyx_v_XVIB5);
 
-      /* "DME.pyx":130
+      /* "gases/DME.pyx":130
  * 
  *         object.QIN[4][I] = 0.0
  *         if EN >object.EIN[4]:             # <<<<<<<<<<<<<<
@@ -2799,7 +2799,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":133
+    /* "gases/DME.pyx":133
  *             object.QIN[4][I] = GasUtil.CALQIONREG(EN, NVIB5, YVIB5, XVIB5)
  * 
  *         object.QIN[5][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2808,7 +2808,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[5])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":134
+    /* "gases/DME.pyx":134
  * 
  *         object.QIN[5][I] = 0.0
  *         if EN >object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -2818,7 +2818,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_object->EIN[5])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":135
+      /* "gases/DME.pyx":135
  *         object.QIN[5][I] = 0.0
  *         if EN >object.EIN[5]:
  *             object.QIN[5][I] = GasUtil.CALQIONREG(EN, NVIB6, YVIB6, XVIB6)             # <<<<<<<<<<<<<<
@@ -2827,7 +2827,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[5])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NVIB6, __pyx_v_YVIB6, __pyx_v_XVIB6);
 
-      /* "DME.pyx":134
+      /* "gases/DME.pyx":134
  * 
  *         object.QIN[5][I] = 0.0
  *         if EN >object.EIN[5]:             # <<<<<<<<<<<<<<
@@ -2836,7 +2836,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":137
+    /* "gases/DME.pyx":137
  *             object.QIN[5][I] = GasUtil.CALQIONREG(EN, NVIB6, YVIB6, XVIB6)
  * 
  *         object.QIN[6][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2845,7 +2845,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[6])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":138
+    /* "gases/DME.pyx":138
  * 
  *         object.QIN[6][I] = 0.0
  *         if EN >object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -2855,7 +2855,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_object->EIN[6])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":139
+      /* "gases/DME.pyx":139
  *         object.QIN[6][I] = 0.0
  *         if EN >object.EIN[6]:
  *             object.QIN[6][I] = GasUtil.CALQIONREG(EN, NEXC, YEXC, XEXC)             # <<<<<<<<<<<<<<
@@ -2864,7 +2864,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[6])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NEXC, __pyx_v_YEXC, __pyx_v_XEXC);
 
-      /* "DME.pyx":138
+      /* "gases/DME.pyx":138
  * 
  *         object.QIN[6][I] = 0.0
  *         if EN >object.EIN[6]:             # <<<<<<<<<<<<<<
@@ -2873,7 +2873,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":141
+    /* "gases/DME.pyx":141
  *             object.QIN[6][I] = GasUtil.CALQIONREG(EN, NEXC, YEXC, XEXC)
  * 
  *         object.QIN[7][I] = 0.0             # <<<<<<<<<<<<<<
@@ -2882,7 +2882,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->QIN[7])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":142
+    /* "gases/DME.pyx":142
  * 
  *         object.QIN[7][I] = 0.0
  *         if EN >object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -2892,7 +2892,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_EN > (__pyx_v_object->EIN[7])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":143
+      /* "gases/DME.pyx":143
  *         object.QIN[7][I] = 0.0
  *         if EN >object.EIN[7]:
  *             object.QIN[7][I] = GasUtil.CALQIONREG(EN, NEXC1, YEXC1, XEXC1)             # <<<<<<<<<<<<<<
@@ -2901,7 +2901,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       ((__pyx_v_object->QIN[7])[__pyx_v_I]) = __pyx_f_7GasUtil_CALQIONREG(__pyx_v_EN, __pyx_v_NEXC1, __pyx_v_YEXC1, __pyx_v_XEXC1);
 
-      /* "DME.pyx":142
+      /* "gases/DME.pyx":142
  * 
  *         object.QIN[7][I] = 0.0
  *         if EN >object.EIN[7]:             # <<<<<<<<<<<<<<
@@ -2910,7 +2910,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     }
 
-    /* "DME.pyx":145
+    /* "gases/DME.pyx":145
  *             object.QIN[7][I] = GasUtil.CALQIONREG(EN, NEXC1, YEXC1, XEXC1)
  * 
  *         object.Q[0][I] =0.0             # <<<<<<<<<<<<<<
@@ -2919,7 +2919,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
     ((__pyx_v_object->Q[0])[__pyx_v_I]) = 0.0;
 
-    /* "DME.pyx":146
+    /* "gases/DME.pyx":146
  * 
  *         object.Q[0][I] =0.0
  *         for J in range(1,4):             # <<<<<<<<<<<<<<
@@ -2929,7 +2929,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_15 = 1; __pyx_t_15 < 4; __pyx_t_15+=1) {
       __pyx_v_J = __pyx_t_15;
 
-      /* "DME.pyx":147
+      /* "gases/DME.pyx":147
  *         object.Q[0][I] =0.0
  *         for J in range(1,4):
  *             object.Q[0][I]+=object.Q[J][I]             # <<<<<<<<<<<<<<
@@ -2941,7 +2941,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
       ((__pyx_v_object->Q[__pyx_t_19])[__pyx_t_16]) = (((__pyx_v_object->Q[__pyx_t_19])[__pyx_t_16]) + ((__pyx_v_object->Q[__pyx_v_J])[__pyx_v_I]));
     }
 
-    /* "DME.pyx":149
+    /* "gases/DME.pyx":149
  *             object.Q[0][I]+=object.Q[J][I]
  * 
  *         for J in range(8):             # <<<<<<<<<<<<<<
@@ -2951,7 +2951,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     for (__pyx_t_15 = 0; __pyx_t_15 < 8; __pyx_t_15+=1) {
       __pyx_v_J = __pyx_t_15;
 
-      /* "DME.pyx":150
+      /* "gases/DME.pyx":150
  * 
  *         for J in range(8):
  *             object.Q[0][I]+=object.QIN[J][I]             # <<<<<<<<<<<<<<
@@ -2964,7 +2964,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     }
   }
 
-  /* "DME.pyx":153
+  /* "gases/DME.pyx":153
  * 
  * 
  *     for J in range(object.NIN):             # <<<<<<<<<<<<<<
@@ -2976,7 +2976,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
     __pyx_v_J = __pyx_t_16;
 
-    /* "DME.pyx":154
+    /* "gases/DME.pyx":154
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -2986,7 +2986,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
     __pyx_t_18 = ((__pyx_v_object->EFINAL <= (__pyx_v_object->EIN[__pyx_v_J])) != 0);
     if (__pyx_t_18) {
 
-      /* "DME.pyx":155
+      /* "gases/DME.pyx":155
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J             # <<<<<<<<<<<<<<
@@ -2995,7 +2995,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       __pyx_v_object->NIN = __pyx_v_J;
 
-      /* "DME.pyx":156
+      /* "gases/DME.pyx":156
  *         if object.EFINAL <= object.EIN[J]:
  *             object.NIN = J
  *             break             # <<<<<<<<<<<<<<
@@ -3004,7 +3004,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
       goto __pyx_L24_break;
 
-      /* "DME.pyx":154
+      /* "gases/DME.pyx":154
  * 
  *     for J in range(object.NIN):
  *         if object.EFINAL <= object.EIN[J]:             # <<<<<<<<<<<<<<
@@ -3015,7 +3015,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   }
   __pyx_L24_break:;
 
-  /* "DME.pyx":157
+  /* "gases/DME.pyx":157
  *             object.NIN = J
  *             break
  *     return             # <<<<<<<<<<<<<<
@@ -3024,7 +3024,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
  */
   goto __pyx_L0;
 
-  /* "DME.pyx":17
+  /* "gases/DME.pyx":17
  * @cython.wraparound(False)
  * @cython.fast_getattr(True)
  * cdef void Gas25(Gas*object):             # <<<<<<<<<<<<<<
@@ -3038,7 +3038,7 @@ static void __pyx_f_3DME_Gas25(__pyx_t_3Gas_Gas *__pyx_v_object) {
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("DME.Gas25", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("gases.DME.Gas25", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_gd);
   __Pyx_RefNannyFinishContext();
@@ -6028,7 +6028,7 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("Gas25", (void (*)(void))__pyx_f_3DME_Gas25, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("Gas25", (void (*)(void))__pyx_f_5gases_3DME_Gas25, "void (__pyx_t_3Gas_Gas *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -6278,14 +6278,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_DME) {
+  if (__pyx_module_is_main_gases__DME) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "DME")) {
-      if (unlikely(PyDict_SetItemString(modules, "DME", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "gases.DME")) {
+      if (unlikely(PyDict_SetItemString(modules, "gases.DME", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -6306,7 +6306,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "DME.pyx":3
+  /* "gases/DME.pyx":3
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow
  * cimport libc.math
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -6318,7 +6318,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "DME.pyx":5
+  /* "gases/DME.pyx":5
  * import numpy as np
  * cimport numpy as np
  * import sys             # <<<<<<<<<<<<<<
@@ -6330,7 +6330,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "DME.pyx":10
+  /* "gases/DME.pyx":10
  * cimport GasUtil
  * 
  * sys.path.append('../hdf5_python')             # <<<<<<<<<<<<<<
@@ -6345,7 +6345,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_kp_s_hdf5_python); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "DME.pyx":1
+  /* "gases/DME.pyx":1
  * from libc.math cimport sin, cos, acos, asin, log, sqrt, exp, pow             # <<<<<<<<<<<<<<
  * cimport libc.math
  * import numpy as np
@@ -6371,11 +6371,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init DME", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init gases.DME", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init DME");
+    PyErr_SetString(PyExc_ImportError, "init gases.DME");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

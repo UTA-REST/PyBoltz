@@ -367,7 +367,7 @@ cdef class Magboltz:
    
     def GetSimFunctions(self,BFieldMag,BFieldAngle,EnableThermalMotion):
         """
-        This function picks which upper energy limit calculation to use, depending on applied fields and thermal motion.
+        This function picks which sim functions to use, depending on applied fields and thermal motion.
         """
         SetupFunc      = Setups.Setup
         ELimFunc       = EnergyLimits.EnergyLimit

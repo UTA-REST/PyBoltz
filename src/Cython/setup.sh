@@ -8,3 +8,5 @@ python3 Setup_npy.py
 python3 setup.py clean
 export CFLAGS="-I /usr/local/lib/python3.7/site-packages/numpy/core/include $CFLAGS"
 python3 setup.py build_ext --inplace
+
+

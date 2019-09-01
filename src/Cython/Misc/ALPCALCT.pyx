@@ -2,9 +2,8 @@ from Magboltz cimport Magboltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 
 import cython
-from Monte import MONTEFTT
+import MONTEFTT, MONTEFDT
 from FRIEDLANDT cimport FRIEDLANDT
-from Monte  import MONTEFDT
 from PT cimport PT
 from TOF import TOF
 from SST import SST

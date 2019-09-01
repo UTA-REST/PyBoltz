@@ -1,16 +1,14 @@
 import math
 
+from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
+from libc.string cimport memset
+
 import Setups
 import Mixers
 import EnergyLimits
 import Monte
 from Monte import *
-from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 
-
-from CollisionFreqs cimport CollisionFreqT, CollisionFreq
-from libc.string cimport memset
-from ALPCALCT import ALPCALCT
 
 cdef extern from "C/RM48.h":
     double DRAND48(double dummy)

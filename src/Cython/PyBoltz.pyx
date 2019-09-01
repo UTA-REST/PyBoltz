@@ -376,7 +376,7 @@ cdef class PyBoltz:
             if BFieldMag == 0:
                 ELimFunc       = EnergyLimits.EnergyLimitT
                 MonteCarloFunc = Monte.MONTET
-            if BFieldAngle == 0 or BFieldAngle == 180:
+            elif BFieldAngle == 0 or BFieldAngle == 180:
                 ELimFunc       = EnergyLimits.EnergyLimitT
                 MonteCarloFunc = Monte.MONTEAT
             elif BFieldAngle == 90:         
@@ -391,7 +391,7 @@ cdef class PyBoltz:
             if BFieldMag == 0:
                 ELimFunc       = EnergyLimits.EnergyLimit
                 MonteCarloFunc = Monte.MONTE
-            if BFieldAngle == 0 or BFieldAngle == 180:
+            elif BFieldAngle == 0 or BFieldAngle == 180:
                 ELimFunc       = EnergyLimits.EnergyLimit
                 MonteCarloFunc = Monte.MONTEA
             elif BFieldAngle == 90:

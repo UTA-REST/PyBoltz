@@ -939,7 +939,6 @@ cpdef EnergyLimitT(PyBoltz Object):
     F2 = Object.EFIELD * Object.CONST3
     F4 = 2 * acos(-1)
     J2M = Object.NMAX / ISAMP
-    print("Finding the upper limit of electron energy")
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.OF:
             print('* Num analyzed collisions: {}'.format(J1))

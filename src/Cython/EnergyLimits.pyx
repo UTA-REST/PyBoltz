@@ -4,7 +4,8 @@ from Magboltz cimport drand48
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
-from SORT cimport SORT
+
+from MBSorts cimport MBSort, MBSortT
 
 
 @cython.cdivision(True)
@@ -121,7 +122,7 @@ cpdef EnergyLimit(Magboltz Object):
 
 
         # Determination of real collision type
-        I = SORT(I, R2, IE, Object)
+        I = MBSort(I, R2, IE, Object)
         # Find the location within 4 units in collision array
         while Object.CFNT[IE][I] < R2:
             I = I + 1
@@ -188,15 +189,6 @@ cpdef EnergyLimit(Magboltz Object):
 
     Object.IELOW = 0
     return
-from Magboltz cimport Magboltz
-cimport cython
-from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
-from libc.stdlib cimport malloc, free
-from libc.string cimport memset
-from SORT cimport SORT
-
-
 
 
 @cython.cdivision(True)
@@ -294,7 +286,7 @@ cpdef EnergyLimitB(Magboltz Object):
         R2 = random_uniform(RDUM)
 
         # FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
-        I = SORT(I, R2, IE, Object)
+        I = MBSort(I, R2, IE, Object)
         while Object.CFNT[IE][I] < R2:
             I = I + 1
 
@@ -362,12 +354,6 @@ cpdef EnergyLimitB(Magboltz Object):
 
     Object.IELOW = 0
     return
-from Magboltz cimport Magboltz
-cimport cython
-from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log,log10, sqrt, pow
-from SORTT cimport SORTT
-
 
 
 
@@ -475,7 +461,7 @@ cpdef EnergyLimitBT(Magboltz Object):
 
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
         R2 = random_uniform(RDUM)
-        I = SORTT(KGAS, I, R2, IE, Object)
+        I = MBSortT(KGAS, I, R2, IE, Object)
         while Object.CF[KGAS][IE][I] < R2:
             I = I + 1
 
@@ -551,13 +537,6 @@ cpdef EnergyLimitBT(Magboltz Object):
 
     Object.IELOW = 0
     return
-from Magboltz cimport Magboltz
-cimport cython
-from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
-from libc.stdlib cimport malloc, free
-from libc.string cimport memset
-from SORT cimport SORT
 
 
 
@@ -655,7 +634,7 @@ cpdef EnergyLimitC(Magboltz Object):
         # DETERMINATION OF REAL COLLISION TYPE
 
         # FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
-        I = SORT(I, R2, IE, Object)
+        I = MBSort(I, R2, IE, Object)
         while Object.CFNT[IE][I] < R2:
             I = I + 1
 
@@ -723,13 +702,6 @@ cpdef EnergyLimitC(Magboltz Object):
 
     Object.IELOW = 0
     return
-
-from Magboltz cimport Magboltz
-cimport cython
-from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log,log10, sqrt, pow
-from SORTT cimport SORTT
-
 
 
 
@@ -847,7 +819,7 @@ cpdef EnergyLimitCT(Magboltz Object):
         R2 = random_uniform(RDUM)
 
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
-        I = SORTT(KGAS, I, R2, IE, Object)
+        I = MBSortT(KGAS, I, R2, IE, Object)
         while Object.CF[KGAS][IE][I] < R2:
             I = I + 1
 
@@ -923,12 +895,6 @@ cpdef EnergyLimitCT(Magboltz Object):
 
     Object.IELOW = 0
     return
-from Magboltz cimport Magboltz
-cimport cython
-from Magboltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, log10
-from SORTT cimport SORTT
-
 
 
 
@@ -1028,7 +994,7 @@ cpdef EnergyLimitT(Magboltz Object):
         # Determination of real collision type
         R3 = random_uniform(RDUM)
         # Find location within 4 units in collision array
-        I = SORTT(KGAS, I, R3, IE, Object)
+        I = MBSortT(KGAS, I, R3, IE, Object)
         while Object.CF[KGAS][IE][I] < R3:
             I += 1
         S1 = Object.RGAS[KGAS][I]

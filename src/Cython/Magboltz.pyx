@@ -1,11 +1,13 @@
-from SETUPT import SETUPT
 import math
-from MixerT import MixerT
+
+import Setups
+import Mixers
+import EnergyLimits
+import Monte
+from Monte import *
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
-from EnergyLimits import *
-from monte import *
-from Mixer import Mixer
-from SETUP import SETUP
+
+
 from CollisionFreqs cimport CollisionFreqT, CollisionFreq
 from libc.string cimport memset
 from ALPCALCT import ALPCALCT
@@ -362,6 +364,45 @@ cdef class Magboltz:
             self.WX *=1e-5
 
 
+   
+    def GetSimFunctions(self,BFieldMag,BFieldAngle,EnableThermalMotion):
+        """
+        This function picks which upper energy limit calculation to use, depending on applied fields and thermal motion.
+        """
+        SetupFunc      = Setups.Setup
+        ELimFunc       = EnergyLimits.EnergyLimit
+        MonteCarloFunc = Monte.MONTE
+        if(self.EnableThermalMotion!=0):
+            SetupFunc = Setups.SetupT
+            MixerFunc = Mixers.MixerT
+            if BFieldMag == 0:
+                ELimFunc       = EnergyLimits.EnergyLimitT
+                MonteCarloFunc = Monte.MONTET
+            if BFieldAngle == 0 or BFieldAngle == 180:
+                ELimFunc       = EnergyLimits.EnergyLimitT
+                MonteCarloFunc = Monte.MONTEAT
+            elif BFieldAngle == 90:         
+                ELimFunc       = EnergyLimits.EnergyLimitBT
+                MonteCarloFunc = Monte.MONTEBT
+            else:
+                ELimFunc       = EnergyLimits.EnergyLimitCT
+                MonteCarloFunc = Monte.MONTECT
+        else:
+            SetupFunc = Setups.Setup
+            MixerFunc = Mixers.Mixer
+            if BFieldMag == 0:
+                ELimFunc       = EnergyLimits.EnergyLimit
+                MonteCarloFunc = Monte.MONTE
+            if BFieldAngle == 0 or BFieldAngle == 180:
+                ELimFunc       = EnergyLimits.EnergyLimit
+                MonteCarloFunc = Monte.MONTEA
+            elif BFieldAngle == 90:
+                ELimFunc       = EnergyLimits.EnergyLimitB
+                MonteCarloFunc = Monte.MONTEB
+            else:
+                ELimFunc       = EnergyLimits.EnergyLimitC
+                MonteCarloFunc = Monte.MONTEC
+        return [SetupFunc,MixerFunc,ELimFunc,MonteCarloFunc]  
 
     def Start(self):
         """
@@ -377,126 +418,45 @@ cdef class Magboltz:
         For more info on the main output variables check the git repository readme:
         `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
         """
+
         cdef double EOB
         cdef int i = 0
-        if self.EnableThermalMotion != 0:
-            SETUPT(self)
-            if self.EFINAL == 0.0:
-                self.EFINAL = 0.5
-                EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
-                if EOB > 15:
-                    self.EFINAL = 8.0
-                self.ESTART = self.EFINAL / 50.0
-                while self.IELOW == 1:
-                    if self.OF : print("MixerT")
-                    MixerT(self)
-                    if self.BFieldMag == 0 or self.BFieldAngle == 0 or abs(self.BFieldAngle) == 180:
-                        if self.OF : print("EnergyLimitT")
-                        EnergyLimitT(self)
-                    elif self.BFieldAngle == 90:
-                        if self.OF : print("EnergyLimitBT")
-                        EnergyLimitBT(self)
-                    else:
-                        if self.OF : print("EnergyLimitCT")
-                        EnergyLimitCT(self)
-                    if self.IELOW == 1:
-                        self.EFINAL = self.EFINAL * math.sqrt(2)
-                        if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
-                        self.ESTART = self.EFINAL / 50
-                if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
 
+        # Get the appropriate set of simulation functions given configuration keys
+        SetupFunc,MixerFunc, ELimFunc, MonteCarloFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
 
-            else:
-                if self.OF : print("MixerT")
-                MixerT(self)
-            if self.BFieldMag == 0:
-                if self.OF : print("MONTET")
-                MONTET.monte(self)
-            else:
-                if self.BFieldAngle == 0 or self.BFieldAngle == 180:
-                    if self.OF : print("MONTEAT")
-                    MONTEAT.monte(self)
-                elif self.BFieldAngle == 90:
-                    if self.OF : print("MONTEBT")
-                    MONTEBT.monte(self)
-                else:
-                    if self.OF : print("MONTECT")
-                    MONTECT.monte(self)
-            self.TGAS = 273.15 + self.TEMPC
-            self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
-            self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
-            self.SSTMIN = 40
-            self.end()
-            return
-            if abs(self.ALPP - self.ATTP) < self.SSTMIN:
-                self.end()
-                return
-            if self.BFieldMag == 0.0:
-                if self.OF : print("ALP")
-                ALPCALCT(self)
-            elif self.BFieldAngle == 0.0 or self.BFieldAngle == 180:
-                print("")
-            elif self.BFieldAngle == 90:
-                print("")
-            else:
-                print("")
-            self.end()
-            return
+        # Set up the simulation
+        SetupFunc(self)
+
+        # Find the electron upper energy limit
+        if self.EFINAL == 0.0:
+            # Given no specified upper energy limit, find it iteratively
+            self.EFINAL = 0.5
+            EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
+            if EOB > 15:
+                self.EFINAL = 8.0
+            self.ESTART = self.EFINAL / 50.0
+            while self.IELOW == 1:
+                MixerFunc(self)
+                ELimFunc(self)
+
+                if self.IELOW == 1:
+                    self.EFINAL = self.EFINAL * math.sqrt(2)
+                    self.ESTART = self.EFINAL / 50
         else:
-            SETUP(self)
-            if self.EFINAL == 0.0:
-                self.EFINAL = 0.5
-                EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
-                if EOB > 15:
-                    self.EFINAL = 8
-                self.ESTART = self.EFINAL / 50
-                while self.IELOW == 1:
-                    if self.OF : print("Mixer")
-                    Mixer(self)
-                    if self.BFieldMag == 0 or self.BFieldAngle == 0 or abs(self.BFieldAngle) == 180:
-                        if self.OF : print("EnergyLimit")
-                        EnergyLimit(self)
-                    elif self.BFieldAngle == 90:
-                        if self.OF : print("EnergyLimitB")
-                        EnergyLimitB(self)
-                    else:
-                        if self.OF : print("EnergyLimitC")
-                        EnergyLimitC(self)
-                    if self.IELOW == 1:
-                        self.EFINAL = self.EFINAL * math.sqrt(2)
-                        if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
-                        self.ESTART = self.EFINAL / 50
-                if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
+            # Given a specified upper energy limit, use it
+            MixerFunc(self)
+        
+        if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
 
-            else:
-                if self.OF : print("Mixer")
-                Mixer(self)
-            if self.BFieldMag == 0:
-                if self.OF : print("MONTE")
-                MONTE.monte(self)
-            else:
-                if self.BFieldAngle == 0 or self.BFieldAngle == 180:
-                    if self.OF : print("MONTEA")
-                    MONTEA.monte(self)
-                elif self.BFieldAngle == 90:
-                    if self.OF : print("MONTEB")
-                    MONTEB.monte(self)
-                else:
-                    if self.OF : print("MONTEC")
-                    MONTEC.monte(self)
-            self.TGAS = 273.15 + self.TEMPC
-            self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
-            self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
-            self.SSTMIN = 40
-            self.end()
-            return
-            if abs(self.ALPP - self.ATTP) < self.SSTMIN:
-                return
-            if self.BFieldMag == 0.0:
-                print("")
-            elif self.BFieldAngle == 0.0 or self.BFieldAngle == 180:
-                print("")
-            elif self.BFieldAngle == 90:
-                print("")
-            else:
-                print("")
+        # Run the simulation
+        MonteCarloFunc.run(self)
+
+        # Express outputs in the right units
+        self.TGAS = 273.15 + self.TEMPC
+        self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
+        self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
+        self.SSTMIN = 40
+        self.end()
+        return
+             

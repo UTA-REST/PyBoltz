@@ -1,17 +1,10 @@
 from SETUPT import SETUPT
 import math
-from MIXERT import MIXERT
+from MixerT import MixerT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from EnergyLimits import *
-from MONTE import MONTE
-from MONTEA import MONTEA
-from MONTEB import MONTEB
-from MONTEC import MONTEC
-from MONTET import MONTET
-from MONTEAT import MONTEAT
-from MONTEBT import MONTEBT
-from MONTECT import MONTECT
-from MIXER import MIXER
+from monte import *
+from Mixer import Mixer
 from SETUP import SETUP
 from CollisionFreqs cimport CollisionFreqT, CollisionFreq
 from libc.string cimport memset
@@ -375,7 +368,7 @@ cdef class Magboltz:
         This is the main function that starts the magboltz simulation/calculation.
 
         The simulation starts by calculating the momentum cross section values for the requested gas mixture. If EFINAL
-        is equal to 0.0 it will then keep calling the EnergyLimit functions and the MIXER functions to find the electron
+        is equal to 0.0 it will then keep calling the EnergyLimit functions and the Mixer functions to find the electron
         Integration limit.
 
         Finally Magboltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
@@ -395,8 +388,8 @@ cdef class Magboltz:
                     self.EFINAL = 8.0
                 self.ESTART = self.EFINAL / 50.0
                 while self.IELOW == 1:
-                    if self.OF : print("MIXERT")
-                    MIXERT(self)
+                    if self.OF : print("MixerT")
+                    MixerT(self)
                     if self.BFieldMag == 0 or self.BFieldAngle == 0 or abs(self.BFieldAngle) == 180:
                         if self.OF : print("EnergyLimitT")
                         EnergyLimitT(self)
@@ -414,21 +407,21 @@ cdef class Magboltz:
 
 
             else:
-                if self.OF : print("MIXERT")
-                MIXERT(self)
+                if self.OF : print("MixerT")
+                MixerT(self)
             if self.BFieldMag == 0:
                 if self.OF : print("MONTET")
-                MONTET(self)
+                MONTET.monte(self)
             else:
                 if self.BFieldAngle == 0 or self.BFieldAngle == 180:
                     if self.OF : print("MONTEAT")
-                    MONTEAT(self)
+                    MONTEAT.monte(self)
                 elif self.BFieldAngle == 90:
                     if self.OF : print("MONTEBT")
-                    MONTEBT(self)
+                    MONTEBT.monte(self)
                 else:
                     if self.OF : print("MONTECT")
-                    MONTECT(self)
+                    MONTECT.monte(self)
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
@@ -458,8 +451,8 @@ cdef class Magboltz:
                     self.EFINAL = 8
                 self.ESTART = self.EFINAL / 50
                 while self.IELOW == 1:
-                    if self.OF : print("MIXER")
-                    MIXER(self)
+                    if self.OF : print("Mixer")
+                    Mixer(self)
                     if self.BFieldMag == 0 or self.BFieldAngle == 0 or abs(self.BFieldAngle) == 180:
                         if self.OF : print("EnergyLimit")
                         EnergyLimit(self)
@@ -476,21 +469,21 @@ cdef class Magboltz:
                 if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
 
             else:
-                if self.OF : print("MIXER")
-                MIXER(self)
+                if self.OF : print("Mixer")
+                Mixer(self)
             if self.BFieldMag == 0:
                 if self.OF : print("MONTE")
-                MONTE(self)
+                MONTE.monte(self)
             else:
                 if self.BFieldAngle == 0 or self.BFieldAngle == 180:
                     if self.OF : print("MONTEA")
-                    MONTEA(self)
+                    MONTEA.monte(self)
                 elif self.BFieldAngle == 90:
                     if self.OF : print("MONTEB")
-                    MONTEB(self)
+                    MONTEB.monte(self)
                 else:
                     if self.OF : print("MONTEC")
-                    MONTEC(self)
+                    MONTEC.monte(self)
             self.TGAS = 273.15 + self.TEMPC
             self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
             self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)

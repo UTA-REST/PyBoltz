@@ -2,9 +2,9 @@ from Magboltz cimport Magboltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 
 import cython
-from MONTEFTT import MONTEFTT
+from monte import MONTEFTT
 from FRIEDLANDT cimport FRIEDLANDT
-from MONTEFDT import MONTEFDT
+from monte  import MONTEFDT
 from PT cimport PT
 from TOF import TOF
 from SST import SST
@@ -63,7 +63,7 @@ cpdef ALPCALCT(Magboltz object):
         object.TFINAL = 7 * object.TSTEP
         object.ITFINAL = 7
         JPRT = 0
-        MONTEFTT(object,JPRT)
+        MONTEFTT.monte(object,JPRT)
         PT(object,JPRT)
         TOF(object,JPRT)
         ALP1 = object.RALPHA / object.TOFWR * 1e7
@@ -115,14 +115,14 @@ cpdef ALPCALCT(Magboltz object):
     ZSTEPM = object.ZSTEP * 1e6
 
     JPRT = 1
-    MONTEFDT(object)
+    MONTEFDT.monte(object)
     SST(object)
     object.ALPHA = object.ALPHSST
     object.ALPER = object.ALPHERR
     object.ATT = object.ATTSST
     object.ATTER = object.ATTERR
 
-    MONTEFTT(object,JPRT)
+    MONTEFTT.monte(object,JPRT)
     FRIEDLANDT(object)
     PT(object,JPRT)
     TOF(object,JPRT)

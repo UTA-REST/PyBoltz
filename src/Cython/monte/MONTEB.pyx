@@ -31,11 +31,11 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef MONTEA(Magboltz Object):
+cpdef monte(Magboltz Object):
     """
     This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  tempc.
 
-    This function is used when the magnetic field is parallel to the electric field in the z direction.    
+    This function is used when the magnetic field is perpendicular to the electric field in the z direction.    
     
     The object parameter is the Magboltz object to have the output results and to be used in the simulation.
     """
@@ -44,10 +44,9 @@ cpdef MONTEA(Magboltz Object):
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
-    cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, ANCATT, ANCION, E,TEMP[4000]
-
-
-    cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST
+    cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, ANCATT, ANCION, E,SUMYZ,SUMLS,SUMTS
+    cdef double SYZOLD,SLNOLD,STROLD,EBAROLD,EF100, EBAR
+    cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST,*DFYZST,*DFLNST,*WYZST, *DFTRST,TEMP[4000]
     STO = <double *> malloc(2000000 * sizeof(double))
     memset(STO, 0, 2000000 * sizeof(double))
     XST = <double *> malloc(2000000 * sizeof(double))
@@ -62,6 +61,9 @@ cpdef MONTEA(Magboltz Object):
     WZST = <double *> malloc(10 * sizeof(double))
     memset(WZST, 0, 10 * sizeof(double))
 
+    WYST = <double *> malloc(10 * sizeof(double))
+    memset(WYST, 0, 10 * sizeof(double))
+
     AVEST = <double *> malloc(10 * sizeof(double))
     memset(AVEST, 0, 10 * sizeof(double))
 
@@ -74,76 +76,87 @@ cpdef MONTEA(Magboltz Object):
     DFXXST = <double *> malloc(10 * sizeof(double))
     memset(DFXXST, 0, 10 * sizeof(double))
 
+    DFYZST = <double *> malloc(10 * sizeof(double))
+    memset(DFYZST, 0, 10 * sizeof(double))
 
-    Object.WX = 0.0
-    Object.WY = 0.0
-    Object.DWX = 0.0
-    Object.DWY = 0.0
+    DFLNST = <double *> malloc(10 * sizeof(double))
+    memset(DFLNST, 0, 10 * sizeof(double))
+
+
+    DFTRST  = <double *> malloc(10 * sizeof(double))
+    memset(DFTRST, 0, 10 * sizeof(double))
+
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
     for J in range(4000):
         TEMP[J] = Object.TCFNNT[J] + Object.TCFNT[J]
 
+    Object.WX = 0.0
+    Object.DWX = 0.0
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
+    Object.DIFXZ = 0.0
+    Object.DIFXY = 0.0
+    Object.DXZER = 0.0
+    Object.DXYER = 0.0
     Object.ST = 0.0
     ST1 = 0.0
     ST2 = 0.0
-    SUME2 = 0.0
     SUMXX = 0.0
     SUMYY = 0.0
     SUMZZ = 0.0
+    SUMYZ = 0.0
+    SUMLS = 0.0
+    SUMTS = 0.0
     SUMVX = 0.0
-    SUMVY = 0.0
     ZOLD = 0.0
+    YOLD = 0.0
     STOLD = 0.0
     ST1OLD = 0.0
     ST2OLD = 0.0
     SZZOLD = 0.0
     SXXOLD = 0.0
     SYYOLD = 0.0
+    SYZOLD = 0.0
     SVXOLD = 0.0
-    SVYOLD = 0.0
-    SME2OLD = 0.0
+    SLNOLD = 0.0
+    STROLD = 0.0
+    EBAROLD = 0.0
 
-    Object.SMALL = 1.0e-20
+    Object.SMALL = 1e-20
     Object.TMAX1 = 0.0
+    EF100 = Object.EFIELD * 100
     RDUM = Object.RSTART
     E1 = Object.ESTART
-    CONST9 = Object.CONST3 * 0.01
     INTEM = 8
     Object.ITMAX = 10
     ID = 0
-    Object.XID = 0
     NCOL = 0
-    IEXTRA = 0
     Object.NNULL = 0
+    IEXTRA = 0
+    TDASH = 0.0
+    CONST9 = Object.CONST3 * 0.01
 
     ABSFAKEI = Object.FAKEI
     Object.IFAKE = 0
 
-    # INITIAL DIRECTION COSINES
+    F4 = 2 * acos(-1)
     DCZ1 = cos(Object.THETA)
     DCX1 = sin(Object.THETA) * cos(Object.PHI)
     DCY1 = sin(Object.THETA) * sin(Object.PHI)
 
-    # INITIAL VELOCITY
     VTOT = CONST9 * sqrt(E1)
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
 
-    BP = Object.EFIELD ** 2 * Object.CONST1
-    F1 = Object.EFIELD * Object.CONST2
-    F2 = Object.EFIELD * Object.CONST3
-    F4 = 2 * acos(-1)
-
     J2M = <long long>(Object.NMAX / Object.ITMAX)
+
     DELTAE = Object.EFINAL / float(INTEM)
     if Object.OF:
-        print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
-                                                                       "DIFXX", "DIFYY", "DIFZZ"))
+        print('{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Energy",
+                                                                       "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFLNG","DIFTRN"))
     for J1 in range(int(Object.ITMAX)):
         for J2 in range(int(J2M)):
             while True:
@@ -154,8 +167,11 @@ cpdef MONTEA(Magboltz Object):
                 T = -1 * log(R1) / TLIM + TDASH
                 Object.MCT = 0.9 * Object.MCT + 0.1 * T
                 TDASH = T
-                AP = DCZ1 * F2 * sqrt(E1)
-                E = E1 + (AP + BP * T) * T
+                WBT = Object.WB * T
+                COSWT = cos(WBT)
+                SINWT = sin(WBT)
+                DZ = (CZ1 * SINWT + (Object.EOVB - CY1) * (1 - COSWT)) / Object.WB
+                E = E1 + DZ * EF100
                 IE = int(E / Object.ESTEP)
                 IE = min(IE, 3999)
                 if TEMP[IE] > TLIM:
@@ -163,7 +179,6 @@ cpdef MONTEA(Magboltz Object):
                     Object.TCFMAXNT[I] *= 1.05
                     continue
 
-                # TEST FOR REAL OR NULL COLLISION
                 R5 = random_uniform(RDUM)
                 TEST1 = Object.TCFNT[IE] / TLIM
 
@@ -190,56 +205,54 @@ cpdef MONTEA(Magboltz Object):
                 else:
                     break
 
-
             T2 = T ** 2
             if (T >= Object.TMAX1):
                 Object.TMAX1 = T
             TDASH = 0.0
-            WBT = Object.WB * T
-            COSWT = cos(WBT)
-            SINWT = sin(WBT)
-            CONST6 = sqrt(E1 / E)
-            CX2 = CX1 * COSWT - CY1 * SINWT
-            CY2 = CY1 * COSWT + CX1 * SINWT
-            VTOT = CONST9 * sqrt(E)
+            CX2 = CX1
+            CY2 = (CY1 - Object.EOVB) * COSWT + CZ1 * SINWT + Object.EOVB
+            CZ2 = CZ1 * COSWT - (CY1 - Object.EOVB) * SINWT
+            VTOT = sqrt(CX2 ** 2 + CY2 ** 2 + CZ2 ** 2)
             DCX2 = CX2 / VTOT
             DCY2 = CY2 / VTOT
-            DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
-            A = AP * T
-            B = BP * T2
-            SUME2 = SUME2 + T * (E1 + A / 2.0 + B / 3.0)
-            CONST7 = CONST9 * sqrt(E1)
-            A = T * CONST7
+            DCZ2 = CZ2 / VTOT
             NCOL += 1
-            DX = (CX1 * SINWT - CY1 * (1 - COSWT)) / Object.WB
-            Object.X += DX
-            DY = (CY1 * SINWT + CX1 * (1 - COSWT)) / Object.WB
-            Object.Y += DY
-            Object.Z += DCZ1 * A + T2 * F1
+
+            Object.X += CX1 * T
+            Object.Y += Object.EOVB * T + ((CY1 - Object.EOVB) * SINWT + CZ1 * (1 - COSWT)) / Object.WB
+            Object.Z += DZ
             Object.ST += T
             IT = int(T)
             IT = min(IT, 299)
             Object.TIME[IT] += 1
             Object.SPEC[IE] += 1
             Object.WZ = Object.Z / Object.ST
-
-            SUMVX = SUMVX + DX ** 2
-            SUMVY = SUMVY + DY ** 2
-
+            Object.WY = Object.Y / Object.ST
+            SUMVX += (CX1 ** 2) * T2
             if ID != 0:
                 KDUM = 0
-                for JDUM in range(int(Object.NCORST)):
+                for J in range(int(Object.NCORST)):
                     ST2 = ST2 + T
                     NCOLDM = NCOL + KDUM
                     if NCOLDM > Object.NCOLM:
                         NCOLDM = NCOLDM - Object.NCOLM
                     SDIF = Object.ST - STO[NCOLDM-1]
                     SUMXX += ((Object.X - XST[NCOLDM-1]) ** 2) * T / SDIF
-                    SUMYY += ((Object.Y - YST[NCOLDM-1]) ** 2) * T / SDIF
                     KDUM += Object.NCORLN
                     if J1 >= 2:
                         ST1 += T
                         SUMZZ += ((Object.Z - ZST[NCOLDM-1] - Object.WZ * SDIF) ** 2) * T / SDIF
+                        SUMYY += ((Object.Y - YST[NCOLDM-1] - Object.WY * SDIF) ** 2) * T / SDIF
+                        SUMYZ += (Object.Z - ZST[NCOLDM-1] - Object.WZ * SDIF) * (
+                                Object.Y - YST[NCOLDM-1] - Object.WY * SDIF) * T / SDIF
+                        A2 = (Object.WZ * SDIF) ** 2 + (Object.WY * SDIF) ** 2
+                        B2 = (Object.Z - Object.WZ * SDIF - ZST[NCOLDM-1]) ** 2 + (
+                                Object.Y - Object.WY * SDIF - YST[NCOLDM-1]) ** 2
+                        C2 = (Object.Z - ZST[NCOLDM-1]) ** 2 + (Object.Y - YST[NCOLDM-1]) ** 2
+                        DL2 = (A2 + B2 - C2) ** 2 / (4 * A2)
+                        DT2 = B2 - DL2
+                        SUMLS += DL2 * T / SDIF
+                        SUMTS += DT2 * T / SDIF
             XST[NCOL-1] = Object.X
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
@@ -257,7 +270,6 @@ cpdef MONTEA(Magboltz Object):
 
             S1 = Object.RGASNT[I]
             EI = Object.EINNT[I]
-
             if Object.IPNNT[I] > 0:
                 R9 = random_uniform(RDUM)
                 EXTRA = R9 * (E - EI)
@@ -320,83 +332,119 @@ cpdef MONTEA(Magboltz Object):
             CX1 = DCX1 * VTOT
             CY1 = DCY1 * VTOT
             CZ1 = DCZ1 * VTOT
-
+        print(J1)
         Object.WZ *= 1e9
-        Object.AVE = SUME2 / Object.ST
-        if Object.NISO == 0:
-            Object.DIFXX = 5e15 * SUMVX / Object.ST
-            Object.DIFYY = 5e15 * SUMVY / Object.ST
-            DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Object.ST - STOLD)
-            DFYYST[J1] = 5e15 * (SUMVY - SVYOLD) / (Object.ST - STOLD)
-        else:
-            if ST2 != 0.0:
-                Object.DIFYY = 5e15 * SUMYY / ST2
-                Object.DIFXX = 5e15 * SUMXX / ST2
-                DFXXST[J1] = 5e15 * (SUMXX - SXXOLD) / (ST2 - ST2OLD)
-                DFYYST[J1] = 5e15 * (SUMYY - SYYOLD) / (ST2 - ST2OLD)
-            else:
-                DFXXST[J1] = 0.0
-                DFYYST[J1] = 0.0
+        Object.WY *= 1e9
+        if ST2 != 0.0:
+            Object.DIFXX = 5e15 * SUMXX / ST2
         if ST1 != 0.0:
             Object.DIFZZ = 5e15 * SUMZZ / ST1
-            DFZZST[J1] = 5e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
-        else:
-            DFZZST[J1] = 0.0
+            Object.DIFYY = 5e15 * SUMYY / ST1
+            Object.DIFYZ = -5e15 * SUMYZ / ST1
+            Object.DIFLN = 5e15 * SUMLS / ST1
+            Object.DIFTR = 5e15 * SUMTS / ST1
+        if Object.NISO == 0:
+            Object.DIFXX = 5e15 * SUMVX / Object.ST
+        EBAR = 0.0
+        for IK in range(4000):
+            EBAR += Object.E[IK] * Object.SPEC[IK] / Object.TCFNT[IK]
+        Object.AVE = EBAR / Object.ST
         WZST[J1] = (Object.Z - ZOLD) / (Object.ST - STOLD) * 1e9
-        AVEST[J1] = (SUME2 - SME2OLD) / (Object.ST - STOLD)
+        WYST[J1] = (Object.Y - YOLD) / (Object.ST - STOLD) * 1e9
+        AVEST[J1] = (EBAR - EBAROLD) / (Object.ST - STOLD)
+        EBAROLD = EBAR
+        DFZZST[J1] = 0.0
+        DFYYST[J1] = 0.0
+        DFYZST[J1] = 0.0
+        DFLNST[J1] = 0.0
+        DFTRST[J1] = 0.0
+        if J1 > 1:
+            DFZZST[J1] = 5e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
+            DFYYST[J1] = 5e15 * (SUMYY - SYYOLD) / (ST1 - ST1OLD)
+            DFYZST[J1] = 5e15 * (SUMYZ - SYZOLD) / (ST1 - ST1OLD)
+            DFLNST[J1] = 5e15 * (SUMLS - SLNOLD) / (ST1 - ST1OLD)
+            DFTRST[J1] = 5e15 * (SUMTS - STROLD) / (ST1 - ST1OLD)
+        DFXXST[J1] = 5e15 * (SUMXX - SXXOLD) / (ST2 - ST2OLD)
+        if Object.NISO == 0:
+            DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Object.ST - STOLD)
         ZOLD = Object.Z
+        YOLD = Object.Y
         STOLD = Object.ST
         ST1OLD = ST1
         ST2OLD = ST2
         SVXOLD = SUMVX
-        SVYOLD = SUMVY
         SZZOLD = SUMZZ
-        SYYOLD = SUMYY
         SXXOLD = SUMXX
-        SME2OLD = SUME2
+        SYYOLD = SUMYY
+        SYZOLD = SUMYZ
+        SLNOLD = SUMLS
+        STROLD = SUMTS
         if Object.OF:
-            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ, Object.Z, Object.ST,
+            print('{:^12.1f}{:^12.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ,Object.WY,
                                                                                     Object.AVE, Object.DIFXX, Object.DIFYY,
-                                                                                    Object.DIFZZ))
+                                                                                    Object.DIFZZ,Object.DIFYZ,Object.DIFLN,Object.DIFTR))
     TWZST = 0.0
+    TWYST = 0.0
     TAVE = 0.0
     T2WZST = 0.0
+    T2WYST = 0.0
     T2AVE = 0.0
+    TZZST = 0.0
     TYYST = 0.0
     TXXST = 0.0
-
-    TZZST = 0.0
+    TYZST = 0.0
+    TLNST = 0.0
+    TTRST = 0.0
     T2ZZST = 0.0
     T2YYST = 0.0
     T2XXST = 0.0
+    T2YZST = 0.0
+    T2LNST = 0.0
+    T2TRST = 0.0
+
     for K in range(10):
         TWZST = TWZST + WZST[K]
+        TWYST = TWYST + WYST[K]
         TAVE = TAVE + AVEST[K]
         T2WZST = T2WZST + WZST[K] * WZST[K]
+        T2WYST = T2WYST + WYST[K] * WYST[K]
         T2AVE = T2AVE + AVEST[K] * AVEST[K]
         TXXST += DFXXST[K]
-        TYYST += DFYYST[K]
         T2XXST += DFXXST[K] ** 2
-        T2YYST += DFYYST[K] ** 2
         if K >= 2:
             TZZST = TZZST + DFZZST[K]
+            TYYST = TYYST + DFYYST[K]
+            TYZST = TYZST + DFYZST[K]
+            TLNST = TLNST + DFLNST[K]
+            TTRST = TTRST + DFTRST[K]
             T2ZZST += DFZZST[K] ** 2
+            T2YYST += DFYYST[K] ** 2
+            T2YZST += DFYZST[K] ** 2
+            T2LNST += DFLNST[K] ** 2
+            T2TRST += DFTRST[K] ** 2
     Object.DWZ = 100 * sqrt((T2WZST - TWZST * TWZST / 10.0) / 9.0) / Object.WZ
+    Object.DWY = 100 * sqrt((T2WYST - TWYST * TWYST / 10.0) / 9.0) / abs(Object.WY)
     Object.DEN = 100 * sqrt((T2AVE - TAVE * TAVE / 10.0) / 9.0) / Object.AVE
     Object.DXXER = 100 * sqrt((T2XXST - TXXST * TXXST / 10.0) / 9.0) / Object.DIFXX
     Object.DYYER = 100 * sqrt((T2YYST - TYYST * TYYST / 10.0) / 9.0) / Object.DIFYY
     Object.DZZER = 100 * sqrt((T2ZZST - TZZST * TZZST / 8.0) / 7.0) / Object.DIFZZ
+    Object.DYZER = 100 * sqrt((T2YZST - TYZST * TYZST / 8.0) / 7.0) / abs(Object.DIFYZ)
+    Object.DFLER = 100 * sqrt((T2LNST - TLNST * TLNST / 8.0) / 7.0) / Object.DIFLN
+    Object.DFTER = 100 * sqrt((T2TRST - TTRST * TTRST / 8.0) / 7.0) / Object.DIFTR
     Object.DWZ = Object.DWZ / sqrt(10)
+    Object.DWY = Object.DWY / sqrt(10)
     Object.DEN = Object.DEN / sqrt(10)
     Object.DXXER = Object.DXXER / sqrt(10)
-    Object.DYYER = Object.DYYER / sqrt(10)
+    Object.DYYER = Object.DYYER / sqrt(8)
     Object.DZZER = Object.DZZER / sqrt(8)
-    Object.DIFLN = Object.DIFZZ
-    Object.DIFTR = (Object.DIFXX + Object.DIFYY) / 2
+    Object.DYZER = Object.DYZER / sqrt(8)
+    Object.DFLER = Object.DFLER / sqrt(8)
+    Object.DFTER = Object.DFTER / sqrt(8)
+
     # CONVERT CM/SEC
+
     Object.WZ *= 1e5
-    Object.DFLER = Object.DZZER
-    Object.DFTER = (Object.DXXER + Object.DYYER) / 2.0
+    Object.WY *= 1e5
 
     ANCATT = 0.0
     ANCION = 0.0
@@ -414,6 +462,4 @@ cpdef MONTEA(Magboltz Object):
     Object.ALPHA = ANCION / (Object.ST * Object.WZ) * 1e12
 
     return
-
-
 

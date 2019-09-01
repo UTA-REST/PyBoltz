@@ -29,7 +29,7 @@ cdef void GERJAN(double RDUM, double API, double *RNMX):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef MONTECT(Magboltz Object):
+cpdef montect(Magboltz Object):
     """
     This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  tempc.
 

@@ -12,6 +12,34 @@ cimport cython
 cpdef TOF(PyBoltz object, int JPRT):
     cdef double DUM[6],DLTF[8],DXTF[8],DYTF[8],WR[8],ANTPL[8],FRION,FRATT,ATTOINT,CORERR,TDT2,TDT3
     cdef double ANST2,ANST3,ANST4,ANST5,ANST6,ANST7,ANST8,ATER
+    cdef double TOFWVZ, TOFWVZER, TOFWVX, TOFWVXER, TOFWVY, TOFWVYER, TOFDZZ, TOFDZZER, TOFDXX, TOFDXXER, TOFDYY, TOFDYYER
+    cdef double TOFDYZ, TOFDYZER, TOFDXZ, TOFDXZER, TOFDXY, TOFDXYER, TOFWRZ, TOFWRZER, TOFWRY, TOFWRYER, TOFWRX, TOFWRXER 
+
+    TOFWVZ = 0.0
+    TOFWVZER = 0.0
+    TOFWVX = 0.0
+    TOFWVXER = 0.0
+    TOFWVY = 0.0
+    TOFWVYER = 0.0
+    TOFDZZ = 0.0
+    TOFDZZER = 0.0
+    TOFDXX = 0.0
+    TOFDXXER = 0.0
+    TOFDYY = 0.0
+    TOFDYYER = 0.0
+    TOFDYZ = 0.0
+    TOFDYZER = 0.0
+    TOFDXZ = 0.0
+    TOFDXZER = 0.0
+    TOFDXY = 0.0
+    TOFDXYER = 0.0
+    TOFWRZ = 0.0
+    TOFWRZER = 0.0
+    TOFWRY = 0.0
+    TOFWRYER = 0.0
+    TOFWRX = 0.0
+    TOFWRXER = 0.0
+
     cdef int I1,I2,I
     if object.EnableThermalMotion == 1:
         DUM = CollisionFreqT(object)

@@ -28,12 +28,13 @@ cpdef run(PyBoltz Object):
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
     cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, GasIndex, IE, IT, KDUM, IPT, JDUM, NCOLDM
-    cdef double ST1, RDUM, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMXZ, SUMXY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SYZOLD, SXYOLD, SXZOLD, SME2OLD, TDASH
+    cdef double ST1, RandomSeed, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMXZ, SUMXY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SYZOLD, SXYOLD, SXZOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, TZZST, TXYST, TXZST, TYZST, T2XXST, T2YYST, T2ZZST, T2XYST, T2XZST, T2YZST, ANCATT, ANCION, E, SUMYZ, SUMLS, SUMTS
     cdef double SLNOLD, STROLD, EBAROLD, EFZ100, EFX100, EBAR, WZR, WYR, WXR, XR, ZR, YR, TWYST, TWXST, T2WYST, T2WXST,TEMP[4000]
+    cdef double NumSamples
     cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST, *DFYZST, *DFXYST, *DFXZST, *WYZST, *WXZST
     cdef double DIFXXR, DIFYYR, DIFZZR, DIFYZR, DIFXZR, DIFXYR, ZROLD, YROLD, XROLD, SZZR, SYYR, SXXR, SXYR, SXZR, RCS, RSN, RTHETA, EOVBR
 
@@ -137,7 +138,7 @@ cpdef run(PyBoltz Object):
     CONST9 = Object.CONST3 * 0.01
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
     E1 = Object.InitialElectronEnergy
-    Object.NumSamples = 10
+    NumSamples = 10
     ID = 0
     NCOL = 0
     INTEM = 8
@@ -158,14 +159,14 @@ cpdef run(PyBoltz Object):
     CZ1 = DCZ1 * VTOT
 
     DELTAE = Object.FinalElectronEnergy / float(INTEM)
-    J2M = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
+    J2M = <long long>(Object.MaxNumberOfCollisions / NumSamples)
     if Object.ConsoleOutputFlag:
         print('{:^12s}{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Velocity X","Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFXZ","DIFXY"))
-    for J1 in range(int(Object.NumSamples)):
+    for J1 in range(int(NumSamples)):
         for J2 in range(int(J2M)):
             while True:
-                R1 = random_uniform(RDUM)
+                R1 = random_uniform(RandomSeed)
                 I = int(E1 / DELTAE) + 1
                 I = min(I, INTEM) - 1
                 TLIM = Object.MaxCollisionFreqNT[I]
@@ -185,7 +186,7 @@ cpdef run(PyBoltz Object):
                     Object.MaxCollisionFreq[I] *= 1.05
                     continue
 
-                R5 = random_uniform(RDUM)
+                R5 = random_uniform(RandomSeed)
                 TEST1 = Object.TCFNT[IE] / TLIM
 
                 # TEST FOR REAL OR NULL COLLISION
@@ -194,7 +195,7 @@ cpdef run(PyBoltz Object):
                     if R5 < TEST2:
                         if Object.NPLASTNT == 0:
                             continue
-                        R2 = random_uniform(RDUM)
+                        R2 = random_uniform(RandomSeed)
                         I = 0
                         while Object.CFNNT[IE][I] < R2:
                             I += 1
@@ -259,7 +260,7 @@ cpdef run(PyBoltz Object):
             if NCOL >= Object.Decor_NCOLM:
                 ID += 1
                 NCOL = 0
-            R2 = random_uniform(RDUM)
+            R2 = random_uniform(RandomSeed)
 
             I = MBSort(I, R2, IE, Object)
             while Object.CFNT[IE][I] < R2:
@@ -268,7 +269,7 @@ cpdef run(PyBoltz Object):
             S1 = Object.RGASNT[I]
             EI = Object.EINNT[I]
             if Object.IPNNT[I] > 0:
-                R9 = random_uniform(RDUM)
+                R9 = random_uniform(RandomSeed)
                 EXTRA = R9 * (E - EI)
                 EI = EXTRA + EI
                 IEXTRA += <long long>(Object.NC0NT[I])
@@ -280,14 +281,14 @@ cpdef run(PyBoltz Object):
 
             if Object.EnablePenning != 0:
                 if Object.PENFRANT[0][I] != 0:
-                    RAN = random_uniform(RDUM)
+                    RAN = random_uniform(RandomSeed)
                     if RAN <= Object.PENFRANT[0][I]:
                         IEXTRA += 1
             S2 = (S1 ** 2) / (S1 - 1.0)
 
-            R3 = random_uniform(RDUM)
+            R3 = random_uniform(RandomSeed)
             if Object.INDEXNT[I] == 1:
-                R31 = random_uniform(RDUM)
+                R31 = random_uniform(RandomSeed)
                 F3 = 1.0 - R3 * Object.ANGCTNT[IE][I]
                 if R31 > Object.PSCTNT[IE][I]:
                     F3 = -1 * F3
@@ -297,7 +298,7 @@ cpdef run(PyBoltz Object):
             else:
                 F3 = 1 - 2 * R3
             THETA0 = acos(F3)
-            R4 = random_uniform(RDUM)
+            R4 = random_uniform(RandomSeed)
             PHI0 = F4 * R4
             F8 = sin(PHI0)
             F9 = cos(PHI0)

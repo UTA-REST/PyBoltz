@@ -17,12 +17,12 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef void GERJAN(double RDUM, double *RNMX):
+cdef void GERJAN(double RandomSeed, double *RNMX):
     cdef double RAN1, RAN2, TWOPI
     cdef int J
     for J in range(0, 5, 2):
-        RAN1 = random_uniform(RDUM)
-        RAN2 = random_uniform(RDUM)
+        RAN1 = random_uniform(RandomSeed)
+        RAN2 = random_uniform(RandomSeed)
         TWOPI = 2.0 * np.pi
         RNMX[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
         RNMX[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
@@ -51,11 +51,12 @@ cpdef run(PyBoltz Object):
     Object.Z = 0.0
     Object.TimeSum = 0.0
     cdef long long I, ID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, GasIndex, IE, IT, KDUM, IPT, JDUM, NCOLDM
-    cdef double ST1, RDUM, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
+    cdef double ST1, RandomSeed, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, ANCATT, ANCION, E
+    cdef double NumSamples
     I = 0
     ST1 = 0.0
     ST2 = 0.0
@@ -104,11 +105,11 @@ cpdef run(PyBoltz Object):
     memset(DFXXST, 0, 10 * sizeof(double))
 
     Object.SmallNumber = 1.0e-20
-    RDUM = Object.RandomSeed
+    RandomSeed = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
     CONST10 = pow(CONST9, 2)
-    Object.NumSamples = 10
+    NumSamples = 10
     ID = 0
     NCOL = 0
     IEXTRA = 0
@@ -135,15 +136,15 @@ cpdef run(PyBoltz Object):
     F1 = Object.EField * Object.CONST2
     F2 = Object.EField * Object.CONST3
     F4 = 2.0 * acos(-1)
-    J2M = <long long> (Object.MaxNumberOfCollisions / Object.NumSamples)
+    J2M = <long long> (Object.MaxNumberOfCollisions / NumSamples)
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                          "DIFXX", "DIFYY", "DIFZZ"))
 
-    for J1 in range(int(Object.NumSamples)):
+    for J1 in range(int(NumSamples)):
         for J2 in range(int(J2M)):
             while True:
-                R1 = random_uniform(RDUM)
+                R1 = random_uniform(RandomSeed)
                 T = -log(R1) / Object.MaxCollisionFreqTotal + TDASH
                 TDASH = T
 
@@ -158,10 +159,10 @@ cpdef run(PyBoltz Object):
                 # FIND IDENTITY OF GAS FOR COLLISION
                 GasIndex = 0
                 if Object.NumberOfGases == 1:
-                    R2 = random_uniform(RDUM)
+                    R2 = random_uniform(RandomSeed)
                     GasIndex = 0
                 else:
-                    R2 = random_uniform(RDUM)
+                    R2 = random_uniform(RandomSeed)
                     while (Object.MaxCollisionFreqTotalG[GasIndex] < R2):
                         GasIndex = GasIndex + 1
 
@@ -185,7 +186,7 @@ cpdef run(PyBoltz Object):
                 IE = min(IE, 3999)
                 # TEST FOR REAL OR NULL COLLISION
 
-                R5 = random_uniform(RDUM)
+                R5 = random_uniform(RandomSeed)
                 TEST1 = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
 
                 if R5 > TEST1:
@@ -194,7 +195,7 @@ cpdef run(PyBoltz Object):
                         # TEST FOR NULL LEVELS
                         if Object.NPLAST[GasIndex] == 0:
                             continue
-                        R2 = random_uniform(RDUM)
+                        R2 = random_uniform(RandomSeed)
                         I = 0
                         while Object.CFN[GasIndex][IE][I] < R2:
                             # INCREMENT NULL SCATTER SUM
@@ -267,7 +268,7 @@ cpdef run(PyBoltz Object):
                 NCOL = 0
 
             # Determination of real collision type
-            R3 = random_uniform(RDUM)
+            R3 = random_uniform(RandomSeed)
             # Find location within 4 units in collision array
             I = MBSortT(GasIndex, I, R3, IE, Object)
             while Object.CF[GasIndex][IE][I] < R3:
@@ -277,7 +278,7 @@ cpdef run(PyBoltz Object):
 
             if Object.IPN[GasIndex][I] > 0:
                 # Use flat distributioon of electron energy between E-EION and 0.0 EV, same as in Boltzmann
-                R9 = random_uniform(RDUM)
+                R9 = random_uniform(RandomSeed)
                 EXTRA = R9 * (EOK - EI)
                 EI = EXTRA + EI
                 # If Auger ot fluorescence add extra ionisation collisions
@@ -294,15 +295,15 @@ cpdef run(PyBoltz Object):
             # IONISATION OF THE OTHER GASES IN MIXTURE
             if Object.EnablePenning != 0:
                 if Object.PENFRA[GasIndex][0][I] != 0:
-                    RAN = random_uniform(RDUM)
+                    RAN = random_uniform(RandomSeed)
                     if RAN <= Object.PENFRA[GasIndex][0][I]:
                         IEXTRA += 1
             S2 = pow(S1, 2) / (S1 - 1.0)
 
             # Anisotropic scattering
-            R3 = random_uniform(RDUM)
+            R3 = random_uniform(RandomSeed)
             if Object.INDEX[GasIndex][I] == 1:
-                R31 = random_uniform(RDUM)
+                R31 = random_uniform(RandomSeed)
                 F3 = 1.0 - R3 * Object.ANGCT[GasIndex][IE][I]
                 if R31 > Object.PSCT[GasIndex][IE][I]:
                     F3 = -1.0 * F3
@@ -313,7 +314,7 @@ cpdef run(PyBoltz Object):
                 # Isotropic scattering
                 F3 = 1.0 - 2.0 * R3
             THETA0 = acos(F3)
-            R4 = random_uniform(RDUM)
+            R4 = random_uniform(RandomSeed)
             PHI0 = F4 * R4
             F8 = sin(PHI0)
             F9 = cos(PHI0)

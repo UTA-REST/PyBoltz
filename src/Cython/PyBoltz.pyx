@@ -163,10 +163,7 @@ cdef class PyBoltz:
         self.InitialElectronEnergy = 0.0
         self.AngleFromZ = 0.0
         self.TimeSum = 0.0
-
-        # To be named
         self.MaxCollisionFreqTotal = 0.0
-        self.NumSamples = 0
 
         
         # Outputs

@@ -158,8 +158,6 @@ cdef class PyBoltz:
         '''Number of null collisions.'''
         long long IFAKE
         '''Fake ionisation counter.'''
-        long long NumSamples
-        '''Number of samples to be taken in the Monte functions.'''
         long long NSCALE
         '''Constant equal to 40000000.'''
         double NESST[9]

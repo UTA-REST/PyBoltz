@@ -179,25 +179,55 @@ cdef class PyBoltz:
         memset(self.ZPLANE, 0, 8 * sizeof(double))
         memset(self.LAST, 0, 6 * sizeof(double))
 
+        # Input parameters / settings
+        self.EnableThermalMotion = 0.0
+        self.MaxNumberOfCollisions = 0.0
+        self.BFieldAngle = 0.0
+        self.BFieldMag = 0.0
+        self.NumberOfGases = 0
+        self.NANISO = 2
+        self.TemperatureCentigrade = 0.0
+        self.PressureTorr = 0.0
+        self.EnablePenning = 0
+        self.EField = 0.0
+        
+        # Calculated Constants 
         self.CONST1 = 0.0
         self.CONST2 = 0.0
         self.CONST3 = 0.0
         self.CONST4 = 0.0
         self.CONST5 = 0.0
+        self.TemperatureKelvin = 0.0
+        self.EFieldOverBField = 0.0
+
+        # Unknown and to be named
         self.NISO = 0
         self.NCOLM = 0
         self.NCORLN = 0
         self.NCORST = 0
         self.NNULL = 0
+        self.PIR2 = 0.0
+
+        # Named but imperfectly understood
         self.MaximumCollisionTime = 0.0
-        self.MeanElectronEnergyError = 0.0
-        self.MeanElectronEnergy = 0.0
+        self.MaxCollisionTime = 100.0
         self.X = 0.0
         self.Y = 0.0
         self.Z = 0.0
-        self.LongitudinalDiffusionError = 0.0
-        self.TransverseDiffusionError = 0.0
-        self.TemperatureKelvin = 0.0
+        self.AngularSpeedOfRotation = 0.0
+        self.NSTEP = 0
+        self.FinalElectronEnergy = 0.0
+        self.ElectronEnergyStep = 0
+        self.ThermalEnergy = 0.0
+        self.ARY = 0.0
+        self.NSCALE = 0
+        self.SmallNumber = 0.0
+        self.InitialElectronEnergy = 0.0
+        self.AngleFromZ = 0.0
+        self.AngleFromX = 0.0
+        self.TimeSum = 0.0
+
+        # To be named
         self.ALPP = 0.0
         self.ATTP = 0.0
         self.SSTMIN = 0.0
@@ -211,32 +241,7 @@ cdef class PyBoltz:
         self.DTOUT = 0.0
         self.DTERR = 0.0
         self.ALPHSST = 0.0
-        self.EFieldOverBField = 0.0
-        self.AngularSpeedOfRotation = 0.0
-        self.PIR2 = 0.0
-        self.BFieldAngle = 0.0
-        self.BFieldMag = 0.0
-        self.NumberOfGases = 0
-        self.NSTEP = 0
-        self.NANISO = 2
-        self.FinalElectronEnergy = 0.0
-        self.ElectronEnergyStep = 0
-        self.ThermalEnergy = 0.0
-        self.ARY = 0.0
-        self.TemperatureCentigrade = 0.0
-        self.PressureTorr = 0.0
-        self.EnablePenning = 0
-        self.NSCALE = 0
-        self.MaxCollisionTime = 100.0
-        self.SmallNumber = 0.0
-        self.InitialElectronEnergy = 0.0
-        self.AngleFromZ = 0.0
-        self.AngleFromX = 0.0
-        self.EField = 0.0
-        self.MaxNumberOfCollisions = 0.0
-        self.IonisationRate = 0.0
         self.TCFMX = 0.0
-        self.EnableThermalMotion = 0.0
         self.ITMAX = 0
         self.CORR = 0.0
         self.ATTOINT = 0.0
@@ -244,7 +249,6 @@ cdef class PyBoltz:
         self.AIOERT = 0.0
         self.ALPHERR = 0.0
         self.ATTSST = 0.0
-
         self.ATTERR = 0.0
         self.IZFINAL = 0.0
         self.RALPHA = 0.0
@@ -261,7 +265,6 @@ cdef class PyBoltz:
         self.ZFINAL = 0.0
         self.ITFINAL = 0.0
         self.IPRIM = 0.0
-        self.TimeSum = 0.0
         self.ATTOION = 0.0
         self.ATTIOER = 0.0
         self.ATTATER = 0.0
@@ -271,7 +274,10 @@ cdef class PyBoltz:
         self.DLOVMB = 0.0
         self.DLMN = 0.0
         self.DFLER1 = 0.0
-        # common output blocks
+        
+        # Outputs
+        self.MeanElectronEnergyError = 0.0
+        self.MeanElectronEnergy = 0.0
         self.VelocityX = 0.0
         self.VelocityY = 0.0
         self.VelocityZ = 0.0
@@ -279,10 +285,13 @@ cdef class PyBoltz:
         self.VelocityErrorY = 0.0
         self.VelocityErrorZ = 0.0
         self.AttachmentRate = 0.0
+        self.IonisationRate = 0.0
         self.IonisationRateError = 0.0
         self.AttachmentRateError = 0.0
         self.LongitudinalDiffusion = 0.0
+        self.LongitudinalDiffusionError = 0.0
         self.TransverseDiffusion = 0.0
+        self.TransverseDiffusionError = 0.0
         self.DiffusionX = 0.0
         self.DiffusionY = 0.0
         self.DiffusionYZ = 0.0

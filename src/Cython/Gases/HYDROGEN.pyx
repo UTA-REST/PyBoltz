@@ -474,7 +474,7 @@ cdef void Gas21(Gas*object):
         # EF1 SIGMA V=0-5           FRANCK-CONDON FACTOR=0.4
         # USE BORN SCALING ABOVE XEFSG(NEFSG)  EV
         if EN > object.EIN[72]:
-            object.QIN[72][I] = GasUtil.CALQINBEF(EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[72][I] = GasUtil.CALQINBEF(EN,EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                   BBCONST, object.EIN[72], BEF[2], 0.0089000)
             if EN <= XEFSG[NEFSG - 1]:
                 object.QIN[72][I] * 100 * 0.4
@@ -484,7 +484,7 @@ cdef void Gas21(Gas*object):
         # EF1 SIGMA V=0-5           FRANCK-CONDON FACTOR=0.6
         # USE BORN SCALING ABOVE XEFSG(NEFSG)  EV
         if EN > object.EIN[73]:
-            object.QIN[73][I] = GasUtil.CALQINBEF(EN, NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[73][I] = GasUtil.CALQINBEF(EN, EN,NEFSG, YEFSG, XEFSG, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                   BBCONST, object.EIN[73], BEF[2], 0.0133000)
             if EN <= XEFSG[NEFSG - 1]:
                 object.QIN[73][I] * 100 * 0.6

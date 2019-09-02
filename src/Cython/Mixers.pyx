@@ -580,7 +580,7 @@ cpdef MixerT(PyBoltz object):
             for p in range(int(object.IPLAST[KGAS])):
                 object.TCF[KGAS][IE] = object.TCF[KGAS][IE] + object.CF[KGAS][IE][p]
                 if object.CF[KGAS][IE][p] < 0:
-                    print ("WARNING NEGATIVE COLLISION FREQUENCY at gas " +str(object.CF[KGAS][IE][p])+"  "+ str(IE))
+                    print ("WARNING NEGATIVE COLLISION FREQUENCY at gas " +str(p)+"  "+ str(IE))
 
             for p in range(int(object.IPLAST[KGAS])):
                 if object.TCF[KGAS][IE] == 0:

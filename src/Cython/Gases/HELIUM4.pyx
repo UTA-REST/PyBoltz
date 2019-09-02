@@ -121,7 +121,7 @@ cdef void Gas3(Gas*object):
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):
-                IOFFION[j] = i - 1
+                IOFFION[j] = i
                 break
     object.EIN[0:50] = [np.float32(19.81961), np.float32(20.61577), np.float32(20.96409), np.float32(21.21802),
                         np.float32(22.71847), np.float32(22.92032), np.float32(23.00707), np.float32(23.07365),
@@ -151,7 +151,7 @@ cdef void Gas3(Gas*object):
     for NL in range(object.NIN):
         for I in range(4000):
             if object.EG[I] > object.EIN[NL]:
-                IOFFN[NL] = I - 1
+                IOFFN[NL] = I
                 break
 
     cdef double EN, GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, A, B, X1, X2, PQ[3], TEMP, QTEMP1, QTEMP2, ER, ENP, QMET, QDIP, QTRP, QSNG, QINEL
@@ -183,31 +183,32 @@ cdef void Gas3(Gas*object):
         if object.NANISO == 2:
             object.PEQION[0][I] = 0
         if EN >= object.EION[0]:
-            object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION, XION, BETA2, 1 / <float>(0.995), CONST, object.DEN[I], C, AM2)
-        # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
-        # ENERGIES ABOVE 2 * IONISATION ENERGY
-        # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
-        # IONISATION ENERGY
-        if EN > (2 * object.EION[0]):
-            object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]
+            object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION, XION, BETA2, 1 / <float> (0.995), CONST,
+                                                 object.DEN[I], C, AM2)
+            # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
+            # ENERGIES ABOVE 2 * IONISATION ENERGY
+            # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
+            # IONISATION ENERGY
+            if EN > (2 * object.EION[0]):
+                object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]
 
         #ATTACHMENT
         object.Q[3][I] = 0.0
-        object.QATT[0][i] = object.Q[3][I]
+        object.QATT[0][I] = object.Q[3][I]
 
         #COUNTING IONISATION
-        object.Q[4][i] = 0.0
+        object.Q[4][I] = 0.0
         object.PEQION[1][I] = 0.5
         if object.NANISO == 2:
             object.PEQION[1][I] = 0
-        if EN >= object.EION[1]:
+        if EN >= object.EION[0]:
             object.Q[4][I] = GasUtil.CALQIONX(EN, NIOND, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
-        #USE BORN-BETHE X-SECTION ABOVE XION(NIOND) EV
-        if EN > (2 * object.EION[1]):
-            object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]
+            #USE BORN-BETHE X-SECTION ABOVE XION(NIOND) EV
+            if EN > (2 * object.EION[1]):
+                object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]
 
         object.Q[5][I] = 0.0
-        QTEMP1 = 2 * object.Q[4][I] - object.QION[0][I]
+        QTEMP1 = 2.0 * object.Q[4][I] - object.QION[0][I]
         QTEMP2 = object.QION[0][I] - object.Q[4][I]
         object.QION[0][I] = QTEMP1
         object.QION[1][I] = QTEMP2
@@ -223,379 +224,397 @@ cdef void Gas3(Gas*object):
         #2 3S
         if EN > object.EIN[0]:
             object.QIN[0][I] = GasUtil.CALQINP(EN, N23S, Y23S, X23S, 3)
-        if EN > (2 * object.EIN[0]):
-            object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
+            if EN > (2 * object.EIN[0]):
+                object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
 
         #2 1S
         if EN > object.EIN[1]:
             object.QIN[1][I] = GasUtil.CALQINP(EN, N21S, Y21S, X21S, 1)
-        if EN > (2 * object.EIN[1]):
-            object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]
+            if EN > (2 * object.EIN[1]):
+                object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]
 
         #2 3P
         if EN > object.EIN[2]:
             object.QIN[2][I] = GasUtil.CALQINP(EN, N23P, Y23P, X23P, 3)
-        if EN > (2 * object.EIN[2]):
-            object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
+            if EN > (2 * object.EIN[2]):
+                object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
 
         #2 1P
         if EN > object.EIN[3]:
-            object.QIN[3][I] = GasUtil.CALQINBEF(EN, N21P, Y21P, X21P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
+            object.QIN[3][I] = GasUtil.CALQINBEF(EN, EN,N21P, Y21P, X21P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
                                                  object.EIN[3], object.E[2], 0.27608)
-        if EN > (2 * object.EIN[3]):
-            object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
+            if EN > (2 * object.EIN[3]):
+                object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
 
         #3 3S
         if EN > object.EIN[4]:
             object.QIN[4][I] = GasUtil.CALQINP(EN, N33S, Y33S, X33S, 3)
-        if EN > (2 * object.EIN[4]):
-            object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]
+            if EN > (2 * object.EIN[4]):
+                object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]
 
         #3 1S
         if EN > object.EIN[5]:
             object.QIN[5][I] = GasUtil.CALQINP(EN, N31S, Y31S, X31S, 1)
-        if EN > (2 * object.EIN[5]):
-            object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]
+            if EN > (2 * object.EIN[5]):
+                object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]
 
         #3 3P
         if EN > object.EIN[6]:
             object.QIN[6][I] = GasUtil.CALQINP(EN, N33P, Y33P, X33P, 1)
-        if EN > (2 * object.EIN[6]):
-            object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]
+            if EN > (2 * object.EIN[6]):
+                object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]
 
         #3 3D
         if EN > object.EIN[7]:
             object.QIN[7][I] = GasUtil.CALQINP(EN, N33D, Y33D, X33D, 1)
-        if EN > (2 * object.EIN[7]):
-            object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]
+            if EN > (2 * object.EIN[7]):
+                object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]
 
         #3 1D
         if EN > object.EIN[8]:
             object.QIN[8][I] = GasUtil.CALQINP(EN, N31D, Y31D, X31D, 1)
-        if EN > (2 * object.EIN[8]):
-            object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]
+            if EN > (2 * object.EIN[8]):
+                object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]
 
         #3 1P
         if EN > object.EIN[9]:
-            object.QIN[9][I] = GasUtil.CALQINBEF(EN, N31P, Y31P, X31P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
-                                                 object.EIN[9], object.E[2], <float>(0.07342))
-        if EN > (2 * object.EIN[9]):
-            object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]
+            object.QIN[9][I] = GasUtil.CALQINBEF(EN, EN,N31P, Y31P, X31P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
+                                                 object.EIN[9], object.E[2], <float> (0.07342))
+            if EN > (2 * object.EIN[9]):
+                object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]
 
         #4 3S
         if EN > object.EIN[10]:
             object.QIN[10][I] = GasUtil.CALQINP(EN, N43S, Y43S, X43S, 3)
-        if EN > (2 * object.EIN[10]):
-            object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
+            if EN > (2 * object.EIN[10]):
+                object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
 
         #4 1S
         if EN > object.EIN[11]:
             object.QIN[11][I] = GasUtil.CALQINP(EN, N41S, Y41S, X41S, 1)
-        if EN > (2 * object.EIN[11]):
-            object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]
+            if EN > (2 * object.EIN[11]):
+                object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]
 
         #4 3P
         if EN > object.EIN[12]:
             object.QIN[12][I] = GasUtil.CALQINP(EN, N43P, Y43P, X43P, 3)
-        if EN > (2 * object.EIN[12]):
-            object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]
+            if EN > (2 * object.EIN[12]):
+                object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]
 
         #4 3D
         if EN > object.EIN[13]:
             object.QIN[13][I] = GasUtil.CALQINP(EN, N43D, Y43D, X43D, 3)
-        if EN > (2 * object.EIN[13]):
-            object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]
+            if EN > (2 * object.EIN[13]):
+                object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]
 
         #4 1D
         if EN > object.EIN[14]:
             object.QIN[14][I] = GasUtil.CALQINP(EN, N41D, Y41D, X41D, 1)
-        if EN > (2 * object.EIN[14]):
-            object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]
+            if EN > (2 * object.EIN[14]):
+                object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]
 
         #4 3F
         if EN > object.EIN[15]:
             object.QIN[15][I] = GasUtil.CALQINP(EN, N43F, Y43F, X43F, 4)
-        if EN > (2 * object.EIN[15]):
-            object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]
+            if EN > (2 * object.EIN[15]):
+                object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]
 
         #4 1F
         if EN > object.EIN[16]:
             object.QIN[16][I] = GasUtil.CALQINP(EN, N41F, Y41F, X41F, 1)
-        if EN > (2 * object.EIN[16]):
-            object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]
+            if EN > (2 * object.EIN[16]):
+                object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]
 
         #4 1P
         if EN > object.EIN[17]:
-            object.QIN[17][I] = GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
+            object.QIN[17][I] = GasUtil.CALQINBEF(EN,EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
                                                   object.EIN[17], object.E[2], 0.02986)
-        if EN > (2 * object.EIN[17]):
-            object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]
+            if EN > (2 * object.EIN[17]):
+                object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]
 
         #5 3S SCALED FROM 4 3S
         if EN > object.EIN[18]:
             ER = object.EIN[18] / object.EIN[10]
             ENP = EN / ER
             object.QIN[18][I] = 0.512 * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
-        if EN > (2 * object.EIN[18]):
-            object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]
+            if EN > (2 * object.EIN[18]):
+                object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]
 
         #5 1S SCALED FROM 4 1S
         if EN > object.EIN[19]:
             ER = object.EIN[19] / object.EIN[11]
             ENP = EN / ER
-            object.QIN[19][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
-        if EN > (2 * object.EIN[19]):
-            object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]
+            object.QIN[19][I] = <float> (0.512) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
+            if EN > (2 * object.EIN[19]):
+                object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]
 
         #5 3P SCALED FROM 5 3P
         if EN > object.EIN[20]:
             ER = object.EIN[20] / object.EIN[12]
             ENP = EN / ER
-            object.QIN[20][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
-        if EN > (2 * object.EIN[20]):
-            object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[20]]
+            object.QIN[20][I] = <float> (0.512) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
+            if EN > (2 * object.EIN[20]):
+                object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[20]]
 
         #5 3D SCALED FROM 4 3D
         if EN > object.EIN[21]:
             ER = object.EIN[21] / object.EIN[13]
             ENP = EN / ER
-            object.QIN[21][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
-        if EN > (2 * object.EIN[21]):
-            object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]
+            object.QIN[21][I] = <float> (0.512) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
+            if EN > (2 * object.EIN[21]):
+                object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]
 
         #5 1D SCALED FROM 4 1D
         if EN > object.EIN[22]:
             ER = object.EIN[22] / object.EIN[14]
             ENP = EN / ER
-            object.QIN[22][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
-        if EN > (2 * object.EIN[22]):
-            object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]
+            object.QIN[22][I] = <float> (0.512) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
+            if EN > (2 * object.EIN[22]):
+                object.PEQIN[22][I] = object.PEQEL[1][I - IOFFN[22]]
 
         #5 3F SCALED FROM 4 3F
         if EN > object.EIN[23]:
             ER = object.EIN[23] / object.EIN[15]
             ENP = EN / ER
-            object.QIN[23][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N43F, Y43F, X43F, 4)
-        if EN > (2 * object.EIN[23]):
-            object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]
+            object.QIN[23][I] = <float> (0.512) * GasUtil.CALQINP(ENP, N43F, Y43F, X43F, 4)
+            if EN > (2 * object.EIN[23]):
+                object.PEQIN[23][I] = object.PEQEL[1][I - IOFFN[23]]
 
         #5 1F SCALED FROM 4 1F
         if EN > object.EIN[24]:
             ER = object.EIN[24] / object.EIN[16]
             ENP = EN / ER
-            object.QIN[24][I] = <float>(0.512) * GasUtil.CALQINP(ENP, N41F, Y41F, X41F, 1)
-        if EN > (2 * object.EIN[24]):
-            object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]
+            object.QIN[24][I] = <float> (0.512) * GasUtil.CALQINP(ENP, N41F, Y41F, X41F, 1)
+            if EN > (2 * object.EIN[24]):
+                object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]
 
         #5 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.01504
         if EN > object.EIN[25]:
             ER = object.EIN[25] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[25][I] = <float>(0.01504) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[25], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[25]):
-            object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]
+            object.QIN[25][I] = <float> (0.01504) / <float> (0.02986) * GasUtil.CALQINBEF(EN, ENP,N41P, Y41P, X41P, BETA2,
+                                                                                          GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[25], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[25]):
+                object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]
 
         #6 3S SCALED FROM 4 3S
         if EN > object.EIN[26]:
             ER = object.EIN[26] / object.EIN[10]
             ENP = EN / ER
-            object.QIN[26][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
-        if EN > (2 * object.EIN[26]):
-            object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]
+            object.QIN[26][I] = <float> (0.296) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
+            if EN > (2 * object.EIN[26]):
+                object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]
 
         #6 1S SCALED FROM 4 1S
         if EN > object.EIN[27]:
             ER = object.EIN[27] / object.EIN[11]
             ENP = EN / ER
-            object.QIN[27][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
-        if EN > (2 * object.EIN[27]):
-            object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]
+            object.QIN[27][I] = <float> (0.296) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
+            if EN > (2 * object.EIN[27]):
+                object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]
 
         #6 3P SCALED FROM 4 3P
         if EN > object.EIN[28]:
             ER = object.EIN[28] / object.EIN[12]
             ENP = EN / ER
-            object.QIN[28][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
-        if EN > (2 * object.EIN[28]):
-            object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]
+            object.QIN[28][I] = <float> (0.296) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
+            if EN > (2 * object.EIN[28]):
+                object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]
 
         #6 3D SCALED FROM 4 3D
         if EN > object.EIN[29]:
             ER = object.EIN[29] / object.EIN[13]
             ENP = EN / ER
-            object.QIN[29][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
-        if EN > (2 * object.EIN[29]):
-            object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]
+            object.QIN[29][I] = <float> (0.296) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
+            if EN > (2 * object.EIN[29]):
+                object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]
 
         #6 1D SCALED FROM 4 1D
         if EN > object.EIN[30]:
             ER = object.EIN[30] / object.EIN[14]
             ENP = EN / ER
-            object.QIN[30][I] = <float>(0.296) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
-        if EN > (2 * object.EIN[30]):
-            object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]
+            object.QIN[30][I] = <float> (0.296) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
+            if EN > (2 * object.EIN[30]):
+                object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]
 
         #6 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.01504
         if EN > object.EIN[31]:
             ER = object.EIN[31] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[31][I] = <float>(0.00863) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[31], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[31]):
-            object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]
+            object.QIN[31][I] = <float> (0.00863) / <float> (0.02986) * GasUtil.CALQINBEF(EN, ENP,N41P, Y41P, X41P, BETA2,
+                                                                                          GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[31], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[31]):
+                object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[31]]
 
         #7 3S SCALED FROM 4 3S
         if EN > object.EIN[32]:
             ER = object.EIN[32] / object.EIN[10]
             ENP = EN / ER
-            object.QIN[32][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
-        if EN > (2 * object.EIN[32]):
-            object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]
+            object.QIN[32][I] = <float> (0.187) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
+            if EN > (2 * object.EIN[32]):
+                object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]
 
         #7 1S SCALED FROM 4 1S
         if EN > object.EIN[33]:
             ER = object.EIN[33] / object.EIN[11]
             ENP = EN / ER
-            object.QIN[33][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
-        if EN > (2 * object.EIN[33]):
-            object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]
+            object.QIN[33][I] = <float> (0.187) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
+            if EN > (2 * object.EIN[33]):
+                object.PEQIN[33][I] = object.PEQEL[1][I - IOFFN[33]]
 
         #7 3P SCALED FROM 4 3P
         if EN > object.EIN[34]:
             ER = object.EIN[34] / object.EIN[12]
             ENP = EN / ER
-            object.QIN[34][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
-        if EN > (2 * object.EIN[34]):
-            object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]
+            object.QIN[34][I] = <float> (0.187) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
+            if EN > (2 * object.EIN[34]):
+                object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]
 
         #7 3D SCALED FROM 4 3D
         if EN > object.EIN[35]:
             ER = object.EIN[35] / object.EIN[13]
             ENP = EN / ER
-            object.QIN[35][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
-        if EN > (2 * object.EIN[35]):
-            object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]
+            object.QIN[35][I] = <float> (0.187) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
+            if EN > (2 * object.EIN[35]):
+                object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]
 
         #7 1D SCALED FROM 4 1D
         if EN > object.EIN[36]:
             ER = object.EIN[36] / object.EIN[14]
             ENP = EN / ER
-            object.QIN[36][I] = <float>(0.187) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
-        if EN > (2 * object.EIN[36]):
-            object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]
+            object.QIN[36][I] = <float> (0.187) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
+            if EN > (2 * object.EIN[36]):
+                object.PEQIN[36][I] = object.PEQEL[1][I - IOFFN[36]]
 
         #7 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00540
         if EN > object.EIN[37]:
             ER = object.EIN[37] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[37][I] = <float>(0.00540) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[37], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[37]):
-            object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]
+            object.QIN[37][I] = <float> (0.00540) / <float> (0.02986) * GasUtil.CALQINBEF(EN, ENP,N41P, Y41P, X41P, BETA2,
+                                                                                          GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[37], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[37]):
+                object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]
 
         #SUM 3S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 3S
         if EN > object.EIN[38]:
             ER = object.EIN[38] / object.EIN[10]
             ENP = EN / ER
-            object.QIN[38][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
-        if EN > (2 * object.EIN[38]):
-            object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]
+            object.QIN[38][I] = <float> (0.553) * GasUtil.CALQINP(ENP, N43S, Y43S, X43S, 3)
+            if EN > (2 * object.EIN[38]):
+                object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]
 
         #SUM 1S LEVELS FROM 8 3S HIGHER AND SCALED FROM 4 1S
         if EN > object.EIN[39]:
             ER = object.EIN[39] / object.EIN[11]
             ENP = EN / ER
-            object.QIN[39][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
-        if EN > (2 * object.EIN[39]):
-            object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]
+            object.QIN[39][I] = <float> (0.553) * GasUtil.CALQINP(ENP, N41S, Y41S, X41S, 1)
+            if EN > (2 * object.EIN[39]):
+                object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]
 
         #SUM 3P LEVELS FROM  8 3P HIGHER AND SCALED FROM 4 3P
         if EN > object.EIN[40]:
             ER = object.EIN[40] / object.EIN[12]
             ENP = EN / ER
-            object.QIN[40][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
-        if EN > (2 * object.EIN[40]):
-            object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]
+            object.QIN[40][I] = <float> (0.553) * GasUtil.CALQINP(ENP, N43P, Y43P, X43P, 3)
+            if EN > (2 * object.EIN[40]):
+                object.PEQIN[40][I] = object.PEQEL[1][I - IOFFN[40]]
 
         #SUM 3D LEVELS FROM  8 3D HIGHER AND SCALED FROM 4 3D
         if EN > object.EIN[41]:
             ER = object.EIN[41] / object.EIN[13]
             ENP = EN / ER
-            object.QIN[41][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
-        if EN > (2 * object.EIN[41]):
-            object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]
+            object.QIN[41][I] = <float> (0.553) * GasUtil.CALQINP(ENP, N43D, Y43D, X43D, 3)
+            if EN > (2 * object.EIN[41]):
+                object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]
 
         #SUM 1D LEVELS FROM  8 1D HIGHER AND SCALED FROM 4 1D
         if EN > object.EIN[42]:
             ER = object.EIN[42] / object.EIN[14]
             ENP = EN / ER
-            object.QIN[42][I] = <float>(0.553) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
-        if EN > (2 * object.EIN[42]):
-            object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]
+            object.QIN[42][I] = <float> (0.553) * GasUtil.CALQINP(ENP, N41D, Y41D, X41D, 1)
+            if EN > (2 * object.EIN[42]):
+                object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]
 
         #8 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00362
         if EN > object.EIN[43]:
             ER = object.EIN[43] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[43][I] = <float>(0.00362) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[43], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[43]):
-            object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]
+            object.QIN[43][I] = <float> (0.00362) / <float> (0.02986) * GasUtil.CALQINBEF(EN,ENP, N41P, Y41P, X41P, BETA2,
+                                                                                          GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[43], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[43]):
+                object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]
 
         #9 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00253
         if EN > object.EIN[44]:
             ER = object.EIN[44] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[44][I] = <float>(0.00253) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[44], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[44]):
-            object.PEQIN[44][I] = object.PEQEL[1][I - IOFFN[44]]
+            object.QIN[44][I] = <float> (0.00253) / <float> (0.02986) * GasUtil.CALQINBEF(EN,ENP, N41P, Y41P, X41P, BETA2,
+                                                                                          GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[44], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[44]):
+                object.PEQIN[44][I] = object.PEQEL[1][I - IOFFN[44]]
 
         #10 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00184
         if EN > object.EIN[45]:
             ER = object.EIN[45] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[45][I] = <float>(0.00184) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[45], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[45]):
-            object.PEQIN[45][I] = object.PEQEL[1][I - IOFFN[45]]
+            object.QIN[45][I] = <float> (0.00184) / <float> (0.02986) * GasUtil.CALQINBEF(EN, ENP, N41P, Y41P, X41P,
+                                                                                          BETA2, GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[45], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[45]):
+                object.PEQIN[45][I] = object.PEQEL[1][I - IOFFN[45]]
 
         #11 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00138
         if EN > object.EIN[46]:
             ER = object.EIN[46] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[46][I] = <float>(0.00138) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[46], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[46]):
-            object.PEQIN[46][I] = object.PEQEL[1][I - IOFFN[46]]
+            object.QIN[46][I] = <float> (0.00138) / <float> (0.02986) * GasUtil.CALQINBEF(EN, ENP, N41P, Y41P, X41P,
+                                                                                          BETA2, GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[46], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[46]):
+                object.PEQIN[46][I] = object.PEQEL[1][I - IOFFN[46]]
 
         #12 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00106
         if EN > object.EIN[47]:
             ER = object.EIN[47] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[47][I] = <float>(0.00106) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[47], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[47]):
-            object.PEQIN[47][I] = object.PEQEL[1][I - IOFFN[47]]
+            object.QIN[47][I] = <float> (0.00106) / <float> (0.02986) * GasUtil.CALQINBEF(EN, ENP, N41P, Y41P, X41P,
+                                                                                          BETA2, GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[47], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[47]):
+                object.PEQIN[47][I] = object.PEQEL[1][I - IOFFN[47]]
 
         #13 1P   SCALED FROM 4 1P   OSC STRENGTH  F=0.00440
         if EN > object.EIN[48]:
             ER = object.EIN[48] / object.EIN[17]
             ENP = EN / ER
-            object.QIN[48][I] = <float>(0.00440) / <float>(0.02986) * GasUtil.CALQINBEF(EN, N41P, Y41P, X41P, BETA2, GAMMA2, EMASS2,
-                                                                      object.DEN[I], BBCONST,
-                                                                      object.EIN[48], object.E[2], <float>(0.02986))
-        if EN > (2 * object.EIN[48]):
-            object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]
+            object.QIN[48][I] = <float> (0.00440) / <float> (0.02986) * GasUtil.CALQINBEF(EN, ENP, N41P, Y41P, X41P,
+                                                                                          BETA2, GAMMA2, EMASS2,
+                                                                                          object.DEN[I], BBCONST,
+                                                                                          object.EIN[48], object.E[2],
+                                                                                          <float> (0.02986))
+            if EN > (2 * object.EIN[48]):
+                object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]
 
         QMET = object.QIN[0][I] + object.QIN[1][I]
         QDIP = object.QIN[3][I] + object.QIN[9][I] + object.QIN[17][I] + object.QIN[25][I] + object.QIN[31][I] + \
@@ -614,6 +633,7 @@ cdef void Gas3(Gas*object):
                object.QIN[47][I] + object.QIN[48][I]
         QINEL = QSNG + QTRP + object.QION[0][I] + object.QION[1][I]
         object.Q[0][I] = QELA + QINEL
+
 
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:

@@ -887,7 +887,7 @@ cdef void Gas16(Gas*object):
         if object.NANISO == 2:
             object.PEQIN[111][I] = 0.
         if EN > object.EIN[111]:
-            object.QIN[111][I] = GasUtil.CALQINBEF(EN, NSNG8, YSNG8, XSNG8, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[111][I] = GasUtil.CALQINBEF(EN, EN,NSNG8, YSNG8, XSNG8, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                    BBCONST, object.EIN[111], object.E[2], 0.1855)
             if EN <= XSNG8[NSNG8 - 1]:
                 object.QIN[111][I] *= 100
@@ -904,7 +904,7 @@ cdef void Gas16(Gas*object):
         if object.NANISO == 2:
             object.PEQIN[112][I] = 0.
         if EN > object.EIN[112]:
-            object.QIN[112][I] = GasUtil.CALQINBEF(EN, NSNG9, YSNG9, XSNG9, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[112][I] = GasUtil.CALQINBEF(EN,EN, NSNG9, YSNG9, XSNG9, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                    BBCONST, object.EIN[112], object.E[2], 0.150)
             if EN <= XSNG9[NSNG9 - 1]:
                 object.QIN[112][I] *= 100
@@ -935,7 +935,7 @@ cdef void Gas16(Gas*object):
         if object.NANISO == 2:
             object.PEQIN[114][I] = 0.
         if EN > object.EIN[114]:
-            object.QIN[114][I] = GasUtil.CALQINBEF(EN, NSNG10, YSNG10, XSNG10, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[114][I] = GasUtil.CALQINBEF(EN,EN, NSNG10, YSNG10, XSNG10, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                    BBCONST, object.EIN[114], object.E[2], 0.150)
             if EN <= XSNG10[NSNG10 - 1]:
                 object.QIN[114][I] *= 100
@@ -966,7 +966,7 @@ cdef void Gas16(Gas*object):
         if object.NANISO == 2:
             object.PEQIN[116][I] = 0.
         if EN > object.EIN[116]:
-            object.QIN[116][I] = GasUtil.CALQINBEF(EN, NSNG11, YSNG11, XSNG11, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[116][I] = GasUtil.CALQINBEF(EN, EN,NSNG11, YSNG11, XSNG11, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                    BBCONST, object.EIN[116], object.E[2], 0.0663)
             if EN <= XSNG11[NSNG11 - 1]:
                 object.QIN[116][I] *= 100
@@ -983,7 +983,7 @@ cdef void Gas16(Gas*object):
         if object.NANISO == 2:
             object.PEQIN[117][I] = 0.
         if EN > object.EIN[117]:
-            object.QIN[117][I] = GasUtil.CALQINBEF(EN, NSNG12, YSNG12, XSNG12, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[117][I] = GasUtil.CALQINBEF(EN, EN,NSNG12, YSNG12, XSNG12, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                    BBCONST, object.EIN[117], object.E[2], 0.0601)
             if EN <= XSNG12[NSNG12 - 1]:
                 object.QIN[117][I] *= 100
@@ -1000,7 +1000,7 @@ cdef void Gas16(Gas*object):
         if object.NANISO == 2:
             object.PEQIN[118][I] = 0.
         if EN > object.EIN[118]:
-            object.QIN[118][I] = GasUtil.CALQINBEF(EN, NSNG13, YSNG13, XSNG13, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[118][I] = GasUtil.CALQINBEF(EN, EN,NSNG13, YSNG13, XSNG13, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                    BBCONST, object.EIN[118], object.E[2], 0.0828)
             if EN <= XSNG13[NSNG13 - 1]:
                 object.QIN[118][I] *= 100
@@ -1017,7 +1017,7 @@ cdef void Gas16(Gas*object):
         if object.NANISO == 2:
             object.PEQIN[119][I] = 0.
         if EN > object.EIN[119]:
-            object.QIN[119][I] = GasUtil.CALQINBEF(EN, NSNG14, YSNG14, XSNG14, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[119][I] = GasUtil.CALQINBEF(EN, EN,NSNG14, YSNG14, XSNG14, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                    BBCONST, object.EIN[119], object.E[2], 0.1390)
             if EN <= XSNG14[NSNG14 - 1]:
                 object.QIN[119][I] *= 100
@@ -1034,7 +1034,7 @@ cdef void Gas16(Gas*object):
         if object.NANISO == 2:
             object.PEQIN[120][I] = 0.
         if EN > object.EIN[120]:
-            object.QIN[120][I] = GasUtil.CALQINBEF(EN, NSNG15, YSNG15, XSNG15, BETA2, GAMMA2, EMASS2, object.DEN[I],
+            object.QIN[120][I] = GasUtil.CALQINBEF(EN, EN,NSNG15, YSNG15, XSNG15, BETA2, GAMMA2, EMASS2, object.DEN[I],
                                                    BBCONST, object.EIN[120], object.E[2], 0.2650)
             if EN <= XSNG15[NSNG15 - 1]:
                 object.QIN[120][I] *= 100

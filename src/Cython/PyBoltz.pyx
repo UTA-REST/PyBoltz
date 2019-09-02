@@ -193,16 +193,16 @@ cdef class PyBoltz:
         self.NCORLN = 0
         self.NCORST = 0
         self.NNULL = 0
-        self.TMAX1 = 0.0
-        self.DEN = 0.0
-        self.AVE = 0.0
+        self.MaximumCollisionTime = 0.0
+        self.MeanElectronEnergyError = 0.0
+        self.MeanElectronEnergy = 0.0
         self.XID = 0.0
         self.X = 0.0
         self.Y = 0.0
         self.Z = 0.0
-        self.DFLER = 0.0
-        self.DFTER = 0.0
-        self.TGAS = 0.0
+        self.LongitudinalDiffusionError = 0.0
+        self.TransverseDiffusionError = 0.0
+        self.TemperatureKelvin = 0.0
         self.ALPP = 0.0
         self.ATTP = 0.0
         self.SSTMIN = 0.0
@@ -216,31 +216,31 @@ cdef class PyBoltz:
         self.DTOUT = 0.0
         self.DTERR = 0.0
         self.ALPHSST = 0.0
-        self.EOVB = 0.0
-        self.WB = 0.0
+        self.EFieldOverBField = 0.0
+        self.AngularSpeedOfRotation = 0.0
         self.PIR2 = 0.0
         self.BFieldAngle = 0.0
         self.BFieldMag = 0.0
         self.NumberOfGases = 0
         self.NSTEP = 0
         self.NANISO = 2
-        self.EFINAL = 0.0
-        self.ESTEP = 0
-        self.AKT = 0.0
+        self.FinalElectronEnergy = 0.0
+        self.ElectronEnergyStep = 0
+        self.ThermalEnergy = 0.0
         self.ARY = 0.0
-        self.TEMPC = 0.0
-        self.TORR = 0.0
+        self.TemperatureCentigrade = 0.0
+        self.PressureTorr = 0.0
         self.IPEN = 0
         self.NSCALE = 0
-        self.TMAX = 100.0
-        self.SMALL = 0.0
-        self.API = 0.0
-        self.ESTART = 0.0
-        self.THETA = 0.0
-        self.PHI = 0.0
-        self.EFIELD = 0.0
-        self.NMAX = 0.0
-        self.ALPHA = 0.0
+        self.MaxCollisionTime = 100.0
+        self.SmallNumber = 0.0
+        self.Pi = 0.0
+        self.InitialElectronEnergy = 0.0
+        self.AngleFromZ = 0.0
+        self.AngleFromX = 0.0
+        self.EField = 0.0
+        self.MaxNumberOfCollisions = 0.0
+        self.IonisationRate = 0.0
         self.TCFMX = 0.0
         self.EnableThermalMotion = 0.0
         self.ITMAX = 0
@@ -277,7 +277,7 @@ cdef class PyBoltz:
         self.ZFINAL = 0.0
         self.ITFINAL = 0.0
         self.IPRIM = 0.0
-        self.ST = 0.0
+        self.TimeSum = 0.0
         self.TOFWVZ = 0.0
         self.TOFWVZER = 0.0
         self.TOFWVX = 0.0
@@ -312,54 +312,54 @@ cdef class PyBoltz:
         self.DLMN = 0.0
         self.DFLER1 = 0.0
         # common output blocks
-        self.WX = 0.0
-        self.WY = 0.0
-        self.WZ = 0.0
-        self.DWX = 0.0
-        self.DWY = 0.0
-        self.DWZ = 0.0
+        self.VelocityX = 0.0
+        self.VelocityY = 0.0
+        self.VelocityZ = 0.0
+        self.VelocityErrorX = 0.0
+        self.VelocityErrorY = 0.0
+        self.VelocityErrorZ = 0.0
         self.TTOTS = 0.0
-        self.ATT = 0.0
-        self.ALPER = 0.0
-        self.ATTER = 0.0
-        self.DIFLN = 0.0
-        self.DIFTR = 0.0
-        self.DIFXX = 0.0
-        self.DIFYY = 0.0
-        self.DIFZZ = 0.0
-        self.DIFYZ = 0.0
-        self.DIFXY = 0.0
-        self.DIFXZ = 0.0
-        self.DXXER = 0.0
-        self.DYYER = 0.0
-        self.DZZER = 0.0
-        self.DYZER = 0.0
-        self.DXYER = 0.0
-        self.DXZER = 0.0
+        self.AttachmentRate = 0.0
+        self.IonisationRateError = 0.0
+        self.AttachmentRateError = 0.0
+        self.LongitudinalDiffusion = 0.0
+        self.TransverseDiffusion = 0.0
+        self.DiffusionX = 0.0
+        self.DiffusionY = 0.0
+        self.DiffusionYZ = 0.0
+        self.DiffusionYZ = 0.0
+        self.DiffusionXY = 0.0
+        self.DiffusionXZ = 0.0
+        self.ErrorDiffusionX = 0.0
+        self.ErrorDiffusionY = 0.0
+        self.ErrorDiffusionZ = 0.0
+        self.ErrorDiffusionYZ = 0.0
+        self.ErrorDiffusionXY = 0.0
+        self.ErrorDiffusionXZ = 0.0
         self.IFAKE = 0
         self.FAKEI = 0.0
         self.RSTART = 0.666
-        self.OF = 1
-        self.MCT = 0.0
+        self.ConsoleOutputFlag = 1
+        self.MeanCollisionTime = 0.0
 
     def end(self):
         """
         This function is used to convert some of the output values into different units.
         """
         cdef double DUM[6]
-        if self.WZ != 0:
-            self.DTOVMB = self.DIFTR * self.EFIELD / self.WZ
-            self.DTMN = sqrt(2.0 * self.DIFTR / self.WZ) * 10000.0
-            self.DFTER1 = math.sqrt(self.DFTER ** 2 + self.DWZ ** 2)
+        if self.VelocityZ != 0:
+            self.DTOVMB = self.TransverseDiffusion * self.EField / self.VelocityZ
+            self.DTMN = sqrt(2.0 * self.TransverseDiffusion / self.VelocityZ) * 10000.0
+            self.DFTER1 = math.sqrt(self.TransverseDiffusionError ** 2 + self.VelocityErrorZ ** 2)
             self.DFTER1 = self.DFTER1 / 2.0
 
-            self.DLOVMB = self.DIFLN * self.EFIELD / self.WZ
-            self.DLMN = sqrt(2.0 * self.DIFLN / self.WZ) * 10000.0
-            self.DFLER1 = sqrt(self.DFLER ** 2 + self.DWZ ** 2)
+            self.DLOVMB = self.LongitudinalDiffusion * self.EField / self.VelocityZ
+            self.DLMN = sqrt(2.0 * self.LongitudinalDiffusion / self.VelocityZ) * 10000.0
+            self.DFLER1 = sqrt(self.LongitudinalDiffusionError ** 2 + self.VelocityErrorZ ** 2)
             self.DFLER1 = self.DFLER1 / 2.0
-            self.WZ *=1e-5
-            self.WY *=1e-5
-            self.WX *=1e-5
+            self.VelocityZ *=1e-5
+            self.VelocityY *=1e-5
+            self.VelocityX *=1e-5
 
 
    
@@ -406,7 +406,7 @@ cdef class PyBoltz:
         """
         This is the main function that starts the magboltz simulation/calculation.
 
-        The simulation starts by calculating the momentum cross section values for the requested gas mixture. If EFINAL
+        The simulation starts by calculating the momentum cross section values for the requested gas mixture. If FinalElectronEnergy
         is equal to 0.0 it will then keep calling the EnergyLimit functions and the Mixer functions to find the electron
         Integration limit.
 
@@ -427,33 +427,33 @@ cdef class PyBoltz:
         SetupFunc(self)
 
         # Find the electron upper energy limit
-        if self.EFINAL == 0.0:
+        if self.FinalElectronEnergy == 0.0:
             # Given no specified upper energy limit, find it iteratively
-            self.EFINAL = 0.5
-            EOB = self.EFIELD * (self.TEMPC + 273.15) / (self.TORR * 293.15)
+            self.FinalElectronEnergy = 0.5
+            EOB = self.EField * (self.TemperatureCentigrade + 273.15) / (self.PressureTorr * 293.15)
             if EOB > 15:
-                self.EFINAL = 8.0
-            self.ESTART = self.EFINAL / 50.0
+                self.FinalElectronEnergy = 8.0
+            self.InitialElectronEnergy = self.FinalElectronEnergy / 50.0
             while self.IELOW == 1:
                 MixerFunc(self)
                 ELimFunc(self)
 
                 if self.IELOW == 1:
-                    self.EFINAL = self.EFINAL * math.sqrt(2)
-                    self.ESTART = self.EFINAL / 50
+                    self.FinalElectronEnergy = self.FinalElectronEnergy * math.sqrt(2)
+                    self.InitialElectronEnergy = self.FinalElectronEnergy / 50
         else:
             # Given a specified upper energy limit, use it
             MixerFunc(self)
         
-        if self.OF : print("Calculated the final energy = " + str(self.EFINAL))
+        if self.ConsoleOutputFlag : print("Calculated the final energy = " + str(self.FinalElectronEnergy))
 
         # Run the simulation
         MonteCarloFunc.run(self)
 
         # Express outputs in the right units
-        self.TGAS = 273.15 + self.TEMPC
-        self.ALPP = self.ALPHA * 760 * self.TGAS / (self.TORR * 293.15)
-        self.ATTP = self.ATT * 760 * self.TGAS / (self.TORR * 293.15)
+        self.TemperatureKelvin = 273.15 + self.TemperatureCentigrade
+        self.ALPP = self.IonisationRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
+        self.ATTP = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
         self.SSTMIN = 40
         self.end()
         return

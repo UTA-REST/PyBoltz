@@ -21,8 +21,8 @@ print("================")
 PBRun.ListGases()
 
 # Configure settings for our simulation
-MySettings   ={'Gases'                 :['XENON','HELIUM4'],
-               'Fractions'             :[85,15],
+MySettings   ={'Gases'                 :['NEON','CO2'],
+               'Fractions'             :[99,1],
                'Max_collisions'        :1,
                'EField_Vcm'            :100,
                'Max_electron_energy'   :0,
@@ -30,10 +30,10 @@ MySettings   ={'Gases'                 :['XENON','HELIUM4'],
                'Pressure_Torr'         :7500.062,
                'BField_Tesla'          :0,
                'BField_angle'          :0,
-               'Angular_dist_model'    :1,
+               'Angular_dist_model'    :2,
                'Enable_penning'        :0,
                'Enable_thermal_motion' :1,
-               'OF'                    :0}
+               'ConsoleOutputFlag'     :1}
 
 # Create empty lists to store outputs
 DriftVels=[]
@@ -48,7 +48,7 @@ DT1s_err=[]
 DL1s_err=[]
 
 # Run for each E field
-EFields=np.arange(100,1000,100)
+EFields=np.arange(100,300,100)
 
 print("Running with E fields of: ")
 print(EFields)

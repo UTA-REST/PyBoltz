@@ -33,7 +33,7 @@ cdef void GERJAN(double RDUM, double API,double *RNMX):
 @cython.wraparound(False)
 cpdef run(PyBoltz Object):
     """
-    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  tempc.
+    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  TemperatureCentigrade.
 
     This function is used when the magnetic field is parallel to the electric field in the z direction.    
     
@@ -75,10 +75,10 @@ cpdef run(PyBoltz Object):
     memset(DFXXST, 0, 10 * sizeof(double))
 
 
-    Object.WX = 0.0
-    Object.WY = 0.0
-    Object.DWX = 0.0
-    Object.DWY = 0.0
+    Object.VelocityX = 0.0
+    Object.VelocityY = 0.0
+    Object.VelocityErrorX = 0.0
+    Object.VelocityErrorY = 0.0
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
     for J in range(4000):
@@ -107,10 +107,10 @@ cpdef run(PyBoltz Object):
     SVYOLD = 0.0
     SME2OLD = 0.0
 
-    Object.SMALL = 1.0e-20
-    Object.TMAX1 = 0.0
+    Object.SmallNumber = 1.0e-20
+    Object.MaximumCollisionTime = 0.0
     RDUM = Object.RSTART
-    E1 = Object.ESTART
+    E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
     INTEM = 8
     Object.ITMAX = 10
@@ -124,9 +124,9 @@ cpdef run(PyBoltz Object):
     Object.IFAKE = 0
 
     # INITIAL DIRECTION COSINES
-    DCZ1 = cos(Object.THETA)
-    DCX1 = sin(Object.THETA) * cos(Object.PHI)
-    DCY1 = sin(Object.THETA) * sin(Object.PHI)
+    DCZ1 = cos(Object.AngleFromZ)
+    DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
+    DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
     # INITIAL VELOCITY
     VTOT = CONST9 * sqrt(E1)
@@ -134,14 +134,14 @@ cpdef run(PyBoltz Object):
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
 
-    BP = Object.EFIELD ** 2 * Object.CONST1
-    F1 = Object.EFIELD * Object.CONST2
-    F2 = Object.EFIELD * Object.CONST3
+    BP = Object.EField ** 2 * Object.CONST1
+    F1 = Object.EField * Object.CONST2
+    F2 = Object.EField * Object.CONST3
     F4 = 2 * acos(-1)
 
-    J2M = <long long>(Object.NMAX / Object.ITMAX)
-    DELTAE = Object.EFINAL / float(INTEM)
-    if Object.OF:
+    J2M = <long long>(Object.MaxNumberOfCollisions / Object.ITMAX)
+    DELTAE = Object.FinalElectronEnergy / float(INTEM)
+    if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ"))
     for J1 in range(int(Object.ITMAX)):
@@ -152,11 +152,11 @@ cpdef run(PyBoltz Object):
                 I = min(I, INTEM) - 1
                 TLIM = Object.TCFMAXNT[I]
                 T = -1 * log(R1) / TLIM + TDASH
-                Object.MCT = 0.9 * Object.MCT + 0.1 * T
+                Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 TDASH = T
                 AP = DCZ1 * F2 * sqrt(E1)
                 E = E1 + (AP + BP * T) * T
-                IE = int(E / Object.ESTEP)
+                IE = int(E / Object.ElectronEnergyStep)
                 IE = min(IE, 3999)
                 if TEMP[IE] > TLIM:
                     TDASH += log(R1) / TLIM
@@ -192,10 +192,10 @@ cpdef run(PyBoltz Object):
 
 
             T2 = T ** 2
-            if (T >= Object.TMAX1):
-                Object.TMAX1 = T
+            if (T >= Object.MaximumCollisionTime):
+                Object.MaximumCollisionTime = T
             TDASH = 0.0
-            WBT = Object.WB * T
+            WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
             CONST6 = sqrt(E1 / E)
@@ -204,16 +204,16 @@ cpdef run(PyBoltz Object):
             VTOT = CONST9 * sqrt(E)
             DCX2 = CX2 / VTOT
             DCY2 = CY2 / VTOT
-            DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
+            DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
             A = AP * T
             B = BP * T2
             SUME2 = SUME2 + T * (E1 + A / 2.0 + B / 3.0)
             CONST7 = CONST9 * sqrt(E1)
             A = T * CONST7
             NCOL += 1
-            DX = (CX1 * SINWT - CY1 * (1 - COSWT)) / Object.WB
+            DX = (CX1 * SINWT - CY1 * (1 - COSWT)) / Object.AngularSpeedOfRotation
             Object.X += DX
-            DY = (CY1 * SINWT + CX1 * (1 - COSWT)) / Object.WB
+            DY = (CY1 * SINWT + CX1 * (1 - COSWT)) / Object.AngularSpeedOfRotation
             Object.Y += DY
             Object.Z += DCZ1 * A + T2 * F1
             Object.ST += T
@@ -221,7 +221,7 @@ cpdef run(PyBoltz Object):
             IT = min(IT, 299)
             Object.TIME[IT] += 1
             Object.SPEC[IE] += 1
-            Object.WZ = Object.Z / Object.ST
+            Object.VelocityZ = Object.Z / Object.ST
 
             SUMVX = SUMVX + DX ** 2
             SUMVY = SUMVY + DY ** 2
@@ -239,7 +239,7 @@ cpdef run(PyBoltz Object):
                     KDUM += Object.NCORLN
                     if J1 >= 2:
                         ST1 += T
-                        SUMZZ += ((Object.Z - ZST[NCOLDM-1] - Object.WZ * SDIF) ** 2) * T / SDIF
+                        SUMZZ += ((Object.Z - ZST[NCOLDM-1] - Object.VelocityZ * SDIF) ** 2) * T / SDIF
             XST[NCOL-1] = Object.X
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
@@ -293,19 +293,19 @@ cpdef run(PyBoltz Object):
             F8 = sin(PHI0)
             F9 = cos(PHI0)
             ARG1 = 1 - S1 * EI / E
-            ARG1 = max(ARG1, Object.SMALL)
+            ARG1 = max(ARG1, Object.SmallNumber)
             D = 1 - F3 * sqrt(ARG1)
             E1 = E * (1 - EI / (S1 * E) - 2 * D / S2)
-            E1 = max(E1, Object.SMALL)
+            E1 = max(E1, Object.SmallNumber)
             Q = sqrt((E / E1) * ARG1) / S1
             Q = min(Q, 1)
-            Object.THETA = asin(Q * sin(THETA0))
-            F6 = cos(Object.THETA)
+            Object.AngleFromZ = asin(Q * sin(THETA0))
+            F6 = cos(Object.AngleFromZ)
             U = (S1 - 1) * (S1 - 1) / ARG1
             CSQD = F3 * F3
             if F3 < 0 and CSQD > U:
                 F6 = -1 * F6
-            F5 = sin(Object.THETA)
+            F5 = sin(Object.AngleFromZ)
             DCZ2 = min(DCZ2, 1)
             VTOT = CONST9 * sqrt(E1)
             ARGZ = sqrt(DCX2 * DCX2 + DCY2 * DCY2)
@@ -321,24 +321,24 @@ cpdef run(PyBoltz Object):
             CY1 = DCY1 * VTOT
             CZ1 = DCZ1 * VTOT
 
-        Object.WZ *= 1e9
-        Object.AVE = SUME2 / Object.ST
+        Object.VelocityZ *= 1e9
+        Object.MeanElectronEnergy = SUME2 / Object.ST
         if Object.NISO == 0:
-            Object.DIFXX = 5e15 * SUMVX / Object.ST
-            Object.DIFYY = 5e15 * SUMVY / Object.ST
+            Object.DiffusionX = 5e15 * SUMVX / Object.ST
+            Object.DiffusionY = 5e15 * SUMVY / Object.ST
             DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Object.ST - STOLD)
             DFYYST[J1] = 5e15 * (SUMVY - SVYOLD) / (Object.ST - STOLD)
         else:
             if ST2 != 0.0:
-                Object.DIFYY = 5e15 * SUMYY / ST2
-                Object.DIFXX = 5e15 * SUMXX / ST2
+                Object.DiffusionY = 5e15 * SUMYY / ST2
+                Object.DiffusionX = 5e15 * SUMXX / ST2
                 DFXXST[J1] = 5e15 * (SUMXX - SXXOLD) / (ST2 - ST2OLD)
                 DFYYST[J1] = 5e15 * (SUMYY - SYYOLD) / (ST2 - ST2OLD)
             else:
                 DFXXST[J1] = 0.0
                 DFYYST[J1] = 0.0
         if ST1 != 0.0:
-            Object.DIFZZ = 5e15 * SUMZZ / ST1
+            Object.DiffusionZ = 5e15 * SUMZZ / ST1
             DFZZST[J1] = 5e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
         else:
             DFZZST[J1] = 0.0
@@ -354,10 +354,10 @@ cpdef run(PyBoltz Object):
         SYYOLD = SUMYY
         SXXOLD = SUMXX
         SME2OLD = SUME2
-        if Object.OF:
-            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.WZ, Object.Z, Object.ST,
-                                                                                    Object.AVE, Object.DIFXX, Object.DIFYY,
-                                                                                    Object.DIFZZ))
+        if Object.ConsoleOutputFlag:
+            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.ST,
+                                                                                    Object.MeanElectronEnergy, Object.DiffusionX, Object.DiffusionY,
+                                                                                    Object.DiffusionZ))
     TWZST = 0.0
     TAVE = 0.0
     T2WZST = 0.0
@@ -381,22 +381,22 @@ cpdef run(PyBoltz Object):
         if K >= 2:
             TZZST = TZZST + DFZZST[K]
             T2ZZST += DFZZST[K] ** 2
-    Object.DWZ = 100 * sqrt((T2WZST - TWZST * TWZST / 10.0) / 9.0) / Object.WZ
-    Object.DEN = 100 * sqrt((T2AVE - TAVE * TAVE / 10.0) / 9.0) / Object.AVE
-    Object.DXXER = 100 * sqrt((T2XXST - TXXST * TXXST / 10.0) / 9.0) / Object.DIFXX
-    Object.DYYER = 100 * sqrt((T2YYST - TYYST * TYYST / 10.0) / 9.0) / Object.DIFYY
-    Object.DZZER = 100 * sqrt((T2ZZST - TZZST * TZZST / 8.0) / 7.0) / Object.DIFZZ
-    Object.DWZ = Object.DWZ / sqrt(10)
-    Object.DEN = Object.DEN / sqrt(10)
-    Object.DXXER = Object.DXXER / sqrt(10)
-    Object.DYYER = Object.DYYER / sqrt(10)
-    Object.DZZER = Object.DZZER / sqrt(8)
-    Object.DIFLN = Object.DIFZZ
-    Object.DIFTR = (Object.DIFXX + Object.DIFYY) / 2
+    Object.VelocityErrorZ = 100 * sqrt((T2WZST - TWZST * TWZST / 10.0) / 9.0) / Object.VelocityZ
+    Object.MeanElectronEnergyError = 100 * sqrt((T2AVE - TAVE * TAVE / 10.0) / 9.0) / Object.MeanElectronEnergy
+    Object.ErrorDiffusionX = 100 * sqrt((T2XXST - TXXST * TXXST / 10.0) / 9.0) / Object.DiffusionX
+    Object.ErrorDiffusionY = 100 * sqrt((T2YYST - TYYST * TYYST / 10.0) / 9.0) / Object.DiffusionY
+    Object.ErrorDiffusionZ = 100 * sqrt((T2ZZST - TZZST * TZZST / 8.0) / 7.0) / Object.DiffusionZ
+    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(10)
+    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(10)
+    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(10)
+    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt(10)
+    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt(8)
+    Object.LongitudinalDiffusion = Object.DiffusionZ
+    Object.TransverseDiffusion = (Object.DiffusionX + Object.DiffusionY) / 2
     # CONVERT CM/SEC
-    Object.WZ *= 1e5
-    Object.DFLER = Object.DZZER
-    Object.DFTER = (Object.DXXER + Object.DYYER) / 2.0
+    Object.VelocityZ *= 1e5
+    Object.LongitudinalDiffusionError = Object.ErrorDiffusionZ
+    Object.TransverseDiffusionError = (Object.ErrorDiffusionX + Object.ErrorDiffusionY) / 2.0
 
     ANCATT = 0.0
     ANCION = 0.0
@@ -404,14 +404,14 @@ cpdef run(PyBoltz Object):
         ANCATT += Object.ICOLLNT[5 * (I + 1) - 3]
         ANCION += Object.ICOLLNT[5 * (I + 1) - 4]
     ANCION += IEXTRA
-    Object.ATTER = 0.0
+    Object.AttachmentRateError = 0.0
     if ANCATT != 0:
-        Object.ATTER = 100 * sqrt(ANCATT) / ANCATT
-    Object.ATT = ANCATT / (Object.ST * Object.WZ) * 1e12
-    Object.ALPER = 0.0
+        Object.AttachmentRateError = 100 * sqrt(ANCATT) / ANCATT
+    Object.AttachmentRate = ANCATT / (Object.ST * Object.VelocityZ) * 1e12
+    Object.IonisationRateError = 0.0
     if ANCION != 0:
-        Object.ALPER = 100 * sqrt(ANCION) / ANCION
-    Object.ALPHA = ANCION / (Object.ST * Object.WZ) * 1e12
+        Object.IonisationRateError = 100 * sqrt(ANCION) / ANCION
+    Object.IonisationRate = ANCION / (Object.ST * Object.VelocityZ) * 1e12
 
     return
 

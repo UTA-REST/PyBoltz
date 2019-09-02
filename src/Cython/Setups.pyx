@@ -13,8 +13,8 @@ cpdef Setup(PyBoltz object):
         
     The object parameter is the PyBoltz object to be setup.
     """
-    object.API = acos(-1.0)
-    TWOPI = 2.0 * object.API
+    object.Pi = acos(-1.0)
+    TWOPI = 2.0 * object.Pi
     object.ARY = <float>(13.60569253)
     PIR2 = 8.7973554297e-17
     ECHARG = 1.602176565e-19
@@ -32,7 +32,7 @@ cpdef Setup(PyBoltz object):
     object.CONST3 = sqrt(0.2 * AWB) * 1.0e-9
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
-    object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
+    object.CORR = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
     object.NCOLM = 2000000
@@ -49,7 +49,7 @@ cpdef Setup(PyBoltz object):
             FRACM += object.FRAC[IH]
 
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
-    if object.EFIELD > (10 / object.CORR) or FRACM>3:
+    if object.EField > (10 / object.CORR) or FRACM>3:
             object.NCOLM = 400000
             object.NCORLN = 50000
             object.NCORST = 4
@@ -64,19 +64,19 @@ cpdef Setup(PyBoltz object):
     if abs(TOTFRAC - 100) >= 1e-6:
         raise ValueError("Error in Gas Input")
     NSCALE = 40000000
-    object.NMAX = object.NMAX * NSCALE
+    object.MaxNumberOfCollisions = object.MaxNumberOfCollisions * NSCALE
 
-    if object.NMAX < 0:
+    if object.MaxNumberOfCollisions < 0:
         raise ValueError("NMAX value is too large - overflow")
     object.NSTEP = 4000
-    object.THETA = 0.785
-    object.PHI = 0.1
+    object.AngleFromZ = 0.785
+    object.AngleFromX = 0.1
 
-    object.WX = 0.0
-    object.WY = 0.0
-    object.WZ = 0.0
+    object.VelocityX = 0.0
+    object.VelocityY = 0.0
+    object.VelocityZ = 0.0
 
-    object.ESTART = object.EFINAL / 50.0
+    object.InitialElectronEnergy = object.FinalElectronEnergy / 50.0
 
     for i in range(6):
         object.ANN[i] = object.FRAC[i] * object.CORR * ALOSCH
@@ -86,13 +86,13 @@ cpdef Setup(PyBoltz object):
     object.VAN = 100.0 * object.CORR * object.CONST4 * 1.0e15
 
     # Radians per picosecond
-    object.WB = AWB * object.BFieldMag * 1e-12
+    object.AngularSpeedOfRotation = AWB * object.BFieldMag * 1e-12
 
     if object.BFieldMag == 0:
         return
 
     # Metres per picosecond
-    object.EOVB = object.EFIELD * 1e-9 / object.BFieldMag
+    object.EFieldOverBField = object.EField * 1e-9 / object.BFieldMag
     return
 
 
@@ -108,8 +108,8 @@ cpdef SetupT(PyBoltz object):
     cdef double TWOPI, PIR2, ECHARG, EMASS, AMU, BOLTZ, BOLTZJ, AWB, ALOSCH, EOVM, ABZERO, ATMOS, TOTFRAC
     cdef long long MXEKR, IH, NSCALE, i
 
-    object.API = acos(-1.0)
-    TWOPI = 2.0 * object.API
+    object.Pi = acos(-1.0)
+    TWOPI = 2.0 * object.Pi
     object.ARY = <float>(13.60569253)
     object.PIR2 = 8.7973554297e-17
     ECHARG = 1.602176565e-19
@@ -127,7 +127,7 @@ cpdef SetupT(PyBoltz object):
     object.CONST3 = sqrt(0.2 * AWB) * 1.0e-9
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
-    object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
+    object.CORR = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
     object.NCOLM = 2000000
@@ -143,7 +143,7 @@ cpdef SetupT(PyBoltz object):
             # Molecular gas sum total fraction
             FRACM += object.FRAC[IH]
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
-    if (object.EFIELD > (10.0 / object.CORR)) or (FRACM>3):
+    if (object.EField > (10.0 / object.CORR)) or (FRACM > 3):
             object.NCOLM = 400000
             object.NCORLN = 50000
             object.NCORST = 4
@@ -160,17 +160,17 @@ cpdef SetupT(PyBoltz object):
 
 
     object.NSCALE = 40000000
-    object.NMAX = object.NMAX * object.NSCALE
+    object.MaxNumberOfCollisions = object.MaxNumberOfCollisions * object.NSCALE
 
-    if object.NMAX < 0:
+    if object.MaxNumberOfCollisions < 0:
         raise ValueError("NMAX value is too large - overflow")
     object.NSTEP = 4000
-    object.THETA = 0.785
-    object.PHI = 0.1
-    object.ESTART = object.EFINAL / 50.0
-    object.CORR = ABZERO * object.TORR / (ATMOS * (ABZERO + object.TEMPC) * 100.0)
+    object.AngleFromZ = 0.785
+    object.AngleFromX = 0.1
+    object.InitialElectronEnergy = object.FinalElectronEnergy / 50.0
+    object.CORR = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
 
-    object.AKT = (ABZERO + object.TEMPC) * BOLTZ
+    object.ThermalEnergy = (ABZERO + object.TemperatureCentigrade) * BOLTZ
     for i in range(6):
         object.ANN[i] = object.FRAC[i] * object.CORR * ALOSCH
     object.AN = 100.0 * object.CORR * ALOSCH
@@ -179,11 +179,11 @@ cpdef SetupT(PyBoltz object):
     object.VAN = 100.0 * object.CORR * object.CONST4 * 1.0e15
 
     # Radians per picosecond
-    object.WB = AWB * object.BFieldMag * 1e-12
+    object.AngularSpeedOfRotation = AWB * object.BFieldMag * 1e-12
 
 
     if object.BFieldMag == 0:
         return
     # Metres per picosecond
-    object.EOVB = object.EFIELD * 1e-9 / object.BFieldMag
+    object.EFieldOverBField = object.EField * 1e-9 / object.BFieldMag
     return

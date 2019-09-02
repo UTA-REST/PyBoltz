@@ -7,97 +7,97 @@ cdef double drand48(double dummy)
 
 cdef class PyBoltz:
     cdef public:
-        double EOVB
+        double EFieldOverBField
         '''This is a constant that is equal to the electric field / magentic field * 1e-9.'''
-        double WB
+        double AngularSpeedOfRotation
         '''This is the angular speed of rotation see cycltron frequency.'''
         double BFieldAngle
         '''This is the angle between the magnetic field and the electric field.'''
         double BFieldMag
         '''This is the magnitude of the magentic field.'''
-        double EFINAL
+        double FinalElectronEnergy
         '''This is the upper limit for the electron energy integration.'''
-        double ESTEP
+        double ElectronEnergyStep
         '''PyBoltz does the electron energy integration in 4000 steps this variable has the difference in energy between each step.'''
-        double AKT
+        double ThermalEnergy
         '''This indicates the amount of energy in the gas (it is equal to the Boltzman constant * absolute tempreture).'''
         double ARY
         '''This is Rydberg constant times hc in eV.'''
-        double TEMPC
+        double TemperatureCentigrade
         '''This is the tempreture in degrees Centigrade.'''
-        double TORR
+        double PressureTorr
         '''This is the pressure in Torr.'''
-        double TMAX
+        double MaxCollisionTime
         '''Maximum collision time. Default is set to 100.'''
-        double SMALL
+        double SmallNumber
         '''This constant is equal to 1e-20. Used to be a small constant.'''
-        double API
+        double Pi
         '''The value of PI.'''
-        double ESTART
+        double InitialElectronEnergy
         '''The lower limit of the electron energy integration.'''
-        double THETA
+        double AngleFromZ
         '''Collision scattering angle from the Z plane.'''
-        double PHI
+        double AngleFromX
         '''Angle used to calculate initial direction cosines in the XY plane. Angle from the X axis.'''
-        double EFIELD
+        double EField
         '''Electric field [V/cm].'''
-        double NMAX
+        double MaxNumberOfCollisions
         '''Number of the simulated collisions * N.'''
-        double ALPHA
-        '''Townsend coefficient.'''
-        double WX
+        double IonisationRate
+        '''Ionisation rate.'''
+        double VelocityX
         '''Drift velocity on the x axis.'''
-        double WY
+        double VelocityY
         '''Drift velocity on the y axis.'''
-        double WZ
+        double VelocityZ
         '''Drift velocity on the z axis.'''
-        double DWX
+        double VelocityErrorX
         '''Percentage error on the x drift velocity.'''
-        double DWY
+        double VelocityErrorY
         '''Percentage error on the y drift velocity.'''
-        double DWZ
+        double VelocityErrorZ
         '''Percentage error on the z drift velocity.'''
         double TTOTS
         ''''''
-        double ATT
-        '''Townsend coefficient.'''
-        double ALPER
-        '''Error for ALPHA.'''
-        double ATTER
-        '''Error for ATT'''
-        double DIFLN
+        double AttachmentRate
+        '''Attachment Rate.'''
+        double IonisationRateError
+        '''Percentage Error for IonisationRate'''
+        double AttachmentRateError
+        '''Percentage Error for AttachmentRate'''
+        double LongitudinalDiffusion
         '''Longitudinal diffusion.'''
-        double DIFTR
+        double TransverseDiffusion
         '''Transverse diffusion.'''
-        double DIFXX
+        double DiffusionX
         '''Diffusion on the x plane.'''
-        double DIFYY
+        double DiffusionY
         '''Diffusion on the y plane.'''
-        double DIFZZ
+        double DiffusionZ
         '''Diffusion on the z plane.'''
-        double DIFYZ
+        double DiffusionYZ
         '''Diffusion on the yz plane.'''
-        double DIFXY
+        double DiffusionXY
         '''Diffusion on the xy plane.'''
-        double DIFXZ
+        double DiffusionXZ
         '''Diffusion on the xz plane.'''
-        double DXXER
+        double ErrorDiffusionX
         '''Percentage error for DIFXX.'''
-        double DYYER
+        double ErrorDiffusionY
         '''Percentage error for DIFYY.'''
-        double DZZER
+        double ErrorDiffusionZ
         '''Percentage error for DIFZZ.'''
-        double DYZER
+        double ErrorDiffusionYZ
         '''Percentage error for DIFYZ.'''
-        double DXYER
+        double ErrorDiffusionXY
         '''Percentage error for DIFXY.'''
-        double DXZER
+        double ErrorDiffusionXZ
         '''Percentage error for DIFXZ.'''
-        double TMAX1
+        double MaximumCollisionTime
         '''This variable is used to store the maximum collision time in the simulation.'''
-        double DEN
+        double MeanElectronEnergyError
         '''Percentage error for AVE.'''
-        double AVE
+        double MeanElectronEnergy
         '''Mean electron energy.'''
         double XID
         ''''''
@@ -107,11 +107,11 @@ cdef class PyBoltz:
         '''Variable used to represent the y position in the simulation.'''
         double Z
         '''Variable used to represent the z position in the simulation.'''
-        double DFLER
+        double LongitudinalDiffusionError
         '''Percentage for DIFLN.'''
-        double DFTER
+        double TransverseDiffusionError
         '''Percentage for DIFTR.'''
-        double TGAS
+        double TemperatureKelvin
         '''Absolute tempreture in Kelvin.'''
         double ALPP
         '''Variable used to represent the ionisation rate.'''
@@ -200,7 +200,7 @@ cdef class PyBoltz:
         '''Variable that is equal to 100 * CORR * CONST4 * 1e15'''
         double ZTOT
         double ZTOTS
-        double ST
+        double TimeSum
         '''Variable used to calculate the sum of the collision times in the simulation.'''
         double RSTART
         '''Random number generator seed. Not used at the moment.'''
@@ -298,9 +298,10 @@ cdef class PyBoltz:
         '''Percentage error for DLOVMB'''
         double IPLASTNT,ISIZENT
         double PIR2
-        int OF
+        int ConsoleOutputFlag
         '''Flag used to stop console printouts'''
-        double MCT
+        double MeanCollisionTime
+        '''Mean collision time. Calculated using a moving average filter where it is equal to 0.9 * MeanCollisionTime + 0.1 * NewTime'''
         # Variables and arrays used when the thermal motion is not included.
         double CFNT[4000][960],EINNT[960],TCFNT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PENFRANT[3][960],TCFMAXNT[8]
         double CFNNT[4000][60],TCFNNT[4000],SCLENULNT[60],PSCTNT[4000][960],ANGCTNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]

@@ -37,26 +37,26 @@ t1 =time.time()
 # Set the number of gases
 Object.NumberOfGases =2
 # Set the number of collisons 
-Object.NMAX =1
+Object.MaxNumberOfCollisions =1
 # Set penning
 Object.IPEN = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=1
-Object.EFINAL = 0.0
+Object.FinalElectronEnergy = 0.0
 # Set the gas's with there given number
 Object.NumberOfGasesN=[5, 12, 0, 0, 0, 0]
 # Set the gas fractions
 Object.FRAC=[99, 1, 0, 0, 0, 0]
 # Set the tempature
-Object.TEMPC = float(23)
+Object.TemperatureCentigrade = float(23)
 # Set the pressure
-Object.TORR = 7500.062
+Object.PressureTorr = 7500.062
 # Set the eletric field
-Object.EFIELD =100
+Object.EField =100
 # Set the magnetic field and angle
 Object.BFieldMag = 0
 Object.BFieldAngle =0
-Object.OF = 0
+Object.ConsoleOutputFlag = 1
 
 Object.NANISO = 2
 
@@ -73,21 +73,21 @@ print("run time [s]= ",round(t2-t1,3))
 for I in range(Object.NumberOfGases):
     print("Percentage of "+GASES[int(Object.NumberOfGasesN[I])]+" = "+  str(Object.FRAC[I]))
 
-print("Tempature [C]         = ", Object.TEMPC)
-print("Pressure [torr]       = ", Object.TORR)
-print("Eletric field [V/cm]  = ", Object.EFIELD)
+print("Tempature [C]         = ", Object.TemperatureCentigrade)
+print("Pressure [torr]       = ", Object.PressureTorr)
+print("Eletric field [V/cm]  = ", Object.EField)
 print("----------------------------------------------------")
-print("Drift velocity [mm/mus]              = ", round(Object.WZ,3))
+print("Drift velocity [mm/mus]              = ", round(Object.VelocityZ,3))
 print("----------------------------------------------------")
-print("Drift velocity error [%]             = ", round(Object.DWZ,3))
+print("Drift velocity error [%]             = ", round(Object.VelocityErrorZ,3))
 print("----------------------------------------------------")
-print("Transverse diffusion [cm**2/s]       = ", round(Object.DIFTR,3))
+print("Transverse diffusion [cm**2/s]       = ", round(Object.TransverseDiffusion,3))
 print("----------------------------------------------------")
-print("Transverse diffusion error [%]       = ", round(Object.DFTER,3))
+print("Transverse diffusion error [%]       = ", round(Object.TransverseDiffusionError,3))
 print("----------------------------------------------------")
-print("Longitudinal diffusion [cm**2/s]     = ", round(Object.DIFLN,3))
+print("Longitudinal diffusion [cm**2/s]     = ", round(Object.LongitudinalDiffusion,3))
 print("----------------------------------------------------")
-print("Longitudinal diffusion error [%]     = ", round(Object.DFLER,3))
+print("Longitudinal diffusion error [%]     = ", round(Object.LongitudinalDiffusionError,3))
 print("----------------------------------------------------")
 print("Transverse diffusion [mum/cm**0.5]   = ", round(Object.DTMN,3))
 print("----------------------------------------------------")
@@ -97,10 +97,10 @@ print("Longitudinal diffusion [mum/cm**0.5] = ", round(Object.DLMN,3))
 print("----------------------------------------------------")
 print("Longitudinal diffusion error [%]     = ", round(Object.DFLER1,3))
 print("----------------------------------------------------")
-print("Mean electron energy [eV]            = ", round(Object.AVE,3))
+print("Mean electron energy [eV]            = ", round(Object.MeanElectronEnergy,3))
 print("----------------------------------------------------")
-print("Mean electron energy error [%]       = ", round(Object.DEN,3))
+print("Mean electron energy error [%]       = ", round(Object.MeanElectronEnergyError,3))
 print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")
-print(Object.MCT)
+print(Object.MeanCollisionTime)

@@ -63,7 +63,7 @@ cpdef EnergyLimit(PyBoltz Object):
     SMALL = 1.0e-20
     I = 0
     RDUM = Object.RSTART
-    E1 = Object.ESTART
+    E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
     INTEM = 8
@@ -71,19 +71,19 @@ cpdef EnergyLimit(PyBoltz Object):
         TEMP[J] = Object.TCFNNT[J] + Object.TCFNT[J]
 
     # INITIAL DIRECTION COSINES
-    DCZ1 = cos(Object.THETA)
-    DCX1 = sin(Object.THETA) * cos(Object.PHI)
-    DCY1 = sin(Object.THETA) * sin(Object.PHI)
+    DCZ1 = cos(Object.AngleFromZ)
+    DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
+    DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
-    BP = (Object.EFIELD**2)*Object.CONST1
-    F1 = Object.EFIELD * Object.CONST2
-    F2 = Object.EFIELD * Object.CONST3
+    BP = (Object.EField ** 2) * Object.CONST1
+    F1 = Object.EField * Object.CONST2
+    F2 = Object.EField * Object.CONST3
     F4 = 2 * acos(-1)
-    DELTAE = Object.EFINAL/float(INTEM)
-    E1 = Object.ESTART
-    J2M = Object.NMAX / ISAMP
+    DELTAE = Object.FinalElectronEnergy / float(INTEM)
+    E1 = Object.InitialElectronEnergy
+    J2M = Object.MaxNumberOfCollisions / ISAMP
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.OF:
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
@@ -94,7 +94,7 @@ cpdef EnergyLimit(PyBoltz Object):
             TDASH = T
             AP = DCZ1 * F2 * sqrt(E1)
             E = E1 + (AP + BP * T) * T
-            IE = int(E / Object.ESTEP)
+            IE = int(E / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             if TEMP[IE] > TLIM:
                 TDASH += log(R1) / TLIM
@@ -117,7 +117,7 @@ cpdef EnergyLimit(PyBoltz Object):
         CONST6 = sqrt(E1 / E)
         DCX2 = DCX1 * CONST6
         DCY2 = DCY1 * CONST6
-        DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
+        DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
         R2 = random_uniform(RDUM)
 
 
@@ -166,16 +166,16 @@ cpdef EnergyLimit(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.THETA = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(THETA0))
 
-        F6 = cos(Object.THETA)
+        F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
         CSQD = F3 ** 2
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
 
-        F5 = sin(Object.THETA)
+        F5 = sin(Object.AngleFromZ)
         DCZ2 = min(DCZ2, 1)
         ARGZ = sqrt(DCX2 * DCX2 + DCY2 * DCY2)
         if ARGZ == 0:
@@ -211,20 +211,20 @@ cpdef EnergyLimitB(PyBoltz Object):
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
 
-    Object.SMALL =  1.0e-20
+    Object.SmallNumber =  1.0e-20
     ISAMP = 20
-    EF100 = Object.EFIELD * 100
+    EF100 = Object.EField * 100
     RDUM = Object.RSTART
-    E1 = Object.ESTART
+    E1 = Object.InitialElectronEnergy
 
     INTEM = 8
     TDASH = 0.0
     CONST9 = Object.CONST3 * 0.01
 
     # INITIAL DIRECTION COSINES
-    DCZ1 = cos(Object.THETA)
-    DCX1 = sin(Object.THETA) * cos(Object.PHI)
-    DCY1 = sin(Object.THETA) * sin(Object.PHI)
+    DCZ1 = cos(Object.AngleFromZ)
+    DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
+    DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
     for J in range(4000):
         TEMP[J] = Object.TCFNNT[J] + Object.TCFNT[J]
@@ -236,12 +236,12 @@ cpdef EnergyLimitB(PyBoltz Object):
 
     F4 = 2 * acos(-1)
 
-    DELTAE = Object.EFINAL / float(INTEM)
+    DELTAE = Object.FinalElectronEnergy / float(INTEM)
 
-    J2M = Object.NMAX / ISAMP
+    J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.OF:
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
@@ -250,12 +250,12 @@ cpdef EnergyLimitB(PyBoltz Object):
             TLIM = Object.TCFMAXNT[I]
             T = -1 * log(R1) / TLIM + TDASH
             TDASH = T
-            WBT = Object.WB * T
+            WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
-            DZ = (CZ1 * SINWT + (Object.EOVB - CY1) * (1 - COSWT)) / Object.WB
+            DZ = (CZ1 * SINWT + (Object.EFieldOverBField - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
             E = E1 + DZ * EF100
-            IE = int(E / Object.ESTEP)
+            IE = int(E / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             if TEMP[IE] > TLIM:
                 TDASH += log(R1) / TLIM
@@ -275,8 +275,8 @@ cpdef EnergyLimitB(PyBoltz Object):
 
         TDASH = 0.0
         CX2 = CX1
-        CY2 = (CY1 - Object.EOVB) * COSWT + CZ1 * SINWT + Object.EOVB
-        CZ2 = CZ1 * COSWT - (CY1 - Object.EOVB) * SINWT
+        CY2 = (CY1 - Object.EFieldOverBField) * COSWT + CZ1 * SINWT + Object.EFieldOverBField
+        CZ2 = CZ1 * COSWT - (CY1 - Object.EFieldOverBField) * SINWT
         VTOT = sqrt(CX2 ** 2 + CY2 ** 2 + CZ2 ** 2)
         DCX2 = CX2 / VTOT
         DCY2 = CY2 / VTOT
@@ -328,15 +328,15 @@ cpdef EnergyLimitB(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.THETA = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(THETA0))
 
-        F6 = cos(Object.THETA)
+        F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
         CSQD = F3 ** 2
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
-        F5 = sin(Object.THETA)
+        F5 = sin(Object.AngleFromZ)
         DCZ2 = min(DCZ2, 1)
         VTOT = CONST9 * sqrt(E1)
         ARGZ = sqrt(DCX2 * DCX2 + DCY2 * DCY2)
@@ -378,23 +378,23 @@ cpdef EnergyLimitBT(PyBoltz Object):
 
     ISAMP = 20
     SMALL = 1.0e-20
-    EF100 = Object.EFIELD * 100
+    EF100 = Object.EField * 100
     RDUM = Object.RSTART
-    E1 = Object.ESTART
+    E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
 
     # GENRATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GERJAN(Object.RSTART, Object.API, Object.RNMX)
+    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
     IMBPT = 0
 
 
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
 
-    DCZ1 = cos(Object.THETA)
-    DCX1 = sin(Object.THETA) * cos(Object.PHI)
-    DCY1 = sin(Object.THETA) * sin(Object.PHI)
+    DCZ1 = cos(Object.AngleFromZ)
+    DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
+    DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
     VTOT = CONST9 * sqrt(E1)
     CX1 = DCX1 * VTOT
@@ -402,25 +402,25 @@ cpdef EnergyLimitBT(PyBoltz Object):
     CZ1 = DCZ1 * VTOT
 
     F4 = 2 * acos(-1)
-    J2M = Object.NMAX / ISAMP
+    J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.OF:
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
             T = -1 * log(R1) / Object.TCFMX + TDASH
             TDASH = T
-            WBT = Object.WB * T
+            WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
 
-            DZ = (CZ1 * SINWT + (Object.EOVB - CY1) * (1 - COSWT)) / Object.WB
+            DZ = (CZ1 * SINWT + (Object.EFieldOverBField - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
             E = E1 + DZ * EF100
             #CALC ELECTRON VELOCITY IN LAB FRAME
             CX2 = CX1
-            CY2 = (CY1 - Object.EOVB) * COSWT + CZ1 * SINWT + Object.EOVB
-            CZ2 = CZ1 * COSWT - (CY1 - Object.EOVB) * SINWT
+            CY2 = (CY1 - Object.EFieldOverBField) * COSWT + CZ1 * SINWT + Object.EFieldOverBField
+            CZ2 = CZ1 * COSWT - (CY1 - Object.EFieldOverBField) * SINWT
             #FIND IDENTITY OF GAS FOR COLLISION
             KGAS = 0
             R2 = random_uniform(RDUM)
@@ -429,7 +429,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
-                GERJAN(Object.RSTART, Object.API, Object.RNMX)
+                GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -439,7 +439,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
 
             #CALCULATE ENERGY WITH STATIONARY GAS TARGET , EOK
             EOK = (pow((CX2 - VGX), 2) + pow((CY2 - VGY), 2) + pow((CZ2 - VGZ), 2)) / CONST10
-            IE = int(EOK / Object.ESTEP)
+            IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             #TEST FOR REAL OR NULL COLLISION
             R5 = random_uniform(RDUM)
@@ -504,15 +504,15 @@ cpdef EnergyLimitBT(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((EOK / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.THETA = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(THETA0))
 
-        F6 = cos(Object.THETA)
+        F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
         CSQD = F3 ** 2
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
-        F5 = sin(Object.THETA)
+        F5 = sin(Object.AngleFromZ)
         DCZ2 = min(DZCOM, 1)
         ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
         if ARGZ == 0:
@@ -563,11 +563,11 @@ cpdef EnergyLimitC(PyBoltz Object):
     ISAMP = 20
     SMALL = 1.0e-20
     RTHETA = Object.BFieldTheta * acos(-1) / 180
-    EFZ100 = Object.EFIELD * 100 * sin(RTHETA)
-    EFX100 = Object.EFIELD * 100 * cos(RTHETA)
-    F1 = Object.EFIELD * Object.CONST2 * cos(RTHETA)
-    EOVBR = Object.EOVB * sin(RTHETA)
-    E1 = Object.ESTART
+    EFZ100 = Object.EField * 100 * sin(RTHETA)
+    EFX100 = Object.EField * 100 * cos(RTHETA)
+    F1 = Object.EField * Object.CONST2 * cos(RTHETA)
+    EOVBR = Object.EFieldOverBField * sin(RTHETA)
+    E1 = Object.InitialElectronEnergy
     INTEM = 8
     TDASH = 0.0
     CONST9 = Object.CONST3 * 0.01
@@ -575,21 +575,21 @@ cpdef EnergyLimitC(PyBoltz Object):
         TEMP[J] = Object.TCFNNT[J] + Object.TCFNT[J]
 
     # INITIAL DIRECTION COSINES
-    DCZ1 = cos(Object.THETA)
-    DCX1 = sin(Object.THETA) * cos(Object.PHI)
-    DCY1 = sin(Object.THETA) * sin(Object.PHI)
+    DCZ1 = cos(Object.AngleFromZ)
+    DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
+    DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
     VTOT = CONST9 * sqrt(E1)
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
 
     F4 = 2 * acos(-1)
-    DELTAE = Object.EFINAL / float(INTEM)
-    J2M = Object.NMAX / ISAMP
+    DELTAE = Object.FinalElectronEnergy / float(INTEM)
+    J2M = Object.MaxNumberOfCollisions / ISAMP
     RDUM = Object.RSTART
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.OF:
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
@@ -598,13 +598,13 @@ cpdef EnergyLimitC(PyBoltz Object):
             TLIM = Object.TCFMAXNT[I]
             T = -1 * log(R1) / TLIM + TDASH
             TDASH = T
-            WBT = Object.WB * T
+            WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
-            DZ = (CZ1 * SINWT + (EOVBR - CY1) * (1 - COSWT)) / Object.WB
+            DZ = (CZ1 * SINWT + (EOVBR - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
             DX = CX1 * T + F1 * T * T
             E = E1 + DZ * EFZ100 + DX * EFX100
-            IE = int(E / Object.ESTEP)
+            IE = int(E / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             if TEMP[IE] > TLIM:
                 TDASH += log(R1) / TLIM
@@ -676,15 +676,15 @@ cpdef EnergyLimitC(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.THETA = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(THETA0))
 
-        F6 = cos(Object.THETA)
+        F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
         CSQD = F3 ** 2
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
-        F5 = sin(Object.THETA)
+        F5 = sin(Object.AngleFromZ)
         DCZ2 = min(DCZ2, 1)
         VTOT = CONST9 * sqrt(E1)
         ARGZ = sqrt(DCX2 * DCX2 + DCY2 * DCY2)
@@ -729,45 +729,45 @@ cpdef EnergyLimitCT(PyBoltz Object):
     API = acos(-1)
 
     RTHETA = Object.BFieldTheta*API/180.0
-    EFZ100 = Object.EFIELD*100*sin(RTHETA)
-    EFX100 = Object.EFIELD*100*cos(RTHETA)
-    F1 = Object.EFIELD*Object.CONST2*cos(RTHETA)
+    EFZ100 = Object.EField * 100 * sin(RTHETA)
+    EFX100 = Object.EField * 100 * cos(RTHETA)
+    F1 = Object.EField * Object.CONST2 * cos(RTHETA)
     F4 =2*API
-    EOVBR =Object.EOVB * sin(RTHETA)
+    EOVBR = Object.EFieldOverBField * sin(RTHETA)
     RDUM = Object.RSTART
-    E1 = Object.ESTART
+    E1 = Object.InitialElectronEnergy
     TDASH =0.0
 
     CONST9 = Object.CONST3*0.01
     CONST10 = CONST9**2
 
     #GENERATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GERJAN(Object.RSTART, Object.API, Object.RNMX)
+    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
     IMBPT = 0
 
     #INITIAL DIRECTION COSINES
-    DCZ1 = cos(Object.THETA)
-    DCX1 = sin(Object.THETA) * cos(Object.PHI)
-    DCY1 = sin(Object.THETA) * sin(Object.PHI)
+    DCZ1 = cos(Object.AngleFromZ)
+    DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
+    DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
     VTOT = CONST9 * sqrt(E1)
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
 
-    J2M = Object.NMAX / ISAMP
+    J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.OF:
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
             T = -1 * log(R1) / Object.TCFMX + TDASH
             TDASH = T
-            WBT = Object.WB * T
+            WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
-            DZ = (CZ1 * SINWT + (Object.EOVB - CY1) * (1 - COSWT)) / Object.WB
+            DZ = (CZ1 * SINWT + (Object.EFieldOverBField - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
             DX = CX1 *T+F1*T*T
 
             E = E1 + DZ * EFZ100+DX*EFX100
@@ -784,7 +784,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
-                GERJAN(Object.RSTART, Object.API, Object.RNMX)
+                GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -793,7 +793,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
 
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
-            IE = int(EOK / Object.ESTEP)
+            IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
 
             # TEST FOR REAL OR NULL COLLISION
@@ -862,15 +862,15 @@ cpdef EnergyLimitCT(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((EOK / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.THETA = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(THETA0))
 
-        F6 = cos(Object.THETA)
+        F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
         CSQD = F3 ** 2
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
-        F5 = sin(Object.THETA)
+        F5 = sin(Object.AngleFromZ)
         DZCOM = min(DZCOM, 1)
         ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
         if ARGZ == 0:
@@ -923,24 +923,24 @@ cpdef EnergyLimitT(PyBoltz Object):
     ISAMP = 10
     SMALL = 1.0e-20
     RDUM = Object.RSTART
-    E1 = Object.ESTART
+    E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
-    GERJAN(Object.RSTART, Object.API, Object.RNMX)
+    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
     IMBPT = 0
-    DCZ1 = cos(Object.THETA)
-    DCX1 = sin(Object.THETA) * cos(Object.PHI)
-    DCY1 = sin(Object.THETA) * sin(Object.PHI)
+    DCZ1 = cos(Object.AngleFromZ)
+    DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
+    DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
-    BP = pow(Object.EFIELD, 2) * Object.CONST1
-    F1 = Object.EFIELD * Object.CONST2
-    F2 = Object.EFIELD * Object.CONST3
+    BP = pow(Object.EField, 2) * Object.CONST1
+    F1 = Object.EField * Object.CONST2
+    F2 = Object.EField * Object.CONST3
     F4 = 2 * acos(-1)
-    J2M = Object.NMAX / ISAMP
+    J2M = Object.MaxNumberOfCollisions / ISAMP
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.OF:
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
@@ -951,7 +951,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             CONST6 = sqrt(E1 / E)
             DCX2 = DCX1 * CONST6
             DCY2 = DCY1 * CONST6
-            DCZ2 = DCZ1 * CONST6 + Object.EFIELD * T * Object.CONST5 / sqrt(E)
+            DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
             R2 = random_uniform(RDUM)
             KGAS = 0
             for KGAS in range(Object.NumberOfGases):
@@ -959,7 +959,7 @@ cpdef EnergyLimitT(PyBoltz Object):
                     break
             IMBPT += 1
             if (IMBPT > 6):
-                GERJAN(Object.RSTART, Object.API, Object.RNMX)
+                GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
             IMBPT += 1
@@ -972,7 +972,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             VEZ = DCZ2 * CONST9 * sqrt(E)
 
             EOK = (pow((VEX - VGX), 2) + pow((VEY - VGY), 2) + pow((VEZ - VGZ), 2)) / CONST10
-            IE = int(EOK / Object.ESTEP)
+            IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             R5 = random_uniform(RDUM)
             TEST1 = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
@@ -1035,15 +1035,15 @@ cpdef EnergyLimitT(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((EOK / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.THETA = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(THETA0))
 
-        F6 = cos(Object.THETA)
+        F6 = cos(Object.AngleFromZ)
         U = (S1 - 1.0) * (S1 - 1.0) / ARG1
         CSQD = pow(F3, 2)
 
         if F3 < 0 and CSQD > U:
             F6 = -1 * F6
-        F5 = sin(Object.THETA)
+        F5 = sin(Object.AngleFromZ)
         DZCOM = min(DZCOM, 1.0)
         ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
         if ARGZ == 0:

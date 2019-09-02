@@ -22,20 +22,20 @@ cpdef Mixer(PyBoltz object):
     ECHARG = 1.602176565e-19
 
 
-    object.ESTEP = object.EFINAL / object.NSTEP
+    object.ElectronEnergyStep = object.FinalElectronEnergy / object.NSTEP
 
-    EHALF = object.ESTEP / 2
+    EHALF = object.ElectronEnergyStep / 2
 
     object.E[0] = EHALF
     for i in range(1, 4000):
-        object.E[i] = EHALF + object.ESTEP * i
+        object.E[i] = EHALF + object.ElectronEnergyStep * i
         object.EROOT[i] = sqrt(object.E[i])
     object.EROOT[0] = sqrt(EHALF)
     MIXOBJECT = Gasmix()
     MIXOBJECT.InitWithInfo(object.NumberOfGasesN, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
-                           object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.NANISO, object.ESTEP,
-                           object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN, object.PIR2)
+                           object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.NANISO, object.ElectronEnergyStep,
+                           object.FinalElectronEnergy, object.ThermalEnergy, object.ARY, object.TemperatureCentigrade, object.PressureTorr, object.IPEN, object.PIR2)
     MIXOBJECT.Run()
 
     EMASS = 9.10938291e-31
@@ -72,7 +72,7 @@ cpdef Mixer(PyBoltz object):
                 object.PENFRANT[2][NP] = 0.0
                 # IONISATION
 
-            if object.EFINAL >= MIXOBJECT.Gases[KGAS].E[2]:
+            if object.FinalElectronEnergy >= MIXOBJECT.Gases[KGAS].E[2]:
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
                     NP += 1
                     object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].Q[2][IE] * object.VANN[KGAS]
@@ -152,7 +152,7 @@ cpdef Mixer(PyBoltz object):
                             object.PENFRANT[1][NP] = 0.0
                             object.PENFRANT[2][NP] = 0.0
 
-            if object.EFINAL >= MIXOBJECT.Gases[KGAS].E[3]:
+            if object.FinalElectronEnergy >= MIXOBJECT.Gases[KGAS].E[3]:
                 if MIXOBJECT.Gases[KGAS].NATT <= 1:
                     NP += 1
                     object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].Q[3][IE] * object.VANN[KGAS]
@@ -296,11 +296,11 @@ cpdef Mixer(PyBoltz object):
     if KELSUM > 0:
         object.NISO = 1
 
-    BP = object.EFIELD ** 2 * object.CONST1
-    F2 = object.EFIELD * object.CONST3
-    ELOW = object.TMAX * (object.TMAX * BP - F2 * sqrt(0.5 * object.EFINAL)) / object.ESTEP - 1
-    ELOW = min(ELOW, object.SMALL)
-    EHI = object.TMAX * (object.TMAX * BP + F2 * sqrt(0.5 * object.EFINAL)) / object.ESTEP + 1
+    BP = object.EField ** 2 * object.CONST1
+    F2 = object.EField * object.CONST3
+    ELOW = object.MaxCollisionTime * (object.MaxCollisionTime * BP - F2 * sqrt(0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep - 1
+    ELOW = min(ELOW, object.SmallNumber)
+    EHI = object.MaxCollisionTime * (object.MaxCollisionTime * BP + F2 * sqrt(0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep + 1
     if EHI > 10000:
         EHI = 10000
     for l in range(8):
@@ -355,21 +355,21 @@ cpdef MixerT(PyBoltz object):
     cdef int  IE, KGAS, NP, p, sum, J, i, j, KION, JJ, IL, I
     ECHARG = 1.602176565e-19
 
-    object.ESTEP = object.EFINAL / float(object.NSTEP)
+    object.ElectronEnergyStep = object.FinalElectronEnergy / float(object.NSTEP)
 
-    EHALF = object.ESTEP / 2
+    EHALF = object.ElectronEnergyStep / 2
 
     object.E[0] = EHALF
     for i in range(1, 4000):
-        object.E[i] = EHALF + object.ESTEP * i
+        object.E[i] = EHALF + object.ElectronEnergyStep * i
         object.EROOT[i] = sqrt(object.E[i])
     object.EROOT[0] = sqrt(EHALF)
 
     MIXOBJECT = Gasmix()
     MIXOBJECT.InitWithInfo(object.NumberOfGasesN, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
-                           object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.NANISO, object.ESTEP,
-                           object.EFINAL, object.AKT, object.ARY, object.TEMPC, object.TORR, object.IPEN,object.PIR2)
+                           object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.NANISO, object.ElectronEnergyStep,
+                           object.FinalElectronEnergy, object.ThermalEnergy, object.ARY, object.TemperatureCentigrade, object.PressureTorr, object.IPEN, object.PIR2)
     MIXOBJECT.Run()
 
     #-----------------------------------------------------------------
@@ -421,7 +421,7 @@ cpdef MixerT(PyBoltz object):
                 object.PENFRA[KGAS][2][NP - 1] = 0.0
 
             # IONISATION
-            if object.EFINAL >= MIXOBJECT.Gases[KGAS].E[2]:
+            if object.FinalElectronEnergy >= MIXOBJECT.Gases[KGAS].E[2]:
                 if MIXOBJECT.Gases[KGAS].NION <= 1:
                     NP += 1
                     object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].Q[2][IE] * object.VANN[KGAS]
@@ -500,7 +500,7 @@ cpdef MixerT(PyBoltz object):
                             object.PENFRA[KGAS][1][NP - 1] = 0.0
                             object.PENFRA[KGAS][2][NP - 1] = 0.0
             # ATTACHMENT
-            if object.EFINAL >= MIXOBJECT.Gases[KGAS].E[3]:
+            if object.FinalElectronEnergy >= MIXOBJECT.Gases[KGAS].E[3]:
                 if MIXOBJECT.Gases[KGAS].NATT <= 1:
                     NP += 1
                     object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].Q[3][IE] * object.VANN[KGAS]
@@ -656,7 +656,7 @@ cpdef MixerT(PyBoltz object):
     # CALCULATE MAXWELL BOLTZMAN VELOCITY FACTOR FOR EACH GAS COMPONENT
 
     for KGAS in range(object.NumberOfGases):
-        object.VTMB[KGAS] = sqrt(2.0 * ECHARG * object.AKT / object.AMGAS[KGAS]) * 1e-12
+        object.VTMB[KGAS] = sqrt(2.0 * ECHARG * object.ThermalEnergy / object.AMGAS[KGAS]) * 1e-12
 
     for I in range(object.NSTEP):
         object.QTOT[I] = object.ANN[0] * MIXOBJECT.Gases[0].Q[0][I] + object.ANN[1] * MIXOBJECT.Gases[1].Q[0][I] + \

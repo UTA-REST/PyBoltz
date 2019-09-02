@@ -27,7 +27,7 @@ class PyBoltzRun:
                    'Angular_dist_model'    :1,
                    'Enable_penning'        :0,
                    'Enable_thermal_motion' :1,
-                   'OF'                    :0}
+                   'ConsoleOutputFlag'                    :0}
     # Available Gases
     Gases = [np.nan, 'CF4', 'ARGON', 'HELIUM4', 'HELIUM3', 'NEON', 'KRYPTON', 'XENON', 'CH4', 'ETHANE', 'PROPANE'
          , 'ISOBUTANE', 'CO2', np.nan, 'H2O', 'OXYGEN', 'NITROGEN', np.nan, np.nan, np.nan, np.nan
@@ -62,7 +62,7 @@ class PyBoltzRun:
         if(abs(sum(Inputs['Fractions'])-100)>1e-6):
             print("Error! Gas fractions don't add to 100%")
             return False
-        MBObject.EFIELD=Inputs['EField_Vcm']
+        MBObject.EField=Inputs['EField_Vcm']
         MBObject.NumberOfGases=len(Inputs['Gases'])
         NumberOfGasesN=np.zeros(6,dtype='int')
         FRAC=np.zeros(6,dtype='float')
@@ -71,34 +71,34 @@ class PyBoltzRun:
             FRAC[i]  = Inputs['Fractions'][i]
         MBObject.NumberOfGasesN  = NumberOfGasesN
         MBObject.FRAC   = FRAC
-        MBObject.NMAX   = Inputs['Max_collisions']
+        MBObject.MaxNumberOfCollisions   = Inputs['Max_collisions']
         MBObject.IPEN   = Inputs['Enable_penning']
         MBObject.EnableThermalMotion  = Inputs['Enable_thermal_motion']
-        MBObject.EFINAL = Inputs['Max_electron_energy']
-        MBObject.TEMPC  = Inputs['Temperature_C']
-        MBObject.TORR   = Inputs['Pressure_Torr']
+        MBObject.FinalElectronEnergy = Inputs['Max_electron_energy']
+        MBObject.TemperatureCentigrade  = Inputs['Temperature_C']
+        MBObject.PressureTorr   = Inputs['Pressure_Torr']
         MBObject.BFieldMag   = Inputs['BField_Tesla']
         MBObject.BFieldAngle = Inputs['BField_angle']
-        MBObject.OF     = Inputs['OF']
+        MBObject.ConsoleOutputFlag     = Inputs['ConsoleOutputFlag']
         MBObject.NANISO = Inputs['Angular_dist_model']
         return True
 
     # Extract Outputs into Output Dictionary
     def ProcessOutputs(self, MBObject):
         Outputs={}
-        Outputs['Drift_vel']      = PBRes([MBObject.WX,MBObject.WY,MBObject.WZ],[MBObject.DWX,MBObject.DWY,MBObject.DWZ])
-        Outputs['DT']             = PBRes(MBObject.DIFTR, MBObject.DFTER)
-        Outputs['DL']             = PBRes(MBObject.DIFLN, MBObject.DFLER)
+        Outputs['Drift_vel']      = PBRes([MBObject.VelocityX,MBObject.VelocityY,MBObject.VelocityZ],[MBObject.VelocityErrorX,MBObject.VelocityErrorY,MBObject.VelocityErrorZ])
+        Outputs['DT']             = PBRes(MBObject.TransverseDiffusion, MBObject.TransverseDiffusionError)
+        Outputs['DL']             = PBRes(MBObject.LongitudinalDiffusion, MBObject.LongitudinalDiffusionError)
         Outputs['DT1']            = PBRes(MBObject.DTMN,MBObject.DFTER1)
         Outputs['DL1']            = PBRes(MBObject.DLMN,MBObject.DFLER1)
 
-        Outputs['MeanEnergy']    = PBRes(MBObject.AVE,MBObject.DEN)
-        DTensor     = [[MBObject.DIFXX, MBObject.DIFXY, MBObject.DIFXZ],
-                       [MBObject.DIFXY, MBObject.DIFYY, MBObject.DIFYZ],
-                       [MBObject.DIFXZ, MBObject.DIFYZ, MBObject.DIFZZ]]
-        DTensorErr  = [[MBObject.DXXER, MBObject.DXYER, MBObject.DXZER],
-                       [MBObject.DXYER, MBObject.DYYER, MBObject.DYZER],
-                       [MBObject.DXZER, MBObject.DYZER, MBObject.DZZER]]            
+        Outputs['MeanEnergy']    = PBRes(MBObject.MeanElectronEnergy,MBObject.MeanElectronEnergyError)
+        DTensor     = [[MBObject.DiffusionX, MBObject.DiffusionXY, MBObject.DiffusionXZ],
+                       [MBObject.DiffusionXY, MBObject.DiffusionY, MBObject.DiffusionYZ],
+                       [MBObject.DiffusionXZ, MBObject.DiffusionYZ, MBObject.DiffusionZ]]
+        DTensorErr  = [[MBObject.ErrorDiffusionX, MBObject.ErrorDiffusionXY, MBObject.ErrorDiffusionXZ],
+                       [MBObject.ErrorDiffusionXY, MBObject.ErrorDiffusionY, MBObject.ErrorDiffusionYZ],
+                       [MBObject.ErrorDiffusionXZ, MBObject.ErrorDiffusionYZ, MBObject.ErrorDiffusionZ]]
         Outputs['DTensor']       = PBRes(DTensor, DTensorErr)
 
         return Outputs

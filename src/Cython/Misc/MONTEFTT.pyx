@@ -96,10 +96,10 @@ cpdef run(PyBoltz object, int JPRT):
     object.Y = 0.0
     object.Z = 0.0
     I100 = 0
-    object.ZTOT = 0.0
-    object.ZTOTS = 0.0
-    object.TTOT = 0.0
-    object.TTOTS = 0.0
+    ZTOT = 0.0
+    ZTOTS = 0.0
+    TTOT = 0.0
+    TTOTS = 0.0
     object.SMALL = 1e-20
     object.TMAX1 = 0.0
     RDUM = object.RSTART
@@ -218,10 +218,10 @@ cpdef run(PyBoltz object, int JPRT):
                 else:
                     break
             if T + object.ST >= object.TFINAL:
-                object.ZTOT += object.Z
-                object.TTOT += object.ST
-                object.ZTOTS += object.Z - ZSTRT
-                object.TTOTS += object.ST - TSSTRT
+                ZTOT += object.Z
+                TTOT += object.ST
+                ZTOTS += object.Z - ZSTRT
+                TTOTS += object.ST - TSSTRT
                 TSTOP = object.TSTEP
                 if NELEC == NCLUS + 1:
                     GOTO544(object)
@@ -375,10 +375,10 @@ cpdef run(PyBoltz object, int JPRT):
                 IT = int(T)
                 IT = min(IT, 299)
                 object.TIME[IT] += 1
-                object.ZTOT += object.Z
-                object.TTOT += object.ST
-                object.ZTOTS += object.Z - ZSTRT
-                object.TTOTS += object.ST - TSSTRT
+                ZTOT += object.Z
+                TTOT += object.ST
+                ZTOTS += object.Z - ZSTRT
+                TTOTS += object.ST - TSSTRT
                 if NELEC == NCLUS + 1:
                     GOTO544(object)
                     continue
@@ -445,7 +445,7 @@ cpdef run(PyBoltz object, int JPRT):
         object.ICOLL[KGAS][int(IPT)] += 1
         object.ICOLN[KGAS][I] += 1
         TPEN = 0
-        if object.IPEN != 0:
+        if object.EnablePenning != 0:
             if object.PENFRA[KGAS][0][I] != 0.0:
                 RAN = random_uniform(RDUM)
                 if RAN <= object.PENFRA[KGAS][0][I]:
@@ -597,7 +597,7 @@ cpdef run(PyBoltz object, int JPRT):
             I100 = 0
         if IPRINT > JPRINT:
             IPRINT = 0
-            W = object.ZTOTS / object.TTOTS
+            W = ZTOTS / object.TTOTS
             W *= 1e9
             JCT = ID / 100000
             J1 += 1

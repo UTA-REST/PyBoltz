@@ -109,8 +109,7 @@ cpdef EnergyLimit(PyBoltz Object):
 
         if IE == 3999:
             # Electron energy is out of limits
-            Object.IELOW = 1
-            return
+            return 1
 
         # CALCULATE DIRECTION COSINES AT INSTANT BEFORE COLLISION
         TDASH = 0.0
@@ -187,8 +186,7 @@ cpdef EnergyLimit(PyBoltz Object):
             DCY1 = DCY2 * F6 + (F5 / ARGZ) * (DCX2 * F9 - DCY2 * DCZ2 * F8)
             DCX1 = DCX2 * F6 - (F5 / ARGZ) * (DCY2 * F9 + DCX2 * DCZ2 * F8)
 
-    Object.IELOW = 0
-    return
+    return 0
 
 
 @cython.cdivision(True)
@@ -270,8 +268,7 @@ cpdef EnergyLimitB(PyBoltz Object):
 
         if IE == 3999:
             # Electron energy out of range
-            Object.IELOW = 1
-            return
+            return 1
 
         TDASH = 0.0
         CX2 = CX1
@@ -352,8 +349,7 @@ cpdef EnergyLimitB(PyBoltz Object):
         CY1 = DCY1 * VTOT
         CZ1 = DCZ1 * VTOT
 
-    Object.IELOW = 0
-    return
+    return 0
 
 
 
@@ -448,8 +444,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
                 break
         if IE == 3999:
             #ELECTRON ENERGY OUT OF RANGE
-            Object.IELOW = 1
-            return
+            return 1
 
         TDASH = 0.0
         #CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
@@ -535,8 +530,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
         DCY1 = CY1 * CONST11
         DCZ1 = CZ1 * CONST11
 
-    Object.IELOW = 0
-    return
+    return 0
 
 
 
@@ -619,8 +613,7 @@ cpdef EnergyLimitC(PyBoltz Object):
 
         if IE == 3999:
             # Electron energy out of range
-            Object.IELOW = 1
-            return
+            return 1
 
         TDASH = 0.0
         CX2 = CX1 + 2 * F1 * T
@@ -700,8 +693,7 @@ cpdef EnergyLimitC(PyBoltz Object):
         CY1 = DCY1 * VTOT
         CZ1 = DCZ1 * VTOT
 
-    Object.IELOW = 0
-    return
+    return 0
 
 
 
@@ -802,8 +794,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             if R5 <= TLIM:
                 break
         if IE == 3999:
-            Object.IELOW = 1
-            return
+            return 1
 
         #CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
         TDASH = 0.0
@@ -893,8 +884,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
         DCY1 = CY1 * CONST11
         DCZ1 = CZ1 * CONST11
 
-    Object.IELOW = 0
-    return
+    return 0
 
 
 
@@ -980,8 +970,7 @@ cpdef EnergyLimitT(PyBoltz Object):
                 break
 
         if IE == 3999:
-            Object.IELOW = 1
-            return
+            return 1
 
         TDASH = 0.0
 
@@ -1068,6 +1057,4 @@ cpdef EnergyLimitT(PyBoltz Object):
         DCY1 = VYLAB * CONST11
         DCZ1 = VZLAB * CONST11
 
-    Object.IELOW = 0
-
-    return
+    return 0

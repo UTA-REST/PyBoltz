@@ -42,7 +42,7 @@ cpdef run(PyBoltz Object):
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
-    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, NCOLDM
+    cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, NCOLDM
     cdef double ST1, RDUM, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMXZ, SUMXY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SYZOLD, SXYOLD, SXZOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
@@ -304,7 +304,6 @@ cpdef run(PyBoltz Object):
 
             if NCOL >= Object.NCOLM:
                 ID += 1
-                Object.XID = float(ID)
                 NCOL = 0
             # DETERMENATION OF REAL COLLISION TYPE
             R2 = random_uniform(RDUM)
@@ -335,7 +334,7 @@ cpdef run(PyBoltz Object):
                 EI = EOK - 0.0001
             #IF EXCITATION THEN ADD PROBABILITY,PENFRAC(1,I), OF TRANSFER TO GIVE
             # IONISATION OF THE OTHER GASES IN THE MIXTURE
-            if Object.IPEN != 0:
+            if Object.EnablePenning != 0:
                 if Object.PENFRA[KGAS][0][I] != 0:
                     RAN = random_uniform(RDUM)
                     if RAN <= Object.PENFRA[KGAS][0][I]:

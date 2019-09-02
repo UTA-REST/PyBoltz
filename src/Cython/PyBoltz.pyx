@@ -178,17 +178,13 @@ cdef class PyBoltz:
         memset(self.ES, 0, 4000 * sizeof(double))
         memset(self.ZPLANE, 0, 8 * sizeof(double))
         memset(self.LAST, 0, 6 * sizeof(double))
-        self.ZTOT = 0.0
-        self.ZTOTS = 0.0
+
         self.CONST1 = 0.0
         self.CONST2 = 0.0
         self.CONST3 = 0.0
         self.CONST4 = 0.0
         self.CONST5 = 0.0
-        self.AN = 0.0
-        self.VAN = 0.0
         self.NISO = 0
-        self.IELOW = 1
         self.NCOLM = 0
         self.NCORLN = 0
         self.NCORST = 0
@@ -196,7 +192,6 @@ cdef class PyBoltz:
         self.MaximumCollisionTime = 0.0
         self.MeanElectronEnergyError = 0.0
         self.MeanElectronEnergy = 0.0
-        self.XID = 0.0
         self.X = 0.0
         self.Y = 0.0
         self.Z = 0.0
@@ -230,7 +225,7 @@ cdef class PyBoltz:
         self.ARY = 0.0
         self.TemperatureCentigrade = 0.0
         self.PressureTorr = 0.0
-        self.IPEN = 0
+        self.EnablePenning = 0
         self.NSCALE = 0
         self.MaxCollisionTime = 100.0
         self.SmallNumber = 0.0
@@ -250,7 +245,7 @@ cdef class PyBoltz:
         self.AIOERT = 0.0
         self.ALPHERR = 0.0
         self.ATTSST = 0.0
-        self.TTOT = 0.0
+
         self.ATTERR = 0.0
         self.IZFINAL = 0.0
         self.RALPHA = 0.0
@@ -318,7 +313,6 @@ cdef class PyBoltz:
         self.VelocityErrorX = 0.0
         self.VelocityErrorY = 0.0
         self.VelocityErrorZ = 0.0
-        self.TTOTS = 0.0
         self.AttachmentRate = 0.0
         self.IonisationRateError = 0.0
         self.AttachmentRateError = 0.0
@@ -417,6 +411,8 @@ cdef class PyBoltz:
         `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
         """
 
+        ELimNotYetFixed=1
+
         cdef double EOB
         cdef int i = 0
 
@@ -434,11 +430,11 @@ cdef class PyBoltz:
             if EOB > 15:
                 self.FinalElectronEnergy = 8.0
             self.InitialElectronEnergy = self.FinalElectronEnergy / 50.0
-            while self.IELOW == 1:
+            while ELimNotYetFixed == 1:
                 MixerFunc(self)
-                ELimFunc(self)
+                ELimNotYetFixed = ELimFunc(self)
 
-                if self.IELOW == 1:
+                if ELimNotYetFixed == 1:
                     self.FinalElectronEnergy = self.FinalElectronEnergy * math.sqrt(2)
                     self.InitialElectronEnergy = self.FinalElectronEnergy / 50
         else:

@@ -42,7 +42,7 @@ cpdef run(PyBoltz Object):
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
 
-    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM,NCOLDM
+    cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM,NCOLDM
     cdef double ST1, RDUM,ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
@@ -116,7 +116,6 @@ cpdef run(PyBoltz Object):
 
     Object.ITMAX = 10
     ID = 0
-    Object.XID = 0
     NCOL = 0
     IEXTRA = 0
     Object.NNULL = 0
@@ -242,7 +241,6 @@ cpdef run(PyBoltz Object):
             STO[NCOL - 1] = Object.TimeSum
             if NCOL >= Object.NCOLM:
                 ID += 1
-                Object.XID = float(ID)
                 NCOL = 0
 
             # Determination of real collision type
@@ -271,7 +269,7 @@ cpdef run(PyBoltz Object):
 
             # IF EXCITATION THEN ADD PROBABILITY ,PENFRA(1,I), OF TRANSFER TO
             # IONISATION OF THE OTHER GASES IN MIXTURE
-            if Object.IPEN != 0:
+            if Object.EnablePenning != 0:
                 if Object.PENFRANT[0][I] != 0:
                     RAN = random_uniform(RDUM)
                     if RAN <= Object.PENFRANT[0][I]:

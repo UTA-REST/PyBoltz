@@ -80,10 +80,8 @@ cpdef Setup(PyBoltz object):
 
     for i in range(6):
         object.ANN[i] = object.FRAC[i] * object.CORR * ALOSCH
-    object.AN = 100.0 * object.CORR * ALOSCH
     for i in range(6):
         object.VANN[i] = object.FRAC[i] * object.CORR * object.CONST4 * 1e15
-    object.VAN = 100.0 * object.CORR * object.CONST4 * 1.0e15
 
     # Radians per picosecond
     object.AngularSpeedOfRotation = AWB * object.BFieldMag * 1e-12

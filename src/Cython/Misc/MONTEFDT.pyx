@@ -72,10 +72,10 @@ cpdef GOTO18n20(PyBoltz object, int f20):
     global NELEC, NCLUS, E1, DCX1, DCY1, DCZ1, IZPLANE, NPONT, ZSTRT, TSSTRT, EPOT, ISOL, R, TZSTOP, TZSTOP1, ISOL
     while (1):
         if f20 != 1:
-            object.ZTOT += object.Z
-            object.TTOT += object.ST
-            object.ZTOTS += object.Z - ZSTRT
-            object.TTOTS += object.ST - TSSTRT
+            ZTOT += object.Z
+            TTOT += object.ST
+            ZTOTS += object.Z - ZSTRT
+            TTOTS += object.ST - TSSTRT
             if NELEC == NCLUS + 1:
                 GOTO544(object)
                 continue
@@ -139,10 +139,10 @@ cpdef run(PyBoltz object):
     object.Y = 0.0
     object.Z = 0.0
     I100 = 0
-    object.ZTOT = 0.0
-    object.ZTOTS = 0.0
-    object.TTOT = 0.0
-    object.TTOTS = 0.0
+    ZTOT = 0.0
+    ZTOTS = 0.0
+    TTOT = 0.0
+    TTOTS = 0.0
     object.SMALL = 1e-20
     object.TMAX1 = 0.0
     RDUM = object.RSTART
@@ -271,10 +271,10 @@ cpdef run(PyBoltz object):
                 SPLANET(object, T, E1, DCX1, DCY1, DCZ1, AP, BP, TLFT, IZPLANE)
                 if IZPLANE >= object.IZFINAL + 1:
                     while (1):
-                        object.ZTOT += object.Z
-                        object.TTOT += object.ST
-                        object.ZTOTS += object.Z - ZSTRT
-                        object.TTOTS += object.ST - TSSTRT
+                        ZTOT += object.Z
+                        TTOT += object.ST
+                        ZTOTS += object.Z - ZSTRT
+                        TTOTS += object.ST - TSSTRT
                         if NELEC == NCLUS + 1:
                             GOTO544(object)
                             continue
@@ -454,10 +454,10 @@ cpdef run(PyBoltz object):
                 IT = int(T)
                 IT = min(IT, 299)
                 object.TIME[IT] += 1
-                object.ZTOT += object.Z
-                object.TTOT += object.ST
-                object.ZTOTS += object.Z - ZSTRT
-                object.TTOTS += object.ST - TSSTRT
+                ZTOT += object.Z
+                TTOT += object.ST
+                ZTOTS += object.Z - ZSTRT
+                TTOTS += object.ST - TSSTRT
                 IDM1 = 1 + int(object.Z / object.ZSTEP)
                 if IDM1 < 1:
                     IDM1 = 1
@@ -531,7 +531,7 @@ cpdef run(PyBoltz object):
         object.ICOLL[KGAS][int(IPT)] += 1
         object.ICOLN[KGAS][I] += 1
 
-        if object.IPEN != 0:
+        if object.EnablePenning != 0:
             if object.PENFRA[KGAS][0][I] != 0.0:
                 RAN = random_uniform(RDUM)
                 if RAN <= object.PENFRA[KGAS][0][I]:
@@ -719,7 +719,7 @@ cpdef run(PyBoltz object):
         if IPRINT <= JPRINT:
             continue
         IPRINT = 0
-        W = object.ZTOTS / object.TTOTS
+        W = ZTOTS / TTOTS
         W *= 1e9
         XID = float(ID)
         JCT = ID / 100000

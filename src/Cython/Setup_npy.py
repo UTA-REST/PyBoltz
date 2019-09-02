@@ -9236,421 +9236,456 @@ gd['gas6/YP4FS'] = YP4FSG6
 gd['gas6/Z36T'] = Z36TG6
 gd['gas6/EBRM'] = EBRMG6
 gd['gas6/EIN'] = EING6
+XENG9 = [np.float32(0.00),np.float32(.001),np.float32(.002),np.float32(.003),np.float32(.004),np.float32(.005),np.float32(.007),np.float32(0.01),np.float32(.014),np.float32(0.02),np.float32(.025),
+np.float32(0.03),np.float32(0.04),np.float32(0.05),np.float32(0.06),np.float32(0.07),np.float32(0.08),np.float32(0.09),np.float32(0.10),np.float32(0.11),np.float32(0.12),
+np.float32(0.13),np.float32(0.14),np.float32(0.16),np.float32(0.18),np.float32(0.20),np.float32(0.25),np.float32(0.30),np.float32(0.35),np.float32(0.40),np.float32(0.50),
+np.float32(0.60),np.float32(0.70),np.float32(0.80),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(4.00),np.float32(5.00),
+np.float32(6.00),np.float32(7.00),np.float32(8.00),np.float32(9.00),np.float32(10.0),np.float32(12.0),np.float32(14.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),
+np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(100.),np.float32(125.),np.float32(150.),
+np.float32(175.),np.float32(200.),np.float32(250.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(600.),np.float32(700.),
+np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1250.),np.float32(1500.),np.float32(1750.),np.float32(2000.),np.float32(2500.),np.float32(3000.),np.float32(3500.),
+np.float32(4000.),np.float32(4500.),np.float32(5000.),np.float32(6000.),np.float32(7000.),np.float32(8000.),np.float32(9000.),1.0e4,1.25e4,1.5e4,
+1.75e4,2.0e4,2.5e4,3.0e4,3.5e4,4.0e4,4.5e4,5.0e4,6.0e4,7.0e4,
+8.0e4,9.0e4,1.0e5,1.25e5,1.5e5,1.75e5,2.0e5,2.5e5,3.0e5,3.5e5,
+4.0e5,4.5e5,5.0e5,6.0e5,7.0e5,8.0e5,9.0e5,1.0e6,1.25e6,1.5e6,
+1.75e6,2.0e6,2.5e6,3.0e6,3.5e6,4.0e6,4.5e6,5.0e6,6.0e6,7.0e6,
+8.0e6,9.0e6,1.0e7,1.25e7,1.5e7,1.75e7,2.0e7,2.5e7,3.0e7,3.5e7,
+4.0e7,4.5e7,5.0e7,6.0e7,7.0e7,8.0e7,9.0e7,1.0e8,1.25e8,1.5e8,
+1.75e8,2.0e8,2.5e8,3.0e8,3.5e8,4.0e8,4.5e8,5.0e8,6.0e8,7.0e8,
+8.0e8,9.0e8,1.0e9,
+]
+YMTG9 = [np.float32(32.0),np.float32(31.0),np.float32(29.0),np.float32(27.0),np.float32(26.0),np.float32(25.0),np.float32(23.0),np.float32(20.0),np.float32(17.6),np.float32(15.2),np.float32(13.0),
+np.float32(11.2),np.float32(7.25),np.float32(4.70),np.float32(3.25),np.float32(2.40),np.float32(1.80),np.float32(1.40),np.float32(1.15),np.float32(1.10),np.float32(1.08),
+np.float32(1.08),np.float32(1.10),np.float32(1.25),np.float32(1.50),np.float32(1.85),np.float32(2.40),np.float32(3.15),np.float32(4.10),np.float32(4.85),np.float32(6.10),
+np.float32(6.90),np.float32(7.15),np.float32(7.30),np.float32(7.70),np.float32(8.45),np.float32(9.10),np.float32(10.3),np.float32(11.6),np.float32(13.9),np.float32(17.8),
+np.float32(20.7),np.float32(21.4),np.float32(21.3),np.float32(20.0),np.float32(17.6),np.float32(13.9),np.float32(11.3),np.float32(9.40),np.float32(8.00),np.float32(7.20),
+np.float32(5.75),np.float32(4.90),np.float32(3.76),np.float32(3.00),np.float32(2.50),np.float32(2.15),np.float32(1.80),np.float32(1.41),np.float32(1.10),np.float32(0.91),
+np.float32(.770),np.float32(.680),np.float32(.540),np.float32(.440),np.float32(.370),np.float32(.325),np.float32(.280),np.float32(.252),np.float32(.200),np.float32(.159),
+np.float32(.127),np.float32(.104),np.float32(.0870),np.float32(.0592),np.float32(.0431),np.float32(.0329),np.float32(.0260),np.float32(.0175),np.float32(.0127),np.float32(.00961),
+np.float32(.00756),np.float32(.00612),np.float32(.00506),np.float32(.00364),np.float32(.00276),np.float32(.00216),np.float32(.00175),np.float32(.00144),9.62e-4,
+6.91e-4,
+5.22e-4,4.10e-4,2.74e-4,1.97e-4,1.49e-4,1.17e-4,9.48e-5,7.85e-5,
+5.67e-5,4.31e-5,
+3.41e-5,2.77e-5,2.31e-5,1.57e-5,1.15e-5,8.88e-6,7.11e-6,4.93e-6,
+3.67e-6,2.87e-6,
+2.33e-6,1.94e-6,1.64e-6,1.24e-6,9.79e-7,7.98e-7,6.67e-7,5.68e-7,
+4.06e-7,3.06e-7,
+2.41e-7,1.95e-7,1.36e-7,1.01e-7,7.87e-8,6.30e-8,5.17e-8,4.32e-8,
+3.16e-8,2.42e-8,
+1.92e-8,1.56e-8,1.29e-8,8.67e-9,6.23e-9,4.71e-9,3.69e-9,2.45e-9,
+1.75e-9,1.31e-9,
+1.02e-9,8.19e-10,6.71e-10,4.75e-10,3.53e-10,2.73e-10,2.18e-10,
+1.77e-10,1.14e-10,7.99e-11,
+5.89e-11,4.52e-11,2.90e-11,2.02e-11,1.48e-11,1.14e-11,8.98e-12,
+7.28e-12,5.06e-12,3.71e-12,
+2.85e-12,2.25e-12,1.82e-12,
+]
+# ASSUME ELASTIC = MOMENTUM TRANSFER UP TO 3.0 EV (NO GOOD ELASTIC DATA)
 
-XENG9 = [0.00, .001, .002, .003, .004, .005, .007, 0.01, .014, 0.02, .025,
-         0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.11, 0.12,
-         0.13, 0.14, 0.16, 0.18, 0.20, 0.25, 0.30, 0.35, 0.40, 0.50,
-         0.60, 0.70, 0.80, 1.00, 1.50, 2.00, 2.50, 3.00, 4.00, 5.00,
-         6.00, 7.00, 8.00, 9.00, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0,
-         25.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 100., 125., 150.,
-         175., 200., 250., 300., 350., 400., 450., 500., 600., 700.,
-         800., 900., 1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500.,
-         4000., 4500., 5000., 6000., 7000., 8000., 9000., 1.0e4, 1.25e4, 1.5e4,
-         1.75e4, 2.0e4, 2.5e4, 3.0e4, 3.5e4, 4.0e4, 4.5e4, 5.0e4, 6.0e4, 7.0e4,
-         8.0e4, 9.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5, 3.5e5,
-         4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6, 1.5e6,
-         1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6, 7.0e6,
-         8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7, 3.5e7,
-         4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8, 1.5e8,
-         1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8, 7.0e8,
-         8.0e8, 9.0e8, 1.0e9
-         ]
-YMTG9 = [32.0, 31.0, 29.0, 27.0, 26.0, 25.0, 23.0, 20.0, 17.6, 15.2, 13.0,
-         11.2, 7.25, 4.70, 3.25, 2.40, 1.80, 1.40, 1.15, 1.10, 1.08,
-         1.08, 1.10, 1.25, 1.50, 1.85, 2.40, 3.15, 4.10, 4.85, 6.10,
-         6.90, 7.15, 7.30, 7.70, 8.45, 9.10, 10.3, 11.6, 13.9, 17.8,
-         20.7, 21.4, 21.3, 20.0, 17.6, 13.9, 11.3, 9.40, 8.00, 7.20,
-         5.75, 4.90, 3.76, 3.00, 2.50, 2.15, 1.80, 1.41, 1.10, 0.91,
-         .770, .680, .540, .440, .370, .325, .280, .252, .200, .159,
-         .127, .104, .0870, .0592, .0431, .0329, .0260, .0175, .0127, .00961,
-         .00756, .00612, .00506, .00364, .00276, .00216, .00175, .00144, 9.62e-4,
-         6.91e-4,
-         5.22e-4, 4.10e-4, 2.74e-4, 1.97e-4, 1.49e-4, 1.17e-4, 9.48e-5, 7.85e-5,
-         5.67e-5, 4.31e-5,
-         3.41e-5, 2.77e-5, 2.31e-5, 1.57e-5, 1.15e-5, 8.88e-6, 7.11e-6, 4.93e-6,
-         3.67e-6, 2.87e-6,
-         2.33e-6, 1.94e-6, 1.64e-6, 1.24e-6, 9.79e-7, 7.98e-7, 6.67e-7, 5.68e-7,
-         4.06e-7, 3.06e-7,
-         2.41e-7, 1.95e-7, 1.36e-7, 1.01e-7, 7.87e-8, 6.30e-8, 5.17e-8, 4.32e-8,
-         3.16e-8, 2.42e-8,
-         1.92e-8, 1.56e-8, 1.29e-8, 8.67e-9, 6.23e-9, 4.71e-9, 3.69e-9, 2.45e-9,
-         1.75e-9, 1.31e-9,
-         1.02e-9, 8.19e-10, 6.71e-10, 4.75e-10, 3.53e-10, 2.73e-10, 2.18e-10,
-         1.77e-10, 1.14e-10, 7.99e-11,
-         5.89e-11, 4.52e-11, 2.90e-11, 2.02e-11, 1.48e-11, 1.14e-11, 8.98e-12,
-         7.28e-12, 5.06e-12, 3.71e-12,
-         2.85e-12, 2.25e-12, 1.82e-12]
-# ASSUME ELASTIC = MOMENTUM TRANSFER UP TO 3.0 EV (NO GOOe ELASTIC DATA)
+YELG9 = [np.float32(32.0),np.float32(31.0),np.float32(29.0),np.float32(27.0),np.float32(26.0),np.float32(25.0),np.float32(23.0),np.float32(20.0),np.float32(17.6),np.float32(15.2),np.float32(13.0),
+np.float32(11.2),np.float32(7.25),np.float32(4.70),np.float32(3.25),np.float32(2.40),np.float32(1.80),np.float32(1.40),np.float32(1.15),np.float32(1.10),np.float32(1.08),
+np.float32(1.08),np.float32(1.10),np.float32(1.25),np.float32(1.50),np.float32(1.85),np.float32(2.40),np.float32(3.15),np.float32(4.10),np.float32(4.85),np.float32(6.10),
+np.float32(6.90),np.float32(7.15),np.float32(7.30),np.float32(7.70),np.float32(8.45),np.float32(9.10),np.float32(10.3),np.float32(15.2),np.float32(18.9),np.float32(23.4),
+np.float32(27.2),np.float32(29.6),np.float32(31.9),np.float32(31.0),np.float32(30.1),np.float32(27.7),np.float32(25.9),np.float32(24.1),np.float32(23.3),np.float32(22.1),
+np.float32(20.0),np.float32(17.3),np.float32(13.4),np.float32(11.9),np.float32(10.7),np.float32(9.85),np.float32(9.02),np.float32(7.40),np.float32(6.25),np.float32(5.50),
+np.float32(4.95),np.float32(4.50),np.float32(3.90),np.float32(3.43),np.float32(3.04),np.float32(2.74),np.float32(2.49),np.float32(2.29),np.float32(1.97),np.float32(1.73),
+np.float32(1.54),np.float32(1.39),np.float32(1.27),np.float32(1.04),np.float32(.877),np.float32(.760),np.float32(.671),np.float32(.544),np.float32(.458),np.float32(.395),
+np.float32(.348),np.float32(.311),np.float32(.281),np.float32(.235),np.float32(.203),np.float32(.178),np.float32(.159),np.float32(.144),np.float32(.116),np.float32(.0978),
+np.float32(.0845),np.float32(.0745),np.float32(.0605),np.float32(.0512),np.float32(.0445),np.float32(.0395),np.float32(.0356),np.float32(.0325),np.float32(.0278),np.float32(.0244),
+np.float32(.0226),np.float32(.0200),np.float32(.0184),np.float32(.0156),np.float32(.0138),np.float32(.0124),np.float32(.0115),np.float32(.0101),np.float32(.00918),np.float32(.00855),
+np.float32(.00808),np.float32(.00772),np.float32(.00744),np.float32(.00702),np.float32(.00674),np.float32(.00653),np.float32(.00637),np.float32(.00625),np.float32(.00605),
+np.float32(.00592),
+np.float32(.00584),np.float32(.00578),np.float32(.00570),np.float32(.00566),np.float32(.00563),np.float32(.00561),np.float32(.00560),np.float32(.00559),np.float32(.00557),
+np.float32(.00556),
+np.float32(.00556),np.float32(.00555),np.float32(.00555),np.float32(.00555),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),
+]
+YEPSG9 = [np.float32(.65352),np.float32(.61534),np.float32(.65007),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),
+np.float32(.65056),np.float32(.59839),np.float32(.52532),np.float32(.49651),np.float32(.42242),np.float32(.32895),np.float32(.26232),np.float32(.21931),np.float32(.17939),
+np.float32(.16529),
+np.float32(.13630),np.float32(.13322),np.float32(.13133),np.float32(.11165),np.float32(.09963),np.float32(.09005),np.float32(.07893),np.float32(.07377),np.float32(.06576),
+np.float32(.06017),
+np.float32(.05510),np.float32(.05287),np.float32(.04673),np.float32(.04198),np.float32(.03896),np.float32(.03770),np.float32(.03497),np.float32(.03403),np.float32(.03050),
+np.float32(.02667),
+np.float32(.02302),np.float32(.02024),np.float32(.01805),np.float32(.01418),np.float32(.01167),np.float32(.00990),np.float32(.00860),np.float32(.00681),np.float32(.00563),
+np.float32(.00480),
+np.float32(.00418),np.float32(.00370),np.float32(.00332),np.float32(.00276),np.float32(.00235),np.float32(.00205),np.float32(.00182),np.float32(.00163),np.float32(.00130),
+np.float32(.00108),
+np.float32(.000924),np.float32(.000806),np.float32(.000641),np.float32(.000531),np.float32(.000452),np.float32(.000393),np.float32(.000348),3.11e-4,
+2.56e-4,2.17e-4,
+1.82e-4,1.65e-4,1.47e-4,1.15e-4,9.32e-5,7.80e-5,6.67e-5,5.10e-5,
+4.08e-5,3.36e-5,
+2.83e-5,2.43e-5,2.11e-5,1.65e-5,1.33e-5,1.10e-5,9.27e-6,7.94e-6,
+5.71e-6,4.29e-6,
+3.35e-6,2.69e-6,1.86e-6,1.36e-6,1.04e-6,8.19e-7,6.63e-7,5.48e-7,
+3.93e-7,2.95e-7,
+2.30e-7,1.84e-7,1.57e-7,9.87e-8,6.96e-8,5.16e-8,3.98e-8,2.58e-8,
+1.80e-8,1.33e-8,
+1.02e-8,8.06e-9,6.54e-9,4.53e-9,3.32e-9,2.53e-9,1.99e-9,1.61e-9,
+1.01e-9,6.94e-10,
+5.04e-10,3.82e-10,2.40e-10,1.64e-10,1.19e-10,9.0e-11,7.00e-11,
+5.6e-11,3.8e-11,2.8e-11,
+2.1e-11,1.6e-11,1.3e-11,
+]
+#
 
-YELG9 = [32.0, 31.0, 29.0, 27.0, 26.0, 25.0, 23.0, 20.0, 17.6, 15.2, 13.0,
-         11.2, 7.25, 4.70, 3.25, 2.40, 1.80, 1.40, 1.15, 1.10, 1.08,
-         1.08, 1.10, 1.25, 1.50, 1.85, 2.40, 3.15, 4.10, 4.85, 6.10,
-         6.90, 7.15, 7.30, 7.70, 8.45, 9.10, 10.3, 15.2, 18.9, 23.4,
-         27.2, 29.6, 31.9, 31.0, 30.1, 27.7, 25.9, 24.1, 23.3, 22.1,
-         20.0, 17.3, 13.4, 11.9, 10.7, 9.85, 9.02, 7.40, 6.25, 5.50,
-         4.95, 4.50, 3.90, 3.43, 3.04, 2.74, 2.49, 2.29, 1.97, 1.73,
-         1.54, 1.39, 1.27, 1.04, .877, .760, .671, .544, .458, .395,
-         .348, .311, .281, .235, .203, .178, .159, .144, .116, .0978,
-         .0845, .0745, .0605, .0512, .0445, .0395, .0356, .0325, .0278, .0244,
-         .0226, .0200, .0184, .0156, .0138, .0124, .0115, .0101, .00918, .00855,
-         .00808, .00772, .00744, .00702, .00674, .00653, .00637, .00625, .00605,
-         .00592,
-         .00584, .00578, .00570, .00566, .00563, .00561, .00560, .00559, .00557,
-         .00556,
-         .00556, .00555, .00555, .00555
-         ]
-for J in range(29):
-    YELG9.append(.00554)
-YEPSG9 = []
-for J in range(38):
-    YEPSG9.append(1.0)
-YEPSG9.extend([.65352, .61534, .65007,
-               .65056, .59839, .52532, .49651, .42242, .32895, .26232, .21931, .17939,
-               .16529,
-               .13630, .13322, .13133, .11165, .09963, .09005, .07893, .07377, .06576,
-               .06017,
-               .05510, .05287, .04673, .04198, .03896, .03770, .03497, .03403, .03050,
-               .02667,
-               .02302, .02024, .01805, .01418, .01167, .00990, .00860, .00681, .00563,
-               .00480,
-               .00418, .00370, .00332, .00276, .00235, .00205, .00182, .00163, .00130,
-               .00108,
-               .000924, .000806, .000641, .000531, .000452, .000393, .000348, 3.11e-4,
-               2.56e-4, 2.17e-4,
-               1.82e-4, 1.65e-4, 1.47e-4, 1.15e-4, 9.32e-5, 7.80e-5, 6.67e-5, 5.10e-5,
-               4.08e-5, 3.36e-5,
-               2.83e-5, 2.43e-5, 2.11e-5, 1.65e-5, 1.33e-5, 1.10e-5, 9.27e-6, 7.94e-6,
-               5.71e-6, 4.29e-6,
-               3.35e-6, 2.69e-6, 1.86e-6, 1.36e-6, 1.04e-6, 8.19e-7, 6.63e-7, 5.48e-7,
-               3.93e-7, 2.95e-7,
-               2.30e-7, 1.84e-7, 1.57e-7, 9.87e-8, 6.96e-8, 5.16e-8, 3.98e-8, 2.58e-8,
-               1.80e-8, 1.33e-8,
-               1.02e-8, 8.06e-9, 6.54e-9, 4.53e-9, 3.32e-9, 2.53e-9, 1.99e-9, 1.61e-9,
-               1.01e-9, 6.94e-10,
-               5.04e-10, 3.82e-10, 2.40e-10, 1.64e-10, 1.19e-10, 9.0e-11, 7.00e-11,
-               5.6e-11, 3.8e-11, 2.8e-11,
-               2.1e-11, 1.6e-11, 1.3e-11])
+XVIB1G9 = [np.float32(.117),np.float32(0.13),np.float32(0.15),np.float32(0.17),np.float32(0.20),np.float32(0.23),np.float32(0.25),np.float32(0.30),np.float32(0.40),np.float32(0.50),
+np.float32(0.60),np.float32(0.70),np.float32(0.85),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(3.50),np.float32(4.00),
+np.float32(5.00),np.float32(6.00),np.float32(7.50),np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
+]
+YVIB1G9 = [np.float32(0.00),np.float32(.070),np.float32(.105),np.float32(.126),np.float32(.135),np.float32(.140),np.float32(.140),np.float32(.129),np.float32(.105),np.float32(.082),
+np.float32(.067),np.float32(.057),np.float32(.049),np.float32(.049),np.float32(.064),np.float32(.087),np.float32(.108),np.float32(.129),np.float32(.152),np.float32(.187),
+np.float32(.246),np.float32(.316),np.float32(.433),np.float32(.433),np.float32(.351),np.float32(.246),np.float32(.164),np.float32(.073),np.float32(.042),
+]
+XVIB2G9 = [np.float32(.148),np.float32(0.16),np.float32(0.17),np.float32(0.20),np.float32(0.23),np.float32(0.25),np.float32(0.30),np.float32(0.40),np.float32(0.50),np.float32(0.60),
+np.float32(0.70),np.float32(0.85),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(5.00),
+np.float32(6.00),np.float32(7.50),np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
+]
+YVIB2G9 = [np.float32(0.00),np.float32(.044),np.float32(.077),np.float32(.108),np.float32(.115),np.float32(.123),np.float32(.123),np.float32(.108),np.float32(.092),np.float32(.077),
+np.float32(.065),np.float32(.055),np.float32(.054),np.float32(.062),np.float32(.077),np.float32(.096),np.float32(.115),np.float32(.139),np.float32(.169),np.float32(.223),
+np.float32(.293),np.float32(.370),np.float32(.370),np.float32(.308),np.float32(.216),np.float32(.142),np.float32(.065),np.float32(.037),
+]
+XVIB3G9 = [np.float32(.182),np.float32(0.19),np.float32(0.20),np.float32(0.23),np.float32(0.25),np.float32(0.30),np.float32(0.35),np.float32(0.40),np.float32(0.50),np.float32(0.60),
+np.float32(0.70),np.float32(0.85),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(5.00),
+np.float32(6.00),np.float32(7.50),np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
+]
+YVIB3G9 = [np.float32(0.00),np.float32(.070),np.float32(.091),np.float32(.189),np.float32(.231),np.float32(.259),np.float32(.266),np.float32(.259),np.float32(.224),np.float32(.182),
+np.float32(.164),np.float32(.154),np.float32(.157),np.float32(.171),np.float32(.189),np.float32(.210),np.float32(.252),np.float32(.301),np.float32(.364),np.float32(.490),
+np.float32(.623),np.float32(.805),np.float32(.805),np.float32(.665),np.float32(.434),np.float32(.294),np.float32(.133),np.float32(.077),
+]
+XVIB4G9 = [np.float32(.366),np.float32(.367),np.float32(.368),np.float32(.370),np.float32(.375),np.float32(.380),np.float32(.385),np.float32(.390),np.float32(.395),np.float32(.400),
+np.float32(.410),np.float32(.420),np.float32(.430),np.float32(.440),np.float32(.450),np.float32(.460),np.float32(.480),np.float32(.500),np.float32(.520),np.float32(.550),
+np.float32(.600),np.float32(.650),np.float32(.700),np.float32(.800),np.float32(.900),np.float32(1.00),np.float32(1.10),np.float32(1.20),np.float32(1.30),np.float32(1.40),
+np.float32(1.50),np.float32(1.70),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(5.00),np.float32(6.00),np.float32(7.50),
+np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
+]
+YVIB4G9 = [np.float32(0.00),np.float32(.03782),np.float32(.05336),np.float32(.07494),np.float32(.1107),np.float32(.1361),np.float32(.1561),np.float32(.1727),
+np.float32(.1864),np.float32(.2002),
+np.float32(.2210),np.float32(.2382),np.float32(.2520),np.float32(.2641),np.float32(.2728),np.float32(.2814),np.float32(.2952),np.float32(.3056),np.float32(.3125),np.float32(.3194),
+np.float32(.3246),np.float32(.3246),np.float32(.3229),np.float32(.3143),np.float32(.3026),np.float32(.3026),np.float32(.3048),np.float32(.3071),np.float32(.3115),np.float32(.3160),
+np.float32(.320),np.float32(.329),np.float32(.343),np.float32(.387),np.float32(.472),np.float32(.570),np.float32(.694),np.float32(.908),np.float32(1.16),np.float32(1.32),
+np.float32(1.16),np.float32(.935),np.float32(.507),np.float32(.289),np.float32(.129),np.float32(.715),
+]
+XVIB5G9 = [np.float32(.548),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(5.00),np.float32(6.00),np.float32(7.50),
+np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
+]
+YVIB5G9 = [np.float32(0.00),np.float32(.001),np.float32(.002),np.float32(.003),np.float32(.0055),np.float32(.011),np.float32(.044),np.float32(.094),np.float32(.134),np.float32(.143),
+np.float32(.134),np.float32(.116),np.float32(.068),np.float32(.0383),np.float32(.0171),np.float32(.0096),
+]
+# GROSS IONISATION X-SECTION  AVERAGE OF TIAN AND VIDAL AND 
 
-XVIB1G9 = [.117, 0.13, 0.15, 0.17, 0.20, 0.23, 0.25, 0.30, 0.40, 0.50,
-           0.60, 0.70, 0.85, 1.00, 1.50, 2.00, 2.50, 3.00, 3.50, 4.00,
-           5.00, 6.00, 7.50, 8.50, 10.0, 15.0, 20.0, 30.0, 40.0
-           ]
-YVIB1G9 = [0.00, .070, .105, .126, .135, .140, .140, .129, .105, .082,
-           .067, .057, .049, .049, .064, .087, .108, .129, .152, .187,
-           .246, .316, .433, .433, .351, .246, .164, .073, .042
-           ]
-XVIB2G9 = [.148, 0.16, 0.17, 0.20, 0.23, 0.25, 0.30, 0.40, 0.50, 0.60,
-           0.70, 0.85, 1.00, 1.50, 2.00, 2.50, 3.00, 3.50, 4.00, 5.00,
-           6.00, 7.50, 8.50, 10.0, 15.0, 20.0, 30.0, 40.0
-           ]
-YVIB2G9 = [0.00, .044, .077, .108, .115, .123, .123, .108, .092, .077,
-           .065, .055, .054, .062, .077, .096, .115, .139, .169, .223,
-           .293, .370, .370, .308, .216, .142, .065, .037
-           ]
-XVIB3G9 = [.182, 0.19, 0.20, 0.23, 0.25, 0.30, 0.35, 0.40, 0.50, 0.60,
-           0.70, 0.85, 1.00, 1.50, 2.00, 2.50, 3.00, 3.50, 4.00, 5.00,
-           6.00, 7.50, 8.50, 10.0, 15.0, 20.0, 30.0, 40.0
-           ]
-YVIB3G9 = [0.00, .070, .091, .189, .231, .259, .266, .259, .224, .182,
-           .164, .154, .157, .171, .189, .210, .252, .301, .364, .490,
-           .623, .805, .805, .665, .434, .294, .133, .077
-           ]
-XVIB4G9 = [.366, .367, .368, .370, .375, .380, .385, .390, .395, .400,
-           .410, .420, .430, .440, .450, .460, .480, .500, .520, .550,
-           .600, .650, .700, .800, .900, 1.00, 1.10, 1.20, 1.30, 1.40,
-           1.50, 1.70, 2.00, 2.50, 3.00, 3.50, 4.00, 5.00, 6.00, 7.50,
-           8.50, 10.0, 15.0, 20.0, 30.0, 40.0
-           ]
-YVIB4G9 = [0.00, .03782, .05336, .07494, .1107, .1361, .1561, .1727,
-           .1864, .2002,
-           .2210, .2382, .2520, .2641, .2728, .2814, .2952, .3056, .3125, .3194,
-           .3246, .3246, .3229, .3143, .3026, .3026, .3048, .3071, .3115, .3160,
-           .320, .329, .343, .387, .472, .570, .694, .908, 1.16, 1.32,
-           1.16, .935, .507, .289, .129, .715
-           ]
-XVIB5G9 = [.548, 1.00, 1.50, 2.00, 3.00, 3.50, 4.00, 5.00, 6.00, 7.50,
-           8.50, 10.0, 15.0, 20.0, 30.0, 40.0
-           ]
-YVIB5G9 = [0.00, .001, .002, .003, .0055, .011, .044, .094, .134, .143,
-           .134, .116, .068, .0383, .0171, .0096]
-# GROSS IONISATION X-SECTION  AVERAGE OF TIAN AND VIDAL AND
-# NISHIMURA AND TAWARA  (WITHIN 4% OF EACH OTHER) TYPICALLY REDUCE
+# NISHIMURA AND TAWARA  (WITHIN 4% OF EACH OTHER) TYPICALLY REDUCE 
+
 # NISHIMURA BY 2% ...
-# BELOW 20 EV USE AVERAGE OVER ALL DATA
-# ABOVE 3 KEV USE SCALED SCHRAM TO 60 KEV THEN SMOOTH JOIN 
-# TO MATRIX ELEMENT FIT OF DATA BY  RIEKE AND PREPJCHAL
 
-XIONG9 = [11.52, 12.0, 12.5, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0,
-          20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0,
-          90.0, 100., 125., 150., 175., 200., 225., 250., 275., 300.,
-          350., 400., 450., 500., 550., 600., 700., 800., 900., 1000.,
-          1250., 1500., 1750., 2000., 2500., 3000., 4000., 7000., 10000., 60000.]
+# BELOW 20 EV USE AVERAGE OVER ALL DATA 
+
+# ABOVE 3 KEV USE SCALED SCHRAM TO 60 KEV THEN SMOOTH JOIN 
+
+# TO MATRIX ELEMENT FIT OF DATA BY  RIEKE AND PREPJCHAL      
+
+XIONG9 = [np.float32(11.52),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(17.0),np.float32(18.0),np.float32(19.0),
+np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),
+np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),
+np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),
+np.float32(1250.),np.float32(1500.),np.float32(1750.),np.float32(2000.),np.float32(2500.),np.float32(3000.),np.float32(4000.),np.float32(7000.),np.float32(10000.),np.float32(60000.),
+]
 # GROSS IONISATION 
 
-YIONGG9 = [0.00, .017, .038, .061, .270, .518, 0.87, 1.28, 1.62, 1.95,
-           2.24, 3.48, 4.45, 4.96, 5.54, 5.87, 6.09, 6.63, 6.80, 6.78,
-           6.82, 6.83, 6.46, 6.18, 5.86, 5.57, 5.31, 4.96, 4.71, 4.51,
-           4.08, 3.80, 3.44, 3.28, 3.13, 2.94, 2.66, 2.33, 2.21, 1.99,
-           1.72, 1.49, 1.34, 1.20, 1.06, .881, .657, .411, .290, .0599]
+YIONGG9 = [np.float32(0.00),np.float32(.017),np.float32(.038),np.float32(.061),np.float32(.270),np.float32(.518),np.float32(0.87),np.float32(1.28),np.float32(1.62),np.float32(1.95),
+np.float32(2.24),np.float32(3.48),np.float32(4.45),np.float32(4.96),np.float32(5.54),np.float32(5.87),np.float32(6.09),np.float32(6.63),np.float32(6.80),np.float32(6.78),
+np.float32(6.82),np.float32(6.83),np.float32(6.46),np.float32(6.18),np.float32(5.86),np.float32(5.57),np.float32(5.31),np.float32(4.96),np.float32(4.71),np.float32(4.51),
+np.float32(4.08),np.float32(3.80),np.float32(3.44),np.float32(3.28),np.float32(3.13),np.float32(2.94),np.float32(2.66),np.float32(2.33),np.float32(2.21),np.float32(1.99),
+np.float32(1.72),np.float32(1.49),np.float32(1.34),np.float32(1.20),np.float32(1.06),np.float32(.881),np.float32(.657),np.float32(.411),np.float32(.290),np.float32(.0599),
+]
 # COUNTING IONISATION
 
-YIONCG9 = [0.0, .017, .038, .061, .270, .518, 0.87, 1.28, 1.62, 1.95,
-           2.24, 3.48, 4.45, 4.94, 5.47, 5.65, 5.78, 6.27, 6.42, 6.39,
-           6.44, 6.45, 6.07, 5.79, 5.47, 5.18, 4.94, 4.61, 4.38, 4.19,
-           3.80, 3.53, 3.20, 3.05, 2.91, 2.74, 2.47, 2.17, 2.06, 1.85,
-           1.60, 1.39, 1.25, 1.12, .986, .820, .611, .382, .270, .0557]
-# ALL INDIVIDUAL BREAKUP CHANNELS FROM TIAN AND VIeAL
-# CORRECTEe BY WANG AND VIeAL FOR DISSOCIATION OF C2H6++
+YIONCG9 = [np.float32(0.0),np.float32(.017),np.float32(.038),np.float32(.061),np.float32(.270),np.float32(.518),np.float32(0.87),np.float32(1.28),np.float32(1.62),np.float32(1.95),
+np.float32(2.24),np.float32(3.48),np.float32(4.45),np.float32(4.94),np.float32(5.47),np.float32(5.65),np.float32(5.78),np.float32(6.27),np.float32(6.42),np.float32(6.39),
+np.float32(6.44),np.float32(6.45),np.float32(6.07),np.float32(5.79),np.float32(5.47),np.float32(5.18),np.float32(4.94),np.float32(4.61),np.float32(4.38),np.float32(4.19),
+np.float32(3.80),np.float32(3.53),np.float32(3.20),np.float32(3.05),np.float32(2.91),np.float32(2.74),np.float32(2.47),np.float32(2.17),np.float32(2.06),np.float32(1.85),
+np.float32(1.60),np.float32(1.39),np.float32(1.25),np.float32(1.12),np.float32(.986),np.float32(.820),np.float32(.611),np.float32(.382),np.float32(.270),np.float32(.0557),
+]
+# ALL INDIVIDUAL BREAKUP CHANNELS FROM TIAN AND VIDAL
+
+# CORRECTED BY WANG AND VIDAL FOR DISSOCIATION OF C2H6++ 
+
 #
+
 #   C2H6+   
 
-XION1G9 = [11.52, 13.0, 14.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0,
-           45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175.,
-           200., 225., 250., 275., 300., 350., 400., 450., 500., 550., 600.
-           ]
-YION1G9 = [0.0, .055, .095, .130, .215, .366, .566, .664, .684, .747,
-           .734, .724, .773, .768, .758, .749, .751, .717, .692, .665,
-           .642, .618, .583, .560, .544, .499, .473, .430, .417, .401, .377]
+XION1G9 = [np.float32(11.52),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),
+np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
+np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION1G9 = [np.float32(0.0),np.float32(.055),np.float32(.095),np.float32(.130),np.float32(.215),np.float32(.366),np.float32(.566),np.float32(.664),np.float32(.684),np.float32(.747),
+np.float32(.734),np.float32(.724),np.float32(.773),np.float32(.768),np.float32(.758),np.float32(.749),np.float32(.751),np.float32(.717),np.float32(.692),np.float32(.665),
+np.float32(.642),np.float32(.618),np.float32(.583),np.float32(.560),np.float32(.544),np.float32(.499),np.float32(.473),np.float32(.430),np.float32(.417),np.float32(.401),np.float32(.377),
+]
 #  C2H4+
 
-XION2G9 = [12.05, 13.0, 14.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0,
-           45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175.,
-           200., 225., 250., 275., 300., 350., 400., 450., 500., 550., 600.
-           ]
-YION2G9 = [.0, .005, .140, .290, .672, 1.068, 1.705, 2.240, 2.350, 2.461,
-           2.481, 2.473, 2.607, 2.568, 2.517, 2.510, 2.492, 2.346, 2.273, 2.179,
-           2.103, 2.031, 1.925, 1.841, 1.777, 1.635, 1.542, 1.408, 1.352, 1.301, 1.226]
+XION2G9 = [np.float32(12.05),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),
+np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
+np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION2G9 = [np.float32(.0),np.float32(.005),np.float32(.140),np.float32(.290),np.float32(.672),np.float32(1.068),np.float32(1.705),np.float32(2.240),np.float32(2.350),np.float32(2.461),
+np.float32(2.481),np.float32(2.473),np.float32(2.607),np.float32(2.568),np.float32(2.517),np.float32(2.510),np.float32(2.492),np.float32(2.346),np.float32(2.273),np.float32(2.179),
+np.float32(2.103),np.float32(2.031),np.float32(1.925),np.float32(1.841),np.float32(1.777),np.float32(1.635),np.float32(1.542),np.float32(1.408),np.float32(1.352),np.float32(1.301),np.float32(1.226),
+]
 # C2H5+
 
-XION3G9 = [12.65, 13.0, 14.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0,
-           45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175.,
-           200., 225., 250., 275., 300., 350., 400., 450., 500., 550., 600.
-           ]
-YION3G9 = [0.0, .001, .034, .070, .156, .266, .412, .507, .556, .568,
-           .569, .565, .597, .603, .589, .595, .588, .566, .546, .529,
-           .514, .490, .468, .451, .432, .401, .381, .349, .337, .321, .302]
+XION3G9 = [np.float32(12.65),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),
+np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
+np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION3G9 = [np.float32(0.0),np.float32(.001),np.float32(.034),np.float32(.070),np.float32(.156),np.float32(.266),np.float32(.412),np.float32(.507),np.float32(.556),np.float32(.568),
+np.float32(.569),np.float32(.565),np.float32(.597),np.float32(.603),np.float32(.589),np.float32(.595),np.float32(.588),np.float32(.566),np.float32(.546),np.float32(.529),
+np.float32(.514),np.float32(.490),np.float32(.468),np.float32(.451),np.float32(.432),np.float32(.401),np.float32(.381),np.float32(.349),np.float32(.337),np.float32(.321),np.float32(.302),
+]
 #  CH3+
 
-XION4G9 = [13.65, 14.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0,
-           50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200.,
-           225., 250., 275., 300., 350., 400., 450., 500., 550., 600.]
-
-YION4G9 = [0.0, .001, .018, .051, .070, .083, .095, .104, .120, .114,
-           .130, .176, .203, .216, .218, .218, .197, .178, .159, .138,
-           .130, .114, .106, .099, .084, .071, .063, .058, .051, .047]
+XION4G9 = [np.float32(13.65),np.float32(14.0),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),
+np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),
+np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION4G9 = [np.float32(0.0),np.float32(.001),np.float32(.018),np.float32(.051),np.float32(.070),np.float32(.083),np.float32(.095),np.float32(.104),np.float32(.120),np.float32(.114),
+np.float32(.130),np.float32(.176),np.float32(.203),np.float32(.216),np.float32(.218),np.float32(.218),np.float32(.197),np.float32(.178),np.float32(.159),np.float32(.138),
+np.float32(.130),np.float32(.114),np.float32(.106),np.float32(.099),np.float32(.084),np.float32(.071),np.float32(.063),np.float32(.058),np.float32(.051),np.float32(.047),
+]
 #  C2H3+
 
-XION5G9 = [14.8, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0,
-           60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200., 225.,
-           250., 275., 300., 350., 400., 450., 500., 550., 600.
-           ]
-YION5G9 = [0.0, .005, .175, .294, .432, .553, .709, .814, .836, .827,
-           .882, .889, .862, .855, .847, .786, .746, .702, .658, .630,
-           .586, .564, .540, .489, .455, .415, .391, .373, .351]
+XION5G9 = [np.float32(14.8),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),
+np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),
+np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION5G9 = [np.float32(0.0),np.float32(.005),np.float32(.175),np.float32(.294),np.float32(.432),np.float32(.553),np.float32(.709),np.float32(.814),np.float32(.836),np.float32(.827),
+np.float32(.882),np.float32(.889),np.float32(.862),np.float32(.855),np.float32(.847),np.float32(.786),np.float32(.746),np.float32(.702),np.float32(.658),np.float32(.630),
+np.float32(.586),np.float32(.564),np.float32(.540),np.float32(.489),np.float32(.455),np.float32(.415),np.float32(.391),np.float32(.373),np.float32(.351),
+]
 #  C2H2+
 
-XION6G9 = [14.8, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0,
-           60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200., 225.,
-           250., 275., 300., 350., 400., 450., 500., 550., 600.]
-
-YION6G9 = [0.0, .005, .118, .174, .268, .322, .394, .503, .550, .578,
-           .614, .626, .611, .609, .600, .543, .500, .459, .426, .396,
-           .364, .338, .324, .289, .259, .232, .217, .206, .192]
+XION6G9 = [np.float32(14.8),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),
+np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),
+np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION6G9 = [np.float32(0.0),np.float32(.005),np.float32(.118),np.float32(.174),np.float32(.268),np.float32(.322),np.float32(.394),np.float32(.503),np.float32(.550),np.float32(.578),
+np.float32(.614),np.float32(.626),np.float32(.611),np.float32(.609),np.float32(.600),np.float32(.543),np.float32(.500),np.float32(.459),np.float32(.426),np.float32(.396),
+np.float32(.364),np.float32(.338),np.float32(.324),np.float32(.289),np.float32(.259),np.float32(.232),np.float32(.217),np.float32(.206),np.float32(.192),
+]
 #  H+
 
-XION7G9 = [20.5, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0,
-           90.0, 100., 125., 150., 175., 200., 225., 250., 275., 300.,
-           350., 400., 450., 500., 550., 600.
-           ]
-YION7G9 = [0.0, .011, .041, .053, .055, .001, .001, .001, .062, .111,
-           .166, .189, .189, .166, .135, .094, .080, .063, .046, .035,
-           .014, .004, .001, .0003, .0001, .00003]
+XION7G9 = [np.float32(20.5),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),
+np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),
+np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION7G9 = [np.float32(0.0),np.float32(.011),np.float32(.041),np.float32(.053),np.float32(.055),np.float32(.001),np.float32(.001),np.float32(.001),np.float32(.062),np.float32(.111),
+np.float32(.166),np.float32(.189),np.float32(.189),np.float32(.166),np.float32(.135),np.float32(.094),np.float32(.080),np.float32(.063),np.float32(.046),np.float32(.035),
+np.float32(.014),np.float32(.004),np.float32(.001),np.float32(.0003),np.float32(.0001),np.float32(.00003),
+]
 #  H2+
 
-XION8G9 = [21.5, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0,
-           90.0, 100., 125., 150., 175., 200., 225., 250., 275., 300.,
-           350., 400., 450., 500., 550., 600.
-           ]
-YION8G9 = [0.0, .002, .007, .013, .015, .020, .008, .023, .039, .041,
-           .048, .050, .042, .034, .028, .023, .020, .014, .012, .010,
-           .006, .004, .003, .002, .0015, .001]
+XION8G9 = [np.float32(21.5),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),
+np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),
+np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION8G9 = [np.float32(0.0),np.float32(.002),np.float32(.007),np.float32(.013),np.float32(.015),np.float32(.020),np.float32(.008),np.float32(.023),np.float32(.039),np.float32(.041),
+np.float32(.048),np.float32(.050),np.float32(.042),np.float32(.034),np.float32(.028),np.float32(.023),np.float32(.020),np.float32(.014),np.float32(.012),np.float32(.010),
+np.float32(.006),np.float32(.004),np.float32(.003),np.float32(.002),np.float32(.0015),np.float32(.001),
+]
 #  CH2+
 
-XION9G9 = [25.8, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0,
-           100., 125., 150., 175., 200., 225., 250., 275., 300., 350.,
-           400., 450., 500., 550., 600.
-           ]
-YION9G9 = [0.0, .020, .036, .056, .054, .065, .098, .109, .110, .117,
-           .117, .106, .094, .083, .069, .064, .057, .051, .048, .040,
-           .034, .026, .023, .020, .018]
+XION9G9 = [np.float32(25.8),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),
+np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),
+np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION9G9 = [np.float32(0.0),np.float32(.020),np.float32(.036),np.float32(.056),np.float32(.054),np.float32(.065),np.float32(.098),np.float32(.109),np.float32(.110),np.float32(.117),
+np.float32(.117),np.float32(.106),np.float32(.094),np.float32(.083),np.float32(.069),np.float32(.064),np.float32(.057),np.float32(.051),np.float32(.048),np.float32(.040),
+np.float32(.034),np.float32(.026),np.float32(.023),np.float32(.020),np.float32(.018),
+]
 #  C2H+
 
-XION10G9 = [26.2, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.,
-            125., 150., 175., 200., 225., 250., 275., 300., 350., 400.,
-            450., 500., 550., 600.
-            ]
-YION10G9 = [0.0, .021, .044, .059, .074, .096, .109, .113, .114, .116,
-            .105, .092, .081, .070, .064, .053, .050, .043, .036, .031,
-            .025, .022, .019, .017]
+XION10G9 = [np.float32(26.2),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),
+np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),
+np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION10G9 = [np.float32(0.0),np.float32(.021),np.float32(.044),np.float32(.059),np.float32(.074),np.float32(.096),np.float32(.109),np.float32(.113),np.float32(.114),np.float32(.116),
+np.float32(.105),np.float32(.092),np.float32(.081),np.float32(.070),np.float32(.064),np.float32(.053),np.float32(.050),np.float32(.043),np.float32(.036),np.float32(.031),
+np.float32(.025),np.float32(.022),np.float32(.019),np.float32(.017),
+]
 #  C2H6++
 
-XION11G9 = [32.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.,
-            125., 150., 175., 200., 225., 250., 275., 300., 350., 400.,
-            450., 500., 550., 600.
-            ]
-YION11G9 = [0.0, .019, .074, .219, .313, .360, .380, .385, .383, .384,
-            .385, .390, .390, .389, .370, .347, .331, .315, .285, .265,
-            .240, .228, .217, .204]
+XION11G9 = [np.float32(32.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),
+np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),
+np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION11G9 = [np.float32(0.0),np.float32(.019),np.float32(.074),np.float32(.219),np.float32(.313),np.float32(.360),np.float32(.380),np.float32(.385),np.float32(.383),np.float32(.384),
+np.float32(.385),np.float32(.390),np.float32(.390),np.float32(.389),np.float32(.370),np.float32(.347),np.float32(.331),np.float32(.315),np.float32(.285),np.float32(.265),
+np.float32(.240),np.float32(.228),np.float32(.217),np.float32(.204),
+]
 #  H3+
 
-XION12G9 = [32.5, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.,
-            125., 150., 175., 200., 225., 250., 275., 300., 350., 400.,
-            450., 500., 550., 600.
-            ]
-YION12G9 = [0.0, .001, .002, .001, .001, .011, .012, .017, .015, .015,
-            .013, .011, .008, .006, .005, .003, .002, .001, .0005, .00025,
-            .00013, .000062, .000045, .00003]
+XION12G9 = [np.float32(32.5),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),
+np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),
+np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION12G9 = [np.float32(0.0),np.float32(.001),np.float32(.002),np.float32(.001),np.float32(.001),np.float32(.011),np.float32(.012),np.float32(.017),np.float32(.015),np.float32(.015),
+np.float32(.013),np.float32(.011),np.float32(.008),np.float32(.006),np.float32(.005),np.float32(.003),np.float32(.002),np.float32(.001),np.float32(.0005),np.float32(.00025),
+np.float32(.00013),np.float32(.000062),np.float32(.000045),np.float32(.00003),
+]
 #  CH+
 
-XION13G9 = [36.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125.,
-            150., 175., 200., 225., 250., 275., 300., 350., 400., 450.,
-            500., 550., 600.
-            ]
-YION13G9 = [0.0, .006, .012, .016, .026, .038, .041, .046, .047, .043,
-            .036, .029, .025, .023, .019, .015, .014, .010, .007, .005,
-            .003, .002, .0015]
+XION13G9 = [np.float32(36.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),
+np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),
+np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YION13G9 = [np.float32(0.0),np.float32(.006),np.float32(.012),np.float32(.016),np.float32(.026),np.float32(.038),np.float32(.041),np.float32(.046),np.float32(.047),np.float32(.043),
+np.float32(.036),np.float32(.029),np.float32(.025),np.float32(.023),np.float32(.019),np.float32(.015),np.float32(.014),np.float32(.010),np.float32(.007),np.float32(.005),
+np.float32(.003),np.float32(.002),np.float32(.0015),
+]
 #  C2+
 
-XION14G9 = [37.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175.,
-            200., 225., 250., 275., 300., 350., 400., 450., 500., 550.,
-            600.
-            ]
-YION14G9 = [0.0, .001, .003, .007, .011, .014, .017, .017, .015, .013,
-            .011, .009, .007, .006, .005, .003, .0017, .0007, .0003, .00017,
-            .00009]
+XION14G9 = [np.float32(37.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
+np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),
+np.float32(600.),
+]
+YION14G9 = [np.float32(0.0),np.float32(.001),np.float32(.003),np.float32(.007),np.float32(.011),np.float32(.014),np.float32(.017),np.float32(.017),np.float32(.015),np.float32(.013),
+np.float32(.011),np.float32(.009),np.float32(.007),np.float32(.006),np.float32(.005),np.float32(.003),np.float32(.0017),np.float32(.0007),np.float32(.0003),np.float32(.00017),
+np.float32(.00009),
+]
 #  C+
 
-XION15G9 = [37.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175.,
-            200., 225., 250., 275., 300., 350., 400., 450., 500., 550.,
-            600.
-            ]
-YION15G9 = [0.0, .001, .004, .008, .011, .015, .016, .017, .015, .013,
-            .011, .010, .008, .007, .006, .005, .004, .003, .0018, .0009,
-            .0005]
+XION15G9 = [np.float32(37.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
+np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),
+np.float32(600.),
+]
+YION15G9 = [np.float32(0.0),np.float32(.001),np.float32(.004),np.float32(.008),np.float32(.011),np.float32(.015),np.float32(.016),np.float32(.017),np.float32(.015),np.float32(.013),
+np.float32(.011),np.float32(.010),np.float32(.008),np.float32(.007),np.float32(.006),np.float32(.005),np.float32(.004),np.float32(.003),np.float32(.0018),np.float32(.0009),
+np.float32(.0005),
+]
 # K-SHELL IONISATION X-SECTION CARBON (SCALED BY 2 IN SUBROUTINE) 
 
-XION16G9 = [285., 298., 307., 316., 325., 335., 345., 365., 398., 422.,
-            447., 473., 501., 531., 613., 668., 708., 750., 817., 917.,
-            1000., 1122., 1296., 1496., 1679., 1884., 2054., 2238., 2512., 2985.,
-            3981., 5012., 7079., 1.0e4, 1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4, 5.01e4,
-            6.13e4, 7.08e4, 8.18e4, 1.0e5, 1.54e5, 2.05e5, 2.99e5, 4.10e5, 5.01e5,
-            6.13e5,
-            7.08e5, 8.18e5, 1.0e6, 1.26e6, 1.5e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6,
-            6.13e6,
-            7.08e6, 8.18e6, 1.0e7, 1.26e7, 1.5e7, 2.05e7, 3.07e7, 4.10e7, 5.01e7,
-            6.13e7,
-            7.08e7, 8.18e7, 1.0e8, 1.26e8, 1.5e8, 2.05e8, 3.07e8, 4.10e8, 5.01e8,
-            6.13e8,
-            7.08e8, 8.18e8, 1.0e9
-            ]
-YION16G9 = [0.00, 1.66e-4, 3.48e-4, 5.25e-4, 6.96e-4, 8.63e-4, 1.02e-3,
-            1.33e-3, 1.75e-3, 2.01e-3,
-            2.24e-3, 2.46e-3, 2.66e-3, 2.84e-3, 3.21e-3, 3.38e-3, 3.47e-3, 3.55e-3,
-            3.65e-3, 3.72e-3,
-            3.75e-3, 3.74e-3, 3.68e-3, 3.57e-3, 3.45e-3, 3.31e-3, 3.19e-3, 3.07e-3,
-            2.91e-3, 2.66e-3,
-            2.25e-3, 1.95e-3, 1.55e-3, 1.21e-3, 8.97e-4, 7.07e-4, 6.07e-4, 5.21e-4,
-            4.21e-4, 3.63e-4,
-            3.14e-4, 2.84e-4, 2.57e-4, 2.25e-4, 1.74e-4, 1.50e-4, 1.28e-4, 1.15e-4,
-            1.09e-4, 1.05e-4,
-            1.03e-4, 1.02e-4, 1.01e-4, 1.005e-4, 1.01e-4, 1.03e-4, 1.07e-4, 1.11e-4,
-            1.14e-4, 1.17e-4,
-            1.20e-4, 1.22e-4, 1.25e-4, 1.29e-4, 1.32e-4, 1.38e-4, 1.45e-4, 1.50e-4,
-            1.54e-4, 1.58e-4,
-            1.60e-4, 1.63e-4, 1.67e-4, 1.71e-4, 1.74e-4, 1.80e-4, 1.87e-4, 1.92e-4,
-            1.96e-4, 2.00e-4,
-            2.02e-4, 2.05e-4, 2.09e-4]
-# ATTACHMENT  H-  EXCLUeING ION PAIRS
+XION16G9 = [np.float32(285.),np.float32(298.),np.float32(307.),np.float32(316.),np.float32(325.),np.float32(335.),np.float32(345.),np.float32(365.),np.float32(398.),np.float32(422.),
+np.float32(447.),np.float32(473.),np.float32(501.),np.float32(531.),np.float32(613.),np.float32(668.),np.float32(708.),np.float32(750.),np.float32(817.),np.float32(917.),
+np.float32(1000.),np.float32(1122.),np.float32(1296.),np.float32(1496.),np.float32(1679.),np.float32(1884.),np.float32(2054.),np.float32(2238.),np.float32(2512.),np.float32(2985.),
+np.float32(3981.),np.float32(5012.),np.float32(7079.),1.0e4,1.50e4,2.05e4,2.51e4,3.07e4,4.10e4,5.01e4,
+6.13e4,7.08e4,8.18e4,1.0e5,1.54e5,2.05e5,2.99e5,4.10e5,5.01e5,
+6.13e5,
+7.08e5,8.18e5,1.0e6,1.26e6,1.5e6,2.05e6,3.07e6,4.10e6,5.01e6,
+6.13e6,
+7.08e6,8.18e6,1.0e7,1.26e7,1.5e7,2.05e7,3.07e7,4.10e7,5.01e7,
+6.13e7,
+7.08e7,8.18e7,1.0e8,1.26e8,1.5e8,2.05e8,3.07e8,4.10e8,5.01e8,
+6.13e8,
+7.08e8,8.18e8,1.0e9,
+]
+YION16G9 = [np.float32(0.00),1.66e-4,3.48e-4,5.25e-4,6.96e-4,8.63e-4,1.02e-3,
+1.33e-3,1.75e-3,2.01e-3,
+2.24e-3,2.46e-3,2.66e-3,2.84e-3,3.21e-3,3.38e-3,3.47e-3,3.55e-3,
+3.65e-3,3.72e-3,
+3.75e-3,3.74e-3,3.68e-3,3.57e-3,3.45e-3,3.31e-3,3.19e-3,3.07e-3,
+2.91e-3,2.66e-3,
+2.25e-3,1.95e-3,1.55e-3,1.21e-3,8.97e-4,7.07e-4,6.07e-4,5.21e-4,
+4.21e-4,3.63e-4,
+3.14e-4,2.84e-4,2.57e-4,2.25e-4,1.74e-4,1.50e-4,1.28e-4,1.15e-4,
+1.09e-4,1.05e-4,
+1.03e-4,1.02e-4,1.01e-4,1.005e-4,1.01e-4,1.03e-4,1.07e-4,1.11e-4,
+1.14e-4,1.17e-4,
+1.20e-4,1.22e-4,1.25e-4,1.29e-4,1.32e-4,1.38e-4,1.45e-4,1.50e-4,
+1.54e-4,1.58e-4,
+1.60e-4,1.63e-4,1.67e-4,1.71e-4,1.74e-4,1.80e-4,1.87e-4,1.92e-4,
+1.96e-4,2.00e-4,
+2.02e-4,2.05e-4,2.09e-4,
+]
+# ATTACHMENT  H-  EXCLUDING ION PAIRS
 
-XATT1G9 = [7.00, 7.50, 8.00, 8.50, 9.00, 9.18, 9.50, 10.0, 10.5, 11.0,
-           11.5
-           ]
-YATT1G9 = [0.00, 7.65e-5, 2.52e-4, 8.42e-4, 1.55e-3, 1.70e-3, 1.50e-3,
-           8.33e-4, 2.50e-4, 7.65e-5, 0.00]
-# ATTACHMENT CH2- EXCLUeING ION PAIRS
+XATT1G9 = [np.float32(7.00),np.float32(7.50),np.float32(8.00),np.float32(8.50),np.float32(9.00),np.float32(9.18),np.float32(9.50),np.float32(10.0),np.float32(10.5),np.float32(11.0),
+np.float32(11.5),
+]
+YATT1G9 = [np.float32(0.00),7.65e-5,2.52e-4,8.42e-4,1.55e-3,1.70e-3,1.50e-3,
+8.33e-4,2.50e-4,7.65e-5,np.float32(0.00),
+]
+# ATTACHMENT CH2- EXCLUDING ION PAIRS
 
-XATT2G9 = [7.90, 8.40, 8.90, 9.40, 9.90, 10.1, 10.4, 10.9, 11.4
-           ]
-YATT2G9 = [0.00, 1.53e-5, 5.04e-5, 1.68e-4, 3.10e-4, 3.40e-4, 3.00e-4,
-           1.67e-4, 0.0]
+XATT2G9 = [np.float32(7.90),np.float32(8.40),np.float32(8.90),np.float32(9.40),np.float32(9.90),np.float32(10.1),np.float32(10.4),np.float32(10.9),np.float32(11.4),
+]
+YATT2G9 = [np.float32(0.00),1.53e-5,5.04e-5,1.68e-4,3.10e-4,3.40e-4,3.00e-4,
+1.67e-4,np.float32(0.0),
+]
 #                
+
 # NON DIPOLE AT 6.85 EV
 
-XTR1G9 = [6.85, 8.00, 9.00, 10.0, 11.0, 12.0, 14.0, 16.0, 19.0, 22.0,
-          26.0, 30.0
-          ]
-YTR1G9 = [0.00, .030, .042, .048, .054, .057, .060, .060, .054, .048,
-          .036, .026]
-# NON DIPOLE AT 8.00 EV
-
-XTR2G9 = [8.00, 9.50, 10.5, 11.5, 12.5, 14.5, 16.5, 19.5, 22.5, 26.5,
-          30.0
-          ]
-YTR2G9 = [0.00, .205, .295, .336, .353, .369, .369, .344, .295, .230,
-          .181]
-# NON DIPOLE AT 10.0 EV
-
-XTR3G9 = [10.0, 11.0, 12.0, 13.0, 14.0, 17.0, 20.0, 23.0, 27.0, 30.0,
-          35.0
-          ]
-YTR3G9 = [0.00, .331, .680, .794, .898, .945, .945, .898, .777, .675,
-          .513]
+XTR1G9 = [np.float32(6.85),np.float32(8.00),np.float32(9.00),np.float32(10.0),np.float32(11.0),np.float32(12.0),np.float32(14.0),np.float32(16.0),np.float32(19.0),np.float32(22.0),
+np.float32(26.0),np.float32(30.0),
+]
+YTR1G9 = [np.float32(0.00),np.float32(.030),np.float32(.042),np.float32(.048),np.float32(.054),np.float32(.057),np.float32(.060),np.float32(.060),np.float32(.054),np.float32(.048),
+np.float32(.036),np.float32(.026),
+]
+#NONeIPOLEAT8.00EV,
+XTR2G9 = [np.float32(8.00),np.float32(9.50),np.float32(10.5),np.float32(11.5),np.float32(12.5),np.float32(14.5),np.float32(16.5),np.float32(19.5),np.float32(22.5),np.float32(26.5),
+np.float32(30.0),
+]
+YTR2G9 = [np.float32(0.00),np.float32(.205),np.float32(.295),np.float32(.336),np.float32(.353),np.float32(.369),np.float32(.369),np.float32(.344),np.float32(.295),np.float32(.230),
+np.float32(.181),
+]
+#NONeIPOLEAT10.0EV,
+XTR3G9 = [np.float32(10.0),np.float32(11.0),np.float32(12.0),np.float32(13.0),np.float32(14.0),np.float32(17.0),np.float32(20.0),np.float32(23.0),np.float32(27.0),np.float32(30.0),
+np.float32(35.0),
+]
+YTR3G9 = [np.float32(0.00),np.float32(.331),np.float32(.680),np.float32(.794),np.float32(.898),np.float32(.945),np.float32(.945),np.float32(.898),np.float32(.777),np.float32(.675),
+np.float32(.513),
+]
 #                                      
+
 # BREMSSTRAHLUNG X-SECTION WITH CUT UNITS 10**-24
 
-Z1TG9 = [11.3, 6.18, 2.80, 1.54, .858, .407, .251, .176, .145, .150,
-         .167, .178, .187, .193, .198, .205, .210, .218, .222, .228,
-         .231, .233, .234, .235, .235
-         ]
-Z6TG9 = [298., 178., 85.2, 47.5, 26.3, 12.2, 7.06, 4.45, 3.06, 2.82,
-         2.89, 2.99, 3.08, 3.13, 3.18, 3.25, 3.31, 3.39, 3.44, 3.49,
-         3.52, 3.54, 3.55, 3.57, 3.57
-         ]
-EBRMG9 = [1000., 2000., 5000., 1.E4, 2.E4, 5.E4, 1.E5, 2.E5, 5.E5, 1.E6,
-          2.E6, 3.E6, 4.E6, 5.E6, 6.E6, 8.E6, 1.E7, 1.5E7, 2.E7, 3.E7,
-          4.E7, 5.E7, 6.E7, 8.E7, 1.E8]
+Z1TG9 = [np.float32(11.3),np.float32(6.18),np.float32(2.80),np.float32(1.54),np.float32(.858),np.float32(.407),np.float32(.251),np.float32(.176),np.float32(.145),np.float32(.150),
+np.float32(.167),np.float32(.178),np.float32(.187),np.float32(.193),np.float32(.198),np.float32(.205),np.float32(.210),np.float32(.218),np.float32(.222),np.float32(.228),
+np.float32(.231),np.float32(.233),np.float32(.234),np.float32(.235),np.float32(.235),
+]
+Z6TG9 = [np.float32(298.),np.float32(178.),np.float32(85.2),np.float32(47.5),np.float32(26.3),np.float32(12.2),np.float32(7.06),np.float32(4.45),np.float32(3.06),np.float32(2.82),
+np.float32(2.89),np.float32(2.99),np.float32(3.08),np.float32(3.13),np.float32(3.18),np.float32(3.25),np.float32(3.31),np.float32(3.39),np.float32(3.44),np.float32(3.49),
+np.float32(3.52),np.float32(3.54),np.float32(3.55),np.float32(3.57),np.float32(3.57),
+]
+EBRMG9 = [np.float32(1000.),np.float32(2000.),np.float32(5000.),np.float32(1.E4),np.float32(2.E4),np.float32(5.E4),np.float32(1.E5),np.float32(2.E5),np.float32(5.E5),np.float32(1.E6),
+np.float32(2.E6),np.float32(3.E6),np.float32(4.E6),np.float32(5.E6),np.float32(6.E6),np.float32(8.E6),np.float32(1.E7),np.float32(1.5E7),np.float32(2.E7),np.float32(3.E7),
+np.float32(4.E7),np.float32(5.E7),np.float32(6.E7),np.float32(8.E7),np.float32(1.E8),
+]
 # WINTERS CHEM.PHYS.36(1979)353  (NULL COLLISION)  
-#   REeUCEe  BY 0.9 IN SUBROUTINE
 
-XNUL1G9 = [8.4, 10.3, 15.0, 20.0, 25.0, 30.0, 40.0, 50.0, 60.0, 70.0,
-           80.0, 90.0, 100., 125., 150., 175., 200., 250., 300., 350.,
-           400., 450., 500., 550., 600.
-           ]
-YNUL1G9 = [0.0, 0.20, 1.30, 3.20, 4.00, 5.60, 6.40, 7.00, 7.40, 7.60,
-           7.65, 7.60, 7.50, 7.30, 7.10, 6.90, 6.70, 6.40, 6.00, 5.60,
-           5.30, 4.90, 4.60, 4.30, 4.10]
+#   REDUCED  BY 0.9 IN SUBROUTINE
+
+XNUL1G9 = [np.float32(8.4),np.float32(10.3),np.float32(15.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),
+np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(250.),np.float32(300.),np.float32(350.),
+np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
+]
+YNUL1G9 = [np.float32(0.0),np.float32(0.20),np.float32(1.30),np.float32(3.20),np.float32(4.00),np.float32(5.60),np.float32(6.40),np.float32(7.00),np.float32(7.40),np.float32(7.60),
+np.float32(7.65),np.float32(7.60),np.float32(7.50),np.float32(7.30),np.float32(7.10),np.float32(6.90),np.float32(6.70),np.float32(6.40),np.float32(6.00),np.float32(5.60),
+np.float32(5.30),np.float32(4.90),np.float32(4.60),np.float32(4.30),np.float32(4.10),
+]
 # LIGHT EMISSION FROM H ALPHA     
+
 #  MOHLMANN  CHEM PHYS 19(1977)233
 
-XNUL2G9 = [20.0, 40.0, 60.0, 80.0, 100., 150., 200., 300., 500., 1000.,
-           1300., 1700., 2000.
-           ]
-YNUL2G9 = [0.0, .0116, .0196, .0241, .0250, .0222, .0186, .0121, .007,
-           .0034,
-           .0026, .0020, .0017]
+XNUL2G9 = [np.float32(20.0),np.float32(40.0),np.float32(60.0),np.float32(80.0),np.float32(100.),np.float32(150.),np.float32(200.),np.float32(300.),np.float32(500.),np.float32(1000.),
+np.float32(1300.),np.float32(1700.),np.float32(2000.),
+]
+YNUL2G9 = [np.float32(0.0),np.float32(.0116),np.float32(.0196),np.float32(.0241),np.float32(.0250),np.float32(.0222),np.float32(.0186),np.float32(.0121),np.float32(.007),
+np.float32(.0034),
+np.float32(.0026),np.float32(.0020),np.float32(.0017),
+]
 # LIGHT EMISSION FROM CH2(A2DELTA -X2PI)
+
 #  MOHLMANN  CHEM PHYS 19(1977)233
 
-XNUL3G9 = [16.0, 20.0, 40.0, 60.0, 80.0, 100., 150., 200., 300., 500.,
-           1000., 1300., 1700., 2000.
-           ]
-YNUL3G9 = [0.0, .0011, .0041, .0057, .0062, .0061, .0050, .0041, .0028,
-           .0017,
-           .0008, .0006, .0005, .0004]
-EING9 = [-0.0358, 0.0358, -0.117, 0.117, -0.148, 0.148, -0.182, 0.182, 0.366, 0.548, 6.85, 7.93, 8.00, 8.15, 8.48,
-         8.723, 8.865, 9.007, 9.149, 9.291, 9.433, 9.575, 9.717, 9.859, 10.0, 10.115, 10.45, 10.672, 10.816, 10.960,
-         11.104, 11.248, 11.392, 11.732, 12.4, 13.0, 13.5, 14.1, 14.7, 15.3, 15.9, 16.5, 17.1, 17.7, 18.5, 19.5, 20.5,
-         21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 0.0, 0.0]
+XNUL3G9 = [np.float32(16.0),np.float32(20.0),np.float32(40.0),np.float32(60.0),np.float32(80.0),np.float32(100.),np.float32(150.),np.float32(200.),np.float32(300.),np.float32(500.),
+np.float32(1000.),np.float32(1300.),np.float32(1700.),np.float32(2000.),
+]
+YNUL3G9 = [np.float32(0.0),np.float32(.0011),np.float32(.0041),np.float32(.0057),np.float32(.0062),np.float32(.0061),np.float32(.0050),np.float32(.0041),np.float32(.0028),
+np.float32(.0017),
+np.float32(.0008),np.float32(.0006),np.float32(.0005),np.float32(.0004),
+]
+
+EING9 = [np.float32(-0.0358),np.float32(0.0358),np.float32(-0.117),np.float32(0.117),np.float32(-0.148),np.float32(0.148),np.float32(-0.182),np.float32(0.182),np.float32(0.366),np.float32(0.548),np.float32(6.85),np.float32(7.93),np.float32(8.00),np.float32(8.15),np.float32(8.48),np.float32(8.723),np.float32(8.865),np.float32(9.007),np.float32(9.149),np.float32(9.291),np.float32(9.433),np.float32(9.575),np.float32(9.717),np.float32(9.859),np.float32(10.0),np.float32(10.115),np.float32(10.45),np.float32(10.672),np.float32(10.816),np.float32(10.960),np.float32(11.104),np.float32(11.248),np.float32(11.392),np.float32(11.732),np.float32(12.4),np.float32(13.0),np.float32(13.5),np.float32(14.1),np.float32(14.7),np.float32(15.3),np.float32(15.9),np.float32(16.5),np.float32(17.1),np.float32(17.7),np.float32(18.5),np.float32(19.5),np.float32(20.5),np.float32(21.5),np.float32(22.5),np.float32(23.5),np.float32(24.5),np.float32(25.5),np.float32(26.5),np.float32(27.5),np.float32(28.5),np.float32(0.0),np.float32(0.0)]
 for i in range(250 - 57):
     EING9.append(0.0)
 gd['gas9/XEN'] = XENG9

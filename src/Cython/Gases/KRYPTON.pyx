@@ -233,9 +233,9 @@ cdef void Gas6(Gas*object):
     object.NNULL = 0
 
     for i in range(6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
     for i in range(object.NIN):
-        object.KIN[i] = object.NANISO
+        object.KIN[i] = object.WhichAngularModel
     NEL = 151
     NDATA = 162
     NEPSI = 186
@@ -354,16 +354,16 @@ cdef void Gas6(Gas*object):
             QMOM = GasUtil.QLSCALE(EN, NDATA, YXSEC, XEN)
         PQ=[0,0.5+(QELA-QMOM)/QELA,1-GasUtil.CALPQ3(EN,NEPSI, YEPS, XEPS)]
 
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
         object.Q[1][I] = QELA
-        if object.NANISO==0:
+        if object.WhichAngularModel==0:
             object.Q[1][I] = QMOM
 
 
         #IONISATION FOR CHARGE STATE =1
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][I] = 0.0
         if EN > object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YIN1, XION, BETA2, 0.9009, CONST, object.DEN[I], C, AM2)
@@ -377,7 +377,7 @@ cdef void Gas6(Gas*object):
         #IONISATION FOR CHARGE STATE =2
         object.QION[1][I] = 0.0
         object.PEQION[1][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[1][I] = 0.0
         if EN > object.EION[1]:
             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, 0.0613, CONST, object.DEN[I], C, AM2)
@@ -387,7 +387,7 @@ cdef void Gas6(Gas*object):
         #IONISATION FOR CHARGE STATE =3
         object.QION[2][I] = 0.0
         object.PEQION[2][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[2][I] = 0.0
         if EN > object.EION[2]:
             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, 0.0291, CONST, object.DEN[I], C, AM2)
@@ -397,7 +397,7 @@ cdef void Gas6(Gas*object):
         #IONISATION FOR CHARGE STATE =4
         object.QION[3][I] = 0.0
         object.PEQION[3][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[3][I] = 0.0
         if EN > object.EION[3]:
             object.QION[3][I] = GasUtil.CALQIONX(EN, NION4, YIN4, XIN4, BETA2, 0.0082, CONST, object.DEN[I], C, AM2)
@@ -407,7 +407,7 @@ cdef void Gas6(Gas*object):
         # M3 SHELL IONISATION
         object.QION[4][I] = 0.0
         object.PEQION[4][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[4][I] = 0.0
         if EN > object.EION[4]:
             object.QION[4][I] = GasUtil.CALQIONREG(EN, NM3S, YM3S, XM3S)
@@ -416,7 +416,7 @@ cdef void Gas6(Gas*object):
         # M2 SHELL IONISATION
         object.QION[5][I] = 0.0
         object.PEQION[5][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[5][I] = 0.0
         if EN > object.EION[5]:
             object.QION[5][I] = GasUtil.CALQIONREG(EN, NM2S, YM2S, XM2S)
@@ -426,7 +426,7 @@ cdef void Gas6(Gas*object):
         # M1 SHELL IONISATION
         object.QION[6][I] = 0.0
         object.PEQION[6][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[6][I] = 0.0
         if EN > object.EION[6]:
             object.QION[6][I] = GasUtil.CALQIONREG(EN, NM1S, YM1S, XM1S)
@@ -435,7 +435,7 @@ cdef void Gas6(Gas*object):
         # L3 SHELL IONISATION
         object.QION[7][I] = 0.0
         object.PEQION[7][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[7][I] = 0.0
         if EN > object.EION[7]:
             object.QION[7][I] = GasUtil.CALQIONREG(EN, NL3S, YL3S, XL3S)
@@ -444,7 +444,7 @@ cdef void Gas6(Gas*object):
         # L2 SHELL IONISATION
         object.QION[8][I] = 0.0
         object.PEQION[8][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[8][I] = 0.0
         if EN > object.EION[8]:
             object.QION[8][I] = GasUtil.CALQIONREG(EN, NL2S, YL2S, XL2S)
@@ -453,7 +453,7 @@ cdef void Gas6(Gas*object):
         # L1 SHELL IONISATION
         object.QION[9][I] = 0.0
         object.PEQION[9][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[9][I] = 0.0
         if EN > object.EION[9]:
             object.QION[9][I] = GasUtil.CALQIONREG(EN, NL1S, YL1S, XL1S)
@@ -462,7 +462,7 @@ cdef void Gas6(Gas*object):
         # K-SHELL IONISATION
         object.QION[10][I] = 0.0
         object.PEQION[10][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[10][I] = 0.0
         if EN > object.EION[10]:
             object.QION[10][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
@@ -473,7 +473,7 @@ cdef void Gas6(Gas*object):
         #COUNTING IONISATION
         object.Q[4][I] = 0.0
         object.PEQEL[4][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQEL[4][I] = 0.0
         if EN > object.E[2]:
             object.Q[4][I] = GasUtil.CALQIONX(EN, NIONG, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
@@ -496,7 +496,7 @@ cdef void Gas6(Gas*object):
         for NL in range(object.NIN+1):
             object.QIN[NL][I] = 0.0
             object.PEQIN[NL][I] = 0.5
-            if object.NANISO==2:
+            if object.WhichAngularModel==2:
                 object.PEQIN[NL][I] = 0.0
 
         #1S5

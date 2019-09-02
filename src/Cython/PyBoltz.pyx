@@ -185,7 +185,7 @@ cdef class PyBoltz:
         self.BFieldAngle = 0.0
         self.BFieldMag = 0.0
         self.NumberOfGases = 0
-        self.NANISO = 2
+        self.WhichAngularModel = 2
         self.TemperatureCentigrade = 0.0
         self.PressureTorr = 0.0
         self.EnablePenning = 0
@@ -197,8 +197,13 @@ cdef class PyBoltz:
         self.CONST3 = 0.0
         self.CONST4 = 0.0
         self.CONST5 = 0.0
+        self.PIR2 = 0.0
+        self.ARY = 0.0
         self.TemperatureKelvin = 0.0
         self.EFieldOverBField = 0.0
+        self.AngularSpeedOfRotation = 0.0
+        self.ThermalEnergy = 0.0
+        self.MaxCollisionTime = 100.0
 
         # Unknown and to be named
         self.NISO = 0
@@ -206,19 +211,14 @@ cdef class PyBoltz:
         self.NCORLN = 0
         self.NCORST = 0
         self.NNULL = 0
-        self.PIR2 = 0.0
 
         # Named but imperfectly understood
-        self.MaxCollisionTime = 100.0
         self.X = 0.0
         self.Y = 0.0
         self.Z = 0.0
-        self.AngularSpeedOfRotation = 0.0
         self.NSTEP = 0
         self.FinalElectronEnergy = 0.0
         self.ElectronEnergyStep = 0
-        self.ThermalEnergy = 0.0
-        self.ARY = 0.0
         self.NSCALE = 0
         self.SmallNumber = 0.0
         self.InitialElectronEnergy = 0.0

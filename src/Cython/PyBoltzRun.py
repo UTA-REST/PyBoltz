@@ -80,7 +80,7 @@ class PyBoltzRun:
         MBObject.BFieldMag   = Inputs['BField_Tesla']
         MBObject.BFieldAngle = Inputs['BField_angle']
         MBObject.ConsoleOutputFlag     = Inputs['ConsoleOutputFlag']
-        MBObject.NANISO = Inputs['Angular_dist_model']
+        MBObject.WhichAngularModel = Inputs['Angular_dist_model']
         return True
 
     # Extract Outputs into Output Dictionary

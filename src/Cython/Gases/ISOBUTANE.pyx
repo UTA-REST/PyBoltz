@@ -80,9 +80,9 @@ cdef void Gas11(Gas*object):
     cdef int NBREM, i, j, I, J, NL, NDATA, NIOND, NATT1, NVIB1, NVIB2, NVIB3, NVIB4, NVIB5, NEXC1, NEXC2, NKSH
     NBREM = 25
 
-    # USE NANISO=2 ONLY (OKHRIMOVSKY)
+    # USE WhichAngularModel=2 ONLY (OKHRIMOVSKY)
     for i in range(6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
     for i in range(object.NIN):
         object.KIN[i] = 2
 
@@ -206,16 +206,16 @@ cdef void Gas11(Gas*object):
         PQ[1] = 0.5 + (QELA-QMOM) / QELA
         PQ[0] = 0.5
 
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
 
         object.Q[1][I] = QELA
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMOM
 
         # GROSS IONISATION
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
-        if object.NANISO ==2:
+        if object.WhichAngularModel ==2:
             object.PEQION[0][I] = 0.0
         if EN > object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION,XION,BETA2,1,CONST, object.DEN[I],C, AM2)
@@ -230,7 +230,7 @@ cdef void Gas11(Gas*object):
         # IONISATION ONLY AND IONISATION +EXCITATION        
         object.QION[1][I] = 0.0
         object.PEQION[1][I] = 0.5
-        if object.NANISO ==2:
+        if object.WhichAngularModel ==2:
             object.PEQION[1][I] = 0.0
         if EN > object.EION[1]:
             object.QION[1][I] = 12.0 / (object.EION[1] * BETA2) * (
@@ -246,7 +246,7 @@ cdef void Gas11(Gas*object):
         # K-shell IONISATION
         object.QION[2][I] = 0.0
         object.PEQION[2][I] = 0.5
-        if object.NANISO ==2:
+        if object.WhichAngularModel ==2:
             object.PEQION[2][I] = 0.0
         if EN > object.EION[2]:
             object.QION[2][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH) * 4.0
@@ -266,7 +266,7 @@ cdef void Gas11(Gas*object):
         # COUNTING IONISATION
         object.Q[4][I] = 0.0
         object.PEQEL[4][I] = 0.5
-        if object.NANISO ==2:
+        if object.WhichAngularModel ==2:
             object.PEQEL[4][I] = 0.0
         if EN > object.E[2]:
             # SET COUNTING IONISATION = GROSS IONISATION (LACK OF EXPERIMENTAL DATA)
@@ -279,7 +279,7 @@ cdef void Gas11(Gas*object):
         for J in range(10):
             object.QIN[J][I]=0.0
             object.PEQIN[J][I] =0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[J][I] = 0.0
 
         # SUPERELASTIC TORSION
@@ -288,7 +288,7 @@ cdef void Gas11(Gas*object):
             object.QIN[0][I] = 0.009 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[0][I] *= APOP1 * 1.e-16
         if EN > 5* abs(object.EIN[0]):
-            if object.NANISO ==2:
+            if object.WhichAngularModel ==2:
                 object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
 
         # TORSION
@@ -297,7 +297,7 @@ cdef void Gas11(Gas*object):
             object.QIN[1][I] = 0.009 * log((EFAC + 1.0) / (1.0-EFAC)) / EN
             object.QIN[1][I] *= APOPGST * 1.e-16
         if EN > 5* abs(object.EIN[1]):
-            if object.NANISO ==2:
+            if object.WhichAngularModel ==2:
                 object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]
 
         # SUPERELASTIC VIB BEND MODES
@@ -308,13 +308,13 @@ cdef void Gas11(Gas*object):
             else:
                 object.QIN[2][I] = APOPV2*YVIB2[NVIB2-1]*(XVIB2[NVIB2-1]/EN)*1e-16
         if EN > (3.0 * abs(object.EIN[2])):
-            if object.NANISO==2:
+            if object.WhichAngularModel==2:
                 object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
 
         if EN > object.EIN[3]:
             object.QIN[3][I] = GasUtil.CALQINP(EN, NVIB2,YVIB2, XVIB2, 1) * APOPGS * 100
         if EN > (3.0 * abs(object.EIN[2])):
-            if object.NANISO==2:
+            if object.WhichAngularModel==2:
                 object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
 
         # SUPERELASTIC VIB STRETCH MODES
@@ -325,14 +325,14 @@ cdef void Gas11(Gas*object):
             else:
                 object.QIN[4][I] = APOPV3*YVIB3[NVIB3-1]*(XVIB3[NVIB3-1]/EN)*1e-16
         if EN > (3.0 * abs(object.EIN[5])):
-            if object.NANISO==2:
+            if object.WhichAngularModel==2:
                 object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]
 
         # VIB STRETCH MODES
         if EN > object.EIN[5]:
             object.QIN[5][I] = GasUtil.CALQINP(EN, NVIB3,YVIB3, XVIB3, 1) * APOPGS * 100
         if EN > (3.0 * abs(object.EIN[5])):
-            if object.NANISO==2:
+            if object.WhichAngularModel==2:
                 object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]
 
         # SUPERELASTIC VIB STRETCH MODES
@@ -343,14 +343,14 @@ cdef void Gas11(Gas*object):
             else:
                 object.QIN[6][I] = APOPV4*YVIB4[NVIB4-1]*(XVIB4[NVIB4-1]/EN)*1e-16
         if EN > (3.0 * abs(object.EIN[6])):
-            if object.NANISO==2:
+            if object.WhichAngularModel==2:
                 object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]
 
         # VIB STRETCH MODES
         if EN > object.EIN[7]:
             object.QIN[7][I] = GasUtil.CALQINP(EN, NVIB4,YVIB4, XVIB4, 1) * APOPGS * 100
         if EN > (3.0 * abs(object.EIN[7])):
-            if object.NANISO==2:
+            if object.WhichAngularModel==2:
                 object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]
 
         # EXCITATION    TRIPLET  ABOVE XEXC1(NEXC1) SCALE BY 1/EN**3

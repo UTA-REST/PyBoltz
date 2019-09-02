@@ -193,9 +193,9 @@ cdef void Gas15(Gas*object):
     object.EIN = gd['gas15/EIN']
 
     for J in range(6):
-        object.KEL[J] = object.NANISO
+        object.KEL[J] = object.WhichAngularModel
     for J in range(object.NIN):
-        object.KIN[J] = object.NANISO
+        object.KIN[J] = object.WhichAngularModel
 
     cdef int NROT, NROT13, NROT35, NROT57, NROT79, NROT911, NROT1113, NROT1315, NROT1517, NROT1719, NROT1921, NROT2123
     cdef int NROT2325, NROT2527, NROT2729, NROT2931, NROT3133, NROT3335, NROT3537, NROT3739, NROT3941, NROT4143, NROT4345
@@ -332,16 +332,16 @@ cdef void Gas15(Gas*object):
         PQ[1] = 0.5 + (QELA - QMOM) / QELA
         PQ[0] = 0.5
 
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
 
         object.Q[1][I] = QELA
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMOM
         # IONISATION CALCULATION
 
         for J in range(object.NION):
             object.PEQION[J][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQION[J][I] = 0.0
             object.QION[J][I] = 0.0
         # IONISATION TO ALL CHANNELS WITH O2+
@@ -421,7 +421,7 @@ cdef void Gas15(Gas*object):
         for J in range(object.NIN):
             object.QIN[J][I] = 0.0
             object.PEQIN[J][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[J][I] = 0.0
 
         # SUPERELASTIC ROTATION
@@ -429,7 +429,7 @@ cdef void Gas15(Gas*object):
             SFAC = (4.0 * J - 1.0) / (4.0 * J + 3.0)
             object.QIN[J - 1][I] = 0.0
             object.PEQIN[J - 1][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[J - 1][I] = 0.0
             if EN < 0.0:
                 continue
@@ -664,7 +664,7 @@ cdef void Gas15(Gas*object):
             i = J - 24
             object.QIN[J - 1][I] = 0.0
             object.PEQIN[J - 1][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[J - 1][I] = 0.0
             if EN < 0.0:
                 continue

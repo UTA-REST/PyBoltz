@@ -122,7 +122,7 @@ cdef void Gas9(Gas*object):
     NBREM=25
 
     for i in range(6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
     for i in range(10):
         object.KIN[i] = 0
     for i in range(10,object.NIN):
@@ -252,11 +252,11 @@ cdef void Gas9(Gas*object):
         PQ[2]=1-PQ[2]
         PQ[1]=0.5+(QEL-QMT)/QEL
         PQ[0]=0.5
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
 
         object.Q[1][I] = QEL
 
-        if object.NANISO==0:
+        if object.WhichAngularModel==0:
             object.Q[1][I] = QMT
 
         # IONISATION
@@ -264,7 +264,7 @@ cdef void Gas9(Gas*object):
         for i in range(object.NION):
             object.QION[i][I] = 0.0
             object.PEQION[i][I]=0.5
-            if object.NANISO==2:
+            if object.WhichAngularModel==2:
                 object.PEQION[i][I]=0.0
 
         # C2H6+

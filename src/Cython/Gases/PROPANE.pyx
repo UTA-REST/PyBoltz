@@ -140,7 +140,7 @@ cdef void Gas10(Gas*object):
     cdef int i, j, I, J, NL
     NBREM = 25
     for i in range(6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
 
     for i in range(8):
         object.KIN[i] = 0
@@ -279,18 +279,18 @@ cdef void Gas10(Gas*object):
         PQ[2] = 1 - PQ[2]
         PQ[1] = 0.5 + (QEL - QMT) / QEL
         PQ[0] = 0.5
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
 
         object.Q[1][I] = QEL
 
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMT
 
         # IONISATION
         for i in range(object.NION):
             object.QION[i][I] = 0.0
             object.PEQION[i][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQION[i][I] = 0.0
 
         # CALCULATE GROSS AND COUNTING IONISATIONS
@@ -527,7 +527,7 @@ cdef void Gas10(Gas*object):
         for J in range(object.NIN):
             object.QIN[J][I] = 0.0
             object.PEQIN[J][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[J][I] = 0.0
 
         # SUPERELASTIC VIBRATION-TORSION         ANISOTROPIC ABOVE 10 EV

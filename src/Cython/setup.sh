@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # setup the enviorment
 export PYTHONPATH=$PYTHONPATH:$PWD/build
 

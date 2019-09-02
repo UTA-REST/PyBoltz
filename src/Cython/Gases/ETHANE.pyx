@@ -164,7 +164,7 @@ cdef void Gas9(Gas*object):
     cdef double AMU = 1.660538921e-27, EOBY[16], SCLOBY, APOP1, APOP2, APOP3, APOP4, QCOUNT = 0.0
 
     object.E = [0.0, 1.0, <float> (11.52), 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (<float> (30.06964) * AMU)
+    object.E[1] = <float>(2.0) * EMASS / (<float> (30.06964) * AMU)
 
     object.EION[0:16] = [<float> (11.52), <float> (12.05), <float> (12.65), <float> (13.65), <float> (14.8),
                          <float> (14.8), <float> (20.5), <float> (21.5), <float> (25.8), <float> (26.2), <float> (32.0),
@@ -192,7 +192,7 @@ cdef void Gas9(Gas*object):
     #FLUORESCENCE DATA  (KSHELL)
     object.NC0[15] = 2
     object.EC0[15] = 253
-    object.WK[15] = 0.0026
+    object.WK[15] = <float>(0.0026)
     object.EFL[15] = 273
     object.NG1[15] = 1
     object.EG1[15] = 253
@@ -656,7 +656,7 @@ cdef void Gas9(Gas*object):
         #LOAD BREMSSTRAHLUNG X-SECTION
         object.QIN[55][I] = 0.0
         object.QIN[56][I] = 0.0
-        if EN > 1000:
+        if EN > 1000:cd 
             object.QIN[55][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z6T, EBRM) * 2e-8
             object.QIN[56][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z1T, EBRM) * 6e-8
 
@@ -676,11 +676,7 @@ cdef void Gas9(Gas*object):
         object.QNULL[2][I] = 0.0
         if EN > XNUL3[0]:
             object.QNULL[2][I] = GasUtil.CALQINP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.SCLN[2]
-    for J in range(object.NION):
-        print(object.QION[J][9])
-    print("HERE")
-    for J in range(object.NIN):
-        print(object.QIN[J][9])
+
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J

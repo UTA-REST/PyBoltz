@@ -44,7 +44,7 @@ cpdef run(PyBoltz Object):
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
-    cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, NCOLDM
+    cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, GasIndex, IE, IT, KDUM, IPT, JDUM, NCOLDM
     cdef double ST1, RDUM, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMXZ, SUMXY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SYZOLD, SXYOLD, SXZOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
@@ -150,7 +150,6 @@ cpdef run(PyBoltz Object):
     Object.ITMAX = 10
     ID = 0
     NCOL = 0
-    Object.NNULL = 0
     IEXTRA = 0
     cdef double ** TEMP = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
@@ -203,23 +202,23 @@ cpdef run(PyBoltz Object):
                 CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
 
                 # FIND IDENTITY OF GAS FOR COLLISION
-                KGAS = 0
+                GasIndex = 0
                 R2 = random_uniform(RDUM)
                 if Object.NumberOfGases == 1:
-                    KGAS = 0
+                    GasIndex = 0
                 else:
-                    while (Object.TCFMXG[KGAS] < R2):
-                        KGAS = KGAS + 1
+                    while (Object.TCFMXG[GasIndex] < R2):
+                        GasIndex = GasIndex + 1
 
                 IMBPT += 1
                 if (IMBPT > 6):
                     GERJAN(Object.RSTART,  Object.RNMX)
                     IMBPT = 1
-                VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1
-                VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGY = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1
-                VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+                VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
 
                 # CALCULATE ENERGY WITH STATIONARY GAS TARGET,EOK
                 EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
@@ -228,24 +227,23 @@ cpdef run(PyBoltz Object):
 
                 # TEST FOR REAL OR NULL COLLISION
                 R5 = random_uniform(RDUM)
-                TEST1 = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
+                TEST1 = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
                 if R5 > TEST1:
-                    Object.NNULL += 1
-                    TEST2 = TEMP[KGAS][IE] / Object.TCFMAX[KGAS]
+                    TEST2 = TEMP[GasIndex][IE] / Object.TCFMAX[GasIndex]
                     if R5 < TEST2:
                         # TEST FOR NULL LEVELS
-                        if Object.NPLAST[KGAS] == 0:
+                        if Object.NPLAST[GasIndex] == 0:
                             continue
                         R2 = random_uniform(RDUM)
                         I = 0
-                        while Object.CFN[KGAS][IE][I] < R2:
+                        while Object.CFN[GasIndex][IE][I] < R2:
                             # INCREMENT NULL SCATTER SUM
                             I += 1
 
-                        Object.ICOLNN[KGAS][I] += 1
+                        Object.ICOLNN[GasIndex][I] += 1
                         continue
                     else:
-                        TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / Object.TCFMAX[KGAS]
+                        TEST3 = (TEMP[GasIndex][IE] + ABSFAKEI) / Object.TCFMAX[GasIndex]
                         if R5 < TEST3:
                             # FAKE IONISATION INCREMENT COUNTER
                             Object.IFAKE += 1
@@ -279,13 +277,13 @@ cpdef run(PyBoltz Object):
             Object.VelocityX = Object.X / Object.TimeSum
             if J1 >= 2:
                 KDUM = 0
-                for J in range(int(Object.NCORST)):
+                for J in range(int(Object.Decor_NCORST)):
                     NCOLDM = NCOL + KDUM
-                    if NCOLDM > Object.NCOLM:
-                        NCOLDM = NCOLDM - Object.NCOLM
+                    if NCOLDM > Object.Decor_NCOLM:
+                        NCOLDM = NCOLDM - Object.Decor_NCOLM
                     ST1 += T
                     SDIF = Object.TimeSum - STO[NCOLDM]
-                    KDUM += Object.NCORLN
+                    KDUM += Object.Decor_NCORLN
                     SUMZZ += ((Object.Z - ZST[NCOLDM] - Object.VelocityZ * SDIF) ** 2) * T / SDIF
                     SUMYY += ((Object.Y - YST[NCOLDM] - Object.VelocityY * SDIF) ** 2) * T / SDIF
                     SUMXX += ((Object.X - XST[NCOLDM] - Object.VelocityX * SDIF) ** 2) * T / SDIF
@@ -300,55 +298,55 @@ cpdef run(PyBoltz Object):
             ZST[NCOL] = Object.Z
             STO[NCOL] = Object.TimeSum
 
-            if NCOL >= Object.NCOLM:
+            if NCOL >= Object.Decor_NCOLM:
                 ID += 1
                 NCOL = 0
             # DETERMENATION OF REAL COLLISION TYPE
             R2 = random_uniform(RDUM)
 
             # FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
-            I = MBSortT(KGAS, I, R3, IE, Object)
-            while Object.CF[KGAS][IE][I] < R3:
+            I = MBSortT(GasIndex, I, R3, IE, Object)
+            while Object.CF[GasIndex][IE][I] < R3:
                 I += 1
 
-            S1 = Object.RGAS[KGAS][I]
-            EI = Object.EIN[KGAS][I]
+            S1 = Object.RGAS[GasIndex][I]
+            EI = Object.EIN[GasIndex][I]
 
-            if Object.IPN[KGAS][I] > 0:
+            if Object.IPN[GasIndex][I] > 0:
                 #  USE FLAT DISTRIBUTION OF  ELECTRON ENERGY BETWEEN E-EION AND 0.0 EV
                 #  SAME AS IN BOLTZMANN
                 R9 = random_uniform(RDUM)
                 EXTRA = R9 * (EOK - EI)
                 EI = EXTRA + EI
                 # IF FLOUORESCENCE OR AUGER ADD EXTRA ELECTRONS
-                IEXTRA += <long long>Object.NC0[KGAS][I]
+                IEXTRA += <long long>Object.NC0[GasIndex][I]
 
             #  GENERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
             #   COLLISION ALSO UPDATE ENERGY OF ELECTRON.
-            IPT = <long long>Object.IARRY[KGAS][I]
-            Object.ICOLL[KGAS][int(IPT)] += 1
-            Object.ICOLN[KGAS][I] += 1
+            IPT = <long long>Object.IARRY[GasIndex][I]
+            Object.ICOLL[GasIndex][int(IPT)] += 1
+            Object.ICOLN[GasIndex][I] += 1
             if EOK < EI:
                 EI = EOK - 0.0001
             #IF EXCITATION THEN ADD PROBABILITY,PENFRAC(1,I), OF TRANSFER TO GIVE
             # IONISATION OF THE OTHER GASES IN THE MIXTURE
             if Object.EnablePenning != 0:
-                if Object.PENFRA[KGAS][0][I] != 0:
+                if Object.PENFRA[GasIndex][0][I] != 0:
                     RAN = random_uniform(RDUM)
-                    if RAN <= Object.PENFRA[KGAS][0][I]:
+                    if RAN <= Object.PENFRA[GasIndex][0][I]:
                         # ADD EXTRA IONISATION COLLISION
                         IEXTRA += 1
             S2 = (S1 ** 2) / (S1 - 1.0)
 
             # ANISOTROPIC SCATTERING
             R3 = random_uniform(RDUM)
-            if Object.INDEX[KGAS][I] == 1:
+            if Object.INDEX[GasIndex][I] == 1:
                 R31 = random_uniform(RDUM)
-                F3 = 1.0 - R3 * Object.ANGCT[KGAS][IE][I]
-                if R31 > Object.PSCT[KGAS][IE][I]:
+                F3 = 1.0 - R3 * Object.ANGCT[GasIndex][IE][I]
+                if R31 > Object.PSCT[GasIndex][IE][I]:
                     F3 = -1 * F3
-            elif Object.INDEX[KGAS][I] == 2:
-                EPSI = Object.PSCT[KGAS][IE][I]
+            elif Object.INDEX[GasIndex][I] == 2:
+                EPSI = Object.PSCT[GasIndex][IE][I]
                 F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
             else:
                 #ISOTROPIC SCATTERING

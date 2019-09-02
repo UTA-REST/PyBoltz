@@ -14,8 +14,8 @@ cdef FRIEDLANDT(PyBoltz object):
     FSUM = 0.0
     for I in range(4000):
         TCFSUM = 0.0
-        for KGAS in range(object.NumberOfGases):
-            TCFSUM += object.TCF[KGAS][I]
+        for GasIndex in range(object.NumberOfGases):
+            TCFSUM += object.TCF[GasIndex][I]
         FR[I] = object.SPEC[I] / TCFSUM
         EBAR += object.E[I] * object.SPEC[I] / TCFSUM
         ALFBAR += object.FCION[I] * object.SPEC[I] / TCFSUM

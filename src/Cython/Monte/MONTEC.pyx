@@ -27,7 +27,7 @@ cpdef run(PyBoltz Object):
     
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
-    cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, NCOLDM
+    cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, GasIndex, IE, IT, KDUM, IPT, JDUM, NCOLDM
     cdef double ST1, RDUM, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMXZ, SUMXY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SYZOLD, SXYOLD, SXZOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
@@ -141,7 +141,6 @@ cpdef run(PyBoltz Object):
     ID = 0
     NCOL = 0
     INTEM = 8
-    Object.NNULL = 0
     IEXTRA = 0
 
     ABSFAKEI = Object.FAKEI
@@ -191,7 +190,6 @@ cpdef run(PyBoltz Object):
 
                 # TEST FOR REAL OR NULL COLLISION
                 if R5 > TEST1:
-                    Object.NNULL += 1
                     TEST2 = TEMP[IE] / TLIM
                     if R5 < TEST2:
                         if Object.NPLASTNT == 0:
@@ -238,13 +236,13 @@ cpdef run(PyBoltz Object):
             Object.VelocityX = Object.X / Object.TimeSum
             if J1 >= 2:
                 KDUM = 0
-                for J in range(int(Object.NCORST)):
+                for J in range(int(Object.Decor_NCORST)):
                     NCOLDM = NCOL + KDUM
-                    if NCOLDM > Object.NCOLM:
-                        NCOLDM = NCOLDM - Object.NCOLM
+                    if NCOLDM > Object.Decor_NCOLM:
+                        NCOLDM = NCOLDM - Object.Decor_NCOLM
                     ST1 += T
                     SDIF = Object.TimeSum - STO[NCOLDM-1]
-                    KDUM += Object.NCORLN
+                    KDUM += Object.Decor_NCORLN
                     SUMZZ += ((Object.Z - ZST[NCOLDM-1] - Object.VelocityZ * SDIF) ** 2) * T / SDIF
                     SUMYY += ((Object.Y - YST[NCOLDM-1] - Object.VelocityY * SDIF) ** 2) * T / SDIF
                     SUMXX += ((Object.X - XST[NCOLDM-1] - Object.VelocityX * SDIF) ** 2) * T / SDIF
@@ -258,7 +256,7 @@ cpdef run(PyBoltz Object):
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
             STO[NCOL-1] = Object.TimeSum
-            if NCOL >= Object.NCOLM:
+            if NCOL >= Object.Decor_NCOLM:
                 ID += 1
                 NCOL = 0
             R2 = random_uniform(RDUM)

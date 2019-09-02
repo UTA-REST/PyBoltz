@@ -18,7 +18,7 @@ cpdef Mixer(PyBoltz object):
     """
     cdef double QATT[6][4000], ECHARG, JHI, JLOW, EHI, F2, BP, ELOW
     cdef Gasmix MIXOBJECT
-    cdef int  IE, KGAS, NP, p, sum, J, i, j, KION, JJ, IL, I
+    cdef int  IE, GasIndex, NP, p, sum, J, i, j, KION, JJ, IL, I
     ECHARG = 1.602176565e-19
 
 
@@ -41,26 +41,26 @@ cpdef Mixer(PyBoltz object):
     EMASS = 9.10938291e-31
     for IE in range(4000):
         NP = 0
-        for KGAS in range(object.NumberOfGases):
-            object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].Q[1][IE] * object.VANN[KGAS]
+        for GasIndex in range(object.NumberOfGases):
+            object.CFNT[IE][NP] = MIXOBJECT.Gases[GasIndex].Q[1][IE] * object.VANN[GasIndex]
             object.PSCTNT[IE][NP] = 0.5
             object.ANGCTNT[IE][NP] = 1
             object.INDEXNT[NP] = 0
             AngObject = Ang()
 
-            if MIXOBJECT.Gases[KGAS].KEL[1] == 1:
-                PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
+            if MIXOBJECT.Gases[GasIndex].KEL[1] == 1:
+                PSCT1 = MIXOBJECT.Gases[GasIndex].PEQEL[1][IE]
                 AngObject.PSCT1 = PSCT1
                 AngObject.AngCut()
                 object.ANGCTNT[IE][NP] = AngObject.ANGC
                 object.PSCTNT[IE][NP] = AngObject.PSCT2
                 object.INDEXNT[NP] = 1
-            elif MIXOBJECT.Gases[KGAS].KEL[1] == 2:
-                object.PSCTNT[IE][NP] = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
+            elif MIXOBJECT.Gases[GasIndex].KEL[1] == 2:
+                object.PSCTNT[IE][NP] = MIXOBJECT.Gases[GasIndex].PEQEL[1][IE]
                 object.INDEXNT[NP] = 2
 
             if IE == 0:
-                RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
+                RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
                 object.RGASNT[NP] = RGAS
                 L = 1
                 object.IARRYNT[NP] = L
@@ -72,79 +72,79 @@ cpdef Mixer(PyBoltz object):
                 object.PENFRANT[2][NP] = 0.0
                 # IONISATION
 
-            if object.FinalElectronEnergy >= MIXOBJECT.Gases[KGAS].E[2]:
-                if MIXOBJECT.Gases[KGAS].NION <= 1:
+            if object.FinalElectronEnergy >= MIXOBJECT.Gases[GasIndex].E[2]:
+                if MIXOBJECT.Gases[GasIndex].NION <= 1:
                     NP += 1
-                    object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].Q[2][IE] * object.VANN[KGAS]
+                    object.CFNT[IE][NP] = MIXOBJECT.Gases[GasIndex].Q[2][IE] * object.VANN[GasIndex]
                     object.FCION[IE] = object.FCION[IE] + object.CFNT[IE][NP]
                     object.PSCTNT[IE][NP] = 0.5
                     object.ANGCTNT[IE][NP] = 1.0
                     object.INDEXNT[NP] = 0
-                    if MIXOBJECT.Gases[KGAS].KEL[2] == 1:
-                        PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[2][IE]
+                    if MIXOBJECT.Gases[GasIndex].KEL[2] == 1:
+                        PSCT1 = MIXOBJECT.Gases[GasIndex].PEQEL[2][IE]
                         AngObject.PSCT1 = PSCT1
                         AngObject.AngCut()
                         object.ANGCTNT[IE][NP] = AngObject.ANGC
                         object.PSCTNT[IE][NP] = AngObject.PSCT2
                         object.INDEXNT[NP] = 1
-                    elif MIXOBJECT.Gases[KGAS].KEL[2] == 2:
-                        object.PSCTNT[IE][NP] = MIXOBJECT.Gases[KGAS].PEQEL[2][IE]
+                    elif MIXOBJECT.Gases[GasIndex].KEL[2] == 2:
+                        object.PSCTNT[IE][NP] = MIXOBJECT.Gases[GasIndex].PEQEL[2][IE]
                         object.INDEXNT[NP] = 2
-                elif MIXOBJECT.Gases[KGAS].NION > 1:
-                    for KION in range(MIXOBJECT.NION[KGAS]):
+                elif MIXOBJECT.Gases[GasIndex].NION > 1:
+                    for KION in range(MIXOBJECT.NION[GasIndex]):
                         NP += 1
-                        object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].QION[KION][IE] * object.VANN[KGAS]
+                        object.CFNT[IE][NP] = MIXOBJECT.Gases[GasIndex].QION[KION][IE] * object.VANN[GasIndex]
                         object.FCION[IE] = object.FCION[IE] + object.CFNT[IE][NP]
                         object.PSCTNT[IE][NP] = 0.5
                         object.ANGCTNT[IE][NP] = 1.0
                         object.INDEXNT[NP] = 0
-                        if MIXOBJECT.Gases[KGAS].KEL[2] == 1:
-                            PSCT1 = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
+                        if MIXOBJECT.Gases[GasIndex].KEL[2] == 1:
+                            PSCT1 = MIXOBJECT.Gases[GasIndex].PEQION[KION][IE]
                             AngObject.PSCT1 = PSCT1
                             AngObject.AngCut()
                             object.ANGCTNT[IE][NP] = AngObject.ANGC
                             object.PSCTNT[IE][NP] = AngObject.PSCT2
                             object.INDEXNT[NP] = 1
-                        elif MIXOBJECT.Gases[KGAS].KEL[2] == 2:
-                            object.PSCTNT[IE][NP] = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
+                        elif MIXOBJECT.Gases[GasIndex].KEL[2] == 2:
+                            object.PSCTNT[IE][NP] = MIXOBJECT.Gases[GasIndex].PEQION[KION][IE]
                             object.INDEXNT[NP] = 2
 
                 if IE == 0:
-                    if MIXOBJECT.Gases[KGAS].NION <= 1:
-                        RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
+                    if MIXOBJECT.Gases[GasIndex].NION <= 1:
+                        RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
                         object.RGASNT[NP] = RGAS
-                        object.EINNT[NP] = MIXOBJECT.Gases[KGAS].E[2] / RGAS
-                        object.WPLNT[NP] = MIXOBJECT.Gases[KGAS].EB[0]
-                        object.NC0NT[NP] = MIXOBJECT.Gases[KGAS].NC0[0]
-                        object.EC0NT[NP] = MIXOBJECT.Gases[KGAS].EC0[0]
-                        object.NG1NT[NP] = MIXOBJECT.Gases[KGAS].NG1[0]
-                        object.EG1NT[NP] = MIXOBJECT.Gases[KGAS].EG1[0]
-                        object.EG2NT[NP] = MIXOBJECT.Gases[KGAS].EG2[0]
-                        object.NG2NT[NP] = MIXOBJECT.Gases[KGAS].NG2[0]
-                        object.EFLNT[NP] = MIXOBJECT.Gases[KGAS].EFL[0]
-                        object.WKLMNT[NP] = MIXOBJECT.Gases[KGAS].WK[0]
+                        object.EINNT[NP] = MIXOBJECT.Gases[GasIndex].E[2] / RGAS
+                        object.WPLNT[NP] = MIXOBJECT.Gases[GasIndex].EB[0]
+                        object.NC0NT[NP] = MIXOBJECT.Gases[GasIndex].NC0[0]
+                        object.EC0NT[NP] = MIXOBJECT.Gases[GasIndex].EC0[0]
+                        object.NG1NT[NP] = MIXOBJECT.Gases[GasIndex].NG1[0]
+                        object.EG1NT[NP] = MIXOBJECT.Gases[GasIndex].EG1[0]
+                        object.EG2NT[NP] = MIXOBJECT.Gases[GasIndex].EG2[0]
+                        object.NG2NT[NP] = MIXOBJECT.Gases[GasIndex].NG2[0]
+                        object.EFLNT[NP] = MIXOBJECT.Gases[GasIndex].EFL[0]
+                        object.WKLMNT[NP] = MIXOBJECT.Gases[GasIndex].WK[0]
                         object.IPNNT[NP] = 1
                         L = 2
                         object.IARRYNT[NP] = L
                         object.PENFRANT[0][NP] = 0.0
                         object.PENFRANT[1][NP] = 0.0
                         object.PENFRANT[2][NP] = 0.0
-                    elif MIXOBJECT.Gases[KGAS].NION > 1:
-                        NP = NP - MIXOBJECT.Gases[KGAS].NION
-                        for KION in range(MIXOBJECT.Gases[KGAS].NION):
+                    elif MIXOBJECT.Gases[GasIndex].NION > 1:
+                        NP = NP - MIXOBJECT.Gases[GasIndex].NION
+                        for KION in range(MIXOBJECT.Gases[GasIndex].NION):
                             NP = NP + 1
-                            RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
+                            RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
                             object.RGASNT[NP] = RGAS
-                            object.EINNT[NP] = MIXOBJECT.Gases[KGAS].EION[KION] / RGAS
-                            object.WPLNT[NP] = MIXOBJECT.Gases[KGAS].EB[KION]
-                            object.NC0NT[NP] = MIXOBJECT.Gases[KGAS].NC0[KION]
-                            object.EC0NT[NP] = MIXOBJECT.Gases[KGAS].EC0[KION]
-                            object.NG1NT[NP] = MIXOBJECT.Gases[KGAS].NG1[KION]
-                            object.EG2NT[NP] = MIXOBJECT.Gases[KGAS].EG2[KION]
-                            object.EFLNT[NP] = MIXOBJECT.Gases[KGAS].EFL[KION]
-                            object.EG1NT[NP] = MIXOBJECT.Gases[KGAS].EG1[KION]
-                            object.NG2NT[NP] = MIXOBJECT.Gases[KGAS].NG2[KION]
-                            object.WKLMNT[NP] = MIXOBJECT.Gases[KGAS].WK[KION]
+                            object.EINNT[NP] = MIXOBJECT.Gases[GasIndex].EION[KION] / RGAS
+                            object.WPLNT[NP] = MIXOBJECT.Gases[GasIndex].EB[KION]
+                            object.NC0NT[NP] = MIXOBJECT.Gases[GasIndex].NC0[KION]
+                            object.EC0NT[NP] = MIXOBJECT.Gases[GasIndex].EC0[KION]
+                            object.NG1NT[NP] = MIXOBJECT.Gases[GasIndex].NG1[KION]
+                            object.EG2NT[NP] = MIXOBJECT.Gases[GasIndex].EG2[KION]
+                            object.EFLNT[NP] = MIXOBJECT.Gases[GasIndex].EFL[KION]
+                            object.EG1NT[NP] = MIXOBJECT.Gases[GasIndex].EG1[KION]
+                            object.NG2NT[NP] = MIXOBJECT.Gases[GasIndex].NG2[KION]
+                            object.WKLMNT[NP] = MIXOBJECT.Gases[GasIndex].WK[KION]
                             object.IPNNT[NP] = 1
                             L = 2
                             object.IARRYNT[NP] = L
@@ -152,15 +152,15 @@ cpdef Mixer(PyBoltz object):
                             object.PENFRANT[1][NP] = 0.0
                             object.PENFRANT[2][NP] = 0.0
 
-            if object.FinalElectronEnergy >= MIXOBJECT.Gases[KGAS].E[3]:
-                if MIXOBJECT.Gases[KGAS].NATT <= 1:
+            if object.FinalElectronEnergy >= MIXOBJECT.Gases[GasIndex].E[3]:
+                if MIXOBJECT.Gases[GasIndex].NATT <= 1:
                     NP += 1
-                    object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].Q[3][IE] * object.VANN[KGAS]
+                    object.CFNT[IE][NP] = MIXOBJECT.Gases[GasIndex].Q[3][IE] * object.VANN[GasIndex]
                     object.FCATT[IE] = object.FCATT[IE] + object.CFNT[IE][NP]
                     object.PSCTNT[IE][NP] = 0.5
                     object.ANGCTNT[IE][NP] = 1.0
                     if IE == 0:
-                        RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
+                        RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
                         object.RGASNT[NP] = RGAS
                         object.EINNT[NP] = 0.0
                         object.INDEXNT[NP] = 0
@@ -170,15 +170,15 @@ cpdef Mixer(PyBoltz object):
                         object.PENFRANT[0][NP] = 0.0
                         object.PENFRANT[1][NP] = 0.0
                         object.PENFRANT[2][NP] = 0.0
-                elif MIXOBJECT.Gases[KGAS].NATT > 1:
-                    for JJ in range(int(MIXOBJECT.Gases[KGAS].NATT)):
+                elif MIXOBJECT.Gases[GasIndex].NATT > 1:
+                    for JJ in range(int(MIXOBJECT.Gases[GasIndex].NATT)):
                         NP += 1
-                        object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].QATT[JJ][IE] * object.VANN[KGAS]
+                        object.CFNT[IE][NP] = MIXOBJECT.Gases[GasIndex].QATT[JJ][IE] * object.VANN[GasIndex]
                         object.FCATT[IE] = object.FCATT[IE] + object.CFNT[IE][NP]
                         object.PSCTNT[IE][NP] = 0.5
                         object.ANGCTNT[IE][NP] = 1.0
                         if IE == 0:
-                            RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
+                            RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
                             object.RGASNT[NP] = RGAS
                             object.EINNT[NP] = 0.0
                             object.INDEXNT[NP] = 0
@@ -190,39 +190,39 @@ cpdef Mixer(PyBoltz object):
                             object.PENFRANT[2][NP] = 0.0
 
             # INELASTIC AND SUPERELASTIC
-            if MIXOBJECT.Gases[KGAS].NIN > 0:
-                for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
+            if MIXOBJECT.Gases[GasIndex].NIN > 0:
+                for J in range(int(MIXOBJECT.Gases[GasIndex].NIN)):
                     NP = NP + 1
-                    object.CFNT[IE][NP] = MIXOBJECT.Gases[KGAS].QIN[J][IE] * object.VANN[KGAS]
+                    object.CFNT[IE][NP] = MIXOBJECT.Gases[GasIndex].QIN[J][IE] * object.VANN[GasIndex]
                     object.PSCTNT[IE][NP] = 0.5
                     object.ANGCTNT[IE][NP] = 1.0
                     object.INDEXNT[NP] = 0
-                    if MIXOBJECT.Gases[KGAS].KIN[J] == 1:
+                    if MIXOBJECT.Gases[GasIndex].KIN[J] == 1:
 
-                        PSCT1 = MIXOBJECT.Gases[KGAS].PEQIN[J][IE]
+                        PSCT1 = MIXOBJECT.Gases[GasIndex].PEQIN[J][IE]
                         AngObject.PSCT1 = PSCT1
                         AngObject.AngCut()
                         object.ANGCTNT[IE][NP] = AngObject.ANGC
                         object.PSCTNT[IE][NP] = AngObject.PSCT2
                         object.INDEXNT[NP] = 1
-                    elif MIXOBJECT.Gases[KGAS].KIN[J] == 2:
+                    elif MIXOBJECT.Gases[GasIndex].KIN[J] == 2:
 
-                        object.PSCTNT[IE][NP] = MIXOBJECT.Gases[KGAS].PEQIN[J][IE]
+                        object.PSCTNT[IE][NP] = MIXOBJECT.Gases[GasIndex].PEQIN[J][IE]
                         object.INDEXNT[NP] = 2
                     if IE == 0:
 
-                        RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
+                        RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
                         object.RGASNT[NP] = RGAS
-                        object.EINNT[NP] = MIXOBJECT.Gases[KGAS].EIN[J] / RGAS
+                        object.EINNT[NP] = MIXOBJECT.Gases[GasIndex].EIN[J] / RGAS
                         L = 4
 
-                        if MIXOBJECT.Gases[KGAS].EIN[J] < 0:
+                        if MIXOBJECT.Gases[GasIndex].EIN[J] < 0:
                             L = 5
                         object.IPNNT[NP] = 0
                         object.IARRYNT[NP] = L
-                        object.PENFRANT[0][NP] = MIXOBJECT.Gases[KGAS].PENFRA[0][J]
-                        object.PENFRANT[1][NP] = MIXOBJECT.Gases[KGAS].PENFRA[1][J] * 1.0e-16 / sqrt(3)
-                        object.PENFRANT[2][NP] = MIXOBJECT.Gases[KGAS].PENFRA[2][J]
+                        object.PENFRANT[0][NP] = MIXOBJECT.Gases[GasIndex].PENFRA[0][J]
+                        object.PENFRANT[1][NP] = MIXOBJECT.Gases[GasIndex].PENFRA[1][J] * 1.0e-16 / sqrt(3)
+                        object.PENFRANT[2][NP] = MIXOBJECT.Gases[GasIndex].PENFRA[2][J]
 
             NP += 1
 
@@ -257,13 +257,13 @@ cpdef Mixer(PyBoltz object):
         object.NPLASTNT = 0
         NNULLSUM = 0.0
         for I in range(object.NumberOfGases):
-            NNULLSUM += MIXOBJECT.Gases[KGAS].NNULL
+            NNULLSUM += MIXOBJECT.Gases[GasIndex].NNULL
         if NNULLSUM != 0:
             for I in range(object.NumberOfGases):
-                if MIXOBJECT.Gases[KGAS].NNULL > 0:
-                    for J in range(MIXOBJECT.Gases[KGAS].NNULL):
-                        object.SCLENULNT[NP] = MIXOBJECT.Gases[KGAS].SCLN[J]
-                        object.CFNNT[IE][NP] = MIXOBJECT.Gases[KGAS].QNULL[J][IE] * object.VANN[KGAS] * \
+                if MIXOBJECT.Gases[GasIndex].NNULL > 0:
+                    for J in range(MIXOBJECT.Gases[GasIndex].NNULL):
+                        object.SCLENULNT[NP] = MIXOBJECT.Gases[GasIndex].SCLN[J]
+                        object.CFNNT[IE][NP] = MIXOBJECT.Gases[GasIndex].QNULL[J][IE] * object.VANN[GasIndex] * \
                                                object.SCLENULNT[NP]
                         NP+=1
             object.NPLASTNT = NP + 1
@@ -285,13 +285,13 @@ cpdef Mixer(PyBoltz object):
 
     KELSUM = 0
 
-    for KGAS in range(object.NumberOfGases):
+    for GasIndex in range(object.NumberOfGases):
         for J in range(6):
-            KELSUM += MIXOBJECT.Gases[KGAS].KEL[J]
+            KELSUM += MIXOBJECT.Gases[GasIndex].KEL[J]
 
-    for KGAS in range(object.NumberOfGases):
+    for GasIndex in range(object.NumberOfGases):
         for J in range(250):
-            KELSUM += MIXOBJECT.Gases[KGAS].KIN[J]
+            KELSUM += MIXOBJECT.Gases[GasIndex].KIN[J]
 
     if KELSUM > 0:
         object.NISO = 1
@@ -320,13 +320,13 @@ cpdef Mixer(PyBoltz object):
                         object.ANN[2] * MIXOBJECT.Gases[2].Q[1][I] + object.ANN[3] * MIXOBJECT.Gases[3].Q[1][I] + \
                         object.ANN[4] * MIXOBJECT.Gases[4].Q[1][I] + object.ANN[5] * MIXOBJECT.Gases[5].Q[1][I]
 
-        for KGAS in range(object.NumberOfGases):
-            object.QION[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[2][I] * object.ANN[KGAS]
-            QATT[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[3][I] * object.ANN[KGAS]
-            if MIXOBJECT.Gases[KGAS].NION > 1:
-                object.QION[KGAS][I] = 0.0
-                for KION in range(MIXOBJECT.Gases[KGAS].NION):
-                    object.QION[KGAS][I] += MIXOBJECT.Gases[KGAS].QION[KION][I] * object.ANN[KGAS]
+        for GasIndex in range(object.NumberOfGases):
+            object.QION[GasIndex][I] = MIXOBJECT.Gases[GasIndex].Q[2][I] * object.ANN[GasIndex]
+            QATT[GasIndex][I] = MIXOBJECT.Gases[GasIndex].Q[3][I] * object.ANN[GasIndex]
+            if MIXOBJECT.Gases[GasIndex].NION > 1:
+                object.QION[GasIndex][I] = 0.0
+                for KION in range(MIXOBJECT.Gases[GasIndex].NION):
+                    object.QION[GasIndex][I] += MIXOBJECT.Gases[GasIndex].QION[KION][I] * object.ANN[GasIndex]
         object.QREL[I] = 0.0
         object.QSATT[I] = 0.0
         object.QSUM[I] = 0.0
@@ -334,9 +334,9 @@ cpdef Mixer(PyBoltz object):
             object.QSUM[I] = object.QSUM[I] + object.QION[J][I] + QATT[J][I]
             object.QSATT[I] = object.QSATT[I] + QATT[J][I]
             object.QREL[I] = object.QREL[I] + object.QION[J][I] - QATT[J][I]
-        for KGAS in range(6):
-            for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
-                object.QSUM[I] = object.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * object.ANN[KGAS]
+        for GasIndex in range(6):
+            for J in range(int(MIXOBJECT.Gases[GasIndex].NIN)):
+                object.QSUM[I] = object.QSUM[I] + MIXOBJECT.Gases[GasIndex].QIN[J][I] * object.ANN[GasIndex]
 
 
 @cython.cdivision(True)
@@ -352,7 +352,7 @@ cpdef MixerT(PyBoltz object):
     """
     cdef double QATT[6][4000]
     cdef Gasmix MIXOBJECT
-    cdef int  IE, KGAS, NP, p, sum, J, i, j, KION, JJ, IL, I
+    cdef int  IE, GasIndex, NP, p, sum, J, i, j, KION, JJ, IL, I
     ECHARG = 1.602176565e-19
 
     object.ElectronEnergyStep = object.FinalElectronEnergy / float(object.NSTEP)
@@ -385,214 +385,214 @@ cpdef MixerT(PyBoltz object):
     EMASS = 9.10938291e-31
 
     for IE in range(4000):
-        for KGAS in range(object.NumberOfGases):
+        for GasIndex in range(object.NumberOfGases):
             object.FCION[IE] = 0.0
             object.FCATT[IE] = 0.0
             NP = 1
 
-            object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].Q[1][IE] * object.VANN[KGAS]
-            object.PSCT[KGAS][IE][NP - 1] = 0.5
-            object.ANGCT[KGAS][IE][NP - 1] = 1
-            object.INDEX[KGAS][NP - 1] = 0
+            object.CF[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].Q[1][IE] * object.VANN[GasIndex]
+            object.PSCT[GasIndex][IE][NP - 1] = 0.5
+            object.ANGCT[GasIndex][IE][NP - 1] = 1
+            object.INDEX[GasIndex][NP - 1] = 0
             AngObject = Ang()
 
-            if MIXOBJECT.Gases[KGAS].KEL[1] == 1:
-                PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
+            if MIXOBJECT.Gases[GasIndex].KEL[1] == 1:
+                PSCT1 = MIXOBJECT.Gases[GasIndex].PEQEL[1][IE]
                 AngObject.PSCT1 = PSCT1
                 AngObject.AngCut()
-                object.ANGCT[KGAS][IE][NP - 1] = AngObject.ANGC
-                object.PSCT[KGAS][IE][NP - 1] = AngObject.PSCT2
-                object.INDEX[KGAS][NP - 1] = 1
-            elif MIXOBJECT.Gases[KGAS].KEL[1] == 2:
-                object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQEL[1][IE]
-                object.INDEX[KGAS][NP - 1] = 2
+                object.ANGCT[GasIndex][IE][NP - 1] = AngObject.ANGC
+                object.PSCT[GasIndex][IE][NP - 1] = AngObject.PSCT2
+                object.INDEX[GasIndex][NP - 1] = 1
+            elif MIXOBJECT.Gases[GasIndex].KEL[1] == 2:
+                object.PSCT[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].PEQEL[1][IE]
+                object.INDEX[GasIndex][NP - 1] = 2
 
             if IE == 0:
-                RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                object.AMGAS[KGAS] = 2 * EMASS / MIXOBJECT.Gases[KGAS].E[1]
-                object.RGAS[KGAS][NP - 1] = RGAS
+                RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
+                object.AMGAS[GasIndex] = 2 * EMASS / MIXOBJECT.Gases[GasIndex].E[1]
+                object.RGAS[GasIndex][NP - 1] = RGAS
                 L = 1
-                object.IARRY[KGAS][NP - 1] = L
-                object.EIN[KGAS][NP - 1] = 0.0
-                object.IPN[KGAS][NP - 1] = 0
+                object.IARRY[GasIndex][NP - 1] = L
+                object.EIN[GasIndex][NP - 1] = 0.0
+                object.IPN[GasIndex][NP - 1] = 0
 
-                object.PENFRA[KGAS][0][NP - 1] = 0.0
-                object.PENFRA[KGAS][1][NP - 1] = 0.0
-                object.PENFRA[KGAS][2][NP - 1] = 0.0
+                object.PENFRA[GasIndex][0][NP - 1] = 0.0
+                object.PENFRA[GasIndex][1][NP - 1] = 0.0
+                object.PENFRA[GasIndex][2][NP - 1] = 0.0
 
             # IONISATION
-            if object.FinalElectronEnergy >= MIXOBJECT.Gases[KGAS].E[2]:
-                if MIXOBJECT.Gases[KGAS].NION <= 1:
+            if object.FinalElectronEnergy >= MIXOBJECT.Gases[GasIndex].E[2]:
+                if MIXOBJECT.Gases[GasIndex].NION <= 1:
                     NP += 1
-                    object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].Q[2][IE] * object.VANN[KGAS]
-                    object.FCION[IE] = object.FCION[IE] + object.CF[KGAS][IE][NP - 1]
-                    object.PSCT[KGAS][IE][NP - 1] = 0.5
-                    object.ANGCT[KGAS][IE][NP - 1] = 1.0
-                    object.INDEX[KGAS][NP - 1] = 0
-                    if MIXOBJECT.Gases[KGAS].KEL[2] == 1:
-                        PSCT1 = MIXOBJECT.Gases[KGAS].PEQEL[2][IE]
+                    object.CF[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].Q[2][IE] * object.VANN[GasIndex]
+                    object.FCION[IE] = object.FCION[IE] + object.CF[GasIndex][IE][NP - 1]
+                    object.PSCT[GasIndex][IE][NP - 1] = 0.5
+                    object.ANGCT[GasIndex][IE][NP - 1] = 1.0
+                    object.INDEX[GasIndex][NP - 1] = 0
+                    if MIXOBJECT.Gases[GasIndex].KEL[2] == 1:
+                        PSCT1 = MIXOBJECT.Gases[GasIndex].PEQEL[2][IE]
                         AngObject.PSCT1 = PSCT1
                         AngObject.AngCut()
-                        object.ANGCT[KGAS][IE][NP - 1] = AngObject.ANGC
-                        object.PSCT[KGAS][IE][NP - 1] = AngObject.PSCT2
-                        object.INDEX[KGAS][NP - 1] = 1
-                    elif MIXOBJECT.Gases[KGAS].KEL[2] == 2:
-                        object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQEL[2][IE]
-                        object.INDEX[KGAS][NP - 1] = 2
-                elif MIXOBJECT.Gases[KGAS].NION > 1:
-                    for KION in range(MIXOBJECT.Gases[KGAS].NION):
+                        object.ANGCT[GasIndex][IE][NP - 1] = AngObject.ANGC
+                        object.PSCT[GasIndex][IE][NP - 1] = AngObject.PSCT2
+                        object.INDEX[GasIndex][NP - 1] = 1
+                    elif MIXOBJECT.Gases[GasIndex].KEL[2] == 2:
+                        object.PSCT[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].PEQEL[2][IE]
+                        object.INDEX[GasIndex][NP - 1] = 2
+                elif MIXOBJECT.Gases[GasIndex].NION > 1:
+                    for KION in range(MIXOBJECT.Gases[GasIndex].NION):
                         NP += 1
-                        object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].QION[KION][IE] * object.VANN[KGAS]
-                        object.FCION[IE] = object.FCION[IE] + object.CF[KGAS][IE][NP - 1]
-                        object.PSCT[KGAS][IE][NP - 1] = 0.5
-                        object.ANGCT[KGAS][IE][NP - 1] = 1.0
-                        object.INDEX[KGAS][NP - 1] = 0
+                        object.CF[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].QION[KION][IE] * object.VANN[GasIndex]
+                        object.FCION[IE] = object.FCION[IE] + object.CF[GasIndex][IE][NP - 1]
+                        object.PSCT[GasIndex][IE][NP - 1] = 0.5
+                        object.ANGCT[GasIndex][IE][NP - 1] = 1.0
+                        object.INDEX[GasIndex][NP - 1] = 0
                         if MIXOBJECT.Gases[0].KEL[2] == 1:
-                            PSCT1 = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
+                            PSCT1 = MIXOBJECT.Gases[GasIndex].PEQION[KION][IE]
                             AngObject.PSCT1 = PSCT1
                             AngObject.AngCut()
-                            object.ANGCT[KGAS][IE][NP - 1] = AngObject.ANGC
-                            object.PSCT[KGAS][IE][NP - 1] = AngObject.PSCT2
-                            object.INDEX[KGAS][NP - 1] = 1
+                            object.ANGCT[GasIndex][IE][NP - 1] = AngObject.ANGC
+                            object.PSCT[GasIndex][IE][NP - 1] = AngObject.PSCT2
+                            object.INDEX[GasIndex][NP - 1] = 1
                         elif MIXOBJECT.Gases[0].KEL[2] == 2:
-                            object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQION[KION][IE]
-                            object.INDEX[KGAS][NP - 1] = 2
+                            object.PSCT[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].PEQION[KION][IE]
+                            object.INDEX[GasIndex][NP - 1] = 2
                 if IE == 0:
-                    if MIXOBJECT.Gases[KGAS].NION <= 1:
-                        RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                        object.RGAS[KGAS][NP - 1] = RGAS
-                        object.EIN[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].E[2] / RGAS
-                        object.WPL[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EB[0]
-                        object.NC0[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].NC0[0]
-                        object.EC0[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EC0[0]
-                        object.NG1[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].NG1[0]
-                        object.EG1[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EG1[0]
-                        object.NG2[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].NG2[0]
-                        object.EG2[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EG2[0]
-                        object.WKLM[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].WK[0]
-                        object.EFL[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EFL[0]
-                        object.IPN[KGAS][NP - 1] = 1
+                    if MIXOBJECT.Gases[GasIndex].NION <= 1:
+                        RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
+                        object.RGAS[GasIndex][NP - 1] = RGAS
+                        object.EIN[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].E[2] / RGAS
+                        object.WPL[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EB[0]
+                        object.NC0[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].NC0[0]
+                        object.EC0[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EC0[0]
+                        object.NG1[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].NG1[0]
+                        object.EG1[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EG1[0]
+                        object.NG2[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].NG2[0]
+                        object.EG2[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EG2[0]
+                        object.WKLM[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].WK[0]
+                        object.EFL[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EFL[0]
+                        object.IPN[GasIndex][NP - 1] = 1
                         L = 2
-                        object.IARRY[KGAS][NP - 1] = L
-                        object.PENFRA[KGAS][0][NP - 1] = 0.0
-                        object.PENFRA[KGAS][1][NP - 1] = 0.0
-                        object.PENFRA[KGAS][2][NP - 1] = 0.0
-                    elif MIXOBJECT.Gases[KGAS].NION > 1:
-                        NP = NP - MIXOBJECT.Gases[KGAS].NION
-                        for KION in range(MIXOBJECT.Gases[KGAS].NION):
+                        object.IARRY[GasIndex][NP - 1] = L
+                        object.PENFRA[GasIndex][0][NP - 1] = 0.0
+                        object.PENFRA[GasIndex][1][NP - 1] = 0.0
+                        object.PENFRA[GasIndex][2][NP - 1] = 0.0
+                    elif MIXOBJECT.Gases[GasIndex].NION > 1:
+                        NP = NP - MIXOBJECT.Gases[GasIndex].NION
+                        for KION in range(MIXOBJECT.Gases[GasIndex].NION):
                             NP = NP + 1
-                            RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                            object.RGAS[KGAS][NP - 1] = RGAS
-                            object.EIN[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EION[KION] / RGAS
-                            object.WPL[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EB[KION]
-                            object.NC0[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].NC0[KION]
-                            object.EC0[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EC0[KION]
-                            object.EG2[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EG2[KION]
-                            object.NG1[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].NG1[KION]
-                            object.EG1[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EG1[KION]
-                            object.NG2[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].NG2[KION]
-                            object.WKLM[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].WK[KION]
-                            object.EFL[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EFL[KION]
-                            object.IPN[KGAS][NP - 1] = 1
+                            RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
+                            object.RGAS[GasIndex][NP - 1] = RGAS
+                            object.EIN[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EION[KION] / RGAS
+                            object.WPL[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EB[KION]
+                            object.NC0[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].NC0[KION]
+                            object.EC0[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EC0[KION]
+                            object.EG2[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EG2[KION]
+                            object.NG1[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].NG1[KION]
+                            object.EG1[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EG1[KION]
+                            object.NG2[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].NG2[KION]
+                            object.WKLM[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].WK[KION]
+                            object.EFL[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EFL[KION]
+                            object.IPN[GasIndex][NP - 1] = 1
                             L = 2
-                            object.IARRY[KGAS][NP - 1] = L
-                            object.PENFRA[KGAS][0][NP - 1] = 0.0
-                            object.PENFRA[KGAS][1][NP - 1] = 0.0
-                            object.PENFRA[KGAS][2][NP - 1] = 0.0
+                            object.IARRY[GasIndex][NP - 1] = L
+                            object.PENFRA[GasIndex][0][NP - 1] = 0.0
+                            object.PENFRA[GasIndex][1][NP - 1] = 0.0
+                            object.PENFRA[GasIndex][2][NP - 1] = 0.0
             # ATTACHMENT
-            if object.FinalElectronEnergy >= MIXOBJECT.Gases[KGAS].E[3]:
-                if MIXOBJECT.Gases[KGAS].NATT <= 1:
+            if object.FinalElectronEnergy >= MIXOBJECT.Gases[GasIndex].E[3]:
+                if MIXOBJECT.Gases[GasIndex].NATT <= 1:
                     NP += 1
-                    object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].Q[3][IE] * object.VANN[KGAS]
-                    object.FCATT[IE] = object.FCATT[IE] + object.CF[KGAS][IE][NP - 1]
-                    object.PSCT[KGAS][IE][NP - 1] = 0.5
-                    object.ANGCT[KGAS][IE][NP - 1] = 1.0
+                    object.CF[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].Q[3][IE] * object.VANN[GasIndex]
+                    object.FCATT[IE] = object.FCATT[IE] + object.CF[GasIndex][IE][NP - 1]
+                    object.PSCT[GasIndex][IE][NP - 1] = 0.5
+                    object.ANGCT[GasIndex][IE][NP - 1] = 1.0
                     if IE == 0:
-                        RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                        object.RGAS[KGAS][NP - 1] = RGAS
-                        object.EIN[KGAS][NP - 1] = 0.0
-                        object.INDEX[KGAS][NP - 1] = 0
-                        object.IPN[KGAS][NP - 1] = -1
+                        RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
+                        object.RGAS[GasIndex][NP - 1] = RGAS
+                        object.EIN[GasIndex][NP - 1] = 0.0
+                        object.INDEX[GasIndex][NP - 1] = 0
+                        object.IPN[GasIndex][NP - 1] = -1
                         L = 3
-                        object.IARRY[KGAS][NP - 1] = L
-                        object.PENFRA[KGAS][0][NP - 1] = 0.0
-                        object.PENFRA[KGAS][1][NP - 1] = 0.0
-                        object.PENFRA[KGAS][2][NP - 1] = 0.0
+                        object.IARRY[GasIndex][NP - 1] = L
+                        object.PENFRA[GasIndex][0][NP - 1] = 0.0
+                        object.PENFRA[GasIndex][1][NP - 1] = 0.0
+                        object.PENFRA[GasIndex][2][NP - 1] = 0.0
 
-                elif MIXOBJECT.Gases[KGAS].NATT > 1:
-                    for JJ in range(int(MIXOBJECT.Gases[KGAS].NATT)):
+                elif MIXOBJECT.Gases[GasIndex].NATT > 1:
+                    for JJ in range(int(MIXOBJECT.Gases[GasIndex].NATT)):
                         NP += 1
-                        object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].QATT[JJ][IE] * object.VANN[KGAS]
-                        object.FCATT[IE] = object.FCATT[IE] + object.CF[KGAS][IE][NP - 1]
-                        object.PSCT[KGAS][IE][NP - 1] = 0.5
-                        object.ANGCT[KGAS][IE][NP - 1] = 1.0
+                        object.CF[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].QATT[JJ][IE] * object.VANN[GasIndex]
+                        object.FCATT[IE] = object.FCATT[IE] + object.CF[GasIndex][IE][NP - 1]
+                        object.PSCT[GasIndex][IE][NP - 1] = 0.5
+                        object.ANGCT[GasIndex][IE][NP - 1] = 1.0
                         if IE == 0:
-                            RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                            object.RGAS[KGAS][NP - 1] = RGAS
-                            object.EIN[KGAS][NP - 1] = 0.0
-                            object.INDEX[KGAS][NP - 1] = 0
-                            object.IPN[KGAS][NP - 1] = -1
+                            RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
+                            object.RGAS[GasIndex][NP - 1] = RGAS
+                            object.EIN[GasIndex][NP - 1] = 0.0
+                            object.INDEX[GasIndex][NP - 1] = 0
+                            object.IPN[GasIndex][NP - 1] = -1
                             L = 3
-                            object.IARRY[KGAS][NP - 1] = L
-                            object.PENFRA[KGAS][0][NP - 1] = 0.0
-                            object.PENFRA[KGAS][1][NP - 1] = 0.0
-                            object.PENFRA[KGAS][2][NP - 1] = 0.0
+                            object.IARRY[GasIndex][NP - 1] = L
+                            object.PENFRA[GasIndex][0][NP - 1] = 0.0
+                            object.PENFRA[GasIndex][1][NP - 1] = 0.0
+                            object.PENFRA[GasIndex][2][NP - 1] = 0.0
             # INELASTIC AND SUPERELASTIC
-            if MIXOBJECT.Gases[KGAS].NIN > 0:
-                for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
+            if MIXOBJECT.Gases[GasIndex].NIN > 0:
+                for J in range(int(MIXOBJECT.Gases[GasIndex].NIN)):
                     NP = NP + 1
-                    object.CF[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].QIN[J][IE] * object.VANN[KGAS]
-                    object.PSCT[KGAS][IE][NP - 1] = 0.5
-                    object.ANGCT[KGAS][IE][NP - 1] = 1.0
-                    object.INDEX[KGAS][NP - 1] = 0
-                    if MIXOBJECT.Gases[KGAS].KIN[J] == 1:
-                        PSCT1 = MIXOBJECT.Gases[KGAS].PEQIN[J][IE]
+                    object.CF[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].QIN[J][IE] * object.VANN[GasIndex]
+                    object.PSCT[GasIndex][IE][NP - 1] = 0.5
+                    object.ANGCT[GasIndex][IE][NP - 1] = 1.0
+                    object.INDEX[GasIndex][NP - 1] = 0
+                    if MIXOBJECT.Gases[GasIndex].KIN[J] == 1:
+                        PSCT1 = MIXOBJECT.Gases[GasIndex].PEQIN[J][IE]
                         AngObject.PSCT1 = PSCT1
                         AngObject.AngCut()
-                        object.ANGCT[KGAS][IE][NP - 1] = AngObject.ANGC
-                        object.PSCT[KGAS][IE][NP - 1] = AngObject.PSCT2
-                        object.INDEX[KGAS][NP - 1] = 1
-                    elif MIXOBJECT.Gases[KGAS].KIN[J] == 2:
-                        object.PSCT[KGAS][IE][NP - 1] = MIXOBJECT.Gases[KGAS].PEQIN[J][IE]
-                        object.INDEX[KGAS][NP - 1] = 2
+                        object.ANGCT[GasIndex][IE][NP - 1] = AngObject.ANGC
+                        object.PSCT[GasIndex][IE][NP - 1] = AngObject.PSCT2
+                        object.INDEX[GasIndex][NP - 1] = 1
+                    elif MIXOBJECT.Gases[GasIndex].KIN[J] == 2:
+                        object.PSCT[GasIndex][IE][NP - 1] = MIXOBJECT.Gases[GasIndex].PEQIN[J][IE]
+                        object.INDEX[GasIndex][NP - 1] = 2
                     if IE == 0:
-                        RGAS = 1 + MIXOBJECT.Gases[KGAS].E[1] / 2
-                        object.RGAS[KGAS][NP - 1] = RGAS
-                        object.EIN[KGAS][NP - 1] = MIXOBJECT.Gases[KGAS].EIN[J] / RGAS
+                        RGAS = 1 + MIXOBJECT.Gases[GasIndex].E[1] / 2
+                        object.RGAS[GasIndex][NP - 1] = RGAS
+                        object.EIN[GasIndex][NP - 1] = MIXOBJECT.Gases[GasIndex].EIN[J] / RGAS
                         L = 4
-                        if MIXOBJECT.Gases[KGAS].EIN[J] < 0:
+                        if MIXOBJECT.Gases[GasIndex].EIN[J] < 0:
                             L = 5
-                        object.IPN[KGAS][NP - 1] = 0
-                        object.IARRY[KGAS][NP - 1] = L
-                        object.PENFRA[KGAS][0][NP - 1] = MIXOBJECT.Gases[KGAS].PENFRA[0][J]
-                        object.PENFRA[KGAS][1][NP - 1] = MIXOBJECT.Gases[KGAS].PENFRA[1][J] * 1.0e-16 / sqrt(3)
-                        object.PENFRA[KGAS][2][NP - 1] = MIXOBJECT.Gases[KGAS].PENFRA[2][J]
+                        object.IPN[GasIndex][NP - 1] = 0
+                        object.IARRY[GasIndex][NP - 1] = L
+                        object.PENFRA[GasIndex][0][NP - 1] = MIXOBJECT.Gases[GasIndex].PENFRA[0][J]
+                        object.PENFRA[GasIndex][1][NP - 1] = MIXOBJECT.Gases[GasIndex].PENFRA[1][J] * 1.0e-16 / sqrt(3)
+                        object.PENFRA[GasIndex][2][NP - 1] = MIXOBJECT.Gases[GasIndex].PENFRA[2][J]
 
-            object.IPLAST[KGAS] = NP
-            object.ISIZE[KGAS] = 1
+            object.IPLAST[GasIndex] = NP
+            object.ISIZE[GasIndex] = 1
             for I in range(1, 9):
-                if object.IPLAST[KGAS] >= 2 ** I:
-                    object.ISIZE[KGAS] = 2 ** I
+                if object.IPLAST[GasIndex] >= 2 ** I:
+                    object.ISIZE[GasIndex] = 2 ** I
                 else:
                     break
             # CALCULATION OF TOTAL COLLISION FREQUENCY FOR EACH GAS COMPONENT
-            object.TCF[KGAS][IE] = 0.0
-            for p in range(int(object.IPLAST[KGAS])):
-                object.TCF[KGAS][IE] = object.TCF[KGAS][IE] + object.CF[KGAS][IE][p]
-                if object.CF[KGAS][IE][p] < 0:
+            object.TCF[GasIndex][IE] = 0.0
+            for p in range(int(object.IPLAST[GasIndex])):
+                object.TCF[GasIndex][IE] = object.TCF[GasIndex][IE] + object.CF[GasIndex][IE][p]
+                if object.CF[GasIndex][IE][p] < 0:
                     print ("WARNING NEGATIVE COLLISION FREQUENCY at gas " +str(p)+"  "+ str(IE))
 
-            for p in range(int(object.IPLAST[KGAS])):
-                if object.TCF[KGAS][IE] == 0:
-                    object.CF[KGAS][IE][p] = 0
+            for p in range(int(object.IPLAST[GasIndex])):
+                if object.TCF[GasIndex][IE] == 0:
+                    object.CF[GasIndex][IE][p] = 0
                 else:
-                    object.CF[KGAS][IE][p] = object.CF[KGAS][IE][p] / object.TCF[KGAS][IE]
+                    object.CF[GasIndex][IE][p] = object.CF[GasIndex][IE][p] / object.TCF[GasIndex][IE]
 
-            for p in range(1, int(object.IPLAST[KGAS])):
-                object.CF[KGAS][IE][p] = object.CF[KGAS][IE][p] + object.CF[KGAS][IE][p - 1]
+            for p in range(1, int(object.IPLAST[GasIndex])):
+                object.CF[GasIndex][IE][p] = object.CF[GasIndex][IE][p] + object.CF[GasIndex][IE][p - 1]
             object.FCATT[IE] = object.FCATT[IE] * object.EROOT[IE]
             object.FCION[IE] = object.FCION[IE] * object.EROOT[IE]
-            object.TCF[KGAS][IE] = object.TCF[KGAS][IE] * object.EROOT[IE]
+            object.TCF[GasIndex][IE] = object.TCF[GasIndex][IE] * object.EROOT[IE]
     # CALCULATION OF NULL COLLISION FREQUENCIES
     for IE in range(4000):
         sum = 0
@@ -609,54 +609,54 @@ cpdef MixerT(PyBoltz object):
                     object.CFN[i][IE][J] = MIXOBJECT.Gases[i].QNULL[J][IE] * object.VANN[i] * object.SCLENUL[i][J]
             # CALCULATE NULL COLLISION FREQUENCY FOR EACH GAS COMPONENT
 
-        for KGAS in range(object.NumberOfGases):
-            object.TCFN[KGAS][IE] = 0.0
-            for IL in range(int(object.NPLAST[KGAS])):
-                object.TCFN[KGAS][IE] = object.TCFN[KGAS][IE] + object.CFN[KGAS][IE][IL]
-                if object.CFN[KGAS][IE][IL] < 0:
+        for GasIndex in range(object.NumberOfGases):
+            object.TCFN[GasIndex][IE] = 0.0
+            for IL in range(int(object.NPLAST[GasIndex])):
+                object.TCFN[GasIndex][IE] = object.TCFN[GasIndex][IE] + object.CFN[GasIndex][IE][IL]
+                if object.CFN[GasIndex][IE][IL] < 0:
                     print "WARNING NEGATIVE NULL COLLISION FREQUENCY"
-            for IL in range(int(object.NPLAST[KGAS])):
-                if object.TCFN[KGAS][IE] == 0:
-                    object.CFN[KGAS][IE][IL] = 0.0
+            for IL in range(int(object.NPLAST[GasIndex])):
+                if object.TCFN[GasIndex][IE] == 0:
+                    object.CFN[GasIndex][IE][IL] = 0.0
                 else:
-                    object.CFN[KGAS][IE][IE] = object.CFN[KGAS][IE][IL] / object.TCFN[KGAS][IE]
+                    object.CFN[GasIndex][IE][IE] = object.CFN[GasIndex][IE][IL] / object.TCFN[GasIndex][IE]
 
-            for IL in range(1, int(object.NPLAST[KGAS])):
-                object.CFN[KGAS][IE][IL] = object.CFN[KGAS][IE][IL] + object.CFN[KGAS][IE][IL - 1]
-            object.TCFN[KGAS][IE] = object.TCFN[KGAS][IE] * object.EROOT[IE]
+            for IL in range(1, int(object.NPLAST[GasIndex])):
+                object.CFN[GasIndex][IE][IL] = object.CFN[GasIndex][IE][IL] + object.CFN[GasIndex][IE][IL - 1]
+            object.TCFN[GasIndex][IE] = object.TCFN[GasIndex][IE] * object.EROOT[IE]
     KELSUM = 0
 
-    for KGAS in range(object.NumberOfGases):
+    for GasIndex in range(object.NumberOfGases):
         for J in range(6):
-            KELSUM += MIXOBJECT.Gases[KGAS].KEL[J]
+            KELSUM += MIXOBJECT.Gases[GasIndex].KEL[J]
 
-    for KGAS in range(object.NumberOfGases):
+    for GasIndex in range(object.NumberOfGases):
         for J in range(250):
-            KELSUM += MIXOBJECT.Gases[KGAS].KIN[J]
+            KELSUM += MIXOBJECT.Gases[GasIndex].KIN[J]
 
     if KELSUM > 0:
         object.NISO = 1
 
     # CALCULATE NULL COLLISION FREQUENCIES FOR EACH GAS COMPONENT
     FAKEIN = abs(object.FAKEI) / object.NumberOfGases
-    for KGAS in range(object.NumberOfGases):
-        object.TCFMAX[KGAS] = 0.0
+    for GasIndex in range(object.NumberOfGases):
+        object.TCFMAX[GasIndex] = 0.0
         for IE in range(4000):
-            if object.TCF[KGAS][IE] + object.TCFN[KGAS][IE] + FAKEIN >= object.TCFMAX[KGAS]:
-                object.TCFMAX[KGAS] = object.TCF[KGAS][IE] + object.TCFN[KGAS][IE] + FAKEIN
+            if object.TCF[GasIndex][IE] + object.TCFN[GasIndex][IE] + FAKEIN >= object.TCFMAX[GasIndex]:
+                object.TCFMAX[GasIndex] = object.TCF[GasIndex][IE] + object.TCFN[GasIndex][IE] + FAKEIN
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
     object.TCFMX = 0.0
-    for KGAS in range(object.NumberOfGases):
-        object.TCFMX = object.TCFMX + object.TCFMAX[KGAS]
-    for KGAS in range(object.NumberOfGases):
-        object.TCFMXG[KGAS] = object.TCFMAX[KGAS] / object.TCFMX
-    for KGAS in range(1, object.NumberOfGases):
-        object.TCFMXG[KGAS] = object.TCFMXG[KGAS] + object.TCFMXG[KGAS - 1]
+    for GasIndex in range(object.NumberOfGases):
+        object.TCFMX = object.TCFMX + object.TCFMAX[GasIndex]
+    for GasIndex in range(object.NumberOfGases):
+        object.TCFMXG[GasIndex] = object.TCFMAX[GasIndex] / object.TCFMX
+    for GasIndex in range(1, object.NumberOfGases):
+        object.TCFMXG[GasIndex] = object.TCFMXG[GasIndex] + object.TCFMXG[GasIndex - 1]
 
     # CALCULATE MAXWELL BOLTZMAN VELOCITY FACTOR FOR EACH GAS COMPONENT
 
-    for KGAS in range(object.NumberOfGases):
-        object.VTMB[KGAS] = sqrt(2.0 * ECHARG * object.ThermalEnergy / object.AMGAS[KGAS]) * 1e-12
+    for GasIndex in range(object.NumberOfGases):
+        object.VTMB[GasIndex] = sqrt(2.0 * ECHARG * object.ThermalEnergy / object.AMGAS[GasIndex]) * 1e-12
 
     for I in range(object.NSTEP):
         object.QTOT[I] = object.ANN[0] * MIXOBJECT.Gases[0].Q[0][I] + object.ANN[1] * MIXOBJECT.Gases[1].Q[0][I] + \
@@ -666,9 +666,9 @@ cpdef MixerT(PyBoltz object):
                         object.ANN[2] * MIXOBJECT.Gases[2].Q[1][I] + object.ANN[3] * MIXOBJECT.Gases[3].Q[1][I] + \
                         object.ANN[4] * MIXOBJECT.Gases[4].Q[1][I] + object.ANN[5] * MIXOBJECT.Gases[5].Q[1][I]
 
-        for KGAS in range(6):
-            object.QION[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[2][I] * object.ANN[KGAS]
-            QATT[KGAS][I] = MIXOBJECT.Gases[KGAS].Q[3][I] * object.ANN[KGAS]
+        for GasIndex in range(6):
+            object.QION[GasIndex][I] = MIXOBJECT.Gases[GasIndex].Q[2][I] * object.ANN[GasIndex]
+            QATT[GasIndex][I] = MIXOBJECT.Gases[GasIndex].Q[3][I] * object.ANN[GasIndex]
         object.QREL[I] = 0.0
         object.QSATT[I] = 0.0
         object.QSUM[I] = 0.0
@@ -676,8 +676,8 @@ cpdef MixerT(PyBoltz object):
             object.QSUM[I] = object.QSUM[I] + object.QION[J][I] + QATT[J][I]
             object.QSATT[I] = object.QSATT[I] + QATT[J][I]
             object.QREL[I] = object.QREL[I] + object.QION[J][I] - QATT[J][I]
-        for KGAS in range(6):
-            for J in range(int(MIXOBJECT.Gases[KGAS].NIN)):
-                object.QSUM[I] = object.QSUM[I] + MIXOBJECT.Gases[KGAS].QIN[J][I] * object.ANN[KGAS]
+        for GasIndex in range(6):
+            for J in range(int(MIXOBJECT.Gases[GasIndex].NIN)):
+                object.QSUM[I] = object.QSUM[I] + MIXOBJECT.Gases[GasIndex].QIN[J][I] * object.ANN[GasIndex]
 
     return

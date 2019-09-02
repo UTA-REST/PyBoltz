@@ -54,7 +54,7 @@ cpdef EnergyLimit(PyBoltz Object):
     The object parameter is the PyBoltz object to be setup and used in the simulation.
     """
 
-    cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE, INTEM
+    cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE
@@ -204,7 +204,7 @@ cpdef EnergyLimitB(PyBoltz Object):
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
-    cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE, INTEM
+    cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EF100
@@ -369,7 +369,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
-    cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE
+    cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, EF100,TLIM,CX2,CY2,CZ2
@@ -420,20 +420,20 @@ cpdef EnergyLimitBT(PyBoltz Object):
             CY2 = (CY1 - Object.EFieldOverBField) * COSWT + CZ1 * SINWT + Object.EFieldOverBField
             CZ2 = CZ1 * COSWT - (CY1 - Object.EFieldOverBField) * SINWT
             #FIND IDENTITY OF GAS FOR COLLISION
-            KGAS = 0
+            GasIndex = 0
             R2 = random_uniform(RDUM)
-            while Object.TCFMXG[KGAS] < R2:
-                KGAS += 1
+            while Object.TCFMXG[GasIndex] < R2:
+                GasIndex += 1
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
                 GERJAN(Object.RSTART,  Object.RNMX)
                 IMBPT = 1
-            VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+            VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
-            VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+            VGY = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
-            VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+            VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
 
             #CALCULATE ENERGY WITH STATIONARY GAS TARGET , EOK
             EOK = (pow((CX2 - VGX), 2) + pow((CY2 - VGY), 2) + pow((CZ2 - VGZ), 2)) / CONST10
@@ -441,7 +441,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             IE = min(IE, 3999)
             #TEST FOR REAL OR NULL COLLISION
             R5 = random_uniform(RDUM)
-            TLIM = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
+            TLIM = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
             if R5 <= TLIM:
                 break
         if IE == 3999:
@@ -458,32 +458,32 @@ cpdef EnergyLimitBT(PyBoltz Object):
 
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
         R2 = random_uniform(RDUM)
-        I = MBSortT(KGAS, I, R2, IE, Object)
-        while Object.CF[KGAS][IE][I] < R2:
+        I = MBSortT(GasIndex, I, R2, IE, Object)
+        while Object.CF[GasIndex][IE][I] < R2:
             I = I + 1
 
-        S1 = Object.RGAS[KGAS][I]
-        EI = Object.EIN[KGAS][I]
-        if Object.IPN[KGAS][I] > 0:
+        S1 = Object.RGAS[GasIndex][I]
+        EI = Object.EIN[GasIndex][I]
+        if Object.IPN[GasIndex][I] > 0:
             R9 = random_uniform(RDUM)
             EXTRA = R9 * (EOK - EI)
             EI = EXTRA + EI
 
         # GENERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
         # COLLISION ALSO UPDATE ENERGY OF ELECTRON.
-        IPT = Object.IARRY[KGAS][I]
+        IPT = Object.IARRY[GasIndex][I]
         if EOK < EI:
             EI = EOK - 0.0001
         S2 = (S1 * S1) / (S1 - 1)
         R3 = random_uniform(RDUM)
 
-        if Object.INDEX[KGAS][I] == 1:
+        if Object.INDEX[GasIndex][I] == 1:
             R31 = random_uniform(RDUM)
-            F3 = 1.0 - R3 * Object.ANGCT[KGAS][IE][I]
-            if R31 > Object.PSCT[KGAS][IE][I]:
+            F3 = 1.0 - R3 * Object.ANGCT[GasIndex][IE][I]
+            if R31 > Object.PSCT[GasIndex][IE][I]:
                 F3 = -1 * F3
-        elif Object.INDEX[KGAS][I] == 2:
-            EPSI = Object.PSCT[KGAS][IE][I]
+        elif Object.INDEX[GasIndex][I] == 2:
+            EPSI = Object.PSCT[GasIndex][IE][I]
             F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
             F3 = 1 - 2 * R3
@@ -550,7 +550,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
-    cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE, INTEM
+    cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EFX100,EFZ100,RTHETA,
@@ -712,7 +712,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
-    cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE
+    cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1,
     cdef double D, Q, U, CSQD, F6, F5, ARGZ,RTHETA, CONST12, VXLAB, VYLAB, EFX100,EFZ100,TLIM,CX2,CY2,CZ2,EOVBR
@@ -771,20 +771,20 @@ cpdef EnergyLimitCT(PyBoltz Object):
             CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
 
             #FIND IDENTITY OF GAS FOR COLLISION
-            KGAS = 0
+            GasIndex = 0
             R2 = random_uniform(RDUM)
-            while (Object.TCFMXG[KGAS] < R2):
-                KGAS += 1
+            while (Object.TCFMXG[GasIndex] < R2):
+                GasIndex += 1
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
                 GERJAN(Object.RSTART,  Object.RNMX)
                 IMBPT = 1
-            VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+            VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
-            VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+            VGY = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
-            VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
+            VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
 
             EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
             IE = int(EOK / Object.ElectronEnergyStep)
@@ -792,7 +792,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
             # TEST FOR REAL OR NULL COLLISION
             R5 = random_uniform(RDUM)
-            TLIM = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
+            TLIM = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
             if R5 <= TLIM:
                 break
         if IE == 3999:
@@ -812,33 +812,33 @@ cpdef EnergyLimitCT(PyBoltz Object):
         R2 = random_uniform(RDUM)
 
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
-        I = MBSortT(KGAS, I, R2, IE, Object)
-        while Object.CF[KGAS][IE][I] < R2:
+        I = MBSortT(GasIndex, I, R2, IE, Object)
+        while Object.CF[GasIndex][IE][I] < R2:
             I = I + 1
 
 
-        S1 = Object.RGAS[KGAS][I]
-        EI = Object.EIN[KGAS][I]
-        if Object.IPN[KGAS][I] > 0:
+        S1 = Object.RGAS[GasIndex][I]
+        EI = Object.EIN[GasIndex][I]
+        if Object.IPN[GasIndex][I] > 0:
             R9 = random_uniform(RDUM)
             EXTRA = R9 * (EOK - EI)
             EI = EXTRA + EI
 
         #  GENEERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
         #   COLLISION ALSO UPDATE ENERGY OF ELECTRON.
-        IPT = Object.IARRY[KGAS][I]
+        IPT = Object.IARRY[GasIndex][I]
         if EOK < EI:
             EI = EOK - 0.0001
         S2 = (S1 * S1) / (S1 - 1)
         R3 = random_uniform(RDUM)
 
-        if Object.INDEX[KGAS][I] == 1:
+        if Object.INDEX[GasIndex][I] == 1:
             R31 = random_uniform(RDUM)
-            F3 = 1- R3 *Object.ANGCT[KGAS][IE][I]
-            if R31 > Object.PSCT[KGAS][IE][I]:
+            F3 = 1- R3 *Object.ANGCT[GasIndex][IE][I]
+            if R31 > Object.PSCT[GasIndex][IE][I]:
                 F3 = -1 * F3
-            elif Object.INDEX[KGAS][I] == 2:
-                EPSI = Object.PSCT[KGAS][IE][I]
+            elif Object.INDEX[GasIndex][I] == 2:
+                EPSI = Object.PSCT[GasIndex][IE][I]
                 F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
             else:
                 F3 = 1 - 2 * R3
@@ -907,7 +907,7 @@ cpdef EnergyLimitT(PyBoltz Object):
 
     The object parameter is the PyBoltz object to be setup and used in the simulation.
     """
-    cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE
+    cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1,AP, BP, F1, F2, F4, J2M, R5, TEST1, R1, T,  E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB
@@ -945,19 +945,19 @@ cpdef EnergyLimitT(PyBoltz Object):
             DCY2 = DCY1 * CONST6
             DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
             R2 = random_uniform(RDUM)
-            KGAS = 0
-            for KGAS in range(Object.NumberOfGases):
-                if Object.TCFMXG[KGAS] >= R2:
+            GasIndex = 0
+            for GasIndex in range(Object.NumberOfGases):
+                if Object.TCFMXG[GasIndex] >= R2:
                     break
             IMBPT += 1
             if (IMBPT > 6):
                 GERJAN(Object.RSTART,  Object.RNMX)
                 IMBPT = 1
-            VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+            VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
             IMBPT += 1
-            VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+            VGY = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
             IMBPT += 1
-            VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+            VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
             # CALCULATE ELECTRON VELOCITY VECTORS VEX VEY VEZ
             VEX = DCX2 * CONST9 * sqrt(E)
             VEY = DCY2 * CONST9 * sqrt(E)
@@ -967,7 +967,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             R5 = random_uniform(RDUM)
-            TEST1 = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
+            TEST1 = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
             if R5 <= TEST1:
                 break
 
@@ -984,30 +984,30 @@ cpdef EnergyLimitT(PyBoltz Object):
         # Determination of real collision type
         R3 = random_uniform(RDUM)
         # Find location within 4 units in collision array
-        I = MBSortT(KGAS, I, R3, IE, Object)
-        while Object.CF[KGAS][IE][I] < R3:
+        I = MBSortT(GasIndex, I, R3, IE, Object)
+        while Object.CF[GasIndex][IE][I] < R3:
             I += 1
-        S1 = Object.RGAS[KGAS][I]
-        EI = Object.EIN[KGAS][I]
+        S1 = Object.RGAS[GasIndex][I]
+        EI = Object.EIN[GasIndex][I]
 
-        if Object.IPN[KGAS][I] > 0:
+        if Object.IPN[GasIndex][I] > 0:
             R9 = random_uniform(RDUM)
             EXTRA = R9 * (EOK - EI)
             EI = EXTRA + EI
-        IPT = Object.IARRY[KGAS][I]
+        IPT = Object.IARRY[GasIndex][I]
         if EOK < EI:
             EI = EOK - 0.0001
         S2 = pow(S1 , 2) / (S1 - 1.0)
 
         # Anisotropic scattering
         R3 = random_uniform(RDUM)
-        if Object.INDEX[KGAS][I] == 1:
+        if Object.INDEX[GasIndex][I] == 1:
             R31 = random_uniform(RDUM)
-            F3 = 1.0 - R3 * Object.ANGCT[KGAS][IE][I]
-            if R31 > Object.PSCT[KGAS][IE][I]:
+            F3 = 1.0 - R3 * Object.ANGCT[GasIndex][IE][I]
+            if R31 > Object.PSCT[GasIndex][IE][I]:
                 F3 = -1.0 * F3
-        elif Object.INDEX[KGAS][I] == 2:
-            EPSI = Object.PSCT[KGAS][IE][I]
+        elif Object.INDEX[GasIndex][I] == 2:
+            EPSI = Object.PSCT[GasIndex][IE][I]
             F3 = 1.0 - (2.0 * R3 * (1.0 - EPSI) / (1.0 + EPSI * (1.0 - 2.0 * R3)))
         else:
             # Isotropic scattering

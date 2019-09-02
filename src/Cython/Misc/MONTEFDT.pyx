@@ -122,7 +122,7 @@ cpdef run(PyBoltz object):
         TEMP[i] = <double *> malloc(4000 * sizeof(double))
     cdef int f700 = 0
 
-    cdef int I, I100, K, ID, NCOL, NELEC, NEION, NMXADD, NTMPFLG, NPONT, NCLUS, J1, IMBPT, JPRINT, IPRINT, ITER, IPLANE, IDUM, KGAS, IE, IT, NCLTMP, IPT
+    cdef int I, I100, K, ID, NCOL, NELEC, NEION, NMXADD, NTMPFLG, NPONT, NCLUS, J1, IMBPT, JPRINT, IPRINT, ITER, IPLANE, IDUM, GasIndex, IE, IT, NCLTMP, IPT
     cdef int KDUM, JCT, JFL, IZPLANE, IDM1
     cdef double S, RDUM, E1, CONST9, CONST10, ZSTRT, TSSTRT, ABSFAKEI, DCX1, DCY1, DCZ1, E100, DCZ100, DCY100, DCX100, BP, F1, F2, F4, TDASH, AP
     cdef double TSTOP, R1, T, E, R2, VGX, VGY, VGZ, CONST6, DCX2, DCY2, DCZ2, VEX, VEY, VEZ, TEST1, R5, EOK, TEST2, R9, TEST3, A, DXCOM, DYCOM, DZCOM
@@ -189,7 +189,6 @@ cpdef run(PyBoltz object):
     object.NESST[8] = 0
     ID = 0
     NCOL = 0
-    object.NNULL = 0
     NELEC = 0
     NEION = 0
     NMXADD = 0
@@ -317,19 +316,19 @@ cpdef run(PyBoltz object):
 
         R2 = random_uniform(RDUM)
         if object.NumberOfGases == 1:
-            KGAS = 0
-        while (object.TCFMXG[KGAS] < R2):
-            KGAS = KGAS + 1
+            GasIndex = 0
+        while (object.TCFMXG[GasIndex] < R2):
+            GasIndex = GasIndex + 1
 
         IMBPT += 1
         if (IMBPT > 5):
             GERJAN(object.RSTART, object.API, object.RNMX)
             IMBPT = 0
-        VGX = object.VTMB[KGAS] * object.RNMX[IMBPT % 6]
+        VGX = object.VTMB[GasIndex] * object.RNMX[IMBPT % 6]
         IMBPT += 1
-        VGY = object.VTMB[KGAS] * object.RNMX[IMBPT % 6]
+        VGY = object.VTMB[GasIndex] * object.RNMX[IMBPT % 6]
         IMBPT += 1
-        VGZ = object.VTMB[KGAS] * object.RNMX[IMBPT % 6]
+        VGZ = object.VTMB[GasIndex] * object.RNMX[IMBPT % 6]
 
         CONST6 = sqrt(E1 / E)
 
@@ -351,22 +350,21 @@ cpdef run(PyBoltz object):
         IE = <int> (EOK / object.ESTEP)
         IE = min(IE, 3999)
         R5 = random_uniform(RDUM)
-        TEST1 = object.TCF[KGAS][IE] / object.TCFMAX[KGAS]
+        TEST1 = object.TCF[GasIndex][IE] / object.TCFMAX[GasIndex]
         if R5 > TEST1:
-            object.NNULL += 1
-            TEST2 = TEMP[KGAS][IE] / object.TCFMAX[KGAS]
+            TEST2 = TEMP[GasIndex][IE] / object.TCFMAX[GasIndex]
             if R5 < TEST2:
-                if object.NPLAST[KGAS] == 0:
+                if object.NPLAST[GasIndex] == 0:
                     continue
                 R2 = random_uniform(RDUM)
                 I = 0
-                while object.CFN[KGAS][IE][I] < R2:
+                while object.CFN[GasIndex][IE][I] < R2:
                     I += 1
 
-                object.ICOLNN[KGAS][I] += 1
+                object.ICOLNN[GasIndex][I] += 1
                 continue
             else:
-                TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / object.TCFMAX[KGAS]
+                TEST3 = (TEMP[GasIndex][IE] + ABSFAKEI) / object.TCFMAX[GasIndex]
                 if R5 < TEST3:
                     # FAKE IONISATION INCREMENT COUNTER
                     object.IFAKE += 1
@@ -433,24 +431,24 @@ cpdef run(PyBoltz object):
         CX1 = DCX1 * CONST7
         CY1 = DCY1 * CONST7
         R2 = random_uniform(RDUM)
-        I = MBSortT(KGAS, I, R2, IE, object)
+        I = MBSortT(GasIndex, I, R2, IE, object)
 
-        while object.CF[KGAS][IE][I] < R2:
+        while object.CF[GasIndex][IE][I] < R2:
             I += 1
-        S1 = object.RGAS[KGAS][I]
-        EI = object.EIN[KGAS][I]
+        S1 = object.RGAS[GasIndex][I]
+        EI = object.EIN[GasIndex][I]
         if EOK < EI:
             EI = EOK - 0.0001
 
-        if object.IPN[KGAS][I] != 0:
-            if object.IPN[KGAS][I] == -1:
+        if object.IPN[GasIndex][I] != 0:
+            if object.IPN[GasIndex][I] == -1:
                 NEION += 1
-                IPT = int(object.IARRY[KGAS][I])
+                IPT = int(object.IARRY[GasIndex][I])
                 ID += 1
                 ITER += 1
                 IPRINT += 1
-                object.ICOLL[KGAS][int(IPT)] += 1
-                object.ICOLN[KGAS][I] += 1
+                object.ICOLL[GasIndex][int(IPT)] += 1
+                object.ICOLN[GasIndex][I] += 1
                 IT = int(T)
                 IT = min(IT, 299)
                 object.TIME[IT] += 1
@@ -472,8 +470,8 @@ cpdef run(PyBoltz object):
                 continue
             EISTR = EI
             R9 = random_uniform(RDUM)
-            ESEC = object.WPL[KGAS][I] * tan(R9 * atan((EOK - EI) / (2 * object.WPL[KGAS][I])))
-            ESEC = object.WPL[KGAS][I] * (ESEC / object.WPL[KGAS][I]) ** 0.9524
+            ESEC = object.WPL[GasIndex][I] * tan(R9 * atan((EOK - EI) / (2 * object.WPL[GasIndex][I])))
+            ESEC = object.WPL[GasIndex][I] * (ESEC / object.WPL[GasIndex][I]) ** 0.9524
             EI = ESEC + EI
             NCLUS += 1
             NPONT += 1
@@ -495,8 +493,8 @@ cpdef run(PyBoltz object):
             object.IPLS[NPONT] = IDM1
             object.NESST[IDM1 - 1] += 1
             if EISTR > 30:
-                NAUG = object.NC0[KGAS][I]
-                EAVAUG = object.EC0[KGAS][I] / float(NAUG)
+                NAUG = object.NC0[GasIndex][I]
+                EAVAUG = object.EC0[GasIndex][I] / float(NAUG)
                 for JFL in range(int(NAUG)):
                     NCLUS += 1
                     NPONT += 1
@@ -524,22 +522,22 @@ cpdef run(PyBoltz object):
                         IDM1 = 9
                     object.IPLS[NPONT] = IDM1
                     object.NESST[IDM1 - 1] += 1
-        IPT = int(object.IARRY[KGAS][I])
+        IPT = int(object.IARRY[GasIndex][I])
         ID += 1
         ITER += 1
         IPRINT += 1
-        object.ICOLL[KGAS][int(IPT)] += 1
-        object.ICOLN[KGAS][I] += 1
+        object.ICOLL[GasIndex][int(IPT)] += 1
+        object.ICOLN[GasIndex][I] += 1
 
         if object.EnablePenning != 0:
-            if object.PENFRA[KGAS][0][I] != 0.0:
+            if object.PENFRA[GasIndex][0][I] != 0.0:
                 RAN = random_uniform(RDUM)
-                if RAN <= object.PENFRA[KGAS][0][I]:
+                if RAN <= object.PENFRA[GasIndex][0][I]:
                     NCLUS += 1
                     NPONT += 1
                     if NPONT >= 2000:
                         raise ValueError("NPONT>2000")
-                    if object.PENFRA[KGAS][1][I] == 0.0:
+                    if object.PENFRA[GasIndex][1][I] == 0.0:
                         object.XSS[NPONT] = object.X
                         object.YSS[NPONT] = object.Y
                         object.ZSS[NPONT] = object.Z
@@ -548,9 +546,9 @@ cpdef run(PyBoltz object):
                             NCLUS -= 1
                         else:
                             TPEN = object.ST
-                            if object.PENFRA[KGAS][2][I] != 0:
+                            if object.PENFRA[GasIndex][2][I] != 0:
                                 RAN = random_uniform(RDUM)
-                                TPEN = object.ST - log(RAN) * object.PENFRA[KGAS][2][I]
+                                TPEN = object.ST - log(RAN) * object.PENFRA[GasIndex][2][I]
                             object.TSS[NPONT] = TPEN
                             object.ESS[NPONT] = 1.0
                             object.DCXS[NPONT] = DCX1
@@ -571,26 +569,26 @@ cpdef run(PyBoltz object):
                         RAN1 = random_uniform(RDUM)
                         if RAN1 < 0.5:
                             ASIGN = -1 * ASIGN
-                        object.XSS[NPONT] = object.X - log(RAN) * object.PENFRA[KGAS][1][I] * ASIGN
+                        object.XSS[NPONT] = object.X - log(RAN) * object.PENFRA[GasIndex][1][I] * ASIGN
                         RAN = random_uniform(RDUM)
                         RAN1 = random_uniform(RDUM)
                         if RAN1 < 0.5:
                             ASIGN = -1 * ASIGN
-                        object.YSS[NPONT] = object.Y - log(RAN) * object.PENFRA[KGAS][1][I] * ASIGN
+                        object.YSS[NPONT] = object.Y - log(RAN) * object.PENFRA[GasIndex][1][I] * ASIGN
                         RAN = random_uniform(RDUM)
                         RAN1 = random_uniform(RDUM)
                         if RAN1 < 0.5:
                             ASIGN = -1 * ASIGN
-                        object.ZSS[NPONT] = object.Z - log(RAN) * object.PENFRA[KGAS][1][I] * ASIGN
+                        object.ZSS[NPONT] = object.Z - log(RAN) * object.PENFRA[GasIndex][1][I] * ASIGN
                         if object.ZSS[NPONT] > object.ZFINAL or object.ZSS[NPONT] < 0.0:
                             NPONT -= 1
                             NCLUS -= 1
                         else:
                             TPEN = object.ST
 
-                            if object.PENFRA[KGAS][2][I] != 0:
+                            if object.PENFRA[GasIndex][2][I] != 0:
                                 RAN = random_uniform(RDUM)
-                                TPEN = object.ST - log(RAN) * object.PENFRA[KGAS][2][I]
+                                TPEN = object.ST - log(RAN) * object.PENFRA[GasIndex][2][I]
                             object.TSS[NPONT] = TPEN
                             object.ESS[NPONT] = 1.0
                             object.DCXS[NPONT] = DCX1
@@ -606,13 +604,13 @@ cpdef run(PyBoltz object):
 
         S2 = (S1 ** 2) / (S1 - 1)
         R3 = random_uniform(RDUM)
-        if object.INDEX[KGAS][I] == 1:
+        if object.INDEX[GasIndex][I] == 1:
             R31 = random_uniform(RDUM)
-            F3 = 1.0 - R3 * object.ANGCT[KGAS][IE][I]
-            if R31 > object.PSCT[KGAS][IE][I]:
+            F3 = 1.0 - R3 * object.ANGCT[GasIndex][IE][I]
+            if R31 > object.PSCT[GasIndex][IE][I]:
                 F3 = -1 * F3
-        elif object.INDEX[KGAS][I] == 2:
-            EPSI = object.PSCT[KGAS][IE][I]
+        elif object.INDEX[GasIndex][I] == 2:
+            EPSI = object.PSCT[GasIndex][IE][I]
             F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
             F3 = 1 - 2 * R3

@@ -27,7 +27,7 @@ cpdef run(PyBoltz Object):
     
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
-    cdef long long I, ID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM,NCOLDM
+    cdef long long I, ID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, GasIndex, IE, IT, KDUM, IPT, JDUM,NCOLDM
     cdef double ST1, RDUM,ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
@@ -120,7 +120,6 @@ cpdef run(PyBoltz Object):
     Object.ITMAX = 10
     ID = 0
     NCOL = 0
-    Object.NNULL = 0
     IEXTRA = 0
     TDASH = 0.0
     CONST9 = Object.CONST3 * 0.01
@@ -170,7 +169,6 @@ cpdef run(PyBoltz Object):
                 TEST1 = Object.TCFNT[IE] / TLIM
 
                 if R5 > TEST1:
-                    Object.NNULL += 1
                     TEST2 = TEMP[IE] / TLIM
                     if R5 < TEST2:
                         if Object.NPLASTNT == 0:
@@ -216,14 +214,14 @@ cpdef run(PyBoltz Object):
             SUMVX += (CX1 ** 2) * T2
             if ID != 0:
                 KDUM = 0
-                for J in range(int(Object.NCORST)):
+                for J in range(int(Object.Decor_NCORST)):
                     ST2 = ST2 + T
                     NCOLDM = NCOL + KDUM
-                    if NCOLDM > Object.NCOLM:
-                        NCOLDM = NCOLDM - Object.NCOLM
+                    if NCOLDM > Object.Decor_NCOLM:
+                        NCOLDM = NCOLDM - Object.Decor_NCOLM
                     SDIF = Object.TimeSum - STO[NCOLDM-1]
                     SUMXX += ((Object.X - XST[NCOLDM-1]) ** 2) * T / SDIF
-                    KDUM += Object.NCORLN
+                    KDUM += Object.Decor_NCORLN
                     if J1 >= 2:
                         ST1 += T
                         SUMZZ += ((Object.Z - ZST[NCOLDM-1] - Object.VelocityZ * SDIF) ** 2) * T / SDIF
@@ -242,7 +240,7 @@ cpdef run(PyBoltz Object):
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
             STO[NCOL-1] = Object.TimeSum
-            if NCOL >= Object.NCOLM:
+            if NCOL >= Object.Decor_NCOLM:
                 ID += 1
                 NCOL = 0
 

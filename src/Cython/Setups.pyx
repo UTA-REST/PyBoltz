@@ -34,9 +34,9 @@ cpdef Setup(PyBoltz object):
     object.CORR = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
-    object.NCOLM = 2000000
-    object.NCORLN = 500000
-    object.NCORST = 2
+    object.Decor_NCOLM = 2000000
+    object.Decor_NCORLN = 500000
+    object.Decor_NCORST = 2
     FRACM = 0.0
     MXEKR = 0
 
@@ -49,9 +49,9 @@ cpdef Setup(PyBoltz object):
 
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
     if object.EField > (10 / object.CORR) or FRACM>3:
-            object.NCOLM = 400000
-            object.NCORLN = 50000
-            object.NCORST = 4
+            object.Decor_NCOLM = 400000
+            object.Decor_NCORLN = 50000
+            object.Decor_NCORST = 4
     TOTFRAC = 0.0
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:
         raise ValueError("Error in Gas Input")
@@ -66,7 +66,7 @@ cpdef Setup(PyBoltz object):
     object.MaxNumberOfCollisions = object.MaxNumberOfCollisions * NSCALE
 
     if object.MaxNumberOfCollisions < 0:
-        raise ValueError("NMAX value is too large - overflow")
+        raise ValueError("MaxNumberOfCollisions value is too large - overflow")
     object.NSTEP = 4000
     object.AngleFromZ = 0.785
     object.AngleFromX = 0.1
@@ -126,9 +126,9 @@ cpdef SetupT(PyBoltz object):
     object.CORR = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
-    object.NCOLM = 2000000
-    object.NCORLN = 500000
-    object.NCORST = 2
+    object.Decor_NCOLM = 2000000
+    object.Decor_NCORLN = 500000
+    object.Decor_NCORST = 2
 
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     cdef double FRACM = 0.0
@@ -140,9 +140,9 @@ cpdef SetupT(PyBoltz object):
             FRACM += object.FRAC[IH]
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
     if (object.EField > (10.0 / object.CORR)) or (FRACM > 3):
-            object.NCOLM = 400000
-            object.NCORLN = 50000
-            object.NCORST = 4
+            object.Decor_NCOLM = 400000
+            object.Decor_NCORLN = 50000
+            object.Decor_NCORST = 4
     TOTFRAC = 0.0
 
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:

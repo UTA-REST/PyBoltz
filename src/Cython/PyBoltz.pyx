@@ -204,13 +204,17 @@ cdef class PyBoltz:
         self.AngularSpeedOfRotation = 0.0
         self.ThermalEnergy = 0.0
         self.MaxCollisionTime = 100.0
+        self.SmallNumber = 0.0
+        self.AngleFromX = 0.0
+
+        # Somehow related to decorrelation length
+        self.Decor_NCOLM = 0
+        self.Decor_NCORLN = 0
+        self.Decor_NCORST = 0
+
 
         # Unknown and to be named
         self.NISO = 0
-        self.NCOLM = 0
-        self.NCORLN = 0
-        self.NCORST = 0
-        self.NNULL = 0
 
         # Named but imperfectly understood
         self.X = 0.0
@@ -220,10 +224,8 @@ cdef class PyBoltz:
         self.FinalElectronEnergy = 0.0
         self.ElectronEnergyStep = 0
         self.NSCALE = 0
-        self.SmallNumber = 0.0
         self.InitialElectronEnergy = 0.0
         self.AngleFromZ = 0.0
-        self.AngleFromX = 0.0
         self.TimeSum = 0.0
 
         # To be named

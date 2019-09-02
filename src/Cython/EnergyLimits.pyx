@@ -64,7 +64,7 @@ cpdef EnergyLimit(PyBoltz Object):
     ISAMP = 10
     SMALL = 1.0e-20
     I = 0
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
@@ -91,7 +91,7 @@ cpdef EnergyLimit(PyBoltz Object):
             R1 = random_uniform(RDUM)
             I = int(E1 / DELTAE) + 1
             I = min(I, INTEM) - 1
-            TLIM = Object.TCFMAXNT[I]
+            TLIM = Object.MaxCollisionFreqNT[I]
             T = -1 * log(R1) / TLIM + TDASH
             TDASH = T
             AP = DCZ1 * F2 * sqrt(E1)
@@ -100,7 +100,7 @@ cpdef EnergyLimit(PyBoltz Object):
             IE = min(IE, 3999)
             if TEMP[IE] > TLIM:
                 TDASH += log(R1) / TLIM
-                Object.TCFMAXNT[I] *= 1.05
+                Object.MaxCollisionFreqNT[I] *= 1.05
                 continue
 
             # TEST FOR NULL COLLISIONS
@@ -214,7 +214,7 @@ cpdef EnergyLimitB(PyBoltz Object):
     Object.SmallNumber =  1.0e-20
     ISAMP = 20
     EF100 = Object.EField * 100
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
 
     INTEM = 8
@@ -247,7 +247,7 @@ cpdef EnergyLimitB(PyBoltz Object):
             R1 = random_uniform(RDUM)
             I = int(E1 / DELTAE)+1
             I = min(I, INTEM) - 1
-            TLIM = Object.TCFMAXNT[I]
+            TLIM = Object.MaxCollisionFreqNT[I]
             T = -1 * log(R1) / TLIM + TDASH
             TDASH = T
             WBT = Object.AngularSpeedOfRotation * T
@@ -259,7 +259,7 @@ cpdef EnergyLimitB(PyBoltz Object):
             IE = min(IE, 3999)
             if TEMP[IE] > TLIM:
                 TDASH += log(R1) / TLIM
-                Object.TCFMAXNT[I] *= 1.05
+                Object.MaxCollisionFreqNT[I] *= 1.05
                 continue
             R5 = random_uniform(RDUM)
             TEST1 = Object.TCFNT[IE] / TLIM
@@ -377,13 +377,13 @@ cpdef EnergyLimitBT(PyBoltz Object):
     ISAMP = 20
     SMALL = 1.0e-20
     EF100 = Object.EField * 100
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
 
     # GENRATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GERJAN(Object.RSTART, Object.RNMX)
+    GERJAN(Object.RandomSeed, Object.RNMX)
     IMBPT = 0
 
 
@@ -407,7 +407,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
-            T = -1 * log(R1) / Object.TCFMX + TDASH
+            T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
             TDASH = T
             WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
@@ -422,12 +422,12 @@ cpdef EnergyLimitBT(PyBoltz Object):
             #FIND IDENTITY OF GAS FOR COLLISION
             GasIndex = 0
             R2 = random_uniform(RDUM)
-            while Object.TCFMXG[GasIndex] < R2:
+            while Object.MaxCollisionFreqTotalG[GasIndex] < R2:
                 GasIndex += 1
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
-                GERJAN(Object.RSTART,  Object.RNMX)
+                GERJAN(Object.RandomSeed,  Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -441,7 +441,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             IE = min(IE, 3999)
             #TEST FOR REAL OR NULL COLLISION
             R5 = random_uniform(RDUM)
-            TLIM = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
+            TLIM = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
             if R5 <= TLIM:
                 break
         if IE == 3999:
@@ -582,7 +582,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     F4 = 2 * acos(-1)
     DELTAE = Object.FinalElectronEnergy / float(INTEM)
     J2M = Object.MaxNumberOfCollisions / ISAMP
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
 
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
@@ -591,7 +591,7 @@ cpdef EnergyLimitC(PyBoltz Object):
             R1 = random_uniform(RDUM)
             I = int(E1 / DELTAE) + 1
             I = min(I, INTEM) - 1
-            TLIM = Object.TCFMAXNT[I]
+            TLIM = Object.MaxCollisionFreqNT[I]
             T = -1 * log(R1) / TLIM + TDASH
             TDASH = T
             WBT = Object.AngularSpeedOfRotation * T
@@ -604,7 +604,7 @@ cpdef EnergyLimitC(PyBoltz Object):
             IE = min(IE, 3999)
             if TEMP[IE] > TLIM:
                 TDASH += log(R1) / TLIM
-                Object.TCFMAXNT[I] *= 1.05
+                Object.MaxCollisionFreqNT[I] *= 1.05
                 continue
             R5 = random_uniform(RDUM)
             TEST1 = Object.TCFNT[IE] / TLIM
@@ -728,7 +728,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
     F1 = Object.EField * Object.CONST2 * cos(RTHETA)
     F4 =2*np.pi
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     TDASH =0.0
 
@@ -736,7 +736,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
     CONST10 = CONST9**2
 
     #GENERATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GERJAN(Object.RSTART,  Object.RNMX)
+    GERJAN(Object.RandomSeed,  Object.RNMX)
     IMBPT = 0
 
     #INITIAL DIRECTION COSINES
@@ -756,7 +756,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
-            T = -1 * log(R1) / Object.TCFMX + TDASH
+            T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
             TDASH = T
             WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
@@ -773,12 +773,12 @@ cpdef EnergyLimitCT(PyBoltz Object):
             #FIND IDENTITY OF GAS FOR COLLISION
             GasIndex = 0
             R2 = random_uniform(RDUM)
-            while (Object.TCFMXG[GasIndex] < R2):
+            while (Object.MaxCollisionFreqTotalG[GasIndex] < R2):
                 GasIndex += 1
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
-                GERJAN(Object.RSTART,  Object.RNMX)
+                GERJAN(Object.RandomSeed,  Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -792,7 +792,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
             # TEST FOR REAL OR NULL COLLISION
             R5 = random_uniform(RDUM)
-            TLIM = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
+            TLIM = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
             if R5 <= TLIM:
                 break
         if IE == 3999:
@@ -914,13 +914,13 @@ cpdef EnergyLimitT(PyBoltz Object):
 
     ISAMP = 10
     SMALL = 1.0e-20
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
-    GERJAN(Object.RSTART,  Object.RNMX)
+    GERJAN(Object.RandomSeed,  Object.RNMX)
     IMBPT = 0
     DCZ1 = cos(Object.AngleFromZ)
     DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
@@ -936,7 +936,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RDUM)
-            T = -1 * log(R1) / Object.TCFMX + TDASH
+            T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
             TDASH = T
             AP = DCZ1 * F2 * sqrt(E1)
             E = E1 + (AP + BP * T) * T
@@ -947,11 +947,11 @@ cpdef EnergyLimitT(PyBoltz Object):
             R2 = random_uniform(RDUM)
             GasIndex = 0
             for GasIndex in range(Object.NumberOfGases):
-                if Object.TCFMXG[GasIndex] >= R2:
+                if Object.MaxCollisionFreqTotalG[GasIndex] >= R2:
                     break
             IMBPT += 1
             if (IMBPT > 6):
-                GERJAN(Object.RSTART,  Object.RNMX)
+                GERJAN(Object.RandomSeed,  Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
             IMBPT += 1
@@ -967,7 +967,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             R5 = random_uniform(RDUM)
-            TEST1 = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
+            TEST1 = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
             if R5 <= TEST1:
                 break
 

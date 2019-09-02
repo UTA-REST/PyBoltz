@@ -107,9 +107,9 @@ cdef class PyBoltz:
         '''Percentage for DIFTR.'''
         double TemperatureKelvin
         '''Absolute tempreture in Kelvin.'''
-        double ALPP
+        double ReducedIonization
         '''Variable used to represent the ionisation rate.'''
-        double ATTP
+        double ReducedAttachment
         '''Variable used to represent the attachement rate.'''
         double CONST1
         '''Constant that is equal to AWB / 2 * 1e-9.'''
@@ -122,7 +122,7 @@ cdef class PyBoltz:
         '''Constant that is equal to CONST3 * ALOSCH * 1e-15.'''
         double CONST5
         '''Constant that is equal to CONST3 / 2.'''
-        double TCFMX
+        double MaxCollisionFreqTotal
         '''Sum of the maximum collision frequency of each gas.'''
         double EnableThermalMotion
         '''Variable used to indicate wethier to include thermal motion or not.'''
@@ -135,11 +135,11 @@ cdef class PyBoltz:
         '''Variable that is equal to 100 * PresTempCor * CONST4 * 1e15'''
         double TimeSum
         '''Variable used to calculate the sum of the collision times in the simulation.'''
-        double RSTART
+        double RandomSeed
         '''Random number generator seed. Not used at the moment.'''
         long long NumberOfGases
         '''Number of gases in the mixture.'''
-        long long NSTEP
+        long long EnergySteps
         '''Steps for the electron energy integration.'''
         long long WhichAngularModel
         '''Variable used to indicate the type of the elastic angular distribtions.'''
@@ -158,7 +158,7 @@ cdef class PyBoltz:
         '''Number of null collisions.'''
         long long IFAKE
         '''Fake ionisation counter.'''
-        long long ITMAX
+        long long NumSamples
         '''Number of samples to be taken in the Monte functions.'''
         long long NSCALE
         '''Constant equal to 40000000.'''
@@ -176,7 +176,7 @@ cdef class PyBoltz:
         double AMGAS[6]
         double VTMB[6]
         '''Maxwell Boltzman velocity factor for each gas component.'''
-        double TCFMXG[6]
+        double MaxCollisionFreqTotalG[6]
         '''Fraction of the maximum collision frequency of each gas over the sum of the maximum collision frequencies of all the gases.'''
         double GasIDs[6]
         '''Array used to store the number of the 6 gases in the mixture.'''
@@ -197,7 +197,7 @@ cdef class PyBoltz:
         double IPLAST[6]
         '''Number of momentum cross section data points for each gas.'''
         double ISIZE[6]
-        double TCFMAX[6]
+        double MaxCollisionFreq[6]
         '''Maximum value of collision frequency for each gas.'''
         double NPLAST[6]
         '''Number of momentum cross section data points for null collisions.'''
@@ -227,7 +227,7 @@ cdef class PyBoltz:
         double MeanCollisionTime
         '''Mean collision time. Calculated using a moving average filter where it is equal to 0.9 * MeanCollisionTime + 0.1 * NewTime'''
         # Variables and arrays used when the thermal motion is not included.
-        double CFNT[4000][960],EINNT[960],TCFNT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PENFRANT[3][960],TCFMAXNT[8]
+        double CFNT[4000][960],EINNT[960],TCFNT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PENFRANT[3][960],MaxCollisionFreqNT[8]
         double CFNNT[4000][60],TCFNNT[4000],SCLENULNT[60],PSCTNT[4000][960],ANGCTNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]
         double NG1NT[960],EG1NT[960],NG2NT[960],EG2NT[960],WKLMNT[960],EFLNT[960]
         double ICOLLNT[30],ICOLNNT[960],ICOLNNNT[60]

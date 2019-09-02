@@ -208,9 +208,9 @@ cdef void Gas5(Gas* object):
     A1 = <float>(1.846)
     B1 = <float>(3.29)
     A2 = <float>(-0.037)
-    object.NSTEP = 4000
+    object.EnergySteps = 4000
 
-    for I in range(object.NSTEP):
+    for I in range(object.EnergySteps):
         EN = object.EG[I]
         if EN > object.EIN[0]:
             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2

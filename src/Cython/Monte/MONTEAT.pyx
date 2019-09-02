@@ -99,15 +99,15 @@ cpdef run(PyBoltz Object):
     DFXXST = <double *> malloc(10 * sizeof(double))
     memset(DFXXST, 0, 10 * sizeof(double))
     Object.SmallNumber = 1.0e-20
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 ** 2
-    Object.ITMAX = 10
+    Object.NumSamples = 10
     ID = 0
     NCOL = 0
     IEXTRA = 0
-    GERJAN(Object.RSTART,  Object.RNMX)
+    GERJAN(Object.RandomSeed,  Object.RNMX)
     IMBPT = 0
     TDASH = 0.0
     cdef double ** TEMP = <double **> malloc(6 * sizeof(double *))
@@ -133,16 +133,16 @@ cpdef run(PyBoltz Object):
     F1 = Object.EField * Object.CONST2
     F2 = Object.EField * Object.CONST3
     F4 = 2 * acos(-1)
-    J2M = <long long>(Object.MaxNumberOfCollisions / Object.ITMAX)
+    J2M = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ"))
 
-    for J1 in range(int(Object.ITMAX)):
+    for J1 in range(int(Object.NumSamples)):
         for J2 in range(int(J2M)):
             while True:
                 R1 = random_uniform(RDUM)
-                T = -1 * log(R1) / Object.TCFMX + TDASH
+                T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
                 Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 TDASH = T
                 AP = DCZ1 * F2 * sqrt(E1)
@@ -157,7 +157,7 @@ cpdef run(PyBoltz Object):
                 if Object.NumberOfGases == 1:
                     GasIndex = 0
                 else:
-                    while (Object.TCFMXG[GasIndex] < R2):
+                    while (Object.MaxCollisionFreqTotalG[GasIndex] < R2):
                         GasIndex = GasIndex + 1
                 # CALCULATE ELECTRON VELOCITY VECTORS BEFORE COLLISION
                 CX2 = CX1 * COSWT - CY1 * SINWT
@@ -168,7 +168,7 @@ cpdef run(PyBoltz Object):
                 # CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
                 IMBPT += 1
                 if (IMBPT > 6):
-                    GERJAN(Object.RSTART, Object.RNMX)
+                    GERJAN(Object.RandomSeed, Object.RNMX)
                     IMBPT = 1
                 VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1
@@ -182,11 +182,11 @@ cpdef run(PyBoltz Object):
                 IE = min(IE, 3999)
 
                 R5 = random_uniform(RDUM)
-                TEST1 = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
+                TEST1 = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
 
                 # TEST FOR REAL OR NULL COLLISION
                 if R5 > TEST1:
-                    TEST2 = TEMP[GasIndex][IE] / Object.TCFMAX[GasIndex]
+                    TEST2 = TEMP[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
                     if R5 < TEST2:
                         # TEST FOR NULL LEVELS
                         if Object.NPLAST[GasIndex] == 0:
@@ -200,7 +200,7 @@ cpdef run(PyBoltz Object):
                         Object.ICOLNN[GasIndex][I] += 1
                         continue
                     else:
-                        TEST3 = (TEMP[GasIndex][IE] + ABSFAKEI) / Object.TCFMAX[GasIndex]
+                        TEST3 = (TEMP[GasIndex][IE] + ABSFAKEI) / Object.MaxCollisionFreq[GasIndex]
                         if R5 < TEST3:
                             # FAKE IONISATION INCREMENT COUNTER
                             Object.IFAKE += 1

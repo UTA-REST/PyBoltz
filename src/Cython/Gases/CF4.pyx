@@ -71,7 +71,7 @@ cdef void Gas1(Gas* object):
     object.NNULL = 0
     cdef int NASIZE = 4000
     cdef int NBREM = 25
-    object.NSTEP = 4000
+    object.EnergySteps = 4000
     for i in range(0, 6):
         object.KEL[i] = object.WhichAngularModel
     # ASSUME CAPITELLI LONGO TYPE OF ANGULAR DISTRIBUTION FOR
@@ -210,7 +210,7 @@ cdef void Gas1(Gas* object):
 
     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
     # EN=-ESTEP/2.0  #ESTEP is function input
-    for i in range(object.NSTEP):
+    for i in range(object.EnergySteps):
         EN = object.EG[i]
         # EN=EN+ESTEP
         GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2

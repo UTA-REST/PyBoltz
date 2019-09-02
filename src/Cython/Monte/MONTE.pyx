@@ -93,7 +93,7 @@ cpdef run(PyBoltz Object):
     SME2OLD = 0.0
 
     Object.SmallNumber = 1.0e-20
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
 
@@ -101,7 +101,7 @@ cpdef run(PyBoltz Object):
 
     INTEM = 8
 
-    Object.ITMAX = 10
+    Object.NumSamples = 10
     ID = 0
     NCOL = 0
     IEXTRA = 0
@@ -125,19 +125,19 @@ cpdef run(PyBoltz Object):
     F2 = Object.EField * Object.CONST3
     F4 = 2 * acos(-1)
 
-    J2M = <long long>(Object.MaxNumberOfCollisions / Object.ITMAX)
+    J2M = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
 
     DELTAE = Object.FinalElectronEnergy / float(INTEM)
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ"))
-    for J1 in range(int(Object.ITMAX)):
+    for J1 in range(int(Object.NumSamples)):
         for J2 in range(int(J2M)):
             while True:
                 R1 = random_uniform(RDUM)
                 I = int(E1 / DELTAE) + 1
                 I = min(I, INTEM) - 1
-                TLIM = Object.TCFMAXNT[I]
+                TLIM = Object.MaxCollisionFreqNT[I]
                 T = -1 * log(R1) / TLIM + TDASH
                 Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 TDASH = T
@@ -147,7 +147,7 @@ cpdef run(PyBoltz Object):
                 IE = min(IE, 3999)
                 if TEMP[IE] > TLIM:
                     TDASH += log(R1) / TLIM
-                    Object.TCFMAXNT[I] *= 1.05
+                    Object.MaxCollisionFreqNT[I] *= 1.05
                     continue
 
                 # TEST FOR REAL OR NULL COLLISION

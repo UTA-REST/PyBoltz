@@ -45,7 +45,7 @@ cdef class PyBoltz:
         memset(self.IPNNT, 0, 960 * sizeof(double))
         memset(self.PENFRANT, 0, 3*960 * sizeof(double))
         memset(self.WPLNT, 0, 960 * sizeof(double))
-        memset(self.TCFMAXNT, 0, 8 * sizeof(double))
+        memset(self.MaxCollisionFreqNT, 0, 8 * sizeof(double))
         memset(self.CFNNT, 0, 4000*60 * sizeof(double))
         memset(self.TCFNNT, 0, 4000 * sizeof(double))
         memset(self.SCLENULNT, 0, 60 * sizeof(double))
@@ -71,7 +71,7 @@ cdef class PyBoltz:
         memset(self.ICOLNNT, 0, 960 * sizeof(double))
         memset(self.AMGAS, 0, 6 * sizeof(double))
         memset(self.VTMB, 0, 6 * sizeof(double))
-        memset(self.TCFMXG, 0, 6 * sizeof(double))
+        memset(self.MaxCollisionFreqTotalG, 0, 6 * sizeof(double))
         memset(self.GasIDs, 0, 6 * sizeof(double))
         memset(self.GasFractions, 0, 6 * sizeof(double))
         memset(self.ANN, 0, 6 * sizeof(double))
@@ -95,7 +95,7 @@ cdef class PyBoltz:
         memset(self.IPLAST, 0, 6 * sizeof(double))
         memset(self.ISIZE, 0, 6 * sizeof(double))
         memset(self.PENFRA, 0, 6 * 290 * 3 * sizeof(double))
-        memset(self.TCFMAX, 0, 6 * sizeof(double))
+        memset(self.MaxCollisionFreq, 0, 6 * sizeof(double))
         memset(self.CFN, 0, 6 * 10 * 4000 * sizeof(double))
         memset(self.TCFN, 0, 6 * 4000 * sizeof(double))
         memset(self.SCLENUL, 0, 6 * 10 * sizeof(double))
@@ -151,15 +151,12 @@ cdef class PyBoltz:
         self.Decor_NCORLN = 0
         self.Decor_NCORST = 0
 
-
-        # Unknown and to be named
-        self.AnisotropicDetected = 0
-
         # Named but imperfectly understood
         self.X = 0.0
         self.Y = 0.0
         self.Z = 0.0
-        self.NSTEP = 0
+        self.EnergySteps = 0
+        self.AnisotropicDetected = 0
         self.FinalElectronEnergy = 0.0
         self.ElectronEnergyStep = 0
         self.NSCALE = 0
@@ -168,8 +165,8 @@ cdef class PyBoltz:
         self.TimeSum = 0.0
 
         # To be named
-        self.TCFMX = 0.0
-        self.ITMAX = 0
+        self.MaxCollisionFreqTotal = 0.0
+        self.NumSamples = 0
 
         
         # Outputs
@@ -207,7 +204,7 @@ cdef class PyBoltz:
         self.ErrorDiffusionXZ = 0.0
         self.IFAKE = 0
         self.FAKEI = 0.0
-        self.RSTART = 0.666
+        self.RandomSeed = 0.666
         self.ConsoleOutputFlag = 1
         self.MeanCollisionTime = 0.0
         self.ReducedIonization=0.0
@@ -230,7 +227,7 @@ cdef class PyBoltz:
             self.VelocityX *=1e-5
 
             self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
-            self.ReducedAttechment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
+            self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
 
 
    
@@ -323,7 +320,7 @@ cdef class PyBoltz:
         # Run the simulation
         MonteCarloFunc.run(self)
 
-        # Ignoring these for now
+        # Closeout and end
         self.end()
         return
              

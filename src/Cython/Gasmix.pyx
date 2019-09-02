@@ -59,7 +59,7 @@ cdef void callGASF(Gas* GAS):
         Gas25(GAS)
 
 cdef class Gasmix:
-    def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, NSTEP,
+    def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
                      WhichAngularModel, ESTEP, EFINAL, AKT, RhydbergConst, TEMPC, TORR, EnablePenning,PIR2):
         '''This functions simply initiates the gas data from the parameters. This functions fills the output arrays to zeros.'''
         cdef int i,j;
@@ -79,7 +79,7 @@ cdef class Gasmix:
             self.Gases[i].DEN = DEN
             self.Gases[i].DENS = DENS
             self.Gases[i].NumberOfGases = NumberOfGases
-            self.Gases[i].NSTEP = NSTEP
+            self.Gases[i].EnergySteps = EnergySteps
             self.Gases[i].WhichAngularModel = WhichAngularModel
             self.Gases[i].EFINAL = EFINAL
             self.Gases[i].AKT = AKT
@@ -100,7 +100,7 @@ cdef class Gasmix:
 
 
 
-    def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, NSTEP,
+    def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
                    WhichAngularModel, ESTEP, EFINAL, AKT, RhydbergConst, TEMPC, TORR, EnablePenning,PIR2):
         '''This functions is used to fill the common main gas mixing inputs.'''
         for i in range(6):
@@ -114,7 +114,7 @@ cdef class Gasmix:
             self.Gases[i].DEN[:] = DEN[:]
             self.Gases[i].DENS = DENS
             self.Gases[i].NumberOfGases = NumberOfGases
-            self.Gases[i].NSTEP = NSTEP
+            self.Gases[i].EnergySteps = EnergySteps
             self.Gases[i].WhichAngularModel = WhichAngularModel
             self.Gases[i].EFINAL = EFINAL
             self.Gases[i].AKT = AKT

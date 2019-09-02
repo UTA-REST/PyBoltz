@@ -233,8 +233,8 @@ cdef void Gas8(Gas*object):
     #  RENORMALISE GROUND STATE TO ALLOW FOR INCREASED EXCITATION X-SEC
     #  FROM EXCITED VIBRATIONAL STATE ( EXACT FOR TWICE GROUND STATE XSEC)
     APOPGS = 1.0
-    object.NSTEP = 4000
-    for I in range(object.NSTEP):
+    object.EnergySteps = 4000
+    for I in range(object.EnergySteps):
         EN = object.EG[I]
         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
         GAMMA2 = GAMMA1 * GAMMA1

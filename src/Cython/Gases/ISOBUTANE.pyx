@@ -190,7 +190,7 @@ cdef void Gas11(Gas*object):
     F = [0.00131,0.0150,0.114,0.157,0.171,0.188,0.205,0.193,0.162,0.103,0.067,0.064,0.028]
     cdef int FI
     
-    for I in range(object.NSTEP):
+    for I in range(object.EnergySteps):
         EN = object.EG[I]
         ENLG = log(EN)
         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2

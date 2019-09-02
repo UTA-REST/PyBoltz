@@ -67,7 +67,7 @@ cpdef Setup(PyBoltz object):
 
     if object.MaxNumberOfCollisions < 0:
         raise ValueError("MaxNumberOfCollisions value is too large - overflow")
-    object.NSTEP = 4000
+    object.EnergySteps = 4000
     object.AngleFromZ = 0.785
     object.AngleFromX = 0.1
 
@@ -160,7 +160,7 @@ cpdef SetupT(PyBoltz object):
 
     if object.MaxNumberOfCollisions < 0:
         raise ValueError("NMAX value is too large - overflow")
-    object.NSTEP = 4000
+    object.EnergySteps = 4000
     object.AngleFromZ = 0.785
     object.AngleFromX = 0.1
     object.InitialElectronEnergy = object.FinalElectronEnergy / 50.0

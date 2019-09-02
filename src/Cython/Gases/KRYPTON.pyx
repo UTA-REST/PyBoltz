@@ -338,8 +338,8 @@ cdef void Gas6(Gas*object):
     F = [0.082,0.154,0.0140,0.0435,0.0105,0.0970,0.0808,0.0015,0.0439,0.0203,0.1680]
 
     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,QELA,QMOM,PQ[3],QTEMP,QCORR
-    object.NSTEP = 4000
-    for I in range(object.NSTEP):
+    object.EnergySteps = 4000
+    for I in range(object.EnergySteps):
         EN = object.EG[I]
         if EN > object.EIN[0]:
             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2

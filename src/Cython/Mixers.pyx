@@ -22,7 +22,7 @@ cpdef Mixer(PyBoltz object):
     ECHARG = 1.602176565e-19
 
 
-    object.ElectronEnergyStep = object.FinalElectronEnergy / object.NSTEP
+    object.ElectronEnergyStep = object.FinalElectronEnergy / object.EnergySteps
 
     EHALF = object.ElectronEnergyStep / 2
 
@@ -34,7 +34,7 @@ cpdef Mixer(PyBoltz object):
     MIXOBJECT = Gasmix()
     MIXOBJECT.InitWithInfo(object.GasIDs, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
-                           object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.WhichAngularModel, object.ElectronEnergyStep,
+                           object.DENSY, 0, object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
                            object.FinalElectronEnergy, object.ThermalEnergy, object.RhydbergConst, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
     MIXOBJECT.Run()
 
@@ -310,9 +310,9 @@ cpdef Mixer(PyBoltz object):
         JLOW = max(JLOW, 0)
         JHI = min(JHI, 4000)
         for J in range(int(JLOW-1), int(JHI)):
-            if (object.TCFNT[J] + object.TCFNNT[J] + abs(object.FAKEI)) > object.TCFMAXNT[l]:
-                object.TCFMAXNT[l] = object.TCFNT[J] + object.TCFNNT[J] + abs(object.FAKEI)
-    for I in range(object.NSTEP):
+            if (object.TCFNT[J] + object.TCFNNT[J] + abs(object.FAKEI)) > object.MaxCollisionFreqNT[l]:
+                object.MaxCollisionFreqNT[l] = object.TCFNT[J] + object.TCFNNT[J] + abs(object.FAKEI)
+    for I in range(object.EnergySteps):
         object.QTOT[I] = object.ANN[0] * MIXOBJECT.Gases[0].Q[0][I] + object.ANN[1] * MIXOBJECT.Gases[1].Q[0][I] + \
                          object.ANN[2] * MIXOBJECT.Gases[2].Q[0][I] + object.ANN[3] * MIXOBJECT.Gases[3].Q[0][I] + \
                          object.ANN[4] * MIXOBJECT.Gases[4].Q[0][I] + object.ANN[5] * MIXOBJECT.Gases[5].Q[0][I]
@@ -355,7 +355,7 @@ cpdef MixerT(PyBoltz object):
     cdef int  IE, GasIndex, NP, p, sum, J, i, j, KION, JJ, IL, I
     ECHARG = 1.602176565e-19
 
-    object.ElectronEnergyStep = object.FinalElectronEnergy / float(object.NSTEP)
+    object.ElectronEnergyStep = object.FinalElectronEnergy / float(object.EnergySteps)
 
     EHALF = object.ElectronEnergyStep / 2
 
@@ -368,7 +368,7 @@ cpdef MixerT(PyBoltz object):
     MIXOBJECT = Gasmix()
     MIXOBJECT.InitWithInfo(object.GasIDs, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
-                           object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.WhichAngularModel, object.ElectronEnergyStep,
+                           object.DENSY, 0, object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
                            object.FinalElectronEnergy, object.ThermalEnergy, object.RhydbergConst, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
     MIXOBJECT.Run()
 
@@ -640,25 +640,25 @@ cpdef MixerT(PyBoltz object):
     # CALCULATE NULL COLLISION FREQUENCIES FOR EACH GAS COMPONENT
     FAKEIN = abs(object.FAKEI) / object.NumberOfGases
     for GasIndex in range(object.NumberOfGases):
-        object.TCFMAX[GasIndex] = 0.0
+        object.MaxCollisionFreq[GasIndex] = 0.0
         for IE in range(4000):
-            if object.TCF[GasIndex][IE] + object.TCFN[GasIndex][IE] + FAKEIN >= object.TCFMAX[GasIndex]:
-                object.TCFMAX[GasIndex] = object.TCF[GasIndex][IE] + object.TCFN[GasIndex][IE] + FAKEIN
+            if object.TCF[GasIndex][IE] + object.TCFN[GasIndex][IE] + FAKEIN >= object.MaxCollisionFreq[GasIndex]:
+                object.MaxCollisionFreq[GasIndex] = object.TCF[GasIndex][IE] + object.TCFN[GasIndex][IE] + FAKEIN
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
-    object.TCFMX = 0.0
+    object.MaxCollisionFreqTotal = 0.0
     for GasIndex in range(object.NumberOfGases):
-        object.TCFMX = object.TCFMX + object.TCFMAX[GasIndex]
+        object.MaxCollisionFreqTotal = object.MaxCollisionFreqTotal + object.MaxCollisionFreq[GasIndex]
     for GasIndex in range(object.NumberOfGases):
-        object.TCFMXG[GasIndex] = object.TCFMAX[GasIndex] / object.TCFMX
+        object.MaxCollisionFreqTotalG[GasIndex] = object.MaxCollisionFreq[GasIndex] / object.MaxCollisionFreqTotal
     for GasIndex in range(1, object.NumberOfGases):
-        object.TCFMXG[GasIndex] = object.TCFMXG[GasIndex] + object.TCFMXG[GasIndex - 1]
+        object.MaxCollisionFreqTotalG[GasIndex] = object.MaxCollisionFreqTotalG[GasIndex] + object.MaxCollisionFreqTotalG[GasIndex - 1]
 
     # CALCULATE MAXWELL BOLTZMAN VELOCITY FACTOR FOR EACH GAS COMPONENT
 
     for GasIndex in range(object.NumberOfGases):
         object.VTMB[GasIndex] = sqrt(2.0 * ECHARG * object.ThermalEnergy / object.AMGAS[GasIndex]) * 1e-12
 
-    for I in range(object.NSTEP):
+    for I in range(object.EnergySteps):
         object.QTOT[I] = object.ANN[0] * MIXOBJECT.Gases[0].Q[0][I] + object.ANN[1] * MIXOBJECT.Gases[1].Q[0][I] + \
                          object.ANN[2] * MIXOBJECT.Gases[2].Q[0][I] + object.ANN[3] * MIXOBJECT.Gases[3].Q[0][I] + \
                          object.ANN[4] * MIXOBJECT.Gases[4].Q[0][I] + object.ANN[5] * MIXOBJECT.Gases[5].Q[0][I]

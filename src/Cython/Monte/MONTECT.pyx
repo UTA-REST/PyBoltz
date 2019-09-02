@@ -147,7 +147,7 @@ cpdef run(PyBoltz Object):
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
     E1 = Object.InitialElectronEnergy
 
-    Object.ITMAX = 10
+    Object.NumSamples = 10
     ID = 0
     NCOL = 0
     IEXTRA = 0
@@ -157,7 +157,7 @@ cpdef run(PyBoltz Object):
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Object.TCF[K][J] + Object.TCFN[K][J]
-    GERJAN(Object.RSTART,  Object.RNMX)
+    GERJAN(Object.RandomSeed,  Object.RNMX)
     ABSFAKEI = Object.FAKEI
     Object.IFAKE = 0
 
@@ -174,17 +174,17 @@ cpdef run(PyBoltz Object):
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
-    RDUM = Object.RSTART
+    RDUM = Object.RandomSeed
 
-    J2M = <long long>(Object.MaxNumberOfCollisions / Object.ITMAX)
+    J2M = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
     if Object.ConsoleOutputFlag:
         print('{:^12s}{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Velocity X","Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFXZ","DIFXY"))
-    for J1 in range(int(Object.ITMAX)):
+    for J1 in range(int(Object.NumSamples)):
         for J2 in range(int(J2M)):
             while True:
                 R1 = random_uniform(RDUM)
-                T = -1 * log(R1) / Object.TCFMX + TDASH
+                T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
                 Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 TDASH = T
                 WBT = Object.AngularSpeedOfRotation * T
@@ -207,12 +207,12 @@ cpdef run(PyBoltz Object):
                 if Object.NumberOfGases == 1:
                     GasIndex = 0
                 else:
-                    while (Object.TCFMXG[GasIndex] < R2):
+                    while (Object.MaxCollisionFreqTotalG[GasIndex] < R2):
                         GasIndex = GasIndex + 1
 
                 IMBPT += 1
                 if (IMBPT > 6):
-                    GERJAN(Object.RSTART,  Object.RNMX)
+                    GERJAN(Object.RandomSeed,  Object.RNMX)
                     IMBPT = 1
                 VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1
@@ -227,9 +227,9 @@ cpdef run(PyBoltz Object):
 
                 # TEST FOR REAL OR NULL COLLISION
                 R5 = random_uniform(RDUM)
-                TEST1 = Object.TCF[GasIndex][IE] / Object.TCFMAX[GasIndex]
+                TEST1 = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
                 if R5 > TEST1:
-                    TEST2 = TEMP[GasIndex][IE] / Object.TCFMAX[GasIndex]
+                    TEST2 = TEMP[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
                     if R5 < TEST2:
                         # TEST FOR NULL LEVELS
                         if Object.NPLAST[GasIndex] == 0:
@@ -243,7 +243,7 @@ cpdef run(PyBoltz Object):
                         Object.ICOLNN[GasIndex][I] += 1
                         continue
                     else:
-                        TEST3 = (TEMP[GasIndex][IE] + ABSFAKEI) / Object.TCFMAX[GasIndex]
+                        TEST3 = (TEMP[GasIndex][IE] + ABSFAKEI) / Object.MaxCollisionFreq[GasIndex]
                         if R5 < TEST3:
                             # FAKE IONISATION INCREMENT COUNTER
                             Object.IFAKE += 1

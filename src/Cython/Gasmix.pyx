@@ -1,21 +1,21 @@
-from CF4 cimport Gas1
-from ARGON cimport Gas2
-from HELIUM4 cimport Gas3
-from HELIUM3 cimport Gas4
-from NEON cimport Gas5
-from KRYPTON cimport Gas6
-from XENON cimport Gas7
-from CH4 cimport Gas8
-from ETHANE cimport Gas9
-from PROPANE cimport Gas10
-from ISOBUTANE cimport Gas11
-from CO2 cimport Gas12
-from H2O cimport Gas14
-from OXYGEN cimport Gas15
-from NITROGEN cimport Gas16
-from HYDROGEN cimport Gas21
-from DEUTERIUM cimport Gas22
-from DME cimport Gas25
+from Gases.CF4 cimport Gas1
+from Gases.ARGON cimport Gas2
+from Gases.HELIUM4 cimport Gas3
+from Gases.HELIUM3 cimport Gas4
+from Gases.NEON cimport Gas5
+from Gases.KRYPTON cimport Gas6
+from Gases.XENON cimport Gas7
+from Gases.CH4 cimport Gas8
+from Gases.ETHANE cimport Gas9
+from Gases.PROPANE cimport Gas10
+from Gases.ISOBUTANE cimport Gas11
+from Gases.CO2 cimport Gas12
+from Gases.H2O cimport Gas14
+from Gases.OXYGEN cimport Gas15
+from Gases.NITROGEN cimport Gas16
+from Gases.HYDROGEN cimport Gas21
+from Gases.DEUTERIUM cimport Gas22
+from Gases.DME cimport Gas25
 from libc.string cimport memset
 
 from Gas cimport Gas
@@ -59,7 +59,7 @@ cdef void callGASF(Gas* GAS):
         Gas25(GAS)
 
 cdef class Gasmix:
-    def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
+    def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, NSTEP,
                      NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN,PIR2):
         '''This functions simply initiates the gas data from the parameters. This functions fills the output arrays to zeros.'''
         cdef int i,j;
@@ -78,7 +78,7 @@ cdef class Gasmix:
             self.Gases[i].QT4 = QT4
             self.Gases[i].DEN = DEN
             self.Gases[i].DENS = DENS
-            self.Gases[i].NGAS = NGAS
+            self.Gases[i].NumberOfGases = NumberOfGases
             self.Gases[i].NSTEP = NSTEP
             self.Gases[i].NANISO = NANISO
             self.Gases[i].EFINAL = EFINAL
@@ -100,7 +100,7 @@ cdef class Gasmix:
 
 
 
-    def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NGAS, NSTEP,
+    def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, NSTEP,
                    NANISO, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, IPEN,PIR2):
         '''This functions is used to fill the common main gas mixing inputs.'''
         for i in range(6):
@@ -113,7 +113,7 @@ cdef class Gasmix:
             self.Gases[i].QT4[:] = QT4[:]
             self.Gases[i].DEN[:] = DEN[:]
             self.Gases[i].DENS = DENS
-            self.Gases[i].NGAS = NGAS
+            self.Gases[i].NumberOfGases = NumberOfGases
             self.Gases[i].NSTEP = NSTEP
             self.Gases[i].NANISO = NANISO
             self.Gases[i].EFINAL = EFINAL

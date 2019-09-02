@@ -15,9 +15,9 @@ cdef double CALQINBEF(double EN, double ENP, int n, double Y[], double X[], doub
 
 cdef double CALQINVISO(double EN, int n, double Y[], double X[],double APOP,double EIN2,double DEG,double EIN1,double CONST)
 
-cdef double CALXMTVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST)
+cdef double CALXMTVAAnisotropicDetected(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST)
 
-cdef double CALQINVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST)
+cdef double CALQINVAAnisotropicDetected(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST)
 
 cdef double CALQINVISELA(double EN, int n, double Y[], double X[], double APOP, double EIN2, double DEG, double EIN1,
                     double CONST,int EFACFLAG)

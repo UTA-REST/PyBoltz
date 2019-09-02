@@ -122,9 +122,9 @@ cdef void Gas5(Gas* object):
     EBRM = gd['gas5/EBRM']
     object.EIN = gd['gas5/EIN']
     for J in range(6):
-        object.KEL[J] = object.NANISO
+        object.KEL[J] = object.WhichAngularModel
     for J in range(object.NIN):
-        object.KIN[J] = object.NANISO
+        object.KIN[J] = object.WhichAngularModel
     cdef int NEL, NDATA, NEPSI, NIOND, NION2, NION3, NKSH, N1S5, N1S4, N1S3, N1S2, N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N2P4, N2P3, N2P2
     cdef int N2P1, N2S5, N2S3, N3D6, N3D4P, N3D4, N3D3, N3D1PP, N3D1P, N3S1PPPP, N3S1PPP, N3S1PP, N3P106, N3P52, N3P1
 
@@ -208,9 +208,9 @@ cdef void Gas5(Gas* object):
     A1 = <float>(1.846)
     B1 = <float>(3.29)
     A2 = <float>(-0.037)
-    object.NSTEP = 4000
+    object.EnergySteps = 4000
 
-    for I in range(object.NSTEP):
+    for I in range(object.EnergySteps):
         EN = object.EG[I]
         if EN > object.EIN[0]:
             GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
@@ -248,21 +248,21 @@ cdef void Gas5(Gas* object):
         PQ[0] = 0.5
         PQ[2] = GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)
         PQ[2] = 1-PQ[2]
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
         object.Q[1][I] = QELA
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMOM
 
         #IONISATION FOR CHARGE STATE =1
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][I] = 0.0
         if EN > object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YIN1, XION, BETA2, <float>(0.9594), CONST, object.DEN[I], C, AM2)
-        #USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
+        #USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
         #ENERGIES ABOVE 2 * IONISATION ENERGY
-        # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
+        # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
         # THE IONISATION ENERGY
             if EN > 2 * object.EION[0]:
                 object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]
@@ -270,7 +270,7 @@ cdef void Gas5(Gas* object):
         #IONISATION FOR CHARGE STATE =2
         object.QION[1][I] = 0.0
         object.PEQION[1][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[1][I] = 0.0
         if EN > object.EION[1]:
             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, <float>(0.0388), CONST, object.DEN[I], C, AM2)
@@ -280,7 +280,7 @@ cdef void Gas5(Gas* object):
         #IONISATION FOR CHARGE STATE =3
         object.QION[2][I] = 0.0
         object.PEQION[2][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[2][I] = 0.0
         if EN > object.EION[2]:
             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, <float>(0.00215), CONST, object.DEN[I], C, AM2)
@@ -290,7 +290,7 @@ cdef void Gas5(Gas* object):
         # K-SHELL IONISATION
         object.QION[3][I] = 0.0
         object.PEQION[3][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[3][I] = 0.0
         if EN > object.EION[3]:
             object.QION[3][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
@@ -303,7 +303,7 @@ cdef void Gas5(Gas* object):
         #COUNTING IONISATION
         object.Q[4][I] = 0.0
         object.PEQEL[4][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQEL[4][I] = 0.0
             if EN > object.E[2]:
                 object.Q[4][I] = GasUtil.CALQIONX(EN, NIOND, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
@@ -324,7 +324,7 @@ cdef void Gas5(Gas* object):
         for NL in range(object.NIN + 1):
             object.QIN[NL][I] = 0.0
             object.PEQIN[NL][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[NL][I] = 0.0
 
         #1S5 METASTABLE LEVEL

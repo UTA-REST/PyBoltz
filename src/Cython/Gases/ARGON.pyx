@@ -48,9 +48,9 @@ cdef void Gas2(Gas *object):
     cdef int i = 0, j = 0
 
     for i in range(0, 6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
     for i in range(0, object.NIN):
-        object.KIN[i] = object.NANISO
+        object.KIN[i] = object.WhichAngularModel
     NDATA = 117
     NEPSI = 217
     NIDATA = 75
@@ -301,14 +301,14 @@ cdef void Gas2(Gas *object):
         PQ2 = 1.0 - PQ2
         PQ = [0.5, PQ1, PQ2]
 
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
         object.Q[1][I] = QELA
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMOM
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][I] = 0
         if EN > object.EION[0]:
             if EN <= XENI[NIDATA - 1]:
@@ -330,7 +330,7 @@ cdef void Gas2(Gas *object):
 
         object.QION[1][I] = 0.0
         object.PEQION[1][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[1][I] = 0
         if EN > object.EION[1]:
             if EN <= XEN2[NION2 - 1]:
@@ -353,7 +353,7 @@ cdef void Gas2(Gas *object):
 
         object.QION[2][I] = 0.0
         object.PEQION[2][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[2][I] = 0
         if EN > object.EION[2]:
             if EN <= XEN3[NION3 - 1]:
@@ -377,7 +377,7 @@ cdef void Gas2(Gas *object):
         object.QION[3][I] = 0.0
         object.PEQION[3][I] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[3][I] = 0.0
 
         if EN > object.EION[3]:
@@ -393,7 +393,7 @@ cdef void Gas2(Gas *object):
         object.QION[4][I] = 0.0
         object.PEQION[4][I] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[4][I] = 0.0
 
         if EN > object.EION[4]:
@@ -408,7 +408,7 @@ cdef void Gas2(Gas *object):
         object.QION[5][I] = 0.0
         object.PEQION[5][I] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[5][I] = 0.0
 
         if EN > object.EION[5]:
@@ -424,7 +424,7 @@ cdef void Gas2(Gas *object):
         object.QION[6][I] = 0.0
         object.PEQION[6][I] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[6][I] = 0.0
 
         if EN > object.EION[6]:
@@ -442,7 +442,7 @@ cdef void Gas2(Gas *object):
         # Counting ionisation
         object.Q[4][I] = 0.0
         object.PEQEL[4][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQEL[4][I] = 0.0
         if EN > object.E[2]:
             if EN <= XENI[NIDATA-1]:
@@ -467,7 +467,7 @@ cdef void Gas2(Gas *object):
         for NL in range(object.NIN):
             object.QIN[NL][I] = 0.0
             object.PEQIN[NL][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[NL][I] = 0.0
 
         # 1S5

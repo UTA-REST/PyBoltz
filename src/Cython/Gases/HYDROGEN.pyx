@@ -94,9 +94,9 @@ cdef void Gas21(Gas*object):
     object.NNULL = 0
 
     for i in range(6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
     for i in range(4, object.NIN):
-        object.KIN[i] = object.NANISO
+        object.KIN[i] = object.WhichAngularModel
 
     for i in range(4):
         object.KIN[i] = 0
@@ -238,16 +238,16 @@ cdef void Gas21(Gas*object):
 
         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - PQ[2]]
 
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
 
         object.Q[1][I] = QELA
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMOM
 
         # GROSS IONISATION
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][I] = 0
         if EN >= object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YION, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
@@ -257,7 +257,7 @@ cdef void Gas21(Gas*object):
         # DISSOCIATIVE IONISATION
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][I] = 0
         if EN >= object.EION[1]:
             object.QION[1][I] = GasUtil.CALQIONX(EN, NIOND, YIOND, XIOND, BETA2, 0.05481, CONST, object.DEN[I], C, AM2)
@@ -272,7 +272,7 @@ cdef void Gas21(Gas*object):
         object.Q[3][I] = 0.0
         object.QATT[0][I] = 0.0
         object.PEQEL[3][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQEL[3][I] = 0.0
 
         #ROTATIONAL DEPENDANCE OF ATTACHMENT TO 2 SIGMAu
@@ -307,7 +307,7 @@ cdef void Gas21(Gas*object):
         for J in range(object.NIN + 1):
             object.QIN[J][I] = 0.0
             object.PEQIN[J][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[J][I] = 0.0
 
         # SUPERELASTIC 2-0

@@ -89,12 +89,12 @@ cdef void Gas8(Gas*object):
     cdef int NIONF3, NIONF4, NIONF5, NIONF6, NIONPP, NKSH, NATT1, NDET, NTRP1, NTRP2, NTRP3, NCHD, NCHB, NHAL, NHBE
     cdef int NASIZE = 4000
     for J in range(6):
-        object.KEL[J] = object.NANISO
+        object.KEL[J] = object.WhichAngularModel
         #SUPERELASTIC, V2 V1 AND HARMONIC VIBRATIONS ASSUMED ISOTROPIC
         object.KIN[J] = 0
     object.KIN[6]=0.0
     object.KIN[7]=0.0
-    #V4 AND V3 VIBRATIONS ANISOTROPIC ( CAPITELLI-LONGO)
+    #V4 AND V3 VIBRATIONS AAnisotropicDetectedTROPIC ( CAPITELLI-LONGO)
     object.KIN[1] = 1
     object.KIN[5] = 1
     for J in range(NBREM):
@@ -233,8 +233,8 @@ cdef void Gas8(Gas*object):
     #  RENORMALISE GROUND STATE TO ALLOW FOR INCREASED EXCITATION X-SEC
     #  FROM EXCITED VIBRATIONAL STATE ( EXACT FOR TWICE GROUND STATE XSEC)
     APOPGS = 1.0
-    object.NSTEP = 4000
-    for I in range(object.NSTEP):
+    object.EnergySteps = 4000
+    for I in range(object.EnergySteps):
         EN = object.EG[I]
         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
         GAMMA2 = GAMMA1 * GAMMA1
@@ -271,15 +271,15 @@ cdef void Gas8(Gas*object):
             PQ[2] = 1.0e0 - PQ[2]
         PQ[1] = 0.5 + (QELA - QMOM) / QELA
         PQ[0] = 0.5
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
         object.Q[1][I] = QELA
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMOM
 
         # IONISATION TO CH4 +
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][I] = 0
         if EN >= object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONF, YINF, XINF, BETA2, <float> (0.4594), CONST, object.DEN[I],
@@ -290,7 +290,7 @@ cdef void Gas8(Gas*object):
         # IONISATION TO CH3 +
         object.QION[1][I] = 0.0
         object.PEQION[1][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[1][I] = 0
         if EN >= object.EION[1]:
             object.QION[1][I] = GasUtil.CALQIONX(EN, NIONF1, YINF1, XINF1, BETA2, <float> (0.3716), CONST,
@@ -301,7 +301,7 @@ cdef void Gas8(Gas*object):
         # IONISATION TO CH2 +
         object.QION[2][I] = 0.0
         object.PEQION[2][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[2][I] = 0
         if EN >= object.EION[2]:
             object.QION[2][I] = GasUtil.CALQIONX(EN, NIONF2, YINF2, XINF2, BETA2, <float> (0.06312), CONST,
@@ -312,7 +312,7 @@ cdef void Gas8(Gas*object):
         # IONISATION TO H +
         object.QION[3][I] = 0.0
         object.PEQION[3][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[3][I] = 0
         if EN >= object.EION[3]:
             object.QION[3][I] = GasUtil.CALQIONX(EN, NIONF3, YINF3, XINF3, BETA2, <float> (0.0664), CONST,
@@ -323,7 +323,7 @@ cdef void Gas8(Gas*object):
         # IONISATION TO CH +
         object.QION[4][I] = 0.0
         object.PEQION[4][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[4][I] = 0
         if EN >= object.EION[4]:
             object.QION[4][I] = GasUtil.CALQIONX(EN, NIONF4, YINF4, XINF4, BETA2, <float> (0.02625), CONST,
@@ -334,7 +334,7 @@ cdef void Gas8(Gas*object):
         # IONISATION TO C +
         object.QION[5][I] = 0.0
         object.PEQION[5][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[5][I] = 0
         if EN >= object.EION[5]:
             object.QION[5][I] = GasUtil.CALQIONX(EN, NIONF5, YINF5, XINF5, BETA2, <float> (0.00798), CONST,
@@ -345,7 +345,7 @@ cdef void Gas8(Gas*object):
         # IONISATION TO DOUBLY POSITIVE CHARGED FINAL STATES
         object.QION[6][I] = 0.0
         object.PEQION[6][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[6][I] = 0
         if EN >= object.EION[6]:
             object.QION[6][I] = GasUtil.CALQIONX(EN, NIONPP, YINPP, XINPP, BETA2, <float> (0.0095969), CONST,
@@ -356,7 +356,7 @@ cdef void Gas8(Gas*object):
         # IONISATION TO H2+
         object.QION[7][I] = 0.0
         object.PEQION[7][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[7][I] = 0
         if EN >= object.EION[7]:
             object.QION[7][I] = GasUtil.CALQIONX(EN, NIONF6, YINF6, XINF6, BETA2, <float> (0.00523), CONST,
@@ -367,7 +367,7 @@ cdef void Gas8(Gas*object):
         # CALCULATE K-SHELL IONISATION
         object.QION[8][I] = 0.0
         object.PEQION[8][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[8][I] = 0
         if EN >= object.EION[8]:
             object.QION[8][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
@@ -400,14 +400,14 @@ cdef void Gas8(Gas*object):
         if EN > 0.0:
             object.QIN[0][I] = GasUtil.CALQINVISO(EN, NVIBV4, YVBV4, XVBV4, APOPV4, object.EIN[1], DEGV4, object.EIN[0],
                                                    <float> (0.076))
-        #V4 ANISOTROPIC
+        #V4 AAnisotropicDetectedTROPIC
         object.QIN[1][I] = 0.0
         object.PEQIN[1][I] = 0.5
         if EN > object.EIN[1]:
-            object.QIN[1][I] = GasUtil.CALQINVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT,
+            object.QIN[1][I] = GasUtil.CALQINVAAnisotropicDetected(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT,
                                                     <float> (0.076))
             #RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART =RAT
-            XMT = GasUtil.CALXMTVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT, <float>(0.076))
+            XMT = GasUtil.CALXMTVAAnisotropicDetected(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT, <float>(0.076))
             object.PEQIN[1][I] = 0.5 + (object.QIN[1][I] - XMT) / object.QIN[1][I]
 
         #V2  SUPERELASTIC ISOTROPIC
@@ -429,13 +429,13 @@ cdef void Gas8(Gas*object):
         if EN > object.EIN[4]:
             object.QIN[4][I] = GasUtil.CALQINVISO(EN, NVIBV1, YVBV1, XVBV1, 1, 0, 1, object.EIN[0], 0.0)
 
-        #V3 ANISOTROPIC
+        #V3 AAnisotropicDetectedTROPIC
         object.QIN[5][I] = 0.0
         object.PEQIN[5][I] = 0.5
         if EN > object.EIN[5]:
-            object.QIN[5][I] = GasUtil.CALQINVANISO(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
+            object.QIN[5][I] = GasUtil.CALQINVAAnisotropicDetected(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
             #RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART =RAT
-            XMT = GasUtil.CALXMTVANISO(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
+            XMT = GasUtil.CALXMTVAAnisotropicDetected(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
             object.PEQIN[5][I] = 0.5 + (object.QIN[5][I] - XMT) / object.QIN[5][I]
 
         #VIBRATION HARMONICS 1 ISOTROPIC

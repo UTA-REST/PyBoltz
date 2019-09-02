@@ -113,7 +113,6 @@ cpdef run(PyBoltz Object):
     EBAROLD = 0.0
 
     Object.SmallNumber = 1e-20
-    Object.MaximumCollisionTime = 0.0
     EF100 = Object.EField * 100
     RDUM = Object.RSTART
     E1 = Object.InitialElectronEnergy
@@ -194,8 +193,6 @@ cpdef run(PyBoltz Object):
                     break
 
             T2 = T ** 2
-            if (T >= Object.MaximumCollisionTime):
-                Object.MaximumCollisionTime = T
             TDASH = 0.0
             CX2 = CX1
             CY2 = (CY1 - Object.EFieldOverBField) * COSWT + CZ1 * SINWT + Object.EFieldOverBField

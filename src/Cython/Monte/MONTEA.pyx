@@ -108,7 +108,6 @@ cpdef run(PyBoltz Object):
     SME2OLD = 0.0
 
     Object.SmallNumber = 1.0e-20
-    Object.MaximumCollisionTime = 0.0
     RDUM = Object.RSTART
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
@@ -191,8 +190,6 @@ cpdef run(PyBoltz Object):
 
 
             T2 = T ** 2
-            if (T >= Object.MaximumCollisionTime):
-                Object.MaximumCollisionTime = T
             TDASH = 0.0
             WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)

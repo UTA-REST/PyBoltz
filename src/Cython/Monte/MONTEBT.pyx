@@ -124,7 +124,6 @@ cpdef run(PyBoltz Object):
     STROLD = 0.0
     EBAROLD = 0.0
     Object.SmallNumber = 1e-20
-    Object.MaximumCollisionTime = 0.0
     EF100 = Object.EField * 100
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
@@ -243,8 +242,6 @@ cpdef run(PyBoltz Object):
             #  CALCULATE POSITIONS AT INSTANT BEFORE COLLISION
             #    ALSO UPDATE DIFFUSION  AND ENERGY CALCULATIONS.
             T2 = T ** 2
-            if (T >= Object.MaximumCollisionTime):
-                Object.MaximumCollisionTime = T
             TDASH = 0.0
 
             #CALC NEW POSITION

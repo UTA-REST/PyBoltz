@@ -209,7 +209,6 @@ cdef class PyBoltz:
         self.PIR2 = 0.0
 
         # Named but imperfectly understood
-        self.MaximumCollisionTime = 0.0
         self.MaxCollisionTime = 100.0
         self.X = 0.0
         self.Y = 0.0

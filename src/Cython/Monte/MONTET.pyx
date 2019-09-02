@@ -104,7 +104,6 @@ cpdef run(PyBoltz Object):
     memset(DFXXST, 0, 10 * sizeof(double))
 
     Object.SmallNumber = 1.0e-20
-    Object.MaximumCollisionTime = 0.0
     RDUM = Object.RSTART
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
@@ -223,8 +222,6 @@ cpdef run(PyBoltz Object):
             DZCOM = (VEZ - VGZ) * CONST11
             # CALCULATE POSITIONS AT INSTANT BEFORE COLLISION, & UPDATE DIFFUSION AND ENERGY CALCULATIONS
             T2 = T * T
-            if (T >= Object.MaximumCollisionTime):
-                Object.MaximumCollisionTime = T
             TDASH = 0.0
             A = AP * T
             B = BP * T2

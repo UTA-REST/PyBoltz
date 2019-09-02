@@ -127,7 +127,6 @@ cpdef run(PyBoltz Object):
 
     EBAROLD = 0.0
     Object.SmallNumber = 1e-20
-    Object.MaximumCollisionTime = 0.0
     RCS = cos((Object.BFieldAngle - 90) * np.pi / 180)
     RSN = sin((Object.BFieldAngle - 90) * np.pi / 180)
     RTHETA = Object.BFieldAngle * np.pi / 180
@@ -214,8 +213,6 @@ cpdef run(PyBoltz Object):
                 else:
                     break
             T2 = T ** 2
-            if (T >= Object.MaximumCollisionTime):
-                Object.MaximumCollisionTime = T
             TDASH = 0.0
 
             CX2 = CX1 + 2 * F1 * T

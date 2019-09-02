@@ -3,6 +3,8 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
 from PyBoltz cimport drand48
 from MBSorts cimport MBSortT
+import numpy as np
+cimport numpy as np
 from libc.stdlib cimport malloc, free
 import cython
 
@@ -16,13 +18,13 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef void GERJAN(double RDUM, double API, double *RNMX):
+cdef void GERJAN(double RDUM,  double *RNMX):
     cdef double RAN1, RAN2, TWOPI
     cdef int J
     for J in range(0, 5, 2):
         RAN1 = random_uniform(RDUM)
         RAN2 = random_uniform(RDUM)
-        TWOPI = 2.0 * API
+        TWOPI = 2.0 * np.pi
         RNMX[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
         RNMX[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
 
@@ -42,7 +44,7 @@ cpdef run(PyBoltz Object):
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
-    cdef long long I, ID, XID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, NCOLDM
+    cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, NCOLDM
     cdef double ST1, RDUM, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMXZ, SUMXY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SYZOLD, SXYOLD, SXZOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
@@ -130,18 +132,17 @@ cpdef run(PyBoltz Object):
     EBAROLD = 0.0
     Object.SmallNumber = 1e-20
     Object.MaximumCollisionTime = 0.0
-    Object.Pi = acos(-1)
 
     # CALC ROTATION MATRIX ANGLES
-    RCS = cos((Object.BFieldAngle - 90) * Object.Pi / 180)
-    RSN = sin((Object.BFieldAngle - 90) * Object.Pi / 180)
+    RCS = cos((Object.BFieldAngle - 90) * np.pi / 180)
+    RSN = sin((Object.BFieldAngle - 90) * np.pi / 180)
 
-    RTHETA = Object.BFieldAngle * Object.Pi / 180
+    RTHETA = Object.BFieldAngle * np.pi / 180
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
 
     F1 = Object.EField * Object.CONST2 * sin(RTHETA)
-    F4 = 2 * Object.Pi
+    F4 = 2 * np.pi
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 ** 2
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
@@ -158,7 +159,7 @@ cpdef run(PyBoltz Object):
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Object.TCF[K][J] + Object.TCFN[K][J]
-    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+    GERJAN(Object.RSTART,  Object.RNMX)
     ABSFAKEI = Object.FAKEI
     Object.IFAKE = 0
 
@@ -213,7 +214,7 @@ cpdef run(PyBoltz Object):
 
                 IMBPT += 1
                 if (IMBPT > 6):
-                    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+                    GERJAN(Object.RSTART,  Object.RNMX)
                     IMBPT = 1
                 VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1
@@ -304,7 +305,6 @@ cpdef run(PyBoltz Object):
 
             if NCOL >= Object.NCOLM:
                 ID += 1
-                Object.XID = float(ID)
                 NCOL = 0
             # DETERMENATION OF REAL COLLISION TYPE
             R2 = random_uniform(RDUM)
@@ -335,7 +335,7 @@ cpdef run(PyBoltz Object):
                 EI = EOK - 0.0001
             #IF EXCITATION THEN ADD PROBABILITY,PENFRAC(1,I), OF TRANSFER TO GIVE
             # IONISATION OF THE OTHER GASES IN THE MIXTURE
-            if Object.IPEN != 0:
+            if Object.EnablePenning != 0:
                 if Object.PENFRA[KGAS][0][I] != 0:
                     RAN = random_uniform(RDUM)
                     if RAN <= Object.PENFRA[KGAS][0][I]:

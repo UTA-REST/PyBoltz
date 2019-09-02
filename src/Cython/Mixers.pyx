@@ -35,7 +35,7 @@ cpdef Mixer(PyBoltz object):
     MIXOBJECT.InitWithInfo(object.NumberOfGasesN, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
                            object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.NANISO, object.ElectronEnergyStep,
-                           object.FinalElectronEnergy, object.ThermalEnergy, object.ARY, object.TemperatureCentigrade, object.PressureTorr, object.IPEN, object.PIR2)
+                           object.FinalElectronEnergy, object.ThermalEnergy, object.ARY, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
     MIXOBJECT.Run()
 
     EMASS = 9.10938291e-31
@@ -369,7 +369,7 @@ cpdef MixerT(PyBoltz object):
     MIXOBJECT.InitWithInfo(object.NumberOfGasesN, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
                            object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.NANISO, object.ElectronEnergyStep,
-                           object.FinalElectronEnergy, object.ThermalEnergy, object.ARY, object.TemperatureCentigrade, object.PressureTorr, object.IPEN, object.PIR2)
+                           object.FinalElectronEnergy, object.ThermalEnergy, object.ARY, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
     MIXOBJECT.Run()
 
     #-----------------------------------------------------------------

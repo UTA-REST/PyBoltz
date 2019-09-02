@@ -182,9 +182,9 @@ cdef void Gas7(Gas*object):
     cdef int J, I
 
     for J in range(6):
-        object.KEL[J] = object.NANISO
+        object.KEL[J] = object.WhichAngularModel
     for J in range(object.NIN):
-        object.KIN[J] = object.NANISO
+        object.KIN[J] = object.WhichAngularModel
     cdef int NDATA, NEL, NEPSI, NIONG, NION2, NION3, NION4, NION5, NION6, NIONK, NIONL1, NIONL2, NIONL3, NIONM1, NIONM2, NIONM3, NIONM4
     cdef int NIONM5, N1S5, N1S4, N1S3, N1S2, N2P10, N2P9, N2P8, N2P7, N2P6, N3D6, N2P5, N3D4P, N3D3, N3D4, N3D1PP, N3D1P, N2S5, N3PSUM, N2P4
     cdef int N4DSUM, N2P3, N2P2, N2P1
@@ -276,10 +276,10 @@ cdef void Gas7(Gas*object):
             if object.EG[I] > object.EIN[NL]:
                 IOFFN[NL] = I - 1
                 break
-    object.NSTEP = 4000
+    object.EnergySteps = 4000
 
 
-    for I in range(object.NSTEP):
+    for I in range(object.EnergySteps):
         EN = object.EG[I]
         if EN > object.EIN[0]:
             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
@@ -298,26 +298,26 @@ cdef void Gas7(Gas*object):
 
         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - TEMP]
 
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
 
         object.Q[1][I] = QELA
 
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMOM
         #  IONISATION CHARGE STATE =1
 
 
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][I] = 0
         if EN >= object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YIN1, XION, BETA2, 0.8061, CONST, object.DEN[I], C, AM2)
 
 
-        # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
+        # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
         # ENERGIES ABOVE 2 * IONISATION ENERGY
-        # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
+        # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
         # IONISATION ENERGY
         if EN > (2 * object.EION[0]):
             object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]
@@ -325,14 +325,14 @@ cdef void Gas7(Gas*object):
         #  IONISATION CHARGE STATE =2
         object.QION[1][I] = 0.0
         object.PEQION[1][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[1][I] = 0
         if EN >= object.EION[1]:
             object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, 0.1133, CONST, object.DEN[I], C, AM2)
 
-        # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
+        # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
         # ENERGIES ABOVE 2 * IONISATION ENERGY
-        # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
+        # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
         # IONISATION ENERGY
         if EN > (2 * object.EION[1]):
             object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]
@@ -340,13 +340,13 @@ cdef void Gas7(Gas*object):
         #  IONISATION CHARGE STATE =3
         object.QION[2][I] = 0.0
         object.PEQION[2][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[2][I] = 0
         if EN >= object.EION[2]:
             object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, 0.05496, CONST, object.DEN[I], C, AM2)
-        # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
+        # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
         # ENERGIES ABOVE 2 * IONISATION ENERGY
-        # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
+        # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
         # IONISATION ENERGY
         if EN > (2 * object.EION[2]):
             object.PEQION[2][I] = object.PEQEL[2][I - IOFFION[2]]
@@ -373,7 +373,7 @@ cdef void Gas7(Gas*object):
         #M5-SHELL IONISATION
         object.QION[3][I] = 0.0
         object.PEQION[3][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[3][I] = 0
         if EN >= object.EION[3]:
             object.QION[3][I] = GasUtil.CALQIONREG(EN, NIONM5, YM5S, XM5S)
@@ -382,7 +382,7 @@ cdef void Gas7(Gas*object):
         #M4-SHELL IONISATION
         object.QION[4][I] = 0.0
         object.PEQION[4][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[4][I] = 0
         if EN >= object.EION[4]:
             object.QION[4][I] = GasUtil.CALQIONREG(EN, NIONM4, YM4S, XM4S)
@@ -391,7 +391,7 @@ cdef void Gas7(Gas*object):
         #M3-SHELL IONISATION
         object.QION[5][I] = 0.0
         object.PEQION[5][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[5][I] = 0
         if EN >= object.EION[5]:
             object.QION[5][I] = GasUtil.CALQIONREG(EN, NIONM3, YM3S, XM3S)
@@ -400,7 +400,7 @@ cdef void Gas7(Gas*object):
         #M2-SHELL IONISATION
         object.QION[6][I] = 0.0
         object.PEQION[6][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[6][I] = 0
         if EN >= object.EION[6]:
             object.QION[6][I] = GasUtil.CALQIONREG(EN, NIONM2, YM2S, XM2S)
@@ -409,7 +409,7 @@ cdef void Gas7(Gas*object):
         #M1-SHELL IONISATION
         object.QION[7][I] = 0.0
         object.PEQION[7][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[7][I] = 0
         if EN >= object.EION[7]:
             object.QION[7][I] = GasUtil.CALQIONREG(EN, NIONM1, YM1S, XM1S)
@@ -418,7 +418,7 @@ cdef void Gas7(Gas*object):
         #L3-SHELL IONISATION
         object.QION[8][I] = 0.0
         object.PEQION[8][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[8][I] = 0
         if EN >= object.EION[8]:
             object.QION[8][I] = GasUtil.CALQIONREG(EN, NIONL3, YL3S, XL3S)
@@ -427,7 +427,7 @@ cdef void Gas7(Gas*object):
         #L2-SHELL IONISATION
         object.QION[9][I] = 0.0
         object.PEQION[9][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[9][I] = 0
         if EN >= object.EION[9]:
             object.QION[9][I] = GasUtil.CALQIONREG(EN, NIONL2, YL2S, XL2S)
@@ -436,7 +436,7 @@ cdef void Gas7(Gas*object):
         #L1-SHELL IONISATION
         object.QION[10][I] = 0.0
         object.PEQION[10][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[10][I] = 0
         if EN >= object.EION[10]:
             object.QION[10][I] = GasUtil.CALQIONREG(EN, NIONL1, YL1S, XL1S)
@@ -445,7 +445,7 @@ cdef void Gas7(Gas*object):
         #K-SHELL IONISATION
         object.QION[11][I] = 0.0
         object.PEQION[11][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[11][I] = 0
         if EN >= object.EION[11]:
             object.QION[11][I] = GasUtil.CALQIONREG(EN, NIONK, YKSH, XKSH)
@@ -458,7 +458,7 @@ cdef void Gas7(Gas*object):
         # COUNTING IONISATION
         object.Q[4][I] = 0.0
         object.PEQEL[4][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQEL[4][I] = 0.0
         if EN > object.EION[0]:
             object.Q[4][I] = GasUtil.CALQIONX(EN, NIONG, YINC, XION, BETA2, 1.0, CONST, object.DEN[I], C, AM2)
@@ -482,7 +482,7 @@ cdef void Gas7(Gas*object):
         for NL in range(object.NIN + 1):
             object.QIN[NL][I] = 0.0
             object.PEQIN[NL][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[NL][I] = 0.0
 
         #1S5

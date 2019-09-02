@@ -140,7 +140,7 @@ cdef void Gas10(Gas*object):
     cdef int i, j, I, J, NL
     NBREM = 25
     for i in range(6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
 
     for i in range(8):
         object.KIN[i] = 0
@@ -258,8 +258,8 @@ cdef void Gas10(Gas*object):
          .011553, .0089679, .0064815, .0035484, .0010872]
 
     cdef int FI = 0
-    object.NSTEP = 4000
-    for I in range(object.NSTEP):
+    object.EnergySteps = 4000
+    for I in range(object.EnergySteps):
         EN = object.EG[I]
         ENLG = log(EN)
         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
@@ -279,18 +279,18 @@ cdef void Gas10(Gas*object):
         PQ[2] = 1 - PQ[2]
         PQ[1] = 0.5 + (QEL - QMT) / QEL
         PQ[0] = 0.5
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
 
         object.Q[1][I] = QEL
 
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMT
 
         # IONISATION
         for i in range(object.NION):
             object.QION[i][I] = 0.0
             object.PEQION[i][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQION[i][I] = 0.0
 
         # CALCULATE GROSS AND COUNTING IONISATIONS
@@ -527,17 +527,17 @@ cdef void Gas10(Gas*object):
         for J in range(object.NIN):
             object.QIN[J][I] = 0.0
             object.PEQIN[J][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[J][I] = 0.0
 
-        # SUPERELASTIC VIBRATION-TORSION         ANISOTROPIC ABOVE 10 EV
+        # SUPERELASTIC VIBRATION-TORSION         AAnisotropicDetectedTROPIC ABOVE 10 EV
         if EN > 0.0:
             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
             object.QIN[0][I] = 0.00536 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[0][I] *= APOP1 / (1.0 + APOP1) * 1.e-16
         if EN > 10:
             object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
-        #VIBRATION-TORSION                      ANISOTROPIC ABOVE 10 EV
+        #VIBRATION-TORSION                      AAnisotropicDetectedTROPIC ABOVE 10 EV
         if EN > object.EIN[1]:
             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
             object.QIN[1][I] = 0.00536 * log((EFAC + 1.0) / (1.0 - EFAC)) / EN
@@ -545,39 +545,39 @@ cdef void Gas10(Gas*object):
         if EN > 10:
             object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]
 
-        #SUPERELASTIC VIB1                     ANISOTROPIC ABOVE 10 EV
+        #SUPERELASTIC VIB1                     AAnisotropicDetectedTROPIC ABOVE 10 EV
         if EN > 0.0:
             object.QIN[2][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, APOP2 / (1 + APOP2), object.EIN[3], 1,
                                                   -1 * 5 * EN, 0)
         if EN > 10:
             object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
 
-        #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
+        #VIB INELASTIC                          AAnisotropicDetectedTROPIC ABOVE 10 EV
         if EN > object.EIN[3]:
             object.QIN[3][I] = GasUtil.CALQINVISO(EN, NVIB1, YVIB1, XVIB1, 1 / (1 + APOP2), 0, 1, -1 * 5 * EN, 0)
         if EN > 10:
             object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
 
-        #SUPERELASTIC VIB2                     ANISOTROPIC ABOVE 10 EV
+        #SUPERELASTIC VIB2                     AAnisotropicDetectedTROPIC ABOVE 10 EV
         if EN > 0.0:
             object.QIN[4][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, APOP3 / (1 + APOP3), object.EIN[5], 1,
                                                   -1 * 5 * EN, 0)
         if EN > 10:
             object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]
 
-        #VIB2                           ANISOTROPIC ABOVE 10 EV
+        #VIB2                           AAnisotropicDetectedTROPIC ABOVE 10 EV
         if EN > object.EIN[5]:
             object.QIN[5][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, 1 / (1 + APOP3), 0, 1, -1 * 5 * EN, 0)
         if EN > 10:
             object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]
 
-        #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
+        #VIB INELASTIC                          AAnisotropicDetectedTROPIC ABOVE 10 EV
         if EN > object.EIN[6]:
             object.QIN[6][I] = GasUtil.CALQINVISO(EN, NVIB3, YVIB3, XVIB3, 1, 0, 1, -1 * 5 * EN, 0)
         if EN > 10:
             object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]
 
-        #VIB INELASTIC                          ANISOTROPIC ABOVE 10 EV
+        #VIB INELASTIC                          AAnisotropicDetectedTROPIC ABOVE 10 EV
         if EN > object.EIN[7]:
             object.QIN[7][I] = GasUtil.CALQINVISO(EN, NVIB4, YVIB4, XVIB4, 1, 0, 1, -1 * 5 * EN, 0)
             if object.QIN[7][I] < 0.0:

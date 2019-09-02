@@ -14,7 +14,7 @@ cpdef Setup(PyBoltz object):
     The object parameter is the PyBoltz object to be setup.
     """
     TWOPI = 2.0 * np.pi
-    object.ARY = <float>(13.60569253)
+    object.RhydbergConst = <float>(13.60569253)
     object.PIR2 = 8.7973554297e-17
     ECHARG = 1.602176565e-19
     EMASS = 9.10938291e-31
@@ -31,43 +31,43 @@ cpdef Setup(PyBoltz object):
     object.CONST3 = sqrt(0.2 * AWB) * 1.0e-9
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
-    object.CORR = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
+    object.PresTempCor = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
-    object.NCOLM = 2000000
-    object.NCORLN = 500000
-    object.NCORST = 2
+    object.Decor_NCOLM = 2000000
+    object.Decor_NCORLN = 500000
+    object.Decor_NCORST = 2
     FRACM = 0.0
     MXEKR = 0
 
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     for IH in range(object.NumberOfGases):
-        if object.NumberOfGasesN[IH] != 2 and object.NumberOfGasesN[IH] != 6 and object.NumberOfGasesN[IH] != 7 and object.NumberOfGasesN[IH] != 3 and \
-                object.NumberOfGasesN[IH] != 4 and object.NumberOfGasesN[IH] != 5:
+        if object.GasIDs[IH] != 2 and object.GasIDs[IH] != 6 and object.GasIDs[IH] != 7 and object.GasIDs[IH] != 3 and \
+                object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5:
             # Molecular gas sum total fraction
-            FRACM += object.FRAC[IH]
+            FRACM += object.GasFractions[IH]
 
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
-    if object.EField > (10 / object.CORR) or FRACM>3:
-            object.NCOLM = 400000
-            object.NCORLN = 50000
-            object.NCORST = 4
+    if object.EField > (10 / object.PresTempCor) or FRACM>3:
+            object.Decor_NCOLM = 400000
+            object.Decor_NCORLN = 50000
+            object.Decor_NCORST = 4
     TOTFRAC = 0.0
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:
         raise ValueError("Error in Gas Input")
 
     for J in range(object.NumberOfGases):
-        if object.NumberOfGasesN[J] == 0 or object.FRAC[J] == 0:
+        if object.GasIDs[J] == 0 or object.GasFractions[J] == 0:
             raise ValueError("Error in Gas Input")
-        TOTFRAC += object.FRAC[J]
+        TOTFRAC += object.GasFractions[J]
     if abs(TOTFRAC - 100) >= 1e-6:
         raise ValueError("Error in Gas Input")
     NSCALE = 40000000
     object.MaxNumberOfCollisions = object.MaxNumberOfCollisions * NSCALE
 
     if object.MaxNumberOfCollisions < 0:
-        raise ValueError("NMAX value is too large - overflow")
-    object.NSTEP = 4000
+        raise ValueError("MaxNumberOfCollisions value is too large - overflow")
+    object.EnergySteps = 4000
     object.AngleFromZ = 0.785
     object.AngleFromX = 0.1
 
@@ -78,9 +78,9 @@ cpdef Setup(PyBoltz object):
     object.InitialElectronEnergy = object.FinalElectronEnergy / 50.0
 
     for i in range(6):
-        object.ANN[i] = object.FRAC[i] * object.CORR * ALOSCH
+        object.ANN[i] = object.GasFractions[i] * object.PresTempCor * ALOSCH
     for i in range(6):
-        object.VANN[i] = object.FRAC[i] * object.CORR * object.CONST4 * 1e15
+        object.VANN[i] = object.GasFractions[i] * object.PresTempCor * object.CONST4 * 1e15
 
     # Radians per picosecond
     object.AngularSpeedOfRotation = AWB * object.BFieldMag * 1e-12
@@ -106,7 +106,7 @@ cpdef SetupT(PyBoltz object):
     cdef long long MXEKR, IH, NSCALE, i
 
     TWOPI = 2.0 * np.pi
-    object.ARY = <float>(13.60569253)
+    object.RhydbergConst = <float>(13.60569253)
     object.PIR2 = 8.7973554297e-17
     ECHARG = 1.602176565e-19
     EMASS = 9.10938291e-31
@@ -123,34 +123,34 @@ cpdef SetupT(PyBoltz object):
     object.CONST3 = sqrt(0.2 * AWB) * 1.0e-9
     object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
     object.CONST5 = object.CONST3 / 2.0
-    object.CORR = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
+    object.PresTempCor = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
-    object.NCOLM = 2000000
-    object.NCORLN = 500000
-    object.NCORST = 2
+    object.Decor_NCOLM = 2000000
+    object.Decor_NCORLN = 500000
+    object.Decor_NCORST = 2
 
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     cdef double FRACM = 0.0
     MXEKR = 0
     for IH in range(object.NumberOfGases):
-        if object.NumberOfGasesN[IH] != 2 and object.NumberOfGasesN[IH] != 6 and object.NumberOfGasesN[IH] != 7 and object.NumberOfGasesN[IH] != 3 and \
-                object.NumberOfGasesN[IH] != 4 and object.NumberOfGasesN[IH] != 5:
+        if object.GasIDs[IH] != 2 and object.GasIDs[IH] != 6 and object.GasIDs[IH] != 7 and object.GasIDs[IH] != 3 and \
+                object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5:
             # Molecular gas sum total fraction
-            FRACM += object.FRAC[IH]
+            FRACM += object.GasFractions[IH]
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
-    if (object.EField > (10.0 / object.CORR)) or (FRACM > 3):
-            object.NCOLM = 400000
-            object.NCORLN = 50000
-            object.NCORST = 4
+    if (object.EField > (10.0 / object.PresTempCor)) or (FRACM > 3):
+            object.Decor_NCOLM = 400000
+            object.Decor_NCORLN = 50000
+            object.Decor_NCORST = 4
     TOTFRAC = 0.0
 
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:
         raise ValueError("Error in Gas Input")
     for J in range(object.NumberOfGases):
-        if object.NumberOfGasesN[J] == 0 or object.FRAC[J] == 0:
+        if object.GasIDs[J] == 0 or object.GasFractions[J] == 0:
             raise ValueError("Error in Gas Input")
-        TOTFRAC += object.FRAC[J]
+        TOTFRAC += object.GasFractions[J]
     if abs(TOTFRAC - 100) >= 1e-6:
         raise ValueError("Error in Gas Input")
 
@@ -160,19 +160,19 @@ cpdef SetupT(PyBoltz object):
 
     if object.MaxNumberOfCollisions < 0:
         raise ValueError("NMAX value is too large - overflow")
-    object.NSTEP = 4000
+    object.EnergySteps = 4000
     object.AngleFromZ = 0.785
     object.AngleFromX = 0.1
     object.InitialElectronEnergy = object.FinalElectronEnergy / 50.0
-    object.CORR = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
+    object.PresTempCor = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
 
     object.ThermalEnergy = (ABZERO + object.TemperatureCentigrade) * BOLTZ
     for i in range(6):
-        object.ANN[i] = object.FRAC[i] * object.CORR * ALOSCH
-    object.AN = 100.0 * object.CORR * ALOSCH
+        object.ANN[i] = object.GasFractions[i] * object.PresTempCor * ALOSCH
+    object.AN = 100.0 * object.PresTempCor * ALOSCH
     for i in range(6):
-        object.VANN[i] = object.FRAC[i] * object.CORR * object.CONST4 * 1e15
-    object.VAN = 100.0 * object.CORR * object.CONST4 * 1.0e15
+        object.VANN[i] = object.GasFractions[i] * object.PresTempCor * object.CONST4 * 1e15
+    object.VAN = 100.0 * object.PresTempCor * object.CONST4 * 1.0e15
 
     # Radians per picosecond
     object.AngularSpeedOfRotation = AWB * object.BFieldMag * 1e-12

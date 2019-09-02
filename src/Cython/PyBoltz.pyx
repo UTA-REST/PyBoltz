@@ -45,7 +45,7 @@ cdef class PyBoltz:
         memset(self.IPNNT, 0, 960 * sizeof(double))
         memset(self.PENFRANT, 0, 3*960 * sizeof(double))
         memset(self.WPLNT, 0, 960 * sizeof(double))
-        memset(self.TCFMAXNT, 0, 8 * sizeof(double))
+        memset(self.MaxCollisionFreqNT, 0, 8 * sizeof(double))
         memset(self.CFNNT, 0, 4000*60 * sizeof(double))
         memset(self.TCFNNT, 0, 4000 * sizeof(double))
         memset(self.SCLENULNT, 0, 60 * sizeof(double))
@@ -60,22 +60,6 @@ cdef class PyBoltz:
         memset(self.EG2NT, 0, 960 * sizeof(double))
         memset(self.WKLMNT, 0, 960 * sizeof(double))
         memset(self.EFLNT, 0, 960 * sizeof(double))
-        memset(self.ETPL, 0, 8 * sizeof(double))
-        memset(self.XTPL, 0, 8 * sizeof(double))
-        memset(self.YTPL, 0, 8 * sizeof(double))
-        memset(self.ZTPL, 0, 8 * sizeof(double))
-        memset(self.YZTPL, 0, 8 * sizeof(double))
-        memset(self.XZTPL, 0, 8 * sizeof(double))
-        memset(self.XYTPL, 0, 8 * sizeof(double))
-        memset(self.VYTPL, 0, 8 * sizeof(double))
-        memset(self.VXTPL, 0, 8 * sizeof(double))
-        memset(self.TTPL, 0, 8 * sizeof(double))
-        memset(self.XXTPL, 0, 8 * sizeof(double))
-        memset(self.YYTPL, 0, 8 * sizeof(double))
-        memset(self.ZZTPL, 0, 8 * sizeof(double))
-        memset(self.VZTPL, 0, 8 * sizeof(double))
-        memset(self.NETPL, 0, 8 * sizeof(double))
-        memset(self.NESST, 0, 9 * sizeof(double))
         memset(self.DENSY, 0, 4000 * sizeof(double))
         memset(self.SPEC, 0, 4000 * sizeof(double))
         memset(self.TIME, 0, 300 * sizeof(double))
@@ -87,39 +71,11 @@ cdef class PyBoltz:
         memset(self.ICOLNNT, 0, 960 * sizeof(double))
         memset(self.AMGAS, 0, 6 * sizeof(double))
         memset(self.VTMB, 0, 6 * sizeof(double))
-        memset(self.TCFMXG, 0, 6 * sizeof(double))
-        memset(self.NumberOfGasesN, 0, 6 * sizeof(double))
-        memset(self.FRAC, 0, 6 * sizeof(double))
+        memset(self.MaxCollisionFreqTotalG, 0, 6 * sizeof(double))
+        memset(self.GasIDs, 0, 6 * sizeof(double))
+        memset(self.GasFractions, 0, 6 * sizeof(double))
         memset(self.ANN, 0, 6 * sizeof(double))
         memset(self.VANN, 0, 6 * sizeof(double))
-        memset(self.RI, 0, 8 * sizeof(double))
-        memset(self.EPT, 0, 8 * sizeof(double))
-        memset(self.VZPT, 0, 8 * sizeof(double))
-        memset(self.TTEST, 0, 8 * sizeof(double))
-        memset(self.XS, 0, 2000 * sizeof(double))
-        memset(self.YS, 0, 2000 * sizeof(double))
-        memset(self.ZS, 0, 2000 * sizeof(double))
-        memset(self.TS, 0, 2000 * sizeof(double))
-        memset(self.DCX, 0, 2000 * sizeof(double))
-        memset(self.DCY, 0, 2000 * sizeof(double))
-        memset(self.DCZ, 0, 2000 * sizeof(double))
-        memset(self.IPL, 0, 2000 * sizeof(double))
-        memset(self.ESPL, 0, 8 * sizeof(double))
-        memset(self.XSPL, 0, 8 * sizeof(double))
-        memset(self.TMSPL, 0, 8 * sizeof(double))
-        memset(self.TTMSPL, 0, 8 * sizeof(double))
-        memset(self.RSPL, 0, 8 * sizeof(double))
-        memset(self.RRSPL, 0, 8 * sizeof(double))
-        memset(self.RRSPM, 0, 8 * sizeof(double))
-        memset(self.YSPL, 0, 8 * sizeof(double))
-        memset(self.ZSPL, 0, 8 * sizeof(double))
-        memset(self.TSPL, 0, 8 * sizeof(double))
-        memset(self.XXSPL, 0, 8 * sizeof(double))
-        memset(self.YYSPL, 0, 8 * sizeof(double))
-        memset(self.ZZSPL, 0, 8 * sizeof(double))
-        memset(self.VZSPL, 0, 8 * sizeof(double))
-        memset(self.TSSUM, 0, 8 * sizeof(double))
-        memset(self.TSSUM2, 0, 8 * sizeof(double))
         memset(self.QSUM, 0, 4000 * sizeof(double))
         memset(self.QION, 0, 6 * 4000 * sizeof(double))
         memset(self.QIN, 0, 6 * 250 * 4000 * sizeof(double))
@@ -129,10 +85,6 @@ cdef class PyBoltz:
         memset(self.QREL, 0, 4000 * sizeof(double))
         memset(self.QINEL, 0, 4000 * sizeof(double))
         memset(self.NIN, 0, 6 * sizeof(double))
-        memset(self.LION, 0, 6 * sizeof(double))
-        memset(self.LIN, 0, 6 * 250 * sizeof(double))
-        memset(self.ALION, 0, 6 * sizeof(double))
-        memset(self.ALIN, 0, 6 * 250 * sizeof(double))
         memset(self.CF, 0, 6 * 290 * 4000 * sizeof(double))
         memset(self.TCF, 0, 6 * 4000 * sizeof(double))
         memset(self.EIN, 0, 6 * 290 * sizeof(double))
@@ -143,7 +95,7 @@ cdef class PyBoltz:
         memset(self.IPLAST, 0, 6 * sizeof(double))
         memset(self.ISIZE, 0, 6 * sizeof(double))
         memset(self.PENFRA, 0, 6 * 290 * 3 * sizeof(double))
-        memset(self.TCFMAX, 0, 6 * sizeof(double))
+        memset(self.MaxCollisionFreq, 0, 6 * sizeof(double))
         memset(self.CFN, 0, 6 * 10 * 4000 * sizeof(double))
         memset(self.TCFN, 0, 6 * 4000 * sizeof(double))
         memset(self.SCLENUL, 0, 6 * 10 * sizeof(double))
@@ -161,117 +113,62 @@ cdef class PyBoltz:
         memset(self.EG2, 0, 6 * 290 * sizeof(double))
         memset(self.WKLM, 0, 6 * 290 * sizeof(double))
         memset(self.EFL, 0, 6 * 290 * sizeof(double))
-        memset(self.XSS, 0, 2000 * sizeof(double))
-        memset(self.YSS, 0, 2000 * sizeof(double))
-        memset(self.ZSS, 0, 2000 * sizeof(double))
-        memset(self.TSS, 0, 2000 * sizeof(double))
-        memset(self.ESS, 0, 2000 * sizeof(double))
-        memset(self.DCXS, 0, 2000 * sizeof(double))
-        memset(self.DCYS, 0, 2000 * sizeof(double))
-        memset(self.DCZS, 0, 2000 * sizeof(double))
-        memset(self.IPLS, 0, 2000 * sizeof(double))
-        memset(self.IFAKET, 0, 8 * sizeof(double))
-        memset(self.IFAKED, 0, 9 * sizeof(double))
         memset(self.QEL, 0, 4000 * sizeof(double))
         memset(self.QSATT, 0, 4000 * sizeof(double))
         memset(self.RNMX, 0, 9 * sizeof(double))
         memset(self.ES, 0, 4000 * sizeof(double))
-        memset(self.ZPLANE, 0, 8 * sizeof(double))
-        memset(self.LAST, 0, 6 * sizeof(double))
 
+        # Input parameters / settings
+        self.EnableThermalMotion = 0.0
+        self.MaxNumberOfCollisions = 0.0
+        self.BFieldAngle = 0.0
+        self.BFieldMag = 0.0
+        self.NumberOfGases = 0
+        self.WhichAngularModel = 2
+        self.TemperatureCentigrade = 0.0
+        self.PressureTorr = 0.0
+        self.EnablePenning = 0
+        self.EField = 0.0
+        
+        # Calculated Constants 
         self.CONST1 = 0.0
         self.CONST2 = 0.0
         self.CONST3 = 0.0
         self.CONST4 = 0.0
         self.CONST5 = 0.0
-        self.NISO = 0
-        self.NCOLM = 0
-        self.NCORLN = 0
-        self.NCORST = 0
-        self.NNULL = 0
-        self.MaximumCollisionTime = 0.0
-        self.MeanElectronEnergyError = 0.0
-        self.MeanElectronEnergy = 0.0
+        self.PIR2 = 0.0
+        self.RhydbergConst = 0.0
+        self.EFieldOverBField = 0.0
+        self.AngularSpeedOfRotation = 0.0
+        self.ThermalEnergy = 0.0
+        self.MaxCollisionTime = 100.0
+        self.SmallNumber = 1e-20
+        self.AngleFromX = 0.0
+        self.PresTempCor = 0.0
+
+        # Parameters governing decorrelation length
+        self.Decor_NCOLM = 0
+        self.Decor_NCORLN = 0
+        self.Decor_NCORST = 0
+
+        # Named but imperfectly understood
         self.X = 0.0
         self.Y = 0.0
         self.Z = 0.0
-        self.LongitudinalDiffusionError = 0.0
-        self.TransverseDiffusionError = 0.0
-        self.TemperatureKelvin = 0.0
-        self.ALPP = 0.0
-        self.ATTP = 0.0
-        self.SSTMIN = 0.0
-        self.VDOUT = 0.0
-        self.VDERR = 0.0
-        self.WSOUT = 0.0
-        self.WSERR = 0.0
-        self.DLOUT = 0.0
-        self.DLERR = 0.0
-        self.NMAXOLD = 0.0
-        self.DTOUT = 0.0
-        self.DTERR = 0.0
-        self.ALPHSST = 0.0
-        self.EFieldOverBField = 0.0
-        self.AngularSpeedOfRotation = 0.0
-        self.PIR2 = 0.0
-        self.BFieldAngle = 0.0
-        self.BFieldMag = 0.0
-        self.NumberOfGases = 0
-        self.NSTEP = 0
-        self.NANISO = 2
+        self.EnergySteps = 0
+        self.AnisotropicDetected = 0
         self.FinalElectronEnergy = 0.0
         self.ElectronEnergyStep = 0
-        self.ThermalEnergy = 0.0
-        self.ARY = 0.0
-        self.TemperatureCentigrade = 0.0
-        self.PressureTorr = 0.0
-        self.EnablePenning = 0
         self.NSCALE = 0
-        self.MaxCollisionTime = 100.0
-        self.SmallNumber = 0.0
         self.InitialElectronEnergy = 0.0
         self.AngleFromZ = 0.0
-        self.AngleFromX = 0.0
-        self.EField = 0.0
-        self.MaxNumberOfCollisions = 0.0
-        self.IonisationRate = 0.0
-        self.TCFMX = 0.0
-        self.EnableThermalMotion = 0.0
-        self.ITMAX = 0
-        self.CORR = 0.0
-        self.ATTOINT = 0.0
-        self.ATTERT = 0.0
-        self.AIOERT = 0.0
-        self.ALPHERR = 0.0
-        self.ATTSST = 0.0
-
-        self.ATTERR = 0.0
-        self.IZFINAL = 0.0
-        self.RALPHA = 0.0
-        self.RALPER = 0.0
-        self.TODENE = 0.0
-        self.RATTOF = 0.0
-        self.RATOFER = 0.0
-        self.ALPHAST = 0.0
-        self.VDST = 0.0
-        self.TSTEP = 0.0
-        self.ZSTEP = 0.0
-        self.TFINAL = 0.0
-        self.RATTOFER = 0.0
-        self.ZFINAL = 0.0
-        self.ITFINAL = 0.0
-        self.IPRIM = 0.0
         self.TimeSum = 0.0
-        self.ATTOION = 0.0
-        self.ATTIOER = 0.0
-        self.ATTATER = 0.0
-        self.DTOVMB = 0.0
-        self.DTMN = 0.0
-        self.DFTER1 = 0.0
-        self.DLOVMB = 0.0
-        self.DLMN = 0.0
-        self.DFLER1 = 0.0
-        # common output blocks
+        self.MaxCollisionFreqTotal = 0.0
+
+        
+        # Outputs
+        self.MeanElectronEnergyError = 0.0
+        self.MeanElectronEnergy = 0.0
         self.VelocityX = 0.0
         self.VelocityY = 0.0
         self.VelocityZ = 0.0
@@ -279,10 +176,17 @@ cdef class PyBoltz:
         self.VelocityErrorY = 0.0
         self.VelocityErrorZ = 0.0
         self.AttachmentRate = 0.0
+        self.IonisationRate = 0.0
         self.IonisationRateError = 0.0
         self.AttachmentRateError = 0.0
         self.LongitudinalDiffusion = 0.0
+        self.LongitudinalDiffusionError = 0.0
         self.TransverseDiffusion = 0.0
+        self.TransverseDiffusionError = 0.0
+        self.LongitudinalDiffusion1 = 0.0
+        self.LongitudinalDiffusion1Error = 0.0
+        self.TransverseDiffusion1 = 0.0
+        self.TransverseDiffusion1Error = 0.0
         self.DiffusionX = 0.0
         self.DiffusionY = 0.0
         self.DiffusionYZ = 0.0
@@ -297,9 +201,11 @@ cdef class PyBoltz:
         self.ErrorDiffusionXZ = 0.0
         self.IFAKE = 0
         self.FAKEI = 0.0
-        self.RSTART = 0.666
+        self.RandomSeed = 0.666
         self.ConsoleOutputFlag = 1
         self.MeanCollisionTime = 0.0
+        self.ReducedIonization=0.0
+        self.ReducedAttachment=0.0
 
     def end(self):
         """
@@ -307,18 +213,18 @@ cdef class PyBoltz:
         """
         cdef double DUM[6]
         if self.VelocityZ != 0:
-            self.DTOVMB = self.TransverseDiffusion * self.EField / self.VelocityZ
-            self.DTMN = sqrt(2.0 * self.TransverseDiffusion / self.VelocityZ) * 10000.0
-            self.DFTER1 = math.sqrt(self.TransverseDiffusionError ** 2 + self.VelocityErrorZ ** 2)
-            self.DFTER1 = self.DFTER1 / 2.0
+            self.TransverseDiffusion1 = sqrt(2.0 * self.TransverseDiffusion / self.VelocityZ) * 10000.0
+            self.TransverseDiffusion1Error = math.sqrt(self.TransverseDiffusionError ** 2 + self.VelocityErrorZ ** 2)/2.0
 
-            self.DLOVMB = self.LongitudinalDiffusion * self.EField / self.VelocityZ
-            self.DLMN = sqrt(2.0 * self.LongitudinalDiffusion / self.VelocityZ) * 10000.0
-            self.DFLER1 = sqrt(self.LongitudinalDiffusionError ** 2 + self.VelocityErrorZ ** 2)
-            self.DFLER1 = self.DFLER1 / 2.0
+            self.LongitudinalDiffusion1 = sqrt(2.0 * self.LongitudinalDiffusion / self.VelocityZ) * 10000.0
+            self.LongitudinalDiffusion1Error = sqrt(self.LongitudinalDiffusionError ** 2 + self.VelocityErrorZ ** 2)/2.0
+
             self.VelocityZ *=1e-5
             self.VelocityY *=1e-5
             self.VelocityX *=1e-5
+
+            self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
+            self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
 
 
    
@@ -411,11 +317,7 @@ cdef class PyBoltz:
         # Run the simulation
         MonteCarloFunc.run(self)
 
-        # Express outputs in the right units
-        self.TemperatureKelvin = 273.15 + self.TemperatureCentigrade
-        self.ALPP = self.IonisationRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
-        self.ATTP = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
-        self.SSTMIN = 40
+        # Closeout and end
         self.end()
         return
              

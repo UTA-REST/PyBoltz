@@ -72,7 +72,7 @@ class PyBoltzRun:
         MBObject.NumberOfGasesN  = NumberOfGasesN
         MBObject.FRAC   = FRAC
         MBObject.MaxNumberOfCollisions   = Inputs['Max_collisions']
-        MBObject.IPEN   = Inputs['Enable_penning']
+        MBObject.EnablePenning   = Inputs['Enable_penning']
         MBObject.EnableThermalMotion  = Inputs['Enable_thermal_motion']
         MBObject.FinalElectronEnergy = Inputs['Max_electron_energy']
         MBObject.TemperatureCentigrade  = Inputs['Temperature_C']
@@ -80,7 +80,7 @@ class PyBoltzRun:
         MBObject.BFieldMag   = Inputs['BField_Tesla']
         MBObject.BFieldAngle = Inputs['BField_angle']
         MBObject.ConsoleOutputFlag     = Inputs['ConsoleOutputFlag']
-        MBObject.NANISO = Inputs['Angular_dist_model']
+        MBObject.WhichAngularModel = Inputs['Angular_dist_model']
         return True
 
     # Extract Outputs into Output Dictionary
@@ -89,8 +89,8 @@ class PyBoltzRun:
         Outputs['Drift_vel']      = PBRes([MBObject.VelocityX,MBObject.VelocityY,MBObject.VelocityZ],[MBObject.VelocityErrorX,MBObject.VelocityErrorY,MBObject.VelocityErrorZ])
         Outputs['DT']             = PBRes(MBObject.TransverseDiffusion, MBObject.TransverseDiffusionError)
         Outputs['DL']             = PBRes(MBObject.LongitudinalDiffusion, MBObject.LongitudinalDiffusionError)
-        Outputs['DT1']            = PBRes(MBObject.DTMN,MBObject.DFTER1)
-        Outputs['DL1']            = PBRes(MBObject.DLMN,MBObject.DFLER1)
+        Outputs['DT1']            = PBRes(MBObject.TransverseDiffusion1,MBObject.TransverseDiffusion1Error)
+        Outputs['DL1']            = PBRes(MBObject.LongitudinalDiffusion1,MBObject.LongitudinalDiffusion1Error)
 
         Outputs['MeanEnergy']    = PBRes(MBObject.MeanElectronEnergy,MBObject.MeanElectronEnergyError)
         DTensor     = [[MBObject.DiffusionX, MBObject.DiffusionXY, MBObject.DiffusionXZ],

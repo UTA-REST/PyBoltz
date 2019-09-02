@@ -116,9 +116,9 @@ cdef void Gas4(Gas*object):
     object.EG2[1] = 0.0
     cdef int I, j, i
     for i in range(6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
     for i in range(object.NIN):
-        object.KIN[i] = object.NANISO
+        object.KIN[i] = object.WhichAngularModel
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):
@@ -170,25 +170,25 @@ cdef void Gas4(Gas*object):
         TEMP = GasUtil.CALPQ3(EN, NDATA, YEPS, XEN)
         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - TEMP]
 
-        object.PEQEL[1][I] = PQ[object.NANISO]
+        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
 
         object.Q[1][I] = QELA
 
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][I] = QMOM
             object.PEQEL[1][I] = 0.5
 
         #GROSS IONISATION
         object.QION[0][I] = 0.0
         object.PEQION[0][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][I] = 0
         if EN >= object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION, XION, BETA2, 1 / <float> (0.995), CONST,
                                                  object.DEN[I], C, AM2)
-            # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
+            # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
             # ENERGIES ABOVE 2 * IONISATION ENERGY
-            # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
+            # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
             # IONISATION ENERGY
             if EN > (2 * object.EION[0]):
                 object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]
@@ -200,7 +200,7 @@ cdef void Gas4(Gas*object):
         #COUNTING IONISATION
         object.Q[4][I] = 0.0
         object.PEQION[1][I] = 0.5
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[1][I] = 0
         if EN >= object.EION[0]:
             object.Q[4][I] = GasUtil.CALQIONX(EN, NIOND, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
@@ -219,7 +219,7 @@ cdef void Gas4(Gas*object):
         for NL in range(object.NIN + 1):
             object.QIN[NL][I] = 0.0
             object.PEQIN[NL][I] = 0.5
-            if object.NANISO == 2:
+            if object.WhichAngularModel == 2:
                 object.PEQIN[NL][I] = 0.0
 
         #2 3S

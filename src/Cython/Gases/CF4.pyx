@@ -71,16 +71,16 @@ cdef void Gas1(Gas* object):
     object.NNULL = 0
     cdef int NASIZE = 4000
     cdef int NBREM = 25
-    object.NSTEP = 4000
+    object.EnergySteps = 4000
     for i in range(0, 6):
-        object.KEL[i] = object.NANISO
+        object.KEL[i] = object.WhichAngularModel
     # ASSUME CAPITELLI LONGO TYPE OF ANGULAR DISTRIBUTION FOR
     # ALL VIBRATIONAL LEVELS AND THE SUM OF HIGHER HARMONICS
     for i in range(0, 10):
         object.KIN[i] = 1
     # ANGULAR DISTRIBUTION FOR DISS.EXCITATION IS GIVEN BY OKHRIMOVSKKY
     for i in range(10, object.NIN):
-        object.KIN[i] = object.NANISO
+        object.KIN[i] = object.WhichAngularModel
     # RATIO OF MOMENTUM TRANSFER TO TOTAL X-SEC FOR RESONANCE
     # PART OF VIBRATIONAL X-SECTIONS
     cdef double RAT = <float>(0.75)
@@ -210,7 +210,7 @@ cdef void Gas1(Gas* object):
 
     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
     # EN=-ESTEP/2.0  #ESTEP is function input
-    for i in range(object.NSTEP):
+    for i in range(object.EnergySteps):
         EN = object.EG[i]
         # EN=EN+ESTEP
         GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
@@ -235,19 +235,19 @@ cdef void Gas1(Gas* object):
         B = (XEN[j - 1] * YEPS[j] - XEN[j] * YEPS[j - 1]) / (XEN[j - 1] - XEN[j])
         PQ = [0.5, 0.5 + (QELA - QMOM) / QELA, 1 - (A * EN + B)]
         # ^^^^^^EPS CORRECTED FOR 1-EPS^^^^^^^^
-        object.PEQEL[1][i] = PQ[object.NANISO]
+        object.PEQEL[1][i] = PQ[object.WhichAngularModel]
         object.Q[1][i] = QELA
 
         X2 = 1.0 / BETA2
         X1 = X2 * log(BETA2 / (1.0 - BETA2)) - 1.0
         # DISSOCIATIVE IONISATION
         # ION  =  CF3 +
-        if object.NANISO == 0:
+        if object.WhichAngularModel == 0:
             object.Q[1][i] = QMOM
         object.QION[0][i] = 0.0
         object.PEQION[0][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[0][i] = 0
 
         if EN > object.EION[0]:
@@ -269,7 +269,7 @@ cdef void Gas1(Gas* object):
         object.QION[1][i] = 0.0
         object.PEQION[1][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[1][i] = 0.0
 
         if EN > object.EION[1]:
@@ -291,7 +291,7 @@ cdef void Gas1(Gas* object):
         object.QION[2][i] = 0.0
         object.PEQION[2][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[2][i] = 0.0
 
         if EN > object.EION[2]:
@@ -315,7 +315,7 @@ cdef void Gas1(Gas* object):
         object.QION[3][i] = 0.0
         object.PEQION[3][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[3][i] = 0.0
 
         if EN > object.EION[3]:
@@ -339,7 +339,7 @@ cdef void Gas1(Gas* object):
         object.QION[4][i] = 0.0
         object.PEQION[4][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[4][i] = 0.0
 
         if EN > object.EION[4]:
@@ -361,7 +361,7 @@ cdef void Gas1(Gas* object):
         object.QION[5][i] = 0.0
         object.PEQION[5][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[5][i] = 0.0
 
         if EN > object.EION[5]:
@@ -382,7 +382,7 @@ cdef void Gas1(Gas* object):
         object.QION[6][i] = 0.0
         object.PEQION[6][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[6][i] = 0.0
 
         if EN > object.EION[6]:
@@ -404,7 +404,7 @@ cdef void Gas1(Gas* object):
         object.QION[7][i] = 0.0
         object.PEQION[7][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[7][i] = 0.0
 
         if EN > object.EION[7]:
@@ -445,7 +445,7 @@ cdef void Gas1(Gas* object):
         object.QION[8][i] = 0.0
         object.PEQION[8][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[8][i] = 0.0
 
         if EN > object.EION[8]:
@@ -469,7 +469,7 @@ cdef void Gas1(Gas* object):
         object.QION[9][i] = 0.0
         object.PEQION[9][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[9][i] = 0.0
 
         if EN > object.EION[9]:
@@ -493,7 +493,7 @@ cdef void Gas1(Gas* object):
         object.QION[10][i] = 0.0
         object.PEQION[10][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[10][i] = 0.0
 
         if EN > object.EION[10]:
@@ -512,7 +512,7 @@ cdef void Gas1(Gas* object):
         object.QION[11][i] = 0.0
         object.PEQION[11][i] = 0.5
 
-        if object.NANISO == 2:
+        if object.WhichAngularModel == 2:
             object.PEQION[11][i] = 0.0
 
         if EN > object.EION[11]:
@@ -591,7 +591,7 @@ cdef void Gas1(Gas* object):
             if EN > 100.0:
                 object.PEQIN[2][i] = PQ[1]
 
-        # VIBRATION V4 ANISOTROPIC
+        # VIBRATION V4 AAnisotropicDetectedTROPIC
         object.QIN[3][i] = 0.0
         object.PEQIN[3][i] = 0.5
         if EN > object.EIN[3]:
@@ -677,7 +677,7 @@ cdef void Gas1(Gas* object):
             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
             if EN > 100.0:
                 object.PEQIN[6][i] = PQ[1]
-        # VIBRATION V3 ANISOTROPIC
+        # VIBRATION V3 AAnisotropicDetectedTROPIC
         object.QIN[7][i] = 0.0
         object.PEQIN[7][i] = 0.5
         if EN > object.EIN[7]:

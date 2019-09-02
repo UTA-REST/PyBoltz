@@ -17,12 +17,12 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef void GERJAN(double RDUM, double *RNMX):
+cdef void GERJAN(double RandomSeed, double *RNMX):
     cdef double RAN1, RAN2, TWOPI
     cdef int J
     for J in range(0, 5, 2):
-        RAN1 = random_uniform(RDUM)
-        RAN2 = random_uniform(RDUM)
+        RAN1 = random_uniform(RandomSeed)
+        RAN2 = random_uniform(RandomSeed)
         TWOPI = 2.0 * np.pi
         RNMX[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
         RNMX[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
@@ -50,12 +50,13 @@ cpdef run(PyBoltz Object):
     Object.Y = 0.0
     Object.Z = 0.0
     Object.TimeSum = 0.0
-    cdef long long I, ID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, KGAS, IE, IT, KDUM, IPT, JDUM, NCOLDM
-    cdef double ST1, RDUM, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
+    cdef long long I, ID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, GasIndex, IE, IT, KDUM, IPT, JDUM, NCOLDM
+    cdef double ST1, RandomSeed, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
     cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, ANCATT, ANCION, E
+    cdef double NumSamples
     I = 0
     ST1 = 0.0
     ST2 = 0.0
@@ -103,19 +104,16 @@ cpdef run(PyBoltz Object):
     DFXXST = <double *> malloc(10 * sizeof(double))
     memset(DFXXST, 0, 10 * sizeof(double))
 
-    Object.SmallNumber = 1.0e-20
-    Object.MaximumCollisionTime = 0.0
-    RDUM = Object.RSTART
+    RandomSeed = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
     CONST10 = pow(CONST9, 2)
-    Object.ITMAX = 10
+    NumSamples = 10
     ID = 0
     NCOL = 0
-    Object.NNULL = 0
     IEXTRA = 0
     # Generate initial random maxwell boltzman numbers
-    GERJAN(Object.RSTART,  Object.RNMX)
+    GERJAN(Object.RandomSeed,  Object.RNMX)
     IMBPT = 0
     TDASH = 0.0
     cdef int i = 0
@@ -137,16 +135,16 @@ cpdef run(PyBoltz Object):
     F1 = Object.EField * Object.CONST2
     F2 = Object.EField * Object.CONST3
     F4 = 2.0 * acos(-1)
-    J2M = <long long> (Object.MaxNumberOfCollisions / Object.ITMAX)
+    J2M = <long long> (Object.MaxNumberOfCollisions / NumSamples)
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                          "DIFXX", "DIFYY", "DIFZZ"))
 
-    for J1 in range(int(Object.ITMAX)):
+    for J1 in range(int(NumSamples)):
         for J2 in range(int(J2M)):
             while True:
-                R1 = random_uniform(RDUM)
-                T = -log(R1) / Object.TCFMX + TDASH
+                R1 = random_uniform(RandomSeed)
+                T = -log(R1) / Object.MaxCollisionFreqTotal + TDASH
                 TDASH = T
 
                 Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
@@ -158,55 +156,54 @@ cpdef run(PyBoltz Object):
                 DCY2 = DCY1 * CONST6
                 DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
                 # FIND IDENTITY OF GAS FOR COLLISION
-                KGAS = 0
+                GasIndex = 0
                 if Object.NumberOfGases == 1:
-                    R2 = random_uniform(RDUM)
-                    KGAS = 0
+                    R2 = random_uniform(RandomSeed)
+                    GasIndex = 0
                 else:
-                    R2 = random_uniform(RDUM)
-                    while (Object.TCFMXG[KGAS] < R2):
-                        KGAS = KGAS + 1
+                    R2 = random_uniform(RandomSeed)
+                    while (Object.MaxCollisionFreqTotalG[GasIndex] < R2):
+                        GasIndex = GasIndex + 1
 
                 IMBPT += 1
                 if (IMBPT > 6):
-                    GERJAN(Object.RSTART,  Object.RNMX)
+                    GERJAN(Object.RandomSeed,  Object.RNMX)
                     IMBPT = 1
-                VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+                VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
                 IMBPT += 1
-                VGY = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+                VGY = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
                 IMBPT += 1
-                VGZ = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
+                VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
                 # CALCULATE ELECTRON VELOCITY VECTORS VEX VEY VEZ
                 VEX = DCX2 * CONST9 * sqrt(E)
                 VEY = DCY2 * CONST9 * sqrt(E)
                 VEZ = DCZ2 * CONST9 * sqrt(E)
-                # CALCULATE ENERGY WITH STATIONARY GAS TARGET, EOK
+                # CALCULATE ENERGY WITH STATIONRhydbergConst GAS TARGET, EOK
 
                 EOK = (pow((VEX - VGX), 2) + pow((VEY - VGY), 2) + pow((VEZ - VGZ), 2)) / CONST10
                 IE = int(EOK / Object.ElectronEnergyStep)
                 IE = min(IE, 3999)
                 # TEST FOR REAL OR NULL COLLISION
 
-                R5 = random_uniform(RDUM)
-                TEST1 = Object.TCF[KGAS][IE] / Object.TCFMAX[KGAS]
+                R5 = random_uniform(RandomSeed)
+                TEST1 = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
 
                 if R5 > TEST1:
-                    Object.NNULL += 1
-                    TEST2 = TEMP[KGAS][IE] / Object.TCFMAX[KGAS]
+                    TEST2 = TEMP[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
                     if R5 < TEST2:
                         # TEST FOR NULL LEVELS
-                        if Object.NPLAST[KGAS] == 0:
+                        if Object.NPLAST[GasIndex] == 0:
                             continue
-                        R2 = random_uniform(RDUM)
+                        R2 = random_uniform(RandomSeed)
                         I = 0
-                        while Object.CFN[KGAS][IE][I] < R2:
+                        while Object.CFN[GasIndex][IE][I] < R2:
                             # INCREMENT NULL SCATTER SUM
                             I += 1
 
-                        Object.ICOLNN[KGAS][I] += 1
+                        Object.ICOLNN[GasIndex][I] += 1
                         continue
                     else:
-                        TEST3 = (TEMP[KGAS][IE] + ABSFAKEI) / Object.TCFMAX[KGAS]
+                        TEST3 = (TEMP[GasIndex][IE] + ABSFAKEI) / Object.MaxCollisionFreq[GasIndex]
                         if R5 < TEST3:
                             # FAKE IONISATION INCREMENT COUNTER
                             Object.IFAKE += 1
@@ -223,8 +220,6 @@ cpdef run(PyBoltz Object):
             DZCOM = (VEZ - VGZ) * CONST11
             # CALCULATE POSITIONS AT INSTANT BEFORE COLLISION, & UPDATE DIFFUSION AND ENERGY CALCULATIONS
             T2 = T * T
-            if (T >= Object.MaximumCollisionTime):
-                Object.MaximumCollisionTime = T
             TDASH = 0.0
             A = AP * T
             B = BP * T2
@@ -249,76 +244,76 @@ cpdef run(PyBoltz Object):
             SUMVY = SUMVY + CY1 * CY1 * T2
             if ID != 0:
                 KDUM = 0
-                for JDUM in range(int(Object.NCORST)):
+                for JDUM in range(int(Object.Decor_NCORST)):
                     ST2 += T
                     NCOLDM = NCOL + KDUM
-                    if NCOLDM > Object.NCOLM:
-                        NCOLDM = NCOLDM - Object.NCOLM
+                    if NCOLDM > Object.Decor_NCOLM:
+                        NCOLDM = NCOLDM - Object.Decor_NCOLM
                     SDIF = Object.TimeSum - STO[NCOLDM - 1]
                     SUMXX = SUMXX + ((Object.X - XST[NCOLDM - 1]) ** 2) * T / SDIF
                     SUMYY = SUMYY + ((Object.Y - YST[NCOLDM - 1]) ** 2) * T / SDIF
                     if J1 >= 2:
                         ST1 += T
                         SUMZZ = SUMZZ + ((Object.Z - ZST[NCOLDM - 1] - Object.VelocityZ * SDIF) ** 2) * T / SDIF
-                    KDUM += Object.NCORLN
+                    KDUM += Object.Decor_NCORLN
 
             XST[NCOL - 1] = Object.X
             YST[NCOL - 1] = Object.Y
             ZST[NCOL - 1] = Object.Z
 
             STO[NCOL - 1] = Object.TimeSum
-            if NCOL >= Object.NCOLM:
+            if NCOL >= Object.Decor_NCOLM:
                 ID += 1
                 NCOL = 0
 
             # Determination of real collision type
-            R3 = random_uniform(RDUM)
+            R3 = random_uniform(RandomSeed)
             # Find location within 4 units in collision array
-            I = MBSortT(KGAS, I, R3, IE, Object)
-            while Object.CF[KGAS][IE][I] < R3:
+            I = MBSortT(GasIndex, I, R3, IE, Object)
+            while Object.CF[GasIndex][IE][I] < R3:
                 I += 1
-            S1 = Object.RGAS[KGAS][I]
-            EI = Object.EIN[KGAS][I]
+            S1 = Object.RGAS[GasIndex][I]
+            EI = Object.EIN[GasIndex][I]
 
-            if Object.IPN[KGAS][I] > 0:
+            if Object.IPN[GasIndex][I] > 0:
                 # Use flat distributioon of electron energy between E-EION and 0.0 EV, same as in Boltzmann
-                R9 = random_uniform(RDUM)
+                R9 = random_uniform(RandomSeed)
                 EXTRA = R9 * (EOK - EI)
                 EI = EXTRA + EI
                 # If Auger ot fluorescence add extra ionisation collisions
-                IEXTRA += <long long> Object.NC0[KGAS][I]
+                IEXTRA += <long long> Object.NC0[GasIndex][I]
 
             # Generate scattering angles and update laboratory cosines after collision also update energy of electron
-            IPT = <long long> Object.IARRY[KGAS][I]
-            Object.ICOLL[KGAS][<int> IPT - 1] += 1
-            Object.ICOLN[KGAS][I] += 1
+            IPT = <long long> Object.IARRY[GasIndex][I]
+            Object.ICOLL[GasIndex][<int> IPT - 1] += 1
+            Object.ICOLN[GasIndex][I] += 1
             if EOK < EI:
                 EI = EOK - 0.0001
 
             # IF EXCITATION THEN ADD PROBABILITY ,PENFRA(1,I), OF TRANSFER TO
             # IONISATION OF THE OTHER GASES IN MIXTURE
             if Object.EnablePenning != 0:
-                if Object.PENFRA[KGAS][0][I] != 0:
-                    RAN = random_uniform(RDUM)
-                    if RAN <= Object.PENFRA[KGAS][0][I]:
+                if Object.PENFRA[GasIndex][0][I] != 0:
+                    RAN = random_uniform(RandomSeed)
+                    if RAN <= Object.PENFRA[GasIndex][0][I]:
                         IEXTRA += 1
             S2 = pow(S1, 2) / (S1 - 1.0)
 
             # Anisotropic scattering
-            R3 = random_uniform(RDUM)
-            if Object.INDEX[KGAS][I] == 1:
-                R31 = random_uniform(RDUM)
-                F3 = 1.0 - R3 * Object.ANGCT[KGAS][IE][I]
-                if R31 > Object.PSCT[KGAS][IE][I]:
+            R3 = random_uniform(RandomSeed)
+            if Object.INDEX[GasIndex][I] == 1:
+                R31 = random_uniform(RandomSeed)
+                F3 = 1.0 - R3 * Object.ANGCT[GasIndex][IE][I]
+                if R31 > Object.PSCT[GasIndex][IE][I]:
                     F3 = -1.0 * F3
-            elif Object.INDEX[KGAS][I] == 2:
-                EPSI = Object.PSCT[KGAS][IE][I]
+            elif Object.INDEX[GasIndex][I] == 2:
+                EPSI = Object.PSCT[GasIndex][IE][I]
                 F3 = 1.0 - (2.0 * R3 * (1.0 - EPSI) / (1.0 + EPSI * (1.0 - 2.0 * R3)))
             else:
                 # Isotropic scattering
                 F3 = 1.0 - 2.0 * R3
             THETA0 = acos(F3)
-            R4 = random_uniform(RDUM)
+            R4 = random_uniform(RandomSeed)
             PHI0 = F4 * R4
             F8 = sin(PHI0)
             F9 = cos(PHI0)
@@ -364,7 +359,7 @@ cpdef run(PyBoltz Object):
         Object.VelocityZ *= 1.0e9
         Object.MeanElectronEnergy = SUME2 / Object.TimeSum
         Object.LongitudinalDiffusion = 0.0
-        if Object.NISO == 0:
+        if Object.AnisotropicDetected == 0:
             Object.DiffusionX = 5.0e15 * SUMVX / Object.TimeSum
             Object.DiffusionY = 5.0e15 * SUMVY / Object.TimeSum
             DFXXST[J1] = 5.0e15 * (SUMVX - SVXOLD) / (Object.TimeSum - STOLD)

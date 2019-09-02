@@ -176,7 +176,7 @@ cpdef run(PyBoltz Object):
                 IMBPT += 1
                 VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
 
-                # CALCULATE ENERGY WITH STATIONARY GAS TARGET
+                # CALCULATE ENERGY WITH STATIONRhydbergConst GAS TARGET
                 EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
                 IE = int(EOK / Object.ElectronEnergyStep)
                 IE = min(IE, 3999)
@@ -303,7 +303,7 @@ cpdef run(PyBoltz Object):
                         # ADD EXTRA IONISATION COLLISION
                         IEXTRA += 1
             S2 = (S1 ** 2) / (S1 - 1.0)
-            # ANISOTROPIC SCATTERING
+            # AAnisotropicDetectedTROPIC SCATTERING
             R3 = random_uniform(RDUM)
             if Object.INDEX[GasIndex][I] == 1:
                 R31 = random_uniform(RDUM)
@@ -360,7 +360,7 @@ cpdef run(PyBoltz Object):
 
         Object.VelocityZ *= 1e9
         Object.MeanElectronEnergy = SUME2 / Object.TimeSum
-        if Object.NISO == 0:
+        if Object.AnisotropicDetected == 0:
             Object.DiffusionX = 5e15 * SUMVX / Object.TimeSum
             Object.DiffusionY = 5e15 * SUMVY / Object.TimeSum
             DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Object.TimeSum - STOLD)

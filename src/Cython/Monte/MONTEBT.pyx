@@ -198,7 +198,7 @@ cpdef run(PyBoltz Object):
                 IMBPT += 1
                 VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
 
-                # CALCULATE ENERGY WITH STATIONARY GAS TARGET
+                # CALCULATE ENERGY WITH STATIONRhydbergConst GAS TARGET
                 EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
                 IE = int(EOK / Object.ElectronEnergyStep)
                 IE = min(IE, 3999)
@@ -327,7 +327,7 @@ cpdef run(PyBoltz Object):
                         IEXTRA += 1
             S2 = (S1 ** 2) / (S1 - 1.0)
 
-            # ANISOTROPIC SCATTERING
+            # AAnisotropicDetectedTROPIC SCATTERING
             R3 = random_uniform(RDUM)
             if Object.INDEX[GasIndex][I] == 1:
                 R31 = random_uniform(RDUM)
@@ -392,7 +392,7 @@ cpdef run(PyBoltz Object):
             Object.DiffusionYZ = -5e15 * SUMYZ / ST1
             Object.LongitudinalDiffusion = 5e15 * SUMLS / ST1
             Object.TransverseDiffusion = 5e15 * SUMTS / ST1
-        if Object.NISO == 0:
+        if Object.AnisotropicDetected == 0:
             Object.DiffusionX = 5e15 * SUMVX / Object.TimeSum
         EBAR = 0.0
         for IK in range(4000):
@@ -417,7 +417,7 @@ cpdef run(PyBoltz Object):
             DFLNST[J1] = 5e15 * (SUMLS - SLNOLD) / (ST1 - ST1OLD)
             DFTRST[J1] = 5e15 * (SUMTS - STROLD) / (ST1 - ST1OLD)
         DFXXST[J1] = 5e15 * (SUMXX - SXXOLD) / (ST2 - ST2OLD)
-        if Object.NISO == 0:
+        if Object.AnisotropicDetected == 0:
             DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Object.TimeSum - STOLD)
         ZOLD = Object.Z
         YOLD = Object.Y

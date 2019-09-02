@@ -148,7 +148,7 @@ cdef double CALQINVISELA(double EN, int n, double Y[], double X[], double APOP, 
     return temp
 
 
-cdef double CALQINVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST):
+cdef double CALQINVAAnisotropicDetected(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST):
     cdef double A, B, X1, X2, EFAC, temp,ADIP,FWD,BCK,XMT,ELF
     cdef int J
     if EN <= X[n-1]:
@@ -170,7 +170,7 @@ cdef double CALQINVANISO(double EN, int n, double Y[], double X[],double EIN, do
 
     return temp
 
-cdef double CALXMTVANISO(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST):
+cdef double CALXMTVAAnisotropicDetected(double EN, int n, double Y[], double X[],double EIN, double APOP,double RAT,double CONST):
     cdef double A, B, X1, X2, EFAC, temp,ADIP,FWD,BCK,XMT,ELF
     cdef int J
     if EN <= X[n-1]:

@@ -60,7 +60,7 @@ cdef void callGASF(Gas* GAS):
 
 cdef class Gasmix:
     def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, NSTEP,
-                     WhichAngularModel, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, EnablePenning,PIR2):
+                     WhichAngularModel, ESTEP, EFINAL, AKT, RhydbergConst, TEMPC, TORR, EnablePenning,PIR2):
         '''This functions simply initiates the gas data from the parameters. This functions fills the output arrays to zeros.'''
         cdef int i,j;
         for i in range(6):
@@ -84,10 +84,10 @@ cdef class Gasmix:
             self.Gases[i].EFINAL = EFINAL
             self.Gases[i].AKT = AKT
             self.Gases[i].ESTEP = ESTEP
-            self.Gases[i].ARY = ARY
+            self.Gases[i].RhydbergConst = RhydbergConst
             self.Gases[i].TEMPC = TEMPC
             self.Gases[i].TORR = TORR
-            self.Gases[i].EnablePenning = EnablePenning
+            self.Gases[i].IPEN = EnablePenning
             self.Gases[i].PIR2 = PIR2
             memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
             memset(self.Gases[i].QION, 0, 30*4000 * sizeof(double))
@@ -101,7 +101,7 @@ cdef class Gasmix:
 
 
     def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, NSTEP,
-                   WhichAngularModel, ESTEP, EFINAL, AKT, ARY, TEMPC, TORR, EnablePenning,PIR2):
+                   WhichAngularModel, ESTEP, EFINAL, AKT, RhydbergConst, TEMPC, TORR, EnablePenning,PIR2):
         '''This functions is used to fill the common main gas mixing inputs.'''
         for i in range(6):
             self.Gases[i].NGS = NGS[i]
@@ -119,7 +119,7 @@ cdef class Gasmix:
             self.Gases[i].EFINAL = EFINAL
             self.Gases[i].AKT = AKT
             self.Gases[i].ESTEP = ESTEP
-            self.Gases[i].ARY = ARY
+            self.Gases[i].RhydbergConst = RhydbergConst
             self.Gases[i].TEMPC = TEMPC
             self.Gases[i].TORR = TORR
             self.Gases[i].EnablePenning = EnablePenning

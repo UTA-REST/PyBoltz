@@ -591,7 +591,7 @@ cdef void Gas1(Gas* object):
             if EN > 100.0:
                 object.PEQIN[2][i] = PQ[1]
 
-        # VIBRATION V4 ANISOTROPIC
+        # VIBRATION V4 AAnisotropicDetectedTROPIC
         object.QIN[3][i] = 0.0
         object.PEQIN[3][i] = 0.5
         if EN > object.EIN[3]:
@@ -677,7 +677,7 @@ cdef void Gas1(Gas* object):
             object.QIN[6][i] = object.QIN[6][i] * APOPV3 * 1.0e-16 / DEGV3
             if EN > 100.0:
                 object.PEQIN[6][i] = PQ[1]
-        # VIBRATION V3 ANISOTROPIC
+        # VIBRATION V3 AAnisotropicDetectedTROPIC
         object.QIN[7][i] = 0.0
         object.PEQIN[7][i] = 0.5
         if EN > object.EIN[7]:

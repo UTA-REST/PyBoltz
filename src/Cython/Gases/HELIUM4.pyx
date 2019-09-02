@@ -185,9 +185,9 @@ cdef void Gas3(Gas*object):
         if EN >= object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION, XION, BETA2, 1 / <float> (0.995), CONST,
                                                  object.DEN[I], C, AM2)
-            # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
+            # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
             # ENERGIES ABOVE 2 * IONISATION ENERGY
-            # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
+            # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFFSET BY
             # IONISATION ENERGY
             if EN > (2 * object.EION[0]):
                 object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]

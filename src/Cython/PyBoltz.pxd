@@ -21,7 +21,7 @@ cdef class PyBoltz:
         '''PyBoltz does the electron energy integration in 4000 steps this variable has the difference in energy between each step.'''
         double ThermalEnergy
         '''This indicates the amount of energy in the gas (it is equal to the Boltzman constant * absolute tempreture).'''
-        double ARY
+        double RhydbergConst
         '''This is Rydberg constant times hc in eV.'''
         double TemperatureCentigrade
         '''This is the tempreture in degrees Centigrade.'''
@@ -31,8 +31,6 @@ cdef class PyBoltz:
         '''Maximum collision time. Default is set to 100.'''
         double SmallNumber
         '''This constant is equal to 1e-20. Used to be a small constant.'''
-        double Pi
-        '''The value of PI.'''
         double InitialElectronEnergy
         '''The lower limit of the electron energy integration.'''
         double AngleFromZ
@@ -57,8 +55,6 @@ cdef class PyBoltz:
         '''Percentage error on the y drift velocity.'''
         double VelocityErrorZ
         '''Percentage error on the z drift velocity.'''
-        double TTOTS
-        ''''''
         double AttachmentRate
         '''Attachment Rate.'''
         double IonisationRateError
@@ -99,8 +95,6 @@ cdef class PyBoltz:
         '''Percentage error for AVE.'''
         double MeanElectronEnergy
         '''Mean electron energy.'''
-        double XID
-        ''''''
         double X
         '''Variable used to represent the x position in the simulation.'''
         double Y
@@ -117,65 +111,6 @@ cdef class PyBoltz:
         '''Variable used to represent the ionisation rate.'''
         double ATTP
         '''Variable used to represent the attachement rate.'''
-        double SSTMIN
-        '''Variable used to represent the minmum difference between ALPP and ATTP to include spatial gradients. SST - Steady State Townsend Parameters.'''
-        double VDOUT
-        '''VD for Steady State Townsend Parameters.'''
-        double VDERR
-        '''Percentage error for VDOUT.'''
-        double WSOUT
-        '''VD for Steady State Townsend Parameters.'''
-        double WSERR
-        '''Percentage error for WSOUT.'''
-        double DLOUT
-        '''Steady State Townsend Longitudinal diffusion.'''
-        double DLERR
-        '''Percentage error for DLOUT.'''
-        double NMAXOLD
-        '''NMAX for SST - Steady State Townsend'''
-        double DTOUT
-        '''Steady State Townsend Transverse diffusion.'''
-        double DTERR
-        '''Percentage error for DTERR.'''
-        double ALPHSST
-        '''Ionisation rate from SST - Steady State Townsend.'''
-        double ATTOINT
-        double ATTERT
-        double AIOERT
-        double ALPHERR
-        double ATTSST
-        double TTOT
-        double ATTERR
-        double IZFINAL
-        double RALPHA
-        '''PT ionisation rate.'''
-        double RALPER
-        '''Percentage error for RALPHA.'''
-        double TODENE
-        double TOFENER
-        double TOFENE
-        double TOFWV
-        double TOFWVER
-        double TOFDL
-        double TOFDLER
-        double TOFDT
-        double TOFDTER
-        double TOFWR
-        double TOFWRER
-        double RATTOF
-        '''PT attachment rate.'''
-        double RATOFER
-        '''Percentage error for RATTOF'''
-        double ALPHAST
-        double VDST
-        double TSTEP
-        double ZSTEP
-        double TFINAL
-        double RATTOFER
-        double ZFINAL
-        double ITFINAL
-        double IPRIM
-        double TOFWVZ, TOFWVZER, TOFWVX, TOFWVXER, TOFWVY, TOFWVYER, TOFDZZ, TOFDZZER, TOFDXX, TOFDXXER, TOFDYY, TOFDYYER, TOFDYZ, TOFDYZER, TOFDXZ, TOFDXZER, TOFDXY, TOFDXYER, TOFWRZ, TOFWRZER, TOFWRY, TOFWRYER, TOFWRX, TOFWRXER, ATTOION, ATTIOER, ATTATER
         double CONST1
         '''Constant that is equal to AWB / 2 * 1e-9.'''
         double CONST2
@@ -191,15 +126,13 @@ cdef class PyBoltz:
         '''Sum of the maximum collision frequency of each gas.'''
         double EnableThermalMotion
         '''Variable used to indicate wethier to include thermal motion or not.'''
-        double CORR
-        '''Variable used to calculate the correlation constant between the pressure and tempreture. CORR=ABZERO*TORR/(ATMOS*(ABZERO+TEMPC)*100.0D0).'''
+        double PresTempCor
+        '''Variable used to calculate the correlation constant between the pressure and tempreture. PresTempCor=ABZERO*TORR/(ATMOS*(ABZERO+TEMPC)*100.0D0).'''
         double FAKEI
         double AN
-        '''Variable that is equal to 100 * CORR * ALOSCH. Which is the number of molecules/cm^3.'''
+        '''Variable that is equal to 100 * PresTempCor * ALOSCH. Which is the number of molecules/cm^3.'''
         double VAN
-        '''Variable that is equal to 100 * CORR * CONST4 * 1e15'''
-        double ZTOT
-        double ZTOTS
+        '''Variable that is equal to 100 * PresTempCor * CONST4 * 1e15'''
         double TimeSum
         '''Variable used to calculate the sum of the collision times in the simulation.'''
         double RSTART
@@ -208,18 +141,18 @@ cdef class PyBoltz:
         '''Number of gases in the mixture.'''
         long long NSTEP
         '''Steps for the electron energy integration.'''
-        long long NANISO
+        long long WhichAngularModel
         '''Variable used to indicate the type of the elastic angular distribtions.'''
-        long long IPEN
+        long long EnablePenning
         '''Variable used to indicate the inclusion of penning effects. '''
-        long long NISO
+        long long AnisotropicDetected
         '''Anisotropic flag used if anisotropic scattering data is detected.'''
         long long IELOW
         '''Flag used to indicate if the energy limit has been crossed.'''
-        long long NCOLM
-        long long NCORLN
+        long long Decor_NCOLM
+        long long Decor_NCORLN
         '''Long decorrelation length'''
-        long long NCORST
+        long long Decor_NCORST
         '''Long decorrelation step.'''
         long long NNULL
         '''Number of null collisions.'''
@@ -240,23 +173,19 @@ cdef class PyBoltz:
         double ICOLNN[6][10]
         '''Null scatter sum for the Ith gas and the Jth location.'''
         double ICOLN[6][290]
-        double ESPL[8], XSPL[8], TMSPL[8], TTMSPL[8], RSPL[8], RRSPL[8], RRSPM[8], YSPL[8], ZSPL[8], TSPL[8], XXSPL[8], YYSPL[8], ZZSPL[8], VZSPL[8], TSSUM[8], TSSUM2[8]
-        double XS[2000], YS[2000], ZS[2000], TS[2000], DCX[2000], DCY[2000], DCZ[2000], IPL[2000], ETPL[8], XTPL[8], YTPL[8], ZTPL[8], YZTPL[8], XZTPL[8], XYTPL[8], VYTPL[8], VXTPL[8], TTPL[8], XXTPL[8], YYTPL[8], ZZTPL[8], VZTPL[8], NETPL[8], ZPLANE[8]
-        double XSS[2000], YSS[2000], ZSS[2000], TSS[2000], ESS[2000], DCXS[2000], DCYS[2000], DCZS[2000], IPLS[2000]
         double AMGAS[6]
         double VTMB[6]
         '''Maxwell Boltzman velocity factor for each gas component.'''
         double TCFMXG[6]
         '''Fraction of the maximum collision frequency of each gas over the sum of the maximum collision frequencies of all the gases.'''
-        double NumberOfGasesN[6]
+        double GasIDs[6]
         '''Array used to store the number of the 6 gases in the mixture.'''
-        double FRAC[6]
+        double GasFractions[6]
         '''Array used to store the percentage of each gas in the mixture.'''
         double ANN[6]
         '''Array used to calculate the number of molecules/cm^3 for each gas.'''
         double VANN[6]
         '''Array used to calculate the VAN for each gas.'''
-        double RI[8], EPT[8], VZPT[8], TTEST[8]
         double QSUM[4000], QEL[4000], QSATT[4000], ES[4000]
         double E[4000]
         '''Energy ar each energy step.'''
@@ -265,7 +194,6 @@ cdef class PyBoltz:
         double QTOT[4000], QREL[4000], QINEL[4000], FCION[4000], FCATT[4000], IFAKET[8], IFAKED[9], RNMX[9], LAST[6]
         double NIN[6]
         '''Number of momentum cross section data points for types other than attachment and ionisation.'''
-        double LION[6], ALION[6]
         double IPLAST[6]
         '''Number of momentum cross section data points for each gas.'''
         double ISIZE[6]
@@ -284,18 +212,14 @@ cdef class PyBoltz:
         double TCFN[6][4000]
         '''Total null collision frequency for each gas at every energy step.'''
         double SCLENUL[6][10], PSCT[6][4000][290], ANGCT[6][4000][290]
-        double DTOVMB
-        '''Transverse diffusion in EV.'''
-        double DTMN
+        double TransverseDiffusion1
         '''Transverse diffusion in microns/cm^0.5.'''
-        double DFTER1
-        '''Percentage error for DTOVMB'''
-        double DLOVMB
-        '''Longitudinal diffusion in EV.'''
-        double DLMN
+        double TransverseDiffusion1Error
+        '''Percentage error for DT1'''
+        double LongitudinalDiffusion1
         '''Longitudinal diffusion in microns/cm^0.5'''
-        double DFLER1
-        '''Percentage error for DLOVMB'''
+        double LongitudinalDiffusion1Error
+        '''Percentage error for DL1'''
         double IPLASTNT,ISIZENT
         double PIR2
         int ConsoleOutputFlag

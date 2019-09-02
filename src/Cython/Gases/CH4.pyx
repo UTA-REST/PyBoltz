@@ -94,7 +94,7 @@ cdef void Gas8(Gas*object):
         object.KIN[J] = 0
     object.KIN[6]=0.0
     object.KIN[7]=0.0
-    #V4 AND V3 VIBRATIONS ANISOTROPIC ( CAPITELLI-LONGO)
+    #V4 AND V3 VIBRATIONS AAnisotropicDetectedTROPIC ( CAPITELLI-LONGO)
     object.KIN[1] = 1
     object.KIN[5] = 1
     for J in range(NBREM):
@@ -400,14 +400,14 @@ cdef void Gas8(Gas*object):
         if EN > 0.0:
             object.QIN[0][I] = GasUtil.CALQINVISO(EN, NVIBV4, YVBV4, XVBV4, APOPV4, object.EIN[1], DEGV4, object.EIN[0],
                                                    <float> (0.076))
-        #V4 ANISOTROPIC
+        #V4 AAnisotropicDetectedTROPIC
         object.QIN[1][I] = 0.0
         object.PEQIN[1][I] = 0.5
         if EN > object.EIN[1]:
-            object.QIN[1][I] = GasUtil.CALQINVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT,
+            object.QIN[1][I] = GasUtil.CALQINVAAnisotropicDetected(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT,
                                                     <float> (0.076))
             #RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART =RAT
-            XMT = GasUtil.CALXMTVANISO(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT, <float>(0.076))
+            XMT = GasUtil.CALXMTVAAnisotropicDetected(EN, NVIBV4, YVBV4, XVBV4, object.EIN[1], APOPGS, RAT, <float>(0.076))
             object.PEQIN[1][I] = 0.5 + (object.QIN[1][I] - XMT) / object.QIN[1][I]
 
         #V2  SUPERELASTIC ISOTROPIC
@@ -429,13 +429,13 @@ cdef void Gas8(Gas*object):
         if EN > object.EIN[4]:
             object.QIN[4][I] = GasUtil.CALQINVISO(EN, NVIBV1, YVBV1, XVBV1, 1, 0, 1, object.EIN[0], 0.0)
 
-        #V3 ANISOTROPIC
+        #V3 AAnisotropicDetectedTROPIC
         object.QIN[5][I] = 0.0
         object.PEQIN[5][I] = 0.5
         if EN > object.EIN[5]:
-            object.QIN[5][I] = GasUtil.CALQINVANISO(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
+            object.QIN[5][I] = GasUtil.CALQINVAAnisotropicDetected(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
             #RATIO OF MT TO TOTAL X-SECT FOR RESONANCE PART =RAT
-            XMT = GasUtil.CALXMTVANISO(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
+            XMT = GasUtil.CALXMTVAAnisotropicDetected(EN, NVIBV3, YVBV3, XVBV3, object.EIN[5], 1, RAT, <float> (0.076))
             object.PEQIN[5][I] = 0.5 + (object.QIN[5][I] - XMT) / object.QIN[5][I]
 
         #VIBRATION HARMONICS 1 ISOTROPIC

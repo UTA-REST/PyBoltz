@@ -32,10 +32,10 @@ cpdef Mixer(PyBoltz object):
         object.EROOT[i] = sqrt(object.E[i])
     object.EROOT[0] = sqrt(EHALF)
     MIXOBJECT = Gasmix()
-    MIXOBJECT.InitWithInfo(object.NumberOfGasesN, object.QIN, object.NIN, object.PENFRA,
+    MIXOBJECT.InitWithInfo(object.GasIDs, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
                            object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.WhichAngularModel, object.ElectronEnergyStep,
-                           object.FinalElectronEnergy, object.ThermalEnergy, object.ARY, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
+                           object.FinalElectronEnergy, object.ThermalEnergy, object.RhydbergConst, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
     MIXOBJECT.Run()
 
     EMASS = 9.10938291e-31
@@ -294,7 +294,7 @@ cpdef Mixer(PyBoltz object):
             KELSUM += MIXOBJECT.Gases[GasIndex].KIN[J]
 
     if KELSUM > 0:
-        object.NISO = 1
+        object.AnisotropicDetected = 1
 
     BP = object.EField ** 2 * object.CONST1
     F2 = object.EField * object.CONST3
@@ -366,10 +366,10 @@ cpdef MixerT(PyBoltz object):
     object.EROOT[0] = sqrt(EHALF)
 
     MIXOBJECT = Gasmix()
-    MIXOBJECT.InitWithInfo(object.NumberOfGasesN, object.QIN, object.NIN, object.PENFRA,
+    MIXOBJECT.InitWithInfo(object.GasIDs, object.QIN, object.NIN, object.PENFRA,
                            object.E, object.EROOT, object.QTOT, object.QREL, object.QINEL, object.QEL,
                            object.DENSY, 0, object.NumberOfGases, object.NSTEP, object.WhichAngularModel, object.ElectronEnergyStep,
-                           object.FinalElectronEnergy, object.ThermalEnergy, object.ARY, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
+                           object.FinalElectronEnergy, object.ThermalEnergy, object.RhydbergConst, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
     MIXOBJECT.Run()
 
     #-----------------------------------------------------------------
@@ -635,7 +635,7 @@ cpdef MixerT(PyBoltz object):
             KELSUM += MIXOBJECT.Gases[GasIndex].KIN[J]
 
     if KELSUM > 0:
-        object.NISO = 1
+        object.AnisotropicDetected = 1
 
     # CALCULATE NULL COLLISION FREQUENCIES FOR EACH GAS COMPONENT
     FAKEIN = abs(object.FAKEI) / object.NumberOfGases

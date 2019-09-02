@@ -178,7 +178,7 @@ cpdef run(PyBoltz Object):
                 VEX = DCX2 * CONST9 * sqrt(E)
                 VEY = DCY2 * CONST9 * sqrt(E)
                 VEZ = DCZ2 * CONST9 * sqrt(E)
-                # CALCULATE ENERGY WITH STATIONARY GAS TARGET, EOK
+                # CALCULATE ENERGY WITH STATIONRhydbergConst GAS TARGET, EOK
 
                 EOK = (pow((VEX - VGX), 2) + pow((VEY - VGY), 2) + pow((VEZ - VGZ), 2)) / CONST10
                 IE = int(EOK / Object.ElectronEnergyStep)
@@ -359,7 +359,7 @@ cpdef run(PyBoltz Object):
         Object.VelocityZ *= 1.0e9
         Object.MeanElectronEnergy = SUME2 / Object.TimeSum
         Object.LongitudinalDiffusion = 0.0
-        if Object.NISO == 0:
+        if Object.AnisotropicDetected == 0:
             Object.DiffusionX = 5.0e15 * SUMVX / Object.TimeSum
             Object.DiffusionY = 5.0e15 * SUMVY / Object.TimeSum
             DFXXST[J1] = 5.0e15 * (SUMVX - SVXOLD) / (Object.TimeSum - STOLD)

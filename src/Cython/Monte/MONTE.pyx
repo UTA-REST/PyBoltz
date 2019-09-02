@@ -305,7 +305,7 @@ cpdef run(PyBoltz Object):
         Object.VelocityZ *= 1e9
         Object.MeanElectronEnergy = SUME2 / Object.TimeSum
         Object.LongitudinalDiffusion = 0.0
-        if Object.NISO == 0:
+        if Object.AnisotropicDetected == 0:
             Object.DiffusionX = 5e15 * SUMVX / Object.TimeSum
             Object.DiffusionY = 5e15 * SUMVY / Object.TimeSum
             DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Object.TimeSum - STOLD)

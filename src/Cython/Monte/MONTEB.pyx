@@ -325,7 +325,7 @@ cpdef run(PyBoltz Object):
             Object.DiffusionYZ = -5e15 * SUMYZ / ST1
             Object.LongitudinalDiffusion = 5e15 * SUMLS / ST1
             Object.TransverseDiffusion = 5e15 * SUMTS / ST1
-        if Object.NISO == 0:
+        if Object.AnisotropicDetected == 0:
             Object.DiffusionX = 5e15 * SUMVX / Object.ST
         EBAR = 0.0
         for IK in range(4000):
@@ -347,7 +347,7 @@ cpdef run(PyBoltz Object):
             DFLNST[J1] = 5e15 * (SUMLS - SLNOLD) / (ST1 - ST1OLD)
             DFTRST[J1] = 5e15 * (SUMTS - STROLD) / (ST1 - ST1OLD)
         DFXXST[J1] = 5e15 * (SUMXX - SXXOLD) / (ST2 - ST2OLD)
-        if Object.NISO == 0:
+        if Object.AnisotropicDetected == 0:
             DFXXST[J1] = 5e15 * (SUMVX - SVXOLD) / (Object.ST - STOLD)
         ZOLD = Object.Z
         YOLD = Object.Y

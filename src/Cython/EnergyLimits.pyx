@@ -435,7 +435,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             IMBPT = IMBPT + 1
             VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1) % 6]
 
-            #CALCULATE ENERGY WITH STATIONARY GAS TARGET , EOK
+            #CALCULATE ENERGY WITH STATIONRhydbergConst GAS TARGET , EOK
             EOK = (pow((CX2 - VGX), 2) + pow((CY2 - VGY), 2) + pow((CZ2 - VGZ), 2)) / CONST10
             IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)

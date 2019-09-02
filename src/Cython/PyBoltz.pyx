@@ -229,7 +229,6 @@ cdef class PyBoltz:
         self.NSCALE = 0
         self.MaxCollisionTime = 100.0
         self.SmallNumber = 0.0
-        self.Pi = 0.0
         self.InitialElectronEnergy = 0.0
         self.AngleFromZ = 0.0
         self.AngleFromX = 0.0

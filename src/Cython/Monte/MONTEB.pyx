@@ -14,18 +14,6 @@ cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
 
-@cython.cdivision(True)
-@cython.boundscheck(False)
-@cython.wraparound(False)
-cdef void GERJAN(double RDUM, double API,double *RNMX):
-    cdef double RAN1, RAN2, TWOPI
-    cdef int J
-    for J in range(0, 5, 2):
-        RAN1 = random_uniform(RDUM)
-        RAN2 = random_uniform(RDUM)
-        TWOPI = 2.0 * API
-        RNMX[J] = sqrt(-1*log(RAN1)) * cos(RAN2 * TWOPI)
-        RNMX[J + 1] = sqrt(-1*log(RAN1)) * sin(RAN2 * TWOPI)
 
 
 @cython.cdivision(True)

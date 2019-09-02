@@ -13,10 +13,9 @@ cpdef Setup(PyBoltz object):
         
     The object parameter is the PyBoltz object to be setup.
     """
-    object.Pi = acos(-1.0)
-    TWOPI = 2.0 * object.Pi
+    TWOPI = 2.0 * np.pi
     object.ARY = <float>(13.60569253)
-    PIR2 = 8.7973554297e-17
+    object.PIR2 = 8.7973554297e-17
     ECHARG = 1.602176565e-19
     EMASS = 9.10938291e-31
     AMU = 1.660538921e-27
@@ -103,11 +102,10 @@ cpdef SetupT(PyBoltz object):
     
     The object parameter is the PyBoltz object to be setup.
     """
-    cdef double TWOPI, PIR2, ECHARG, EMASS, AMU, BOLTZ, BOLTZJ, AWB, ALOSCH, EOVM, ABZERO, ATMOS, TOTFRAC
+    cdef double TWOPI,  ECHARG, EMASS, AMU, BOLTZ, BOLTZJ, AWB, ALOSCH, EOVM, ABZERO, ATMOS, TOTFRAC
     cdef long long MXEKR, IH, NSCALE, i
 
-    object.Pi = acos(-1.0)
-    TWOPI = 2.0 * object.Pi
+    TWOPI = 2.0 * np.pi
     object.ARY = <float>(13.60569253)
     object.PIR2 = 8.7973554297e-17
     ECHARG = 1.602176565e-19

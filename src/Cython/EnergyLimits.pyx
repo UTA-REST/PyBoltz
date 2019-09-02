@@ -4,6 +4,8 @@ from PyBoltz cimport drand48
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
+import numpy as np
+cimport numpy as np
 
 from MBSorts cimport MBSort, MBSortT
 
@@ -26,13 +28,13 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef void GERJAN(double RDUM, double API, double *RNMX):
+cdef void GERJAN(double RDUM, double *RNMX):
     cdef double RAN1, RAN2, TWOPI
     cdef int J
     for J in range(0, 5, 2):
         RAN1 = random_uniform(RDUM)
         RAN2 = random_uniform(RDUM)
-        TWOPI = 2.0 * API
+        TWOPI = 2.0 * np.pi
         RNMX[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
         RNMX[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
 
@@ -381,7 +383,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
     TDASH = 0.0
 
     # GENRATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+    GERJAN(Object.RSTART, Object.RNMX)
     IMBPT = 0
 
 
@@ -425,7 +427,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
-                GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+                GERJAN(Object.RSTART,  Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -711,20 +713,20 @@ cpdef EnergyLimitCT(PyBoltz Object):
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE
-    cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,API
+    cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1,
     cdef double D, Q, U, CSQD, F6, F5, ARGZ,RTHETA, CONST12, VXLAB, VYLAB, EFX100,EFZ100,TLIM,CX2,CY2,CZ2,EOVBR
     ISAMP = 20
     SMALL = 1.0e-20
 
     I = 0
-    API = acos(-1)
 
-    RTHETA = Object.BFieldTheta*API/180.0
+
+    RTHETA = Object.BFieldTheta*np.pi/180.0
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
     F1 = Object.EField * Object.CONST2 * cos(RTHETA)
-    F4 =2*API
+    F4 =2*np.pi
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
     RDUM = Object.RSTART
     E1 = Object.InitialElectronEnergy
@@ -734,7 +736,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
     CONST10 = CONST9**2
 
     #GENERATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+    GERJAN(Object.RSTART,  Object.RNMX)
     IMBPT = 0
 
     #INITIAL DIRECTION COSINES
@@ -776,7 +778,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
-                GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+                GERJAN(Object.RSTART,  Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -822,7 +824,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             EXTRA = R9 * (EOK - EI)
             EI = EXTRA + EI
 
-        #  GENERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
+        #  GENEERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
         #   COLLISION ALSO UPDATE ENERGY OF ELECTRON.
         IPT = Object.IARRY[KGAS][I]
         if EOK < EI:
@@ -906,7 +908,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     The object parameter is the PyBoltz object to be setup and used in the simulation.
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, KGAS, IE
-    cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
+    cdef double SMALL, RDUM, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1,AP, BP, F1, F2, F4, J2M, R5, TEST1, R1, T,  E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB
 
@@ -918,7 +920,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     TDASH = 0.0
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
-    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+    GERJAN(Object.RSTART,  Object.RNMX)
     IMBPT = 0
     DCZ1 = cos(Object.AngleFromZ)
     DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
@@ -949,7 +951,7 @@ cpdef EnergyLimitT(PyBoltz Object):
                     break
             IMBPT += 1
             if (IMBPT > 6):
-                GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+                GERJAN(Object.RSTART,  Object.RNMX)
                 IMBPT = 1
             VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1)]
             IMBPT += 1

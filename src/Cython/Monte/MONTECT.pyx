@@ -3,6 +3,8 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
 from PyBoltz cimport drand48
 from MBSorts cimport MBSortT
+import numpy as np
+cimport numpy as np
 from libc.stdlib cimport malloc, free
 import cython
 
@@ -16,13 +18,13 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef void GERJAN(double RDUM, double API, double *RNMX):
+cdef void GERJAN(double RDUM,  double *RNMX):
     cdef double RAN1, RAN2, TWOPI
     cdef int J
     for J in range(0, 5, 2):
         RAN1 = random_uniform(RDUM)
         RAN2 = random_uniform(RDUM)
-        TWOPI = 2.0 * API
+        TWOPI = 2.0 * np.pi
         RNMX[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
         RNMX[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
 
@@ -130,18 +132,17 @@ cpdef run(PyBoltz Object):
     EBAROLD = 0.0
     Object.SmallNumber = 1e-20
     Object.MaximumCollisionTime = 0.0
-    Object.Pi = acos(-1)
 
     # CALC ROTATION MATRIX ANGLES
-    RCS = cos((Object.BFieldAngle - 90) * Object.Pi / 180)
-    RSN = sin((Object.BFieldAngle - 90) * Object.Pi / 180)
+    RCS = cos((Object.BFieldAngle - 90) * np.pi / 180)
+    RSN = sin((Object.BFieldAngle - 90) * np.pi / 180)
 
-    RTHETA = Object.BFieldAngle * Object.Pi / 180
+    RTHETA = Object.BFieldAngle * np.pi / 180
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
 
     F1 = Object.EField * Object.CONST2 * sin(RTHETA)
-    F4 = 2 * Object.Pi
+    F4 = 2 * np.pi
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 ** 2
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
@@ -158,7 +159,7 @@ cpdef run(PyBoltz Object):
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Object.TCF[K][J] + Object.TCFN[K][J]
-    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+    GERJAN(Object.RSTART,  Object.RNMX)
     ABSFAKEI = Object.FAKEI
     Object.IFAKE = 0
 
@@ -213,7 +214,7 @@ cpdef run(PyBoltz Object):
 
                 IMBPT += 1
                 if (IMBPT > 6):
-                    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+                    GERJAN(Object.RSTART,  Object.RNMX)
                     IMBPT = 1
                 VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1

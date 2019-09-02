@@ -3,6 +3,8 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 from libc.string cimport memset
 from PyBoltz cimport drand48
 from MBSorts cimport MBSortT
+import numpy as np
+cimport numpy as np
 from libc.stdlib cimport malloc, free
 import cython
 
@@ -17,13 +19,13 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef void GERJAN(double RDUM, double API,double *RNMX):
+cdef void GERJAN(double RDUM, double *RNMX):
     cdef double RAN1, RAN2, TWOPI
     cdef int J
     for J in range(0, 5, 2):
         RAN1 = random_uniform(RDUM)
         RAN2 = random_uniform(RDUM)
-        TWOPI = 2.0 * API
+        TWOPI = 2.0 * np.pi
         RNMX[J] = sqrt(-1*log(RAN1)) * cos(RAN2 * TWOPI)
         RNMX[J + 1] = sqrt(-1*log(RAN1)) * sin(RAN2 * TWOPI)
 
@@ -142,7 +144,7 @@ cpdef run(PyBoltz Object):
     ABSFAKEI = Object.FAKEI
     Object.IFAKE = 0
 
-    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+    GERJAN(Object.RSTART,  Object.RNMX)
     IMBPT = 0
     TDASH = 0.0
     F4 = 2 * acos(-1)
@@ -190,7 +192,7 @@ cpdef run(PyBoltz Object):
                 # CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
                 IMBPT += 1
                 if (IMBPT > 6):
-                    GERJAN(Object.RSTART, Object.Pi, Object.RNMX)
+                    GERJAN(Object.RSTART,  Object.RNMX)
                     IMBPT = 1
                 VGX = Object.VTMB[KGAS] * Object.RNMX[(IMBPT - 1) % 6]
                 IMBPT += 1

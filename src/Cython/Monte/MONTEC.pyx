@@ -3,6 +3,8 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
 from PyBoltz cimport drand48
 from MBSorts cimport MBSort
+import numpy as np
+cimport numpy as np
 from libc.stdlib cimport malloc, free
 import cython
 
@@ -13,18 +15,6 @@ cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
 
-@cython.cdivision(True)
-@cython.boundscheck(False)
-@cython.wraparound(False)
-cdef void GERJAN(double RDUM, double API, double *RNMX):
-    cdef double RAN1, RAN2, TWOPI
-    cdef int J
-    for J in range(0, 5, 2):
-        RAN1 = random_uniform(RDUM)
-        RAN2 = random_uniform(RDUM)
-        TWOPI = 2.0 * API
-        RNMX[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
-        RNMX[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -138,14 +128,13 @@ cpdef run(PyBoltz Object):
     EBAROLD = 0.0
     Object.SmallNumber = 1e-20
     Object.MaximumCollisionTime = 0.0
-    Object.Pi = acos(-1)
-    RCS = cos((Object.BFieldAngle - 90) * Object.Pi / 180)
-    RSN = sin((Object.BFieldAngle - 90) * Object.Pi / 180)
-    RTHETA = Object.BFieldAngle * Object.Pi / 180
+    RCS = cos((Object.BFieldAngle - 90) * np.pi / 180)
+    RSN = sin((Object.BFieldAngle - 90) * np.pi / 180)
+    RTHETA = Object.BFieldAngle * np.pi / 180
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
     F1 = Object.EField * Object.CONST2 * cos(RTHETA)
-    F4 = 2 * Object.Pi
+    F4 = 2 * np.pi
     CONST9 = Object.CONST3 * 0.01
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
     E1 = Object.InitialElectronEnergy

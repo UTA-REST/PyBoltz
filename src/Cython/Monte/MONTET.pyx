@@ -104,7 +104,6 @@ cpdef run(PyBoltz Object):
     DFXXST = <double *> malloc(10 * sizeof(double))
     memset(DFXXST, 0, 10 * sizeof(double))
 
-    Object.SmallNumber = 1.0e-20
     RandomSeed = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01

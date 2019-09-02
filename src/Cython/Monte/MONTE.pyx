@@ -92,7 +92,6 @@ cpdef run(PyBoltz Object):
     SVYOLD = 0.0
     SME2OLD = 0.0
 
-    Object.SmallNumber = 1.0e-20
     RandomSeed = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01

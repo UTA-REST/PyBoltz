@@ -130,7 +130,6 @@ cpdef run(PyBoltz Object):
     SXZOLD = 0.0
 
     EBAROLD = 0.0
-    Object.SmallNumber = 1e-20
 
     # CALC ROTATION MATRIX ANGLES
     RCS = cos((Object.BFieldAngle - 90) * np.pi / 180)

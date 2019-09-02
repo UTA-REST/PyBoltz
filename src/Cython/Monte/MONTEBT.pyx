@@ -124,7 +124,6 @@ cpdef run(PyBoltz Object):
     SLNOLD = 0.0
     STROLD = 0.0
     EBAROLD = 0.0
-    Object.SmallNumber = 1e-20
     EF100 = Object.EField * 100
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01

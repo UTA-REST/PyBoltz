@@ -142,7 +142,7 @@ cdef class PyBoltz:
         self.AngularSpeedOfRotation = 0.0
         self.ThermalEnergy = 0.0
         self.MaxCollisionTime = 100.0
-        self.SmallNumber = 0.0
+        self.SmallNumber = 1e-20
         self.AngleFromX = 0.0
         self.PresTempCor = 0.0
 

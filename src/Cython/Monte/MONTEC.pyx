@@ -127,7 +127,6 @@ cpdef run(PyBoltz Object):
     SXZOLD = 0.0
 
     EBAROLD = 0.0
-    Object.SmallNumber = 1e-20
     RCS = cos((Object.BFieldAngle - 90) * np.pi / 180)
     RSN = sin((Object.BFieldAngle - 90) * np.pi / 180)
     RTHETA = Object.BFieldAngle * np.pi / 180

@@ -134,8 +134,6 @@ cdef class PyBoltz:
         self.CONST1 = 0.0
         self.CONST2 = 0.0
         self.CONST3 = 0.0
-        self.CONST4 = 0.0
-        self.CONST5 = 0.0
         self.PIR2 = 0.0
         self.RhydbergConst = 0.0
         self.EFieldOverBField = 0.0
@@ -159,7 +157,6 @@ cdef class PyBoltz:
         self.AnisotropicDetected = 0
         self.FinalElectronEnergy = 0.0
         self.ElectronEnergyStep = 0
-        self.NSCALE = 0
         self.InitialElectronEnergy = 0.0
         self.AngleFromZ = 0.0
         self.TimeSum = 0.0

@@ -13,25 +13,23 @@ cpdef Setup(PyBoltz object):
         
     The object parameter is the PyBoltz object to be setup.
     """
-    TWOPI = 2.0 * np.pi
+    TwoPi = 2.0 * np.pi
     object.RhydbergConst = <float>(13.60569253)
     object.PIR2 = 8.7973554297e-17
-    ECHARG = 1.602176565e-19
-    EMASS = 9.10938291e-31
+    ElectronCharge = 1.602176565e-19
+    ElectronMass = 9.10938291e-31
     AMU = 1.660538921e-27
-    BOLTZ = 8.6173324e-5
-    BOLTZJ = 1.3806488e-23
-    AWB = 1.758820088e10
+    BoltzmannConst_eV = 8.6173324e-5
+    BoltzmannConst_eVJ = 1.3806488e-23
+    MassOverChargeDivTen = 1.758820088e10
     ALOSCH = 2.6867805e19
-    EOVM = sqrt(2.0 * ECHARG / EMASS) * 100.0
-    ABZERO = 273.15
-    ATMOS = 760.0
-    object.CONST1 = AWB / 2.0 * 1.0e-19
+    EOVM = sqrt(2.0 * ElectronCharge / ElectronMass) * 100.0
+    ZeroCelcius = 273.15
+    OneAtmosphere = 760.0
+    object.CONST1 = MassOverChargeDivTen / 2.0 * 1.0e-19
     object.CONST2 = object.CONST1* 1.0e-02
-    object.CONST3 = sqrt(0.2 * AWB) * 1.0e-9
-    object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
-    object.CONST5 = object.CONST3 / 2.0
-    object.PresTempCor = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
+    object.CONST3 = sqrt(0.2 * MassOverChargeDivTen) * 1.0e-9
+    object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
     object.Decor_NCOLM = 2000000
@@ -62,8 +60,7 @@ cpdef Setup(PyBoltz object):
         TOTFRAC += object.GasFractions[J]
     if abs(TOTFRAC - 100) >= 1e-6:
         raise ValueError("Error in Gas Input")
-    NSCALE = 40000000
-    object.MaxNumberOfCollisions = object.MaxNumberOfCollisions * NSCALE
+    object.MaxNumberOfCollisions = object.MaxNumberOfCollisions 
 
     if object.MaxNumberOfCollisions < 0:
         raise ValueError("MaxNumberOfCollisions value is too large - overflow")
@@ -80,10 +77,10 @@ cpdef Setup(PyBoltz object):
     for i in range(6):
         object.ANN[i] = object.GasFractions[i] * object.PresTempCor * ALOSCH
     for i in range(6):
-        object.VANN[i] = object.GasFractions[i] * object.PresTempCor * object.CONST4 * 1e15
+        object.VANN[i] = object.GasFractions[i] * object.PresTempCor * object.CONST3 * ALOSCH 
 
     # Radians per picosecond
-    object.AngularSpeedOfRotation = AWB * object.BFieldMag * 1e-12
+    object.AngularSpeedOfRotation = MassOverChargeDivTen * object.BFieldMag * 1e-12
 
     if object.BFieldMag == 0:
         return
@@ -102,28 +99,26 @@ cpdef SetupT(PyBoltz object):
     
     The object parameter is the PyBoltz object to be setup.
     """
-    cdef double TWOPI,  ECHARG, EMASS, AMU, BOLTZ, BOLTZJ, AWB, ALOSCH, EOVM, ABZERO, ATMOS, TOTFRAC
-    cdef long long MXEKR, IH, NSCALE, i
+    cdef double TwoPi,  ElectronCharge, ElectronMass, AMU, BoltzmannConst_eV, BoltzmannConst_eVJ, MassOverChargeDivTen, ALOSCH, EOVM, ZeroCelcius, OneAtmosphere, TOTFRAC
+    cdef long long MXEKR, IH,  i
 
-    TWOPI = 2.0 * np.pi
+    TwoPi = 2.0 * np.pi
     object.RhydbergConst = <float>(13.60569253)
     object.PIR2 = 8.7973554297e-17
-    ECHARG = 1.602176565e-19
-    EMASS = 9.10938291e-31
+    ElectronCharge = 1.602176565e-19
+    ElectronMass = 9.10938291e-31
     AMU = 1.660538921e-27
-    BOLTZ = 8.6173324e-5
-    BOLTZJ = 1.3806488e-23
-    AWB = 1.758820088e10
+    BoltzmannConst_eV = 8.6173324e-5
+    BoltzmannConst_eVJ = 1.3806488e-23
+    MassOverChargeDivTen = 1.758820088e10
     ALOSCH = 2.6867805e19
-    EOVM = sqrt(2.0 * ECHARG / EMASS) * 100.0
-    ABZERO = 273.15
-    ATMOS = 760.0
-    object.CONST1 = AWB / 2.0 * 1.0e-19
+    EOVM = sqrt(2.0 * ElectronCharge / ElectronMass) * 100.0
+    ZeroCelcius = 273.15
+    OneAtmosphere = 760.0
+    object.CONST1 = MassOverChargeDivTen / 2.0 * 1.0e-19
     object.CONST2 = object.CONST1 * 1.0e-02
-    object.CONST3 = sqrt(0.2 * AWB) * 1.0e-9
-    object.CONST4 = object.CONST3 * ALOSCH * 1.0e-15
-    object.CONST5 = object.CONST3 / 2.0
-    object.PresTempCor = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
+    object.CONST3 = sqrt(0.2 * MassOverChargeDivTen) * 1.0e-9
+    object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
     object.Decor_NCOLM = 2000000
@@ -155,8 +150,7 @@ cpdef SetupT(PyBoltz object):
         raise ValueError("Error in Gas Input")
 
 
-    object.NSCALE = 40000000
-    object.MaxNumberOfCollisions = object.MaxNumberOfCollisions * object.NSCALE
+    object.MaxNumberOfCollisions = object.MaxNumberOfCollisions
 
     if object.MaxNumberOfCollisions < 0:
         raise ValueError("NMAX value is too large - overflow")
@@ -164,18 +158,18 @@ cpdef SetupT(PyBoltz object):
     object.AngleFromZ = 0.785
     object.AngleFromX = 0.1
     object.InitialElectronEnergy = object.FinalElectronEnergy / 50.0
-    object.PresTempCor = ABZERO * object.PressureTorr / (ATMOS * (ABZERO + object.TemperatureCentigrade) * 100.0)
+    object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
-    object.ThermalEnergy = (ABZERO + object.TemperatureCentigrade) * BOLTZ
+    object.ThermalEnergy = (ZeroCelcius + object.TemperatureCentigrade) * BoltzmannConst_eV
     for i in range(6):
         object.ANN[i] = object.GasFractions[i] * object.PresTempCor * ALOSCH
     object.AN = 100.0 * object.PresTempCor * ALOSCH
     for i in range(6):
-        object.VANN[i] = object.GasFractions[i] * object.PresTempCor * object.CONST4 * 1e15
-    object.VAN = 100.0 * object.PresTempCor * object.CONST4 * 1.0e15
+        object.VANN[i] = object.GasFractions[i] * object.PresTempCor * object.CONST3 * ALOSCH
+    object.VAN = 100.0 * object.PresTempCor * object.CONST3 * ALOSCH
 
     # Radians per picosecond
-    object.AngularSpeedOfRotation = AWB * object.BFieldMag * 1e-12
+    object.AngularSpeedOfRotation = MassOverChargeDivTen * object.BFieldMag * 1e-12
 
 
     if object.BFieldMag == 0:

@@ -53,7 +53,7 @@ cpdef run(PyBoltz Object):
     cdef long long I, ID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, GasIndex, IE, IT, KDUM, IPT, JDUM, NCOLDM
     cdef double ST1, RandomSeed, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
-    cdef double  E1, CONST9, CONST10, AP, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
+    cdef double  E1, CONST9, CONST10, AP, CONST5, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
     cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, ANCATT, ANCION, E
     cdef double NumSamples
@@ -107,6 +107,7 @@ cpdef run(PyBoltz Object):
     RandomSeed = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
     CONST9 = Object.CONST3 * 0.01
+    CONST5 = Object.CONST3 / 2.0
     CONST10 = pow(CONST9, 2)
     NumSamples = 10
     ID = 0
@@ -154,7 +155,7 @@ cpdef run(PyBoltz Object):
                 # CALCULATE DIRECTION COSINES BEFORE COLLISION
                 DCX2 = DCX1 * CONST6
                 DCY2 = DCY1 * CONST6
-                DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
+                DCZ2 = DCZ1 * CONST6 + Object.EField * T * CONST5 / sqrt(E)
                 # FIND IDENTITY OF GAS FOR COLLISION
                 GasIndex = 0
                 if Object.NumberOfGases == 1:

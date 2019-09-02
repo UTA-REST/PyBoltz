@@ -55,12 +55,13 @@ cpdef EnergyLimit(PyBoltz Object):
     """
 
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
-    cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
+    cdef double SMALL, RandomSeed, E1, TDASH, CONST5, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
 
+    CONST5 = Object.CONST3 / 2.0
     ISAMP = 10
     SMALL = 1.0e-20
     I = 0
@@ -118,7 +119,7 @@ cpdef EnergyLimit(PyBoltz Object):
         CONST6 = sqrt(E1 / E)
         DCX2 = DCX1 * CONST6
         DCY2 = DCY1 * CONST6
-        DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
+        DCZ2 = DCZ1 * CONST6 + Object.EField * T * CONST5 / sqrt(E)
         R2 = random_uniform(RandomSeed)
 
 
@@ -918,6 +919,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
+    CONST5 = Object.CONST3 / 2.0
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
     GERJAN(Object.RandomSeed,  Object.RNMX)
@@ -943,7 +945,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             CONST6 = sqrt(E1 / E)
             DCX2 = DCX1 * CONST6
             DCY2 = DCY1 * CONST6
-            DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
+            DCZ2 = DCZ1 * CONST6 + Object.EField * T * CONST5 / sqrt(E)
             R2 = random_uniform(RandomSeed)
             GasIndex = 0
             for GasIndex in range(Object.NumberOfGases):

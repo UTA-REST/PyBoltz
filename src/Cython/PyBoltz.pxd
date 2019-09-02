@@ -117,11 +117,6 @@ cdef class PyBoltz:
         '''Constant that is equal to CONST1 * 1e-2.'''
         double CONST3
         '''Constant that is equal to sqrt(0.2 * AWB) * 1e-9.'''
-        #TODO:find ALOSCH
-        double CONST4
-        '''Constant that is equal to CONST3 * ALOSCH * 1e-15.'''
-        double CONST5
-        '''Constant that is equal to CONST3 / 2.'''
         double MaxCollisionFreqTotal
         '''Sum of the maximum collision frequency of each gas.'''
         double EnableThermalMotion
@@ -147,19 +142,13 @@ cdef class PyBoltz:
         '''Variable used to indicate the inclusion of penning effects. '''
         long long AnisotropicDetected
         '''Anisotropic flag used if anisotropic scattering data is detected.'''
-        long long IELOW
-        '''Flag used to indicate if the energy limit has been crossed.'''
         long long Decor_NCOLM
         long long Decor_NCORLN
         '''Long decorrelation length'''
         long long Decor_NCORST
         '''Long decorrelation step.'''
-        long long NNULL
-        '''Number of null collisions.'''
         long long IFAKE
         '''Fake ionisation counter.'''
-        long long NSCALE
-        '''Constant equal to 40000000.'''
         double NESST[9]
         double DENSY[4000]
         double SPEC[4000]

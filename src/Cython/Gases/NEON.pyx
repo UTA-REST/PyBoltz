@@ -335,7 +335,7 @@ cdef void Gas5(Gas* object):
 
         #1S4 RESONANCE LEVEL  F=0.0118
         if EN > object.EIN[1]:
-            object.QIN[1][I] = GasUtil.CALQINBEF(EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
+            object.QIN[1][I] = GasUtil.CALQINBEF(EN, EN,N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
                                                  object.EIN[1], object.E[2], <float>(0.0118))
             object.QIN[1][I] = abs(object.QIN[1][I])
             if EN > 2 * object.EIN[1]:
@@ -349,7 +349,7 @@ cdef void Gas5(Gas* object):
 
         #1S2 RESONANCE LEVEL  F=0.159
         if EN > object.EIN[3]:
-            object.QIN[3][I] = GasUtil.CALQINBEF(EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
+            object.QIN[3][I] = GasUtil.CALQINBEF(EN, EN,N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
                                                  object.EIN[3], object.E[2], <float>(0.159))
             object.QIN[3][I] = abs(object.QIN[3][I])
             if EN > 2 * object.EIN[3]:

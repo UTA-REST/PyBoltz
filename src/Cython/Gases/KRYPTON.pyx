@@ -507,7 +507,7 @@ cdef void Gas6(Gas*object):
 
         #1S4  F=0.203
         if EN > object.EIN[1]:
-            object.QIN[1][I] = GasUtil.CALQINBEF(EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
+            object.QIN[1][I] = GasUtil.CALQINBEF(EN, EN,N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
                                                  object.EIN[1], object.E[2], 0.203)
             if EN<=X1S4[N1S4-1]:
                 object.QIN[1][I]*=AN1S
@@ -522,7 +522,7 @@ cdef void Gas6(Gas*object):
 
         #1S2  F=0.182
         if EN > object.EIN[3]:
-            object.QIN[3][I] = GasUtil.CALQINBEF(EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
+            object.QIN[3][I] = GasUtil.CALQINBEF(EN, EN,N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I], BBCONST,
                                                  object.EIN[1], object.E[2], 0.182)
             if EN<=X1S2[N1S2-1]:
                 object.QIN[3][I]*=AN1S

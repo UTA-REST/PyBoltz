@@ -138,12 +138,12 @@ cdef void Gas11(Gas*object):
 
     for i in range(object.NIN):
         for j in range(3):
-            object.PENFRA[j][i]
+            object.PenningFraction[j][i]
     
     for i in range(9,24):
-        object.PENFRA[0][i]=0.0
-        object.PENFRA[1][i]=1.0
-        object.PENFRA[2][i]=1.0
+        object.PenningFraction[0][i]=0.0
+        object.PenningFraction[1][i]=1.0
+        object.PenningFraction[2][i]=1.0
 
     APOP1=exp(object.EIN[0]/object.AKT)
     APOP2=exp(2.0*object.EIN[0]/object.AKT)

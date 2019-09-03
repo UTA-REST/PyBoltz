@@ -125,13 +125,13 @@ cdef void Gas1(Gas* object):
     # POSSIBLE PENNING TRANSFER
     for NL in range(3):
         for i in range(46):
-            object.PENFRA[NL][i]=0.0
+            object.PenningFraction[NL][i]=0.0
     # PENNING TRANSFER FRACTION FOR LEVEL 11
-    object.PENFRA[0][45] = 0.0
+    object.PenningFraction[0][45] = 0.0
     # PENNING TRANSFER DISTANCE IN MICRONS
-    object.PENFRA[1][45] = 1.0
+    object.PenningFraction[1][45] = 1.0
     # PENNING TRANSFER TIME IN PICOSECONDS
-    object.PENFRA[2][45] = 1.0
+    object.PenningFraction[2][45] = 1.0
 
     # PRINT
 

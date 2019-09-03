@@ -186,9 +186,9 @@ cdef void Gas21(Gas*object):
     ERLVL[6] = 0.01469049 + object.EIN[5] + object.EIN[7] + 0.1794
 
     for J in range(object.NIN):
-        object.PENFRA[0][J] = 0.0
-        object.PENFRA[1][J] = 1.0
-        object.PENFRA[2][J] = 1.0
+        object.PenningFraction[0][J] = 0.0
+        object.PenningFraction[1][J] = 1.0
+        object.PenningFraction[2][J] = 1.0
 
     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
     cdef int NL = 0, FI

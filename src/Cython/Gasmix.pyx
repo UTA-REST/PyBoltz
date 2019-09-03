@@ -59,7 +59,7 @@ cdef void callGASF(Gas* GAS):
         Gas25(GAS)
 
 cdef class Gasmix:
-    def InitWithInfo(self, NGS, QIN, NIN, PENFRA, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
+    def InitWithInfo(self, NGS, QIN, NIN, PenningFraction, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
                      WhichAngularModel, ESTEP, EFINAL, AKT, RhydbergConst, TEMPC, TORR, EnablePenning,PIR2):
         '''This functions simply initiates the gas data from the parameters. This functions fills the output arrays to zeros.'''
         cdef int i,j;
@@ -69,7 +69,7 @@ cdef class Gasmix:
                 self.Gases[i].QIN[j][:] = QIN[i][j]
             self.Gases[i].NIN = NIN[i]
             for j in range(3):
-                self.Gases[i].PENFRA[j][:] = PENFRA[i][j]
+                self.Gases[i].PenningFraction[j][:] = PenningFraction[i][j]
             self.Gases[i].EG = EG
             self.Gases[i].EROOT = EROOT
             self.Gases[i].QT1 = QT1

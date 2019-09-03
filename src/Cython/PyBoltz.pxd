@@ -142,18 +142,17 @@ cdef class PyBoltz:
         '''Variable used to indicate the inclusion of penning effects. '''
         long long AnisotropicDetected
         '''Anisotropic flag used if anisotropic scattering data is detected.'''
-        long long Decor_NCOLM
-        long long Decor_NCORLN
-        '''Long decorrelation length'''
-        long long Decor_NCORST
+        long long Decor_Colls
+        long long Decor_Step
+        long long Decor_LookBacks
         '''Long decorrelation step.'''
-        long long IFAKE
+        long long FakeIonizations
         '''Fake ionisation counter.'''
         double NESST[9]
         double DENSY[4000]
-        double SPEC[4000]
+        double CollisionEnergies[4000]
         '''Number of collisions in the Ith energy step.'''
-        double TIME[300]
+        double CollisionTimes[300]
         '''Number of collisions in the Ith time step.'''
         double ICOLL[6][5]
         '''Number of collisions for Ith gas at the Jth type.'''
@@ -178,7 +177,7 @@ cdef class PyBoltz:
         '''Energy ar each energy step.'''
         double EROOT[4000]
         '''The square root of each energy step.'''
-        double QTOT[4000], QREL[4000], QINEL[4000], FCION[4000], FCATT[4000], IFAKET[8], IFAKED[9], RNMX[9], LAST[6]
+        double QTOT[4000], QREL[4000], QINEL[4000], FCION[4000], FCATT[4000], FakeIonizationsT[8], FakeIonizationsD[9], RNMX[9], LAST[6]
         double NIN[6]
         '''Number of momentum cross section data points for types other than attachment and ionisation.'''
         double IPLAST[6]
@@ -191,12 +190,13 @@ cdef class PyBoltz:
         double INDEX[6][290], NC0[6][290], EC0[6][290], NG1[6][290], EG1[6][290], NG2[6][290], EG2[6][290], WKLM[6][290], EFL[6][290], EIN[6][290], IARRY[6][290], RGAS[6][290], IPN[6][290], WPL[6][290], QION[6][4000], QIN[6][250][4000], LIN[6][250], ALIN[6][250]
         double CF[6][4000][290]
         '''Collision frequency for each gas at every energy step for every data point.'''
-        double TCF[6][4000]
+        double TotalCollisionFrequency[6][4000]
         '''Total collision frequency for each gas at every energy step.'''
-        double PENFRA[6][3][290]
-        double CFN[6][4000][10]
+        double PenningFraction[6][3][290]
+        '''PenningFraction of each gas'''
+        double NullCollisionFreq[6][4000][10]
         '''Null collision frequency for each gas at every energy step for every data point.'''
-        double TCFN[6][4000]
+        double TotalCollisionFrequencyN[6][4000]
         '''Total null collision frequency for each gas at every energy step.'''
         double SCLENUL[6][10], PSCT[6][4000][290], ANGCT[6][4000][290]
         double TransverseDiffusion1
@@ -214,8 +214,8 @@ cdef class PyBoltz:
         double MeanCollisionTime
         '''Mean collision time. Calculated using a moving average filter where it is equal to 0.9 * MeanCollisionTime + 0.1 * NewTime'''
         # Variables and arrays used when the thermal motion is not included.
-        double CFNT[4000][960],EINNT[960],TCFNT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PENFRANT[3][960],MaxCollisionFreqNT[8]
-        double CFNNT[4000][60],TCFNNT[4000],SCLENULNT[60],PSCTNT[4000][960],ANGCTNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]
+        double NullCollisionFreqT[4000][960],EINNT[960],TotalCollisionFrequencyNT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
+        double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNNT[4000],SCLENULNT[60],PSCTNT[4000][960],ANGCTNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]
         double NG1NT[960],EG1NT[960],NG2NT[960],EG2NT[960],WKLMNT[960],EFLNT[960]
         double ICOLLNT[30],ICOLNNT[960],ICOLNNNT[60]
         double NPLASTNT

@@ -25,7 +25,7 @@ cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
             return I
         I = INCR + ISTEP - 1
         if I <= Object.IPLASTNT:
-            if Object.CFNT[IE][I] < R2:
+            if Object.NullCollisionFreqT[IE][I] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
 

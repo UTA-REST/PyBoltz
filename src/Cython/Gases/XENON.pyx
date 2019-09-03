@@ -265,11 +265,11 @@ cdef void Gas7(Gas*object):
 
     cdef int NL
     for NL in range(object.NIN):
-        object.PENFRA[0][NL] = 0.0
+        object.PenningFraction[0][NL] = 0.0
         # PENNING TRANSFER DISTANCE MICRONS
-        object.PENFRA[1][NL] = 1.0
+        object.PenningFraction[1][NL] = 1.0
         # PENNING TRANSFER TIME PICOSECONDS
-        object.PENFRA[2][NL] = 1.0
+        object.PenningFraction[2][NL] = 1.0
 
     for NL in range(object.NIN):
         for I in range(4000):

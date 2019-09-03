@@ -238,12 +238,12 @@ cdef void Gas14(Gas*object):
                 break
 
     for I in range(object.NIN):
-        object.PENFRA[0][I] = 0.0
+        object.PenningFraction[0][I] = 0.0
 
     for J in range(214, object.NIN):
-        object.PENFRA[0][J] = 0.0
-        object.PENFRA[1][J] = 1.0
-        object.PENFRA[2][J] = 1.0
+        object.PenningFraction[0][J] = 0.0
+        object.PenningFraction[1][J] = 1.0
+        object.PenningFraction[2][J] = 1.0
 
     cdef double APOPV1, APOPGS, APOPSUM, GAMMA1, GAMMA2, BETA, BETA2, EN, QELA, QMMT, PQ[3], EPS, QCOUNT, QGROSS, EPOINT
     cdef double F[32]

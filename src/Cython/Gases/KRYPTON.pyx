@@ -321,11 +321,11 @@ cdef void Gas6(Gas*object):
     # ENTER PENNING TRANSFER FRACTION FOR EACH LEVEL
     # USE PENNING TRANSFER FRACTION BETWEEN 0.0 AND 0.2
     for NL in range(object.NIN):
-        object.PENFRA[0][NL] = 0.0
+        object.PenningFraction[0][NL] = 0.0
         #PENNING TRANSFER DISTANCE MICRONS
-        object.PENFRA[1][NL] = 1.0
+        object.PenningFraction[1][NL] = 1.0
         #PENNING TRANSFER TIME
-        object.PENFRA[3][NL] = 1.0
+        object.PenningFraction[3][NL] = 1.0
 
     for NL in range(object.NIN):
         for i in range(4000):

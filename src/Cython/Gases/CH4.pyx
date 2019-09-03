@@ -210,7 +210,7 @@ cdef void Gas8(Gas*object):
                 break
     for NL in range(3):
         for i in range(46):
-            object.PENFRA[NL][i] = 0.0
+            object.PenningFraction[NL][i] = 0.0
 
     cdef double APOPV4, APOPV2, APOPGS, APOPSUM, EN, GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, PQ[3], YXJ, XNJ, YXJ1, XNJ1, A, B, X2, X1, QSUM, FAC
     cdef double XMT, CON[18], F[18], QSUP, QVIB, QDATT, QSING, QTRIP, QEXC, QTTT, QWINT, QINEL, QIONS

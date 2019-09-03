@@ -39,14 +39,14 @@ Object.NumberOfGases =1
 # Set the number of collisons 
 Object.MaxNumberOfCollisions =1
 # Set penning
-Object.IPEN = 0
+Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=1
 Object.FinalElectronEnergy = 1000.0
 # Set the gas's with there given number
-Object.NumberOfGasesN=[4, 0, 0, 0, 0, 0]
+Object.GasIDs=[4, 0, 0, 0, 0, 0]
 # Set the gas fractions
-Object.FRAC=[100, 0, 0, 0, 0, 0]
+Object.GasFractions=[100, 0, 0, 0, 0, 0]
 # Set the tempature
 Object.TemperatureCentigrade = float(23)
 # Set the pressure
@@ -58,7 +58,7 @@ Object.BFieldMag = 0
 Object.BFieldAngle =0
 Object.ConsoleOutputFlag = 1
 
-Object.NANISO = 2
+Object.WhichAngularModel = 2
 
 Object.Start()
 
@@ -71,7 +71,7 @@ print("************************************************ \n")
 print("run time [s]= ",round(t2-t1,3))
 
 for I in range(Object.NumberOfGases):
-    print("Percentage of "+GASES[int(Object.NumberOfGasesN[I])]+" = "+  str(Object.FRAC[I]))
+    print("Percentage of "+GASES[int(Object.GasIDs[I])]+" = "+  str(Object.GasFractions[I]))
 
 print("Tempature [C]         = ", Object.TemperatureCentigrade)
 print("Pressure [torr]       = ", Object.PressureTorr)

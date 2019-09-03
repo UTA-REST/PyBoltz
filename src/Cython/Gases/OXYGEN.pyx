@@ -307,9 +307,9 @@ cdef void Gas15(Gas*object):
          .004962, .006520, .008432, .011304, .015172, .022139, .032682, .039457, .029498, .018923, .017762, .015115,
          .013220, .009540, .005854, .008733, .007914, .008002, .006519, .003528, .001469]
     for J in range(75, object.NIN):
-        object.PENFRA[0][J] = 0.0
-        object.PENFRA[1][J] = 1.0
-        object.PENFRA[2][J] = 1.0
+        object.PenningFraction[0][J] = 0.0
+        object.PenningFraction[1][J] = 1.0
+        object.PenningFraction[2][J] = 1.0
     cdef double EN, QMOM, QELA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE, T3B, THREEB, SFAC, QRES1, ETEMP
     # CALCULATE DENSITY CORRECTION FOR THREE BODY ATTACHMENT CROSS-SECTION
     FAC = 273.15 * object.TORR / ((object.TEMPC + 273.15) * 760.0)

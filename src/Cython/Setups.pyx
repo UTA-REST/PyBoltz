@@ -32,9 +32,9 @@ cpdef Setup(PyBoltz object):
     object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
-    object.Decor_NCOLM = 2000000
-    object.Decor_NCORLN = 500000
-    object.Decor_NCORST = 2
+    object.Decor_Colls = 2000000
+    object.Decor_Step = 500000
+    object.Decor_LookBacks = 2
     FRACM = 0.0
     MXEKR = 0
 
@@ -47,9 +47,9 @@ cpdef Setup(PyBoltz object):
 
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
     if object.EField > (10 / object.PresTempCor) or FRACM>3:
-            object.Decor_NCOLM = 400000
-            object.Decor_NCORLN = 50000
-            object.Decor_NCORST = 4
+            object.Decor_Colls = 400000
+            object.Decor_Step = 50000
+            object.Decor_LookBacks = 4
     TOTFRAC = 0.0
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:
         raise ValueError("Error in Gas Input")
@@ -121,9 +121,9 @@ cpdef SetupT(PyBoltz object):
     object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
     # Set long decorrelation length and step
-    object.Decor_NCOLM = 2000000
-    object.Decor_NCORLN = 500000
-    object.Decor_NCORST = 2
+    object.Decor_Colls = 2000000
+    object.Decor_Step = 500000
+    object.Decor_LookBacks = 2
 
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     cdef double FRACM = 0.0
@@ -135,9 +135,9 @@ cpdef SetupT(PyBoltz object):
             FRACM += object.GasFractions[IH]
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
     if (object.EField > (10.0 / object.PresTempCor)) or (FRACM > 3):
-            object.Decor_NCOLM = 400000
-            object.Decor_NCORLN = 50000
-            object.Decor_NCORST = 4
+            object.Decor_Colls = 400000
+            object.Decor_Step = 50000
+            object.Decor_LookBacks = 4
     TOTFRAC = 0.0
 
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:

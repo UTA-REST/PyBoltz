@@ -333,12 +333,12 @@ cdef void Gas16(Gas*object):
 
     for I in range(106):
         for J in range(3):
-            object.PENFRA[I][J] = 0.0
+            object.PenningFraction[I][J] = 0.0
 
     for J in range(106, 127):
-        object.PENFRA[0][J] = 0.0
-        object.PENFRA[1][J] = 1.0
-        object.PENFRA[2][J] = 1.0
+        object.PenningFraction[0][J] = 0.0
+        object.PenningFraction[1][J] = 1.0
+        object.PenningFraction[2][J] = 1.0
 
     cdef double APOPV1, APOPGS, APOPSUM, EN, GAMMA1, GAMMA2, BETA, BETA2, QELA, QMOM, PQ[3], QN2PTOT, QNPTOT, RESFAC, ASCALE
 

@@ -17,15 +17,17 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef void GERJAN(double RandomSeed, double *RNMX):
-    cdef double RAN1, RAN2, TWOPI
+
+#Sample Maxwell Boltzman distribution for gas velocities
+cdef void GenerateMaxBoltz(double RandomSeed, double *RNMX):
+    cdef double Ran1, Ran2, TwoPi
     cdef int J
     for J in range(0, 5, 2):
         RAN1 = random_uniform(RandomSeed)
         RAN2 = random_uniform(RandomSeed)
-        TWOPI = 2.0 * np.pi
-        RNMX[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
-        RNMX[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
+        TwoPi = 2.0 * np.pi
+        RNMX[J] = sqrt(-1 * log(Ran1)) * cos(Ran2 * TwoPi)
+        RNMX[J + 1] = sqrt(-1 * log(Ran1)) * sin(Ran2 * TwoPi)
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -50,12 +52,12 @@ cpdef run(PyBoltz Object):
     Object.Y = 0.0
     Object.Z = 0.0
     Object.TimeSum = 0.0
-    cdef long long I, ID, NCOL, IEXTRA, IMBPT, K, J, J2M, J1, J2, GasIndex, IE, IT, KDUM, IPT, JDUM, NCOLDM
-    cdef double ST1, RandomSeed, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, ZOLD, STOLD, ST1OLD, ST2OLD, SZZOLD, SXXOLD, SYYOLD, SVXOLD, SVYOLD, SME2OLD, TDASH
-    cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
-    cdef double  E1, CONST9, CONST10, AP, CONST5, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, R5, TEST1, TEST2, TEST3, CONST11
-    cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
-    cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, ANCATT, ANCION, E
+    cdef long long I, NumDecorLengths, NumCollisions, IEXTRA, IMBPT, K, J, CollisionsPerSample, iSample, iCollision, GasIndex, iEnergyBin, iTimeBin, CollsBackToLook, IPT, iCorr, DecorDistance
+    cdef double ST1, RandomSeed, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SUMZZ_LastSample, SUMXX_LastSample, SUMYY_LastSample, SUMVX_LastSample, SUMVY_LastSample, SME2_LastSample, TDash,TDiff
+    cdef double ABSFAKEI, DCZ1, DCX1, DCY1, VelXBefore, VelYBefore, BP, F1, F2, TwoPi, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, Theta,
+    cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, R5, TEST1, TEST2, TEST3, VelocityInCOM
+    cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EPSI,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle, VXLAB, VYLAB, VZLAB
+    cdef double SumV2_Samples, SumV_Samples, SumE2_Samples, SumE_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, Attachment, Ionization, EAfter
     cdef double NumSamples
     I = 0
     ST1 = 0.0
@@ -64,409 +66,525 @@ cpdef run(PyBoltz Object):
     SUMXX = 0.0
     SUMYY = 0.0
     SUMZZ = 0.0
-
     SUMVX = 0.0
     SUMVY = 0.0
-    ZOLD = 0.0
-    STOLD = 0.0
-    ST1OLD = 0.0
-    ST2OLD = 0.0
-    SZZOLD = 0.0
-    SXXOLD = 0.0
-    SYYOLD = 0.0
-    SVXOLD = 0.0
-    SVYOLD = 0.0
-    SME2OLD = 0.0
-    cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST
-    STO = <double *> malloc(2000000 * sizeof(double))
-    memset(STO, 0, 2000000 * sizeof(double))
-    XST = <double *> malloc(2000000 * sizeof(double))
-    memset(XST, 0, 2000000 * sizeof(double))
+    Z_LastSample = 0.0
+    ST_LastSample = 0.0
+    ST1_LastSample = 0.0
+    ST2_LastSample = 0.0
+    SUMZZ_LastSample = 0.0
+    SUMXX_LastSample = 0.0
+    SUMYY_LastSample = 0.0
+    SUMVX_LastSample = 0.0
+    SUMVY_LastSample = 0.0
+    SME2_LastSample = 0.0
 
-    YST = <double *> malloc(2000000 * sizeof(double))
-    memset(YST, 0, 2000000 * sizeof(double))
+    # These arrays store X,Y,Z,T about every real collision
 
-    ZST = <double *> malloc(2000000 * sizeof(double))
-    memset(ZST, 0, 2000000 * sizeof(double))
+    cdef double *CollT, *CollX, *CollY, *CollZ
 
-    WZST = <double *> malloc(10 * sizeof(double))
-    memset(WZST, 0, 10 * sizeof(double))
+    CollT = <double *> malloc(2000000 * sizeof(double))
+    memset(CollT, 0, 2000000 * sizeof(double))
 
-    AVEST = <double *> malloc(10 * sizeof(double))
-    memset(AVEST, 0, 10 * sizeof(double))
+    CollX = <double *> malloc(2000000 * sizeof(double))
+    memset(CollX, 0, 2000000 * sizeof(double))
 
-    DFZZST = <double *> malloc(10 * sizeof(double))
-    memset(DFZZST, 0, 10 * sizeof(double))
+    CollY = <double *> malloc(2000000 * sizeof(double))
+    memset(CollY, 0, 2000000 * sizeof(double))
 
-    DFYYST = <double *> malloc(10 * sizeof(double))
-    memset(DFYYST, 0, 10 * sizeof(double))
+    CollZ = <double *> malloc(2000000 * sizeof(double))
+    memset(CollZ, 0, 2000000 * sizeof(double))
 
-    DFXXST = <double *> malloc(10 * sizeof(double))
-    memset(DFXXST, 0, 10 * sizeof(double))
+
+    # These arrays store estimates of the drift params from each sample
+    
+    cdef double *DriftVelPerSample, *MeanEnergyPerSample, *DiffZZPerSample, *DiffYYPerSample, *DiffXXPerSample
+
+    DriftVelPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DriftVelPerSample, 0, 10 * sizeof(double))
+
+    MeanEnergyPerSample = <double *> malloc(10 * sizeof(double))
+    memset(MeanEnergyPerSample, 0, 10 * sizeof(double))
+
+    DiffZZPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DiffZZPerSample, 0, 10 * sizeof(double))
+
+    DiffYYPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DiffYYPerSample, 0, 10 * sizeof(double))
+
+    DiffXXPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DiffXXPerSample, 0, 10 * sizeof(double))
 
     RandomSeed = Object.RandomSeed
-    E1 = Object.InitialElectronEnergy
-    CONST9 = Object.CONST3 * 0.01
-    CONST5 = Object.CONST3 / 2.0
-    CONST10 = pow(CONST9, 2)
+    EBefore = Object.InitialElectronEnergy
     NumSamples = 10
-    ID = 0
-    NCOL = 0
+    NumDecoLengths = 0
+    NumCollisions = 0
     IEXTRA = 0
+
     # Generate initial random maxwell boltzman numbers
-    GERJAN(Object.RandomSeed,  Object.RNMX)
+    GenerateMaxBoltz(Object.RandomSeed,  Object.RNMX)
     IMBPT = 0
-    TDASH = 0.0
+    TDash = 0.0
     cdef int i = 0
     cdef double ** TEMP = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
         TEMP[i] = <double *> malloc(4000 * sizeof(double))
     for K in range(6):
         for J in range(4000):
-            TEMP[K][J] = Object.TCF[K][J] + Object.TCFN[K][J]
+            TEMP[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyN[K][J]
     ABSFAKEI = 0.0
-    Object.IFAKE = 0
+    Object.FakeIonizations = 0
 
     # Initial direction cosines
     DCZ1 = cos(Object.AngleFromZ)
     DCX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
     DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
-    BP = pow(Object.EField, 2) * Object.CONST1
+    # Here are some constants we will use
+    BP = pow(Object.EField, 2) * Object.CONST1  # This should be: 1/2 m e^2 EField^2
     F1 = Object.EField * Object.CONST2
-    F2 = Object.EField * Object.CONST3
-    F4 = 2.0 * acos(-1)
-    J2M = <long long> (Object.MaxNumberOfCollisions / NumSamples)
+    F2 = Object.EField * Object.CONST3          # This should be: sqrt( m / 2) e EField
+    Sqrt2M = Object.CONST3 * 0.01               # This should be: sqrt(2m)
+    TwoM   =  pow(Sqrt2M, 2)                    # This should be: 2m
+    TwoPi = 2.0 * np.pi                         # This should be: 2 Pi
+
+    #Optionally write some output header to screen
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                          "DIFXX", "DIFYY", "DIFZZ"))
 
-    for J1 in range(int(NumSamples)):
-        for J2 in range(int(J2M)):
-            while True:
-                R1 = random_uniform(RandomSeed)
-                T = -log(R1) / Object.MaxCollisionFreqTotal + TDASH
-                TDASH = T
 
-                Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
-                AP = DCZ1 * F2 * sqrt(E1)
-                E = E1 + (AP + BP * T) * T
-                CONST6 = sqrt(E1 / E)
-                # CALCULATE DIRECTION COSINES BEFORE COLLISION
-                DCX2 = DCX1 * CONST6
-                DCY2 = DCY1 * CONST6
-                DCZ2 = DCZ1 * CONST6 + Object.EField * T * CONST5 / sqrt(E)
-                # FIND IDENTITY OF GAS FOR COLLISION
+
+    # We run collisions in NumSamples batches,
+    # evenly distributed between its MaxNumberOfCollisions collisions.
+    CollisionsPerSample = <long long> (Object.MaxNumberOfCollisions / NumSamples)
+
+    for iSample in range(int(NumSamples)):
+        for iCollision in range(int(CollisionsPerSample)):
+            while True:
+
+                # Sample random time to next collision. T is global total time.
+                RandomNum = random_uniform(RandomSeed)
+
+                # This is the formula from Skullerud
+                T = -log(RandomNum) / Object.MaxCollisionFreqTotal + TDash
+                TDash = T
+
+                # Apply acceleration.
+                #
+                #     VBefore = VBefore + a t
+                #      EAfter = 1/2 m VAfter^2
+                #             = 1/2 m(VAfterX^2 + VAfterY^2 + VAfterZ^2)
+                #             = 1/2 m((VBeforeZ + at)^2 + VBeforeX^2 + VBeforeY^2)
+                #             = EBefore + (dir_z)(AP + BP * T) * T
+                #
+                #  w/      AP = m VBefore a
+                #          BP = 1/2 m a^2
+                #  
+                # So here, F2 = sqrt(m / 2) EField e
+                #          BP = 1/2 m EField^2 e^2 
+                #
+
+                AP = DCZ1 * F2 * sqrt(EBefore)
+                EAfter = EBefore + (AP + BP * T) * T
+                VelocityRatio = sqrt(EBefore / EAfter)
+
+                # Calculate direction cosines after acceleration, before collision
+                DCX2 = DCX1 * VelocityRatio
+                DCY2 = DCY1 * VelocityRatio
+                DCZ2 = DCZ1 * VelocityRatio +  T * F2 / (2.0*sqrt(EAfter))
+
+                # Randomly choose gas to scatter from, based on expected collision freqs.
                 GasIndex = 0
                 if Object.NumberOfGases == 1:
-                    R2 = random_uniform(RandomSeed)
                     GasIndex = 0
                 else:
-                    R2 = random_uniform(RandomSeed)
-                    while (Object.MaxCollisionFreqTotalG[GasIndex] < R2):
+                    RandomNum = random_uniform(RandomSeed)
+                    while (Object.MaxCollisionFreqTotalG[GasIndex] < RandomNum):
                         GasIndex = GasIndex + 1
 
+                # Pick random gas molecule velocity for collision
                 IMBPT += 1
                 if (IMBPT > 6):
-                    GERJAN(Object.RandomSeed,  Object.RNMX)
+                    GenerateMaxBoltz(Object.RandomSeed,  Object.RNMX)
                     IMBPT = 1
-                VGX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
+                GasVelX = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
                 IMBPT += 1
-                VGY = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
+                GasVelY = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
                 IMBPT += 1
-                VGZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
-                # CALCULATE ELECTRON VELOCITY VECTORS VEX VEY VEZ
-                VEX = DCX2 * CONST9 * sqrt(E)
-                VEY = DCY2 * CONST9 * sqrt(E)
-                VEZ = DCZ2 * CONST9 * sqrt(E)
-                # CALCULATE ENERGY WITH STATIONRhydbergConst GAS TARGET, EOK
+                GasVelZ = Object.VTMB[GasIndex] * Object.RNMX[(IMBPT - 1)]
 
-                EOK = (pow((VEX - VGX), 2) + pow((VEY - VGY), 2) + pow((VEZ - VGZ), 2)) / CONST10
-                IE = int(EOK / Object.ElectronEnergyStep)
-                IE = min(IE, 3999)
-                # TEST FOR REAL OR NULL COLLISION
+                # Update velocity vectors following acceln, V = (angle_part)*sqrt(2M)*sqrt(E)
+                VEX = DCX2 * Sqrt2M * sqrt(EAfter)
+                VEY = DCY2 * Sqrt2M * sqrt(EAfter)
+                VEZ = DCZ2 * Sqrt2M * sqrt(EAfter)
 
-                R5 = random_uniform(RandomSeed)
-                TEST1 = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
+                # Calculate energy in center of mass frame
+                #   E = 1/2 m dx^2 + dvy^2 + dvz^2
+                #   works if TwoM = 2m
+                COMEnergy = (pow((VEX - GasVelX), 2) + pow((VEY - GasVelY), 2) + pow((VEZ - GasVelZ), 2)) / TwoM
 
-                if R5 > TEST1:
-                    TEST2 = TEMP[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
-                    if R5 < TEST2:
-                        # TEST FOR NULL LEVELS
+                # Which collision energy bin are we in? If we are too high, pin to 3999 (4000 is top)
+                iEnergyBin = int(COMEnergy / Object.ElectronEnergyStep)
+                iEnergyBin = min(iEnergyBin, 3999)
+
+                # Now the Skullerud null collision method
+                RandomNum = random_uniform(RandomSeed)
+                
+                # If we draw below this number, we will null-scatter (no mom xfer)
+                TEST1 = Object.TotalCollisionFrequency[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
+                if RandomNum > TEST1:
+                    TEST2 = TEMP[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
+                    if RandomNum < TEST2:
                         if Object.NPLAST[GasIndex] == 0:
                             continue
-                        R2 = random_uniform(RandomSeed)
+                        RandomNum = random_uniform(RandomSeed)
                         I = 0
-                        while Object.CFN[GasIndex][IE][I] < R2:
-                            # INCREMENT NULL SCATTER SUM
+                        while Object.NullCollisionFreq[GasIndex][iEnergyBin][I] < RandomNum:
+                            # Add a null scatter
                             I += 1
 
                         Object.ICOLNN[GasIndex][I] += 1
                         continue
                     else:
-                        TEST3 = (TEMP[GasIndex][IE] + ABSFAKEI) / Object.MaxCollisionFreq[GasIndex]
-                        if R5 < TEST3:
+                        TEST3 = (TEMP[GasIndex][iEnergyBin] + ABSFAKEI) / Object.MaxCollisionFreq[GasIndex]
+                        if RandomNum < TEST3:
                             # FAKE IONISATION INCREMENT COUNTER
-                            Object.IFAKE += 1
+                            Object.FakeIonizations += 1
                             continue
                         continue
                 else:
                     break
-            NCOL += 1
-            CONST11 = 1.0 / (CONST9 * sqrt(EOK))
+            # [end of while(True)]
+            
+            # If we got this far, we have a collision.
+            NumCollisions += 1
 
+            #  sqrt(2m E_com) = |v_com|
+            VelocityInCOM  =  (Sqrt2M * sqrt(COMEnergy))
+            
             # Calculate direction cosines of electron in 0 kelvin frame
-            DXCOM = (VEX - VGX) * CONST11
-            DYCOM = (VEY - VGY) * CONST11
-            DZCOM = (VEZ - VGZ) * CONST11
-            # CALCULATE POSITIONS AT INSTANT BEFORE COLLISION, & UPDATE DIFFUSION AND ENERGY CALCULATIONS
+            DXCOM = (VEX - GasVelX) / VelocityInCOM
+            DYCOM = (VEY - GasVelY) / VelocityInCOM
+            DZCOM = (VEZ - GasVelZ) / VelocityInCOM
+
+            # Keep a running average of mean time between real collisions
+            Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * TDash
+
+            # Reset time-to-next-real-collision clock
+            TDash = 0.0
+
+            # From above, A = m VBefore a T_total
+            #             B = 1/2 m a^2 T_total^2
+            # which is accurate, because only null collisions happened,
+            # so we had simple uniform acceleration.
+            #
             T2 = T * T
-            TDASH = 0.0
             A = AP * T
             B = BP * T2
-            SUME2 = SUME2 + T * (E1 + A / 2.0 + B / 3.0)
-            CONST7 = CONST9 * sqrt(E1)
-            A = T * CONST7
-            CX1 = DCX1 * CONST7
-            CY1 = DCY1 * CONST7
+
+            # Add Integral(E^2,dt) to running total.
+            SUME2 = SUME2 + T * (EBefore + A / 2.0 + B / 3.0)
+
+            # Update position following acceleration
+            VelocityBefore =  Sqrt2M * sqrt(EBefore)
+            A = T * VelocityBefore
             Object.X = Object.X + DCX1 * A
             Object.Y = Object.Y + DCY1 * A
             Object.Z = Object.Z + DCZ1 * A + T2 * F1
             Object.TimeSum = Object.TimeSum + T
-            IT = int(T)
-            IT = min(IT, 299)
 
-            Object.TIME[IT] += 1
-            # Energy spectrum for 0 kelvin frame
-            Object.SPEC[IE] += 1
+            # These are the X and Y velocities before we started accelerating
+            VelXBefore = DCX1 * VelocityBefore
+            VelYBefore = DCY1 * VelocityBefore
+
+            # Figure out which time bin we're in, 299 is overflow; record collision
+            #  at that time
+            iTimeBin = int(T)
+            iTimeBin = min(iTimeBin, 299)
+            Object.CollisionTimes[iTimeBin] += 1
+
+            # Record collision center of mass energy
+            Object.CollisionEnergies[iEnergyBin] += 1
+
+            # Record instantaneous integrated drift velocity
             Object.VelocityZ = Object.Z / Object.TimeSum
 
-            SUMVX = SUMVX + CX1 * CX1 * T2
-            SUMVY = SUMVY + CY1 * CY1 * T2
-            if ID != 0:
-                KDUM = 0
-                for JDUM in range(int(Object.Decor_NCORST)):
+            # Keep running total of Sum(V^2 T^2). 
+            SUMVX = SUMVX + VelXBefore * VelXBefore * T2
+            SUMVY = SUMVY + VelYBefore * VelYBefore * T2
+
+            # Decor_Colls specifies how far we must have drifted within this Sample
+            #   before we start measuring the ensemble.  We only do anything if
+            #   Decor_Colls collisions deep (equivalently, NumDecorLengths>1).
+            #
+            # Once we are far enough, we do the following. We'll be looking backward
+            #   by Decor_Colls-N*Decor_Step.  N is ideally Decor_LookBacks.
+            #
+            # In the case where that would put us too far back (Decor_Colls or less)
+            #   then we settle for a smaller N. This tells us the decorrelation distance.
+            #
+            # Reminder: NumCollisions is the number of collisions we are into *this*
+            #   decorrelation length - it resets to zero each time we enter a
+            #   new one.
+            #
+            # This formalism is based on Eqs 8, Frasier and Mathieson.
+            #
+            # The entries are weighted by time between this collision and the last T.
+            # The TDiff on the denominator 
+
+            if NumDecorLengths != 0:
+                CollsToLookBack = 0
+                for iCorr in range(int(Object.Decor_LookBacks)):
                     ST2 += T
-                    NCOLDM = NCOL + KDUM
-                    if NCOLDM > Object.Decor_NCOLM:
-                        NCOLDM = NCOLDM - Object.Decor_NCOLM
-                    SDIF = Object.TimeSum - STO[NCOLDM - 1]
-                    SUMXX = SUMXX + ((Object.X - XST[NCOLDM - 1]) ** 2) * T / SDIF
-                    SUMYY = SUMYY + ((Object.Y - YST[NCOLDM - 1]) ** 2) * T / SDIF
-                    if J1 >= 2:
+                    DecorDistance = NumCollisions + CollsToLookBack
+                    if DecorDistance > Object.Decor_Colls:
+                        DecorDistance = DecorDistance - Object.Decor_Colls
+                    TDiff = Object.TimeSum - CollT[DecorDistance - 1]
+
+                    # These are used to calculate diffusion constants, per Frasier and Mathieson Eq 8.
+                    SUMXX = SUMXX + ((Object.X - CollX[DecorDistance - 1]) ** 2) * T / TDiff
+                    SUMYY = SUMYY + ((Object.Y - CollY[DecorDistance - 1]) ** 2) * T / TDiff
+
+                    # Becayse Z term includes drift velocity, must have calc'd it somewhat to usefully accumulate
+                    #  in the ensemble, so only start accumulating after 2nd sample
+                    if iSample >= 2:
                         ST1 += T
-                        SUMZZ = SUMZZ + ((Object.Z - ZST[NCOLDM - 1] - Object.VelocityZ * SDIF) ** 2) * T / SDIF
-                    KDUM += Object.Decor_NCORLN
+                        SUMZZ = SUMZZ + ((Object.Z - CollZ[DecorDistance - 1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
+                    CollsBackToLook += Object.Decor_Step
 
-            XST[NCOL - 1] = Object.X
-            YST[NCOL - 1] = Object.Y
-            ZST[NCOL - 1] = Object.Z
+            # Record collision positions
+            CollX[NumCollisions - 1] = Object.X
+            CollY[NumCollisions - 1] = Object.Y
+            CollZ[NumCollisions - 1] = Object.Z
 
-            STO[NCOL - 1] = Object.TimeSum
-            if NCOL >= Object.Decor_NCOLM:
-                ID += 1
-                NCOL = 0
+            CollT[NumCollisions - 1] = Object.TimeSum
+            if NumCollisions >= Object.Decor_Colls:
+                NumDecorLengths += 1
+                NumCollisions = 0
 
-            # Determination of real collision type
-            R3 = random_uniform(RandomSeed)
+            # Randomly pick the type of collision we will have
+            RandomNum = random_uniform(RandomSeed)
+
             # Find location within 4 units in collision array
-            I = MBSortT(GasIndex, I, R3, IE, Object)
-            while Object.CF[GasIndex][IE][I] < R3:
+            I = MBSortT(GasIndex, I, RandomNum, iEnergyBin, Object)
+            while Object.CF[GasIndex][iEnergyBin][I] < RandomNum:
                 I += 1
             S1 = Object.RGAS[GasIndex][I]
             EI = Object.EIN[GasIndex][I]
 
             if Object.IPN[GasIndex][I] > 0:
-                # Use flat distributioon of electron energy between E-EION and 0.0 EV, same as in Boltzmann
-                R9 = random_uniform(RandomSeed)
-                EXTRA = R9 * (EOK - EI)
+                # Use flat distribution of electron energy between E-EION and 0.0 EV, same as in Boltzmann
+                RandomNum = random_uniform(RandomSeed)
+                EXTRA = RandomNum * (COMEnergy - EI)
                 EI = EXTRA + EI
-                # If Auger ot fluorescence add extra ionisation collisions
+                # If Auger fluorescence add extra ionisation collisions
                 IEXTRA += <long long> Object.NC0[GasIndex][I]
 
             # Generate scattering angles and update laboratory cosines after collision also update energy of electron
             IPT = <long long> Object.IARRY[GasIndex][I]
             Object.ICOLL[GasIndex][<int> IPT - 1] += 1
             Object.ICOLN[GasIndex][I] += 1
-            if EOK < EI:
-                EI = EOK - 0.0001
+            if COMEnergy < EI:
+                EI = COMEnergy - 0.0001
 
-            # IF EXCITATION THEN ADD PROBABILITY ,PENFRA(1,I), OF TRANSFER TO
-            # IONISATION OF THE OTHER GASES IN MIXTURE
+            # If Penning is enabled and the energy transfer let to excitation,
+            #  add probabilities to transfer energy to surrounding molecules
             if Object.EnablePenning != 0:
-                if Object.PENFRA[GasIndex][0][I] != 0:
-                    RAN = random_uniform(RandomSeed)
-                    if RAN <= Object.PENFRA[GasIndex][0][I]:
+                if Object.PenningFraction[GasIndex][0][I] != 0:
+                    RandomNum = random_uniform(RandomSeed)
+                    if RandomNum <= Object.PenningFraction[GasIndex][0][I]:
                         IEXTRA += 1
             S2 = pow(S1, 2) / (S1 - 1.0)
 
-            # Anisotropic scattering
-            R3 = random_uniform(RandomSeed)
+            # Anisotropic scattering - pick the scattering angle theta depending on scatter type
+            RandomNum = random_uniform(RandomSeed)
             if Object.INDEX[GasIndex][I] == 1:
-                R31 = random_uniform(RandomSeed)
-                F3 = 1.0 - R3 * Object.ANGCT[GasIndex][IE][I]
-                if R31 > Object.PSCT[GasIndex][IE][I]:
-                    F3 = -1.0 * F3
+                RandomNum2 = random_uniform(RandomSeed)
+                CosTheta = 1.0 - RandomNum * Object.ANGCT[GasIndex][iEnergyBin][I]
+                if RandomNum2 > Object.PSCT[GasIndex][iEnergyBin][I]:
+                    CosTheta = -1.0 * CosTheta
             elif Object.INDEX[GasIndex][I] == 2:
-                EPSI = Object.PSCT[GasIndex][IE][I]
-                F3 = 1.0 - (2.0 * R3 * (1.0 - EPSI) / (1.0 + EPSI * (1.0 - 2.0 * R3)))
+                EPSI = Object.PSCT[GasIndex][iEnergyBin][I]
+                CosTheta = 1.0 - (2.0 * RandomNum * (1.0 - EPSI) / (1.0 + EPSI * (1.0 - 2.0 * RandomNum)))
             else:
                 # Isotropic scattering
-                F3 = 1.0 - 2.0 * R3
-            THETA0 = acos(F3)
-            R4 = random_uniform(RandomSeed)
-            PHI0 = F4 * R4
-            F8 = sin(PHI0)
-            F9 = cos(PHI0)
-            ARG1 = 1.0 - S1 * EI / EOK
-            ARG1 = max(ARG1, Object.SmallNumber)
-            D = 1.0 - F3 * sqrt(ARG1)
-            E1 = EOK * (1.0 - EI / (S1 * EOK) - 2.0 * D / S2)
-            E1 = max(E1, Object.SmallNumber)
-            Q = sqrt((EOK / E1) * ARG1) / S1
-            Q = min(Q, 1.0)
-            Object.AngleFromZ = asin(Q * sin(THETA0))
-            F6 = cos(Object.AngleFromZ)
-            U = (S1 - 1) * (S1 - 1) / ARG1
-            CSQD = F3 * F3
+                CosTheta = 1.0 - 2.0 * RandomNum
+            Theta = acos(CosTheta)
 
-            if F3 < 0 and CSQD > U:
-                F6 = -1 * F6
-            F5 = sin(Object.AngleFromZ)
+            # Pick a random Phi - must be uniform by symmetry of the gas
+            RandomNum = random_uniform(RandomSeed)
+            Phi = TwoPi * RandomNum
+            SinPhi = sin(Phi)
+            CosPhi = cos(Phi)
+
+            #TODO: Understand what Arg1, D, U and Q are
+            
+            ARG1 = max(1.0 - S1 * EI / COMEnergy, Object.SmallNumber)
+            D = 1.0 - CosTheta * sqrt(ARG1)
+            U = (S1 - 1) * (S1 - 1) / ARG1
+
+            # Update the energy to start drifing for the next round.
+            #  If its zero, make it small but nonzero.
+            EBefore = max(COMEnergy * (1.0 - EI / (S1 * COMEnergy) - 2.0 * D / S2), Object.SmallNumber)
+                       
+            Q = min(sqrt((COMEnergy / EBefore) * ARG1) / S1,1.0)
+
+            # Calculate angle of scattering from Z direction
+            Object.AngleFromZ = asin(Q * sin(Theta))
+            CosZAngle = cos(Object.AngleFromZ)
+
+            # Find new directons after scatter
+            if CosTheta < 0 and CosTheta * CosTheta > U:
+                CosZAngle = -1 * CosZAngle
+            SinZAngle = sin(Object.AngleFromZ)
             DZCOM = min(DZCOM, 1.0)
             ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
+
             if ARGZ == 0:
-                DCZ1 = F6
-                DCX1 = F9 * F5
-                DCY1 = F8 * F5
+                # If scattering frame is same as lab frame, do this;
+                DCZ1 = CosZAngle
+                DCX1 = CosPhi * SinZAngle
+                DCY1 = SinPhi * SinZAngle
             else:
-                DCZ1 = DZCOM * F6 + ARGZ * F5 * F8
-                DCY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
-                DCX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
+                # otherwise do this.
+                DCZ1 = DZCOM * CosZAngle + ARGZ * SinZAngle * SinPhi
+                DCY1 = DYCOM * CosZAngle + (SinZAngle / ARGZ) * (DXCOM * CosPhi - DYCOM * DZCOM * SinPhi)
+                DCX1 = DXCOM * CosZAngle - (SinZAngle / ARGZ) * (DYCOM * CosPhi + DXCOM * DZCOM * SinPhi)
 
             # Transform velocity vectors to lab frame
-            CONST12 = CONST9 * sqrt(E1)
-            VXLAB = DCX1 * CONST12 + VGX
-            VYLAB = DCY1 * CONST12 + VGY
-            VZLAB = DCZ1 * CONST12 + VGZ
-            # Calculate energy and direction cosines in lab frame
-            E1 = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / CONST10
-            CONST11 = 1.0 / (CONST9 * sqrt(E1))
-            DCX1 = VXLAB * CONST11
-            DCY1 = VYLAB * CONST11
-            DCZ1 = VZLAB * CONST11
+            CONST12 = Sqrt2M * sqrt(EBefore)
+            VXLAB = DCX1 * CONST12 + GasVelX
+            VYLAB = DCY1 * CONST12 + GasVelY
+            VZLAB = DCZ1 * CONST12 + GasVelZ
 
-        # TODO: TABLE PRINT
+            # Calculate energy and direction cosines in lab frame
+            EBefore = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / TwoM
+            VelocityInCOM = (Sqrt2M * sqrt(EBefore))
+            DCX1 = VXLAB / VelocityInCOM
+            DCY1 = VYLAB / VelocityInCOM
+            DCZ1 = VZLAB / VelocityInCOM
+
+            #And go around again to the next collision!
+            
+        #Put stuff into the right units and normalize
         Object.VelocityZ *= 1.0e9
         Object.MeanElectronEnergy = SUME2 / Object.TimeSum
         Object.LongitudinalDiffusion = 0.0
         if Object.AnisotropicDetected == 0:
             Object.DiffusionX = 5.0e15 * SUMVX / Object.TimeSum
             Object.DiffusionY = 5.0e15 * SUMVY / Object.TimeSum
-            DFXXST[J1] = 5.0e15 * (SUMVX - SVXOLD) / (Object.TimeSum - STOLD)
-            DFYYST[J1] = 5.0e15 * (SUMVY - SVYOLD) / (Object.TimeSum - STOLD)
+            DiffXXPerSample[iSample] = 5.0e15 * (SUMVX - SUMVX_LastSample) / (Object.TimeSum - ST_LastSample)
+            DiffYYPerSample[iSample] = 5.0e15 * (SUMVY - SUMVY_LastSample) / (Object.TimeSum - ST_LastSample)
         else:
             if ST2 != 0.0:
                 Object.DiffusionY = 5.0e15 * SUMYY / ST2
                 Object.DiffusionX = 5.0e15 * SUMXX / ST2
-                DFXXST[J1] = 5.0e15 * (SUMXX - SXXOLD) / (ST2 - ST2OLD)
-                DFYYST[J1] = 5.0e15 * (SUMYY - SYYOLD) / (ST2 - ST2OLD)
+                DiffXXPerSample[iSample] = 5.0e15 * (SUMXX - SUMXX_LastSample) / (ST2 - ST2_LastSample)
+                DiffYYPerSample[iSample] = 5.0e15 * (SUMYY - SUMYY_LastSample) / (ST2 - ST2_LastSample)
             else:
-                DFXXST[J1] = 0.0
-                DFYYST[J1] = 0.0
+                DiffXXPerSample[iSample] = 0.0
+                DiffYYPerSample[iSample] = 0.0
 
         if ST1 != 0.0:
             Object.DiffusionZ = 5.0e15 * SUMZZ / ST1
-            DFZZST[J1] = 5.0e15 * (SUMZZ - SZZOLD) / (ST1 - ST1OLD)
+            DiffZZPerSample[iSample] = 5.0e15 * (SUMZZ - SZZ_LastSample) / (ST1 - ST1_LastSample)
         else:
-            DFZZST[J1] = 0.0
-        WZST[J1] = (Object.Z - ZOLD) / (Object.TimeSum - STOLD) * 1.0e9
-        AVEST[J1] = (SUME2 - SME2OLD) / (Object.TimeSum - STOLD)
-        ZOLD = Object.Z
-        STOLD = Object.TimeSum
-        ST1OLD = ST1
-        ST2OLD = ST2
-        SVXOLD = SUMVX
-        SVYOLD = SUMVY
-        SZZOLD = SUMZZ
-        SYYOLD = SUMYY
-        SXXOLD = SUMXX
-        SME2OLD = SUME2
+            DiffZZPerSample[iSample] = 0.0
+        DriftVelPerSample[iSample] = (Object.Z - Z_LastSample) / (Object.TimeSum - ST_LastSample) * 1.0e9
+        MeanEnergyPerSample[iSample] = (SUME2 - SME2_LastSample) / (Object.TimeSum - ST_LastSample)
+        Z_LastSample = Object.Z
+        ST_LastSample = Object.TimeSum
+        ST1_LastSample = ST1
+        ST2_LastSample = ST2
+        SVX_LastSample = SUMVX
+        SVY_LastSample = SUMVY
+        SZZ_LastSample = SUMZZ
+        SYY_LastSample = SUMYY
+        SXX_LastSample = SUMXX
+        SME2_LastSample = SUME2
         if Object.ConsoleOutputFlag:
             print(
                 '{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.TimeSum,
                                                                                          Object.MeanElectronEnergy, Object.DiffusionX,
                                                                                          Object.DiffusionY,
                                                                                          Object.DiffusionZ))
-        if Object.SPEC[3999] > (1000 * float(J1 + 1)):
+        if Object.CollisionEnergies[3999] > (1000 * float(iSample + 1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
 
-    # Calculate errors and check averages
-    TWZST = 0.0
-    TAVE = 0.0
-    T2WZST = 0.0
-    T2AVE = 0.0
-    TZZST = 0.0
-    TYYST = 0.0
-    TXXST = 0.0
-    T2ZZST = 0.0
-    T2YYST = 0.0
-    T2XXST = 0.0
-    for K in range(10):
-        TWZST = TWZST + WZST[K]
-        TAVE = TAVE + AVEST[K]
-        T2WZST = T2WZST + WZST[K] * WZST[K]
-        T2AVE = T2AVE + AVEST[K] * AVEST[K]
-        TXXST = TXXST + DFXXST[K]
-        TYYST = TYYST + DFYYST[K]
 
-        T2YYST = T2YYST + pow(DFYYST[K], 2)
-        T2XXST = T2XXST + pow(DFXXST[K], 2)
+    # Calculate errors and check averages.  Means and errors are calculated statistically
+    #  from the NumSamples data points.
+    
+    SumV_Samples = 0.0
+    SumE_Samples = 0.0
+    SumV2_Samples = 0.0
+    SumE2_Samples = 0.0
+    SumDZZ_Samples = 0.0
+    SumDXX_Samples = 0.0
+    SumDYY_Samples = 0.0
+    SumDXX2_Samples = 0.0
+    SumDYY2_Samples = 0.0
+    SumDZZ2_Samples = 0.0
+    for K in range(10):
+        SumV_Samples = SumV_Samples + DriftVelPerSample[K]
+        SumE_Samples = SumE_Samples + MeanEnergyPerSample[K]
+        SumV2_Samples = SumV2_Samples + DriftVelPerSample[K] * DriftVelPerSample[K]
+        SumE2_Samples = SumE2_Samples + MeanEnergyPerSample[K] * MeanEnergyPerSample[K]
+        SumDXX_Samples = SumDXX_Samples + DiffXXPerSample[K]
+        SumDYY_Samples = SumDYY_Samples + DiffYYPerSample[K]
+        SumDYY2_Samples = SumDYY2_Samples + pow(DiffYYPerSample[K], 2)
+        SumDXX2_Samples = SumDXX2_Samples + pow(DiffXXPerSample[K], 2)
         if K >= 2:
-            TZZST = TZZST + DFZZST[K]
-            T2ZZST += pow(DFZZST[K], 2)
-    Object.VelocityErrorZ = 100 * sqrt((T2WZST - TWZST * TWZST / 10.0) / 9.0) / Object.VelocityZ
-    Object.MeanElectronEnergyError = 100 * sqrt((T2AVE - TAVE * TAVE / 10.0) / 9.0) / Object.MeanElectronEnergy
-    Object.ErrorDiffusionX = 100 * sqrt((T2XXST - TXXST * TXXST / 10.0) / 9.0) / Object.DiffusionX
-    Object.ErrorDiffusionY = 100 * sqrt((T2YYST - TYYST * TYYST / 10.0) / 9.0) / Object.DiffusionY
-    Object.ErrorDiffusionZ = 100 * sqrt((T2ZZST - TZZST * TZZST / 8.0) / 7.0) / Object.DiffusionZ
-    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(10)
-    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(10)
-    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(10)
-    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt(10)
-    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt(8)
+            SumDZZ_Samples = SumDZZ_Samples + DiffZZPerSample[K]
+            SumDZZ2_Samples += pow(DiffZZPerSample[K], 2)
+
+    # (remember, we only started counting ZZ after 2 samples, as needed to estimate drift velocity first)       
+    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples**2 / NumSamples) / (NumSamples-1)) / Object.VelocityZ
+    Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples**2 / NumSamples) / (NumSamples-1)) / Object.MeanElectronEnergy
+    Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples**2 / NumSamples) / (NumSamples-1)) / Object.DiffusionX
+    Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples**2 / NumSamples) / (NumSamples-1)) / Object.DiffusionY
+    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples**2 / NumSamples-2) / (NumSamples-2-1)) / Object.DiffusionZ
+    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(NumSamples)
+    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(NumSamples)
+    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(NumSamples)  
+    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt(NumSamples)
+    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt(NumSamples-2)
     Object.LongitudinalDiffusion = Object.DiffusionZ
     Object.TransverseDiffusion = (Object.DiffusionX + Object.DiffusionY) / 2
-    # CONVERT CM/SEC
+
+    # Convert to cm/sec
     Object.VelocityZ *= 1.0e5
     Object.LongitudinalDiffusionError = Object.ErrorDiffusionZ
     Object.TransverseDiffusionError = (Object.ErrorDiffusionX + Object.ErrorDiffusionY) / 2.0
 
-    ANCATT = 0.0
-    ANCION = 0.0
+    # Calculate Townsend coeffs and errors. Error here is purely poissonian.
+    Attachment = 0.0
+    Ionization = 0.0
     for I in range(Object.NumberOfGases):
-        ANCATT += Object.ICOLL[I][2]
-        ANCION += Object.ICOLL[I][1]
-    ANCION += IEXTRA
+        Attachment += Object.ICOLL[I][2]
+        Ionization += Object.ICOLL[I][1]
+    Ionization += IEXTRA
     Object.AttachmentRateError = 0.0
-
-    # CALCULATE TOWNSEND COEFICIENTS AND ERRORS
-    if ANCATT != 0:
-        Object.AttachmentRateError = 100 * sqrt(ANCATT) / ANCATT
-    Object.AttachmentRate = ANCATT / (Object.TimeSum * Object.VelocityZ) * 1e12
+    if Attachment != 0:
+        Object.AttachmentRateError = 100 * sqrt(Attachment) / Attachment
+    Object.AttachmentRate = Attachment / (Object.TimeSum * Object.VelocityZ) * 1e12
     Object.IonisationRateError = 0.0
-    if ANCION != 0:
-        Object.IonisationRateError = 100 * sqrt(ANCION) / ANCION
-    Object.IonisationRate = ANCION / (Object.TimeSum * Object.VelocityZ) * 1e12
-    free(STO)
-    free(XST)
-    free(YST)
-    free(ZST)
-    free(WZST)
-    free(AVEST)
-    free(DFZZST)
-    free(DFYYST)
-    free(DFXXST)
+    if Ionization != 0:
+        Object.IonisationRateError = 100 * sqrt(Ionization) / Ionization
+    Object.IonisationRate = Ionization / (Object.TimeSum * Object.VelocityZ) * 1e12
+
+    # Free up the memory and close down gracefully
+    free(CollT)
+    free(CollX)
+    free(CollY)
+    free(CollZ)
+    free(DriftVelPerSample)
+    free(MeanEnergyPerSample)
+    free(DiffXXPerSample)
+    free(DiffYYPerSample)
+    free(DiffZZPerSample)
     for i in range(6):
         free(TEMP[i])
     free(TEMP)

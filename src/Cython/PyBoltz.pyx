@@ -37,17 +37,17 @@ cdef class PyBoltz:
         '''
         Fill all the variables needed with zeros.This function uses memset as it is fast.
         '''
-        memset(self.CFNT, 0, 4000 * 960 * sizeof(double))
+        memset(self.NullCollisionFreqT, 0, 4000 * 960 * sizeof(double))
         memset(self.EINNT, 0, 960 * sizeof(double))
-        memset(self.TCFNT, 0, 4000 * sizeof(double))
+        memset(self.TotalCollisionFrequencyNT, 0, 4000 * sizeof(double))
         memset(self.IARRYNT, 0, 960 * sizeof(double))
         memset(self.RGASNT, 0, 960 * sizeof(double))
         memset(self.IPNNT, 0, 960 * sizeof(double))
-        memset(self.PENFRANT, 0, 3*960 * sizeof(double))
+        memset(self.PenningFractionNT, 0, 3*960 * sizeof(double))
         memset(self.WPLNT, 0, 960 * sizeof(double))
         memset(self.MaxCollisionFreqNT, 0, 8 * sizeof(double))
-        memset(self.CFNNT, 0, 4000*60 * sizeof(double))
-        memset(self.TCFNNT, 0, 4000 * sizeof(double))
+        memset(self.NullCollisionFreqNT, 0, 4000*60 * sizeof(double))
+        memset(self.TotalCollisionFrequencyNNT, 0, 4000 * sizeof(double))
         memset(self.SCLENULNT, 0, 60 * sizeof(double))
         memset(self.PSCTNT, 0, 4000* 960 * sizeof(double))
         memset(self.ANGCTNT, 0, 4000* 960 * sizeof(double))
@@ -61,8 +61,8 @@ cdef class PyBoltz:
         memset(self.WKLMNT, 0, 960 * sizeof(double))
         memset(self.EFLNT, 0, 960 * sizeof(double))
         memset(self.DENSY, 0, 4000 * sizeof(double))
-        memset(self.SPEC, 0, 4000 * sizeof(double))
-        memset(self.TIME, 0, 300 * sizeof(double))
+        memset(self.CollisionEnergies, 0, 4000 * sizeof(double))
+        memset(self.CollisionTimes, 0, 300 * sizeof(double))
         memset(self.ICOLL, 0, 6 * 5 * sizeof(double))
         memset(self.ICOLLNT, 0, 30 * sizeof(double))
         memset(self.ICOLNN, 0, 6 * 10 * sizeof(double))
@@ -86,7 +86,7 @@ cdef class PyBoltz:
         memset(self.QINEL, 0, 4000 * sizeof(double))
         memset(self.NIN, 0, 6 * sizeof(double))
         memset(self.CF, 0, 6 * 290 * 4000 * sizeof(double))
-        memset(self.TCF, 0, 6 * 4000 * sizeof(double))
+        memset(self.TotalCollisionFrequency, 0, 6 * 4000 * sizeof(double))
         memset(self.EIN, 0, 6 * 290 * sizeof(double))
         memset(self.IARRY, 0, 6 * 290 * sizeof(double))
         memset(self.RGAS, 0, 6 * 290 * sizeof(double))
@@ -94,10 +94,10 @@ cdef class PyBoltz:
         memset(self.WPL, 0, 6 * 290 * sizeof(double))
         memset(self.IPLAST, 0, 6 * sizeof(double))
         memset(self.ISIZE, 0, 6 * sizeof(double))
-        memset(self.PENFRA, 0, 6 * 290 * 3 * sizeof(double))
+        memset(self.PenningFraction, 0, 6 * 290 * 3 * sizeof(double))
         memset(self.MaxCollisionFreq, 0, 6 * sizeof(double))
-        memset(self.CFN, 0, 6 * 10 * 4000 * sizeof(double))
-        memset(self.TCFN, 0, 6 * 4000 * sizeof(double))
+        memset(self.NullCollisionFreq, 0, 6 * 10 * 4000 * sizeof(double))
+        memset(self.TotalCollisionFrequencyN, 0, 6 * 4000 * sizeof(double))
         memset(self.SCLENUL, 0, 6 * 10 * sizeof(double))
         memset(self.NPLAST, 0, 6 * sizeof(double))
         memset(self.PSCT, 0, 6 * 290 * 4000 * sizeof(double))
@@ -145,9 +145,9 @@ cdef class PyBoltz:
         self.PresTempCor = 0.0
 
         # Parameters governing decorrelation length
-        self.Decor_NCOLM = 0
-        self.Decor_NCORLN = 0
-        self.Decor_NCORST = 0
+        self.Decor_Colls = 0      # prev NCOLM
+        self.Decor_Step = 0     # prev NCORLN 
+        self.Decor_LookBacks = 0  # prev NCORST
 
         # Named but imperfectly understood
         self.X = 0.0
@@ -196,7 +196,7 @@ cdef class PyBoltz:
         self.ErrorDiffusionYZ = 0.0
         self.ErrorDiffusionXY = 0.0
         self.ErrorDiffusionXZ = 0.0
-        self.IFAKE = 0
+        self.FakeIonizations = 0
         self.FAKEI = 0.0
         self.RandomSeed = 0.666
         self.ConsoleOutputFlag = 1

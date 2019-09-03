@@ -229,7 +229,7 @@ cdef void Gas9(Gas*object):
     cdef double EN, ENLG, GAMMA1, GAMMA2, BETA, BETA2, QMT, QEL, PQ[3], X1, X2, QBB = 0.0, QSUM, EFAC, F[42]
     cdef int FI
     F = [<float> (0.000136), <float> (0.001744), <float> (0.008187), <float> (0.006312), <float> (0.011877),
-         <float> (0.020856), <float> (0.031444), <float> (0.39549), <float> (0.042350), <float> (0.041113),
+         <float> (0.020856), <float> (0.031444), <float> (0.039549), <float> (0.042350), <float> (0.041113),
          <float> (0.038256), <float> (0.036556), <float> (0.096232), <float> (.083738), <float> (.043456),
          <float> (.047436), <float> (.047800), <float> (.048914), <float> (.054353), <float> (.061019),
          <float> (.244430), <float> (.284790), <float> (.095973), <float> (.090728), <float> (0.071357),
@@ -676,6 +676,8 @@ cdef void Gas9(Gas*object):
         object.QNULL[2][I] = 0.0
         if EN > XNUL3[0]:
             object.QNULL[2][I] = GasUtil.CALQINP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.SCLN[2]
+
+
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J

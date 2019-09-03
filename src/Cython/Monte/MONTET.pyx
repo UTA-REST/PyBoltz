@@ -42,7 +42,7 @@ cpdef run(PyBoltz Object):
 
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
-    #TODO: change number of steps from 10 to something else
+
     #TODO: print similar ouput (on new lines).
     Object.VelocityX = 0.0
     Object.VelocityY = 0.0
@@ -55,7 +55,7 @@ cpdef run(PyBoltz Object):
     cdef long long I, NumDecorLengths, NumCollisions, IEXTRA, IMBPT, K, J, CollisionsPerSample, iSample, iCollision, GasIndex, iEnergyBin, iTimeBin, CollsBackToLook, IPT, iCorr, DecorDistance
     cdef double ST1, RandomSeed, ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SUMZZ_LastSample, SUMXX_LastSample, SUMYY_LastSample, SUMVX_LastSample, SUMVY_LastSample, SME2_LastSample, TDash,TDiff
     cdef double ABSFAKEI, DCZ1, DCX1, DCY1, VelXBefore, VelYBefore, BP, F1, F2, TwoPi, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, Theta,
-    cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, R5, TEST1, TEST2, TEST3, VelocityInCOM
+    cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, TEST1, TEST2, TEST3, VelocityInCOM
     cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EPSI,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle, VXLAB, VYLAB, VZLAB
     cdef double SumV2_Samples, SumV_Samples, SumE2_Samples, SumE_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, Attachment, Ionization, EAfter
     cdef double NumSamples
@@ -250,7 +250,7 @@ cpdef run(PyBoltz Object):
                     else:
                         TEST3 = (TEMP[GasIndex][iEnergyBin] + ABSFAKEI) / Object.MaxCollisionFreq[GasIndex]
                         if RandomNum < TEST3:
-                            # FAKE IONISATION INCREMENT COUNTER
+                            # Increment fake ionization counter
                             Object.FakeIonizations += 1
                             continue
                         continue

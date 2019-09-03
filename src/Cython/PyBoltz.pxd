@@ -122,7 +122,7 @@ cdef class PyBoltz:
         double EnableThermalMotion
         '''Variable used to indicate wethier to include thermal motion or not.'''
         double PresTempCor
-        '''Variable used to calculate the correlation constant between the pressure and tempreture. PresTempCor=ABZERO*TORR/(ATMOS*(ABZERO+TEMPC)*100.0D0).'''
+        '''Variable used to calculate the correlation constant between the pressure and tempreture. PresTempCor=ABZERO*PRESSURE/(ATMOS*(ABZERO+TemperatureC)*100.0D0).'''
         double FAKEI
         double AN
         '''Variable that is equal to 100 * PresTempCor * ALOSCH. Which is the number of molecules/cm^3.'''

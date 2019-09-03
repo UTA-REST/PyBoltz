@@ -243,7 +243,7 @@ cdef void Gas2(Gas *object):
     for I in range(4000):
         EN = object.EG[I]
 
-        # EN=EN+object.ESTEP
+        # EN=EN+object.EnergyStep
         if EN > object.EIN[0]:
             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
             GAMMA2 = GAMMA1 * GAMMA1

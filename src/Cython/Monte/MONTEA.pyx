@@ -39,12 +39,12 @@ cpdef run(PyBoltz Object):
     
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
-    cdef long long I, ID,  NCOL, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, KDUM, IPT, JDUM,NC_LastSampleM
+    cdef long long I, NumDecorLengths,  NCOL, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr,NC_LastSampleM
     cdef double ST1, RandomSeed,ST2, SUME2, SUMXX, SUMYY, SUMZZ, SUMVX, SUMVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SZZ_LastSample, SXX_LastSample, SYY_LastSample, SVX_LastSample, SVY_LastSample, SME2_LastSample, TDash
-    cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, F4, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
-    cdef double  E1, Sqrt2M, TwoM, AP, CONST5, CONST6, R2, R1, VGX, VGY, VGZ, VEX, VEY, VEZ, COMEnergy, R5, TEST1, TEST2, TEST3, CONST11
-    cdef double T2, A, B, CONST7, R3, S1, EI, R9, EXTRA, RAN, R31, F3, EPSI, R4, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
-    cdef double TWZST, TAVE, T2WZST, T2AVE, TXXST, TYYST, T2XXST, T2YYST, TZZST, T2ZZST, Attachment, Ionization, E,TEMP[4000]
+    cdef double ABSFAKEI, DCZ1, DCX1, DCY1, CX1, CY1, CZ1, BP, F1, F2, TwoPi, DCX2, DCY2, DCZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
+    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST5, CONST6, RandomNum, VGX, VGY, VGZ, VEX, VEY, VEZ, COMEnergy, TEST1, TEST2, TEST3, CONST11
+    cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, F3, EPSI, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
+    cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ_Samples, SumDZZ2_Samples, Attachment, Ionization, E,TEMP[4000]
     cdef double NumSamples
 
     cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST
@@ -108,13 +108,13 @@ cpdef run(PyBoltz Object):
     SME2_LastSample = 0.0
 
     RandomSeed = Object.RandomSeed
-    E1 = Object.InitialElectronEnergy
+    EBefore = Object.InitialElectronEnergy
     Sqrt2M = Object.CONST3 * 0.01
     CONST5 = Object.CONST3 / 2.0
 
     INTEM = 8
     NumSamples = 10
-    ID = 0
+    NumDecorLengths = 0
     NCOL = 0
     IEXTRA = 0
 
@@ -127,7 +127,7 @@ cpdef run(PyBoltz Object):
     DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
     # INITIAL VELOCITY
-    VTOT = Sqrt2M * sqrt(E1)
+    VTOT = Sqrt2M * sqrt(EBefore)
     CX1 = DCX1 * VTOT
     CY1 = DCY1 * VTOT
     CZ1 = DCZ1 * VTOT
@@ -135,7 +135,7 @@ cpdef run(PyBoltz Object):
     BP = Object.EField ** 2 * Object.CONST1
     F1 = Object.EField * Object.CONST2
     F2 = Object.EField * Object.CONST3
-    F4 = 2 * acos(-1)
+    TwoPi = 2 * acos(-1)
 
     iCollisionM = <long long>(Object.MaxNumberOfCollisions / NumSamples)
     DELTAE = Object.FinalElectronEnergy / float(INTEM)
@@ -145,41 +145,41 @@ cpdef run(PyBoltz Object):
     for iSample in range(int(NumSamples)):
         for iCollision in range(int(iCollisionM)):
             while True:
-                R1 = random_uniform(RandomSeed)
-                I = int(E1 / DELTAE) + 1
+                RandomNum = random_uniform(RandomSeed)
+                I = int(EBefore / DELTAE) + 1
                 I = min(I, INTEM) - 1
                 TLIM = Object.MaxCollisionFreqNT[I]
-                T = -1 * log(R1) / TLIM + TDash
+                T = -1 * log(RandomNum) / TLIM + TDash
                 Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 TDash = T
-                AP = DCZ1 * F2 * sqrt(E1)
-                E = E1 + (AP + BP * T) * T
+                AP = DCZ1 * F2 * sqrt(EBefore)
+                E = EBefore + (AP + BP * T) * T
                 IE = int(E / Object.ElectronEnergyStep)
                 IE = min(IE, 3999)
                 if TEMP[IE] > TLIM:
-                    TDash += log(R1) / TLIM
+                    TDash += log(RandomNum) / TLIM
                     Object.MaxCollisionFreqNT[I] *= 1.05
                     continue
 
                 # TEST FOR REAL OR NULL COLLISION
-                R5 = random_uniform(RandomSeed)
+                RandomNum = random_uniform(RandomSeed)
                 TEST1 = Object.TotalCollisionFrequencyNT[IE] / TLIM
 
-                if R5 > TEST1:
+                if RandomNum > TEST1:
                     TEST2 = TEMP[IE] / TLIM
-                    if R5 < TEST2:
+                    if RandomNum < TEST2:
                         if Object.NPLASTNT == 0:
                             continue
-                        R2 = random_uniform(RandomSeed)
+                        RandomNum = random_uniform(RandomSeed)
                         I = 0
-                        while Object.NullCollisionFreqNT[IE][I] < R2:
+                        while Object.NullCollisionFreqNT[IE][I] < RandomNum:
                             I += 1
 
                         Object.ICOLNNNT[I] += 1
                         continue
                     else:
                         TEST3 = (TEMP[IE] + ABSFAKEI) / TLIM
-                        if R5 < TEST3:
+                        if RandomNum < TEST3:
                             # FAKE IONISATION INCREMENT COUNTER
                             Object.FakeIonizations += 1
                             continue
@@ -193,7 +193,7 @@ cpdef run(PyBoltz Object):
             WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
-            CONST6 = sqrt(E1 / E)
+            CONST6 = sqrt(EBefore / E)
             CX2 = CX1 * COSWT - CY1 * SINWT
             CY2 = CY1 * COSWT + CX1 * SINWT
             VTOT = Sqrt2M * sqrt(E)
@@ -202,8 +202,8 @@ cpdef run(PyBoltz Object):
             DCZ2 = DCZ1 * CONST6 + Object.EField * T * CONST5 / sqrt(E)
             A = AP * T
             B = BP * T2
-            SUME2 = SUME2 + T * (E1 + A / 2.0 + B / 3.0)
-            CONST7 = Sqrt2M * sqrt(E1)
+            SUME2 = SUME2 + T * (EBefore + A / 2.0 + B / 3.0)
+            CONST7 = Sqrt2M * sqrt(EBefore)
             A = T * CONST7
             NCOL += 1
             DX = (CX1 * SINWT - CY1 * (1 - COSWT)) / Object.AngularSpeedOfRotation
@@ -221,32 +221,32 @@ cpdef run(PyBoltz Object):
             SUMVX = SUMVX + DX ** 2
             SUMVY = SUMVY + DY ** 2
 
-            if ID != 0:
-                KDUM = 0
-                for JDUM in range(int(Object.Decor_NCORST)):
+            if NumDecorLengths != 0:
+                CollsToLookBack = 0
+                for iCorr in range(int(Object.Decor_NCORST)):
                     ST2 = ST2 + T
-                    NC_LastSampleM = NCOL + KDUM
+                    NC_LastSampleM = NCOL + CollsToLookBack
                     if NC_LastSampleM > Object.Decor_NCOLM:
                         NC_LastSampleM = NC_LastSampleM - Object.Decor_NCOLM
-                    SDIF = Object.ST - STO[NC_LastSampleM-1]
-                    SUMXX += ((Object.X - XST[NC_LastSampleM-1]) ** 2) * T / SDIF
-                    SUMYY += ((Object.Y - YST[NC_LastSampleM-1]) ** 2) * T / SDIF
-                    KDUM += Object.Decor_NCORLN
+                    TDiff = Object.ST - STO[NC_LastSampleM-1]
+                    SUMXX += ((Object.X - XST[NC_LastSampleM-1]) ** 2) * T / TDiff
+                    SUMYY += ((Object.Y - YST[NC_LastSampleM-1]) ** 2) * T / TDiff
+                    CollsToLookBack += Object.Decor_NCORLN
                     if iSample >= 2:
                         ST1 += T
-                        SUMZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * SDIF) ** 2) * T / SDIF
+                        SUMZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
             XST[NCOL-1] = Object.X
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
             STO[NCOL-1] = Object.ST
             if NCOL >= Object.Decor_NCOLM:
-                ID += 1
+                NumDecorLengths += 1
                 NCOL = 0
 
-            R2 = random_uniform(RandomSeed)
+            RandomNum = random_uniform(RandomSeed)
 
-            I = MBSort(I, R2, IE, Object)
-            while Object.NullCollisionFreqT[IE][I] < R2:
+            I = MBSort(I,  RandomNum, IE, Object)
+            while Object.NullCollisionFreqT[IE][I] < RandomNum:
                 I = I + 1
 
             S1 = Object.RGASNT[I]
@@ -270,28 +270,28 @@ cpdef run(PyBoltz Object):
                         IEXTRA += 1
             S2 = (S1 ** 2) / (S1 - 1.0)
 
-            R3 = random_uniform(RandomSeed)
+            RandomNum = random_uniform(RandomSeed)
             if Object.INDEXNT[I] == 1:
-                R31 = random_uniform(RandomSeed)
-                F3 = 1.0 - R3 * Object.ANGCTNT[IE][I]
-                if R31 > Object.PSCTNT[IE][I]:
+                RandomNum1 = random_uniform(RandomSeed)
+                F3 = 1.0 - RandomNum * Object.ANGCTNT[IE][I]
+                if RandomNum1 > Object.PSCTNT[IE][I]:
                     F3 = -1 * F3
             elif Object.INDEXNT[I] == 2:
                 EPSI = Object.PSCTNT[IE][I]
-                F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
+                F3 = 1 - (2 * RandomNum * (1 - EPSI) / (1 + EPSI * (1 - 2 * RandomNum)))
             else:
-                F3 = 1 - 2 * R3
+                F3 = 1 - 2 * RandomNum
             THETA0 = acos(F3)
-            R4 = random_uniform(RandomSeed)
-            PHI0 = F4 * R4
+            RandomNum = random_uniform(RandomSeed)
+            PHI0 = TwoPi * RandomNum
             F8 = sin(PHI0)
             F9 = cos(PHI0)
             ARG1 = 1 - S1 * EI / E
             ARG1 = max(ARG1, Object.SmallNumber)
             D = 1 - F3 * sqrt(ARG1)
-            E1 = E * (1 - EI / (S1 * E) - 2 * D / S2)
-            E1 = max(E1, Object.SmallNumber)
-            Q = sqrt((E / E1) * ARG1) / S1
+            EBefore = E * (1 - EI / (S1 * E) - 2 * D / S2)
+            EBefore = max(EBefore, Object.SmallNumber)
+            Q = sqrt((E / EBefore) * ARG1) / S1
             Q = min(Q, 1)
             Object.AngleFromZ = asin(Q * sin(THETA0))
             F6 = cos(Object.AngleFromZ)
@@ -301,7 +301,7 @@ cpdef run(PyBoltz Object):
                 F6 = -1 * F6
             F5 = sin(Object.AngleFromZ)
             DCZ2 = min(DCZ2, 1)
-            VTOT = Sqrt2M * sqrt(E1)
+            VTOT = Sqrt2M * sqrt(EBefore)
             ARGZ = sqrt(DCX2 * DCX2 + DCY2 * DCY2)
             if ARGZ == 0:
                 DCZ1 = F6
@@ -352,34 +352,34 @@ cpdef run(PyBoltz Object):
             print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.ST,
                                                                                     Object.MeanElectronEnergy, Object.DiffusionX, Object.DiffusionY,
                                                                                     Object.DiffusionZ))
-    TWZST = 0.0
-    TAVE = 0.0
-    T2WZST = 0.0
-    T2AVE = 0.0
-    TYYST = 0.0
-    TXXST = 0.0
+    SumV_Samples = 0.0
+    SumE_Samples = 0.0
+    SumV2_Samples = 0.0
+    SumE2_Samples = 0.0
+    SumDYY_Samples = 0.0
+    SumDXX_Samples = 0.0
 
-    TZZST = 0.0
-    T2ZZST = 0.0
-    T2YYST = 0.0
-    T2XXST = 0.0
+    SumDZZ_Samples = 0.0
+    SumDZZ2_Samples = 0.0
+    SumDYY2_Samples = 0.0
+    SumDXX2_Samples = 0.0
     for K in range(10):
-        TWZST = TWZST + WZST[K]
-        TAVE = TAVE + AVEST[K]
-        T2WZST = T2WZST + WZST[K] * WZST[K]
-        T2AVE = T2AVE + AVEST[K] * AVEST[K]
-        TXXST += DFXXST[K]
-        TYYST += DFYYST[K]
-        T2XXST += DFXXST[K] ** 2
-        T2YYST += DFYYST[K] ** 2
+        SumV_Samples = SumV_Samples + WZST[K]
+        SumE_Samples = SumE_Samples + AVEST[K]
+        SumV2_Samples = SumV2_Samples + WZST[K] * WZST[K]
+        SumE2_Samples = SumE2_Samples + AVEST[K] * AVEST[K]
+        SumDXX_Samples += DFXXST[K]
+        SumDYY_Samples += DFYYST[K]
+        SumDXX2_Samples += DFXXST[K] ** 2
+        SumDYY2_Samples += DFYYST[K] ** 2
         if K >= 2:
-            TZZST = TZZST + DFZZST[K]
-            T2ZZST += DFZZST[K] ** 2
-    Object.VelocityErrorZ = 100 * sqrt((T2WZST - TWZST * TWZST / 10.0) / 9.0) / Object.VelocityZ
-    Object.MeanElectronEnergyError = 100 * sqrt((T2AVE - TAVE * TAVE / 10.0) / 9.0) / Object.MeanElectronEnergy
-    Object.ErrorDiffusionX = 100 * sqrt((T2XXST - TXXST * TXXST / 10.0) / 9.0) / Object.DiffusionX
-    Object.ErrorDiffusionY = 100 * sqrt((T2YYST - TYYST * TYYST / 10.0) / 9.0) / Object.DiffusionY
-    Object.ErrorDiffusionZ = 100 * sqrt((T2ZZST - TZZST * TZZST / 8.0) / 7.0) / Object.DiffusionZ
+            SumDZZ_Samples = SumDZZ_Samples + DFZZST[K]
+            SumDZZ2_Samples += DFZZST[K] ** 2
+    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples * SumV_Samples / 10.0) / 9.0) / Object.VelocityZ
+    Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples * SumE_Samples / 10.0) / 9.0) / Object.MeanElectronEnergy
+    Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples * SumDXX_Samples / 10.0) / 9.0) / Object.DiffusionX
+    Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples * SumDYY_Samples / 10.0) / 9.0) / Object.DiffusionY
+    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples * SumDZZ_Samples / 8.0) / 7.0) / Object.DiffusionZ
     Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(10)
     Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(10)
     Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(10)

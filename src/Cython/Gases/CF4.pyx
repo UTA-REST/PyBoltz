@@ -209,10 +209,10 @@ cdef void Gas1(Gas* object):
     APOPGS = 1.0
 
     cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,A,B,QMOM,QELA,X1,X2,EFAC,ELF,ADIP,FWD,BCK
-    # EN=-ESTEP/2.0  #ESTEP is function input
+    # EN=-EnergyStep/2.0  #EnergyStep is function input
     for i in range(object.EnergySteps):
         EN = object.EG[i]
-        # EN=EN+ESTEP
+        # EN=EN+EnergyStep
         GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
         GAMMA2 = GAMMA1 * GAMMA1
         BETA = sqrt(1.00 - 1.00 / GAMMA2)

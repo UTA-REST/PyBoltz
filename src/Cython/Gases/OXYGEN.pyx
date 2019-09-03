@@ -312,7 +312,7 @@ cdef void Gas15(Gas*object):
         object.PenningFraction[2][J] = 1.0
     cdef double EN, QMOM, QELA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE, T3B, THREEB, SFAC, QRES1, ETEMP
     # CALCULATE DENSITY CORRECTION FOR THREE BODY ATTACHMENT CROSS-SECTION
-    FAC = 273.15 * object.TORR / ((object.TEMPC + 273.15) * 760.0)
+    FAC = 273.15 * object.PRESSURE / ((object.TemperatureC + 273.15) * 760.0)
     # FIRST VIBRATIONAL LEVEL POPULATION
     APOP2 = exp(object.EIN[48] / object.AKT)
     for J in range(NBREM):

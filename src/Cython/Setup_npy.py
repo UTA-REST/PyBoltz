@@ -3344,556 +3344,725 @@ gd['gas3/EBRM'] = EBRMG3
 # XENON gas7
 #   ELASTIC MOMENTUM TRANSFER
 
-XENG7 = [np.float32(0.00),np.float32(.001),np.float32(.005),np.float32(.007),np.float32(0.01),np.float32(.015),np.float32(0.02),np.float32(.025),np.float32(0.03),np.float32(0.04),
-np.float32(0.05),np.float32(0.06),np.float32(0.07),np.float32(0.08),np.float32(0.10),np.float32(0.12),np.float32(0.14),np.float32(0.17),np.float32(0.20),np.float32(0.25),
-np.float32(0.27),np.float32(0.30),np.float32(0.32),np.float32(0.35),np.float32(0.37),np.float32(0.40),np.float32(0.42),np.float32(0.44),np.float32(0.46),np.float32(0.48),
-np.float32(0.50),np.float32(0.51),np.float32(0.52),np.float32(0.53),np.float32(0.54),np.float32(0.55),np.float32(0.56),np.float32(0.57),np.float32(0.58),np.float32(0.59),
-np.float32(0.60),np.float32(0.61),np.float32(0.62),np.float32(0.63),np.float32(0.64),np.float32(0.65),np.float32(0.66),np.float32(0.67),np.float32(0.68),np.float32(0.69),
-np.float32(0.70),np.float32(.715),np.float32(0.73),np.float32(0.75),np.float32(0.77),np.float32(0.80),np.float32(0.83),np.float32(0.85),np.float32(0.87),np.float32(0.90),
-np.float32(1.00),np.float32(1.08),np.float32(1.14),np.float32(1.20),np.float32(1.30),np.float32(1.40),np.float32(1.50),np.float32(1.70),np.float32(2.00),np.float32(2.50),
-np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(4.50),np.float32(5.00),np.float32(5.50),np.float32(6.00),np.float32(6.50),np.float32(7.00),np.float32(8.00),
-np.float32(9.00),np.float32(10.0),np.float32(12.0),np.float32(15.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),
-np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(200.),np.float32(250.),np.float32(300.),
-np.float32(400.),np.float32(500.),np.float32(600.),np.float32(700.),np.float32(800.),np.float32(1000.),np.float32(1500.),np.float32(2000.),np.float32(3000.),np.float32(4000.),
-np.float32(5000.),np.float32(6000.),np.float32(8000.),1.0e4,1.5e4,2.0e4,3.0e4,4.0e4,5.0e4,6.0e4,
-8.0e4,1.0e5,1.25e5,1.5e5,1.75e5,2.0e5,2.5e5,3.0e5,3.5e5,4.0e5,
-4.5e5,5.0e5,6.0e5,7.0e5,8.0e5,9.0e5,1.0e6,1.25e6,1.5e6,1.75e6,
-2.0e6,2.5e6,3.0e6,3.5e6,4.0e6,4.5e6,5.0e6,6.0e6,7.0e6,8.0e6,
-9.0e6,1.0e7,1.25e7,1.5e7,1.75e7,2.0e7,2.5e7,3.0e7,3.5e7,4.0e7,
-4.5e7,5.0e7,6.0e7,7.0e7,8.0e7,9.0e7,1.0e8,1.25e8,1.5e8,1.75e8,
-2.0e8,2.5e8,3.0e8,3.5e8,4.0e8,4.5e8,5.0e8,6.0e8,7.0e8,8.0e8,
-9.0e8,1.0e9,
-]
-YMOMG7 = [np.float32(131.),np.float32(115.),np.float32(97.0),np.float32(91.1),np.float32(83.9),np.float32(74.6),np.float32(67.3),np.float32(61.2),np.float32(56.1),np.float32(47.9),
-np.float32(41.4),np.float32(36.2),np.float32(31.8),np.float32(28.2),np.float32(22.5),np.float32(18.1),np.float32(14.8),np.float32(11.1),np.float32(8.36),np.float32(5.33),
-np.float32(4.47),np.float32(3.43),np.float32(2.88),np.float32(2.22),np.float32(1.86),np.float32(1.43),np.float32(1.20),np.float32(1.01),np.float32(.844),np.float32(.708),
-np.float32(.596),np.float32(.548),np.float32(.504),np.float32(.465),np.float32(.430),np.float32(.399),np.float32(.372),np.float32(.348),np.float32(.328),np.float32(.310),
-np.float32(.296),np.float32(.285),np.float32(.276),np.float32(.270),np.float32(.266),np.float32(.265),np.float32(.266),np.float32(.270),np.float32(.276),np.float32(.287),
-np.float32(.306),np.float32(.341),np.float32(.377),np.float32(.427),np.float32(.479),np.float32(.562),np.float32(.651),np.float32(.713),np.float32(.778),np.float32(.880),
-np.float32(1.26),np.float32(1.62),np.float32(1.92),np.float32(2.25),np.float32(2.85),np.float32(3.51),np.float32(4.22),np.float32(5.73),np.float32(7.97),np.float32(11.8),
-np.float32(15.8),np.float32(20.4),np.float32(24.4),np.float32(28.0),np.float32(30.7),np.float32(31.5),np.float32(32.3),np.float32(31.6),np.float32(31.0),np.float32(27.8),
-np.float32(23.5),np.float32(19.8),np.float32(15.0),np.float32(10.9),np.float32(8.40),np.float32(7.25),np.float32(5.65),np.float32(5.00),np.float32(4.50),np.float32(3.10),
-np.float32(2.42),np.float32(2.17),np.float32(2.00),np.float32(1.89),np.float32(1.80),np.float32(1.73),np.float32(1.65),np.float32(1.50),np.float32(1.39),np.float32(1.26),
-np.float32(1.09),np.float32(0.94),np.float32(0.84),np.float32(0.75),np.float32(0.68),np.float32(0.56),np.float32(0.38),np.float32(0.26),np.float32(.155),np.float32(.105),
-np.float32(.076),np.float32(.059),np.float32(.038),np.float32(.027),np.float32(.0148),np.float32(.0094),np.float32(.0050),np.float32(.0031),np.float32(.0022),np.float32(.00163),
-np.float32(.001024),np.float32(.000714),np.float32(.000498),np.float32(.000372),np.float32(.000291),np.float32(.000236),np.float32(.000166),np.float32(.000125),
-9.90e-5,8.08e-5,
-6.76e-5,5.77e-5,4.38e-5,3.48e-5,2.85e-5,2.39e-5,2.04e-5,
-1.43e-5,1.08e-5,8.52e-6,
-6.91e-6,4.85e-6,3.62e-6,2.81e-6,2.25e-6,1.85e-6,1.55e-6,1.13e-6,
-8.67e-7,6.86e-7,
-5.58e-7,4.63e-7,3.10e-7,2.23e-7,1.68e-7,1.31e-7,8.64e-8,6.11e-8,
-4.54e-8,3.51e-8,
-2.78e-8,2.26e-8,1.57e-8,1.15e-8,8.79e-9,6.93e-9,5.60e-9,3.57e-9,
-2.47e-9,1.81e-9,
-1.38e-9,8.82e-10,6.11e-10,4.48e-10,3.43e-10,2.71e-10,2.19e-10,
-1.52e-10,1.12e-10,8.55e-11,
-6.75e-11,5.47e-11,
-]
+XENG7 = [np.float32(0.00), np.float32(.001), np.float32(.005), np.float32(.007), np.float32(0.01), np.float32(.015),
+         np.float32(0.02), np.float32(.025), np.float32(0.03), np.float32(0.04),
+         np.float32(0.05), np.float32(0.06), np.float32(0.07), np.float32(0.08), np.float32(0.10), np.float32(0.12),
+         np.float32(0.14), np.float32(0.17), np.float32(0.20), np.float32(0.25),
+         np.float32(0.27), np.float32(0.30), np.float32(0.32), np.float32(0.35), np.float32(0.37), np.float32(0.40),
+         np.float32(0.42), np.float32(0.44), np.float32(0.46), np.float32(0.48),
+         np.float32(0.50), np.float32(0.51), np.float32(0.52), np.float32(0.53), np.float32(0.54), np.float32(0.55),
+         np.float32(0.56), np.float32(0.57), np.float32(0.58), np.float32(0.59),
+         np.float32(0.60), np.float32(0.61), np.float32(0.62), np.float32(0.63), np.float32(0.64), np.float32(0.65),
+         np.float32(0.66), np.float32(0.67), np.float32(0.68), np.float32(0.69),
+         np.float32(0.70), np.float32(.715), np.float32(0.73), np.float32(0.75), np.float32(0.77), np.float32(0.80),
+         np.float32(0.83), np.float32(0.85), np.float32(0.87), np.float32(0.90),
+         np.float32(1.00), np.float32(1.08), np.float32(1.14), np.float32(1.20), np.float32(1.30), np.float32(1.40),
+         np.float32(1.50), np.float32(1.70), np.float32(2.00), np.float32(2.50),
+         np.float32(3.00), np.float32(3.50), np.float32(4.00), np.float32(4.50), np.float32(5.00), np.float32(5.50),
+         np.float32(6.00), np.float32(6.50), np.float32(7.00), np.float32(8.00),
+         np.float32(9.00), np.float32(10.0), np.float32(12.0), np.float32(15.0), np.float32(18.0), np.float32(20.0),
+         np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0),
+         np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+         np.float32(150.), np.float32(200.), np.float32(250.), np.float32(300.),
+         np.float32(400.), np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.), np.float32(1000.),
+         np.float32(1500.), np.float32(2000.), np.float32(3000.), np.float32(4000.),
+         np.float32(5000.), np.float32(6000.), np.float32(8000.), 1.0e4, 1.5e4, 2.0e4, 3.0e4, 4.0e4, 5.0e4, 6.0e4,
+         8.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5, 3.5e5, 4.0e5,
+         4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6, 1.5e6, 1.75e6,
+         2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6, 7.0e6, 8.0e6,
+         9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7, 3.5e7, 4.0e7,
+         4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8, 1.5e8, 1.75e8,
+         2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8, 7.0e8, 8.0e8,
+         9.0e8, 1.0e9,
+         ]
+YMOMG7 = [np.float32(131.), np.float32(115.), np.float32(97.0), np.float32(91.1), np.float32(83.9), np.float32(74.6),
+          np.float32(67.3), np.float32(61.2), np.float32(56.1), np.float32(47.9),
+          np.float32(41.4), np.float32(36.2), np.float32(31.8), np.float32(28.2), np.float32(22.5), np.float32(18.1),
+          np.float32(14.8), np.float32(11.1), np.float32(8.36), np.float32(5.33),
+          np.float32(4.47), np.float32(3.43), np.float32(2.88), np.float32(2.22), np.float32(1.86), np.float32(1.43),
+          np.float32(1.20), np.float32(1.01), np.float32(.844), np.float32(.708),
+          np.float32(.596), np.float32(.548), np.float32(.504), np.float32(.465), np.float32(.430), np.float32(.399),
+          np.float32(.372), np.float32(.348), np.float32(.328), np.float32(.310),
+          np.float32(.296), np.float32(.285), np.float32(.276), np.float32(.270), np.float32(.266), np.float32(.265),
+          np.float32(.266), np.float32(.270), np.float32(.276), np.float32(.287),
+          np.float32(.306), np.float32(.341), np.float32(.377), np.float32(.427), np.float32(.479), np.float32(.562),
+          np.float32(.651), np.float32(.713), np.float32(.778), np.float32(.880),
+          np.float32(1.26), np.float32(1.62), np.float32(1.92), np.float32(2.25), np.float32(2.85), np.float32(3.51),
+          np.float32(4.22), np.float32(5.73), np.float32(7.97), np.float32(11.8),
+          np.float32(15.8), np.float32(20.4), np.float32(24.4), np.float32(28.0), np.float32(30.7), np.float32(31.5),
+          np.float32(32.3), np.float32(31.6), np.float32(31.0), np.float32(27.8),
+          np.float32(23.5), np.float32(19.8), np.float32(15.0), np.float32(10.9), np.float32(8.40), np.float32(7.25),
+          np.float32(5.65), np.float32(5.00), np.float32(4.50), np.float32(3.10),
+          np.float32(2.42), np.float32(2.17), np.float32(2.00), np.float32(1.89), np.float32(1.80), np.float32(1.73),
+          np.float32(1.65), np.float32(1.50), np.float32(1.39), np.float32(1.26),
+          np.float32(1.09), np.float32(0.94), np.float32(0.84), np.float32(0.75), np.float32(0.68), np.float32(0.56),
+          np.float32(0.38), np.float32(0.26), np.float32(.155), np.float32(.105),
+          np.float32(.076), np.float32(.059), np.float32(.038), np.float32(.027), np.float32(.0148), np.float32(.0094),
+          np.float32(.0050), np.float32(.0031), np.float32(.0022), np.float32(.00163),
+          np.float32(.001024), np.float32(.000714), np.float32(.000498), np.float32(.000372), np.float32(.000291),
+          np.float32(.000236), np.float32(.000166), np.float32(.000125),
+          9.90e-5, 8.08e-5,
+          6.76e-5, 5.77e-5, 4.38e-5, 3.48e-5, 2.85e-5, 2.39e-5, 2.04e-5,
+          1.43e-5, 1.08e-5, 8.52e-6,
+          6.91e-6, 4.85e-6, 3.62e-6, 2.81e-6, 2.25e-6, 1.85e-6, 1.55e-6, 1.13e-6,
+          8.67e-7, 6.86e-7,
+          5.58e-7, 4.63e-7, 3.10e-7, 2.23e-7, 1.68e-7, 1.31e-7, 8.64e-8, 6.11e-8,
+          4.54e-8, 3.51e-8,
+          2.78e-8, 2.26e-8, 1.57e-8, 1.15e-8, 8.79e-9, 6.93e-9, 5.60e-9, 3.57e-9,
+          2.47e-9, 1.81e-9,
+          1.38e-9, 8.82e-10, 6.11e-10, 4.48e-10, 3.43e-10, 2.71e-10, 2.19e-10,
+          1.52e-10, 1.12e-10, 8.55e-11,
+          6.75e-11, 5.47e-11,
+          ]
 # ELASTIC TOTAL
 
-XELG7 = [np.float32(0.00),np.float32(.001),np.float32(.005),np.float32(.007),np.float32(0.01),np.float32(.015),np.float32(0.02),np.float32(.025),np.float32(0.03),np.float32(0.04),
-np.float32(0.05),np.float32(0.06),np.float32(0.07),np.float32(0.08),np.float32(0.10),np.float32(0.12),np.float32(0.14),np.float32(0.17),np.float32(0.20),np.float32(0.25),
-np.float32(0.27),np.float32(0.30),np.float32(0.32),np.float32(0.35),np.float32(0.37),np.float32(0.40),np.float32(0.42),np.float32(0.44),np.float32(0.46),np.float32(0.48),
-np.float32(0.50),np.float32(0.51),np.float32(0.52),np.float32(0.53),np.float32(0.54),np.float32(0.55),np.float32(0.56),np.float32(0.57),np.float32(0.58),np.float32(0.59),
-np.float32(0.60),np.float32(0.61),np.float32(0.62),np.float32(0.63),np.float32(0.64),np.float32(0.65),np.float32(0.66),np.float32(0.67),np.float32(0.68),np.float32(0.69),
-np.float32(0.70),np.float32(0.75),np.float32(0.80),np.float32(0.85),np.float32(0.90),np.float32(1.00),np.float32(1.20),np.float32(1.50),np.float32(1.75),np.float32(2.00),
-np.float32(2.50),np.float32(2.75),np.float32(3.00),np.float32(3.75),np.float32(4.00),np.float32(4.50),np.float32(5.00),np.float32(5.50),np.float32(6.00),np.float32(6.50),
-np.float32(7.00),np.float32(8.00),np.float32(9.00),np.float32(10.0),np.float32(12.0),np.float32(15.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),
-np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(200.),
-np.float32(250.),np.float32(300.),np.float32(400.),np.float32(500.),np.float32(600.),np.float32(700.),np.float32(800.),np.float32(1000.),np.float32(1500.),np.float32(2000.),
-np.float32(3000.),np.float32(4000.),np.float32(5000.),np.float32(6000.),np.float32(8000.),1.0e4,1.5e4,2.0e4,3.0e4,4.0e4,
-5.0e4,6.0e4,8.0e4,1.0e5,1.25e5,1.5e5,1.75e5,2.0e5,2.5e5,3.0e5,
-3.5e5,4.0e5,4.5e5,5.0e5,6.0e5,7.0e5,8.0e5,9.0e5,1.0e6,1.25e6,
-1.5e6,1.75e6,2.0e6,2.5e6,3.0e6,3.5e6,4.0e6,4.5e6,5.0e6,6.0e6,
-7.0e6,8.0e6,9.0e6,1.0e7,1.25e7,1.5e7,1.75e7,2.0e7,2.5e7,3.0e7,
-3.5e7,7.0e7,1.e9,
-]
-YELG7 = [np.float32(131.),np.float32(117.),np.float32(101.),np.float32(95.4),np.float32(88.8),np.float32(80.1),np.float32(73.3),np.float32(67.5),np.float32(62.6),np.float32(54.7),
-np.float32(48.4),np.float32(43.2),np.float32(38.8),np.float32(35.2),np.float32(29.4),np.float32(24.7),np.float32(21.2),np.float32(17.1),np.float32(14.0),np.float32(10.3),
-np.float32(9.10),np.float32(7.75),np.float32(6.94),np.float32(5.95),np.float32(5.40),np.float32(4.50),np.float32(4.25),np.float32(3.95),np.float32(3.65),np.float32(3.45),
-np.float32(3.20),np.float32(3.11),np.float32(3.00),np.float32(2.90),np.float32(2.79),np.float32(2.69),np.float32(2.59),np.float32(2.48),np.float32(2.37),np.float32(2.25),
-np.float32(2.14),np.float32(2.02),np.float32(1.92),np.float32(1.80),np.float32(1.69),np.float32(1.58),np.float32(1.48),np.float32(1.40),np.float32(1.32),np.float32(1.28),
-np.float32(1.26),np.float32(1.24),np.float32(1.30),np.float32(1.45),np.float32(1.50),np.float32(1.87),np.float32(2.80),np.float32(4.76),np.float32(6.68),np.float32(8.85),
-np.float32(13.7),np.float32(16.3),np.float32(18.7),np.float32(24.5),np.float32(29.0),np.float32(32.7),np.float32(36.8),np.float32(39.3),np.float32(41.7),np.float32(41.7),
-np.float32(41.8),np.float32(41.8),np.float32(41.0),np.float32(40.0),np.float32(37.4),np.float32(34.2),np.float32(32.4),np.float32(30.8),np.float32(21.9),np.float32(14.1),
-np.float32(8.58),np.float32(6.78),np.float32(5.97),np.float32(5.49),np.float32(5.29),np.float32(5.21),np.float32(5.10),np.float32(4.66),np.float32(4.58),np.float32(4.67),
-np.float32(4.53),np.float32(4.35),np.float32(4.12),np.float32(3.77),np.float32(3.58),np.float32(3.30),np.float32(3.12),np.float32(2.80),np.float32(2.36),np.float32(2.07),
-np.float32(1.72),np.float32(1.52),np.float32(1.34),np.float32(1.13),np.float32(.937),np.float32(.817),np.float32(.632),np.float32(.523),np.float32(.397),np.float32(.326),
-np.float32(.279),np.float32(.246),np.float32(.203),np.float32(.175),np.float32(.152),np.float32(.136),np.float32(.124),np.float32(.116),np.float32(.103),np.float32(.0946),
-np.float32(.0886),np.float32(.0841),np.float32(.0807),np.float32(.0779),np.float32(.0739),np.float32(.0711),np.float32(.0690),np.float32(.0674),np.float32(.0662),np.float32(.0640),
-np.float32(.0627),np.float32(.0618),np.float32(.0612),np.float32(.0604),np.float32(.0599),np.float32(.0596),np.float32(.0594),np.float32(.0593),np.float32(.0592),np.float32(.0590),
-np.float32(.0589),np.float32(.0589),np.float32(.0588),np.float32(.0588),np.float32(.0587),np.float32(.0587),np.float32(.0587),np.float32(.0587),np.float32(.0587),np.float32(.05867),
-np.float32(.05866),np.float32(.05865),np.float32(.05865),
-]
+XELG7 = [np.float32(0.00), np.float32(.001), np.float32(.005), np.float32(.007), np.float32(0.01), np.float32(.015),
+         np.float32(0.02), np.float32(.025), np.float32(0.03), np.float32(0.04),
+         np.float32(0.05), np.float32(0.06), np.float32(0.07), np.float32(0.08), np.float32(0.10), np.float32(0.12),
+         np.float32(0.14), np.float32(0.17), np.float32(0.20), np.float32(0.25),
+         np.float32(0.27), np.float32(0.30), np.float32(0.32), np.float32(0.35), np.float32(0.37), np.float32(0.40),
+         np.float32(0.42), np.float32(0.44), np.float32(0.46), np.float32(0.48),
+         np.float32(0.50), np.float32(0.51), np.float32(0.52), np.float32(0.53), np.float32(0.54), np.float32(0.55),
+         np.float32(0.56), np.float32(0.57), np.float32(0.58), np.float32(0.59),
+         np.float32(0.60), np.float32(0.61), np.float32(0.62), np.float32(0.63), np.float32(0.64), np.float32(0.65),
+         np.float32(0.66), np.float32(0.67), np.float32(0.68), np.float32(0.69),
+         np.float32(0.70), np.float32(0.75), np.float32(0.80), np.float32(0.85), np.float32(0.90), np.float32(1.00),
+         np.float32(1.20), np.float32(1.50), np.float32(1.75), np.float32(2.00),
+         np.float32(2.50), np.float32(2.75), np.float32(3.00), np.float32(3.75), np.float32(4.00), np.float32(4.50),
+         np.float32(5.00), np.float32(5.50), np.float32(6.00), np.float32(6.50),
+         np.float32(7.00), np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(12.0), np.float32(15.0),
+         np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+         np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+         np.float32(100.), np.float32(125.), np.float32(150.), np.float32(200.),
+         np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.), np.float32(600.), np.float32(700.),
+         np.float32(800.), np.float32(1000.), np.float32(1500.), np.float32(2000.),
+         np.float32(3000.), np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(8000.), 1.0e4, 1.5e4,
+         2.0e4, 3.0e4, 4.0e4,
+         5.0e4, 6.0e4, 8.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5,
+         3.5e5, 4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6,
+         1.5e6, 1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6,
+         7.0e6, 8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7,
+         3.5e7, 7.0e7, 1.e9,
+         ]
+YELG7 = [np.float32(131.), np.float32(117.), np.float32(101.), np.float32(95.4), np.float32(88.8), np.float32(80.1),
+         np.float32(73.3), np.float32(67.5), np.float32(62.6), np.float32(54.7),
+         np.float32(48.4), np.float32(43.2), np.float32(38.8), np.float32(35.2), np.float32(29.4), np.float32(24.7),
+         np.float32(21.2), np.float32(17.1), np.float32(14.0), np.float32(10.3),
+         np.float32(9.10), np.float32(7.75), np.float32(6.94), np.float32(5.95), np.float32(5.40), np.float32(4.50),
+         np.float32(4.25), np.float32(3.95), np.float32(3.65), np.float32(3.45),
+         np.float32(3.20), np.float32(3.11), np.float32(3.00), np.float32(2.90), np.float32(2.79), np.float32(2.69),
+         np.float32(2.59), np.float32(2.48), np.float32(2.37), np.float32(2.25),
+         np.float32(2.14), np.float32(2.02), np.float32(1.92), np.float32(1.80), np.float32(1.69), np.float32(1.58),
+         np.float32(1.48), np.float32(1.40), np.float32(1.32), np.float32(1.28),
+         np.float32(1.26), np.float32(1.24), np.float32(1.30), np.float32(1.45), np.float32(1.50), np.float32(1.87),
+         np.float32(2.80), np.float32(4.76), np.float32(6.68), np.float32(8.85),
+         np.float32(13.7), np.float32(16.3), np.float32(18.7), np.float32(24.5), np.float32(29.0), np.float32(32.7),
+         np.float32(36.8), np.float32(39.3), np.float32(41.7), np.float32(41.7),
+         np.float32(41.8), np.float32(41.8), np.float32(41.0), np.float32(40.0), np.float32(37.4), np.float32(34.2),
+         np.float32(32.4), np.float32(30.8), np.float32(21.9), np.float32(14.1),
+         np.float32(8.58), np.float32(6.78), np.float32(5.97), np.float32(5.49), np.float32(5.29), np.float32(5.21),
+         np.float32(5.10), np.float32(4.66), np.float32(4.58), np.float32(4.67),
+         np.float32(4.53), np.float32(4.35), np.float32(4.12), np.float32(3.77), np.float32(3.58), np.float32(3.30),
+         np.float32(3.12), np.float32(2.80), np.float32(2.36), np.float32(2.07),
+         np.float32(1.72), np.float32(1.52), np.float32(1.34), np.float32(1.13), np.float32(.937), np.float32(.817),
+         np.float32(.632), np.float32(.523), np.float32(.397), np.float32(.326),
+         np.float32(.279), np.float32(.246), np.float32(.203), np.float32(.175), np.float32(.152), np.float32(.136),
+         np.float32(.124), np.float32(.116), np.float32(.103), np.float32(.0946),
+         np.float32(.0886), np.float32(.0841), np.float32(.0807), np.float32(.0779), np.float32(.0739),
+         np.float32(.0711), np.float32(.0690), np.float32(.0674), np.float32(.0662), np.float32(.0640),
+         np.float32(.0627), np.float32(.0618), np.float32(.0612), np.float32(.0604), np.float32(.0599),
+         np.float32(.0596), np.float32(.0594), np.float32(.0593), np.float32(.0592), np.float32(.0590),
+         np.float32(.0589), np.float32(.0589), np.float32(.0588), np.float32(.0588), np.float32(.0587),
+         np.float32(.0587), np.float32(.0587), np.float32(.0587), np.float32(.0587), np.float32(.05867),
+         np.float32(.05866), np.float32(.05865), np.float32(.05865),
+         ]
 # ELASTIC ANGULAR DISTRIBUTION ( EPSILON)
 
-XEPSG7 = [np.float32(0.00),np.float32(.001),np.float32(.005),np.float32(.007),np.float32(.010),np.float32(.015),np.float32(.020),np.float32(.025),np.float32(.030),np.float32(.040),
-np.float32(0.05),np.float32(0.06),np.float32(0.07),np.float32(0.08),np.float32(0.10),np.float32(0.12),np.float32(0.14),np.float32(0.17),np.float32(0.20),np.float32(0.25),
-np.float32(0.27),np.float32(0.30),np.float32(0.32),np.float32(0.35),np.float32(0.37),np.float32(0.40),np.float32(0.42),np.float32(0.44),np.float32(0.46),np.float32(0.48),
-np.float32(0.50),np.float32(0.51),np.float32(0.52),np.float32(0.53),np.float32(0.54),np.float32(0.55),np.float32(0.56),np.float32(0.57),np.float32(0.58),np.float32(0.59),
-np.float32(0.60),np.float32(0.61),np.float32(0.62),np.float32(0.63),np.float32(0.64),np.float32(0.65),np.float32(0.66),np.float32(0.67),np.float32(0.68),np.float32(0.69),
-np.float32(0.70),np.float32(0.71),np.float32(0.72),np.float32(0.73),np.float32(0.75),np.float32(0.77),np.float32(0.80),np.float32(0.83),np.float32(0.85),np.float32(0.87),
-np.float32(0.90),np.float32(1.00),np.float32(1.10),np.float32(1.20),np.float32(1.30),np.float32(1.40),np.float32(1.50),np.float32(1.70),np.float32(2.00),np.float32(2.50),
-np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(4.50),np.float32(5.00),np.float32(5.50),np.float32(6.00),np.float32(6.50),np.float32(7.00),np.float32(8.00),
-np.float32(9.00),np.float32(10.0),np.float32(12.0),np.float32(15.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),
-np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(200.),np.float32(250.),np.float32(300.),
-np.float32(400.),np.float32(500.),np.float32(600.),np.float32(700.),np.float32(800.),np.float32(1000.),np.float32(1500.),np.float32(2000.),np.float32(3000.),np.float32(4000.),
-np.float32(5000.),np.float32(6000.),np.float32(8000.),np.float32(10000.),np.float32(15000.),2.0e4,3.0e4,4.0e4,5.0e4,6.0e4,
-8.0e4,1.0e5,1.25e5,1.5e5,1.75e5,2.0e5,2.5e5,3.0e5,3.5e5,4.0e5,
-4.5e5,5.0e5,6.0e5,7.0e5,8.0e5,9.0e5,1.0e6,1.25e6,1.5e6,1.75e6,
-2.0e6,2.5e6,3.0e6,3.5e6,4.0e6,4.5e6,5.0e6,6.0e6,7.0e6,8.0e6,
-9.0e6,1.0e7,1.25e7,1.5e7,1.75e7,2.0e7,2.5e7,3.0e7,3.5e7,4.0e7,
-4.5e7,5.0e7,6.0e7,7.0e7,8.0e7,9.0e7,1.0e8,1.25e8,1.5e8,1.75e8,
-2.0e8,2.5e8,3.0e8,3.5e8,4.0e8,4.5e8,5.0e8,6.0e8,7.0e8,8.0e8,
-9.0e8,1.0e9,
-]
+XEPSG7 = [np.float32(0.00), np.float32(.001), np.float32(.005), np.float32(.007), np.float32(.010), np.float32(.015),
+          np.float32(.020), np.float32(.025), np.float32(.030), np.float32(.040),
+          np.float32(0.05), np.float32(0.06), np.float32(0.07), np.float32(0.08), np.float32(0.10), np.float32(0.12),
+          np.float32(0.14), np.float32(0.17), np.float32(0.20), np.float32(0.25),
+          np.float32(0.27), np.float32(0.30), np.float32(0.32), np.float32(0.35), np.float32(0.37), np.float32(0.40),
+          np.float32(0.42), np.float32(0.44), np.float32(0.46), np.float32(0.48),
+          np.float32(0.50), np.float32(0.51), np.float32(0.52), np.float32(0.53), np.float32(0.54), np.float32(0.55),
+          np.float32(0.56), np.float32(0.57), np.float32(0.58), np.float32(0.59),
+          np.float32(0.60), np.float32(0.61), np.float32(0.62), np.float32(0.63), np.float32(0.64), np.float32(0.65),
+          np.float32(0.66), np.float32(0.67), np.float32(0.68), np.float32(0.69),
+          np.float32(0.70), np.float32(0.71), np.float32(0.72), np.float32(0.73), np.float32(0.75), np.float32(0.77),
+          np.float32(0.80), np.float32(0.83), np.float32(0.85), np.float32(0.87),
+          np.float32(0.90), np.float32(1.00), np.float32(1.10), np.float32(1.20), np.float32(1.30), np.float32(1.40),
+          np.float32(1.50), np.float32(1.70), np.float32(2.00), np.float32(2.50),
+          np.float32(3.00), np.float32(3.50), np.float32(4.00), np.float32(4.50), np.float32(5.00), np.float32(5.50),
+          np.float32(6.00), np.float32(6.50), np.float32(7.00), np.float32(8.00),
+          np.float32(9.00), np.float32(10.0), np.float32(12.0), np.float32(15.0), np.float32(18.0), np.float32(20.0),
+          np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0),
+          np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+          np.float32(150.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(400.), np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.), np.float32(1000.),
+          np.float32(1500.), np.float32(2000.), np.float32(3000.), np.float32(4000.),
+          np.float32(5000.), np.float32(6000.), np.float32(8000.), np.float32(10000.), np.float32(15000.), 2.0e4, 3.0e4,
+          4.0e4, 5.0e4, 6.0e4,
+          8.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5, 3.5e5, 4.0e5,
+          4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6, 1.5e6, 1.75e6,
+          2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6, 7.0e6, 8.0e6,
+          9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7, 3.5e7, 4.0e7,
+          4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8, 1.5e8, 1.75e8,
+          2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8, 7.0e8, 8.0e8,
+          9.0e8, 1.0e9,
+          ]
 # ELASTIC ANGULAR DISTRIBUTION PARAMETER EPSILON
 
 #  YEPS=1.0-EPSILON
 
-YEPSG7 = [np.float32(1.),np.float32(.9744),np.float32(.9406),np.float32(.9325),np.float32(.9173),np.float32(.8972),np.float32(.8776),np.float32(.8606),np.float32(.845),np.float32(.8148),
-np.float32(.7851),np.float32(.7598),np.float32(.7333),np.float32(.7069),np.float32(.6565),np.float32(.6117),np.float32(.5651),np.float32(.5015),np.float32(.4373),np.float32(.3459),
-np.float32(.3177),np.float32(.2684),np.float32(.2421),np.float32(.2044),np.float32(.1803),np.float32(.1590),np.float32(.1326),np.float32(.1141),np.float32(.0981),np.float32(.0822),
-np.float32(.0714),np.float32(.0659),np.float32(.0615),np.float32(.0575),np.float32(.0544),np.float32(.0515),np.float32(.0492),np.float32(.0476),np.float32(.0467),np.float32(.0464),
-np.float32(.0467),np.float32(.0480),np.float32(.0493),np.float32(.0523),np.float32(.0560),np.float32(.0614),np.float32(.0678),np.float32(.0751),np.float32(.0845),np.float32(.0937),
-np.float32(.1056),np.float32(.1183),np.float32(.1321),np.float32(.1471),np.float32(.1802),np.float32(.2095),np.float32(.2585),np.float32(.2944),np.float32(.3183),np.float32(.3588),
-np.float32(.4247),np.float32(.5332),np.float32(.6259),np.float32(.7104),np.float32(.7648),np.float32(.8047),np.float32(.8308),np.float32(.8717),np.float32(.8515),np.float32(.7938),
-np.float32(.7699),np.float32(.7682),np.float32(.7647),np.float32(.7864),np.float32(.7544),np.float32(.7075),np.float32(.6695),np.float32(.6461),np.float32(.6238),np.float32(.5219),
-np.float32(.4088),np.float32(.3217),np.float32(.2293),np.float32(.1597),np.float32(.1165),np.float32(.1011),np.float32(.1156),np.float32(.1887),np.float32(.3535),np.float32(.2829),
-np.float32(.2332),np.float32(.2240),np.float32(.2087),np.float32(.1956),np.float32(.1873),np.float32(.2028),np.float32(.1934),np.float32(.1617),np.float32(.1506),np.float32(.1379),
-np.float32(.1201),np.float32(.1098),np.float32(.1003),np.float32(.0956),np.float32(.0899),np.float32(.0792),np.float32(.0579),np.float32(.0408),np.float32(.0259),np.float32(.0182),
-np.float32(.0140),np.float32(.0126),np.float32(.0091),np.float32(.0070),np.float32(.0046),np.float32(.00331),np.float32(.00215),np.float32(.00154),np.float32(.00123),np.float32(.00100),
-7.30e-4,5.69e-4,4.42e-4,3.59e-4,3.00e-4,2.56e-4,1.96e-4,1.57e-4,
-1.29e-4,1.09e-4,
-9.34e-5,8.12e-5,6.34e-5,5.12e-5,4.23e-5,3.563e-5,3.048e-5,
-2.134e-5,1.607e-5,1.255e-5,
-1.009e-5,6.944e-6,5.077e-6,3.875e-6,3.056e-6,2.473e-6,2.043e-6,
-1.461e-6,1.097e-6,8.531e-7,
-6.826e-7,5.583e-7,3.635e-7,2.550e-7,1.885e-7,1.447e-7,9.266e-8,
-6.407e-8,4.674e-8,3.548e-8,
-2.775e-8,2.224e-8,1.512e-8,1.089e-8,8.19e-9,6.36e-9,5.08e-9,
-3.16e-8,2.14e-9,1.54e-9,
-1.163e-9,7.25e-10,4.93e-10,3.56e-10,2.69e-10,2.10e-10,1.68e-10,
-1.15e-10,8.3e-11,6.3e-11,
-4.9e-11,3.9e-11,
-]
+YEPSG7 = [np.float32(1.), np.float32(.9744), np.float32(.9406), np.float32(.9325), np.float32(.9173), np.float32(.8972),
+          np.float32(.8776), np.float32(.8606), np.float32(.845), np.float32(.8148),
+          np.float32(.7851), np.float32(.7598), np.float32(.7333), np.float32(.7069), np.float32(.6565),
+          np.float32(.6117), np.float32(.5651), np.float32(.5015), np.float32(.4373), np.float32(.3459),
+          np.float32(.3177), np.float32(.2684), np.float32(.2421), np.float32(.2044), np.float32(.1803),
+          np.float32(.1590), np.float32(.1326), np.float32(.1141), np.float32(.0981), np.float32(.0822),
+          np.float32(.0714), np.float32(.0659), np.float32(.0615), np.float32(.0575), np.float32(.0544),
+          np.float32(.0515), np.float32(.0492), np.float32(.0476), np.float32(.0467), np.float32(.0464),
+          np.float32(.0467), np.float32(.0480), np.float32(.0493), np.float32(.0523), np.float32(.0560),
+          np.float32(.0614), np.float32(.0678), np.float32(.0751), np.float32(.0845), np.float32(.0937),
+          np.float32(.1056), np.float32(.1183), np.float32(.1321), np.float32(.1471), np.float32(.1802),
+          np.float32(.2095), np.float32(.2585), np.float32(.2944), np.float32(.3183), np.float32(.3588),
+          np.float32(.4247), np.float32(.5332), np.float32(.6259), np.float32(.7104), np.float32(.7648),
+          np.float32(.8047), np.float32(.8308), np.float32(.8717), np.float32(.8515), np.float32(.7938),
+          np.float32(.7699), np.float32(.7682), np.float32(.7647), np.float32(.7864), np.float32(.7544),
+          np.float32(.7075), np.float32(.6695), np.float32(.6461), np.float32(.6238), np.float32(.5219),
+          np.float32(.4088), np.float32(.3217), np.float32(.2293), np.float32(.1597), np.float32(.1165),
+          np.float32(.1011), np.float32(.1156), np.float32(.1887), np.float32(.3535), np.float32(.2829),
+          np.float32(.2332), np.float32(.2240), np.float32(.2087), np.float32(.1956), np.float32(.1873),
+          np.float32(.2028), np.float32(.1934), np.float32(.1617), np.float32(.1506), np.float32(.1379),
+          np.float32(.1201), np.float32(.1098), np.float32(.1003), np.float32(.0956), np.float32(.0899),
+          np.float32(.0792), np.float32(.0579), np.float32(.0408), np.float32(.0259), np.float32(.0182),
+          np.float32(.0140), np.float32(.0126), np.float32(.0091), np.float32(.0070), np.float32(.0046),
+          np.float32(.00331), np.float32(.00215), np.float32(.00154), np.float32(.00123), np.float32(.00100),
+          7.30e-4, 5.69e-4, 4.42e-4, 3.59e-4, 3.00e-4, 2.56e-4, 1.96e-4, 1.57e-4,
+          1.29e-4, 1.09e-4,
+          9.34e-5, 8.12e-5, 6.34e-5, 5.12e-5, 4.23e-5, 3.563e-5, 3.048e-5,
+          2.134e-5, 1.607e-5, 1.255e-5,
+          1.009e-5, 6.944e-6, 5.077e-6, 3.875e-6, 3.056e-6, 2.473e-6, 2.043e-6,
+          1.461e-6, 1.097e-6, 8.531e-7,
+          6.826e-7, 5.583e-7, 3.635e-7, 2.550e-7, 1.885e-7, 1.447e-7, 9.266e-8,
+          6.407e-8, 4.674e-8, 3.548e-8,
+          2.775e-8, 2.224e-8, 1.512e-8, 1.089e-8, 8.19e-9, 6.36e-9, 5.08e-9,
+          3.16e-8, 2.14e-9, 1.54e-9,
+          1.163e-9, 7.25e-10, 4.93e-10, 3.56e-10, 2.69e-10, 2.10e-10, 1.68e-10,
+          1.15e-10, 8.3e-11, 6.3e-11,
+          4.9e-11, 3.9e-11,
+          ]
 # IONISATION (VALUES ABOVE 20KEV GENERATED BY BORN BETHE IN SUB)
 
-XIONG7 = [np.float32(12.129843),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),np.float32(14.5),np.float32(15.0),np.float32(15.5),np.float32(16.0),np.float32(16.5),
-np.float32(17.0),np.float32(18.0),np.float32(19.0),np.float32(20.0),np.float32(21.0),np.float32(22.0),np.float32(23.0),np.float32(24.0),np.float32(26.0),np.float32(28.0),
-np.float32(30.0),np.float32(32.0),np.float32(34.0),np.float32(36.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(55.0),np.float32(60.0),np.float32(65.0),
-np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),
-np.float32(180.),np.float32(200.),np.float32(250.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1200.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2500.),
-np.float32(3000.),np.float32(3500.),np.float32(4000.),np.float32(4500.),np.float32(5000.),np.float32(5500.),np.float32(6000.),np.float32(7000.),np.float32(8000.),np.float32(9000.),
-np.float32(10000.),np.float32(12000.),np.float32(14000.),np.float32(16000.),np.float32(18000.),np.float32(20000.),
-]
+XIONG7 = [np.float32(12.129843), np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0),
+          np.float32(14.5), np.float32(15.0), np.float32(15.5), np.float32(16.0), np.float32(16.5),
+          np.float32(17.0), np.float32(18.0), np.float32(19.0), np.float32(20.0), np.float32(21.0), np.float32(22.0),
+          np.float32(23.0), np.float32(24.0), np.float32(26.0), np.float32(28.0),
+          np.float32(30.0), np.float32(32.0), np.float32(34.0), np.float32(36.0), np.float32(40.0), np.float32(45.0),
+          np.float32(50.0), np.float32(55.0), np.float32(60.0), np.float32(65.0),
+          np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(110.), np.float32(120.),
+          np.float32(130.), np.float32(140.), np.float32(150.), np.float32(160.),
+          np.float32(180.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.),
+          np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+          np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1200.), np.float32(1400.),
+          np.float32(1600.), np.float32(1800.), np.float32(2000.), np.float32(2500.),
+          np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(4500.), np.float32(5000.),
+          np.float32(5500.), np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.),
+          np.float32(10000.), np.float32(12000.), np.float32(14000.), np.float32(16000.), np.float32(18000.),
+          np.float32(20000.),
+          ]
 # GROSS IONISATION
 
-YIONG7 = [np.float32(0.00),np.float32(.137),np.float32(.344),np.float32(.549),np.float32(.748),np.float32(.939),np.float32(1.12),np.float32(1.29),np.float32(1.46),np.float32(1.62),
-np.float32(1.77),np.float32(2.04),np.float32(2.30),np.float32(2.52),np.float32(2.73),np.float32(2.93),np.float32(3.10),np.float32(3.27),np.float32(3.56),np.float32(3.82),
-np.float32(4.06),np.float32(4.27),np.float32(4.42),np.float32(4.53),np.float32(4.73),np.float32(4.94),np.float32(5.11),np.float32(5.21),np.float32(5.31),np.float32(5.36),
-np.float32(5.40),np.float32(5.46),np.float32(5.56),np.float32(5.68),np.float32(5.75),np.float32(5.75),np.float32(5.70),np.float32(5.58),np.float32(5.48),np.float32(5.35),
-np.float32(5.11),np.float32(4.83),np.float32(4.36),np.float32(4.02),np.float32(3.72),np.float32(3.46),np.float32(3.24),np.float32(3.06),np.float32(2.87),np.float32(2.72),
-np.float32(2.49),np.float32(2.26),np.float32(2.10),np.float32(1.94),np.float32(1.68),np.float32(1.48),np.float32(1.35),np.float32(1.23),np.float32(1.13),np.float32(.964),
-np.float32(.836),np.float32(.736),np.float32(.663),np.float32(.602),np.float32(.555),np.float32(.515),np.float32(.480),np.float32(.424),np.float32(.382),np.float32(.346),
-np.float32(.319),np.float32(.273),np.float32(.242),np.float32(.218),np.float32(.200),np.float32(.186),
-]
+YIONG7 = [np.float32(0.00), np.float32(.137), np.float32(.344), np.float32(.549), np.float32(.748), np.float32(.939),
+          np.float32(1.12), np.float32(1.29), np.float32(1.46), np.float32(1.62),
+          np.float32(1.77), np.float32(2.04), np.float32(2.30), np.float32(2.52), np.float32(2.73), np.float32(2.93),
+          np.float32(3.10), np.float32(3.27), np.float32(3.56), np.float32(3.82),
+          np.float32(4.06), np.float32(4.27), np.float32(4.42), np.float32(4.53), np.float32(4.73), np.float32(4.94),
+          np.float32(5.11), np.float32(5.21), np.float32(5.31), np.float32(5.36),
+          np.float32(5.40), np.float32(5.46), np.float32(5.56), np.float32(5.68), np.float32(5.75), np.float32(5.75),
+          np.float32(5.70), np.float32(5.58), np.float32(5.48), np.float32(5.35),
+          np.float32(5.11), np.float32(4.83), np.float32(4.36), np.float32(4.02), np.float32(3.72), np.float32(3.46),
+          np.float32(3.24), np.float32(3.06), np.float32(2.87), np.float32(2.72),
+          np.float32(2.49), np.float32(2.26), np.float32(2.10), np.float32(1.94), np.float32(1.68), np.float32(1.48),
+          np.float32(1.35), np.float32(1.23), np.float32(1.13), np.float32(.964),
+          np.float32(.836), np.float32(.736), np.float32(.663), np.float32(.602), np.float32(.555), np.float32(.515),
+          np.float32(.480), np.float32(.424), np.float32(.382), np.float32(.346),
+          np.float32(.319), np.float32(.273), np.float32(.242), np.float32(.218), np.float32(.200), np.float32(.186),
+          ]
 # COUNTING IONISATION
 
-YINCG7 = [np.float32(0.00),np.float32(.137),np.float32(.344),np.float32(.549),np.float32(.748),np.float32(.939),np.float32(1.12),np.float32(1.29),np.float32(1.46),np.float32(1.62),
-np.float32(1.77),np.float32(2.04),np.float32(2.30),np.float32(2.52),np.float32(2.73),np.float32(2.93),np.float32(3.10),np.float32(3.27),np.float32(3.56),np.float32(3.82),
-np.float32(4.06),np.float32(4.27),np.float32(4.42),np.float32(4.53),np.float32(4.66),np.float32(4.77),np.float32(4.84),np.float32(4.89),np.float32(4.95),np.float32(4.99),
-np.float32(5.02),np.float32(5.04),np.float32(5.03),np.float32(5.02),np.float32(4.98),np.float32(4.90),np.float32(4.80),np.float32(4.69),np.float32(4.60),np.float32(4.49),
-np.float32(4.27),np.float32(4.01),np.float32(3.58),np.float32(3.27),np.float32(3.00),np.float32(2.76),np.float32(2.57),np.float32(2.41),np.float32(2.25),np.float32(2.12),
-np.float32(1.93),np.float32(1.75),np.float32(1.62),np.float32(1.49),np.float32(1.28),np.float32(1.12),np.float32(1.03),np.float32(.923),np.float32(.855),np.float32(.731),
-np.float32(.632),np.float32(.557),np.float32(.501),np.float32(.455),np.float32(.420),np.float32(.389),np.float32(.364),np.float32(.320),np.float32(.289),np.float32(.262),
-np.float32(.241),np.float32(.206),np.float32(.183),np.float32(.165),np.float32(.152),np.float32(.141),
-]
+YINCG7 = [np.float32(0.00), np.float32(.137), np.float32(.344), np.float32(.549), np.float32(.748), np.float32(.939),
+          np.float32(1.12), np.float32(1.29), np.float32(1.46), np.float32(1.62),
+          np.float32(1.77), np.float32(2.04), np.float32(2.30), np.float32(2.52), np.float32(2.73), np.float32(2.93),
+          np.float32(3.10), np.float32(3.27), np.float32(3.56), np.float32(3.82),
+          np.float32(4.06), np.float32(4.27), np.float32(4.42), np.float32(4.53), np.float32(4.66), np.float32(4.77),
+          np.float32(4.84), np.float32(4.89), np.float32(4.95), np.float32(4.99),
+          np.float32(5.02), np.float32(5.04), np.float32(5.03), np.float32(5.02), np.float32(4.98), np.float32(4.90),
+          np.float32(4.80), np.float32(4.69), np.float32(4.60), np.float32(4.49),
+          np.float32(4.27), np.float32(4.01), np.float32(3.58), np.float32(3.27), np.float32(3.00), np.float32(2.76),
+          np.float32(2.57), np.float32(2.41), np.float32(2.25), np.float32(2.12),
+          np.float32(1.93), np.float32(1.75), np.float32(1.62), np.float32(1.49), np.float32(1.28), np.float32(1.12),
+          np.float32(1.03), np.float32(.923), np.float32(.855), np.float32(.731),
+          np.float32(.632), np.float32(.557), np.float32(.501), np.float32(.455), np.float32(.420), np.float32(.389),
+          np.float32(.364), np.float32(.320), np.float32(.289), np.float32(.262),
+          np.float32(.241), np.float32(.206), np.float32(.183), np.float32(.165), np.float32(.152), np.float32(.141),
+          ]
 # IONISATION CHARGE STATE =1
 
-YIN1G7 = [np.float32(0.00),np.float32(.137),np.float32(.344),np.float32(.549),np.float32(.748),np.float32(.939),np.float32(1.12),np.float32(1.29),np.float32(1.46),np.float32(1.62),
-np.float32(1.77),np.float32(2.04),np.float32(2.30),np.float32(2.52),np.float32(2.73),np.float32(2.93),np.float32(3.10),np.float32(3.27),np.float32(3.56),np.float32(3.82),
-np.float32(4.06),np.float32(4.27),np.float32(4.42),np.float32(4.51),np.float32(4.59),np.float32(4.60),np.float32(4.58),np.float32(4.60),np.float32(4.62),np.float32(4.64),
-np.float32(4.67),np.float32(4.64),np.float32(4.53),np.float32(4.44),np.float32(4.33),np.float32(4.21),np.float32(4.08),np.float32(4.01),np.float32(3.93),np.float32(3.85),
-np.float32(3.65),np.float32(3.44),np.float32(3.06),np.float32(2.77),np.float32(2.48),np.float32(2.31),np.float32(2.15),np.float32(2.00),np.float32(1.87),np.float32(1.75),
-np.float32(1.58),np.float32(1.42),np.float32(1.32),np.float32(1.21),np.float32(1.03),np.float32(.903),np.float32(.830),np.float32(.744),np.float32(.689),np.float32(.589),
-np.float32(.509),np.float32(.449),np.float32(.404),np.float32(.367),np.float32(.339),np.float32(.314),np.float32(.293),np.float32(.258),np.float32(.233),np.float32(.211),
-np.float32(.194),np.float32(.166),np.float32(.148),np.float32(.133),np.float32(.123),np.float32(.114),
-]
+YIN1G7 = [np.float32(0.00), np.float32(.137), np.float32(.344), np.float32(.549), np.float32(.748), np.float32(.939),
+          np.float32(1.12), np.float32(1.29), np.float32(1.46), np.float32(1.62),
+          np.float32(1.77), np.float32(2.04), np.float32(2.30), np.float32(2.52), np.float32(2.73), np.float32(2.93),
+          np.float32(3.10), np.float32(3.27), np.float32(3.56), np.float32(3.82),
+          np.float32(4.06), np.float32(4.27), np.float32(4.42), np.float32(4.51), np.float32(4.59), np.float32(4.60),
+          np.float32(4.58), np.float32(4.60), np.float32(4.62), np.float32(4.64),
+          np.float32(4.67), np.float32(4.64), np.float32(4.53), np.float32(4.44), np.float32(4.33), np.float32(4.21),
+          np.float32(4.08), np.float32(4.01), np.float32(3.93), np.float32(3.85),
+          np.float32(3.65), np.float32(3.44), np.float32(3.06), np.float32(2.77), np.float32(2.48), np.float32(2.31),
+          np.float32(2.15), np.float32(2.00), np.float32(1.87), np.float32(1.75),
+          np.float32(1.58), np.float32(1.42), np.float32(1.32), np.float32(1.21), np.float32(1.03), np.float32(.903),
+          np.float32(.830), np.float32(.744), np.float32(.689), np.float32(.589),
+          np.float32(.509), np.float32(.449), np.float32(.404), np.float32(.367), np.float32(.339), np.float32(.314),
+          np.float32(.293), np.float32(.258), np.float32(.233), np.float32(.211),
+          np.float32(.194), np.float32(.166), np.float32(.148), np.float32(.133), np.float32(.123), np.float32(.114),
+          ]
 # IONISATION CHARGE STATE =2
 
-XIN2G7 = [np.float32(33.105),np.float32(36.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(55.0),np.float32(60.0),np.float32(65.0),np.float32(70.0),np.float32(80.0),
-np.float32(90.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(180.),np.float32(200.),
-np.float32(250.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(700.),np.float32(800.),
-np.float32(900.),np.float32(1000.),np.float32(1200.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2500.),np.float32(3000.),np.float32(3500.),
-np.float32(4000.),np.float32(4500.),np.float32(5000.),np.float32(5500.),np.float32(6000.),np.float32(7000.),np.float32(8000.),np.float32(9000.),np.float32(10000.),np.float32(12000.),
-np.float32(14000.),np.float32(16000.),np.float32(18000.),np.float32(20000.),
-]
-YIN2G7 = [np.float32(0.0),np.float32(0.02),np.float32(.0688),np.float32(.174),np.float32(.257),np.float32(.318),np.float32(.363),np.float32(.376),np.float32(.386),np.float32(.398),
-np.float32(.461),np.float32(.503),np.float32(.534),np.float32(.533),np.float32(.521),np.float32(.495),np.float32(.470),np.float32(.447),np.float32(.405),np.float32(.373),
-np.float32(.325),np.float32(.305),np.float32(.294),np.float32(.267),np.float32(.253),np.float32(.240),np.float32(.230),np.float32(.220),np.float32(.204),np.float32(.190),
-np.float32(.175),np.float32(.170),np.float32(.145),np.float32(.127),np.float32(.117),np.float32(.105),np.float32(.0969),np.float32(.0828),np.float32(.0716),np.float32(.0631),
-np.float32(.0568),np.float32(.0516),np.float32(.0476),np.float32(.0441),np.float32(.0412),np.float32(.0363),np.float32(.0327),np.float32(.0297),np.float32(.0220),np.float32(.0188),
-np.float32(.0176),np.float32(.0151),np.float32(.0139),np.float32(.0129),
-]
+XIN2G7 = [np.float32(33.105), np.float32(36.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(55.0),
+          np.float32(60.0), np.float32(65.0), np.float32(70.0), np.float32(80.0),
+          np.float32(90.0), np.float32(100.), np.float32(110.), np.float32(120.), np.float32(130.), np.float32(140.),
+          np.float32(150.), np.float32(160.), np.float32(180.), np.float32(200.),
+          np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+          np.float32(550.), np.float32(600.), np.float32(700.), np.float32(800.),
+          np.float32(900.), np.float32(1000.), np.float32(1200.), np.float32(1400.), np.float32(1600.),
+          np.float32(1800.), np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.),
+          np.float32(4000.), np.float32(4500.), np.float32(5000.), np.float32(5500.), np.float32(6000.),
+          np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.), np.float32(12000.),
+          np.float32(14000.), np.float32(16000.), np.float32(18000.), np.float32(20000.),
+          ]
+YIN2G7 = [np.float32(0.0), np.float32(0.02), np.float32(.0688), np.float32(.174), np.float32(.257), np.float32(.318),
+          np.float32(.363), np.float32(.376), np.float32(.386), np.float32(.398),
+          np.float32(.461), np.float32(.503), np.float32(.534), np.float32(.533), np.float32(.521), np.float32(.495),
+          np.float32(.470), np.float32(.447), np.float32(.405), np.float32(.373),
+          np.float32(.325), np.float32(.305), np.float32(.294), np.float32(.267), np.float32(.253), np.float32(.240),
+          np.float32(.230), np.float32(.220), np.float32(.204), np.float32(.190),
+          np.float32(.175), np.float32(.170), np.float32(.145), np.float32(.127), np.float32(.117), np.float32(.105),
+          np.float32(.0969), np.float32(.0828), np.float32(.0716), np.float32(.0631),
+          np.float32(.0568), np.float32(.0516), np.float32(.0476), np.float32(.0441), np.float32(.0412),
+          np.float32(.0363), np.float32(.0327), np.float32(.0297), np.float32(.0220), np.float32(.0188),
+          np.float32(.0176), np.float32(.0151), np.float32(.0139), np.float32(.0129),
+          ]
 # IONISATION CHARGE STATE =3
 
-XIN3G7 = [np.float32(64.15),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(110.),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),
-np.float32(160.),np.float32(180.),np.float32(200.),np.float32(250.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),
-np.float32(600.),np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1200.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),
-np.float32(2500.),np.float32(3000.),np.float32(3500.),np.float32(4000.),np.float32(4500.),np.float32(5000.),np.float32(5500.),np.float32(6000.),np.float32(7000.),np.float32(8000.),
-np.float32(9000.),np.float32(10000.),np.float32(12000.),np.float32(14000.),np.float32(16000.),np.float32(18000.),np.float32(20000.),
-]
-YIN3G7 = [np.float32(0.0),np.float32(.001),np.float32(.010),np.float32(.0324),np.float32(.0764),np.float32(.122),np.float32(.159),np.float32(.184),np.float32(.190),np.float32(.189),
-np.float32(.180),np.float32(.169),np.float32(.158),np.float32(.142),np.float32(.140),np.float32(.137),np.float32(.129),np.float32(.123),np.float32(.118),np.float32(.112),
-np.float32(.107),np.float32(.102),np.float32(.0921),np.float32(.0844),np.float32(.0825),np.float32(.0703),np.float32(.0616),np.float32(.0566),np.float32(.0507),np.float32(.0470),
-np.float32(.0402),np.float32(.0347),np.float32(.0306),np.float32(.0275),np.float32(.0250),np.float32(.0231),np.float32(.0214),np.float32(.0200),np.float32(.0176),np.float32(.0159),
-np.float32(.0144),np.float32(.0132),np.float32(.0113),np.float32(.0101),np.float32(.00907),np.float32(.00835),np.float32(.00775),
-]
+XIN3G7 = [np.float32(64.15), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(110.),
+          np.float32(120.), np.float32(130.), np.float32(140.), np.float32(150.),
+          np.float32(160.), np.float32(180.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.),
+          np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.),
+          np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1200.),
+          np.float32(1400.), np.float32(1600.), np.float32(1800.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(4500.),
+          np.float32(5000.), np.float32(5500.), np.float32(6000.), np.float32(7000.), np.float32(8000.),
+          np.float32(9000.), np.float32(10000.), np.float32(12000.), np.float32(14000.), np.float32(16000.),
+          np.float32(18000.), np.float32(20000.),
+          ]
+YIN3G7 = [np.float32(0.0), np.float32(.001), np.float32(.010), np.float32(.0324), np.float32(.0764), np.float32(.122),
+          np.float32(.159), np.float32(.184), np.float32(.190), np.float32(.189),
+          np.float32(.180), np.float32(.169), np.float32(.158), np.float32(.142), np.float32(.140), np.float32(.137),
+          np.float32(.129), np.float32(.123), np.float32(.118), np.float32(.112),
+          np.float32(.107), np.float32(.102), np.float32(.0921), np.float32(.0844), np.float32(.0825),
+          np.float32(.0703), np.float32(.0616), np.float32(.0566), np.float32(.0507), np.float32(.0470),
+          np.float32(.0402), np.float32(.0347), np.float32(.0306), np.float32(.0275), np.float32(.0250),
+          np.float32(.0231), np.float32(.0214), np.float32(.0200), np.float32(.0176), np.float32(.0159),
+          np.float32(.0144), np.float32(.0132), np.float32(.0113), np.float32(.0101), np.float32(.00907),
+          np.float32(.00835), np.float32(.00775),
+          ]
 # IONISATION CHARGE STATE =4
 
-XIN4G7 = [np.float32(106.35),np.float32(120.),np.float32(130.),np.float32(140.),np.float32(150.),np.float32(160.),np.float32(180.),np.float32(200.),np.float32(250.),np.float32(300.),
-np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),
-np.float32(1200.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2500.),np.float32(3000.),np.float32(3500.),np.float32(4000.),np.float32(4500.),
-np.float32(5000.),np.float32(5500.),np.float32(6000.),np.float32(7000.),np.float32(8000.),np.float32(9000.),np.float32(10000.),np.float32(12000.),np.float32(14000.),np.float32(16000.),
-np.float32(18000.),np.float32(20000.),
-]
-YIN4G7 = [np.float32(0.0),np.float32(.0002),np.float32(.00098),np.float32(.0033),np.float32(.0103),np.float32(.0157),np.float32(.0279),np.float32(.0426),np.float32(.0483),
-np.float32(.0421),
-np.float32(.0425),np.float32(.0409),np.float32(.0402),np.float32(.0395),np.float32(.0382),np.float32(.0369),np.float32(.0348),np.float32(.0339),np.float32(.0319),np.float32(.0294),
-np.float32(.0251),np.float32(.0219),np.float32(.0202),np.float32(.0181),np.float32(.0167),np.float32(.0143),np.float32(.0124),np.float32(.0109),np.float32(.00981),np.float32(.00891),
-np.float32(.00823),np.float32(.00762),np.float32(.00713),np.float32(.00627),np.float32(.00566),np.float32(.00513),np.float32(.00472),np.float32(.00404),np.float32(.00358),
-np.float32(.00323),np.float32(.00298),np.float32(.00276),
-]
+XIN4G7 = [np.float32(106.35), np.float32(120.), np.float32(130.), np.float32(140.), np.float32(150.), np.float32(160.),
+          np.float32(180.), np.float32(200.), np.float32(250.), np.float32(300.),
+          np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+          np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+          np.float32(1200.), np.float32(1400.), np.float32(1600.), np.float32(1800.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(4500.),
+          np.float32(5000.), np.float32(5500.), np.float32(6000.), np.float32(7000.), np.float32(8000.),
+          np.float32(9000.), np.float32(10000.), np.float32(12000.), np.float32(14000.), np.float32(16000.),
+          np.float32(18000.), np.float32(20000.),
+          ]
+YIN4G7 = [np.float32(0.0), np.float32(.0002), np.float32(.00098), np.float32(.0033), np.float32(.0103),
+          np.float32(.0157), np.float32(.0279), np.float32(.0426), np.float32(.0483),
+          np.float32(.0421),
+          np.float32(.0425), np.float32(.0409), np.float32(.0402), np.float32(.0395), np.float32(.0382),
+          np.float32(.0369), np.float32(.0348), np.float32(.0339), np.float32(.0319), np.float32(.0294),
+          np.float32(.0251), np.float32(.0219), np.float32(.0202), np.float32(.0181), np.float32(.0167),
+          np.float32(.0143), np.float32(.0124), np.float32(.0109), np.float32(.00981), np.float32(.00891),
+          np.float32(.00823), np.float32(.00762), np.float32(.00713), np.float32(.00627), np.float32(.00566),
+          np.float32(.00513), np.float32(.00472), np.float32(.00404), np.float32(.00358),
+          np.float32(.00323), np.float32(.00298), np.float32(.00276),
+          ]
 # IONISATION CHARGE STATE =5
 
-XIN5G7 = [np.float32(160.45),np.float32(180.),np.float32(200.),np.float32(250.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),
-np.float32(600.),np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1200.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),
-np.float32(2500.),np.float32(3000.),np.float32(3500.),np.float32(4000.),np.float32(4500.),np.float32(5000.),np.float32(5500.),np.float32(6000.),np.float32(7000.),np.float32(8000.),
-np.float32(9000.),np.float32(10000.),np.float32(12000.),np.float32(14000.),np.float32(16000.),np.float32(18000.),np.float32(20000.),
-]
-YIN5G7 = [np.float32(0.0),np.float32(.00013),np.float32(.0018),np.float32(.0062),np.float32(.0101),np.float32(.0113),np.float32(.0106),np.float32(.0108),np.float32(.0109),
-np.float32(.0104),
-np.float32(.0098),np.float32(.0089),np.float32(.0078),np.float32(.0073),np.float32(.0069),np.float32(.059),np.float32(.051),np.float32(.0047),np.float32(.0042),np.float32(.0039),
-np.float32(.0034),np.float32(.0029),np.float32(.0026),np.float32(.0023),np.float32(.0021),np.float32(.00193),np.float32(.00179),np.float32(.00167),np.float32(.00147),np.float32(.00133),
-np.float32(.00120),np.float32(.00111),np.float32(.00095),np.float32(.00084),np.float32(.00076),np.float32(.00070),np.float32(.00065),
-]
+XIN5G7 = [np.float32(160.45), np.float32(180.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.),
+          np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.),
+          np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1200.),
+          np.float32(1400.), np.float32(1600.), np.float32(1800.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(4500.),
+          np.float32(5000.), np.float32(5500.), np.float32(6000.), np.float32(7000.), np.float32(8000.),
+          np.float32(9000.), np.float32(10000.), np.float32(12000.), np.float32(14000.), np.float32(16000.),
+          np.float32(18000.), np.float32(20000.),
+          ]
+YIN5G7 = [np.float32(0.0), np.float32(.00013), np.float32(.0018), np.float32(.0062), np.float32(.0101),
+          np.float32(.0113), np.float32(.0106), np.float32(.0108), np.float32(.0109),
+          np.float32(.0104),
+          np.float32(.0098), np.float32(.0089), np.float32(.0078), np.float32(.0073), np.float32(.0069),
+          np.float32(.059), np.float32(.051), np.float32(.0047), np.float32(.0042), np.float32(.0039),
+          np.float32(.0034), np.float32(.0029), np.float32(.0026), np.float32(.0023), np.float32(.0021),
+          np.float32(.00193), np.float32(.00179), np.float32(.00167), np.float32(.00147), np.float32(.00133),
+          np.float32(.00120), np.float32(.00111), np.float32(.00095), np.float32(.00084), np.float32(.00076),
+          np.float32(.00070), np.float32(.00065),
+          ]
 # IONISATION CHARGE STATE =6
 
-XIN6G7 = [np.float32(227.2),np.float32(250.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(700.),
-np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1200.),np.float32(1400.),np.float32(1600.),np.float32(1800.),np.float32(2000.),np.float32(2500.),np.float32(3000.),
-np.float32(3500.),np.float32(4000.),np.float32(4500.),np.float32(5000.),np.float32(5500.),np.float32(6000.),np.float32(7000.),np.float32(8000.),np.float32(9000.),np.float32(10000.),
-np.float32(12000.),np.float32(14000.),np.float32(16000.),np.float32(18000.),np.float32(20000.),
-]
-YIN6G7 = [np.float32(0.0),np.float32(.00005),np.float32(.00036),np.float32(.00082),np.float32(.00128),np.float32(.00140),np.float32(.00153),np.float32(.00162),
-np.float32(.00171),np.float32(.00188),
-np.float32(.00182),np.float32(.00191),np.float32(.00188),np.float32(.00160),np.float32(.00140),np.float32(.00129),np.float32(.00116),np.float32(.00107),np.float32(.00092),
-np.float32(.00079),
-np.float32(.00070),np.float32(.00063),np.float32(.00057),np.float32(.00053),np.float32(.00049),np.float32(.00046),np.float32(.00040),np.float32(.00036),np.float32(.00033),
-np.float32(.00030),np.float32(.00026),np.float32(.00023),np.float32(.00021),np.float32(.00019),np.float32(.00018),
-]
+XIN6G7 = [np.float32(227.2), np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+          np.float32(500.), np.float32(550.), np.float32(600.), np.float32(700.),
+          np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1200.), np.float32(1400.),
+          np.float32(1600.), np.float32(1800.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+          np.float32(3500.), np.float32(4000.), np.float32(4500.), np.float32(5000.), np.float32(5500.),
+          np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
+          np.float32(12000.), np.float32(14000.), np.float32(16000.), np.float32(18000.), np.float32(20000.),
+          ]
+YIN6G7 = [np.float32(0.0), np.float32(.00005), np.float32(.00036), np.float32(.00082), np.float32(.00128),
+          np.float32(.00140), np.float32(.00153), np.float32(.00162),
+          np.float32(.00171), np.float32(.00188),
+          np.float32(.00182), np.float32(.00191), np.float32(.00188), np.float32(.00160), np.float32(.00140),
+          np.float32(.00129), np.float32(.00116), np.float32(.00107), np.float32(.00092),
+          np.float32(.00079),
+          np.float32(.00070), np.float32(.00063), np.float32(.00057), np.float32(.00053), np.float32(.00049),
+          np.float32(.00046), np.float32(.00040), np.float32(.00036), np.float32(.00033),
+          np.float32(.00030), np.float32(.00026), np.float32(.00023), np.float32(.00021), np.float32(.00019),
+          np.float32(.00018),
+          ]
 # K-SHELL IONISATION
 
-XKSHG7 = [np.float32(34561.),np.float32(35490.),np.float32(36526.),np.float32(37592.),np.float32(38690.),np.float32(39819.),np.float32(40982.),np.float32(42178.),
-np.float32(43410.),np.float32(45981.),
-np.float32(48706.),np.float32(51591.),np.float32(54648.),np.float32(57885.),np.float32(64947.),np.float32(72871.),np.float32(81761.),1.00e5,1.22e5,
-1.50e5,
-1.83e5,2.24e5,2.82e5,3.65e5,4.87e5,6.49e5,8.66e5,1.00e6,1.22e6,
-1.50e6,
-1.83e6,2.24e6,2.82e6,3.65e6,4.87e6,6.49e6,8.66e6,1.00e7,1.22e7,
-1.50e7,
-2.05e7,2.51e7,3.07e7,4.10e7,5.16e7,6.31e7,7.50e7,8.66e7,1.00e8,
-1.22e8,
-1.50e8,2.05e8,2.51e8,3.07e8,4.10e8,5.16e8,6.31e8,7.50e8,8.66e8,
-1.00e9,
-]
-YKSHG7 = [np.float32(0.0),1.74e-8,3.56e-8,5.30e-8,6.98e-8,8.58e-8,1.01e-7,
-1.16e-7,1.29e-7,1.55e-7,
-1.78e-7,1.99e-7,2.17e-7,2.34e-7,2.62e-7,2.84e-7,3.00e-7,3.20e-7,
-3.31e-7,3.35e-7,
-3.34e-7,3.31e-7,3.26e-7,3.21e-7,3.20e-7,3.23e-7,3.29e-7,3.34e-7,
-3.43e-7,3.55e-7,
-3.68e-7,3.83e-7,4.01e-7,4.23e-7,4.50e-7,4.77e-7,5.05e-7,5.20e-7,
-5.40e-7,5.61e-7,
-5.93e-7,6.14e-7,6.35e-7,6.65e-7,6.89e-7,7.10e-7,7.28e-7,7.43e-7,
-7.58e-7,7.79e-7,
-7.99e-7,8.32e-7,8.53e-7,8.74e-7,9.03e-7,9.27e-7,9.47e-7,9.65e-7,
-9.79e-7,9.94e-7,
-]
+XKSHG7 = [np.float32(34561.), np.float32(35490.), np.float32(36526.), np.float32(37592.), np.float32(38690.),
+          np.float32(39819.), np.float32(40982.), np.float32(42178.),
+          np.float32(43410.), np.float32(45981.),
+          np.float32(48706.), np.float32(51591.), np.float32(54648.), np.float32(57885.), np.float32(64947.),
+          np.float32(72871.), np.float32(81761.), 1.00e5, 1.22e5,
+          1.50e5,
+          1.83e5, 2.24e5, 2.82e5, 3.65e5, 4.87e5, 6.49e5, 8.66e5, 1.00e6, 1.22e6,
+          1.50e6,
+          1.83e6, 2.24e6, 2.82e6, 3.65e6, 4.87e6, 6.49e6, 8.66e6, 1.00e7, 1.22e7,
+          1.50e7,
+          2.05e7, 2.51e7, 3.07e7, 4.10e7, 5.16e7, 6.31e7, 7.50e7, 8.66e7, 1.00e8,
+          1.22e8,
+          1.50e8, 2.05e8, 2.51e8, 3.07e8, 4.10e8, 5.16e8, 6.31e8, 7.50e8, 8.66e8,
+          1.00e9,
+          ]
+YKSHG7 = [np.float32(0.0), 1.74e-8, 3.56e-8, 5.30e-8, 6.98e-8, 8.58e-8, 1.01e-7,
+          1.16e-7, 1.29e-7, 1.55e-7,
+          1.78e-7, 1.99e-7, 2.17e-7, 2.34e-7, 2.62e-7, 2.84e-7, 3.00e-7, 3.20e-7,
+          3.31e-7, 3.35e-7,
+          3.34e-7, 3.31e-7, 3.26e-7, 3.21e-7, 3.20e-7, 3.23e-7, 3.29e-7, 3.34e-7,
+          3.43e-7, 3.55e-7,
+          3.68e-7, 3.83e-7, 4.01e-7, 4.23e-7, 4.50e-7, 4.77e-7, 5.05e-7, 5.20e-7,
+          5.40e-7, 5.61e-7,
+          5.93e-7, 6.14e-7, 6.35e-7, 6.65e-7, 6.89e-7, 7.10e-7, 7.28e-7, 7.43e-7,
+          7.58e-7, 7.79e-7,
+          7.99e-7, 8.32e-7, 8.53e-7, 8.74e-7, 9.03e-7, 9.27e-7, 9.47e-7, 9.65e-7,
+          9.79e-7, 9.94e-7,
+          ]
 # L1-SHELL IONISATION
 
-XL1SG7 = [np.float32(5453.),np.float32(5499.2),np.float32(5658.7),np.float32(5823.),np.float32(5992.),np.float32(6166.),np.float32(6345.),np.float32(6529.),
-np.float32(6719.),np.float32(6914.),
-np.float32(7321.),np.float32(7753.),np.float32(8210.),np.float32(8695.),np.float32(9208.),1.00e4,1.09e4,1.19e4,1.30e4,1.41e4,
-1.58e4,1.78e4,2.00e4,2.24e4,2.51e4,2.90e4,3.35e4,3.87e4,4.47e4,
-5.16e4,
-6.13e4,7.29e4,8.66e4,1.00e5,1.22e5,1.54e5,2.00e5,2.59e5,3.35e5,
-4.47e5,
-5.96e5,8.66e5,1.00e6,1.22e6,1.50e6,1.83e6,2.30e6,2.90e6,3.65e6,
-4.60e6,
-5.79e6,7.50e6,8.66e6,1.00e7,1.22e7,1.50e7,1.83e7,2.30e7,2.90e7,
-3.65e7,
-4.60e7,5.79e7,7.29e7,8.66e7,1.00e8,1.22e8,1.50e8,1.83e8,2.30e8,
-2.90e8,
-3.65e8,4.60e8,5.79e8,7.29e8,8.66e8,1.00e9,
-]
-YL1SG7 = [np.float32(0.0),2.21e-7,9.39e-7,1.62e-6,2.26e-6,2.86e-6,3.43e-6,
-3.96e-6,4.47e-6,4.95e-6,
-5.82e-6,6.59e-6,7.26e-6,7.86e-6,8.37e-6,9.02e-6,9.52e-6,9.89e-6,
-1.02e-5,1.03e-5,
-1.04e-5,1.04e-5,1.02e-5,9.98e-6,9.68e-6,9.23e-6,8.73e-6,8.20e-6,
-7.66e-6,7.14e-6,
-6.53e-6,5.97e-6,5.46e-6,5.06e-6,4.57e-6,4.08e-6,3.64e-6,3.30e-6,
-3.04e-6,2.84e-6,
-2.71e-6,2.64e-6,2.64e-6,2.66e-6,2.69e-6,2.74e-6,2.82e-6,2.90e-6,
-3.00e-6,3.11e-6,
-3.23e-6,3.36e-6,3.44e-6,3.52e-6,3.63e-6,3.74e-6,3.85e-6,3.98e-6,
-4.12e-6,4.25e-6,
-4.38e-6,4.51e-6,4.65e-6,4.75e-6,4.83e-6,4.95e-6,5.06e-6,5.18e-6,
-5.32e-6,5.45e-6,
-5.58e-6,5.72e-6,5.85e-6,5.99e-6,6.09e-6,6.17e-6,
-]
+XL1SG7 = [np.float32(5453.), np.float32(5499.2), np.float32(5658.7), np.float32(5823.), np.float32(5992.),
+          np.float32(6166.), np.float32(6345.), np.float32(6529.),
+          np.float32(6719.), np.float32(6914.),
+          np.float32(7321.), np.float32(7753.), np.float32(8210.), np.float32(8695.), np.float32(9208.), 1.00e4, 1.09e4,
+          1.19e4, 1.30e4, 1.41e4,
+          1.58e4, 1.78e4, 2.00e4, 2.24e4, 2.51e4, 2.90e4, 3.35e4, 3.87e4, 4.47e4,
+          5.16e4,
+          6.13e4, 7.29e4, 8.66e4, 1.00e5, 1.22e5, 1.54e5, 2.00e5, 2.59e5, 3.35e5,
+          4.47e5,
+          5.96e5, 8.66e5, 1.00e6, 1.22e6, 1.50e6, 1.83e6, 2.30e6, 2.90e6, 3.65e6,
+          4.60e6,
+          5.79e6, 7.50e6, 8.66e6, 1.00e7, 1.22e7, 1.50e7, 1.83e7, 2.30e7, 2.90e7,
+          3.65e7,
+          4.60e7, 5.79e7, 7.29e7, 8.66e7, 1.00e8, 1.22e8, 1.50e8, 1.83e8, 2.30e8,
+          2.90e8,
+          3.65e8, 4.60e8, 5.79e8, 7.29e8, 8.66e8, 1.00e9,
+          ]
+YL1SG7 = [np.float32(0.0), 2.21e-7, 9.39e-7, 1.62e-6, 2.26e-6, 2.86e-6, 3.43e-6,
+          3.96e-6, 4.47e-6, 4.95e-6,
+          5.82e-6, 6.59e-6, 7.26e-6, 7.86e-6, 8.37e-6, 9.02e-6, 9.52e-6, 9.89e-6,
+          1.02e-5, 1.03e-5,
+          1.04e-5, 1.04e-5, 1.02e-5, 9.98e-6, 9.68e-6, 9.23e-6, 8.73e-6, 8.20e-6,
+          7.66e-6, 7.14e-6,
+          6.53e-6, 5.97e-6, 5.46e-6, 5.06e-6, 4.57e-6, 4.08e-6, 3.64e-6, 3.30e-6,
+          3.04e-6, 2.84e-6,
+          2.71e-6, 2.64e-6, 2.64e-6, 2.66e-6, 2.69e-6, 2.74e-6, 2.82e-6, 2.90e-6,
+          3.00e-6, 3.11e-6,
+          3.23e-6, 3.36e-6, 3.44e-6, 3.52e-6, 3.63e-6, 3.74e-6, 3.85e-6, 3.98e-6,
+          4.12e-6, 4.25e-6,
+          4.38e-6, 4.51e-6, 4.65e-6, 4.75e-6, 4.83e-6, 4.95e-6, 5.06e-6, 5.18e-6,
+          5.32e-6, 5.45e-6,
+          5.58e-6, 5.72e-6, 5.85e-6, 5.99e-6, 6.09e-6, 6.17e-6,
+          ]
 # L2-SHELL IONISATION
 
-XL2SG7 = [np.float32(5107.),np.float32(5160.6),np.float32(5311.3),np.float32(5466.),np.float32(5626.),np.float32(5790.),np.float32(5959.),np.float32(6133.),
-np.float32(6312.),np.float32(6686.),
-np.float32(7081.),np.float32(7501.),np.float32(7945.),np.float32(8416.),np.float32(9175.),1.00e4,1.09e4,1.19e4,1.30e4,1.41e4,
-1.58e4,1.78e4,2.00e4,2.24e4,2.51e4,2.90e4,3.35e4,3.87e4,4.47e4,
-5.16e4,
-6.13e4,7.29e4,8.66e4,1.00e5,1.22e5,1.54e5,2.00e5,2.59e5,3.35e5,
-4.47e5,
-5.96e5,8.66e5,1.00e6,1.22e6,1.50e6,1.83e6,2.30e6,2.90e6,3.65e6,
-4.60e6,
-5.79e6,7.50e6,8.66e6,1.00e7,1.22e7,1.50e7,2.05e7,2.59e7,3.16e7,
-4.10e7,
-5.16e7,6.31e7,7.50e7,8.66e7,1.00e8,1.22e8,1.50e8,2.05e8,2.59e8,
-3.16e8,
-4.10e8,5.16e8,6.31e8,7.50e8,8.66e8,1.00e9,
-]
-YL2SG7 = [np.float32(0.0),4.47e-7,1.62e-6,2.72e-6,3.76e-6,4.73e-6,5.64e-6,
-6.49e-6,7.28e-6,8.71e-6,
-9.94e-6,1.10e-5,1.19e-5,1.27e-5,1.36e-5,1.43e-5,1.47e-5,1.50e-5,
-1.52e-5,1.52e-5,
-1.51e-5,1.49e-5,1.45e-5,1.41e-5,1.36e-5,1.29e-5,1.21e-5,1.13e-5,
-1.06e-5,9.81e-6,
-8.97e-6,8.20e-6,7.49e-6,6.96e-6,6.29e-6,5.63e-6,5.03e-6,4.55e-6,
-4.19e-6,3.92e-6,
-3.75e-6,3.66e-6,3.66e-6,3.69e-6,3.74e-6,3.82e-6,3.93e-6,4.06e-6,
-4.20e-6,4.36e-6,
-4.52e-6,4.72e-6,4.83e-6,4.94e-6,5.10e-6,5.26e-6,5.52e-6,5.71e-6,
-5.88e-6,6.09e-6,
-6.28e-6,6.45e-6,6.59e-6,6.71e-6,6.83e-6,7.00e-6,7.17e-6,7.43e-6,
-7.63e-6,7.79e-6,
-8.01e-6,8.20e-6,8.37e-6,8.51e-6,8.63e-6,8.75e-6,
-]
+XL2SG7 = [np.float32(5107.), np.float32(5160.6), np.float32(5311.3), np.float32(5466.), np.float32(5626.),
+          np.float32(5790.), np.float32(5959.), np.float32(6133.),
+          np.float32(6312.), np.float32(6686.),
+          np.float32(7081.), np.float32(7501.), np.float32(7945.), np.float32(8416.), np.float32(9175.), 1.00e4, 1.09e4,
+          1.19e4, 1.30e4, 1.41e4,
+          1.58e4, 1.78e4, 2.00e4, 2.24e4, 2.51e4, 2.90e4, 3.35e4, 3.87e4, 4.47e4,
+          5.16e4,
+          6.13e4, 7.29e4, 8.66e4, 1.00e5, 1.22e5, 1.54e5, 2.00e5, 2.59e5, 3.35e5,
+          4.47e5,
+          5.96e5, 8.66e5, 1.00e6, 1.22e6, 1.50e6, 1.83e6, 2.30e6, 2.90e6, 3.65e6,
+          4.60e6,
+          5.79e6, 7.50e6, 8.66e6, 1.00e7, 1.22e7, 1.50e7, 2.05e7, 2.59e7, 3.16e7,
+          4.10e7,
+          5.16e7, 6.31e7, 7.50e7, 8.66e7, 1.00e8, 1.22e8, 1.50e8, 2.05e8, 2.59e8,
+          3.16e8,
+          4.10e8, 5.16e8, 6.31e8, 7.50e8, 8.66e8, 1.00e9,
+          ]
+YL2SG7 = [np.float32(0.0), 4.47e-7, 1.62e-6, 2.72e-6, 3.76e-6, 4.73e-6, 5.64e-6,
+          6.49e-6, 7.28e-6, 8.71e-6,
+          9.94e-6, 1.10e-5, 1.19e-5, 1.27e-5, 1.36e-5, 1.43e-5, 1.47e-5, 1.50e-5,
+          1.52e-5, 1.52e-5,
+          1.51e-5, 1.49e-5, 1.45e-5, 1.41e-5, 1.36e-5, 1.29e-5, 1.21e-5, 1.13e-5,
+          1.06e-5, 9.81e-6,
+          8.97e-6, 8.20e-6, 7.49e-6, 6.96e-6, 6.29e-6, 5.63e-6, 5.03e-6, 4.55e-6,
+          4.19e-6, 3.92e-6,
+          3.75e-6, 3.66e-6, 3.66e-6, 3.69e-6, 3.74e-6, 3.82e-6, 3.93e-6, 4.06e-6,
+          4.20e-6, 4.36e-6,
+          4.52e-6, 4.72e-6, 4.83e-6, 4.94e-6, 5.10e-6, 5.26e-6, 5.52e-6, 5.71e-6,
+          5.88e-6, 6.09e-6,
+          6.28e-6, 6.45e-6, 6.59e-6, 6.71e-6, 6.83e-6, 7.00e-6, 7.17e-6, 7.43e-6,
+          7.63e-6, 7.79e-6,
+          8.01e-6, 8.20e-6, 8.37e-6, 8.51e-6, 8.63e-6, 8.75e-6,
+          ]
 # L3-SHELL IONISATION
 
-XL3SG7 = [np.float32(4786.),np.float32(4881.6),np.float32(5023.7),np.float32(5170.),np.float32(5321.),np.float32(5476.),np.float32(5635.),np.float32(5800.),
-np.float32(5968.),np.float32(6321.),
-np.float32(6695.),np.float32(7091.),np.float32(7511.),np.float32(8187.),np.float32(8924.),1.00e4,1.09e4,1.19e4,1.30e4,1.41e4,
-1.58e4,1.78e4,2.00e4,2.24e4,2.51e4,2.90e4,3.35e4,3.87e4,4.47e4,
-5.16e4,
-6.13e4,7.29e4,8.66e4,1.00e5,1.22e5,1.54e5,2.00e5,2.59e5,3.35e5,
-4.47e5,
-5.96e5,8.66e5,1.00e6,1.22e6,1.50e6,1.83e6,2.30e6,2.90e6,3.65e6,
-4.60e6,
-5.79e6,7.50e6,8.66e6,1.00e7,1.22e7,1.50e7,1.83e7,2.30e7,2.90e7,
-3.65e7,
-4.60e7,5.79e7,7.50e7,8.66e7,1.00e8,1.22e8,1.50e8,1.83e8,2.30e8,
-2.90e8,
-3.65e8,4.60e8,5.79e8,7.50e8,8.66e8,1.00e9,
-]
-YL3SG7 = [np.float32(0.0),1.94e-6,4.64e-6,7.17e-6,9.54e-6,1.18e-5,1.38e-5,
-1.58e-5,1.76e-5,2.08e-5,
-2.36e-5,2.60e-5,2.80e-5,3.05e-5,3.23e-5,3.40e-5,3.48e-5,3.52e-5,
-3.54e-5,3.53e-5,
-3.48e-5,3.41e-5,3.31e-5,3.19e-5,3.06e-5,2.86e-5,2.70e-5,2.52e-5,
-2.34e-5,2.17e-5,
-1.98e-5,1.81e-5,1.65e-5,1.53e-5,1.38e-5,1.23e-5,1.09e-5,9.89e-6,
-9.10e-6,8.49e-6,
-8.10e-6,7.90e-6,7.89e-6,7.93e-6,8.04e-6,8.19e-6,8.41e-6,8.67e-6,
-8.97e-6,9.29e-6,
-9.63e-6,1.00e-5,1.03e-5,1.05e-5,1.08e-5,1.12e-5,1.15e-5,1.19e-5,
-1.23e-5,1.27e-5,
-1.31e-5,1.35e-5,1.39e-5,1.42e-5,1.45e-5,1.48e-5,1.52e-5,1.55e-5,
-1.59e-5,1.63e-5,
-1.67e-5,1.71e-5,1.75e-5,1.80e-5,1.82e-5,1.85e-5,
-]
+XL3SG7 = [np.float32(4786.), np.float32(4881.6), np.float32(5023.7), np.float32(5170.), np.float32(5321.),
+          np.float32(5476.), np.float32(5635.), np.float32(5800.),
+          np.float32(5968.), np.float32(6321.),
+          np.float32(6695.), np.float32(7091.), np.float32(7511.), np.float32(8187.), np.float32(8924.), 1.00e4, 1.09e4,
+          1.19e4, 1.30e4, 1.41e4,
+          1.58e4, 1.78e4, 2.00e4, 2.24e4, 2.51e4, 2.90e4, 3.35e4, 3.87e4, 4.47e4,
+          5.16e4,
+          6.13e4, 7.29e4, 8.66e4, 1.00e5, 1.22e5, 1.54e5, 2.00e5, 2.59e5, 3.35e5,
+          4.47e5,
+          5.96e5, 8.66e5, 1.00e6, 1.22e6, 1.50e6, 1.83e6, 2.30e6, 2.90e6, 3.65e6,
+          4.60e6,
+          5.79e6, 7.50e6, 8.66e6, 1.00e7, 1.22e7, 1.50e7, 1.83e7, 2.30e7, 2.90e7,
+          3.65e7,
+          4.60e7, 5.79e7, 7.50e7, 8.66e7, 1.00e8, 1.22e8, 1.50e8, 1.83e8, 2.30e8,
+          2.90e8,
+          3.65e8, 4.60e8, 5.79e8, 7.50e8, 8.66e8, 1.00e9,
+          ]
+YL3SG7 = [np.float32(0.0), 1.94e-6, 4.64e-6, 7.17e-6, 9.54e-6, 1.18e-5, 1.38e-5,
+          1.58e-5, 1.76e-5, 2.08e-5,
+          2.36e-5, 2.60e-5, 2.80e-5, 3.05e-5, 3.23e-5, 3.40e-5, 3.48e-5, 3.52e-5,
+          3.54e-5, 3.53e-5,
+          3.48e-5, 3.41e-5, 3.31e-5, 3.19e-5, 3.06e-5, 2.86e-5, 2.70e-5, 2.52e-5,
+          2.34e-5, 2.17e-5,
+          1.98e-5, 1.81e-5, 1.65e-5, 1.53e-5, 1.38e-5, 1.23e-5, 1.09e-5, 9.89e-6,
+          9.10e-6, 8.49e-6,
+          8.10e-6, 7.90e-6, 7.89e-6, 7.93e-6, 8.04e-6, 8.19e-6, 8.41e-6, 8.67e-6,
+          8.97e-6, 9.29e-6,
+          9.63e-6, 1.00e-5, 1.03e-5, 1.05e-5, 1.08e-5, 1.12e-5, 1.15e-5, 1.19e-5,
+          1.23e-5, 1.27e-5,
+          1.31e-5, 1.35e-5, 1.39e-5, 1.42e-5, 1.45e-5, 1.48e-5, 1.52e-5, 1.55e-5,
+          1.59e-5, 1.63e-5,
+          1.67e-5, 1.71e-5, 1.75e-5, 1.80e-5, 1.82e-5, 1.85e-5,
+          ]
 # M1-SHELL IONISATION
 
-XM1SG7 = [np.float32(1148.7),np.float32(1180.9),np.float32(1214.7),np.float32(1249.4),np.float32(1285.1),np.float32(1321.8),np.float32(1359.7),np.float32(1398.6),
-np.float32(1438.7),np.float32(1479.9),
-np.float32(1566.),np.float32(1657.),np.float32(1754.),np.float32(1856.),np.float32(1965.),np.float32(2140.),np.float32(2330.),np.float32(2538.),np.float32(2765.),np.float32(3012.),
-np.float32(3376.),np.float32(3784.),np.float32(4243.),np.float32(4758.),np.float32(5335.),np.float32(6157.),np.float32(7105.),np.float32(8201.),1.00e4,1.22e4,
-1.50e4,1.88e4,2.37e4,3.00e4,3.76e4,4.87e4,6.31e4,8.41e4,1.00e5,
-1.22e5,
-1.50e5,1.88e5,2.37e5,3.00e5,3.76e5,4.87e5,6.31e5,8.41e5,1.00e6,
-1.22e6,
-1.50e6,1.88e6,2.37e6,3.00e6,3.76e6,4.87e6,6.31e6,8.41e6,1.00e7,
-1.22e7,
-1.50e7,1.88e7,2.37e7,2.99e7,3.76e7,4.87e7,6.31e7,8.41e7,1.00e8,
-1.22e8,
-1.50e8,1.88e8,2.37e8,2.99e8,3.76e8,4.87e8,6.31e8,8.41e8,1.00e9,
-]
-YM1SG7 = [np.float32(0.0),2.13e-5,4.08e-5,5.85e-5,7.47e-5,8.95e-5,1.03e-4,
-1.16e-4,1.27e-4,1.37e-4,
-1.56e-4,1.71e-4,1.84e-4,1.95e-4,2.04e-4,2.15e-4,2.23e-4,2.28e-4,
-2.30e-4,2.31e-4,
-2.29e-4,2.24e-4,2.18e-4,2.10e-4,2.01e-4,1.88e-4,1.75e-4,1.62e-4,
-1.44e-4,1.27e-4,
-1.12e-4,9.60e-5,8.20e-5,6.83e-5,5.92e-5,4.93e-5,4.11e-5,3.38e-5,
-3.03e-5,2.67e-5,
-2.38e-5,2.10e-5,1.88e-5,1.71e-5,1.58e-5,1.47e-5,1.40e-5,1.35e-5,
-1.34e-5,1.33e-5,
-1.34e-5,1.35e-5,1.37e-5,1.40e-5,1.44e-5,1.48e-5,1.53e-5,1.59e-5,
-1.62e-5,1.66e-5,
-1.70e-5,1.75e-5,1.80e-5,1.85e-5,1.90e-5,1.96e-5,2.01e-5,2.08e-5,
-2.11e-5,2.16e-5,
-2.20e-5,2.25e-5,2.30e-5,2.35e-5,2.40e-5,2.46e-5,2.52e-5,2.58e-5,
-2.62e-5,
-]
+XM1SG7 = [np.float32(1148.7), np.float32(1180.9), np.float32(1214.7), np.float32(1249.4), np.float32(1285.1),
+          np.float32(1321.8), np.float32(1359.7), np.float32(1398.6),
+          np.float32(1438.7), np.float32(1479.9),
+          np.float32(1566.), np.float32(1657.), np.float32(1754.), np.float32(1856.), np.float32(1965.),
+          np.float32(2140.), np.float32(2330.), np.float32(2538.), np.float32(2765.), np.float32(3012.),
+          np.float32(3376.), np.float32(3784.), np.float32(4243.), np.float32(4758.), np.float32(5335.),
+          np.float32(6157.), np.float32(7105.), np.float32(8201.), 1.00e4, 1.22e4,
+          1.50e4, 1.88e4, 2.37e4, 3.00e4, 3.76e4, 4.87e4, 6.31e4, 8.41e4, 1.00e5,
+          1.22e5,
+          1.50e5, 1.88e5, 2.37e5, 3.00e5, 3.76e5, 4.87e5, 6.31e5, 8.41e5, 1.00e6,
+          1.22e6,
+          1.50e6, 1.88e6, 2.37e6, 3.00e6, 3.76e6, 4.87e6, 6.31e6, 8.41e6, 1.00e7,
+          1.22e7,
+          1.50e7, 1.88e7, 2.37e7, 2.99e7, 3.76e7, 4.87e7, 6.31e7, 8.41e7, 1.00e8,
+          1.22e8,
+          1.50e8, 1.88e8, 2.37e8, 2.99e8, 3.76e8, 4.87e8, 6.31e8, 8.41e8, 1.00e9,
+          ]
+YM1SG7 = [np.float32(0.0), 2.13e-5, 4.08e-5, 5.85e-5, 7.47e-5, 8.95e-5, 1.03e-4,
+          1.16e-4, 1.27e-4, 1.37e-4,
+          1.56e-4, 1.71e-4, 1.84e-4, 1.95e-4, 2.04e-4, 2.15e-4, 2.23e-4, 2.28e-4,
+          2.30e-4, 2.31e-4,
+          2.29e-4, 2.24e-4, 2.18e-4, 2.10e-4, 2.01e-4, 1.88e-4, 1.75e-4, 1.62e-4,
+          1.44e-4, 1.27e-4,
+          1.12e-4, 9.60e-5, 8.20e-5, 6.83e-5, 5.92e-5, 4.93e-5, 4.11e-5, 3.38e-5,
+          3.03e-5, 2.67e-5,
+          2.38e-5, 2.10e-5, 1.88e-5, 1.71e-5, 1.58e-5, 1.47e-5, 1.40e-5, 1.35e-5,
+          1.34e-5, 1.33e-5,
+          1.34e-5, 1.35e-5, 1.37e-5, 1.40e-5, 1.44e-5, 1.48e-5, 1.53e-5, 1.59e-5,
+          1.62e-5, 1.66e-5,
+          1.70e-5, 1.75e-5, 1.80e-5, 1.85e-5, 1.90e-5, 1.96e-5, 2.01e-5, 2.08e-5,
+          2.11e-5, 2.16e-5,
+          2.20e-5, 2.25e-5, 2.30e-5, 2.35e-5, 2.40e-5, 2.46e-5, 2.52e-5, 2.58e-5,
+          2.62e-5,
+          ]
 # M2-SHELL IONISATION
 
-XM2SG7 = [np.float32(1002.1),np.float32(1012.5),np.float32(1041.7),np.float32(1071.7),np.float32(1102.6),np.float32(1134.5),np.float32(1167.2),np.float32(1201.),
-np.float32(1236.),np.float32(1271.),
-np.float32(1346.),np.float32(1425.),np.float32(1509.),np.float32(1597.),np.float32(1691.),np.float32(1843.),np.float32(2008.),np.float32(2188.),np.float32(2384.),np.float32(2598.),
-np.float32(2913.),np.float32(3267.),np.float32(3664.),np.float32(4109.),np.float32(4744.),np.float32(5635.),np.float32(6695.),np.float32(7730.),np.float32(8925.),1.00e4,
-1.22e4,1.50e4,1.88e4,2.37e4,3.00e4,3.76e4,4.87e4,6.31e4,8.41e4,
-1.00e5,
-1.22e5,1.50e5,1.88e5,2.37e5,3.00e5,3.76e5,4.87e5,6.31e5,8.41e5,
-1.00e6,
-1.22e6,1.50e6,1.88e6,2.37e6,3.00e6,3.76e6,4.87e6,6.31e6,8.41e6,
-1.00e7,
-1.22e7,1.50e7,1.88e7,2.37e7,2.99e7,3.76e7,4.87e7,6.31e7,8.41e7,
-1.00e8,
-1.22e8,1.50e8,1.88e8,2.37e8,2.99e8,3.76e8,4.87e8,6.31e8,8.41e8,
-1.00e9,
-]
-YM2SG7 = [np.float32(0.0),1.17e-5,4.18e-5,6.88e-5,9.29e-5,1.15e-4,1.34e-4,
-1.52e-4,1.68e-4,1.83e-4,
-2.08e-4,2.30e-4,2.49e-4,2.64e-4,2.78e-4,2.95e-4,3.09e-4,3.19e-4,
-3.27e-4,3.31e-4,
-3.34e-4,3.32e-4,3.27e-4,3.19e-4,3.06e-4,2.86e-4,2.64e-4,2.45e-4,
-2.26e-4,2.11e-4,
-1.86e-4,1.63e-4,1.39e-4,1.19e-4,1.01e-4,8.55e-5,7.12e-5,5.94e-5,
-4.90e-5,4.38e-5,
-3.87e-5,3.45e-5,3.05e-5,2.74e-5,2.50e-5,2.31e-5,2.16e-5,2.06e-5,
-1.99e-5,1.98e-5,
-1.97e-5,1.98e-5,2.01e-5,2.05e-5,2.10e-5,2.16e-5,2.23e-5,2.31e-5,
-2.40e-5,2.46e-5,
-2.52e-5,2.59e-5,2.67e-5,2.75e-5,2.83e-5,2.91e-5,3.00e-5,3.09e-5,
-3.20e-5,3.26e-5,
-3.33e-5,3.40e-5,3.48e-5,3.56e-5,3.65e-5,3.73e-5,3.82e-5,3.91e-5,
-4.01e-5,4.08e-5,
-]
+XM2SG7 = [np.float32(1002.1), np.float32(1012.5), np.float32(1041.7), np.float32(1071.7), np.float32(1102.6),
+          np.float32(1134.5), np.float32(1167.2), np.float32(1201.),
+          np.float32(1236.), np.float32(1271.),
+          np.float32(1346.), np.float32(1425.), np.float32(1509.), np.float32(1597.), np.float32(1691.),
+          np.float32(1843.), np.float32(2008.), np.float32(2188.), np.float32(2384.), np.float32(2598.),
+          np.float32(2913.), np.float32(3267.), np.float32(3664.), np.float32(4109.), np.float32(4744.),
+          np.float32(5635.), np.float32(6695.), np.float32(7730.), np.float32(8925.), 1.00e4,
+          1.22e4, 1.50e4, 1.88e4, 2.37e4, 3.00e4, 3.76e4, 4.87e4, 6.31e4, 8.41e4,
+          1.00e5,
+          1.22e5, 1.50e5, 1.88e5, 2.37e5, 3.00e5, 3.76e5, 4.87e5, 6.31e5, 8.41e5,
+          1.00e6,
+          1.22e6, 1.50e6, 1.88e6, 2.37e6, 3.00e6, 3.76e6, 4.87e6, 6.31e6, 8.41e6,
+          1.00e7,
+          1.22e7, 1.50e7, 1.88e7, 2.37e7, 2.99e7, 3.76e7, 4.87e7, 6.31e7, 8.41e7,
+          1.00e8,
+          1.22e8, 1.50e8, 1.88e8, 2.37e8, 2.99e8, 3.76e8, 4.87e8, 6.31e8, 8.41e8,
+          1.00e9,
+          ]
+YM2SG7 = [np.float32(0.0), 1.17e-5, 4.18e-5, 6.88e-5, 9.29e-5, 1.15e-4, 1.34e-4,
+          1.52e-4, 1.68e-4, 1.83e-4,
+          2.08e-4, 2.30e-4, 2.49e-4, 2.64e-4, 2.78e-4, 2.95e-4, 3.09e-4, 3.19e-4,
+          3.27e-4, 3.31e-4,
+          3.34e-4, 3.32e-4, 3.27e-4, 3.19e-4, 3.06e-4, 2.86e-4, 2.64e-4, 2.45e-4,
+          2.26e-4, 2.11e-4,
+          1.86e-4, 1.63e-4, 1.39e-4, 1.19e-4, 1.01e-4, 8.55e-5, 7.12e-5, 5.94e-5,
+          4.90e-5, 4.38e-5,
+          3.87e-5, 3.45e-5, 3.05e-5, 2.74e-5, 2.50e-5, 2.31e-5, 2.16e-5, 2.06e-5,
+          1.99e-5, 1.98e-5,
+          1.97e-5, 1.98e-5, 2.01e-5, 2.05e-5, 2.10e-5, 2.16e-5, 2.23e-5, 2.31e-5,
+          2.40e-5, 2.46e-5,
+          2.52e-5, 2.59e-5, 2.67e-5, 2.75e-5, 2.83e-5, 2.91e-5, 3.00e-5, 3.09e-5,
+          3.20e-5, 3.26e-5,
+          3.33e-5, 3.40e-5, 3.48e-5, 3.56e-5, 3.65e-5, 3.73e-5, 3.82e-5, 3.91e-5,
+          4.01e-5, 4.08e-5,
+          ]
 # M3-SHELL IONISATION
 
-XM3SG7 = [np.float32(940.6),np.float32(958.1),np.float32(985.7),np.float32(1014.1),np.float32(1043.3),np.float32(1073.3),np.float32(1104.3),np.float32(1136.1),
-np.float32(1168.9),np.float32(1202.6),
-np.float32(1273.),np.float32(1348.),np.float32(1427.),np.float32(1510.),np.float32(1599.),np.float32(1693.),np.float32(1844.),np.float32(2009.),np.float32(2189.),np.float32(2385.),
-np.float32(2599.),np.float32(2915.),np.float32(3269.),np.float32(3666.),np.float32(4111.),np.float32(4746.),np.float32(5637.),np.float32(6697.),np.float32(7732.),np.float32(8927.),
-1.00e4,1.22e4,1.50e4,1.88e4,2.37e4,3.00e4,3.76e4,4.87e4,6.31e4,
-8.41e4,
-1.00e5,1.22e5,1.50e5,1.88e5,2.37e5,3.00e5,3.76e5,4.87e5,6.31e5,
-8.41e5,
-1.00e6,1.22e6,1.88e6,2.37e6,3.00e6,3.76e6,4.87e6,6.31e6,8.41e6,
-1.00e7,
-1.22e7,1.50e7,1.88e7,2.37e7,2.99e7,3.76e7,4.87e7,6.31e7,8.41e7,
-1.00e8,
-1.22e8,1.50e8,1.88e8,2.37e8,2.99e8,3.76e8,4.87e8,6.31e8,8.41e8,
-1.00e9,
-]
-YM3SG7 = [np.float32(0.0),5.19e-5,1.24e-4,1.88e-4,2.44e-4,2.95e-4,3.40e-4,
-3.81e-4,4.18e-4,4.51e-4,
-5.10e-4,5.59e-4,6.01e-4,6.37e-4,6.68e-4,6.96e-4,7.29e-4,7.56e-4,
-7.75e-4,7.88e-4,
-7.96e-4,7.96e-4,7.88e-4,7.72e-4,7.50e-4,7.15e-4,6.66e-4,6.12e-4,
-5.66e-4,5.20e-4,
-4.85e-4,4.27e-4,3.74e-4,3.19e-4,2.72e-4,2.31e-4,1.96e-4,1.63e-4,
-1.36e-4,1.12e-4,
-1.00e-4,8.86e-5,7.89e-5,6.99e-5,6.27e-5,5.71e-5,5.29e-5,4.94e-5,
-4.71e-5,4.57e-5,
-4.53e-5,4.52e-5,4.61e-5,4.71e-5,4.82e-5,4.96e-5,5.13e-5,5.31e-5,
-5.52e-5,5.65e-5,
-5.81e-5,5.97e-5,6.15e-5,6.34e-5,6.53e-5,6.71e-5,6.93e-5,7.14e-5,
-7.38e-5,7.52e-5,
-7.69e-5,7.86e-5,8.05e-5,8.24e-5,8.43e-5,8.62e-5,8.84e-5,9.05e-5,
-9.29e-5,9.43e-5,
-]
+XM3SG7 = [np.float32(940.6), np.float32(958.1), np.float32(985.7), np.float32(1014.1), np.float32(1043.3),
+          np.float32(1073.3), np.float32(1104.3), np.float32(1136.1),
+          np.float32(1168.9), np.float32(1202.6),
+          np.float32(1273.), np.float32(1348.), np.float32(1427.), np.float32(1510.), np.float32(1599.),
+          np.float32(1693.), np.float32(1844.), np.float32(2009.), np.float32(2189.), np.float32(2385.),
+          np.float32(2599.), np.float32(2915.), np.float32(3269.), np.float32(3666.), np.float32(4111.),
+          np.float32(4746.), np.float32(5637.), np.float32(6697.), np.float32(7732.), np.float32(8927.),
+          1.00e4, 1.22e4, 1.50e4, 1.88e4, 2.37e4, 3.00e4, 3.76e4, 4.87e4, 6.31e4,
+          8.41e4,
+          1.00e5, 1.22e5, 1.50e5, 1.88e5, 2.37e5, 3.00e5, 3.76e5, 4.87e5, 6.31e5,
+          8.41e5,
+          1.00e6, 1.22e6, 1.88e6, 2.37e6, 3.00e6, 3.76e6, 4.87e6, 6.31e6, 8.41e6,
+          1.00e7,
+          1.22e7, 1.50e7, 1.88e7, 2.37e7, 2.99e7, 3.76e7, 4.87e7, 6.31e7, 8.41e7,
+          1.00e8,
+          1.22e8, 1.50e8, 1.88e8, 2.37e8, 2.99e8, 3.76e8, 4.87e8, 6.31e8, 8.41e8,
+          1.00e9,
+          ]
+YM3SG7 = [np.float32(0.0), 5.19e-5, 1.24e-4, 1.88e-4, 2.44e-4, 2.95e-4, 3.40e-4,
+          3.81e-4, 4.18e-4, 4.51e-4,
+          5.10e-4, 5.59e-4, 6.01e-4, 6.37e-4, 6.68e-4, 6.96e-4, 7.29e-4, 7.56e-4,
+          7.75e-4, 7.88e-4,
+          7.96e-4, 7.96e-4, 7.88e-4, 7.72e-4, 7.50e-4, 7.15e-4, 6.66e-4, 6.12e-4,
+          5.66e-4, 5.20e-4,
+          4.85e-4, 4.27e-4, 3.74e-4, 3.19e-4, 2.72e-4, 2.31e-4, 1.96e-4, 1.63e-4,
+          1.36e-4, 1.12e-4,
+          1.00e-4, 8.86e-5, 7.89e-5, 6.99e-5, 6.27e-5, 5.71e-5, 5.29e-5, 4.94e-5,
+          4.71e-5, 4.57e-5,
+          4.53e-5, 4.52e-5, 4.61e-5, 4.71e-5, 4.82e-5, 4.96e-5, 5.13e-5, 5.31e-5,
+          5.52e-5, 5.65e-5,
+          5.81e-5, 5.97e-5, 6.15e-5, 6.34e-5, 6.53e-5, 6.71e-5, 6.93e-5, 7.14e-5,
+          7.38e-5, 7.52e-5,
+          7.69e-5, 7.86e-5, 8.05e-5, 8.24e-5, 8.43e-5, 8.62e-5, 8.84e-5, 9.05e-5,
+          9.29e-5, 9.43e-5,
+          ]
 # M4-SHELL IONISATION
 
-XM4SG7 = [np.float32(689.0),np.float32(706.2),np.float32(726.8),np.float32(748.1),np.float32(770.0),np.float32(792.6),np.float32(815.7),np.float32(839.6),np.float32(864.2),
-np.float32(889.5),
-np.float32(942.3),np.float32(998.2),np.float32(1057.),np.float32(1120.),np.float32(1187.),np.float32(1294.),np.float32(1411.),np.float32(1538.),np.float32(1677.),np.float32(1828.),
-np.float32(2052.),np.float32(2302.),np.float32(2583.),np.float32(2899.),np.float32(3253.),np.float32(3756.),np.float32(4338.),np.float32(5010.),np.float32(5786.),np.float32(6681.),
-np.float32(7716.),np.float32(8911.),1.00e4,1.22e4,1.50e4,1.88e4,2.37e4,3.00e4,3.76e4,
-4.87e4,
-6.31e4,8.41e4,1.00e5,1.22e5,1.50e5,1.88e5,2.37e5,3.00e5,3.76e5,
-4.87e5,
-6.31e5,8.41e5,1.00e6,1.22e6,1.88e6,2.37e6,3.00e6,3.76e6,4.87e6,
-6.31e6,
-8.41e6,1.00e7,1.22e7,1.50e7,1.88e7,2.37e7,2.99e7,3.76e7,4.87e7,
-6.31e7,
-8.41e7,1.00e8,1.22e8,1.50e8,1.88e8,2.37e8,2.99e8,3.76e8,4.87e8,
-6.31e8,
-8.41e8,1.00e9,
-]
-YM4SG7 = [np.float32(0.0),1.79e-4,3.69e-4,5.38e-4,6.89e-4,8.24e-4,9.45e-4,
-1.05e-3,1.15e-3,1.24e-3,
-1.39e-3,1.52e-3,1.62e-3,1.71e-3,1.79e-3,1.88e-3,1.95e-3,2.00e-3,
-2.03e-3,2.05e-3,
-2.06e-3,2.05e-3,2.01e-3,1.97e-3,1.91e-3,1.82e-3,1.72e-3,1.61e-3,
-1.50e-3,1.39e-3,
-1.29e-3,1.18e-3,1.11e-3,9.84e-4,8.68e-4,7.49e-4,6.43e-4,5.51e-4,
-4.71e-4,3.96e-4,
-3.33e-4,2.77e-4,2.50e-4,2.22e-4,1.99e-4,1.77e-4,1.60e-4,1.47e-4,
-1.37e-4,1.29e-4,
-1.24e-4,1.21e-4,1.21e-4,1.21e-4,1.25e-4,1.29e-4,1.33e-4,1.38e-4,
-1.43e-4,1.49e-4,
-1.56e-4,1.61e-4,1.66e-4,1.71e-4,1.77e-4,1.83e-4,1.89e-4,1.96e-4,
-2.03e-4,2.10e-4,
-2.18e-4,2.22e-4,2.28e-4,2.33e-4,2.40e-4,2.46e-4,2.52e-4,2.58e-4,
-2.65e-4,2.73e-4,
-2.80e-4,2.85e-4,
-]
+XM4SG7 = [np.float32(689.0), np.float32(706.2), np.float32(726.8), np.float32(748.1), np.float32(770.0),
+          np.float32(792.6), np.float32(815.7), np.float32(839.6), np.float32(864.2),
+          np.float32(889.5),
+          np.float32(942.3), np.float32(998.2), np.float32(1057.), np.float32(1120.), np.float32(1187.),
+          np.float32(1294.), np.float32(1411.), np.float32(1538.), np.float32(1677.), np.float32(1828.),
+          np.float32(2052.), np.float32(2302.), np.float32(2583.), np.float32(2899.), np.float32(3253.),
+          np.float32(3756.), np.float32(4338.), np.float32(5010.), np.float32(5786.), np.float32(6681.),
+          np.float32(7716.), np.float32(8911.), 1.00e4, 1.22e4, 1.50e4, 1.88e4, 2.37e4, 3.00e4, 3.76e4,
+          4.87e4,
+          6.31e4, 8.41e4, 1.00e5, 1.22e5, 1.50e5, 1.88e5, 2.37e5, 3.00e5, 3.76e5,
+          4.87e5,
+          6.31e5, 8.41e5, 1.00e6, 1.22e6, 1.88e6, 2.37e6, 3.00e6, 3.76e6, 4.87e6,
+          6.31e6,
+          8.41e6, 1.00e7, 1.22e7, 1.50e7, 1.88e7, 2.37e7, 2.99e7, 3.76e7, 4.87e7,
+          6.31e7,
+          8.41e7, 1.00e8, 1.22e8, 1.50e8, 1.88e8, 2.37e8, 2.99e8, 3.76e8, 4.87e8,
+          6.31e8,
+          8.41e8, 1.00e9,
+          ]
+YM4SG7 = [np.float32(0.0), 1.79e-4, 3.69e-4, 5.38e-4, 6.89e-4, 8.24e-4, 9.45e-4,
+          1.05e-3, 1.15e-3, 1.24e-3,
+          1.39e-3, 1.52e-3, 1.62e-3, 1.71e-3, 1.79e-3, 1.88e-3, 1.95e-3, 2.00e-3,
+          2.03e-3, 2.05e-3,
+          2.06e-3, 2.05e-3, 2.01e-3, 1.97e-3, 1.91e-3, 1.82e-3, 1.72e-3, 1.61e-3,
+          1.50e-3, 1.39e-3,
+          1.29e-3, 1.18e-3, 1.11e-3, 9.84e-4, 8.68e-4, 7.49e-4, 6.43e-4, 5.51e-4,
+          4.71e-4, 3.96e-4,
+          3.33e-4, 2.77e-4, 2.50e-4, 2.22e-4, 1.99e-4, 1.77e-4, 1.60e-4, 1.47e-4,
+          1.37e-4, 1.29e-4,
+          1.24e-4, 1.21e-4, 1.21e-4, 1.21e-4, 1.25e-4, 1.29e-4, 1.33e-4, 1.38e-4,
+          1.43e-4, 1.49e-4,
+          1.56e-4, 1.61e-4, 1.66e-4, 1.71e-4, 1.77e-4, 1.83e-4, 1.89e-4, 1.96e-4,
+          2.03e-4, 2.10e-4,
+          2.18e-4, 2.22e-4, 2.28e-4, 2.33e-4, 2.40e-4, 2.46e-4, 2.52e-4, 2.58e-4,
+          2.65e-4, 2.73e-4,
+          2.80e-4, 2.85e-4,
+          ]
 # M5-SHELL IONISATION
 
-XM5SG7 = [np.float32(676.4),np.float32(686.9),np.float32(707.0),np.float32(727.7),np.float32(748.9),np.float32(770.8),np.float32(793.4),np.float32(816.6),np.float32(840.4),
-np.float32(865.0),
-np.float32(916.3),np.float32(970.7),np.float32(1028.),np.float32(1089.),np.float32(1154.),np.float32(1258.),np.float32(1372.),np.float32(1495.),np.float32(1630.),np.float32(1777.),
-np.float32(1994.),np.float32(2238.),np.float32(2511.),np.float32(2817.),np.float32(3161.),np.float32(3651.),np.float32(4216.),np.float32(4869.),np.float32(5622.),np.float32(6493.),
-np.float32(7717.),np.float32(8911.),1.00e4,1.22e4,1.50e4,1.88e4,2.37e4,3.00e4,3.76e4,
-4.87e4,
-6.31e4,8.41e4,1.00e5,1.22e5,1.50e5,1.88e5,2.37e5,3.00e5,3.76e5,
-4.87e5,
-6.31e5,8.41e5,1.00e6,1.22e6,1.50e6,1.88e6,2.37e6,3.00e6,3.76e6,
-4.87e6,
-6.31e6,8.41e6,1.00e7,1.22e7,1.50e7,1.88e7,2.37e7,2.99e7,3.76e7,
-4.87e7,
-6.31e7,8.41e7,1.00e8,1.22e8,1.50e8,1.88e8,2.37e8,2.99e8,3.76e8,
-4.87e8,
-6.31e8,8.41e8,1.00e9,
-]
-YM5SG7 = [np.float32(0.0),1.84e-4,4.98e-4,7.77e-4,1.02e-3,1.25e-3,1.44e-3,
-1.62e-3,1.78e-3,1.92e-3,
-2.16e-3,2.37e-3,2.53e-3,2.67e-3,2.79e-3,2.93e-3,3.04e-3,3.12e-3,
-3.18e-3,3.21e-3,
-3.23e-3,3.21e-3,3.16e-3,3.09e-3,2.99e-3,2.86e-3,2.70e-3,2.53e-3,
-2.36e-3,2.19e-3,
-1.99e-3,1.83e-3,1.71e-3,1.52e-3,1.34e-3,1.16e-3,9.92e-4,8.50e-4,
-7.27e-4,6.10e-4,
-5.14e-4,4.28e-4,3.85e-4,3.42e-4,3.06e-4,2.73e-4,2.47e-4,2.26e-4,
-2.11e-4,1.98e-4,
-1.91e-4,1.86e-4,1.86e-4,1.87e-4,1.89e-4,1.93e-4,1.98e-4,2.04e-4,
-2.11e-4,2.20e-4,
-2.29e-4,2.40e-4,2.47e-4,2.55e-4,2.63e-4,2.72e-4,2.81e-4,2.91e-4,
-3.00e-4,3.11e-4,
-3.22e-4,3.34e-4,3.41e-4,3.50e-4,3.58e-4,3.68e-4,3.77e-4,3.87e-4,
-3.97e-4,4.08e-4,
-4.18e-4,4.31e-4,4.38e-4,
-]
+XM5SG7 = [np.float32(676.4), np.float32(686.9), np.float32(707.0), np.float32(727.7), np.float32(748.9),
+          np.float32(770.8), np.float32(793.4), np.float32(816.6), np.float32(840.4),
+          np.float32(865.0),
+          np.float32(916.3), np.float32(970.7), np.float32(1028.), np.float32(1089.), np.float32(1154.),
+          np.float32(1258.), np.float32(1372.), np.float32(1495.), np.float32(1630.), np.float32(1777.),
+          np.float32(1994.), np.float32(2238.), np.float32(2511.), np.float32(2817.), np.float32(3161.),
+          np.float32(3651.), np.float32(4216.), np.float32(4869.), np.float32(5622.), np.float32(6493.),
+          np.float32(7717.), np.float32(8911.), 1.00e4, 1.22e4, 1.50e4, 1.88e4, 2.37e4, 3.00e4, 3.76e4,
+          4.87e4,
+          6.31e4, 8.41e4, 1.00e5, 1.22e5, 1.50e5, 1.88e5, 2.37e5, 3.00e5, 3.76e5,
+          4.87e5,
+          6.31e5, 8.41e5, 1.00e6, 1.22e6, 1.50e6, 1.88e6, 2.37e6, 3.00e6, 3.76e6,
+          4.87e6,
+          6.31e6, 8.41e6, 1.00e7, 1.22e7, 1.50e7, 1.88e7, 2.37e7, 2.99e7, 3.76e7,
+          4.87e7,
+          6.31e7, 8.41e7, 1.00e8, 1.22e8, 1.50e8, 1.88e8, 2.37e8, 2.99e8, 3.76e8,
+          4.87e8,
+          6.31e8, 8.41e8, 1.00e9,
+          ]
+YM5SG7 = [np.float32(0.0), 1.84e-4, 4.98e-4, 7.77e-4, 1.02e-3, 1.25e-3, 1.44e-3,
+          1.62e-3, 1.78e-3, 1.92e-3,
+          2.16e-3, 2.37e-3, 2.53e-3, 2.67e-3, 2.79e-3, 2.93e-3, 3.04e-3, 3.12e-3,
+          3.18e-3, 3.21e-3,
+          3.23e-3, 3.21e-3, 3.16e-3, 3.09e-3, 2.99e-3, 2.86e-3, 2.70e-3, 2.53e-3,
+          2.36e-3, 2.19e-3,
+          1.99e-3, 1.83e-3, 1.71e-3, 1.52e-3, 1.34e-3, 1.16e-3, 9.92e-4, 8.50e-4,
+          7.27e-4, 6.10e-4,
+          5.14e-4, 4.28e-4, 3.85e-4, 3.42e-4, 3.06e-4, 2.73e-4, 2.47e-4, 2.26e-4,
+          2.11e-4, 1.98e-4,
+          1.91e-4, 1.86e-4, 1.86e-4, 1.87e-4, 1.89e-4, 1.93e-4, 1.98e-4, 2.04e-4,
+          2.11e-4, 2.20e-4,
+          2.29e-4, 2.40e-4, 2.47e-4, 2.55e-4, 2.63e-4, 2.72e-4, 2.81e-4, 2.91e-4,
+          3.00e-4, 3.11e-4,
+          3.22e-4, 3.34e-4, 3.41e-4, 3.50e-4, 3.58e-4, 3.68e-4, 3.77e-4, 3.87e-4,
+          3.97e-4, 4.08e-4,
+          4.18e-4, 4.31e-4, 4.38e-4,
+          ]
 #
 
 # EXCITATION  UNITS OF 10**-18CM**2
@@ -3906,160 +4075,263 @@ YM5SG7 = [np.float32(0.0),1.84e-4,4.98e-4,7.77e-4,1.02e-3,1.25e-3,1.44e-3,
 
 # ABOVE 100EV SCALED BY 1/E**3
 
-X1S5G7 = [np.float32(8.3153),np.float32(8.35),np.float32(8.40),np.float32(8.44),np.float32(8.48),np.float32(8.52),np.float32(8.56),np.float32(8.60),np.float32(8.65),np.float32(8.70),
-np.float32(8.75),np.float32(8.80),np.float32(8.85),np.float32(8.90),np.float32(8.95),np.float32(9.00),np.float32(9.05),np.float32(9.10),np.float32(9.15),np.float32(9.20),
-np.float32(9.25),np.float32(9.30),np.float32(9.35),np.float32(9.40),np.float32(9.45),np.float32(9.50),np.float32(9.516),np.float32(9.52),np.float32(9.525),np.float32(9.53),
-np.float32(9.54),np.float32(9.545),np.float32(9.55),np.float32(9.555),np.float32(9.56),np.float32(9.57),np.float32(9.58),np.float32(9.59),np.float32(9.60),np.float32(9.61),
-np.float32(9.615),np.float32(9.62),np.float32(9.625),np.float32(9.63),np.float32(9.64),np.float32(9.65),np.float32(9.66),np.float32(9.67),np.float32(9.68),np.float32(9.70),
-np.float32(9.75),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(14.0),np.float32(15.0),
-np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y1S5G7 = [np.float32(0.00),np.float32(2.38),np.float32(4.93),np.float32(6.41),np.float32(3.42),np.float32(2.84),np.float32(3.00),np.float32(3.33),np.float32(3.89),np.float32(4.59),
-np.float32(5.45),np.float32(6.48),np.float32(7.72),np.float32(9.05),np.float32(10.4),np.float32(11.5),np.float32(12.3),np.float32(12.2),np.float32(10.8),np.float32(9.45),
-np.float32(8.84),np.float32(9.04),np.float32(9.18),np.float32(9.18),np.float32(9.11),np.float32(9.32),np.float32(23.6),np.float32(15.7),np.float32(12.1),np.float32(10.7),
-np.float32(9.79),np.float32(11.4),np.float32(15.8),np.float32(18.0),np.float32(15.9),np.float32(13.1),np.float32(13.6),np.float32(12.6),np.float32(10.4),np.float32(12.1),
-np.float32(14.9),np.float32(20.5),np.float32(21.5),np.float32(18.5),np.float32(17.2),np.float32(16.9),np.float32(15.9),np.float32(13.8),np.float32(12.4),np.float32(11.1),
-np.float32(10.1),np.float32(10.0),np.float32(9.90),np.float32(9.80),np.float32(9.70),np.float32(9.60),np.float32(9.30),np.float32(8.80),np.float32(8.10),np.float32(7.45),
-np.float32(6.80),np.float32(5.50),np.float32(4.40),np.float32(2.20),np.float32(1.10),np.float32(.500),np.float32(.230),np.float32(.150),np.float32(.065),np.float32(.034),
-]
-YP1S5G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X1S5G7 = [np.float32(8.3153), np.float32(8.35), np.float32(8.40), np.float32(8.44), np.float32(8.48), np.float32(8.52),
+          np.float32(8.56), np.float32(8.60), np.float32(8.65), np.float32(8.70),
+          np.float32(8.75), np.float32(8.80), np.float32(8.85), np.float32(8.90), np.float32(8.95), np.float32(9.00),
+          np.float32(9.05), np.float32(9.10), np.float32(9.15), np.float32(9.20),
+          np.float32(9.25), np.float32(9.30), np.float32(9.35), np.float32(9.40), np.float32(9.45), np.float32(9.50),
+          np.float32(9.516), np.float32(9.52), np.float32(9.525), np.float32(9.53),
+          np.float32(9.54), np.float32(9.545), np.float32(9.55), np.float32(9.555), np.float32(9.56), np.float32(9.57),
+          np.float32(9.58), np.float32(9.59), np.float32(9.60), np.float32(9.61),
+          np.float32(9.615), np.float32(9.62), np.float32(9.625), np.float32(9.63), np.float32(9.64), np.float32(9.65),
+          np.float32(9.66), np.float32(9.67), np.float32(9.68), np.float32(9.70),
+          np.float32(9.75), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+          np.float32(12.5), np.float32(13.0), np.float32(14.0), np.float32(15.0),
+          np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(40.0),
+          np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y1S5G7 = [np.float32(0.00), np.float32(2.38), np.float32(4.93), np.float32(6.41), np.float32(3.42), np.float32(2.84),
+          np.float32(3.00), np.float32(3.33), np.float32(3.89), np.float32(4.59),
+          np.float32(5.45), np.float32(6.48), np.float32(7.72), np.float32(9.05), np.float32(10.4), np.float32(11.5),
+          np.float32(12.3), np.float32(12.2), np.float32(10.8), np.float32(9.45),
+          np.float32(8.84), np.float32(9.04), np.float32(9.18), np.float32(9.18), np.float32(9.11), np.float32(9.32),
+          np.float32(23.6), np.float32(15.7), np.float32(12.1), np.float32(10.7),
+          np.float32(9.79), np.float32(11.4), np.float32(15.8), np.float32(18.0), np.float32(15.9), np.float32(13.1),
+          np.float32(13.6), np.float32(12.6), np.float32(10.4), np.float32(12.1),
+          np.float32(14.9), np.float32(20.5), np.float32(21.5), np.float32(18.5), np.float32(17.2), np.float32(16.9),
+          np.float32(15.9), np.float32(13.8), np.float32(12.4), np.float32(11.1),
+          np.float32(10.1), np.float32(10.0), np.float32(9.90), np.float32(9.80), np.float32(9.70), np.float32(9.60),
+          np.float32(9.30), np.float32(8.80), np.float32(8.10), np.float32(7.45),
+          np.float32(6.80), np.float32(5.50), np.float32(4.40), np.float32(2.20), np.float32(1.10), np.float32(.500),
+          np.float32(.230), np.float32(.150), np.float32(.065), np.float32(.034),
+          ]
+YP1S5G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 # 1S4 E=8.4365236 EV J=1  RESONANCE RADIATION 146.96 NM       F=0.260
 
 #    USED BEF SCALING ABOVE 11.0EV
 
 # SHAPE FUNCTION BELOW 11EV FROM BARTSCHAT AND ZATSARINNY
 
-X1S4G7 = [np.float32(8.4365),np.float32(8.45),np.float32(8.46),np.float32(8.47),np.float32(8.48),np.float32(8.49),np.float32(8.50),np.float32(8.52),np.float32(8.54),np.float32(8.56),
-np.float32(8.60),np.float32(8.65),np.float32(8.70),np.float32(8.75),np.float32(8.80),np.float32(8.85),np.float32(8.90),np.float32(8.95),np.float32(9.00),np.float32(9.05),
-np.float32(9.10),np.float32(9.15),np.float32(9.20),np.float32(9.25),np.float32(9.30),np.float32(9.35),np.float32(9.40),np.float32(9.45),np.float32(9.50),np.float32(9.55),
-np.float32(9.60),np.float32(9.62),np.float32(9.65),np.float32(9.70),np.float32(9.75),np.float32(9.80),np.float32(10.0),np.float32(11.0),
-]
-Y1S4G7 = [np.float32(0.00),np.float32(2.60),np.float32(5.60),np.float32(6.09),np.float32(5.50),np.float32(4.72),np.float32(4.27),np.float32(3.70),np.float32(3.42),np.float32(3.24),
-np.float32(3.10),np.float32(3.02),np.float32(3.34),np.float32(3.70),np.float32(4.25),np.float32(5.03),np.float32(6.00),np.float32(7.23),np.float32(8.70),np.float32(9.67),
-np.float32(10.3),np.float32(10.1),np.float32(9.37),np.float32(9.00),np.float32(8.70),np.float32(8.55),np.float32(8.62),np.float32(8.77),np.float32(9.00),np.float32(10.1),
-np.float32(10.5),np.float32(10.7),np.float32(10.2),np.float32(9.22),np.float32(9.40),np.float32(9.60),np.float32(10.8),np.float32(16.87),
-]
-YP1S4G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X1S4G7 = [np.float32(8.4365), np.float32(8.45), np.float32(8.46), np.float32(8.47), np.float32(8.48), np.float32(8.49),
+          np.float32(8.50), np.float32(8.52), np.float32(8.54), np.float32(8.56),
+          np.float32(8.60), np.float32(8.65), np.float32(8.70), np.float32(8.75), np.float32(8.80), np.float32(8.85),
+          np.float32(8.90), np.float32(8.95), np.float32(9.00), np.float32(9.05),
+          np.float32(9.10), np.float32(9.15), np.float32(9.20), np.float32(9.25), np.float32(9.30), np.float32(9.35),
+          np.float32(9.40), np.float32(9.45), np.float32(9.50), np.float32(9.55),
+          np.float32(9.60), np.float32(9.62), np.float32(9.65), np.float32(9.70), np.float32(9.75), np.float32(9.80),
+          np.float32(10.0), np.float32(11.0),
+          ]
+Y1S4G7 = [np.float32(0.00), np.float32(2.60), np.float32(5.60), np.float32(6.09), np.float32(5.50), np.float32(4.72),
+          np.float32(4.27), np.float32(3.70), np.float32(3.42), np.float32(3.24),
+          np.float32(3.10), np.float32(3.02), np.float32(3.34), np.float32(3.70), np.float32(4.25), np.float32(5.03),
+          np.float32(6.00), np.float32(7.23), np.float32(8.70), np.float32(9.67),
+          np.float32(10.3), np.float32(10.1), np.float32(9.37), np.float32(9.00), np.float32(8.70), np.float32(8.55),
+          np.float32(8.62), np.float32(8.77), np.float32(9.00), np.float32(10.1),
+          np.float32(10.5), np.float32(10.7), np.float32(10.2), np.float32(9.22), np.float32(9.40), np.float32(9.60),
+          np.float32(10.8), np.float32(16.87),
+          ]
+YP1S4G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0),
+           ]
 # 1S3  METASTABLE   E=9.4471945 EV J=0
 
 # SHAPE FUNCTION BELOW 11EV FROM BARTSCAT AND ZATSARINNY
 
 # ABOVE 100EV SCALED BY 1/E**3
 
-X1S3G7 = [np.float32(9.4472),np.float32(9.45),np.float32(9.47),np.float32(9.48),np.float32(9.49),np.float32(9.50),np.float32(9.506),np.float32(9.51),np.float32(9.52),np.float32(9.525),
-np.float32(9.53),np.float32(9.54),np.float32(9.55),np.float32(9.555),np.float32(9.56),np.float32(9.57),np.float32(9.58),np.float32(9.60),np.float32(9.62),np.float32(9.64),
-np.float32(9.67),np.float32(9.68),np.float32(9.69),np.float32(9.70),np.float32(9.71),np.float32(9.72),np.float32(9.73),np.float32(9.74),np.float32(9.75),np.float32(9.80),
-np.float32(10.0),np.float32(11.0),np.float32(12.0),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(24.0),
-np.float32(30.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y1S3G7 = [np.float32(0.00),np.float32(.313),np.float32(.324),np.float32(.230),np.float32(.360),np.float32(1.67),np.float32(3.78),np.float32(2.57),np.float32(1.26),np.float32(1.71),
-np.float32(1.80),np.float32(1.78),np.float32(2.23),np.float32(2.70),np.float32(2.43),np.float32(.635),np.float32(1.14),np.float32(1.04),np.float32(1.49),np.float32(1.59),
-np.float32(1.62),np.float32(2.77),np.float32(3.89),np.float32(6.21),np.float32(9.38),np.float32(8.28),np.float32(6.75),np.float32(4.29),np.float32(3.97),np.float32(.556),
-np.float32(0.77),np.float32(3.30),np.float32(4.30),np.float32(4.50),np.float32(4.30),np.float32(3.70),np.float32(3.30),np.float32(2.65),np.float32(2.25),np.float32(1.50),
-np.float32(0.80),np.float32(0.32),np.float32(0.17),np.float32(0.10),np.float32(.040),np.float32(.021),
-]
-YP1S3G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X1S3G7 = [np.float32(9.4472), np.float32(9.45), np.float32(9.47), np.float32(9.48), np.float32(9.49), np.float32(9.50),
+          np.float32(9.506), np.float32(9.51), np.float32(9.52), np.float32(9.525),
+          np.float32(9.53), np.float32(9.54), np.float32(9.55), np.float32(9.555), np.float32(9.56), np.float32(9.57),
+          np.float32(9.58), np.float32(9.60), np.float32(9.62), np.float32(9.64),
+          np.float32(9.67), np.float32(9.68), np.float32(9.69), np.float32(9.70), np.float32(9.71), np.float32(9.72),
+          np.float32(9.73), np.float32(9.74), np.float32(9.75), np.float32(9.80),
+          np.float32(10.0), np.float32(11.0), np.float32(12.0), np.float32(13.0), np.float32(14.0), np.float32(15.0),
+          np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(24.0),
+          np.float32(30.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y1S3G7 = [np.float32(0.00), np.float32(.313), np.float32(.324), np.float32(.230), np.float32(.360), np.float32(1.67),
+          np.float32(3.78), np.float32(2.57), np.float32(1.26), np.float32(1.71),
+          np.float32(1.80), np.float32(1.78), np.float32(2.23), np.float32(2.70), np.float32(2.43), np.float32(.635),
+          np.float32(1.14), np.float32(1.04), np.float32(1.49), np.float32(1.59),
+          np.float32(1.62), np.float32(2.77), np.float32(3.89), np.float32(6.21), np.float32(9.38), np.float32(8.28),
+          np.float32(6.75), np.float32(4.29), np.float32(3.97), np.float32(.556),
+          np.float32(0.77), np.float32(3.30), np.float32(4.30), np.float32(4.50), np.float32(4.30), np.float32(3.70),
+          np.float32(3.30), np.float32(2.65), np.float32(2.25), np.float32(1.50),
+          np.float32(0.80), np.float32(0.32), np.float32(0.17), np.float32(0.10), np.float32(.040), np.float32(.021),
+          ]
+YP1S3G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 # 1S2 E=9.5697248 EV J=1 RESONANCE RADIATION 129.56 NM        F=0.183
 
 #   USED BEF SCALING ABOVE 11.0EV
 
 # SHAPE FUNCTION BELOW 11EV FROM BARTSCHAT AND ZATSARINNY
 
-X1S2G7 = [np.float32(9.5697),np.float32(9.58),np.float32(9.59),np.float32(9.60),np.float32(9.61),np.float32(9.62),np.float32(9.63),np.float32(9.64),np.float32(9.65),np.float32(9.67),
-np.float32(9.68),np.float32(9.69),np.float32(9.70),np.float32(9.75),np.float32(9.77),np.float32(9.80),np.float32(9.85),np.float32(9.90),np.float32(10.0),np.float32(11.0),
-]
-Y1S2G7 = [np.float32(0.00),np.float32(1.21),np.float32(1.32),np.float32(1.41),np.float32(1.41),np.float32(1.30),np.float32(1.88),np.float32(2.00),np.float32(2.02),np.float32(2.02),
-np.float32(2.83),np.float32(2.11),np.float32(2.07),np.float32(1.78),np.float32(2.10),np.float32(1.96),np.float32(1.75),np.float32(1.87),np.float32(2.17),np.float32(5.305),
-]
-YP1S2G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X1S2G7 = [np.float32(9.5697), np.float32(9.58), np.float32(9.59), np.float32(9.60), np.float32(9.61), np.float32(9.62),
+          np.float32(9.63), np.float32(9.64), np.float32(9.65), np.float32(9.67),
+          np.float32(9.68), np.float32(9.69), np.float32(9.70), np.float32(9.75), np.float32(9.77), np.float32(9.80),
+          np.float32(9.85), np.float32(9.90), np.float32(10.0), np.float32(11.0),
+          ]
+Y1S2G7 = [np.float32(0.00), np.float32(1.21), np.float32(1.32), np.float32(1.41), np.float32(1.41), np.float32(1.30),
+          np.float32(1.88), np.float32(2.00), np.float32(2.02), np.float32(2.02),
+          np.float32(2.83), np.float32(2.11), np.float32(2.07), np.float32(1.78), np.float32(2.10), np.float32(1.96),
+          np.float32(1.75), np.float32(1.87), np.float32(2.17), np.float32(5.305),
+          ]
+YP1S2G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0),
+           ]
 # 2P10 E=9.5801524 EV  J=1
 
 # ABOVE 100EV SCALED BY 1/E**3
 
-X2P10G7 = [np.float32(9.5802),np.float32(9.80),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(14.0),
-np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),
-np.float32(80.0),np.float32(100.),
-]
-Y2P10G7 = [np.float32(0.00),np.float32(0.69),np.float32(1.23),np.float32(2.34),np.float32(3.15),np.float32(3.73),np.float32(4.14),np.float32(4.41),np.float32(4.59),np.float32(4.76),
-np.float32(4.74),np.float32(4.63),np.float32(4.26),np.float32(3.84),np.float32(2.91),np.float32(2.23),np.float32(1.75),np.float32(1.40),np.float32(0.95),np.float32(0.69),
-np.float32(.406),np.float32(.267),
-]
-YP2P10G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P10G7 = [np.float32(9.5802), np.float32(9.80), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5),
+           np.float32(12.0), np.float32(12.5), np.float32(13.0), np.float32(14.0),
+           np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+           np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
+           np.float32(80.0), np.float32(100.),
+           ]
+Y2P10G7 = [np.float32(0.00), np.float32(0.69), np.float32(1.23), np.float32(2.34), np.float32(3.15), np.float32(3.73),
+           np.float32(4.14), np.float32(4.41), np.float32(4.59), np.float32(4.76),
+           np.float32(4.74), np.float32(4.63), np.float32(4.26), np.float32(3.84), np.float32(2.91), np.float32(2.23),
+           np.float32(1.75), np.float32(1.40), np.float32(0.95), np.float32(0.69),
+           np.float32(.406), np.float32(.267),
+           ]
+YP2P10G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
 # 2P9 E=9.6856199 EV  J=2
 
 # ABOVE 100EV SCALED BY 1/E
 
-X2P9G7 = [np.float32(9.6856),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(14.0),np.float32(15.0),
-np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),
-np.float32(100.),
-]
-Y2P9G7 = [np.float32(0.00),np.float32(1.50),np.float32(3.37),np.float32(4.49),np.float32(5.47),np.float32(6.04),np.float32(6.48),np.float32(6.91),np.float32(7.41),np.float32(7.49),
-np.float32(7.41),np.float32(6.98),np.float32(6.26),np.float32(5.04),np.float32(4.17),np.float32(3.52),np.float32(3.09),np.float32(2.52),np.float32(2.08),np.float32(1.58),
-np.float32(1.22),
-]
-YP2P9G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P9G7 = [np.float32(9.6856), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+          np.float32(12.5), np.float32(13.0), np.float32(14.0), np.float32(15.0),
+          np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(35.0),
+          np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0),
+          np.float32(100.),
+          ]
+Y2P9G7 = [np.float32(0.00), np.float32(1.50), np.float32(3.37), np.float32(4.49), np.float32(5.47), np.float32(6.04),
+          np.float32(6.48), np.float32(6.91), np.float32(7.41), np.float32(7.49),
+          np.float32(7.41), np.float32(6.98), np.float32(6.26), np.float32(5.04), np.float32(4.17), np.float32(3.52),
+          np.float32(3.09), np.float32(2.52), np.float32(2.08), np.float32(1.58),
+          np.float32(1.22),
+          ]
+YP2P9G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 # 2P8 E=9.7207401 EV  J=3
 
 # ABOVE 100EV SCALED BY 1/E**3
 
-X2P8G7 = [np.float32(9.7207),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),
-np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),
-np.float32(80.0),np.float32(100.),
-]
-Y2P8G7 = [np.float32(0.00),np.float32(1.16),np.float32(2.78),np.float32(3.88),np.float32(4.86),np.float32(5.44),np.float32(5.83),np.float32(6.02),np.float32(6.35),np.float32(6.41),
-np.float32(6.48),np.float32(6.33),np.float32(4.89),np.float32(3.24),np.float32(1.51),np.float32(0.72),np.float32(0.43),np.float32(0.26),np.float32(0.11),np.float32(.061),
-np.float32(.021),np.float32(.0093),
-]
-YP2P8G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P8G7 = [np.float32(9.7207), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+          np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0),
+          np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
+          np.float32(80.0), np.float32(100.),
+          ]
+Y2P8G7 = [np.float32(0.00), np.float32(1.16), np.float32(2.78), np.float32(3.88), np.float32(4.86), np.float32(5.44),
+          np.float32(5.83), np.float32(6.02), np.float32(6.35), np.float32(6.41),
+          np.float32(6.48), np.float32(6.33), np.float32(4.89), np.float32(3.24), np.float32(1.51), np.float32(0.72),
+          np.float32(0.43), np.float32(0.26), np.float32(0.11), np.float32(.061),
+          np.float32(.021), np.float32(.0093),
+          ]
+YP2P8G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 # 2P7 E=9.7892996 EV  J=1
 
 # ABOVE 100EV SCALED BY 1/E**2
 
-X2P7G7 = [np.float32(9.7893),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),
-np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),
-np.float32(80.0),np.float32(100.),
-]
-Y2P7G7 = [np.float32(0.00),np.float32(0.66),np.float32(1.68),np.float32(2.52),np.float32(3.12),np.float32(3.48),np.float32(3.72),np.float32(3.90),np.float32(4.02),np.float32(4.14),
-np.float32(4.20),np.float32(4.20),np.float32(3.90),np.float32(3.48),np.float32(2.64),np.float32(1.80),np.float32(1.26),np.float32(0.96),np.float32(0.63),np.float32(0.42),
-np.float32(0.24),np.float32(0.15),
-]
-YP2P7G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P7G7 = [np.float32(9.7893), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+          np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0),
+          np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
+          np.float32(80.0), np.float32(100.),
+          ]
+Y2P7G7 = [np.float32(0.00), np.float32(0.66), np.float32(1.68), np.float32(2.52), np.float32(3.12), np.float32(3.48),
+          np.float32(3.72), np.float32(3.90), np.float32(4.02), np.float32(4.14),
+          np.float32(4.20), np.float32(4.20), np.float32(3.90), np.float32(3.48), np.float32(2.64), np.float32(1.80),
+          np.float32(1.26), np.float32(0.96), np.float32(0.63), np.float32(0.42),
+          np.float32(0.24), np.float32(0.15),
+          ]
+YP2P7G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 # 2P6 E=9.8210934 EV  J=2
 
 # ABOVE 100EV SCALED BY 1/E
 
-X2P6G7 = [np.float32(9.8211),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),
-np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),
-np.float32(80.0),np.float32(100.),
-]
-Y2P6G7 = [np.float32(0.00),np.float32(0.26),np.float32(1.05),np.float32(1.47),np.float32(1.92),np.float32(2.19),np.float32(2.32),np.float32(2.43),np.float32(2.53),np.float32(2.62),
-np.float32(2.64),np.float32(2.88),np.float32(3.06),np.float32(2.94),np.float32(2.70),np.float32(2.10),np.float32(1.68),np.float32(1.53),np.float32(1.26),np.float32(1.02),
-np.float32(0.78),np.float32(0.60),
-]
-YP2P6G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P6G7 = [np.float32(9.8211), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+          np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0),
+          np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
+          np.float32(80.0), np.float32(100.),
+          ]
+Y2P6G7 = [np.float32(0.00), np.float32(0.26), np.float32(1.05), np.float32(1.47), np.float32(1.92), np.float32(2.19),
+          np.float32(2.32), np.float32(2.43), np.float32(2.53), np.float32(2.62),
+          np.float32(2.64), np.float32(2.88), np.float32(3.06), np.float32(2.94), np.float32(2.70), np.float32(2.10),
+          np.float32(1.68), np.float32(1.53), np.float32(1.26), np.float32(1.02),
+          np.float32(0.78), np.float32(0.60),
+          ]
+YP2P6G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 # 3D6 E=9.8903760 EV  J=0
 
 # ABOVE 100EV SCALED BY 1/E**1.5
 
-X3D6G7 = [np.float32(9.8904),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),
-np.float32(14.5),np.float32(15.0),np.float32(16.0),np.float32(17.0),np.float32(18.0),np.float32(20.0),np.float32(22.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),
-np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y3D6G7 = [np.float32(0.00),np.float32(0.23),np.float32(0.83),np.float32(1.50),np.float32(2.17),np.float32(2.77),np.float32(3.22),np.float32(3.60),np.float32(3.90),np.float32(4.20),
-np.float32(4.42),np.float32(4.65),np.float32(4.80),np.float32(5.02),np.float32(5.02),np.float32(4.80),np.float32(4.50),np.float32(3.90),np.float32(2.78),np.float32(1.87),
-np.float32(1.35),np.float32(1.01),np.float32(0.66),np.float32(0.48),
-]
-YP3D6G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X3D6G7 = [np.float32(9.8904), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+          np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0),
+          np.float32(14.5), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(20.0),
+          np.float32(22.0), np.float32(25.0), np.float32(30.0), np.float32(40.0),
+          np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y3D6G7 = [np.float32(0.00), np.float32(0.23), np.float32(0.83), np.float32(1.50), np.float32(2.17), np.float32(2.77),
+          np.float32(3.22), np.float32(3.60), np.float32(3.90), np.float32(4.20),
+          np.float32(4.42), np.float32(4.65), np.float32(4.80), np.float32(5.02), np.float32(5.02), np.float32(4.80),
+          np.float32(4.50), np.float32(3.90), np.float32(2.78), np.float32(1.87),
+          np.float32(1.35), np.float32(1.01), np.float32(0.66), np.float32(0.48),
+          ]
+YP3D6G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 #
 
 # 3D5 E=9.9170761 EV J=1 RESONACE RADIATION 125.02 NM         F=0.010
@@ -4070,84 +4342,124 @@ YP3D6G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.fl
 
 # ABOVE 100EV SCALED BY 1/E
 
-X2P5G7 = [np.float32(9.9335),np.float32(13.0),np.float32(16.0),np.float32(17.5),np.float32(20.0),np.float32(24.0),np.float32(26.0),np.float32(28.0),np.float32(30.0),np.float32(35.0),
-np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y2P5G7 = [np.float32(0.00),np.float32(1.60),np.float32(2.16),np.float32(2.70),np.float32(4.26),np.float32(7.32),np.float32(8.46),np.float32(8.88),np.float32(8.70),np.float32(8.40),
-np.float32(7.50),np.float32(5.70),np.float32(4.80),np.float32(3.60),np.float32(3.00),
-]
-YP2P5G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P5G7 = [np.float32(9.9335), np.float32(13.0), np.float32(16.0), np.float32(17.5), np.float32(20.0), np.float32(24.0),
+          np.float32(26.0), np.float32(28.0), np.float32(30.0), np.float32(35.0),
+          np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y2P5G7 = [np.float32(0.00), np.float32(1.60), np.float32(2.16), np.float32(2.70), np.float32(4.26), np.float32(7.32),
+          np.float32(8.46), np.float32(8.88), np.float32(8.70), np.float32(8.40),
+          np.float32(7.50), np.float32(5.70), np.float32(4.80), np.float32(3.60), np.float32(3.00),
+          ]
+YP2P5G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 # 3D4! E=9.9431141 EV  J=4
 
 # ABOVE 100EV SCALED BY 1/E**1.5
 
-X3D4PG7 = [np.float32(9.9431),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),
-np.float32(14.5),np.float32(15.0),np.float32(16.0),np.float32(17.0),np.float32(18.0),np.float32(20.0),np.float32(22.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),
-np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y3D4PG7 = [np.float32(0.00),np.float32(0.45),np.float32(1.65),np.float32(3.00),np.float32(4.35),np.float32(5.55),np.float32(6.45),np.float32(7.20),np.float32(7.80),np.float32(8.40),
-np.float32(8.85),np.float32(9.30),np.float32(9.60),np.float32(10.1),np.float32(10.1),np.float32(9.60),np.float32(9.00),np.float32(7.80),np.float32(5.77),np.float32(3.75),
-np.float32(2.70),np.float32(2.03),np.float32(1.32),np.float32(0.96),
-]
-YP3D4PG7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X3D4PG7 = [np.float32(9.9431), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+           np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0),
+           np.float32(14.5), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(20.0),
+           np.float32(22.0), np.float32(25.0), np.float32(30.0), np.float32(40.0),
+           np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+           ]
+Y3D4PG7 = [np.float32(0.00), np.float32(0.45), np.float32(1.65), np.float32(3.00), np.float32(4.35), np.float32(5.55),
+           np.float32(6.45), np.float32(7.20), np.float32(7.80), np.float32(8.40),
+           np.float32(8.85), np.float32(9.30), np.float32(9.60), np.float32(10.1), np.float32(10.1), np.float32(9.60),
+           np.float32(9.00), np.float32(7.80), np.float32(5.77), np.float32(3.75),
+           np.float32(2.70), np.float32(2.03), np.float32(1.32), np.float32(0.96),
+           ]
+YP3D4PG7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
 # 3D3 E=9.9587506 EV  J=2
 
 # ABOVE 100EV SCALED BY 1/E**1.5
 
-X3D3G7 = [np.float32(9.9588),np.float32(10.0),np.float32(10.5),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),
-np.float32(14.5),np.float32(15.0),np.float32(16.0),np.float32(17.0),np.float32(18.0),np.float32(20.0),np.float32(22.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),
-np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y3D3G7 = [np.float32(0.00),np.float32(0.48),np.float32(1.76),np.float32(3.20),np.float32(4.64),np.float32(5.92),np.float32(6.88),np.float32(7.68),np.float32(8.32),np.float32(8.96),
-np.float32(9.44),np.float32(9.92),np.float32(10.2),np.float32(10.7),np.float32(10.7),np.float32(10.2),np.float32(9.60),np.float32(8.32),np.float32(5.92),np.float32(4.00),
-np.float32(2.88),np.float32(2.16),np.float32(1.41),np.float32(1.03),
-]
-YP3D3G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X3D3G7 = [np.float32(9.9588), np.float32(10.0), np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+          np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0),
+          np.float32(14.5), np.float32(15.0), np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(20.0),
+          np.float32(22.0), np.float32(25.0), np.float32(30.0), np.float32(40.0),
+          np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y3D3G7 = [np.float32(0.00), np.float32(0.48), np.float32(1.76), np.float32(3.20), np.float32(4.64), np.float32(5.92),
+          np.float32(6.88), np.float32(7.68), np.float32(8.32), np.float32(8.96),
+          np.float32(9.44), np.float32(9.92), np.float32(10.2), np.float32(10.7), np.float32(10.7), np.float32(10.2),
+          np.float32(9.60), np.float32(8.32), np.float32(5.92), np.float32(4.00),
+          np.float32(2.88), np.float32(2.16), np.float32(1.41), np.float32(1.03),
+          ]
+YP3D3G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 # 3D4 E=10.039054 EV  J=3
 
 # ABOVE 100EV SCALED BY 1/E**2
 
-X3D4G7 = [np.float32(10.0391),np.float32(10.2),np.float32(10.5),np.float32(10.7),np.float32(11.0),np.float32(11.2),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),
-np.float32(13.5),np.float32(14.0),np.float32(14.5),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(22.0),np.float32(25.0),np.float32(30.0),
-np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y3D4G7 = [np.float32(0.00),np.float32(0.50),np.float32(1.50),np.float32(2.20),np.float32(3.30),np.float32(4.00),np.float32(5.00),np.float32(6.90),np.float32(8.70),np.float32(10.7),
-np.float32(12.2),np.float32(13.3),np.float32(13.6),np.float32(13.6),np.float32(12.8),np.float32(10.2),np.float32(9.00),np.float32(7.30),np.float32(5.70),np.float32(3.40),
-np.float32(2.90),np.float32(2.20),np.float32(1.45),np.float32(1.00),np.float32(0.56),np.float32(0.36),
-]
-YP3D4G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X3D4G7 = [np.float32(10.0391), np.float32(10.2), np.float32(10.5), np.float32(10.7), np.float32(11.0), np.float32(11.2),
+          np.float32(11.5), np.float32(12.0), np.float32(12.5), np.float32(13.0),
+          np.float32(13.5), np.float32(14.0), np.float32(14.5), np.float32(15.0), np.float32(16.0), np.float32(18.0),
+          np.float32(20.0), np.float32(22.0), np.float32(25.0), np.float32(30.0),
+          np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y3D4G7 = [np.float32(0.00), np.float32(0.50), np.float32(1.50), np.float32(2.20), np.float32(3.30), np.float32(4.00),
+          np.float32(5.00), np.float32(6.90), np.float32(8.70), np.float32(10.7),
+          np.float32(12.2), np.float32(13.3), np.float32(13.6), np.float32(13.6), np.float32(12.8), np.float32(10.2),
+          np.float32(9.00), np.float32(7.30), np.float32(5.70), np.float32(3.40),
+          np.float32(2.90), np.float32(2.20), np.float32(1.45), np.float32(1.00), np.float32(0.56), np.float32(0.36),
+          ]
+YP3D4G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0),
+           ]
 # 3D1!! E=10.157469 EV  J=2
 
 # ABOVE 100EV SCALED BY 1/E**3
 
-X3D1PPG7 = [np.float32(10.1575),np.float32(10.5),np.float32(10.7),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),
-np.float32(14.5),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(22.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),
-np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y3D1PPG7 = [np.float32(0.00),np.float32(0.70),np.float32(1.30),np.float32(2.00),np.float32(3.20),np.float32(4.50),np.float32(5.70),np.float32(6.80),np.float32(7.80),np.float32(8.30),
-np.float32(8.50),np.float32(8.50),np.float32(8.20),np.float32(6.70),np.float32(5.30),np.float32(3.80),np.float32(2.90),np.float32(1.55),np.float32(0.67),np.float32(0.35),
-np.float32(0.20),np.float32(.085),np.float32(.044),
-]
-YP3D1PPG7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X3D1PPG7 = [np.float32(10.1575), np.float32(10.5), np.float32(10.7), np.float32(11.0), np.float32(11.5),
+            np.float32(12.0), np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0),
+            np.float32(14.5), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(22.0),
+            np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0),
+            np.float32(60.0), np.float32(80.0), np.float32(100.),
+            ]
+Y3D1PPG7 = [np.float32(0.00), np.float32(0.70), np.float32(1.30), np.float32(2.00), np.float32(3.20), np.float32(4.50),
+            np.float32(5.70), np.float32(6.80), np.float32(7.80), np.float32(8.30),
+            np.float32(8.50), np.float32(8.50), np.float32(8.20), np.float32(6.70), np.float32(5.30), np.float32(3.80),
+            np.float32(2.90), np.float32(1.55), np.float32(0.67), np.float32(0.35),
+            np.float32(0.20), np.float32(.085), np.float32(.044),
+            ]
+YP3D1PPG7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             ]
 # 3D1! E=10.220042  J=3
 
 # ABOVE 100EV SCALED BY 1/E
 
-X3D1PG7 = [np.float32(10.2200),np.float32(10.7),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(13.5),np.float32(14.0),np.float32(14.5),
-np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(22.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),
-np.float32(80.0),np.float32(100.),
-]
-Y3D1PG7 = [np.float32(0.00),np.float32(0.60),np.float32(1.04),np.float32(1.83),np.float32(2.39),np.float32(3.00),np.float32(3.39),np.float32(3.65),np.float32(3.83),np.float32(3.94),
-np.float32(4.00),np.float32(4.00),np.float32(3.95),np.float32(3.85),np.float32(3.70),np.float32(3.45),np.float32(2.90),np.float32(2.15),np.float32(1.70),np.float32(1.45),
-np.float32(1.08),np.float32(.875),
-]
-YP3D1PG7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X3D1PG7 = [np.float32(10.2200), np.float32(10.7), np.float32(11.0), np.float32(11.5), np.float32(12.0),
+           np.float32(12.5), np.float32(13.0), np.float32(13.5), np.float32(14.0), np.float32(14.5),
+           np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(22.0), np.float32(25.0),
+           np.float32(30.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
+           np.float32(80.0), np.float32(100.),
+           ]
+Y3D1PG7 = [np.float32(0.00), np.float32(0.60), np.float32(1.04), np.float32(1.83), np.float32(2.39), np.float32(3.00),
+           np.float32(3.39), np.float32(3.65), np.float32(3.83), np.float32(3.94),
+           np.float32(4.00), np.float32(4.00), np.float32(3.95), np.float32(3.85), np.float32(3.70), np.float32(3.45),
+           np.float32(2.90), np.float32(2.15), np.float32(1.70), np.float32(1.45),
+           np.float32(1.08), np.float32(.875),
+           ]
+YP3D1PG7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+            ]
 #
 
 # 3D2 E=10.401030  J=1 RESONANCE RADIATION  119.20 NM         F=0.379
@@ -4158,14 +4470,20 @@ YP3D1PG7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.f
 
 # ABOVE 100EV SCALED BY 1/E**3
 
-X2S5G7 = [np.float32(10.5621),np.float32(11.0),np.float32(11.5),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(18.0),
-np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y2S5G7 = [np.float32(0.00),np.float32(0.10),np.float32(0.25),np.float32(0.50),np.float32(1.00),np.float32(1.50),np.float32(2.02),np.float32(1.75),np.float32(1.70),np.float32(1.37),
-np.float32(1.10),np.float32(.550),np.float32(.275),np.float32(.125),np.float32(.057),np.float32(.037),np.float32(.016),np.float32(.0085),
-]
-YP2S5G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2S5G7 = [np.float32(10.5621), np.float32(11.0), np.float32(11.5), np.float32(12.0), np.float32(12.5), np.float32(13.0),
+          np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0),
+          np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
+          np.float32(80.0), np.float32(100.),
+          ]
+Y2S5G7 = [np.float32(0.00), np.float32(0.10), np.float32(0.25), np.float32(0.50), np.float32(1.00), np.float32(1.50),
+          np.float32(2.02), np.float32(1.75), np.float32(1.70), np.float32(1.37),
+          np.float32(1.10), np.float32(.550), np.float32(.275), np.float32(.125), np.float32(.057), np.float32(.037),
+          np.float32(.016), np.float32(.0085),
+          ]
+YP2S5G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 #
 
 # 2S4  E=10.593211 EV  J=1  RESONANCE RADIATION 117.04 NM     F=0.086
@@ -4176,40 +4494,54 @@ YP2S5G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.fl
 
 # ABOVE 100EV SCALED BY 1/E
 
-X3P105G7 = [np.float32(10.9016),np.float32(11.50),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),
-np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y3P105G7 = [np.float32(0.00),np.float32(1.00),np.float32(2.70),np.float32(3.42),np.float32(4.20),np.float32(5.10),np.float32(5.70),np.float32(5.94),np.float32(5.93),np.float32(5.52),
-np.float32(5.31),np.float32(4.71),np.float32(4.09),np.float32(3.54),np.float32(2.68),np.float32(2.18),np.float32(1.59),np.float32(1.26),
-]
-YP3P105G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X3P105G7 = [np.float32(10.9016), np.float32(11.50), np.float32(12.0), np.float32(12.5), np.float32(13.0),
+            np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0),
+            np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
+            np.float32(80.0), np.float32(100.),
+            ]
+Y3P105G7 = [np.float32(0.00), np.float32(1.00), np.float32(2.70), np.float32(3.42), np.float32(4.20), np.float32(5.10),
+            np.float32(5.70), np.float32(5.94), np.float32(5.93), np.float32(5.52),
+            np.float32(5.31), np.float32(4.71), np.float32(4.09), np.float32(3.54), np.float32(2.68), np.float32(2.18),
+            np.float32(1.59), np.float32(1.26),
+            ]
+YP3P105G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             ]
 # 2P4 E=10.957614 J=1
 
 # ABOVE 100EV SCALED BY 1/E**2
 
-X2P4G7 = [np.float32(10.9576),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),
-np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y2P4G7 = [np.float32(0.00),np.float32(0.75),np.float32(1.10),np.float32(1.20),np.float32(1.10),np.float32(0.75),np.float32(0.60),np.float32(0.38),np.float32(0.25),np.float32(.145),
-np.float32(.095),np.float32(.065),np.float32(.037),np.float32(.025),
-]
-YP2P4G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P4G7 = [np.float32(10.9576), np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0),
+          np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(40.0),
+          np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y2P4G7 = [np.float32(0.00), np.float32(0.75), np.float32(1.10), np.float32(1.20), np.float32(1.10), np.float32(0.75),
+          np.float32(0.60), np.float32(0.38), np.float32(0.25), np.float32(.145),
+          np.float32(.095), np.float32(.065), np.float32(.037), np.float32(.025),
+          ]
+YP2P4G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0),
+           ]
 # 4D6+4D3+4D4!+4D4+4D1!!+4D1!  SUM 4D  E=10.9715
 
 #       SHAPE FROM PETROV NORMALISED TO HAYASHI TOTAL
 
 # ABOVE 100EV SCALED BY 1/E**3
 
-X4DSUMG7 = [np.float32(10.9715),np.float32(12.0),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),
-np.float32(35.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y4DSUMG7 = [np.float32(0.00),np.float32(1.50),np.float32(4.35),np.float32(4.65),np.float32(4.50),np.float32(4.05),np.float32(3.00),np.float32(2.25),np.float32(0.96),np.float32(0.57),
-np.float32(0.36),np.float32(0.21),np.float32(.099),np.float32(.060),np.float32(.024),np.float32(.011),
-]
-YP4DSUMG7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X4DSUMG7 = [np.float32(10.9715), np.float32(12.0), np.float32(13.0), np.float32(14.0), np.float32(15.0),
+            np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+            np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+            ]
+Y4DSUMG7 = [np.float32(0.00), np.float32(1.50), np.float32(4.35), np.float32(4.65), np.float32(4.50), np.float32(4.05),
+            np.float32(3.00), np.float32(2.25), np.float32(0.96), np.float32(0.57),
+            np.float32(0.36), np.float32(0.21), np.float32(.099), np.float32(.060), np.float32(.024), np.float32(.011),
+            ]
+YP4DSUMG7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+             ]
 #
 
 # 4D5 E=10.978772 J=1 RESONANCE RADIATION AT 112.93 NM        F=0.001
@@ -4220,38 +4552,50 @@ YP4DSUMG7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.
 
 # ABOVE 100 EV SCALED BY 1/E
 
-X2P3G7 = [np.float32(11.0547),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),
-np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y2P3G7 = [np.float32(0.00),np.float32(2.20),np.float32(3.00),np.float32(3.50),np.float32(3.60),np.float32(3.50),np.float32(3.20),np.float32(2.60),np.float32(2.20),np.float32(1.65),
-np.float32(1.35),np.float32(1.10),np.float32(0.83),np.float32(0.65),
-]
-YP2P3G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P3G7 = [np.float32(11.0547), np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0),
+          np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(40.0),
+          np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y2P3G7 = [np.float32(0.00), np.float32(2.20), np.float32(3.00), np.float32(3.50), np.float32(3.60), np.float32(3.50),
+          np.float32(3.20), np.float32(2.60), np.float32(2.20), np.float32(1.65),
+          np.float32(1.35), np.float32(1.10), np.float32(0.83), np.float32(0.65),
+          ]
+YP2P3G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0),
+           ]
 # 2P2 E=11.069148  J=1
 
 # ABOVE 100EV SCALED BY 1/E**2
 
-X2P2G7 = [np.float32(11.0691),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),
-np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y2P2G7 = [np.float32(0.00),np.float32(0.75),np.float32(1.00),np.float32(1.08),np.float32(1.08),np.float32(0.97),np.float32(0.85),np.float32(0.56),np.float32(0.40),np.float32(0.22),
-np.float32(.145),np.float32(.100),np.float32(.054),np.float32(.035),
-]
-YP2P2G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P2G7 = [np.float32(11.0691), np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0),
+          np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(40.0),
+          np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y2P2G7 = [np.float32(0.00), np.float32(0.75), np.float32(1.00), np.float32(1.08), np.float32(1.08), np.float32(0.97),
+          np.float32(0.85), np.float32(0.56), np.float32(0.40), np.float32(0.22),
+          np.float32(.145), np.float32(.100), np.float32(.054), np.float32(.035),
+          ]
+YP2P2G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0),
+           ]
 # 2P1 E=11.141221  J=0
 
 # ABOVE 100EV SCALED BY 1/E
 
-X2P1G7 = [np.float32(11.1412),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),
-np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(80.0),np.float32(100.),
-]
-Y2P1G7 = [np.float32(0.00),np.float32(0.80),np.float32(1.50),np.float32(1.90),np.float32(1.90),np.float32(1.80),np.float32(1.60),np.float32(1.30),np.float32(1.05),np.float32(0.91),
-np.float32(0.77),np.float32(0.64),np.float32(0.52),np.float32(0.39),np.float32(0.31),
-]
-YP2P1G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),
-]
+X2P1G7 = [np.float32(11.1412), np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0),
+          np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(35.0),
+          np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+          ]
+Y2P1G7 = [np.float32(0.00), np.float32(0.80), np.float32(1.50), np.float32(1.90), np.float32(1.90), np.float32(1.80),
+          np.float32(1.60), np.float32(1.30), np.float32(1.05), np.float32(0.91),
+          np.float32(0.77), np.float32(0.64), np.float32(0.52), np.float32(0.39), np.float32(0.31),
+          ]
+YP2P1G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           np.float32(0.0), np.float32(0.0), np.float32(0.0),
+           ]
 #
 
 # 4D2 E=11.162564 EV  J=1 RESONANCE RADIATION AT 111.07 NM    F=0.0835
@@ -4308,15 +4652,18 @@ YP2P1G7 = [np.float32(0.0),np.float32(0.0),np.float32(0.0),np.float32(0.0),np.fl
 
 # BREMSSTRAHLUNG X-SECTION WITH CUT OFF UNITS 10**-24
 
-Z54TG7 = [np.float32(4948.),np.float32(4086.),np.float32(2921.),np.float32(2088.),np.float32(1396.),np.float32(776.),np.float32(492.),np.float32(328.),np.float32(220.),np.float32(189.),
-np.float32(179.7),np.float32(178.6),np.float32(179.0),np.float32(179.3),np.float32(179.6),np.float32(180.2),np.float32(180.3),np.float32(181.5),np.float32(182.1),np.float32(182.7),
-np.float32(183.6),np.float32(184.4),np.float32(184.7),np.float32(185.5),np.float32(185.7),
-]
-EBRMG7 = [np.float32(1000.),np.float32(2000.),np.float32(5000.),np.float32(1.E4),np.float32(2.E4),np.float32(5.E4),np.float32(1.E5),np.float32(2.E5),np.float32(5.E5),np.float32(1.E6),
-np.float32(2.E6),np.float32(3.E6),np.float32(4.E6),np.float32(5.E6),np.float32(6.E6),np.float32(8.E6),np.float32(1.E7),np.float32(1.5E7),np.float32(2.E7),np.float32(3.E7),
-np.float32(4.E7),np.float32(5.E7),np.float32(6.E7),np.float32(8.E7),np.float32(1.E8),
-]
-
+Z54TG7 = [np.float32(4948.), np.float32(4086.), np.float32(2921.), np.float32(2088.), np.float32(1396.),
+          np.float32(776.), np.float32(492.), np.float32(328.), np.float32(220.), np.float32(189.),
+          np.float32(179.7), np.float32(178.6), np.float32(179.0), np.float32(179.3), np.float32(179.6),
+          np.float32(180.2), np.float32(180.3), np.float32(181.5), np.float32(182.1), np.float32(182.7),
+          np.float32(183.6), np.float32(184.4), np.float32(184.7), np.float32(185.5), np.float32(185.7),
+          ]
+EBRMG7 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.E4), np.float32(2.E4), np.float32(5.E4),
+          np.float32(1.E5), np.float32(2.E5), np.float32(5.E5), np.float32(1.E6),
+          np.float32(2.E6), np.float32(3.E6), np.float32(4.E6), np.float32(5.E6), np.float32(6.E6), np.float32(8.E6),
+          np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
+          np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
+          ]
 
 gd['gas7/XEN'] = XENG7
 gd['gas7/YMOM'] = YMOMG7
@@ -9236,456 +9583,659 @@ gd['gas6/YP4FS'] = YP4FSG6
 gd['gas6/Z36T'] = Z36TG6
 gd['gas6/EBRM'] = EBRMG6
 gd['gas6/EIN'] = EING6
-XENG9 = [np.float32(0.00),np.float32(.001),np.float32(.002),np.float32(.003),np.float32(.004),np.float32(.005),np.float32(.007),np.float32(0.01),np.float32(.014),np.float32(0.02),np.float32(.025),
-np.float32(0.03),np.float32(0.04),np.float32(0.05),np.float32(0.06),np.float32(0.07),np.float32(0.08),np.float32(0.09),np.float32(0.10),np.float32(0.11),np.float32(0.12),
-np.float32(0.13),np.float32(0.14),np.float32(0.16),np.float32(0.18),np.float32(0.20),np.float32(0.25),np.float32(0.30),np.float32(0.35),np.float32(0.40),np.float32(0.50),
-np.float32(0.60),np.float32(0.70),np.float32(0.80),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(4.00),np.float32(5.00),
-np.float32(6.00),np.float32(7.00),np.float32(8.00),np.float32(9.00),np.float32(10.0),np.float32(12.0),np.float32(14.0),np.float32(16.0),np.float32(18.0),np.float32(20.0),
-np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(100.),np.float32(125.),np.float32(150.),
-np.float32(175.),np.float32(200.),np.float32(250.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(600.),np.float32(700.),
-np.float32(800.),np.float32(900.),np.float32(1000.),np.float32(1250.),np.float32(1500.),np.float32(1750.),np.float32(2000.),np.float32(2500.),np.float32(3000.),np.float32(3500.),
-np.float32(4000.),np.float32(4500.),np.float32(5000.),np.float32(6000.),np.float32(7000.),np.float32(8000.),np.float32(9000.),1.0e4,1.25e4,1.5e4,
-1.75e4,2.0e4,2.5e4,3.0e4,3.5e4,4.0e4,4.5e4,5.0e4,6.0e4,7.0e4,
-8.0e4,9.0e4,1.0e5,1.25e5,1.5e5,1.75e5,2.0e5,2.5e5,3.0e5,3.5e5,
-4.0e5,4.5e5,5.0e5,6.0e5,7.0e5,8.0e5,9.0e5,1.0e6,1.25e6,1.5e6,
-1.75e6,2.0e6,2.5e6,3.0e6,3.5e6,4.0e6,4.5e6,5.0e6,6.0e6,7.0e6,
-8.0e6,9.0e6,1.0e7,1.25e7,1.5e7,1.75e7,2.0e7,2.5e7,3.0e7,3.5e7,
-4.0e7,4.5e7,5.0e7,6.0e7,7.0e7,8.0e7,9.0e7,1.0e8,1.25e8,1.5e8,
-1.75e8,2.0e8,2.5e8,3.0e8,3.5e8,4.0e8,4.5e8,5.0e8,6.0e8,7.0e8,
-8.0e8,9.0e8,1.0e9,
-]
-YMTG9 = [np.float32(32.0),np.float32(31.0),np.float32(29.0),np.float32(27.0),np.float32(26.0),np.float32(25.0),np.float32(23.0),np.float32(20.0),np.float32(17.6),np.float32(15.2),np.float32(13.0),
-np.float32(11.2),np.float32(7.25),np.float32(4.70),np.float32(3.25),np.float32(2.40),np.float32(1.80),np.float32(1.40),np.float32(1.15),np.float32(1.10),np.float32(1.08),
-np.float32(1.08),np.float32(1.10),np.float32(1.25),np.float32(1.50),np.float32(1.85),np.float32(2.40),np.float32(3.15),np.float32(4.10),np.float32(4.85),np.float32(6.10),
-np.float32(6.90),np.float32(7.15),np.float32(7.30),np.float32(7.70),np.float32(8.45),np.float32(9.10),np.float32(10.3),np.float32(11.6),np.float32(13.9),np.float32(17.8),
-np.float32(20.7),np.float32(21.4),np.float32(21.3),np.float32(20.0),np.float32(17.6),np.float32(13.9),np.float32(11.3),np.float32(9.40),np.float32(8.00),np.float32(7.20),
-np.float32(5.75),np.float32(4.90),np.float32(3.76),np.float32(3.00),np.float32(2.50),np.float32(2.15),np.float32(1.80),np.float32(1.41),np.float32(1.10),np.float32(0.91),
-np.float32(.770),np.float32(.680),np.float32(.540),np.float32(.440),np.float32(.370),np.float32(.325),np.float32(.280),np.float32(.252),np.float32(.200),np.float32(.159),
-np.float32(.127),np.float32(.104),np.float32(.0870),np.float32(.0592),np.float32(.0431),np.float32(.0329),np.float32(.0260),np.float32(.0175),np.float32(.0127),np.float32(.00961),
-np.float32(.00756),np.float32(.00612),np.float32(.00506),np.float32(.00364),np.float32(.00276),np.float32(.00216),np.float32(.00175),np.float32(.00144),9.62e-4,
-6.91e-4,
-5.22e-4,4.10e-4,2.74e-4,1.97e-4,1.49e-4,1.17e-4,9.48e-5,7.85e-5,
-5.67e-5,4.31e-5,
-3.41e-5,2.77e-5,2.31e-5,1.57e-5,1.15e-5,8.88e-6,7.11e-6,4.93e-6,
-3.67e-6,2.87e-6,
-2.33e-6,1.94e-6,1.64e-6,1.24e-6,9.79e-7,7.98e-7,6.67e-7,5.68e-7,
-4.06e-7,3.06e-7,
-2.41e-7,1.95e-7,1.36e-7,1.01e-7,7.87e-8,6.30e-8,5.17e-8,4.32e-8,
-3.16e-8,2.42e-8,
-1.92e-8,1.56e-8,1.29e-8,8.67e-9,6.23e-9,4.71e-9,3.69e-9,2.45e-9,
-1.75e-9,1.31e-9,
-1.02e-9,8.19e-10,6.71e-10,4.75e-10,3.53e-10,2.73e-10,2.18e-10,
-1.77e-10,1.14e-10,7.99e-11,
-5.89e-11,4.52e-11,2.90e-11,2.02e-11,1.48e-11,1.14e-11,8.98e-12,
-7.28e-12,5.06e-12,3.71e-12,
-2.85e-12,2.25e-12,1.82e-12,
-]
+XENG9 = [np.float32(0.00), np.float32(.001), np.float32(.002), np.float32(.003), np.float32(.004), np.float32(.005),
+         np.float32(.007), np.float32(0.01), np.float32(.014), np.float32(0.02), np.float32(.025),
+         np.float32(0.03), np.float32(0.04), np.float32(0.05), np.float32(0.06), np.float32(0.07), np.float32(0.08),
+         np.float32(0.09), np.float32(0.10), np.float32(0.11), np.float32(0.12),
+         np.float32(0.13), np.float32(0.14), np.float32(0.16), np.float32(0.18), np.float32(0.20), np.float32(0.25),
+         np.float32(0.30), np.float32(0.35), np.float32(0.40), np.float32(0.50),
+         np.float32(0.60), np.float32(0.70), np.float32(0.80), np.float32(1.00), np.float32(1.50), np.float32(2.00),
+         np.float32(2.50), np.float32(3.00), np.float32(4.00), np.float32(5.00),
+         np.float32(6.00), np.float32(7.00), np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(12.0),
+         np.float32(14.0), np.float32(16.0), np.float32(18.0), np.float32(20.0),
+         np.float32(25.0), np.float32(30.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+         np.float32(80.0), np.float32(100.), np.float32(125.), np.float32(150.),
+         np.float32(175.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.),
+         np.float32(450.), np.float32(500.), np.float32(600.), np.float32(700.),
+         np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.),
+         np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.),
+         np.float32(4000.), np.float32(4500.), np.float32(5000.), np.float32(6000.), np.float32(7000.),
+         np.float32(8000.), np.float32(9000.), 1.0e4, 1.25e4, 1.5e4,
+         1.75e4, 2.0e4, 2.5e4, 3.0e4, 3.5e4, 4.0e4, 4.5e4, 5.0e4, 6.0e4, 7.0e4,
+         8.0e4, 9.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5, 2.5e5, 3.0e5, 3.5e5,
+         4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5, 1.0e6, 1.25e6, 1.5e6,
+         1.75e6, 2.0e6, 2.5e6, 3.0e6, 3.5e6, 4.0e6, 4.5e6, 5.0e6, 6.0e6, 7.0e6,
+         8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7, 2.5e7, 3.0e7, 3.5e7,
+         4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7, 1.0e8, 1.25e8, 1.5e8,
+         1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8, 5.0e8, 6.0e8, 7.0e8,
+         8.0e8, 9.0e8, 1.0e9,
+         ]
+YMTG9 = [np.float32(32.0), np.float32(31.0), np.float32(29.0), np.float32(27.0), np.float32(26.0), np.float32(25.0),
+         np.float32(23.0), np.float32(20.0), np.float32(17.6), np.float32(15.2), np.float32(13.0),
+         np.float32(11.2), np.float32(7.25), np.float32(4.70), np.float32(3.25), np.float32(2.40), np.float32(1.80),
+         np.float32(1.40), np.float32(1.15), np.float32(1.10), np.float32(1.08),
+         np.float32(1.08), np.float32(1.10), np.float32(1.25), np.float32(1.50), np.float32(1.85), np.float32(2.40),
+         np.float32(3.15), np.float32(4.10), np.float32(4.85), np.float32(6.10),
+         np.float32(6.90), np.float32(7.15), np.float32(7.30), np.float32(7.70), np.float32(8.45), np.float32(9.10),
+         np.float32(10.3), np.float32(11.6), np.float32(13.9), np.float32(17.8),
+         np.float32(20.7), np.float32(21.4), np.float32(21.3), np.float32(20.0), np.float32(17.6), np.float32(13.9),
+         np.float32(11.3), np.float32(9.40), np.float32(8.00), np.float32(7.20),
+         np.float32(5.75), np.float32(4.90), np.float32(3.76), np.float32(3.00), np.float32(2.50), np.float32(2.15),
+         np.float32(1.80), np.float32(1.41), np.float32(1.10), np.float32(0.91),
+         np.float32(.770), np.float32(.680), np.float32(.540), np.float32(.440), np.float32(.370), np.float32(.325),
+         np.float32(.280), np.float32(.252), np.float32(.200), np.float32(.159),
+         np.float32(.127), np.float32(.104), np.float32(.0870), np.float32(.0592), np.float32(.0431), np.float32(.0329),
+         np.float32(.0260), np.float32(.0175), np.float32(.0127), np.float32(.00961),
+         np.float32(.00756), np.float32(.00612), np.float32(.00506), np.float32(.00364), np.float32(.00276),
+         np.float32(.00216), np.float32(.00175), np.float32(.00144), 9.62e-4,
+         6.91e-4,
+         5.22e-4, 4.10e-4, 2.74e-4, 1.97e-4, 1.49e-4, 1.17e-4, 9.48e-5, 7.85e-5,
+         5.67e-5, 4.31e-5,
+         3.41e-5, 2.77e-5, 2.31e-5, 1.57e-5, 1.15e-5, 8.88e-6, 7.11e-6, 4.93e-6,
+         3.67e-6, 2.87e-6,
+         2.33e-6, 1.94e-6, 1.64e-6, 1.24e-6, 9.79e-7, 7.98e-7, 6.67e-7, 5.68e-7,
+         4.06e-7, 3.06e-7,
+         2.41e-7, 1.95e-7, 1.36e-7, 1.01e-7, 7.87e-8, 6.30e-8, 5.17e-8, 4.32e-8,
+         3.16e-8, 2.42e-8,
+         1.92e-8, 1.56e-8, 1.29e-8, 8.67e-9, 6.23e-9, 4.71e-9, 3.69e-9, 2.45e-9,
+         1.75e-9, 1.31e-9,
+         1.02e-9, 8.19e-10, 6.71e-10, 4.75e-10, 3.53e-10, 2.73e-10, 2.18e-10,
+         1.77e-10, 1.14e-10, 7.99e-11,
+         5.89e-11, 4.52e-11, 2.90e-11, 2.02e-11, 1.48e-11, 1.14e-11, 8.98e-12,
+         7.28e-12, 5.06e-12, 3.71e-12,
+         2.85e-12, 2.25e-12, 1.82e-12,
+         ]
 # ASSUME ELASTIC = MOMENTUM TRANSFER UP TO 3.0 EV (NO GOOD ELASTIC DATA)
 
-YELG9 = [np.float32(32.0),np.float32(31.0),np.float32(29.0),np.float32(27.0),np.float32(26.0),np.float32(25.0),np.float32(23.0),np.float32(20.0),np.float32(17.6),np.float32(15.2),np.float32(13.0),
-np.float32(11.2),np.float32(7.25),np.float32(4.70),np.float32(3.25),np.float32(2.40),np.float32(1.80),np.float32(1.40),np.float32(1.15),np.float32(1.10),np.float32(1.08),
-np.float32(1.08),np.float32(1.10),np.float32(1.25),np.float32(1.50),np.float32(1.85),np.float32(2.40),np.float32(3.15),np.float32(4.10),np.float32(4.85),np.float32(6.10),
-np.float32(6.90),np.float32(7.15),np.float32(7.30),np.float32(7.70),np.float32(8.45),np.float32(9.10),np.float32(10.3),np.float32(15.2),np.float32(18.9),np.float32(23.4),
-np.float32(27.2),np.float32(29.6),np.float32(31.9),np.float32(31.0),np.float32(30.1),np.float32(27.7),np.float32(25.9),np.float32(24.1),np.float32(23.3),np.float32(22.1),
-np.float32(20.0),np.float32(17.3),np.float32(13.4),np.float32(11.9),np.float32(10.7),np.float32(9.85),np.float32(9.02),np.float32(7.40),np.float32(6.25),np.float32(5.50),
-np.float32(4.95),np.float32(4.50),np.float32(3.90),np.float32(3.43),np.float32(3.04),np.float32(2.74),np.float32(2.49),np.float32(2.29),np.float32(1.97),np.float32(1.73),
-np.float32(1.54),np.float32(1.39),np.float32(1.27),np.float32(1.04),np.float32(.877),np.float32(.760),np.float32(.671),np.float32(.544),np.float32(.458),np.float32(.395),
-np.float32(.348),np.float32(.311),np.float32(.281),np.float32(.235),np.float32(.203),np.float32(.178),np.float32(.159),np.float32(.144),np.float32(.116),np.float32(.0978),
-np.float32(.0845),np.float32(.0745),np.float32(.0605),np.float32(.0512),np.float32(.0445),np.float32(.0395),np.float32(.0356),np.float32(.0325),np.float32(.0278),np.float32(.0244),
-np.float32(.0226),np.float32(.0200),np.float32(.0184),np.float32(.0156),np.float32(.0138),np.float32(.0124),np.float32(.0115),np.float32(.0101),np.float32(.00918),np.float32(.00855),
-np.float32(.00808),np.float32(.00772),np.float32(.00744),np.float32(.00702),np.float32(.00674),np.float32(.00653),np.float32(.00637),np.float32(.00625),np.float32(.00605),
-np.float32(.00592),
-np.float32(.00584),np.float32(.00578),np.float32(.00570),np.float32(.00566),np.float32(.00563),np.float32(.00561),np.float32(.00560),np.float32(.00559),np.float32(.00557),
-np.float32(.00556),
-np.float32(.00556),np.float32(.00555),np.float32(.00555),np.float32(.00555),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),np.float32(.00554),
-]
-YEPSG9 = [np.float32(.65352),np.float32(.61534),np.float32(.65007),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),np.float32(1.0),
-np.float32(.65056),np.float32(.59839),np.float32(.52532),np.float32(.49651),np.float32(.42242),np.float32(.32895),np.float32(.26232),np.float32(.21931),np.float32(.17939),
-np.float32(.16529),
-np.float32(.13630),np.float32(.13322),np.float32(.13133),np.float32(.11165),np.float32(.09963),np.float32(.09005),np.float32(.07893),np.float32(.07377),np.float32(.06576),
-np.float32(.06017),
-np.float32(.05510),np.float32(.05287),np.float32(.04673),np.float32(.04198),np.float32(.03896),np.float32(.03770),np.float32(.03497),np.float32(.03403),np.float32(.03050),
-np.float32(.02667),
-np.float32(.02302),np.float32(.02024),np.float32(.01805),np.float32(.01418),np.float32(.01167),np.float32(.00990),np.float32(.00860),np.float32(.00681),np.float32(.00563),
-np.float32(.00480),
-np.float32(.00418),np.float32(.00370),np.float32(.00332),np.float32(.00276),np.float32(.00235),np.float32(.00205),np.float32(.00182),np.float32(.00163),np.float32(.00130),
-np.float32(.00108),
-np.float32(.000924),np.float32(.000806),np.float32(.000641),np.float32(.000531),np.float32(.000452),np.float32(.000393),np.float32(.000348),3.11e-4,
-2.56e-4,2.17e-4,
-1.82e-4,1.65e-4,1.47e-4,1.15e-4,9.32e-5,7.80e-5,6.67e-5,5.10e-5,
-4.08e-5,3.36e-5,
-2.83e-5,2.43e-5,2.11e-5,1.65e-5,1.33e-5,1.10e-5,9.27e-6,7.94e-6,
-5.71e-6,4.29e-6,
-3.35e-6,2.69e-6,1.86e-6,1.36e-6,1.04e-6,8.19e-7,6.63e-7,5.48e-7,
-3.93e-7,2.95e-7,
-2.30e-7,1.84e-7,1.57e-7,9.87e-8,6.96e-8,5.16e-8,3.98e-8,2.58e-8,
-1.80e-8,1.33e-8,
-1.02e-8,8.06e-9,6.54e-9,4.53e-9,3.32e-9,2.53e-9,1.99e-9,1.61e-9,
-1.01e-9,6.94e-10,
-5.04e-10,3.82e-10,2.40e-10,1.64e-10,1.19e-10,9.0e-11,7.00e-11,
-5.6e-11,3.8e-11,2.8e-11,
-2.1e-11,1.6e-11,1.3e-11,
-]
+YELG9 = [np.float32(32.0), np.float32(31.0), np.float32(29.0), np.float32(27.0), np.float32(26.0), np.float32(25.0),
+         np.float32(23.0), np.float32(20.0), np.float32(17.6), np.float32(15.2), np.float32(13.0),
+         np.float32(11.2), np.float32(7.25), np.float32(4.70), np.float32(3.25), np.float32(2.40), np.float32(1.80),
+         np.float32(1.40), np.float32(1.15), np.float32(1.10), np.float32(1.08),
+         np.float32(1.08), np.float32(1.10), np.float32(1.25), np.float32(1.50), np.float32(1.85), np.float32(2.40),
+         np.float32(3.15), np.float32(4.10), np.float32(4.85), np.float32(6.10),
+         np.float32(6.90), np.float32(7.15), np.float32(7.30), np.float32(7.70), np.float32(8.45), np.float32(9.10),
+         np.float32(10.3), np.float32(15.2), np.float32(18.9), np.float32(23.4),
+         np.float32(27.2), np.float32(29.6), np.float32(31.9), np.float32(31.0), np.float32(30.1), np.float32(27.7),
+         np.float32(25.9), np.float32(24.1), np.float32(23.3), np.float32(22.1),
+         np.float32(20.0), np.float32(17.3), np.float32(13.4), np.float32(11.9), np.float32(10.7), np.float32(9.85),
+         np.float32(9.02), np.float32(7.40), np.float32(6.25), np.float32(5.50),
+         np.float32(4.95), np.float32(4.50), np.float32(3.90), np.float32(3.43), np.float32(3.04), np.float32(2.74),
+         np.float32(2.49), np.float32(2.29), np.float32(1.97), np.float32(1.73),
+         np.float32(1.54), np.float32(1.39), np.float32(1.27), np.float32(1.04), np.float32(.877), np.float32(.760),
+         np.float32(.671), np.float32(.544), np.float32(.458), np.float32(.395),
+         np.float32(.348), np.float32(.311), np.float32(.281), np.float32(.235), np.float32(.203), np.float32(.178),
+         np.float32(.159), np.float32(.144), np.float32(.116), np.float32(.0978),
+         np.float32(.0845), np.float32(.0745), np.float32(.0605), np.float32(.0512), np.float32(.0445),
+         np.float32(.0395), np.float32(.0356), np.float32(.0325), np.float32(.0278), np.float32(.0244),
+         np.float32(.0226), np.float32(.0200), np.float32(.0184), np.float32(.0156), np.float32(.0138),
+         np.float32(.0124), np.float32(.0115), np.float32(.0101), np.float32(.00918), np.float32(.00855),
+         np.float32(.00808), np.float32(.00772), np.float32(.00744), np.float32(.00702), np.float32(.00674),
+         np.float32(.00653), np.float32(.00637), np.float32(.00625), np.float32(.00605),
+         np.float32(.00592),
+         np.float32(.00584), np.float32(.00578), np.float32(.00570), np.float32(.00566), np.float32(.00563),
+         np.float32(.00561), np.float32(.00560), np.float32(.00559), np.float32(.00557),
+         np.float32(.00556),
+         np.float32(.00556), np.float32(.00555), np.float32(.00555), np.float32(.00555), np.float32(.00554),
+         np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554),
+         np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554),
+         np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554),
+         np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554),
+         np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554), np.float32(.00554),
+         np.float32(.00554), np.float32(.00554), np.float32(.00554),
+         ]
+YEPSG9 = [np.float32(.65352), np.float32(.61534), np.float32(.65007), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0), np.float32(1.0),
+          np.float32(.65056), np.float32(.59839), np.float32(.52532), np.float32(.49651), np.float32(.42242),
+          np.float32(.32895), np.float32(.26232), np.float32(.21931), np.float32(.17939),
+          np.float32(.16529),
+          np.float32(.13630), np.float32(.13322), np.float32(.13133), np.float32(.11165), np.float32(.09963),
+          np.float32(.09005), np.float32(.07893), np.float32(.07377), np.float32(.06576),
+          np.float32(.06017),
+          np.float32(.05510), np.float32(.05287), np.float32(.04673), np.float32(.04198), np.float32(.03896),
+          np.float32(.03770), np.float32(.03497), np.float32(.03403), np.float32(.03050),
+          np.float32(.02667),
+          np.float32(.02302), np.float32(.02024), np.float32(.01805), np.float32(.01418), np.float32(.01167),
+          np.float32(.00990), np.float32(.00860), np.float32(.00681), np.float32(.00563),
+          np.float32(.00480),
+          np.float32(.00418), np.float32(.00370), np.float32(.00332), np.float32(.00276), np.float32(.00235),
+          np.float32(.00205), np.float32(.00182), np.float32(.00163), np.float32(.00130),
+          np.float32(.00108),
+          np.float32(.000924), np.float32(.000806), np.float32(.000641), np.float32(.000531), np.float32(.000452),
+          np.float32(.000393), np.float32(.000348), 3.11e-4,
+          2.56e-4, 2.17e-4,
+          1.82e-4, 1.65e-4, 1.47e-4, 1.15e-4, 9.32e-5, 7.80e-5, 6.67e-5, 5.10e-5,
+          4.08e-5, 3.36e-5,
+          2.83e-5, 2.43e-5, 2.11e-5, 1.65e-5, 1.33e-5, 1.10e-5, 9.27e-6, 7.94e-6,
+          5.71e-6, 4.29e-6,
+          3.35e-6, 2.69e-6, 1.86e-6, 1.36e-6, 1.04e-6, 8.19e-7, 6.63e-7, 5.48e-7,
+          3.93e-7, 2.95e-7,
+          2.30e-7, 1.84e-7, 1.57e-7, 9.87e-8, 6.96e-8, 5.16e-8, 3.98e-8, 2.58e-8,
+          1.80e-8, 1.33e-8,
+          1.02e-8, 8.06e-9, 6.54e-9, 4.53e-9, 3.32e-9, 2.53e-9, 1.99e-9, 1.61e-9,
+          1.01e-9, 6.94e-10,
+          5.04e-10, 3.82e-10, 2.40e-10, 1.64e-10, 1.19e-10, 9.0e-11, 7.00e-11,
+          5.6e-11, 3.8e-11, 2.8e-11,
+          2.1e-11, 1.6e-11, 1.3e-11,
+          ]
 #
 
-XVIB1G9 = [np.float32(.117),np.float32(0.13),np.float32(0.15),np.float32(0.17),np.float32(0.20),np.float32(0.23),np.float32(0.25),np.float32(0.30),np.float32(0.40),np.float32(0.50),
-np.float32(0.60),np.float32(0.70),np.float32(0.85),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(3.50),np.float32(4.00),
-np.float32(5.00),np.float32(6.00),np.float32(7.50),np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
-]
-YVIB1G9 = [np.float32(0.00),np.float32(.070),np.float32(.105),np.float32(.126),np.float32(.135),np.float32(.140),np.float32(.140),np.float32(.129),np.float32(.105),np.float32(.082),
-np.float32(.067),np.float32(.057),np.float32(.049),np.float32(.049),np.float32(.064),np.float32(.087),np.float32(.108),np.float32(.129),np.float32(.152),np.float32(.187),
-np.float32(.246),np.float32(.316),np.float32(.433),np.float32(.433),np.float32(.351),np.float32(.246),np.float32(.164),np.float32(.073),np.float32(.042),
-]
-XVIB2G9 = [np.float32(.148),np.float32(0.16),np.float32(0.17),np.float32(0.20),np.float32(0.23),np.float32(0.25),np.float32(0.30),np.float32(0.40),np.float32(0.50),np.float32(0.60),
-np.float32(0.70),np.float32(0.85),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(5.00),
-np.float32(6.00),np.float32(7.50),np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
-]
-YVIB2G9 = [np.float32(0.00),np.float32(.044),np.float32(.077),np.float32(.108),np.float32(.115),np.float32(.123),np.float32(.123),np.float32(.108),np.float32(.092),np.float32(.077),
-np.float32(.065),np.float32(.055),np.float32(.054),np.float32(.062),np.float32(.077),np.float32(.096),np.float32(.115),np.float32(.139),np.float32(.169),np.float32(.223),
-np.float32(.293),np.float32(.370),np.float32(.370),np.float32(.308),np.float32(.216),np.float32(.142),np.float32(.065),np.float32(.037),
-]
-XVIB3G9 = [np.float32(.182),np.float32(0.19),np.float32(0.20),np.float32(0.23),np.float32(0.25),np.float32(0.30),np.float32(0.35),np.float32(0.40),np.float32(0.50),np.float32(0.60),
-np.float32(0.70),np.float32(0.85),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(5.00),
-np.float32(6.00),np.float32(7.50),np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
-]
-YVIB3G9 = [np.float32(0.00),np.float32(.070),np.float32(.091),np.float32(.189),np.float32(.231),np.float32(.259),np.float32(.266),np.float32(.259),np.float32(.224),np.float32(.182),
-np.float32(.164),np.float32(.154),np.float32(.157),np.float32(.171),np.float32(.189),np.float32(.210),np.float32(.252),np.float32(.301),np.float32(.364),np.float32(.490),
-np.float32(.623),np.float32(.805),np.float32(.805),np.float32(.665),np.float32(.434),np.float32(.294),np.float32(.133),np.float32(.077),
-]
-XVIB4G9 = [np.float32(.366),np.float32(.367),np.float32(.368),np.float32(.370),np.float32(.375),np.float32(.380),np.float32(.385),np.float32(.390),np.float32(.395),np.float32(.400),
-np.float32(.410),np.float32(.420),np.float32(.430),np.float32(.440),np.float32(.450),np.float32(.460),np.float32(.480),np.float32(.500),np.float32(.520),np.float32(.550),
-np.float32(.600),np.float32(.650),np.float32(.700),np.float32(.800),np.float32(.900),np.float32(1.00),np.float32(1.10),np.float32(1.20),np.float32(1.30),np.float32(1.40),
-np.float32(1.50),np.float32(1.70),np.float32(2.00),np.float32(2.50),np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(5.00),np.float32(6.00),np.float32(7.50),
-np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
-]
-YVIB4G9 = [np.float32(0.00),np.float32(.03782),np.float32(.05336),np.float32(.07494),np.float32(.1107),np.float32(.1361),np.float32(.1561),np.float32(.1727),
-np.float32(.1864),np.float32(.2002),
-np.float32(.2210),np.float32(.2382),np.float32(.2520),np.float32(.2641),np.float32(.2728),np.float32(.2814),np.float32(.2952),np.float32(.3056),np.float32(.3125),np.float32(.3194),
-np.float32(.3246),np.float32(.3246),np.float32(.3229),np.float32(.3143),np.float32(.3026),np.float32(.3026),np.float32(.3048),np.float32(.3071),np.float32(.3115),np.float32(.3160),
-np.float32(.320),np.float32(.329),np.float32(.343),np.float32(.387),np.float32(.472),np.float32(.570),np.float32(.694),np.float32(.908),np.float32(1.16),np.float32(1.32),
-np.float32(1.16),np.float32(.935),np.float32(.507),np.float32(.289),np.float32(.129),np.float32(.715),
-]
-XVIB5G9 = [np.float32(.548),np.float32(1.00),np.float32(1.50),np.float32(2.00),np.float32(3.00),np.float32(3.50),np.float32(4.00),np.float32(5.00),np.float32(6.00),np.float32(7.50),
-np.float32(8.50),np.float32(10.0),np.float32(15.0),np.float32(20.0),np.float32(30.0),np.float32(40.0),
-]
-YVIB5G9 = [np.float32(0.00),np.float32(.001),np.float32(.002),np.float32(.003),np.float32(.0055),np.float32(.011),np.float32(.044),np.float32(.094),np.float32(.134),np.float32(.143),
-np.float32(.134),np.float32(.116),np.float32(.068),np.float32(.0383),np.float32(.0171),np.float32(.0096),
-]
-# GROSS IONISATION X-SECTION  AVERAGE OF TIAN AND VIDAL AND 
+XVIB1G9 = [np.float32(.117), np.float32(0.13), np.float32(0.15), np.float32(0.17), np.float32(0.20), np.float32(0.23),
+           np.float32(0.25), np.float32(0.30), np.float32(0.40), np.float32(0.50),
+           np.float32(0.60), np.float32(0.70), np.float32(0.85), np.float32(1.00), np.float32(1.50), np.float32(2.00),
+           np.float32(2.50), np.float32(3.00), np.float32(3.50), np.float32(4.00),
+           np.float32(5.00), np.float32(6.00), np.float32(7.50), np.float32(8.50), np.float32(10.0), np.float32(15.0),
+           np.float32(20.0), np.float32(30.0), np.float32(40.0),
+           ]
+YVIB1G9 = [np.float32(0.00), np.float32(.070), np.float32(.105), np.float32(.126), np.float32(.135), np.float32(.140),
+           np.float32(.140), np.float32(.129), np.float32(.105), np.float32(.082),
+           np.float32(.067), np.float32(.057), np.float32(.049), np.float32(.049), np.float32(.064), np.float32(.087),
+           np.float32(.108), np.float32(.129), np.float32(.152), np.float32(.187),
+           np.float32(.246), np.float32(.316), np.float32(.433), np.float32(.433), np.float32(.351), np.float32(.246),
+           np.float32(.164), np.float32(.073), np.float32(.042),
+           ]
+XVIB2G9 = [np.float32(.148), np.float32(0.16), np.float32(0.17), np.float32(0.20), np.float32(0.23), np.float32(0.25),
+           np.float32(0.30), np.float32(0.40), np.float32(0.50), np.float32(0.60),
+           np.float32(0.70), np.float32(0.85), np.float32(1.00), np.float32(1.50), np.float32(2.00), np.float32(2.50),
+           np.float32(3.00), np.float32(3.50), np.float32(4.00), np.float32(5.00),
+           np.float32(6.00), np.float32(7.50), np.float32(8.50), np.float32(10.0), np.float32(15.0), np.float32(20.0),
+           np.float32(30.0), np.float32(40.0),
+           ]
+YVIB2G9 = [np.float32(0.00), np.float32(.044), np.float32(.077), np.float32(.108), np.float32(.115), np.float32(.123),
+           np.float32(.123), np.float32(.108), np.float32(.092), np.float32(.077),
+           np.float32(.065), np.float32(.055), np.float32(.054), np.float32(.062), np.float32(.077), np.float32(.096),
+           np.float32(.115), np.float32(.139), np.float32(.169), np.float32(.223),
+           np.float32(.293), np.float32(.370), np.float32(.370), np.float32(.308), np.float32(.216), np.float32(.142),
+           np.float32(.065), np.float32(.037),
+           ]
+XVIB3G9 = [np.float32(.182), np.float32(0.19), np.float32(0.20), np.float32(0.23), np.float32(0.25), np.float32(0.30),
+           np.float32(0.35), np.float32(0.40), np.float32(0.50), np.float32(0.60),
+           np.float32(0.70), np.float32(0.85), np.float32(1.00), np.float32(1.50), np.float32(2.00), np.float32(2.50),
+           np.float32(3.00), np.float32(3.50), np.float32(4.00), np.float32(5.00),
+           np.float32(6.00), np.float32(7.50), np.float32(8.50), np.float32(10.0), np.float32(15.0), np.float32(20.0),
+           np.float32(30.0), np.float32(40.0),
+           ]
+YVIB3G9 = [np.float32(0.00), np.float32(.070), np.float32(.091), np.float32(.189), np.float32(.231), np.float32(.259),
+           np.float32(.266), np.float32(.259), np.float32(.224), np.float32(.182),
+           np.float32(.164), np.float32(.154), np.float32(.157), np.float32(.171), np.float32(.189), np.float32(.210),
+           np.float32(.252), np.float32(.301), np.float32(.364), np.float32(.490),
+           np.float32(.623), np.float32(.805), np.float32(.805), np.float32(.665), np.float32(.434), np.float32(.294),
+           np.float32(.133), np.float32(.077),
+           ]
+XVIB4G9 = [np.float32(.366), np.float32(.367), np.float32(.368), np.float32(.370), np.float32(.375), np.float32(.380),
+           np.float32(.385), np.float32(.390), np.float32(.395), np.float32(.400),
+           np.float32(.410), np.float32(.420), np.float32(.430), np.float32(.440), np.float32(.450), np.float32(.460),
+           np.float32(.480), np.float32(.500), np.float32(.520), np.float32(.550),
+           np.float32(.600), np.float32(.650), np.float32(.700), np.float32(.800), np.float32(.900), np.float32(1.00),
+           np.float32(1.10), np.float32(1.20), np.float32(1.30), np.float32(1.40),
+           np.float32(1.50), np.float32(1.70), np.float32(2.00), np.float32(2.50), np.float32(3.00), np.float32(3.50),
+           np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.50),
+           np.float32(8.50), np.float32(10.0), np.float32(15.0), np.float32(20.0), np.float32(30.0), np.float32(40.0),
+           ]
+YVIB4G9 = [np.float32(0.00), np.float32(.03782), np.float32(.05336), np.float32(.07494), np.float32(.1107),
+           np.float32(.1361), np.float32(.1561), np.float32(.1727),
+           np.float32(.1864), np.float32(.2002),
+           np.float32(.2210), np.float32(.2382), np.float32(.2520), np.float32(.2641), np.float32(.2728),
+           np.float32(.2814), np.float32(.2952), np.float32(.3056), np.float32(.3125), np.float32(.3194),
+           np.float32(.3246), np.float32(.3246), np.float32(.3229), np.float32(.3143), np.float32(.3026),
+           np.float32(.3026), np.float32(.3048), np.float32(.3071), np.float32(.3115), np.float32(.3160),
+           np.float32(.320), np.float32(.329), np.float32(.343), np.float32(.387), np.float32(.472), np.float32(.570),
+           np.float32(.694), np.float32(.908), np.float32(1.16), np.float32(1.32),
+           np.float32(1.16), np.float32(.935), np.float32(.507), np.float32(.289), np.float32(.129), np.float32(.715),
+           ]
+XVIB5G9 = [np.float32(.548), np.float32(1.00), np.float32(1.50), np.float32(2.00), np.float32(3.00), np.float32(3.50),
+           np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.50),
+           np.float32(8.50), np.float32(10.0), np.float32(15.0), np.float32(20.0), np.float32(30.0), np.float32(40.0),
+           ]
+YVIB5G9 = [np.float32(0.00), np.float32(.001), np.float32(.002), np.float32(.003), np.float32(.0055), np.float32(.011),
+           np.float32(.044), np.float32(.094), np.float32(.134), np.float32(.143),
+           np.float32(.134), np.float32(.116), np.float32(.068), np.float32(.0383), np.float32(.0171),
+           np.float32(.0096),
+           ]
+# GROSS IONISATION X-SECTION  AVERAGE OF TIAN AND VIDAL AND
 
-# NISHIMURA AND TAWARA  (WITHIN 4% OF EACH OTHER) TYPICALLY REDUCE 
+# NISHIMURA AND TAWARA  (WITHIN 4% OF EACH OTHER) TYPICALLY REDUCE
 
 # NISHIMURA BY 2% ...
 
-# BELOW 20 EV USE AVERAGE OVER ALL DATA 
+# BELOW 20 EV USE AVERAGE OVER ALL DATA
 
-# ABOVE 3 KEV USE SCALED SCHRAM TO 60 KEV THEN SMOOTH JOIN 
+# ABOVE 3 KEV USE SCALED SCHRAM TO 60 KEV THEN SMOOTH JOIN
 
-# TO MATRIX ELEMENT FIT OF DATA BY  RIEKE AND PREPJCHAL      
+# TO MATRIX ELEMENT FIT OF DATA BY  RIEKE AND PREPJCHAL
 
-XIONG9 = [np.float32(11.52),np.float32(12.0),np.float32(12.5),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(16.0),np.float32(17.0),np.float32(18.0),np.float32(19.0),
-np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),
-np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),
-np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),np.float32(700.),np.float32(800.),np.float32(900.),np.float32(1000.),
-np.float32(1250.),np.float32(1500.),np.float32(1750.),np.float32(2000.),np.float32(2500.),np.float32(3000.),np.float32(4000.),np.float32(7000.),np.float32(10000.),np.float32(60000.),
-]
-# GROSS IONISATION 
+XIONG9 = [np.float32(11.52), np.float32(12.0), np.float32(12.5), np.float32(13.0), np.float32(14.0), np.float32(15.0),
+          np.float32(16.0), np.float32(17.0), np.float32(18.0), np.float32(19.0),
+          np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+          np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+          np.float32(90.0), np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+          np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.),
+          np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+          np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+          np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+          np.float32(3000.), np.float32(4000.), np.float32(7000.), np.float32(10000.), np.float32(60000.),
+          ]
+# GROSS IONISATION
 
-YIONGG9 = [np.float32(0.00),np.float32(.017),np.float32(.038),np.float32(.061),np.float32(.270),np.float32(.518),np.float32(0.87),np.float32(1.28),np.float32(1.62),np.float32(1.95),
-np.float32(2.24),np.float32(3.48),np.float32(4.45),np.float32(4.96),np.float32(5.54),np.float32(5.87),np.float32(6.09),np.float32(6.63),np.float32(6.80),np.float32(6.78),
-np.float32(6.82),np.float32(6.83),np.float32(6.46),np.float32(6.18),np.float32(5.86),np.float32(5.57),np.float32(5.31),np.float32(4.96),np.float32(4.71),np.float32(4.51),
-np.float32(4.08),np.float32(3.80),np.float32(3.44),np.float32(3.28),np.float32(3.13),np.float32(2.94),np.float32(2.66),np.float32(2.33),np.float32(2.21),np.float32(1.99),
-np.float32(1.72),np.float32(1.49),np.float32(1.34),np.float32(1.20),np.float32(1.06),np.float32(.881),np.float32(.657),np.float32(.411),np.float32(.290),np.float32(.0599),
-]
+YIONGG9 = [np.float32(0.00), np.float32(.017), np.float32(.038), np.float32(.061), np.float32(.270), np.float32(.518),
+           np.float32(0.87), np.float32(1.28), np.float32(1.62), np.float32(1.95),
+           np.float32(2.24), np.float32(3.48), np.float32(4.45), np.float32(4.96), np.float32(5.54), np.float32(5.87),
+           np.float32(6.09), np.float32(6.63), np.float32(6.80), np.float32(6.78),
+           np.float32(6.82), np.float32(6.83), np.float32(6.46), np.float32(6.18), np.float32(5.86), np.float32(5.57),
+           np.float32(5.31), np.float32(4.96), np.float32(4.71), np.float32(4.51),
+           np.float32(4.08), np.float32(3.80), np.float32(3.44), np.float32(3.28), np.float32(3.13), np.float32(2.94),
+           np.float32(2.66), np.float32(2.33), np.float32(2.21), np.float32(1.99),
+           np.float32(1.72), np.float32(1.49), np.float32(1.34), np.float32(1.20), np.float32(1.06), np.float32(.881),
+           np.float32(.657), np.float32(.411), np.float32(.290), np.float32(.0599),
+           ]
 # COUNTING IONISATION
 
-YIONCG9 = [np.float32(0.0),np.float32(.017),np.float32(.038),np.float32(.061),np.float32(.270),np.float32(.518),np.float32(0.87),np.float32(1.28),np.float32(1.62),np.float32(1.95),
-np.float32(2.24),np.float32(3.48),np.float32(4.45),np.float32(4.94),np.float32(5.47),np.float32(5.65),np.float32(5.78),np.float32(6.27),np.float32(6.42),np.float32(6.39),
-np.float32(6.44),np.float32(6.45),np.float32(6.07),np.float32(5.79),np.float32(5.47),np.float32(5.18),np.float32(4.94),np.float32(4.61),np.float32(4.38),np.float32(4.19),
-np.float32(3.80),np.float32(3.53),np.float32(3.20),np.float32(3.05),np.float32(2.91),np.float32(2.74),np.float32(2.47),np.float32(2.17),np.float32(2.06),np.float32(1.85),
-np.float32(1.60),np.float32(1.39),np.float32(1.25),np.float32(1.12),np.float32(.986),np.float32(.820),np.float32(.611),np.float32(.382),np.float32(.270),np.float32(.0557),
-]
+YIONCG9 = [np.float32(0.0), np.float32(.017), np.float32(.038), np.float32(.061), np.float32(.270), np.float32(.518),
+           np.float32(0.87), np.float32(1.28), np.float32(1.62), np.float32(1.95),
+           np.float32(2.24), np.float32(3.48), np.float32(4.45), np.float32(4.94), np.float32(5.47), np.float32(5.65),
+           np.float32(5.78), np.float32(6.27), np.float32(6.42), np.float32(6.39),
+           np.float32(6.44), np.float32(6.45), np.float32(6.07), np.float32(5.79), np.float32(5.47), np.float32(5.18),
+           np.float32(4.94), np.float32(4.61), np.float32(4.38), np.float32(4.19),
+           np.float32(3.80), np.float32(3.53), np.float32(3.20), np.float32(3.05), np.float32(2.91), np.float32(2.74),
+           np.float32(2.47), np.float32(2.17), np.float32(2.06), np.float32(1.85),
+           np.float32(1.60), np.float32(1.39), np.float32(1.25), np.float32(1.12), np.float32(.986), np.float32(.820),
+           np.float32(.611), np.float32(.382), np.float32(.270), np.float32(.0557),
+           ]
 # ALL INDIVIDUAL BREAKUP CHANNELS FROM TIAN AND VIDAL
 
-# CORRECTED BY WANG AND VIDAL FOR DISSOCIATION OF C2H6++ 
+# CORRECTED BY WANG AND VIDAL FOR DISSOCIATION OF C2H6++
 
 #
 
-#   C2H6+   
+#   C2H6+
 
-XION1G9 = [np.float32(11.52),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),
-np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
-np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION1G9 = [np.float32(0.0),np.float32(.055),np.float32(.095),np.float32(.130),np.float32(.215),np.float32(.366),np.float32(.566),np.float32(.664),np.float32(.684),np.float32(.747),
-np.float32(.734),np.float32(.724),np.float32(.773),np.float32(.768),np.float32(.758),np.float32(.749),np.float32(.751),np.float32(.717),np.float32(.692),np.float32(.665),
-np.float32(.642),np.float32(.618),np.float32(.583),np.float32(.560),np.float32(.544),np.float32(.499),np.float32(.473),np.float32(.430),np.float32(.417),np.float32(.401),np.float32(.377),
-]
+XION1G9 = [np.float32(11.52), np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(17.5), np.float32(20.0),
+           np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0),
+           np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+           np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+           np.float32(200.), np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.),
+           np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION1G9 = [np.float32(0.0), np.float32(.055), np.float32(.095), np.float32(.130), np.float32(.215), np.float32(.366),
+           np.float32(.566), np.float32(.664), np.float32(.684), np.float32(.747),
+           np.float32(.734), np.float32(.724), np.float32(.773), np.float32(.768), np.float32(.758), np.float32(.749),
+           np.float32(.751), np.float32(.717), np.float32(.692), np.float32(.665),
+           np.float32(.642), np.float32(.618), np.float32(.583), np.float32(.560), np.float32(.544), np.float32(.499),
+           np.float32(.473), np.float32(.430), np.float32(.417), np.float32(.401), np.float32(.377),
+           ]
 #  C2H4+
 
-XION2G9 = [np.float32(12.05),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),
-np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
-np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION2G9 = [np.float32(.0),np.float32(.005),np.float32(.140),np.float32(.290),np.float32(.672),np.float32(1.068),np.float32(1.705),np.float32(2.240),np.float32(2.350),np.float32(2.461),
-np.float32(2.481),np.float32(2.473),np.float32(2.607),np.float32(2.568),np.float32(2.517),np.float32(2.510),np.float32(2.492),np.float32(2.346),np.float32(2.273),np.float32(2.179),
-np.float32(2.103),np.float32(2.031),np.float32(1.925),np.float32(1.841),np.float32(1.777),np.float32(1.635),np.float32(1.542),np.float32(1.408),np.float32(1.352),np.float32(1.301),np.float32(1.226),
-]
+XION2G9 = [np.float32(12.05), np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(17.5), np.float32(20.0),
+           np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0),
+           np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+           np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+           np.float32(200.), np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.),
+           np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION2G9 = [np.float32(.0), np.float32(.005), np.float32(.140), np.float32(.290), np.float32(.672), np.float32(1.068),
+           np.float32(1.705), np.float32(2.240), np.float32(2.350), np.float32(2.461),
+           np.float32(2.481), np.float32(2.473), np.float32(2.607), np.float32(2.568), np.float32(2.517),
+           np.float32(2.510), np.float32(2.492), np.float32(2.346), np.float32(2.273), np.float32(2.179),
+           np.float32(2.103), np.float32(2.031), np.float32(1.925), np.float32(1.841), np.float32(1.777),
+           np.float32(1.635), np.float32(1.542), np.float32(1.408), np.float32(1.352), np.float32(1.301),
+           np.float32(1.226),
+           ]
 # C2H5+
 
-XION3G9 = [np.float32(12.65),np.float32(13.0),np.float32(14.0),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),
-np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
-np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION3G9 = [np.float32(0.0),np.float32(.001),np.float32(.034),np.float32(.070),np.float32(.156),np.float32(.266),np.float32(.412),np.float32(.507),np.float32(.556),np.float32(.568),
-np.float32(.569),np.float32(.565),np.float32(.597),np.float32(.603),np.float32(.589),np.float32(.595),np.float32(.588),np.float32(.566),np.float32(.546),np.float32(.529),
-np.float32(.514),np.float32(.490),np.float32(.468),np.float32(.451),np.float32(.432),np.float32(.401),np.float32(.381),np.float32(.349),np.float32(.337),np.float32(.321),np.float32(.302),
-]
+XION3G9 = [np.float32(12.65), np.float32(13.0), np.float32(14.0), np.float32(15.0), np.float32(17.5), np.float32(20.0),
+           np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0),
+           np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+           np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+           np.float32(200.), np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.),
+           np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION3G9 = [np.float32(0.0), np.float32(.001), np.float32(.034), np.float32(.070), np.float32(.156), np.float32(.266),
+           np.float32(.412), np.float32(.507), np.float32(.556), np.float32(.568),
+           np.float32(.569), np.float32(.565), np.float32(.597), np.float32(.603), np.float32(.589), np.float32(.595),
+           np.float32(.588), np.float32(.566), np.float32(.546), np.float32(.529),
+           np.float32(.514), np.float32(.490), np.float32(.468), np.float32(.451), np.float32(.432), np.float32(.401),
+           np.float32(.381), np.float32(.349), np.float32(.337), np.float32(.321), np.float32(.302),
+           ]
 #  CH3+
 
-XION4G9 = [np.float32(13.65),np.float32(14.0),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),
-np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),
-np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION4G9 = [np.float32(0.0),np.float32(.001),np.float32(.018),np.float32(.051),np.float32(.070),np.float32(.083),np.float32(.095),np.float32(.104),np.float32(.120),np.float32(.114),
-np.float32(.130),np.float32(.176),np.float32(.203),np.float32(.216),np.float32(.218),np.float32(.218),np.float32(.197),np.float32(.178),np.float32(.159),np.float32(.138),
-np.float32(.130),np.float32(.114),np.float32(.106),np.float32(.099),np.float32(.084),np.float32(.071),np.float32(.063),np.float32(.058),np.float32(.051),np.float32(.047),
-]
+XION4G9 = [np.float32(13.65), np.float32(14.0), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0),
+           np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+           np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+           np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+           np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.), np.float32(400.),
+           np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION4G9 = [np.float32(0.0), np.float32(.001), np.float32(.018), np.float32(.051), np.float32(.070), np.float32(.083),
+           np.float32(.095), np.float32(.104), np.float32(.120), np.float32(.114),
+           np.float32(.130), np.float32(.176), np.float32(.203), np.float32(.216), np.float32(.218), np.float32(.218),
+           np.float32(.197), np.float32(.178), np.float32(.159), np.float32(.138),
+           np.float32(.130), np.float32(.114), np.float32(.106), np.float32(.099), np.float32(.084), np.float32(.071),
+           np.float32(.063), np.float32(.058), np.float32(.051), np.float32(.047),
+           ]
 #  C2H3+
 
-XION5G9 = [np.float32(14.8),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),
-np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),
-np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION5G9 = [np.float32(0.0),np.float32(.005),np.float32(.175),np.float32(.294),np.float32(.432),np.float32(.553),np.float32(.709),np.float32(.814),np.float32(.836),np.float32(.827),
-np.float32(.882),np.float32(.889),np.float32(.862),np.float32(.855),np.float32(.847),np.float32(.786),np.float32(.746),np.float32(.702),np.float32(.658),np.float32(.630),
-np.float32(.586),np.float32(.564),np.float32(.540),np.float32(.489),np.float32(.455),np.float32(.415),np.float32(.391),np.float32(.373),np.float32(.351),
-]
+XION5G9 = [np.float32(14.8), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+           np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+           np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+           np.float32(150.), np.float32(175.), np.float32(200.), np.float32(225.),
+           np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+           np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION5G9 = [np.float32(0.0), np.float32(.005), np.float32(.175), np.float32(.294), np.float32(.432), np.float32(.553),
+           np.float32(.709), np.float32(.814), np.float32(.836), np.float32(.827),
+           np.float32(.882), np.float32(.889), np.float32(.862), np.float32(.855), np.float32(.847), np.float32(.786),
+           np.float32(.746), np.float32(.702), np.float32(.658), np.float32(.630),
+           np.float32(.586), np.float32(.564), np.float32(.540), np.float32(.489), np.float32(.455), np.float32(.415),
+           np.float32(.391), np.float32(.373), np.float32(.351),
+           ]
 #  C2H2+
 
-XION6G9 = [np.float32(14.8),np.float32(15.0),np.float32(17.5),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),
-np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),
-np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION6G9 = [np.float32(0.0),np.float32(.005),np.float32(.118),np.float32(.174),np.float32(.268),np.float32(.322),np.float32(.394),np.float32(.503),np.float32(.550),np.float32(.578),
-np.float32(.614),np.float32(.626),np.float32(.611),np.float32(.609),np.float32(.600),np.float32(.543),np.float32(.500),np.float32(.459),np.float32(.426),np.float32(.396),
-np.float32(.364),np.float32(.338),np.float32(.324),np.float32(.289),np.float32(.259),np.float32(.232),np.float32(.217),np.float32(.206),np.float32(.192),
-]
+XION6G9 = [np.float32(14.8), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+           np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+           np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+           np.float32(150.), np.float32(175.), np.float32(200.), np.float32(225.),
+           np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+           np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION6G9 = [np.float32(0.0), np.float32(.005), np.float32(.118), np.float32(.174), np.float32(.268), np.float32(.322),
+           np.float32(.394), np.float32(.503), np.float32(.550), np.float32(.578),
+           np.float32(.614), np.float32(.626), np.float32(.611), np.float32(.609), np.float32(.600), np.float32(.543),
+           np.float32(.500), np.float32(.459), np.float32(.426), np.float32(.396),
+           np.float32(.364), np.float32(.338), np.float32(.324), np.float32(.289), np.float32(.259), np.float32(.232),
+           np.float32(.217), np.float32(.206), np.float32(.192),
+           ]
 #  H+
 
-XION7G9 = [np.float32(20.5),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),
-np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),
-np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION7G9 = [np.float32(0.0),np.float32(.011),np.float32(.041),np.float32(.053),np.float32(.055),np.float32(.001),np.float32(.001),np.float32(.001),np.float32(.062),np.float32(.111),
-np.float32(.166),np.float32(.189),np.float32(.189),np.float32(.166),np.float32(.135),np.float32(.094),np.float32(.080),np.float32(.063),np.float32(.046),np.float32(.035),
-np.float32(.014),np.float32(.004),np.float32(.001),np.float32(.0003),np.float32(.0001),np.float32(.00003),
-]
+XION7G9 = [np.float32(20.5), np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+           np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+           np.float32(90.0), np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+           np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.),
+           np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION7G9 = [np.float32(0.0), np.float32(.011), np.float32(.041), np.float32(.053), np.float32(.055), np.float32(.001),
+           np.float32(.001), np.float32(.001), np.float32(.062), np.float32(.111),
+           np.float32(.166), np.float32(.189), np.float32(.189), np.float32(.166), np.float32(.135), np.float32(.094),
+           np.float32(.080), np.float32(.063), np.float32(.046), np.float32(.035),
+           np.float32(.014), np.float32(.004), np.float32(.001), np.float32(.0003), np.float32(.0001),
+           np.float32(.00003),
+           ]
 #  H2+
 
-XION8G9 = [np.float32(21.5),np.float32(25.0),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),
-np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),
-np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION8G9 = [np.float32(0.0),np.float32(.002),np.float32(.007),np.float32(.013),np.float32(.015),np.float32(.020),np.float32(.008),np.float32(.023),np.float32(.039),np.float32(.041),
-np.float32(.048),np.float32(.050),np.float32(.042),np.float32(.034),np.float32(.028),np.float32(.023),np.float32(.020),np.float32(.014),np.float32(.012),np.float32(.010),
-np.float32(.006),np.float32(.004),np.float32(.003),np.float32(.002),np.float32(.0015),np.float32(.001),
-]
+XION8G9 = [np.float32(21.5), np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+           np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+           np.float32(90.0), np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+           np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.),
+           np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION8G9 = [np.float32(0.0), np.float32(.002), np.float32(.007), np.float32(.013), np.float32(.015), np.float32(.020),
+           np.float32(.008), np.float32(.023), np.float32(.039), np.float32(.041),
+           np.float32(.048), np.float32(.050), np.float32(.042), np.float32(.034), np.float32(.028), np.float32(.023),
+           np.float32(.020), np.float32(.014), np.float32(.012), np.float32(.010),
+           np.float32(.006), np.float32(.004), np.float32(.003), np.float32(.002), np.float32(.0015), np.float32(.001),
+           ]
 #  CH2+
 
-XION9G9 = [np.float32(25.8),np.float32(30.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),
-np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),
-np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION9G9 = [np.float32(0.0),np.float32(.020),np.float32(.036),np.float32(.056),np.float32(.054),np.float32(.065),np.float32(.098),np.float32(.109),np.float32(.110),np.float32(.117),
-np.float32(.117),np.float32(.106),np.float32(.094),np.float32(.083),np.float32(.069),np.float32(.064),np.float32(.057),np.float32(.051),np.float32(.048),np.float32(.040),
-np.float32(.034),np.float32(.026),np.float32(.023),np.float32(.020),np.float32(.018),
-]
+XION9G9 = [np.float32(25.8), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+           np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+           np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(225.),
+           np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.),
+           np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YION9G9 = [np.float32(0.0), np.float32(.020), np.float32(.036), np.float32(.056), np.float32(.054), np.float32(.065),
+           np.float32(.098), np.float32(.109), np.float32(.110), np.float32(.117),
+           np.float32(.117), np.float32(.106), np.float32(.094), np.float32(.083), np.float32(.069), np.float32(.064),
+           np.float32(.057), np.float32(.051), np.float32(.048), np.float32(.040),
+           np.float32(.034), np.float32(.026), np.float32(.023), np.float32(.020), np.float32(.018),
+           ]
 #  C2H+
 
-XION10G9 = [np.float32(26.2),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),
-np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),
-np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION10G9 = [np.float32(0.0),np.float32(.021),np.float32(.044),np.float32(.059),np.float32(.074),np.float32(.096),np.float32(.109),np.float32(.113),np.float32(.114),np.float32(.116),
-np.float32(.105),np.float32(.092),np.float32(.081),np.float32(.070),np.float32(.064),np.float32(.053),np.float32(.050),np.float32(.043),np.float32(.036),np.float32(.031),
-np.float32(.025),np.float32(.022),np.float32(.019),np.float32(.017),
-]
+XION10G9 = [np.float32(26.2), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+            np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+            np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(225.), np.float32(250.),
+            np.float32(275.), np.float32(300.), np.float32(350.), np.float32(400.),
+            np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+            ]
+YION10G9 = [np.float32(0.0), np.float32(.021), np.float32(.044), np.float32(.059), np.float32(.074), np.float32(.096),
+            np.float32(.109), np.float32(.113), np.float32(.114), np.float32(.116),
+            np.float32(.105), np.float32(.092), np.float32(.081), np.float32(.070), np.float32(.064), np.float32(.053),
+            np.float32(.050), np.float32(.043), np.float32(.036), np.float32(.031),
+            np.float32(.025), np.float32(.022), np.float32(.019), np.float32(.017),
+            ]
 #  C2H6++
 
-XION11G9 = [np.float32(32.0),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),
-np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),
-np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION11G9 = [np.float32(0.0),np.float32(.019),np.float32(.074),np.float32(.219),np.float32(.313),np.float32(.360),np.float32(.380),np.float32(.385),np.float32(.383),np.float32(.384),
-np.float32(.385),np.float32(.390),np.float32(.390),np.float32(.389),np.float32(.370),np.float32(.347),np.float32(.331),np.float32(.315),np.float32(.285),np.float32(.265),
-np.float32(.240),np.float32(.228),np.float32(.217),np.float32(.204),
-]
+XION11G9 = [np.float32(32.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+            np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+            np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(225.), np.float32(250.),
+            np.float32(275.), np.float32(300.), np.float32(350.), np.float32(400.),
+            np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+            ]
+YION11G9 = [np.float32(0.0), np.float32(.019), np.float32(.074), np.float32(.219), np.float32(.313), np.float32(.360),
+            np.float32(.380), np.float32(.385), np.float32(.383), np.float32(.384),
+            np.float32(.385), np.float32(.390), np.float32(.390), np.float32(.389), np.float32(.370), np.float32(.347),
+            np.float32(.331), np.float32(.315), np.float32(.285), np.float32(.265),
+            np.float32(.240), np.float32(.228), np.float32(.217), np.float32(.204),
+            ]
 #  H3+
 
-XION12G9 = [np.float32(32.5),np.float32(35.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),
-np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),
-np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION12G9 = [np.float32(0.0),np.float32(.001),np.float32(.002),np.float32(.001),np.float32(.001),np.float32(.011),np.float32(.012),np.float32(.017),np.float32(.015),np.float32(.015),
-np.float32(.013),np.float32(.011),np.float32(.008),np.float32(.006),np.float32(.005),np.float32(.003),np.float32(.002),np.float32(.001),np.float32(.0005),np.float32(.00025),
-np.float32(.00013),np.float32(.000062),np.float32(.000045),np.float32(.00003),
-]
+XION12G9 = [np.float32(32.5), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+            np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+            np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(225.), np.float32(250.),
+            np.float32(275.), np.float32(300.), np.float32(350.), np.float32(400.),
+            np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+            ]
+YION12G9 = [np.float32(0.0), np.float32(.001), np.float32(.002), np.float32(.001), np.float32(.001), np.float32(.011),
+            np.float32(.012), np.float32(.017), np.float32(.015), np.float32(.015),
+            np.float32(.013), np.float32(.011), np.float32(.008), np.float32(.006), np.float32(.005), np.float32(.003),
+            np.float32(.002), np.float32(.001), np.float32(.0005), np.float32(.00025),
+            np.float32(.00013), np.float32(.000062), np.float32(.000045), np.float32(.00003),
+            ]
 #  CH+
 
-XION13G9 = [np.float32(36.0),np.float32(40.0),np.float32(45.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),
-np.float32(150.),np.float32(175.),np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),
-np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YION13G9 = [np.float32(0.0),np.float32(.006),np.float32(.012),np.float32(.016),np.float32(.026),np.float32(.038),np.float32(.041),np.float32(.046),np.float32(.047),np.float32(.043),
-np.float32(.036),np.float32(.029),np.float32(.025),np.float32(.023),np.float32(.019),np.float32(.015),np.float32(.014),np.float32(.010),np.float32(.007),np.float32(.005),
-np.float32(.003),np.float32(.002),np.float32(.0015),
-]
+XION13G9 = [np.float32(36.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+            np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+            np.float32(150.), np.float32(175.), np.float32(200.), np.float32(225.), np.float32(250.), np.float32(275.),
+            np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+            np.float32(500.), np.float32(550.), np.float32(600.),
+            ]
+YION13G9 = [np.float32(0.0), np.float32(.006), np.float32(.012), np.float32(.016), np.float32(.026), np.float32(.038),
+            np.float32(.041), np.float32(.046), np.float32(.047), np.float32(.043),
+            np.float32(.036), np.float32(.029), np.float32(.025), np.float32(.023), np.float32(.019), np.float32(.015),
+            np.float32(.014), np.float32(.010), np.float32(.007), np.float32(.005),
+            np.float32(.003), np.float32(.002), np.float32(.0015),
+            ]
 #  C2+
 
-XION14G9 = [np.float32(37.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
-np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),
-np.float32(600.),
-]
-YION14G9 = [np.float32(0.0),np.float32(.001),np.float32(.003),np.float32(.007),np.float32(.011),np.float32(.014),np.float32(.017),np.float32(.017),np.float32(.015),np.float32(.013),
-np.float32(.011),np.float32(.009),np.float32(.007),np.float32(.006),np.float32(.005),np.float32(.003),np.float32(.0017),np.float32(.0007),np.float32(.0003),np.float32(.00017),
-np.float32(.00009),
-]
+XION14G9 = [np.float32(37.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+            np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+            np.float32(200.), np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.),
+            np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.),
+            np.float32(600.),
+            ]
+YION14G9 = [np.float32(0.0), np.float32(.001), np.float32(.003), np.float32(.007), np.float32(.011), np.float32(.014),
+            np.float32(.017), np.float32(.017), np.float32(.015), np.float32(.013),
+            np.float32(.011), np.float32(.009), np.float32(.007), np.float32(.006), np.float32(.005), np.float32(.003),
+            np.float32(.0017), np.float32(.0007), np.float32(.0003), np.float32(.00017),
+            np.float32(.00009),
+            ]
 #  C+
 
-XION15G9 = [np.float32(37.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),
-np.float32(200.),np.float32(225.),np.float32(250.),np.float32(275.),np.float32(300.),np.float32(350.),np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),
-np.float32(600.),
-]
-YION15G9 = [np.float32(0.0),np.float32(.001),np.float32(.004),np.float32(.008),np.float32(.011),np.float32(.015),np.float32(.016),np.float32(.017),np.float32(.015),np.float32(.013),
-np.float32(.011),np.float32(.010),np.float32(.008),np.float32(.007),np.float32(.006),np.float32(.005),np.float32(.004),np.float32(.003),np.float32(.0018),np.float32(.0009),
-np.float32(.0005),
-]
-# K-SHELL IONISATION X-SECTION CARBON (SCALED BY 2 IN SUBROUTINE) 
+XION15G9 = [np.float32(37.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+            np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+            np.float32(200.), np.float32(225.), np.float32(250.), np.float32(275.), np.float32(300.), np.float32(350.),
+            np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.),
+            np.float32(600.),
+            ]
+YION15G9 = [np.float32(0.0), np.float32(.001), np.float32(.004), np.float32(.008), np.float32(.011), np.float32(.015),
+            np.float32(.016), np.float32(.017), np.float32(.015), np.float32(.013),
+            np.float32(.011), np.float32(.010), np.float32(.008), np.float32(.007), np.float32(.006), np.float32(.005),
+            np.float32(.004), np.float32(.003), np.float32(.0018), np.float32(.0009),
+            np.float32(.0005),
+            ]
+# K-SHELL IONISATION X-SECTION CARBON (SCALED BY 2 IN SUBROUTINE)
 
-XION16G9 = [np.float32(285.),np.float32(298.),np.float32(307.),np.float32(316.),np.float32(325.),np.float32(335.),np.float32(345.),np.float32(365.),np.float32(398.),np.float32(422.),
-np.float32(447.),np.float32(473.),np.float32(501.),np.float32(531.),np.float32(613.),np.float32(668.),np.float32(708.),np.float32(750.),np.float32(817.),np.float32(917.),
-np.float32(1000.),np.float32(1122.),np.float32(1296.),np.float32(1496.),np.float32(1679.),np.float32(1884.),np.float32(2054.),np.float32(2238.),np.float32(2512.),np.float32(2985.),
-np.float32(3981.),np.float32(5012.),np.float32(7079.),1.0e4,1.50e4,2.05e4,2.51e4,3.07e4,4.10e4,5.01e4,
-6.13e4,7.08e4,8.18e4,1.0e5,1.54e5,2.05e5,2.99e5,4.10e5,5.01e5,
-6.13e5,
-7.08e5,8.18e5,1.0e6,1.26e6,1.5e6,2.05e6,3.07e6,4.10e6,5.01e6,
-6.13e6,
-7.08e6,8.18e6,1.0e7,1.26e7,1.5e7,2.05e7,3.07e7,4.10e7,5.01e7,
-6.13e7,
-7.08e7,8.18e7,1.0e8,1.26e8,1.5e8,2.05e8,3.07e8,4.10e8,5.01e8,
-6.13e8,
-7.08e8,8.18e8,1.0e9,
-]
-YION16G9 = [np.float32(0.00),1.66e-4,3.48e-4,5.25e-4,6.96e-4,8.63e-4,1.02e-3,
-1.33e-3,1.75e-3,2.01e-3,
-2.24e-3,2.46e-3,2.66e-3,2.84e-3,3.21e-3,3.38e-3,3.47e-3,3.55e-3,
-3.65e-3,3.72e-3,
-3.75e-3,3.74e-3,3.68e-3,3.57e-3,3.45e-3,3.31e-3,3.19e-3,3.07e-3,
-2.91e-3,2.66e-3,
-2.25e-3,1.95e-3,1.55e-3,1.21e-3,8.97e-4,7.07e-4,6.07e-4,5.21e-4,
-4.21e-4,3.63e-4,
-3.14e-4,2.84e-4,2.57e-4,2.25e-4,1.74e-4,1.50e-4,1.28e-4,1.15e-4,
-1.09e-4,1.05e-4,
-1.03e-4,1.02e-4,1.01e-4,1.005e-4,1.01e-4,1.03e-4,1.07e-4,1.11e-4,
-1.14e-4,1.17e-4,
-1.20e-4,1.22e-4,1.25e-4,1.29e-4,1.32e-4,1.38e-4,1.45e-4,1.50e-4,
-1.54e-4,1.58e-4,
-1.60e-4,1.63e-4,1.67e-4,1.71e-4,1.74e-4,1.80e-4,1.87e-4,1.92e-4,
-1.96e-4,2.00e-4,
-2.02e-4,2.05e-4,2.09e-4,
-]
+XION16G9 = [np.float32(285.), np.float32(298.), np.float32(307.), np.float32(316.), np.float32(325.), np.float32(335.),
+            np.float32(345.), np.float32(365.), np.float32(398.), np.float32(422.),
+            np.float32(447.), np.float32(473.), np.float32(501.), np.float32(531.), np.float32(613.), np.float32(668.),
+            np.float32(708.), np.float32(750.), np.float32(817.), np.float32(917.),
+            np.float32(1000.), np.float32(1122.), np.float32(1296.), np.float32(1496.), np.float32(1679.),
+            np.float32(1884.), np.float32(2054.), np.float32(2238.), np.float32(2512.), np.float32(2985.),
+            np.float32(3981.), np.float32(5012.), np.float32(7079.), 1.0e4, 1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4,
+            5.01e4,
+            6.13e4, 7.08e4, 8.18e4, 1.0e5, 1.54e5, 2.05e5, 2.99e5, 4.10e5, 5.01e5,
+            6.13e5,
+            7.08e5, 8.18e5, 1.0e6, 1.26e6, 1.5e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6,
+            6.13e6,
+            7.08e6, 8.18e6, 1.0e7, 1.26e7, 1.5e7, 2.05e7, 3.07e7, 4.10e7, 5.01e7,
+            6.13e7,
+            7.08e7, 8.18e7, 1.0e8, 1.26e8, 1.5e8, 2.05e8, 3.07e8, 4.10e8, 5.01e8,
+            6.13e8,
+            7.08e8, 8.18e8, 1.0e9,
+            ]
+YION16G9 = [np.float32(0.00), 1.66e-4, 3.48e-4, 5.25e-4, 6.96e-4, 8.63e-4, 1.02e-3,
+            1.33e-3, 1.75e-3, 2.01e-3,
+            2.24e-3, 2.46e-3, 2.66e-3, 2.84e-3, 3.21e-3, 3.38e-3, 3.47e-3, 3.55e-3,
+            3.65e-3, 3.72e-3,
+            3.75e-3, 3.74e-3, 3.68e-3, 3.57e-3, 3.45e-3, 3.31e-3, 3.19e-3, 3.07e-3,
+            2.91e-3, 2.66e-3,
+            2.25e-3, 1.95e-3, 1.55e-3, 1.21e-3, 8.97e-4, 7.07e-4, 6.07e-4, 5.21e-4,
+            4.21e-4, 3.63e-4,
+            3.14e-4, 2.84e-4, 2.57e-4, 2.25e-4, 1.74e-4, 1.50e-4, 1.28e-4, 1.15e-4,
+            1.09e-4, 1.05e-4,
+            1.03e-4, 1.02e-4, 1.01e-4, 1.005e-4, 1.01e-4, 1.03e-4, 1.07e-4, 1.11e-4,
+            1.14e-4, 1.17e-4,
+            1.20e-4, 1.22e-4, 1.25e-4, 1.29e-4, 1.32e-4, 1.38e-4, 1.45e-4, 1.50e-4,
+            1.54e-4, 1.58e-4,
+            1.60e-4, 1.63e-4, 1.67e-4, 1.71e-4, 1.74e-4, 1.80e-4, 1.87e-4, 1.92e-4,
+            1.96e-4, 2.00e-4,
+            2.02e-4, 2.05e-4, 2.09e-4,
+            ]
 # ATTACHMENT  H-  EXCLUDING ION PAIRS
 
-XATT1G9 = [np.float32(7.00),np.float32(7.50),np.float32(8.00),np.float32(8.50),np.float32(9.00),np.float32(9.18),np.float32(9.50),np.float32(10.0),np.float32(10.5),np.float32(11.0),
-np.float32(11.5),
-]
-YATT1G9 = [np.float32(0.00),7.65e-5,2.52e-4,8.42e-4,1.55e-3,1.70e-3,1.50e-3,
-8.33e-4,2.50e-4,7.65e-5,np.float32(0.00),
-]
+XATT1G9 = [np.float32(7.00), np.float32(7.50), np.float32(8.00), np.float32(8.50), np.float32(9.00), np.float32(9.18),
+           np.float32(9.50), np.float32(10.0), np.float32(10.5), np.float32(11.0),
+           np.float32(11.5),
+           ]
+YATT1G9 = [np.float32(0.00), 7.65e-5, 2.52e-4, 8.42e-4, 1.55e-3, 1.70e-3, 1.50e-3,
+           8.33e-4, 2.50e-4, 7.65e-5, np.float32(0.00),
+           ]
 # ATTACHMENT CH2- EXCLUDING ION PAIRS
 
-XATT2G9 = [np.float32(7.90),np.float32(8.40),np.float32(8.90),np.float32(9.40),np.float32(9.90),np.float32(10.1),np.float32(10.4),np.float32(10.9),np.float32(11.4),
-]
-YATT2G9 = [np.float32(0.00),1.53e-5,5.04e-5,1.68e-4,3.10e-4,3.40e-4,3.00e-4,
-1.67e-4,np.float32(0.0),
-]
-#                
+XATT2G9 = [np.float32(7.90), np.float32(8.40), np.float32(8.90), np.float32(9.40), np.float32(9.90), np.float32(10.1),
+           np.float32(10.4), np.float32(10.9), np.float32(11.4),
+           ]
+YATT2G9 = [np.float32(0.00), 1.53e-5, 5.04e-5, 1.68e-4, 3.10e-4, 3.40e-4, 3.00e-4,
+           1.67e-4, np.float32(0.0),
+           ]
+#
 
 # NON DIPOLE AT 6.85 EV
 
-XTR1G9 = [np.float32(6.85),np.float32(8.00),np.float32(9.00),np.float32(10.0),np.float32(11.0),np.float32(12.0),np.float32(14.0),np.float32(16.0),np.float32(19.0),np.float32(22.0),
-np.float32(26.0),np.float32(30.0),
-]
-YTR1G9 = [np.float32(0.00),np.float32(.030),np.float32(.042),np.float32(.048),np.float32(.054),np.float32(.057),np.float32(.060),np.float32(.060),np.float32(.054),np.float32(.048),
-np.float32(.036),np.float32(.026),
-]
-#NONeIPOLEAT8.00EV,
-XTR2G9 = [np.float32(8.00),np.float32(9.50),np.float32(10.5),np.float32(11.5),np.float32(12.5),np.float32(14.5),np.float32(16.5),np.float32(19.5),np.float32(22.5),np.float32(26.5),
-np.float32(30.0),
-]
-YTR2G9 = [np.float32(0.00),np.float32(.205),np.float32(.295),np.float32(.336),np.float32(.353),np.float32(.369),np.float32(.369),np.float32(.344),np.float32(.295),np.float32(.230),
-np.float32(.181),
-]
-#NONeIPOLEAT10.0EV,
-XTR3G9 = [np.float32(10.0),np.float32(11.0),np.float32(12.0),np.float32(13.0),np.float32(14.0),np.float32(17.0),np.float32(20.0),np.float32(23.0),np.float32(27.0),np.float32(30.0),
-np.float32(35.0),
-]
-YTR3G9 = [np.float32(0.00),np.float32(.331),np.float32(.680),np.float32(.794),np.float32(.898),np.float32(.945),np.float32(.945),np.float32(.898),np.float32(.777),np.float32(.675),
-np.float32(.513),
-]
-#                                      
+XTR1G9 = [np.float32(6.85), np.float32(8.00), np.float32(9.00), np.float32(10.0), np.float32(11.0), np.float32(12.0),
+          np.float32(14.0), np.float32(16.0), np.float32(19.0), np.float32(22.0),
+          np.float32(26.0), np.float32(30.0),
+          ]
+YTR1G9 = [np.float32(0.00), np.float32(.030), np.float32(.042), np.float32(.048), np.float32(.054), np.float32(.057),
+          np.float32(.060), np.float32(.060), np.float32(.054), np.float32(.048),
+          np.float32(.036), np.float32(.026),
+          ]
+# NONeIPOLEAT8.00EV,
+XTR2G9 = [np.float32(8.00), np.float32(9.50), np.float32(10.5), np.float32(11.5), np.float32(12.5), np.float32(14.5),
+          np.float32(16.5), np.float32(19.5), np.float32(22.5), np.float32(26.5),
+          np.float32(30.0),
+          ]
+YTR2G9 = [np.float32(0.00), np.float32(.205), np.float32(.295), np.float32(.336), np.float32(.353), np.float32(.369),
+          np.float32(.369), np.float32(.344), np.float32(.295), np.float32(.230),
+          np.float32(.181),
+          ]
+# NONeIPOLEAT10.0EV,
+XTR3G9 = [np.float32(10.0), np.float32(11.0), np.float32(12.0), np.float32(13.0), np.float32(14.0), np.float32(17.0),
+          np.float32(20.0), np.float32(23.0), np.float32(27.0), np.float32(30.0),
+          np.float32(35.0),
+          ]
+YTR3G9 = [np.float32(0.00), np.float32(.331), np.float32(.680), np.float32(.794), np.float32(.898), np.float32(.945),
+          np.float32(.945), np.float32(.898), np.float32(.777), np.float32(.675),
+          np.float32(.513),
+          ]
+#
 
 # BREMSSTRAHLUNG X-SECTION WITH CUT UNITS 10**-24
 
-Z1TG9 = [np.float32(11.3),np.float32(6.18),np.float32(2.80),np.float32(1.54),np.float32(.858),np.float32(.407),np.float32(.251),np.float32(.176),np.float32(.145),np.float32(.150),
-np.float32(.167),np.float32(.178),np.float32(.187),np.float32(.193),np.float32(.198),np.float32(.205),np.float32(.210),np.float32(.218),np.float32(.222),np.float32(.228),
-np.float32(.231),np.float32(.233),np.float32(.234),np.float32(.235),np.float32(.235),
-]
-Z6TG9 = [np.float32(298.),np.float32(178.),np.float32(85.2),np.float32(47.5),np.float32(26.3),np.float32(12.2),np.float32(7.06),np.float32(4.45),np.float32(3.06),np.float32(2.82),
-np.float32(2.89),np.float32(2.99),np.float32(3.08),np.float32(3.13),np.float32(3.18),np.float32(3.25),np.float32(3.31),np.float32(3.39),np.float32(3.44),np.float32(3.49),
-np.float32(3.52),np.float32(3.54),np.float32(3.55),np.float32(3.57),np.float32(3.57),
-]
-EBRMG9 = [np.float32(1000.),np.float32(2000.),np.float32(5000.),np.float32(1.E4),np.float32(2.E4),np.float32(5.E4),np.float32(1.E5),np.float32(2.E5),np.float32(5.E5),np.float32(1.E6),
-np.float32(2.E6),np.float32(3.E6),np.float32(4.E6),np.float32(5.E6),np.float32(6.E6),np.float32(8.E6),np.float32(1.E7),np.float32(1.5E7),np.float32(2.E7),np.float32(3.E7),
-np.float32(4.E7),np.float32(5.E7),np.float32(6.E7),np.float32(8.E7),np.float32(1.E8),
-]
-# WINTERS CHEM.PHYS.36(1979)353  (NULL COLLISION)  
+Z1TG9 = [np.float32(11.3), np.float32(6.18), np.float32(2.80), np.float32(1.54), np.float32(.858), np.float32(.407),
+         np.float32(.251), np.float32(.176), np.float32(.145), np.float32(.150),
+         np.float32(.167), np.float32(.178), np.float32(.187), np.float32(.193), np.float32(.198), np.float32(.205),
+         np.float32(.210), np.float32(.218), np.float32(.222), np.float32(.228),
+         np.float32(.231), np.float32(.233), np.float32(.234), np.float32(.235), np.float32(.235),
+         ]
+Z6TG9 = [np.float32(298.), np.float32(178.), np.float32(85.2), np.float32(47.5), np.float32(26.3), np.float32(12.2),
+         np.float32(7.06), np.float32(4.45), np.float32(3.06), np.float32(2.82),
+         np.float32(2.89), np.float32(2.99), np.float32(3.08), np.float32(3.13), np.float32(3.18), np.float32(3.25),
+         np.float32(3.31), np.float32(3.39), np.float32(3.44), np.float32(3.49),
+         np.float32(3.52), np.float32(3.54), np.float32(3.55), np.float32(3.57), np.float32(3.57),
+         ]
+EBRMG9 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.E4), np.float32(2.E4), np.float32(5.E4),
+          np.float32(1.E5), np.float32(2.E5), np.float32(5.E5), np.float32(1.E6),
+          np.float32(2.E6), np.float32(3.E6), np.float32(4.E6), np.float32(5.E6), np.float32(6.E6), np.float32(8.E6),
+          np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
+          np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
+          ]
+# WINTERS CHEM.PHYS.36(1979)353  (NULL COLLISION)
 
 #   REDUCED  BY 0.9 IN SUBROUTINE
 
-XNUL1G9 = [np.float32(8.4),np.float32(10.3),np.float32(15.0),np.float32(20.0),np.float32(25.0),np.float32(30.0),np.float32(40.0),np.float32(50.0),np.float32(60.0),np.float32(70.0),
-np.float32(80.0),np.float32(90.0),np.float32(100.),np.float32(125.),np.float32(150.),np.float32(175.),np.float32(200.),np.float32(250.),np.float32(300.),np.float32(350.),
-np.float32(400.),np.float32(450.),np.float32(500.),np.float32(550.),np.float32(600.),
-]
-YNUL1G9 = [np.float32(0.0),np.float32(0.20),np.float32(1.30),np.float32(3.20),np.float32(4.00),np.float32(5.60),np.float32(6.40),np.float32(7.00),np.float32(7.40),np.float32(7.60),
-np.float32(7.65),np.float32(7.60),np.float32(7.50),np.float32(7.30),np.float32(7.10),np.float32(6.90),np.float32(6.70),np.float32(6.40),np.float32(6.00),np.float32(5.60),
-np.float32(5.30),np.float32(4.90),np.float32(4.60),np.float32(4.30),np.float32(4.10),
-]
-# LIGHT EMISSION FROM H ALPHA     
+XNUL1G9 = [np.float32(8.4), np.float32(10.3), np.float32(15.0), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+           np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+           np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+           np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.),
+           np.float32(400.), np.float32(450.), np.float32(500.), np.float32(550.), np.float32(600.),
+           ]
+YNUL1G9 = [np.float32(0.0), np.float32(0.20), np.float32(1.30), np.float32(3.20), np.float32(4.00), np.float32(5.60),
+           np.float32(6.40), np.float32(7.00), np.float32(7.40), np.float32(7.60),
+           np.float32(7.65), np.float32(7.60), np.float32(7.50), np.float32(7.30), np.float32(7.10), np.float32(6.90),
+           np.float32(6.70), np.float32(6.40), np.float32(6.00), np.float32(5.60),
+           np.float32(5.30), np.float32(4.90), np.float32(4.60), np.float32(4.30), np.float32(4.10),
+           ]
+# LIGHT EMISSION FROM H ALPHA
 
 #  MOHLMANN  CHEM PHYS 19(1977)233
 
-XNUL2G9 = [np.float32(20.0),np.float32(40.0),np.float32(60.0),np.float32(80.0),np.float32(100.),np.float32(150.),np.float32(200.),np.float32(300.),np.float32(500.),np.float32(1000.),
-np.float32(1300.),np.float32(1700.),np.float32(2000.),
-]
-YNUL2G9 = [np.float32(0.0),np.float32(.0116),np.float32(.0196),np.float32(.0241),np.float32(.0250),np.float32(.0222),np.float32(.0186),np.float32(.0121),np.float32(.007),
-np.float32(.0034),
-np.float32(.0026),np.float32(.0020),np.float32(.0017),
-]
+XNUL2G9 = [np.float32(20.0), np.float32(40.0), np.float32(60.0), np.float32(80.0), np.float32(100.), np.float32(150.),
+           np.float32(200.), np.float32(300.), np.float32(500.), np.float32(1000.),
+           np.float32(1300.), np.float32(1700.), np.float32(2000.),
+           ]
+YNUL2G9 = [np.float32(0.0), np.float32(.0116), np.float32(.0196), np.float32(.0241), np.float32(.0250),
+           np.float32(.0222), np.float32(.0186), np.float32(.0121), np.float32(.007),
+           np.float32(.0034),
+           np.float32(.0026), np.float32(.0020), np.float32(.0017),
+           ]
 # LIGHT EMISSION FROM CH2(A2DELTA -X2PI)
 
 #  MOHLMANN  CHEM PHYS 19(1977)233
 
-XNUL3G9 = [np.float32(16.0),np.float32(20.0),np.float32(40.0),np.float32(60.0),np.float32(80.0),np.float32(100.),np.float32(150.),np.float32(200.),np.float32(300.),np.float32(500.),
-np.float32(1000.),np.float32(1300.),np.float32(1700.),np.float32(2000.),
-]
-YNUL3G9 = [np.float32(0.0),np.float32(.0011),np.float32(.0041),np.float32(.0057),np.float32(.0062),np.float32(.0061),np.float32(.0050),np.float32(.0041),np.float32(.0028),
-np.float32(.0017),
-np.float32(.0008),np.float32(.0006),np.float32(.0005),np.float32(.0004),
-]
+XNUL3G9 = [np.float32(16.0), np.float32(20.0), np.float32(40.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+           np.float32(150.), np.float32(200.), np.float32(300.), np.float32(500.),
+           np.float32(1000.), np.float32(1300.), np.float32(1700.), np.float32(2000.),
+           ]
+YNUL3G9 = [np.float32(0.0), np.float32(.0011), np.float32(.0041), np.float32(.0057), np.float32(.0062),
+           np.float32(.0061), np.float32(.0050), np.float32(.0041), np.float32(.0028),
+           np.float32(.0017),
+           np.float32(.0008), np.float32(.0006), np.float32(.0005), np.float32(.0004),
+           ]
 
-EING9 = [np.float32(-0.0358),np.float32(0.0358),np.float32(-0.117),np.float32(0.117),np.float32(-0.148),np.float32(0.148),np.float32(-0.182),np.float32(0.182),np.float32(0.366),np.float32(0.548),np.float32(6.85),np.float32(7.93),np.float32(8.00),np.float32(8.15),np.float32(8.48),np.float32(8.723),np.float32(8.865),np.float32(9.007),np.float32(9.149),np.float32(9.291),np.float32(9.433),np.float32(9.575),np.float32(9.717),np.float32(9.859),np.float32(10.0),np.float32(10.115),np.float32(10.45),np.float32(10.672),np.float32(10.816),np.float32(10.960),np.float32(11.104),np.float32(11.248),np.float32(11.392),np.float32(11.732),np.float32(12.4),np.float32(13.0),np.float32(13.5),np.float32(14.1),np.float32(14.7),np.float32(15.3),np.float32(15.9),np.float32(16.5),np.float32(17.1),np.float32(17.7),np.float32(18.5),np.float32(19.5),np.float32(20.5),np.float32(21.5),np.float32(22.5),np.float32(23.5),np.float32(24.5),np.float32(25.5),np.float32(26.5),np.float32(27.5),np.float32(28.5),np.float32(0.0),np.float32(0.0)]
+EING9 = [np.float32(-0.0358), np.float32(0.0358), np.float32(-0.117), np.float32(0.117), np.float32(-0.148),
+         np.float32(0.148), np.float32(-0.182), np.float32(0.182), np.float32(0.366), np.float32(0.548),
+         np.float32(6.85), np.float32(7.93), np.float32(8.00), np.float32(8.15), np.float32(8.48), np.float32(8.723),
+         np.float32(8.865), np.float32(9.007), np.float32(9.149), np.float32(9.291), np.float32(9.433),
+         np.float32(9.575), np.float32(9.717), np.float32(9.859), np.float32(10.0), np.float32(10.115),
+         np.float32(10.45), np.float32(10.672), np.float32(10.816), np.float32(10.960), np.float32(11.104),
+         np.float32(11.248), np.float32(11.392), np.float32(11.732), np.float32(12.4), np.float32(13.0),
+         np.float32(13.5), np.float32(14.1), np.float32(14.7), np.float32(15.3), np.float32(15.9), np.float32(16.5),
+         np.float32(17.1), np.float32(17.7), np.float32(18.5), np.float32(19.5), np.float32(20.5), np.float32(21.5),
+         np.float32(22.5), np.float32(23.5), np.float32(24.5), np.float32(25.5), np.float32(26.5), np.float32(27.5),
+         np.float32(28.5), np.float32(0.0), np.float32(0.0)]
 for i in range(250 - 57):
     EING9.append(0.0)
 gd['gas9/XEN'] = XENG9
@@ -9758,15 +10308,24 @@ gd['gas9/Z6T'] = Z6TG9
 gd['gas9/EBRM'] = EBRMG9
 gd['gas9/EIN'] = EING9
 
-XENG10 = [0.00, 0.001, 0.002, 0.003, 0.004, 0.005, 0.007, 0.01, 0.014, 0.02,
-          0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.11, 0.12,
-          0.13, 0.14, 0.16, 0.18, 0.20, 0.22, 0.24, 0.27, 0.30, 0.35,
-          0.40, 0.50, 0.60, 0.80, 1.00, 1.40, 2.00, 2.50, 3.00, 3.50,
-          4.00, 5.00, 6.00, 7.00, 7.50, 8.50, 10.0, 12.5, 15.0, 17.5,
-          20.0, 25.0, 30.0, 35.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0,
-          100., 125., 150., 175., 200., 250., 300., 350., 400., 450.,
-          500., 600., 700., 800., 900., 1000., 1250., 1500., 1750., 2000.,
-          2500., 3000., 3500., 4000., 4500., 5000., 6000., 7000., 8000., 9000.,
+XENG10 = [np.float32(0.00), np.float32(0.001), np.float32(0.002), np.float32(0.003), np.float32(0.004),
+          np.float32(0.005), np.float32(0.007), np.float32(0.01), np.float32(0.014), np.float32(0.02),
+          np.float32(0.03), np.float32(0.04), np.float32(0.05), np.float32(0.06), np.float32(0.07), np.float32(0.08),
+          np.float32(0.09), np.float32(0.10), np.float32(0.11), np.float32(0.12),
+          np.float32(0.13), np.float32(0.14), np.float32(0.16), np.float32(0.18), np.float32(0.20), np.float32(0.22),
+          np.float32(0.24), np.float32(0.27), np.float32(0.30), np.float32(0.35),
+          np.float32(0.40), np.float32(0.50), np.float32(0.60), np.float32(0.80), np.float32(1.00), np.float32(1.40),
+          np.float32(2.00), np.float32(2.50), np.float32(3.00), np.float32(3.50),
+          np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00), np.float32(7.50), np.float32(8.50),
+          np.float32(10.0), np.float32(12.5), np.float32(15.0), np.float32(17.5),
+          np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(50.0),
+          np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+          np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.),
+          np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+          np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+          np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+          np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(4500.),
+          np.float32(5000.), np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.),
           1.0e4, 1.25e4, 1.5e4, 1.75e4, 2.0e4, 2.5e4, 3.0e4, 3.5e4, 4.0e4, 4.5e4,
           5.0e4, 6.0e4, 7.0e4, 8.0e4, 9.0e4, 1.0e5, 1.25e5, 1.5e5, 1.75e5, 2.0e5,
           2.5e5, 3.0e5, 3.5e5, 4.0e5, 4.5e5, 5.0e5, 6.0e5, 7.0e5, 8.0e5, 9.0e5,
@@ -9774,19 +10333,30 @@ XENG10 = [0.00, 0.001, 0.002, 0.003, 0.004, 0.005, 0.007, 0.01, 0.014, 0.02,
           5.0e6, 6.0e6, 7.0e6, 8.0e6, 9.0e6, 1.0e7, 1.25e7, 1.5e7, 1.75e7, 2.0e7,
           2.5e7, 3.0e7, 3.5e7, 4.0e7, 4.5e7, 5.0e7, 6.0e7, 7.0e7, 8.0e7, 9.0e7,
           1.0e8, 1.25e8, 1.5e8, 1.75e8, 2.0e8, 2.5e8, 3.0e8, 3.5e8, 4.0e8, 4.5e8,
-          5.0e8, 6.0e8, 7.0e8, 8.0e8, 9.0e8, 1.0e9]
+          5.0e8, 6.0e8, 7.0e8, 8.0e8, 9.0e8, 1.0e9,
+          ]
 # ELASTIC MT : ABOVE 250EV FROM THEORY
-#              BELOW 250EV FIT TO TRANSPORT eATA
 
-YMTG10 = [50.9, 50.9, 42.6, 37.0, 33.3, 29.6, 25.5, 20.8, 18.0, 15.3,
-          13.1, 11.6, 10.4, 9.08, 7.79, 6.36, 5.03, 3.61, 2.85, 2.52,
-          2.47, 2.47, 2.75, 3.23, 3.94, 4.80, 5.40, 6.45, 7.35, 8.35,
-          9.07, 10.05, 10.9, 11.8, 12.3, 12.8, 13.6, 14.4, 15.7, 17.5,
-          19.5, 23.3, 27.2, 29.0, 29.0, 28.0, 25.5, 21.5, 18.5, 17.0,
-          15.5, 12.8, 11.0, 9.50, 8.40, 6.90, 5.80, 5.00, 4.40, 4.00,
-          3.60, 2.85, 2.27, 1.85, 1.59, 1.22, .921, .725, .587, .486,
-          .410, .304, .236, .188, .154, .129, .0878, .0639, .0488, .0386,
-          .0260, .0188, .0143, .0112, 9.08e-3, 7.51e-3, 5.41e-3, 4.09e-3, 3.21e-3,
+#              BELOW 250EV FIT TO TRANSPORT DATA
+
+YMTG10 = [np.float32(50.9), np.float32(50.9), np.float32(42.6), np.float32(37.0), np.float32(33.3), np.float32(29.6),
+          np.float32(25.5), np.float32(20.8), np.float32(18.0), np.float32(15.3),
+          np.float32(13.1), np.float32(11.6), np.float32(10.4), np.float32(9.08), np.float32(7.79), np.float32(6.36),
+          np.float32(5.03), np.float32(3.61), np.float32(2.85), np.float32(2.52),
+          np.float32(2.47), np.float32(2.47), np.float32(2.75), np.float32(3.23), np.float32(3.94), np.float32(4.80),
+          np.float32(5.40), np.float32(6.45), np.float32(7.35), np.float32(8.35),
+          np.float32(9.07), np.float32(10.05), np.float32(10.9), np.float32(11.8), np.float32(12.3), np.float32(12.8),
+          np.float32(13.6), np.float32(14.4), np.float32(15.7), np.float32(17.5),
+          np.float32(19.5), np.float32(23.3), np.float32(27.2), np.float32(29.0), np.float32(29.0), np.float32(28.0),
+          np.float32(25.5), np.float32(21.5), np.float32(18.5), np.float32(17.0),
+          np.float32(15.5), np.float32(12.8), np.float32(11.0), np.float32(9.50), np.float32(8.40), np.float32(6.90),
+          np.float32(5.80), np.float32(5.00), np.float32(4.40), np.float32(4.00),
+          np.float32(3.60), np.float32(2.85), np.float32(2.27), np.float32(1.85), np.float32(1.59), np.float32(1.22),
+          np.float32(.921), np.float32(.725), np.float32(.587), np.float32(.486),
+          np.float32(.410), np.float32(.304), np.float32(.236), np.float32(.188), np.float32(.154), np.float32(.129),
+          np.float32(.0878), np.float32(.0639), np.float32(.0488), np.float32(.0386),
+          np.float32(.0260), np.float32(.0188), np.float32(.0143), np.float32(.0112), 9.08e-3, 7.51e-3, 5.41e-3,
+          4.09e-3, 3.21e-3,
           2.59e-3,
           2.14e-3, 1.43e-3, 1.03e-3, 7.76e-4, 6.08e-4, 4.06e-4, 2.92e-4, 2.21e-4,
           1.74e-4, 1.41e-4,
@@ -9802,44 +10372,73 @@ YMTG10 = [50.9, 50.9, 42.6, 37.0, 33.3, 29.6, 25.5, 20.8, 18.0, 15.3,
           5.25e-10, 4.06e-10, 3.23e-10,
           2.63e-10, 1.70e-10, 1.19e-10, 8.76e-11, 6.72e-11, 4.31e-11, 3.00e-11,
           2.20e-11, 1.69e-11, 1.33e-11,
-          1.08e-11, 7.51e-12, 5.52e-12, 4.23e-12, 3.34e-12, 2.71e-12]
+          1.08e-11, 7.51e-12, 5.52e-12, 4.23e-12, 3.34e-12, 2.71e-12,
+          ]
 # ELASTIC: ABOVE 150EV FROM THEORY
-#            BETWEEN 0.5 ANe 150 EV FROM CONSISTENCY IN TOTAL X-SECTION
-#           BELOW 0.5EV SIMILAR TO MERZ ANe  LINeER
 
-YELG10 = [50.9, 50.9, 42.6, 37.0, 33.0, 29.6, 25.5, 20.8, 18.4, 16.4,
-          14.2, 12.6, 11.4, 10.5, 9.70, 9.00, 8.30, 7.70, 7.10, 6.60,
-          6.20, 5.80, 5.50, 6.15, 6.85, 7.60, 8.20, 9.00, 9.70, 10.5,
-          11.3, 12.1, 12.7, 13.1, 14.1, 15.5, 17.4, 18.7, 20.5, 22.0,
-          24.6, 30.8, 37.7, 41.2, 42.9, 44.6, 42.8, 38.5, 35.8, 33.4,
-          31.3, 27.5, 24.7, 22.8, 21.3, 19.1, 17.2, 15.5, 14.0, 13.0,
-          11.9, 9.90, 8.50, 7.57, 6.86, 5.80, 5.05, 4.48, 4.03, 3.67,
-          3.37, 2.90, 2.55, 2.27, 2.05, 1.87, 1.53, 1.30, 1.12, .993,
-          .805, .677, .585, .515, .460, .416, .349, .301, .264, .236,
-          .213, .172, .145, .125, .110, .0896, .0758, .0659, .0585, .0527,
-          .0480, .0411, .0362, .0334, .0296, .0273, .0231, .0204, .0184, .0169,
-          .0149, .0136, .0127, .0120, .0114, .0110, .0104, .00997, .00970, .00944,
-          .00926, .00895, .00877, .00864, .00855, .00844, .00838, .00833, .00831,
-          .00829,
-          .00827, .00825, .00824, .00823, .00822, .00822, .00821, .00821, .00821,
-          .00820,
-          .00820, .00820, .00820]
-for i in range(23):
-    YELG10.append(0.00820)
-YEPSG10 = [1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, .96740, .89959,
-           .88412, .88129, .86888, .79880, .70972, .57649, .44800, .29459, .22957,
-           .21203,
-           .22682, .25233, .32703, .35433, .41118, .47945, .51353, .58989, .64598,
-           .69856,
-           .70909, .74912, .78931, .85180, .80991, .74224, .67932, .66312, .65727,
-           .69887,
-           .69494, .66427, .59639, .57278, .53606, .47475, .43564, .39174, .34508,
-           .33665,
-           .32195, .29117, .27113, .24366, .22319, .19428, .17440, .16276, .15632,
-           .15128,
-           .14738, .13657, .12181, .10656, .09845, .08527, .06923, .05829, .05019,
-           .04390,
-           .039014, .031780, .026828, .023104, .020285, .018120, .014236, .011650,
+#            BETWEEN 0.5 AND 150 EV FROM CONSISTENCY IN TOTAL X-SECTION
+
+#           BELOW 0.5EV SIMILAR TO MERZ AND  LINDER
+
+YELG10 = [np.float32(50.9), np.float32(50.9), np.float32(42.6), np.float32(37.0), np.float32(33.0), np.float32(29.6),
+          np.float32(25.5), np.float32(20.8), np.float32(18.4), np.float32(16.4),
+          np.float32(14.2), np.float32(12.6), np.float32(11.4), np.float32(10.5), np.float32(9.70), np.float32(9.00),
+          np.float32(8.30), np.float32(7.70), np.float32(7.10), np.float32(6.60),
+          np.float32(6.20), np.float32(5.80), np.float32(5.50), np.float32(6.15), np.float32(6.85), np.float32(7.60),
+          np.float32(8.20), np.float32(9.00), np.float32(9.70), np.float32(10.5),
+          np.float32(11.3), np.float32(12.1), np.float32(12.7), np.float32(13.1), np.float32(14.1), np.float32(15.5),
+          np.float32(17.4), np.float32(18.7), np.float32(20.5), np.float32(22.0),
+          np.float32(24.6), np.float32(30.8), np.float32(37.7), np.float32(41.2), np.float32(42.9), np.float32(44.6),
+          np.float32(42.8), np.float32(38.5), np.float32(35.8), np.float32(33.4),
+          np.float32(31.3), np.float32(27.5), np.float32(24.7), np.float32(22.8), np.float32(21.3), np.float32(19.1),
+          np.float32(17.2), np.float32(15.5), np.float32(14.0), np.float32(13.0),
+          np.float32(11.9), np.float32(9.90), np.float32(8.50), np.float32(7.57), np.float32(6.86), np.float32(5.80),
+          np.float32(5.05), np.float32(4.48), np.float32(4.03), np.float32(3.67),
+          np.float32(3.37), np.float32(2.90), np.float32(2.55), np.float32(2.27), np.float32(2.05), np.float32(1.87),
+          np.float32(1.53), np.float32(1.30), np.float32(1.12), np.float32(.993),
+          np.float32(.805), np.float32(.677), np.float32(.585), np.float32(.515), np.float32(.460), np.float32(.416),
+          np.float32(.349), np.float32(.301), np.float32(.264), np.float32(.236),
+          np.float32(.213), np.float32(.172), np.float32(.145), np.float32(.125), np.float32(.110), np.float32(.0896),
+          np.float32(.0758), np.float32(.0659), np.float32(.0585), np.float32(.0527),
+          np.float32(.0480), np.float32(.0411), np.float32(.0362), np.float32(.0334), np.float32(.0296),
+          np.float32(.0273), np.float32(.0231), np.float32(.0204), np.float32(.0184), np.float32(.0169),
+          np.float32(.0149), np.float32(.0136), np.float32(.0127), np.float32(.0120), np.float32(.0114),
+          np.float32(.0110), np.float32(.0104), np.float32(.00997), np.float32(.00970), np.float32(.00944),
+          np.float32(.00926), np.float32(.00895), np.float32(.00877), np.float32(.00864), np.float32(.00855),
+          np.float32(.00844), np.float32(.00838), np.float32(.00833), np.float32(.00831),
+          np.float32(.00829),
+          np.float32(.00827), np.float32(.00825), np.float32(.00824), np.float32(.00823), np.float32(.00822),
+          np.float32(.00822), np.float32(.00821), np.float32(.00821), np.float32(.00821),
+          np.float32(.00820),
+          np.float32(.00820), np.float32(.00820), np.float32(.00820), np.float32(0.00820), np.float32(0.00820),
+          np.float32(0.00820), np.float32(0.00820), np.float32(0.00820), np.float32(0.00820), np.float32(0.00820),
+          np.float32(0.00820), np.float32(0.00820), np.float32(0.00820), np.float32(0.00820), np.float32(0.00820),
+          np.float32(0.00820), np.float32(0.00820), np.float32(0.00820), np.float32(0.00820), np.float32(0.00820),
+          np.float32(0.00820), np.float32(0.00820), np.float32(0.00820), np.float32(0.00820), np.float32(0.00820),
+          np.float32(0.00820),
+          ]
+YEPSG10 = [np.float32(1.00), np.float32(1.00), np.float32(1.00), np.float32(1.00), np.float32(1.00), np.float32(1.00),
+           np.float32(1.00), np.float32(1.00), np.float32(.96740), np.float32(.89959),
+           np.float32(.88412), np.float32(.88129), np.float32(.86888), np.float32(.79880), np.float32(.70972),
+           np.float32(.57649), np.float32(.44800), np.float32(.29459), np.float32(.22957),
+           np.float32(.21203),
+           np.float32(.22682), np.float32(.25233), np.float32(.32703), np.float32(.35433), np.float32(.41118),
+           np.float32(.47945), np.float32(.51353), np.float32(.58989), np.float32(.64598),
+           np.float32(.69856),
+           np.float32(.70909), np.float32(.74912), np.float32(.78931), np.float32(.85180), np.float32(.80991),
+           np.float32(.74224), np.float32(.67932), np.float32(.66312), np.float32(.65727),
+           np.float32(.69887),
+           np.float32(.69494), np.float32(.66427), np.float32(.59639), np.float32(.57278), np.float32(.53606),
+           np.float32(.47475), np.float32(.43564), np.float32(.39174), np.float32(.34508),
+           np.float32(.33665),
+           np.float32(.32195), np.float32(.29117), np.float32(.27113), np.float32(.24366), np.float32(.22319),
+           np.float32(.19428), np.float32(.17440), np.float32(.16276), np.float32(.15632),
+           np.float32(.15128),
+           np.float32(.14738), np.float32(.13657), np.float32(.12181), np.float32(.10656), np.float32(.09845),
+           np.float32(.08527), np.float32(.06923), np.float32(.05829), np.float32(.05019),
+           np.float32(.04390),
+           np.float32(.039014), np.float32(.031780), np.float32(.026828), np.float32(.023104), np.float32(.020285),
+           np.float32(.018120), np.float32(.014236), np.float32(.011650),
            9.981e-3, 8.631e-3,
            6.832e-3, 5.656e-3, 4.828e-3, 4.180e-3, 3.711e-3, 3.327e-3, 2.765e-3,
            2.358e-3, 2.063e-3, 1.824e-3,
@@ -9857,347 +10456,582 @@ YEPSG10 = [1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, .96740, .89959,
            3.332e-9, 2.541e-9, 1.997e-9,
            1.608e-9, 1.016e-9, 6.98e-10, 5.06e-10, 3.83e-10, 2.40e-10, 1.64e-10,
            1.19e-10, 9.0e-11, 7.0e-11,
-           5.6e-11, 3.8e-11, 2.8e-11, 2.1e-11, 1.6e-11, 1.3e-11]
-# GROSS IONISATION X-SECTION AVERAGE OF 1) WANG ANe VIeAL
-#  And 2) TAWARA ANe NISHIMURA
-# ABOVE 2KEV USE SCHRAM NORMALISEe TO 2KEV eATA POINT OF TAWARA
-# ABOVE 10KEV USE UPeATEe FIT TO RIEKE ANe PREPJCHAL WITH CORRECTEe
+           5.6e-11, 3.8e-11, 2.8e-11, 2.1e-11, 1.6e-11, 1.3e-11,
+           ]
+# GROSS IONISATION X-SECTION AVERAGE OF 1) WANG AND VIDAL
+
+#  And 2) TAWARA AND NISHIMURA
+
+# ABOVE 2KEV USE SCHRAM NORMALISED TO 2KEV DATA POINT OF TAWARA
+
+# ABOVE 10KEV USE UPDATED FIT TO RIEKE AND PREPJCHAL WITH CORRECTED
+
 # IONISATION OSCILLATOR STRENGTH
+
 #
 
-XIONG10 = [11.12, 12.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0,
-           50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200.,
-           250., 300., 350., 400., 450., 500., 600., 700., 800., 900.,
-           1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000.,
-           6000., 7000., 8000., 9000., 10000.]
+XIONG10 = [np.float32(11.12), np.float32(12.0), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0),
+           np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+           np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+           np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+           np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+           np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+           np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+           np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.),
+           np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
+           ]
 # GROSS IONISATION
 
-YIONGG10 = [0.00, .206, 1.14, 2.30, 3.31, 5.21, 6.47, 7.37, 8.00, 8.54,
-            9.22, 9.79, 10.09, 10.20, 10.24, 10.23, 9.90, 9.36, 8.84, 8.35,
-            7.80, 6.84, 6.25, 5.78, 5.26, 4.93, 4.33, 3.99, 3.67, 3.27,
-            3.05, 2.64, 2.27, 2.06, 1.88, 1.57, 1.35, 1.19, 1.06, .887,
-            .764, .673, .603, .548, .5024]
+YIONGG10 = [np.float32(0.00), np.float32(.206), np.float32(1.14), np.float32(2.30), np.float32(3.31), np.float32(5.21),
+            np.float32(6.47), np.float32(7.37), np.float32(8.00), np.float32(8.54),
+            np.float32(9.22), np.float32(9.79), np.float32(10.09), np.float32(10.20), np.float32(10.24),
+            np.float32(10.23), np.float32(9.90), np.float32(9.36), np.float32(8.84), np.float32(8.35),
+            np.float32(7.80), np.float32(6.84), np.float32(6.25), np.float32(5.78), np.float32(5.26), np.float32(4.93),
+            np.float32(4.33), np.float32(3.99), np.float32(3.67), np.float32(3.27),
+            np.float32(3.05), np.float32(2.64), np.float32(2.27), np.float32(2.06), np.float32(1.88), np.float32(1.57),
+            np.float32(1.35), np.float32(1.19), np.float32(1.06), np.float32(.887),
+            np.float32(.764), np.float32(.673), np.float32(.603), np.float32(.548), np.float32(.5024),
+            ]
 # COUNTING IONISATION
 
-YIONCG10 = [0.00, .206, 1.14, 2.30, 3.31, 5.21, 6.47, 7.32, 7.81, 8.00,
-            8.43, 8.83, 9.019, 9.118, 9.154, 9.145, 8.85, 8.37, 7.90, 7.46,
-            6.97, 6.11, 5.59, 5.17, 4.70, 4.41, 3.87, 3.57, 3.28, 2.92,
-            2.73, 2.36, 2.03, 1.84, 1.68, 1.40, 1.21, 1.06, .952, .793,
-            .683, .602, .539, .490, .4491]
-# BREAKUP CHANNELS FROM SCALEe WANG ANe VIeAL CORRECTEe FOR eISSOCIATION
+YIONCG10 = [np.float32(0.00), np.float32(.206), np.float32(1.14), np.float32(2.30), np.float32(3.31), np.float32(5.21),
+            np.float32(6.47), np.float32(7.32), np.float32(7.81), np.float32(8.00),
+            np.float32(8.43), np.float32(8.83), np.float32(9.019), np.float32(9.118), np.float32(9.154),
+            np.float32(9.145), np.float32(8.85), np.float32(8.37), np.float32(7.90), np.float32(7.46),
+            np.float32(6.97), np.float32(6.11), np.float32(5.59), np.float32(5.17), np.float32(4.70), np.float32(4.41),
+            np.float32(3.87), np.float32(3.57), np.float32(3.28), np.float32(2.92),
+            np.float32(2.73), np.float32(2.36), np.float32(2.03), np.float32(1.84), np.float32(1.68), np.float32(1.40),
+            np.float32(1.21), np.float32(1.06), np.float32(.952), np.float32(.793),
+            np.float32(.683), np.float32(.602), np.float32(.539), np.float32(.490), np.float32(.4491),
+            ]
+# BREAKUP CHANNELS FROM SCALED WANG AND VIDAL CORRECTED FOR DISSOCIATION
+
 # FROM ++ STATES
+
 #
+
 #  C3H8+
 
-XION1G10 = [11.11, 12.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0,
-            50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200.,
-            250., 300., 350., 400., 450., 500., 600., 700., 800., 900.,
-            1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000.,
-            6000., 7000., 8000., 9000., 10000.
+XION1G10 = [np.float32(11.11), np.float32(12.0), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0),
+            np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+            np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+            np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+            np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+            np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+            np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+            np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.),
+            np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION1G10 = [0.00, .055, .213, .337, .456, .722, .854, .877, .960, .920,
-            .931, .964, .936, .945, .949, .948, .917, .867, .819, .773,
-            .722, .634, .579, .535, .487, .457, .401, .370, .340, .303,
-            .282, .245, .210, .191, .174, .145, .125, .110, .0987, .0822,
-            .0708, .0624, .0559, .0508, .0465]
+YION1G10 = [np.float32(0.00), np.float32(.055), np.float32(.213), np.float32(.337), np.float32(.456), np.float32(.722),
+            np.float32(.854), np.float32(.877), np.float32(.960), np.float32(.920),
+            np.float32(.931), np.float32(.964), np.float32(.936), np.float32(.945), np.float32(.949), np.float32(.948),
+            np.float32(.917), np.float32(.867), np.float32(.819), np.float32(.773),
+            np.float32(.722), np.float32(.634), np.float32(.579), np.float32(.535), np.float32(.487), np.float32(.457),
+            np.float32(.401), np.float32(.370), np.float32(.340), np.float32(.303),
+            np.float32(.282), np.float32(.245), np.float32(.210), np.float32(.191), np.float32(.174), np.float32(.145),
+            np.float32(.125), np.float32(.110), np.float32(.0987), np.float32(.0822),
+            np.float32(.0708), np.float32(.0624), np.float32(.0559), np.float32(.0508), np.float32(.0465),
+            ]
 #  C3H7+
 
-XION2G10 = [11.55, 12.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0,
-            50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200.,
-            250., 300., 350., 400., 450., 500., 600., 700., 800., 900.,
-            1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000.,
-            6000., 7000., 8000., 9000., 10000.
+XION2G10 = [np.float32(11.55), np.float32(12.0), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0),
+            np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+            np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+            np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+            np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+            np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+            np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+            np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.),
+            np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION2G10 = [0.00, .020, .126, .219, .295, .468, .579, .634, .649, .634,
-            .646, .662, .666, .673, .675, .675, .653, .617, .583, .551,
-            .514, .451, .412, .381, .347, .325, .286, .263, .242, .216,
-            .201, .174, .150, .136, .124, .103, .0893, .0782, .0702, .0585,
-            .0504, .0444, .0398, .0361, .0331]
+YION2G10 = [np.float32(0.00), np.float32(.020), np.float32(.126), np.float32(.219), np.float32(.295), np.float32(.468),
+            np.float32(.579), np.float32(.634), np.float32(.649), np.float32(.634),
+            np.float32(.646), np.float32(.662), np.float32(.666), np.float32(.673), np.float32(.675), np.float32(.675),
+            np.float32(.653), np.float32(.617), np.float32(.583), np.float32(.551),
+            np.float32(.514), np.float32(.451), np.float32(.412), np.float32(.381), np.float32(.347), np.float32(.325),
+            np.float32(.286), np.float32(.263), np.float32(.242), np.float32(.216),
+            np.float32(.201), np.float32(.174), np.float32(.150), np.float32(.136), np.float32(.124), np.float32(.103),
+            np.float32(.0893), np.float32(.0782), np.float32(.0702), np.float32(.0585),
+            np.float32(.0504), np.float32(.0444), np.float32(.0398), np.float32(.0361), np.float32(.0331),
+            ]
 #  C3H6+
 
-XION3G10 = [11.75, 12.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0,
-            50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200.,
-            250., 300., 350., 400., 450., 500., 600., 700., 800., 900.,
-            1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000.,
-            6000., 7000., 8000., 9000., 10000.
+XION3G10 = [np.float32(11.75), np.float32(12.0), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0),
+            np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+            np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+            np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+            np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+            np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+            np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+            np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.),
+            np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION3G10 = [0.00, .003, .031, .051, .071, .113, .140, .153, .157, .153,
-            .156, .160, .161, .162, .163, .163, .157, .149, .140, .133,
-            .124, .109, .0993, .0919, .0836, .0784, .0688, .0634, .0583, .0520,
-            .0485, .0420, .0361, .0327, .0299, .0249, .0215, .0188, .0169, .0141,
-            .0121, .0107, .00958, .00871, .00798]
+YION3G10 = [np.float32(0.00), np.float32(.003), np.float32(.031), np.float32(.051), np.float32(.071), np.float32(.113),
+            np.float32(.140), np.float32(.153), np.float32(.157), np.float32(.153),
+            np.float32(.156), np.float32(.160), np.float32(.161), np.float32(.162), np.float32(.163), np.float32(.163),
+            np.float32(.157), np.float32(.149), np.float32(.140), np.float32(.133),
+            np.float32(.124), np.float32(.109), np.float32(.0993), np.float32(.0919), np.float32(.0836),
+            np.float32(.0784), np.float32(.0688), np.float32(.0634), np.float32(.0583), np.float32(.0520),
+            np.float32(.0485), np.float32(.0420), np.float32(.0361), np.float32(.0327), np.float32(.0299),
+            np.float32(.0249), np.float32(.0215), np.float32(.0188), np.float32(.0169), np.float32(.0141),
+            np.float32(.0121), np.float32(.0107), np.float32(.00958), np.float32(.00871), np.float32(.00798),
+            ]
 #  C2H4+
 
-XION4G10 = [11.75, 12.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0,
-            50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200.,
-            250., 300., 350., 400., 450., 500., 600., 700., 800., 900.,
-            1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000.,
-            6000., 7000., 8000., 9000., 10000.
+XION4G10 = [np.float32(11.75), np.float32(12.0), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0),
+            np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+            np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+            np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+            np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+            np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+            np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+            np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.),
+            np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION4G10 = [0.00, .027, .257, .444, .604, .957, 1.188, 1.298, 1.330, 1.300,
-            1.324, 1.356, 1.366, 1.379, 1.385, 1.383, 1.339, 1.266, 1.195, 1.129,
-            1.055, .9248, .8451, .7816, .7112, .6666, .5855, .5396, .4963, .4421,
-            .4123, .3570, .3069, .2785, .2543, .2118, .1830, .1603, .1440, .1200,
-            .1033, .0911, .0815, .0741, .0679]
+YION4G10 = [np.float32(0.00), np.float32(.027), np.float32(.257), np.float32(.444), np.float32(.604), np.float32(.957),
+            np.float32(1.188), np.float32(1.298), np.float32(1.330), np.float32(1.300),
+            np.float32(1.324), np.float32(1.356), np.float32(1.366), np.float32(1.379), np.float32(1.385),
+            np.float32(1.383), np.float32(1.339), np.float32(1.266), np.float32(1.195), np.float32(1.129),
+            np.float32(1.055), np.float32(.9248), np.float32(.8451), np.float32(.7816), np.float32(.7112),
+            np.float32(.6666), np.float32(.5855), np.float32(.5396), np.float32(.4963), np.float32(.4421),
+            np.float32(.4123), np.float32(.3570), np.float32(.3069), np.float32(.2785), np.float32(.2543),
+            np.float32(.2118), np.float32(.1830), np.float32(.1603), np.float32(.1440), np.float32(.1200),
+            np.float32(.1033), np.float32(.0911), np.float32(.0815), np.float32(.0741), np.float32(.0679),
+            ]
 #  C2H5+
 
-XION5G10 = [11.91, 12.0, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0,
-            50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200.,
-            250., 300., 350., 400., 450., 500., 600., 700., 800., 900.,
-            1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000.,
-            6000., 7000., 8000., 9000., 10000.
+XION5G10 = [np.float32(11.91), np.float32(12.0), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0),
+            np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+            np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+            np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+            np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+            np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+            np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+            np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.),
+            np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION5G10 = [0.00, .016, .394, .684, .954, 1.512, 1.877, 2.050, 2.100, 2.053,
-            2.091, 2.141, 2.156, 2.178, 2.186, 2.184, 2.114, 1.998, 1.887, 1.783,
-            1.665, 1.460, 1.334, 1.234, 1.123, 1.053, .9245, .8519, .7836, .6981,
-            .6511, .5637, .4846, .4397, .4015, .3344, .2890, .2532, .2274, .1894,
-            .1631, .1438, .1287, .1170, .1073]
+YION5G10 = [np.float32(0.00), np.float32(.016), np.float32(.394), np.float32(.684), np.float32(.954), np.float32(1.512),
+            np.float32(1.877), np.float32(2.050), np.float32(2.100), np.float32(2.053),
+            np.float32(2.091), np.float32(2.141), np.float32(2.156), np.float32(2.178), np.float32(2.186),
+            np.float32(2.184), np.float32(2.114), np.float32(1.998), np.float32(1.887), np.float32(1.783),
+            np.float32(1.665), np.float32(1.460), np.float32(1.334), np.float32(1.234), np.float32(1.123),
+            np.float32(1.053), np.float32(.9245), np.float32(.8519), np.float32(.7836), np.float32(.6981),
+            np.float32(.6511), np.float32(.5637), np.float32(.4846), np.float32(.4397), np.float32(.4015),
+            np.float32(.3344), np.float32(.2890), np.float32(.2532), np.float32(.2274), np.float32(.1894),
+            np.float32(.1631), np.float32(.1438), np.float32(.1287), np.float32(.1170), np.float32(.1073),
+            ]
 #  C3H5+
 
-XION6G10 = [13.48, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0,
-            60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200., 250.,
-            300., 350., 400., 450., 500., 600., 700., 800., 900., 1000.,
-            1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000., 6000.,
-            7000., 8000., 9000., 10000.
+XION6G10 = [np.float32(13.48), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+            np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+            np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+            np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.),
+            np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.),
+            np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+            np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+            np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+            np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION6G10 = [0.00, .044, .107, .163, .259, .321, .351, .359, .351, .358,
-            .366, .369, .373, .374, .374, .362, .342, .323, .305, .285,
-            .250, .228, .211, .192, .180, .158, .146, .134, .119, .111,
-            .0964, .0829, .0752, .0687, .0572, .0494, .0433, .0389, .0324, .0279,
-            .0246, .0220, .0200, .0184]
+YION6G10 = [np.float32(0.00), np.float32(.044), np.float32(.107), np.float32(.163), np.float32(.259), np.float32(.321),
+            np.float32(.351), np.float32(.359), np.float32(.351), np.float32(.358),
+            np.float32(.366), np.float32(.369), np.float32(.373), np.float32(.374), np.float32(.374), np.float32(.362),
+            np.float32(.342), np.float32(.323), np.float32(.305), np.float32(.285),
+            np.float32(.250), np.float32(.228), np.float32(.211), np.float32(.192), np.float32(.180), np.float32(.158),
+            np.float32(.146), np.float32(.134), np.float32(.119), np.float32(.111),
+            np.float32(.0964), np.float32(.0829), np.float32(.0752), np.float32(.0687), np.float32(.0572),
+            np.float32(.0494), np.float32(.0433), np.float32(.0389), np.float32(.0324), np.float32(.0279),
+            np.float32(.0246), np.float32(.0220), np.float32(.0200), np.float32(.0184),
+            ]
 #  CH3+
 
-XION7G10 = [13.65, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0,
-            60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200., 250.,
-            300., 350., 400., 450., 500., 600., 700., 800., 900., 1000.,
-            1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000., 6000.,
-            7000., 8000., 9000., 10000.
+XION7G10 = [np.float32(13.65), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+            np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+            np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+            np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.),
+            np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.),
+            np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+            np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+            np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+            np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION7G10 = [0.00, .019, .049, .078, .123, .153, .167, .171, .167, .170,
-            .174, .175, .177, .177, .177, .171, .162, .153, .145, .135,
-            .118, .108, .100, .0911, .0854, .0750, .0691, .0636, .0566, .0528,
-            .0457, .0393, .0357, .0326, .0271, .0234, .0205, .0184, .0154, .0132,
-            .0117, .0104, .00949, .00870]
+YION7G10 = [np.float32(0.00), np.float32(.019), np.float32(.049), np.float32(.078), np.float32(.123), np.float32(.153),
+            np.float32(.167), np.float32(.171), np.float32(.167), np.float32(.170),
+            np.float32(.174), np.float32(.175), np.float32(.177), np.float32(.177), np.float32(.177), np.float32(.171),
+            np.float32(.162), np.float32(.153), np.float32(.145), np.float32(.135),
+            np.float32(.118), np.float32(.108), np.float32(.100), np.float32(.0911), np.float32(.0854),
+            np.float32(.0750), np.float32(.0691), np.float32(.0636), np.float32(.0566), np.float32(.0528),
+            np.float32(.0457), np.float32(.0393), np.float32(.0357), np.float32(.0326), np.float32(.0271),
+            np.float32(.0234), np.float32(.0205), np.float32(.0184), np.float32(.0154), np.float32(.0132),
+            np.float32(.0117), np.float32(.0104), np.float32(.00949), np.float32(.00870),
+            ]
 
 #  C3H4+
 
-XION8G10 = [13.79, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0,
-            60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200., 250.,
-            300., 350., 400., 450., 500., 600., 700., 800., 900., 1000.,
-            1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000., 6000.,
-            7000., 8000., 9000., 10000.
+XION8G10 = [np.float32(13.79), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+            np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+            np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+            np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.),
+            np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.),
+            np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+            np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+            np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+            np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION8G10 = [0.00, .0061, .0171, .0270, .0406, .0525, .0670, .0672, .0674,
-            .0686,
-            .0702, .0708, .0715, .0718, .0717, .0694, .0656, .0620, .0585, .0547,
-            .0479, .0438, .0405, .0369, .0346, .0304, .0280, .0257, .0229, .0214,
-            .0185, .0159, .0144, .0132, .0110, .00949, .00831, .00747, .00622, .00536,
-            .00472, .00423, .00384, .00352]
+YION8G10 = [np.float32(0.00), np.float32(.0061), np.float32(.0171), np.float32(.0270), np.float32(.0406),
+            np.float32(.0525), np.float32(.0670), np.float32(.0672), np.float32(.0674),
+            np.float32(.0686),
+            np.float32(.0702), np.float32(.0708), np.float32(.0715), np.float32(.0718), np.float32(.0717),
+            np.float32(.0694), np.float32(.0656), np.float32(.0620), np.float32(.0585), np.float32(.0547),
+            np.float32(.0479), np.float32(.0438), np.float32(.0405), np.float32(.0369), np.float32(.0346),
+            np.float32(.0304), np.float32(.0280), np.float32(.0257), np.float32(.0229), np.float32(.0214),
+            np.float32(.0185), np.float32(.0159), np.float32(.0144), np.float32(.0132), np.float32(.0110),
+            np.float32(.00949), np.float32(.00831), np.float32(.00747), np.float32(.00622), np.float32(.00536),
+            np.float32(.00472), np.float32(.00423), np.float32(.00384), np.float32(.00352),
+            ]
 #  C2H2+
 
-XION9G10 = [14.1, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0,
-            60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200., 250.,
-            300., 350., 400., 450., 500., 600., 700., 800., 900., 1000.,
-            1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000., 6000.,
-            7000., 8000., 9000., 10000.
+XION9G10 = [np.float32(14.1), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+            np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+            np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+            np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.),
+            np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.),
+            np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+            np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+            np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+            np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
             ]
-YION9G10 = [0.00, .013, .047, .078, .117, .151, .193, .223, .223, .226,
-            .234, .229, .231, .232, .232, .224, .212, .200, .189, .177,
-            .155, .142, .131, .119, .112, .0981, .0904, .0832, .0741, .0691,
-            .0598, .0514, .0467, .0426, .0355, .0307, .0269, .0241, .0201, .173,
-            .0153, .0137, .0124, .0114]
+YION9G10 = [np.float32(0.00), np.float32(.013), np.float32(.047), np.float32(.078), np.float32(.117), np.float32(.151),
+            np.float32(.193), np.float32(.223), np.float32(.223), np.float32(.226),
+            np.float32(.234), np.float32(.229), np.float32(.231), np.float32(.232), np.float32(.232), np.float32(.224),
+            np.float32(.212), np.float32(.200), np.float32(.189), np.float32(.177),
+            np.float32(.155), np.float32(.142), np.float32(.131), np.float32(.119), np.float32(.112), np.float32(.0981),
+            np.float32(.0904), np.float32(.0832), np.float32(.0741), np.float32(.0691),
+            np.float32(.0598), np.float32(.0514), np.float32(.0467), np.float32(.0426), np.float32(.0355),
+            np.float32(.0307), np.float32(.0269), np.float32(.0241), np.float32(.0201), np.float32(.173),
+            np.float32(.0153), np.float32(.0137), np.float32(.0124), np.float32(.0114),
+            ]
 #  C2H3+
 
-XION10G10 = [14.5, 15.0, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0,
-             60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175., 200., 250.,
-             300., 350., 400., 450., 500., 600., 700., 800., 900., 1000.,
-             1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000., 6000.,
-             7000., 8000., 9000., 10000.
+XION10G10 = [np.float32(14.5), np.float32(15.0), np.float32(17.5), np.float32(20.0), np.float32(25.0), np.float32(30.0),
+             np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+             np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+             np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.),
+             np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.),
+             np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+             np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+             np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+             np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION10G10 = [0.00, .038, .219, .387, .582, .742, .964, .987, .965, .983,
-             1.006, 1.013, 1.024, 1.028, 1.027, .9934, .9392, .8870, .8379, .7826,
-             .6863, .6272, .5800, .5278, .4947, .4345, .4004, .3683, .3281, .3060,
-             .2649, .2278, .2067, .1887, .1572, .1358, .1190, .1069, .0890, .0767,
-             .0676, .0605, .0550, .0504]
+YION10G10 = [np.float32(0.00), np.float32(.038), np.float32(.219), np.float32(.387), np.float32(.582), np.float32(.742),
+             np.float32(.964), np.float32(.987), np.float32(.965), np.float32(.983),
+             np.float32(1.006), np.float32(1.013), np.float32(1.024), np.float32(1.028), np.float32(1.027),
+             np.float32(.9934), np.float32(.9392), np.float32(.8870), np.float32(.8379), np.float32(.7826),
+             np.float32(.6863), np.float32(.6272), np.float32(.5800), np.float32(.5278), np.float32(.4947),
+             np.float32(.4345), np.float32(.4004), np.float32(.3683), np.float32(.3281), np.float32(.3060),
+             np.float32(.2649), np.float32(.2278), np.float32(.2067), np.float32(.1887), np.float32(.1572),
+             np.float32(.1358), np.float32(.1190), np.float32(.1069), np.float32(.0890), np.float32(.0767),
+             np.float32(.0676), np.float32(.0605), np.float32(.0550), np.float32(.0504),
+             ]
 #  C3H3+
 
-XION11G10 = [16.5, 17.5, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0,
-             70.0, 80.0, 90.0, 100., 125., 150., 175., 200., 250., 300.,
-             350., 400., 450., 500., 600., 700., 800., 900., 1000., 1250.,
-             1500., 1750., 2000., 2500., 3000., 3500., 4000., 5000., 6000., 7000.,
-             8000., 9000., 10000.
+XION11G10 = [np.float32(16.5), np.float32(17.5), np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(35.0),
+             np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+             np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.), np.float32(150.),
+             np.float32(175.), np.float32(200.), np.float32(250.), np.float32(300.),
+             np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.), np.float32(700.),
+             np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1250.),
+             np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+             np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(7000.),
+             np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION11G10 = [0.00, .125, .197, .312, .387, .423, .434, .424, .432, .442,
-             .446, .450, .452, .451, .437, .413, .390, .368, .344, .302,
-             .276, .255, .232, .218, .191, .176, .162, .144, .135, .116,
-             .1001, .0909, .0830, .0691, .0597, .0523, .0470, .0391, .0337, .0297,
-             .0266, .0242, .0222]
+YION11G10 = [np.float32(0.00), np.float32(.125), np.float32(.197), np.float32(.312), np.float32(.387), np.float32(.423),
+             np.float32(.434), np.float32(.424), np.float32(.432), np.float32(.442),
+             np.float32(.446), np.float32(.450), np.float32(.452), np.float32(.451), np.float32(.437), np.float32(.413),
+             np.float32(.390), np.float32(.368), np.float32(.344), np.float32(.302),
+             np.float32(.276), np.float32(.255), np.float32(.232), np.float32(.218), np.float32(.191), np.float32(.176),
+             np.float32(.162), np.float32(.144), np.float32(.135), np.float32(.116),
+             np.float32(.1001), np.float32(.0909), np.float32(.0830), np.float32(.0691), np.float32(.0597),
+             np.float32(.0523), np.float32(.0470), np.float32(.0391), np.float32(.0337), np.float32(.0297),
+             np.float32(.0266), np.float32(.0242), np.float32(.0222),
+             ]
 #  H+
 
-XION12G10 = [20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0,
-             90.0, 100., 125., 150., 175., 200., 250., 300., 350., 400.,
-             450., 500., 600., 700., 800., 900., 1000., 1250., 1500., 1750.,
-             2000., 2500., 3000., 3500., 4000., 5000., 6000., 7000., 8000., 9000.,
-             10000.
+XION12G10 = [np.float32(20.0), np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+             np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+             np.float32(90.0), np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+             np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.),
+             np.float32(450.), np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+             np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.),
+             np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.),
+             np.float32(5000.), np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.),
+             np.float32(10000.),
              ]
-YION12G10 = [0.00, .00175, .00656, .00845, .00879, .00016, .00016, .00016,
-             .0093, .0172,
-             .0173, .0173, .0167, .0158, .0149, .0141, .0131, .0115, .0105, .00973,
-             .00886, .00830, .00729, .00672, .00618, .00551, .00514, .00445, .00382,
-             .00347,
-             .00317, .00264, .00228, .00200, .00179, .00149, .00129, .00113, .00102,
-             .000923, .000846]
-#  H2+ ANe H3+
+YION12G10 = [np.float32(0.00), np.float32(.00175), np.float32(.00656), np.float32(.00845), np.float32(.00879),
+             np.float32(.00016), np.float32(.00016), np.float32(.00016),
+             np.float32(.0093), np.float32(.0172),
+             np.float32(.0173), np.float32(.0173), np.float32(.0167), np.float32(.0158), np.float32(.0149),
+             np.float32(.0141), np.float32(.0131), np.float32(.0115), np.float32(.0105), np.float32(.00973),
+             np.float32(.00886), np.float32(.00830), np.float32(.00729), np.float32(.00672), np.float32(.00618),
+             np.float32(.00551), np.float32(.00514), np.float32(.00445), np.float32(.00382),
+             np.float32(.00347),
+             np.float32(.00317), np.float32(.00264), np.float32(.00228), np.float32(.00200), np.float32(.00179),
+             np.float32(.00149), np.float32(.00129), np.float32(.00113), np.float32(.00102),
+             np.float32(.000923), np.float32(.000846),
+             ]
+#  H2+ AND H3+
 
-XION13G10 = [21.5, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0,
-             90.0, 100., 125., 150., 175., 200., 250., 300., 350., 400.,
-             450., 500., 600., 700., 800., 900., 1000., 1250., 1500., 1750.,
-             2000., 2500., 3000., 3500., 4000., 5000., 6000., 7000., 8000., 9000.,
-             10000.
+XION13G10 = [np.float32(21.5), np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0),
+             np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0),
+             np.float32(90.0), np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.),
+             np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.),
+             np.float32(450.), np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+             np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.),
+             np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.),
+             np.float32(5000.), np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.),
+             np.float32(10000.),
              ]
-YION13G10 = [0.00, .00070, .00246, .00455, .00527, .00685, .00710, .00784,
-             .00916, .00925,
-             .00929, .00928, .00898, .00849, .00802, .00758, .00708, .00621, .00567,
-             .00524,
-             .00477, .00447, .00393, .00362, .00333, .00297, .00277, .00240, .00206,
-             .00187,
-             .00171, .00142, .00123, .00108, .000966, .000805, .000693, .000611,
-             .000547, .000497,
-             .000456]
+YION13G10 = [np.float32(0.00), np.float32(.00070), np.float32(.00246), np.float32(.00455), np.float32(.00527),
+             np.float32(.00685), np.float32(.00710), np.float32(.00784),
+             np.float32(.00916), np.float32(.00925),
+             np.float32(.00929), np.float32(.00928), np.float32(.00898), np.float32(.00849), np.float32(.00802),
+             np.float32(.00758), np.float32(.00708), np.float32(.00621), np.float32(.00567),
+             np.float32(.00524),
+             np.float32(.00477), np.float32(.00447), np.float32(.00393), np.float32(.00362), np.float32(.00333),
+             np.float32(.00297), np.float32(.00277), np.float32(.00240), np.float32(.00206),
+             np.float32(.00187),
+             np.float32(.00171), np.float32(.00142), np.float32(.00123), np.float32(.00108), np.float32(.000966),
+             np.float32(.000805), np.float32(.000693), np.float32(.000611),
+             np.float32(.000547), np.float32(.000497),
+             np.float32(.000456),
+             ]
 #  CH2+
 
-XION14G10 = [25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0,
-             100., 125., 150., 175., 200., 250., 300., 350., 400., 450.,
-             500., 600., 700., 800., 900., 1000., 1250., 1500., 1750., 2000.,
-             2500., 3000., 3500., 4000., 5000., 6000., 7000., 8000., 9000., 10000.
+XION14G10 = [np.float32(25.0), np.float32(30.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0),
+             np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+             np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.),
+             np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+             np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.),
+             np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.),
+             np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.),
+             np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION14G10 = [0.00, .0146, .0262, .0409, .0385, .0475, .0527, .0573, .0578,
-             .0581,
-             .0580, .0561, .0531, .0501, .0473, .0442, .0388, .0354, .0328, .0298,
-             .0279, .0245, .0226, .0208, .0185, .0173, .0150, .0129, .0117, .0107,
-             .00888, .00767, .00672, .00604, .00503, .00433, .00382, .00342, .00311,
-             .00285]
+YION14G10 = [np.float32(0.00), np.float32(.0146), np.float32(.0262), np.float32(.0409), np.float32(.0385),
+             np.float32(.0475), np.float32(.0527), np.float32(.0573), np.float32(.0578),
+             np.float32(.0581),
+             np.float32(.0580), np.float32(.0561), np.float32(.0531), np.float32(.0501), np.float32(.0473),
+             np.float32(.0442), np.float32(.0388), np.float32(.0354), np.float32(.0328), np.float32(.0298),
+             np.float32(.0279), np.float32(.0245), np.float32(.0226), np.float32(.0208), np.float32(.0185),
+             np.float32(.0173), np.float32(.0150), np.float32(.0129), np.float32(.0117), np.float32(.0107),
+             np.float32(.00888), np.float32(.00767), np.float32(.00672), np.float32(.00604), np.float32(.00503),
+             np.float32(.00433), np.float32(.00382), np.float32(.00342), np.float32(.00311),
+             np.float32(.00285),
+             ]
 #  C3H2+
 
-XION15G10 = [26.5, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.,
-             125., 150., 175., 200., 250., 300., 350., 400., 450., 500.,
-             600., 700., 800., 900., 1000., 1250., 1500., 1750., 2000., 2500.,
-             3000., 3500., 4000., 5000., 6000., 7000., 8000., 9000., 10000.
+XION15G10 = [np.float32(26.5), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+             np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+             np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.), np.float32(300.),
+             np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+             np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+             np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+             np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+             np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION15G10 = [0.00, .032, .067, .088, .113, .116, .121, .128, .123, .123,
-             .119, .112, .106, .100, .0934, .0819, .0749, .0692, .0630, .0591,
-             .0519, .0478, .0440, .0392, .0365, .0316, .0272, .0247, .0225, .0188,
-             .0162, .0142, .0128, .0106, .00915, .00807, .00722, .00657, .00602]
-# C3H+
+YION15G10 = [np.float32(0.00), np.float32(.032), np.float32(.067), np.float32(.088), np.float32(.113), np.float32(.116),
+             np.float32(.121), np.float32(.128), np.float32(.123), np.float32(.123),
+             np.float32(.119), np.float32(.112), np.float32(.106), np.float32(.100), np.float32(.0934),
+             np.float32(.0819), np.float32(.0749), np.float32(.0692), np.float32(.0630), np.float32(.0591),
+             np.float32(.0519), np.float32(.0478), np.float32(.0440), np.float32(.0392), np.float32(.0365),
+             np.float32(.0316), np.float32(.0272), np.float32(.0247), np.float32(.0225), np.float32(.0188),
+             np.float32(.0162), np.float32(.0142), np.float32(.0128), np.float32(.0106), np.float32(.00915),
+             np.float32(.00807), np.float32(.00722), np.float32(.00657), np.float32(.00602),
+             ]
+#  C3H+
 
-XION16G10 = [29.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.,
-             125., 150., 175., 200., 250., 300., 350., 400., 450., 500.,
-             600., 700., 800., 900., 1000., 1250., 1500., 1750., 2000., 2500.,
-             3000., 3500., 4000., 5000., 6000., 7000., 8000., 9000., 10000.
+XION16G10 = [np.float32(29.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+             np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+             np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.), np.float32(300.),
+             np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+             np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+             np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+             np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+             np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION16G10 = [0.00, .0196, .0412, .0539, .0694, .0724, .0744, .0751, .0754,
-             .0754,
-             .0729, .0689, .0651, .0615, .0574, .0504, .0460, .0426, .0387, .0363,
-             .0319, .0294, .0270, .0241, .0225, .0194, .0167, .0152, .0139, .0115,
-             .00997, .00873, .00784, .00653, .00563, .00496, .00444, .00404, .00370]
+YION16G10 = [np.float32(0.00), np.float32(.0196), np.float32(.0412), np.float32(.0539), np.float32(.0694),
+             np.float32(.0724), np.float32(.0744), np.float32(.0751), np.float32(.0754),
+             np.float32(.0754),
+             np.float32(.0729), np.float32(.0689), np.float32(.0651), np.float32(.0615), np.float32(.0574),
+             np.float32(.0504), np.float32(.0460), np.float32(.0426), np.float32(.0387), np.float32(.0363),
+             np.float32(.0319), np.float32(.0294), np.float32(.0270), np.float32(.0241), np.float32(.0225),
+             np.float32(.0194), np.float32(.0167), np.float32(.0152), np.float32(.0139), np.float32(.0115),
+             np.float32(.00997), np.float32(.00873), np.float32(.00784), np.float32(.00653), np.float32(.00563),
+             np.float32(.00496), np.float32(.00444), np.float32(.00404), np.float32(.00370),
+             ]
 #  C2H+
 
-XION17G10 = [30.4, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.,
-             125., 150., 175., 200., 250., 300., 350., 400., 450., 500.,
-             600., 700., 800., 900., 1000., 1250., 1500., 1750., 2000., 2500.,
-             3000., 3500., 4000., 5000., 6000., 7000., 8000., 9000., 10000.
+XION17G10 = [np.float32(30.4), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+             np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+             np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.), np.float32(300.),
+             np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+             np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+             np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+             np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+             np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION17G10 = [0.00, .0048, .0121, .0131, .0169, .0176, .0181, .0183, .0183,
-             .0183,
-             .0177, .0168, .0158, .0150, .0140, .0123, .0112, .0104, .00942, .00883,
-             .00776, .00715, .00658, .00586, .00546, .00473, .00407, .00369, .00337,
-             .00281,
-             .00242, .00212, .00191, .00159, .00137, .00121, .00108, .000982, .000900]
+YION17G10 = [np.float32(0.00), np.float32(.0048), np.float32(.0121), np.float32(.0131), np.float32(.0169),
+             np.float32(.0176), np.float32(.0181), np.float32(.0183), np.float32(.0183),
+             np.float32(.0183),
+             np.float32(.0177), np.float32(.0168), np.float32(.0158), np.float32(.0150), np.float32(.0140),
+             np.float32(.0123), np.float32(.0112), np.float32(.0104), np.float32(.00942), np.float32(.00883),
+             np.float32(.00776), np.float32(.00715), np.float32(.00658), np.float32(.00586), np.float32(.00546),
+             np.float32(.00473), np.float32(.00407), np.float32(.00369), np.float32(.00337),
+             np.float32(.00281),
+             np.float32(.00242), np.float32(.00212), np.float32(.00191), np.float32(.00159), np.float32(.00137),
+             np.float32(.00121), np.float32(.00108), np.float32(.000982), np.float32(.000900),
+             ]
 # ALL STABLE  ++ STATES
 
-XION18G10 = [32.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125.,
-             150., 175., 200., 250., 300., 350., 400., 450., 500., 600.,
-             700., 800., 900., 1000., 1250., 1500., 1750., 2000., 2500., 3000.,
-             3500., 4000., 5000., 6000., 7000., 8000., 9000., 10000.
+XION18G10 = [np.float32(32.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+             np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+             np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.),
+             np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.),
+             np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1250.),
+             np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+             np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(7000.),
+             np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION18G10 = [0.00, .0062, .0178, .0262, .0321, .0369, .0372, .0374, .0374,
-             .0362,
-             .0342, .0323, .0305, .0285, .0250, .0228, .0211, .0192, .0180, .0158,
-             .0146, .0134, .0119, .0111, .00964, .00829, .00752, .00687, .00572, .00494,
-             .00433, .00389, .00324, .00279, .00246, .00220, .00200, .00183]
-#  ALL eISSOCIATING ++ STATES
+YION18G10 = [np.float32(0.00), np.float32(.0062), np.float32(.0178), np.float32(.0262), np.float32(.0321),
+             np.float32(.0369), np.float32(.0372), np.float32(.0374), np.float32(.0374),
+             np.float32(.0362),
+             np.float32(.0342), np.float32(.0323), np.float32(.0305), np.float32(.0285), np.float32(.0250),
+             np.float32(.0228), np.float32(.0211), np.float32(.0192), np.float32(.0180), np.float32(.0158),
+             np.float32(.0146), np.float32(.0134), np.float32(.0119), np.float32(.0111), np.float32(.00964),
+             np.float32(.00829), np.float32(.00752), np.float32(.00687), np.float32(.00572), np.float32(.00494),
+             np.float32(.00433), np.float32(.00389), np.float32(.00324), np.float32(.00279), np.float32(.00246),
+             np.float32(.00220), np.float32(.00200), np.float32(.00183),
+             ]
+#  ALL DISSOCIATING ++ STATES
 
-XION19G10 = [32.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.,
-             125., 150., 175., 200., 250., 300., 350., 400., 450., 500.,
-             600., 700., 800., 900., 1000., 1250., 1500., 1750., 2000., 2500.,
-             3000., 3500., 4000., 5000., 6000., 7000., 8000., 9000., 10000.
+XION19G10 = [np.float32(32.0), np.float32(35.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0),
+             np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
+             np.float32(125.), np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.), np.float32(300.),
+             np.float32(350.), np.float32(400.), np.float32(450.), np.float32(500.),
+             np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.),
+             np.float32(1250.), np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.),
+             np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.),
+             np.float32(7000.), np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION19G10 = [0.00, .0460, .1797, .5189, .7608, .9316, 1.0718, 1.0824,
-             1.0867, 1.0856,
-             1.0506, .9933, .9381, .8861, .8277, .7258, .6633, .6134, .5582, .5232,
-             .4595, .4235, .3895, .3470, .3236, .2802, .2409, .2186, .1996, .1662,
-             .1436, .1258, .1130, .0941, .0811, .0715, .0640, .0582, .0533]
+YION19G10 = [np.float32(0.00), np.float32(.0460), np.float32(.1797), np.float32(.5189), np.float32(.7608),
+             np.float32(.9316), np.float32(1.0718), np.float32(1.0824),
+             np.float32(1.0867), np.float32(1.0856),
+             np.float32(1.0506), np.float32(.9933), np.float32(.9381), np.float32(.8861), np.float32(.8277),
+             np.float32(.7258), np.float32(.6633), np.float32(.6134), np.float32(.5582), np.float32(.5232),
+             np.float32(.4595), np.float32(.4235), np.float32(.3895), np.float32(.3470), np.float32(.3236),
+             np.float32(.2802), np.float32(.2409), np.float32(.2186), np.float32(.1996), np.float32(.1662),
+             np.float32(.1436), np.float32(.1258), np.float32(.1130), np.float32(.0941), np.float32(.0811),
+             np.float32(.0715), np.float32(.0640), np.float32(.0582), np.float32(.0533),
+             ]
 #  CH+
 
-XION20G10 = [36.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125.,
-             150., 175., 200., 250., 300., 350., 400., 450., 500., 600.,
-             700., 800., 900., 1000., 1250., 1500., 1750., 2000., 2500., 3000.,
-             3500., 4000., 5000., 6000., 7000., 8000., 9000., 10000.
+XION20G10 = [np.float32(36.0), np.float32(40.0), np.float32(45.0), np.float32(50.0), np.float32(60.0), np.float32(70.0),
+             np.float32(80.0), np.float32(90.0), np.float32(100.), np.float32(125.),
+             np.float32(150.), np.float32(175.), np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.),
+             np.float32(400.), np.float32(450.), np.float32(500.), np.float32(600.),
+             np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1250.),
+             np.float32(1500.), np.float32(1750.), np.float32(2000.), np.float32(2500.), np.float32(3000.),
+             np.float32(3500.), np.float32(4000.), np.float32(5000.), np.float32(6000.), np.float32(7000.),
+             np.float32(8000.), np.float32(9000.), np.float32(10000.),
              ]
-YION20G10 = [0.00, .0040, .0077, .0106, .0145, .0187, .0189, .0189, .0189,
-             .0183,
-             .0173, .0164, .0155, .0144, .0127, .0116, .0107, .00973, .00912, .00801,
-             .00738, .00679, .00605, .00564, .00489, .00420, .00381, .00348, .00290,
-             .00250,
-             .00219, .00197, .00164, .00141, .00125, .00112, .00101, .000930]
+YION20G10 = [np.float32(0.00), np.float32(.0040), np.float32(.0077), np.float32(.0106), np.float32(.0145),
+             np.float32(.0187), np.float32(.0189), np.float32(.0189), np.float32(.0189),
+             np.float32(.0183),
+             np.float32(.0173), np.float32(.0164), np.float32(.0155), np.float32(.0144), np.float32(.0127),
+             np.float32(.0116), np.float32(.0107), np.float32(.00973), np.float32(.00912), np.float32(.00801),
+             np.float32(.00738), np.float32(.00679), np.float32(.00605), np.float32(.00564), np.float32(.00489),
+             np.float32(.00420), np.float32(.00381), np.float32(.00348), np.float32(.00290),
+             np.float32(.00250),
+             np.float32(.00219), np.float32(.00197), np.float32(.00164), np.float32(.00141), np.float32(.00125),
+             np.float32(.00112), np.float32(.00101), np.float32(.000930),
+             ]
 #  C+
 
-XION21G10 = [39.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175.,
-             200., 250., 300., 350., 400., 450., 500., 600., 700., 800.,
-             900., 1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000.,
-             5000., 6000., 7000., 8000., 9000., 10000.
+XION21G10 = [np.float32(39.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+             np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+             np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+             np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.),
+             np.float32(900.), np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.),
+             np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.),
+             np.float32(5000.), np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.),
+             np.float32(10000.),
              ]
-YION21G10 = [0.00, .00080, .00388, .00756, .00763, .00766, .00765, .00741,
-             .00700, .00661,
-             .00625, .00584, .00512, .00468, .00432, .00394, .00369, .00324, .00299,
-             .00275,
-             .00245, .00228, .00198, .00170, .00154, .00141, .00117, .00101, .000887,
-             .000797,
-             .000664, .000572, .000504, .000451, .000410, .000376]
+YION21G10 = [np.float32(0.00), np.float32(.00080), np.float32(.00388), np.float32(.00756), np.float32(.00763),
+             np.float32(.00766), np.float32(.00765), np.float32(.00741),
+             np.float32(.00700), np.float32(.00661),
+             np.float32(.00625), np.float32(.00584), np.float32(.00512), np.float32(.00468), np.float32(.00432),
+             np.float32(.00394), np.float32(.00369), np.float32(.00324), np.float32(.00299),
+             np.float32(.00275),
+             np.float32(.00245), np.float32(.00228), np.float32(.00198), np.float32(.00170), np.float32(.00154),
+             np.float32(.00141), np.float32(.00117), np.float32(.00101), np.float32(.000887),
+             np.float32(.000797),
+             np.float32(.000664), np.float32(.000572), np.float32(.000504), np.float32(.000451), np.float32(.000410),
+             np.float32(.000376),
+             ]
 #  C2+
 
-XION22G10 = [39.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175.,
-             200., 250., 300., 350., 400., 450., 500., 600., 700., 800.,
-             900., 1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000.,
-             5000., 6000., 7000., 8000., 9000., 10000.
+XION22G10 = [np.float32(39.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+             np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+             np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+             np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.),
+             np.float32(900.), np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.),
+             np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.),
+             np.float32(5000.), np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.),
+             np.float32(10000.),
              ]
-YION22G10 = [0.00, .000054, .000264, .000515, .000520, .000522, .000521,
-             .000504, .000477, .000450,
-             .000425, .000397, .000348, .000318, .000295, .000268, .000251, .000221,
-             .000203, .000187,
-             .000167, .000155, .000135, .000116, .000105, .000096, .000080, .000069,
-             .000060, .000054,
-             .000045, .000039, .000034, .000031, .000028, .0000256]
+YION22G10 = [np.float32(0.00), np.float32(.000054), np.float32(.000264), np.float32(.000515), np.float32(.000520),
+             np.float32(.000522), np.float32(.000521),
+             np.float32(.000504), np.float32(.000477), np.float32(.000450),
+             np.float32(.000425), np.float32(.000397), np.float32(.000348), np.float32(.000318), np.float32(.000295),
+             np.float32(.000268), np.float32(.000251), np.float32(.000221),
+             np.float32(.000203), np.float32(.000187),
+             np.float32(.000167), np.float32(.000155), np.float32(.000135), np.float32(.000116), np.float32(.000105),
+             np.float32(.000096), np.float32(.000080), np.float32(.000069),
+             np.float32(.000060), np.float32(.000054),
+             np.float32(.000045), np.float32(.000039), np.float32(.000034), np.float32(.000031), np.float32(.000028),
+             np.float32(.0000256),
+             ]
 #  C3+
 
-XION23G10 = [39.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100., 125., 150., 175.,
-             200., 250., 300., 350., 400., 450., 500., 600., 700., 800.,
-             900., 1000., 1250., 1500., 1750., 2000., 2500., 3000., 3500., 4000.,
-             5000., 6000., 7000., 8000., 9000., 10000.
+XION23G10 = [np.float32(39.0), np.float32(50.0), np.float32(60.0), np.float32(70.0), np.float32(80.0), np.float32(90.0),
+             np.float32(100.), np.float32(125.), np.float32(150.), np.float32(175.),
+             np.float32(200.), np.float32(250.), np.float32(300.), np.float32(350.), np.float32(400.), np.float32(450.),
+             np.float32(500.), np.float32(600.), np.float32(700.), np.float32(800.),
+             np.float32(900.), np.float32(1000.), np.float32(1250.), np.float32(1500.), np.float32(1750.),
+             np.float32(2000.), np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.),
+             np.float32(5000.), np.float32(6000.), np.float32(7000.), np.float32(8000.), np.float32(9000.),
+             np.float32(10000.),
              ]
-YION23G10 = [0.00, .00099, .00481, .00934, .00943, .00947, .00946, .00915,
-             .00865, .00817,
-             .00772, .00721, .00632, .00578, .00534, .00486, .00456, .00400, .00369,
-             .00339,
-             .00302, .00282, .00244, .00210, .00190, .00174, .00145, .00125, .00110,
-             .00098,
-             .00082, .00071, .00062, .00056, .00051, .000464]
-# K-SHELL IONISATION X-SECTION CARBON (SCALEe BY 3 IN SUBROUTINE)
+YION23G10 = [np.float32(0.00), np.float32(.00099), np.float32(.00481), np.float32(.00934), np.float32(.00943),
+             np.float32(.00947), np.float32(.00946), np.float32(.00915),
+             np.float32(.00865), np.float32(.00817),
+             np.float32(.00772), np.float32(.00721), np.float32(.00632), np.float32(.00578), np.float32(.00534),
+             np.float32(.00486), np.float32(.00456), np.float32(.00400), np.float32(.00369),
+             np.float32(.00339),
+             np.float32(.00302), np.float32(.00282), np.float32(.00244), np.float32(.00210), np.float32(.00190),
+             np.float32(.00174), np.float32(.00145), np.float32(.00125), np.float32(.00110),
+             np.float32(.00098),
+             np.float32(.00082), np.float32(.00071), np.float32(.00062), np.float32(.00056), np.float32(.00051),
+             np.float32(.000464),
+             ]
+# K-SHELL IONISATION X-SECTION CARBON (SCALED BY 3 IN SUBROUTINE)
 
-XION24G10 = [285., 298., 307., 316., 325., 335., 345., 365., 398., 422.,
-             447., 473., 501., 531., 613., 668., 708., 750., 817., 917.,
-             1000., 1122., 1296., 1496., 1679., 1884., 2054., 2238., 2512., 2985.,
-             3981., 5012., 7079., 1.0e4, 1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4, 5.01e4,
+XION24G10 = [np.float32(285.), np.float32(298.), np.float32(307.), np.float32(316.), np.float32(325.), np.float32(335.),
+             np.float32(345.), np.float32(365.), np.float32(398.), np.float32(422.),
+             np.float32(447.), np.float32(473.), np.float32(501.), np.float32(531.), np.float32(613.), np.float32(668.),
+             np.float32(708.), np.float32(750.), np.float32(817.), np.float32(917.),
+             np.float32(1000.), np.float32(1122.), np.float32(1296.), np.float32(1496.), np.float32(1679.),
+             np.float32(1884.), np.float32(2054.), np.float32(2238.), np.float32(2512.), np.float32(2985.),
+             np.float32(3981.), np.float32(5012.), np.float32(7079.), 1.0e4, 1.50e4, 2.05e4, 2.51e4, 3.07e4, 4.10e4,
+             5.01e4,
              6.13e4, 7.08e4, 8.18e4, 1.0e5, 1.54e5, 2.05e5, 2.99e5, 4.10e5, 5.01e5,
              6.13e5,
              7.08e5, 8.18e5, 1.0e6, 1.26e6, 1.5e6, 2.05e6, 3.07e6, 4.10e6, 5.01e6,
@@ -10206,9 +11040,9 @@ XION24G10 = [285., 298., 307., 316., 325., 335., 345., 365., 398., 422.,
              6.13e7,
              7.08e7, 8.18e7, 1.0e8, 1.26e8, 1.5e8, 2.05e8, 3.07e8, 4.10e8, 5.01e8,
              6.13e8,
-             7.08e8, 8.18e8, 1.0e9
+             7.08e8, 8.18e8, 1.0e9,
              ]
-YION24G10 = [0.00, 1.66e-4, 3.48e-4, 5.25e-4, 6.96e-4, 8.63e-4, 1.02e-3,
+YION24G10 = [np.float32(0.00), 1.66e-4, 3.48e-4, 5.25e-4, 6.96e-4, 8.63e-4, 1.02e-3,
              1.33e-3, 1.75e-3, 2.01e-3,
              2.24e-3, 2.46e-3, 2.66e-3, 2.84e-3, 3.21e-3, 3.38e-3, 3.47e-3, 3.55e-3,
              3.65e-3, 3.72e-3,
@@ -10224,117 +11058,176 @@ YION24G10 = [0.00, 1.66e-4, 3.48e-4, 5.25e-4, 6.96e-4, 8.63e-4, 1.02e-3,
              1.54e-4, 1.58e-4,
              1.60e-4, 1.63e-4, 1.67e-4, 1.71e-4, 1.74e-4, 1.80e-4, 1.87e-4, 1.92e-4,
              1.96e-4, 2.00e-4,
-             2.02e-4, 2.05e-4, 2.09e-4]
+             2.02e-4, 2.05e-4, 2.09e-4,
+             ]
 #
+
 # CH3-  ATTACHMENT
 
-XATT1G10 = [7.60, 8.00, 8.50, 9.00, 9.50, 10.0, 10.5, 11.0, 11.5
+XATT1G10 = [np.float32(7.60), np.float32(8.00), np.float32(8.50), np.float32(9.00), np.float32(9.50), np.float32(10.0),
+            np.float32(10.5), np.float32(11.0), np.float32(11.5),
             ]
-YATT1G10 = [0.00, 2.4e-6, 1.1e-5, 5.1e-5, 6.0e-5, 5.1e-5, 1.1e-5, 2.4e-6,
-            0.0]
+YATT1G10 = [np.float32(0.00), 2.4e-6, 1.1e-5, 5.1e-5, 6.0e-5, 5.1e-5, 1.1e-5, 2.4e-6,
+            np.float32(0.0),
+            ]
 # H- ATTACHMENT
 
-XATT2G10 = [7.80, 8.00, 8.50, 9.00, 9.50, 10.0, 10.5, 11.0, 11.5
+XATT2G10 = [np.float32(7.80), np.float32(8.00), np.float32(8.50), np.float32(9.00), np.float32(9.50), np.float32(10.0),
+            np.float32(10.5), np.float32(11.0), np.float32(11.5),
             ]
-YATT2G10 = [0.00, 1.6e-5, 7.2e-5, 2.8e-4, 4.0e-4, 2.8e-4, 7.2e-5, 1.6e-5,
-            0.0]
+YATT2G10 = [np.float32(0.00), 1.6e-5, 7.2e-5, 2.8e-4, 4.0e-4, 2.8e-4, 7.2e-5, 1.6e-5,
+            np.float32(0.0),
+            ]
 #
 
-XVIB1G10 = [.108, .125, 0.14, 0.15, .175, 0.20, .225, 0.25, 0.30, 0.40,
-            0.50, 0.70, 1.00, 1.50, 2.00, 3.00, 4.00, 5.00, 6.00, 7.50,
-            8.50, 10.0, 12.5, 15.0, 20.0
+XVIB1G10 = [np.float32(.108), np.float32(.125), np.float32(0.14), np.float32(0.15), np.float32(.175), np.float32(0.20),
+            np.float32(.225), np.float32(0.25), np.float32(0.30), np.float32(0.40),
+            np.float32(0.50), np.float32(0.70), np.float32(1.00), np.float32(1.50), np.float32(2.00), np.float32(3.00),
+            np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.50),
+            np.float32(8.50), np.float32(10.0), np.float32(12.5), np.float32(15.0), np.float32(20.0),
             ]
-YVIB1G10 = [0.00, .137, .222, .265, .312, .359, .368, .368, .333, .282,
-            .248, .205, .162, .162, .197, .291, .432, .567, .731, .957,
-            1.02, .787, .585, .475, .325
+YVIB1G10 = [np.float32(0.00), np.float32(.137), np.float32(.222), np.float32(.265), np.float32(.312), np.float32(.359),
+            np.float32(.368), np.float32(.368), np.float32(.333), np.float32(.282),
+            np.float32(.248), np.float32(.205), np.float32(.162), np.float32(.162), np.float32(.197), np.float32(.291),
+            np.float32(.432), np.float32(.567), np.float32(.731), np.float32(.957),
+            np.float32(1.02), np.float32(.787), np.float32(.585), np.float32(.475), np.float32(.325),
             ]
-XVIB2G10 = [.173, 0.18, 0.19, 0.20, .215, 0.23, 0.25, 0.30, 0.40, 0.50,
-            0.70, 1.00, 1.50, 2.00, 3.00, 4.00, 5.00, 6.00, 7.50, 8.50,
-            10.0, 12.5, 15.0, 20.0
+XVIB2G10 = [np.float32(.173), np.float32(0.18), np.float32(0.19), np.float32(0.20), np.float32(.215), np.float32(0.23),
+            np.float32(0.25), np.float32(0.30), np.float32(0.40), np.float32(0.50),
+            np.float32(0.70), np.float32(1.00), np.float32(1.50), np.float32(2.00), np.float32(3.00), np.float32(4.00),
+            np.float32(5.00), np.float32(6.00), np.float32(7.50), np.float32(8.50),
+            np.float32(10.0), np.float32(12.5), np.float32(15.0), np.float32(20.0),
             ]
-YVIB2G10 = [0.00, .085, .180, .248, .299, .325, .351, .368, .351, .325,
-            .274, .222, .205, .214, .332, .493, .647, .835, 1.09, 1.16,
-            .898, .665, .531, .370
+YVIB2G10 = [np.float32(0.00), np.float32(.085), np.float32(.180), np.float32(.248), np.float32(.299), np.float32(.325),
+            np.float32(.351), np.float32(.368), np.float32(.351), np.float32(.325),
+            np.float32(.274), np.float32(.222), np.float32(.205), np.float32(.214), np.float32(.332), np.float32(.493),
+            np.float32(.647), np.float32(.835), np.float32(1.09), np.float32(1.16),
+            np.float32(.898), np.float32(.665), np.float32(.531), np.float32(.370),
             ]
-XVIB3G10 = [.363, 0.38, 0.40, .425, 0.45, .475, 0.50, 0.55, 0.60, 0.65,
-            0.70, 0.80, 1.00, 1.50, 2.00, 3.00, 4.00, 5.00, 6.00, 7.00,
-            8.50, 10.0, 12.5, 15.0, 20.0
+XVIB3G10 = [np.float32(.363), np.float32(0.38), np.float32(0.40), np.float32(.425), np.float32(0.45), np.float32(.475),
+            np.float32(0.50), np.float32(0.55), np.float32(0.60), np.float32(0.65),
+            np.float32(0.70), np.float32(0.80), np.float32(1.00), np.float32(1.50), np.float32(2.00), np.float32(3.00),
+            np.float32(4.00), np.float32(5.00), np.float32(6.00), np.float32(7.00),
+            np.float32(8.50), np.float32(10.0), np.float32(12.5), np.float32(15.0), np.float32(20.0),
             ]
-YVIB3G10 = [0.00, .226, .314, .379, .420, .446, .465, .485, .493, .493,
-            .489, .474, .437, .418, .456, .665, .950, 1.23, 1.65, 2.00,
-            1.70, 1.32, 1.02, 0.80, 0.56
+YVIB3G10 = [np.float32(0.00), np.float32(.226), np.float32(.314), np.float32(.379), np.float32(.420), np.float32(.446),
+            np.float32(.465), np.float32(.485), np.float32(.493), np.float32(.493),
+            np.float32(.489), np.float32(.474), np.float32(.437), np.float32(.418), np.float32(.456), np.float32(.665),
+            np.float32(.950), np.float32(1.23), np.float32(1.65), np.float32(2.00),
+            np.float32(1.70), np.float32(1.32), np.float32(1.02), np.float32(0.80), np.float32(0.56),
             ]
-XVIB4G10 = [.519, 1.00, 1.25, 1.50, 2.00, 2.50, 3.00, 3.50, 4.00, 5.00,
-            6.00, 7.50, 8.50, 10.0, 12.5, 15.0, 20.0
+XVIB4G10 = [np.float32(.519), np.float32(1.00), np.float32(1.25), np.float32(1.50), np.float32(2.00), np.float32(2.50),
+            np.float32(3.00), np.float32(3.50), np.float32(4.00), np.float32(5.00),
+            np.float32(6.00), np.float32(7.50), np.float32(8.50), np.float32(10.0), np.float32(12.5), np.float32(15.0),
+            np.float32(20.0),
             ]
-YVIB4G10 = [0.00, .000, .005, .0075, .0163, .030, .0513, .080, .118, .218,
-            .363, .613, .625, .500, .350, .269, .175]
+YVIB4G10 = [np.float32(0.00), np.float32(.000), np.float32(.005), np.float32(.0075), np.float32(.0163),
+            np.float32(.030), np.float32(.0513), np.float32(.080), np.float32(.118), np.float32(.218),
+            np.float32(.363), np.float32(.613), np.float32(.625), np.float32(.500), np.float32(.350), np.float32(.269),
+            np.float32(.175),
+            ]
 # EFFECTIVE TRIPLET LEVELS
-# NON eIPOLE LEVEL AT 6.60 EV
 
-XTR1G10 = [6.60, 7.15, 7.70, 8.00, 8.70, 9.70, 10.7, 11.7, 13.7, 15.7,
-           18.7, 21.7, 25.7, 29.7
-           ]
-YTR1G10 = [0.00, .072, .216, .304, .384, .409, .424, .432, .424, .408,
-           .352, .296, .216, .160]
-# NON eIPOLE LEVEL AT 7.70 EV
+# NON DIPOLE LEVEL AT 6.60 EV
 
-XTR2G10 = [7.70, 9.20, 10.2, 11.2, 12.2, 14.2, 16.2, 19.2, 22.2,
-           26.2, 29.7
+XTR1G10 = [np.float32(6.60), np.float32(7.15), np.float32(7.70), np.float32(8.00), np.float32(8.70), np.float32(9.70),
+           np.float32(10.7), np.float32(11.7), np.float32(13.7), np.float32(15.7),
+           np.float32(18.7), np.float32(21.7), np.float32(25.7), np.float32(29.7),
            ]
-YTR2G10 = [0.00, .164, .236, .265, .282, .295, .295, .275, .235,
-           .175, .140]
-# NON eIPOLE LEVEL AT 9.60 EV
+YTR1G10 = [np.float32(0.00), np.float32(.072), np.float32(.216), np.float32(.304), np.float32(.384), np.float32(.409),
+           np.float32(.424), np.float32(.432), np.float32(.424), np.float32(.408),
+           np.float32(.352), np.float32(.296), np.float32(.216), np.float32(.160),
+           ]
+# NON DIPOLE LEVEL AT 7.70 EV
 
-XTR3G10 = [9.60, 10.6, 11.6, 12.6, 13.6, 16.6, 19.6, 22.6, 26.6,
-           29.6, 34.6
+XTR2G10 = [np.float32(7.70), np.float32(9.20), np.float32(10.2), np.float32(11.2), np.float32(12.2), np.float32(14.2),
+           np.float32(16.2), np.float32(19.2), np.float32(22.2),
+           np.float32(26.2), np.float32(29.7),
            ]
-YTR3G10 = [0.00, .298, .614, .716, .810, .853, .853, .810, .702,
-           .610, .464]
-# NON eIPOLE LEVEL AT 26.0 EV
+YTR2G10 = [np.float32(0.00), np.float32(.164), np.float32(.236), np.float32(.265), np.float32(.282), np.float32(.295),
+           np.float32(.295), np.float32(.275), np.float32(.235),
+           np.float32(.175), np.float32(.140),
+           ]
+# NON DIPOLE LEVEL AT 9.60 EV
 
-XTR4G10 = [26.0, 27.0, 28.0, 29.0, 30.0, 33.0, 36.0, 39.0, 43.0,
-           46.0, 51.0
+XTR3G10 = [np.float32(9.60), np.float32(10.6), np.float32(11.6), np.float32(12.6), np.float32(13.6), np.float32(16.6),
+           np.float32(19.6), np.float32(22.6), np.float32(26.6),
+           np.float32(29.6), np.float32(34.6),
            ]
-YTR4G10 = [0.00, 1.61, 2.95, 3.44, 3.89, 4.08, 4.08, 3.89, 3.37,
-           2.93, 2.23]
+YTR3G10 = [np.float32(0.00), np.float32(.298), np.float32(.614), np.float32(.716), np.float32(.810), np.float32(.853),
+           np.float32(.853), np.float32(.810), np.float32(.702),
+           np.float32(.610), np.float32(.464),
+           ]
+# NON DIPOLE LEVEL AT 26.0 EV
+
+XTR4G10 = [np.float32(26.0), np.float32(27.0), np.float32(28.0), np.float32(29.0), np.float32(30.0), np.float32(33.0),
+           np.float32(36.0), np.float32(39.0), np.float32(43.0),
+           np.float32(46.0), np.float32(51.0),
+           ]
+YTR4G10 = [np.float32(0.00), np.float32(1.61), np.float32(2.95), np.float32(3.44), np.float32(3.89), np.float32(4.08),
+           np.float32(4.08), np.float32(3.89), np.float32(3.37),
+           np.float32(2.93), np.float32(2.23),
+           ]
 #
+
 # BREMSSTRAHLUNG X-SECTION WITH CUT UNITS 10**-24
 
-Z1TG10 = [11.3, 6.18, 2.80, 1.54, .858, .407, .251, .176, .145, .150,
-          .167, .178, .187, .193, .198, .205, .210, .218, .222, .228,
-          .231, .233, .234, .235, .235
+Z1TG10 = [np.float32(11.3), np.float32(6.18), np.float32(2.80), np.float32(1.54), np.float32(.858), np.float32(.407),
+          np.float32(.251), np.float32(.176), np.float32(.145), np.float32(.150),
+          np.float32(.167), np.float32(.178), np.float32(.187), np.float32(.193), np.float32(.198), np.float32(.205),
+          np.float32(.210), np.float32(.218), np.float32(.222), np.float32(.228),
+          np.float32(.231), np.float32(.233), np.float32(.234), np.float32(.235), np.float32(.235),
           ]
-Z6TG10 = [298., 178., 85.2, 47.5, 26.3, 12.2, 7.06, 4.45, 3.06, 2.82,
-          2.89, 2.99, 3.08, 3.13, 3.18, 3.25, 3.31, 3.39, 3.44, 3.49,
-          3.52, 3.54, 3.55, 3.57, 3.57
+Z6TG10 = [np.float32(298.), np.float32(178.), np.float32(85.2), np.float32(47.5), np.float32(26.3), np.float32(12.2),
+          np.float32(7.06), np.float32(4.45), np.float32(3.06), np.float32(2.82),
+          np.float32(2.89), np.float32(2.99), np.float32(3.08), np.float32(3.13), np.float32(3.18), np.float32(3.25),
+          np.float32(3.31), np.float32(3.39), np.float32(3.44), np.float32(3.49),
+          np.float32(3.52), np.float32(3.54), np.float32(3.55), np.float32(3.57), np.float32(3.57),
           ]
-EBRMG10 = [1000., 2000., 5000., 1.E4, 2.E4, 5.E4, 1.E5, 2.E5, 5.E5, 1.E6,
-           2.E6, 3.E6, 4.E6, 5.E6, 6.E6, 8.E6, 1.E7, 1.5E7, 2.E7, 3.E7,
-           4.E7, 5.E7, 6.E7, 8.E7, 1.E8]
+EBRMG10 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.E4), np.float32(2.E4),
+           np.float32(5.E4), np.float32(1.E5), np.float32(2.E5), np.float32(5.E5), np.float32(1.E6),
+           np.float32(2.E6), np.float32(3.E6), np.float32(4.E6), np.float32(5.E6), np.float32(6.E6), np.float32(8.E6),
+           np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
+           np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
+           ]
 # LIGHT EMISSION FROM H ALPHA
+
 #  MOHLMANN  CHEM PHYS 19(1977)233
 
-XNUL1G10 = [18.0, 20.0, 40.0, 60.0, 80.0, 100., 150., 200., 300., 500.,
-            1000., 1300., 1700., 2000.
+XNUL1G10 = [np.float32(18.0), np.float32(20.0), np.float32(40.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+            np.float32(150.), np.float32(200.), np.float32(300.), np.float32(500.),
+            np.float32(1000.), np.float32(1300.), np.float32(1700.), np.float32(2000.),
             ]
-YNUL1G10 = [0.0, .0019, .0073, .0140, .0162, .0178, .0181, .0144, .0093,
-            .0053,
-            .0025, .0019, .0014, .0012]
-# LIGHT EMISSION FROM CH2(A2eELTA -X2PI)
+YNUL1G10 = [np.float32(0.0), np.float32(.0019), np.float32(.0073), np.float32(.0140), np.float32(.0162),
+            np.float32(.0178), np.float32(.0181), np.float32(.0144), np.float32(.0093),
+            np.float32(.0053),
+            np.float32(.0025), np.float32(.0019), np.float32(.0014), np.float32(.0012),
+            ]
+# LIGHT EMISSION FROM CH2(A2DELTA -X2PI)
+
 #  MOHLMANN  CHEM PHYS 19(1977)233
 
-XNUL2G10 = [16.0, 20.0, 40.0, 60.0, 80.0, 100., 150., 200., 300., 500.,
-            1000., 1300., 1700., 2000.
+XNUL2G10 = [np.float32(16.0), np.float32(20.0), np.float32(40.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
+            np.float32(150.), np.float32(200.), np.float32(300.), np.float32(500.),
+            np.float32(1000.), np.float32(1300.), np.float32(1700.), np.float32(2000.),
             ]
-YNUL2G10 = [0.0, .000, .0037, .0054, .0056, .0053, .0048, .0041, .0028,
-            .0016,
-            .0007, .0005, .0004, .0003]
-
-EING10 = [-0.036, 0.036, -0.108, 0.108, -0.173, 0.173, 0.363, 0.519, 6.60, 7.65, 7.70, 7.95, 8.25, 8.55, 8.85, 9.15,
-          9.45, 9.60, 9.75, 10.05, 10.35, 10.65, 10.9, 11.1, 11.3, 11.5, 11.7, 11.9, 12.1, 12.3, 12.5, 12.7, 12.9, 13.1,
-          13.3, 13.5, 13.7, 13.9, 14.1, 14.3, 14.5, 14.7, 14.9, 15.2, 15.6, 16.0, 16.4, 16.8, 17.25, 17.75, 18.25,
-          18.75, 19.25, 19.75, 20.25, 20.75, 21.5, 22.5, 23.5, 24.5, 25.5, 26.0, 26.5, 27.5, 0.0, 0.0]
+YNUL2G10 = [np.float32(0.0), np.float32(.000), np.float32(.0037), np.float32(.0054), np.float32(.0056),
+            np.float32(.0053), np.float32(.0048), np.float32(.0041), np.float32(.0028),
+            np.float32(.0016),
+            np.float32(.0007), np.float32(.0005), np.float32(.0004), np.float32(.0003),
+            ]
+EING10 = [np.float32(-0.036), np.float32(0.036), np.float32(-0.108), np.float32(0.108), np.float32(-0.173),
+          np.float32(0.173), np.float32(0.363), np.float32(0.519), np.float32(6.60), np.float32(7.65), np.float32(7.70),
+          np.float32(7.95), np.float32(8.25), np.float32(8.55), np.float32(8.85), np.float32(9.15), np.float32(9.45),
+          np.float32(9.60), np.float32(9.75), np.float32(10.05), np.float32(10.35), np.float32(10.65), np.float32(10.9),
+          np.float32(11.1), np.float32(11.3), np.float32(11.5), np.float32(11.7), np.float32(11.9), np.float32(12.1),
+          np.float32(12.3), np.float32(12.5), np.float32(12.7), np.float32(12.9), np.float32(13.1), np.float32(13.3),
+          np.float32(13.5), np.float32(13.7), np.float32(13.9), np.float32(14.1), np.float32(14.3), np.float32(14.5),
+          np.float32(14.7), np.float32(14.9), np.float32(15.2), np.float32(15.6), np.float32(16.0), np.float32(16.4),
+          np.float32(16.8), np.float32(17.25), np.float32(17.75), np.float32(18.25), np.float32(18.75),
+          np.float32(19.25), np.float32(19.75), np.float32(20.25), np.float32(20.75), np.float32(21.5),
+          np.float32(22.5), np.float32(23.5), np.float32(24.5), np.float32(25.5), np.float32(26.0), np.float32(26.5),
+          np.float32(27.5), np.float32(0.0), np.float32(0.0), ]
 
 for i in range(250 - 66):
     EING10.append(0.0)

@@ -656,7 +656,7 @@ cdef void Gas9(Gas*object):
         #LOAD BREMSSTRAHLUNG X-SECTION
         object.QIN[55][I] = 0.0
         object.QIN[56][I] = 0.0
-        if EN > 1000:cd 
+        if EN > 1000:
             object.QIN[55][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z6T, EBRM) * 2e-8
             object.QIN[56][I] = GasUtil.QLSCALE(exp(EN), NBREM, Z1T, EBRM) * 6e-8
 
@@ -676,7 +676,6 @@ cdef void Gas9(Gas*object):
         object.QNULL[2][I] = 0.0
         if EN > XNUL3[0]:
             object.QNULL[2][I] = GasUtil.CALQINP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.SCLN[2]
-
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J

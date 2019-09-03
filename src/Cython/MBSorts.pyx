@@ -17,13 +17,13 @@ cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
     """
     cdef long long ISTEP,INCR
     cdef int K
-    ISTEP = long(Object.ISIZENT)
+    ISTEP = long(Object.ISIZENT) - 1
     INCR = 0
     for K in range(12):
-        I = INCR - 1
+        I = INCR
         if ISTEP == 2:
             return I
-        I = INCR + ISTEP - 1
+        I = INCR + ISTEP
         if I <= Object.IPLASTNT:
             if Object.CFNT[IE][I] < R2:
                 INCR = INCR + ISTEP
@@ -44,13 +44,13 @@ cdef long long MBSortT(int GasIndex, int I, double R2, int IE,PyBoltz Object):
     """
     cdef long long ISTEP,INCR
     cdef int K
-    ISTEP = long(Object.ISIZE[GasIndex])
+    ISTEP = long(Object.ISIZE[GasIndex])-1
     INCR = 0
     for K in range(12):
-        I = INCR -1
+        I = INCR
         if ISTEP == 2:
             return I
-        I = INCR + ISTEP -1
+        I = INCR + ISTEP
         if I <= Object.IPLAST[GasIndex]:
             if Object.CF[GasIndex][IE][I] < R2:
                 INCR = INCR + ISTEP

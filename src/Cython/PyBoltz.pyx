@@ -229,11 +229,9 @@ cdef class PyBoltz:
         """
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """
-        SetupFunc      = Setups.Setup
         ELimFunc       = EnergyLimits.EnergyLimit
         MonteCarloFunc = Monte.MONTE
         if(self.EnableThermalMotion!=0):
-            SetupFunc = Setups.SetupT
             MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
                 ELimFunc       = EnergyLimits.EnergyLimitT
@@ -248,7 +246,6 @@ cdef class PyBoltz:
                 ELimFunc       = EnergyLimits.EnergyLimitCT
                 MonteCarloFunc = Monte.MONTECT
         else:
-            SetupFunc = Setups.Setup
             MixerFunc = Mixers.Mixer
             if BFieldMag == 0:
                 ELimFunc       = EnergyLimits.EnergyLimit
@@ -262,7 +259,7 @@ cdef class PyBoltz:
             else:
                 ELimFunc       = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = Monte.MONTEC
-        return [SetupFunc,MixerFunc,ELimFunc,MonteCarloFunc]  
+        return [MixerFunc,ELimFunc,MonteCarloFunc]  
 
     def Start(self):
         """
@@ -281,21 +278,21 @@ cdef class PyBoltz:
 
         ELimNotYetFixed=1
 
-        cdef double EOB
+        cdef double ReducedField
         cdef int i = 0
 
         # Get the appropriate set of simulation functions given configuration keys
-        SetupFunc,MixerFunc, ELimFunc, MonteCarloFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
+        MixerFunc, ELimFunc, MonteCarloFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
 
         # Set up the simulation
-        SetupFunc(self)
+        Setups.Setup(self)
 
         # Find the electron upper energy limit
         if self.FinalElectronEnergy == 0.0:
             # Given no specified upper energy limit, find it iteratively
             self.FinalElectronEnergy = 0.5
-            EOB = self.EField * (self.TemperatureCentigrade + 273.15) / (self.PressureTorr * 293.15)
-            if EOB > 15:
+            ReducedField = self.EField * (self.TemperatureCentigrade + 273.15) / (self.PressureTorr * 293.15)
+            if ReducedField > 15:
                 self.FinalElectronEnergy = 8.0
             self.InitialElectronEnergy = self.FinalElectronEnergy / 50.0
             while ELimNotYetFixed == 1:

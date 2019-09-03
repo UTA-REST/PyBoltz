@@ -884,7 +884,7 @@ cdef void Gas2(Gas *object):
 
         # D states, 4D5 F=0.019
         if EN > object.EIN[30]:
-            object.QIN[30][I] = <float>(0.019) / (object.EIN[30] * BETA2) * (
+            object.QIN[30][I] = <float>(0.0019) / (object.EIN[30] * BETA2) * (
                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[30])) - BETA2 - object.DEN[I] / 2.0) * BBCONST * EN / (
                                         EN + object.E[2] + object.EIN[30])
             if object.QIN[30][I] < 0:
@@ -1031,9 +1031,11 @@ cdef void Gas2(Gas *object):
             QPSSUM += object.QIN[i][I]
         TOTSUM = Q1SSUM + QPSSUM + QDSSUM
 
+
         object.Q[0][I] = QELA + Q1SSUM + QPSSUM + QDSSUM
         for i in range(0, 7):
             object.Q[0][I] += object.QION[i][I]
+
 
     for j in range(0, object.NIN):
         if object.EFINAL <= object.EIN[j]:

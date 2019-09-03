@@ -149,7 +149,7 @@ cdef class PyBoltz:
         self.Decor_Step = 0     # prev NCORLN 
         self.Decor_LookBacks = 0  # prev NCORST
 
-        # Named but imperfectly understood
+        # Dynamically set
         self.X = 0.0
         self.Y = 0.0
         self.Z = 0.0

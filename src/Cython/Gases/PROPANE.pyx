@@ -244,8 +244,9 @@ cdef void Gas10(Gas*object):
                 IOFFN[NL] = i
                 break
 
-    for i in range(object.NIN):
-        for j in range(3):
+
+    for j in range(3):
+        for i in range(object.NIN):
             object.PENFRA[j][i] = 0.0
     # CALC LEVEL POPULATIONS
     APOP1 = exp(object.EIN[0] / object.AKT)
@@ -709,13 +710,7 @@ cdef void Gas10(Gas*object):
         object.QNULL[1][I] = 0.0
         if EN > XNUL2[0]:
             object.QNULL[1][I] = GasUtil.CALQINP(EN, NUL2, YNUL2, XNUL2, 1) * 100 * object.SCLN[1]
-    print(object.E)
-    for J in range(object.NIN):
-        print(object.PEQIN[J][9])
-    for J in range(250):
-        print(object.EIN[J])
-    for J in range(object.NION):
-        print(object.PEQION[J][9])
+
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J

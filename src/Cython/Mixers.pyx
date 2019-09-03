@@ -91,7 +91,7 @@ cpdef Mixer(PyBoltz object):
                         object.PSCTNT[IE][NP] = MIXOBJECT.Gases[GasIndex].PEQEL[2][IE]
                         object.INDEXNT[NP] = 2
                 elif MIXOBJECT.Gases[GasIndex].NION > 1:
-                    for KION in range(MIXOBJECT.NION[GasIndex]):
+                    for KION in range(MIXOBJECT.Gases[GasIndex].NION):
                         NP += 1
                         object.NullCollisionFreqT[IE][NP] = MIXOBJECT.Gases[GasIndex].QION[KION][IE] * object.VANN[GasIndex]
                         object.FCION[IE] = object.FCION[IE] + object.NullCollisionFreqT[IE][NP]

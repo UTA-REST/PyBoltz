@@ -350,6 +350,7 @@ cpdef MixerT(PyBoltz object):
 
     The object parameter is the PyBoltz object to be setup.
     """
+    print("MIXERT")
     cdef double QATT[6][4000]
     cdef Gasmix MIXOBJECT
     cdef int  IE, GasIndex, NP, p, sum, J, i, j, KION, JJ, IL, I
@@ -568,6 +569,8 @@ cpdef MixerT(PyBoltz object):
                         object.PENFRA[GasIndex][1][NP - 1] = MIXOBJECT.Gases[GasIndex].PENFRA[1][J] * 1.0e-16 / sqrt(3)
                         object.PENFRA[GasIndex][2][NP - 1] = MIXOBJECT.Gases[GasIndex].PENFRA[2][J]
 
+            print(NP)
+
             object.IPLAST[GasIndex] = NP
             object.ISIZE[GasIndex] = 1
             for I in range(1, 9):
@@ -593,20 +596,24 @@ cpdef MixerT(PyBoltz object):
             object.FCATT[IE] = object.FCATT[IE] * object.EROOT[IE]
             object.FCION[IE] = object.FCION[IE] * object.EROOT[IE]
             object.TCF[GasIndex][IE] = object.TCF[GasIndex][IE] * object.EROOT[IE]
+    for I in range(45):
+        print (object.TCF[0][I])
     # CALCULATION OF NULL COLLISION FREQUENCIES
     for IE in range(4000):
         sum = 0
-        for i in range(6):
+        for i in range(object.NumberOfGases):
             object.NPLAST[i] = MIXOBJECT.Gases[i].NNULL
             sum += int(object.NPLAST[i])
 
             if sum == 0:
                 break
-        for i in range(6):
+        for i in range(object.NumberOfGases):
             if object.NPLAST[i] > 0:
                 for J in range(int(object.NPLAST[i])):
                     object.SCLENUL[i][J] = MIXOBJECT.Gases[i].SCLN[J]
                     object.CFN[i][IE][J] = MIXOBJECT.Gases[i].QNULL[J][IE] * object.VANN[i] * object.SCLENUL[i][J]
+                    if object.CFN[i][IE][J]!=object.CFN[i][IE][J]:
+                        print ("HERE",i,IE,J)
             # CALCULATE NULL COLLISION FREQUENCY FOR EACH GAS COMPONENT
 
         for GasIndex in range(object.NumberOfGases):
@@ -619,11 +626,12 @@ cpdef MixerT(PyBoltz object):
                 if object.TCFN[GasIndex][IE] == 0:
                     object.CFN[GasIndex][IE][IL] = 0.0
                 else:
-                    object.CFN[GasIndex][IE][IE] = object.CFN[GasIndex][IE][IL] / object.TCFN[GasIndex][IE]
+                    object.CFN[GasIndex][IE][IL] = object.CFN[GasIndex][IE][IL] / object.TCFN[GasIndex][IE]
 
             for IL in range(1, int(object.NPLAST[GasIndex])):
                 object.CFN[GasIndex][IE][IL] = object.CFN[GasIndex][IE][IL] + object.CFN[GasIndex][IE][IL - 1]
             object.TCFN[GasIndex][IE] = object.TCFN[GasIndex][IE] * object.EROOT[IE]
+    print("TCFN",object.TCFN[0][3999])
     KELSUM = 0
 
     for GasIndex in range(object.NumberOfGases):
@@ -638,12 +646,16 @@ cpdef MixerT(PyBoltz object):
         object.AnisotropicDetected = 1
 
     # CALCULATE NULL COLLISION FREQUENCIES FOR EACH GAS COMPONENT
+    tt = 0
     FAKEIN = abs(object.FAKEI) / object.NumberOfGases
     for GasIndex in range(object.NumberOfGases):
         object.MaxCollisionFreq[GasIndex] = 0.0
         for IE in range(4000):
             if object.TCF[GasIndex][IE] + object.TCFN[GasIndex][IE] + FAKEIN >= object.MaxCollisionFreq[GasIndex]:
                 object.MaxCollisionFreq[GasIndex] = object.TCF[GasIndex][IE] + object.TCFN[GasIndex][IE] + FAKEIN
+                tt = IE
+    print (object.MaxCollisionFreq[0])
+    print (object.TCF[0][tt],object.TCFN[0][tt],tt)
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
     object.MaxCollisionFreqTotal = 0.0
     for GasIndex in range(object.NumberOfGases):
@@ -652,6 +664,7 @@ cpdef MixerT(PyBoltz object):
         object.MaxCollisionFreqTotalG[GasIndex] = object.MaxCollisionFreq[GasIndex] / object.MaxCollisionFreqTotal
     for GasIndex in range(1, object.NumberOfGases):
         object.MaxCollisionFreqTotalG[GasIndex] = object.MaxCollisionFreqTotalG[GasIndex] + object.MaxCollisionFreqTotalG[GasIndex - 1]
+
 
     # CALCULATE MAXWELL BOLTZMAN VELOCITY FACTOR FOR EACH GAS COMPONENT
 
@@ -680,4 +693,5 @@ cpdef MixerT(PyBoltz object):
             for J in range(int(MIXOBJECT.Gases[GasIndex].NIN)):
                 object.QSUM[I] = object.QSUM[I] + MIXOBJECT.Gases[GasIndex].QIN[J][I] * object.ANN[GasIndex]
 
+    print ("RGAS",object.RGAS[0][378])
     return

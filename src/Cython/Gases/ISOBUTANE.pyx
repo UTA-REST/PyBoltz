@@ -131,11 +131,11 @@ cdef void Gas11(Gas*object):
     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
     for NL in range(object.NIN):
         for i in range(4000):
-            if object.EG[i] > object.EIN[NL]:
+            if object.EG[i] > abs(object.EIN[NL]):
                 IOFFN[NL] = i
                 break
 
-    for i in range(object.NIN):
+    for i in range(24):
         for j in range(3):
             object.PENFRA[j][i]=0
     
@@ -191,7 +191,6 @@ cdef void Gas11(Gas*object):
     
     for I in range(4000):
         EN = object.EG[I]
-        ENLG = log(EN)
         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
         GAMMA2 = GAMMA1 * GAMMA1
         BETA = sqrt(1.0 - 1.0 / GAMMA2)
@@ -362,13 +361,13 @@ cdef void Gas11(Gas*object):
         # EXCITATION    TRIPLET  ABOVE XEXC1(NEXC1) SCALE BY 1/EN**3
         if EN > object.EIN[9]:
             object.QIN[9][I] = GasUtil.CALQINP(EN, NEXC1,YEXC1, XEXC1, 3) * 100
-            if EN > 2.0 *object.EIN[9]:
+            if EN > 2.0 *abs(object.EIN[9]):
                 object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]
 
         # EXCITATION    TRIPLET  ABOVE XEXC2(NEXC2) SCALE BY 1/EN**3
         if EN > object.EIN[10]:
             object.QIN[10][I] = GasUtil.CALQINP(EN, NEXC2,YEXC2, XEXC2, 3) * 100
-            if EN > 2.0 *object.EIN[10]:
+            if EN > 2.0 *abs(object.EIN[10]):
                 object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
         FI = 0
         # EXCITATION  F = F[FI]
@@ -381,7 +380,7 @@ cdef void Gas11(Gas*object):
                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * ASING
                 if object.QIN[J][I]<0.0:
                     object.QIN[J][I] = 0.0
-                if EN > 2 * object.EIN[J]:
+                if EN > 2 * abs(object.EIN[J]):
                     object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
 
             FI+=1
@@ -393,8 +392,6 @@ cdef void Gas11(Gas*object):
 
         QTOTEXC = QTRP+QSNG
         object.Q[0][I]  = 0.0
-        for J in range(9):
-            object.Q[0][I] +=object.QIN[J][I]
         # TODO: ERROR IN FORTRAN ?
         #object.Q[0][I] += QTOTEXC
 
@@ -402,11 +399,11 @@ cdef void Gas11(Gas*object):
         for J in range(9):
             object.Q[0][I]+=object.QIN[J][I]
 
+    for J in range(6):
+        print(object.Q[J][3999])
+    print("HERE")
     for J in range(object.NIN):
         print(object.QIN[J][3999])
-    print("HERE")
-    for J in range(object.NION):
-        print(object.QION[J][3999])
     for J in range(13,object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J

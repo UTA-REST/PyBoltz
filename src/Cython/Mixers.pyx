@@ -631,7 +631,7 @@ cpdef MixerT(PyBoltz object):
             for IL in range(1, int(object.NPLAST[GasIndex])):
                 object.CFN[GasIndex][IE][IL] = object.CFN[GasIndex][IE][IL] + object.CFN[GasIndex][IE][IL - 1]
             object.TCFN[GasIndex][IE] = object.TCFN[GasIndex][IE] * object.EROOT[IE]
-    print("TCFN",object.TCFN[0][3999])
+    print("TCF",object.TCF[0][3999])
     KELSUM = 0
 
     for GasIndex in range(object.NumberOfGases):

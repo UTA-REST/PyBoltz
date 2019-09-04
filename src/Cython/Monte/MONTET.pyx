@@ -123,6 +123,7 @@ cpdef run(PyBoltz Object):
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Object.TCF[K][J] + Object.TCFN[K][J]
+    print(TEMP[0][3999])
     ABSFAKEI = 0.0
     Object.IFAKE = 0
 

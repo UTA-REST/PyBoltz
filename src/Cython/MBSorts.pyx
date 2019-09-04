@@ -1,4 +1,5 @@
 from PyBoltz cimport PyBoltz
+import sys
 import cython
 cimport numpy as np
 import  numpy as np
@@ -17,19 +18,19 @@ cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
     """
     cdef long long ISTEP,INCR
     cdef int K
-    ISTEP = long(Object.ISIZENT) - 1
+    ISTEP = long(Object.ISIZENT)
     INCR = 0
     for K in range(12):
         I = INCR
         if ISTEP == 2:
-            return I
+            return I -1
         I = INCR + ISTEP
         if I <= Object.IPLASTNT:
-            if Object.CFNT[IE][I] < R2:
+            if Object.CFNT[IE][I-1] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
 
-    return I
+    return I - 1
 
 
 cdef long long MBSortT(int GasIndex, int I, double R2, int IE,PyBoltz Object):
@@ -42,18 +43,20 @@ cdef long long MBSortT(int GasIndex, int I, double R2, int IE,PyBoltz Object):
     :param Object: 
     :return: a new index 
     """
+
     cdef long long ISTEP,INCR
     cdef int K
-    ISTEP = long(Object.ISIZE[GasIndex])-1
+    ISTEP = long(Object.ISIZE[GasIndex])
+
     INCR = 0
     for K in range(12):
         I = INCR
         if ISTEP == 2:
-            return I
+            return I -1
         I = INCR + ISTEP
         if I <= Object.IPLAST[GasIndex]:
-            if Object.CF[GasIndex][IE][I] < R2:
+            if Object.CF[GasIndex][IE][I-1] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
 
-    return I
+    return I -1

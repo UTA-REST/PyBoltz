@@ -400,12 +400,15 @@ cdef void Gas11(Gas*object):
             object.Q[0][I]+=object.QIN[J][I]
 
     for J in range(6):
-        print(object.Q[J][3999])
+        print(object.E[J])
     print("HERE")
-    for J in range(object.NIN):
-        print(object.QIN[J][3999])
+    for J in range(object.NION):
+        print(object.QION[J][3999])
+    print(object.EFINAL)
     for J in range(13,object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J
             break
+    print(object.NIN)
+    sys.exit()
     return

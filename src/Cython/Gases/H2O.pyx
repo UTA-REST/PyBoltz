@@ -102,17 +102,17 @@ cdef void Gas14(Gas*object):
     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AUGK, AMPROT,
     cdef int NBREM, i, j, I, J, NTRANG
     A0 = 0.52917720859e-08
-    RY = 13.60569193
+    RY = <float> (13.60569193)
     CONST = 1.873884e-20
-    EMASS2 = 1021997.804
+    EMASS2 = <float> (1021997.804)
     API = acos(-1.0e0)
     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
     #BORN BETHE VALUES FOR IONISATION
-    AM2 = 2.895
-    C = 30.7
+    AM2 = <float> (2.895)
+    C = <float> (30.7)
     # AVERAGE AUGER EMISSION FROM OXYGEN KSHELL
     AUGK = 2.0
-    AMPROT = 0.98
+    AMPROT = <float> (0.98)
     object.NION = 9
     object.NATT = 3
     object.NIN = 250
@@ -162,18 +162,21 @@ cdef void Gas14(Gas*object):
     cdef double AMU = 1.660538921e-27, GPARA, GORTHO, DBA, DRAT, DBK, RSUM, EOBY[9], ENRT, AL
     cdef int L2,
 
-    object.E = [0.0, 1.0, 12.617, 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (18.01528 * AMU)
+    object.E = [0.0, 1.0, <float> (12.617), 0.0, 0.0, 0.0]
+    object.E[1] = 2.0 * EMASS / (<float> (18.01528) * AMU)
 
-    object.EION[0:9] = [12.617, 18.1, 18.72, 21.0, 23.0, 35.4, 45.0, 70.0, 532.0]
+    object.EION[0:9] = [<float> (12.617), <float> (18.1), <float> (18.72), 21.0, 23.0, <float> (35.4), 45.0, 70.0,
+                        532.0]
 
     # DBA IS DIPOLE MOMENT
     # DRAT IS RATIO OF MOMENTUM TRANSFER TO TOTAL X-SECTION FOR DIPOLE
     GPARA = 1.0
     GORTHO = 3.0
-    DBA = 0.728
-    DRAT = 0.07
-    DBK = 8.37758 * RY * (DBA * A0) ** 2
+    DBA = <float> (0.728)
+    DRAT = <float> (0.07)
+    A0 = 0.5291772083e-08
+    RY = <float> (13.60569172)
+    DBK = <float> (8.37758) * RY * (DBA * A0) ** 2
 
     #CALCULATE POPULATION DENSITIES OF ROTATIONAL LEVELS
     for J in range(1, 100, 2):
@@ -189,13 +192,17 @@ cdef void Gas14(Gas*object):
     for J in range(1, 106):
         object.EIN[(2 * J) - 2] = EROT[J - 1] * 1e-3
         object.EIN[(2 * J) - 1] = -1 * EROT[J - 1] * 1e-3
-    object.EIN[210:250] = [-0.1977, 0.1977, 0.4535, 0.919, 7.04, 6.8425, 7.2675, 7.7725, 8.3575, 9.1, 8.91, 9.43, 9.95,
-                           10.47, 9.95, 9.994, 10.172, 10.39, 10.575, 10.78, 11.01, 11.122, 11.377, 11.525, 11.75,
-                           11.94, 12.08, 12.24, 12.34, 12.45, 13.0, 13.117, 14.117, 15.117, 16.117, 17.117, 18.117,
-                           19.117, 20.117, 21.117]
+    object.EIN[210:250] = [<float> (-0.1977), <float> (0.1977), <float> (0.4535), <float> (0.919), <float> (7.04),
+                           <float> (6.8425), <float> (7.2675), <float> (7.7725), <float> (8.3575), <float> (9.1),
+                           <float> (8.91), <float> (9.43), <float> (9.95), <float> (10.47), <float> (9.95),
+                           <float> (9.994), <float> (10.172), <float> (10.39), <float> (10.575), <float> (10.78),
+                           <float> (11.01), <float> (11.122), <float> (11.377), <float> (11.525), <float> (11.75),
+                           <float> (11.94), <float> (12.08), <float> (12.24), <float> (12.34), <float> (12.45),
+                           <float> (13.0), <float> (13.117), <float> (14.117), <float> (15.117), <float> (16.117),
+                           <float> (17.117), <float> (18.117), <float> (19.117), <float> (20.117), <float> (21.117)]
 
     for J in range(object.NION):
-        EOBY[J] = object.EION[0] * 0.93
+        EOBY[J] = object.EION[0] * <float> (0.93)
 
     for J in range(object.NION):
         object.NC0[J] = 0
@@ -216,7 +223,7 @@ cdef void Gas14(Gas*object):
     # FLUORESCENCE DATA
     object.NC0[8] = 3
     object.EC0[8] = 485
-    object.WK[8] = 0.0069
+    object.WK[8] = <float> (0.0069)
     object.EFL[8] = 518
     object.NG1[8] = 1
     object.EG1[8] = 480
@@ -226,7 +233,7 @@ cdef void Gas14(Gas*object):
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):
-                IOFFION[j] = i - 1
+                IOFFION[j] = i
                 break
 
     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
@@ -234,7 +241,7 @@ cdef void Gas14(Gas*object):
     for NL in range(object.NIN):
         for i in range(4000):
             if object.EG[i] > abs(object.EIN[NL]):
-                IOFFN[NL] = i - 1
+                IOFFN[NL] = i
                 break
 
     for I in range(object.NIN):
@@ -247,9 +254,13 @@ cdef void Gas14(Gas*object):
 
     cdef double APOPV1, APOPGS, APOPSUM, GAMMA1, GAMMA2, BETA, BETA2, EN, QELA, QMMT, PQ[3], EPS, QCOUNT, QGROSS, EPOINT
     cdef double F[32]
-    F = [.003437, .017166, .019703, .005486, .006609, .030025, .030025, .006609, .005200, .014000, .010700, .009200,
-         .006900, .021800, .023900, .013991, .009905, .023551, .007967, .018315, .011109, .008591, .028137, .119100,
-         .097947, .039540, .042191, .059428, .052795, .024912, .010524, .002614]
+    F = [<float> (.003437), <float> (.017166), <float> (.019703), <float> (.005486), <float> (.006609),
+         <float> (.030025), <float> (.030025), <float> (.006609), <float> (.005200), <float> (.014000),
+         <float> (.010700), <float> (.009200), <float> (.006900), <float> (.021800), <float> (.023900),
+         <float> (.013991), <float> (.009905), <float> (.023551), <float> (.007967), <float> (.018315),
+         <float> (.011109), <float> (.008591), <float> (.028137), <float> (.119100), <float> (.097947),
+         <float> (.039540), <float> (.042191), <float> (.059428), <float> (.052795), <float> (.024912),
+         <float> (.010524), <float> (.002614), ]
     cdef int FI
     # CALC POPULATION OF LOW ENERGY VIBRATIONAL STATE
     APOPV1 = exp(object.EIN[210] / object.AKT)
@@ -301,52 +312,52 @@ cdef void Gas14(Gas*object):
             QGROSS = QCOUNT * 1.022
 
         #IONISATION TO H2O+
-        if EN <= XION1[NION1 - 1] and EN > XION1[0]:
+        if EN > XION1[0]:
             object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
             if object.QION[0][I] == 0:
-                object.QION[0][I] = QCOUNT * 0.62996
+                object.QION[0][I] = QCOUNT * <float>(0.62996)
 
         #IONISATION TO OH+
-        if EN <= XION2[NION2 - 1] and EN > XION2[0]:
+        if EN > XION2[0]:
             object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
             if object.QION[1][I] == 0:
-                object.QION[1][I] = QCOUNT * 0.19383
+                object.QION[1][I] = QCOUNT *  <float>(0.19383)
 
         #IONISATION TO H+
-        if EN <= XION3[NION3 - 1] and EN > XION3[0]:
+        if EN > XION3[0]:
             object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
             if object.QION[2][I] == 0:
-                object.QION[2][I] = QCOUNT * 0.13275
+                object.QION[2][I] = QCOUNT *  <float>(0.13275)
 
         #IONISATION TO O+
-        if EN <= XION4[NION4 - 1] and EN > XION4[0]:
+        if EN > XION4[0]:
             object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
             if object.QION[3][I] == 0:
-                object.QION[3][I] = QCOUNT * 0.02129
+                object.QION[3][I] = QCOUNT *  <float>(0.02129)
 
         #IONISATION TO H2+
-        if EN <= XION5[NION5 - 1] and EN > XION5[0]:
+        if EN > XION5[0]:
             object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
             if object.QION[4][I] == 0:
-                object.QION[4][I] = QCOUNT * 0.00035
+                object.QION[4][I] = QCOUNT * <float>(0.00035)
 
         #IONISATION TO H+ + OH+
-        if EN <= XION6[NION6 - 1] and EN > XION6[0]:
+        if EN > XION6[0]:
             object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
             if object.QION[5][I] == 0:
-                object.QION[5][I] = QCOUNT * 0.01395
+                object.QION[5][I] = QCOUNT *  <float>(0.01395)
 
         #IONISATION TO H+ + O+
-        if EN <= XION7[NION7 - 1] and EN > XION7[0]:
+        if EN > XION7[0]:
             object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
             if object.QION[6][I] == 0:
-                object.QION[6][I] = QCOUNT * 0.00705
+                object.QION[6][I] = QCOUNT *  <float>(0.00705)
 
         #IONISATION TO O++
-        if EN <= XION8[NION8 - 1] and EN > XION8[0]:
+        if EN > XION8[0]:
             object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
             if object.QION[7][I] == 0:
-                object.QION[7][I] = QCOUNT * 0.00085
+                object.QION[7][I] = QCOUNT *  <float>(0.00085)
 
         #IONISATION TO OXYGEN K-SHELL
         if EN > XKSH[0]:
@@ -390,6 +401,7 @@ cdef void Gas14(Gas*object):
             object.QIN[J - 1][I] = DBK * SALPHA[L2 - 1] * PJ[IMAP[J - 1] - 1] * log(
                 (ENRT + sqrt(EN - object.EIN[J - 1])) / (sqrt(EN - object.EIN[J - 1]) - ENRT)) / (
                                            (2.0 * AL + 1.0) * EN) * AMPROT
+
             if EN > 2000:
                 object.QIN[J - 1][I] = 0.0
                 continue
@@ -398,6 +410,8 @@ cdef void Gas14(Gas*object):
             #TODO: PRINT ERROR STATEMENT
 
             object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENRTS)
+            if EPOINT<=ENRTS[0]:
+                    object.PEQIN[J-1][I] = 1 - (YEPSR[0]/ENRTS[0])*EPOINT
             XSECDUM[J - 1] = GasUtil.CALPQ3(EPOINT, NRTANG, YMTRT, ENRTS) * object.QIN[J - 1][I]
 
         # ROTATIONAL COLLISIONS
@@ -416,23 +430,25 @@ cdef void Gas14(Gas*object):
                 EPOINT = EN / abs(object.EIN[J - 1])
                 #TODO: PRINT ERROR STATEMENT
 
-                object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENRTS)
+                object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                if EPOINT<=ENROT[0]:
+                    object.PEQIN[J-1][I] = 1 - (YEPSR[0]/ENROT[0])*EPOINT
                 XSECDUM[J - 1] = GasUtil.CALPQ3(EPOINT, NRTANG, YMTRT, ENRTS) * object.QIN[J - 1][I]
 
         # VIBRATION BEND V2 SUPERELASTIC (DIPOLE 1/E FALL OFF ABOVE ENERGY OF
         # XVIB1(NVIB1) EV )
         object.QIN[210][I] = 0.0
         if EN > 0.0:
-            object.QIN[210][I] = GasUtil.CALQINP(EN+object.EIN[211], NVIB1, YVIB1, XVIB1,1)*APOPV1*100/EN
-            if EN+object.EIN[211] <= XVIB1[NVIB1-1]:
-                object.QIN[210][I] *=(EN + object.EIN[211])
+            object.QIN[210][I] = GasUtil.CALQINP(EN + object.EIN[211], NVIB1, YVIB1, XVIB1, 1) * APOPV1 * 100 / EN
+            if EN + object.EIN[211] <= XVIB1[NVIB1 - 1]:
+                object.QIN[210][I] *= (EN + object.EIN[211])
             object.PEQIN[210][I] = object.PEQEL[1][I - IOFFN[210]]
 
         # VIBRATION BEND V2  (DIPOLE 1/E FALL OFF ABOVE ENERGY OF
         # XVIB1(NVIB1) EV )
         object.QIN[211][I] = 0.0
         if EN > object.EIN[211]:
-            object.QIN[211][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1,1)*APOPGS*100
+            object.QIN[211][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1, 1) * APOPGS * 100
             object.PEQIN[211][I] = object.PEQEL[1][I - IOFFN[211]]
             # CALCULATE DIPOLE ANGULAR DISTRIBUTION FACTOR FOR TRANSITION
             EPOINT = EN / abs(object.EIN[211])
@@ -570,23 +586,22 @@ cdef void Gas14(Gas*object):
         # SCALED ABOVE 200EV BY 1/ENERGY
         object.QNULL[0][I] = 0.0
         if EN > XNUL1[0]:
-            object.QNULL[0][I] = GasUtil.CALQINP(EN, NUL1,YNUL1,XNUL1, 1)*100*object.SCLN[0]
+            object.QNULL[0][I] = GasUtil.CALQINP(EN, NUL1, YNUL1, XNUL1, 1) * 100 * object.SCLN[0]
 
         # LIGHT EMISSION FROM OH(A2-X) MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
         object.QNULL[1][I] = 0.0
         if EN > XNUL2[0]:
-            object.QNULL[1][I] = GasUtil.CALQINP(EN, NUL2,YNUL2,XNUL2, 1)*100*object.SCLN[1]
+            object.QNULL[1][I] = GasUtil.CALQINP(EN, NUL2, YNUL2, XNUL2, 1) * 100 * object.SCLN[1]
 
         # LIGHT EMISSION FROM H(3-2) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
         object.QNULL[2][I] = 0.0
         if EN > XNUL3[0]:
-            object.QNULL[2][I] = GasUtil.CALQINP(EN, NUL3,YNUL3,XNUL3, 1)*100*object.SCLN[2]
+            object.QNULL[2][I] = GasUtil.CALQINP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.SCLN[2]
 
         # LIGHT EMISSION FROM H(2-1) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
         object.QNULL[3][I] = 0.0
         if EN > XNUL4[0]:
-            object.QNULL[3][I] = GasUtil.CALQINP(EN, NUL4,YNUL4,XNUL4, 1)*100*object.SCLN[3]
-
+            object.QNULL[3][I] = GasUtil.CALQINP(EN, NUL4, YNUL4, XNUL4, 1) * 100 * object.SCLN[3]
 
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:

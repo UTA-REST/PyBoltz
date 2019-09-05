@@ -59,7 +59,7 @@ cdef void Gas22(Gas*object):
     cdef int i,j,k,I,J,NL
 
     # CALCULATE FRACTIONAL POPULATION DENSITY FOR ROTATIONAL STATES
-    B0=0.00377272
+    B0=<float>(0.00377272)
 
     for I in range(1,8,2):
         PJ[I-1] = 3*(2*I+1)*exp(-1*I*(I+1)*B0/object.AKT)
@@ -110,8 +110,8 @@ cdef void Gas22(Gas*object):
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27,EOBY
 
-    object.E = [0.0, 1.0, 15.427, 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (4.028204 * AMU)
+    object.E = [0.0, 1.0, <float>(15.427), 0.0, 0.0, 0.0]
+    object.E[1] = 2.0 * EMASS / (<float>(4.028204) * AMU)
 
     EOBY = 8.3
 

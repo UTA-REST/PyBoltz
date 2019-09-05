@@ -1162,11 +1162,7 @@ cdef void Gas16(Gas*object):
             object.Q[1][I] = 0.95e-16
 
         object.Q[0][I] = object.Q[1][I] + object.Q[4][I] + object.QION[1][I] + SUMR + SUMV + SUMEX + SUMEX1
-    for J in range(object.NIN):
-        print(object.QIN[J][3999])
-    print("HERE")
-    for J in range(object.NION):
-        print(object.QION[J][3999])
+
     for I in range(1,128):
         J = 128 - I - 1
         if object.EFINAL <= object.EIN[J]:

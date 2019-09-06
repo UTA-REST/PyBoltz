@@ -160,22 +160,22 @@ cdef void Gas15(Gas*object):
     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AUGK, B0, ROTSCALE, QBQA, QBK, ASUM,
     cdef int i, j, I, J,
     A0 = 0.52917720859e-08
-    RY = 13.60569193
+    RY = <float> (13.60569193)
     CONST = 1.873884e-20
-    EMASS2 = 1021997.804
+    EMASS2 = <float> (1021997.804)
     API = acos(-1.0e0)
     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
     #BORN BETHE VALUES FOR IONISATION
     AM2 = 4.00
-    C = 43.4
+    C = <float> (43.4)
     # AVERAGE AUGER EMISSION FROM KSHELL
     AUGK = 2.0
     # SCALE ROTATION X-SECTIONS BY ROTSCALE
 
-    ROTSCALE = 0.75
+    ROTSCALE = <float> (0.75)
     # ROTATIONAL QUADRUPOLE MOMENT
-    QBQA = 0.9
-    QBK = 1.67552 * (QBQA * A0) ** 2
+    QBQA = <float> (0.9)
+    QBK = <float> (1.67552) * (QBQA * A0) ** 2
     B0 = 1.783e-4
     for J in range(2, 49, 2):
         PJ[J - 1] = 0.0
@@ -251,10 +251,11 @@ cdef void Gas15(Gas*object):
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27, EOBY[8], FAC, APOP2
 
-    object.E = [0.0, 1.0, 12.071, 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (31.9988 * AMU)
+    object.E = [0.0, 1.0, <float> (12.071), 0.0, 0.0, 0.0]
+    object.E[1] = 2.0 * EMASS / (<float> (31.9988) * AMU)
 
-    object.EION[0:8] = [12.071, 16.104, 18.171, 20.701, 38.46, 68.0, 90.0, 532.0]
+    object.EION[0:8] = [<float> (12.071), <float> (16.104), <float> (18.171), <float> (20.701), <float> (38.46), 68.0,
+                        90.0, 532.0]
     for J in range(object.NION):
         EOBY[J] = 12.9
 
@@ -278,7 +279,7 @@ cdef void Gas15(Gas*object):
     #FLUORESCENCE DATA
     object.NC0[7] = 3
     object.EC0[7] = 485
-    object.WK[7] = 0.0069
+    object.WK[7] = <float> (0.0069)
     object.EFL[7] = 518
     object.NG1[7] = 1
     object.EG1[7] = 480
@@ -289,23 +290,31 @@ cdef void Gas15(Gas*object):
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):
-                IOFFION[j] = i - 1
+                IOFFION[j] = i
                 break
 
     cdef int NL = 0, FI
     for NL in range(object.NIN):
         for i in range(4000):
             if object.EG[i] > abs(object.EIN[NL]):
-                IOFFN[NL] = i - 1
+                IOFFN[NL] = i
                 break
     cdef double F[70]
-    F = [.00026, .000408, .000623, .001016, .001562, .002312, .003234, .004362, .005573, .006930, .008342, .009692,
-         .010816,
-         .011839, .012580, .013160, .013432, .013571, .013425, .012948, .010892, .006688, .002784, .001767, .000633,
-         .000438, .000465, .008432, .007598, .000829, .000644, .001460, .000818, .000736, .000598, .001482, .000425,
-         .001669, .001766, .001613, .001746, .003329, .006264, .013513, .011373, .006052, .006051, .004993, .005045,
-         .004962, .006520, .008432, .011304, .015172, .022139, .032682, .039457, .029498, .018923, .017762, .015115,
-         .013220, .009540, .005854, .008733, .007914, .008002, .006519, .003528, .001469]
+    F = [<float> (.00026), <float> (.000408), <float> (.000623), <float> (.001016), <float> (.001562),
+         <float> (.002312), <float> (.003234), <float> (.004362), <float> (.005573), <float> (.006930),
+         <float> (.008342), <float> (.009692), <float> (.010816),  <float> (.011839),
+         <float> (.012580), <float> (.013160), <float> (.013432), <float> (.013571), <float> (.013425),
+         <float> (.012948), <float> (.010892), <float> (.006688), <float> (.002784), <float> (.001767),
+         <float> (.000633),  <float> (.000438), <float> (.000465), <float> (.008432), <float> (.007598),
+         <float> (.000829), <float> (.000644), <float> (.001460), <float> (.000818), <float> (.000736),
+         <float> (.000598), <float> (.001482), <float> (.000425),  <float> (.001669), <float> (.001766),
+         <float> (.001613), <float> (.001746), <float> (.003329), <float> (.006264), <float> (.013513),
+         <float> (.011373), <float> (.006052), <float> (.006051), <float> (.004993), <float> (.005045),
+         <float> (.004962), <float> (.006520), <float> (.008432), <float> (.011304), <float> (.015172),
+         <float> (.022139), <float> (.032682), <float> (.039457), <float> (.029498), <float> (.018923),
+         <float> (.017762), <float> (.015115),  <float> (.013220), <float> (.009540), <float> (.005854),
+         <float> (.008733), <float> (.007914), <float> (.008002), <float> (.006519), <float> (.003528),
+         <float> (.001469), ]
     for J in range(75, object.NIN):
         object.PenningFraction[0][J] = 0.0
         object.PenningFraction[1][J] = 1.0
@@ -313,6 +322,7 @@ cdef void Gas15(Gas*object):
     cdef double EN, QMOM, QELA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE, T3B, THREEB, SFAC, QRES1, ETEMP
     # CALCULATE DENSITY CORRECTION FOR THREE BODY ATTACHMENT CROSS-SECTION
     FAC = 273.15 * object.PRESSURE / ((object.TemperatureC + 273.15) * 760.0)
+
     # FIRST VIBRATIONAL LEVEL POPULATION
     APOP2 = exp(object.EIN[48] / object.AKT)
     for J in range(NBREM):
@@ -347,38 +357,38 @@ cdef void Gas15(Gas*object):
         # IONISATION TO ALL CHANNELS WITH O2+
         # IONISATION TO O2+ X2PI
         if EN > object.EION[0]:
-            object.QION[0][I] = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, 0.6475 * 0.558, CONST, object.DEN[I],
+            object.QION[0][I] = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, <float>(0.6475) * <float>(0.558), CONST, object.DEN[I],
                                                  C, AM2)
 
         # IONISATION TO O2+ X2PI
         if EN > object.EION[1]:
             object.QION[1][I] = GasUtil.CALQIONX((EN - (object.EION[1] - object.EION[0])), NION1, YION1, XION1, BETA2,
-                                                 0.6475, CONST, object.DEN[I], C, AM2) * 0.308
-            if (EN - (object.EION[1] - object.EION[0])) <= XION1[NION1 - 1]:
-                object.QION[0][i] -= object.QION[1][I]
+                                                 <float>(0.6475), CONST, object.DEN[I], C, AM2) * <float>(0.308)
+            if EN <=XION1[NION1-1]:
+                object.QION[0][I] -= object.QION[1][I]
 
         # IONISATION TO O2+ B4SIGMA
         if EN > object.EION[2]:
             object.QION[2][I] = GasUtil.CALQIONX((EN - (object.EION[2] - object.EION[0])), NION1, YION1, XION1, BETA2,
-                                                 0.6475, CONST, object.DEN[I], C, AM2) * 0.136
-            if (EN - (object.EION[2] - object.EION[0])) <= XION1[NION1 - 1]:
-                object.QION[0][i] -= object.QION[2][I]
+                                                 <float>(0.6475), CONST, object.DEN[I], C, AM2) * <float>(0.136)
+            if  EN <=XION1[NION1-1]:
+                object.QION[0][I] -= object.QION[2][I]
 
         # DISSOCIATIVE IONISATION TO O+ + O
         if EN > object.EION[3]:
-            object.QION[3][I] = GasUtil.CALQIONX(EN, NION2, YION2, XION2, BETA2, 0.2993, CONST, object.DEN[I], C, AM2)
+            object.QION[3][I] = GasUtil.CALQIONX(EN, NION2, YION2, XION2, BETA2, <float>(0.2993), CONST, object.DEN[I], C, AM2)
 
         # DISSOCIATIVE DOUBLE IONISATION TO O+ + O
         if EN > object.EION[4]:
-            object.QION[4][I] = GasUtil.CALQIONX(EN, NION3, YION3, XION3, BETA2, 0.0446, CONST, object.DEN[I], C, AM2)
+            object.QION[4][I] = GasUtil.CALQIONX(EN, NION3, YION3, XION3, BETA2, <float>(0.0446), CONST, object.DEN[I], C, AM2)
 
         # DISSOCIATIVE DOUBLE IONISATION TO O++ + O
         if EN > object.EION[5]:
-            object.QION[5][I] = GasUtil.CALQIONX(EN, NION4, YION4, XION4, BETA2, 0.0061, CONST, object.DEN[I], C, AM2)
+            object.QION[5][I] = GasUtil.CALQIONX(EN, NION4, YION4, XION4, BETA2, <float>(0.0061), CONST, object.DEN[I], C, AM2)
 
         # DISSOCIATIVE DOUBLE IONISATION TO O++ + O+
         if EN > object.EION[6]:
-            object.QION[6][I] = GasUtil.CALQIONX(EN, NION5, YION5, XION5, BETA2, 0.0025, CONST, object.DEN[I], C, AM2)
+            object.QION[6][I] = GasUtil.CALQIONX(EN, NION5, YION5, XION5, BETA2, <float>(0.0025), CONST, object.DEN[I], C, AM2)
 
         # K-SHELL IONISATION
         if EN > object.EION[7]:
@@ -440,7 +450,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT13, YROT13, XROT13) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,
-                                                                              XROT13,1) * 100
+                                                                              XROT13, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 2:
@@ -448,10 +458,8 @@ cdef void Gas15(Gas*object):
                     object.QIN[J - 1][I] = (ETEMP) * PJ[2 * J] * SFAC * GasUtil.QLSCALE(
                         ETEMP, NROT35, YROT35, XROT35) / EN
                 else:
-                    if I ==3999:
-                        print("HERE")
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,
-                                                                              XROT35,1) * 100
+                                                                              XROT35, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 3:
@@ -460,7 +468,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT57, YROT57, XROT57) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,
-                                                                              XROT57,1) * 100
+                                                                              XROT57, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 4:
@@ -469,7 +477,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT79, YROT79, XROT79) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,
-                                                                              XROT79,1) * 100
+                                                                              XROT79, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 5:
@@ -478,7 +486,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT911, YROT911, XROT911) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,
-                                                                              XROT911,1) * 100
+                                                                              XROT911, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 6:
@@ -487,7 +495,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1113, YROT1113, XROT1113) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,
-                                                                              YROT1113, XROT1113,1) * 100
+                                                                              YROT1113, XROT1113, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 7:
@@ -496,7 +504,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1315, YROT1315, XROT1315) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,
-                                                                              YROT1315, XROT1315,1) * 100
+                                                                              YROT1315, XROT1315, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 8:
@@ -505,7 +513,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1517, YROT1517, XROT1517) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,
-                                                                              YROT1517, XROT1517,1) * 100
+                                                                              YROT1517, XROT1517, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 9:
@@ -514,7 +522,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1719, YROT1719, XROT1719) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,
-                                                                              YROT1719, XROT1719,1) * 100
+                                                                              YROT1719, XROT1719, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 10:
@@ -523,7 +531,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1921, YROT1921, XROT1921) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,
-                                                                              YROT1921, XROT1921,1) * 100
+                                                                              YROT1921, XROT1921, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 11:
@@ -532,7 +540,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2123, YROT2123, XROT2123) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,
-                                                                              YROT2123, XROT2123,1) * 100
+                                                                              YROT2123, XROT2123, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 12:
@@ -541,7 +549,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2325, YROT2325, XROT2325) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,
-                                                                              YROT2325, XROT2325,1) * 100
+                                                                              YROT2325, XROT2325, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 13:
@@ -550,7 +558,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2527, YROT2527, XROT2527) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,
-                                                                              YROT2527, XROT2527,1) * 100
+                                                                              YROT2527, XROT2527, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 14:
@@ -559,7 +567,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2729, YROT2729, XROT2729) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,
-                                                                              YROT2729, XROT2729,1) * 100
+                                                                              YROT2729, XROT2729, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 15:
@@ -568,7 +576,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2931, YROT2931, XROT2931) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,
-                                                                              YROT2931, XROT2931,1) * 100
+                                                                              YROT2931, XROT2931, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 16:
@@ -577,7 +585,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3133, YROT3133, XROT3133) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,
-                                                                              YROT3133, XROT3133,1) * 100
+                                                                              YROT3133, XROT3133, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 17:
@@ -586,7 +594,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3335, YROT3335, XROT3335) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,
-                                                                              YROT3335, XROT3335,1) * 100
+                                                                              YROT3335, XROT3335, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 18:
@@ -595,7 +603,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3537, YROT3537, XROT3537) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,
-                                                                              YROT3537, XROT3537,1) * 100
+                                                                              YROT3537, XROT3537, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 19:
@@ -604,7 +612,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3739, YROT3739, XROT3739) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,
-                                                                              YROT3739, XROT3739,1) * 100
+                                                                              YROT3739, XROT3739, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 20:
@@ -613,7 +621,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3941, YROT3941, XROT3941) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,
-                                                                              YROT3941, XROT3941,1) * 100
+                                                                              YROT3941, XROT3941, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 21:
@@ -622,7 +630,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT4143, YROT4143, XROT4143) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,
-                                                                              YROT4143, XROT4143,1) * 100
+                                                                              YROT4143, XROT4143, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 22:
@@ -631,7 +639,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT4345, YROT4345, XROT4345) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,
-                                                                              YROT4345, XROT4345,1) * 100
+                                                                              YROT4345, XROT4345, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 23:
@@ -640,7 +648,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT4547, YROT4547, XROT4547) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,
-                                                                              YROT4547, XROT4547,1) * 100
+                                                                              YROT4547, XROT4547, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif J == 24:
@@ -649,13 +657,13 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT4749, YROT4749, XROT4749) / EN
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,
-                                                                              YROT4749, XROT4749,1) * 100
+                                                                              YROT4749, XROT4749, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             QRES1 = 0.0
             #CALCULATE ENHANCEMENT OF ROTATION DUE TO VIBRATIONAL RESONANCES
             if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:
-                QRES1 = GasUtil.CALQION(EN, NROT, YROT, XROT) * (ETEMP) * PJ[2 * J]
+                QRES1 = GasUtil.CALQION(ETEMP, NROT, YROT, XROT) * (ETEMP)/EN * PJ[2 * J]
             object.QIN[J - 1][I] += QRES1
 
         # INELASTIC ROTATION
@@ -675,7 +683,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT13, YROT13, XROT13)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT13, YROT13,
-                                                                                   XROT13,1) * 100
+                                                                                   XROT13, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 2:
@@ -684,7 +692,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT35, YROT35, XROT35)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT35, YROT35,
-                                                                                   XROT35,1) * 100
+                                                                                   XROT35, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 3:
@@ -693,7 +701,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT57, YROT57, XROT57)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT57, YROT57,
-                                                                                   XROT57,1) * 100
+                                                                                   XROT57, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 4:
@@ -702,7 +710,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT79, YROT79, XROT79)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT79, YROT79,
-                                                                                   XROT79,1) * 100
+                                                                                   XROT79, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 5:
@@ -711,7 +719,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT911, YROT911, XROT911)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT911, YROT911,
-                                                                                   XROT911,1) * 100
+                                                                                   XROT911, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 6:
@@ -720,7 +728,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1113, YROT1113, XROT1113)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1113,
-                                                                                   YROT1113, XROT1113,1) * 100
+                                                                                   YROT1113, XROT1113, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 7:
@@ -729,7 +737,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1315, YROT1315, XROT1315)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1315,
-                                                                                   YROT1315, XROT1315,1) * 100
+                                                                                   YROT1315, XROT1315, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 8:
@@ -738,7 +746,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1517, YROT1517, XROT1517)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1517,
-                                                                                   YROT1517, XROT1517,1) * 100
+                                                                                   YROT1517, XROT1517, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 9:
@@ -747,7 +755,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1719, YROT1719, XROT1719)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1719,
-                                                                                   YROT1719, XROT1719,1) * 100
+                                                                                   YROT1719, XROT1719, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 10:
@@ -756,7 +764,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT1921, YROT1921, XROT1921)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT1921,
-                                                                                   YROT1921, XROT1921,1) * 100
+                                                                                   YROT1921, XROT1921, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 11:
@@ -765,7 +773,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2123, YROT2123, XROT2123)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2123,
-                                                                                   YROT2123, XROT2123,1) * 100
+                                                                                   YROT2123, XROT2123, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 12:
@@ -774,7 +782,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2325, YROT2325, XROT2325)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2325,
-                                                                                   YROT2325, XROT2325,1) * 100
+                                                                                   YROT2325, XROT2325, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 13:
@@ -783,7 +791,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2527, YROT2527, XROT2527)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2527,
-                                                                                   YROT2527, XROT2527,1) * 100
+                                                                                   YROT2527, XROT2527, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 14:
@@ -792,7 +800,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2729, YROT2729, XROT2729)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2729,
-                                                                                   YROT2729, XROT2729,1) * 100
+                                                                                   YROT2729, XROT2729, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 15:
@@ -801,7 +809,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT2931, YROT2931, XROT2931)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT2931,
-                                                                                   YROT2931, XROT2931,1) * 100
+                                                                                   YROT2931, XROT2931, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 16:
@@ -810,7 +818,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3133, YROT3133, XROT3133)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3133,
-                                                                                   YROT3133, XROT3133,1) * 100
+                                                                                   YROT3133, XROT3133, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 17:
@@ -819,7 +827,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3335, YROT3335, XROT3335)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3335,
-                                                                                   YROT3335, XROT3335,1) * 100
+                                                                                   YROT3335, XROT3335, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 18:
@@ -828,7 +836,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3537, YROT3537, XROT3537)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3537,
-                                                                                   YROT3537, XROT3537,1) * 100
+                                                                                   YROT3537, XROT3537, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 19:
@@ -837,7 +845,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3739, YROT3739, XROT3739)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3739,
-                                                                                   YROT3739, XROT3739,1) * 100
+                                                                                   YROT3739, XROT3739, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 20:
@@ -846,7 +854,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT3941, YROT3941, XROT3941)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT3941,
-                                                                                   YROT3941, XROT3941,1) * 100
+                                                                                   YROT3941, XROT3941, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 21:
@@ -855,7 +863,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT4143, YROT4143, XROT4143)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4143,
-                                                                                   YROT4143, XROT4143,1) * 100
+                                                                                   YROT4143, XROT4143, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 22:
@@ -864,7 +872,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT4345, YROT4345, XROT4345)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4345,
-                                                                                   YROT4345, XROT4345,1) * 100
+                                                                                   YROT4345, XROT4345, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 23:
@@ -873,7 +881,7 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT4547, YROT4547, XROT4547)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4547,
-                                                                                   YROT4547, XROT4547,1) * 100
+                                                                                   YROT4547, XROT4547, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             elif i == 24:
@@ -882,12 +890,12 @@ cdef void Gas15(Gas*object):
                         ETEMP, NROT4749, YROT4749, XROT4749)
                 else:
                     object.QIN[J - 1][I] = PJ[2 * J - 50] * SFAC * GasUtil.CALQINP(ETEMP, NROT4749,
-                                                                                   YROT4749, XROT4749,1) * 100
+                                                                                   YROT4749, XROT4749, 1) * 100
                 if EN > 3.0:
                     object.PEQIN[J - 1][I] = object.PEQEL[1][I - IOFFN[J - 1]]
             QRES1 = 0.0
             #CALCULATE ENHANCEMENT OF ROTATION DUE TO VIBRATIONAL RESONANCES
-            if (ETEMP) <= XROT[NROT - 1] and (ETEMP) > XROT[0]:
+            if (EN) <= XROT[NROT - 1] and (EN) > XROT[0]:
                 QRES1 = GasUtil.CALQION(EN, NROT, YROT, XROT) * PJ[2 * J - 50]
             object.QIN[J - 1][I] += QRES1
 
@@ -907,6 +915,8 @@ cdef void Gas15(Gas*object):
             object.QIN[48][I] = GasUtil.CALQINP(ETEMP, NVIB, YVIB1, XVIB, 1) * 100 * (APOP2 / (1 + APOP2))
             if ETEMP <= XVIB[NVIB - 1]:
                 object.QIN[48][I] *= (ETEMP / EN)
+            else:
+                object.QIN[48][I] =YVIB1[NVIB-1]*(XVIB[NVIB-1]/EN)* (APOP2 / (1 + APOP2))*1e-16
             if EN > 6.0:
                 object.PEQIN[48][I] = object.PEQEL[1][I - IOFFN[48]]
 
@@ -1030,6 +1040,9 @@ cdef void Gas15(Gas*object):
 
         if EN > object.EIN[71]:
             object.QIN[71][I] = GasUtil.CALQINP(EN, NVIB, YVIB21, XVIB, 1) * 100
+            # TODO: ERROR maybe matching magboltz
+            if EN>YVIB21[NVIB-1]:
+                object.QIN[71][I] = GasUtil.CALQINP(EN, NVIB, YVIB20, XVIB, 1) * 100
             if EN > 6.0:
                 object.PEQIN[71][I] = object.PEQEL[1][I - IOFFN[71]]
 
@@ -1058,8 +1071,8 @@ cdef void Gas15(Gas*object):
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-            if EN > 2 * object.EIN[J]:
-                object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+                if EN > 2 * object.EIN[J]:
+                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
             FI += 1
 
         if object.QIN[75][I] < 0.0:
@@ -1076,8 +1089,8 @@ cdef void Gas15(Gas*object):
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-            if EN > 2 * object.EIN[J]:
-                object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+                if EN > 2 * object.EIN[J]:
+                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
             FI += 1
 
         # ADD RESONANT COMPONENT TO LONG BAND
@@ -1121,8 +1134,8 @@ cdef void Gas15(Gas*object):
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
                     I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-            if EN > 2 * object.EIN[J]:
-                object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+                if EN > 2 * object.EIN[J]:
+                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
             FI += 1
 
         #LOAD BREMSSTRAHLUNG X-SECTIONS
@@ -1137,7 +1150,6 @@ cdef void Gas15(Gas*object):
         SUMEXC = 0.0
         for J in range(48, object.NIN):
             SUMEXC += object.QIN[J][I]
-
         SUMEXC += object.Q[3][I]
 
         object.Q[0][I] = object.Q[1][I] + SUMION + SUMEXC

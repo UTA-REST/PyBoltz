@@ -175,16 +175,16 @@ cdef void Gas16(Gas*object):
     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AUGK, B0
     cdef int NBREM, i, j, I, J,
     A0 = 0.52917720859e-08
-    RY = 13.60569193
+    RY = <float>(13.60569193)
     CONST = 1.873884e-20
-    EMASS2 = 1021997.804
+    EMASS2 = <float>(1021997.804)
     API = acos(-1.0e0)
     BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
     #BORN BETHE VALUES FOR IONISATION
-    AM2 = 3.35
-    C = 38.1
+    AM2 = <float>(3.35)
+    C = <float>(38.1)
     # AVERAGE AUGER EMISSION FROM KSHELL
-    AUGK = 2.0
+    AUGK = <float>(1.99)
 
     object.NION = 12
     object.NATT = 1
@@ -270,12 +270,12 @@ cdef void Gas16(Gas*object):
     cdef double EMASS = 9.10938291e-31
     cdef double AMU = 1.660538921e-27, EOBY[12], SUMR, SUMV, SUMEX, SUMEX1
 
-    object.E = [0.0, 1.0, 15.581, 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (27.7940 * AMU)
-    object.EION[0:12] = [15.581, 15.855, 16.699, 16.935, 17.171, 18.751, 23.591, 24.294, 24.4, 35.7, 38.8, 401.6]
+    object.E = [0.0, 1.0, <float>(15.581), 0.0, 0.0, 0.0]
+    object.E[1] = 2.0 * EMASS / (<float>(27.7940) * AMU)
+    object.EION[0:12] = [<float>(15.581), <float>(15.855), <float>(16.699), <float>(16.935), <float>(17.171), <float>(18.751), <float>(23.591), <float>(24.294), <float>(24.4), <float>(35.7), <float>(38.8), <float>(401.6)]
 
     for J in range(12):
-        EOBY[J] = 13.6
+        EOBY[J] = <float>(13.6)
         object.NC0[J] = 0.0
         object.EC0[J] = 0.0
         object.WK[J] = 0.0
@@ -290,8 +290,8 @@ cdef void Gas16(Gas*object):
     object.EC0[10] = 6.0
     # FLUORESENCE DATA
     object.NC0[11] = 2.0
-    object.EC0[11] = 358.6
-    object.WK[11] = 0.0044
+    object.EC0[11] = <float>(358.6)
+    object.WK[11] = <float>(0.0044)
     object.EFL[11] = 385.
     object.NG1[11] = 1
     object.EG1[11] = 353.
@@ -302,8 +302,8 @@ cdef void Gas16(Gas*object):
     #CALC FRACTIONAL POPULATION DENSITY FOR ROTATIONAL STATES
     B0 = 2.4668e-4
     #ROTATIONAL QUADRUPOLE MOMENT
-    QBQA = 1.045
-    QBK = 1.67552 * (QBQA * A0) ** 2
+    QBQA = <float>(1.045)
+    QBK = <float>(1.67552) * (QBQA * A0) ** 2
     for J in range(1, 40, 2):
         PJ[J - 1] = 3.0 * (2.0 * J + 1.0) * exp(-1.0 * J * (J + 1.0) * B0 / object.AKT)
     for J in range(2, 39, 2):
@@ -321,14 +321,14 @@ cdef void Gas16(Gas*object):
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):
-                IOFFION[j] = i - 1
+                IOFFION[j] = i
                 break
 
     cdef int NL = 0
     for NL in range(object.NIN):
         for i in range(4000):
             if object.EG[i] > abs(object.EIN[NL]):
-                IOFFN[NL] = i - 1
+                IOFFN[NL] = i
                 break
 
     for I in range(106):
@@ -385,76 +385,76 @@ cdef void Gas16(Gas*object):
         # IONISATION TO ALL CHANNELS WITH N2+
         QN2PTOT = 0.0
         if EN > object.EION[0]:
-            QN2PTOT = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, 0.7973, CONST, object.DEN[I], C, AM2)
+            QN2PTOT = GasUtil.CALQIONX(EN, NION1, YION1, XION1, BETA2, <float>(0.7973), CONST, object.DEN[I], C, AM2)
 
         object.QION[0][I] = QN2PTOT
 
         if EN > object.EION[1] and EN <= object.EION[2]:
-            object.QION[1][I] = QN2PTOT * 0.2
-            object.QION[0][I] = QN2PTOT * 0.8
+            object.QION[1][I] = QN2PTOT * <float>(0.2)
+            object.QION[0][I] = QN2PTOT * <float>(0.8)
         elif EN > object.EION[2] and EN <= object.EION[3]:
-            object.QION[2][I] = QN2PTOT * 0.1986
-            object.QION[1][I] = QN2PTOT * 0.1603
-            object.QION[0][I] = QN2PTOT * 0.6411
+            object.QION[2][I] = QN2PTOT * <float>(0.1986)
+            object.QION[1][I] = QN2PTOT * <float>(0.1603)
+            object.QION[0][I] = QN2PTOT * <float>(0.6411)
         elif EN > object.EION[3] and EN <= object.EION[4]:
-            object.QION[3][I] = QN2PTOT * 0.2296
-            object.QION[2][I] = QN2PTOT * 0.1530
-            object.QION[1][I] = QN2PTOT * 0.1235
-            object.QION[0][I] = QN2PTOT * 0.4939
+            object.QION[3][I] = QN2PTOT * <float>(0.2296)
+            object.QION[2][I] = QN2PTOT * <float>(0.1530)
+            object.QION[1][I] = QN2PTOT * <float>(0.1235)
+            object.QION[0][I] = QN2PTOT * <float>(0.4939)
         elif EN > object.EION[4] and EN <= object.EION[5]:
-            object.QION[4][I] = QN2PTOT * 0.2765
-            object.QION[3][I] = QN2PTOT * 0.1659
-            object.QION[2][I] = QN2PTOT * 0.1106
-            object.QION[1][I] = QN2PTOT * 0.0894
-            object.QION[0][I] = QN2PTOT * 0.3576
+            object.QION[4][I] = QN2PTOT * <float>(0.2765)
+            object.QION[3][I] = QN2PTOT * <float>(0.1659)
+            object.QION[2][I] = QN2PTOT * <float>(0.1106)
+            object.QION[1][I] = QN2PTOT * <float>(0.0894)
+            object.QION[0][I] = QN2PTOT * <float>(0.3576)
         elif EN > object.EION[5] and EN <= object.EION[6]:
-            object.QION[5][I] = QN2PTOT * 0.1299
-            object.QION[4][I] = QN2PTOT * 0.2408
-            object.QION[3][I] = QN2PTOT * 0.1445
-            object.QION[2][I] = QN2PTOT * 0.0963
-            object.QION[1][I] = QN2PTOT * 0.0777
-            object.QION[0][I] = QN2PTOT * 0.3108
+            object.QION[5][I] = QN2PTOT * <float>(0.1299)
+            object.QION[4][I] = QN2PTOT * <float>(0.2408)
+            object.QION[3][I] = QN2PTOT * <float>(0.1445)
+            object.QION[2][I] = QN2PTOT * <float>(0.0963)
+            object.QION[1][I] = QN2PTOT * <float>(0.0777)
+            object.QION[0][I] = QN2PTOT * <float>(0.3108)
         elif EN > object.EION[6]:
-            object.QION[6][I] = QN2PTOT * 0.022
-            object.QION[5][I] = QN2PTOT * 0.127
-            object.QION[4][I] = QN2PTOT * 0.2355
-            object.QION[3][I] = QN2PTOT * 0.1413
-            object.QION[2][I] = QN2PTOT * 0.0942
-            object.QION[1][I] = QN2PTOT * 0.076
-            object.QION[0][I] = QN2PTOT * 0.304
+            object.QION[6][I] = QN2PTOT * <float>(0.022)
+            object.QION[5][I] = QN2PTOT * <float>(0.127)
+            object.QION[4][I] = QN2PTOT * <float>(0.2355)
+            object.QION[3][I] = QN2PTOT * <float>(0.1413)
+            object.QION[2][I] = QN2PTOT * <float>(0.0942)
+            object.QION[1][I] = QN2PTOT * <float>(0.076)
+            object.QION[0][I] = QN2PTOT * <float>(0.304)
 
         # IONISATION TO aLL CHANNELS WITH N +
         QNPTOT = 0.0
         if EN > object.EION[7]:
-            GasUtil.CALQIONX(EN, NION2, YION2, XION2, BETA2, 0.197, CONST, object.DEN[I], C, AM2)
+            QNPTOT = GasUtil.CALQIONX(EN, NION2, YION2, XION2, BETA2, <float>(0.197), CONST, object.DEN[I], C, AM2)
 
         object.QION[7][I] = QNPTOT
         if EN > object.EION[8] and EN <= object.EION[9]:
             if EN < 110:
-                object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * 0.095 * 1.e-16
+                object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * <float>(0.095) * 1.e-16
             else:
-                object.QION[8][I] = object.QION[7][I] * 0.1439
+                object.QION[8][I] = object.QION[7][I] * <float>(0.1439)
             object.QION[7][I] = object.QION[7][I] - object.QION[8][I]
 
         elif EN > object.EION[9]:
             if EN < 110:
-                object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * 0.095 * 1.e-16
-            elif EN >= 110:
-                object.QION[8][I] = object.QION[7][I] * 0.1439
+                object.QION[8][I] = ((EN - object.EION[8]) / (110. - object.EION[8])) * <float>(0.095) * 1.e-16
+            if EN >= 110:
+                object.QION[8][I] = object.QION[7][I] * <float>(0.1439)
             if EN < 120:
-                object.QION[9][I] = ((EN - object.EION[9]) / (120. - object.EION[9])) * 0.037 * 1.e-16
+                object.QION[9][I] = ((EN - object.EION[9]) / (120. - object.EION[9])) * <float>(0.037) * 1.e-16
             else:
-                object.QION[9][I] = object.QION[8][I] * 0.056
+                object.QION[9][I] = object.QION[7][I] * <float>(0.056)
             object.QION[7][I] = object.QION[7][I] - object.QION[8][I] - object.QION[9][I]
 
         if EN > object.EION[10]:
             # SUM OF DOUBLE IONISATION CHANNELS: N+,N+  AND N++,N
             object.QION[10][I] = 0.0
-            object.QION[10][I] = GasUtil.CALQIONX(EN, NION3, YION3, XION3, BETA2, 0.0338, CONST, object.DEN[I], C, AM2)
+            object.QION[10][I] = GasUtil.CALQIONX(EN, NION3, YION3, XION3, BETA2, <float>(0.0338), CONST, object.DEN[I], C, AM2)
             object.QION[7][I] -= object.QION[10][I]
 
         if EN > 65.0:
-            object.QION[10][I] += GasUtil.CALQIONX(EN, NION4, YION4, XION4, BETA2, 0.0057, CONST, object.DEN[I], C, AM2)
+            object.QION[10][I] += GasUtil.CALQIONX(EN, NION4, YION4, XION4, BETA2, <float>(0.0057), CONST, object.DEN[I], C, AM2)
 
         if EN > object.EION[11]:
             object.QION[11][I] = 2 * GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
@@ -489,10 +489,13 @@ cdef void Gas16(Gas*object):
                         (2.0 * i + 1.0) * (2.0 * i - 1.0))
                 #CALCULATE ENHANCEMENT OF ROTATIONAL XSEC IN THE RESONANCE REGION
                 RESFAC = GasUtil.CALPQ3(EN - object.EIN[J - 1], NROT, YROT, XROT)
+                if (EN - object.EIN[J-1])<=XROT[0]:
+                    RESFAC = (YROT[0]/XROT[0]*(EN - object.EIN[J-1]))
+                RESFAC*=(EN - object.EIN[J-1])/EN
                 #USE 30% FOR RESFAC
-                RESFAC *= 0.3
+                RESFAC *= <float>(0.3)
                 #BORN ROTATIONAL X-SEC SUM IN RESONANCE REGION = 0.249
-                RESFAC = 1.0 + RESFAC / 0.249
+                RESFAC = 1.0 + RESFAC / <float>(0.249)
             object.QIN[J - 1][I] *= RESFAC
 
         # INELASTIC ROTATION
@@ -500,20 +503,23 @@ cdef void Gas16(Gas*object):
         # CALCULATE ENHANCEMENT OF ROTATIONAL XSEC IN THE RESONANCE REGION
 
         for J in range(39, 77):
+            object.QIN[J - 1][I] = 0.0
             object.PEQIN[J - 1][I] = 0.5
             if object.WhichAngularModel == 2:
                 object.PEQIN[J - 1][I] = 0.0
-            object.QIN[J - 1][I] = 0.0
-        # CALCULATE ENHANCEMENT OF ROTATIONAL XSEC IN THE RESONANCE REGION
-        RESFAC = GasUtil.CALPQ3(EN, NROT, YROT, XROT)
-        #USE 30% FOR RESFAC
-        RESFAC *= 0.3
-        #BORN ROTATIONAL X-SEC SUM IN RESONANCE REGION = 0.249
-        RESFAC = 1.0 + RESFAC / 0.249
+            if EN> 0.0:
+                # CALCULATE ENHANCEMENT OF ROTATIONAL XSEC IN THE RESONANCE REGION
+                RESFAC = GasUtil.CALPQ3(EN, NROT, YROT, XROT)
+                if (EN - object.EIN[J-1])<=XROT[0]:
+                    RESFAC = (YROT[0]*EN)
+                #USE 30% FOR RESFAC
+                RESFAC *= <float>(0.3)
+                #BORN ROTATIONAL X-SEC SUM IN RESONANCE REGION = 0.249
+                RESFAC = 1.0 + RESFAC / <float>(0.249)
 
         # ROT 0-2
         if EN > object.EIN[38]:
-            object.QIN[38][I] = FROT0 * QBK * sqrt(1.0 - object.EIN[38] / EN) * 2.0 / 3.0
+            object.QIN[38][I] = FROT0 * QBK * sqrt(1.0 - object.EIN[38] / EN) * <float>(2.0 / 3.0)
             object.QIN[38][I] *= RESFAC
             object.PEQIN[38][I] = 0.0
             if object.WhichAngularModel == 2:
@@ -623,11 +629,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[92]:
             object.QIN[92][I] = GasUtil.CALQINP(EN, NTRP1, YTRP1, XTRP1, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP1, YTP1M, XTRP1, 1) * 1e18
-        if EN > 3.0 * object.EIN[92]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[92][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[92][I] = object.PEQEL[1][I - IOFFN[92]]
+            if EN > 3.0 * object.EIN[92]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[92][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[92][I] = object.PEQEL[1][I - IOFFN[92]]
 
         # A3SIGMA (V = 5-9)
         object.QIN[93][I] = 0.0
@@ -637,11 +643,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[93]:
             object.QIN[93][I] = GasUtil.CALQINP(EN, NTRP2, YTRP2, XTRP2, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP2, YTP2M, XTRP2, 1) * 1e18
-        if EN > 3.0 * object.EIN[93]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[93][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[93][I] = object.PEQEL[1][I - IOFFN[93]]
+            if EN > 3.0 * object.EIN[93]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[93][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[93][I] = object.PEQEL[1][I - IOFFN[93]]
 
         # B3PI (V=0-3)
         object.QIN[94][I] = 0.0
@@ -651,11 +657,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[94]:
             object.QIN[94][I] = GasUtil.CALQINP(EN, NTRP3, YTRP3, XTRP3, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP3, YTP3M, XTRP3, 1) * 1e18
-        if EN > 3.0 * object.EIN[94]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[94][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[94][I] = object.PEQEL[1][I - IOFFN[94]]
+            if EN > 3.0 * object.EIN[94]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[94][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[94][I] = object.PEQEL[1][I - IOFFN[94]]
 
         # W3DELTA (V = 0-5)
         object.QIN[95][I] = 0.0
@@ -665,11 +671,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[95]:
             object.QIN[95][I] = GasUtil.CALQINP(EN, NTRP4, YTRP4, XTRP4, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP4, YTP4M, XTRP4, 1) * 1e18
-        if EN > 3.0 * object.EIN[95]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[95][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[95][I] = object.PEQEL[1][I - IOFFN[95]]
+            if EN > 3.0 * object.EIN[95]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[95][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[95][I] = object.PEQEL[1][I - IOFFN[95]]
 
         # A3SIGMA (V = 10-21)
         object.QIN[96][I] = 0.0
@@ -679,11 +685,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[96]:
             object.QIN[96][I] = GasUtil.CALQINP(EN, NTRP5, YTRP5, XTRP5, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP5, YTP5M, XTRP5, 1) * 1e18
-        if EN > 3.0 * object.EIN[96]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[96][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[96][I] = object.PEQEL[1][I - IOFFN[96]]
+            if EN > 3.0 * object.EIN[96]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[96][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[96][I] = object.PEQEL[1][I - IOFFN[96]]
 
         # B3PI (V=4-16)
         object.QIN[97][I] = 0.0
@@ -693,11 +699,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[97]:
             object.QIN[97][I] = GasUtil.CALQINP(EN, NTRP6, YTRP6, XTRP6, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP6, YTP6M, XTRP6, 1) * 1e18
-        if EN > 3.0 * object.EIN[97]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[97][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[97][I] = object.PEQEL[1][I - IOFFN[97]]
+            if EN > 3.0 * object.EIN[97]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[97][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[97][I] = object.PEQEL[1][I - IOFFN[97]]
 
         # W3DEL (V=6-10)
         object.QIN[98][I] = 0.0
@@ -707,11 +713,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[98]:
             object.QIN[98][I] = GasUtil.CALQINP(EN, NTRP7, YTRP7, XTRP7, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP7, YTP7M, XTRP7, 1) * 1e18
-        if EN > 3.0 * object.EIN[98]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[98][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[98][I] = object.PEQEL[1][I - IOFFN[98]]
+            if EN > 3.0 * object.EIN[98]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[98][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[98][I] = object.PEQEL[1][I - IOFFN[98]]
 
         # A1PI (V=0-3)
         object.QIN[99][I] = 0.0
@@ -721,11 +727,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[99]:
             object.QIN[99][I] = GasUtil.CALQINP(EN, NSNG1, YSNG1, XSNG1, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NSNG1, YSG1M, XSNG1, 1) * 1e18
-        if EN > 3.0 * object.EIN[99]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[99][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[99][I] = object.PEQEL[1][I - IOFFN[99]]
+            if EN > 3.0 * object.EIN[99]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[99][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[99][I] = object.PEQEL[1][I - IOFFN[99]]
 
         # B!3SIG (V=0-6)
         object.QIN[100][I] = 0.0
@@ -735,11 +741,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[100]:
             object.QIN[100][I] = GasUtil.CALQINP(EN, NTRP8, YTRP8, XTRP8, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP8, YTP8M, XTRP8, 1) * 1e18
-        if EN > 3.0 * object.EIN[100]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[100][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[100][I] = object.PEQEL[1][I - IOFFN[100]]
+            if EN > 3.0 * object.EIN[100]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[100][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[100][I] = object.PEQEL[1][I - IOFFN[100]]
 
         # A!SIG (V=0-6)
         object.QIN[101][I] = 0.0
@@ -749,11 +755,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[101]:
             object.QIN[101][I] = GasUtil.CALQINP(EN, NSNG2, YSNG2, XSNG2, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NSNG2, YSG2M, XSNG2, 1) * 1e18
-        if EN > 3.0 * object.EIN[101]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[101][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[101][I] = object.PEQEL[1][I - IOFFN[101]]
+            if EN > 3.0 * object.EIN[101]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[101][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[101][I] = object.PEQEL[1][I - IOFFN[101]]
 
         # W3DEL(V=11-19)
         object.QIN[102][I] = 0.0
@@ -763,11 +769,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[102]:
             object.QIN[102][I] = GasUtil.CALQINP(EN, NTRP9, YTRP9, XTRP9, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP9, YTP9M, XTRP9, 1) * 1e18
-        if EN > 3.0 * object.EIN[102]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[102][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[102][I] = object.PEQEL[1][I - IOFFN[102]]
+            if EN > 3.0 * object.EIN[102]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[102][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[102][I] = object.PEQEL[1][I - IOFFN[102]]
 
         # W1DEL (V=0-5)
         object.QIN[103][I] = 0.0
@@ -777,11 +783,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[103]:
             object.QIN[103][I] = GasUtil.CALQINP(EN, NSNG3, YSNG3, XSNG3, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NSNG3, YSG3M, XSNG3, 1) * 1e18
-        if EN > 3.0 * object.EIN[103]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[103][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[103][I] = object.PEQEL[1][I - IOFFN[103]]
+            if EN > 3.0 * object.EIN[103]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[103][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[103][I] = object.PEQEL[1][I - IOFFN[103]]
 
         # A1PI (V=4-15)
         object.QIN[104][I] = 0.0
@@ -791,11 +797,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[104]:
             object.QIN[104][I] = GasUtil.CALQINP(EN, NSNG4, YSNG4, XSNG4, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NSNG4, YSG4M, XSNG4, 1) * 1e18
-        if EN > 3.0 * object.EIN[104]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[104][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[104][I] = object.PEQEL[1][I - IOFFN[104]]
+            if EN > 3.0 * object.EIN[104]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[104][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[104][I] = object.PEQEL[1][I - IOFFN[104]]
 
         # B!3SIG (V = 7-18)
         object.QIN[105][I] = 0.0
@@ -805,11 +811,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[105]:
             object.QIN[105][I] = GasUtil.CALQINP(EN, NTRP10, YTRP10, XTRP10, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP10, YTP10M, XTRP10, 1) * 1e18
-        if EN > 3.0 * object.EIN[105]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[105][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[105][I] = object.PEQEL[1][I - IOFFN[105]]
+            if EN > 3.0 * object.EIN[105]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[105][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[105][I] = object.PEQEL[1][I - IOFFN[105]]
 
         # A!1SIG (V=7-19)
         object.QIN[106][I] = 0.0
@@ -819,11 +825,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[106]:
             object.QIN[106][I] = GasUtil.CALQINP(EN, NSNG5, YSNG5, XSNG5, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NSNG5, YSG5M, XSNG5, 1) * 1e18
-        if EN > 3.0 * object.EIN[106]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[106][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[106][I] = object.PEQEL[1][I - IOFFN[106]]
+            if EN > 3.0 * object.EIN[106]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[106][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[106][I] = object.PEQEL[1][I - IOFFN[106]]
 
         # W1DEL (V=6-18)
         object.QIN[107][I] = 0.0
@@ -833,11 +839,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[107]:
             object.QIN[107][I] = GasUtil.CALQINP(EN, NSNG6, YSNG6, XSNG6, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NSNG6, YSG6M, XSNG6, 1) * 1e18
-        if EN > 3.0 * object.EIN[107]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[107][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[107][I] = object.PEQEL[1][I - IOFFN[107]]
+            if EN > 3.0 * object.EIN[107]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[107][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[107][I] = object.PEQEL[1][I - IOFFN[107]]
 
         # C3PI (V=0-4)
         object.QIN[108][I] = 0.0
@@ -847,11 +853,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[108]:
             object.QIN[108][I] = GasUtil.CALQINP(EN, NTRP11, YTRP11, XTRP11, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP11, YTP11M, XTRP11, 1) * 1e18
-        if EN > 3.0 * object.EIN[108]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[108][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[108][I] = object.PEQEL[1][I - IOFFN[108]]
+            if EN > 3.0 * object.EIN[108]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[108][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[108][I] = object.PEQEL[1][I - IOFFN[108]]
 
         # E3SIG
         object.QIN[109][I] = 0.0
@@ -861,11 +867,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[109]:
             object.QIN[109][I] = GasUtil.CALQINP(EN, NTRP12, YTRP12, XTRP12, 2) * 100
             RAT = GasUtil.CALQINP(EN, NTRP12, YTP12M, XTRP12, 1) * 1e18
-        if EN > 3.0 * object.EIN[109]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[109][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[109][I] = object.PEQEL[1][I - IOFFN[109]]
+            if EN > 3.0 * object.EIN[109]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[109][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[109][I] = object.PEQEL[1][I - IOFFN[109]]
 
         # A!!1SIG (V=0-1)
         object.QIN[110][I] = 0.0
@@ -875,11 +881,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[110]:
             object.QIN[110][I] = GasUtil.CALQINP(EN, NSNG7, YSNG7, XSNG7, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NSNG7, YSG7M, XSNG7, 1) * 1e18
-        if EN > 3.0 * object.EIN[110]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[110][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[110][I] = object.PEQEL[1][I - IOFFN[110]]
+            if EN > 3.0 * object.EIN[110]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[110][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[110][I] = object.PEQEL[1][I - IOFFN[110]]
 
         # B1PI (V=0-6)   F=0.1855
         object.QIN[111][I] = 0.0
@@ -888,15 +894,15 @@ cdef void Gas16(Gas*object):
             object.PEQIN[111][I] = 0.
         if EN > object.EIN[111]:
             object.QIN[111][I] = GasUtil.CALQINBEF(EN, EN,NSNG8, YSNG8, XSNG8, BETA2, GAMMA2, EMASS2, object.DEN[I],
-                                                   BBCONST, object.EIN[111], object.E[2], 0.1855)
+                                                   BBCONST, object.EIN[111], object.E[2], <float>(0.1855))
             if EN <= XSNG8[NSNG8 - 1]:
                 object.QIN[111][I] *= 100
             RAT = GasUtil.CALQINP(EN, NSNG8, YSG8M, XSNG8, 1) * 1e18
-        if EN > 3.0 * object.EIN[111]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[111][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[111][I] = object.PEQEL[1][I - IOFFN[111]]
+            if EN > 3.0 * object.EIN[111]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[111][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[111][I] = object.PEQEL[1][I - IOFFN[111]]
 
         # C!1SIG (V=0-3)   F=0.150
         object.QIN[112][I] = 0.0
@@ -905,15 +911,15 @@ cdef void Gas16(Gas*object):
             object.PEQIN[112][I] = 0.
         if EN > object.EIN[112]:
             object.QIN[112][I] = GasUtil.CALQINBEF(EN,EN, NSNG9, YSNG9, XSNG9, BETA2, GAMMA2, EMASS2, object.DEN[I],
-                                                   BBCONST, object.EIN[112], object.E[2], 0.150)
+                                                   BBCONST, object.EIN[112], object.E[2], <float>(0.150))
             if EN <= XSNG9[NSNG9 - 1]:
                 object.QIN[112][I] *= 100
             RAT = GasUtil.CALQINP(EN, NSNG9, YSG9M, XSNG9, 1) * 1e18
-        if EN > 3.0 * object.EIN[112]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[112][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[112][I] = object.PEQEL[1][I - IOFFN[112]]
+            if EN > 3.0 * object.EIN[112]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[112][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[112][I] = object.PEQEL[1][I - IOFFN[112]]
 
         # G 3PI
         object.QIN[113][I] = 0.0
@@ -923,11 +929,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[113]:
             object.QIN[113][I] = GasUtil.CALQINP(EN, NTRP13, YTRP13, XTRP13, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NTRP13, YTP13M, XTRP13, 1) * 1e18
-        if EN > 3.0 * object.EIN[113]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[113][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[113][I] = object.PEQEL[1][I - IOFFN[113]]
+            if EN > 3.0 * object.EIN[113]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[113][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[113][I] = object.PEQEL[1][I - IOFFN[113]]
 
         # C3 1PI (V=0-3)   F=0.150
         object.QIN[114][I] = 0.0
@@ -936,15 +942,15 @@ cdef void Gas16(Gas*object):
             object.PEQIN[114][I] = 0.
         if EN > object.EIN[114]:
             object.QIN[114][I] = GasUtil.CALQINBEF(EN,EN, NSNG10, YSNG10, XSNG10, BETA2, GAMMA2, EMASS2, object.DEN[I],
-                                                   BBCONST, object.EIN[114], object.E[2], 0.150)
+                                                   BBCONST, object.EIN[114], object.E[2], <float>(0.150))
             if EN <= XSNG10[NSNG10 - 1]:
                 object.QIN[114][I] *= 100
             RAT = GasUtil.CALQINP(EN, NSNG10, YSG10M, XSNG10, 1) * 1e18
-        if EN > 3.0 * object.EIN[114]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[114][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[114][I] = object.PEQEL[1][I - IOFFN[114]]
+            if EN > 3.0 * object.EIN[114]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[114][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[114][I] = object.PEQEL[1][I - IOFFN[114]]
 
         # F 3PI (V = 0-3)
         object.QIN[115][I] = 0.0
@@ -954,11 +960,11 @@ cdef void Gas16(Gas*object):
         if EN > object.EIN[115]:
             object.QIN[115][I] = GasUtil.CALQINP(EN, NTRP14, YTRP14, XTRP14, 1.5) * 100
             RAT = GasUtil.CALQINP(EN, NTRP14, YTP14M, XTRP14, 1) * 1e18
-        if EN > 3.0 * object.EIN[115]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[115][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[115][I] = object.PEQEL[1][I - IOFFN[115]]
+            if EN > 3.0 * object.EIN[115]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[115][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[115][I] = object.PEQEL[1][I - IOFFN[115]]
 
         # B1PI (V=7-14)   F=0.0663
         object.QIN[116][I] = 0.0
@@ -967,15 +973,15 @@ cdef void Gas16(Gas*object):
             object.PEQIN[116][I] = 0.
         if EN > object.EIN[116]:
             object.QIN[116][I] = GasUtil.CALQINBEF(EN, EN,NSNG11, YSNG11, XSNG11, BETA2, GAMMA2, EMASS2, object.DEN[I],
-                                                   BBCONST, object.EIN[116], object.E[2], 0.0663)
+                                                   BBCONST, object.EIN[116], object.E[2], <float>(0.0663))
             if EN <= XSNG11[NSNG11 - 1]:
                 object.QIN[116][I] *= 100
             RAT = GasUtil.CALQINP(EN, NSNG11, YSG11M, XSNG11, 1) * 1e18
-        if EN > 3.0 * object.EIN[116]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[116][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[116][I] = object.PEQEL[1][I - IOFFN[116]]
+            if EN > 3.0 * object.EIN[116]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[116][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[116][I] = object.PEQEL[1][I - IOFFN[116]]
 
         # B! SIG (V=0-10)   F=0.0601
         object.QIN[117][I] = 0.0
@@ -984,15 +990,15 @@ cdef void Gas16(Gas*object):
             object.PEQIN[117][I] = 0.
         if EN > object.EIN[117]:
             object.QIN[117][I] = GasUtil.CALQINBEF(EN, EN,NSNG12, YSNG12, XSNG12, BETA2, GAMMA2, EMASS2, object.DEN[I],
-                                                   BBCONST, object.EIN[117], object.E[2], 0.0601)
+                                                   BBCONST, object.EIN[117], object.E[2], <float>(0.0601))
             if EN <= XSNG12[NSNG12 - 1]:
                 object.QIN[117][I] *= 100
             RAT = GasUtil.CALQINP(EN, NSNG12, YSG12M, XSNG12, 1) * 1e18
-        if EN > 3.0 * object.EIN[117]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[117][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[117][I] = object.PEQEL[1][I - IOFFN[117]]
+            if EN > 3.0 * object.EIN[117]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[117][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[117][I] = object.PEQEL[1][I - IOFFN[117]]
 
         # O3 1PI (V=0-3)   F=0.0828
         object.QIN[118][I] = 0.0
@@ -1001,15 +1007,15 @@ cdef void Gas16(Gas*object):
             object.PEQIN[118][I] = 0.
         if EN > object.EIN[118]:
             object.QIN[118][I] = GasUtil.CALQINBEF(EN, EN,NSNG13, YSNG13, XSNG13, BETA2, GAMMA2, EMASS2, object.DEN[I],
-                                                   BBCONST, object.EIN[118], object.E[2], 0.0828)
+                                                   BBCONST, object.EIN[118], object.E[2], <float>(0.0828))
             if EN <= XSNG13[NSNG13 - 1]:
                 object.QIN[118][I] *= 100
             RAT = GasUtil.CALQINP(EN, NSNG13, YSG13M, XSNG13, 1) * 1e18
-        if EN > 3.0 * object.EIN[118]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[118][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[118][I] = object.PEQEL[1][I - IOFFN[118]]
+            if EN > 3.0 * object.EIN[118]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[118][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[118][I] = object.PEQEL[1][I - IOFFN[118]]
 
         # C C!  1SIG (SUM V=4-6) (AVERGAE E=14.090)  F=0.139
         object.QIN[119][I] = 0.0
@@ -1018,15 +1024,15 @@ cdef void Gas16(Gas*object):
             object.PEQIN[119][I] = 0.
         if EN > object.EIN[119]:
             object.QIN[119][I] = GasUtil.CALQINBEF(EN, EN,NSNG14, YSNG14, XSNG14, BETA2, GAMMA2, EMASS2, object.DEN[I],
-                                                   BBCONST, object.EIN[119], object.E[2], 0.1390)
+                                                   BBCONST, object.EIN[119], object.E[2], <float>(0.1390))
             if EN <= XSNG14[NSNG14 - 1]:
                 object.QIN[119][I] *= 100
             RAT = GasUtil.CALQINP(EN, NSNG14, YSG14M, XSNG14, 1) * 1e18
-        if EN > 3.0 * object.EIN[119]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[119][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[119][I] = object.PEQEL[1][I - IOFFN[119]]
+            if EN > 3.0 * object.EIN[119]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[119][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[119][I] = object.PEQEL[1][I - IOFFN[119]]
 
         # C C!  1SIG (SUM V=4-6) (AVERGAE E=14.090)  F=0.139
         object.QIN[120][I] = 0.0
@@ -1035,15 +1041,15 @@ cdef void Gas16(Gas*object):
             object.PEQIN[120][I] = 0.
         if EN > object.EIN[120]:
             object.QIN[120][I] = GasUtil.CALQINBEF(EN, EN,NSNG15, YSNG15, XSNG15, BETA2, GAMMA2, EMASS2, object.DEN[I],
-                                                   BBCONST, object.EIN[120], object.E[2], 0.2650)
+                                                   BBCONST, object.EIN[120], object.E[2], <float>(0.2650))
             if EN <= XSNG15[NSNG15 - 1]:
                 object.QIN[120][I] *= 100
             RAT = GasUtil.CALQINP(EN, NSNG15, YSG15M, XSNG15, 1) * 1e18
-        if EN > 3.0 * object.EIN[120]:
-            if object.WhichAngularModel == 1:
-                object.PEQIN[120][I] = 1.5 - RAT
-            if object.WhichAngularModel == 2:
-                object.PEQIN[120][I] = object.PEQEL[1][I - IOFFN[120]]
+            if EN > 3.0 * object.EIN[120]:
+                if object.WhichAngularModel == 1:
+                    object.PEQIN[120][I] = 1.5 - RAT
+                if object.WhichAngularModel == 2:
+                    object.PEQIN[120][I] = object.PEQEL[1][I - IOFFN[120]]
 
         # E! 1SIG  ELOSS = 14.36 F = 0.0108
         object.QIN[121][I] = 0.0
@@ -1051,7 +1057,7 @@ cdef void Gas16(Gas*object):
         if object.WhichAngularModel == 2:
             object.PEQIN[121][I] = 0.0
         if EN > object.EIN[121]:
-            object.QIN[121][I] = 0.0108 / (object.EIN[121] * BETA2) * (
+            object.QIN[121][I] = <float>(0.0108) / (object.EIN[121] * BETA2) * (
                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[121])) - BETA2 - object.DEN[
                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[121] + object.E[2])
             if object.QIN[121][I] < 0.0:
@@ -1064,7 +1070,7 @@ cdef void Gas16(Gas*object):
         if object.WhichAngularModel == 2:
             object.PEQIN[122][I] = 0.0
         if EN > object.EIN[122]:
-            object.QIN[122][I] = 0.0237 / (object.EIN[122] * BETA2) * (
+            object.QIN[122][I] = <float>(0.0237) / (object.EIN[122] * BETA2) * (
                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[122])) - BETA2 - object.DEN[
                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[122] + object.E[2])
             if object.QIN[122][I] < 0.0:
@@ -1077,7 +1083,7 @@ cdef void Gas16(Gas*object):
         if object.WhichAngularModel == 2:
             object.PEQIN[123][I] = 0.0
         if EN > object.EIN[123]:
-            object.QIN[123][I] = 0.0117 / (object.EIN[123] * BETA2) * (
+            object.QIN[123][I] = <float>(0.0117) / (object.EIN[123] * BETA2) * (
                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[123])) - BETA2 - object.DEN[
                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[123] + object.E[2])
             if object.QIN[123][I] < 0.0:
@@ -1090,7 +1096,7 @@ cdef void Gas16(Gas*object):
         if object.WhichAngularModel == 2:
             object.PEQIN[124][I] = 0.0
         if EN > object.EIN[124]:
-            object.QIN[124][I] = 0.1152 / (object.EIN[124] * BETA2) * (
+            object.QIN[124][I] = <float>(0.1152) / (object.EIN[124] * BETA2) * (
                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[124])) - BETA2 - object.DEN[
                 I] / 2.0) * BBCONST * EN / (EN + object.EIN[124] + object.E[2])
             if object.QIN[124][I] < 0.0:
@@ -1103,7 +1109,7 @@ cdef void Gas16(Gas*object):
         if object.WhichAngularModel == 2:
             object.PEQIN[125][I] = 0.0
         if EN > object.EIN[125]:
-            object.QIN[125][I] = 0.1600 / (object.EIN[125] * BETA2) * (
+            object.QIN[125][I] = <float>(0.1600) / (object.EIN[125] * BETA2) * (
                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[125])) - BETA2 - object.DEN[
                 I] / 2.0) * BBCONST * (EN + 2 * object.EIN[125]) / EN
             if object.QIN[125][I] < 0.0:
@@ -1116,7 +1122,7 @@ cdef void Gas16(Gas*object):
         if object.WhichAngularModel == 2:
             object.PEQIN[126][I] = 0.0
         if EN > object.EIN[126]:
-            object.QIN[126][I] = 0.090 / (object.EIN[126] * BETA2) * (
+            object.QIN[126][I] = <float>(0.090) / (object.EIN[126] * BETA2) * (
                     log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[126])) - BETA2 - object.DEN[
                 I] / 2.0) * BBCONST * (EN + 2 * object.EIN[126]) / EN
             if object.QIN[126][I] < 0.0:

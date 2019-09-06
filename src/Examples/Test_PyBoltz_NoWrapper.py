@@ -42,9 +42,10 @@ Object.MaxNumberOfCollisions =1
 Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 1000.0
+Object.FinalElectronEnergy = 100.0
 # Set the gas's with there given number
 Object.GasIDs=[4, 0, 0, 0, 0, 0]
+
 # Set the gas fractions
 Object.GasFractions=[100, 0, 0, 0, 0, 0]
 # Set the tempature
@@ -52,7 +53,7 @@ Object.TemperatureCentigrade = float(23)
 # Set the pressure
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField =100
+Object.EField =1000
 # Set the magnetic field and angle
 Object.BFieldMag = 0
 Object.BFieldAngle =0
@@ -89,13 +90,13 @@ print("Longitudinal diffusion [cm**2/s]     = ", round(Object.LongitudinalDiffus
 print("----------------------------------------------------")
 print("Longitudinal diffusion error [%]     = ", round(Object.LongitudinalDiffusionError,3))
 print("----------------------------------------------------")
-print("Transverse diffusion [mum/cm**0.5]   = ", round(Object.DTMN,3))
+print("Transverse diffusion [mum/cm**0.5]   = ", round(Object.TransverseDiffusion1,3))
 print("----------------------------------------------------")
-print("Transverse diffusion error [%]       = ", round(Object.DFTER1,3))
+print("Transverse diffusion error [%]       = ", round(Object.TransverseDiffusion1Error,3))
 print("----------------------------------------------------")
-print("Longitudinal diffusion [mum/cm**0.5] = ", round(Object.DLMN,3))
+print("Longitudinal diffusion [mum/cm**0.5] = ", round(Object.LongitudinalDiffusion1,3))
 print("----------------------------------------------------")
-print("Longitudinal diffusion error [%]     = ", round(Object.DFLER1,3))
+print("Longitudinal diffusion error [%]     = ", round(Object.LongitudinalDiffusion1Error,3))
 print("----------------------------------------------------")
 print("Mean electron energy [eV]            = ", round(Object.MeanElectronEnergy,3))
 print("----------------------------------------------------")

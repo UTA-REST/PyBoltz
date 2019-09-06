@@ -51,26 +51,26 @@ cdef void Gas11(Gas*object):
     Z6T = gd['gas11/Z6T']
     Z1T = gd['gas11/Z1T']
     EBRM = gd['gas11/EBRM']
-
+    object.EIN = gd['gas11/EIN']
     cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AUGK, ASING
 
     # BORN-BETHE CONSTANTS
     A0 = 0.52917720859e-08
-    RY = 13.60569193
+    RY = <float>(13.60569193)
     CONST = 1.873884e-20
-    EMASS2 = 1021997.804
+    EMASS2 = <float>(1021997.804)
     API = acos(-1.0e0)
-    BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
+    BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
     # BORN BETHE VALUES FOR IONISATION
-    AM2 = 14.8
-    C = 141.9
+    AM2 = <float>(14.8)
+    C = <float>(141.9)
 
     # AVERAGE AUGER EMISSIONS FROM K-SHELL
     AUGK = 2.0
 
     # SCALE SINGLET X-SECTIONS TO ALLOW FOR INCREASED ENERGY LOSS DUE TO 5%
     #   STEP IN ENERGY BETWEEN SINGLET LEVELS.
-    ASING = 1.02
+    ASING = <float>(1.02)
 
     object.NION = 3
     object.NATT = 1
@@ -104,10 +104,10 @@ cdef void Gas11(Gas*object):
     cdef double APOPGS
 
 
-    object.E = [0.0, 1.0, 10.67, 0.0, 0.0, 7.0]
-    object.E[1] = 2.0 * EMASS / (58.1234 * AMU)
+    object.E = [0.0, 1.0, <float>(10.67), 0.0, 0.0, 7.0]
+    object.E[1] = 2.0 * EMASS / (<float>(58.1234) * AMU)
 
-    object.EION[0:3] = [10.67, 17.0, 285.0]
+    object.EION[0:3] = [<float>(10.67), 17.0, 285.0]
 
     #OPAL BEATY IONISATION  AT LOW ENERGY 0
     #OPAL BEATY FOR DISSOCIATION AND K-SHELL 1,2
@@ -115,30 +115,31 @@ cdef void Gas11(Gas*object):
 
     object.NC0[0:3] = [0, 0, 2]
     object.EC0[0:3] = [0.0, 0.0, 253.0]
-    object.WK[0:3] = [0.0, 0.0, 0.0026]
+    object.WK[0:3] = [0.0, 0.0, <float>(0.0026)]
     object.EFL[0:3] = [0.0, 0.0, 273.0]
     object.NG1[0:3] = [0, 0, 1]
     object.EG1[0:3] = [0.0, 0.0, 253.0]
     object.NG2[0:3] = [0, 0, 2]
     object.EG2[0:3] = [0.0, 0.0, 5.0]
-    object.EIN = gd['gas11/EIN']
 
     for j in range(0, object.NION):
         for i in range(0, 4000):
             if (object.EG[i] > object.EION[j]):
-                IOFFION[j] = i - 1
+                IOFFION[j] = i
                 break
 
     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
     for NL in range(object.NIN):
         for i in range(4000):
-            if object.EG[i] > object.EIN[NL]:
-                IOFFN[NL] = i - 1
+            if object.EG[i] > abs(object.EIN[NL]):
+                IOFFN[NL] = i
                 break
 
-    for i in range(object.NIN):
+    for i in range(24):
         for j in range(3):
+
             object.PenningFraction[j][i]
+
     
     for i in range(9,24):
         object.PenningFraction[0][i]=0.0
@@ -187,12 +188,11 @@ cdef void Gas11(Gas*object):
     
     cdef double EN, GAMMA1, GAMMA2, BETA, BETA2, QMT, QEL, PQ[3], X1, X2, QBB = 0.0, QSUM, EFAC,F[13],QSNG,QTOTEXC,QTRP
 
-    F = [0.00131,0.0150,0.114,0.157,0.171,0.188,0.205,0.193,0.162,0.103,0.067,0.064,0.028]
+    F = [<float>(0.00131),<float>(0.0150),<float>(0.114),<float>(0.157),<float>(0.171),<float>(0.188),<float>(0.205),<float>(0.193),<float>(0.162),<float>(0.103),<float>(0.067),<float>(0.064),<float>(0.028),]
     cdef int FI
     
-    for I in range(object.EnergySteps):
+    for I in range(4000):
         EN = object.EG[I]
-        ENLG = log(EN)
         GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
         GAMMA2 = GAMMA1 * GAMMA1
         BETA = sqrt(1.0 - 1.0 / GAMMA2)
@@ -219,12 +219,12 @@ cdef void Gas11(Gas*object):
             object.PEQION[0][I] = 0.0
         if EN > object.EION[0]:
             object.QION[0][I] = GasUtil.CALQIONX(EN, NIOND, YION,XION,BETA2,1,CONST, object.DEN[I],C, AM2)
-        # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON AT
-        # ENERGIES ABOVE  2 * IONISATION ENERGY
-        # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION EQUAL TO ELASTIC ANGULAR DISTRIBUTION
-        # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
-        if EN > 2*object.EION[0]:
-            object.PEQION[0][I] = object.PEQEL[1][I-IOFFION[0]]
+            # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON AT
+            # ENERGIES ABOVE  2 * IONISATION ENERGY
+            # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION EQUAL TO ELASTIC ANGULAR DISTRIBUTION
+            # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
+            if EN > 2*object.EION[0]:
+                object.PEQION[0][I] = object.PEQEL[1][I-IOFFION[0]]
         
         # CALCULATE IONISATION-EXCITATION AND SPLIT IONISATION INTO
         # IONISATION ONLY AND IONISATION +EXCITATION        
@@ -236,12 +236,12 @@ cdef void Gas11(Gas*object):
             object.QION[1][I] = 12.0 / (object.EION[1] * BETA2) * (
                         log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EION[1])) - BETA2 - object.DEN[
                     I] / 2.0) * BBCONST * EN / (EN + object.EION[1] + object.E[2])
-            if object.QION[J][I]<0.0:
-                object.QION[J][I] = 0.0
+            if object.QION[1][I]<0.0:
+                object.QION[1][I] = 0.0
             # FIND IONISATION ONLY
             object.QION[0][I] -= object.QION[1][I]
-        if EN > 2*object.EION[1]:
-            object.PEQION[1][I] = object.PEQEL[1][I-IOFFION[1]]
+            if EN > 2*object.EION[1]:
+                object.PEQION[1][I] = object.PEQEL[1][I-IOFFION[1]]
 
         # K-shell IONISATION
         object.QION[2][I] = 0.0
@@ -250,12 +250,12 @@ cdef void Gas11(Gas*object):
             object.PEQION[2][I] = 0.0
         if EN > object.EION[2]:
             object.QION[2][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH) * 4.0
-        # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON AT
-        # ENERGIES ABOVE  2 * IONISATION ENERGY
-        # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION EQUAL TO ELASTIC ANGULAR DISTRIBUTION
-        # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
-        if EN > 2*object.EION[2]:
-            object.PEQION[2][I] = object.PEQEL[1][I-IOFFION[2]]
+            # USE AAnisotropicDetectedTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON AT
+            # ENERGIES ABOVE  2 * IONISATION ENERGY
+            # AAnisotropicDetectedTROPIC ANGULAR DISTRIBUTION EQUAL TO ELASTIC ANGULAR DISTRIBUTION
+            # AT AN ENERGY OFFSET BY THE IONISATION ENERGY
+            if EN > 2*object.EION[2]:
+                object.PEQION[2][I] = object.PEQEL[1][I-IOFFION[2]]
 
         # CORRECT DISSOCIATIVE IONISATION FOR SPLIT INTO K-SHELL
         object.QION[1][I]-=object.QION[2][I]
@@ -272,11 +272,11 @@ cdef void Gas11(Gas*object):
             # SET COUNTING IONISATION = GROSS IONISATION (LACK OF EXPERIMENTAL DATA)
             object.Q[4][I] = object.QION[0][I] + AUGK * object.QION[2][I]
             object.Q[4][I]-=object.QION[2][I]
-        if EN > 2*object.E[2]:
-            object.PEQEL[4][I] = object.PEQEL[1][I-IOFFION[4]]
+            if EN > 2*object.E[2]:
+                object.PEQEL[4][I] = object.PEQEL[1][I-IOFFION[0]]
 
         object.Q[5][I] = 0.0
-        for J in range(10):
+        for J in range(11):
             object.QIN[J][I]=0.0
             object.PEQIN[J][I] =0.5
             if object.WhichAngularModel == 2:
@@ -285,48 +285,48 @@ cdef void Gas11(Gas*object):
         # SUPERELASTIC TORSION
         if EN != 0.0:
             EFAC = sqrt(1.0 - (object.EIN[0] / EN))
-            object.QIN[0][I] = 0.009 * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
+            object.QIN[0][I] = <float>(0.009) * log((EFAC + 1.0) / (EFAC - 1.0)) / EN
             object.QIN[0][I] *= APOP1 * 1.e-16
-        if EN > 5* abs(object.EIN[0]):
-            if object.WhichAngularModel ==2:
-                object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
+            if EN > 5* abs(object.EIN[0]):
+                if object.WhichAngularModel ==2:
+                    object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
 
         # TORSION
         if EN > object.EIN[1]:
             EFAC = sqrt(1.0 - (object.EIN[1] / EN))
-            object.QIN[1][I] = 0.009 * log((EFAC + 1.0) / (1.0-EFAC)) / EN
+            object.QIN[1][I] = <float>(0.009) * log((EFAC + 1.0) / (1.0-EFAC)) / EN
             object.QIN[1][I] *= APOPGST * 1.e-16
-        if EN > 5* abs(object.EIN[1]):
-            if object.WhichAngularModel ==2:
-                object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]
+            if EN > 5* abs(object.EIN[1]):
+                if object.WhichAngularModel ==2:
+                    object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]
 
         # SUPERELASTIC VIB BEND MODES
         if EN != 0.0:
-            if EN <= XVIB2[NVIB2-1]:
+            if EN+ object.EIN[3] <= XVIB2[NVIB2-1]:
                 object.QIN[2][I] = GasUtil.CALQINVISO(EN, NVIB2, YVIB2, XVIB2, APOPV2, object.EIN[3], 1,
                                                   -1 * 5 * EN, 0)
             else:
                 object.QIN[2][I] = APOPV2*YVIB2[NVIB2-1]*(XVIB2[NVIB2-1]/EN)*1e-16
-        if EN > (3.0 * abs(object.EIN[2])):
-            if object.WhichAngularModel==2:
-                object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
+            if EN > (3.0 * abs(object.EIN[2])):
+                if object.WhichAngularModel==2:
+                    object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
 
         if EN > object.EIN[3]:
             object.QIN[3][I] = GasUtil.CALQINP(EN, NVIB2,YVIB2, XVIB2, 1) * APOPGS * 100
-        if EN > (3.0 * abs(object.EIN[2])):
-            if object.WhichAngularModel==2:
-                object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
+            if EN > (3.0 * abs(object.EIN[3])):
+                if object.WhichAngularModel==2:
+                    object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
 
         # SUPERELASTIC VIB STRETCH MODES
         if EN != 0.0:
-            if EN <= XVIB3[NVIB3-1]:
+            if EN+ object.EIN[5] <= XVIB3[NVIB3-1]:
                 object.QIN[4][I] = GasUtil.CALQINVISO(EN, NVIB3, YVIB3, XVIB3, APOPV3, object.EIN[5], 1,
                                                   -1 * 5 * EN, 0)
             else:
                 object.QIN[4][I] = APOPV3*YVIB3[NVIB3-1]*(XVIB3[NVIB3-1]/EN)*1e-16
-        if EN > (3.0 * abs(object.EIN[5])):
-            if object.WhichAngularModel==2:
-                object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]
+            if EN > (3.0 * abs(object.EIN[4])):
+                if object.WhichAngularModel==2:
+                    object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]
 
         # VIB STRETCH MODES
         if EN > object.EIN[5]:
@@ -337,44 +337,53 @@ cdef void Gas11(Gas*object):
 
         # SUPERELASTIC VIB STRETCH MODES
         if EN != 0.0:
-            if EN <= XVIB4[NVIB4-1]:
+            if EN + object.EIN[7] <= XVIB4[NVIB4-1]:
                 object.QIN[6][I] = GasUtil.CALQINVISO(EN, NVIB4, YVIB4, XVIB4, APOPV4, object.EIN[7], 1,
                                                   -1 * 5 * EN, 0)
             else:
                 object.QIN[6][I] = APOPV4*YVIB4[NVIB4-1]*(XVIB4[NVIB4-1]/EN)*1e-16
-        if EN > (3.0 * abs(object.EIN[6])):
-            if object.WhichAngularModel==2:
-                object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]
+            if EN > (3.0 * abs(object.EIN[6])):
+                if object.WhichAngularModel==2:
+                    object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]
 
         # VIB STRETCH MODES
         if EN > object.EIN[7]:
             object.QIN[7][I] = GasUtil.CALQINP(EN, NVIB4,YVIB4, XVIB4, 1) * APOPGS * 100
-        if EN > (3.0 * abs(object.EIN[7])):
-            if object.WhichAngularModel==2:
-                object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]
+            if EN > (3.0 * abs(object.EIN[7])):
+                if object.WhichAngularModel==2:
+                    object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]
+
+                # VIB STRETCH MODES
+        if EN > object.EIN[8]:
+            object.QIN[8][I] = GasUtil.CALQINP(EN, NVIB5,YVIB5, XVIB5, 1)  * 100
+            if EN > (3.0 * abs(object.EIN[8])):
+                if object.WhichAngularModel==2:
+                    object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]
 
         # EXCITATION    TRIPLET  ABOVE XEXC1(NEXC1) SCALE BY 1/EN**3
         if EN > object.EIN[9]:
             object.QIN[9][I] = GasUtil.CALQINP(EN, NEXC1,YEXC1, XEXC1, 3) * 100
-        if EN > 2.0 *object.EIN[9]:
-            object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]
+            if EN > 2.0 *abs(object.EIN[9]):
+                object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]
 
         # EXCITATION    TRIPLET  ABOVE XEXC2(NEXC2) SCALE BY 1/EN**3
         if EN > object.EIN[10]:
             object.QIN[10][I] = GasUtil.CALQINP(EN, NEXC2,YEXC2, XEXC2, 3) * 100
-        if EN > 2.0 *object.EIN[10]:
-            object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
+            if EN > 2.0 *abs(object.EIN[10]):
+                object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
         FI = 0
         # EXCITATION  F = F[FI]
         for J in range(11,24):
+            object.QIN[J][I]=0.0
+            object.PEQIN[J][I] =0.0
             if EN > object.EIN[J]:
                 object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
                             log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
                         I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2]) * ASING
                 if object.QIN[J][I]<0.0:
                     object.QIN[J][I] = 0.0
-            if EN > 2 * object.EIN[J]:
-                object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+                if EN > 2 * abs(object.EIN[J]):
+                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
 
             FI+=1
         QSNG = 0.0
@@ -385,15 +394,23 @@ cdef void Gas11(Gas*object):
 
         QTOTEXC = QTRP+QSNG
         object.Q[0][I]  = 0.0
-        for J in range(9):
-            object.Q[0][I] +=object.QIN[J][I]
         # TODO: ERROR IN FORTRAN ?
         #object.Q[0][I] += QTOTEXC
 
         object.Q[0][I] += object.Q[1][I] +object.Q[3][I] + object.Q[4][I]
+        for J in range(9):
+            object.Q[0][I]+=object.QIN[J][I]
 
-    for J in range(object.NIN):
+    for J in range(6):
+        print(object.E[J])
+    print("HERE")
+    for J in range(object.NION):
+        print(object.QION[J][3999])
+    print(object.EFINAL)
+    for J in range(13,object.NIN):
         if object.EFINAL <= object.EIN[J]:
             object.NIN = J
             break
+    print(object.NIN)
+    sys.exit()
     return

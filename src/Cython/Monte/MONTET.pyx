@@ -194,6 +194,7 @@ cpdef run(PyBoltz Object):
                 DCY2 = DCY1 * VelocityRatio
                 DCZ2 = DCZ1 * VelocityRatio +  T * F2 / (2.0*sqrt(EAfter))
 
+
                 # Randomly choose gas to scatter from, based on expected collision freqs.
                 GasIndex = 0
                 if Object.NumberOfGases == 1:
@@ -228,6 +229,7 @@ cpdef run(PyBoltz Object):
                 # Which collision energy bin are we in? If we are too high, pin to 3999 (4000 is top)
 
                 iEnergyBin = int(COMEnergy / Object.ElectronEnergyStep)
+
                 iEnergyBin = min(iEnergyBin, 3999)
 
                 # Now the Skullerud null collision method
@@ -444,17 +446,18 @@ cpdef run(PyBoltz Object):
             SinZAngle = sin(Object.AngleFromZ)
             DZCOM = min(DZCOM, 1.0)
             ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
-
             if ARGZ == 0:
                 # If scattering frame is same as lab frame, do this;
                 DCZ1 = CosZAngle
                 DCX1 = CosPhi * SinZAngle
                 DCY1 = SinPhi * SinZAngle
+
             else:
                 # otherwise do this.
                 DCZ1 = DZCOM * CosZAngle + ARGZ * SinZAngle * SinPhi
                 DCY1 = DYCOM * CosZAngle + (SinZAngle / ARGZ) * (DXCOM * CosPhi - DYCOM * DZCOM * SinPhi)
                 DCX1 = DXCOM * CosZAngle - (SinZAngle / ARGZ) * (DYCOM * CosPhi + DXCOM * DZCOM * SinPhi)
+
 
             # Transform velocity vectors to lab frame
             CONST12 = Sqrt2M * sqrt(EBefore)
@@ -468,6 +471,8 @@ cpdef run(PyBoltz Object):
             DCX1 = VXLAB / VelocityInCOM
             DCY1 = VYLAB / VelocityInCOM
             DCZ1 = VZLAB / VelocityInCOM
+
+
 
             #And go around again to the next collision!
             

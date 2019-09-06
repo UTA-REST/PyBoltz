@@ -7,6 +7,7 @@ from libc.stdlib cimport malloc, free
 import cython
 import numpy as np
 cimport numpy as np
+import sys
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -14,7 +15,6 @@ cimport numpy as np
 cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
-
 
 
 @cython.cdivision(True)
@@ -104,7 +104,7 @@ cpdef run(PyBoltz Object):
     RandomSeed = Object.RandomSeed
     EBefore = Object.InitialElectronEnergy
     NumSamples = 10
-    NumDecoLengths = 0
+    NumDecorLengths = 0
     NumCollisions = 0
     IEXTRA = 0
 
@@ -128,13 +128,10 @@ cpdef run(PyBoltz Object):
     TwoM   =  pow(Sqrt2M, 2)                    # This should be: 2m
     TwoPi = 2.0 * np.pi                         # This should be: 2 Pi
 
-
-    #Optionally write some output header to screen
+    # Optionally write some output header to screen
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                          "DIFXX", "DIFYY", "DIFZZ"))
-
-
 
     # We run collisions in NumSamples batches,
     # evenly distributed between its MaxNumberOfCollisions collisions.
@@ -145,15 +142,17 @@ cpdef run(PyBoltz Object):
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ"))
+
+
     for iSample in range(int(NumSamples)):
         for iCollision in range(int(CollisionsPerSample)):
             while True:
                 RandomNum = random_uniform(RandomSeed)
-
+                print(EBefore)
                 I = int(EBefore / DeltaE) + 1
                 I = min(I, INTEM) - 1
                 TLIM = Object.MaxCollisionFreqNT[I]
-                
+
                 # Random sampling formula from Skullerud
                 T = -1 * log(RandomNum) / TLIM + TDash
                 Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
@@ -161,6 +160,7 @@ cpdef run(PyBoltz Object):
                 AP = DCZ1 * F2 * sqrt(EBefore)
                 EAfter = EBefore + (AP + BP * T) * T
                 iEnergyBin = int(EAfter / Object.ElectronEnergyStep)
+
                 iEnergyBin = min(iEnergyBin, 3999)
                 if TEMP[iEnergyBin] > TLIM:
                     TDash += log(RandomNum) / TLIM
@@ -230,18 +230,20 @@ cpdef run(PyBoltz Object):
             Object.Y = Object.Y + DCY1 * A
             Object.Z = Object.Z + DCZ1 * A + T2 * F1
             Object.TimeSum = Object.TimeSum + T
-            
+
             # These are the X and Y velocities before we started accelerating
             VelXBefore = DCX1 * VelocityBefore
             VelYBefore = DCY1 * VelocityBefore
+            VelZBefore = DCZ1 * VelocityBefore
 
             # Figure out which time bin we're in, 299 is overflow; record collision
             #  at that time
             iTimeBin = int(T)
             iTimeBin = min(iTimeBin, 299)
             Object.CollisionTimes[iTimeBin] += 1
+            Object.CollisionEnergies[iEnergyBin] += 1
 
-            # Keep running total of Sum(V^2 T^2). 
+            # Keep running total of Sum(V^2 T^2).
             SUMVX = SUMVX + VelXBefore * VelXBefore * T2
             SUMVY = SUMVY + VelYBefore * VelYBefore * T2
 
@@ -262,7 +264,7 @@ cpdef run(PyBoltz Object):
             # This formalism is based on Eqs 8, Frasier and Mathieson.
             #
             # The entries are weighted by time between this collision and the last T.
-            # The TDiff on the denominator 
+            # The TDiff on the denominator
 
             if NumDecorLengths != 0:
                 CollsToLookBack = 0
@@ -282,7 +284,7 @@ cpdef run(PyBoltz Object):
                     if iSample >= 2:
                         ST1 += T
                         SUMZZ = SUMZZ + ((Object.Z - CollZ[DecorDistance - 1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
-                    CollsBackToLook += Object.Decor_Step
+                    CollsToLookBack += Object.Decor_Step
 
             # Record collision positions
             CollX[NumCollisions - 1] = Object.X
@@ -302,7 +304,6 @@ cpdef run(PyBoltz Object):
             I = MBSort(I, RandomNum, iEnergyBin, Object)
             while Object.NullCollisionFreqT[iEnergyBin][I] < RandomNum:
                 I = I + 1
-
             S1 = Object.RGASNT[I]
             EI = Object.EINNT[I]
             if Object.IPNNT[I] > 0:
@@ -315,6 +316,7 @@ cpdef run(PyBoltz Object):
 
             # Generate scattering angles and update laboratory cosines after collision also update energy of electron
             IPT = <long long>Object.IARRYNT[I]
+
             Object.ICOLLNT[int(IPT) - 1] += 1
             Object.ICOLNNT[I] += 1
             if EAfter < EI:
@@ -344,13 +346,13 @@ cpdef run(PyBoltz Object):
                 # Isotropic scattering
                 CosTheta = 1 - 2 * RandomNum
             Theta = acos(CosTheta)
-            
-            # Pick a random Phi - must be uniform by symmetry of the gas            
+
+            # Pick a random Phi - must be uniform by symmetry of the gas
             RandomNum = random_uniform(RandomSeed)
             Phi = TwoPi * RandomNum
             SinPhi = sin(Phi)
             CosPhi = cos(Phi)
-            
+
             #TODO: Understand what Arg1, D, U and Q are
             ARG1 = max(1 - S1 * EI / EAfter, Object.SmallNumber)
             D = 1.0 - CosTheta * sqrt(ARG1)
@@ -506,4 +508,4 @@ cpdef run(PyBoltz Object):
 
 
     return
-    
+

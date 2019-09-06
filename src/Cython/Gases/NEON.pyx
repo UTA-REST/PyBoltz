@@ -187,9 +187,9 @@ cdef void Gas5(Gas* object):
                 IOFFION[j] = i
                 break
     for NL in range(object.NIN):
-        object.PENFRA[0][NL] = 0.5
-        object.PENFRA[1][NL] = 1
-        object.PENFRA[2][NL] = 1
+        object.PenningFraction[0][NL] = 0.5
+        object.PenningFraction[1][NL] = 1
+        object.PenningFraction[2][NL] = 1
 
     for NL in range(object.NIN):
         for i in range(4000):

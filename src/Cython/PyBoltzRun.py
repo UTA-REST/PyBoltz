@@ -17,7 +17,7 @@ class PyBoltzRun:
     #Default settings for running PyBolz
     PBSettings   ={'Gases'                 :['XENON','HELIUM4'],
                    'Fractions'             :[90,10],
-                   'Max_collisions'        :1,
+                   'Max_collisions'        :4e7,
                    'EField_Vcm'            :100, 
                    'Max_electron_energy'   :0,
                    'Temperature_C'         :23,
@@ -64,13 +64,13 @@ class PyBoltzRun:
             return False
         MBObject.EField=Inputs['EField_Vcm']
         MBObject.NumberOfGases=len(Inputs['Gases'])
-        NumberOfGasesN=np.zeros(6,dtype='int')
-        FRAC=np.zeros(6,dtype='float')
+        GasIDs=np.zeros(6,dtype='int')
+        GasFractions=np.zeros(6,dtype='float')
         for i in range(len(Inputs['Gases'])):
-            NumberOfGasesN[i] = self.GasCode(Inputs['Gases'][i])
-            FRAC[i]  = Inputs['Fractions'][i]
-        MBObject.NumberOfGasesN  = NumberOfGasesN
-        MBObject.FRAC   = FRAC
+            GasIDs[i] = self.GasCode(Inputs['Gases'][i])
+            GasFractions[i]  = Inputs['Fractions'][i]
+        MBObject.GasIDs  = GasIDs
+        MBObject.GasFractions   = GasFractions
         MBObject.MaxNumberOfCollisions   = Inputs['Max_collisions']
         MBObject.EnablePenning   = Inputs['Enable_penning']
         MBObject.EnableThermalMotion  = Inputs['Enable_thermal_motion']

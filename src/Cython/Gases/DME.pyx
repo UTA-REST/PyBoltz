@@ -83,9 +83,9 @@ cdef void Gas25(Gas*object):
     cdef double APOP, EN,EFAC
     APOP = exp(object.EIN[0]/object.AKT)
 
-    EN = -1*object.ESTEP/<float>(2.0)
+    EN = -1*object.EnergyStep/<float>(2.0)
     for I in range(4000):
-        EN+=object.ESTEP
+        EN+=object.EnergyStep
 
         object.Q[1][I] = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)
 

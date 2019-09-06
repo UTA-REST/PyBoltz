@@ -55,12 +55,13 @@ cpdef EnergyLimit(PyBoltz Object):
     """
 
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
-    cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
+    cdef double SMALL, RandomSeed, E1, TDASH, CONST5, CONST9, CONST10, DCZ1, DCX1, DCY1, BP, F1, F2, F4, J2M, R5, TEST1, R1, T, AP, E, CONST6, DCX2, DCY2, DCZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
 
+    CONST5 = Object.CONST3 / 2.0
     ISAMP = 10
     SMALL = 1.0e-20
     I = 0
@@ -70,7 +71,7 @@ cpdef EnergyLimit(PyBoltz Object):
     TDASH = 0.0
     INTEM = 8
     for J in range(N4000):
-        TEMP[J] = Object.TCFNNT[J] + Object.TCFNT[J]
+        TEMP[J] = Object.TotalCollisionFrequencyNNT[J] + Object.TotalCollisionFrequencyNT[J]
 
     # INITIAL DIRECTION COSINES
     DCZ1 = cos(Object.AngleFromZ)
@@ -105,7 +106,7 @@ cpdef EnergyLimit(PyBoltz Object):
 
             # TEST FOR NULL COLLISIONS
             R5 = random_uniform(RandomSeed)
-            TEST1 = Object.TCFNT[IE] / TLIM
+            TEST1 = Object.TotalCollisionFrequencyNT[IE] / TLIM
             if R5<=TEST1:
                 break
 
@@ -118,14 +119,14 @@ cpdef EnergyLimit(PyBoltz Object):
         CONST6 = sqrt(E1 / E)
         DCX2 = DCX1 * CONST6
         DCY2 = DCY1 * CONST6
-        DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
+        DCZ2 = DCZ1 * CONST6 + Object.EField * T * CONST5 / sqrt(E)
         R2 = random_uniform(RandomSeed)
 
 
         # Determination of real collision type
         I = MBSort(I, R2, IE, Object)
         # Find the location within 4 units in collision array
-        while Object.CFNT[IE][I] < R2:
+        while Object.NullCollisionFreqT[IE][I] < R2:
             I = I + 1
 
         S1 = Object.RGASNT[I]
@@ -227,7 +228,7 @@ cpdef EnergyLimitB(PyBoltz Object):
     DCY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
     for J in range(4000):
-        TEMP[J] = Object.TCFNNT[J] + Object.TCFNT[J]
+        TEMP[J] = Object.TotalCollisionFrequencyNNT[J] + Object.TotalCollisionFrequencyNT[J]
 
     VTOT = CONST9 * sqrt(E1)
     CX1 = DCX1 * VTOT
@@ -262,7 +263,7 @@ cpdef EnergyLimitB(PyBoltz Object):
                 Object.MaxCollisionFreqNT[I] *= 1.05
                 continue
             R5 = random_uniform(RandomSeed)
-            TEST1 = Object.TCFNT[IE] / TLIM
+            TEST1 = Object.TotalCollisionFrequencyNT[IE] / TLIM
 
             # TEST FOR REAL OR NULL COLLISION
             if R5<=TEST1:
@@ -286,7 +287,7 @@ cpdef EnergyLimitB(PyBoltz Object):
 
         # FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
         I = MBSort(I, R2, IE, Object)
-        while Object.CFNT[IE][I] < R2:
+        while Object.NullCollisionFreqT[IE][I] < R2:
             I = I + 1
 
         S1 = Object.RGASNT[I]
@@ -441,7 +442,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             IE = min(IE, 3999)
             #TEST FOR REAL OR NULL COLLISION
             R5 = random_uniform(RandomSeed)
-            TLIM = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
+            TLIM = Object.TotalCollisionFrequency[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
             if R5 <= TLIM:
                 break
         if IE == 3999:
@@ -568,7 +569,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     TDASH = 0.0
     CONST9 = Object.CONST3 * 0.01
     for J in range(4000):
-        TEMP[J] = Object.TCFNNT[J] + Object.TCFNT[J]
+        TEMP[J] = Object.TotalCollisionFrequencyNNT[J] + Object.TotalCollisionFrequencyNT[J]
 
     # INITIAL DIRECTION COSINES
     DCZ1 = cos(Object.AngleFromZ)
@@ -607,7 +608,7 @@ cpdef EnergyLimitC(PyBoltz Object):
                 Object.MaxCollisionFreqNT[I] *= 1.05
                 continue
             R5 = random_uniform(RandomSeed)
-            TEST1 = Object.TCFNT[IE] / TLIM
+            TEST1 = Object.TotalCollisionFrequencyNT[IE] / TLIM
 
             # TEST FOR REAL OR NULL COLLISION
             if R5<= TEST1:
@@ -630,7 +631,7 @@ cpdef EnergyLimitC(PyBoltz Object):
 
         # FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
         I = MBSort(I, R2, IE, Object)
-        while Object.CFNT[IE][I] < R2:
+        while Object.NullCollisionFreqT[IE][I] < R2:
             I = I + 1
 
         S1 = Object.RGASNT[I]
@@ -792,7 +793,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
             # TEST FOR REAL OR NULL COLLISION
             R5 = random_uniform(RandomSeed)
-            TLIM = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
+            TLIM = Object.TotalCollisionFrequency[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
             if R5 <= TLIM:
                 break
         if IE == 3999:
@@ -918,6 +919,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
+    CONST5 = Object.CONST3 / 2.0
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
     GERJAN(Object.RandomSeed,  Object.RNMX)
@@ -943,7 +945,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             CONST6 = sqrt(E1 / E)
             DCX2 = DCX1 * CONST6
             DCY2 = DCY1 * CONST6
-            DCZ2 = DCZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E)
+            DCZ2 = DCZ1 * CONST6 + Object.EField * T * CONST5 / sqrt(E)
             R2 = random_uniform(RandomSeed)
             GasIndex = 0
             for GasIndex in range(Object.NumberOfGases):
@@ -967,7 +969,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             R5 = random_uniform(RandomSeed)
-            TEST1 = Object.TCF[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
+            TEST1 = Object.TotalCollisionFrequency[GasIndex][IE] / Object.MaxCollisionFreq[GasIndex]
             if R5 <= TEST1:
                 break
 

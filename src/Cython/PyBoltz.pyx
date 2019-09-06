@@ -37,17 +37,17 @@ cdef class PyBoltz:
         '''
         Fill all the variables needed with zeros.This function uses memset as it is fast.
         '''
-        memset(self.CFNT, 0, 4000 * 960 * sizeof(double))
+        memset(self.NullCollisionFreqT, 0, 4000 * 960 * sizeof(double))
         memset(self.EINNT, 0, 960 * sizeof(double))
-        memset(self.TCFNT, 0, 4000 * sizeof(double))
+        memset(self.TotalCollisionFrequencyNT, 0, 4000 * sizeof(double))
         memset(self.IARRYNT, 0, 960 * sizeof(double))
         memset(self.RGASNT, 0, 960 * sizeof(double))
         memset(self.IPNNT, 0, 960 * sizeof(double))
-        memset(self.PENFRANT, 0, 3*960 * sizeof(double))
+        memset(self.PenningFractionNT, 0, 3*960 * sizeof(double))
         memset(self.WPLNT, 0, 960 * sizeof(double))
         memset(self.MaxCollisionFreqNT, 0, 8 * sizeof(double))
-        memset(self.CFNNT, 0, 4000*60 * sizeof(double))
-        memset(self.TCFNNT, 0, 4000 * sizeof(double))
+        memset(self.NullCollisionFreqNT, 0, 4000*60 * sizeof(double))
+        memset(self.TotalCollisionFrequencyNNT, 0, 4000 * sizeof(double))
         memset(self.SCLENULNT, 0, 60 * sizeof(double))
         memset(self.PSCTNT, 0, 4000* 960 * sizeof(double))
         memset(self.ANGCTNT, 0, 4000* 960 * sizeof(double))
@@ -61,8 +61,8 @@ cdef class PyBoltz:
         memset(self.WKLMNT, 0, 960 * sizeof(double))
         memset(self.EFLNT, 0, 960 * sizeof(double))
         memset(self.DENSY, 0, 4000 * sizeof(double))
-        memset(self.SPEC, 0, 4000 * sizeof(double))
-        memset(self.TIME, 0, 300 * sizeof(double))
+        memset(self.CollisionEnergies, 0, 4000 * sizeof(double))
+        memset(self.CollisionTimes, 0, 300 * sizeof(double))
         memset(self.ICOLL, 0, 6 * 5 * sizeof(double))
         memset(self.ICOLLNT, 0, 30 * sizeof(double))
         memset(self.ICOLNN, 0, 6 * 10 * sizeof(double))
@@ -86,7 +86,7 @@ cdef class PyBoltz:
         memset(self.QINEL, 0, 4000 * sizeof(double))
         memset(self.NIN, 0, 6 * sizeof(double))
         memset(self.CF, 0, 6 * 290 * 4000 * sizeof(double))
-        memset(self.TCF, 0, 6 * 4000 * sizeof(double))
+        memset(self.TotalCollisionFrequency, 0, 6 * 4000 * sizeof(double))
         memset(self.EIN, 0, 6 * 290 * sizeof(double))
         memset(self.IARRY, 0, 6 * 290 * sizeof(double))
         memset(self.RGAS, 0, 6 * 290 * sizeof(double))
@@ -94,10 +94,10 @@ cdef class PyBoltz:
         memset(self.WPL, 0, 6 * 290 * sizeof(double))
         memset(self.IPLAST, 0, 6 * sizeof(double))
         memset(self.ISIZE, 0, 6 * sizeof(double))
-        memset(self.PENFRA, 0, 6 * 290 * 3 * sizeof(double))
+        memset(self.PenningFraction, 0, 6 * 290 * 3 * sizeof(double))
         memset(self.MaxCollisionFreq, 0, 6 * sizeof(double))
-        memset(self.CFN, 0, 6 * 10 * 4000 * sizeof(double))
-        memset(self.TCFN, 0, 6 * 4000 * sizeof(double))
+        memset(self.NullCollisionFreq, 0, 6 * 10 * 4000 * sizeof(double))
+        memset(self.TotalCollisionFrequencyN, 0, 6 * 4000 * sizeof(double))
         memset(self.SCLENUL, 0, 6 * 10 * sizeof(double))
         memset(self.NPLAST, 0, 6 * sizeof(double))
         memset(self.PSCT, 0, 6 * 290 * 4000 * sizeof(double))
@@ -134,8 +134,6 @@ cdef class PyBoltz:
         self.CONST1 = 0.0
         self.CONST2 = 0.0
         self.CONST3 = 0.0
-        self.CONST4 = 0.0
-        self.CONST5 = 0.0
         self.PIR2 = 0.0
         self.RhydbergConst = 0.0
         self.EFieldOverBField = 0.0
@@ -147,11 +145,11 @@ cdef class PyBoltz:
         self.PresTempCor = 0.0
 
         # Parameters governing decorrelation length
-        self.Decor_NCOLM = 0
-        self.Decor_NCORLN = 0
-        self.Decor_NCORST = 0
+        self.Decor_Colls = 0      # prev NCOLM
+        self.Decor_Step = 0     # prev NCORLN 
+        self.Decor_LookBacks = 0  # prev NCORST
 
-        # Named but imperfectly understood
+        # Dynamically set
         self.X = 0.0
         self.Y = 0.0
         self.Z = 0.0
@@ -159,7 +157,6 @@ cdef class PyBoltz:
         self.AnisotropicDetected = 0
         self.FinalElectronEnergy = 0.0
         self.ElectronEnergyStep = 0
-        self.NSCALE = 0
         self.InitialElectronEnergy = 0.0
         self.AngleFromZ = 0.0
         self.TimeSum = 0.0
@@ -199,7 +196,7 @@ cdef class PyBoltz:
         self.ErrorDiffusionYZ = 0.0
         self.ErrorDiffusionXY = 0.0
         self.ErrorDiffusionXZ = 0.0
-        self.IFAKE = 0
+        self.FakeIonizations = 0
         self.FAKEI = 0.0
         self.RandomSeed = 0.666
         self.ConsoleOutputFlag = 1
@@ -232,11 +229,9 @@ cdef class PyBoltz:
         """
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """
-        SetupFunc      = Setups.Setup
         ELimFunc       = EnergyLimits.EnergyLimit
         MonteCarloFunc = Monte.MONTE
         if(self.EnableThermalMotion!=0):
-            SetupFunc = Setups.SetupT
             MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
                 ELimFunc       = EnergyLimits.EnergyLimitT
@@ -251,7 +246,6 @@ cdef class PyBoltz:
                 ELimFunc       = EnergyLimits.EnergyLimitCT
                 MonteCarloFunc = Monte.MONTECT
         else:
-            SetupFunc = Setups.Setup
             MixerFunc = Mixers.Mixer
             if BFieldMag == 0:
                 ELimFunc       = EnergyLimits.EnergyLimit
@@ -265,7 +259,7 @@ cdef class PyBoltz:
             else:
                 ELimFunc       = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = Monte.MONTEC
-        return [SetupFunc,MixerFunc,ELimFunc,MonteCarloFunc]  
+        return [MixerFunc,ELimFunc,MonteCarloFunc]  
 
     def Start(self):
         """
@@ -284,21 +278,21 @@ cdef class PyBoltz:
 
         ELimNotYetFixed=1
 
-        cdef double EOB
+        cdef double ReducedField
         cdef int i = 0
 
         # Get the appropriate set of simulation functions given configuration keys
-        SetupFunc,MixerFunc, ELimFunc, MonteCarloFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
+        MixerFunc, ELimFunc, MonteCarloFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
 
         # Set up the simulation
-        SetupFunc(self)
+        Setups.Setup(self)
 
         # Find the electron upper energy limit
         if self.FinalElectronEnergy == 0.0:
             # Given no specified upper energy limit, find it iteratively
             self.FinalElectronEnergy = 0.5
-            EOB = self.EField * (self.TemperatureCentigrade + 273.15) / (self.PressureTorr * 293.15)
-            if EOB > 15:
+            ReducedField = self.EField * (self.TemperatureCentigrade + 273.15) / (self.PressureTorr * 293.15)
+            if ReducedField > 15:
                 self.FinalElectronEnergy = 8.0
             self.InitialElectronEnergy = self.FinalElectronEnergy / 50.0
             while ELimNotYetFixed == 1:

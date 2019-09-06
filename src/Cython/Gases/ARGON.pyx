@@ -229,9 +229,9 @@ cdef void Gas2(Gas *object):
     Y2S3 = gd['gas2/Y2S3']
     YEP2S3 = gd['gas2/YEP2S3']
     for i in range(object.NIN):
-        object.PENFRA[0][i] = 0.2
-        object.PENFRA[1][i] = 1.0
-        object.PENFRA[2][i] = 1.0
+        object.PenningFraction[0][i] = 0.2
+        object.PenningFraction[1][i] = 1.0
+        object.PenningFraction[2][i] = 1.0
     for i in range(object.NIN):
         for j in range(4000):
             if object.EG[j] > object.EIN[i]:
@@ -243,7 +243,7 @@ cdef void Gas2(Gas *object):
     for I in range(4000):
         EN = object.EG[I]
 
-        # EN=EN+object.ESTEP
+        # EN=EN+object.EnergyStep
         if EN > object.EIN[0]:
             GAMMA1 = (EMASS2 + 2.0 * EN) / EMASS2
             GAMMA2 = GAMMA1 * GAMMA1

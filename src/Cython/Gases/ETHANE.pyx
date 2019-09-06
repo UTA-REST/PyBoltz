@@ -217,7 +217,7 @@ cdef void Gas9(Gas*object):
 
     for i in range(object.NIN):
         for j in range(3):
-            object.PENFRA[j][i] = 0.0
+            object.PenningFraction[j][i]=0.0
 
     # CALC LEVEL POPULATIONS
     APOP1 = exp(object.EIN[0] / object.AKT)

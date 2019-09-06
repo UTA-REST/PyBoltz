@@ -262,15 +262,15 @@ cdef void Gas12(Gas*object):
     # FIRST 81 LEVELS UNLIKELY TO HAVE ENOUGH ENERGY
     for I in range(3):
         for J in range(81):
-            object.PENFRA[I][J] = 0.0
+            object.PenningFraction[I][J] = 0.0
 
     # PENNING TRANSFER FRACTION FOR LEVELS
     for J in range(81, object.NIN):
-        object.PENFRA[0][J] = 0.0
+        object.PenningFraction[0][J] = 0.0
         #PENNING TRANSFER DISTANCE IN MICRONS
-        object.PENFRA[1][J] = 1.0
+        object.PenningFraction[1][J] = 1.0
         #PENNING TRANSFER TIME IN PICOSECONDS
-        object.PENFRA[2][J] = 1.0
+        object.PenningFraction[2][J] = 1.0
 
     for J in range(NBREM):
         EBRM[J] = exp(EBRM[J])

@@ -119,10 +119,10 @@ cdef void Gas22(Gas*object):
 
     cdef double EN
 
-    EN = -1*object.ESTEP/2.0
+    EN = -1*object.EnergyStep/2.0
 
     for I in range(4000):
-        EN+=object.ESTEP
+        EN+=object.EnergyStep
         object.Q[1][I] = GasUtil.CALQIONREG(EN, NDATA, YXSEC, XEN)
 
         object.Q[2][I] = 0.0

@@ -148,7 +148,6 @@ cdef void Gas4(Gas*object):
         object.PenningFraction[1][NL] = 1.0
         # PENNING TRANSFER TIME PICOSECONDS
         object.PenningFraction[2][NL] = 1.0
-
     for NL in range(object.NIN):
         for I in range(4000):
             if object.EG[I] > object.EIN[NL]:
@@ -634,7 +633,6 @@ cdef void Gas4(Gas*object):
                object.QIN[47][I] + object.QIN[48][I]
         QINEL = QSNG + QTRP + object.QION[0][I] + object.QION[1][I]
         object.Q[0][I] = QELA + QINEL
-
 
     for J in range(object.NIN):
         if object.EFINAL <= object.EIN[J]:

@@ -569,7 +569,6 @@ cpdef MixerT(PyBoltz object):
                         object.PenningFraction[GasIndex][1][NP - 1] = MIXOBJECT.Gases[GasIndex].PenningFraction[1][J] * 1.0e-16 / sqrt(3)
                         object.PenningFraction[GasIndex][2][NP - 1] = MIXOBJECT.Gases[GasIndex].PenningFraction[2][J]
 
-            print(NP)
 
             object.IPLAST[GasIndex] = NP
             object.ISIZE[GasIndex] = 1

@@ -7,7 +7,7 @@ from libc.stdlib cimport malloc, free
 import numpy as np
 cimport numpy as np
 import cython
-
+import sys
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -23,11 +23,12 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RNMX):
     cdef double Ran1, Ran2, TwoPi
     cdef int J
     for J in range(0, 5, 2):
-        RAN1 = random_uniform(RandomSeed)
-        RAN2 = random_uniform(RandomSeed)
+        Ran1 = random_uniform(RandomSeed)
+        Ran2 = random_uniform(RandomSeed)
         TwoPi = 2.0 * np.pi
         RNMX[J] = sqrt(-1 * log(Ran1)) * cos(Ran2 * TwoPi)
         RNMX[J + 1] = sqrt(-1 * log(Ran1)) * sin(Ran2 * TwoPi)
+
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -78,7 +79,6 @@ cpdef run(PyBoltz Object):
     SUMVX_LastSample = 0.0
     SUMVY_LastSample = 0.0
     SME2_LastSample = 0.0
-
     # These arrays store X,Y,Z,T about every real collision
 
     cdef double *CollT, *CollX, *CollY, *CollZ
@@ -118,7 +118,7 @@ cpdef run(PyBoltz Object):
     RandomSeed = Object.RandomSeed
     EBefore = Object.InitialElectronEnergy
     NumSamples = 10
-    NumDecoLengths = 0
+    NumDecorLengths = 0
     NumCollisions = 0
     IEXTRA = 0
 
@@ -156,11 +156,9 @@ cpdef run(PyBoltz Object):
                                                                          "DIFXX", "DIFYY", "DIFZZ"))
 
 
-
     # We run collisions in NumSamples batches,
     # evenly distributed between its MaxNumberOfCollisions collisions.
     CollisionsPerSample = <long long> (Object.MaxNumberOfCollisions / NumSamples)
-
     for iSample in range(int(NumSamples)):
         for iCollision in range(int(CollisionsPerSample)):
             while True:
@@ -199,6 +197,7 @@ cpdef run(PyBoltz Object):
                 # Randomly choose gas to scatter from, based on expected collision freqs.
                 GasIndex = 0
                 if Object.NumberOfGases == 1:
+                    RandomNum = random_uniform(RandomSeed)
                     GasIndex = 0
                 else:
                     RandomNum = random_uniform(RandomSeed)
@@ -227,14 +226,16 @@ cpdef run(PyBoltz Object):
                 COMEnergy = (pow((VEX - GasVelX), 2) + pow((VEY - GasVelY), 2) + pow((VEZ - GasVelZ), 2)) / TwoM
 
                 # Which collision energy bin are we in? If we are too high, pin to 3999 (4000 is top)
+
                 iEnergyBin = int(COMEnergy / Object.ElectronEnergyStep)
                 iEnergyBin = min(iEnergyBin, 3999)
 
                 # Now the Skullerud null collision method
                 RandomNum = random_uniform(RandomSeed)
-                
+
                 # If we draw below this number, we will null-scatter (no mom xfer)
                 TEST1 = Object.TotalCollisionFrequency[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
+
                 if RandomNum > TEST1:
                     TEST2 = TEMP[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
                     if RandomNum < TEST2:
@@ -336,10 +337,10 @@ cpdef run(PyBoltz Object):
             # The TDiff on the denominator 
 
             if NumDecorLengths != 0:
-                CollsToLookBack = 0
+                CollsBackToLook = 0
                 for iCorr in range(int(Object.Decor_LookBacks)):
                     ST2 += T
-                    DecorDistance = NumCollisions + CollsToLookBack
+                    DecorDistance = NumCollisions + CollsBackToLook
                     if DecorDistance > Object.Decor_Colls:
                         DecorDistance = DecorDistance - Object.Decor_Colls
                     TDiff = Object.TimeSum - CollT[DecorDistance - 1]
@@ -355,11 +356,11 @@ cpdef run(PyBoltz Object):
                         SUMZZ = SUMZZ + ((Object.Z - CollZ[DecorDistance - 1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
                     CollsBackToLook += Object.Decor_Step
 
+
             # Record collision positions
             CollX[NumCollisions - 1] = Object.X
             CollY[NumCollisions - 1] = Object.Y
             CollZ[NumCollisions - 1] = Object.Z
-
             CollT[NumCollisions - 1] = Object.TimeSum
             if NumCollisions >= Object.Decor_Colls:
                 NumDecorLengths += 1
@@ -423,6 +424,7 @@ cpdef run(PyBoltz Object):
             #TODO: Understand what Arg1, D, U and Q are
             
             ARG1 = max(1.0 - S1 * EI / COMEnergy, Object.SmallNumber)
+
             D = 1.0 - CosTheta * sqrt(ARG1)
             U = (S1 - 1) * (S1 - 1) / ARG1
 

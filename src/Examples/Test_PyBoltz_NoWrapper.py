@@ -37,14 +37,14 @@ t1 =time.time()
 # Set the number of gases
 Object.NumberOfGases =1
 # Set the number of collisons 
-Object.MaxNumberOfCollisions =1
+Object.MaxNumberOfCollisions =40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=1
 Object.FinalElectronEnergy = 100.0
 # Set the gas's with there given number
-Object.GasIDs=[4, 0, 0, 0, 0, 0]
+Object.GasIDs=[5, 0, 0, 0, 0, 0]
 
 # Set the gas fractions
 Object.GasFractions=[100, 0, 0, 0, 0, 0]

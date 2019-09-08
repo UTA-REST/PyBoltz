@@ -375,7 +375,7 @@ cpdef run(PyBoltz Object):
 
             # Find location within 4 units in collision array
             I = MBSortT(GasIndex, I, RandomNum, iEnergyBin, Object)
-            while Object.CF[GasIndex][iEnergyBin][I] < RandomNum:
+            while Object.CollisionFrequency[GasIndex][iEnergyBin][I] < RandomNum:
                 I += 1
             S1 = Object.RGAS[GasIndex][I]
             EI = Object.EnergyLevels[GasIndex][I]

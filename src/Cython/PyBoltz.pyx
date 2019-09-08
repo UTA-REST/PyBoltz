@@ -85,7 +85,7 @@ cdef class PyBoltz:
         memset(self.RelativeIonMinusAttachCrossSection, 0, 4000 * sizeof(double))
         memset(self.InelasticCrossSection, 0, 4000 * sizeof(double))
         memset(self.N_Inelastic, 0, 6 * sizeof(double))
-        memset(self.CF, 0, 6 * 290 * 4000 * sizeof(double))
+        memset(self.CollisionFrequency, 0, 6 * 290 * 4000 * sizeof(double))
         memset(self.TotalCollisionFrequency, 0, 6 * 4000 * sizeof(double))
         memset(self.EnergyLevels, 0, 6 * 290 * sizeof(double))
         memset(self.IARRY, 0, 6 * 290 * sizeof(double))

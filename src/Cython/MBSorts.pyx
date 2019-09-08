@@ -55,7 +55,7 @@ cdef long long MBSortT(int GasIndex, int I, double R2, int IE,PyBoltz Object):
             return I -1
         I = INCR + ISTEP
         if I <= Object.NumMomCrossSectionPoints[GasIndex]-1:
-            if Object.CF[GasIndex][IE][I-1] < R2:
+            if Object.CollisionFrequency[GasIndex][IE][I-1] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
 

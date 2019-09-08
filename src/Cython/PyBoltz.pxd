@@ -188,7 +188,7 @@ cdef class PyBoltz:
         double NumMomCrossSectionPointsNull[6]
         '''Number of momentum cross section data points for null collisions.'''
         double INDEX[6][290], NC0[6][290], EC0[6][290], NG1[6][290], EG1[6][290], NG2[6][290], EG2[6][290], WKLM[6][290], EFL[6][290], EnergyLevels[6][290], IARRY[6][290], RGAS[6][290], IPN[6][290], WPL[6][290], IonizationCrossSection[6][4000], InelasticCrossSectionPerGas[6][250][4000], LIN[6][250], ALIN[6][250]
-        double CF[6][4000][290]
+        double CollisionFrequency[6][4000][290]
         '''Collision frequency for each gas at every energy step for every data point.'''
         double TotalCollisionFrequency[6][4000]
         '''Total collision frequency for each gas at every energy step.'''

@@ -192,20 +192,20 @@ cdef void Gas6(Gas*object):
     Z36T = gd['gas6/Z36T']
     EBRM = gd['gas6/EBRM']
 
-    cdef double CONST, EMASS2, AM2, C, A0, RY, API, BBCONST, AN1S, AN2P10, AN2P5, AN2P1, AN2P, AN3P, AN3P5, AN3D, AN4D, AUGM5, AUGM4, AUGM3
+    cdef double CONST, ElectronMass2, AM2, C, A0, RY, API, BBCONST, AN1S, AN2P10, AN2P5, AN2P1, AN2P, AN3P, AN3P5, AN3D, AN4D, AUGM5, AUGM4, AUGM3
     cdef double AUGM2, AUGM1, AUGL3, AUGL2, AUGL1, AUGK
-    cdef int NBREM, i, j, I, J, NL, NEL, NDATA, NEPSI, NIONG, NION2, NION3, NION4, NKSH, NL1S, NL2S, NL3S, NM1S, NM2S, NM3S, NM4S, NM5S, N1S5
+    cdef int NBREM, i, j, I, J, NL, NEL, NDATA, NEPSI, N_IonizationG, N_Ionization2, N_Ionization3, N_Ionization4, NKSH, NL1S, NL2S, NL3S, NM1S, NM2S, NM3S, NM4S, NM5S, N1S5
     cdef int N1S4, N1S3, N1S2, N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N3D6, N3D5, N2P4, N3D3, N3D4P, N2P3, N2P2, N3D4, N2P1, N3D1PP, N3D1P
     cdef int N2S5, N3P10, N3P9, N3P8, N3S1PP, N3P7, N3P6, N3S1PPPP, N3S1PPP, N3P5, N4D6, N4D4P, N4D4, N4D3, N2S3, N4D1PP, N4D1P, N3S5, N4FS
     CONST = 1.873884e-20
-    EMASS2 = <float> (1021997.804)
+    ElectronMass2 = <float> (1021997.804)
     AM2 = <float> (4.65)
     C = <float> (52.7)
     # BORN BETHE CONSTANT
     A0 = 0.52917720859e-8
     RY = <float> (13.60569193)
     API = acos(-1.0)
-    BBCONST = 16.0 * API * A0 * A0 * RY * RY / EMASS2
+    BBCONST = 16.0 * API * A0 * A0 * RY * RY / ElectronMass2
     # SCALING CONSTANTS
     AN1S = <float> (0.87)
     AN2P10 = <float> (0.4)
@@ -227,22 +227,22 @@ cdef void Gas6(Gas*object):
     AUGL1 = <float> (6.47)
     AUGK = <float> (5.91)
 
-    object.NION = 11
-    object.NATT = 1
-    object.NIN = 51
-    object.NNULL = 0
+    object.N_Ionization = 11
+    object.N_Attachment = 1
+    object.N_Inelastic = 51
+    object.N_Null = 0
 
     for i in range(6):
         object.KEL[i] = object.WhichAngularModel
-    for i in range(object.NIN):
+    for i in range(object.N_Inelastic):
         object.KIN[i] = object.WhichAngularModel
     NEL = 151
     NDATA = 162
     NEPSI = 186
-    NIONG = 65
-    NION2 = 41
-    NION3 = 35
-    NION4 = 32
+    N_IonizationG = 65
+    N_Ionization2 = 41
+    N_Ionization3 = 35
+    N_Ionization4 = 32
     NKSH = 74
     NL1S = 83
     NL2S = 82
@@ -293,11 +293,11 @@ cdef void Gas6(Gas*object):
     N3S5 = 19
     N4FS = 19
 
-    cdef double EMASS = 9.10938291e-31
+    cdef double ElectronMass = 9.10938291e-31
     cdef double AMU = 1.660538921e-27, EOBY[11]
 
     object.E = [0.0, 1.0, <float> (13.9996), 0.0, 0.0, 23.0]
-    object.E[1] = 2.0 * EMASS / (<float> (83.798) * AMU)
+    object.E[1] = 2.0 * ElectronMass / (<float> (83.798) * AMU)
     # EOBY at low energy 0-3, EOBY for shells 4-10
     EOBY[0:11] = [10.0, 30.0, 60.0, 100., 175.0, 180.0, 250.0, <float> (1678.4), <float> (1730.9), 1921.0,
                   <float> (14327.26)]
@@ -311,28 +311,28 @@ cdef void Gas6(Gas*object):
     object.EG1[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1490, 1580, 1538, 12438]
     object.NG2[0:11] = [0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 5]
     object.EG2[0:11] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 54, 60, 160, 1555]
-    object.EION[0:11] = [<float> (13.99960), <float> (38.35944), <float> (74.029), <float> (124.88), <float> (214.4),
+    object.IonizationEnergy[0:11] = [<float> (13.99960), <float> (38.35944), <float> (74.029), <float> (124.88), <float> (214.4),
                          <float> (222.2), <float> (292.8), <float> (1678.4), <float> (1730.9), <float> (1921.0),
                          <float> (14327.26)]
 
-    for j in range(0, object.NION):
+    for j in range(0, object.N_Ionization):
         for i in range(0, 4000):
-            if (object.EG[i] > object.EION[j]):
+            if (object.EG[i] > object.IonizationEnergy[j]):
                 IOFFION[j] = i
                 break
-    object.EIN = gd['gas6/EIN']
-    # ENTER PENNING TRANSFER FRACTION FOR EACH LEVEL
-    # USE PENNING TRANSFER FRACTION BETWEEN 0.0 AND 0.2
-    for NL in range(object.NIN):
+    object.EnergyLevels = gd['gas6/EnergyLevels']
+    # ENTER PENN_InelasticG TRANSFER FRACTION FOR EACH LEVEL
+    # USE PENN_InelasticG TRANSFER FRACTION BETWEEN 0.0 AND 0.2
+    for NL in range(object.N_Inelastic):
         object.PenningFraction[0][NL] = 0.0
-        #PENNING TRANSFER DISTANCE MICRONS
+        #PENN_InelasticG TRANSFER DISTANCE MICRONS
         object.PenningFraction[1][NL] = 1.0
-        #PENNING TRANSFER TIME
+        #PENN_InelasticG TRANSFER TIME
         object.PenningFraction[3][NL] = 1.0
 
-    for NL in range(object.NIN):
+    for NL in range(object.N_Inelastic):
         for i in range(4000):
-            if object.EG[i] > object.EIN[NL]:
+            if object.EG[i] > object.EnergyLevels[NL]:
                 IOFFN[NL] = i
                 break
     cdef double F[11]
@@ -342,485 +342,485 @@ cdef void Gas6(Gas*object):
          <float> (0.0808), <float> (0.0015), <float> (0.0439), <float> (0.0203), <float> (0.1680)]
 
 
-    cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,QELA,QMOM,PQ[3],QTEMP,QCORR
+    cdef double EN,GAMMA1,GAMMA2,BETA,BETA2,ElasticCrossSectionA,QMOM,PQ[3],QTEMP,QCORR
     object.EnergySteps = 4000
     for I in range(object.EnergySteps):
         EN = object.EG[I]
-        if EN > object.EIN[0]:
-            GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
+        if EN > object.EnergyLevels[0]:
+            GAMMA1 = (ElectronMass2 + 2 * EN) / ElectronMass2
             GAMMA2 = GAMMA1 * GAMMA1
             BETA = sqrt(1.0 - 1.0 / GAMMA2)
             BETA2 = BETA * BETA
         if EN == 0:
-            QELA = 37.8e-16
+            ElasticCrossSectionA = 37.8e-16
             QMOM = 37.8e-16
         else:
-            QELA = GasUtil.QLSCALE(EN, NEL, YEL, XEL)
+            ElasticCrossSectionA = GasUtil.QLSCALE(EN, NEL, YEL, XEL)
             QMOM = GasUtil.QLSCALE(EN, NDATA, YXSEC, XEN)
-        PQ = [0, 0.5 + (QELA - QMOM) / QELA, 1 - GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)]
+        PQ = [0, 0.5 + (ElasticCrossSectionA - QMOM) / ElasticCrossSectionA, 1 - GasUtil.CALPQ3(EN, NEPSI, YEPS, XEPS)]
 
-        object.PEQEL[1][I] = PQ[object.WhichAngularModel]
-        object.Q[1][I] = QELA
+        object.PEElasticCrossSection[1][I] = PQ[object.WhichAngularModel]
+        object.Q[1][I] = ElasticCrossSectionA
 
         if object.WhichAngularModel==0:
             object.Q[1][I] = QMOM
 
         #IONISATION FOR CHARGE STATE =1
-        object.QION[0][I] = 0.0
-        object.PEQION[0][I] = 0.5
+        object.IonizationCrossSection[0][I] = 0.0
+        object.PEIonizationCrossSection[0][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[0][I] = 0.0
-        if EN > object.EION[0]:
-            object.QION[0][I] = GasUtil.CALQIONX(EN, NIONG, YIN1, XION, BETA2, <float>(0.9009), CONST, object.DEN[I], C, AM2)
+            object.PEIonizationCrossSection[0][I] = 0.0
+        if EN > object.IonizationEnergy[0]:
+            object.IonizationCrossSection[0][I] = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationG, YIN1, XION, BETA2, <float>(0.9009), CONST, object.DEN[I], C, AM2)
             #USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
             #ENERGIES ABOVE 2 * IONISATION ENERGY
             # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
             # THE IONISATION ENERGY
-            if EN > 2 * object.EION[0]:
-                object.PEQION[0][I] = object.PEQEL[1][I - IOFFION[0]]
+            if EN > 2 * object.IonizationEnergy[0]:
+                object.PEIonizationCrossSection[0][I] = object.PEElasticCrossSection[1][I - IOFFION[0]]
 
 
         #IONISATION FOR CHARGE STATE =2
-        object.QION[1][I] = 0.0
-        object.PEQION[1][I] = 0.5
+        object.IonizationCrossSection[1][I] = 0.0
+        object.PEIonizationCrossSection[1][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[1][I] = 0.0
-        if EN > object.EION[1]:
-            object.QION[1][I] = GasUtil.CALQIONX(EN, NION2, YIN2, XIN2, BETA2, <float>(0.0613), CONST, object.DEN[I], C, AM2)
-            if EN > 2 * object.EION[1]:
-                object.PEQION[1][I] = object.PEQEL[1][I - IOFFION[1]]
+            object.PEIonizationCrossSection[1][I] = 0.0
+        if EN > object.IonizationEnergy[1]:
+            object.IonizationCrossSection[1][I] = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization2, YIN2, XIN2, BETA2, <float>(0.0613), CONST, object.DEN[I], C, AM2)
+            if EN > 2 * object.IonizationEnergy[1]:
+                object.PEIonizationCrossSection[1][I] = object.PEElasticCrossSection[1][I - IOFFION[1]]
 
         #IONISATION FOR CHARGE STATE =3
-        object.QION[2][I] = 0.0
-        object.PEQION[2][I] = 0.5
+        object.IonizationCrossSection[2][I] = 0.0
+        object.PEIonizationCrossSection[2][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[2][I] = 0.0
-        if EN > object.EION[2]:
-            object.QION[2][I] = GasUtil.CALQIONX(EN, NION3, YIN3, XIN3, BETA2, <float>(0.0291), CONST, object.DEN[I], C, AM2)
-            if EN > 2 * object.EION[2]:
-                object.PEQION[2][I] = object.PEQEL[1][I - IOFFION[2]]
+            object.PEIonizationCrossSection[2][I] = 0.0
+        if EN > object.IonizationEnergy[2]:
+            object.IonizationCrossSection[2][I] = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization3, YIN3, XIN3, BETA2, <float>(0.0291), CONST, object.DEN[I], C, AM2)
+            if EN > 2 * object.IonizationEnergy[2]:
+                object.PEIonizationCrossSection[2][I] = object.PEElasticCrossSection[1][I - IOFFION[2]]
 
         #IONISATION FOR CHARGE STATE =4
-        object.QION[3][I] = 0.0
-        object.PEQION[3][I] = 0.5
+        object.IonizationCrossSection[3][I] = 0.0
+        object.PEIonizationCrossSection[3][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[3][I] = 0.0
-        if EN > object.EION[3]:
-            object.QION[3][I] = GasUtil.CALQIONX(EN, NION4, YIN4, XIN4, BETA2, <float>(0.0082), CONST, object.DEN[I], C, AM2)
-            if EN > 2 * object.EION[3]:
-                object.PEQION[3][I] = object.PEQEL[1][I - IOFFION[3]]
+            object.PEIonizationCrossSection[3][I] = 0.0
+        if EN > object.IonizationEnergy[3]:
+            object.IonizationCrossSection[3][I] = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization4, YIN4, XIN4, BETA2, <float>(0.0082), CONST, object.DEN[I], C, AM2)
+            if EN > 2 * object.IonizationEnergy[3]:
+                object.PEIonizationCrossSection[3][I] = object.PEElasticCrossSection[1][I - IOFFION[3]]
 
         # M3 SHELL IONISATION
-        object.QION[4][I] = 0.0
-        object.PEQION[4][I] = 0.5
+        object.IonizationCrossSection[4][I] = 0.0
+        object.PEIonizationCrossSection[4][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[4][I] = 0.0
-        if EN > object.EION[4]:
-            object.QION[4][I] = GasUtil.CALQIONREG(EN, NM3S, YM3S, XM3S)
-            object.PEQION[4][I] = object.PEQEL[1][I - IOFFION[4]]
+            object.PEIonizationCrossSection[4][I] = 0.0
+        if EN > object.IonizationEnergy[4]:
+            object.IonizationCrossSection[4][I] = GasUtil.CALIonizationCrossSectionREG(EN, NM3S, YM3S, XM3S)
+            object.PEIonizationCrossSection[4][I] = object.PEElasticCrossSection[1][I - IOFFION[4]]
 
         # M2 SHELL IONISATION
-        object.QION[5][I] = 0.0
-        object.PEQION[5][I] = 0.5
+        object.IonizationCrossSection[5][I] = 0.0
+        object.PEIonizationCrossSection[5][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[5][I] = 0.0
-        if EN > object.EION[5]:
-            object.QION[5][I] = GasUtil.CALQIONREG(EN, NM2S, YM2S, XM2S)
-            object.PEQION[5][I] = object.PEQEL[1][I - IOFFION[5]]
+            object.PEIonizationCrossSection[5][I] = 0.0
+        if EN > object.IonizationEnergy[5]:
+            object.IonizationCrossSection[5][I] = GasUtil.CALIonizationCrossSectionREG(EN, NM2S, YM2S, XM2S)
+            object.PEIonizationCrossSection[5][I] = object.PEElasticCrossSection[1][I - IOFFION[5]]
 
         # M1 SHELL IONISATION
-        object.QION[6][I] = 0.0
-        object.PEQION[6][I] = 0.5
+        object.IonizationCrossSection[6][I] = 0.0
+        object.PEIonizationCrossSection[6][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[6][I] = 0.0
-        if EN > object.EION[6]:
-            object.QION[6][I] = GasUtil.CALQIONREG(EN, NM1S, YM1S, XM1S)
-            object.PEQION[6][I] = object.PEQEL[1][I - IOFFION[6]]
+            object.PEIonizationCrossSection[6][I] = 0.0
+        if EN > object.IonizationEnergy[6]:
+            object.IonizationCrossSection[6][I] = GasUtil.CALIonizationCrossSectionREG(EN, NM1S, YM1S, XM1S)
+            object.PEIonizationCrossSection[6][I] = object.PEElasticCrossSection[1][I - IOFFION[6]]
 
         # L3 SHELL IONISATION
-        object.QION[7][I] = 0.0
-        object.PEQION[7][I] = 0.5
+        object.IonizationCrossSection[7][I] = 0.0
+        object.PEIonizationCrossSection[7][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[7][I] = 0.0
-        if EN > object.EION[7]:
-            object.QION[7][I] = GasUtil.CALQIONREG(EN, NL3S, YL3S, XL3S)
-            object.PEQION[7][I] = object.PEQEL[1][I - IOFFION[7]]
+            object.PEIonizationCrossSection[7][I] = 0.0
+        if EN > object.IonizationEnergy[7]:
+            object.IonizationCrossSection[7][I] = GasUtil.CALIonizationCrossSectionREG(EN, NL3S, YL3S, XL3S)
+            object.PEIonizationCrossSection[7][I] = object.PEElasticCrossSection[1][I - IOFFION[7]]
 
         # L2 SHELL IONISATION
-        object.QION[8][I] = 0.0
-        object.PEQION[8][I] = 0.5
+        object.IonizationCrossSection[8][I] = 0.0
+        object.PEIonizationCrossSection[8][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[8][I] = 0.0
-        if EN > object.EION[8]:
-            object.QION[8][I] = GasUtil.CALQIONREG(EN, NL2S, YL2S, XL2S)
-            object.PEQION[8][I] = object.PEQEL[1][I - IOFFION[8]]
+            object.PEIonizationCrossSection[8][I] = 0.0
+        if EN > object.IonizationEnergy[8]:
+            object.IonizationCrossSection[8][I] = GasUtil.CALIonizationCrossSectionREG(EN, NL2S, YL2S, XL2S)
+            object.PEIonizationCrossSection[8][I] = object.PEElasticCrossSection[1][I - IOFFION[8]]
 
         # L1 SHELL IONISATION
-        object.QION[9][I] = 0.0
-        object.PEQION[9][I] = 0.5
+        object.IonizationCrossSection[9][I] = 0.0
+        object.PEIonizationCrossSection[9][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[9][I] = 0.0
-        if EN > object.EION[9]:
-            object.QION[9][I] = GasUtil.CALQIONREG(EN, NL1S, YL1S, XL1S)
-            object.PEQION[9][I] = object.PEQEL[1][I - IOFFION[9]]
+            object.PEIonizationCrossSection[9][I] = 0.0
+        if EN > object.IonizationEnergy[9]:
+            object.IonizationCrossSection[9][I] = GasUtil.CALIonizationCrossSectionREG(EN, NL1S, YL1S, XL1S)
+            object.PEIonizationCrossSection[9][I] = object.PEElasticCrossSection[1][I - IOFFION[9]]
 
         # K-SHELL IONISATION
-        object.QION[10][I] = 0.0
-        object.PEQION[10][I] = 0.5
+        object.IonizationCrossSection[10][I] = 0.0
+        object.PEIonizationCrossSection[10][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQION[10][I] = 0.0
-        if EN > object.EION[10]:
-            object.QION[10][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
-            object.PEQION[10][I] = object.PEQEL[1][I - IOFFION[10]]
+            object.PEIonizationCrossSection[10][I] = 0.0
+        if EN > object.IonizationEnergy[10]:
+            object.IonizationCrossSection[10][I] = GasUtil.CALIonizationCrossSectionREG(EN, NKSH, YKSH, XKSH)
+            object.PEIonizationCrossSection[10][I] = object.PEElasticCrossSection[1][I - IOFFION[10]]
         object.Q[3][I] = 0.0
-        object.QATT[0][I] = 0.0
+        object.AttachmentCrossSection[0][I] = 0.0
 
         #COUNTING IONISATION
         object.Q[4][I] = 0.0
-        object.PEQEL[4][I] = 0.5
+        object.PEElasticCrossSection[4][I] = 0.5
         if object.WhichAngularModel == 2:
-            object.PEQEL[4][I] = 0.0
+            object.PEElasticCrossSection[4][I] = 0.0
         if EN > object.E[2]:
-            object.Q[4][I] = GasUtil.CALQIONX(EN, NIONG, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
+            object.Q[4][I] = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationG, YINC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
         QTEMP = 0.0
         for i in range(4, 11):
-            QTEMP += object.QION[i][I]
+            QTEMP += object.IonizationCrossSection[i][I]
 
         if object.Q[4][I] == 0:
             QCORR = 1.0
         else:
             QCORR = (object.Q[4][I] - QTEMP) / object.Q[4][I]
 
-        object.QION[0][I] *= QCORR
-        object.QION[1][I] *= QCORR
-        object.QION[2][I] *= QCORR
-        object.QION[3][I] *= QCORR
+        object.IonizationCrossSection[0][I] *= QCORR
+        object.IonizationCrossSection[1][I] *= QCORR
+        object.IonizationCrossSection[2][I] *= QCORR
+        object.IonizationCrossSection[3][I] *= QCORR
 
         object.Q[5][I] = 0.0
 
-        for NL in range(object.NIN + 1):
-            object.QIN[NL][I] = 0.0
-            object.PEQIN[NL][I] = 0.5
+        for NL in range(object.N_Inelastic + 1):
+            object.InelasticCrossSectionPerGas[NL][I] = 0.0
+            object.PEInelasticCrossSectionPerGas[NL][I] = 0.5
 
             if object.WhichAngularModel==2:
-                object.PEQIN[NL][I] = 0.0
+                object.PEInelasticCrossSectionPerGas[NL][I] = 0.0
 
         #1S5
-        if EN > object.EIN[0]:
-            object.QIN[0][I] = GasUtil.CALQINP(EN, N1S5, Y1S5, X1S5, 3) * AN1S
-            if EN > 2 * object.EIN[0]:
-                object.PEQIN[0][I] = object.PEQEL[1][I - IOFFN[0]]
+        if EN > object.EnergyLevels[0]:
+            object.InelasticCrossSectionPerGas[0][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N1S5, Y1S5, X1S5, 3) * AN1S
+            if EN > 2 * object.EnergyLevels[0]:
+                object.PEInelasticCrossSectionPerGas[0][I] = object.PEElasticCrossSection[1][I - IOFFN[0]]
 
         #1S4  F=0.203
-        if EN > object.EIN[1]:
-            object.QIN[1][I] = GasUtil.CALQINBEF(EN, EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, EMASS2, object.DEN[I],
+        if EN > object.EnergyLevels[1]:
+            object.InelasticCrossSectionPerGas[1][I] = GasUtil.CALInelasticCrossSectionPerGasBEF(EN, EN, N1S4, Y1S4, X1S4, BETA2, GAMMA2, ElectronMass2, object.DEN[I],
                                                  BBCONST,
-                                                 object.EIN[1], object.E[2], <float>(0.203))
+                                                 object.EnergyLevels[1], object.E[2], <float>(0.203))
             if EN <= X1S4[N1S4 - 1]:
-                object.QIN[1][I] *= AN1S
-            if EN > 2 * object.EIN[1]:
-                object.PEQIN[1][I] = object.PEQEL[1][I - IOFFN[1]]
+                object.InelasticCrossSectionPerGas[1][I] *= AN1S
+            if EN > 2 * object.EnergyLevels[1]:
+                object.PEInelasticCrossSectionPerGas[1][I] = object.PEElasticCrossSection[1][I - IOFFN[1]]
 
         #1S3
-        if EN > object.EIN[2]:
-            object.QIN[2][I] = GasUtil.CALQINP(EN, N1S3, Y1S3, X1S3, 3) * AN1S
-            if EN > 2 * object.EIN[2]:
-                object.PEQIN[2][I] = object.PEQEL[1][I - IOFFN[2]]
+        if EN > object.EnergyLevels[2]:
+            object.InelasticCrossSectionPerGas[2][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N1S3, Y1S3, X1S3, 3) * AN1S
+            if EN > 2 * object.EnergyLevels[2]:
+                object.PEInelasticCrossSectionPerGas[2][I] = object.PEElasticCrossSection[1][I - IOFFN[2]]
 
         #1S2  F=0.182
-        if EN > object.EIN[3]:
-            object.QIN[3][I] = GasUtil.CALQINBEF(EN, EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, EMASS2, object.DEN[I],
+        if EN > object.EnergyLevels[3]:
+            object.InelasticCrossSectionPerGas[3][I] = GasUtil.CALInelasticCrossSectionPerGasBEF(EN, EN, N1S2, Y1S2, X1S2, BETA2, GAMMA2, ElectronMass2, object.DEN[I],
                                                  BBCONST,
-                                                 object.EIN[3], object.E[2], <float>(0.182))
+                                                 object.EnergyLevels[3], object.E[2], <float>(0.182))
             if EN <= X1S2[N1S2 - 1]:
-                object.QIN[3][I] *= AN1S
-            if EN > 2 * object.EIN[3]:
-                object.PEQIN[3][I] = object.PEQEL[1][I - IOFFN[3]]
+                object.InelasticCrossSectionPerGas[3][I] *= AN1S
+            if EN > 2 * object.EnergyLevels[3]:
+                object.PEInelasticCrossSectionPerGas[3][I] = object.PEElasticCrossSection[1][I - IOFFN[3]]
 
         #2P10
-        if EN > object.EIN[4]:
-            object.QIN[4][I] = GasUtil.CALQINP(EN, N2P10, Y2P10, X2P10, 3) * AN2P10
-            if EN > 2 * object.EIN[4]:
-                object.PEQIN[4][I] = object.PEQEL[1][I - IOFFN[4]]
+        if EN > object.EnergyLevels[4]:
+            object.InelasticCrossSectionPerGas[4][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P10, Y2P10, X2P10, 3) * AN2P10
+            if EN > 2 * object.EnergyLevels[4]:
+                object.PEInelasticCrossSectionPerGas[4][I] = object.PEElasticCrossSection[1][I - IOFFN[4]]
 
         #2P9
-        if EN > object.EIN[5]:
-            object.QIN[5][I] = GasUtil.CALQINP(EN, N2P9, Y2P9, X2P9, 3) * AN2P
-            if EN > 2 * object.EIN[5]:
-                object.PEQIN[5][I] = object.PEQEL[1][I - IOFFN[5]]
+        if EN > object.EnergyLevels[5]:
+            object.InelasticCrossSectionPerGas[5][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P9, Y2P9, X2P9, 3) * AN2P
+            if EN > 2 * object.EnergyLevels[5]:
+                object.PEInelasticCrossSectionPerGas[5][I] = object.PEElasticCrossSection[1][I - IOFFN[5]]
 
         #2P8
-        if EN > object.EIN[6]:
-            object.QIN[6][I] = GasUtil.CALQINP(EN, N2P8, Y2P8, X2P8, 1) * AN2P
-            if EN > 2 * object.EIN[6]:
-                object.PEQIN[6][I] = object.PEQEL[1][I - IOFFN[6]]
+        if EN > object.EnergyLevels[6]:
+            object.InelasticCrossSectionPerGas[6][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P8, Y2P8, X2P8, 1) * AN2P
+            if EN > 2 * object.EnergyLevels[6]:
+                object.PEInelasticCrossSectionPerGas[6][I] = object.PEElasticCrossSection[1][I - IOFFN[6]]
 
         #2P7
-        if EN > object.EIN[7]:
-            object.QIN[7][I] = GasUtil.CALQINP(EN, N2P7, Y2P7, X2P7, 3) * AN2P
-            if EN > 2 * object.EIN[7]:
-                object.PEQIN[7][I] = object.PEQEL[1][I - IOFFN[7]]
+        if EN > object.EnergyLevels[7]:
+            object.InelasticCrossSectionPerGas[7][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P7, Y2P7, X2P7, 3) * AN2P
+            if EN > 2 * object.EnergyLevels[7]:
+                object.PEInelasticCrossSectionPerGas[7][I] = object.PEElasticCrossSection[1][I - IOFFN[7]]
 
         #2P6
-        if EN > object.EIN[8]:
-            object.QIN[8][I] = GasUtil.CALQINP(EN, N2P6, Y2P6, X2P6, 1) * AN2P
-            if EN > 2 * object.EIN[8]:
-                object.PEQIN[8][I] = object.PEQEL[1][I - IOFFN[8]]
+        if EN > object.EnergyLevels[8]:
+            object.InelasticCrossSectionPerGas[8][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P6, Y2P6, X2P6, 1) * AN2P
+            if EN > 2 * object.EnergyLevels[8]:
+                object.PEInelasticCrossSectionPerGas[8][I] = object.PEElasticCrossSection[1][I - IOFFN[8]]
 
         #2P5
-        if EN > object.EIN[9]:
-            object.QIN[9][I] = GasUtil.CALQINP(EN, N2P5, Y2P5, X2P5, 1) * AN2P5
-            if EN > 2 * object.EIN[9]:
-                object.PEQIN[9][I] = object.PEQEL[1][I - IOFFN[9]]
+        if EN > object.EnergyLevels[9]:
+            object.InelasticCrossSectionPerGas[9][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P5, Y2P5, X2P5, 1) * AN2P5
+            if EN > 2 * object.EnergyLevels[9]:
+                object.PEInelasticCrossSectionPerGas[9][I] = object.PEElasticCrossSection[1][I - IOFFN[9]]
 
         #3D6
-        if EN > object.EIN[10]:
-            object.QIN[10][I] = GasUtil.CALQINP(EN, N3D6, Y3D6, X3D6, 3) * AN3D
-            if EN > 2 * object.EIN[10]:
-                object.PEQIN[10][I] = object.PEQEL[1][I - IOFFN[10]]
+        if EN > object.EnergyLevels[10]:
+            object.InelasticCrossSectionPerGas[10][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D6, Y3D6, X3D6, 3) * AN3D
+            if EN > 2 * object.EnergyLevels[10]:
+                object.PEInelasticCrossSectionPerGas[10][I] = object.PEElasticCrossSection[1][I - IOFFN[10]]
 
         #3D5  BEF SCALING
-        if EN > object.EIN[11]:
-            object.QIN[11][I] = <float>(0.0053) / (object.EIN[11] * BETA2) * (
-                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[11])) - BETA2 - object.DEN[
-                I] / 2.0) * BBCONST * EN / (EN + object.EIN[11] + object.E[2])
-            if object.QIN[11][I] < 0.0:
-                object.QIN[11][I] = 0.0
-            if EN > 2 * object.EIN[11]:
-                object.PEQIN[11][I] = object.PEQEL[1][I - IOFFN[11]]
+        if EN > object.EnergyLevels[11]:
+            object.InelasticCrossSectionPerGas[11][I] = <float>(0.0053) / (object.EnergyLevels[11] * BETA2) * (
+                    log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[11])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[11] + object.E[2])
+            if object.InelasticCrossSectionPerGas[11][I] < 0.0:
+                object.InelasticCrossSectionPerGas[11][I] = 0.0
+            if EN > 2 * object.EnergyLevels[11]:
+                object.PEInelasticCrossSectionPerGas[11][I] = object.PEElasticCrossSection[1][I - IOFFN[11]]
 
         #2P4
-        if EN > object.EIN[12]:
-            object.QIN[12][I] = GasUtil.CALQINP(EN, N2P4, Y2P4, X2P4, 3) * AN2P
-            if EN > 2 * object.EIN[12]:
-                object.PEQIN[12][I] = object.PEQEL[1][I - IOFFN[12]]
+        if EN > object.EnergyLevels[12]:
+            object.InelasticCrossSectionPerGas[12][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P4, Y2P4, X2P4, 3) * AN2P
+            if EN > 2 * object.EnergyLevels[12]:
+                object.PEInelasticCrossSectionPerGas[12][I] = object.PEElasticCrossSection[1][I - IOFFN[12]]
 
         #3D3
-        if EN > object.EIN[13]:
-            object.QIN[13][I] = GasUtil.CALQINP(EN, N3D3, Y3D3, X3D3, 3) * AN3D
-            if EN > 2 * object.EIN[13]:
-                object.PEQIN[13][I] = object.PEQEL[1][I - IOFFN[13]]
+        if EN > object.EnergyLevels[13]:
+            object.InelasticCrossSectionPerGas[13][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D3, Y3D3, X3D3, 3) * AN3D
+            if EN > 2 * object.EnergyLevels[13]:
+                object.PEInelasticCrossSectionPerGas[13][I] = object.PEElasticCrossSection[1][I - IOFFN[13]]
 
         #3D4P
-        if EN > object.EIN[14]:
-            object.QIN[14][I] = GasUtil.CALQINP(EN, N3D4P, Y3D4P, X3D4P, 3) * AN3D
-            if EN > 2 * object.EIN[14]:
-                object.PEQIN[14][I] = object.PEQEL[1][I - IOFFN[14]]
+        if EN > object.EnergyLevels[14]:
+            object.InelasticCrossSectionPerGas[14][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D4P, Y3D4P, X3D4P, 3) * AN3D
+            if EN > 2 * object.EnergyLevels[14]:
+                object.PEInelasticCrossSectionPerGas[14][I] = object.PEElasticCrossSection[1][I - IOFFN[14]]
 
         #2P3
-        if EN > object.EIN[15]:
-            object.QIN[15][I] = GasUtil.CALQINP(EN, N2P3, Y2P3, X2P3, 3) * AN2P
-            if EN > 2 * object.EIN[15]:
-                object.PEQIN[15][I] = object.PEQEL[1][I - IOFFN[15]]
+        if EN > object.EnergyLevels[15]:
+            object.InelasticCrossSectionPerGas[15][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P3, Y2P3, X2P3, 3) * AN2P
+            if EN > 2 * object.EnergyLevels[15]:
+                object.PEInelasticCrossSectionPerGas[15][I] = object.PEElasticCrossSection[1][I - IOFFN[15]]
 
         #2P2
-        if EN > object.EIN[16]:
-            object.QIN[16][I] = GasUtil.CALQINP(EN, N2P2, Y2P2, X2P2, 1) * AN2P
-            if EN > 2 * object.EIN[16]:
-                object.PEQIN[16][I] = object.PEQEL[1][I - IOFFN[16]]
+        if EN > object.EnergyLevels[16]:
+            object.InelasticCrossSectionPerGas[16][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P2, Y2P2, X2P2, 1) * AN2P
+            if EN > 2 * object.EnergyLevels[16]:
+                object.PEInelasticCrossSectionPerGas[16][I] = object.PEElasticCrossSection[1][I - IOFFN[16]]
 
         #3D4
-        if EN > object.EIN[17]:
-            object.QIN[17][I] = GasUtil.CALQINP(EN, N3D4, Y3D4, X3D4, 1) * AN3D
-            if EN > 2 * object.EIN[17]:
-                object.PEQIN[17][I] = object.PEQEL[1][I - IOFFN[17]]
+        if EN > object.EnergyLevels[17]:
+            object.InelasticCrossSectionPerGas[17][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D4, Y3D4, X3D4, 1) * AN3D
+            if EN > 2 * object.EnergyLevels[17]:
+                object.PEInelasticCrossSectionPerGas[17][I] = object.PEElasticCrossSection[1][I - IOFFN[17]]
 
         #2P1
-        if EN > object.EIN[18]:
-            object.QIN[18][I] = GasUtil.CALQINP(EN, N2P1, Y2P1, X2P1, 1) * AN2P1
-            if EN > 2 * object.EIN[18]:
-                object.PEQIN[18][I] = object.PEQEL[1][I - IOFFN[18]]
+        if EN > object.EnergyLevels[18]:
+            object.InelasticCrossSectionPerGas[18][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P1, Y2P1, X2P1, 1) * AN2P1
+            if EN > 2 * object.EnergyLevels[18]:
+                object.PEInelasticCrossSectionPerGas[18][I] = object.PEElasticCrossSection[1][I - IOFFN[18]]
 
         #3D41PP
-        if EN > object.EIN[19]:
-            object.QIN[19][I] = GasUtil.CALQINP(EN, N3D1PP, Y3D1PP, X3D1PP, 3) * AN3D
-            if EN > 2 * object.EIN[19]:
-                object.PEQIN[19][I] = object.PEQEL[1][I - IOFFN[19]]
+        if EN > object.EnergyLevels[19]:
+            object.InelasticCrossSectionPerGas[19][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D1PP, Y3D1PP, X3D1PP, 3) * AN3D
+            if EN > 2 * object.EnergyLevels[19]:
+                object.PEInelasticCrossSectionPerGas[19][I] = object.PEElasticCrossSection[1][I - IOFFN[19]]
 
         #3D41P
-        if EN > object.EIN[20]:
-            object.QIN[20][I] = GasUtil.CALQINP(EN, N3D1P, Y3D1P, X3D1P, 1) * AN3D
-            if EN > 2 * object.EIN[20]:
-                object.PEQIN[20][I] = object.PEQEL[1][I - IOFFN[2]]
+        if EN > object.EnergyLevels[20]:
+            object.InelasticCrossSectionPerGas[20][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D1P, Y3D1P, X3D1P, 1) * AN3D
+            if EN > 2 * object.EnergyLevels[20]:
+                object.PEInelasticCrossSectionPerGas[20][I] = object.PEElasticCrossSection[1][I - IOFFN[2]]
 
         #2S5
-        if EN > object.EIN[21]:
-            object.QIN[21][I] = GasUtil.CALQINP(EN, N2S5, Y2S5, X2S5, 3) * AN1S
-            if EN > 2 * object.EIN[21]:
-                object.PEQIN[21][I] = object.PEQEL[1][I - IOFFN[21]]
+        if EN > object.EnergyLevels[21]:
+            object.InelasticCrossSectionPerGas[21][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2S5, Y2S5, X2S5, 3) * AN1S
+            if EN > 2 * object.EnergyLevels[21]:
+                object.PEInelasticCrossSectionPerGas[21][I] = object.PEElasticCrossSection[1][I - IOFFN[21]]
 
         FI = 0
         for J in range(22, 24):
-            if EN > object.EIN[J]:
-                object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-                if EN > 2 * object.EIN[J]:
-                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+            if EN > object.EnergyLevels[J]:
+                object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                        log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+                if EN > 2 * object.EnergyLevels[J]:
+                    object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
 
         #3P10
-        if EN > object.EIN[24]:
-            object.QIN[24][I] = GasUtil.CALQINP(EN, N3P10, Y3P10, X3P10, 3) * AN3P
-            if EN > 2 * object.EIN[24]:
-                object.PEQIN[24][I] = object.PEQEL[1][I - IOFFN[24]]
+        if EN > object.EnergyLevels[24]:
+            object.InelasticCrossSectionPerGas[24][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3P10, Y3P10, X3P10, 3) * AN3P
+            if EN > 2 * object.EnergyLevels[24]:
+                object.PEInelasticCrossSectionPerGas[24][I] = object.PEElasticCrossSection[1][I - IOFFN[24]]
 
         #3P9
-        if EN > object.EIN[25]:
-            object.QIN[25][I] = GasUtil.CALQINP(EN, N3P9, Y3P9, X3P9, 3) * AN3P
-            if EN > 2 * object.EIN[25]:
-                object.PEQIN[25][I] = object.PEQEL[1][I - IOFFN[25]]
+        if EN > object.EnergyLevels[25]:
+            object.InelasticCrossSectionPerGas[25][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3P9, Y3P9, X3P9, 3) * AN3P
+            if EN > 2 * object.EnergyLevels[25]:
+                object.PEInelasticCrossSectionPerGas[25][I] = object.PEElasticCrossSection[1][I - IOFFN[25]]
 
         #3P8
-        if EN > object.EIN[26]:
-            object.QIN[26][I] = GasUtil.CALQINP(EN, N3P8, Y3P8, X3P8, 1) * AN3P
-            if EN > 2 * object.EIN[26]:
-                object.PEQIN[26][I] = object.PEQEL[1][I - IOFFN[26]]
+        if EN > object.EnergyLevels[26]:
+            object.InelasticCrossSectionPerGas[26][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3P8, Y3P8, X3P8, 1) * AN3P
+            if EN > 2 * object.EnergyLevels[26]:
+                object.PEInelasticCrossSectionPerGas[26][I] = object.PEElasticCrossSection[1][I - IOFFN[26]]
 
         #3S1PP
-        if EN > object.EIN[27]:
-            object.QIN[27][I] = GasUtil.CALQINP(EN, N3S1PP, Y3S1PP, X3S1PP, 3) * AN3D
-            if EN > 2 * object.EIN[27]:
-                object.PEQIN[27][I] = object.PEQEL[1][I - IOFFN[27]]
+        if EN > object.EnergyLevels[27]:
+            object.InelasticCrossSectionPerGas[27][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3S1PP, Y3S1PP, X3S1PP, 3) * AN3D
+            if EN > 2 * object.EnergyLevels[27]:
+                object.PEInelasticCrossSectionPerGas[27][I] = object.PEElasticCrossSection[1][I - IOFFN[27]]
 
         #3P7
-        if EN > object.EIN[28]:
-            object.QIN[28][I] = GasUtil.CALQINP(EN, N3P7, Y3P7, X3P7, 3) * AN3P
-            if EN > 2 * object.EIN[28]:
-                object.PEQIN[28][I] = object.PEQEL[1][I - IOFFN[28]]
+        if EN > object.EnergyLevels[28]:
+            object.InelasticCrossSectionPerGas[28][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3P7, Y3P7, X3P7, 3) * AN3P
+            if EN > 2 * object.EnergyLevels[28]:
+                object.PEInelasticCrossSectionPerGas[28][I] = object.PEElasticCrossSection[1][I - IOFFN[28]]
 
         #3P6
-        if EN > object.EIN[29]:
-            object.QIN[29][I] = GasUtil.CALQINP(EN, N3P6, Y3P6, X3P6, 1) * AN3P
-            if EN > 2 * object.EIN[29]:
-                object.PEQIN[29][I] = object.PEQEL[1][I - IOFFN[29]]
+        if EN > object.EnergyLevels[29]:
+            object.InelasticCrossSectionPerGas[29][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3P6, Y3P6, X3P6, 1) * AN3P
+            if EN > 2 * object.EnergyLevels[29]:
+                object.PEInelasticCrossSectionPerGas[29][I] = object.PEElasticCrossSection[1][I - IOFFN[29]]
 
         #3S1PPPP
-        if EN > object.EIN[30]:
-            object.QIN[30][I] = GasUtil.CALQINP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 3) * AN3D
-            if EN > 2 * object.EIN[30]:
-                object.PEQIN[30][I] = object.PEQEL[1][I - IOFFN[30]]
+        if EN > object.EnergyLevels[30]:
+            object.InelasticCrossSectionPerGas[30][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3S1PPPP, Y3S1PPPP, X3S1PPPP, 3) * AN3D
+            if EN > 2 * object.EnergyLevels[30]:
+                object.PEInelasticCrossSectionPerGas[30][I] = object.PEElasticCrossSection[1][I - IOFFN[30]]
 
         #3S1PPP
-        if EN > object.EIN[31]:
-            object.QIN[31][I] = GasUtil.CALQINP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 1) * AN3D
-            if EN > 2 * object.EIN[31]:
-                object.PEQIN[31][I] = object.PEQEL[1][I - IOFFN[3]]
+        if EN > object.EnergyLevels[31]:
+            object.InelasticCrossSectionPerGas[31][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3S1PPP, Y3S1PPP, X3S1PPP, 1) * AN3D
+            if EN > 2 * object.EnergyLevels[31]:
+                object.PEInelasticCrossSectionPerGas[31][I] = object.PEElasticCrossSection[1][I - IOFFN[3]]
 
         #3P5
-        if EN > object.EIN[32]:
-            object.QIN[32][I] = GasUtil.CALQINP(EN, N3P5, Y3P5, X3P5, 1) * AN3P5
-            if EN > 2 * object.EIN[32]:
-                object.PEQIN[32][I] = object.PEQEL[1][I - IOFFN[32]]
+        if EN > object.EnergyLevels[32]:
+            object.InelasticCrossSectionPerGas[32][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3P5, Y3P5, X3P5, 1) * AN3P5
+            if EN > 2 * object.EnergyLevels[32]:
+                object.PEInelasticCrossSectionPerGas[32][I] = object.PEElasticCrossSection[1][I - IOFFN[32]]
 
         J = 33
-        if EN > object.EIN[J]:
-            object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-            if EN > 2 * object.EIN[J]:
-                object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+        if EN > object.EnergyLevels[J]:
+            object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                    log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+            if EN > 2 * object.EnergyLevels[J]:
+                object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
         FI += 1
 
         #4D6
-        if EN > object.EIN[34]:
-            object.QIN[34][I] = GasUtil.CALQINP(EN, N4D6, Y4D6, X4D6, 3) * AN4D
-            if EN > 2 * object.EIN[34]:
-                object.PEQIN[34][I] = object.PEQEL[1][I - IOFFN[34]]
+        if EN > object.EnergyLevels[34]:
+            object.InelasticCrossSectionPerGas[34][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4D6, Y4D6, X4D6, 3) * AN4D
+            if EN > 2 * object.EnergyLevels[34]:
+                object.PEInelasticCrossSectionPerGas[34][I] = object.PEElasticCrossSection[1][I - IOFFN[34]]
 
         #4D4P
-        if EN > object.EIN[35]:
-            object.QIN[35][I] = GasUtil.CALQINP(EN, N4D4P, Y4D4P, X4D4P, 3) * AN4D
-            if EN > 2 * object.EIN[35]:
-                object.PEQIN[35][I] = object.PEQEL[1][I - IOFFN[35]]
+        if EN > object.EnergyLevels[35]:
+            object.InelasticCrossSectionPerGas[35][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4D4P, Y4D4P, X4D4P, 3) * AN4D
+            if EN > 2 * object.EnergyLevels[35]:
+                object.PEInelasticCrossSectionPerGas[35][I] = object.PEElasticCrossSection[1][I - IOFFN[35]]
 
         J = 36
-        if EN > object.EIN[J]:
-            object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-            if EN > 2 * object.EIN[J]:
-                object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+        if EN > object.EnergyLevels[J]:
+            object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                    log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+            if EN > 2 * object.EnergyLevels[J]:
+                object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
         FI += 1
 
         #4D4
-        if EN > object.EIN[37]:
-            object.QIN[37][I] = GasUtil.CALQINP(EN, N4D4, Y4D4, X4D4, 1) * AN4D
-            if EN > 2 * object.EIN[37]:
-                object.PEQIN[37][I] = object.PEQEL[1][I - IOFFN[37]]
+        if EN > object.EnergyLevels[37]:
+            object.InelasticCrossSectionPerGas[37][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4D4, Y4D4, X4D4, 1) * AN4D
+            if EN > 2 * object.EnergyLevels[37]:
+                object.PEInelasticCrossSectionPerGas[37][I] = object.PEElasticCrossSection[1][I - IOFFN[37]]
 
         #4D3
-        if EN > object.EIN[38]:
-            object.QIN[38][I] = GasUtil.CALQINP(EN, N4D3, Y4D3, X4D3, 3) * AN4D
-            if EN > 2 * object.EIN[38]:
-                object.PEQIN[38][I] = object.PEQEL[1][I - IOFFN[38]]
+        if EN > object.EnergyLevels[38]:
+            object.InelasticCrossSectionPerGas[38][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4D3, Y4D3, X4D3, 3) * AN4D
+            if EN > 2 * object.EnergyLevels[38]:
+                object.PEInelasticCrossSectionPerGas[38][I] = object.PEElasticCrossSection[1][I - IOFFN[38]]
 
         #2S3
-        if EN > object.EIN[39]:
-            object.QIN[39][I] = GasUtil.CALQINP(EN, N2S3, Y2S3, X2S3, 3) * AN1S
-            if EN > 2 * object.EIN[39]:
-                object.PEQIN[39][I] = object.PEQEL[1][I - IOFFN[39]]
+        if EN > object.EnergyLevels[39]:
+            object.InelasticCrossSectionPerGas[39][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2S3, Y2S3, X2S3, 3) * AN1S
+            if EN > 2 * object.EnergyLevels[39]:
+                object.PEInelasticCrossSectionPerGas[39][I] = object.PEElasticCrossSection[1][I - IOFFN[39]]
 
         J = 40
-        if EN > object.EIN[J]:
-            object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                    log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-            if EN > 2 * object.EIN[J]:
-                object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+        if EN > object.EnergyLevels[J]:
+            object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                    log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+            if EN > 2 * object.EnergyLevels[J]:
+                object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
         FI += 1
 
         #4D1PP
-        if EN > object.EIN[41]:
-            object.QIN[41][I] = GasUtil.CALQINP(EN, N4D1PP, Y4D1PP, X4D1PP, 3) * AN4D
-            if EN > 2 * object.EIN[41]:
-                object.PEQIN[41][I] = object.PEQEL[1][I - IOFFN[41]]
+        if EN > object.EnergyLevels[41]:
+            object.InelasticCrossSectionPerGas[41][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4D1PP, Y4D1PP, X4D1PP, 3) * AN4D
+            if EN > 2 * object.EnergyLevels[41]:
+                object.PEInelasticCrossSectionPerGas[41][I] = object.PEElasticCrossSection[1][I - IOFFN[41]]
 
         #4D1P
-        if EN > object.EIN[42]:
-            object.QIN[42][I] = GasUtil.CALQINP(EN, N4D1P, Y4D1P, X4D1P, 3) * AN4D
-            if EN > 2 * object.EIN[42]:
-                object.PEQIN[42][I] = object.PEQEL[1][I - IOFFN[42]]
+        if EN > object.EnergyLevels[42]:
+            object.InelasticCrossSectionPerGas[42][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4D1P, Y4D1P, X4D1P, 3) * AN4D
+            if EN > 2 * object.EnergyLevels[42]:
+                object.PEInelasticCrossSectionPerGas[42][I] = object.PEElasticCrossSection[1][I - IOFFN[42]]
 
         #3S5
-        if EN > object.EIN[43]:
-            object.QIN[43][I] = GasUtil.CALQINP(EN, N3S5, Y3S5, X3S5, 3) * AN1S
-            if EN > 2 * object.EIN[43]:
-                object.PEQIN[43][I] = object.PEQEL[1][I - IOFFN[43]]
+        if EN > object.EnergyLevels[43]:
+            object.InelasticCrossSectionPerGas[43][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3S5, Y3S5, X3S5, 3) * AN1S
+            if EN > 2 * object.EnergyLevels[43]:
+                object.PEInelasticCrossSectionPerGas[43][I] = object.PEElasticCrossSection[1][I - IOFFN[43]]
 
         for J in range(44, 46):
-            if EN > object.EIN[J]:
-                object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-                if EN > 2 * object.EIN[J]:
-                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+            if EN > object.EnergyLevels[J]:
+                object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                        log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+                if EN > 2 * object.EnergyLevels[J]:
+                    object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
 
         #4FS
-        if EN > object.EIN[46]:
-            object.QIN[46][I] = GasUtil.CALQINP(EN, N4FS, Y4FS, X4FS, 1) * AN4D
-            if EN > 2 * object.EIN[46]:
-                object.PEQIN[46][I] = object.PEQEL[1][I - IOFFN[46]]
+        if EN > object.EnergyLevels[46]:
+            object.InelasticCrossSectionPerGas[46][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4FS, Y4FS, X4FS, 1) * AN4D
+            if EN > 2 * object.EnergyLevels[46]:
+                object.PEInelasticCrossSectionPerGas[46][I] = object.PEElasticCrossSection[1][I - IOFFN[46]]
 
         for J in range(47, 51):
-            if EN > object.EIN[J]:
-                object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-                if EN > 2 * object.EIN[J]:
-                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+            if EN > object.EnergyLevels[J]:
+                object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                        log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+                if EN > 2 * object.EnergyLevels[J]:
+                    object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
 
-        object.Q[0][I] = QELA
+        object.Q[0][I] = ElasticCrossSectionA
         for J in range(51):
-            object.Q[0][I] += object.QIN[J][I]
+            object.Q[0][I] += object.InelasticCrossSectionPerGas[J][I]
 
         for J in range(11):
-            object.Q[0][I] += object.QION[J][I]
+            object.Q[0][I] += object.IonizationCrossSection[J][I]
 
-    for J in range(object.NIN):
-        if object.EFINAL <= object.EIN[J]:
-            object.NIN = J
+    for J in range(object.N_Inelastic):
+        if object.FinalEnergy <= object.EnergyLevels[J]:
+            object.N_Inelastic = J
             break
     return

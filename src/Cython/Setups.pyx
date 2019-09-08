@@ -74,10 +74,10 @@ cpdef Setup(PyBoltz object):
 
     object.ThermalEnergy = (ZeroCelcius + object.TemperatureCentigrade) * BoltzmannConst_eV
     for i in range(6):
-        object.ANN[i] = object.GasFractions[i] * object.PresTempCor * ALOSCH
+        object.MoleculesPerCm3PerGas[i] = object.GasFractions[i] * object.PresTempCor * ALOSCH
     object.AN = 100.0 * object.PresTempCor * ALOSCH
     for i in range(6):
-        object.VANN[i] = object.GasFractions[i] * object.PresTempCor * object.CONST3 * ALOSCH
+        object.VMoleculesPerCm3PerGas[i] = object.GasFractions[i] * object.PresTempCor * object.CONST3 * ALOSCH
     object.VAN = 100.0 * object.PresTempCor * object.CONST3 * ALOSCH
 
     # Radians per picosecond

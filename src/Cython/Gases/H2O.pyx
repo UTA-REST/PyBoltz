@@ -99,54 +99,54 @@ cdef void Gas14(Gas*object):
     Z8T = gd['gas14/Z8T']
     EBRM = gd['gas14/EBRM']
 
-    cdef double A0, RY, CONST, EMASS2, API, BBCONST, AM2, C, AUGK, AMPROT,
+    cdef double A0, RY, CONST, ElectronMass2, API, BBCONST, AM2, C, AUGK, AMPROT,
     cdef int NBREM, i, j, I, J, NTRANG
     A0 = 0.52917720859e-08
     RY = <float> (13.60569193)
     CONST = 1.873884e-20
-    EMASS2 = <float> (1021997.804)
+    ElectronMass2 = <float> (1021997.804)
     API = acos(-1.0e0)
-    BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / EMASS2
+    BBCONST = 16.0e0 * API * A0 * A0 * RY * RY / ElectronMass2
     #BORN BETHE VALUES FOR IONISATION
     AM2 = <float> (2.895)
     C = <float> (30.7)
     # AVERAGE AUGER EMISSION FROM OXYGEN KSHELL
     AUGK = 2.0
     AMPROT = <float> (0.98)
-    object.NION = 9
-    object.NATT = 3
-    object.NIN = 250
-    object.NNULL = 4
+    object.N_Ionization = 9
+    object.N_Attachment = 3
+    object.N_Inelastic = 250
+    object.N_Null = 4
     NBREM = 25
     NRTANG = 145
 
     # USE OKRIMOVSKKY
     for J in range(6):
         object.KEL[J] = 2
-    for J in range(object.NIN):
+    for J in range(object.N_Inelastic):
         object.KIN[J] = 2
 
-    cdef int NELA, NMMT, NEPS, NVIB1, NVIB2, NVIB3, NIONC, NION1, NION2, NION3, NION4, NION5, NION6, NION7, NION8, NKSH, NATT1, NATT2
-    cdef int NATT3, NTRP1, NTRP2, NTRP3, NTRP4, NUL1, NUL2, NUL3, NUL4,
+    cdef int NELA, NMMT, NEPS, NVIB1, NVIB2, NVIB3, N_IonizationC, N_Ionization1, N_Ionization2, N_Ionization3, N_Ionization4, N_Ionization5, N_Ionization6, N_Ionization7, N_Ionization8, NKSH, N_Attachment1, N_Attachment2
+    cdef int N_Attachment3, NTRP1, NTRP2, NTRP3, NTRP4, NUL1, NUL2, NUL3, NUL4,
     NELA = 159
     NMMT = 156
     NEPS = 156
     NVIB1 = 17
     NVIB2 = 18
     NVIB3 = 12
-    NIONC = 55
-    NION1 = 31
-    NION2 = 28
-    NION3 = 28
-    NION4 = 26
-    NION5 = 25
-    NION6 = 23
-    NION7 = 21
-    NION8 = 17
+    N_IonizationC = 55
+    N_Ionization1 = 31
+    N_Ionization2 = 28
+    N_Ionization3 = 28
+    N_Ionization4 = 26
+    N_Ionization5 = 25
+    N_Ionization6 = 23
+    N_Ionization7 = 21
+    N_Ionization8 = 17
     NKSH = 81
-    NATT1 = 38
-    NATT2 = 30
-    NATT3 = 28
+    N_Attachment1 = 38
+    N_Attachment2 = 30
+    N_Attachment3 = 28
     NTRP1 = 11
     NTRP2 = 10
     NTRP3 = 10
@@ -158,14 +158,14 @@ cdef void Gas14(Gas*object):
 
     # SCALING OF NULL COLLISIONS
     object.SCLN[0:4] = [1.0, 1.0, 1.0, 1.0]
-    cdef double EMASS = 9.10938291e-31
-    cdef double AMU = 1.660538921e-27, GPARA, GORTHO, DBA, DRAT, DBK, RSUM, EOBY[9], ENRT, AL
+    cdef double ElectronMass = 9.10938291e-31
+    cdef double AMU = 1.660538921e-27, GPARA, GORTHO, DBA, DRAT, DBK, RSum, EOBY[9], ENRT, AL
     cdef int L2,
 
     object.E = [0.0, 1.0, <float> (12.617), 0.0, 0.0, 0.0]
-    object.E[1] = 2.0 * EMASS / (<float> (18.01528) * AMU)
+    object.E[1] = 2.0 * ElectronMass / (<float> (18.01528) * AMU)
 
-    object.EION[0:9] = [<float> (12.617), <float> (18.1), <float> (18.72), 21.0, 23.0, <float> (35.4), 45.0, 70.0,
+    object.IonizationEnergy[0:9] = [<float> (12.617), <float> (18.1), <float> (18.72), 21.0, 23.0, <float> (35.4), 45.0, 70.0,
                         532.0]
 
     # DBA IS DIPOLE MOMENT
@@ -180,19 +180,19 @@ cdef void Gas14(Gas*object):
 
     #CALCULATE POPULATION DENSITIES OF ROTATIONAL LEVELS
     for J in range(1, 100, 2):
-        PJ[J - 1] = GPARA * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.AKT)
+        PJ[J - 1] = GPARA * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.ThermalEnergy)
     for J in range(2, 101, 2):
-        PJ[J - 1] = GORTHO * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.AKT)
-    RSUM = 0.0
+        PJ[J - 1] = GORTHO * (2.0 * AJL[J - 1] + 1.0) * exp(-1 * ELEV[J - 1] * 1e-3 / object.ThermalEnergy)
+    RSum = 0.0
     for J in range(100):
-        RSUM += PJ[J]
+        RSum += PJ[J]
     for J in range(100):
-        PJ[J] /= RSUM
+        PJ[J] /= RSum
 
     for J in range(1, 106):
-        object.EIN[(2 * J) - 2] = EROT[J - 1] * 1e-3
-        object.EIN[(2 * J) - 1] = -1 * EROT[J - 1] * 1e-3
-    object.EIN[210:250] = [<float> (-0.1977), <float> (0.1977), <float> (0.4535), <float> (0.919), <float> (7.04),
+        object.EnergyLevels[(2 * J) - 2] = EROT[J - 1] * 1e-3
+        object.EnergyLevels[(2 * J) - 1] = -1 * EROT[J - 1] * 1e-3
+    object.EnergyLevels[210:250] = [<float> (-0.1977), <float> (0.1977), <float> (0.4535), <float> (0.919), <float> (7.04),
                            <float> (6.8425), <float> (7.2675), <float> (7.7725), <float> (8.3575), <float> (9.1),
                            <float> (8.91), <float> (9.43), <float> (9.95), <float> (10.47), <float> (9.95),
                            <float> (9.994), <float> (10.172), <float> (10.39), <float> (10.575), <float> (10.78),
@@ -201,10 +201,10 @@ cdef void Gas14(Gas*object):
                            <float> (13.0), <float> (13.117), <float> (14.117), <float> (15.117), <float> (16.117),
                            <float> (17.117), <float> (18.117), <float> (19.117), <float> (20.117), <float> (21.117)]
 
-    for J in range(object.NION):
-        EOBY[J] = object.EION[0] * <float> (0.93)
+    for J in range(object.N_Ionization):
+        EOBY[J] = object.IonizationEnergy[0] * <float> (0.93)
 
-    for J in range(object.NION):
+    for J in range(object.N_Ionization):
         object.NC0[J] = 0
         object.EC0[J] = 0.0
         object.WK[J] = 0.0
@@ -230,29 +230,29 @@ cdef void Gas14(Gas*object):
     object.NG2[8] = 2
     object.EG2[8] = 5.0
 
-    for j in range(0, object.NION):
+    for j in range(0, object.N_Ionization):
         for i in range(0, 4000):
-            if (object.EG[i] > object.EION[j]):
+            if (object.EG[i] > object.IonizationEnergy[j]):
                 IOFFION[j] = i
                 break
 
     #OFFSET ENERGY FOR EXCITATION LEVELS ANGULAR DISTRIBUTION
     cdef int NL = 0
-    for NL in range(object.NIN):
+    for NL in range(object.N_Inelastic):
         for i in range(4000):
-            if object.EG[i] > abs(object.EIN[NL]):
+            if object.EG[i] > abs(object.EnergyLevels[NL]):
                 IOFFN[NL] = i
                 break
 
-    for I in range(object.NIN):
+    for I in range(object.N_Inelastic):
         object.PenningFraction[0][I] = 0.0
 
-    for J in range(214, object.NIN):
+    for J in range(214, object.N_Inelastic):
         object.PenningFraction[0][J] = 0.0
         object.PenningFraction[1][J] = 1.0
         object.PenningFraction[2][J] = 1.0
 
-    cdef double APOPV1, APOPGS, APOPSUM, GAMMA1, GAMMA2, BETA, BETA2, EN, QELA, QMMT, PQ[3], EPS, QCOUNT, QGROSS, EPOINT
+    cdef double APOPV1, APOPGS, APOPSum, GAMMA1, GAMMA2, BETA, BETA2, EN, ElasticCrossSectionA, QMMT, PQ[3], EPS, QCOUNT, QGROSS, EPOINT
     cdef double F[32]
     F = [<float> (.003437), <float> (.017166), <float> (.019703), <float> (.005486), <float> (.006609),
          <float> (.030025), <float> (.030025), <float> (.006609), <float> (.005200), <float> (.014000),
@@ -263,25 +263,25 @@ cdef void Gas14(Gas*object):
          <float> (.010524), <float> (.002614), ]
     cdef int FI
     # CALC POPULATION OF LOW ENERGY VIBRATIONAL STATE
-    APOPV1 = exp(object.EIN[210] / object.AKT)
+    APOPV1 = exp(object.EnergyLevels[210] / object.ThermalEnergy)
     APOPGS = 1.0
-    APOPSUM = APOPGS + APOPV1
-    APOPV1 = APOPV1 / APOPSUM
+    APOPSum = APOPGS + APOPV1
+    APOPV1 = APOPV1 / APOPSum
 
     #KEEP APOPGS=1 TO ALLOW FOR EXCITATIONS FROM UPPER STATE
 
     for I in range(4000):
         EN = object.EG[I]
-        GAMMA1 = (EMASS2 + 2 * EN) / EMASS2
+        GAMMA1 = (ElectronMass2 + 2 * EN) / ElectronMass2
         GAMMA2 = GAMMA1 * GAMMA1
         BETA = sqrt(1.0 - 1.0 / GAMMA2)
         BETA2 = BETA * BETA
 
         # ELASTIC
         if EN <= XEL[0]:
-            QELA = YEL[0] * 1e-16
+            ElasticCrossSectionA = YEL[0] * 1e-16
         else:
-            QELA = GasUtil.QLSCALE(EN, NELA, YEL, XEL)
+            ElasticCrossSectionA = GasUtil.QLSCALE(EN, NELA, YEL, XEL)
 
         #MOMENTUM TRANSFER ELASTIC
         if EN <= XMT[0]:
@@ -295,101 +295,101 @@ cdef void Gas14(Gas*object):
         else:
             PQ[2] = GasUtil.CALPQ3(EN, NEPS, YEPS, XEPS)
         PQ[2] = 1 - PQ[2]
-        object.Q[1][I] = QELA
-        object.PEQEL[1][I] = PQ[2]
+        object.Q[1][I] = ElasticCrossSectionA
+        object.PEElasticCrossSection[1][I] = PQ[2]
 
         # IONISATION CALCULATION
-        for J in range(object.NION):
-            object.PEQION[J][I] = 0.0
-            object.QION[J][I] = 0.0
+        for J in range(object.N_Ionization):
+            object.PEIonizationCrossSection[J][I] = 0.0
+            object.IonizationCrossSection[J][I] = 0.0
         #IF ENERGY LESS THAN 5KEV CALCULATE TOTAL COUNTING AND GROSS IONISATION
         if EN <= 5000:
-            if EN > object.EION[0]:
-                QCOUNT = GasUtil.CALQIONX(EN, NIONC, YIONC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
-                QGROSS = GasUtil.CALQIONX(EN, NIONC, YIONG, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
+            if EN > object.IonizationEnergy[0]:
+                QCOUNT = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationC, YIONC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
+                QGROSS = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationC, YIONG, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
         else:
-            QCOUNT = GasUtil.CALQIONX(EN, NIONC, YIONC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
+            QCOUNT = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationC, YIONC, XION, BETA2, 1, CONST, object.DEN[I], C, AM2)
             QGROSS = QCOUNT * 1.022
 
         #IONISATION TO H2O+
         if EN > XION1[0]:
-            object.QION[0][I] = GasUtil.CALQION(EN, NION1, YION1, XION1)
-            if object.QION[0][I] == 0:
-                object.QION[0][I] = QCOUNT * <float>(0.62996)
+            object.IonizationCrossSection[0][I] = GasUtil.CALIonizationCrossSection(EN, N_Ionization1, YION1, XION1)
+            if object.IonizationCrossSection[0][I] == 0:
+                object.IonizationCrossSection[0][I] = QCOUNT * <float>(0.62996)
 
         #IONISATION TO OH+
         if EN > XION2[0]:
-            object.QION[1][I] = GasUtil.CALQION(EN, NION2, YION2, XION2)
-            if object.QION[1][I] == 0:
-                object.QION[1][I] = QCOUNT *  <float>(0.19383)
+            object.IonizationCrossSection[1][I] = GasUtil.CALIonizationCrossSection(EN, N_Ionization2, YION2, XION2)
+            if object.IonizationCrossSection[1][I] == 0:
+                object.IonizationCrossSection[1][I] = QCOUNT *  <float>(0.19383)
 
         #IONISATION TO H+
         if EN > XION3[0]:
-            object.QION[2][I] = GasUtil.CALQION(EN, NION3, YION3, XION3)
-            if object.QION[2][I] == 0:
-                object.QION[2][I] = QCOUNT *  <float>(0.13275)
+            object.IonizationCrossSection[2][I] = GasUtil.CALIonizationCrossSection(EN, N_Ionization3, YION3, XION3)
+            if object.IonizationCrossSection[2][I] == 0:
+                object.IonizationCrossSection[2][I] = QCOUNT *  <float>(0.13275)
 
         #IONISATION TO O+
         if EN > XION4[0]:
-            object.QION[3][I] = GasUtil.CALQION(EN, NION4, YION4, XION4)
-            if object.QION[3][I] == 0:
-                object.QION[3][I] = QCOUNT *  <float>(0.02129)
+            object.IonizationCrossSection[3][I] = GasUtil.CALIonizationCrossSection(EN, N_Ionization4, YION4, XION4)
+            if object.IonizationCrossSection[3][I] == 0:
+                object.IonizationCrossSection[3][I] = QCOUNT *  <float>(0.02129)
 
         #IONISATION TO H2+
         if EN > XION5[0]:
-            object.QION[4][I] = GasUtil.CALQION(EN, NION5, YION5, XION5)
-            if object.QION[4][I] == 0:
-                object.QION[4][I] = QCOUNT * <float>(0.00035)
+            object.IonizationCrossSection[4][I] = GasUtil.CALIonizationCrossSection(EN, N_Ionization5, YION5, XION5)
+            if object.IonizationCrossSection[4][I] == 0:
+                object.IonizationCrossSection[4][I] = QCOUNT * <float>(0.00035)
 
         #IONISATION TO H+ + OH+
         if EN > XION6[0]:
-            object.QION[5][I] = GasUtil.CALQION(EN, NION6, YION6, XION6)
-            if object.QION[5][I] == 0:
-                object.QION[5][I] = QCOUNT *  <float>(0.01395)
+            object.IonizationCrossSection[5][I] = GasUtil.CALIonizationCrossSection(EN, N_Ionization6, YION6, XION6)
+            if object.IonizationCrossSection[5][I] == 0:
+                object.IonizationCrossSection[5][I] = QCOUNT *  <float>(0.01395)
 
         #IONISATION TO H+ + O+
         if EN > XION7[0]:
-            object.QION[6][I] = GasUtil.CALQION(EN, NION7, YION7, XION7)
-            if object.QION[6][I] == 0:
-                object.QION[6][I] = QCOUNT *  <float>(0.00705)
+            object.IonizationCrossSection[6][I] = GasUtil.CALIonizationCrossSection(EN, N_Ionization7, YION7, XION7)
+            if object.IonizationCrossSection[6][I] == 0:
+                object.IonizationCrossSection[6][I] = QCOUNT *  <float>(0.00705)
 
         #IONISATION TO O++
         if EN > XION8[0]:
-            object.QION[7][I] = GasUtil.CALQION(EN, NION8, YION8, XION8)
-            if object.QION[7][I] == 0:
-                object.QION[7][I] = QCOUNT *  <float>(0.00085)
+            object.IonizationCrossSection[7][I] = GasUtil.CALIonizationCrossSection(EN, N_Ionization8, YION8, XION8)
+            if object.IonizationCrossSection[7][I] == 0:
+                object.IonizationCrossSection[7][I] = QCOUNT *  <float>(0.00085)
 
         #IONISATION TO OXYGEN K-SHELL
         if EN > XKSH[0]:
-            object.QION[8][I] = GasUtil.CALQIONREG(EN, NKSH, YKSH, XKSH)
+            object.IonizationCrossSection[8][I] = GasUtil.CALIonizationCrossSectionREG(EN, NKSH, YKSH, XKSH)
 
-        for J in range(object.NION):
-            if EN > 2 * object.EION[J]:
-                object.PEQION[J][I] = object.PEQEL[1][I - IOFFION[J]]
+        for J in range(object.N_Ionization):
+            if EN > 2 * object.IonizationEnergy[J]:
+                object.PEIonizationCrossSection[J][I] = object.PEElasticCrossSection[1][I - IOFFION[J]]
 
         # ATTACHMENT H-
         object.Q[3][I] = 0.0
-        object.QATT[0][I] = 0.0
-        if EN > XATT1[0] and EN < XATT1[NATT1 - 1]:
-            object.QATT[0][I] = GasUtil.QLSCALE(EN, NATT1, YATT1, XATT1) * 1e-5
+        object.AttachmentCrossSection[0][I] = 0.0
+        if EN > XATT1[0] and EN < XATT1[N_Attachment1 - 1]:
+            object.AttachmentCrossSection[0][I] = GasUtil.QLSCALE(EN, N_Attachment1, YATT1, XATT1) * 1e-5
 
         # ATTACHMENT O-
-        object.QATT[1][I] = 0.0
-        if EN > XATT2[0] and EN < XATT2[NATT2 - 1]:
-            object.QATT[1][I] = GasUtil.QLSCALE(EN, NATT2, YATT2, XATT2) * 1e-5
+        object.AttachmentCrossSection[1][I] = 0.0
+        if EN > XATT2[0] and EN < XATT2[N_Attachment2 - 1]:
+            object.AttachmentCrossSection[1][I] = GasUtil.QLSCALE(EN, N_Attachment2, YATT2, XATT2) * 1e-5
 
         #ATTACHMENT OH-
-        object.QATT[2][I] = 0.0
-        if EN > XATT3[0] and EN < XATT3[NATT3 - 1]:
-            object.QATT[2][I] = GasUtil.QLSCALE(EN, NATT3, YATT3, XATT3) * 1e-5
+        object.AttachmentCrossSection[2][I] = 0.0
+        if EN > XATT3[0] and EN < XATT3[N_Attachment3 - 1]:
+            object.AttachmentCrossSection[2][I] = GasUtil.QLSCALE(EN, N_Attachment3, YATT3, XATT3) * 1e-5
 
         object.Q[3][I] = 0.0
         object.Q[4][I] = 0.0
         object.Q[5][I] = 0.0
         # ZERO INELASTIC ARRAYS
-        for J in range(object.NIN):
-            object.QIN[J][I] = 0.0
-            object.PEQIN[J][I] = 0.0
+        for J in range(object.N_Inelastic):
+            object.InelasticCrossSectionPerGas[J][I] = 0.0
+            object.PEInelasticCrossSectionPerGas[J][I] = 0.0
 
         # DIPOLE BORN ROTATIONAL STATES
         ENRT = sqrt(EN)
@@ -398,213 +398,213 @@ cdef void Gas14(Gas*object):
         for J in range(2, 211, 2):
             AL = AJIN[J - 1]
             L2 = J / 2
-            object.QIN[J - 1][I] = DBK * SALPHA[L2 - 1] * PJ[IMAP[J - 1] - 1] * log(
-                (ENRT + sqrt(EN - object.EIN[J - 1])) / (sqrt(EN - object.EIN[J - 1]) - ENRT)) / (
+            object.InelasticCrossSectionPerGas[J - 1][I] = DBK * SALPHA[L2 - 1] * PJ[IMAP[J - 1] - 1] * log(
+                (ENRT + sqrt(EN - object.EnergyLevels[J - 1])) / (sqrt(EN - object.EnergyLevels[J - 1]) - ENRT)) / (
                                            (2.0 * AL + 1.0) * EN) * AMPROT
 
             if EN > 2000:
-                object.QIN[J - 1][I] = 0.0
+                object.InelasticCrossSectionPerGas[J - 1][I] = 0.0
                 continue
 
-            EPOINT = EN / abs(object.EIN[J - 1])
+            EPOINT = EN / abs(object.EnergyLevels[J - 1])
             #TODO: PRINT ERROR STATEMENT
 
-            object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENRTS)
+            object.PEInelasticCrossSectionPerGas[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENRTS)
             if EPOINT<=ENRTS[0]:
-                    object.PEQIN[J-1][I] = 1 - (YEPSR[0]/ENRTS[0])*EPOINT
-            XSECDUM[J - 1] = GasUtil.CALPQ3(EPOINT, NRTANG, YMTRT, ENRTS) * object.QIN[J - 1][I]
+                    object.PEInelasticCrossSectionPerGas[J-1][I] = 1 - (YEPSR[0]/ENRTS[0])*EPOINT
+            XSECDUM[J - 1] = GasUtil.CALPQ3(EPOINT, NRTANG, YMTRT, ENRTS) * object.InelasticCrossSectionPerGas[J - 1][I]
 
         # ROTATIONAL COLLISIONS
         for J in range(1, 210, 2):
-            object.QIN[J - 1][I] = 0.0
-            if EN > object.EIN[J - 1]:
+            object.InelasticCrossSectionPerGas[J - 1][I] = 0.0
+            if EN > object.EnergyLevels[J - 1]:
                 AL = AJIN[J - 1]
                 L2 = (J + 1) / 2
-                object.QIN[J - 1][I] = DBK * SALPHA[L2 - 1] * PJ[IMAP[J - 1] - 1] * log(
-                    (ENRT + sqrt(EN - object.EIN[J - 1])) / (ENRT - sqrt(EN - object.EIN[J - 1]))) / (
+                object.InelasticCrossSectionPerGas[J - 1][I] = DBK * SALPHA[L2 - 1] * PJ[IMAP[J - 1] - 1] * log(
+                    (ENRT + sqrt(EN - object.EnergyLevels[J - 1])) / (ENRT - sqrt(EN - object.EnergyLevels[J - 1]))) / (
                                                (2.0 * AL + 1.0) * EN) * AMPROT
                 if EN > 2000:
-                    object.QIN[J - 1][I] = 0.0
+                    object.InelasticCrossSectionPerGas[J - 1][I] = 0.0
                     continue
 
-                EPOINT = EN / abs(object.EIN[J - 1])
+                EPOINT = EN / abs(object.EnergyLevels[J - 1])
                 #TODO: PRINT ERROR STATEMENT
 
-                object.PEQIN[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                object.PEInelasticCrossSectionPerGas[J - 1][I] = 1.0 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
                 if EPOINT<=ENROT[0]:
-                    object.PEQIN[J-1][I] = 1 - (YEPSR[0]/ENROT[0])*EPOINT
-                XSECDUM[J - 1] = GasUtil.CALPQ3(EPOINT, NRTANG, YMTRT, ENRTS) * object.QIN[J - 1][I]
+                    object.PEInelasticCrossSectionPerGas[J-1][I] = 1 - (YEPSR[0]/ENROT[0])*EPOINT
+                XSECDUM[J - 1] = GasUtil.CALPQ3(EPOINT, NRTANG, YMTRT, ENRTS) * object.InelasticCrossSectionPerGas[J - 1][I]
 
         # VIBRATION BEND V2 SUPERELASTIC (DIPOLE 1/E FALL OFF ABOVE ENERGY OF
         # XVIB1(NVIB1) EV )
-        object.QIN[210][I] = 0.0
+        object.InelasticCrossSectionPerGas[210][I] = 0.0
         if EN > 0.0:
-            object.QIN[210][I] = GasUtil.CALQINP(EN + object.EIN[211], NVIB1, YVIB1, XVIB1, 1) * APOPV1 * 100 / EN
-            if EN + object.EIN[211] <= XVIB1[NVIB1 - 1]:
-                object.QIN[210][I] *= (EN + object.EIN[211])
-            object.PEQIN[210][I] = object.PEQEL[1][I - IOFFN[210]]
+            object.InelasticCrossSectionPerGas[210][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN + object.EnergyLevels[211], NVIB1, YVIB1, XVIB1, 1) * APOPV1 * 100 / EN
+            if EN + object.EnergyLevels[211] <= XVIB1[NVIB1 - 1]:
+                object.InelasticCrossSectionPerGas[210][I] *= (EN + object.EnergyLevels[211])
+            object.PEInelasticCrossSectionPerGas[210][I] = object.PEElasticCrossSection[1][I - IOFFN[210]]
 
         # VIBRATION BEND V2  (DIPOLE 1/E FALL OFF ABOVE ENERGY OF
         # XVIB1(NVIB1) EV )
-        object.QIN[211][I] = 0.0
-        if EN > object.EIN[211]:
-            object.QIN[211][I] = GasUtil.CALQINP(EN, NVIB1, YVIB1, XVIB1, 1) * APOPGS * 100
-            object.PEQIN[211][I] = object.PEQEL[1][I - IOFFN[211]]
+        object.InelasticCrossSectionPerGas[211][I] = 0.0
+        if EN > object.EnergyLevels[211]:
+            object.InelasticCrossSectionPerGas[211][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NVIB1, YVIB1, XVIB1, 1) * APOPGS * 100
+            object.PEInelasticCrossSectionPerGas[211][I] = object.PEElasticCrossSection[1][I - IOFFN[211]]
             # CALCULATE DIPOLE ANGULAR DISTRIBUTION FACTOR FOR TRANSITION
-            EPOINT = EN / abs(object.EIN[211])
+            EPOINT = EN / abs(object.EnergyLevels[211])
             if EPOINT <= 500:
-                object.PEQIN[211][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                object.PEInelasticCrossSectionPerGas[211][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
             else:
-                object.PEQIN[211][I] = object.PEQEL[1][I - IOFFN[211]]
+                object.PEInelasticCrossSectionPerGas[211][I] = object.PEElasticCrossSection[1][I - IOFFN[211]]
 
         # VIBRATION STRETCH V1+V3
-        object.QIN[212][I] = 0.0
-        if EN > object.EIN[212]:
-            object.QIN[212][I] = GasUtil.CALQINP(EN, NVIB2, YVIB2, XVIB2, 1.5) * 100
+        object.InelasticCrossSectionPerGas[212][I] = 0.0
+        if EN > object.EnergyLevels[212]:
+            object.InelasticCrossSectionPerGas[212][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NVIB2, YVIB2, XVIB2, 1.5) * 100
             if EN < 1.5:
-                object.PEQIN[212][I] = 0.0
+                object.PEInelasticCrossSectionPerGas[212][I] = 0.0
             else:
-                EPOINT = EN / abs(object.EIN[212])
+                EPOINT = EN / abs(object.EnergyLevels[212])
                 if EPOINT <= 500:
-                    object.PEQIN[212][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                    object.PEInelasticCrossSectionPerGas[212][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
                 else:
-                    object.PEQIN[212][I] = object.PEQEL[1][I - IOFFN[212]]
+                    object.PEInelasticCrossSectionPerGas[212][I] = object.PEElasticCrossSection[1][I - IOFFN[212]]
 
         # VIBRATION HARMONICS NV2+ NV1+NV3
-        object.QIN[213][I] = 0.0
-        if EN > object.EIN[213]:
-            object.QIN[213][I] = GasUtil.CALQINP(EN, NVIB3, YVIB3, XVIB3, 1.5) * 100
-            EPOINT = EN / abs(object.EIN[213])
+        object.InelasticCrossSectionPerGas[213][I] = 0.0
+        if EN > object.EnergyLevels[213]:
+            object.InelasticCrossSectionPerGas[213][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NVIB3, YVIB3, XVIB3, 1.5) * 100
+            EPOINT = EN / abs(object.EnergyLevels[213])
             if EPOINT <= 500:
-                object.PEQIN[213][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                object.PEInelasticCrossSectionPerGas[213][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
             else:
-                object.PEQIN[213][I] = object.PEQEL[1][I - IOFFN[213]]
+                object.PEInelasticCrossSectionPerGas[213][I] = object.PEElasticCrossSection[1][I - IOFFN[213]]
 
         # TRIPLET 3B1
-        if EN > object.EIN[214]:
+        if EN > object.EnergyLevels[214]:
             if EN <= XTRP1[NTRP1 - 1]:
-                object.QIN[214][I] = GasUtil.QLSCALE(EN, NTRP1, YTRP1, XTRP1)
+                object.InelasticCrossSectionPerGas[214][I] = GasUtil.QLSCALE(EN, NTRP1, YTRP1, XTRP1)
             else:
-                object.QIN[214][I] = YTRP1[NTRP1 - 1] * (XTRP1[NTRP1 - 1] / EN) ** 1.5 * 1e-16
+                object.InelasticCrossSectionPerGas[214][I] = YTRP1[NTRP1 - 1] * (XTRP1[NTRP1 - 1] / EN) ** 1.5 * 1e-16
 
-            if EN > 2.0 * object.EIN[214]:
-                object.PEQIN[214][I] = object.PEQEL[1][I - IOFFN[214]]
+            if EN > 2.0 * object.EnergyLevels[214]:
+                object.PEInelasticCrossSectionPerGas[214][I] = object.PEElasticCrossSection[1][I - IOFFN[214]]
 
         FI = 0
         # EXCITATION  1B1 (7.48EV LEVEL SPLIT INTO 4 GROUPS)
         for J in range(215, 219):
-            if EN > object.EIN[J]:
-                object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-                if object.QIN[J][I] < 0.0:
-                    object.QIN[J][I] = 0.0
-                EPOINT = EN / abs(object.EIN[J])
+            if EN > object.EnergyLevels[J]:
+                object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                        log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+                if object.InelasticCrossSectionPerGas[J][I] < 0.0:
+                    object.InelasticCrossSectionPerGas[J][I] = 0.0
+                EPOINT = EN / abs(object.EnergyLevels[J])
                 if EPOINT <= 500:
-                    object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                    object.PEInelasticCrossSectionPerGas[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
                 else:
-                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+                    object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
 
         # TRIPLET 3A2 + 1A2 + 3A1 9.1EV
-        if EN > object.EIN[219]:
+        if EN > object.EnergyLevels[219]:
             if EN <= XTRP2[NTRP2 - 1]:
-                object.QIN[219][I] = GasUtil.QLSCALE(EN, NTRP2, YTRP2, XTRP2)
+                object.InelasticCrossSectionPerGas[219][I] = GasUtil.QLSCALE(EN, NTRP2, YTRP2, XTRP2)
             else:
-                object.QIN[219][I] = YTRP2[NTRP2 - 1] * (XTRP2[NTRP2 - 1] / EN) ** 1.5 * 1e-16
+                object.InelasticCrossSectionPerGas[219][I] = YTRP2[NTRP2 - 1] * (XTRP2[NTRP2 - 1] / EN) ** 1.5 * 1e-16
 
-            if EN > 2.0 * object.EIN[219]:
-                object.PEQIN[219][I] = object.PEQEL[1][I - IOFFN[219]]
+            if EN > 2.0 * object.EnergyLevels[219]:
+                object.PEInelasticCrossSectionPerGas[219][I] = object.PEElasticCrossSection[1][I - IOFFN[219]]
 
         # EXCITATION  1A1 (9.69EV LEVEL SPLIT INTO 4 GROUPS)
         for J in range(220, 224):
-            if EN > object.EIN[J]:
-                object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-                if object.QIN[J][I] < 0.0:
-                    object.QIN[J][I] = 0.0
-                EPOINT = EN / abs(object.EIN[J])
+            if EN > object.EnergyLevels[J]:
+                object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                        log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+                if object.InelasticCrossSectionPerGas[J][I] < 0.0:
+                    object.InelasticCrossSectionPerGas[J][I] = 0.0
+                EPOINT = EN / abs(object.EnergyLevels[J])
                 if EPOINT <= 500:
-                    object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                    object.PEInelasticCrossSectionPerGas[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
                 else:
-                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+                    object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
 
         # TRIPLET 3B1 9.95EV
-        if EN > object.EIN[224]:
+        if EN > object.EnergyLevels[224]:
             if EN <= XTRP3[NTRP3 - 1]:
-                object.QIN[224][I] = GasUtil.QLSCALE(EN, NTRP3, YTRP3, XTRP3)
+                object.InelasticCrossSectionPerGas[224][I] = GasUtil.QLSCALE(EN, NTRP3, YTRP3, XTRP3)
             else:
-                object.QIN[224][I] = YTRP3[NTRP3 - 1] * (XTRP3[NTRP3 - 1] / EN) ** 1.5 * 1e-16
+                object.InelasticCrossSectionPerGas[224][I] = YTRP3[NTRP3 - 1] * (XTRP3[NTRP3 - 1] / EN) ** 1.5 * 1e-16
 
-            if EN > 2.0 * object.EIN[224]:
-                object.PEQIN[224][I] = object.PEQEL[1][I - IOFFN[224]]
+            if EN > 2.0 * object.EnergyLevels[224]:
+                object.PEInelasticCrossSectionPerGas[224][I] = object.PEElasticCrossSection[1][I - IOFFN[224]]
 
         # EXCITATION  1B1 (3pa1) 9.994 EV
         for J in range(225, 240):
-            if EN > object.EIN[J]:
-                object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-                if object.QIN[J][I] < 0.0:
-                    object.QIN[J][I] = 0.0
-                EPOINT = EN / abs(object.EIN[J])
+            if EN > object.EnergyLevels[J]:
+                object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                        log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+                if object.InelasticCrossSectionPerGas[J][I] < 0.0:
+                    object.InelasticCrossSectionPerGas[J][I] = 0.0
+                EPOINT = EN / abs(object.EnergyLevels[J])
                 if EPOINT <= 500:
-                    object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                    object.PEInelasticCrossSectionPerGas[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
                 else:
-                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+                    object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
 
-        # TRIPLET SUM OF HIGHER TRIPLETS   13.0 EV
-        if EN > object.EIN[240]:
+        # TRIPLET Sum OF HIGHER TRIPLETS   13.0 EV
+        if EN > object.EnergyLevels[240]:
             if EN <= XTRP4[NTRP4 - 1]:
-                object.QIN[240][I] = GasUtil.QLSCALE(EN, NTRP4, YTRP4, XTRP4)
+                object.InelasticCrossSectionPerGas[240][I] = GasUtil.QLSCALE(EN, NTRP4, YTRP4, XTRP4)
             else:
-                object.QIN[240][I] = YTRP4[NTRP4 - 1] * (XTRP4[NTRP4 - 1] / EN) ** 1.5 * 1e-16
+                object.InelasticCrossSectionPerGas[240][I] = YTRP4[NTRP4 - 1] * (XTRP4[NTRP4 - 1] / EN) ** 1.5 * 1e-16
 
-            if EN > 2.0 * object.EIN[240]:
-                object.PEQIN[240][I] = object.PEQEL[1][I - IOFFN[240]]
+            if EN > 2.0 * object.EnergyLevels[240]:
+                object.PEInelasticCrossSectionPerGas[240][I] = object.PEElasticCrossSection[1][I - IOFFN[240]]
 
         # EXCITATION  1B1 (3pa1) 9.994 EV
         for J in range(241, 250):
-            if EN > object.EIN[J]:
-                object.QIN[J][I] = F[FI] / (object.EIN[J] * BETA2) * (
-                        log(BETA2 * GAMMA2 * EMASS2 / (4.0 * object.EIN[J])) - BETA2 - object.DEN[
-                    I] / 2.0) * BBCONST * EN / (EN + object.EIN[J] + object.E[2])
-                if object.QIN[J][I] < 0.0:
-                    object.QIN[J][I] = 0.0
-                EPOINT = EN / abs(object.EIN[J])
+            if EN > object.EnergyLevels[J]:
+                object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
+                        log(BETA2 * GAMMA2 * ElectronMass2 / (4.0 * object.EnergyLevels[J])) - BETA2 - object.DEN[
+                    I] / 2.0) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2])
+                if object.InelasticCrossSectionPerGas[J][I] < 0.0:
+                    object.InelasticCrossSectionPerGas[J][I] = 0.0
+                EPOINT = EN / abs(object.EnergyLevels[J])
                 if EPOINT <= 500:
-                    object.PEQIN[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
+                    object.PEInelasticCrossSectionPerGas[J][I] = 1 - GasUtil.CALPQ3(EPOINT, NRTANG, YEPSR, ENROT)
                 else:
-                    object.PEQIN[J][I] = object.PEQEL[1][I - IOFFN[J]]
+                    object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
 
         # LOAD NULL COLLISIONS
         #  OH PRODUCTION FROM DISSOCIATION HARB ET AL J.CHEM.PHYS. 115(2001)5507
         # SCALED ABOVE 200EV BY 1/ENERGY
-        object.QNULL[0][I] = 0.0
+        object.NullCrossSection[0][I] = 0.0
         if EN > XNUL1[0]:
-            object.QNULL[0][I] = GasUtil.CALQINP(EN, NUL1, YNUL1, XNUL1, 1) * 100 * object.SCLN[0]
+            object.NullCrossSection[0][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL1, YNUL1, XNUL1, 1) * 100 * object.SCLN[0]
 
-        # LIGHT EMISSION FROM OH(A2-X) MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
-        object.QNULL[1][I] = 0.0
+        # LIGHT EMISSION FROM OH(A2-X) MOHLMMoleculesPerCm3PerGas AND DEHEER CHEM.PHYS.19(1979)233
+        object.NullCrossSection[1][I] = 0.0
         if EN > XNUL2[0]:
-            object.QNULL[1][I] = GasUtil.CALQINP(EN, NUL2, YNUL2, XNUL2, 1) * 100 * object.SCLN[1]
+            object.NullCrossSection[1][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL2, YNUL2, XNUL2, 1) * 100 * object.SCLN[1]
 
-        # LIGHT EMISSION FROM H(3-2) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
-        object.QNULL[2][I] = 0.0
+        # LIGHT EMISSION FROM H(3-2) , MOHLMMoleculesPerCm3PerGas AND DEHEER CHEM.PHYS.19(1979)233
+        object.NullCrossSection[2][I] = 0.0
         if EN > XNUL3[0]:
-            object.QNULL[2][I] = GasUtil.CALQINP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.SCLN[2]
+            object.NullCrossSection[2][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.SCLN[2]
 
-        # LIGHT EMISSION FROM H(2-1) , MOHLMANN AND DEHEER CHEM.PHYS.19(1979)233
-        object.QNULL[3][I] = 0.0
+        # LIGHT EMISSION FROM H(2-1) , MOHLMMoleculesPerCm3PerGas AND DEHEER CHEM.PHYS.19(1979)233
+        object.NullCrossSection[3][I] = 0.0
         if EN > XNUL4[0]:
-            object.QNULL[3][I] = GasUtil.CALQINP(EN, NUL4, YNUL4, XNUL4, 1) * 100 * object.SCLN[3]
+            object.NullCrossSection[3][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL4, YNUL4, XNUL4, 1) * 100 * object.SCLN[3]
 
-    for J in range(object.NIN):
-        if object.EFINAL <= object.EIN[J]:
-            object.NIN = J
+    for J in range(object.N_Inelastic):
+        if object.FinalEnergy <= object.EnergyLevels[J]:
+            object.N_Inelastic = J
             break
     return

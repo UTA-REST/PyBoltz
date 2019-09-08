@@ -1,4 +1,4 @@
 
 cdef class Ang:
     cdef public:
-        double ANGC,PSCT1,PSCT2
+        double ANGC,ScatteringParameter1,ScatteringParameter2

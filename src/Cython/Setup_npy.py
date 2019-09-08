@@ -72,7 +72,7 @@ YELMG1 = [np.float32(12.5), np.float32(8.70), np.float32(7.00), np.float32(5.95)
           3.23e-11, 2.24e-11, 1.65e-11,
           1.26e-11, 9.96e-12, 8.07e-12,
           ]
-# ELASTIC X-SECTION ASSUMED ISOTROPIC BELOW 0.6 EV
+# ELASTIC X-SECTION ASSumED ISOTROPIC BELOW 0.6 EV
 
 YELTG1 = [np.float32(12.5), np.float32(8.70), np.float32(7.00), np.float32(5.95), np.float32(5.20), np.float32(4.70),
           np.float32(4.30), np.float32(3.95), np.float32(3.65), np.float32(3.40),
@@ -593,7 +593,7 @@ YELMG1 = [np.float32(12.5), np.float32(8.70), np.float32(7.00), np.float32(5.95)
           3.23e-11, 2.24e-11, 1.65e-11,
           1.26e-11, 9.96e-12, 8.07e-12,
           ]
-# ELASTIC X-SECTION ASSUMED ISOTROPIC BELOW 0.6 EV
+# ELASTIC X-SECTION ASSumED ISOTROPIC BELOW 0.6 EV
 
 YELTG1 = [np.float32(12.5), np.float32(8.70), np.float32(7.00), np.float32(5.95), np.float32(5.20), np.float32(4.70),
           np.float32(4.30), np.float32(3.95), np.float32(3.65), np.float32(3.40),
@@ -1103,7 +1103,7 @@ gd['gas1/Z6T'] = Z6TG1
 gd['gas1/Z9T'] = Z9TG1
 gd['gas1/EBRM'] = EBRMG1
 
-EIN = [np.float32(-0.0539), np.float32(0.0539), np.float32(-0.0783), np.float32(0.0783), np.float32(-0.1126),
+EnergyLevels = [np.float32(-0.0539), np.float32(0.0539), np.float32(-0.0783), np.float32(0.0783), np.float32(-0.1126),
        np.float32(0.1126), np.float32(-0.1588), np.float32(0.1588), np.float32(0.3176), np.float32(0.4764),
        np.float32(11.5), np.float32(11.63), np.float32(11.88), np.float32(12.13), np.float32(12.38), np.float32(12.50),
        np.float32(12.63), np.float32(12.88), np.float32(13.13), np.float32(13.38), np.float32(13.63), np.float32(13.88),
@@ -1113,9 +1113,9 @@ EIN = [np.float32(-0.0539), np.float32(0.0539), np.float32(-0.0783), np.float32(
        np.float32(18.38), np.float32(18.63), np.float32(18.88), np.float32(19.13), np.float32(19.38), np.float32(19.63),
        np.float32(0.0), np.float32(0.0)]
 for i in range(0, 250 - 48):
-    EIN = np.append(EIN, 0.0)
+    EnergyLevels = np.append(EnergyLevels, 0.0)
 
-gd['gas1/EIN'] = EIN
+gd['gas1/EnergyLevels'] = EnergyLevels
 #  ENERGY
 
 XENG2 = [np.float32(1.00), np.float32(1.20), np.float32(1.50), np.float32(1.70), np.float32(2.00), np.float32(2.50),
@@ -2189,7 +2189,7 @@ EBRMG2 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.
           np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
           np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
           ]
-EING2 = [np.float32(11.548), np.float32(11.624), np.float32(11.723), np.float32(11.828), np.float32(12.907),
+EnergyLevelsG2 = [np.float32(11.548), np.float32(11.624), np.float32(11.723), np.float32(11.828), np.float32(12.907),
          np.float32(13.076), np.float32(13.095), np.float32(13.153), np.float32(13.172), np.float32(13.273),
          np.float32(13.283), np.float32(13.302), np.float32(13.328), np.float32(13.480), np.float32(13.845),
          np.float32(13.864), np.float32(13.903), np.float32(13.979), np.float32(14.013), np.float32(14.063),
@@ -2199,8 +2199,8 @@ EING2 = [np.float32(11.548), np.float32(11.624), np.float32(11.723), np.float32(
          np.float32(15.118), np.float32(15.186), np.float32(15.190), np.float32(15.308), np.float32(15.351),
          np.float32(15.360), np.float32(15.366), np.float32(15.374), np.float32(15.660), np.float32(0.0)]
 for i in range(0, 250 - 45):
-    EING2.append(0.0)
-gd['gas2/EIN'] = EING2
+    EnergyLevelsG2.append(0.0)
+gd['gas2/EnergyLevels'] = EnergyLevelsG2
 gd['gas2/XEN'] = XENG2
 gd['gas2/YSEC'] = YSECG2
 gd['gas2/YEL'] = YELG2
@@ -3272,9 +3272,9 @@ Y41PG3 = [np.float32(0.00), np.float32(.0147), np.float32(.0242), np.float32(.03
 
 # 12 1P RESONANCE RADIATION J=1  50.620 NM      F=0.00106
 
-# SUM HIGHER 1P LEVELS RESONANCE RADIATION J=1  F=0.00440
+# Sum HIGHER 1P LEVELS RESONANCE RADIATION J=1  F=0.00440
 
-# TOTAL SUM OSCILLATOR STRENGTH = 0.42326
+# TOTAL Sum OSCILLATOR STRENGTH = 0.42326
 
 #
 
@@ -4490,7 +4490,7 @@ YP2S5G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), n
 
 #
 
-# 3P10+3P9+3P8+3P7+3P6+3P5  E=10.9016 EV SCALED SUM OF 2P10--2P5 BY 0.25
+# 3P10+3P9+3P8+3P7+3P6+3P5  E=10.9016 EV SCALED Sum OF 2P10--2P5 BY 0.25
 
 # ABOVE 100EV SCALED BY 1/E
 
@@ -4524,21 +4524,21 @@ YP2P4G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), n
            np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
            np.float32(0.0), np.float32(0.0),
            ]
-# 4D6+4D3+4D4!+4D4+4D1!!+4D1!  SUM 4D  E=10.9715
+# 4D6+4D3+4D4!+4D4+4D1!!+4D1!  Sum 4D  E=10.9715
 
 #       SHAPE FROM PETROV NORMALISED TO HAYASHI TOTAL
 
 # ABOVE 100EV SCALED BY 1/E**3
 
-X4DSUMG7 = [np.float32(10.9715), np.float32(12.0), np.float32(13.0), np.float32(14.0), np.float32(15.0),
+X4DSumG7 = [np.float32(10.9715), np.float32(12.0), np.float32(13.0), np.float32(14.0), np.float32(15.0),
             np.float32(16.0), np.float32(18.0), np.float32(20.0), np.float32(25.0), np.float32(30.0),
             np.float32(35.0), np.float32(40.0), np.float32(50.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
             ]
-Y4DSUMG7 = [np.float32(0.00), np.float32(1.50), np.float32(4.35), np.float32(4.65), np.float32(4.50), np.float32(4.05),
+Y4DSumG7 = [np.float32(0.00), np.float32(1.50), np.float32(4.35), np.float32(4.65), np.float32(4.50), np.float32(4.05),
             np.float32(3.00), np.float32(2.25), np.float32(0.96), np.float32(0.57),
             np.float32(0.36), np.float32(0.21), np.float32(.099), np.float32(.060), np.float32(.024), np.float32(.011),
             ]
-YP4DSUMG7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
+YP4DSumG7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
              np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
              np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0),
              ]
@@ -4642,11 +4642,11 @@ YP2P1G7 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), n
 
 # 9S4 E=11.993947 EV  J=1 RESONANCE RADIATION AT 103.37 NM    F=0.0014
 
-# SUM HIGHER STATES E=12.0 EV                                 F=0.0831
+# Sum HIGHER STATES E=12.0 EV                                 F=0.0831
 
 #
 
-# TOTAL OSCILLATOR SUM =1.650
+# TOTAL OSCILLATOR Sum =1.650
 
 #
 
@@ -4760,9 +4760,9 @@ gd['gas7/YP3P105'] = YP3P105G7
 gd['gas7/X2P4'] = X2P4G7
 gd['gas7/Y2P4'] = Y2P4G7
 gd['gas7/YP2P4'] = YP2P4G7
-gd['gas7/X4DSUM'] = X4DSUMG7
-gd['gas7/Y4DSUM'] = Y4DSUMG7
-gd['gas7/YP4DSUM'] = YP4DSUMG7
+gd['gas7/X4DSum'] = X4DSumG7
+gd['gas7/Y4DSum'] = Y4DSumG7
+gd['gas7/YP4DSum'] = YP4DSumG7
 gd['gas7/X2P3'] = X2P3G7
 gd['gas7/Y2P3'] = Y2P3G7
 gd['gas7/YP2P3'] = YP2P3G7
@@ -5012,7 +5012,7 @@ XIONG8 = [np.float32(12.65), np.float32(13.5), np.float32(14.0), np.float32(14.5
           ]
 # GROSS IONISATION  WEIGHTED AVERAGE OF: RAP AND ENGLANDER,
 
-#                LINDSAY AND STEBBINGS, AND NISHIMURA
+#                LINDSAY AND STEBBIGasNumber, AND NISHIMURA
 
 YIONG8 = [np.float32(0.00), np.float32(.035), np.float32(.075), np.float32(.132), np.float32(.201), np.float32(.282),
           np.float32(.366), np.float32(.451), np.float32(.538), np.float32(.625),
@@ -5447,7 +5447,7 @@ EBRMG8 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.
           np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
           ]
 
-EING8 = [np.float32(-0.1625135), np.float32(0.1625135), np.float32(-0.1901087), np.float32(0.1901087),
+EnergyLevelsG8 = [np.float32(-0.1625135), np.float32(0.1625135), np.float32(-0.1901087), np.float32(0.1901087),
          np.float32(0.3615974), np.float32(0.3743690), np.float32(0.544), np.float32(0.736), np.float32(7.50),
          np.float32(7.80), np.float32(8.50), np.float32(8.75), np.float32(9.25), np.float32(9.75), np.float32(10.0),
          np.float32(10.25), np.float32(10.75), np.float32(11.25), np.float32(11.75), np.float32(12.25),
@@ -5455,7 +5455,7 @@ EING8 = [np.float32(-0.1625135), np.float32(0.1625135), np.float32(-0.1901087), 
          np.float32(14.75), np.float32(15.25), np.float32(15.75), np.float32(16.0), np.float32(16.14), np.float32(16.8),
          np.float32(20.5), np.float32(22.0), np.float32(0.0), np.float32(0.0)]
 for i in range(0, 250 - 36):
-    EING8.append(0.0)
+    EnergyLevelsG8.append(0.0)
 gd['gas8/XEN'] = XENG8
 gd['gas8/YELM'] = YELMG8
 gd['gas8/YELT'] = YELTG8
@@ -5514,7 +5514,7 @@ gd['gas8/YKSH'] = YKSHG8
 gd['gas8/Z1T'] = Z1TG8
 gd['gas8/Z6T'] = Z6TG8
 gd['gas8/EBRM'] = EBRMG8
-gd['gas8/EIN'] = EING8
+gd['gas8/EnergyLevels'] = EnergyLevelsG8
 # ELASTIC MOMENTUM TRANSFER
 
 XENG5 = [np.float32(1.00), np.float32(1.20), np.float32(1.50), np.float32(1.80), np.float32(2.00), np.float32(2.50),
@@ -6546,7 +6546,7 @@ Y3S1PPG5 = [np.float32(0.0), np.float32(.013), np.float32(.022), np.float32(.029
 
 #
 
-# 3P SUM 3P10-3P6  UNITS 10**-18  SCALE BY 1/E**1.5  ABOVE 50 EV
+# 3P Sum 3P10-3P6  UNITS 10**-18  SCALE BY 1/E**1.5  ABOVE 50 EV
 
 X3P106G5 = [np.float32(20.14965), np.float32(21.0), np.float32(22.0), np.float32(23.0), np.float32(24.0),
             np.float32(25.0), np.float32(26.0), np.float32(27.0), np.float32(28.0), np.float32(30.0),
@@ -6556,7 +6556,7 @@ Y3P106G5 = [np.float32(0.0), np.float32(.110), np.float32(.178), np.float32(.242
             np.float32(.363), np.float32(.418), np.float32(.450), np.float32(.500),
             np.float32(.500), np.float32(.480), np.float32(.460), np.float32(.440), np.float32(.410), np.float32(.330),
             ]
-# 3P SUM 3P5-3P2  UNITS 10**-18  SCALE BY 1/E**1.5  ABOVE 50 EV
+# 3P Sum 3P5-3P2  UNITS 10**-18  SCALE BY 1/E**1.5  ABOVE 50 EV
 
 X3P52G5 = [np.float32(20.25918), np.float32(21.0), np.float32(22.0), np.float32(23.0), np.float32(24.0),
            np.float32(25.0), np.float32(26.0), np.float32(27.0), np.float32(28.0), np.float32(30.0),
@@ -6600,11 +6600,11 @@ Y3P1G5 = [np.float32(0.0), np.float32(.050), np.float32(.100), np.float32(.125),
 
 # 5S1! J=1  RESONANCE LEVEL  USE BEF SCALING     F=0.0025    58.7217 NM
 
-# SUM S STATES 5-INFINITY USE BEF SCALING        F=0.00962
+# Sum S STATES 5-INFINITY USE BEF SCALING        F=0.00962
 
-# SUM D STATES 6-INFINITY USE BEF SCALING        F=0.01695
+# Sum D STATES 6-INFINITY USE BEF SCALING        F=0.01695
 
-#  TOTAL OSCILLATOR SUM  F = 0.2926
+#  TOTAL OSCILLATOR Sum  F = 0.2926
 
 #
 
@@ -6624,7 +6624,7 @@ EBRMG5 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.
           np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
           np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
           ]
-EING5 = [np.float32(16.61907), np.float32(16.67083), np.float32(16.71538), np.float32(16.84805), np.float32(18.38162),
+EnergyLevelsG5 = [np.float32(16.61907), np.float32(16.67083), np.float32(16.71538), np.float32(16.84805), np.float32(18.38162),
          np.float32(18.55511), np.float32(18.57583), np.float32(18.61270), np.float32(18.63679), np.float32(18.69336),
          np.float32(18.70407), np.float32(18.71138), np.float32(18.72638), np.float32(18.96595), np.float32(19.66403),
          np.float32(19.68819), np.float32(19.76060), np.float32(19.77977), np.float32(20.02464), np.float32(20.02644),
@@ -6635,7 +6635,7 @@ EING5 = [np.float32(16.61907), np.float32(16.67083), np.float32(16.71538), np.fl
          np.float32(21.01743), np.float32(21.04354), np.float32(21.11401), np.float32(21.14638), np.float32(21.18286),
          np.float32(0.0), ]
 for J in range(250 - 46):
-    EING5.append(0.0)
+    EnergyLevelsG5.append(0.0)
 gd['gas5/XEN'] = XENG5
 gd['gas5/YXSEC'] = YXSECG5
 gd['gas5/XEL'] = XELG5
@@ -6710,7 +6710,7 @@ gd['gas5/X3P1'] = X3P1G5
 gd['gas5/Y3P1'] = Y3P1G5
 gd['gas5/Z10T'] = Z10TG5
 gd['gas5/EBRM'] = EBRMG5
-gd['gas5/EIN'] = EING5
+gd['gas5/EnergyLevels'] = EnergyLevelsG5
 
 # gas 6
 # ELASTIC MOMENTUM TRANSFER
@@ -6779,7 +6779,7 @@ YXSECG6 = [np.float32(37.4), np.float32(33.1), np.float32(30.0), np.float32(27.9
            7.10e-11, 5.21e-11, 3.99e-11,
            3.15e-11, 2.55e-11,
            ]
-# ELASTIC   CONSISTENT WITHIN 1% OF TOTAL X-SECTION SUM
+# ELASTIC   CONSISTENT WITHIN 1% OF TOTAL X-SECTION Sum
 
 XELG6 = [1.e-6, np.float32(.001), np.float32(.003), np.float32(.005), np.float32(.007), np.float32(0.01),
          np.float32(.015), np.float32(0.02), np.float32(0.03), np.float32(0.04),
@@ -9351,7 +9351,7 @@ YP3S5G6 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), n
 
 #
 
-# SUM 4F STATES   E=13.14  J=1,2,5,4,3,2,4,4
+# Sum 4F STATES   E=13.14  J=1,2,5,4,3,2,4,4
 
 #        SHAPE FUNCTION FROM B AND Z SCALED BY 1/EN  ABOVE 68 EV
 
@@ -9389,7 +9389,7 @@ YP4FSG6 = [np.float32(0.0), np.float32(0.0), np.float32(0.0), np.float32(0.0), n
 
 #
 
-# HIGH E=13.6 EV  SUM OF HIGHER DIPOLE STATES            F=0.168
+# HIGH E=13.6 EV  Sum OF HIGHER DIPOLE STATES            F=0.168
 
 #         USE BEF SCALING
 
@@ -9413,7 +9413,7 @@ EBRMG6 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1.
           np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
           np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
           ]
-EING6 = [np.float32(9.9152), np.float32(10.0324), np.float32(10.5624), np.float32(10.6436), np.float32(11.3035),
+EnergyLevelsG6 = [np.float32(9.9152), np.float32(10.0324), np.float32(10.5624), np.float32(10.6436), np.float32(11.3035),
          np.float32(11.4430), np.float32(11.4447), np.float32(11.5261), np.float32(11.5458), np.float32(11.6660),
          np.float32(11.9981), np.float32(12.0370), np.float32(12.1004), np.float32(12.1117), np.float32(12.1253),
          np.float32(12.1404), np.float32(12.1437), np.float32(12.1785), np.float32(12.2565), np.float32(12.2580),
@@ -9425,7 +9425,7 @@ EING6 = [np.float32(9.9152), np.float32(10.0324), np.float32(10.5624), np.float3
          np.float32(13.1139), np.float32(13.14), np.float32(13.3501), np.float32(13.4224), np.float32(13.4365),
          np.float32(13.6), np.float32(0.0)]
 for i in range(250 - 52):
-    EING6.append(0.0)
+    EnergyLevelsG6.append(0.0)
 gd['gas6/XEN'] = XENG6
 gd['gas6/YXSEC'] = YXSECG6
 gd['gas6/XEL'] = XELG6
@@ -9582,7 +9582,7 @@ gd['gas6/Y4FS'] = Y4FSG6
 gd['gas6/YP4FS'] = YP4FSG6
 gd['gas6/Z36T'] = Z36TG6
 gd['gas6/EBRM'] = EBRMG6
-gd['gas6/EIN'] = EING6
+gd['gas6/EnergyLevels'] = EnergyLevelsG6
 XENG9 = [np.float32(0.00), np.float32(.001), np.float32(.002), np.float32(.003), np.float32(.004), np.float32(.005),
          np.float32(.007), np.float32(0.01), np.float32(.014), np.float32(0.02), np.float32(.025),
          np.float32(0.03), np.float32(0.04), np.float32(0.05), np.float32(0.06), np.float32(0.07), np.float32(0.08),
@@ -9645,7 +9645,7 @@ YMTG9 = [np.float32(32.0), np.float32(31.0), np.float32(29.0), np.float32(27.0),
          7.28e-12, 5.06e-12, 3.71e-12,
          2.85e-12, 2.25e-12, 1.82e-12,
          ]
-# ASSUME ELASTIC = MOMENTUM TRANSFER UP TO 3.0 EV (NO GOOD ELASTIC DATA)
+# ASSumE ELASTIC = MOMENTUM TRANSFER UP TO 3.0 EV (NO GOOD ELASTIC DATA)
 
 YELG9 = [np.float32(32.0), np.float32(31.0), np.float32(29.0), np.float32(27.0), np.float32(26.0), np.float32(25.0),
          np.float32(23.0), np.float32(20.0), np.float32(17.6), np.float32(15.2), np.float32(13.0),
@@ -9845,7 +9845,7 @@ YIONCG9 = [np.float32(0.0), np.float32(.017), np.float32(.038), np.float32(.061)
            np.float32(1.60), np.float32(1.39), np.float32(1.25), np.float32(1.12), np.float32(.986), np.float32(.820),
            np.float32(.611), np.float32(.382), np.float32(.270), np.float32(.0557),
            ]
-# ALL INDIVIDUAL BREAKUP CHANNELS FROM TIAN AND VIDAL
+# ALL INDIVIDUAL BREAKUP CHMoleculesPerCm3PerGasELS FROM TIAN AND VIDAL
 
 # CORRECTED BY WANG AND VIDAL FOR DISSOCIATION OF C2H6++
 
@@ -10200,7 +10200,7 @@ YNUL1G9 = [np.float32(0.0), np.float32(0.20), np.float32(1.30), np.float32(3.20)
            ]
 # LIGHT EMISSION FROM H ALPHA
 
-#  MOHLMANN  CHEM PHYS 19(1977)233
+#  MOHLMMoleculesPerCm3PerGas  CHEM PHYS 19(1977)233
 
 XNUL2G9 = [np.float32(20.0), np.float32(40.0), np.float32(60.0), np.float32(80.0), np.float32(100.), np.float32(150.),
            np.float32(200.), np.float32(300.), np.float32(500.), np.float32(1000.),
@@ -10213,7 +10213,7 @@ YNUL2G9 = [np.float32(0.0), np.float32(.0116), np.float32(.0196), np.float32(.02
            ]
 # LIGHT EMISSION FROM CH2(A2DELTA -X2PI)
 
-#  MOHLMANN  CHEM PHYS 19(1977)233
+#  MOHLMMoleculesPerCm3PerGas  CHEM PHYS 19(1977)233
 
 XNUL3G9 = [np.float32(16.0), np.float32(20.0), np.float32(40.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
            np.float32(150.), np.float32(200.), np.float32(300.), np.float32(500.),
@@ -10225,7 +10225,7 @@ YNUL3G9 = [np.float32(0.0), np.float32(.0011), np.float32(.0041), np.float32(.00
            np.float32(.0008), np.float32(.0006), np.float32(.0005), np.float32(.0004),
            ]
 
-EING9 = [np.float32(-0.0358), np.float32(0.0358), np.float32(-0.117), np.float32(0.117), np.float32(-0.148),
+EnergyLevelsG9 = [np.float32(-0.0358), np.float32(0.0358), np.float32(-0.117), np.float32(0.117), np.float32(-0.148),
          np.float32(0.148), np.float32(-0.182), np.float32(0.182), np.float32(0.366), np.float32(0.548),
          np.float32(6.85), np.float32(7.93), np.float32(8.00), np.float32(8.15), np.float32(8.48), np.float32(8.723),
          np.float32(8.865), np.float32(9.007), np.float32(9.149), np.float32(9.291), np.float32(9.433),
@@ -10237,7 +10237,7 @@ EING9 = [np.float32(-0.0358), np.float32(0.0358), np.float32(-0.117), np.float32
          np.float32(22.5), np.float32(23.5), np.float32(24.5), np.float32(25.5), np.float32(26.5), np.float32(27.5),
          np.float32(28.5), np.float32(0.0), np.float32(0.0)]
 for i in range(250 - 57):
-    EING9.append(0.0)
+    EnergyLevelsG9.append(0.0)
 gd['gas9/XEN'] = XENG9
 gd['gas9/YMT'] = YMTG9
 gd['gas9/YEL'] = YELG9
@@ -10306,7 +10306,7 @@ gd['gas9/YIONC'] = YIONCG9
 gd['gas9/Z1T'] = Z1TG9
 gd['gas9/Z6T'] = Z6TG9
 gd['gas9/EBRM'] = EBRMG9
-gd['gas9/EIN'] = EING9
+gd['gas9/EnergyLevels'] = EnergyLevelsG9
 
 XENG10 = [np.float32(0.00), np.float32(0.001), np.float32(0.002), np.float32(0.003), np.float32(0.004),
           np.float32(0.005), np.float32(0.007), np.float32(0.01), np.float32(0.014), np.float32(0.02),
@@ -10504,7 +10504,7 @@ YIONCG10 = [np.float32(0.00), np.float32(.206), np.float32(1.14), np.float32(2.3
             np.float32(1.21), np.float32(1.06), np.float32(.952), np.float32(.793),
             np.float32(.683), np.float32(.602), np.float32(.539), np.float32(.490), np.float32(.4491),
             ]
-# BREAKUP CHANNELS FROM SCALED WANG AND VIDAL CORRECTED FOR DISSOCIATION
+# BREAKUP CHMoleculesPerCm3PerGasELS FROM SCALED WANG AND VIDAL CORRECTED FOR DISSOCIATION
 
 # FROM ++ STATES
 
@@ -11192,7 +11192,7 @@ EBRMG10 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1
            ]
 # LIGHT EMISSION FROM H ALPHA
 
-#  MOHLMANN  CHEM PHYS 19(1977)233
+#  MOHLMMoleculesPerCm3PerGas  CHEM PHYS 19(1977)233
 
 XNUL1G10 = [np.float32(18.0), np.float32(20.0), np.float32(40.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
             np.float32(150.), np.float32(200.), np.float32(300.), np.float32(500.),
@@ -11205,7 +11205,7 @@ YNUL1G10 = [np.float32(0.0), np.float32(.0019), np.float32(.0073), np.float32(.0
             ]
 # LIGHT EMISSION FROM CH2(A2DELTA -X2PI)
 
-#  MOHLMANN  CHEM PHYS 19(1977)233
+#  MOHLMMoleculesPerCm3PerGas  CHEM PHYS 19(1977)233
 
 XNUL2G10 = [np.float32(16.0), np.float32(20.0), np.float32(40.0), np.float32(60.0), np.float32(80.0), np.float32(100.),
             np.float32(150.), np.float32(200.), np.float32(300.), np.float32(500.),
@@ -11216,7 +11216,7 @@ YNUL2G10 = [np.float32(0.0), np.float32(.000), np.float32(.0037), np.float32(.00
             np.float32(.0016),
             np.float32(.0007), np.float32(.0005), np.float32(.0004), np.float32(.0003),
             ]
-EING10 = [np.float32(-0.036), np.float32(0.036), np.float32(-0.108), np.float32(0.108), np.float32(-0.173),
+EnergyLevelsG10 = [np.float32(-0.036), np.float32(0.036), np.float32(-0.108), np.float32(0.108), np.float32(-0.173),
           np.float32(0.173), np.float32(0.363), np.float32(0.519), np.float32(6.60), np.float32(7.65), np.float32(7.70),
           np.float32(7.95), np.float32(8.25), np.float32(8.55), np.float32(8.85), np.float32(9.15), np.float32(9.45),
           np.float32(9.60), np.float32(9.75), np.float32(10.05), np.float32(10.35), np.float32(10.65), np.float32(10.9),
@@ -11230,7 +11230,7 @@ EING10 = [np.float32(-0.036), np.float32(0.036), np.float32(-0.108), np.float32(
           np.float32(27.5), np.float32(0.0), np.float32(0.0), ]
 
 for i in range(250 - 66):
-    EING10.append(0.0)
+    EnergyLevelsG10.append(0.0)
 
 gd['gas10/XEN'] = XENG10
 gd['gas10/YMT'] = YMTG10
@@ -11314,7 +11314,7 @@ gd['gas10/YNUL2'] = YNUL2G10
 gd['gas10/Z1T'] = Z1TG10
 gd['gas10/Z6T'] = Z6TG10
 gd['gas10/EBRM'] = EBRMG10
-gd['gas10/EIN'] = EING10
+gd['gas10/EnergyLevels'] = EnergyLevelsG10
 
 # ELASTIC                                          
 
@@ -11378,7 +11378,7 @@ YELMG11 = [np.float32(255.), np.float32(255.), np.float32(255.), np.float32(255.
            3.98e-11, 2.92e-11, 2.24e-11,
            1.77e-11, 1.44e-11, 9.97e-12, 7.33e-12, 5.61e-12, 4.43e-12, 3.59e-12,
            ]
-# ELASTIC X-SECTION ASSUMED ISOTROPIC BELOW     2.0 EV
+# ELASTIC X-SECTION ASSumED ISOTROPIC BELOW     2.0 EV
 
 YELTG11 = [np.float32(255.), np.float32(255.), np.float32(255.), np.float32(255.), np.float32(255.), np.float32(210.),
            np.float32(150.), np.float32(105.), np.float32(74.5), np.float32(52.0),
@@ -11650,13 +11650,13 @@ EBRMG11 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1
            np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
            np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
            ]
-EING11 = [np.float32(-0.032), np.float32(0.032), np.float32(-0.108), np.float32(0.108), np.float32(-0.173),
+EnergyLevelsG11 = [np.float32(-0.032), np.float32(0.032), np.float32(-0.108), np.float32(0.108), np.float32(-0.173),
           np.float32(0.173), np.float32(-0.363), np.float32(0.363), np.float32(0.519), np.float32(7.2), np.float32(8.6),
           np.float32(7.50), np.float32(8.0), np.float32(8.5), np.float32(9.0), np.float32(9.5), np.float32(10.0),
           np.float32(10.5), np.float32(11.0), np.float32(11.5), np.float32(12.0), np.float32(12.5), np.float32(13.0),
           np.float32(13.5), np.float32(0.0), np.float32(0.0)]
 for i in range(250 - 26):
-    EING11.append(0.0)
+    EnergyLevelsG11.append(0.0)
 gd['gas11/XEN'] = XENG11
 gd['gas11/YELM'] = YELMG11
 gd['gas11/YELT'] = YELTG11
@@ -11685,7 +11685,7 @@ gd['gas11/YEXC2'] = YEXC2G11
 gd['gas11/Z6T'] = Z6TG11
 gd['gas11/Z1T'] = Z1TG11
 gd['gas11/EBRM'] = EBRMG11
-gd['gas11/EIN'] = EING11
+gd['gas11/EnergyLevels'] = EnergyLevelsG11
 # ELASTIC +ROTATIONAL
 
 XENG12 = [1.e-6, np.float32(.001), np.float32(.002), np.float32(.004), np.float32(.007), np.float32(.010),
@@ -12050,7 +12050,7 @@ YVPD9G12 = [np.float32(0.00), np.float32(0.00), np.float32(.001), np.float32(0.0
             np.float32(0.10), np.float32(0.06), np.float32(0.03), np.float32(.003),
             np.float32(.001),
             ]
-#  SUM HIGHER POLYADS                      ABOVE 10EV SCALED BY 1/E
+#  Sum HIGHER POLYADS                      ABOVE 10EV SCALED BY 1/E
 
 XVPDHG12 = [np.float32(2.50), np.float32(3.00), np.float32(3.50), np.float32(3.80), np.float32(4.00), np.float32(4.50),
             np.float32(5.00), np.float32(6.00), np.float32(10.0),
@@ -12484,14 +12484,14 @@ EBRMG12 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1
 EBRMG12 = [1000., 2000., 5000., 1.E4, 2.E4, 5.E4, 1.E5, 2.E5, 5.E5, 1.E6,
            2.E6, 3.E6, 4.E6, 5.E6, 6.E6, 8.E6, 1.E7, 1.5E7, 2.E7, 3.E7,
            4.E7, 5.E7, 6.E7, 8.E7, 1.E8]
-EING12 = np.zeros(250)
+EnergyLevelsG12 = np.zeros(250)
 B0G12 = 4.838e-5
 # CALC ROTATIONAL TRANSITION ENERGIES
 for J in range(0, 60, 2):
-    EING12[J] = B0G12 * (4 * (J + 1) + 2)
-    EING12[J + 1] = -1 * EING12[J]
+    EnergyLevelsG12[J] = B0G12 * (4 * (J + 1) + 2)
+    EnergyLevelsG12[J + 1] = -1 * EnergyLevelsG12[J]
 
-EING12[60:144] = [np.float32(-0.08275), np.float32(0.08275), np.float32(-0.15937), np.float32(0.15937),
+EnergyLevelsG12[60:144] = [np.float32(-0.08275), np.float32(0.08275), np.float32(-0.15937), np.float32(0.15937),
                   np.float32(-0.17211), np.float32(0.17211), np.float32(-0.251), np.float32(0.251),
                   np.float32(-0.29126), np.float32(0.29126), np.float32(0.335), np.float32(0.422), np.float32(0.505),
                   np.float32(0.685), np.float32(0.825), np.float32(0.995), np.float32(1.160), np.float32(1.320),
@@ -12574,7 +12574,7 @@ gd['gas12/YKSHO'] = YKSHOG12
 gd['gas12/Z6T'] = Z6TG12
 gd['gas12/Z8T'] = Z8TG12
 gd['gas12/EBRM'] = EBRMG12
-gd['gas12/EIN'] = EING12
+gd['gas12/EnergyLevels'] = EnergyLevelsG12
 # ENERGY LEVELS OF WATER ( UP TO J=9) IN MILLIVOLTS
 
 ELEVG14 = [np.float32(0.0), np.float32(2.950), np.float32(4.604), np.float32(5.253), np.float32(8.690),
@@ -12782,7 +12782,7 @@ XMTG14 = [np.float32(.0001), np.float32(.001), np.float32(.002), np.float32(.003
           np.float32(250.), np.float32(300.), np.float32(400.), np.float32(500.),
           np.float32(600.), np.float32(700.), np.float32(800.), np.float32(900.), np.float32(1000.), np.float32(1250.),
           np.float32(1500.), np.float32(1750.), np.float32(2000.),
-          # ABOVE 2000 EV USE SUM OF ROTATION AND ELASTIC
+          # ABOVE 2000 EV USE Sum OF ROTATION AND ELASTIC
 
           np.float32(2000.0001),
           np.float32(2500.), np.float32(3000.), np.float32(3500.), np.float32(4000.), np.float32(4500.),
@@ -12811,7 +12811,7 @@ YMTG14 = [np.float32(38000.), np.float32(35880.), np.float32(17360.), np.float32
           np.float32(.466), np.float32(.356), np.float32(.228), np.float32(.160),
           np.float32(.118), np.float32(.0908), np.float32(.0718), np.float32(.0581), np.float32(.0479),
           np.float32(.0314), np.float32(.0219), np.float32(.0159), np.float32(.0119),
-          # ABOVE 2000EV USE SUM OF ROTATION AND ELASTIC
+          # ABOVE 2000EV USE Sum OF ROTATION AND ELASTIC
 
           np.float32(.0200),
           np.float32(.0136), np.float32(.00990), np.float32(.00755), np.float32(.00596), np.float32(.00484),
@@ -13140,7 +13140,7 @@ YVIB1G14 = [np.float32(0.00), np.float32(1.47), np.float32(1.56), np.float32(1.5
             np.float32(.129), np.float32(.135), np.float32(.140), np.float32(.146), np.float32(.155), np.float32(.112),
             np.float32(.086),
             ]
-# SUM OF STRETCH MODES 001 AND 100
+# Sum OF STRETCH MODES 001 AND 100
 
 XVIB2G14 = [np.float32(.4535), np.float32(0.53), np.float32(0.58), np.float32(0.63), np.float32(0.80), np.float32(1.00),
             np.float32(2.10), np.float32(3.00), np.float32(4.00), np.float32(5.00),
@@ -13152,7 +13152,7 @@ YVIB2G14 = [np.float32(0.00), np.float32(1.93), np.float32(2.00), np.float32(1.9
             np.float32(.421), np.float32(.447), np.float32(.455), np.float32(.426), np.float32(.361), np.float32(.280),
             np.float32(.163), np.float32(.069),
             ]
-# SUM OF VIBRATION HARMONICS
+# Sum OF VIBRATION HARMONICS
 
 XVIB3G14 = [np.float32(.919), np.float32(2.00), np.float32(3.00), np.float32(4.00), np.float32(5.00), np.float32(6.00),
             np.float32(7.00), np.float32(8.00), np.float32(9.00), np.float32(10.0),
@@ -13503,7 +13503,7 @@ YNUL2G14 = [np.float32(0.00), np.float32(.0187), np.float32(.0733), np.float32(.
             np.float32(.0224), np.float32(.0206), np.float32(.0196), np.float32(.0179), np.float32(.0158),
             np.float32(.0149), np.float32(.0131), np.float32(.0121),
             ]
-# H ALPHA 3-2   656.3 NM MOHLMANN AND DEHEER  CHEM.PHYS. 40(1979)157
+# H ALPHA 3-2   656.3 NM MOHLMMoleculesPerCm3PerGas AND DEHEER  CHEM.PHYS. 40(1979)157
 
 XNUL3G14 = [np.float32(18.0), np.float32(20.0), np.float32(30.0), np.float32(40.0), np.float32(50.0), np.float32(60.0),
             np.float32(70.0), np.float32(80.0), np.float32(90.0), np.float32(100.),
@@ -13599,7 +13599,7 @@ gd['gas14/ELEV'] = ELEVG14
 gd['gas14/SALPHA'] = SALPHAG14
 gd['gas14/AJIN'] = AJING14
 gd['gas14/IMAP'] = IMAPG14
-#  ELASTIC  X-SECTIONS  ASSUMED ISOTROPIC BELOW 2.0EV
+#  ELASTIC  X-SECTIONS  ASSumED ISOTROPIC BELOW 2.0EV
 
 XELAG15 = [np.float32(0.00), np.float32(.001), np.float32(.003), np.float32(.005), np.float32(.007), np.float32(.010),
            np.float32(.015), np.float32(.020), np.float32(.025), np.float32(0.03),
@@ -14852,7 +14852,7 @@ YATTG15 = [np.float32(0.00), np.float32(.000187), np.float32(.000504), np.float3
            np.float32(.00120), np.float32(.000886), np.float32(.000634), np.float32(.000382),
            np.float32(.000202), np.float32(.000072),
            ]
-#  EXCITATION TO VIBRATIONALLY SUMMED A1 DELTA G   ALLAN 1995
+#  EXCITATION TO VIBRATIONALLY SumMED A1 DELTA G   ALLAN 1995
 
 # SCALED BY 1/E**2 ABOVE 40 EV
 
@@ -14875,7 +14875,7 @@ YEXC1G15 = [np.float32(0.00), np.float32(.00102), np.float32(.00407), np.float32
             np.float32(.0488), np.float32(.0448), np.float32(.0407), np.float32(.0346), np.float32(.0305),
             np.float32(.0249), np.float32(.0214), np.float32(.0188), np.float32(.0153), np.float32(.0122),
             ]
-#  EXCITATION TO VIBRATIONALLY SUMMED  B1 SIGMA G+  ALLAN 1995
+#  EXCITATION TO VIBRATIONALLY SumMED  B1 SIGMA G+  ALLAN 1995
 
 # SCALED BY 1/E**2 ABOVE 17 EV
 
@@ -14896,7 +14896,7 @@ YEXC2G15 = [np.float32(0.0), np.float32(.00102), np.float32(.00214), np.float32(
             np.float32(.0132), np.float32(.0112), np.float32(.00906), np.float32(.00733), np.float32(.00631),
             np.float32(.00519),
             ]
-# EXCITATION SUM OF C1SIGMA A!3DELTA AND A3SIGMA  HERZBERG CONTINUUM
+# EXCITATION Sum OF C1SIGMA A!3DELTA AND A3SIGMA  HERZBERG CONTINUUM
 
 # SPLIT INTO THREE ENERGY LOSSES AT 5.5 6.0 AND 6.5 EV
 
@@ -14934,7 +14934,7 @@ YEXC5G15 = [np.float32(0.00), np.float32(.0183), np.float32(.0254), np.float32(.
             np.float32(.0305),
             np.float32(.0295), np.float32(.0265), np.float32(.0163), np.float32(.0116),
             ]
-# SUM OF TRIPLET STATES AT 8.20 EV AND RESONANT PART OF S-R CONTINUUM
+# Sum OF TRIPLET STATES AT 8.20 EV AND RESONANT PART OF S-R CONTINUUM
 
 XEXC6G15 = [np.float32(8.20), np.float32(10.0), np.float32(11.0), np.float32(12.0), np.float32(13.0), np.float32(15.0),
             np.float32(17.0), np.float32(20.0), np.float32(23.0), np.float32(27.0),
@@ -14954,7 +14954,7 @@ YEXC7G15 = [np.float32(0.00), np.float32(.022), np.float32(.038), np.float32(.05
             np.float32(.056), np.float32(.051), np.float32(.042), np.float32(.035),
             np.float32(.030), np.float32(.026), np.float32(.017), np.float32(.013),
             ]
-# TRIPLET STATE SUM BELOW IONISATION
+# TRIPLET STATE Sum BELOW IONISATION
 
 XEXC8G15 = [np.float32(10.6), np.float32(12.0), np.float32(13.0), np.float32(14.0), np.float32(16.0), np.float32(18.0),
             np.float32(20.0), np.float32(24.0), np.float32(28.0), np.float32(32.0),
@@ -14964,7 +14964,7 @@ YEXC8G15 = [np.float32(0.0), np.float32(.0878), np.float32(.130), np.float32(.14
             np.float32(.173), np.float32(.156), np.float32(.135), np.float32(.111),
             np.float32(.097), np.float32(.087), np.float32(.067), np.float32(.055), np.float32(.040),
             ]
-# TRIPLET STATE SUM ABOVE IONISATION
+# TRIPLET STATE Sum ABOVE IONISATION
 
 XEXC9G15 = [np.float32(13.1), np.float32(14.0), np.float32(15.0), np.float32(16.0), np.float32(18.0), np.float32(20.0),
             np.float32(24.0), np.float32(28.0), np.float32(32.0), np.float32(36.0),
@@ -14999,13 +14999,13 @@ YROTG15 = [np.float32(0.00), np.float32(0.00), np.float32(0.00), np.float32(0.00
            np.float32(.0048), np.float32(0.00),
            ]
 B0 = 1.783e-4
-EING15 = np.zeros(250)
-EING15[0] = -10 * B0
-EING15[24] = -1 * EING15[0]
+EnergyLevelsG15 = np.zeros(250)
+EnergyLevelsG15[0] = -10 * B0
+EnergyLevelsG15[24] = -1 * EnergyLevelsG15[0]
 for J in range(2, 25):
-    EING15[J + 24 - 1] = EING15[24] + (J-1) * 8.0 * B0
-    EING15[J - 1] = -1 * EING15[J + 24 - 1]
-EING15[48:148] = [np.float32(-0.193), np.float32(0.193), np.float32(0.385), np.float32(0.568), np.float32(0.749),
+    EnergyLevelsG15[J + 24 - 1] = EnergyLevelsG15[24] + (J-1) * 8.0 * B0
+    EnergyLevelsG15[J - 1] = -1 * EnergyLevelsG15[J + 24 - 1]
+EnergyLevelsG15[48:148] = [np.float32(-0.193), np.float32(0.193), np.float32(0.385), np.float32(0.568), np.float32(0.749),
                   np.float32(0.929), np.float32(0.977), np.float32(1.108), np.float32(1.282), np.float32(1.458),
                   np.float32(1.627), np.float32(1.629), np.float32(1.798), np.float32(1.965), np.float32(2.127),
                   np.float32(2.283), np.float32(2.430), np.float32(2.585), np.float32(2.739), np.float32(2.883),
@@ -15139,17 +15139,17 @@ gd['gas15/XKSH'] = XKSHG15
 gd['gas15/YKSH'] = YKSHG15
 gd['gas15/Z8T'] = Z8TG15
 gd['gas15/EBRM'] = EBRMG15
-gd['gas15/EIN'] = EING15
+gd['gas15/EnergyLevels'] = EnergyLevelsG15
 B0 = 2.4668e-4
 
 # CALC ROTATIONAL TRANSITION ENERGIES
-EING16 = np.zeros(250)
+EnergyLevelsG16 = np.zeros(250)
 for J in range(1, 39):
     I = J - 1
-    EING16[J + 38 - 1] = B0 * (4.0 * I + 6.0)
-    EING16[J - 1] = -1 * EING16[J + 38 - 1]
+    EnergyLevelsG16[J + 38 - 1] = B0 * (4.0 * I + 6.0)
+    EnergyLevelsG16[J - 1] = -1 * EnergyLevelsG16[J + 38 - 1]
 
-EING16[76:128] = [np.float32(-0.2889), np.float32(0.2889), np.float32(0.5742), np.float32(0.8559), np.float32(1.1342),
+EnergyLevelsG16[76:128] = [np.float32(-0.2889), np.float32(0.2889), np.float32(0.5742), np.float32(0.8559), np.float32(1.1342),
                   np.float32(1.4088), np.float32(1.6801), np.float32(1.9475), np.float32(2.2115), np.float32(2.4718),
                   np.float32(2.7284), np.float32(2.9815), np.float32(3.2310), np.float32(3.4769), np.float32(3.7191),
                   np.float32(3.9576), np.float32(6.725), np.float32(7.360), np.float32(7.744), np.float32(8.050),
@@ -15161,7 +15161,7 @@ EING16[76:128] = [np.float32(-0.2889), np.float32(0.2889), np.float32(0.5742), n
                   np.float32(14.36), np.float32(14.45), np.float32(14.839), np.float32(15.2), np.float32(15.6),
                   np.float32(16.6), np.float32(0.0), ]
 
-gd['gas16/EIN'] = EING16
+gd['gas16/EnergyLevels'] = EnergyLevelsG16
 XELAG16 = [np.float32(0.00), np.float32(.001), np.float32(.0015), np.float32(.0018), np.float32(.002),
            np.float32(.0025), np.float32(.003), np.float32(.004), np.float32(.005), np.float32(.006),
            np.float32(.007), np.float32(.008), np.float32(.009), np.float32(.010), np.float32(.012), np.float32(.015),
@@ -16241,13 +16241,13 @@ YSG15MG16 = [np.float32(0.81), np.float32(0.81), np.float32(0.71), np.float32(0.
 
 #
 
-#  SUM OF HIGH ENERGY SINGLETS   ENERGY LOSS=15.2  F=0.1152
+#  Sum OF HIGH ENERGY SINGLETS   ENERGY LOSS=15.2  F=0.1152
 
 # USE BEF SCALING IN SUBROUTINE
 
 #
 
-# SUM OF EXCITATIONS TO EXCITED IONS AND MOLECULAR BREAKUP.
+# Sum OF EXCITATIONS TO EXCITED IONS AND MOLECULAR BREAKUP.
 
 #    ENERGY LOSS=15.5EV
 
@@ -16977,7 +16977,7 @@ XB3S4G21 = [np.float32(10.0), np.float32(15.2), np.float32(15.20001), np.float32
 YB3S4G21 = [np.float32(0.00), np.float32(0.00), np.float32(0.63), np.float32(.516), np.float32(.353), np.float32(.153),
             np.float32(.069), np.float32(.035),
             ]
-# C3 PI V=0-18 SUMMED VIBRATIONS METASTABLE LEVEL
+# C3 PI V=0-18 SumMED VIBRATIONS METASTABLE LEVEL
 
 # SCALED BY 1/E**3 ABOVE 30 EV
 
@@ -16985,7 +16985,7 @@ XC3PIG21 = [np.float32(11.779), np.float32(15.0), np.float32(17.5), np.float32(2
             ]
 YC3PIG21 = [np.float32(0.00), np.float32(0.09), np.float32(.126), np.float32(.135), np.float32(.072),
             ]
-# A3 SIGMA V=0-17 SUMMED VIBRATIONS
+# A3 SIGMA V=0-17 SumMED VIBRATIONS
 
 # SCALED BY 1/E**3 ABOVE 30 EV
 
@@ -16993,7 +16993,7 @@ XA3SGG21 = [np.float32(11.793), np.float32(15.0), np.float32(17.5), np.float32(2
             ]
 YA3SGG21 = [np.float32(0.00), np.float32(.072), np.float32(.081), np.float32(0.09), np.float32(.027),
             ]
-# E3 SIGMA V=0-10 SUMMED VIBRATIONS
+# E3 SIGMA V=0-10 SumMED VIBRATIONS
 
 # SCALED BY 1/E**3 ABOVE 30 EV
 
@@ -17001,7 +17001,7 @@ XE3SGG21 = [np.float32(13.253), np.float32(15.0), np.float32(17.5), np.float32(2
             ]
 YE3SGG21 = [np.float32(0.00), np.float32(.0108), np.float32(.018), np.float32(.0225), np.float32(.0117),
             ]
-# EF1 SIGMA V=0-19 SUMMED VIBRATIONS
+# EF1 SIGMA V=0-19 SumMED VIBRATIONS
 
 #  BORN SCALED ABOVE XEFSG(NEFSG)  EV
 
@@ -17057,23 +17057,23 @@ DISD1PG21 = [5.95e-9, 1.39e-8, 1.85e-8, 3.96e-8, 2.47e-6, 2.02e-5,
 
 # NEUTRAL
 
-# B1 SIGMA                  OSCILLATOR SUM V=0-36   F=0.310770
+# B1 SIGMA                  OSCILLATOR Sum V=0-36   F=0.310770
 
-# C1 PI                     OSCILLATOR SUM V=0-13   F=0.355995
+# C1 PI                     OSCILLATOR Sum V=0-13   F=0.355995
 
-# B!1 SIGMA                 OSCILLATOR SUM V=0-8    F=0.044610
+# B!1 SIGMA                 OSCILLATOR Sum V=0-8    F=0.044610
 
-# D1 PI                     OSCILLATOR SUM V=0-15   F=0.074070
+# D1 PI                     OSCILLATOR Sum V=0-15   F=0.074070
 
-# B!!1 SIGMA                OSCILLATOR SUM V=0-6    F=0.022300
+# B!!1 SIGMA                OSCILLATOR Sum V=0-6    F=0.022300
 
-# D!1 PI                    OSCILLATOR SUM V=0-3    F=0.014500
+# D!1 PI                    OSCILLATOR Sum V=0-3    F=0.014500
 
-# B!!!1 SIGMA + D!!1 PI     OSCILLATOR SUM          F=0.014500
+# B!!!1 SIGMA + D!!1 PI     OSCILLATOR Sum          F=0.014500
 
-# B!!!!1 SIGMA + D!!!1 PI   OSCILLATOR SUM          F=0.010100
+# B!!!!1 SIGMA + D!!!1 PI   OSCILLATOR Sum          F=0.010100
 
-# B!!!!!1 SIGMA + D!!!!1 PI OSCILLATOR SUM          F=0.005000
+# B!!!!!1 SIGMA + D!!!!1 PI OSCILLATOR Sum          F=0.005000
 
 # CONTINUUM EXCITATION                              F=0.026800
 
@@ -17081,11 +17081,11 @@ DISD1PG21 = [5.95e-9, 1.39e-8, 1.85e-8, 3.96e-8, 2.47e-6, 2.02e-5,
 
 #
 
-#                 SUM EXCITATION OSCILLATOR         F=0.895645
+#                 Sum EXCITATION OSCILLATOR         F=0.895645
 
-#                 SUM IONISATION OSCILLATOR         F=1.1219
+#                 Sum IONISATION OSCILLATOR         F=1.1219
 
-#           TOTAL OSCILLATOR SUM           F=2.017545
+#           TOTAL OSCILLATOR Sum           F=2.017545
 
 # -----------------------------------------------------------------------
 
@@ -17197,7 +17197,7 @@ EBRMG21 = [np.float32(1000.), np.float32(2000.), np.float32(5000.), np.float32(1
            np.float32(1.E7), np.float32(1.5E7), np.float32(2.E7), np.float32(3.E7),
            np.float32(4.E7), np.float32(5.E7), np.float32(6.E7), np.float32(8.E7), np.float32(1.E8),
            ]
-EING21 = [np.float32(-.043928), np.float32(-.072741), np.float32(-.10085), np.float32(-.12797), np.float32(0.043928),
+EnergyLevelsG21 = [np.float32(-.043928), np.float32(-.072741), np.float32(-.10085), np.float32(-.12797), np.float32(0.043928),
           np.float32(0.072741), np.float32(0.10085), np.float32(0.12797), np.float32(0.515916), np.float32(0.568),
           np.float32(1.00265), np.float32(1.46083), np.float32(8.0), np.float32(9.0), np.float32(9.5), np.float32(10.0),
           np.float32(11.189), np.float32(11.353), np.float32(11.512), np.float32(11.666), np.float32(11.817),
@@ -17220,7 +17220,7 @@ EING21 = [np.float32(-.043928), np.float32(-.072741), np.float32(-.10085), np.fl
           np.float32(14.899), np.float32(15.060), np.float32(15.150), np.float32(15.300), np.float32(15.800),
           np.float32(32.0), np.float32(0.0), ]
 for i in range(250 - 108):
-    EING21.append(0.0)
+    EnergyLevelsG21.append(0.0)
 
 gd['gas21/XELM'] = XELMG21
 gd['gas21/YELM'] = YELMG21
@@ -17270,7 +17270,7 @@ gd['gas21/DISD1P'] = DISD1PG21
 gd['gas21/DISB1S'] = DISB1SG21
 gd['gas21/Z1T'] = Z1TG21
 gd['gas21/EBRM'] = EBRMG21
-gd['gas21/EIN'] = EING21
+gd['gas21/EnergyLevels'] = EnergyLevelsG21
 
 XENG22 = [np.float32(0.00), np.float32(0.01), np.float32(0.02), np.float32(0.03), np.float32(0.04), np.float32(.046),
           np.float32(0.05), np.float32(0.06), np.float32(0.07), np.float32(0.08),
@@ -17557,12 +17557,12 @@ YIONG22 = [np.float32(0.00), np.float32(.034), np.float32(.069), np.float32(.104
            np.float32(.282), np.float32(.271), np.float32(.257), np.float32(.247),
            np.float32(.0247), np.float32(.00247),
            ]
-EING22 = [np.float32(-.0226), np.float32(-.0377), np.float32(-.0528), np.float32(0.0226), np.float32(0.0377),
+EnergyLevelsG22 = [np.float32(-.0226), np.float32(-.0377), np.float32(-.0528), np.float32(0.0226), np.float32(0.0377),
           np.float32(0.0528), np.float32(0.0679), np.float32(0.0830), np.float32(0.0981), np.float32(0.371),
           np.float32(0.391), np.float32(0.735), np.float32(1.085), np.float32(8.85), np.float32(12.0), ]
 
 for i in range(250 - 15):
-    EING22.append(0.0)
+    EnergyLevelsG22.append(0.0)
 gd['gas22/XEN'] = XENG22
 gd['gas22/YXSEC'] = YXSECG22
 gd['gas22/XROT0'] = XROT0G22
@@ -17593,7 +17593,7 @@ gd['gas22/XATT'] = XATTG22
 gd['gas22/YATT'] = YATTG22
 gd['gas22/XION'] = XIONG22
 gd['gas22/YION'] = YIONG22
-gd['gas22/EIN'] = EING22
+gd['gas22/EnergyLevels'] = EnergyLevelsG22
 
 XENG25 = [0.00, .004, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08,
           0.09, 0.10, 0.11, 0.12, 0.13, 0.14, 0.16, 0.18, 0.20, 0.24,
@@ -17689,10 +17689,10 @@ YEXC1G25 = [0.00, 0.077, 0.16, 0.23, 0.29, 0.34, 0.42, 0.64, 0.97, 1.43,
             6.82, 6.82, 6.77, 6.44, 4.79, 3.91, 2.86, 2.20, 1.87, 1.65,
             1.16, 0.68, 0.40, 0.20, .038]
 YEXC1G25 = [np.float32(i) for i in YEXC1G25]
-EING25 = [-0.051, 0.051, 0.137, 0.180, 0.349, 0.529, 7.70, 8.5, ]
-EING25 = [np.float32(i) for i in EING25]
+EnergyLevelsG25 = [-0.051, 0.051, 0.137, 0.180, 0.349, 0.529, 7.70, 8.5, ]
+EnergyLevelsG25 = [np.float32(i) for i in EnergyLevelsG25]
 for J in range(250 - 8):
-    EING25.append(0.0)
+    EnergyLevelsG25.append(0.0)
 gd['gas25/XEN'] = XENG25
 gd['gas25/YXSEC'] = YXSECG25
 gd['gas25/XION'] = XIONG25
@@ -17711,6 +17711,6 @@ gd['gas25/XEXC'] = XEXCG25
 gd['gas25/YEXC'] = YEXCG25
 gd['gas25/XEXC1'] = XEXC1G25
 gd['gas25/YEXC1'] = YEXC1G25
-gd['gas25/EIN'] = EING25
+gd['gas25/EnergyLevels'] = EnergyLevelsG25
 
 np.save("gases", gd)

@@ -21,57 +21,57 @@ from libc.string cimport memset
 from Gas cimport Gas
 
 cdef void callGASF(Gas* GAS):
-    if GAS.NGS == 1:
+    if GAS.GasNumber == 1:
         Gas1(GAS)
-    elif GAS.NGS == 2:
+    elif GAS.GasNumber == 2:
         Gas2(GAS)
-    elif GAS.NGS == 3:
+    elif GAS.GasNumber == 3:
         Gas3(GAS)
-    elif GAS.NGS == 4:
+    elif GAS.GasNumber == 4:
         Gas4(GAS)
-    elif GAS.NGS == 5:
+    elif GAS.GasNumber == 5:
         Gas5(GAS)
-    elif GAS.NGS == 6:
+    elif GAS.GasNumber == 6:
         Gas6(GAS)
-    elif GAS.NGS == 7:
+    elif GAS.GasNumber == 7:
         Gas7(GAS)
-    elif GAS.NGS == 8:
+    elif GAS.GasNumber == 8:
         Gas8(GAS)
-    elif GAS.NGS == 9:
+    elif GAS.GasNumber == 9:
         Gas9(GAS)
-    elif GAS.NGS == 10:
+    elif GAS.GasNumber == 10:
         Gas10(GAS)
-    elif GAS.NGS == 11:
+    elif GAS.GasNumber == 11:
         Gas11(GAS)
-    elif GAS.NGS == 12:
+    elif GAS.GasNumber == 12:
         Gas12(GAS)
-    elif GAS.NGS == 14:
+    elif GAS.GasNumber == 14:
         Gas14(GAS)
-    elif GAS.NGS == 15:
+    elif GAS.GasNumber == 15:
         Gas15(GAS)
-    elif GAS.NGS == 16:
+    elif GAS.GasNumber == 16:
         Gas16(GAS)
-    elif GAS.NGS == 21:
+    elif GAS.GasNumber == 21:
         Gas21(GAS)
-    elif GAS.NGS == 22:
+    elif GAS.GasNumber == 22:
         Gas22(GAS)
-    elif GAS.NGS == 25:
+    elif GAS.GasNumber == 25:
         Gas25(GAS)
 
 cdef class Gasmix:
-    def InitWithInfo(self, NGS, QIN, NIN, PenningFraction, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
-                     WhichAngularModel, EnergyStep, EFINAL, AKT, RhydbergConst, TemperatureC, PRESSURE, EnablePenning,PIR2):
+    def InitWithInfo(self, GasNumber, InelasticCrossSectionPerGas, N_Inelastic, PenningFraction, EG, SqrtEnergy, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
+                     WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy, RhydbergConst, TemperatureC, Pressure, EnablePenning,PIR2):
         '''This functions simply initiates the gas data from the parameters. This functions fills the output arrays to zeros.'''
         cdef int i,j;
         for i in range(6):
-            self.Gases[i].NGS = NGS[i]
+            self.Gases[i].GasNumber = GasNumber[i]
             for j in range(250):
-                self.Gases[i].QIN[j][:] = QIN[i][j]
-            self.Gases[i].NIN = NIN[i]
+                self.Gases[i].InelasticCrossSectionPerGas[j][:] = InelasticCrossSectionPerGas[i][j]
+            self.Gases[i].N_Inelastic = N_Inelastic[i]
             for j in range(3):
                 self.Gases[i].PenningFraction[j][:] = PenningFraction[i][j]
             self.Gases[i].EG = EG
-            self.Gases[i].EROOT = EROOT
+            self.Gases[i].SqrtEnergy = SqrtEnergy
             self.Gases[i].QT1 = QT1
             self.Gases[i].QT2 = QT2
             self.Gases[i].QT3 = QT3
@@ -81,32 +81,32 @@ cdef class Gasmix:
             self.Gases[i].NumberOfGases = NumberOfGases
             self.Gases[i].EnergySteps = EnergySteps
             self.Gases[i].WhichAngularModel = WhichAngularModel
-            self.Gases[i].EFINAL = EFINAL
-            self.Gases[i].AKT = AKT
+            self.Gases[i].FinalEnergy = FinalEnergy
+            self.Gases[i].ThermalEnergy = ThermalEnergy
             self.Gases[i].EnergyStep = EnergyStep
             self.Gases[i].RhydbergConst = RhydbergConst
             self.Gases[i].TemperatureC = TemperatureC
-            self.Gases[i].PRESSURE = PRESSURE
+            self.Gases[i].Pressure = Pressure
             self.Gases[i].EnablePenning = EnablePenning
             self.Gases[i].PIR2 = PIR2
             memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
-            memset(self.Gases[i].QION, 0, 30*4000 * sizeof(double))
-            memset(self.Gases[i].PEQION, 0, 30*4000 * sizeof(double))
-            memset(self.Gases[i].QATT, 0, 8*4000 * sizeof(double))
-            memset(self.Gases[i].QNULL, 0, 10*4000 * sizeof(double))
+            memset(self.Gases[i].IonizationCrossSection, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].PEIonizationCrossSection, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].AttachmentCrossSection, 0, 8*4000 * sizeof(double))
+            memset(self.Gases[i].NullCrossSection, 0, 10*4000 * sizeof(double))
 
 
 
 
 
 
-    def setCommons(self, NGS, EG, EROOT, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
-                   WhichAngularModel, EnergyStep, EFINAL, AKT, RhydbergConst, TemperatureC, PRESSURE, EnablePenning,PIR2):
+    def setCommons(self, GasNumber, EG, SqrtEnergy, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
+                   WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy, RhydbergConst, TemperatureC, Pressure, EnablePenning,PIR2):
         '''This functions is used to fill the common main gas mixing inputs.'''
         for i in range(6):
-            self.Gases[i].NGS = NGS[i]
+            self.Gases[i].GasNumber = GasNumber[i]
             self.Gases[i].EG[:] = EG[:]
-            self.Gases[i].EROOT[:] = EROOT[:]
+            self.Gases[i].SqrtEnergy[:] = SqrtEnergy[:]
             self.Gases[i].QT1[:] = QT1[:]
             self.Gases[i].QT2[:] = QT2[:]
             self.Gases[i].QT3[:] = QT3[:]
@@ -116,18 +116,18 @@ cdef class Gasmix:
             self.Gases[i].NumberOfGases = NumberOfGases
             self.Gases[i].EnergySteps = EnergySteps
             self.Gases[i].WhichAngularModel = WhichAngularModel
-            self.Gases[i].EFINAL = EFINAL
-            self.Gases[i].AKT = AKT
+            self.Gases[i].FinalEnergy = FinalEnergy
+            self.Gases[i].ThermalEnergy = ThermalEnergy
             self.Gases[i].EnergyStep = EnergyStep
             self.Gases[i].RhydbergConst = RhydbergConst
             self.Gases[i].TemperatureC = TemperatureC
-            self.Gases[i].PRESSURE = PRESSURE
+            self.Gases[i].Pressure = Pressure
             self.Gases[i].EnablePenning = EnablePenning
             memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
-            memset(self.Gases[i].QION, 0, 30*4000 * sizeof(double))
-            memset(self.Gases[i].PEQION, 0, 30*4000 * sizeof(double))
-            memset(self.Gases[i].QATT, 0, 8*4000 * sizeof(double))
-            memset(self.Gases[i].QNULL, 0, 10*4000 * sizeof(double))
+            memset(self.Gases[i].IonizationCrossSection, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].PEIonizationCrossSection, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].AttachmentCrossSection, 0, 8*4000 * sizeof(double))
+            memset(self.Gases[i].NullCrossSection, 0, 10*4000 * sizeof(double))
     def Run(self):
         '''This functions calls the corresponding gas functions.'''
         cdef int i

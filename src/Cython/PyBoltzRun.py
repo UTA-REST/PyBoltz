@@ -2,12 +2,13 @@ import numpy as np
 from PyBoltz import PyBoltz
 
 #Data type to store results with uncertainties
+# Initialized with val and % error
 class PBRes:
     err=0
     val=0
     def __init__(self, a=0,b=0):
         self.val=a
-        self.err=b
+        self.err=b*a/100.
     def __str__(self):
         return "value: " + str(self.val)+ "; error: "+ str(self.err)
 
@@ -15,7 +16,7 @@ class PBRes:
 class PyBoltzRun:
     
     #Default settings for running PyBolz
-    PBSettings   ={'Gases'                 :['XENON','HELIUM4'],
+    PBSettings   ={'Gases'                 :['NEON','CO2'],
                    'Fractions'             :[90,10],
                    'Max_collisions'        :4e7,
                    'EField_Vcm'            :100, 

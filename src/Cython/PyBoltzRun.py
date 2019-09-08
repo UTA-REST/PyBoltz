@@ -87,7 +87,9 @@ class PyBoltzRun:
     # Extract Outputs into Output Dictionary
     def ProcessOutputs(self, MBObject):
         Outputs={}
-        Outputs['Drift_vel']      = PBRes([MBObject.VelocityX,MBObject.VelocityY,MBObject.VelocityZ],[MBObject.VelocityErrorX,MBObject.VelocityErrorY,MBObject.VelocityErrorZ])
+        Outputs['Drift_vel']      = PBRes(
+            np.array([MBObject.VelocityX,MBObject.VelocityY,MBObject.VelocityZ]),
+            np.array([MBObject.VelocityErrorX,MBObject.VelocityErrorY,MBObject.VelocityErrorZ]))
         Outputs['DT']             = PBRes(MBObject.TransverseDiffusion, MBObject.TransverseDiffusionError)
         Outputs['DL']             = PBRes(MBObject.LongitudinalDiffusion, MBObject.LongitudinalDiffusionError)
         Outputs['DT1']            = PBRes(MBObject.TransverseDiffusion1,MBObject.TransverseDiffusion1Error)
@@ -100,7 +102,7 @@ class PyBoltzRun:
         DTensorErr  = [[MBObject.ErrorDiffusionX, MBObject.ErrorDiffusionXY, MBObject.ErrorDiffusionXZ],
                        [MBObject.ErrorDiffusionXY, MBObject.ErrorDiffusionY, MBObject.ErrorDiffusionYZ],
                        [MBObject.ErrorDiffusionXZ, MBObject.ErrorDiffusionYZ, MBObject.ErrorDiffusionZ]]
-        Outputs['DTensor']       = PBRes(DTensor, DTensorErr)
+        Outputs['DTensor']       = PBRes(np.array(DTensor), np.array(DTensorErr))
 
         return Outputs
 

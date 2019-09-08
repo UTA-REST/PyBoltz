@@ -35,7 +35,7 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
 @cython.wraparound(False)
 cpdef run(PyBoltz Object):
     """
-    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  TemperatureCentigrade.
+    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at Temp =  TemperatureCentigrade.
 
     This function is used when there is no magnetic field.     
     
@@ -55,9 +55,9 @@ cpdef run(PyBoltz Object):
     Object.TimeSum = 0.0
     cdef long long I, NumDecorLengths, NumCollisions, IEXTRA, MaxBoltzNumsUsed, K, J, CollisionsPerSample, iSample, iCollision, GasIndex, iEnergyBin, iTimeBin, CollsBackToLook, IPT, iCorr, DecorDistance
     cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumVX, SumVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SumVX_LastSample, SumVY_LastSample, SME2_LastSample, TDash,TDiff
-    cdef double ABSFAKEI, DirCosineZ1, DirCosineX1, DirCosineY1, VelXBefore, VelYBefore, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, Theta,
+    cdef double AbsFakeIoniz, DirCosineZ1, DirCosineX1, DirCosineY1, VelXBefore, VelYBefore, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, Theta,
     cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VelocityX, VelocityY, VelocityZ, COMEnergy, Test1, Test2, Test3, VelocityInCOM
-    cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EPSI,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle, VXLAB, VYLAB, VZLAB
+    cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EpsilonOkhr,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle, VXLab, VYLab, VZLab
     cdef double SumV2_Samples, SumV_Samples, SumE2_Samples, SumE_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, Attachment, Ionization, EAfter
     cdef double NumSamples
     I = 0
@@ -129,14 +129,14 @@ cpdef run(PyBoltz Object):
     MaxBoltzNumsUsed = 0
     TDash = 0.0
     cdef int i = 0
-    cdef double ** TEMP = <double **> malloc(6 * sizeof(double *))
+    cdef double ** Temp = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
-        TEMP[i] = <double *> malloc(4000 * sizeof(double))
+        Temp[i] = <double *> malloc(4000 * sizeof(double))
     for K in range(6):
         for J in range(4000):
-            TEMP[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyN[K][J]
+            Temp[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyN[K][J]
 
-    ABSFAKEI = 0.0
+    AbsFakeIoniz = 0.0
     Object.FakeIonizations = 0
 
     # Initial direction cosines
@@ -241,7 +241,7 @@ cpdef run(PyBoltz Object):
                 Test1 = Object.TotalCollisionFrequency[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
 
                 if RandomNum > Test1:
-                    Test2 = TEMP[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
+                    Test2 = Temp[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
                     if RandomNum < Test2:
                         if Object.NumMomCrossSectionPointsNull[GasIndex] == 0:
                             continue
@@ -254,7 +254,7 @@ cpdef run(PyBoltz Object):
                         Object.ICOLNN[GasIndex][I] += 1
                         continue
                     else:
-                        Test3 = (TEMP[GasIndex][iEnergyBin] + ABSFAKEI) / Object.MaxCollisionFreq[GasIndex]
+                        Test3 = (Temp[GasIndex][iEnergyBin] + AbsFakeIoniz) / Object.MaxCollisionFreq[GasIndex]
                         if RandomNum < Test3:
                             # Increment fake ionization counter
                             Object.FakeIonizations += 1
@@ -465,16 +465,16 @@ cpdef run(PyBoltz Object):
 
             # Transform velocity vectors to lab frame
             CONST12 = Sqrt2M * sqrt(EBefore)
-            VXLAB = DirCosineX1 * CONST12 + GasVelX
-            VYLAB = DirCosineY1 * CONST12 + GasVelY
-            VZLAB = DirCosineZ1 * CONST12 + GasVelZ
+            VXLab = DirCosineX1 * CONST12 + GasVelX
+            VYLab = DirCosineY1 * CONST12 + GasVelY
+            VZLab = DirCosineZ1 * CONST12 + GasVelZ
 
             # Calculate energy and direction cosines in lab frame
-            EBefore = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / TwoM
+            EBefore = (VXLab * VXLab + VYLab * VYLab + VZLab * VZLab) / TwoM
             VelocityInCOM = (Sqrt2M * sqrt(EBefore))
-            DirCosineX1 = VXLAB / VelocityInCOM
-            DirCosineY1 = VYLAB / VelocityInCOM
-            DirCosineZ1 = VZLAB / VelocityInCOM
+            DirCosineX1 = VXLab / VelocityInCOM
+            DirCosineY1 = VYLab / VelocityInCOM
+            DirCosineZ1 = VZLab / VelocityInCOM
 
 
 
@@ -598,6 +598,6 @@ cpdef run(PyBoltz Object):
     free(DiffYYPerSample)
     free(DiffZZPerSample)
     for i in range(6):
-        free(TEMP[i])
-    free(TEMP)
+        free(Temp[i])
+    free(Temp)
     return Object

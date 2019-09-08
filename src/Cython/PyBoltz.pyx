@@ -213,7 +213,7 @@ cdef class PyBoltz:
             self.TransverseDiffusion1Error = math.sqrt(self.TransverseDiffusionError ** 2 + self.VelocityErrorZ ** 2)/2.0
 
             self.LongitudinalDiffusion1 = sqrt(2.0 * self.LongitudinalDiffusion / self.VelocityZ) * 10000.0
-            self.LongitudinalDiffusion1Error = sqrt(self.LongitudinalDiffusionError ** 2 + self.VelocityErrorZ ** 2)/2.0
+            self.LongitudinalDiffusion1Error = math.sqrt(self.LongitudinalDiffusionError ** 2 + self.VelocityErrorZ ** 2)/2.0
 
             self.VelocityZ *=1e-5
             self.VelocityY *=1e-5

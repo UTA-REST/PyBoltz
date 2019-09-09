@@ -235,15 +235,15 @@ cpdef Mixer(PyBoltz object):
                 break
 
         # CALCULATION OF TOTAL COLLISION FREQUENCY FOR EACH GAS COMPONENT
-        object.TotalCollisionFrequencyNT[IE] = 0.0
+        object.TotalCollisionFrequencyNullT[IE] = 0.0
         for P in range(int(object.NumMomCrossSectionPointsNT)):
-            object.TotalCollisionFrequencyNT[IE] = object.TotalCollisionFrequencyNT[IE] + object.NullCollisionFreqT[IE][P]
+            object.TotalCollisionFrequencyNullT[IE] = object.TotalCollisionFrequencyNullT[IE] + object.NullCollisionFreqT[IE][P]
             if object.NullCollisionFreqT[IE][P] < 0:
-                print("WARN_InelasticG NEGATIVE COLLISION FREQUENCY")
+                print("WARNING NEGATIVE COLLISION FREQUENCY")
 
         for P in range(int(object.NumMomCrossSectionPointsNT)):
-            if object.TotalCollisionFrequencyNT[IE] != 0.0:
-                object.NullCollisionFreqT[IE][P] /= object.TotalCollisionFrequencyNT[IE]
+            if object.TotalCollisionFrequencyNullT[IE] != 0.0:
+                object.NullCollisionFreqT[IE][P] /= object.TotalCollisionFrequencyNullT[IE]
             else:
                 object.NullCollisionFreqT[IE][P] = 0.0
 
@@ -251,7 +251,7 @@ cpdef Mixer(PyBoltz object):
             object.NullCollisionFreqT[IE][P] += object.NullCollisionFreqT[IE][P - 1]
         object.FCATT[IE] *= object.SqrtEnergy[IE]
         object.FCION[IE] *= object.SqrtEnergy[IE]
-        object.TotalCollisionFrequencyNT[IE] *= object.SqrtEnergy[IE]
+        object.TotalCollisionFrequencyNullT[IE] *= object.SqrtEnergy[IE]
 
         NP = 0
         object.NumMomCrossSectionPointsNullNT = 0
@@ -267,21 +267,21 @@ cpdef Mixer(PyBoltz object):
                                                object.SCLENULNT[NP]
                         NP+=1
             object.NumMomCrossSectionPointsNullNT = NP + 1
-            object.TotalCollisionFrequencyNNT[IE] = 0.0
+            object.TotalCollisionFrequencyNullNT[IE] = 0.0
             for P in range(int(object.NumMomCrossSectionPointsNullNT)):
-                object.TotalCollisionFrequencyNNT[IE] = object.TotalCollisionFrequencyNNT[IE] + object.NullCollisionFreqNT[IE][P]
+                object.TotalCollisionFrequencyNullNT[IE] = object.TotalCollisionFrequencyNullNT[IE] + object.NullCollisionFreqNT[IE][P]
                 if object.NullCollisionFreqNT[IE][P] < 0:
-                    print("WARN_InelasticG NEGATIVE NULL COLLISION FREQUENCY")
+                    print("WARNING NEGATIVE NULL COLLISION FREQUENCY")
 
             for P in range(int(object.NumMomCrossSectionPointsNullNT)):
-                if object.TotalCollisionFrequencyNNT[IE] != 0.0:
-                    object.NullCollisionFreqNT[IE][P] /= object.TotalCollisionFrequencyNNT[IE]
+                if object.TotalCollisionFrequencyNullNT[IE] != 0.0:
+                    object.NullCollisionFreqNT[IE][P] /= object.TotalCollisionFrequencyNullNT[IE]
                 else:
                     object.NullCollisionFreqNT[IE][P] = 0.0
 
             for P in range(1, int(object.NumMomCrossSectionPointsNullNT)):
                 object.NullCollisionFreqNT[IE][P] += object.NullCollisionFreqNT[IE][P - 1]
-            object.TotalCollisionFrequencyNNT[IE] *= object.SqrtEnergy[IE]
+            object.TotalCollisionFrequencyNullNT[IE] *= object.SqrtEnergy[IE]
 
     KELSum = 0
 
@@ -310,8 +310,8 @@ cpdef Mixer(PyBoltz object):
         JLOW = max(JLOW, 0)
         JHI = min(JHI, 4000)
         for J in range(int(JLOW-1), int(JHI)):
-            if (object.TotalCollisionFrequencyNT[J] + object.TotalCollisionFrequencyNNT[J] + abs(object.FAKEI)) > object.MaxCollisionFreqNT[l]:
-                object.MaxCollisionFreqNT[l] = object.TotalCollisionFrequencyNT[J] + object.TotalCollisionFrequencyNNT[J] + abs(object.FAKEI)
+            if (object.TotalCollisionFrequencyNullT[J] + object.TotalCollisionFrequencyNullNT[J] + abs(object.FAKEI)) > object.MaxCollisionFreqNT[l]:
+                object.MaxCollisionFreqNT[l] = object.TotalCollisionFrequencyNullT[J] + object.TotalCollisionFrequencyNullNT[J] + abs(object.FAKEI)
     for I in range(object.EnergySteps):
         object.TotalCrossSection[I] = object.MoleculesPerCm3PerGas[0] * MixObject.Gases[0].Q[0][I] + object.MoleculesPerCm3PerGas[1] * MixObject.Gases[1].Q[0][I] + \
                          object.MoleculesPerCm3PerGas[2] * MixObject.Gases[2].Q[0][I] + object.MoleculesPerCm3PerGas[3] * MixObject.Gases[3].Q[0][I] + \
@@ -581,7 +581,7 @@ cpdef MixerT(PyBoltz object):
             for p in range(int(object.NumMomCrossSectionPoints[GasIndex])):
                 object.TotalCollisionFrequency[GasIndex][IE] = object.TotalCollisionFrequency[GasIndex][IE] + object.CollisionFrequency[GasIndex][IE][p]
                 if object.CollisionFrequency[GasIndex][IE][p] < 0:
-                    print ("WARN_InelasticG NEGATIVE COLLISION FREQUENCY at gas " +str(p)+"  "+ str(IE))
+                    print ("WARNING NEGATIVE COLLISION FREQUENCY at gas " +str(p)+"  "+ str(IE))
 
             for p in range(int(object.NumMomCrossSectionPoints[GasIndex])):
                 if object.TotalCollisionFrequency[GasIndex][IE] == 0:
@@ -613,20 +613,20 @@ cpdef MixerT(PyBoltz object):
             # CALCULATE NULL COLLISION FREQUENCY FOR EACH GAS COMPONENT
 
         for GasIndex in range(object.NumberOfGases):
-            object.TotalCollisionFrequencyN[GasIndex][IE] = 0.0
+            object.TotalCollisionFrequencyNull[GasIndex][IE] = 0.0
             for IL in range(int(object.NumMomCrossSectionPointsNull[GasIndex])):
-                object.TotalCollisionFrequencyN[GasIndex][IE] = object.TotalCollisionFrequencyN[GasIndex][IE] + object.NullCollisionFreq[GasIndex][IE][IL]
+                object.TotalCollisionFrequencyNull[GasIndex][IE] = object.TotalCollisionFrequencyNull[GasIndex][IE] + object.NullCollisionFreq[GasIndex][IE][IL]
                 if object.NullCollisionFreq[GasIndex][IE][IL] < 0:
-                    print "WARN_InelasticG NEGATIVE NULL COLLISION FREQUENCY"
+                    print "WARNING NEGATIVE NULL COLLISION FREQUENCY"
             for IL in range(int(object.NumMomCrossSectionPointsNull[GasIndex])):
-                if object.TotalCollisionFrequencyN[GasIndex][IE] == 0:
+                if object.TotalCollisionFrequencyNull[GasIndex][IE] == 0:
                     object.NullCollisionFreq[GasIndex][IE][IL] = 0.0
                 else:
-                    object.NullCollisionFreq[GasIndex][IE][IL] = object.NullCollisionFreq[GasIndex][IE][IL] / object.TotalCollisionFrequencyN[GasIndex][IE]
+                    object.NullCollisionFreq[GasIndex][IE][IL] = object.NullCollisionFreq[GasIndex][IE][IL] / object.TotalCollisionFrequencyNull[GasIndex][IE]
 
             for IL in range(1, int(object.NumMomCrossSectionPointsNull[GasIndex])):
                 object.NullCollisionFreq[GasIndex][IE][IL] = object.NullCollisionFreq[GasIndex][IE][IL] + object.NullCollisionFreq[GasIndex][IE][IL - 1]
-            object.TotalCollisionFrequencyN[GasIndex][IE] = object.TotalCollisionFrequencyN[GasIndex][IE] * object.SqrtEnergy[IE]
+            object.TotalCollisionFrequencyNull[GasIndex][IE] = object.TotalCollisionFrequencyNull[GasIndex][IE] * object.SqrtEnergy[IE]
 
     KELSum = 0
 
@@ -647,8 +647,8 @@ cpdef MixerT(PyBoltz object):
     for GasIndex in range(object.NumberOfGases):
         object.MaxCollisionFreq[GasIndex] = 0.0
         for IE in range(4000):
-            if object.TotalCollisionFrequency[GasIndex][IE] + object.TotalCollisionFrequencyN[GasIndex][IE] + FAKEnergyLevels >= object.MaxCollisionFreq[GasIndex]:
-                object.MaxCollisionFreq[GasIndex] = object.TotalCollisionFrequency[GasIndex][IE] + object.TotalCollisionFrequencyN[GasIndex][IE] + FAKEnergyLevels
+            if object.TotalCollisionFrequency[GasIndex][IE] + object.TotalCollisionFrequencyNull[GasIndex][IE] + FAKEnergyLevels >= object.MaxCollisionFreq[GasIndex]:
+                object.MaxCollisionFreq[GasIndex] = object.TotalCollisionFrequency[GasIndex][IE] + object.TotalCollisionFrequencyNull[GasIndex][IE] + FAKEnergyLevels
 
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
     object.MaxCollisionFreqTotal = 0.0

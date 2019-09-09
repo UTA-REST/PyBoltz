@@ -111,7 +111,7 @@ cpdef run(PyBoltz Object):
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
     for J in range(4000):
-        TEMP[J] = Object.TotalCollisionFrequencyNNT[J] + Object.TotalCollisionFrequencyNT[J]
+        TEMP[J] = Object.TotalCollisionFrequencyNullNT[J] + Object.TotalCollisionFrequencyNullT[J]
     ABSFAKEI = abs(Object.FAKEI)
     Object.FakeIonizations = 0
 
@@ -171,7 +171,7 @@ cpdef run(PyBoltz Object):
                 RandomNum = random_uniform(RandomSeed)
 
                 # If we draw below this number, we will null-scatter (no mom xfer)
-                Test1 = Object.TotalCollisionFrequencyNT[iEnergyBin] / TLIM
+                Test1 = Object.TotalCollisionFrequencyNullT[iEnergyBin] / TLIM
 
                 if RandomNum > Test1:
                     Test2 = TEMP[iEnergyBin] / TLIM
@@ -430,7 +430,7 @@ cpdef run(PyBoltz Object):
                                                                                          Object.DiffusionY,
                                                                                          Object.DiffusionZ))
         if Object.CollisionEnergies[3999] > (1000 * float(iSample + 1)):
-            raise ValueError("WARN_InelasticG ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
+            raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
 
 
     # Calculate errors and check averages.  Means and errors are calculated statistically

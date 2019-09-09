@@ -196,7 +196,7 @@ cdef class PyBoltz:
         '''PenningFraction of each gas'''
         double NullCollisionFreq[6][4000][10]
         '''Null collision frequency for each gas at every energy step for every data point.'''
-        double TotalCollisionFrequencyN[6][4000]
+        double TotalCollisionFrequencyNull[6][4000]
         '''Total null collision frequency for each gas at every energy step.'''
         double SCLENUL[6][10], ScatteringParameter[6][4000][290], AngleCut[6][4000][290]
         double TransverseDiffusion1
@@ -214,8 +214,8 @@ cdef class PyBoltz:
         double MeanCollisionTime
         '''Mean collision time. Calculated using a moving average filter where it is equal to 0.9 * MeanCollisionTime + 0.1 * NewTime'''
         # Variables and arrays used when the thermal motion is not included.
-        double NullCollisionFreqT[4000][960],EnergyLevelsNT[960],TotalCollisionFrequencyNT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
-        double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNNT[4000],SCLENULNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]
+        double NullCollisionFreqT[4000][960],EnergyLevelsNT[960],TotalCollisionFrequencyNullT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
+        double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNullNT[4000],SCLENULNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]
         double NG1NT[960],EG1NT[960],NG2NT[960],EG2NT[960],WKLMNT[960],EFLNT[960]
         double CollisionsPerGasPerTypeNT[30],ICOLNNT[960],ICOLNNNT[60]
         double NumMomCrossSectionPointsNullNT

@@ -35,7 +35,7 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
 @cython.wraparound(False)
 cpdef run(PyBoltz Object):
     """
-    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at Temp =  TemperatureCentigrade.
+    This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at TotalCollFreqIncludingNull =  TotalCollFreqIncludingNulleratureCentigrade.
 
     This function is used when there is no magnetic field.     
     
@@ -129,12 +129,12 @@ cpdef run(PyBoltz Object):
     MaxBoltzNumsUsed = 0
     TDash = 0.0
     cdef int i = 0
-    cdef double ** Temp = <double **> malloc(6 * sizeof(double *))
+    cdef double ** TotalCollFreqIncludingNull = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
-        Temp[i] = <double *> malloc(4000 * sizeof(double))
+        TotalCollFreqIncludingNull[i] = <double *> malloc(4000 * sizeof(double))
     for K in range(6):
         for J in range(4000):
-            Temp[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyN[K][J]
+            TotalCollFreqIncludingNull[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyNull[K][J]
 
     AbsFakeIoniz = 0.0
     Object.FakeIonizations = 0
@@ -241,7 +241,7 @@ cpdef run(PyBoltz Object):
                 Test1 = Object.TotalCollisionFrequency[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
 
                 if RandomNum > Test1:
-                    Test2 = Temp[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
+                    Test2 = TotalCollFreqIncludingNull[GasIndex][iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
                     if RandomNum < Test2:
                         if Object.NumMomCrossSectionPointsNull[GasIndex] == 0:
                             continue
@@ -254,7 +254,7 @@ cpdef run(PyBoltz Object):
                         Object.ICOLNN[GasIndex][I] += 1
                         continue
                     else:
-                        Test3 = (Temp[GasIndex][iEnergyBin] + AbsFakeIoniz) / Object.MaxCollisionFreq[GasIndex]
+                        Test3 = (TotalCollFreqIncludingNull[GasIndex][iEnergyBin] + AbsFakeIoniz) / Object.MaxCollisionFreq[GasIndex]
                         if RandomNum < Test3:
                             # Increment fake ionization counter
                             Object.FakeIonizations += 1
@@ -523,7 +523,7 @@ cpdef run(PyBoltz Object):
                                                                                          Object.DiffusionY,
                                                                                          Object.DiffusionZ))
         if Object.CollisionEnergies[3999] > (1000 * float(iSample + 1)):
-            raise ValueError("WARN_InelasticG ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
+            raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
 
 
     # Calculate errors and check averages.  Means and errors are calculated statistically
@@ -598,6 +598,6 @@ cpdef run(PyBoltz Object):
     free(DiffYYPerSample)
     free(DiffZZPerSample)
     for i in range(6):
-        free(Temp[i])
-    free(Temp)
+        free(TotalCollFreqIncludingNull[i])
+    free(TotalCollFreqIncludingNull)
     return Object

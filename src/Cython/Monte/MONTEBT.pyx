@@ -141,7 +141,7 @@ cpdef run(PyBoltz Object):
         TEMP[i] = <double *> malloc(4000 * sizeof(double))
     for K in range(6):
         for J in range(4000):
-            TEMP[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyN[K][J]
+            TEMP[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyNull[K][J]
     ABSFAKEI = Object.FAKEI
     Object.FakeIonizations = 0
 

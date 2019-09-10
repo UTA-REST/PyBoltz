@@ -166,7 +166,7 @@ cpdef run(PyBoltz Object):
                 CX2 = CX1 * COSWT - CY1 * SINWT
                 CY2 = CY1 * COSWT + CX1 * SINWT
                 VTOT = Sqrt2M * sqrt(E)
-                CZ2 = VTOT * (DirCosineZ1 * CONST6 + Object.EField * T * Object.CONST5 / sqrt(E))
+                CZ2 = VTOT * (DirCosineZ1 * CONST6 + Object.EField * T * (Object.CONST3/2.0) / sqrt(E))
 
                 # CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
                 IMBPT += 1
@@ -246,15 +246,15 @@ cpdef run(PyBoltz Object):
 
             if NumDecorLengths != 0:
                 CollsToLookBack = 0
-                for iCorr in range(int(Object.Decor_NCORST)):
+                for iCorr in range(int(Object.Decor_LookBacks)):
                     ST2 = ST2 + T
                     NC_LastSampleM = NCOL + CollsToLookBack
-                    if NC_LastSampleM > Object.Decor_NCOLM:
-                        NC_LastSampleM = NC_LastSampleM - Object.Decor_NCOLM
+                    if NC_LastSampleM > Object.Decor_Colls:
+                        NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
                     TDiff = Object.TimeSum - STO[NC_LastSampleM]
                     SumXX += ((Object.X - XST[NC_LastSampleM]) ** 2) * T / TDiff
                     SumYY += ((Object.Y - YST[NC_LastSampleM]) ** 2) * T / TDiff
-                    CollsToLookBack += Object.Decor_NCORLN
+                    CollsToLookBack += Object.Decor_Step
                     if iSample >= 2:
                         ST1 += T
                         SumZZ += ((Object.Z - ZST[NC_LastSampleM] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
@@ -262,7 +262,7 @@ cpdef run(PyBoltz Object):
             YST[NCOL] = Object.Y
             ZST[NCOL] = Object.Z
             STO[NCOL] = Object.TimeSum
-            if NCOL >= Object.Decor_NCOLM:
+            if NCOL >= Object.Decor_Colls:
                 NumDecorLengths += 1
                 NCOL = 0
 

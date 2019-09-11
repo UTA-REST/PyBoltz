@@ -146,7 +146,6 @@ cpdef run(PyBoltz Object):
             while True:
                 RandomNum = random_uniform(RandomSeed)
                 T = -1 * log(RandomNum) / Object.MaxCollisionFreqTotal + TDash
-                Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 TDash = T
                 AP = DirCosineZ1 * F2 * sqrt(EBefore)
                 E = EBefore + (AP + BP * T) * T
@@ -244,6 +243,9 @@ cpdef run(PyBoltz Object):
             SumVX = SumVX + DX ** 2
             SumVY = SumVY + DY ** 2
 
+
+            Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
+
             if NumDecorLengths != 0:
                 CollsToLookBack = 0
                 for iCorr in range(int(Object.Decor_LookBacks)):
@@ -251,17 +253,17 @@ cpdef run(PyBoltz Object):
                     NC_LastSampleM = NCOL + CollsToLookBack
                     if NC_LastSampleM > Object.Decor_Colls:
                         NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
-                    TDiff = Object.TimeSum - STO[NC_LastSampleM]
-                    SumXX += ((Object.X - XST[NC_LastSampleM]) ** 2) * T / TDiff
-                    SumYY += ((Object.Y - YST[NC_LastSampleM]) ** 2) * T / TDiff
+                    TDiff = Object.TimeSum - STO[NC_LastSampleM-1]
+                    SumXX += ((Object.X - XST[NC_LastSampleM-1]) ** 2) * T / TDiff
+                    SumYY += ((Object.Y - YST[NC_LastSampleM-1]) ** 2) * T / TDiff
                     CollsToLookBack += Object.Decor_Step
                     if iSample >= 2:
                         ST1 += T
-                        SumZZ += ((Object.Z - ZST[NC_LastSampleM] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
-            XST[NCOL] = Object.X
-            YST[NCOL] = Object.Y
-            ZST[NCOL] = Object.Z
-            STO[NCOL] = Object.TimeSum
+                        SumZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
+            XST[NCOL-1] = Object.X
+            YST[NCOL-1] = Object.Y
+            ZST[NCOL-1] = Object.Z
+            STO[NCOL-1] = Object.TimeSum
             if NCOL >= Object.Decor_Colls:
                 NumDecorLengths += 1
                 NCOL = 0

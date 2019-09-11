@@ -133,7 +133,7 @@ cpdef run(PyBoltz Object):
     TwoM = Sqrt2M ** 2
     NumSamples = 10
     NumDecorLengths = 0
-
+    print("HERE")
     NCOL = 0
     IEXTRA = 0
     cdef double ** TEMP = <double **> malloc(6 * sizeof(double *))
@@ -144,7 +144,7 @@ cpdef run(PyBoltz Object):
             TEMP[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyNull[K][J]
     ABSFAKEI = Object.FAKEI
     Object.FakeIonizations = 0
-
+    print("HEREE")
     GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
     IMBPT = 0
     TDash = 0.0
@@ -163,13 +163,13 @@ cpdef run(PyBoltz Object):
     if Object.ConsoleOutputFlag:
         print('{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFLNG","DIFTRN"))
+    print("HEREEE")
     for iSample in range(int(NumSamples)):
         for iCollision in range(int(iCollisionM)):
             while True:
                 RandomNum = random_uniform(RandomSeed)
                 T = -1 * log(RandomNum) / Object.MaxCollisionFreqTotal + TDash
                 TDash = T
-                Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 WBT = Object.AngularSpeedOfRotation * T
                 COSWT = cos(WBT)
                 SINWT = sin(WBT)
@@ -181,7 +181,7 @@ cpdef run(PyBoltz Object):
                 CY2 = (CY1 - Object.EFieldOverBField) * COSWT + CZ1 * SINWT + Object.EFieldOverBField
                 CZ2 = CZ1 * COSWT - (CY1 - Object.EFieldOverBField) * SINWT
 
-                # FIND NumDecorLengthsENTITY OF GAS FOR COLLISION
+                # FIND NumDecorLengths ENTITY OF GAS FOR COLLISION
                 GasIndex = 0
                 RandomNum = random_uniform(RandomSeed)
                 if Object.NumberOfGases == 1:
@@ -233,13 +233,14 @@ cpdef run(PyBoltz Object):
                         continue
                 else:
                     break
+            Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
+
             NCOL += 1
             #CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
             CONST11 = 1 / (Sqrt2M * sqrt(COMEnergy))
             DXCOM = (CX2 - VGX) * CONST11
             DYCOM = (CY2 - VGY) * CONST11
             DZCOM = (CZ2 - VGZ) * CONST11
-
             #  CALCULATE POSITIONS AT INSTANT BEFORE COLLISION
             #    ALSO UPDATE DIFFUSION  AND ENERGY CALCULATIONS.
             T2 = T ** 2
@@ -261,14 +262,14 @@ cpdef run(PyBoltz Object):
             SumVX += (CX1 ** 2) * T2
             if NumDecorLengths != 0:
                 CollsToLookBack = 0
-                for J in range(int(Object.Decor_NCORST)):
+                for J in range(int(Object.Decor_LookBacks)):
                     ST2 = ST2 + T
                     NC_LastSampleM = NCOL + CollsToLookBack
-                    if NC_LastSampleM > Object.Decor_NCOLM:
-                        NC_LastSampleM = NC_LastSampleM - Object.Decor_NCOLM
+                    if NC_LastSampleM > Object.Decor_Colls:
+                        NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
                     TDiff = Object.TimeSum - STO[NC_LastSampleM-1]
                     SumXX += ((Object.X - XST[NC_LastSampleM-1]) ** 2) * T / TDiff
-                    CollsToLookBack += Object.Decor_NCORLN
+                    CollsToLookBack += Object.Decor_Step
                     if iSample >= 2:
                         ST1 += T
                         SumZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
@@ -287,7 +288,7 @@ cpdef run(PyBoltz Object):
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
             STO[NCOL-1] = Object.TimeSum
-            if NCOL >= Object.Decor_NCOLM:
+            if NCOL >= Object.Decor_Colls:
                 NumDecorLengths += 1
                 NCOL = 0
             # ---------------------------------------------------------------------
@@ -322,7 +323,7 @@ cpdef run(PyBoltz Object):
 
             #IF EXCITATION THEN ADD PROBABILITY,PenningFractionC(1,I), OF TRANSFER TO GIVE
             # IONISATION OF THE OTHER GASES IN THE MIXTURE
-            if Object.IPEN != 0:
+            if Object.EnablePenning != 0:
                 if Object.PenningFraction[GasIndex][0][I] != 0:
                     RAN = random_uniform(RandomSeed)
                     if RAN <= Object.PenningFraction[GasIndex][0][I]:
@@ -384,7 +385,6 @@ cpdef run(PyBoltz Object):
             DirCosineX1 = CX1 * CONST11
             DirCosineY1 = CY1 * CONST11
             DirCosineZ1 = CZ1 * CONST11
-
         Object.VelocityZ *= 1e9
         Object.VelocityY *= 1e9
         if ST2 != 0.0:
@@ -517,6 +517,6 @@ cpdef run(PyBoltz Object):
     Object.IonisationRateError = 0.0
     if Ionization != 0:
         Object.IonisationRateError = 100 * sqrt(Ionization) / Ionization
-    Object.IonisationRate = Ionization / (Object.ST * Object.VelocityZ) * 1e12
+    Object.IonisationRate = Ionization / (Object.TimeSum * Object.VelocityZ) * 1e12
 
 

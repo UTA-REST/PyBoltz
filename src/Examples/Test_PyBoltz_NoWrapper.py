@@ -55,8 +55,8 @@ Object.PressureTorr = 750.062
 # Set the eletric field
 Object.EField =1000
 # Set the magnetic field and angle
-Object.BFieldMag = 0
-Object.BFieldAngle =0
+Object.BFieldMag =10
+Object.BFieldAngle = 90
 Object.ConsoleOutputFlag = 1
 
 Object.WhichAngularModel = 2
@@ -83,6 +83,13 @@ print("----------------------------------------------------")
 print("Drift velocity error [%]             = ", round(Object.VelocityErrorZ,3))
 print("----------------------------------------------------")
 print("Transverse diffusion [cm**2/s]       = ", round(Object.TransverseDiffusion,3))
+print("DIFXX [cm**2/s]       = ", round(Object.DiffusionX,3))
+print("DIFYY [cm**2/s]       = ", round(Object.DiffusionY,3))
+print("DIFZZ [cm**2/s]       = ", round(Object.DiffusionZ,3))
+print("DIFYZ [cm**2/s]       = ", round(Object.DiffusionYZ,3))
+print("DIFXY [cm**2/s]       = ", round(Object.DiffusionXY,3))
+print("DIFXZ [cm**2/s]       = ", round(Object.DiffusionXZ,3))
+
 print("----------------------------------------------------")
 print("Transverse diffusion error [%]       = ", round(Object.TransverseDiffusionError,3))
 print("----------------------------------------------------")

@@ -107,13 +107,13 @@ cpdef run(PyBoltz Object):
     NumDecorLengths = 0
     NumCollisions = 0
     IEXTRA = 0
-
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
     for J in range(4000):
         TEMP[J] = Object.TotalCollisionFrequencyNullNT[J] + Object.TotalCollisionFrequencyNullT[J]
     ABSFAKEI = abs(Object.FAKEI)
     Object.FakeIonizations = 0
+
 
     # Initial direction cosines
     DirCosineZ1 = cos(Object.AngleFromZ)
@@ -139,16 +139,11 @@ cpdef run(PyBoltz Object):
 
     INTEM = 8
     DeltaE = Object.FinalElectronEnergy / float(INTEM)
-    if Object.ConsoleOutputFlag:
-        print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
-                                                                       "DIFXX", "DIFYY", "DIFZZ"))
-
 
     for iSample in range(int(NumSamples)):
         for iCollision in range(int(CollisionsPerSample)):
             while True:
                 RandomNum = random_uniform(RandomSeed)
-                print(EBefore)
                 I = int(EBefore / DeltaE) + 1
                 I = min(I, INTEM) - 1
                 TLIM = Object.MaxCollisionFreqNT[I]
@@ -242,7 +237,7 @@ cpdef run(PyBoltz Object):
             iTimeBin = min(iTimeBin, 299)
             Object.CollisionTimes[iTimeBin] += 1
             Object.CollisionEnergies[iEnergyBin] += 1
-
+            Object.VelocityZ = Object.Z / Object.TimeSum
             # Keep running total of Sum(V^2 T^2).
             SumVX = SumVX + VelXBefore * VelXBefore * T2
             SumVY = SumVY + VelYBefore * VelYBefore * T2
@@ -358,7 +353,7 @@ cpdef run(PyBoltz Object):
             D = 1.0 - CosTheta * sqrt(ARG1)
             U = (S1 - 1) * (S1 - 1) / ARG1
 
-            # Update the energy to start drifing for the next round.
+            # Update the energy to start drifting for the next round.
             #  If its zero, make it small but nonzero.
             EBefore = max(EAfter * (1 - EI / (S1 * EAfter) - 2 * D / S2), Object.SmallNumber)
             Q = min(sqrt((EAfter / EBefore) * ARG1) / S1,1.0)
@@ -386,7 +381,6 @@ cpdef run(PyBoltz Object):
                 DirCosineX1 = DirCosineX2 * CosZAngle - (SinZAngle / ARGZ) * (DirCosineY2 * CosPhi + DirCosineX2 * DirCosineZ2 * SinPhi)
 
             #And go around again to the next collision!
-
         #Put stuff into the right units and normalize
         Object.VelocityZ *= 1e9
         Object.MeanElectronEnergy = SumE2 / Object.TimeSum
@@ -424,8 +418,7 @@ cpdef run(PyBoltz Object):
         SXX_LastSample = SumXX
         SME2_LastSample = SumE2
         if Object.ConsoleOutputFlag:
-            print(
-                '{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.TimeSum,
+            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.TimeSum,
                                                                                          Object.MeanElectronEnergy, Object.DiffusionX,
                                                                                          Object.DiffusionY,
                                                                                          Object.DiffusionZ))

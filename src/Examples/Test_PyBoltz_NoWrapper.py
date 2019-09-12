@@ -41,8 +41,8 @@ Object.MaxNumberOfCollisions =40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
-Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 0.0
+Object.EnableThermalMotion=0
+Object.FinalElectronEnergy = 20000.0
 # Set the gas's with there given number
 Object.GasIDs=[12, 0, 0, 0, 0, 0]
 
@@ -55,8 +55,8 @@ Object.PressureTorr = 750.062
 # Set the eletric field
 Object.EField =1000
 # Set the magnetic field and angle
-Object.BFieldMag =10
-Object.BFieldAngle =45
+Object.BFieldMag =0
+Object.BFieldAngle =0
 Object.ConsoleOutputFlag = 1
 
 Object.WhichAngularModel = 2

@@ -20,16 +20,21 @@ cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
     cdef int K
     ISTEP = long(Object.ISIZENT)
     INCR = 0
+
     for K in range(12):
         I = INCR
         if ISTEP == 2:
+            if I==0:
+                return I
             return I -1
+
         I = INCR + ISTEP
-        if I <= Object.NumMomCrossSectionPointsNT-1:
+        if I <= Object.NumMomCrossSectionPointsNT:
             if Object.NullCollisionFreqT[IE][I-1] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
-
+    if I==0:
+        return I
     return I - 1
 
 
@@ -52,11 +57,14 @@ cdef long long MBSortT(int GasIndex, int I, double R2, int IE,PyBoltz Object):
     for K in range(12):
         I = INCR
         if ISTEP == 2:
+            if I==0:
+                return I
             return I -1
         I = INCR + ISTEP
         if I <= Object.NumMomCrossSectionPoints[GasIndex]-1:
             if Object.CollisionFrequency[GasIndex][IE][I-1] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
-
+    if I==0:
+        return I
     return I -1

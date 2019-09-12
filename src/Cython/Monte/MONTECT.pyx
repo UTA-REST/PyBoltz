@@ -187,7 +187,6 @@ cpdef run(PyBoltz Object):
             while True:
                 RandomNum = random_uniform(RandomSeed)
                 T = -1 * log(RandomNum) / Object.MaxCollisionFreqTotal + TDash
-                Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 TDash = T
                 WBT = Object.AngularSpeedOfRotation * T
                 COSWT = cos(WBT)
@@ -255,6 +254,9 @@ cpdef run(PyBoltz Object):
                     break
 
             NCOL += 1
+
+            Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
+
             # CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
             CONST11 = 1 / (Sqrt2M * sqrt(COMEnergy))
             #     VTOT=1.0D0/CONST11
@@ -279,28 +281,28 @@ cpdef run(PyBoltz Object):
             Object.VelocityX = Object.X / Object.TimeSum
             if iSample >= 2:
                 CollsToLookBack = 0
-                for J in range(int(Object.Decor_NCORST)):
+                for J in range(int(Object.Decor_LookBacks)):
                     NC_LastSampleM = NCOL + CollsToLookBack
-                    if NC_LastSampleM > Object.Decor_NCOLM:
-                        NC_LastSampleM = NC_LastSampleM - Object.Decor_NCOLM
+                    if NC_LastSampleM > Object.Decor_Colls:
+                        NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
                     ST1 += T
-                    TDiff = Object.TimeSum - STO[NC_LastSampleM]
-                    CollsToLookBack += Object.Decor_NCORLN
-                    SumZZ += ((Object.Z - ZST[NC_LastSampleM] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
-                    SumYY += ((Object.Y - YST[NC_LastSampleM] - Object.VelocityY * TDiff) ** 2) * T / TDiff
-                    SumXX += ((Object.X - XST[NC_LastSampleM] - Object.VelocityX * TDiff) ** 2) * T / TDiff
-                    SumYZ += (Object.Z - ZST[NC_LastSampleM] - Object.VelocityZ * TDiff) * (
-                            Object.Y - YST[NC_LastSampleM] - Object.VelocityY * TDiff) * T / TDiff
-                    SumXY += (Object.X - XST[NC_LastSampleM] - Object.VelocityX * TDiff) * (
-                            Object.Y - YST[NC_LastSampleM] - Object.VelocityY * TDiff) * T / TDiff
-                    SumXZ += (Object.X - XST[NC_LastSampleM] - Object.VelocityX * TDiff) * (
-                            Object.Z - ZST[NC_LastSampleM] - Object.VelocityZ * TDiff) * T / TDiff
-            XST[NCOL] = Object.X
-            YST[NCOL] = Object.Y
-            ZST[NCOL] = Object.Z
-            STO[NCOL] = Object.TimeSum
+                    TDiff = Object.TimeSum - STO[NC_LastSampleM-1]
+                    CollsToLookBack += Object.Decor_Step
+                    SumZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
+                    SumYY += ((Object.Y - YST[NC_LastSampleM-1] - Object.VelocityY * TDiff) ** 2) * T / TDiff
+                    SumXX += ((Object.X - XST[NC_LastSampleM-1] - Object.VelocityX * TDiff) ** 2) * T / TDiff
+                    SumYZ += (Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) * (
+                            Object.Y - YST[NC_LastSampleM-1] - Object.VelocityY * TDiff) * T / TDiff
+                    SumXY += (Object.X - XST[NC_LastSampleM-1] - Object.VelocityX * TDiff) * (
+                            Object.Y - YST[NC_LastSampleM-1] - Object.VelocityY * TDiff) * T / TDiff
+                    SumXZ += (Object.X - XST[NC_LastSampleM-1] - Object.VelocityX * TDiff) * (
+                            Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) * T / TDiff
+            XST[NCOL-1] = Object.X
+            YST[NCOL-1] = Object.Y
+            ZST[NCOL-1] = Object.Z
+            STO[NCOL-1] = Object.TimeSum
 
-            if NCOL >= Object.Decor_NCOLM:
+            if NCOL >= Object.Decor_Colls:
                 NumDecorLengths += 1
                 NCOL = 0
             # DETERMENATION OF REAL COLLISION TYPE
@@ -433,7 +435,7 @@ cpdef run(PyBoltz Object):
             DIFYYR = Object.DiffusionY
             DIFZZR = Object.DiffusionX * RSN * RSN + Object.DiffusionZ * RCS * RCS - 2 * RCS * RSN * Object.DiffusionXZ
             DIFXYR = RCS * Object.DiffusionXY + RSN * Object.DiffusionYZ
-            DIFYZR = RCS * Object.DiffusionXY - RCS * Object.DiffusionYZ
+            DIFYZR = RSN * Object.DiffusionXY - RCS * Object.DiffusionYZ
             DIFXZR = (RCS * RCS - RSN * RSN) * Object.DiffusionXZ - RSN * RCS * (Object.DiffusionX - Object.DiffusionZ)
 
             SXXR = SumXX * RCS * RCS + SumZZ * RSN * RSN + 2 * RCS * RSN * SumXZ

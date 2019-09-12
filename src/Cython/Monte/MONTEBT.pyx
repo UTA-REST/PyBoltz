@@ -133,7 +133,6 @@ cpdef run(PyBoltz Object):
     TwoM = Sqrt2M ** 2
     NumSamples = 10
     NumDecorLengths = 0
-    print("HERE")
     NCOL = 0
     IEXTRA = 0
     cdef double ** TEMP = <double **> malloc(6 * sizeof(double *))
@@ -144,7 +143,6 @@ cpdef run(PyBoltz Object):
             TEMP[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyNull[K][J]
     ABSFAKEI = Object.FAKEI
     Object.FakeIonizations = 0
-    print("HEREE")
     GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
     IMBPT = 0
     TDash = 0.0
@@ -163,7 +161,6 @@ cpdef run(PyBoltz Object):
     if Object.ConsoleOutputFlag:
         print('{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFLNG","DIFTRN"))
-    print("HEREEE")
     for iSample in range(int(NumSamples)):
         for iCollision in range(int(iCollisionM)):
             while True:

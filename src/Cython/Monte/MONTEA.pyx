@@ -87,7 +87,7 @@ cpdef run(PyBoltz Object):
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
-    Object.ST = 0.0
+    Object.TimeSum = 0.0
     ST1 = 0.0
     ST2 = 0.0
     SumE2 = 0.0
@@ -211,35 +211,35 @@ cpdef run(PyBoltz Object):
             DY = (CY1 * SINWT + CX1 * (1 - COSWT)) / Object.AngularSpeedOfRotation
             Object.Y += DY
             Object.Z += DirCosineZ1 * A + T2 * F1
-            Object.ST += T
+            Object.TimeSum += T
             IT = int(T)
             IT = min(IT, 299)
             Object.CollisionTimes[IT] += 1
             Object.CollisionEnergies[IE] += 1
-            Object.VelocityZ = Object.Z / Object.ST
+            Object.VelocityZ = Object.Z / Object.TimeSum
 
             SumVX = SumVX + DX ** 2
             SumVY = SumVY + DY ** 2
 
             if NumDecorLengths != 0:
                 CollsToLookBack = 0
-                for iCorr in range(int(Object.Decor_NCORST)):
+                for iCorr in range(int(Object.Decor_LookBacks)):
                     ST2 = ST2 + T
                     NC_LastSampleM = NCOL + CollsToLookBack
-                    if NC_LastSampleM > Object.Decor_NCOLM:
-                        NC_LastSampleM = NC_LastSampleM - Object.Decor_NCOLM
-                    TDiff = Object.ST - STO[NC_LastSampleM-1]
+                    if NC_LastSampleM > Object.Decor_Colls:
+                        NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
+                    TDiff = Object.TimeSum - STO[NC_LastSampleM-1]
                     SumXX += ((Object.X - XST[NC_LastSampleM-1]) ** 2) * T / TDiff
                     SumYY += ((Object.Y - YST[NC_LastSampleM-1]) ** 2) * T / TDiff
-                    CollsToLookBack += Object.Decor_NCORLN
+                    CollsToLookBack += Object.Decor_Step
                     if iSample >= 2:
                         ST1 += T
                         SumZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
             XST[NCOL-1] = Object.X
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
-            STO[NCOL-1] = Object.ST
-            if NCOL >= Object.Decor_NCOLM:
+            STO[NCOL-1] = Object.TimeSum
+            if NCOL >= Object.Decor_Colls:
                 NumDecorLengths += 1
                 NCOL = 0
 
@@ -316,12 +316,12 @@ cpdef run(PyBoltz Object):
             CZ1 = DirCosineZ1 * VTOT
 
         Object.VelocityZ *= 1e9
-        Object.MeanElectronEnergy = SumE2 / Object.ST
+        Object.MeanElectronEnergy = SumE2 / Object.TimeSum
         if Object.AnisotropicDetected == 0:
-            Object.DiffusionX = 5e15 * SumVX / Object.ST
-            Object.DiffusionY = 5e15 * SumVY / Object.ST
-            DFXXST[iSample] = 5e15 * (SumVX - SVX_LastSample) / (Object.ST - ST_LastSample)
-            DFYYST[iSample] = 5e15 * (SumVY - SVY_LastSample) / (Object.ST - ST_LastSample)
+            Object.DiffusionX = 5e15 * SumVX / Object.TimeSum
+            Object.DiffusionY = 5e15 * SumVY / Object.TimeSum
+            DFXXST[iSample] = 5e15 * (SumVX - SVX_LastSample) / (Object.TimeSum - ST_LastSample)
+            DFYYST[iSample] = 5e15 * (SumVY - SVY_LastSample) / (Object.TimeSum - ST_LastSample)
         else:
             if ST2 != 0.0:
                 Object.DiffusionY = 5e15 * SumYY / ST2
@@ -336,10 +336,10 @@ cpdef run(PyBoltz Object):
             DFZZST[iSample] = 5e15 * (SumZZ - SZZ_LastSample) / (ST1 - ST1_LastSample)
         else:
             DFZZST[iSample] = 0.0
-        WZST[iSample] = (Object.Z - Z_LastSample) / (Object.ST - ST_LastSample) * 1e9
-        AVEST[iSample] = (SumE2 - SME2_LastSample) / (Object.ST - ST_LastSample)
+        WZST[iSample] = (Object.Z - Z_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
+        AVEST[iSample] = (SumE2 - SME2_LastSample) / (Object.TimeSum - ST_LastSample)
         Z_LastSample = Object.Z
-        ST_LastSample = Object.ST
+        ST_LastSample = Object.TimeSum
         ST1_LastSample = ST1
         ST2_LastSample = ST2
         SVX_LastSample = SumVX
@@ -349,7 +349,7 @@ cpdef run(PyBoltz Object):
         SXX_LastSample = SumXX
         SME2_LastSample = SumE2
         if Object.ConsoleOutputFlag:
-            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.ST,
+            print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.TimeSum,
                                                                                     Object.MeanElectronEnergy, Object.DiffusionX, Object.DiffusionY,
                                                                                     Object.DiffusionZ))
     SumV_Samples = 0.0
@@ -401,11 +401,11 @@ cpdef run(PyBoltz Object):
     Object.AttachmentRateError = 0.0
     if Attachment != 0:
         Object.AttachmentRateError = 100 * sqrt(Attachment) / Attachment
-    Object.AttachmentRate = Attachment / (Object.ST * Object.VelocityZ) * 1e12
+    Object.AttachmentRate = Attachment / (Object.TimeSum * Object.VelocityZ) * 1e12
     Object.IonisationRateError = 0.0
     if Ionization != 0:
         Object.IonisationRateError = 100 * sqrt(Ionization) / Ionization
-    Object.IonisationRate = Ionization / (Object.ST * Object.VelocityZ) * 1e12
+    Object.IonisationRate = Ionization / (Object.TimeSum * Object.VelocityZ) * 1e12
 
     return
 

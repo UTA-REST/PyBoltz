@@ -214,14 +214,14 @@ cpdef run(PyBoltz Object):
             SumVX += (CX1 ** 2) * T2
             if NumDecorLengths != 0:
                 CollsToLookBack = 0
-                for J in range(int(Object.Decor_NCORST)):
+                for J in range(int(Object.Decor_LookBacks)):
                     ST2 = ST2 + T
                     NC_LastSampleM = NCOL + CollsToLookBack
-                    if NC_LastSampleM > Object.Decor_NCOLM:
-                        NC_LastSampleM = NC_LastSampleM - Object.Decor_NCOLM
+                    if NC_LastSampleM > Object.Decor_Colls:
+                        NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
                     TDiff = Object.TimeSum - STO[NC_LastSampleM-1]
                     SumXX += ((Object.X - XST[NC_LastSampleM-1]) ** 2) * T / TDiff
-                    CollsToLookBack += Object.Decor_NCORLN
+                    CollsToLookBack += Object.Decor_Step
                     if iSample >= 2:
                         ST1 += T
                         SumZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
@@ -240,7 +240,7 @@ cpdef run(PyBoltz Object):
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
             STO[NCOL-1] = Object.TimeSum
-            if NCOL >= Object.Decor_NCOLM:
+            if NCOL >= Object.Decor_Colls:
                 NumDecorLengths += 1
                 NCOL = 0
 
@@ -314,7 +314,6 @@ cpdef run(PyBoltz Object):
             CX1 = DirCosineX1 * VTOT
             CY1 = DirCosineY1 * VTOT
             CZ1 = DirCosineZ1 * VTOT
-        print(iSample)
         Object.VelocityZ *= 1e9
         Object.VelocityY *= 1e9
         if ST2 != 0.0:
@@ -326,14 +325,14 @@ cpdef run(PyBoltz Object):
             Object.LongitudinalDiffusion = 5e15 * SumLS / ST1
             Object.TransverseDiffusion = 5e15 * SumTS / ST1
         if Object.AnisotropicDetected == 0:
-            Object.DiffusionX = 5e15 * SumVX / Object.ST
+            Object.DiffusionX = 5e15 * SumVX / Object.TimeSum
         EBAR = 0.0
         for IK in range(4000):
             EBAR += Object.E[IK] * Object.CollisionEnergies[IK] / Object.TotalCollisionFrequencyNullT[IK]
-        Object.MeanElectronEnergy = EBAR / Object.ST
-        WZST[iSample] = (Object.Z - Z_LastSample) / (Object.ST - ST_LastSample) * 1e9
-        WYST[iSample] = (Object.Y - Y_LastSample) / (Object.ST - ST_LastSample) * 1e9
-        AVEST[iSample] = (EBAR - EBAR_LastSample) / (Object.ST - ST_LastSample)
+        Object.MeanElectronEnergy = EBAR / Object.TimeSum
+        WZST[iSample] = (Object.Z - Z_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
+        WYST[iSample] = (Object.Y - Y_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
+        AVEST[iSample] = (EBAR - EBAR_LastSample) / (Object.TimeSum - ST_LastSample)
         EBAR_LastSample = EBAR
         DFZZST[iSample] = 0.0
         DFYYST[iSample] = 0.0
@@ -348,10 +347,10 @@ cpdef run(PyBoltz Object):
             DFTRST[iSample] = 5e15 * (SumTS - STR_LastSample) / (ST1 - ST1_LastSample)
         DFXXST[iSample] = 5e15 * (SumXX - SXX_LastSample) / (ST2 - ST2_LastSample)
         if Object.AnisotropicDetected == 0:
-            DFXXST[iSample] = 5e15 * (SumVX - SVX_LastSample) / (Object.ST - ST_LastSample)
+            DFXXST[iSample] = 5e15 * (SumVX - SVX_LastSample) / (Object.TimeSum - ST_LastSample)
         Z_LastSample = Object.Z
         Y_LastSample = Object.Y
-        ST_LastSample = Object.ST
+        ST_LastSample = Object.TimeSum
         ST1_LastSample = ST1
         ST2_LastSample = ST2
         SVX_LastSample = SumVX
@@ -437,11 +436,11 @@ cpdef run(PyBoltz Object):
     Object.AttachmentRateError = 0.0
     if Attachment != 0:
         Object.AttachmentRateError = 100 * sqrt(Attachment) / Attachment
-    Object.AttachmentRate = Attachment / (Object.ST * Object.VelocityZ) * 1e12
+    Object.AttachmentRate = Attachment / (Object.TimeSum * Object.VelocityZ) * 1e12
     Object.IonisationRateError = 0.0
     if Ionization != 0:
         Object.IonisationRateError = 100 * sqrt(Ionization) / Ionization
-    Object.IonisationRate = Ionization / (Object.ST * Object.VelocityZ) * 1e12
+    Object.IonisationRate = Ionization / (Object.TimeSum * Object.VelocityZ) * 1e12
 
     return
 

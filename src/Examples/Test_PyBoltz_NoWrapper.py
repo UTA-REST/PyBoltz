@@ -55,8 +55,8 @@ Object.PressureTorr = 750.062
 # Set the eletric field
 Object.EField =1000
 # Set the magnetic field and angle
-Object.BFieldMag =0
-Object.BFieldAngle =0
+Object.BFieldMag =10
+Object.BFieldAngle =90
 Object.ConsoleOutputFlag = 1
 
 Object.WhichAngularModel = 2

@@ -463,7 +463,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
         R2 = random_uniform(RandomSeed)
         I = MBSortT(GasIndex, I, R2, IE, Object)
-        while Object.CF[GasIndex][IE][I] < R2:
+        while Object.CollisionFrequency[GasIndex][IE][I] < R2:
             I = I + 1
 
         S1 = Object.RGAS[GasIndex][I]
@@ -562,7 +562,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     memset(TEMP, 0, 4000 * sizeof(double))
     ISAMP = 20
     SMALL = 1.0e-20
-    RTHETA = Object.BFieldTheta * acos(-1) / 180
+    RTHETA = Object.BFieldAngle * acos(-1) / 180
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
     F1 = Object.EField * Object.CONST2 * cos(RTHETA)
@@ -729,7 +729,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
     I = 0
 
 
-    RTHETA = Object.BFieldTheta*np.pi/180.0
+    RTHETA = Object.BFieldAngle*np.pi/180.0
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
     F1 = Object.EField * Object.CONST2 * cos(RTHETA)
@@ -820,7 +820,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
         I = MBSortT(GasIndex, I, R2, IE, Object)
-        while Object.CF[GasIndex][IE][I] < R2:
+        while Object.CollisionFrequency[GasIndex][IE][I] < R2:
             I = I + 1
 
 

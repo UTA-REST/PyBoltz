@@ -170,7 +170,6 @@ cpdef run(PyBoltz Object):
                 I = min(I, INTEM) - 1
                 TLIM = Object.MaxCollisionFreqNT[I]
                 T = -1 * log(RandomNum) / TLIM + TDash
-                Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
                 TDash = T
                 WBT = Object.AngularSpeedOfRotation * T
                 COSWT = cos(WBT)
@@ -210,6 +209,8 @@ cpdef run(PyBoltz Object):
                         continue
                 else:
                     break
+            Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
+
             T2 = T ** 2
             TDash = 0.0
 
@@ -236,13 +237,13 @@ cpdef run(PyBoltz Object):
             Object.VelocityX = Object.X / Object.TimeSum
             if iSample >= 2:
                 CollsToLookBack = 0
-                for J in range(int(Object.Decor_NCORST)):
+                for J in range(int(Object.Decor_LookBacks)):
                     NC_LastSampleM = NCOL + CollsToLookBack
-                    if NC_LastSampleM > Object.Decor_NCOLM:
-                        NC_LastSampleM = NC_LastSampleM - Object.Decor_NCOLM
+                    if NC_LastSampleM > Object.Decor_Colls:
+                        NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
                     ST1 += T
                     TDiff = Object.TimeSum - STO[NC_LastSampleM-1]
-                    CollsToLookBack += Object.Decor_NCORLN
+                    CollsToLookBack += Object.Decor_Step
                     SumZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
                     SumYY += ((Object.Y - YST[NC_LastSampleM-1] - Object.VelocityY * TDiff) ** 2) * T / TDiff
                     SumXX += ((Object.X - XST[NC_LastSampleM-1] - Object.VelocityX * TDiff) ** 2) * T / TDiff
@@ -256,7 +257,7 @@ cpdef run(PyBoltz Object):
             YST[NCOL-1] = Object.Y
             ZST[NCOL-1] = Object.Z
             STO[NCOL-1] = Object.TimeSum
-            if NCOL >= Object.Decor_NCOLM:
+            if NCOL >= Object.Decor_Colls:
                 NumDecorLengths += 1
                 NCOL = 0
             RandomNum = random_uniform(RandomSeed)

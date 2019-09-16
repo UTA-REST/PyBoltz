@@ -110,8 +110,8 @@ cpdef run(PyBoltz Object):
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
     for J in range(4000):
-        TEMP[J] = Object.TotalCollisionFrequencyNullNT[J] + Object.TotalCollisionFrequencyNullT[J]
-    ABSFAKEI = abs(Object.FAKEI)
+        TEMP[J] = Object.TotalCollisionFrequencyNullNT[J] + Object.TotalCollisionFrequencyNT[J]
+    ABSFAKEI = abs(Object.FakeIonizations)
     Object.FakeIonizations = 0
 
 
@@ -166,7 +166,7 @@ cpdef run(PyBoltz Object):
                 RandomNum = random_uniform(RandomSeed)
 
                 # If we draw below this number, we will null-scatter (no mom xfer)
-                Test1 = Object.TotalCollisionFrequencyNullT[iEnergyBin] / TLIM
+                Test1 = Object.TotalCollisionFrequencyNT[iEnergyBin] / TLIM
 
                 if RandomNum > Test1:
                     Test2 = TEMP[iEnergyBin] / TLIM
@@ -297,7 +297,7 @@ cpdef run(PyBoltz Object):
 
             # Find location within 4 units in collision array
             I = MBSort(I, RandomNum, iEnergyBin, Object)
-            while Object.NullCollisionFreqT[iEnergyBin][I] < RandomNum:
+            while Object.CollisionFrequencyNT[iEnergyBin][I] < RandomNum:
                 I = I + 1
             S1 = Object.RGASNT[I]
             EI = Object.EnergyLevelsNT[I]

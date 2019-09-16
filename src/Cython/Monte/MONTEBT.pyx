@@ -141,7 +141,7 @@ cpdef run(PyBoltz Object):
     for K in range(6):
         for J in range(4000):
             TEMP[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyNull[K][J]
-    ABSFAKEI = Object.FAKEI
+    ABSFAKEI = Object.FakeIonizations
     Object.FakeIonizations = 0
     GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
     IMBPT = 0

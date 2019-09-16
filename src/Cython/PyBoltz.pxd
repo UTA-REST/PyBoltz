@@ -112,18 +112,17 @@ cdef class PyBoltz:
         double ReducedAttachment
         '''Variable used to represent the attachement rate.'''
         double CONST1
-        '''Constant that is equal to AWB / 2 * 1e-9.'''
+        '''Constant that is equal to (electron mass charge ratio) / 2 * 1e-9.'''
         double CONST2
         '''Constant that is equal to CONST1 * 1e-2.'''
         double CONST3
-        '''Constant that is equal to sqrt(0.2 * AWB) * 1e-9.'''
+        '''Constant that is equal to sqrt(0.2 * (electron mass charge ratio)) * 1e-9.'''
         double MaxCollisionFreqTotal
         '''Sum of the maximum collision frequency of each gas.'''
         double EnableThermalMotion
         '''Variable used to indicate wethier to include thermal motion or not.'''
         double PresTempCor
         '''Variable used to calculate the correlation constant between the pressure and tempreture. PresTempCor=ABZERO*Pressure/(ATMOS*(ABZERO+TemperatureC)*100.0D0).'''
-        double FAKEI
         double AN
         '''Variable that is equal to 100 * PresTempCor * ALOSCH. Which is the number of molecules/cm^3.'''
         double VAN
@@ -143,9 +142,11 @@ cdef class PyBoltz:
         long long AnisotropicDetected
         '''Anisotropic flag used if anisotropic scattering data is detected.'''
         long long Decor_Colls
+        '''Number of collisions for decorrelation - (Decorrelation length).'''
         long long Decor_Step
+        '''Decorrelation steps.'''
         long long Decor_LookBacks
-        '''Long decorrelation step.'''
+        '''Number of decorrelation lookbacks.'''
         long long FakeIonizations
         '''Fake ionisation counter.'''
         double NESST[9]
@@ -214,9 +215,18 @@ cdef class PyBoltz:
         double MeanCollisionTime
         '''Mean collision time. Calculated using a moving average filter where it is equal to 0.9 * MeanCollisionTime + 0.1 * NewTime'''
         # Variables and arrays used when the thermal motion is not included.
-        double NullCollisionFreqT[4000][960],EnergyLevelsNT[960],TotalCollisionFrequencyNullT[4000],IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
+        double CollisionFrequencyNT[4000][960]
+        '''Collision frequency for each energy step, at each cross section point. This is used for when EnableThermalMotion = 0'''
+        double EnergyLevelsNT[960]
+
+        double TotalCollisionFrequencyNT[4000]
+        '''Total collision frequency at each energy step. This is used for when EnableThermalMotion = 0'''
+        double IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
         double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNullNT[4000],SCLENULNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]
         double NG1NT[960],EG1NT[960],NG2NT[960],EG2NT[960],WKLMNT[960],EFLNT[960]
-        double CollisionsPerGasPerTypeNT[30],ICOLNNT[960],ICOLNNNT[60]
+        double CollisionsPerGasPerTypeNT[30],ICOLNNT[960]
+        double ICOLNNNT[60]
+        '''Null scatter sum for each gas at each sample. This is used for when EnableThermalMotion = 0'''
         double NumMomCrossSectionPointsNullNT
+        '''Used to store the number of cross section points for null cross section points. This is used for when EnableThermalMotion = 0'''
         double RandomMaxBoltzArray[9]

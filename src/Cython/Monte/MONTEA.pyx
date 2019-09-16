@@ -82,7 +82,7 @@ cpdef run(PyBoltz Object):
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
     for J in range(4000):
-        TEMP[J] = Object.TotalCollisionFrequencyNullNT[J] + Object.TotalCollisionFrequencyNullT[J]
+        TEMP[J] = Object.TotalCollisionFrequencyNullNT[J] + Object.TotalCollisionFrequencyNT[J]
 
     Object.X = 0.0
     Object.Y = 0.0
@@ -118,7 +118,7 @@ cpdef run(PyBoltz Object):
     NCOL = 0
     IEXTRA = 0
 
-    ABSFAKEI = Object.FAKEI
+    ABSFAKEI = Object.FakeIonizations
     Object.FakeIonizations = 0
 
     # INITIAL DIRECTION COSINES
@@ -163,7 +163,7 @@ cpdef run(PyBoltz Object):
 
                 # Test FOR REAL OR NULL COLLISION
                 RandomNum = random_uniform(RandomSeed)
-                Test1 = Object.TotalCollisionFrequencyNullT[IE] / TLIM
+                Test1 = Object.TotalCollisionFrequencyNT[IE] / TLIM
 
                 if RandomNum > Test1:
                     Test2 = TEMP[IE] / TLIM
@@ -246,7 +246,7 @@ cpdef run(PyBoltz Object):
             RandomNum = random_uniform(RandomSeed)
 
             I = MBSort(I,  RandomNum, IE, Object)
-            while Object.NullCollisionFreqT[IE][I] < RandomNum:
+            while Object.CollisionFrequencyNT[IE][I] < RandomNum:
                 I = I + 1
 
             S1 = Object.RGASNT[I]

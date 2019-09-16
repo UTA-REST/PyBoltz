@@ -30,7 +30,7 @@ cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
 
         I = INCR + ISTEP
         if I <= Object.NumMomCrossSectionPointsNT:
-            if Object.NullCollisionFreqT[IE][I-1] < R2:
+            if Object.CollisionFrequencyNT[IE][I - 1] < R2:
                 INCR = INCR + ISTEP
         ISTEP = ISTEP / 2
     if I==0:

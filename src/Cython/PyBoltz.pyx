@@ -37,9 +37,9 @@ cdef class PyBoltz:
         '''
         Fill all the variables needed with zeros.This function uses memset as it is fast.
         '''
-        memset(self.NullCollisionFreqT, 0, 4000 * 960 * sizeof(double))
+        memset(self.CollisionFrequencyNT, 0, 4000 * 960 * sizeof(double))
         memset(self.EnergyLevelsNT, 0, 960 * sizeof(double))
-        memset(self.TotalCollisionFrequencyNullT, 0, 4000 * sizeof(double))
+        memset(self.TotalCollisionFrequencyNT, 0, 4000 * sizeof(double))
         memset(self.IARRYNT, 0, 960 * sizeof(double))
         memset(self.RGASNT, 0, 960 * sizeof(double))
         memset(self.IPNNT, 0, 960 * sizeof(double))
@@ -196,7 +196,6 @@ cdef class PyBoltz:
         self.ErrorDiffusionXY = 0.0
         self.ErrorDiffusionXZ = 0.0
         self.FakeIonizations = 0
-        self.FAKEI = 0.0
         self.RandomSeed = 0.666
         self.ConsoleOutputFlag = 1
         self.MeanCollisionTime = 0.0

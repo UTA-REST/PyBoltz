@@ -120,7 +120,7 @@ cpdef run(PyBoltz Object):
         for J in range(4000):
             TEMP[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyNull[K][J]
 
-    ABSFAKEI = Object.FAKEI
+    ABSFAKEI = Object.FakeIonizations
     Object.FakeIonizations = 0
 
     # INITIAL DIRECTION COSINES

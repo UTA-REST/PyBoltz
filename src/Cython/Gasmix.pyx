@@ -16,6 +16,7 @@ from Gases.NITROGEN cimport Gas16
 from Gases.HYDROGEN cimport Gas21
 from Gases.DEUTERIUM cimport Gas22
 from Gases.DME cimport Gas25
+from Gases.XENONMERT cimport Gas61
 from libc.string cimport memset
 
 from Gas cimport Gas
@@ -57,6 +58,8 @@ cdef void callGASF(Gas* GAS):
         Gas22(GAS)
     elif GAS.GasNumber == 25:
         Gas25(GAS)
+    elif GAS.GasNumber == 61:
+        Gas61(GAS)
 
 cdef class Gasmix:
     def InitWithInfo(self, GasNumber, InelasticCrossSectionPerGas, N_Inelastic, PenningFraction, EG, SqrtEnergy, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,

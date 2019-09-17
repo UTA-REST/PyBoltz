@@ -76,34 +76,8 @@ cdef void Gas61(Gas*object):
     cdef double X2P4[14], Y2P4[14], YP2P4[14], X4DSum[16], Y4DSum[16], YP4DSum[16],
     cdef double X2P3[14], Y2P3[14], YP2P3[14], X2P2[14], Y2P2[14], YP2P2[14],
     cdef double X2P1[15], Y2P1[15], YP2P1[15],
-    cdef int IOFFN[50], IOFFION[12],temp[183]
-    cdef double Z54T[25], EBRM[25]
-    f = open("XENON_MERT_INPUT.txt",'r')
-    fl = f.readlines()
-    A = float(fl[0])
-    D = float(fl[1])
-    F = float(fl[2])
-    A1 = float(fl[3])
-    Lambda = float(fl[4])
-    EV0 = float(fl[5])
-    if A != 0 and F != 0 and D != 0 and A1 != 0 and Lambda != 0 and EV0 != 0:
-        for i in range(182):
-            XEN[i], YMOM[i], XEPS[i], temp[i] = HYBRID_X_SECTIONS(XEN[i],
-                                                                YMOM[i],
-                                                                XEPS[i],
-                                                                temp[i], A,
-                                                                D, F, A1,
-                                                                Lambda, EV0)
-
-        for i in range(153):
-            XEN[i], temp[i], XEL[i], YEL[i] = HYBRID_X_SECTIONS(XEN[i],
-                                                                temp[i],
-                                                                XEL[i],
-                                                                YEL[i], A,
-                                                                D, F, A1,
-                                                                Lambda, EV0)
-        YMOM[0] = 131
-        YEL[0] = 131
+    cdef int IOFFN[50], IOFFION[12]
+    cdef double Z54T[25], EBRM[25],temp[183]
 
     XEN = gd['gas7/XEN']
     YMOM = gd['gas7/YMOM']
@@ -214,6 +188,39 @@ cdef void Gas61(Gas*object):
     YP2P1 = gd['gas7/YP2P1']
     Z54T = gd['gas7/Z54T']
     EBRM = gd['gas7/EBRM']
+    f = open("XENON_MERT_INPUT.txt",'r')
+    fl = f.readlines()
+    A = float(fl[0])
+    D = float(fl[1])
+    F = float(fl[2])
+    A1 = float(fl[3])
+    Lambda = float(fl[4])
+    EV0 = float(fl[5])
+
+    if A != 0 and F != 0 and D != 0 and A1 != 0 and Lambda != 0 and EV0 != 0:
+        for i in range(182):
+            XEN[i], YMOM[i], temp[i], temp[i] = HYBRID_X_SECTIONS(XEN[i],
+                                                                YMOM[i],
+                                                                temp[i],
+                                                                temp[i], A,
+                                                                D, F, A1,
+                                                                Lambda, EV0)
+            if YMOM[i]!=YMOM[i]:
+                YMOM[i] = 0
+
+        for i in range(153):
+            XEN[i], temp[i], XEL[i], YEL[i] = HYBRID_X_SECTIONS(temp[i],
+                                                                temp[i],
+                                                                XEL[i],
+                                                                YEL[i], A,
+                                                                D, F, A1,
+                                                                Lambda, EV0)
+            if YEL[i]!=YEL[i]:
+                YEL[i] = 0
+
+        YMOM[0] = 131
+        YEL[0] = 131
+
     #   BORN BETHE VALUES FOR IONISATION
     CONST = 1.873884e-20
     ElectronMass2 = <float> (1021997.804)

@@ -72,7 +72,8 @@ print("************************************************ \n")
 print("run time [s]= ",round(t2-t1,3))
 
 for I in range(Object.NumberOfGases):
-    print("Percentage of "+GASES[int(Object.GasIDs[I])]+" = "+  str(Object.GasFractions[I]))
+    if Object.GasIDs[I]<=25:
+        print("Percentage of "+GASES[int(Object.GasIDs[I])]+" = "+  str(Object.GasFractions[I]))
 
 print("Tempature [C]         = ", Object.TemperatureCentigrade)
 print("Pressure [torr]       = ", Object.PressureTorr)

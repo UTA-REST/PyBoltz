@@ -199,7 +199,7 @@ cdef class PyBoltz:
         self.ErrorDiffusionXY = 0.0
         self.ErrorDiffusionXZ = 0.0
         self.FakeIonizations = 0
-        self.RandomSeed = 541277
+        self.RandomSeed = 54217137
         self.ConsoleOutputFlag = 1
         self.MeanCollisionTime = 0.0
         self.ReducedIonization=0.0

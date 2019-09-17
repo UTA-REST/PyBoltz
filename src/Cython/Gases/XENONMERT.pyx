@@ -199,6 +199,7 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
                                                                 Lambda, EV0)
             if YMOM[i]!=YMOM[i]:
                 YMOM[i] = 0
+        YMOM[0] = YMOM[1]*abs((YMOM[1]-YMOM[2])/(XEN[1]-XEN[2]))
 
         for i in range(153):
             XEN[i], temp[i], XEL[i], YEL[i] = HYBRID_X_SECTIONS(temp[i],
@@ -210,8 +211,6 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
             if YEL[i]!=YEL[i]:
                 YEL[i] = 0
 
-        YMOM[0] = 131
-        YEL[0] = 131
 
     #   BORN BETHE VALUES FOR IONISATION
     CONST = 1.873884e-20

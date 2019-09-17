@@ -58,7 +58,7 @@ Object.EField =1000
 Object.BFieldMag =10
 Object.BFieldAngle =45
 Object.ConsoleOutputFlag = 1
-
+Object.RandomSeed = 999999
 Object.WhichAngularModel = 2
 Object.A = 2
 Object.D = 490

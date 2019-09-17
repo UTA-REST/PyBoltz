@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 #include <stdlib.h>
@@ -13,31 +12,30 @@ double dmod(double x, double y) {
   #endif
 
 double MOD(double A,double B){
-
   return dmod(A,B);
 }
 double RVEC[1001];
 int IVEC = 0;
 int NVEC = 1000;
 int  I97, J97;
-double U[98],C;
+double U[98],C;  int IJKLIN = 54217137,KALLED;
 
+
+double NTOT2N = 0,NTOTIN =0 ,NTOT=-1, NTOT2=0;
 
 extern void RM48(double LENV){
   long MODCNS = 1000000000;
-  int IJKLIN;
   double T,S,HALF,UNI;
-  long long KALLED,NTOTIN,NTOT2N,I,J,K,L,M,NOW,IJ,KL;
+  long long NTOT2N,I,J,K,L,M,NOW,IJ,KL;
   static double CD, CM, TWOM24,TWOM49 ,ONE, ZERO;
-  static long long IJKL=0,NTOT=-1, NTOT2=0;
+  static long long IJKL=0;
   int II,JJ,I24,LOOP2,IDUM;
 
 
   if(NTOT>=0) goto L50;
-  IJKL = 54217137;
-  NTOT = 0;
-  NTOT2 = 0;
-  KALLED = 0;
+  IJKL = IJKLIN;
+  NTOT = NTOTIN;
+  NTOT2 = NTOT2N;
 
   IJ = IJKL/30082;
   KL = IJKL - 30082*IJ;
@@ -91,7 +89,11 @@ for(LOOP2 = 1;LOOP2<=NTOT2+1;++LOOP2){
   }
 }
 
-  if (KALLED == 1)  return;
+  if (KALLED == 1) {
+    KALLED = 0;
+  return;
+
+  }
   L50:
   for( IVEC= 1;IVEC<=LENV;++IVEC){
   UNI = U[I97]-U[J97];
@@ -128,7 +130,15 @@ extern double DRAND48(double dummy){
   }
   return RVEC[IVEC];
 }
+
+extern void RM48IN(int IJKLIN1, int NTOTIN1, int NTOT2N1){
+    IJKLIN = IJKLIN1;
+    NTOTIN = NTOTIN1;
+    NTOT2N = NTOT2N1;
+    KALLED = 1;
+    NTOT = -1;
+    RM48(NVEC);
+}
 int main(){
 return 0;
 }
-

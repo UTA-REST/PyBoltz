@@ -129,7 +129,7 @@ cdef class PyBoltz:
         '''Variable that is equal to 100 * PresTempCor * CONST4 * 1e15'''
         double TimeSum
         '''Variable used to calculate the sum of the collision times in the simulation.'''
-        double RandomSeed
+        long long RandomSeed
         '''Random number generator seed. Not used at the moment.'''
         long long NumberOfGases
         '''Number of gases in the mixture.'''
@@ -218,7 +218,6 @@ cdef class PyBoltz:
         double CollisionFrequencyNT[4000][960]
         '''Collision frequency for each energy step, at each cross section point. This is used for when EnableThermalMotion = 0'''
         double EnergyLevelsNT[960]
-
         double TotalCollisionFrequencyNT[4000]
         '''Total collision frequency at each energy step. This is used for when EnableThermalMotion = 0'''
         double IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]

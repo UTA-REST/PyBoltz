@@ -2,7 +2,6 @@ import math
 
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
-
 import Setups
 import Mixers
 import EnergyLimits
@@ -13,19 +12,23 @@ from Monte import *
 cdef extern from "C/RM48.h":
     double DRAND48(double dummy)
     void RM48(double lenv)
+    void RM48IN(int IJL, int NTOT, intNTOT2)
+
 
 cdef double drand48(double dummy):
     return DRAND48(dummy)
 
+cdef void setSeed(int seed):
+    RM48IN(seed,0,0)
+    return
 cdef class PyBoltz:
     """
-
     This is the main object used to start the simulation, as well as store the information of the simulation.
     It has most of the needed arrays, and variables.
 
-    More about PyBoltz:
+    More about Magboltz:
 
-    `PyBoltz_Documentation <http://cyclo.mit.edu/drift/www/aboutPyBoltz.html/>`_
+    `Magboltz_Documentation <http://cyclo.mit.edu/drift/www/aboutMagboltz.html/>`_
 
     .. note::
         If the variable has a "NT" at the end, that variable has the same function as its counterpart without a "NT" at the end.
@@ -196,7 +199,7 @@ cdef class PyBoltz:
         self.ErrorDiffusionXY = 0.0
         self.ErrorDiffusionXZ = 0.0
         self.FakeIonizations = 0
-        self.RandomSeed = 0.666
+        self.RandomSeed = 541277
         self.ConsoleOutputFlag = 1
         self.MeanCollisionTime = 0.0
         self.ReducedIonization=0.0
@@ -273,7 +276,7 @@ cdef class PyBoltz:
         For more info on the main output variables check the git repository readme:
         `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
         """
-
+        setSeed(self.RandomSeed)
         ELimNotYetFixed=1
 
         cdef double ReducedField

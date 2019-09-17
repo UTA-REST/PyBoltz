@@ -51,7 +51,7 @@ def HYBRID_X_SECTIONS( MB_EMTx, MB_EMTy, MB_ETx, MB_ETy, A, D, F, A1, Lambda, eV
     return MB_EMTx, New_Qm, MB_ETx, New_Qt
 
 
-cdef void Gas61(Gas*object):
+cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambda,double EV0):
     """
     This function is used to calculate the needed momentum cross sections for Xenon gas.
     """
@@ -188,21 +188,13 @@ cdef void Gas61(Gas*object):
     YP2P1 = gd['gas7/YP2P1']
     Z54T = gd['gas7/Z54T']
     EBRM = gd['gas7/EBRM']
-    f = open("XENON_MERT_INPUT.txt",'r')
-    fl = f.readlines()
-    A = float(fl[0])
-    D = float(fl[1])
-    F = float(fl[2])
-    A1 = float(fl[3])
-    Lambda = float(fl[4])
-    EV0 = float(fl[5])
 
-    if A != 0 and F != 0 and D != 0 and A1 != 0 and Lambda != 0 and EV0 != 0:
+    if AA != 0 and F != 0 and D != 0 and A1 != 0 and Lambda != 0 and EV0 != 0:
         for i in range(182):
             XEN[i], YMOM[i], temp[i], temp[i] = HYBRID_X_SECTIONS(XEN[i],
                                                                 YMOM[i],
                                                                 temp[i],
-                                                                temp[i], A,
+                                                                temp[i], AA,
                                                                 D, F, A1,
                                                                 Lambda, EV0)
             if YMOM[i]!=YMOM[i]:
@@ -212,7 +204,7 @@ cdef void Gas61(Gas*object):
             XEN[i], temp[i], XEL[i], YEL[i] = HYBRID_X_SECTIONS(temp[i],
                                                                 temp[i],
                                                                 XEL[i],
-                                                                YEL[i], A,
+                                                                YEL[i], AA,
                                                                 D, F, A1,
                                                                 Lambda, EV0)
             if YEL[i]!=YEL[i]:

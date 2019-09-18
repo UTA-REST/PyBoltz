@@ -388,14 +388,14 @@ cpdef run(PyBoltz Object):
         if Object.AnisotropicDetected == 0:
             Object.DiffusionX = 5e15 * SumVX / Object.TimeSum
             Object.DiffusionY = 5e15 * SumVY / Object.TimeSum
-            DiffXXPerSample[iSample] = 5.0e15 * (SumVX - SumVX_LastSample) / (Object.TimeSum - ST_LastSample)
-            DiffYYPerSample[iSample] = 5.0e15 * (SumVY - SumVY_LastSample) / (Object.TimeSum - ST_LastSample)
+            DiffXXPerSample[iSample] = 5.0e15 * (SumVX - SVX_LastSample) / (Object.TimeSum - ST_LastSample)
+            DiffYYPerSample[iSample] = 5.0e15 * (SumVY - SVY_LastSample) / (Object.TimeSum - ST_LastSample)
         else:
             if ST2 != 0.0:
                 Object.DiffusionY = 5e15 * SumYY / ST2
                 Object.DiffusionX = 5e15 * SumXX / ST2
-                DiffXXPerSample[iSample] = 5.0e15 * (SumXX - SumXX_LastSample) / (ST2 - ST2_LastSample)
-                DiffYYPerSample[iSample] = 5.0e15 * (SumYY - SumYY_LastSample) / (ST2 - ST2_LastSample)
+                DiffXXPerSample[iSample] = 5.0e15 * (SumXX - SXX_LastSample) / (ST2 - ST2_LastSample)
+                DiffYYPerSample[iSample] = 5.0e15 * (SumYY - SYY_LastSample) / (ST2 - ST2_LastSample)
             else:
                 DiffXXPerSample[iSample] = 0.0
                 DiffYYPerSample[iSample] = 0.0

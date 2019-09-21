@@ -310,7 +310,7 @@ cpdef run(PyBoltz Object):
                 IEXTRA += <long long>Object.NC0NT[I]
 
             # Generate scattering angles and update laboratory cosines after collision also update energy of electron
-            IPT = <long long>Object.IARRYNT[I]
+            IPT = <long long>Object.InteractionTypeNT[I]
 
             Object.CollisionsPerGasPerTypeNT[int(IPT) - 1] += 1
             Object.ICOLNNT[I] += 1

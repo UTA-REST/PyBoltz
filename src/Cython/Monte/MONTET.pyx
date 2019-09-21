@@ -389,7 +389,7 @@ cpdef run(PyBoltz Object):
                 IEXTRA += <long long> Object.NC0[GasIndex][I]
 
             # Generate scattering angles and update laboratory cosines after collision also update energy of electron
-            IPT = <long long> Object.IARRY[GasIndex][I]
+            IPT = <long long> Object.InteractionType[GasIndex][I]
             Object.CollisionsPerGasPerType[GasIndex][<int> IPT - 1] += 1
             Object.ICOLN[GasIndex][I] += 1
             if COMEnergy < EI:

@@ -273,7 +273,7 @@ cpdef run(PyBoltz Object):
                 EXTRA = R9 * (E - EI)
                 EI = EXTRA + EI
                 IEXTRA += <long long>(Object.NC0NT[I])
-            IPT = <long long>(Object.IARRYNT[I])
+            IPT = <long long>(Object.InteractionTypeNT[I])
             Object.CollisionsPerGasPerTypeNT[int(IPT)] += 1
             Object.ICOLNNT[I] += 1
             if E < EI:

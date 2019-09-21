@@ -138,7 +138,7 @@ cpdef EnergyLimit(PyBoltz Object):
 
 
         # Generate scattering angles and update laboratory cosines after collision also update energy of electron
-        IPT = Object.IARRYNT[I]
+        IPT = Object.InteractionTypeNT[I]
         if E < EI:
             EI = E - 0.0001
         S2 = (S1 * S1) / (S1 - 1.0)
@@ -300,7 +300,7 @@ cpdef EnergyLimitB(PyBoltz Object):
 
         # GENERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
         # COLLISION ALSO UPDATE ENERGY OF ELECTRON.
-        IPT = Object.IARRYNT[I]
+        IPT = Object.InteractionTypeNT[I]
         if E < EI:
             EI = E - 0.0001
         S2 = (S1 * S1) / (S1 - 1.0)
@@ -475,7 +475,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
 
         # GENERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
         # COLLISION ALSO UPDATE ENERGY OF ELECTRON.
-        IPT = Object.IARRY[GasIndex][I]
+        IPT = Object.InteractionType[GasIndex][I]
         if EOK < EI:
             EI = EOK - 0.0001
         S2 = (S1 * S1) / (S1 - 1)
@@ -646,7 +646,7 @@ cpdef EnergyLimitC(PyBoltz Object):
 
         # GENERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
         # COLLISION ALSO UPDATE ENERGY OF ELECTRON.
-        IPT = Object.IARRYNT[I]
+        IPT = Object.InteractionTypeNT[I]
         if E < EI:
             EI = E - 0.0001
         S2 = (S1 * S1) / (S1 - 1.0)
@@ -833,7 +833,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
         #  GENEERATE SCATTERING ANGLES AND UPDATE  LABORATORY COSINES AFTER
         #   COLLISION ALSO UPDATE ENERGY OF ELECTRON.
-        IPT = Object.IARRY[GasIndex][I]
+        IPT = Object.InteractionType[GasIndex][I]
         if EOK < EI:
             EI = EOK - 0.0001
         S2 = (S1 * S1) / (S1 - 1)
@@ -1003,7 +1003,7 @@ cpdef EnergyLimitT(PyBoltz Object):
             R9 = random_uniform(RandomSeed)
             EXTRA = R9 * (EOK - EI)
             EI = EXTRA + EI
-        IPT = Object.IARRY[GasIndex][I]
+        IPT = Object.InteractionType[GasIndex][I]
         if EOK < EI:
             EI = EOK - 0.0001
         S2 = pow(S1 , 2) / (S1 - 1.0)

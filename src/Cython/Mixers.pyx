@@ -110,7 +110,6 @@ cpdef Mixer(PyBoltz object):
                         RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
                         object.RGasNT[iProcess] = RGas
                         object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].E[2] / RGas
-                        object.WPLNT[iProcess] = object.MixObject.Gases[GasIndex].EB[0]
                         object.NC0NT[iProcess] = object.MixObject.Gases[GasIndex].NC0[0]
                         object.EC0NT[iProcess] = object.MixObject.Gases[GasIndex].EC0[0]
                         object.NG1NT[iProcess] = object.MixObject.Gases[GasIndex].NG1[0]
@@ -132,7 +131,6 @@ cpdef Mixer(PyBoltz object):
                             RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
                             object.RGasNT[iProcess] = RGas
                             object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGas
-                            object.WPLNT[iProcess] = object.MixObject.Gases[GasIndex].EB[iIonizaton]
                             object.NC0NT[iProcess] = object.MixObject.Gases[GasIndex].NC0[iIonizaton]
                             object.EC0NT[iProcess] = object.MixObject.Gases[GasIndex].EC0[iIonizaton]
                             object.NG1NT[iProcess] = object.MixObject.Gases[GasIndex].NG1[iIonizaton]
@@ -449,7 +447,6 @@ cpdef MixerT(PyBoltz object):
                         RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
                         object.RGas[GasIndex][iProcess - 1] = RGas
                         object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].E[2] / RGas
-                        object.WPL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EB[0]
                         object.NC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NC0[0]
                         object.EC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EC0[0]
                         object.NG1[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NG1[0]
@@ -471,7 +468,6 @@ cpdef MixerT(PyBoltz object):
                             RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
                             object.RGas[GasIndex][iProcess - 1] = RGas
                             object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGas
-                            object.WPL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EB[iIonizaton]
                             object.NC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NC0[iIonizaton]
                             object.EC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EC0[iIonizaton]
                             object.EG2[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EG2[iIonizaton]

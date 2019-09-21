@@ -49,8 +49,8 @@ cpdef Mixer(PyBoltz object):
             if object.MixObject.Gases[GasIndex].KEL[1] == 1:
                 ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][IE]
                 AngObject.ScatteringParameter1 = ScatteringParameter1
-                AngObject.AngCut()
-                object.AngleCutNT[IE][NP] = AngObject.ANGC
+                AngObject.CalcAngCut()
+                object.AngleCutNT[IE][NP] = AngObject.AngCut
                 object.ScatteringParameterNT[IE][NP] = AngObject.ScatteringParameter2
                 object.INDEXNT[NP] = 1
             elif object.MixObject.Gases[GasIndex].KEL[1] == 2:
@@ -81,8 +81,8 @@ cpdef Mixer(PyBoltz object):
                     if object.MixObject.Gases[GasIndex].KEL[2] == 1:
                         ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][IE]
                         AngObject.ScatteringParameter1 = ScatteringParameter1
-                        AngObject.AngCut()
-                        object.AngleCutNT[IE][NP] = AngObject.ANGC
+                        AngObject.CalcAngCut()
+                        object.AngleCutNT[IE][NP] = AngObject.AngCut
                         object.ScatteringParameterNT[IE][NP] = AngObject.ScatteringParameter2
                         object.INDEXNT[NP] = 1
                     elif object.MixObject.Gases[GasIndex].KEL[2] == 2:
@@ -99,8 +99,8 @@ cpdef Mixer(PyBoltz object):
                         if object.MixObject.Gases[GasIndex].KEL[2] == 1:
                             ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[KION][IE]
                             AngObject.ScatteringParameter1 = ScatteringParameter1
-                            AngObject.AngCut()
-                            object.AngleCutNT[IE][NP] = AngObject.ANGC
+                            AngObject.CalcAngCut()
+                            object.AngleCutNT[IE][NP] = AngObject.AngCut
                             object.ScatteringParameterNT[IE][NP] = AngObject.ScatteringParameter2
                             object.INDEXNT[NP] = 1
                         elif object.MixObject.Gases[GasIndex].KEL[2] == 2:
@@ -199,8 +199,8 @@ cpdef Mixer(PyBoltz object):
 
                         ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][IE]
                         AngObject.ScatteringParameter1 = ScatteringParameter1
-                        AngObject.AngCut()
-                        object.AngleCutNT[IE][NP] = AngObject.ANGC
+                        AngObject.CalcAngCut()
+                        object.AngleCutNT[IE][NP] = AngObject.AngCut
                         object.ScatteringParameterNT[IE][NP] = AngObject.ScatteringParameter2
                         object.INDEXNT[NP] = 1
                     elif object.MixObject.Gases[GasIndex].KIN[J] == 2:
@@ -396,8 +396,8 @@ cpdef MixerT(PyBoltz object):
             if object.MixObject.Gases[GasIndex].KEL[1] == 1:
                 ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][IE]
                 AngObject.ScatteringParameter1 = ScatteringParameter1
-                AngObject.AngCut()
-                object.AngleCut[GasIndex][IE][NP - 1] = AngObject.ANGC
+                AngObject.CalcAngCut()
+                object.AngleCut[GasIndex][IE][NP - 1] = AngObject.AngCut
                 object.ScatteringParameter[GasIndex][IE][NP - 1] = AngObject.ScatteringParameter2
                 object.INDEX[GasIndex][NP - 1] = 1
             elif object.MixObject.Gases[GasIndex].KEL[1] == 2:
@@ -429,8 +429,8 @@ cpdef MixerT(PyBoltz object):
                     if object.MixObject.Gases[GasIndex].KEL[2] == 1:
                         ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][IE]
                         AngObject.ScatteringParameter1 = ScatteringParameter1
-                        AngObject.AngCut()
-                        object.AngleCut[GasIndex][IE][NP - 1] = AngObject.ANGC
+                        AngObject.CalcAngCut()
+                        object.AngleCut[GasIndex][IE][NP - 1] = AngObject.AngCut
                         object.ScatteringParameter[GasIndex][IE][NP - 1] = AngObject.ScatteringParameter2
                         object.INDEX[GasIndex][NP - 1] = 1
                     elif object.MixObject.Gases[GasIndex].KEL[2] == 2:
@@ -447,8 +447,8 @@ cpdef MixerT(PyBoltz object):
                         if object.MixObject.Gases[0].KEL[2] == 1:
                             ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[KION][IE]
                             AngObject.ScatteringParameter1 = ScatteringParameter1
-                            AngObject.AngCut()
-                            object.AngleCut[GasIndex][IE][NP - 1] = AngObject.ANGC
+                            AngObject.CalcAngCut()
+                            object.AngleCut[GasIndex][IE][NP - 1] = AngObject.AngCut
                             object.ScatteringParameter[GasIndex][IE][NP - 1] = AngObject.ScatteringParameter2
                             object.INDEX[GasIndex][NP - 1] = 1
                         elif object.MixObject.Gases[0].KEL[2] == 2:
@@ -545,8 +545,8 @@ cpdef MixerT(PyBoltz object):
                     if object.MixObject.Gases[GasIndex].KIN[J] == 1:
                         ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][IE]
                         AngObject.ScatteringParameter1 = ScatteringParameter1
-                        AngObject.AngCut()
-                        object.AngleCut[GasIndex][IE][NP - 1] = AngObject.ANGC
+                        AngObject.CalcAngCut()
+                        object.AngleCut[GasIndex][IE][NP - 1] = AngObject.AngCut
                         object.ScatteringParameter[GasIndex][IE][NP - 1] = AngObject.ScatteringParameter2
                         object.INDEX[GasIndex][NP - 1] = 1
                     elif object.MixObject.Gases[GasIndex].KIN[J] == 2:

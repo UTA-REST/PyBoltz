@@ -48,7 +48,7 @@ cdef void Gas2(Gas *object):
     cdef int i = 0, j = 0
 
     for i in range(0, 6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(0, object.N_Inelastic):
         object.KIN[i] = object.WhichAngularModel
     NDATA = 117

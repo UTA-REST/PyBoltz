@@ -140,7 +140,7 @@ cdef void Gas10(Gas*object):
     cdef int i, j, I, J, NL
     NBREM = 25
     for i in range(6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
 
     for i in range(8):
         object.KIN[i] = 0

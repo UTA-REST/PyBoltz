@@ -82,7 +82,7 @@ cdef void Gas11(Gas*object):
 
     # USE WhichAngularModel=2 ONLY (OKHRIMOVSKY)
     for i in range(6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(object.N_Inelastic):
         object.KIN[i] = 2
 

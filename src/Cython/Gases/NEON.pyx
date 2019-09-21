@@ -122,7 +122,7 @@ cdef void Gas5(Gas* object):
     EBRM = gd['gas5/EBRM']
     object.EnergyLevels = gd['gas5/EnergyLevels']
     for J in range(6):
-        object.KEL[J] = object.WhichAngularModel
+        object.AngularModel[J] = object.WhichAngularModel
     for J in range(object.N_Inelastic):
         object.KIN[J] = object.WhichAngularModel
     cdef int NEL, NDATA, NEPSI, N_IonizationD, N_Ionization2, N_Ionization3, NKSH, N1S5, N1S4, N1S3, N1S2, N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N2P4, N2P3, N2P2

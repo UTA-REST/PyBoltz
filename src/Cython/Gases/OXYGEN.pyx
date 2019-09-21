@@ -193,7 +193,7 @@ cdef void Gas15(Gas*object):
     object.EnergyLevels = gd['gas15/EnergyLevels']
 
     for J in range(6):
-        object.KEL[J] = object.WhichAngularModel
+        object.AngularModel[J] = object.WhichAngularModel
     for J in range(object.N_Inelastic):
         object.KIN[J] = object.WhichAngularModel
 

@@ -73,7 +73,7 @@ cdef void Gas1(Gas* object):
     cdef int NBREM = 25
     object.EnergySteps = 4000
     for i in range(0, 6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     # ASSumE CAPITELLI LONGO TYPE OF ANGULAR DISTRIBUTION FOR
     # ALL VIBRATIONAL LEVELS AND THE Sum OF HIGHER HARMONICS
     for i in range(0, 10):

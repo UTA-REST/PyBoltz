@@ -196,7 +196,7 @@ cdef void Gas16(Gas*object):
     # ISOTROPIC (KEL=0) OR
     # CAPITELLI-LONGO (KEL =1)  OR OKHRIMOVSKKY TYPES (KEL=2)
     for J in range(6):
-        object.KEL[J] = object.WhichAngularModel
+        object.AngularModel[J] = object.WhichAngularModel
 
     # USE ISOTROPIC SCATTERING FOR ROTATIONAL AND VIBRATIONAL STATES
     for J in range(92):

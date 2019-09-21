@@ -83,7 +83,7 @@ cdef void Gas22(Gas*object):
     object.N_Null = 0
 
     for J in range(6):
-        object.KEL[J] = 0
+        object.AngularModel[J] = 0
 
     for J in range(object.N_Inelastic):
         object.KIN[J] = 0

@@ -116,7 +116,7 @@ cdef void Gas4(Gas*object):
     object.EG2[1] = 0.0
     cdef int I, j, i
     for i in range(6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(object.N_Inelastic):
         object.KIN[i] = object.WhichAngularModel
     for j in range(0, object.N_Ionization):

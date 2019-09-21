@@ -89,7 +89,7 @@ cdef void Gas8(Gas*object):
     cdef int N_IonizationF3, N_IonizationF4, N_IonizationF5, N_IonizationF6, N_IonizationPP, NKSH, N_Attachment1, NDET, NTRP1, NTRP2, NTRP3, NCHD, NCHB, NHAL, NHBE
     cdef int NASIZE = 4000
     for J in range(6):
-        object.KEL[J] = object.WhichAngularModel
+        object.AngularModel[J] = object.WhichAngularModel
         #SUPERELASTIC, V2 V1 AND HARMONIC VIBRATIONS ASSumED ISOTROPIC
         object.KIN[J] = 0
     object.KIN[6]=0.0

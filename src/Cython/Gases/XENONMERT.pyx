@@ -243,7 +243,7 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
     cdef int J, I
 
     for J in range(6):
-        object.KEL[J] = object.WhichAngularModel
+        object.AngularModel[J] = object.WhichAngularModel
     for J in range(object.N_Inelastic):
         object.KIN[J] = object.WhichAngularModel
     cdef int NDATA, NEL, NEPSI, N_IonizationG, N_Ionization2, N_Ionization3, N_Ionization4, N_Ionization5, N_Ionization6, N_IonizationK, N_IonizationL1, N_IonizationL2, N_IonizationL3, N_IonizationM1, N_IonizationM2, N_IonizationM3, N_IonizationM4

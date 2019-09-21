@@ -121,7 +121,7 @@ cdef void Gas9(Gas*object):
     NBREM = 25
 
     for i in range(6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(10):
         object.KIN[i] = 0
     for i in range(10, object.N_Inelastic):

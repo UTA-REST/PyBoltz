@@ -122,7 +122,7 @@ cdef void Gas14(Gas*object):
 
     # USE OKRIMOVSKKY
     for J in range(6):
-        object.KEL[J] = 2
+        object.AngularModel[J] = 2
     for J in range(object.N_Inelastic):
         object.KIN[J] = 2
 

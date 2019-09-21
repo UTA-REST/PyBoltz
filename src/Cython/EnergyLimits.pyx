@@ -144,12 +144,12 @@ cpdef EnergyLimit(PyBoltz Object):
         S2 = (S1 * S1) / (S1 - 1.0)
         R3 = random_uniform(RandomSeed)
 
-        if Object.INDEXNT[I] == 1:
+        if Object.AngularModelNT[I] == 1:
             R31 = random_uniform(RandomSeed)
             F3 = 1.0 - R3 * Object.AngleCutNT[IE][I]
             if R31 > Object.ScatteringParameterNT[IE][I]:
                 F3 = -1 * F3
-        elif Object.INDEXNT[I] == 2:
+        elif Object.AngularModelNT[I] == 2:
             EPSI = Object.ScatteringParameterNT[IE][I]
             F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
@@ -306,12 +306,12 @@ cpdef EnergyLimitB(PyBoltz Object):
         S2 = (S1 * S1) / (S1 - 1.0)
         R3 = random_uniform(RandomSeed)
 
-        if Object.INDEXNT[I] == 1:
+        if Object.AngularModelNT[I] == 1:
             R31 = random_uniform(RandomSeed)
             F3 = 1.0 - R3 * Object.AngleCutNT[IE][I]
             if R31 > Object.ScatteringParameterNT[IE][I]:
                 F3 = -1 * F3
-        elif Object.INDEXNT[I] == 2:
+        elif Object.AngularModelNT[I] == 2:
             EPSI = Object.ScatteringParameterNT[IE][I]
             F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
@@ -481,12 +481,12 @@ cpdef EnergyLimitBT(PyBoltz Object):
         S2 = (S1 * S1) / (S1 - 1)
         R3 = random_uniform(RandomSeed)
 
-        if Object.INDEX[GasIndex][I] == 1:
+        if Object.AngularModel[GasIndex][I] == 1:
             R31 = random_uniform(RandomSeed)
             F3 = 1.0 - R3 * Object.AngleCut[GasIndex][IE][I]
             if R31 > Object.ScatteringParameter[GasIndex][IE][I]:
                 F3 = -1 * F3
-        elif Object.INDEX[GasIndex][I] == 2:
+        elif Object.AngularModel[GasIndex][I] == 2:
             EPSI = Object.ScatteringParameter[GasIndex][IE][I]
             F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
@@ -652,12 +652,12 @@ cpdef EnergyLimitC(PyBoltz Object):
         S2 = (S1 * S1) / (S1 - 1.0)
         R3 = random_uniform(RandomSeed)
 
-        if Object.INDEXNT[I] == 1:
+        if Object.AngularModelNT[I] == 1:
             R31 = random_uniform(RandomSeed)
             F3 = 1.0 - R3 * Object.AngleCutNT[IE][I]
             if R31 > Object.ScatteringParameterNT[IE][I]:
                 F3 = -1 * F3
-        elif Object.INDEXNT[I] == 2:
+        elif Object.AngularModelNT[I] == 2:
             EPSI = Object.ScatteringParameterNT[IE][I]
             F3 = 1 - (2 * R3 * (1 - EPSI)/ (1 + EPSI * (1 - 2 * R3)))
         else:
@@ -839,12 +839,12 @@ cpdef EnergyLimitCT(PyBoltz Object):
         S2 = (S1 * S1) / (S1 - 1)
         R3 = random_uniform(RandomSeed)
 
-        if Object.INDEX[GasIndex][I] == 1:
+        if Object.AngularModel[GasIndex][I] == 1:
             R31 = random_uniform(RandomSeed)
             F3 = 1- R3 *Object.AngleCut[GasIndex][IE][I]
             if R31 > Object.ScatteringParameter[GasIndex][IE][I]:
                 F3 = -1 * F3
-            elif Object.INDEX[GasIndex][I] == 2:
+            elif Object.AngularModel[GasIndex][I] == 2:
                 EPSI = Object.ScatteringParameter[GasIndex][IE][I]
                 F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
             else:
@@ -1010,12 +1010,12 @@ cpdef EnergyLimitT(PyBoltz Object):
 
         # Anisotropic scattering
         R3 = random_uniform(RandomSeed)
-        if Object.INDEX[GasIndex][I] == 1:
+        if Object.AngularModel[GasIndex][I] == 1:
             R31 = random_uniform(RandomSeed)
             F3 = 1.0 - R3 * Object.AngleCut[GasIndex][IE][I]
             if R31 > Object.ScatteringParameter[GasIndex][IE][I]:
                 F3 = -1.0 * F3
-        elif Object.INDEX[GasIndex][I] == 2:
+        elif Object.AngularModel[GasIndex][I] == 2:
             EPSI = Object.ScatteringParameter[GasIndex][IE][I]
             F3 = 1.0 - (2.0 * R3 * (1.0 - EPSI) / (1.0 + EPSI * (1.0 - 2.0 * R3)))
         else:

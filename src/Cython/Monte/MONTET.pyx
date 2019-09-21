@@ -406,13 +406,13 @@ cpdef run(PyBoltz Object):
 
             # Anisotropic scattering - pick the scattering angle theta depending on scatter type
             RandomNum = random_uniform(RandomSeed)
-            if Object.INDEX[GasIndex][I] == 1:
+            if Object.AngularModel[GasIndex][I] == 1:
 	        # Use method of Capitelli et al
                 RandomNum2 = random_uniform(RandomSeed)
                 CosTheta = 1.0 - RandomNum * Object.AngleCut[GasIndex][iEnergyBin][I]
                 if RandomNum2 > Object.ScatteringParameter[GasIndex][iEnergyBin][I]:
                     CosTheta = -1.0 * CosTheta
-            elif Object.INDEX[GasIndex][I] == 2:
+            elif Object.AngularModel[GasIndex][I] == 2:
                 # Use method of Okhrimovskyy et al
                 EpsilonOkhr = Object.ScatteringParameter[GasIndex][iEnergyBin][I]
                 CosTheta = 1.0 - (2.0 * RandomNum * (1.0 - EpsilonOkhr) / (1.0 + EpsilonOkhr * (1.0 - 2.0 * RandomNum)))

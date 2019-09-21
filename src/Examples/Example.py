@@ -23,14 +23,14 @@ PBRun.ListGases()
 # Configure settings for our simulation
 MySettings   ={'Gases'                 :['NEON','CO2'],
                'Fractions'             :[99,1],
-               'Max_collisions'        :1,
+               'Max_collisions'        :4e7,
                'EField_Vcm'            :100,
                'Max_electron_energy'   :0,
                'Temperature_C'         :23,
                'Pressure_Torr'         :7500.062,
                'BField_Tesla'          :0,
                'BField_angle'          :0,
-               'Angular_dist_model'    :2,
+               'Angular_dist_model'    :1,
                'Enable_penning'        :0,
                'Enable_thermal_motion' :1,
                'ConsoleOutputFlag'     :1}

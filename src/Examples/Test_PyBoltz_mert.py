@@ -60,12 +60,14 @@ Object.BFieldAngle =45
 Object.ConsoleOutputFlag = 1
 Object.RandomSeed = 54217137
 Object.WhichAngularModel = 2
-Object.A = 2
-Object.D = 490
-Object.F = 690
-Object.A1 = 3
-Object.Lambda = 4
-Object.EV0 = 2
+ExtraParameters = {}
+ExtraParameters['A'] = 2
+ExtraParameters['D'] = 490
+ExtraParameters['F'] = 690
+ExtraParameters['A1'] = 3
+ExtraParameters['Lambda'] = 4
+ExtraParameters['EV0'] = 2
+Object.SetExtraParameters(ExtraParameters)
 Object.Start()
 
 t2 =time.time()

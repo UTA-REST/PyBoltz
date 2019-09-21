@@ -2,6 +2,7 @@ cimport numpy as np
 import math
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
+from Gasmix cimport Gasmix
 
 cdef double drand48(double dummy)
 
@@ -229,3 +230,4 @@ cdef class PyBoltz:
         double NumMomCrossSectionPointsNullNT
         '''Used to store the number of cross section points for null cross section points. This is used for when EnableThermalMotion = 0'''
         double RandomMaxBoltzArray[9]
+        Gasmix MixObject

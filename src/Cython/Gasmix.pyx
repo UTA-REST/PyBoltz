@@ -16,11 +16,11 @@ from Gases.NITROGEN cimport Gas16
 from Gases.HYDROGEN cimport Gas21
 from Gases.DEUTERIUM cimport Gas22
 from Gases.DME cimport Gas25
+from Gases.XENONMERT cimport Gas61
 from libc.string cimport memset
-
 from Gas cimport Gas
 
-cdef void callGASF(Gas* GAS):
+cdef void callGASF(Gas* GAS,Params):
     if GAS.GasNumber == 1:
         Gas1(GAS)
     elif GAS.GasNumber == 2:
@@ -57,7 +57,8 @@ cdef void callGASF(Gas* GAS):
         Gas22(GAS)
     elif GAS.GasNumber == 25:
         Gas25(GAS)
-
+    elif GAS.GasNumber == 61:
+        Gas61(GAS,Params['A'],Params['D'],Params['F'],Params['A1'],Params['Lambda'],Params['EV0'])
 
 cdef class Gasmix:
     def InitWithInfo(self, GasNumber, InelasticCrossSectionPerGas, N_Inelastic, PenningFraction, EG, SqrtEnergy, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
@@ -96,10 +97,13 @@ cdef class Gasmix:
             memset(self.Gases[i].AttachmentCrossSection, 0, 8*4000 * sizeof(double))
             memset(self.Gases[i].NullCrossSection, 0, 10*4000 * sizeof(double))
 
-
-
-
-
+    def reset(self):
+        for i in range(6):
+            memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
+            memset(self.Gases[i].IonizationCrossSection, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].PEIonizationCrossSection, 0, 30*4000 * sizeof(double))
+            memset(self.Gases[i].AttachmentCrossSection, 0, 8*4000 * sizeof(double))
+            memset(self.Gases[i].NullCrossSection, 0, 10*4000 * sizeof(double))
 
     def setCommons(self, GasNumber, EG, SqrtEnergy, QT1, QT2, QT3, QT4, DEN, DENS, NumberOfGases, EnergySteps,
                    WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy, RhydbergConst, TemperatureC, Pressure, EnablePenning,PIR2):
@@ -129,9 +133,11 @@ cdef class Gasmix:
             memset(self.Gases[i].PEIonizationCrossSection, 0, 30*4000 * sizeof(double))
             memset(self.Gases[i].AttachmentCrossSection, 0, 8*4000 * sizeof(double))
             memset(self.Gases[i].NullCrossSection, 0, 10*4000 * sizeof(double))
+
+
     def Run(self):
         '''This functions calls the corresponding gas functions.'''
         cdef int i
         cdef Gas temp
         for i in range(6):
-            callGASF(&self.Gases[i])
+            callGASF(&self.Gases[i],self.ExtraParameters)

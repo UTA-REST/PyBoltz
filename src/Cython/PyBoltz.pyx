@@ -7,6 +7,8 @@ import Mixers
 import EnergyLimits
 import Monte
 from Monte import *
+from Gasmix cimport Gasmix
+
 
 
 cdef extern from "C/RM48.h":
@@ -204,6 +206,7 @@ cdef class PyBoltz:
         self.MeanCollisionTime = 0.0
         self.ReducedIonization=0.0
         self.ReducedAttachment=0.0
+        self.MixObject = Gasmix()
 
     def end(self):
         """
@@ -261,7 +264,8 @@ cdef class PyBoltz:
                 ELimFunc       = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = Monte.MONTEC
         return [MixerFunc,ELimFunc,MonteCarloFunc]  
-
+    def SetExtraParameters(self,params):
+        self.MixObject.ExtraParameters = params
     def Start(self):
         """
         This is the main function that starts the magboltz simulation/calculation.

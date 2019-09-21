@@ -17,7 +17,7 @@ cpdef Mixer(PyBoltz object):
     The object parameter is the PyBoltz object to be setup.
     """
     cdef double AttachmentCrossSection[6][4000], ElectronCharge, JHI, JLOW, EnergyHigh, F2, BP, EnergyLow
-    cdef int  IE, GasIndex, NP, p, sum, J, i, j, KION, JJ, IL, I
+    cdef int  iEnergy, GasIndex, iProcess, p, sum, J, i, j, iIonizaton, JJ, IL, I
     ElectronCharge = 1.602176565e-19
 
 
@@ -37,194 +37,194 @@ cpdef Mixer(PyBoltz object):
     object.MixObject.Run()
 
     ElectronMass = 9.10938291e-31
-    for IE in range(4000):
-        NP = 0
+    for iEnergy in range(4000):
+        iProcess = 0
         for GasIndex in range(object.NumberOfGases):
-            object.CollisionFrequencyNT[IE][NP] = object.MixObject.Gases[GasIndex].Q[1][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-            object.ScatteringParameterNT[IE][NP] = 0.5
-            object.AngleCutNT[IE][NP] = 1
-            object.AngularModelNT[NP] = 0
+            object.CollisionFrequencyNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].Q[1][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+            object.ScatteringParameterNT[iEnergy][iProcess] = 0.5
+            object.AngleCutNT[iEnergy][iProcess] = 1
+            object.AngularModelNT[iProcess] = 0
             AngObject = Ang()
 
             if object.MixObject.Gases[GasIndex].AngularModel[1] == 1:
-                ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][IE]
+                ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][iEnergy]
                 AngObject.ScatteringParameter1 = ScatteringParameter1
                 AngObject.CalcAngCut()
-                object.AngleCutNT[IE][NP] = AngObject.AngCut
-                object.ScatteringParameterNT[IE][NP] = AngObject.ScatteringParameter2
-                object.AngularModelNT[NP] = 1
+                object.AngleCutNT[iEnergy][iProcess] = AngObject.AngCut
+                object.ScatteringParameterNT[iEnergy][iProcess] = AngObject.ScatteringParameter2
+                object.AngularModelNT[iProcess] = 1
             elif object.MixObject.Gases[GasIndex].AngularModel[1] == 2:
-                object.ScatteringParameterNT[IE][NP] = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][IE]
-                object.AngularModelNT[NP] = 2
+                object.ScatteringParameterNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][iEnergy]
+                object.AngularModelNT[iProcess] = 2
 
-            if IE == 0:
+            if iEnergy == 0:
                 RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                object.RGASNT[NP] = RGAS
+                object.RGASNT[iProcess] = RGAS
                 L = 1
-                object.IARRYNT[NP] = L
-                object.EnergyLevelsNT[NP] = 0.0
-                object.IPNNT[NP] = 0
+                object.IARRYNT[iProcess] = L
+                object.EnergyLevelsNT[iProcess] = 0.0
+                object.IPNNT[iProcess] = 0
 
-                object.PenningFractionNT[0][NP] = 0.0
-                object.PenningFractionNT[1][NP] = 0.0
-                object.PenningFractionNT[2][NP] = 0.0
+                object.PenningFractionNT[0][iProcess] = 0.0
+                object.PenningFractionNT[1][iProcess] = 0.0
+                object.PenningFractionNT[2][iProcess] = 0.0
                 # IONISATION
 
             if object.FinalElectronEnergy >= object.MixObject.Gases[GasIndex].E[2]:
                 if object.MixObject.Gases[GasIndex].N_Ionization <= 1:
-                    NP += 1
-                    object.CollisionFrequencyNT[IE][NP] = object.MixObject.Gases[GasIndex].Q[2][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                    object.FCION[IE] = object.FCION[IE] + object.CollisionFrequencyNT[IE][NP]
-                    object.ScatteringParameterNT[IE][NP] = 0.5
-                    object.AngleCutNT[IE][NP] = 1.0
-                    object.AngularModelNT[NP] = 0
+                    iProcess += 1
+                    object.CollisionFrequencyNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].Q[2][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                    object.FCION[iEnergy] = object.FCION[iEnergy] + object.CollisionFrequencyNT[iEnergy][iProcess]
+                    object.ScatteringParameterNT[iEnergy][iProcess] = 0.5
+                    object.AngleCutNT[iEnergy][iProcess] = 1.0
+                    object.AngularModelNT[iProcess] = 0
                     if object.MixObject.Gases[GasIndex].AngularModel[2] == 1:
-                        ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][IE]
+                        ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][iEnergy]
                         AngObject.ScatteringParameter1 = ScatteringParameter1
                         AngObject.CalcAngCut()
-                        object.AngleCutNT[IE][NP] = AngObject.AngCut
-                        object.ScatteringParameterNT[IE][NP] = AngObject.ScatteringParameter2
-                        object.AngularModelNT[NP] = 1
+                        object.AngleCutNT[iEnergy][iProcess] = AngObject.AngCut
+                        object.ScatteringParameterNT[iEnergy][iProcess] = AngObject.ScatteringParameter2
+                        object.AngularModelNT[iProcess] = 1
                     elif object.MixObject.Gases[GasIndex].AngularModel[2] == 2:
-                        object.ScatteringParameterNT[IE][NP] = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][IE]
-                        object.AngularModelNT[NP] = 2
+                        object.ScatteringParameterNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][iEnergy]
+                        object.AngularModelNT[iProcess] = 2
                 elif object.MixObject.Gases[GasIndex].N_Ionization > 1:
-                    for KION in range(object.MixObject.Gases[GasIndex].N_Ionization):
-                        NP += 1
-                        object.CollisionFrequencyNT[IE][NP] = object.MixObject.Gases[GasIndex].IonizationCrossSection[KION][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                        object.FCION[IE] = object.FCION[IE] + object.CollisionFrequencyNT[IE][NP]
-                        object.ScatteringParameterNT[IE][NP] = 0.5
-                        object.AngleCutNT[IE][NP] = 1.0
-                        object.AngularModelNT[NP] = 0
+                    for iIonizaton in range(object.MixObject.Gases[GasIndex].N_Ionization):
+                        iProcess += 1
+                        object.CollisionFrequencyNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].IonizationCrossSection[iIonizaton][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                        object.FCION[iEnergy] = object.FCION[iEnergy] + object.CollisionFrequencyNT[iEnergy][iProcess]
+                        object.ScatteringParameterNT[iEnergy][iProcess] = 0.5
+                        object.AngleCutNT[iEnergy][iProcess] = 1.0
+                        object.AngularModelNT[iProcess] = 0
                         if object.MixObject.Gases[GasIndex].AngularModel[2] == 1:
-                            ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[KION][IE]
+                            ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[iIonizaton][iEnergy]
                             AngObject.ScatteringParameter1 = ScatteringParameter1
                             AngObject.CalcAngCut()
-                            object.AngleCutNT[IE][NP] = AngObject.AngCut
-                            object.ScatteringParameterNT[IE][NP] = AngObject.ScatteringParameter2
-                            object.AngularModelNT[NP] = 1
+                            object.AngleCutNT[iEnergy][iProcess] = AngObject.AngCut
+                            object.ScatteringParameterNT[iEnergy][iProcess] = AngObject.ScatteringParameter2
+                            object.AngularModelNT[iProcess] = 1
                         elif object.MixObject.Gases[GasIndex].AngularModel[2] == 2:
-                            object.ScatteringParameterNT[IE][NP] = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[KION][IE]
-                            object.AngularModelNT[NP] = 2
+                            object.ScatteringParameterNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[iIonizaton][iEnergy]
+                            object.AngularModelNT[iProcess] = 2
 
-                if IE == 0:
+                if iEnergy == 0:
                     if object.MixObject.Gases[GasIndex].N_Ionization <= 1:
                         RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGASNT[NP] = RGAS
-                        object.EnergyLevelsNT[NP] = object.MixObject.Gases[GasIndex].E[2] / RGAS
-                        object.WPLNT[NP] = object.MixObject.Gases[GasIndex].EB[0]
-                        object.NC0NT[NP] = object.MixObject.Gases[GasIndex].NC0[0]
-                        object.EC0NT[NP] = object.MixObject.Gases[GasIndex].EC0[0]
-                        object.NG1NT[NP] = object.MixObject.Gases[GasIndex].NG1[0]
-                        object.EG1NT[NP] = object.MixObject.Gases[GasIndex].EG1[0]
-                        object.EG2NT[NP] = object.MixObject.Gases[GasIndex].EG2[0]
-                        object.NG2NT[NP] = object.MixObject.Gases[GasIndex].NG2[0]
-                        object.EFLNT[NP] = object.MixObject.Gases[GasIndex].EFL[0]
-                        object.WKLMNT[NP] = object.MixObject.Gases[GasIndex].WK[0]
-                        object.IPNNT[NP] = 1
+                        object.RGASNT[iProcess] = RGAS
+                        object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].E[2] / RGAS
+                        object.WPLNT[iProcess] = object.MixObject.Gases[GasIndex].EB[0]
+                        object.NC0NT[iProcess] = object.MixObject.Gases[GasIndex].NC0[0]
+                        object.EC0NT[iProcess] = object.MixObject.Gases[GasIndex].EC0[0]
+                        object.NG1NT[iProcess] = object.MixObject.Gases[GasIndex].NG1[0]
+                        object.EG1NT[iProcess] = object.MixObject.Gases[GasIndex].EG1[0]
+                        object.EG2NT[iProcess] = object.MixObject.Gases[GasIndex].EG2[0]
+                        object.NG2NT[iProcess] = object.MixObject.Gases[GasIndex].NG2[0]
+                        object.EFLNT[iProcess] = object.MixObject.Gases[GasIndex].EFL[0]
+                        object.WKLMNT[iProcess] = object.MixObject.Gases[GasIndex].WK[0]
+                        object.IPNNT[iProcess] = 1
                         L = 2
-                        object.IARRYNT[NP] = L
-                        object.PenningFractionNT[0][NP] = 0.0
-                        object.PenningFractionNT[1][NP] = 0.0
-                        object.PenningFractionNT[2][NP] = 0.0
+                        object.IARRYNT[iProcess] = L
+                        object.PenningFractionNT[0][iProcess] = 0.0
+                        object.PenningFractionNT[1][iProcess] = 0.0
+                        object.PenningFractionNT[2][iProcess] = 0.0
                     elif object.MixObject.Gases[GasIndex].N_Ionization > 1:
-                        NP = NP - object.MixObject.Gases[GasIndex].N_Ionization
-                        for KION in range(object.MixObject.Gases[GasIndex].N_Ionization):
-                            NP = NP + 1
+                        iProcess = iProcess - object.MixObject.Gases[GasIndex].N_Ionization
+                        for iIonizaton in range(object.MixObject.Gases[GasIndex].N_Ionization):
+                            iProcess = iProcess + 1
                             RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                            object.RGASNT[NP] = RGAS
-                            object.EnergyLevelsNT[NP] = object.MixObject.Gases[GasIndex].IonizationEnergy[KION] / RGAS
-                            object.WPLNT[NP] = object.MixObject.Gases[GasIndex].EB[KION]
-                            object.NC0NT[NP] = object.MixObject.Gases[GasIndex].NC0[KION]
-                            object.EC0NT[NP] = object.MixObject.Gases[GasIndex].EC0[KION]
-                            object.NG1NT[NP] = object.MixObject.Gases[GasIndex].NG1[KION]
-                            object.EG2NT[NP] = object.MixObject.Gases[GasIndex].EG2[KION]
-                            object.EFLNT[NP] = object.MixObject.Gases[GasIndex].EFL[KION]
-                            object.EG1NT[NP] = object.MixObject.Gases[GasIndex].EG1[KION]
-                            object.NG2NT[NP] = object.MixObject.Gases[GasIndex].NG2[KION]
-                            object.WKLMNT[NP] = object.MixObject.Gases[GasIndex].WK[KION]
-                            object.IPNNT[NP] = 1
+                            object.RGASNT[iProcess] = RGAS
+                            object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGAS
+                            object.WPLNT[iProcess] = object.MixObject.Gases[GasIndex].EB[iIonizaton]
+                            object.NC0NT[iProcess] = object.MixObject.Gases[GasIndex].NC0[iIonizaton]
+                            object.EC0NT[iProcess] = object.MixObject.Gases[GasIndex].EC0[iIonizaton]
+                            object.NG1NT[iProcess] = object.MixObject.Gases[GasIndex].NG1[iIonizaton]
+                            object.EG2NT[iProcess] = object.MixObject.Gases[GasIndex].EG2[iIonizaton]
+                            object.EFLNT[iProcess] = object.MixObject.Gases[GasIndex].EFL[iIonizaton]
+                            object.EG1NT[iProcess] = object.MixObject.Gases[GasIndex].EG1[iIonizaton]
+                            object.NG2NT[iProcess] = object.MixObject.Gases[GasIndex].NG2[iIonizaton]
+                            object.WKLMNT[iProcess] = object.MixObject.Gases[GasIndex].WK[iIonizaton]
+                            object.IPNNT[iProcess] = 1
                             L = 2
-                            object.IARRYNT[NP] = L
-                            object.PenningFractionNT[0][NP] = 0.0
-                            object.PenningFractionNT[1][NP] = 0.0
-                            object.PenningFractionNT[2][NP] = 0.0
+                            object.IARRYNT[iProcess] = L
+                            object.PenningFractionNT[0][iProcess] = 0.0
+                            object.PenningFractionNT[1][iProcess] = 0.0
+                            object.PenningFractionNT[2][iProcess] = 0.0
 
             if object.FinalElectronEnergy >= object.MixObject.Gases[GasIndex].E[3]:
                 if object.MixObject.Gases[GasIndex].N_Attachment <= 1:
-                    NP += 1
-                    object.CollisionFrequencyNT[IE][NP] = object.MixObject.Gases[GasIndex].Q[3][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                    object.FCATT[IE] = object.FCATT[IE] + object.CollisionFrequencyNT[IE][NP]
-                    object.ScatteringParameterNT[IE][NP] = 0.5
-                    object.AngleCutNT[IE][NP] = 1.0
-                    if IE == 0:
+                    iProcess += 1
+                    object.CollisionFrequencyNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].Q[3][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                    object.FCATT[iEnergy] = object.FCATT[iEnergy] + object.CollisionFrequencyNT[iEnergy][iProcess]
+                    object.ScatteringParameterNT[iEnergy][iProcess] = 0.5
+                    object.AngleCutNT[iEnergy][iProcess] = 1.0
+                    if iEnergy == 0:
                         RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGASNT[NP] = RGAS
-                        object.EnergyLevelsNT[NP] = 0.0
-                        object.AngularModelNT[NP] = 0
-                        object.IPNNT[NP] = -1
+                        object.RGASNT[iProcess] = RGAS
+                        object.EnergyLevelsNT[iProcess] = 0.0
+                        object.AngularModelNT[iProcess] = 0
+                        object.IPNNT[iProcess] = -1
                         L = 3
-                        object.IARRYNT[NP] = L
-                        object.PenningFractionNT[0][NP] = 0.0
-                        object.PenningFractionNT[1][NP] = 0.0
-                        object.PenningFractionNT[2][NP] = 0.0
+                        object.IARRYNT[iProcess] = L
+                        object.PenningFractionNT[0][iProcess] = 0.0
+                        object.PenningFractionNT[1][iProcess] = 0.0
+                        object.PenningFractionNT[2][iProcess] = 0.0
                 elif object.MixObject.Gases[GasIndex].N_Attachment > 1:
                     for JJ in range(int(object.MixObject.Gases[GasIndex].N_Attachment)):
-                        NP += 1
-                        object.CollisionFrequencyNT[IE][NP] = object.MixObject.Gases[GasIndex].AttachmentCrossSection[JJ][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                        object.FCATT[IE] = object.FCATT[IE] + object.CollisionFrequencyNT[IE][NP]
-                        object.ScatteringParameterNT[IE][NP] = 0.5
-                        object.AngleCutNT[IE][NP] = 1.0
-                        if IE == 0:
+                        iProcess += 1
+                        object.CollisionFrequencyNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].AttachmentCrossSection[JJ][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                        object.FCATT[iEnergy] = object.FCATT[iEnergy] + object.CollisionFrequencyNT[iEnergy][iProcess]
+                        object.ScatteringParameterNT[iEnergy][iProcess] = 0.5
+                        object.AngleCutNT[iEnergy][iProcess] = 1.0
+                        if iEnergy == 0:
                             RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                            object.RGASNT[NP] = RGAS
-                            object.EnergyLevelsNT[NP] = 0.0
-                            object.AngularModelNT[NP] = 0
-                            object.IPNNT[NP] = -1
+                            object.RGASNT[iProcess] = RGAS
+                            object.EnergyLevelsNT[iProcess] = 0.0
+                            object.AngularModelNT[iProcess] = 0
+                            object.IPNNT[iProcess] = -1
                             L = 3
-                            object.IARRYNT[NP] = L
-                            object.PenningFractionNT[0][NP] = 0.0
-                            object.PenningFractionNT[1][NP] = 0.0
-                            object.PenningFractionNT[2][NP] = 0.0
+                            object.IARRYNT[iProcess] = L
+                            object.PenningFractionNT[0][iProcess] = 0.0
+                            object.PenningFractionNT[1][iProcess] = 0.0
+                            object.PenningFractionNT[2][iProcess] = 0.0
 
             # INELASTIC AND SUPERELASTIC
             if object.MixObject.Gases[GasIndex].N_Inelastic > 0:
                 for J in range(int(object.MixObject.Gases[GasIndex].N_Inelastic)):
-                    NP = NP + 1
-                    object.CollisionFrequencyNT[IE][NP] = object.MixObject.Gases[GasIndex].InelasticCrossSectionPerGas[J][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                    object.ScatteringParameterNT[IE][NP] = 0.5
-                    object.AngleCutNT[IE][NP] = 1.0
-                    object.AngularModelNT[NP] = 0
+                    iProcess = iProcess + 1
+                    object.CollisionFrequencyNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].InelasticCrossSectionPerGas[J][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                    object.ScatteringParameterNT[iEnergy][iProcess] = 0.5
+                    object.AngleCutNT[iEnergy][iProcess] = 1.0
+                    object.AngularModelNT[iProcess] = 0
                     if object.MixObject.Gases[GasIndex].KIN[J] == 1:
 
-                        ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][IE]
+                        ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][iEnergy]
                         AngObject.ScatteringParameter1 = ScatteringParameter1
                         AngObject.CalcAngCut()
-                        object.AngleCutNT[IE][NP] = AngObject.AngCut
-                        object.ScatteringParameterNT[IE][NP] = AngObject.ScatteringParameter2
-                        object.AngularModelNT[NP] = 1
+                        object.AngleCutNT[iEnergy][iProcess] = AngObject.AngCut
+                        object.ScatteringParameterNT[iEnergy][iProcess] = AngObject.ScatteringParameter2
+                        object.AngularModelNT[iProcess] = 1
                     elif object.MixObject.Gases[GasIndex].KIN[J] == 2:
 
-                        object.ScatteringParameterNT[IE][NP] = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][IE]
-                        object.AngularModelNT[NP] = 2
-                    if IE == 0:
+                        object.ScatteringParameterNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][iEnergy]
+                        object.AngularModelNT[iProcess] = 2
+                    if iEnergy == 0:
 
                         RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGASNT[NP] = RGAS
-                        object.EnergyLevelsNT[NP] = object.MixObject.Gases[GasIndex].EnergyLevels[J] / RGAS
+                        object.RGASNT[iProcess] = RGAS
+                        object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].EnergyLevels[J] / RGAS
                         L = 4
 
                         if object.MixObject.Gases[GasIndex].EnergyLevels[J] < 0:
                             L = 5
-                        object.IPNNT[NP] = 0
-                        object.IARRYNT[NP] = L
-                        object.PenningFractionNT[0][NP] = object.MixObject.Gases[GasIndex].PenningFraction[0][J]
-                        object.PenningFractionNT[1][NP] = object.MixObject.Gases[GasIndex].PenningFraction[1][J] * 1.0e-16 / sqrt(3)
-                        object.PenningFractionNT[2][NP] = object.MixObject.Gases[GasIndex].PenningFraction[2][J]
+                        object.IPNNT[iProcess] = 0
+                        object.IARRYNT[iProcess] = L
+                        object.PenningFractionNT[0][iProcess] = object.MixObject.Gases[GasIndex].PenningFraction[0][J]
+                        object.PenningFractionNT[1][iProcess] = object.MixObject.Gases[GasIndex].PenningFraction[1][J] * 1.0e-16 / sqrt(3)
+                        object.PenningFractionNT[2][iProcess] = object.MixObject.Gases[GasIndex].PenningFraction[2][J]
 
-            NP += 1
+            iProcess += 1
 
-        object.NumMomCrossSectionPointsNT = NP
+        object.NumMomCrossSectionPointsNT = iProcess
         object.ISIZENT = 1
         for I in range(1, 9):
             if object.NumMomCrossSectionPointsNT >= 2 ** I:
@@ -233,25 +233,25 @@ cpdef Mixer(PyBoltz object):
                 break
 
         # CALCULATION OF TOTAL COLLISION FREQUENCY FOR EACH GAS COMPONENT
-        object.TotalCollisionFrequencyNT[IE] = 0.0
+        object.TotalCollisionFrequencyNT[iEnergy] = 0.0
         for P in range(int(object.NumMomCrossSectionPointsNT)):
-            object.TotalCollisionFrequencyNT[IE] = object.TotalCollisionFrequencyNT[IE] + object.CollisionFrequencyNT[IE][P]
-            if object.CollisionFrequencyNT[IE][P] < 0:
+            object.TotalCollisionFrequencyNT[iEnergy] = object.TotalCollisionFrequencyNT[iEnergy] + object.CollisionFrequencyNT[iEnergy][P]
+            if object.CollisionFrequencyNT[iEnergy][P] < 0:
                 print("WARNING NEGATIVE COLLISION FREQUENCY")
 
         for P in range(int(object.NumMomCrossSectionPointsNT)):
-            if object.TotalCollisionFrequencyNT[IE] != 0.0:
-                object.CollisionFrequencyNT[IE][P] /= object.TotalCollisionFrequencyNT[IE]
+            if object.TotalCollisionFrequencyNT[iEnergy] != 0.0:
+                object.CollisionFrequencyNT[iEnergy][P] /= object.TotalCollisionFrequencyNT[iEnergy]
             else:
-                object.CollisionFrequencyNT[IE][P] = 0.0
+                object.CollisionFrequencyNT[iEnergy][P] = 0.0
 
         for P in range(1, int(object.NumMomCrossSectionPointsNT)):
-            object.CollisionFrequencyNT[IE][P] += object.CollisionFrequencyNT[IE][P - 1]
-        object.FCATT[IE] *= object.SqrtEnergy[IE]
-        object.FCION[IE] *= object.SqrtEnergy[IE]
-        object.TotalCollisionFrequencyNT[IE] *= object.SqrtEnergy[IE]
+            object.CollisionFrequencyNT[iEnergy][P] += object.CollisionFrequencyNT[iEnergy][P - 1]
+        object.FCATT[iEnergy] *= object.SqrtEnergy[iEnergy]
+        object.FCION[iEnergy] *= object.SqrtEnergy[iEnergy]
+        object.TotalCollisionFrequencyNT[iEnergy] *= object.SqrtEnergy[iEnergy]
 
-        NP = 0
+        iProcess = 0
         object.NumMomCrossSectionPointsNullNT = 0
         N_NullSum = 0.0
         for I in range(object.NumberOfGases):
@@ -260,26 +260,26 @@ cpdef Mixer(PyBoltz object):
             for I in range(object.NumberOfGases):
                 if object.MixObject.Gases[GasIndex].N_Null > 0:
                     for J in range(object.MixObject.Gases[GasIndex].N_Null):
-                        object.SCLENULNT[NP] = object.MixObject.Gases[GasIndex].SCLN[J]
-                        object.NullCollisionFreqNT[IE][NP] = object.MixObject.Gases[GasIndex].NullCrossSection[J][IE] * object.VMoleculesPerCm3PerGas[GasIndex] * \
-                                               object.SCLENULNT[NP]
-                        NP+=1
-            object.NumMomCrossSectionPointsNullNT = NP + 1
-            object.TotalCollisionFrequencyNullNT[IE] = 0.0
+                        object.SCLENULNT[iProcess] = object.MixObject.Gases[GasIndex].SCLN[J]
+                        object.NullCollisionFreqNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].NullCrossSection[J][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex] * \
+                                               object.SCLENULNT[iProcess]
+                        iProcess+=1
+            object.NumMomCrossSectionPointsNullNT = iProcess + 1
+            object.TotalCollisionFrequencyNullNT[iEnergy] = 0.0
             for P in range(int(object.NumMomCrossSectionPointsNullNT)):
-                object.TotalCollisionFrequencyNullNT[IE] = object.TotalCollisionFrequencyNullNT[IE] + object.NullCollisionFreqNT[IE][P]
-                if object.NullCollisionFreqNT[IE][P] < 0:
+                object.TotalCollisionFrequencyNullNT[iEnergy] = object.TotalCollisionFrequencyNullNT[iEnergy] + object.NullCollisionFreqNT[iEnergy][P]
+                if object.NullCollisionFreqNT[iEnergy][P] < 0:
                     print("WARNING NEGATIVE NULL COLLISION FREQUENCY")
 
             for P in range(int(object.NumMomCrossSectionPointsNullNT)):
-                if object.TotalCollisionFrequencyNullNT[IE] != 0.0:
-                    object.NullCollisionFreqNT[IE][P] /= object.TotalCollisionFrequencyNullNT[IE]
+                if object.TotalCollisionFrequencyNullNT[iEnergy] != 0.0:
+                    object.NullCollisionFreqNT[iEnergy][P] /= object.TotalCollisionFrequencyNullNT[iEnergy]
                 else:
-                    object.NullCollisionFreqNT[IE][P] = 0.0
+                    object.NullCollisionFreqNT[iEnergy][P] = 0.0
 
             for P in range(1, int(object.NumMomCrossSectionPointsNullNT)):
-                object.NullCollisionFreqNT[IE][P] += object.NullCollisionFreqNT[IE][P - 1]
-            object.TotalCollisionFrequencyNullNT[IE] *= object.SqrtEnergy[IE]
+                object.NullCollisionFreqNT[iEnergy][P] += object.NullCollisionFreqNT[iEnergy][P - 1]
+            object.TotalCollisionFrequencyNullNT[iEnergy] *= object.SqrtEnergy[iEnergy]
 
     AngularModelSum = 0
 
@@ -323,8 +323,8 @@ cpdef Mixer(PyBoltz object):
             AttachmentCrossSection[GasIndex][I] = object.MixObject.Gases[GasIndex].Q[3][I] * object.MoleculesPerCm3PerGas[GasIndex]
             if object.MixObject.Gases[GasIndex].N_Ionization > 1:
                 object.IonizationCrossSection[GasIndex][I] = 0.0
-                for KION in range(object.MixObject.Gases[GasIndex].N_Ionization):
-                    object.IonizationCrossSection[GasIndex][I] += object.MixObject.Gases[GasIndex].IonizationCrossSection[KION][I] * object.MoleculesPerCm3PerGas[GasIndex]
+                for iIonizaton in range(object.MixObject.Gases[GasIndex].N_Ionization):
+                    object.IonizationCrossSection[GasIndex][I] += object.MixObject.Gases[GasIndex].IonizationCrossSection[iIonizaton][I] * object.MoleculesPerCm3PerGas[GasIndex]
         object.RelativeIonMinusAttachCrossSection[I] = 0.0
         object.AttachmentSectionSum[I] = 0.0
         object.CrossSectionSum[I] = 0.0
@@ -349,7 +349,7 @@ cpdef MixerT(PyBoltz object):
     The object parameter is the PyBoltz object to be setup.
     """
     cdef double AttachmentCrossSection[6][4000]
-    cdef int  IE, GasIndex, NP, p, sum, J, i, j, KION, JJ, IL, I
+    cdef int  iEnergy, GasIndex, iProcess, p, sum, J, i, j, iIonizaton, JJ, IL, I
     ElectronCharge = 1.602176565e-19
 
     object.ElectronEnergyStep = object.FinalElectronEnergy / float(object.EnergySteps)
@@ -371,7 +371,7 @@ cpdef MixerT(PyBoltz object):
 
     #-----------------------------------------------------------------
     #     CALCULATION OF COLLISION FREQUENCIES FOR AN ARRAY OF
-    #     ELECTRON ENERGIES IN THE RANGE ZERO TO FinalEnergy
+    #     ELECTRON ENERGiEnergyS IN THE RANGE ZERO TO FinalEnergy
     #
     #     L=1      ELASTIC NTH GAS
     #     L=2      IONISATION NTH GAS
@@ -381,192 +381,192 @@ cpdef MixerT(PyBoltz object):
     #---------------------------------------------------------------
     ElectronMass = 9.10938291e-31
 
-    for IE in range(4000):
+    for iEnergy in range(4000):
         for GasIndex in range(object.NumberOfGases):
-            object.FCION[IE] = 0.0
-            object.FCATT[IE] = 0.0
-            NP = 1
+            object.FCION[iEnergy] = 0.0
+            object.FCATT[iEnergy] = 0.0
+            iProcess = 1
 
-            object.CollisionFrequency[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].Q[1][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-            object.ScatteringParameter[GasIndex][IE][NP - 1] = 0.5
-            object.AngleCut[GasIndex][IE][NP - 1] = 1
-            object.AngularModel[GasIndex][NP - 1] = 0
+            object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].Q[1][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+            object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = 0.5
+            object.AngleCut[GasIndex][iEnergy][iProcess - 1] = 1
+            object.AngularModel[GasIndex][iProcess - 1] = 0
             AngObject = Ang()
 
             if object.MixObject.Gases[GasIndex].AngularModel[1] == 1:
-                ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][IE]
+                ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][iEnergy]
                 AngObject.ScatteringParameter1 = ScatteringParameter1
                 AngObject.CalcAngCut()
-                object.AngleCut[GasIndex][IE][NP - 1] = AngObject.AngCut
-                object.ScatteringParameter[GasIndex][IE][NP - 1] = AngObject.ScatteringParameter2
-                object.AngularModel[GasIndex][NP - 1] = 1
+                object.AngleCut[GasIndex][iEnergy][iProcess - 1] = AngObject.AngCut
+                object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = AngObject.ScatteringParameter2
+                object.AngularModel[GasIndex][iProcess - 1] = 1
             elif object.MixObject.Gases[GasIndex].AngularModel[1] == 2:
-                object.ScatteringParameter[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][IE]
-                object.AngularModel[GasIndex][NP - 1] = 2
+                object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].PEElasticCrossSection[1][iEnergy]
+                object.AngularModel[GasIndex][iProcess - 1] = 2
 
-            if IE == 0:
+            if iEnergy == 0:
                 RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
                 object.AMGAS[GasIndex] = 2 * ElectronMass / object.MixObject.Gases[GasIndex].E[1]
-                object.RGAS[GasIndex][NP - 1] = RGAS
+                object.RGAS[GasIndex][iProcess - 1] = RGAS
                 L = 1
-                object.IARRY[GasIndex][NP - 1] = L
-                object.EnergyLevels[GasIndex][NP - 1] = 0.0
-                object.IPN[GasIndex][NP - 1] = 0
+                object.IARRY[GasIndex][iProcess - 1] = L
+                object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
+                object.IPN[GasIndex][iProcess - 1] = 0
 
-                object.PenningFraction[GasIndex][0][NP - 1] = 0.0
-                object.PenningFraction[GasIndex][1][NP - 1] = 0.0
-                object.PenningFraction[GasIndex][2][NP - 1] = 0.0
+                object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
+                object.PenningFraction[GasIndex][1][iProcess - 1] = 0.0
+                object.PenningFraction[GasIndex][2][iProcess - 1] = 0.0
 
             # IONISATION
             if object.FinalElectronEnergy >= object.MixObject.Gases[GasIndex].E[2]:
                 if object.MixObject.Gases[GasIndex].N_Ionization <= 1:
-                    NP += 1
-                    object.CollisionFrequency[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].Q[2][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                    object.FCION[IE] = object.FCION[IE] + object.CollisionFrequency[GasIndex][IE][NP - 1]
-                    object.ScatteringParameter[GasIndex][IE][NP - 1] = 0.5
-                    object.AngleCut[GasIndex][IE][NP - 1] = 1.0
-                    object.AngularModel[GasIndex][NP - 1] = 0
+                    iProcess += 1
+                    object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].Q[2][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                    object.FCION[iEnergy] = object.FCION[iEnergy] + object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1]
+                    object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = 0.5
+                    object.AngleCut[GasIndex][iEnergy][iProcess - 1] = 1.0
+                    object.AngularModel[GasIndex][iProcess - 1] = 0
                     if object.MixObject.Gases[GasIndex].AngularModel[2] == 1:
-                        ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][IE]
+                        ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][iEnergy]
                         AngObject.ScatteringParameter1 = ScatteringParameter1
                         AngObject.CalcAngCut()
-                        object.AngleCut[GasIndex][IE][NP - 1] = AngObject.AngCut
-                        object.ScatteringParameter[GasIndex][IE][NP - 1] = AngObject.ScatteringParameter2
-                        object.AngularModel[GasIndex][NP - 1] = 1
+                        object.AngleCut[GasIndex][iEnergy][iProcess - 1] = AngObject.AngCut
+                        object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = AngObject.ScatteringParameter2
+                        object.AngularModel[GasIndex][iProcess - 1] = 1
                     elif object.MixObject.Gases[GasIndex].AngularModel[2] == 2:
-                        object.ScatteringParameter[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][IE]
-                        object.AngularModel[GasIndex][NP - 1] = 2
+                        object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].PEElasticCrossSection[2][iEnergy]
+                        object.AngularModel[GasIndex][iProcess - 1] = 2
                 elif object.MixObject.Gases[GasIndex].N_Ionization > 1:
-                    for KION in range(object.MixObject.Gases[GasIndex].N_Ionization):
-                        NP += 1
-                        object.CollisionFrequency[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].IonizationCrossSection[KION][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                        object.FCION[IE] = object.FCION[IE] + object.CollisionFrequency[GasIndex][IE][NP - 1]
-                        object.ScatteringParameter[GasIndex][IE][NP - 1] = 0.5
-                        object.AngleCut[GasIndex][IE][NP - 1] = 1.0
-                        object.AngularModel[GasIndex][NP - 1] = 0
+                    for iIonizaton in range(object.MixObject.Gases[GasIndex].N_Ionization):
+                        iProcess += 1
+                        object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].IonizationCrossSection[iIonizaton][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                        object.FCION[iEnergy] = object.FCION[iEnergy] + object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1]
+                        object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = 0.5
+                        object.AngleCut[GasIndex][iEnergy][iProcess - 1] = 1.0
+                        object.AngularModel[GasIndex][iProcess - 1] = 0
                         if object.MixObject.Gases[0].AngularModel[2] == 1:
-                            ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[KION][IE]
+                            ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[iIonizaton][iEnergy]
                             AngObject.ScatteringParameter1 = ScatteringParameter1
                             AngObject.CalcAngCut()
-                            object.AngleCut[GasIndex][IE][NP - 1] = AngObject.AngCut
-                            object.ScatteringParameter[GasIndex][IE][NP - 1] = AngObject.ScatteringParameter2
-                            object.AngularModel[GasIndex][NP - 1] = 1
+                            object.AngleCut[GasIndex][iEnergy][iProcess - 1] = AngObject.AngCut
+                            object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = AngObject.ScatteringParameter2
+                            object.AngularModel[GasIndex][iProcess - 1] = 1
                         elif object.MixObject.Gases[0].AngularModel[2] == 2:
-                            object.ScatteringParameter[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[KION][IE]
-                            object.AngularModel[GasIndex][NP - 1] = 2
-                if IE == 0:
+                            object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].PEIonizationCrossSection[iIonizaton][iEnergy]
+                            object.AngularModel[GasIndex][iProcess - 1] = 2
+                if iEnergy == 0:
                     if object.MixObject.Gases[GasIndex].N_Ionization <= 1:
                         RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGAS[GasIndex][NP - 1] = RGAS
-                        object.EnergyLevels[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].E[2] / RGAS
-                        object.WPL[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EB[0]
-                        object.NC0[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].NC0[0]
-                        object.EC0[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EC0[0]
-                        object.NG1[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].NG1[0]
-                        object.EG1[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EG1[0]
-                        object.NG2[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].NG2[0]
-                        object.EG2[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EG2[0]
-                        object.WKLM[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].WK[0]
-                        object.EFL[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EFL[0]
-                        object.IPN[GasIndex][NP - 1] = 1
+                        object.RGAS[GasIndex][iProcess - 1] = RGAS
+                        object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].E[2] / RGAS
+                        object.WPL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EB[0]
+                        object.NC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NC0[0]
+                        object.EC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EC0[0]
+                        object.NG1[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NG1[0]
+                        object.EG1[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EG1[0]
+                        object.NG2[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NG2[0]
+                        object.EG2[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EG2[0]
+                        object.WKLM[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].WK[0]
+                        object.EFL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EFL[0]
+                        object.IPN[GasIndex][iProcess - 1] = 1
                         L = 2
-                        object.IARRY[GasIndex][NP - 1] = L
-                        object.PenningFraction[GasIndex][0][NP - 1] = 0.0
-                        object.PenningFraction[GasIndex][1][NP - 1] = 0.0
-                        object.PenningFraction[GasIndex][2][NP - 1] = 0.0
+                        object.IARRY[GasIndex][iProcess - 1] = L
+                        object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
+                        object.PenningFraction[GasIndex][1][iProcess - 1] = 0.0
+                        object.PenningFraction[GasIndex][2][iProcess - 1] = 0.0
                     elif object.MixObject.Gases[GasIndex].N_Ionization > 1:
-                        NP = NP - object.MixObject.Gases[GasIndex].N_Ionization
-                        for KION in range(object.MixObject.Gases[GasIndex].N_Ionization):
-                            NP = NP + 1
+                        iProcess = iProcess - object.MixObject.Gases[GasIndex].N_Ionization
+                        for iIonizaton in range(object.MixObject.Gases[GasIndex].N_Ionization):
+                            iProcess = iProcess + 1
                             RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                            object.RGAS[GasIndex][NP - 1] = RGAS
-                            object.EnergyLevels[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].IonizationEnergy[KION] / RGAS
-                            object.WPL[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EB[KION]
-                            object.NC0[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].NC0[KION]
-                            object.EC0[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EC0[KION]
-                            object.EG2[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EG2[KION]
-                            object.NG1[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].NG1[KION]
-                            object.EG1[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EG1[KION]
-                            object.NG2[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].NG2[KION]
-                            object.WKLM[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].WK[KION]
-                            object.EFL[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EFL[KION]
-                            object.IPN[GasIndex][NP - 1] = 1
+                            object.RGAS[GasIndex][iProcess - 1] = RGAS
+                            object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGAS
+                            object.WPL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EB[iIonizaton]
+                            object.NC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NC0[iIonizaton]
+                            object.EC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EC0[iIonizaton]
+                            object.EG2[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EG2[iIonizaton]
+                            object.NG1[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NG1[iIonizaton]
+                            object.EG1[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EG1[iIonizaton]
+                            object.NG2[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NG2[iIonizaton]
+                            object.WKLM[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].WK[iIonizaton]
+                            object.EFL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EFL[iIonizaton]
+                            object.IPN[GasIndex][iProcess - 1] = 1
                             L = 2
-                            object.IARRY[GasIndex][NP - 1] = L
-                            object.PenningFraction[GasIndex][0][NP - 1] = 0.0
-                            object.PenningFraction[GasIndex][1][NP - 1] = 0.0
-                            object.PenningFraction[GasIndex][2][NP - 1] = 0.0
+                            object.IARRY[GasIndex][iProcess - 1] = L
+                            object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
+                            object.PenningFraction[GasIndex][1][iProcess - 1] = 0.0
+                            object.PenningFraction[GasIndex][2][iProcess - 1] = 0.0
             # ATTACHMENT
             if object.FinalElectronEnergy >= object.MixObject.Gases[GasIndex].E[3]:
                 if object.MixObject.Gases[GasIndex].N_Attachment <= 1:
-                    NP += 1
-                    object.CollisionFrequency[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].Q[3][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                    object.FCATT[IE] = object.FCATT[IE] + object.CollisionFrequency[GasIndex][IE][NP - 1]
-                    object.ScatteringParameter[GasIndex][IE][NP - 1] = 0.5
-                    object.AngleCut[GasIndex][IE][NP - 1] = 1.0
-                    if IE == 0:
+                    iProcess += 1
+                    object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].Q[3][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                    object.FCATT[iEnergy] = object.FCATT[iEnergy] + object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1]
+                    object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = 0.5
+                    object.AngleCut[GasIndex][iEnergy][iProcess - 1] = 1.0
+                    if iEnergy == 0:
                         RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGAS[GasIndex][NP - 1] = RGAS
-                        object.EnergyLevels[GasIndex][NP - 1] = 0.0
-                        object.AngularModel[GasIndex][NP - 1] = 0
-                        object.IPN[GasIndex][NP - 1] = -1
+                        object.RGAS[GasIndex][iProcess - 1] = RGAS
+                        object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
+                        object.AngularModel[GasIndex][iProcess - 1] = 0
+                        object.IPN[GasIndex][iProcess - 1] = -1
                         L = 3
-                        object.IARRY[GasIndex][NP - 1] = L
-                        object.PenningFraction[GasIndex][0][NP - 1] = 0.0
-                        object.PenningFraction[GasIndex][1][NP - 1] = 0.0
-                        object.PenningFraction[GasIndex][2][NP - 1] = 0.0
+                        object.IARRY[GasIndex][iProcess - 1] = L
+                        object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
+                        object.PenningFraction[GasIndex][1][iProcess - 1] = 0.0
+                        object.PenningFraction[GasIndex][2][iProcess - 1] = 0.0
 
                 elif object.MixObject.Gases[GasIndex].N_Attachment > 1:
                     for JJ in range(int(object.MixObject.Gases[GasIndex].N_Attachment)):
-                        NP += 1
-                        object.CollisionFrequency[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].AttachmentCrossSection[JJ][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                        object.FCATT[IE] = object.FCATT[IE] + object.CollisionFrequency[GasIndex][IE][NP - 1]
-                        object.ScatteringParameter[GasIndex][IE][NP - 1] = 0.5
-                        object.AngleCut[GasIndex][IE][NP - 1] = 1.0
-                        if IE == 0:
+                        iProcess += 1
+                        object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].AttachmentCrossSection[JJ][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                        object.FCATT[iEnergy] = object.FCATT[iEnergy] + object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1]
+                        object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = 0.5
+                        object.AngleCut[GasIndex][iEnergy][iProcess - 1] = 1.0
+                        if iEnergy == 0:
                             RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                            object.RGAS[GasIndex][NP - 1] = RGAS
-                            object.EnergyLevels[GasIndex][NP - 1] = 0.0
-                            object.AngularModel[GasIndex][NP - 1] = 0
-                            object.IPN[GasIndex][NP - 1] = -1
+                            object.RGAS[GasIndex][iProcess - 1] = RGAS
+                            object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
+                            object.AngularModel[GasIndex][iProcess - 1] = 0
+                            object.IPN[GasIndex][iProcess - 1] = -1
                             L = 3
-                            object.IARRY[GasIndex][NP - 1] = L
-                            object.PenningFraction[GasIndex][0][NP - 1] = 0.0
-                            object.PenningFraction[GasIndex][1][NP - 1] = 0.0
-                            object.PenningFraction[GasIndex][2][NP - 1] = 0.0
+                            object.IARRY[GasIndex][iProcess - 1] = L
+                            object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
+                            object.PenningFraction[GasIndex][1][iProcess - 1] = 0.0
+                            object.PenningFraction[GasIndex][2][iProcess - 1] = 0.0
             # INELASTIC AND SUPERELASTIC
             if object.MixObject.Gases[GasIndex].N_Inelastic > 0:
                 for J in range(int(object.MixObject.Gases[GasIndex].N_Inelastic)):
-                    NP = NP + 1
-                    object.CollisionFrequency[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].InelasticCrossSectionPerGas[J][IE] * object.VMoleculesPerCm3PerGas[GasIndex]
-                    object.ScatteringParameter[GasIndex][IE][NP - 1] = 0.5
-                    object.AngleCut[GasIndex][IE][NP - 1] = 1.0
-                    object.AngularModel[GasIndex][NP - 1] = 0
+                    iProcess = iProcess + 1
+                    object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].InelasticCrossSectionPerGas[J][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex]
+                    object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = 0.5
+                    object.AngleCut[GasIndex][iEnergy][iProcess - 1] = 1.0
+                    object.AngularModel[GasIndex][iProcess - 1] = 0
                     if object.MixObject.Gases[GasIndex].KIN[J] == 1:
-                        ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][IE]
+                        ScatteringParameter1 = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][iEnergy]
                         AngObject.ScatteringParameter1 = ScatteringParameter1
                         AngObject.CalcAngCut()
-                        object.AngleCut[GasIndex][IE][NP - 1] = AngObject.AngCut
-                        object.ScatteringParameter[GasIndex][IE][NP - 1] = AngObject.ScatteringParameter2
-                        object.AngularModel[GasIndex][NP - 1] = 1
+                        object.AngleCut[GasIndex][iEnergy][iProcess - 1] = AngObject.AngCut
+                        object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = AngObject.ScatteringParameter2
+                        object.AngularModel[GasIndex][iProcess - 1] = 1
                     elif object.MixObject.Gases[GasIndex].KIN[J] == 2:
-                        object.ScatteringParameter[GasIndex][IE][NP - 1] = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][IE]
-                        object.AngularModel[GasIndex][NP - 1] = 2
-                    if IE == 0:
+                        object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][iEnergy]
+                        object.AngularModel[GasIndex][iProcess - 1] = 2
+                    if iEnergy == 0:
                         RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGAS[GasIndex][NP - 1] = RGAS
-                        object.EnergyLevels[GasIndex][NP - 1] = object.MixObject.Gases[GasIndex].EnergyLevels[J] / RGAS
+                        object.RGAS[GasIndex][iProcess - 1] = RGAS
+                        object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EnergyLevels[J] / RGAS
                         L = 4
                         if object.MixObject.Gases[GasIndex].EnergyLevels[J] < 0:
                             L = 5
-                        object.IPN[GasIndex][NP - 1] = 0
-                        object.IARRY[GasIndex][NP - 1] = L
-                        object.PenningFraction[GasIndex][0][NP - 1] = object.MixObject.Gases[GasIndex].PenningFraction[0][J]
-                        object.PenningFraction[GasIndex][1][NP - 1] = object.MixObject.Gases[GasIndex].PenningFraction[1][J] * 1.0e-16 / sqrt(3)
-                        object.PenningFraction[GasIndex][2][NP - 1] = object.MixObject.Gases[GasIndex].PenningFraction[2][J]
+                        object.IPN[GasIndex][iProcess - 1] = 0
+                        object.IARRY[GasIndex][iProcess - 1] = L
+                        object.PenningFraction[GasIndex][0][iProcess - 1] = object.MixObject.Gases[GasIndex].PenningFraction[0][J]
+                        object.PenningFraction[GasIndex][1][iProcess - 1] = object.MixObject.Gases[GasIndex].PenningFraction[1][J] * 1.0e-16 / sqrt(3)
+                        object.PenningFraction[GasIndex][2][iProcess - 1] = object.MixObject.Gases[GasIndex].PenningFraction[2][J]
 
 
-            object.NumMomCrossSectionPoints[GasIndex] = NP
+            object.NumMomCrossSectionPoints[GasIndex] = iProcess
             object.ISIZE[GasIndex] = 1
             for I in range(1, 9):
                 if object.NumMomCrossSectionPoints[GasIndex] >= 2 ** I:
@@ -574,26 +574,26 @@ cpdef MixerT(PyBoltz object):
                 else:
                     break
             # CALCULATION OF TOTAL COLLISION FREQUENCY FOR EACH GAS COMPONENT
-            object.TotalCollisionFrequency[GasIndex][IE] = 0.0
+            object.TotalCollisionFrequency[GasIndex][iEnergy] = 0.0
             for p in range(int(object.NumMomCrossSectionPoints[GasIndex])):
-                object.TotalCollisionFrequency[GasIndex][IE] = object.TotalCollisionFrequency[GasIndex][IE] + object.CollisionFrequency[GasIndex][IE][p]
-                if object.CollisionFrequency[GasIndex][IE][p] < 0:
-                    print ("WARNING NEGATIVE COLLISION FREQUENCY at gas " +str(p)+"  "+ str(IE))
+                object.TotalCollisionFrequency[GasIndex][iEnergy] = object.TotalCollisionFrequency[GasIndex][iEnergy] + object.CollisionFrequency[GasIndex][iEnergy][p]
+                if object.CollisionFrequency[GasIndex][iEnergy][p] < 0:
+                    print ("WARNING NEGATIVE COLLISION FREQUENCY at gas " +str(p)+"  "+ str(iEnergy))
 
             for p in range(int(object.NumMomCrossSectionPoints[GasIndex])):
-                if object.TotalCollisionFrequency[GasIndex][IE] == 0:
-                    object.CollisionFrequency[GasIndex][IE][p] = 0
+                if object.TotalCollisionFrequency[GasIndex][iEnergy] == 0:
+                    object.CollisionFrequency[GasIndex][iEnergy][p] = 0
                 else:
-                    object.CollisionFrequency[GasIndex][IE][p] = object.CollisionFrequency[GasIndex][IE][p] / object.TotalCollisionFrequency[GasIndex][IE]
+                    object.CollisionFrequency[GasIndex][iEnergy][p] = object.CollisionFrequency[GasIndex][iEnergy][p] / object.TotalCollisionFrequency[GasIndex][iEnergy]
 
             for p in range(1, int(object.NumMomCrossSectionPoints[GasIndex])):
-                object.CollisionFrequency[GasIndex][IE][p] = object.CollisionFrequency[GasIndex][IE][p] + object.CollisionFrequency[GasIndex][IE][p - 1]
-            object.FCATT[IE] = object.FCATT[IE] * object.SqrtEnergy[IE]
-            object.FCION[IE] = object.FCION[IE] * object.SqrtEnergy[IE]
-            object.TotalCollisionFrequency[GasIndex][IE] = object.TotalCollisionFrequency[GasIndex][IE] * object.SqrtEnergy[IE]
+                object.CollisionFrequency[GasIndex][iEnergy][p] = object.CollisionFrequency[GasIndex][iEnergy][p] + object.CollisionFrequency[GasIndex][iEnergy][p - 1]
+            object.FCATT[iEnergy] = object.FCATT[iEnergy] * object.SqrtEnergy[iEnergy]
+            object.FCION[iEnergy] = object.FCION[iEnergy] * object.SqrtEnergy[iEnergy]
+            object.TotalCollisionFrequency[GasIndex][iEnergy] = object.TotalCollisionFrequency[GasIndex][iEnergy] * object.SqrtEnergy[iEnergy]
 
     # CALCULATION OF NULL COLLISION FREQUENCIES
-    for IE in range(4000):
+    for iEnergy in range(4000):
         sum = 0
         for i in range(object.NumberOfGases):
             object.NumMomCrossSectionPointsNull[i] = object.MixObject.Gases[i].N_Null
@@ -605,25 +605,25 @@ cpdef MixerT(PyBoltz object):
             if object.NumMomCrossSectionPointsNull[i] > 0:
                 for J in range(int(object.NumMomCrossSectionPointsNull[i])):
                     object.SCLENUL[i][J] = object.MixObject.Gases[i].SCLN[J]
-                    object.NullCollisionFreq[i][IE][J] = object.MixObject.Gases[i].NullCrossSection[J][IE] * object.VMoleculesPerCm3PerGas[i] * object.SCLENUL[i][J]
+                    object.NullCollisionFreq[i][iEnergy][J] = object.MixObject.Gases[i].NullCrossSection[J][iEnergy] * object.VMoleculesPerCm3PerGas[i] * object.SCLENUL[i][J]
 
             # CALCULATE NULL COLLISION FREQUENCY FOR EACH GAS COMPONENT
 
         for GasIndex in range(object.NumberOfGases):
-            object.TotalCollisionFrequencyNull[GasIndex][IE] = 0.0
+            object.TotalCollisionFrequencyNull[GasIndex][iEnergy] = 0.0
             for IL in range(int(object.NumMomCrossSectionPointsNull[GasIndex])):
-                object.TotalCollisionFrequencyNull[GasIndex][IE] = object.TotalCollisionFrequencyNull[GasIndex][IE] + object.NullCollisionFreq[GasIndex][IE][IL]
-                if object.NullCollisionFreq[GasIndex][IE][IL] < 0:
+                object.TotalCollisionFrequencyNull[GasIndex][iEnergy] = object.TotalCollisionFrequencyNull[GasIndex][iEnergy] + object.NullCollisionFreq[GasIndex][iEnergy][IL]
+                if object.NullCollisionFreq[GasIndex][iEnergy][IL] < 0:
                     print "WARNING NEGATIVE NULL COLLISION FREQUENCY"
             for IL in range(int(object.NumMomCrossSectionPointsNull[GasIndex])):
-                if object.TotalCollisionFrequencyNull[GasIndex][IE] == 0:
-                    object.NullCollisionFreq[GasIndex][IE][IL] = 0.0
+                if object.TotalCollisionFrequencyNull[GasIndex][iEnergy] == 0:
+                    object.NullCollisionFreq[GasIndex][iEnergy][IL] = 0.0
                 else:
-                    object.NullCollisionFreq[GasIndex][IE][IL] = object.NullCollisionFreq[GasIndex][IE][IL] / object.TotalCollisionFrequencyNull[GasIndex][IE]
+                    object.NullCollisionFreq[GasIndex][iEnergy][IL] = object.NullCollisionFreq[GasIndex][iEnergy][IL] / object.TotalCollisionFrequencyNull[GasIndex][iEnergy]
 
             for IL in range(1, int(object.NumMomCrossSectionPointsNull[GasIndex])):
-                object.NullCollisionFreq[GasIndex][IE][IL] = object.NullCollisionFreq[GasIndex][IE][IL] + object.NullCollisionFreq[GasIndex][IE][IL - 1]
-            object.TotalCollisionFrequencyNull[GasIndex][IE] = object.TotalCollisionFrequencyNull[GasIndex][IE] * object.SqrtEnergy[IE]
+                object.NullCollisionFreq[GasIndex][iEnergy][IL] = object.NullCollisionFreq[GasIndex][iEnergy][IL] + object.NullCollisionFreq[GasIndex][iEnergy][IL - 1]
+            object.TotalCollisionFrequencyNull[GasIndex][iEnergy] = object.TotalCollisionFrequencyNull[GasIndex][iEnergy] * object.SqrtEnergy[iEnergy]
 
     AngularModelSum = 0
 
@@ -643,9 +643,9 @@ cpdef MixerT(PyBoltz object):
     FAKEnergyLevels = abs(object.FakeIonizations) / object.NumberOfGases
     for GasIndex in range(object.NumberOfGases):
         object.MaxCollisionFreq[GasIndex] = 0.0
-        for IE in range(4000):
-            if object.TotalCollisionFrequency[GasIndex][IE] + object.TotalCollisionFrequencyNull[GasIndex][IE] + FAKEnergyLevels >= object.MaxCollisionFreq[GasIndex]:
-                object.MaxCollisionFreq[GasIndex] = object.TotalCollisionFrequency[GasIndex][IE] + object.TotalCollisionFrequencyNull[GasIndex][IE] + FAKEnergyLevels
+        for iEnergy in range(4000):
+            if object.TotalCollisionFrequency[GasIndex][iEnergy] + object.TotalCollisionFrequencyNull[GasIndex][iEnergy] + FAKEnergyLevels >= object.MaxCollisionFreq[GasIndex]:
+                object.MaxCollisionFreq[GasIndex] = object.TotalCollisionFrequency[GasIndex][iEnergy] + object.TotalCollisionFrequencyNull[GasIndex][iEnergy] + FAKEnergyLevels
 
     # CALCULATE EACH GAS CUMLATIVE FRACTION NULL COLLISION FREQUENCIES
     object.MaxCollisionFreqTotal = 0.0

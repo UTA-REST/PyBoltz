@@ -62,7 +62,7 @@ cdef void callGASF(Gas* GAS,Params):
 
 cdef class Gasmix:
     def InitWithInfo(self, GasNumber, InelasticCrossSectionPerGas, N_Inelastic, PenningFraction, EG, SqrtEnergy, NumberOfGases, EnergySteps,
-                     WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy, RhydbergConst, TemperatureC, Pressure, EnablePenning,PIR2):
+                     WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy,  TemperatureC, Pressure, PIR2):
         '''This functions simply initiates the gas data from the parameters. This functions fills the output arrays to zeros.'''
         cdef int i,j;
         for i in range(6):
@@ -80,10 +80,8 @@ cdef class Gasmix:
             self.Gases[i].FinalEnergy = FinalEnergy
             self.Gases[i].ThermalEnergy = ThermalEnergy
             self.Gases[i].EnergyStep = EnergyStep
-            self.Gases[i].RhydbergConst = RhydbergConst
             self.Gases[i].TemperatureC = TemperatureC
             self.Gases[i].Pressure = Pressure
-            self.Gases[i].EnablePenning = EnablePenning
             self.Gases[i].PIR2 = PIR2
             memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
             memset(self.Gases[i].IonizationCrossSection, 0, 30*4000 * sizeof(double))
@@ -93,29 +91,6 @@ cdef class Gasmix:
 
     def reset(self):
         for i in range(6):
-            memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
-            memset(self.Gases[i].IonizationCrossSection, 0, 30*4000 * sizeof(double))
-            memset(self.Gases[i].PEIonizationCrossSection, 0, 30*4000 * sizeof(double))
-            memset(self.Gases[i].AttachmentCrossSection, 0, 8*4000 * sizeof(double))
-            memset(self.Gases[i].NullCrossSection, 0, 10*4000 * sizeof(double))
-
-    def setCommons(self, GasNumber, EG, SqrtEnergy, NumberOfGases, EnergySteps,
-                   WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy, RhydbergConst, TemperatureC, Pressure, EnablePenning,PIR2):
-        '''This functions is used to fill the common main gas mixing inputs.'''
-        for i in range(6):
-            self.Gases[i].GasNumber = GasNumber[i]
-            self.Gases[i].EG[:] = EG[:]
-            self.Gases[i].SqrtEnergy[:] = SqrtEnergy[:]
-            self.Gases[i].NumberOfGases = NumberOfGases
-            self.Gases[i].EnergySteps = EnergySteps
-            self.Gases[i].WhichAngularModel = WhichAngularModel
-            self.Gases[i].FinalEnergy = FinalEnergy
-            self.Gases[i].ThermalEnergy = ThermalEnergy
-            self.Gases[i].EnergyStep = EnergyStep
-            self.Gases[i].RhydbergConst = RhydbergConst
-            self.Gases[i].TemperatureC = TemperatureC
-            self.Gases[i].Pressure = Pressure
-            self.Gases[i].EnablePenning = EnablePenning
             memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
             memset(self.Gases[i].IonizationCrossSection, 0, 30*4000 * sizeof(double))
             memset(self.Gases[i].PEIonizationCrossSection, 0, 30*4000 * sizeof(double))

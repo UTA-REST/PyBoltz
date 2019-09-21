@@ -33,7 +33,7 @@ cpdef Mixer(PyBoltz object):
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic, object.PenningFraction,
                            object.E, object.SqrtEnergy,
                            object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
-                           object.FinalElectronEnergy, object.ThermalEnergy, object.RhydbergConst, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
+                           object.FinalElectronEnergy, object.ThermalEnergy,  object.TemperatureCentigrade, object.PressureTorr,  object.PIR2)
     object.MixObject.Run()
 
     ElectronMass = 9.10938291e-31
@@ -360,7 +360,7 @@ cpdef MixerT(PyBoltz object):
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic, object.PenningFraction,
                            object.E, object.SqrtEnergy,
                            object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
-                           object.FinalElectronEnergy, object.ThermalEnergy, object.RhydbergConst, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
+                           object.FinalElectronEnergy, object.ThermalEnergy,  object.TemperatureCentigrade, object.PressureTorr, object.PIR2)
     object.MixObject.Run()
 
     #-----------------------------------------------------------------

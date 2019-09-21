@@ -61,7 +61,7 @@ cdef void callGASF(Gas* GAS,Params):
         Gas61(GAS,Params['A'],Params['D'],Params['F'],Params['A1'],Params['Lambda'],Params['EV0'])
 
 cdef class Gasmix:
-    def InitWithInfo(self, GasNumber, InelasticCrossSectionPerGas, N_Inelastic, PenningFraction, EG, SqrtEnergy, QT1, QT2, QT3, QT4, NumberOfGases, EnergySteps,
+    def InitWithInfo(self, GasNumber, InelasticCrossSectionPerGas, N_Inelastic, PenningFraction, EG, SqrtEnergy, NumberOfGases, EnergySteps,
                      WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy, RhydbergConst, TemperatureC, Pressure, EnablePenning,PIR2):
         '''This functions simply initiates the gas data from the parameters. This functions fills the output arrays to zeros.'''
         cdef int i,j;
@@ -74,10 +74,6 @@ cdef class Gasmix:
                 self.Gases[i].PenningFraction[j][:] = PenningFraction[i][j]
             self.Gases[i].EG = EG
             self.Gases[i].SqrtEnergy = SqrtEnergy
-            self.Gases[i].QT1 = QT1
-            self.Gases[i].QT2 = QT2
-            self.Gases[i].QT3 = QT3
-            self.Gases[i].QT4 = QT4
             self.Gases[i].NumberOfGases = NumberOfGases
             self.Gases[i].EnergySteps = EnergySteps
             self.Gases[i].WhichAngularModel = WhichAngularModel
@@ -103,17 +99,13 @@ cdef class Gasmix:
             memset(self.Gases[i].AttachmentCrossSection, 0, 8*4000 * sizeof(double))
             memset(self.Gases[i].NullCrossSection, 0, 10*4000 * sizeof(double))
 
-    def setCommons(self, GasNumber, EG, SqrtEnergy, QT1, QT2, QT3, QT4,  NumberOfGases, EnergySteps,
+    def setCommons(self, GasNumber, EG, SqrtEnergy, NumberOfGases, EnergySteps,
                    WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy, RhydbergConst, TemperatureC, Pressure, EnablePenning,PIR2):
         '''This functions is used to fill the common main gas mixing inputs.'''
         for i in range(6):
             self.Gases[i].GasNumber = GasNumber[i]
             self.Gases[i].EG[:] = EG[:]
             self.Gases[i].SqrtEnergy[:] = SqrtEnergy[:]
-            self.Gases[i].QT1[:] = QT1[:]
-            self.Gases[i].QT2[:] = QT2[:]
-            self.Gases[i].QT3[:] = QT3[:]
-            self.Gases[i].QT4[:] = QT4[:]
             self.Gases[i].NumberOfGases = NumberOfGases
             self.Gases[i].EnergySteps = EnergySteps
             self.Gases[i].WhichAngularModel = WhichAngularModel

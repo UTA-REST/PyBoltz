@@ -199,7 +199,7 @@ cdef class PyBoltz:
         '''Null collision frequency for each gas at every energy step for every data point.'''
         double TotalCollisionFrequencyNull[6][4000]
         '''Total null collision frequency for each gas at every energy step.'''
-        double SCLENUL[6][10], ScatteringParameter[6][4000][290], AngleCut[6][4000][290]
+        double ScaleNull[6][10], ScatteringParameter[6][4000][290], AngleCut[6][4000][290]
         double TransverseDiffusion1
         '''Transverse diffusion in microns/cm^0.5.'''
         double TransverseDiffusion1Error
@@ -221,7 +221,7 @@ cdef class PyBoltz:
         double TotalCollisionFrequencyNT[4000]
         '''Total collision frequency at each energy step. This is used for when EnableThermalMotion = 0'''
         double InteractionTypeNT[960],RGasNT[960],ElectronNumChangeNT[960],WPLNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
-        double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNullNT[4000],SCLENULNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],AngularModelNT[960],NC0NT[960],EC0NT[960]
+        double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNullNT[4000],ScaleNullNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],AngularModelNT[960],NC0NT[960],EC0NT[960]
         double NG1NT[960],EG1NT[960],NG2NT[960],EG2NT[960],WKLMNT[960],EFLNT[960]
         double CollisionsPerGasPerTypeNT[30],ICOLNNT[960]
         double ICOLNNNT[60]

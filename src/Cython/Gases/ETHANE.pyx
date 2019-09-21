@@ -159,7 +159,7 @@ cdef void Gas9(Gas*object):
     NUL2 = 13
     NUL3 = 14
 
-    object.SCLN[0:3] = [1.0, 10, 10]
+    object.ScaleNull[0:3] = [1.0, 10, 10]
     cdef double ElectronMass = 9.10938291e-31
     cdef double AMU = 1.660538921e-27, EOBY[16], SCLOBY, APOP1, APOP2, APOP3, APOP4, QCOUNT = 0.0
 
@@ -663,19 +663,19 @@ cdef void Gas9(Gas*object):
         # LOAD NULL COLLISIONS
         object.NullCrossSection[0][I] = 0.0
         if EN > XNUL1[0]:
-            object.NullCrossSection[0][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL1, YNUL1, XNUL1, 1) * 100 * <float>(0.9) * object.SCLN[0]
+            object.NullCrossSection[0][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL1, YNUL1, XNUL1, 1) * 100 * <float>(0.9) * object.ScaleNull[0]
 
         # LIGHT EMISSION FROM H ALPHA   
         #   MOHLMMoleculesPerCm3PerGas AND DE HEER  CHEM.PHYS.19(1979)233 
         object.NullCrossSection[1][I] = 0.0
         if EN > XNUL2[0]:
-            object.NullCrossSection[1][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL2, YNUL2, XNUL2, 1) * 100 * object.SCLN[1]
+            object.NullCrossSection[1][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL2, YNUL2, XNUL2, 1) * 100 * object.ScaleNull[1]
 
         # LIGHT EMISSION FROM CH2(A2DELTA - X2PI)
         #  MOHLMMoleculesPerCm3PerGas AND DE HEER  CHEM.PHYS.19(1979)233 
         object.NullCrossSection[2][I] = 0.0
         if EN > XNUL3[0]:
-            object.NullCrossSection[2][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.SCLN[2]
+            object.NullCrossSection[2][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.ScaleNull[2]
 
 
     for J in range(object.N_Inelastic):

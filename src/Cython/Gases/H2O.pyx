@@ -157,7 +157,7 @@ cdef void Gas14(Gas*object):
     NUL4 = 18
 
     # SCALING OF NULL COLLISIONS
-    object.SCLN[0:4] = [1.0, 1.0, 1.0, 1.0]
+    object.ScaleNull[0:4] = [1.0, 1.0, 1.0, 1.0]
     cdef double ElectronMass = 9.10938291e-31
     cdef double AMU = 1.660538921e-27, GPARA, GORTHO, DBA, DRAT, DBK, RSum, EOBY[9], ENRT, AL
     cdef int L2,
@@ -586,22 +586,22 @@ cdef void Gas14(Gas*object):
         # SCALED ABOVE 200EV BY 1/ENERGY
         object.NullCrossSection[0][I] = 0.0
         if EN > XNUL1[0]:
-            object.NullCrossSection[0][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL1, YNUL1, XNUL1, 1) * 100 * object.SCLN[0]
+            object.NullCrossSection[0][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL1, YNUL1, XNUL1, 1) * 100 * object.ScaleNull[0]
 
         # LIGHT EMISSION FROM OH(A2-X) MOHLMMoleculesPerCm3PerGas AND DEHEER CHEM.PHYS.19(1979)233
         object.NullCrossSection[1][I] = 0.0
         if EN > XNUL2[0]:
-            object.NullCrossSection[1][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL2, YNUL2, XNUL2, 1) * 100 * object.SCLN[1]
+            object.NullCrossSection[1][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL2, YNUL2, XNUL2, 1) * 100 * object.ScaleNull[1]
 
         # LIGHT EMISSION FROM H(3-2) , MOHLMMoleculesPerCm3PerGas AND DEHEER CHEM.PHYS.19(1979)233
         object.NullCrossSection[2][I] = 0.0
         if EN > XNUL3[0]:
-            object.NullCrossSection[2][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.SCLN[2]
+            object.NullCrossSection[2][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL3, YNUL3, XNUL3, 1) * 100 * object.ScaleNull[2]
 
         # LIGHT EMISSION FROM H(2-1) , MOHLMMoleculesPerCm3PerGas AND DEHEER CHEM.PHYS.19(1979)233
         object.NullCrossSection[3][I] = 0.0
         if EN > XNUL4[0]:
-            object.NullCrossSection[3][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL4, YNUL4, XNUL4, 1) * 100 * object.SCLN[3]
+            object.NullCrossSection[3][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NUL4, YNUL4, XNUL4, 1) * 100 * object.ScaleNull[3]
 
     for J in range(object.N_Inelastic):
         if object.FinalEnergy <= object.EnergyLevels[J]:

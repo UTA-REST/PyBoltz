@@ -254,9 +254,9 @@ cpdef Mixer(PyBoltz object):
             for I in range(object.NumberOfGases):
                 if object.MixObject.Gases[GasIndex].N_Null > 0:
                     for J in range(object.MixObject.Gases[GasIndex].N_Null):
-                        object.SCLENULNT[iProcess] = object.MixObject.Gases[GasIndex].SCLN[J]
+                        object.ScaleNullNT[iProcess] = object.MixObject.Gases[GasIndex].ScaleNull[J]
                         object.NullCollisionFreqNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].NullCrossSection[J][iEnergy] * object.VMoleculesPerCm3PerGas[GasIndex] * \
-                                               object.SCLENULNT[iProcess]
+                                               object.ScaleNullNT[iProcess]
                         iProcess+=1
             object.NumMomCrossSectionPointsNullNT = iProcess + 1
             object.TotalCollisionFrequencyNullNT[iEnergy] = 0.0
@@ -590,8 +590,8 @@ cpdef MixerT(PyBoltz object):
         for i in range(object.NumberOfGases):
             if object.NumMomCrossSectionPointsNull[i] > 0:
                 for J in range(int(object.NumMomCrossSectionPointsNull[i])):
-                    object.SCLENUL[i][J] = object.MixObject.Gases[i].SCLN[J]
-                    object.NullCollisionFreq[i][iEnergy][J] = object.MixObject.Gases[i].NullCrossSection[J][iEnergy] * object.VMoleculesPerCm3PerGas[i] * object.SCLENUL[i][J]
+                    object.ScaleNull[i][J] = object.MixObject.Gases[i].ScaleNull[J]
+                    object.NullCollisionFreq[i][iEnergy][J] = object.MixObject.Gases[i].NullCrossSection[J][iEnergy] * object.VMoleculesPerCm3PerGas[i] * object.ScaleNull[i][J]
 
             # CALCULATE NULL COLLISION FREQUENCY FOR EACH GAS COMPONENT
 

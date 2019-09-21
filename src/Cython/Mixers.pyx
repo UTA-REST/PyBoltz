@@ -32,7 +32,7 @@ cpdef Mixer(PyBoltz object):
     object.SqrtEnergy[0] = sqrt(EnergyHalf)
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic, object.PenningFraction,
                            object.E, object.SqrtEnergy, object.TotalCrossSection, object.RelativeIonMinusAttachCrossSection, object.InelasticCrossSection, object.ElasticCrossSection,
-                           object.DENSY, 0, object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
+                           object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
                            object.FinalElectronEnergy, object.ThermalEnergy, object.RhydbergConst, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
     object.MixObject.Run()
 
@@ -63,7 +63,7 @@ cpdef Mixer(PyBoltz object):
                 L = 1
                 object.InteractionTypeNT[iProcess] = L
                 object.EnergyLevelsNT[iProcess] = 0.0
-                object.IPNNT[iProcess] = 0
+                object.ElectronNumChangeNT[iProcess] = 0
 
                 object.PenningFractionNT[0][iProcess] = 0.0
                 object.PenningFractionNT[1][iProcess] = 0.0
@@ -119,7 +119,7 @@ cpdef Mixer(PyBoltz object):
                         object.NG2NT[iProcess] = object.MixObject.Gases[GasIndex].NG2[0]
                         object.EFLNT[iProcess] = object.MixObject.Gases[GasIndex].EFL[0]
                         object.WKLMNT[iProcess] = object.MixObject.Gases[GasIndex].WK[0]
-                        object.IPNNT[iProcess] = 1
+                        object.ElectronNumChangeNT[iProcess] = 1
                         L = 2
                         object.InteractionTypeNT[iProcess] = L
                         object.PenningFractionNT[0][iProcess] = 0.0
@@ -141,7 +141,7 @@ cpdef Mixer(PyBoltz object):
                             object.EG1NT[iProcess] = object.MixObject.Gases[GasIndex].EG1[iIonizaton]
                             object.NG2NT[iProcess] = object.MixObject.Gases[GasIndex].NG2[iIonizaton]
                             object.WKLMNT[iProcess] = object.MixObject.Gases[GasIndex].WK[iIonizaton]
-                            object.IPNNT[iProcess] = 1
+                            object.ElectronNumChangeNT[iProcess] = 1
                             L = 2
                             object.InteractionTypeNT[iProcess] = L
                             object.PenningFractionNT[0][iProcess] = 0.0
@@ -159,7 +159,7 @@ cpdef Mixer(PyBoltz object):
                         object.RGasNT[iProcess] = RGas
                         object.EnergyLevelsNT[iProcess] = 0.0
                         object.AngularModelNT[iProcess] = 0
-                        object.IPNNT[iProcess] = -1
+                        object.ElectronNumChangeNT[iProcess] = -1
                         L = 3
                         object.InteractionTypeNT[iProcess] = L
                         object.PenningFractionNT[0][iProcess] = 0.0
@@ -176,7 +176,7 @@ cpdef Mixer(PyBoltz object):
                             object.RGasNT[iProcess] = RGas
                             object.EnergyLevelsNT[iProcess] = 0.0
                             object.AngularModelNT[iProcess] = 0
-                            object.IPNNT[iProcess] = -1
+                            object.ElectronNumChangeNT[iProcess] = -1
                             L = 3
                             object.InteractionTypeNT[iProcess] = L
                             object.PenningFractionNT[0][iProcess] = 0.0
@@ -212,7 +212,7 @@ cpdef Mixer(PyBoltz object):
 
                         if object.MixObject.Gases[GasIndex].EnergyLevels[J] < 0:
                             L = 5
-                        object.IPNNT[iProcess] = 0
+                        object.ElectronNumChangeNT[iProcess] = 0
                         object.InteractionTypeNT[iProcess] = L
                         object.PenningFractionNT[0][iProcess] = object.MixObject.Gases[GasIndex].PenningFraction[0][J]
                         object.PenningFractionNT[1][iProcess] = object.MixObject.Gases[GasIndex].PenningFraction[1][J] * 1.0e-16 / sqrt(3)
@@ -359,7 +359,7 @@ cpdef MixerT(PyBoltz object):
     object.MixObject = Gasmix()
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic, object.PenningFraction,
                            object.E, object.SqrtEnergy, object.TotalCrossSection, object.RelativeIonMinusAttachCrossSection, object.InelasticCrossSection, object.ElasticCrossSection,
-                           object.DENSY, 0, object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
+                           object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
                            object.FinalElectronEnergy, object.ThermalEnergy, object.RhydbergConst, object.TemperatureCentigrade, object.PressureTorr, object.EnablePenning, object.PIR2)
     object.MixObject.Run()
 
@@ -403,7 +403,7 @@ cpdef MixerT(PyBoltz object):
                 L = 1
                 object.InteractionType[GasIndex][iProcess - 1] = L
                 object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
-                object.IPN[GasIndex][iProcess - 1] = 0
+                object.ElectronNumChange[GasIndex][iProcess - 1] = 0
 
                 object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
                 object.PenningFraction[GasIndex][1][iProcess - 1] = 0.0
@@ -458,7 +458,7 @@ cpdef MixerT(PyBoltz object):
                         object.EG2[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EG2[0]
                         object.WKLM[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].WK[0]
                         object.EFL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EFL[0]
-                        object.IPN[GasIndex][iProcess - 1] = 1
+                        object.ElectronNumChange[GasIndex][iProcess - 1] = 1
                         L = 2
                         object.InteractionType[GasIndex][iProcess - 1] = L
                         object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
@@ -480,7 +480,7 @@ cpdef MixerT(PyBoltz object):
                             object.NG2[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NG2[iIonizaton]
                             object.WKLM[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].WK[iIonizaton]
                             object.EFL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EFL[iIonizaton]
-                            object.IPN[GasIndex][iProcess - 1] = 1
+                            object.ElectronNumChange[GasIndex][iProcess - 1] = 1
                             L = 2
                             object.InteractionType[GasIndex][iProcess - 1] = L
                             object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
@@ -498,7 +498,7 @@ cpdef MixerT(PyBoltz object):
                         object.RGas[GasIndex][iProcess - 1] = RGas
                         object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
                         object.AngularModel[GasIndex][iProcess - 1] = 0
-                        object.IPN[GasIndex][iProcess - 1] = -1
+                        object.ElectronNumChange[GasIndex][iProcess - 1] = -1
                         L = 3
                         object.InteractionType[GasIndex][iProcess - 1] = L
                         object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
@@ -516,7 +516,7 @@ cpdef MixerT(PyBoltz object):
                             object.RGas[GasIndex][iProcess - 1] = RGas
                             object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
                             object.AngularModel[GasIndex][iProcess - 1] = 0
-                            object.IPN[GasIndex][iProcess - 1] = -1
+                            object.ElectronNumChange[GasIndex][iProcess - 1] = -1
                             L = 3
                             object.InteractionType[GasIndex][iProcess - 1] = L
                             object.PenningFraction[GasIndex][0][iProcess - 1] = 0.0
@@ -547,7 +547,7 @@ cpdef MixerT(PyBoltz object):
                         L = 4
                         if object.MixObject.Gases[GasIndex].EnergyLevels[J] < 0:
                             L = 5
-                        object.IPN[GasIndex][iProcess - 1] = 0
+                        object.ElectronNumChange[GasIndex][iProcess - 1] = 0
                         object.InteractionType[GasIndex][iProcess - 1] = L
                         object.PenningFraction[GasIndex][0][iProcess - 1] = object.MixObject.Gases[GasIndex].PenningFraction[0][J]
                         object.PenningFraction[GasIndex][1][iProcess - 1] = object.MixObject.Gases[GasIndex].PenningFraction[1][J] * 1.0e-16 / sqrt(3)

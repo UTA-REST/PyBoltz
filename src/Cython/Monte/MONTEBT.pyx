@@ -301,7 +301,7 @@ cpdef run(PyBoltz Object):
             S1 = Object.RGas[GasIndex][I]
             EI = Object.EnergyLevels[GasIndex][I]
 
-            if Object.IPN[GasIndex][I] > 0:
+            if Object.ElectronNumChange[GasIndex][I] > 0:
                 #  USE FLAT DISTRIBUTION OF  ELECTRON ENERGY BETWEEN E-IonizationEnergy AND 0.0 EV
                 #  SAME AS IN BOLTZMMoleculesPerCm3PerGas
                 R9 = random_uniform(RandomSeed)

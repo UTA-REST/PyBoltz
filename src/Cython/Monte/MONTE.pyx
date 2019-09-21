@@ -301,7 +301,7 @@ cpdef run(PyBoltz Object):
                 I = I + 1
             S1 = Object.RGasNT[I]
             EI = Object.EnergyLevelsNT[I]
-            if Object.IPNNT[I] > 0:
+            if Object.ElectronNumChangeNT[I] > 0:
                 # Use flat distributioon of electron energy between E-IonizationEnergy and 0.0 EV, same as in Boltzmann
                 RandomNum = random_uniform(RandomSeed)
                 EXTRA = RandomNum * (EAfter - EI)

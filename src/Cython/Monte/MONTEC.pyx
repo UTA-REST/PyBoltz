@@ -268,7 +268,7 @@ cpdef run(PyBoltz Object):
 
             S1 = Object.RGasNT[I]
             EI = Object.EnergyLevelsNT[I]
-            if Object.IPNNT[I] > 0:
+            if Object.ElectronNumChangeNT[I] > 0:
                 R9 = random_uniform(RandomSeed)
                 EXTRA = R9 * (E - EI)
                 EI = EXTRA + EI

@@ -298,7 +298,7 @@ cpdef run(PyBoltz Object):
             I = MBSortT(GasIndex, I, RandomNum, IE, Object)
             while Object.CollisionFrequency[GasIndex][IE][I] < RandomNum:
                 I += 1
-            S1 = Object.RGAS[GasIndex][I]
+            S1 = Object.RGas[GasIndex][I]
             EI = Object.EnergyLevels[GasIndex][I]
 
             if Object.IPN[GasIndex][I] > 0:

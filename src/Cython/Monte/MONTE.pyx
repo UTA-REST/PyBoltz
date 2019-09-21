@@ -299,7 +299,7 @@ cpdef run(PyBoltz Object):
             I = MBSort(I, RandomNum, iEnergyBin, Object)
             while Object.CollisionFrequencyNT[iEnergyBin][I] < RandomNum:
                 I = I + 1
-            S1 = Object.RGASNT[I]
+            S1 = Object.RGasNT[I]
             EI = Object.EnergyLevelsNT[I]
             if Object.IPNNT[I] > 0:
                 # Use flat distributioon of electron energy between E-IonizationEnergy and 0.0 EV, same as in Boltzmann

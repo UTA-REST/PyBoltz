@@ -250,7 +250,7 @@ cpdef run(PyBoltz Object):
             while Object.CollisionFrequencyNT[IE][I] < RandomNum:
                 I = I + 1
 
-            S1 = Object.RGASNT[I]
+            S1 = Object.RGasNT[I]
             EI = Object.EnergyLevelsNT[I]
             if Object.IPNNT[I] > 0:
                 R9 = random_uniform(RandomSeed)

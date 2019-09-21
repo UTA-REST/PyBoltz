@@ -58,8 +58,8 @@ cpdef Mixer(PyBoltz object):
                 object.AngularModelNT[iProcess] = 2
 
             if iEnergy == 0:
-                RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                object.RGASNT[iProcess] = RGAS
+                RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                object.RGasNT[iProcess] = RGas
                 L = 1
                 object.IARRYNT[iProcess] = L
                 object.EnergyLevelsNT[iProcess] = 0.0
@@ -109,9 +109,9 @@ cpdef Mixer(PyBoltz object):
 
                 if iEnergy == 0:
                     if object.MixObject.Gases[GasIndex].N_Ionization <= 1:
-                        RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGASNT[iProcess] = RGAS
-                        object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].E[2] / RGAS
+                        RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                        object.RGasNT[iProcess] = RGas
+                        object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].E[2] / RGas
                         object.WPLNT[iProcess] = object.MixObject.Gases[GasIndex].EB[0]
                         object.NC0NT[iProcess] = object.MixObject.Gases[GasIndex].NC0[0]
                         object.EC0NT[iProcess] = object.MixObject.Gases[GasIndex].EC0[0]
@@ -131,9 +131,9 @@ cpdef Mixer(PyBoltz object):
                         iProcess = iProcess - object.MixObject.Gases[GasIndex].N_Ionization
                         for iIonizaton in range(object.MixObject.Gases[GasIndex].N_Ionization):
                             iProcess = iProcess + 1
-                            RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                            object.RGASNT[iProcess] = RGAS
-                            object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGAS
+                            RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                            object.RGasNT[iProcess] = RGas
+                            object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGas
                             object.WPLNT[iProcess] = object.MixObject.Gases[GasIndex].EB[iIonizaton]
                             object.NC0NT[iProcess] = object.MixObject.Gases[GasIndex].NC0[iIonizaton]
                             object.EC0NT[iProcess] = object.MixObject.Gases[GasIndex].EC0[iIonizaton]
@@ -158,8 +158,8 @@ cpdef Mixer(PyBoltz object):
                     object.ScatteringParameterNT[iEnergy][iProcess] = 0.5
                     object.AngleCutNT[iEnergy][iProcess] = 1.0
                     if iEnergy == 0:
-                        RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGASNT[iProcess] = RGAS
+                        RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                        object.RGasNT[iProcess] = RGas
                         object.EnergyLevelsNT[iProcess] = 0.0
                         object.AngularModelNT[iProcess] = 0
                         object.IPNNT[iProcess] = -1
@@ -176,8 +176,8 @@ cpdef Mixer(PyBoltz object):
                         object.ScatteringParameterNT[iEnergy][iProcess] = 0.5
                         object.AngleCutNT[iEnergy][iProcess] = 1.0
                         if iEnergy == 0:
-                            RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                            object.RGASNT[iProcess] = RGAS
+                            RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                            object.RGasNT[iProcess] = RGas
                             object.EnergyLevelsNT[iProcess] = 0.0
                             object.AngularModelNT[iProcess] = 0
                             object.IPNNT[iProcess] = -1
@@ -209,9 +209,9 @@ cpdef Mixer(PyBoltz object):
                         object.AngularModelNT[iProcess] = 2
                     if iEnergy == 0:
 
-                        RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGASNT[iProcess] = RGAS
-                        object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].EnergyLevels[J] / RGAS
+                        RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                        object.RGasNT[iProcess] = RGas
+                        object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].EnergyLevels[J] / RGas
                         L = 4
 
                         if object.MixObject.Gases[GasIndex].EnergyLevels[J] < 0:
@@ -296,14 +296,14 @@ cpdef Mixer(PyBoltz object):
 
     BP = object.EField ** 2 * object.CONST1
     F2 = object.EField * object.CONST3
-    ELOW = object.MaxCollisionTime * (object.MaxCollisionTime * BP - F2 * sqrt(0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep - 1
-    ELOW = min(ELOW, object.SmallNumber)
+    EnergyLow = object.MaxCollisionTime * (object.MaxCollisionTime * BP - F2 * sqrt(0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep - 1
+    EnergyLow = min(EnergyLow, object.SmallNumber)
     EnergyHigh = object.MaxCollisionTime * (object.MaxCollisionTime * BP + F2 * sqrt(0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep + 1
     if EnergyHigh > 10000:
         EnergyHigh = 10000
     for l in range(8):
         I = l + 1
-        JLOW = 4000 - 500 * (9 - I) + 1 + int(ELOW)
+        JLOW = 4000 - 500 * (9 - I) + 1 + int(EnergyLow)
         JHI = 4000 - 500 * (8 - I) + int(EnergyHigh)
         JLOW = max(JLOW, 0)
         JHI = min(JHI, 4000)
@@ -405,9 +405,9 @@ cpdef MixerT(PyBoltz object):
                 object.AngularModel[GasIndex][iProcess - 1] = 2
 
             if iEnergy == 0:
-                RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
                 object.AMGAS[GasIndex] = 2 * ElectronMass / object.MixObject.Gases[GasIndex].E[1]
-                object.RGAS[GasIndex][iProcess - 1] = RGAS
+                object.RGas[GasIndex][iProcess - 1] = RGas
                 L = 1
                 object.IARRY[GasIndex][iProcess - 1] = L
                 object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
@@ -456,9 +456,9 @@ cpdef MixerT(PyBoltz object):
                             object.AngularModel[GasIndex][iProcess - 1] = 2
                 if iEnergy == 0:
                     if object.MixObject.Gases[GasIndex].N_Ionization <= 1:
-                        RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGAS[GasIndex][iProcess - 1] = RGAS
-                        object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].E[2] / RGAS
+                        RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                        object.RGas[GasIndex][iProcess - 1] = RGas
+                        object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].E[2] / RGas
                         object.WPL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EB[0]
                         object.NC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NC0[0]
                         object.EC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EC0[0]
@@ -478,9 +478,9 @@ cpdef MixerT(PyBoltz object):
                         iProcess = iProcess - object.MixObject.Gases[GasIndex].N_Ionization
                         for iIonizaton in range(object.MixObject.Gases[GasIndex].N_Ionization):
                             iProcess = iProcess + 1
-                            RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                            object.RGAS[GasIndex][iProcess - 1] = RGAS
-                            object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGAS
+                            RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                            object.RGas[GasIndex][iProcess - 1] = RGas
+                            object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGas
                             object.WPL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EB[iIonizaton]
                             object.NC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NC0[iIonizaton]
                             object.EC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EC0[iIonizaton]
@@ -505,8 +505,8 @@ cpdef MixerT(PyBoltz object):
                     object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = 0.5
                     object.AngleCut[GasIndex][iEnergy][iProcess - 1] = 1.0
                     if iEnergy == 0:
-                        RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGAS[GasIndex][iProcess - 1] = RGAS
+                        RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                        object.RGas[GasIndex][iProcess - 1] = RGas
                         object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
                         object.AngularModel[GasIndex][iProcess - 1] = 0
                         object.IPN[GasIndex][iProcess - 1] = -1
@@ -524,8 +524,8 @@ cpdef MixerT(PyBoltz object):
                         object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = 0.5
                         object.AngleCut[GasIndex][iEnergy][iProcess - 1] = 1.0
                         if iEnergy == 0:
-                            RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                            object.RGAS[GasIndex][iProcess - 1] = RGAS
+                            RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                            object.RGas[GasIndex][iProcess - 1] = RGas
                             object.EnergyLevels[GasIndex][iProcess - 1] = 0.0
                             object.AngularModel[GasIndex][iProcess - 1] = 0
                             object.IPN[GasIndex][iProcess - 1] = -1
@@ -553,9 +553,9 @@ cpdef MixerT(PyBoltz object):
                         object.ScatteringParameter[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].PEInelasticCrossSectionPerGas[J][iEnergy]
                         object.AngularModel[GasIndex][iProcess - 1] = 2
                     if iEnergy == 0:
-                        RGAS = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
-                        object.RGAS[GasIndex][iProcess - 1] = RGAS
-                        object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EnergyLevels[J] / RGAS
+                        RGas = 1 + object.MixObject.Gases[GasIndex].E[1] / 2
+                        object.RGas[GasIndex][iProcess - 1] = RGas
+                        object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EnergyLevels[J] / RGas
                         L = 4
                         if object.MixObject.Gases[GasIndex].EnergyLevels[J] < 0:
                             L = 5

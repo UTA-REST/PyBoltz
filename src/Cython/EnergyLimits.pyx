@@ -129,7 +129,7 @@ cpdef EnergyLimit(PyBoltz Object):
         while Object.CollisionFrequencyNT[IE][I] < R2:
             I = I + 1
 
-        S1 = Object.RGASNT[I]
+        S1 = Object.RGasNT[I]
         EI = Object.EnergyLevelsNT[I]
         if Object.IPNNT[I] > 0:
             R9 = random_uniform(RandomSeed)
@@ -291,7 +291,7 @@ cpdef EnergyLimitB(PyBoltz Object):
         while Object.CollisionFrequencyNT[IE][I] < R2:
             I = I + 1
 
-        S1 = Object.RGASNT[I]
+        S1 = Object.RGasNT[I]
         EI = Object.EnergyLevelsNT[I]
         if Object.IPNNT[I] > 0:
             R9 = random_uniform(RandomSeed)
@@ -466,7 +466,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
         while Object.CollisionFrequency[GasIndex][IE][I] < R2:
             I = I + 1
 
-        S1 = Object.RGAS[GasIndex][I]
+        S1 = Object.RGas[GasIndex][I]
         EI = Object.EnergyLevels[GasIndex][I]
         if Object.IPN[GasIndex][I] > 0:
             R9 = random_uniform(RandomSeed)
@@ -637,7 +637,7 @@ cpdef EnergyLimitC(PyBoltz Object):
         while Object.CollisionFrequencyNT[IE][I] < R2:
             I = I + 1
 
-        S1 = Object.RGASNT[I]
+        S1 = Object.RGasNT[I]
         EI = Object.EnergyLevelsNT[I]
         if Object.IPNNT[I] > 0:
             R9 = random_uniform(RandomSeed)
@@ -824,7 +824,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             I = I + 1
 
 
-        S1 = Object.RGAS[GasIndex][I]
+        S1 = Object.RGas[GasIndex][I]
         EI = Object.EnergyLevels[GasIndex][I]
         if Object.IPN[GasIndex][I] > 0:
             R9 = random_uniform(RandomSeed)
@@ -996,7 +996,7 @@ cpdef EnergyLimitT(PyBoltz Object):
         I = MBSortT(GasIndex, I, R3, IE, Object)
         while Object.CollisionFrequency[GasIndex][IE][I] < R3:
             I += 1
-        S1 = Object.RGAS[GasIndex][I]
+        S1 = Object.RGas[GasIndex][I]
         EI = Object.EnergyLevels[GasIndex][I]
 
         if Object.IPN[GasIndex][I] > 0:

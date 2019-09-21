@@ -16,20 +16,20 @@ cpdef Mixer(PyBoltz object):
 
     The object parameter is the PyBoltz object to be setup.
     """
-    cdef double AttachmentCrossSection[6][4000], ECHARG, JHI, JLOW, EHI, F2, BP, ELOW
+    cdef double AttachmentCrossSection[6][4000], ElectronCharge, JHI, JLOW, EnergyHigh, F2, BP, EnergyLow
     cdef int  IE, GasIndex, NP, p, sum, J, i, j, KION, JJ, IL, I
-    ECHARG = 1.602176565e-19
+    ElectronCharge = 1.602176565e-19
 
 
     object.ElectronEnergyStep = object.FinalElectronEnergy / object.EnergySteps
 
-    EHALF = object.ElectronEnergyStep / 2
+    EnergyHalf = object.ElectronEnergyStep / 2
 
-    object.E[0] = EHALF
+    object.E[0] = EnergyHalf
     for i in range(1, 4000):
-        object.E[i] = EHALF + object.ElectronEnergyStep * i
+        object.E[i] = EnergyHalf + object.ElectronEnergyStep * i
         object.SqrtEnergy[i] = sqrt(object.E[i])
-    object.SqrtEnergy[0] = sqrt(EHALF)
+    object.SqrtEnergy[0] = sqrt(EnergyHalf)
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic, object.PenningFraction,
                            object.E, object.SqrtEnergy, object.TotalCrossSection, object.RelativeIonMinusAttachCrossSection, object.InelasticCrossSection, object.ElasticCrossSection,
                            object.DENSY, 0, object.NumberOfGases, object.EnergySteps, object.WhichAngularModel, object.ElectronEnergyStep,
@@ -298,13 +298,13 @@ cpdef Mixer(PyBoltz object):
     F2 = object.EField * object.CONST3
     ELOW = object.MaxCollisionTime * (object.MaxCollisionTime * BP - F2 * sqrt(0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep - 1
     ELOW = min(ELOW, object.SmallNumber)
-    EHI = object.MaxCollisionTime * (object.MaxCollisionTime * BP + F2 * sqrt(0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep + 1
-    if EHI > 10000:
-        EHI = 10000
+    EnergyHigh = object.MaxCollisionTime * (object.MaxCollisionTime * BP + F2 * sqrt(0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep + 1
+    if EnergyHigh > 10000:
+        EnergyHigh = 10000
     for l in range(8):
         I = l + 1
         JLOW = 4000 - 500 * (9 - I) + 1 + int(ELOW)
-        JHI = 4000 - 500 * (8 - I) + int(EHI)
+        JHI = 4000 - 500 * (8 - I) + int(EnergyHigh)
         JLOW = max(JLOW, 0)
         JHI = min(JHI, 4000)
         for J in range(int(JLOW-1), int(JHI)):
@@ -350,17 +350,17 @@ cpdef MixerT(PyBoltz object):
     """
     cdef double AttachmentCrossSection[6][4000]
     cdef int  IE, GasIndex, NP, p, sum, J, i, j, KION, JJ, IL, I
-    ECHARG = 1.602176565e-19
+    ElectronCharge = 1.602176565e-19
 
     object.ElectronEnergyStep = object.FinalElectronEnergy / float(object.EnergySteps)
 
-    EHALF = object.ElectronEnergyStep / 2
+    EnergyHalf = object.ElectronEnergyStep / 2
 
-    object.E[0] = EHALF
+    object.E[0] = EnergyHalf
     for i in range(1, 4000):
-        object.E[i] = EHALF + object.ElectronEnergyStep * i
+        object.E[i] = EnergyHalf + object.ElectronEnergyStep * i
         object.SqrtEnergy[i] = sqrt(object.E[i])
-    object.SqrtEnergy[0] = sqrt(EHALF)
+    object.SqrtEnergy[0] = sqrt(EnergyHalf)
 
     object.MixObject = Gasmix()
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic, object.PenningFraction,
@@ -660,7 +660,7 @@ cpdef MixerT(PyBoltz object):
     # CALCULATE MAXWELL BOLTZMAN VELOCITY FACTOR FOR EACH GAS COMPONENT
 
     for GasIndex in range(object.NumberOfGases):
-        object.VTMB[GasIndex] = sqrt(2.0 * ECHARG * object.ThermalEnergy / object.AMGAS[GasIndex]) * 1e-12
+        object.VTMB[GasIndex] = sqrt(2.0 * ElectronCharge * object.ThermalEnergy / object.AMGAS[GasIndex]) * 1e-12
 
     for I in range(object.EnergySteps):
         object.TotalCrossSection[I] = object.MoleculesPerCm3PerGas[0] * object.MixObject.Gases[0].Q[0][I] + object.MoleculesPerCm3PerGas[1] * object.MixObject.Gases[1].Q[0][I] + \

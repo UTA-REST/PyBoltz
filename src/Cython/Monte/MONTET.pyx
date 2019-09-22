@@ -45,8 +45,8 @@ cpdef run(PyBoltz Object):
     """
 
     #TODO: print similar ouput (on new lines).
-    Object.VelXAfter = 0.0
-    Object.VelYAfter = 0.0
+    Object.VelocityX = 0.0
+    Object.VelocityY = 0.0
     Object.VelocityErrorX = 0.0
     Object.VelocityErrorY = 0.0
     Object.X = 0.0
@@ -321,7 +321,7 @@ cpdef run(PyBoltz Object):
             Object.CollisionEnergies[iEnergyBin] += 1
 
             # Record instantaneous integrated drift velocity
-            Object.VelZAfter = Object.Z / Object.TimeSum
+            Object.VelocityZ = Object.Z / Object.TimeSum
 
             # Keep running total of Sum(V^2 T^2). 
             SumVX = SumVX + VelXBefore * VelXBefore * T2
@@ -363,7 +363,7 @@ cpdef run(PyBoltz Object):
                     #  in the ensemble, so only start accumulating after 2nd sample
                     if iSample >= 2:
                         ST1 += T
-                        SumZZ = SumZZ + ((Object.Z - CollZ[DecorDistance - 1] - Object.VelZAfter * TDiff) ** 2) * T / TDiff
+                        SumZZ = SumZZ + ((Object.Z - CollZ[DecorDistance - 1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
                     CollsBackToLook += Object.Decor_Step
 
 
@@ -487,7 +487,7 @@ cpdef run(PyBoltz Object):
             #And go around again to the next collision!
             
         #Put stuff into the right units and normalize
-        Object.VelZAfter *= 1.0e9
+        Object.VelocityZ *= 1.0e9
         Object.MeanElectronEnergy = SumE2 / Object.TimeSum
         Object.LongitudinalDiffusion = 0.0
         if Object.AnisotropicDetected == 0:
@@ -525,7 +525,7 @@ cpdef run(PyBoltz Object):
         SME2_LastSample = SumE2
         if Object.ConsoleOutputFlag:
             print(
-                '{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelZAfter, Object.Z, Object.TimeSum,
+                '{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.TimeSum,
                                                                                          Object.MeanElectronEnergy, Object.DiffusionX,
                                                                                          Object.DiffusionY,
                                                                                          Object.DiffusionZ))
@@ -560,7 +560,7 @@ cpdef run(PyBoltz Object):
             SumDZZ2_Samples += pow(DiffZZPerSample[K], 2)
 
     # (remember, we only started counting ZZ after 2 samples, as needed to estimate drift velocity first)       
-    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.VelZAfter
+    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.VelocityZ
     Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.MeanElectronEnergy
     Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.DiffusionX
     Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.DiffusionY
@@ -574,7 +574,7 @@ cpdef run(PyBoltz Object):
     Object.TransverseDiffusion = (Object.DiffusionX + Object.DiffusionY) / 2
 
     # Convert to cm/sec
-    Object.VelZAfter *= 1.0e5
+    Object.VelocityZ *= 1.0e5
     Object.LongitudinalDiffusionError = Object.ErrorDiffusionZ
     Object.TransverseDiffusionError = (Object.ErrorDiffusionX + Object.ErrorDiffusionY) / 2.0
 
@@ -588,11 +588,11 @@ cpdef run(PyBoltz Object):
     Object.AttachmentRateError = 0.0
     if Attachment != 0:
         Object.AttachmentRateError = 100 * sqrt(Attachment) / Attachment
-    Object.AttachmentRate = Attachment / (Object.TimeSum * Object.VelZAfter) * 1e12
+    Object.AttachmentRate = Attachment / (Object.TimeSum * Object.VelocityZ) * 1e12
     Object.IonisationRateError = 0.0
     if Ionization != 0:
         Object.IonisationRateError = 100 * sqrt(Ionization) / Ionization
-    Object.IonisationRate = Ionization / (Object.TimeSum * Object.VelZAfter) * 1e12
+    Object.IonisationRate = Ionization / (Object.TimeSum * Object.VelocityZ) * 1e12
 
     # Free up the memory and close down gracefully
     free(CollT)

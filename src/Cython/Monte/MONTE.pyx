@@ -246,7 +246,6 @@ cpdef run(PyBoltz Object):
                  DirCosineX2 = (VelXBefore * CosWT - VelYBefore * SinWT) / VelAfter
                  DirCosineY2 = (VelYBefore * CosWT + VelXBefore * SinWT) / VelAfter
                  DirCosineZ2 = DirCosineZ1 * VelocityRatio + T * F2 / (2.0*sqrt(EAfter))
-                 #print(WBT,VelYBefore,VelXBefore, Object.X, Object.Y)
                  Object.X +=  (VelXBefore * SinWT - VelYBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
                  Object.Y += (VelYBefore * SinWT + VelXBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
                  Object.Z += DirCosineZ1 * A + T2 * F1
@@ -448,7 +447,6 @@ cpdef run(PyBoltz Object):
                                                                                          Object.DiffusionZ))
         if Object.CollisionEnergies[3999] > (1000 * float(iSample + 1)):
             raise ValueError("WARNING ENERGY OUT OF RANGE, INCREASE ELECTRON ENERGY INTEGRATION RANGE")
-        #print("tmp")
         #print("tmp2")
 
     # Calculate errors and check averages.  Means and errors are calculated statistically

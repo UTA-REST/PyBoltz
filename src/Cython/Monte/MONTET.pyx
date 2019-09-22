@@ -54,9 +54,9 @@ cpdef run(PyBoltz Object):
     Object.Z = 0.0
     Object.TimeSum = 0.0
     cdef long long I, NumDecorLengths, NumCollisions, IEXTRA, MaxBoltzNumsUsed, K, J, CollisionsPerSample, iSample, iCollision, GasIndex, iEnergyBin, iTimeBin, CollsBackToLook, IPT, iCorr, DecorDistance
-    cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumVX, SumVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SumVX_LastSample, SumVY_LastSample, SME2_LastSample, TDash,TDiff
-    cdef double AbsFakeIoniz, DirCosineZ1, DirCosineX1, DirCosineY1, VelXBefore, VelYBefore, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, Theta,
-    cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VelXAfter, VelYAfter, VelZAfter, COMEnergy, Test1, Test2, Test3, VelocityInCOM
+    cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumVX, SumVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SZZ_LastSample, SXX_LastSample, SYY_LastSample, SVX_LastSample, SVY_LastSample, SME2_LastSample, TDash,TDiff
+    cdef double AbsFakeIoniz, DirCosineZ1, DirCosineX1, DirCosineY1,  BP, F1, F2, TwoPi, DZCOM, DYCOM, DXCOM, Theta, VelXBefore, VelYBefore, BelZBefore, SinWT, CosWT, WBT
+    cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VelXAfter, VelYAfter, VelZAfter, VelAfter, COMEnergy, Test1, Test2, Test3, VelocityInCOM, VelBeforeM1
     cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EpsilonOkhr,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle, VXLab, VYLab, VZLab
     cdef double SumV2_Samples, SumV_Samples, SumE2_Samples, SumE_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, Attachment, Ionization, EAfter
     I = 0
@@ -68,15 +68,16 @@ cpdef run(PyBoltz Object):
     SumZZ = 0.0
     SumVX = 0.0
     SumVY = 0.0
+    TDiff=0.0
     Z_LastSample = 0.0
     ST_LastSample = 0.0
     ST1_LastSample = 0.0
     ST2_LastSample = 0.0
-    SumZZ_LastSample = 0.0
-    SumXX_LastSample = 0.0
-    SumYY_LastSample = 0.0
-    SumVX_LastSample = 0.0
-    SumVY_LastSample = 0.0
+    SZZ_LastSample = 0.0
+    SXX_LastSample = 0.0
+    SYY_LastSample = 0.0
+    SVX_LastSample = 0.0
+    SVY_LastSample = 0.0
     SME2_LastSample = 0.0
         
 
@@ -197,10 +198,6 @@ cpdef run(PyBoltz Object):
                 EAfter = EBefore + (AP + BP * T) * T
                 VelocityRatio = sqrt(EBefore / EAfter)
 
-                # Calculate direction cosines after acceleration, before collision
-                DirCosineX2 = DirCosineX1 * VelocityRatio
-                DirCosineY2 = DirCosineY1 * VelocityRatio
-                DirCosineZ2 = DirCosineZ1 * VelocityRatio +  T * F2 / (2.0*sqrt(EAfter))
 
 
                 # Randomly choose gas to scatter from, based on expected collision freqs.
@@ -224,10 +221,25 @@ cpdef run(PyBoltz Object):
                 MaxBoltzNumsUsed += 1
                 GasVelZ = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(MaxBoltzNumsUsed - 1)]
 
-                # Update velocity vectors following acceln, V = (angle_part)*sqrt(2M)*sqrt(E)
-                VelXAfter = DirCosineX2 * Sqrt2M * sqrt(EAfter)
-                VelYAfter = DirCosineY2 * Sqrt2M * sqrt(EAfter)
-                VelZAfter = DirCosineZ2 * Sqrt2M * sqrt(EAfter)
+                #Update velocity vectors following field acceleration
+                if(Object.BFieldMode==1):
+                    # No applied B Field
+                    VelXAfter = DirCosineX1 * VelocityRatio * Sqrt2M * sqrt(EAfter)
+                    VelYAfter = DirCosineY1 * VelocityRatio * Sqrt2M * sqrt(EAfter)
+                    VelZAfter = (DirCosineZ1 * VelocityRatio +  T * F2 / (2.0*sqrt(EAfter))) * Sqrt2M * sqrt(EAfter)
+
+                elif(Object.BFieldMode==2):
+                    # B Field parallel to E field
+                    # Calculate cyclotron motion
+                    WBT = Object.AngularSpeedOfRotation * T
+                    CosWT = cos(WBT)
+                    SinWT = sin(WBT)
+
+                    #Update velocity vectors following acceln
+                    VelAfter = Sqrt2M * sqrt(EAfter)
+                    VelXAfter = VelXBefore * CosWT - VelYBefore * SinWT
+                    VelYAfter = VelYBefore * CosWT + VelXBefore * SinWT
+                    VelZAfter = VelAfter * (DirCosineZ1 * VelocityRatio + Object.EField * T * (Object.CONST3/2.0) / sqrt(EAfter))
 
                 # Calculate energy in center of mass frame
                 #   E = 1/2 m dx^2 + dvy^2 + dvz^2
@@ -301,15 +313,22 @@ cpdef run(PyBoltz Object):
 
             # Update position following acceleration
             VelocityBefore =  Sqrt2M * sqrt(EBefore)
+
             A = T * VelocityBefore
-            Object.X = Object.X + DirCosineX1 * A
-            Object.Y = Object.Y + DirCosineY1 * A
-            Object.Z = Object.Z + DirCosineZ1 * A + T2 * F1
+            if(Object.BFieldMode==1):
+                # No applied B Field
+                Object.X = Object.X + DirCosineX1 * A
+                Object.Y = Object.Y + DirCosineY1 * A
+                Object.Z = Object.Z + DirCosineZ1 * A + T2 * F1
+
+            elif(Object.BFieldMode==2):
+                # B Feild parallel to E (cyclotron motion)
+                Object.X += (VelXBefore * SinWT - VelYBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
+                Object.Y += (VelYBefore * SinWT + VelXBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
+                Object.Z += DirCosineZ1 * A + T2 * F1
             Object.TimeSum = Object.TimeSum + T
 
-            # These are the X and Y velocities before we started accelerating
-            VelXBefore = DirCosineX1 * VelocityBefore
-            VelYBefore = DirCosineY1 * VelocityBefore
+
 
             # Figure out which time bin we're in, 299 is overflow; record collision
             #  at that time
@@ -358,7 +377,6 @@ cpdef run(PyBoltz Object):
                     # These are used to calculate diffusion constants, per Frasier and Mathieson Eq 8.
                     SumXX = SumXX + ((Object.X - CollX[DecorDistance - 1]) ** 2) * T / TDiff
                     SumYY = SumYY + ((Object.Y - CollY[DecorDistance - 1]) ** 2) * T / TDiff
-
                     # Becayse Z term includes drift velocity, must have calc'd it somewhat to usefully accumulate
                     #  in the ensemble, so only start accumulating after 2nd sample
                     if iSample >= 2:
@@ -456,7 +474,7 @@ cpdef run(PyBoltz Object):
             SinZAngle = sin(Object.AngleFromZ)
             DZCOM = min(DZCOM, 1.0)
             ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
-            if ARGZ == 0:
+            if ARGZ < 1e-6:
                 # If scattering frame is same as lab frame, do this;
                 DirCosineZ1 = CosZAngle
                 DirCosineX1 = CosPhi * SinZAngle
@@ -470,19 +488,17 @@ cpdef run(PyBoltz Object):
 
 
             # Transform velocity vectors to lab frame
-            CONST12 = Sqrt2M * sqrt(EBefore)
-            VXLab = DirCosineX1 * CONST12 + GasVelX
-            VYLab = DirCosineY1 * CONST12 + GasVelY
-            VZLab = DirCosineZ1 * CONST12 + GasVelZ
+            VelBefore = Sqrt2M * sqrt(EBefore)
+            VelXBefore = DirCosineX1 * VelBefore + GasVelX
+            VelYBefore = DirCosineY1 * VelBefore + GasVelY
+            VelZBefore = DirCosineZ1 * VelBefore + GasVelZ
 
             # Calculate energy and direction cosines in lab frame
-            EBefore = (VXLab * VXLab + VYLab * VYLab + VZLab * VZLab) / TwoM
-            VelocityInCOM = (Sqrt2M * sqrt(EBefore))
-            DirCosineX1 = VXLab / VelocityInCOM
-            DirCosineY1 = VYLab / VelocityInCOM
-            DirCosineZ1 = VZLab / VelocityInCOM
-
-
+            EBefore = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / TwoM
+            VelBeforeM1 = 1/(Sqrt2M * sqrt(EBefore))
+            DirCosineX1 = VelXBefore * VelBeforeM1
+            DirCosineY1 = VelYBefore * VelBeforeM1
+            DirCosineZ1 = VelZBefore * VelBeforeM1
 
             #And go around again to the next collision!
             
@@ -502,6 +518,7 @@ cpdef run(PyBoltz Object):
                 Object.DiffusionX = 5.0e15 * SumXX / ST2
                 DiffXXPerSample[iSample] = 5.0e15 * (SumXX - SXX_LastSample) / (ST2 - ST2_LastSample)
                 DiffYYPerSample[iSample] = 5.0e15 * (SumYY - SYY_LastSample) / (ST2 - ST2_LastSample)
+
             else:
                 DiffXXPerSample[iSample] = 0.0
                 DiffYYPerSample[iSample] = 0.0
@@ -564,7 +581,7 @@ cpdef run(PyBoltz Object):
     Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.MeanElectronEnergy
     Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.DiffusionX
     Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.DiffusionY
-    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples**2 / Object.NumSamples-2) / (Object.NumSamples-2-1)) / Object.DiffusionZ
+    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples**2 / (Object.NumSamples-2)) / (Object.NumSamples-2-1)) / Object.DiffusionZ
     Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(Object.NumSamples)
     Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(Object.NumSamples)
     Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(Object.NumSamples)

@@ -223,7 +223,7 @@ cdef class PyBoltz:
             elif BFieldAngle == 0 or BFieldAngle == 180:
                 self.BFieldMode=2
                 ELimFunc       = EnergyLimits.EnergyLimitT
-                MonteCarloFunc = Monte.MONTEAT
+                MonteCarloFunc = Monte.MONTET
             elif BFieldAngle == 90:         
                 ELimFunc       = EnergyLimits.EnergyLimitBT
                 MonteCarloFunc = Monte.MONTEBT
@@ -246,7 +246,8 @@ cdef class PyBoltz:
             else:
                 ELimFunc       = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = Monte.MONTEC
-        return [MixerFunc,ELimFunc,MonteCarloFunc]  
+        return [MixerFunc,ELimFunc,MonteCarloFunc]
+
     def SetExtraParameters(self,params):
         self.MixObject.ExtraParameters = params
     def Start(self):

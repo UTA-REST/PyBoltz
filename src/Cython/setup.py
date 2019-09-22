@@ -8,4 +8,6 @@ ext_modules=[
 Extension("*",["Monte/*.pyx"],include_dirs=[numpy.get_include(),'.']),
 Extension("*",["*.pyx"],include_dirs=[numpy.get_include(),'.'])
 ]
+for e in ext_modules:
+    e.cython_directives = {"embedsignature": True}
 setup(ext_modules=cythonize(ext_modules))

@@ -1,7 +1,7 @@
 from PyBoltz cimport PyBoltz
 import cython
 from PyBoltz cimport drand48
-from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
+from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
 import numpy as np
@@ -9,13 +9,11 @@ cimport numpy as np
 
 from MBSorts cimport MBSort, MBSortT
 
-
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef int isNaN(double num):
     return num != num
-
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -23,7 +21,6 @@ cdef int isNaN(double num):
 cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
-
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -57,7 +54,7 @@ cpdef EnergyLimit(PyBoltz Object):
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST5, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000], DELTAE
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
 
@@ -86,7 +83,7 @@ cpdef EnergyLimit(PyBoltz Object):
     E1 = Object.InitialElectronEnergy
     J2M = Object.MaxNumberOfCollisions / ISAMP
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
+        if J1 != 0 and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RandomSeed)
@@ -107,7 +104,7 @@ cpdef EnergyLimit(PyBoltz Object):
             # Test FOR NULL COLLISIONS
             R5 = random_uniform(RandomSeed)
             Test1 = Object.TotalCollisionFrequencyNT[IE] / TLIM
-            if R5<=Test1:
+            if R5 <= Test1:
                 break
 
         if IE == 3999:
@@ -122,7 +119,6 @@ cpdef EnergyLimit(PyBoltz Object):
         DirCosineZ2 = DirCosineZ1 * CONST6 + Object.EField * T * CONST5 / sqrt(E)
         R2 = random_uniform(RandomSeed)
 
-
         # Determination of real collision type
         I = MBSort(I, R2, IE, Object)
         # Find the location within 4 units in collision array
@@ -135,7 +131,6 @@ cpdef EnergyLimit(PyBoltz Object):
             R9 = random_uniform(RandomSeed)
             EXTRA = R9 * (E - EI)
             EI = EXTRA + EI
-
 
         # Generate scattering angles and update laboratory cosines after collision also update energy of electron
         IPT = Object.IARRYNT[I]
@@ -191,7 +186,6 @@ cpdef EnergyLimit(PyBoltz Object):
 
     return 0
 
-
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -208,12 +202,12 @@ cpdef EnergyLimitB(PyBoltz Object):
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EF100
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000], DELTAE, EF100
     TEMP = <double *> malloc(4000 * sizeof(double))
 
     memset(TEMP, 0, 4000 * sizeof(double))
 
-    Object.SmallNumber =  1.0e-20
+    Object.SmallNumber = 1.0e-20
     ISAMP = 20
     EF100 = Object.EField * 100
     RandomSeed = Object.RandomSeed
@@ -243,11 +237,11 @@ cpdef EnergyLimitB(PyBoltz Object):
     J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
+        if J1 != 0 and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RandomSeed)
-            I = int(E1 / DELTAE)+1
+            I = int(E1 / DELTAE) + 1
             I = min(I, INTEM) - 1
             TLIM = Object.MaxCollisionFreqNT[I]
             T = -1 * log(R1) / TLIM + TDASH
@@ -267,7 +261,7 @@ cpdef EnergyLimitB(PyBoltz Object):
             Test1 = Object.TotalCollisionFrequencyNT[IE] / TLIM
 
             # Test FOR REAL OR NULL COLLISION
-            if R5<=Test1:
+            if R5 <= Test1:
                 break
 
         if IE == 3999:
@@ -355,9 +349,6 @@ cpdef EnergyLimitB(PyBoltz Object):
 
     return 0
 
-
-
-
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -374,9 +365,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, EF100,TLIM,CX2,CY2,CZ2
-
- 
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, EF100, TLIM, CX2, CY2, CZ2
 
     ISAMP = 20
     SMALL = 1.0e-20
@@ -389,7 +378,6 @@ cpdef EnergyLimitBT(PyBoltz Object):
     # GENRATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
     GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
     IMBPT = 0
-
 
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
@@ -407,7 +395,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
     J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
+        if J1 != 0 and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RandomSeed)
@@ -431,7 +419,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
-                GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+                GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
                 IMBPT = 1
             VGX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -458,7 +446,6 @@ cpdef EnergyLimitBT(PyBoltz Object):
         DXCOM = (CX2 - VGX) * CONST11
         DYCOM = (CY2 - VGY) * CONST11
         DZCOM = (CZ2 - VGZ) * CONST11
-
 
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
         R2 = random_uniform(RandomSeed)
@@ -538,10 +525,6 @@ cpdef EnergyLimitBT(PyBoltz Object):
 
     return 0
 
-
-
-
-
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -557,7 +540,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EFX100,EFZ100,RTHETA,
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000], DELTAE, EFX100, EFZ100, RTHETA,
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
     ISAMP = 20
@@ -589,7 +572,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     RandomSeed = Object.RandomSeed
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
+        if J1 != 0 and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RandomSeed)
@@ -614,7 +597,7 @@ cpdef EnergyLimitC(PyBoltz Object):
             Test1 = Object.TotalCollisionFrequencyNT[IE] / TLIM
 
             # Test FOR REAL OR NULL COLLISION
-            if R5<= Test1:
+            if R5 <= Test1:
                 break
 
         if IE == 3999:
@@ -659,7 +642,7 @@ cpdef EnergyLimitC(PyBoltz Object):
                 F3 = -1 * F3
         elif Object.INDEXNT[I] == 2:
             EPSI = Object.ScatteringParameterNT[IE][I]
-            F3 = 1 - (2 * R3 * (1 - EPSI)/ (1 + EPSI * (1 - 2 * R3)))
+            F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
             F3 = 1 - 2 * R3
         THETA0 = acos(F3)
@@ -701,9 +684,6 @@ cpdef EnergyLimitC(PyBoltz Object):
 
     return 0
 
-
-
-
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -719,31 +699,28 @@ cpdef EnergyLimitCT(PyBoltz Object):
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1,
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ,RTHETA, CONST12, VXLAB, VYLAB, EFX100,EFZ100,TLIM,CX2,CY2,CZ2,EOVBR
-
-   
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, RTHETA, CONST12, VXLAB, VYLAB, EFX100, EFZ100, TLIM, CX2, CY2, CZ2, EOVBR
 
     ISAMP = 20
     SMALL = 1.0e-20
 
     I = 0
 
-
-    RTHETA = Object.BFieldAngle*np.pi/180.0
+    RTHETA = Object.BFieldAngle * np.pi / 180.0
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
     F1 = Object.EField * Object.CONST2 * cos(RTHETA)
-    F4 =2*np.pi
+    F4 = 2 * np.pi
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
     RandomSeed = Object.RandomSeed
     E1 = Object.InitialElectronEnergy
-    TDASH =0.0
+    TDASH = 0.0
 
-    CONST9 = Object.CONST3*0.01
-    CONST10 = CONST9**2
+    CONST9 = Object.CONST3 * 0.01
+    CONST10 = CONST9 ** 2
 
     #GENERATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+    GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
     IMBPT = 0
 
     #INITIAL DIRECTION COSINES
@@ -759,7 +736,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
     J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
+        if J1 != 0 and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RandomSeed)
@@ -769,11 +746,11 @@ cpdef EnergyLimitCT(PyBoltz Object):
             COSWT = cos(WBT)
             SINWT = sin(WBT)
             DZ = (CZ1 * SINWT + (Object.EFieldOverBField - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
-            DX = CX1 *T+F1*T*T
+            DX = CX1 * T + F1 * T * T
 
-            E = E1 + DZ * EFZ100+DX*EFX100
+            E = E1 + DZ * EFZ100 + DX * EFX100
 
-            CX2 = CX1+2*F1*T
+            CX2 = CX1 + 2 * F1 * T
             CY2 = (CY1 - EOVBR) * COSWT + CZ1 * SINWT + EOVBR
             CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
 
@@ -785,7 +762,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             #CALCULATE GAS VELOCITY VECTORS VGX,VGY,VGZ
             IMBPT += 1
             if IMBPT > 6:
-                GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+                GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
                 IMBPT = 1
             VGX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -823,7 +800,6 @@ cpdef EnergyLimitCT(PyBoltz Object):
         while Object.CollisionFrequency[GasIndex][IE][I] < R2:
             I = I + 1
 
-
         S1 = Object.RGAS[GasIndex][I]
         EI = Object.EnergyLevels[GasIndex][I]
         if Object.IPN[GasIndex][I] > 0:
@@ -841,7 +817,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
         if Object.INDEX[GasIndex][I] == 1:
             R31 = random_uniform(RandomSeed)
-            F3 = 1- R3 *Object.AngleCut[GasIndex][IE][I]
+            F3 = 1 - R3 * Object.AngleCut[GasIndex][IE][I]
             if R31 > Object.ScatteringParameter[GasIndex][IE][I]:
                 F3 = -1 * F3
             elif Object.INDEX[GasIndex][I] == 2:
@@ -895,10 +871,6 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
     return 0
 
-
-
-
-
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -915,10 +887,9 @@ cpdef EnergyLimitT(PyBoltz Object):
     The object parameter is the PyBoltz object to be setup and used in the simulation.
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
-    cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1,AP, BP, F1, F2, F4, J2M, R5, Test1, R1, T,  E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
+    cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, AP, BP, F1, F2, F4, J2M, R5, Test1, R1, T, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
     cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB
-
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB,A,B
 
     ISAMP = 10
     SMALL = 1.0e-20
@@ -929,7 +900,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     CONST5 = Object.CONST3 / 2.0
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
-    GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+    GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
     IMBPT = 0
     DirCosineZ1 = cos(Object.AngleFromZ)
     DirCosineX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
@@ -941,7 +912,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     F4 = 2 * acos(-1)
     J2M = Object.MaxNumberOfCollisions / ISAMP
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
+        if J1 != 0 and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
             print('* Num analyzed collisions: {}'.format(J1))
         while True:
             R1 = random_uniform(RandomSeed)
@@ -960,7 +931,7 @@ cpdef EnergyLimitT(PyBoltz Object):
                     break
             IMBPT += 1
             if (IMBPT > 6):
-                GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+                GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
                 IMBPT = 1
             VGX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1)]
             IMBPT += 1
@@ -984,12 +955,15 @@ cpdef EnergyLimitT(PyBoltz Object):
             return 1
 
         TDASH = 0.0
-
+        A = AP * T
+        B = BP * T * T
         CONST11 = 1 / (CONST9 * sqrt(EOK))
         DXCOM = (VEX - VGX) * CONST11
         DYCOM = (VEY - VGY) * CONST11
         DZCOM = (VEZ - VGZ) * CONST11
-
+        Object.Z += DirCosineZ1 * A + T * T * F1
+        Object.TimeSum += T
+        Object.VelocityZ = Object.Z/Object.TimeSum
         # Determination of real collision type
         R3 = random_uniform(RandomSeed)
         # Find location within 4 units in collision array
@@ -1006,7 +980,7 @@ cpdef EnergyLimitT(PyBoltz Object):
         IPT = Object.IARRY[GasIndex][I]
         if EOK < EI:
             EI = EOK - 0.0001
-        S2 = pow(S1 , 2) / (S1 - 1.0)
+        S2 = pow(S1, 2) / (S1 - 1.0)
 
         # Anisotropic scattering
         R3 = random_uniform(RandomSeed)
@@ -1054,7 +1028,6 @@ cpdef EnergyLimitT(PyBoltz Object):
             DirCosineZ1 = DZCOM * F6 + ARGZ * F5 * F8
             DirCosineY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
             DirCosineX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
-
 
         # Transform velocity vectors to lab frame
         CONST12 = CONST9 * sqrt(E1)

@@ -30,7 +30,7 @@ cdef class PyBoltz:
 
     More about Magboltz:
 
-    `Magboltz_Documentation <http://cyclo.mit.edu/drift/www/aboutMagboltz.html/>`_
+    `Magboltz_Documentation <http://cyclo.mit.edu/drift/www/aboutMagboltz.html>`_
 
     .. note::
         If the variable has a "NT" at the end, that variable has the same function as its counterpart without a "NT" at the end.
@@ -206,7 +206,7 @@ cdef class PyBoltz:
         self.MeanCollisionTime = 0.0
         self.ReducedIonization=0.0
         self.ReducedAttachment=0.0
-        self.MixObject = Gasmix()
+        self.MixObject.__init__()
 
     def end(self):
         """
@@ -320,3 +320,49 @@ cdef class PyBoltz:
         self.end()
         return
              
+    def Start_No_MONTE(self):
+        """
+        This is the main function that starts the magboltz simulation/calculation.
+
+        The simulation starts by calculating the momentum cross section values for the requested gas mixture. If FinalElectronEnergy
+        is equal to 0.0 it will then keep calling the EnergyLimit functions and the Mixer functions to find the electron
+        Integration limit.
+
+        Finally PyBoltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
+        in the the parent object of this function.
+
+        For more info on the main output variables check the git repository readme:
+        `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
+        """
+        setSeed(self.RandomSeed)
+        ELimNotYetFixed=1
+
+        cdef double ReducedField
+        cdef int i = 0
+
+        # Get the appropriate set of simulation functions given configuration keys
+        MixerFunc, ELimFunc, MonteCarloFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
+
+        # Set up the simulation
+        Setups.Setup(self)
+
+        # Find the electron upper energy limit
+        if self.FinalElectronEnergy == 0.0:
+            # Given no specified upper energy limit, find it iteratively
+            self.FinalElectronEnergy = 0.5
+            ReducedField = self.EField * (self.TemperatureCentigrade + 273.15) / (self.PressureTorr * 293.15)
+            if ReducedField > 15:
+                self.FinalElectronEnergy = 8.0
+            self.InitialElectronEnergy = self.FinalElectronEnergy / 50.0
+            while ELimNotYetFixed == 1:
+                MixerFunc(self)
+                ELimNotYetFixed = ELimFunc(self)
+
+                if ELimNotYetFixed == 1:
+                    self.FinalElectronEnergy = self.FinalElectronEnergy * math.sqrt(2)
+                    self.InitialElectronEnergy = self.FinalElectronEnergy / 50
+        else:
+            # Given a specified upper energy limit, use it
+            MixerFunc(self)
+
+        if self.ConsoleOutputFlag : print("Calculated the final energy = " + str(self.FinalElectronEnergy))

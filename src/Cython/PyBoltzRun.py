@@ -28,7 +28,7 @@ class PyBoltzRun:
                    'Angular_dist_model'    :1,
                    'Enable_penning'        :0,
                    'Enable_thermal_motion' :1,
-                   'ConsoleOutputFlag'                    :0}
+                   'ConsoleOutputFlag'     :0}
     # Available Gases
     Gases = [np.nan, 'CF4', 'ARGON', 'HELIUM4', 'HELIUM3', 'NEON', 'KRYPTON', 'XENON', 'CH4', 'ETHANE', 'PROPANE'
          , 'ISOBUTANE', 'CO2', np.nan, 'H2O', 'OXYGEN', 'NITROGEN', np.nan, np.nan, np.nan, np.nan

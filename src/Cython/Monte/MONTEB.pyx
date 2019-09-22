@@ -34,7 +34,6 @@ cpdef run(PyBoltz Object):
     cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, F3, EPSI, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ_Samples, SumDZZ2_Samples, Attachment, Ionization, E,SumYZ,SumLS,SumTS
     cdef double SYZ_LastSample,SLN_LastSample,STR_LastSample,EBAR_LastSample,EF100, EBAR
-    cdef double NumSamples
     cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST,*DFYZST,*DFLNST,*WYZST, *DFTRST,TEMP[4000]
     STO = <double *> malloc(2000000 * sizeof(double))
     memset(STO, 0, 2000000 * sizeof(double))
@@ -117,7 +116,6 @@ cpdef run(PyBoltz Object):
     RandomSeed = Object.RandomSeed
     EBefore = Object.InitialElectronEnergy
     INTEM = 8
-    NumSamples = 10
     NumDecorLengths = 0
     NCOL = 0
     IEXTRA = 0
@@ -137,13 +135,13 @@ cpdef run(PyBoltz Object):
     CY1 = DirCosineY1 * VTOT
     CZ1 = DirCosineZ1 * VTOT
 
-    iCollisionM = <long long>(Object.MaxNumberOfCollisions / NumSamples)
+    iCollisionM = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
 
     DELTAE = Object.FinalElectronEnergy / float(INTEM)
     if Object.ConsoleOutputFlag:
         print('{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFLNG","DIFTRN"))
-    for iSample in range(int(NumSamples)):
+    for iSample in range(int(Object.NumSamples)):
         for iCollision in range(int(iCollisionM)):
             while True:
                 RandomNum = random_uniform(RandomSeed)

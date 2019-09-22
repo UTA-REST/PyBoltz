@@ -53,7 +53,6 @@ cpdef run(PyBoltz Object):
     cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, VGX, VGY, VGZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, CONST11
     cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, F3, EPSI, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ_Samples, SumDZZ2_Samples, Attachment, Ionization, E
-    cdef double NumSamples
     ST1 = 0.0
     ST2 = 0.0
     SumE2 = 0.0
@@ -106,7 +105,6 @@ cpdef run(PyBoltz Object):
     EBefore = Object.InitialElectronEnergy
     Sqrt2M = Object.CONST3 * 0.01
     TwoM = Sqrt2M ** 2
-    NumSamples = 10
     NumDecorLengths = 0
     NCOL = 0
     IEXTRA = 0
@@ -136,12 +134,12 @@ cpdef run(PyBoltz Object):
     F1 = Object.EField * Object.CONST2
     F2 = Object.EField * Object.CONST3
     TwoPi = 2 * acos(-1)
-    iCollisionM = <long long>(Object.MaxNumberOfCollisions / NumSamples)
+    iCollisionM = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ"))
 
-    for iSample in range(int(NumSamples)):
+    for iSample in range(int(Object.NumSamples)):
         for iCollision in range(int(iCollisionM)):
             while True:
                 RandomNum = random_uniform(RandomSeed)

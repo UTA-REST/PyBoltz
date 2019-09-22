@@ -34,7 +34,6 @@ cpdef run(PyBoltz Object):
     cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, F3, EPSI, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, TXYST, TXZST, TYZST, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, T2XYST, T2XZST, T2YZST, Attachment, Ionization, E, SumYZ, SumLS, SumTS
     cdef double SLN_LastSample, STR_LastSample, EBAR_LastSample, EFZ100, EFX100, EBAR, WZR, WYR, WXR, XR, ZR, YR, TWYST, TWXST, T2WYST, T2WXST,TEMP[4000]
-    cdef double NumSamples
     cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST, *DFYZST, *DFXYST, *DFXZST, *WYZST, *WXZST
     cdef double DIFXXR, DIFYYR, DIFZZR, DIFYZR, DIFXZR, DIFXYR, ZR_LastSample, YR_LastSample, XR_LastSample, SZZR, SYYR, SXXR, SXYR, SXZR, RCS, RSN, RTHETA, EOVBR
 
@@ -137,7 +136,6 @@ cpdef run(PyBoltz Object):
     Sqrt2M = Object.CONST3 * 0.01
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
     EBefore = Object.InitialElectronEnergy
-    NumSamples = 10
     NumDecorLengths = 0
     NCOL = 0
     INTEM = 8
@@ -158,11 +156,11 @@ cpdef run(PyBoltz Object):
     CZ1 = DirCosineZ1 * VTOT
 
     DELTAE = Object.FinalElectronEnergy / float(INTEM)
-    iCollisionM = <long long>(Object.MaxNumberOfCollisions / NumSamples)
+    iCollisionM = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
     if Object.ConsoleOutputFlag:
         print('{:^12s}{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Velocity X","Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFXZ","DIFXY"))
-    for iSample in range(int(NumSamples)):
+    for iSample in range(int(Object.NumSamples)):
         for iCollision in range(int(iCollisionM)):
             while True:
                 RandomNum = random_uniform(RandomSeed)

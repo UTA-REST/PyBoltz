@@ -53,7 +53,6 @@ cpdef run(PyBoltz Object):
     cdef double SLN_LastSample, STR_LastSample, EBAR_LastSample, EFZ100, EFX100, EBAR, WZR, WYR, WXR, XR, ZR, YR, TWYST, TWXST, T2WYST, T2WXST
     cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST, *DFYZST, *DFXYST, *DFXZST, *WYZST, *WXZST
     cdef double DIFXXR, DIFYYR, DIFZZR, DIFYZR, DIFXZR, DIFXYR, ZR_LastSample, YR_LastSample, XR_LastSample, SZZR, SYYR, SXXR, SXYR, SXZR, RCS, RSN, RTHETA, EOVBR
-    cdef double NumSamples
 
 
 
@@ -149,7 +148,6 @@ cpdef run(PyBoltz Object):
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
     EBefore = Object.InitialElectronEnergy
 
-    NumSamples = 10
     NumDecorLengths = 0
     NCOL = 0
     IEXTRA = 0
@@ -178,11 +176,11 @@ cpdef run(PyBoltz Object):
     CZ1 = DirCosineZ1 * VTOT
     RandomSeed = Object.RandomSeed
 
-    iCollisionM = <long long>(Object.MaxNumberOfCollisions / NumSamples)
+    iCollisionM = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
     if Object.ConsoleOutputFlag:
         print('{:^12s}{:^12s}{:^12s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity Z", "Velocity Y", "Velocity X","Energy",
                                                                        "DIFXX", "DIFYY", "DIFZZ", "DIFYZ","DIFXZ","DIFXY"))
-    for iSample in range(int(NumSamples)):
+    for iSample in range(int(Object.NumSamples)):
         for iCollision in range(int(iCollisionM)):
             while True:
                 RandomNum = random_uniform(RandomSeed)

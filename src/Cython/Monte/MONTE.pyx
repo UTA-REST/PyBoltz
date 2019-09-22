@@ -44,7 +44,6 @@ cpdef run(PyBoltz Object):
     cdef double  EBefore, Sqrt2M, TwoM, AP,  VEX, VEY, VEZ, Test1, Test2, Test3,
     cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EPSI,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle,
     cdef double SumV2_Samples, SumV_Samples, SumE2_Samples, SumE_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, Attachment, Ionization, EAfter
-    cdef double NumSamples
     I = 0
     ST1 = 0.0
     ST2 = 0.0
@@ -103,7 +102,6 @@ cpdef run(PyBoltz Object):
 
     RandomSeed = Object.RandomSeed
     EBefore = Object.InitialElectronEnergy
-    NumSamples = 10
     NumDecorLengths = 0
     NumCollisions = 0
     IEXTRA = 0
@@ -135,12 +133,12 @@ cpdef run(PyBoltz Object):
 
     # We run collisions in NumSamples batches,
     # evenly distributed between its MaxNumberOfCollisions collisions.
-    CollisionsPerSample = <long long> (Object.MaxNumberOfCollisions / NumSamples)
+    CollisionsPerSample = <long long> (Object.MaxNumberOfCollisions / Object.NumSamples)
 
     INTEM = 8
     DeltaE = Object.FinalElectronEnergy / float(INTEM)
 
-    for iSample in range(int(NumSamples)):
+    for iSample in range(int(Object.NumSamples)):
         for iCollision in range(int(CollisionsPerSample)):
             while True:
                 RandomNum = random_uniform(RandomSeed)
@@ -453,16 +451,16 @@ cpdef run(PyBoltz Object):
             SumDZZ2_Samples += pow(DiffZZPerSample[K], 2)
 
     # (remember, we only started counting ZZ after 2 samples, as needed to estimate drift velocity first)
-    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples**2 / NumSamples) / (NumSamples-1)) / Object.VelocityZ
-    Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples**2 / NumSamples) / (NumSamples-1)) / Object.MeanElectronEnergy
-    Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples**2 / NumSamples) / (NumSamples-1)) / Object.DiffusionX
-    Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples**2 / NumSamples) / (NumSamples-1)) / Object.DiffusionY
-    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples**2 / NumSamples-2) / (NumSamples-2-1)) / Object.DiffusionZ
-    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(NumSamples)
-    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(NumSamples)
-    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(NumSamples)
-    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt(NumSamples)
-    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt(NumSamples-2)
+    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.VelocityZ
+    Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.MeanElectronEnergy
+    Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.DiffusionX
+    Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples**2 / Object.NumSamples) / (Object.NumSamples-1)) / Object.DiffusionY
+    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples**2 / Object.NumSamples-2) / (Object.NumSamples-2-1)) / Object.DiffusionZ
+    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(Object.NumSamples)
+    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(Object.NumSamples)
+    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(Object.NumSamples)
+    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt(Object.NumSamples)
+    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt(Object.NumSamples-2)
     Object.LongitudinalDiffusion = Object.DiffusionZ
     Object.TransverseDiffusion = (Object.DiffusionX + Object.DiffusionY) / 2
 

@@ -17,6 +17,7 @@ cpdef Setup(PyBoltz object):
     """
     cdef double TwoPi,  ElectronCharge, ElectronMass, AMU, BoltzmannConst_eV, BoltzmannConst_eVJ, MassOverChargeDivTen, ALOSCH,  ZeroCelcius, OneAtmosphere, TotFrac
     cdef long long IH,  i
+    cdef double FracMol = 0.0
 
     TwoPi = 2.0 * np.pi
     object.RhydbergConst = <float>(13.60569253)
@@ -35,24 +36,24 @@ cpdef Setup(PyBoltz object):
     object.CONST3 = sqrt(0.2 * MassOverChargeDivTen) * 1.0e-9
     object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
-    # Set long decorrelation length and step
-    object.Decor_Colls = 2000000
-    object.Decor_Step = 500000
-    object.Decor_LookBacks = 2
+    # If unspecified, set long decorrelation length and step
+    if(object.Decor_Colls==0):
+        object.Decor_Colls = 2000000
+        object.Decor_Step = 500000
+        object.Decor_LookBacks = 2
 
-    # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
-    cdef double FracMol = 0.0
-    for IH in range(object.NumberOfGases):
-        if object.GasIDs[IH] != 2 and object.GasIDs[IH] != 6 and object.GasIDs[IH] != 7 and object.GasIDs[IH] != 3 and \
-                object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5:
-            # Molecular gas sum total fraction
-            FracMol += object.GasFractions[IH]
-    # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
-    if (object.EField > (10.0 / object.PresTempCor)) or (FracMol > 3):
-            object.Decor_Colls = 400000
-            object.Decor_Step = 50000
-            object.Decor_LookBacks = 4
-    TotFrac = 0.0
+        # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
+        for IH in range(object.NumberOfGases):
+            if object.GasIDs[IH] != 2 and object.GasIDs[IH] != 6 and object.GasIDs[IH] != 7 and object.GasIDs[IH] != 3 and \
+                    object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5:
+                # Molecular gas sum total fraction
+                FracMol += object.GasFractions[IH]
+        # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
+        if (object.EField > (10.0 / object.PresTempCor)) or (FracMol > 3):
+                object.Decor_Colls = 400000
+                object.Decor_Step = 50000
+                object.Decor_LookBacks = 4
+        TotFrac = 0.0
 
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:
         raise ValueError("Error in Gas Input")

@@ -148,6 +148,8 @@ cdef class PyBoltz:
         '''Decorrelation steps.'''
         long long Decor_LookBacks
         '''Number of decorrelation lookbacks.'''
+        long long NumSamples
+        '''Number of electron samples'''
         long long FakeIonizations
         '''Fake ionisation counter.'''
         double NESST[9]

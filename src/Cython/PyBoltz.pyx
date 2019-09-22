@@ -217,9 +217,11 @@ cdef class PyBoltz:
         if(self.EnableThermalMotion!=0):
             MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
+                self.BFieldMode=1
                 ELimFunc       = EnergyLimits.EnergyLimitT
                 MonteCarloFunc = Monte.MONTET
             elif BFieldAngle == 0 or BFieldAngle == 180:
+                self.BFieldMode=2
                 ELimFunc       = EnergyLimits.EnergyLimitT
                 MonteCarloFunc = Monte.MONTEAT
             elif BFieldAngle == 90:         
@@ -231,11 +233,13 @@ cdef class PyBoltz:
         else:
             MixerFunc = Mixers.Mixer
             if BFieldMag == 0:
+                self.BFieldMode=1
                 ELimFunc       = EnergyLimits.EnergyLimit
                 MonteCarloFunc = Monte.MONTE
             elif BFieldAngle == 0 or BFieldAngle == 180:
+                self.BFieldMode=2
                 ELimFunc       = EnergyLimits.EnergyLimit
-                MonteCarloFunc = Monte.MONTEA
+                MonteCarloFunc = Monte.MONTE
             elif BFieldAngle == 90:
                 ELimFunc       = EnergyLimits.EnergyLimitB
                 MonteCarloFunc = Monte.MONTEB

@@ -230,4 +230,7 @@ cdef class PyBoltz:
         double NumMomCrossSectionPointsNullNT
         '''Used to store the number of cross section points for null cross section points. This is used for when EnableThermalMotion = 0'''
         double RandomMaxBoltzArray[9]
+        '''Stores randomly drawn max boltz numbers'''
+        char BFieldMode
+        '''Which integration mode to use'''
         Gasmix MixObject

@@ -173,7 +173,7 @@ cdef class PyBoltz:
         '''Array used to calculate the number of molecules/cm^3 for each gas.'''
         double VMoleculesPerCm3PerGas[6]
         '''Array used to calculate the VAN for each gas.'''
-        double CrossSectionSum[4000], ElasticCrossSection[4000], AttachmentSectionSum[4000], ES[4000]
+        double CrossSectionSum[4000], ElasticCrossSection[4000], AttachmentSectionSum[4000]
         double E[4000]
         '''Energy ar each energy step.'''
         double SqrtEnergy[4000]
@@ -188,7 +188,7 @@ cdef class PyBoltz:
         '''Maximum value of collision frequency for each gas.'''
         double NumMomCrossSectionPointsNull[6]
         '''Number of momentum cross section data points for null collisions.'''
-        double AngularModel[6][290], NC0[6][290], EC0[6][290], NG1[6][290], EG1[6][290], NG2[6][290], EG2[6][290], WKLM[6][290], EFL[6][290], EnergyLevels[6][290], InteractionType[6][290], RGas[6][290], ElectronNumChange[6][290],  IonizationCrossSection[6][4000], InelasticCrossSectionPerGas[6][250][4000], LIN[6][250], ALIN[6][250]
+        double AngularModel[6][290], NC0[6][290], EnergyLevels[6][290], InteractionType[6][290], RGas[6][290], ElectronNumChange[6][290],  IonizationCrossSection[6][4000], InelasticCrossSectionPerGas[6][250][4000], LIN[6][250], ALIN[6][250]
         double CollisionFrequency[6][4000][290]
         '''Collision frequency for each gas at every energy step for every data point.'''
         double TotalCollisionFrequency[6][4000]
@@ -222,7 +222,6 @@ cdef class PyBoltz:
         '''Total collision frequency at each energy step. This is used for when EnableThermalMotion = 0'''
         double InteractionTypeNT[960],RGasNT[960],ElectronNumChangeNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
         double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNullNT[4000],ScaleNullNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],AngularModelNT[960],NC0NT[960],EC0NT[960]
-        double NG1NT[960],EG1NT[960],NG2NT[960],EG2NT[960],WKLMNT[960],EFLNT[960]
         double CollisionsPerGasPerTypeNT[30],ICOLNNT[960]
         double ICOLNNNT[60]
         '''Null scatter sum for each gas at each sample. This is used for when EnableThermalMotion = 0'''

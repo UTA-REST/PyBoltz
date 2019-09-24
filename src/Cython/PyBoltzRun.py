@@ -28,7 +28,12 @@ class PyBoltzRun:
                    'Angular_dist_model'    :1,
                    'Enable_penning'        :0,
                    'Enable_thermal_motion' :1,
-                   'ConsoleOutputFlag'     :0}
+                   'ConsoleOutputFlag'     :0,
+                   'Decor_Colls'           :0,
+                   'Decor_LookBacks'       :0,
+                   'Decor_Step'            :0,
+                   'NumSamples'            :10}
+
     # Available Gases
     Gases = [np.nan, 'CF4', 'ARGON', 'HELIUM4', 'HELIUM3', 'NEON', 'KRYPTON', 'XENON', 'CH4', 'ETHANE', 'PROPANE'
          , 'ISOBUTANE', 'CO2', np.nan, 'H2O', 'OXYGEN', 'NITROGEN', np.nan, np.nan, np.nan, np.nan
@@ -82,6 +87,11 @@ class PyBoltzRun:
         MBObject.BFieldAngle = Inputs['BField_angle']
         MBObject.ConsoleOutputFlag     = Inputs['ConsoleOutputFlag']
         MBObject.WhichAngularModel = Inputs['Angular_dist_model']
+        MBObject.Decor_Colls = Inputs['Decor_Colls']
+        MBObject.Decor_LookBacks = Inputs['Decor_LookBacks']
+        MBObject.Decor_Step = Inputs['Decor_Step']
+        MBObject.NumSamples = Inputs['NumSamples']
+
         return True
 
     # Extract Outputs into Output Dictionary

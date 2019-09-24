@@ -114,6 +114,9 @@ cdef class PyBoltz:
         self.EnablePenning = 0
         self.EField = 0.0
         self.NumSamples = 10
+        self.Decor_Colls = 0
+        self.Decor_Step = 0
+        self.Decor_LookBacks = 0
 
         # Calculated Constants 
         self.CONST1 = 0.0
@@ -128,9 +131,7 @@ cdef class PyBoltz:
         self.SmallNumber = 1e-20
         self.AngleFromX = 0.0
         self.PresTempCor = 0.0
-        self.Decor_Colls = 0
-        self.Decor_Step = 0
-        self.Decor_LookBacks = 0
+
 
         # Dynamically set
         self.X = 0.0

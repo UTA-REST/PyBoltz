@@ -39,21 +39,26 @@ cpdef Setup(PyBoltz object):
     # If unspecified, set long decorrelation length and step
     if(object.Decor_Colls==0):
         object.Decor_Colls = 2000000
+    if(object.Decor_Step==0):
         object.Decor_Step = 500000
+    if(object.Decor_LookBacks==0):
         object.Decor_LookBacks = 2
 
-        # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
-        for IH in range(object.NumberOfGases):
-            if object.GasIDs[IH] != 2 and object.GasIDs[IH] != 6 and object.GasIDs[IH] != 7 and object.GasIDs[IH] != 3 and \
-                    object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5:
-                # Molecular gas sum total fraction
-                FracMol += object.GasFractions[IH]
-        # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
-        if (object.EField > (10.0 / object.PresTempCor)) or (FracMol > 3):
-                object.Decor_Colls = 400000
-                object.Decor_Step = 50000
-                object.Decor_LookBacks = 4
-        TotFrac = 0.0
+    # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
+    for IH in range(object.NumberOfGases):
+        if object.GasIDs[IH] != 2 and object.GasIDs[IH] != 6 and object.GasIDs[IH] != 7 and object.GasIDs[IH] != 3 and \
+                object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5:
+            # Molecular gas sum total fraction
+            FracMol += object.GasFractions[IH]
+    # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
+    if (object.EField > (10.0 / object.PresTempCor)) or (FracMol > 3):
+        if(object.Decor_Colls==0):
+            object.Decor_Colls = 400000
+        if(object.Decor_Step==0):
+            object.Decor_Step = 50000
+        if(object.Decor_LookBacks==0):
+            object.Decor_LookBacks = 4
+    TotFrac = 0.0
 
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:
         raise ValueError("Error in Gas Input")

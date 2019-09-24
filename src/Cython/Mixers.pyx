@@ -18,14 +18,17 @@ cpdef Mixer(PyBoltz object):
     """
     cdef double AttachmentCrossSection[6][4000], ElectronCharge, JHI, JLOW, EnergyHigh, F2, BP, EnergyLow
     cdef int  iEnergy, GasIndex, iProcess, p, sum, J, i, j, iIonizaton, JJ, IL, I
-    ElectronCharge = 1.602176565e-19
 
+    # Define a couple of useful constants
+    ElectronCharge = 1.602176565e-19
+    ElectronMass = 9.10938291e-31
 
     object.ElectronEnergyStep = object.FinalElectronEnergy / object.EnergySteps
 
     EnergyHalf = object.ElectronEnergyStep / 2
-
     object.E[0] = EnergyHalf
+
+    # Set up a GasMix object and populate its data arrays
     for i in range(1, 4000):
         object.E[i] = EnergyHalf + object.ElectronEnergyStep * i
         object.SqrtEnergy[i] = sqrt(object.E[i])
@@ -36,7 +39,6 @@ cpdef Mixer(PyBoltz object):
                            object.FinalElectronEnergy, object.ThermalEnergy,  object.TemperatureCentigrade, object.PressureTorr,  object.PIR2)
     object.MixObject.Run()
 
-    ElectronMass = 9.10938291e-31
     for iEnergy in range(4000):
         iProcess = 0
         for GasIndex in range(object.NumberOfGases):

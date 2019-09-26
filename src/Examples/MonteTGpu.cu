@@ -254,7 +254,6 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
   for(int j=0;j<5;j+=2){
     R1 = DRAND48(&(gen[i]),0.5);
     R2 = DRAND48(&(gen[i]),0.5);
-
     RNMX[j] = sqrt(-1*log(R1))*cos(R2*(*TwoPi));
     RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*(*TwoPi));
 
@@ -269,7 +268,7 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
     AP[i] = DirCosineZ1[i]*(*F2)*sqrt(EBefore[i]);
     EAfter = EBefore[i]+(AP[i]+(*BP)*T[i])*T[i];
     VelocityRatio = sqrt(EBefore[i]/EAfter);
-    DCosineZ2 = DirCosineZ1[i] * VelocityRatio + T[i] * (*F2) / (2 * sqrt(EAfter));
+    DCosineZ2 = DirCosineZ1[i] * VelocityRatio + T[i] * (*F2) / (2.0 * sqrt(EAfter));
     DCosineX2 = DirCosineX1[i] * VelocityRatio;
     DCosineY2 = DirCosineY1[i] * VelocityRatio;
     RandomNum = 0;
@@ -359,7 +358,7 @@ __global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * 
 
     if(INDEX[I] == 1){
       RandomNum2 = DRAND48(&(gen[i]),0.5);
-      CosTheta = 1.0 *RandomNum*ANGCT[(int)iEnergyBin[i]*290 + I];
+      CosTheta = 1.0-RandomNum*ANGCT[(int)iEnergyBin[i]*290 + I];
       if(RandomNum2>SCA[(int)iEnergyBin[i]*290 + I]){
         CosTheta = -1.0 * CosTheta;
       }
@@ -424,7 +423,6 @@ double PInitialElectronEnergy, double** PCollisionFrequency, double *PTotalColli
 double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PIPN,double * output
 ){
   double * EIN = LinearizeAndCopy(PEnergyLevels,6,290);
-
   // Copying constants into device
   double * ElectronEnergyStep = SetupAndCopyDouble(&(PElectronEnergyStep),1);
   double * MaxCollisionFreqTotal = SetupAndCopyDouble(&(PMaxCollisionFreqTotal),1);
@@ -472,7 +470,7 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   double * IPN = SetupAndCopyDouble((PIPN),290);
   double * RGAS = LinearizeAndCopy((double **)PRGAS,6,290);
   double * TotalCollisionFrequency = SetupAndCopyDouble(PTotalCollisionFrequency,4000);
-  printf("%f\n",PCollisionFrequency[0][0] );
+  printf("%10f\n",PCollisionFrequency[0][0] );
 
 
   //RM48 stuff
@@ -493,7 +491,10 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   SetupRM48GensCuda<<<int(1000),1>>>(pointer);
   char * str;
 
-  printf("Here  %f\n",PInitialElectronEnergy );
+  printf("Here  %f\n",sqrt2m );
+  printf("Here  %.2f\n",f1 );
+  printf("Here  %f\n",f2 );
+
   for(int i=0;i<10000;++i){
     GetCollisions<<<int(1000),1>>>(ElectronEnergyStep, MaxCollisionFreqTotal, BP,F1,
       F2,Sqrt2M,TwoM,TwoPi,MaxCollisionFreq, VTMB,TimeSum,

@@ -217,7 +217,7 @@ X = np.transpose(X)
 Y = np.transpose(Y)
 Z = np.transpose(Z)
 T = np.transpose(T)
-print(T[0])
+print(Object.EField*Object.CONST2                   )
 MaxTime = 1e9
 for O in range(1000):
     MT = max(T[O]-T[O][0])
@@ -233,6 +233,7 @@ for O in range(1000):
     plt.plot(T[O]-T[O][0], Z[O]-Z[O][0])
     # plt.axvline((electrons[3]-electrons[3][0])[loc])
 plt.axvline(MaxTime)
+
 plt.grid()
 plt.xlabel("Time [Biagis]", fontsize=24)
 plt.ylabel("Z pos [Bashars]", fontsize=24)
@@ -358,6 +359,35 @@ plt.grid()
 plt.legend(loc="upper left",fontsize=24)
 plt.xlabel("Time [Biagis]",fontsize=24)
 plt.ylabel("Variance of swarm [1e15]",fontsize=24)
+
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+
+
+plt.show()
+
+
+plt.figure(figsize=(8,7))
+
+plt.errorbar(targets,SigmaDlz**2*1e5,yerr=errorDlz*1e5,fmt='s',alpha=0.7,color='darkorchid',label="Longitudinal Z")
+
+popt, pcov = curve_fit(line, targets,SigmaDlz**2*1e5, sigma=errorDlz*1e5)
+plt.plot(targets, line(targets, popt[0],popt[1]), color='k')
+
+plt.errorbar(targets,SigmaDtx**2*1e5,yerr=errorDtx*1e5,fmt='s',alpha=0.7,color='darkblue',label="Transverse X")
+
+popt, pcov = curve_fit(line, targets,SigmaDtx**2*1e5, sigma=errorDtx*1e5)
+plt.plot(targets, line(targets, popt[0],popt[1]), color='k')
+
+plt.errorbar(targets,SigmaDty**2*1e5,yerr=errorDty*1e5,fmt='s',alpha=0.7,color='darkred',label="Transverse Y")
+
+popt, pcov = curve_fit(line, targets,SigmaDty**2*1e5, sigma=errorDty*1e5)
+plt.plot(targets, line(targets, popt[0],popt[1]), color='k')
+
+plt.grid()
+plt.legend(loc="upper left",fontsize=24)
+plt.xlabel("Time [Biagis]",fontsize=24)
+plt.ylabel("Variance of swarm [1e5]",fontsize=24)
 
 plt.xticks(fontsize=20)
 plt.yticks(fontsize=20)

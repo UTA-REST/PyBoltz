@@ -153,8 +153,8 @@ Object.MaxNumberOfCollisions = 40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
-Object.EnableThermalMotion = 0
-Object.FinalElectronEnergy = 2.0
+Object.EnableThermalMotion = 1
+Object.FinalElectronEnergy = 20.0
 # Set the gas's with there given number
 Object.GasIDs = [7, 0, 0, 0, 0, 0]
 
@@ -167,14 +167,15 @@ Object.PressureTorr = 750.062
 # Set the eletric field
 Object.EField = 1000
 # Set the magnetic field and angle
-Object.BFieldMag = 10
-Object.BFieldAngle = 45
+Object.BFieldMag = 0
+Object.BFieldAngle = 0
 Object.ConsoleOutputFlag = 1
 Object.RandomSeed = 54217137
 Object.WhichAngularModel = 2
 Object.Start_No_MONTE()
 
 print(Object.EnergyLevels[0][289])
+print(Object.MaxCollisionFreq[0])
 
 MonteTGpu(Object.ElectronEnergyStep, Object.MaxCollisionFreqTotal, Object.EField, Object.CONST1, Object.CONST2, Object.CONST3
               , np.pi, Object.ISIZE[0], Object.NumMomCrossSectionPoints[0], Object.MaxCollisionFreq[0], Object.VTMB, Object.AngleFromZ, Object.AngleFromX,

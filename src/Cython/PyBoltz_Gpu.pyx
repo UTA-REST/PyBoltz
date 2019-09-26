@@ -9,3 +9,7 @@ import EnergyLimits
 import Monte
 from Monte import *
 from Gasmix cimport Gasmix
+from PyBoltz cimport PyBoltz
+cdef class PyBoltz_Gpu(PyBoltz):
+    def __init__(self):
+        PyBoltz.__init__(self)

@@ -254,9 +254,8 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
   for(int j=0;j<5;j+=2){
     R1 = DRAND48(&(gen[i]),0.5);
     R2 = DRAND48(&(gen[i]),0.5);
-    RNMX[j] = sqrt(-1*log(R1))*cos(R2*(*TwoPi));
-    RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*(*TwoPi));
-
+    RNMX[j] = sqrt(-1*log(R1))*cos(R2*((*TwoPi)));
+    RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*((*TwoPi)));
   }
 
   double EAfter = 0.0,VelocityRatio,DCosineZ2,DCosineX2,DCosineY2;
@@ -278,8 +277,8 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
       for(int j=0;j<5;j+=2){
         R1 = DRAND48(&(gen[i]),0.5);
         R2 = DRAND48(&(gen[i]),0.5);
-        RNMX[j] = sqrt(-1*log(R1))*cos(R2*(*TwoPi));
-        RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*(*TwoPi));
+        RNMX[j] = sqrt(-1*log(R1))*cos(R2*((*TwoPi)));
+        RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*((*TwoPi)));
       }
       MaxBoltzNumsUsed = 1;
     }
@@ -300,7 +299,7 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
 
     TEST = TotalCollisionFrequency[(int)iEnergyBins[i]] / (*MaxCollisionFreq);
     if (RandomNum < TEST){
-      TimeSum[i] +=T[i];
+      TimeSum[i]+=T[i];
       return;
     }
   }
@@ -376,12 +375,12 @@ __global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * 
     CosPhi = cos(Phi);
 
 
-    ARG1 = max(1.0 - S1*EI/COMEnergy[i],1e-20);
+    ARG1 = max(1.0 - S1*EI/COMEnergy[i],1E-20);
 
     D = 1.0 - CosTheta * sqrt(ARG1);
-    U = (S1 - 1)*(S1-1)/ARG1;
+    U = (S1 - 1.0)*(S1-1.0)/ARG1;
 
-    EBefore[i] = max(COMEnergy[i] * (1.0 - EI / (S1 * COMEnergy[i]) - 2.0 * D / S2), 1e-20);
+    EBefore[i] = max(COMEnergy[i] * (1.0 - EI / (S1 * COMEnergy[i]) - 2.0 * D / S2), 1E-20);
 
     Q = min(sqrt((COMEnergy[i] / EBefore[i]) * ARG1) / S1,1.0);
 
@@ -422,6 +421,8 @@ extern "C" double* MonteTGpu(double PElectronEnergyStep,double PMaxCollisionFreq
 double PInitialElectronEnergy, double** PCollisionFrequency, double *PTotalCollisionFrequency, double ** PRGAS, double ** PEnergyLevels,
 double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PIPN,double * output
 ){
+  printf("HEREEEE %f\n", PVTMB[0]);
+
   double * EIN = LinearizeAndCopy(PEnergyLevels,6,290);
   // Copying constants into device
   double * ElectronEnergyStep = SetupAndCopyDouble(&(PElectronEnergyStep),1);
@@ -470,7 +471,7 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   double * IPN = SetupAndCopyDouble((PIPN),290);
   double * RGAS = LinearizeAndCopy((double **)PRGAS,6,290);
   double * TotalCollisionFrequency = SetupAndCopyDouble(PTotalCollisionFrequency,4000);
-  printf("%10f\n",PCollisionFrequency[0][0] );
+  printf("%.20f\n",sqrt2m*PInitialElectronEnergy );
 
 
   //RM48 stuff
@@ -495,17 +496,18 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   printf("Here  %.2f\n",f1 );
   printf("Here  %f\n",f2 );
 
-  for(int i=0;i<10000;++i){
+  for(int i=0;i<100000;++i){
     GetCollisions<<<int(1000),1>>>(ElectronEnergyStep, MaxCollisionFreqTotal, BP,F1,
       F2,Sqrt2M,TwoM,TwoPi,MaxCollisionFreq, VTMB,TimeSum,
       DirCosineZ1, DirCosineX1, DirCosineY1, EBefore, iEnergyBins,
       COMEnergy, VelocityX, VelocityY,VelocityZ, GasVelX, GasVelY, GasVelZ,
       T, AP, TotalCollisionFrequency, pointer);
+
       ProcessCollisions<<<int(1000),1>>>(COMEnergy,VelocityX,VelocityY, VelocityZ, GasVelX,GasVelY, GasVelZ,
     AP, X, Y, Z, DirCosineX1,DirCosineY1,DirCosineZ1,iEnergyBins, CF, RGAS,EIN,
       INDEX,ANGCT, SCA, IPN, AngleFromZ,  TwoPi,  EBefore, Sqrt2M, TwoM,T,BP,F1,ISize,NumPoints,pointer);
 
-      if(((i)%(10000/100))==0){
+      if(((i)%(100000/100))==0){
         cudaMemcpy(&output[0*100000+f*1000],X,1000*sizeof(double),cudaMemcpyDeviceToHost);
         cudaMemcpy(&output[1*100000+f*1000],Y,1000*sizeof(double),cudaMemcpyDeviceToHost);
         cudaMemcpy(&output[2*100000+f*1000],Z,1000*sizeof(double),cudaMemcpyDeviceToHost);

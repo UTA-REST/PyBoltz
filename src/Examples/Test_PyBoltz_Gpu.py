@@ -66,7 +66,6 @@ def MonteTGpu(PElectronEnergyStep, PMaxCollisionFreqTotal, PEField, PCONST1, PCO
     PISIZE_P = ctypes.c_double(PISIZE)
     PNumMomCrossSectionPoints_P = ctypes.c_double(PNumMomCrossSectionPoints)
     PMaxCollisionFreq_P = ctypes.c_double(PMaxCollisionFreq)
-    PVTMB[0]=9
     PVTMB_P = (ctypes.c_double * len(PVTMB))(*PVTMB)
     PVTMB_P =ctypes.cast(PVTMB_P, ctypes.POINTER(c_double))
 
@@ -88,7 +87,6 @@ def MonteTGpu(PElectronEnergyStep, PMaxCollisionFreqTotal, PEField, PCONST1, PCO
         PTotalCollisionFrequency_P[i] = PTotalCollisionFrequency[i]
     PTotalCollisionFrequency_P = ctypes.cast(PTotalCollisionFrequency_P, ctypes.POINTER(c_double))
 
-    PRGAS[5][289] = 656
     PRGAS_P = (POINTER(ctypes.c_double)*len(PRGAS))()
     for i in range(len(PRGAS)):
         PRGAS_P[i] = (ctypes.c_double * len(PRGAS[0]))()
@@ -200,7 +198,6 @@ MonteTGpu(Object.ElectronEnergyStep, Object.MaxCollisionFreqTotal, Object.EField
 print(Object.VelocityZ)
 t2 = time.time()
 
-
 X = np.zeros(shape=(100,1000))
 Y = np.zeros(shape=(100,1000))
 Z = np.zeros(shape=(100,1000))
@@ -223,7 +220,7 @@ for O in range(1000):
     MT = max(T[O]-T[O][0])
     if MT<MaxTime:
         MaxTime = MT
-
+print (Z[0])
 plt.figure(figsize=(7, 5))
 for O in range(1000):
     # target = 2e8
@@ -242,7 +239,6 @@ plt.xticks(fontsize=20)
 plt.yticks(fontsize=20)
 plt.show()
 print("The Max time is ", MaxTime)
-
 plt.figure(figsize=(7,5))
 for O in range(1000):
     #target = 2.4e7

@@ -44,7 +44,7 @@ Object.EnablePenning = 0
 Object.EnableThermalMotion=1
 Object.FinalElectronEnergy = 0.0
 # Set the gas's with there given number
-Object.GasIDs=[12, 0, 0, 0, 0, 0]
+Object.GasIDs=[7, 0, 0, 0, 0, 0]
 
 # Set the gas fractions
 Object.GasFractions=[100, 0, 0, 0, 0, 0]
@@ -53,7 +53,7 @@ Object.TemperatureCentigrade = float(23)
 # Set the pressure
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField =50
+Object.EField =11
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0

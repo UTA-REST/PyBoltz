@@ -174,9 +174,7 @@ Object.RandomSeed = 54217137
 Object.WhichAngularModel = 2
 Object.Start_No_MONTE()
 
-print(Object.EnergyLevels[0][289])
-print(Object.MaxCollisionFreq[0])
-
+print(Object.RGAS[0][0])
 MonteTGpu(Object.ElectronEnergyStep, Object.MaxCollisionFreqTotal, Object.EField, Object.CONST1, Object.CONST2, Object.CONST3
               , np.pi, Object.ISIZE[0], Object.NumMomCrossSectionPoints[0], Object.MaxCollisionFreq[0], Object.VTMB, Object.AngleFromZ, Object.AngleFromX,
               Object.InitialElectronEnergy, Object.CollisionFrequency[0], Object.TotalCollisionFrequency[0], Object.RGAS, Object.EnergyLevels,

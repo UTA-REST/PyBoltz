@@ -30,6 +30,7 @@ cpdef Mixer(PyBoltz object):
         object.E[i] = EHALF + object.ElectronEnergyStep * i
         object.SqrtEnergy[i] = sqrt(object.E[i])
     object.SqrtEnergy[0] = sqrt(EHALF)
+    object.MixObject = Gasmix()
     object.MixObject.__init__()
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic, object.PenningFraction,
                            object.E, object.SqrtEnergy, object.TotalCrossSection, object.RelativeIonMinusAttachCrossSection, object.InelasticCrossSection, object.ElasticCrossSection,

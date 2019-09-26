@@ -245,7 +245,7 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
 
   // function start
   int i = threadIdx.x+blockDim.x*blockIdx.x;
-  int MaxBoltzNumsUsed = 1;
+  int MaxBoltzNumsUsed = 0;
   DRAND48(&(gen[i]),0.5);
   //R = curand_uniform( &state );
   double RNMX[6]={0,0,0,0,0,0};
@@ -255,8 +255,8 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
     R1 = DRAND48(&(gen[i]),0.5);
     R2 = DRAND48(&(gen[i]),0.5);
 
-    RNMX[j] = sqrt((-1*log((double)R1)))*cos((double)(R2*(*TwoPi)));
-    RNMX[j+1] = sqrt(-1*log((double)R1))*sin((double)R2*(*TwoPi));
+    RNMX[j] = sqrt(-1*log(R1))*cos(R2*(*TwoPi));
+    RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*(*TwoPi));
 
   }
 
@@ -279,7 +279,7 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
       for(int j=0;j<5;j+=2){
         R1 = DRAND48(&(gen[i]),0.5);
         R2 = DRAND48(&(gen[i]),0.5);
-        RNMX[j] = sqrt((-1*log(R1)))*cos((R2*(*TwoPi)));
+        RNMX[j] = sqrt(-1*log(R1))*cos(R2*(*TwoPi));
         RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*(*TwoPi));
       }
       MaxBoltzNumsUsed = 1;
@@ -492,6 +492,8 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   double * TT = (double *)malloc(1000*sizeof(double));
   SetupRM48GensCuda<<<int(1000),1>>>(pointer);
   char * str;
+
+  printf("Here  %f\n",PInitialElectronEnergy );
   for(int i=0;i<10000;++i){
     GetCollisions<<<int(1000),1>>>(ElectronEnergyStep, MaxCollisionFreqTotal, BP,F1,
       F2,Sqrt2M,TwoM,TwoPi,MaxCollisionFreq, VTMB,TimeSum,

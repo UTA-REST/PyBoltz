@@ -3,6 +3,7 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 
+
 #ifndef max
 #define max(a,b) (((a) > (b)) ? (a) : (b))
  #endif
@@ -417,10 +418,10 @@ __global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * 
 }
 
 // function that will be called from the PyBoltz_Gpu class
-extern "C" void MonteTGpu(double PElectronEnergyStep,double PMaxCollisionFreqTotal,double PEField, double PCONST1,double PCONST2,double PCONST3
+extern "C" double* MonteTGpu(double PElectronEnergyStep,double PMaxCollisionFreqTotal,double PEField, double PCONST1,double PCONST2,double PCONST3
 , double Ppi,double PISIZE,double PNumMomCrossSectionPoints,double PMaxCollisionFreq, double * PVTMB, double PAngleFromZ, double PAngleFromX,
 double PInitialElectronEnergy, double** PCollisionFrequency, double *PTotalCollisionFrequency, double ** PRGAS, double ** PEnergyLevels,
-double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PIPN
+double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PIPN,double * output
 ){
   double * EIN = LinearizeAndCopy(PEnergyLevels,6,290);
 
@@ -480,7 +481,7 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   for (int i=0;i<1000;i++){
     Seeds[i] = (i*54217137)%100000000;
   }
-
+  int f = 0;
   //printf("%d\n",gen[0].IJKLIN);
   struct  RM48Gen* gens = (struct  RM48Gen*)malloc(1000*sizeof(struct  RM48Gen));
   SetupRM48Gens(gens,1000,Seeds);
@@ -490,14 +491,8 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   cudaMemcpy(pointer,gens,1000*sizeof(struct  RM48Gen),cudaMemcpyHostToDevice);
   double * TT = (double *)malloc(1000*sizeof(double));
   SetupRM48GensCuda<<<int(1000),1>>>(pointer);
-  for(int i=0;i<100000;++i){
-/*
-    double ElectronEnergyStep, double MaxCollisionFreqTotal,double BP,double  F1,
-      double  F2,double Sqrt2M,double TwoM,double TwoPi,double MaxCollisionFreq,double * VTMB,double * TimeSum,
-      double * DirCosineZ1,double * DirCosineX1,double * DirCosineY1,double * EBefore,double * iEnergyBins,
-      double * COMEnergy,double * VelocityX,double * VelocityY,double * VelocityZ,double * GasVelX,double * GasVelY,double * GasVelZ,
-      double * T,double * AP,double * TotalCollisionFrequency,struct RM48Gen * gen
-*/
+  char * str;
+  for(int i=0;i<10000;++i){
     GetCollisions<<<int(1000),1>>>(ElectronEnergyStep, MaxCollisionFreqTotal, BP,F1,
       F2,Sqrt2M,TwoM,TwoPi,MaxCollisionFreq, VTMB,TimeSum,
       DirCosineZ1, DirCosineX1, DirCosineY1, EBefore, iEnergyBins,
@@ -507,6 +502,16 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
     AP, X, Y, Z, DirCosineX1,DirCosineY1,DirCosineZ1,iEnergyBins, CF, RGAS,EIN,
       INDEX,ANGCT, SCA, IPN, AngleFromZ,  TwoPi,  EBefore, Sqrt2M, TwoM,T,BP,F1,ISize,NumPoints,pointer);
 
+      if(((i)%(10000/100))==0){
+        cudaMemcpy(&output[0*100000+f*1000],X,1000*sizeof(double),cudaMemcpyDeviceToHost);
+        cudaMemcpy(&output[1*100000+f*1000],Y,1000*sizeof(double),cudaMemcpyDeviceToHost);
+        cudaMemcpy(&output[2*100000+f*1000],Z,1000*sizeof(double),cudaMemcpyDeviceToHost);
+        cudaMemcpy(&output[3*100000+f*1000],TimeSum,1000*sizeof(double),cudaMemcpyDeviceToHost);
+        f+=1;
+      }
+      if(i!=0&& double(int(log2(i)))==log2(i)){
+        printf("%d analyzed collisions\n", i );
+      }
   }
   printf("HERE\n");
 
@@ -550,4 +555,5 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   cudaFree(SCA);
   cudaFree(INDEX);
   cudaFree(IPN);
+  return output;
 }

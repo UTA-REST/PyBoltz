@@ -11,8 +11,22 @@ from PyBoltz import PyBoltz
 import numpy as np
 from ctypes import *
 import os
+import numpy as np
+import matplotlib.pyplot as plt
+import glob
+from scipy import interpolate
+from scipy.optimize import curve_fit
 
 import ctypes
+
+
+def find_nearest(array, value):
+    array = np.asarray(array)
+    idx = (np.abs(array - value)).argmin()
+    return array[idx]
+
+def line(x, a,b):
+    return a * x+b
 
 '''
 double PElectronEnergyStep,double PMaxCollisionFreqTotal,double PEField, double PCONST1,double PCONST2,double PCONST3
@@ -20,19 +34,22 @@ double PElectronEnergyStep,double PMaxCollisionFreqTotal,double PEField, double 
 double PInitialElectronEnergy, double** PCollisionFrequency, double *PTotalCollisionFrequency, double ** PRGAS, double ** PEnergyLevels,
 double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PIPN'''
 
-
 def get_MonteTGpu():
     func = CDLL(os.path.abspath("./MonteTGpu.so"),mode=ctypes.RTLD_LOCAL).MonteTGpu
     func.argtypes = [c_double, c_double, c_double, c_double, c_double, c_double, c_double, c_double, c_double, c_double,
                      POINTER(c_double), c_double, c_double, c_double, POINTER(POINTER(c_double)),
                      POINTER(c_double), POINTER(POINTER(c_double)), POINTER(POINTER(c_double)),
-                     POINTER(POINTER(c_double)), POINTER(POINTER(c_double)), POINTER(c_double), POINTER(c_double)]
+                     POINTER(POINTER(c_double)), POINTER(POINTER(c_double)), POINTER(c_double), POINTER(c_double),POINTER(c_double)]
 
     return func
 
 
 _MonteTGPU = get_MonteTGpu()
 
+global Out
+Out = np.zeros(400000)
+Out = (ctypes.c_double * len(Out))(*Out)
+Out = ctypes.cast(Out, ctypes.POINTER(c_double))
 
 def MonteTGpu(PElectronEnergyStep, PMaxCollisionFreqTotal, PEField, PCONST1, PCONST2, PCONST3
               , Ppi, PISIZE, PNumMomCrossSectionPoints, PMaxCollisionFreq, PVTMB, PAngleFromZ, PAngleFromX,
@@ -111,10 +128,11 @@ def MonteTGpu(PElectronEnergyStep, PMaxCollisionFreqTotal, PEField, PCONST1, PCO
         PIPN_P[i] = PIPN[i]
     ctypes.cast(PIPN_P, ctypes.POINTER(c_double))
 
-    _MonteTGPU(PElectronEnergyStep_P, PMaxCollisionFreqTotal_P, PEField_P, PCONST1_P, PCONST2_P, PCONST3_P
+
+    return _MonteTGPU(PElectronEnergyStep_P, PMaxCollisionFreqTotal_P, PEField_P, PCONST1_P, PCONST2_P, PCONST3_P
               , Ppi_P, PISIZE_P, PNumMomCrossSectionPoints_P, PMaxCollisionFreq_P, PVTMB_P, PAngleFromZ_P, PAngleFromX_P,
               PInitialElectronEnergy_P, PCollisionFrequency_P, PTotalCollisionFrequency_P, PRGAS_P, PEnergyLevels_P,
-              PAngleCut_P, PScatteringParameter_P, PINDEX_P, PIPN_P)
+              PAngleCut_P, PScatteringParameter_P, PINDEX_P, PIPN_P,Out)
 
 CF4 = 1
 He4 = 3
@@ -154,7 +172,7 @@ Object.MaxNumberOfCollisions = 40000000.0
 Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion = 1
-Object.FinalElectronEnergy = 20.0
+Object.FinalElectronEnergy = 0.0
 # Set the gas's with there given number
 Object.GasIDs = [7, 0, 0, 0, 0, 0]
 
@@ -165,7 +183,7 @@ Object.TemperatureCentigrade = float(23)
 # Set the pressure
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField = 1000
+Object.EField = 25
 # Set the magnetic field and angle
 Object.BFieldMag = 0
 Object.BFieldAngle = 0
@@ -182,51 +200,165 @@ MonteTGpu(Object.ElectronEnergyStep, Object.MaxCollisionFreqTotal, Object.EField
 print(Object.VelocityZ)
 t2 = time.time()
 
-print("************************************************")
-print("************************************************")
-print("*****         Here are the outputs         *****")
-print("************************************************ \n")
-print("run time [s]= ", round(t2 - t1, 3))
 
-for I in range(Object.NumberOfGases):
-    if Object.GasIDs[I] <= 25:
-        print("Percentage of " + GASES[int(Object.GasIDs[I])] + " = " + str(Object.GasFractions[I]))
+X = np.zeros(shape=(100,1000))
+Y = np.zeros(shape=(100,1000))
+Z = np.zeros(shape=(100,1000))
+T = np.zeros(shape=(100,1000))
 
-print("Tempature [C]         = ", Object.TemperatureCentigrade)
-print("Pressure [torr]       = ", Object.PressureTorr)
-print("Eletric field [V/cm]  = ", Object.EField)
-print("----------------------------------------------------")
-print("Drift velocity [mm/mus]              = ", round(Object.VelocityZ, 3))
-print("----------------------------------------------------")
-print("Drift velocity error [%]             = ", round(Object.VelocityErrorZ, 3))
-print("----------------------------------------------------")
-print("Transverse diffusion [cm**2/s]       = ", round(Object.TransverseDiffusion, 3))
-print("DIFXX [cm**2/s]       = ", round(Object.DiffusionX, 3))
-print("DIFYY [cm**2/s]       = ", round(Object.DiffusionY, 3))
-print("DIFZZ [cm**2/s]       = ", round(Object.DiffusionZ, 3))
-print("DIFYZ [cm**2/s]       = ", round(Object.DiffusionYZ, 3))
-print("DIFXY [cm**2/s]       = ", round(Object.DiffusionXY, 3))
-print("DIFXZ [cm**2/s]       = ", round(Object.DiffusionXZ, 3))
+for j in range(100):
+    for k in range(1000):
+        X[j][k] = Out[0+j*1000+k]
+        Y[j][k] = Out[100000+j*1000+k]
+        Z[j][k] = Out[200000+j*1000+k]
+        T[j][k] = Out[300000+j*1000+k]
 
-print("----------------------------------------------------")
-print("Transverse diffusion error [%]       = ", round(Object.TransverseDiffusionError, 3))
-print("----------------------------------------------------")
-print("Longitudinal diffusion [cm**2/s]     = ", round(Object.LongitudinalDiffusion, 3))
-print("----------------------------------------------------")
-print("Longitudinal diffusion error [%]     = ", round(Object.LongitudinalDiffusionError, 3))
-print("----------------------------------------------------")
-print("Transverse diffusion [mum/cm**0.5]   = ", round(Object.TransverseDiffusion1, 3))
-print("----------------------------------------------------")
-print("Transverse diffusion error [%]       = ", round(Object.TransverseDiffusion1Error, 3))
-print("----------------------------------------------------")
-print("Longitudinal diffusion [mum/cm**0.5] = ", round(Object.LongitudinalDiffusion1, 3))
-print("----------------------------------------------------")
-print("Longitudinal diffusion error [%]     = ", round(Object.LongitudinalDiffusion1Error, 3))
-print("----------------------------------------------------")
-print("Mean electron energy [eV]            = ", round(Object.MeanElectronEnergy, 3))
-print("----------------------------------------------------")
-print("Mean electron energy error [%]       = ", round(Object.MeanElectronEnergyError, 3))
-print("----------------------------------------------------")
-print("************************************************")
-print("************************************************")
-print(Object.MeanCollisionTime)
+X = np.transpose(X)
+Y = np.transpose(Y)
+Z = np.transpose(Z)
+T = np.transpose(T)
+print(T[0])
+MaxTime = 1e9
+for O in range(1000):
+    MT = max(T[O]-T[O][0])
+    if MT<MaxTime:
+        MaxTime = MT
+
+plt.figure(figsize=(7, 5))
+for O in range(1000):
+    # target = 2e8
+    # kk = find_nearest(electrons[3]-electrons[3][0] ,target)
+    # loc = np.where(electrons[3]-electrons[3][0]  == kk)[0][0]
+
+    plt.plot(T[O]-T[O][0], Z[O]-Z[O][0])
+    # plt.axvline((electrons[3]-electrons[3][0])[loc])
+plt.axvline(MaxTime)
+plt.grid()
+plt.xlabel("Time [Biagis]", fontsize=24)
+plt.ylabel("Z pos [Bashars]", fontsize=24)
+
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+plt.show()
+print("The Max time is ", MaxTime)
+
+plt.figure(figsize=(7,5))
+for O in range(1000):
+    #target = 2.4e7
+    #kk = find_nearest(electrons[3]-electrons[3][0] ,target)
+    #loc = np.where(electrons[3]-electrons[3][0]  == kk)[0][0]
+    plt.plot(T[O]-T[O][0], Y[O]-Y[O][0])
+    #plt.axvline((electrons[3]-electrons[3][0])[loc])
+plt.axvline(MaxTime)
+
+plt.grid()
+plt.xlabel("Time [Biagis]",fontsize=24)
+plt.ylabel("Y pos [Bashars]",fontsize=24)
+
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+#plt.xlim(2.2e7,2.6e7)
+plt.show()
+
+plt.figure(figsize=(7,5))
+for O in range(1000):
+    #target = 2.4e7
+    #kk = find_nearest(electrons[3]-electrons[3][0] ,target)
+    #loc = np.where(electrons[3]-electrons[3][0]  == kk)[0][0]
+    plt.plot(T[O]-T[O][0], X[O]-X[O][0])
+    #plt.axvline((electrons[3]-electrons[3][0])[loc])
+plt.axvline(MaxTime)
+
+plt.grid()
+plt.xlabel("Time [Biagis]",fontsize=24)
+plt.ylabel("Y pos [Bashars]",fontsize=24)
+
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+#plt.xlim(2.2e7,2.6e7)
+plt.show()
+
+targets = np.linspace(1, MaxTime, 30)
+N = 1000
+SigmaDlz = []
+SigmaDty = []
+SigmaDtx = []
+for target in targets:
+    Xse = []
+    Yse = []
+    Zse = []
+
+    for O in range(N):
+        TIME = T[O]-T[O][0]
+        XVALS = X[O]-X[O][0]
+        YVALS = Y[O]-Y[O][0]
+        ZVALS = Z[O]-Z[O][0]
+
+        f = interpolate.interp1d(TIME, XVALS)
+        Xse.append(f(target))
+
+        f = interpolate.interp1d(TIME, YVALS)
+        Yse.append(f(target))
+
+        f = interpolate.interp1d(TIME, ZVALS)
+        Zse.append(f(target))
+
+    SigmaDlz.append(np.std(Zse))
+    SigmaDty.append(np.std(Yse))
+    SigmaDtx.append(np.std(Xse))
+
+SigmaDlz = np.array(SigmaDlz)
+errorDlz = np.sqrt((2 * SigmaDlz ** 4 / (N - 1)))
+
+SigmaDty = np.array(SigmaDty)
+errorDty = np.sqrt((2 * SigmaDty ** 4 / (N - 1)))
+
+SigmaDtx = np.array(SigmaDtx)
+errorDtx = np.sqrt((2 * SigmaDtx ** 4 / (N - 1)))
+
+print("Fitting the diffusions \n")
+const = 5e15
+print("Longitudinal")
+popt, pcov = curve_fit(line, targets, SigmaDlz ** 2, sigma=errorDlz)
+print("Dl =", popt[0] * const, "+/-", pcov[0, 0] ** 0.5 * const)
+
+print("Transverse")
+popt, pcov = curve_fit(line, targets, SigmaDtx ** 2, sigma=errorDtx)
+print("Dtx =", popt[0] * const, "+/-", pcov[0, 0] ** 0.5 * const)
+
+print("Transverse")
+popt, pcov = curve_fit(line, targets, SigmaDty ** 2, sigma=errorDty)
+print("Dty =", popt[0] * const, "+/-", pcov[0, 0] ** 0.5 * const)
+
+
+print("Fitting the diffusions \n")
+const = 5e15
+print("Longitudinal")
+popt, pcov = curve_fit(line, targets,SigmaDlz**2, sigma=errorDlz)
+print("Dl =", popt[0]*const, "+/-", pcov[0,0]**0.5*const)
+
+print("Transverse")
+popt, pcov = curve_fit(line, targets,SigmaDtx**2, sigma=errorDtx)
+print("Dtx =", popt[0]*const, "+/-", pcov[0,0]**0.5*const)
+
+print("Transverse")
+popt, pcov = curve_fit(line, targets,SigmaDty**2, sigma=errorDty)
+print("Dty =", popt[0]*const, "+/-", pcov[0,0]**0.5*const)
+
+
+plt.figure(figsize=(8,7))
+
+plt.errorbar(targets,SigmaDlz**2*1e15,yerr=errorDlz*1e15,fmt='s',alpha=0.7,color='darkorchid',label="Longitudinal Z")
+
+plt.errorbar(targets,SigmaDtx**2*1e15,yerr=errorDtx*1e15,fmt='s',alpha=0.7,color='darkblue',label="Transverse X")
+
+plt.errorbar(targets,SigmaDty**2*1e15,yerr=errorDty*1e15,fmt='s',alpha=0.7,color='darkred',label="Transverse Y")
+
+plt.grid()
+plt.legend(loc="upper left",fontsize=24)
+plt.xlabel("Time [Biagis]",fontsize=24)
+plt.ylabel("Variance of swarm [1e15]",fontsize=24)
+
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+plt.show()

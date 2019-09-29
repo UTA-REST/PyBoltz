@@ -47,10 +47,10 @@ cpdef run(PyBoltz Object):
     cdef long long I, NumDecorLengths,  NumCollisions, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr, DecorDistance
     cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumXZ, SumXY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SumYZ_LastSample, SumXY_LastSample, SXZ_LastSample, SME2_LastSample, TDash
     cdef double ABSFAKEI, DirCosineZ1, DirCosineX1, DirCosineY1, VelXBefore, VelYBefore, VelZBefore, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, VelXAfter, VelYAfter, VelZAfter, DZCOM, DYCOM, DXCOM, Theta,
-    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, CONST11
+    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, VelBeforeM1
     cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, CosTheta, EPSI, Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U, CosSquareTheta, SinZAngle, VXLAB, VYLAB, VZLAB
     cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, TXCollY, TXCollZ, TYCollZ, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, T2XCollY, T2XCollZ, T2YCollZ, Attachment, Ionization, E, SumYZ, SumLS, SumTS
-    cdef double SLN_LastSample, STR_LastSample, EBAR_LastSample, EFZ100, EFX100, EBAR, WZR, WYR, WXR, XR, ZR, YR, TDriftVelPerSampleY, TWCollX, T2DriftVelPerSampleY, T2WCollX
+    cdef double SLN_LastSample, STR_LastSample, MeanEnergy_LastSample, EFZ100, EFX100, MeanEnergy, WZR, WYR, WXR, XR, ZR, YR, TDriftVelPerSampleY, TWCollX, T2DriftVelPerSampleY, T2WCollX
     cdef double *CollT, *CollX, *CollY, *CollZ, *DriftVelPerSampleZ, *MeanEnergyPerSample, *DiffZZPerSample, *DiffYYPerSample, *DiffXXPerSample, *DiffYZPerSample, *DFXCollY, *DiffXZPerSample, *DriftVelPerSampleYZ, *WXCollZ
     cdef double DIFXXR, DIFYYR, DIFZZR, DIFYZR, DIFXZR, DIFXYR, ZR_LastSample, YR_LastSample, XR_LastSample, SumZZR, SumYYR, SumXXR, SumXYR, SXZR, RCS, RSN, RTHETA, EOVBR
 
@@ -131,7 +131,7 @@ cpdef run(PyBoltz Object):
     SumXY_LastSample = 0.0
     SXZ_LastSample = 0.0
 
-    EBAR_LastSample = 0.0
+    MeanEnergy_LastSample = 0.0
 
     # CALC ROTATION MATRIX ANGLES
     RCS = cos((Object.BFieldAngle - 90) * np.pi / 180)
@@ -256,11 +256,11 @@ cpdef run(PyBoltz Object):
             Object.MeanCollisionTime = 0.9 * Object.MeanCollisionTime + 0.1 * T
 
             # CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
-            CONST11 = 1 / (Sqrt2M * sqrt(COMEnergy))
-            #     VelTotal=1.0D0/CONST11
-            DXCOM = (VelXAfter - GasVelX) * CONST11
-            DYCOM = (VelYAfter - GasVelY) * CONST11
-            DZCOM = (VelZAfter - GasVelZ) * CONST11
+            VelBeforeM1 = 1 / (Sqrt2M * sqrt(COMEnergy))
+            #     VelTotal=1.0D0/VelBeforeM1
+            DXCOM = (VelXAfter - GasVelX) * VelBeforeM1
+            DYCOM = (VelYAfter - GasVelY) * VelBeforeM1
+            DZCOM = (VelZAfter - GasVelZ) * VelBeforeM1
             #  CALCULATE POSITIONS AT INSTANT BEFORE COLLISION
             #    ALSO UPDATE DIFFUSION  AND ENERGY CALCULATIONS.
             T2 = T ** 2
@@ -392,10 +392,10 @@ cpdef run(PyBoltz Object):
             VelZBefore = DirCosineZ1 * VelTotal + GasVelZ
             # CALCULATE ENERGY AND DIRECTION COSINES IN LAB FRAME
             EBefore = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / TwoM
-            CONST11 = 1 / (Sqrt2M * sqrt(EBefore))
-            DirCosineX1 = VelXBefore * CONST11
-            DirCosineY1 = VelYBefore * CONST11
-            DirCosineZ1 = VelZBefore * CONST11
+            VelBeforeM1 = 1 / (Sqrt2M * sqrt(EBefore))
+            DirCosineX1 = VelXBefore * VelBeforeM1
+            DirCosineY1 = VelYBefore * VelBeforeM1
+            DirCosineZ1 = VelZBefore * VelBeforeM1
 
         Object.VelocityZ *= 1e9
         Object.VelocityY *= 1e9
@@ -408,18 +408,18 @@ cpdef run(PyBoltz Object):
         ZR = Object.Z * RCS - Object.X * RSN
         YR = Object.Y
         XR = Object.Z * RSN + Object.X * RCS
-        EBAR = 0.0
+        MeanEnergy = 0.0
         for IK in range(4000):
             TotalCollisionFrequencySum = 0.0
             for KI in range(Object.NumberOfGases):
                 TotalCollisionFrequencySum += Object.TotalCollisionFrequency[KI][IK]
-            EBAR += Object.E[IK] * Object.CollisionEnergies[IK] / TotalCollisionFrequencySum
-        Object.MeanElectronEnergy = EBAR / Object.TimeSum
+            MeanEnergy += Object.E[IK] * Object.CollisionEnergies[IK] / TotalCollisionFrequencySum
+        Object.MeanElectronEnergy = MeanEnergy / Object.TimeSum
         DriftVelPerSampleZ[iSample] = (ZR - ZR_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
         DriftVelPerSampleY[iSample] = (YR - YR_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
         WCollX[iSample] = (XR - XR_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
-        MeanEnergyPerSample[iSample] = (EBAR - EBAR_LastSample) / (Object.TimeSum - ST_LastSample)
-        EBAR_LastSample = EBAR
+        MeanEnergyPerSample[iSample] = (MeanEnergy - MeanEnergy_LastSample) / (Object.TimeSum - ST_LastSample)
+        MeanEnergy_LastSample = MeanEnergy
 
         if iSample >= 2:
             Object.DiffusionX = 5e15 * SumXX / ST1

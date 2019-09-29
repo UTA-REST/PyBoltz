@@ -30,10 +30,10 @@ cpdef run(PyBoltz Object):
     cdef long long I, NumDecorLengths,  NumCollisions, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr, DecorDistance
     cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumXZ, SumXY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SumYZ_LastSample, SumXY_LastSample, SXZ_LastSample, SME2_LastSample, TDash
     cdef double ABSFAKEI, DirCosineZ1, DirCosineX1, DirCosineY1, VelXBefore, VelYBefore, VelZBefore, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, VelXAfter, VelYAfter, VelZAfter, DZCOM, DYCOM, DXCOM, Theta,
-    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, CONST11
+    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, VelBeforeM1
     cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, CosTheta, EPSI, Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U, CosSquareTheta, SinZAngle, VXLAB, VYLAB, VZLAB
     cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, TXCollY, TXCollZ, TYCollZ, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, T2XCollY, T2XCollZ, T2YCollZ, Attachment, Ionization, E, SumYZ, SumLS, SumTS
-    cdef double SLN_LastSample, STR_LastSample, EBAR_LastSample, EFZ100, EFX100, EBAR, WZR, WYR, WXR, XR, ZR, YR, TDriftVelPerSampleY, TWCollX, T2DriftVelPerSampleY, T2WCollX,TEMP[4000]
+    cdef double SLN_LastSample, STR_LastSample, MeanEnergy_LastSample, EFZ100, EFX100, MeanEnergy, WZR, WYR, WXR, XR, ZR, YR, TDriftVelPerSampleY, TWCollX, T2DriftVelPerSampleY, T2WCollX,TEMP[4000]
     cdef double *CollT, *CollX, *CollY, *CollZ, *DriftVelPerSampleZ, *MeanEnergyPerSample, *DiffZZPerSample, *DiffYYPerSample, *DiffXXPerSample, *DiffYZPerSample, *DFXCollY, *DiffXZPerSample, *DriftVelPerSampleYZ, *WXCollZ
     cdef double DIFXXR, DIFYYR, DIFZZR, DIFYZR, DIFXZR, DIFXYR, ZR_LastSample, YR_LastSample, XR_LastSample, SumZZR, SumYYR, SumXXR, SumXYR, SXZR, RCS, RSN, RTHETA, EOVBR
 
@@ -125,7 +125,7 @@ cpdef run(PyBoltz Object):
     SumXY_LastSample = 0.0
     SXZ_LastSample = 0.0
 
-    EBAR_LastSample = 0.0
+    MeanEnergy_LastSample = 0.0
     RCS = cos((Object.BFieldAngle - 90) * np.pi / 180)
     RSN = sin((Object.BFieldAngle - 90) * np.pi / 180)
     RTHETA = Object.BFieldAngle * np.pi / 180
@@ -338,15 +338,15 @@ cpdef run(PyBoltz Object):
         ZR = Object.Z * RCS - Object.X * RSN
         YR = Object.Y
         XR = Object.Z * RSN + Object.X * RCS
-        EBAR = 0.0
+        MeanEnergy = 0.0
         for IK in range(4000):
-            EBAR += Object.E[IK] * Object.CollisionEnergies[IK] / Object.TotalCollisionFrequencyNT[IK]
-        Object.MeanElectronEnergy = EBAR / Object.TimeSum
+            MeanEnergy += Object.E[IK] * Object.CollisionEnergies[IK] / Object.TotalCollisionFrequencyNT[IK]
+        Object.MeanElectronEnergy = MeanEnergy / Object.TimeSum
         DriftVelPerSampleZ[iSample] = (ZR - ZR_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
         DriftVelPerSampleY[iSample] = (YR - YR_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
         WCollX[iSample] = (XR - XR_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
-        MeanEnergyPerSample[iSample] = (EBAR - EBAR_LastSample) / (Object.TimeSum - ST_LastSample)
-        EBAR_LastSample = EBAR
+        MeanEnergyPerSample[iSample] = (MeanEnergy - MeanEnergy_LastSample) / (Object.TimeSum - ST_LastSample)
+        MeanEnergy_LastSample = MeanEnergy
 
 
         if iSample >= 2:
@@ -442,27 +442,27 @@ cpdef run(PyBoltz Object):
             T2YCollZ += DiffYZPerSample[K] ** 2
             T2XCollY += DFXCollY[K] ** 2
             T2XCollZ += DiffXZPerSample[K] ** 2
-    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples * SumV_Samples / 10.0) / 9.0) / WZR
-    Object.VelocityErrorY = 100 * sqrt((T2DriftVelPerSampleY - TDriftVelPerSampleY * TDriftVelPerSampleY / 10.0) / 9.0) / abs(WYR)
-    Object.VelocityErrorX = 100 * sqrt((T2WCollX - TWCollX * TWCollX / 10.0) / 9.0) / abs(WXR)
-    Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples * SumE_Samples / 10.0) / 9.0) / Object.MeanElectronEnergy
-    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples * SumDZZ_Samples / 8.0) / 7.0) / DIFZZR
-    Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples * SumDYY_Samples / 8.0) / 7.0) / DIFYYR
-    Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples * SumDXX_Samples / 8.0) / 7.0) / DIFXXR
-    Object.ErrorDiffusionXY = 100 * sqrt((T2XCollY - TXCollY * TXCollY / 8.0) / 7.0) / abs(DIFXYR)
-    Object.ErrorDiffusionXZ = 100 * sqrt((T2XCollZ - TXCollZ * TXCollZ / 8.0) / 7.0) / abs(DIFXZR)
-    Object.ErrorDiffusionYZ = 100 * sqrt((T2YCollZ - TYCollZ * TYCollZ / 8.0) / 7.0) / abs(DIFYZR)
+    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples * SumV_Samples / Object.NumSamples) / (Object.NumSamples-1)) / WZR
+    Object.VelocityErrorY = 100 * sqrt((T2DriftVelPerSampleY - TDriftVelPerSampleY * TDriftVelPerSampleY / Object.NumSamples) / (Object.NumSamples-1)) / abs(WYR)
+    Object.VelocityErrorX = 100 * sqrt((T2WCollX - TWCollX * TWCollX / Object.NumSamples) / (Object.NumSamples-1)) / abs(WXR)
+    Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples * SumE_Samples / Object.NumSamples) /(Object.NumSamples-1)) / Object.MeanElectronEnergy
+    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples * SumDZZ_Samples / (Object.NumSamples-2)) / (Object.NumSamples-3)) / DIFZZR
+    Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples * SumDYY_Samples / (Object.NumSamples-2)) / (Object.NumSamples-3)) / DIFYYR
+    Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples * SumDXX_Samples / (Object.NumSamples-2)) / (Object.NumSamples-3)) / DIFXXR
+    Object.ErrorDiffusionXY = 100 * sqrt((T2XCollY - TXCollY * TXCollY / (Object.NumSamples-2)) / (Object.NumSamples-3)) / abs(DIFXYR)
+    Object.ErrorDiffusionXZ = 100 * sqrt((T2XCollZ - TXCollZ * TXCollZ / (Object.NumSamples-2)) / (Object.NumSamples-3)) / abs(DIFXZR)
+    Object.ErrorDiffusionYZ = 100 * sqrt((T2YCollZ - TYCollZ * TYCollZ / (Object.NumSamples-2)) / (Object.NumSamples-3)) / abs(DIFYZR)
 
-    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(10)
-    Object.VelocityErrorX = Object.VelocityErrorX / sqrt(10)
-    Object.VelocityErrorY = Object.VelocityErrorY / sqrt(10)
-    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(10)
-    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(8)
-    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt(8)
-    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt(8)
-    Object.ErrorDiffusionYZ = Object.ErrorDiffusionYZ / sqrt(8)
-    Object.ErrorDiffusionXY = Object.ErrorDiffusionXY / sqrt(8)
-    Object.ErrorDiffusionXZ = Object.ErrorDiffusionXZ / sqrt(8)
+    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(Object.NumSamples)
+    Object.VelocityErrorX = Object.VelocityErrorX / sqrt(Object.NumSamples)
+    Object.VelocityErrorY = Object.VelocityErrorY / sqrt(Object.NumSamples)
+    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(Object.NumSamples)
+    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionYZ = Object.ErrorDiffusionYZ / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionXY = Object.ErrorDiffusionXY / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionXZ = Object.ErrorDiffusionXZ / sqrt((Object.NumSamples-2))
 
     Object.VelocityZ = WZR
     Object.VelocityX = WXR

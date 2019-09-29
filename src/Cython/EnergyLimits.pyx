@@ -56,7 +56,7 @@ cpdef EnergyLimit(PyBoltz Object):
 
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST5, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
+    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, VelBeforeM1, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
     cdef double D, Q, U, CosSquareTheta, CosZAngle, SinZAngle, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
@@ -207,7 +207,7 @@ cpdef EnergyLimitB(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
+    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, VelBeforeM1, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
     cdef double D, Q, U, CosSquareTheta, CosZAngle, SinZAngle, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EFieldTimes100
     TEMP = <double *> malloc(4000 * sizeof(double))
 
@@ -373,7 +373,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
+    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, VelBeforeM1, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
     cdef double D, Q, U, CosSquareTheta, CosZAngle, SinZAngle, ARGZ, CONST12, VXLAB, VYLAB, EFieldTimes100,TLIM,VelXAfter,VelYAfter,VelZAfter
 
  
@@ -454,10 +454,10 @@ cpdef EnergyLimitBT(PyBoltz Object):
 
         TDASH = 0.0
         #CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
-        CONST11 = 1.0 / (CONST9 * sqrt(EOK))
-        DXCOM = (VelXAfter - GasVelX) * CONST11
-        DYCOM = (VelYAfter - GasVelY) * CONST11
-        DZCOM = (VelZAfter - GasVelZ) * CONST11
+        VelBeforeM1 = 1.0 / (CONST9 * sqrt(EOK))
+        DXCOM = (VelXAfter - GasVelX) * VelBeforeM1
+        DYCOM = (VelYAfter - GasVelY) * VelBeforeM1
+        DZCOM = (VelZAfter - GasVelZ) * VelBeforeM1
 
 
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
@@ -531,10 +531,10 @@ cpdef EnergyLimitBT(PyBoltz Object):
         VelZBefore = DirCosineZ1 * VelTotal + GasVelZ
         #  CALCULATE ENERGY AND DIRECTION COSINES IN LAB FRAME
         E1 = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / CONST10
-        CONST11 = 1.0 / (CONST9 * sqrt(E1))
-        DirCosineX1 = VelXBefore * CONST11
-        DirCosineY1 = VelYBefore * CONST11
-        DirCosineZ1 = VelZBefore * CONST11
+        VelBeforeM1 = 1.0 / (CONST9 * sqrt(E1))
+        DirCosineX1 = VelXBefore * VelBeforeM1
+        DirCosineY1 = VelYBefore * VelBeforeM1
+        DirCosineZ1 = VelZBefore * VelBeforeM1
 
     return 0
 
@@ -556,7 +556,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
+    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, VelBeforeM1, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
     cdef double D, Q, U, CosSquareTheta, CosZAngle, SinZAngle, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EFX100,EFZ100,RTHETA,
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
@@ -718,7 +718,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1,
+    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, VelBeforeM1, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1,
     cdef double D, Q, U, CosSquareTheta, CosZAngle, SinZAngle, ARGZ,RTHETA, CONST12, VXLAB, VYLAB, EFX100,EFZ100,TLIM,VelXAfter,VelYAfter,VelZAfter,EOVBR
 
    
@@ -807,10 +807,10 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
         #CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
         TDASH = 0.0
-        CONST11 = 1.0 / (CONST9 * sqrt(EOK))
-        DXCOM = (VelXAfter - GasVelX) * CONST11
-        DYCOM = (VelYAfter - GasVelY) * CONST11
-        DZCOM = (VelZAfter - GasVelZ) * CONST11
+        VelBeforeM1 = 1.0 / (CONST9 * sqrt(EOK))
+        DXCOM = (VelXAfter - GasVelX) * VelBeforeM1
+        DYCOM = (VelYAfter - GasVelY) * VelBeforeM1
+        DZCOM = (VelZAfter - GasVelZ) * VelBeforeM1
 
         # ---------------------------------------------------------------------
         #     DETERMINATION OF REAL COLLISION TYPE
@@ -888,10 +888,10 @@ cpdef EnergyLimitCT(PyBoltz Object):
         VelZBefore = DirCosineZ1 * VelTotal + GasVelZ
         #  CALCULATE ENERGY AND DIRECTION COSINES IN LAB FRAME
         E1 = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / CONST10
-        CONST11 = 1.0 / (CONST9 * sqrt(E1))
-        DirCosineX1 = VelXBefore * CONST11
-        DirCosineY1 = VelYBefore * CONST11
-        DirCosineZ1 = VelZBefore * CONST11
+        VelBeforeM1 = 1.0 / (CONST9 * sqrt(E1))
+        DirCosineX1 = VelXBefore * VelBeforeM1
+        DirCosineY1 = VelYBefore * VelBeforeM1
+        DirCosineZ1 = VelZBefore * VelBeforeM1
 
     return 0
 
@@ -916,7 +916,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1,AP, BP, F1, F2, F4, J2M, R5, Test1, R1, T,  E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
+    cdef double GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, EOK, VelBeforeM1, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, CosTheta, RAN, EPSI, R4, Phi, SinPhi, CosPhi, ARG1
     cdef double D, Q, U, CosSquareTheta, CosZAngle, SinZAngle, ARGZ, CONST12, VXLAB, VYLAB, VZLAB
 
 
@@ -985,10 +985,10 @@ cpdef EnergyLimitT(PyBoltz Object):
 
         TDASH = 0.0
 
-        CONST11 = 1 / (CONST9 * sqrt(EOK))
-        DXCOM = (VEX - GasVelX) * CONST11
-        DYCOM = (VEY - GasVelY) * CONST11
-        DZCOM = (VEZ - GasVelZ) * CONST11
+        VelBeforeM1 = 1 / (CONST9 * sqrt(EOK))
+        DXCOM = (VEX - GasVelX) * VelBeforeM1
+        DYCOM = (VEY - GasVelY) * VelBeforeM1
+        DZCOM = (VEZ - GasVelZ) * VelBeforeM1
 
         # Determination of real collision type
         R3 = random_uniform(RandomSeed)
@@ -1063,9 +1063,9 @@ cpdef EnergyLimitT(PyBoltz Object):
         VZLAB = DirCosineZ1 * CONST12 + GasVelZ
         # Calculate energy and direction cosines in lab frame
         E1 = (VXLAB * VXLAB + VYLAB * VYLAB + VZLAB * VZLAB) / CONST10
-        CONST11 = 1.0 / (CONST9 * sqrt(E1))
-        DirCosineX1 = VXLAB * CONST11
-        DirCosineY1 = VYLAB * CONST11
-        DirCosineZ1 = VZLAB * CONST11
+        VelBeforeM1 = 1.0 / (CONST9 * sqrt(E1))
+        DirCosineX1 = VXLAB * VelBeforeM1
+        DirCosineY1 = VYLAB * VelBeforeM1
+        DirCosineZ1 = VZLAB * VelBeforeM1
 
     return 0

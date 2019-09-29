@@ -517,27 +517,27 @@ cpdef run(PyBoltz Object):
             T2YCollZ += DiffYZPerSample[K] ** 2
             T2XCollY += DFXCollY[K] ** 2
             T2XCollZ += DiffXZPerSample[K] ** 2
-    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples * SumV_Samples / 10.0) / 9.0) / WZR
-    Object.VelocityErrorY = 100 * sqrt((T2DriftVelPerSampleY - TDriftVelPerSampleY * TDriftVelPerSampleY / 10.0) / 9.0) / abs(WYR)
-    Object.VelocityErrorX = 100 * sqrt((T2WCollX - TWCollX * TWCollX / 10.0) / 9.0) / abs(WXR)
-    Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples * SumE_Samples / 10.0) / 9.0) / Object.MeanElectronEnergy
-    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples * SumDZZ_Samples / 8.0) / 7.0) / DIFZZR
-    Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples * SumDYY_Samples / 8.0) / 7.0) / DIFYYR
-    Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples * SumDXX_Samples / 8.0) / 7.0) / DIFXXR
-    Object.ErrorDiffusionXY = 100 * sqrt((T2XCollY - TXCollY * TXCollY / 8.0) / 7.0) / abs(DIFXYR)
-    Object.ErrorDiffusionXZ = 100 * sqrt((T2XCollZ - TXCollZ * TXCollZ / 8.0) / 7.0) / abs(DIFXZR)
-    Object.ErrorDiffusionYZ = 100 * sqrt((T2YCollZ - TYCollZ * TYCollZ / 8.0) / 7.0) / abs(DIFYZR)
+    Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples * SumV_Samples / Object.NumSamples) / (Object.NumSamples-1)) / WZR
+    Object.VelocityErrorY = 100 * sqrt((T2DriftVelPerSampleY - TDriftVelPerSampleY * TDriftVelPerSampleY / Object.NumSamples) / (Object.NumSamples-1)) / abs(WYR)
+    Object.VelocityErrorX = 100 * sqrt((T2WCollX - TWCollX * TWCollX / Object.NumSamples) / (Object.NumSamples-1)) / abs(WXR)
+    Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples * SumE_Samples / Object.NumSamples) / (Object.NumSamples-1)) / Object.MeanElectronEnergy
+    Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples * SumDZZ_Samples / (Object.NumSamples-2)) / (Object.NumSamples-3)) / DIFZZR
+    Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples * SumDYY_Samples / (Object.NumSamples-2)) / (Object.NumSamples-3)) / DIFYYR
+    Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples * SumDXX_Samples / (Object.NumSamples-2)) / (Object.NumSamples-3)) / DIFXXR
+    Object.ErrorDiffusionXY = 100 * sqrt((T2XCollY - TXCollY * TXCollY / (Object.NumSamples-2)) / (Object.NumSamples-3)) / abs(DIFXYR)
+    Object.ErrorDiffusionXZ = 100 * sqrt((T2XCollZ - TXCollZ * TXCollZ / (Object.NumSamples-2)) / (Object.NumSamples-3)) / abs(DIFXZR)
+    Object.ErrorDiffusionYZ = 100 * sqrt((T2YCollZ - TYCollZ * TYCollZ / (Object.NumSamples-2)) / (Object.NumSamples-3)) / abs(DIFYZR)
 
-    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(10)
-    Object.VelocityErrorX = Object.VelocityErrorX / sqrt(10)
-    Object.VelocityErrorY = Object.VelocityErrorY / sqrt(10)
-    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(10)
-    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt(8)
-    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt(8)
-    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt(8)
-    Object.ErrorDiffusionYZ = Object.ErrorDiffusionYZ / sqrt(8)
-    Object.ErrorDiffusionXY = Object.ErrorDiffusionXY / sqrt(8)
-    Object.ErrorDiffusionXZ = Object.ErrorDiffusionXZ / sqrt(8)
+    Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(Object.NumSamples)
+    Object.VelocityErrorX = Object.VelocityErrorX / sqrt(Object.NumSamples)
+    Object.VelocityErrorY = Object.VelocityErrorY / sqrt(Object.NumSamples)
+    Object.MeanElectronEnergyError = Object.MeanElectronEnergyError / sqrt(Object.NumSamples)
+    Object.ErrorDiffusionX = Object.ErrorDiffusionX / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionY = Object.ErrorDiffusionY / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionZ = Object.ErrorDiffusionZ / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionYZ = Object.ErrorDiffusionYZ / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionXY = Object.ErrorDiffusionXY / sqrt((Object.NumSamples-2))
+    Object.ErrorDiffusionXZ = Object.ErrorDiffusionXZ / sqrt((Object.NumSamples-2))
 
     #LOAD ROTATED VALUES INTO ARRAYS
 

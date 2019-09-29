@@ -44,7 +44,6 @@ cpdef run(PyBoltz Object):
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
 
-    #TODO: print similar ouput (on new lines).
     Object.VelocityX = 0.0
     Object.VelocityY = 0.0
     Object.VelocityErrorX = 0.0
@@ -431,7 +430,7 @@ cpdef run(PyBoltz Object):
             # Anisotropic scattering - pick the scattering angle theta depending on scatter type
             RandomNum = random_uniform(RandomSeed)
             if Object.AngularModel[GasIndex][I] == 1:
-	        # Use method of Capitelli et al
+	            # Use method of Capitelli et al
                 RandomNum2 = random_uniform(RandomSeed)
                 CosTheta = 1.0 - RandomNum * Object.AngleCut[GasIndex][iEnergyBin][I]
                 if RandomNum2 > Object.ScatteringParameter[GasIndex][iEnergyBin][I]:

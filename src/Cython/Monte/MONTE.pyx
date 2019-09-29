@@ -122,7 +122,7 @@ cpdef run(PyBoltz Object):
     TwoPi = 2.0 * np.pi                         # This should be: 2 Pi
 
 
-   # Initial direction cosines
+    # Initial direction cosines
     DirCosineZ1 = cos(Object.AngleFromZ)
     DirCosineX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
     DirCosineY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)

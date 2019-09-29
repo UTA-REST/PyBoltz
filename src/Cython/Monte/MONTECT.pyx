@@ -19,14 +19,14 @@ cdef double random_uniform(double dummy):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cdef void GenerateMaxBoltz(double RandomSeed,  double *RandomMaxBoltzArray):
-    cdef double RAN1, RAN2, TWOPI
+    cdef double Ran1, Ran2, TwoPi
     cdef int J
     for J in range(0, 5, 2):
-        RAN1 = random_uniform(RandomSeed)
-        RAN2 = random_uniform(RandomSeed)
-        TWOPI = 2.0 * np.pi
-        RandomMaxBoltzArray[J] = sqrt(-1 * log(RAN1)) * cos(RAN2 * TWOPI)
-        RandomMaxBoltzArray[J + 1] = sqrt(-1 * log(RAN1)) * sin(RAN2 * TWOPI)
+        Ran1 = random_uniform(RandomSeed)
+        Ran2 = random_uniform(RandomSeed)
+        TwoPi = 2.0 * np.pi
+        RandomMaxBoltzArray[J] = sqrt(-1 * log(Ran1)) * cos(Ran2 * TwoPi)
+        RandomMaxBoltzArray[J + 1] = sqrt(-1 * log(Ran1)) * sin(Ran2 * TwoPi)
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -44,11 +44,11 @@ cpdef run(PyBoltz Object):
     Object.X = 0.0
     Object.Y = 0.0
     Object.Z = 0.0
-    cdef long long I, NumDecorLengths,  NumCollisions, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr, NC_LastSampleM
+    cdef long long I, NumDecorLengths,  NumCollisions, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr, DecorDistance
     cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumXZ, SumXY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SumYZ_LastSample, SumXY_LastSample, SXZ_LastSample, SME2_LastSample, TDash
     cdef double ABSFAKEI, DirCosineZ1, DirCosineX1, DirCosineY1, VelXBefore, VelYBefore, VelZBefore, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, VelXAfter, VelYAfter, VelZAfter, DZCOM, DYCOM, DXCOM, Theta,
-    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, VGX, VGY, VGZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, CONST11
-    cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, F3, EPSI, Phi, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
+    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, CONST11
+    cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, CosTheta, EPSI, Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U, CosSquareTheta, SinZAngle, VXLAB, VYLAB, VZLAB
     cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, TXCollY, TXCollZ, TYCollZ, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, T2XCollY, T2XCollZ, T2YCollZ, Attachment, Ionization, E, SumYZ, SumLS, SumTS
     cdef double SLN_LastSample, STR_LastSample, EBAR_LastSample, EFZ100, EFX100, EBAR, WZR, WYR, WXR, XR, ZR, YR, TDriftVelPerSampleY, TWCollX, T2DriftVelPerSampleY, T2WCollX
     cdef double *CollT, *CollX, *CollY, *CollZ, *DriftVelPerSampleZ, *MeanEnergyPerSample, *DiffZZPerSample, *DiffYYPerSample, *DiffXXPerSample, *DiffYZPerSample, *DFXCollY, *DiffXZPerSample, *DriftVelPerSampleYZ, *WXCollZ
@@ -187,9 +187,9 @@ cpdef run(PyBoltz Object):
                 T = -1 * log(RandomNum) / Object.MaxCollisionFreqTotal + TDash
                 TDash = T
                 WBT = Object.AngularSpeedOfRotation * T
-                COSWT = cos(WBT)
-                SINWT = sin(WBT)
-                DZ = (VelZBefore * SINWT + (EOVBR - VelYBefore) * (1 - COSWT)) / Object.AngularSpeedOfRotation
+                CosWT = cos(WBT)
+                SinWT = sin(WBT)
+                DZ = (VelZBefore * SinWT + (EOVBR - VelYBefore) * (1 - CosWT)) / Object.AngularSpeedOfRotation
 
                 DX = VelXBefore * T + F1 * T * T
 
@@ -197,8 +197,8 @@ cpdef run(PyBoltz Object):
 
                 # CALCULATE ELECTRON VELOCITY IN LAB FRAME
                 VelXAfter = VelXBefore + 2 * F1 * T
-                VelYAfter = (VelYBefore - EOVBR) * COSWT + VelZBefore * SINWT + EOVBR
-                VelZAfter = VelZBefore * COSWT - (VelYBefore - EOVBR) * SINWT
+                VelYAfter = (VelYBefore - EOVBR) * CosWT + VelZBefore * SinWT + EOVBR
+                VelZAfter = VelZBefore * CosWT - (VelYBefore - EOVBR) * SinWT
 
                 # FIND NumDecorLengthsENTITY OF GAS FOR COLLISION
                 GasIndex = 0
@@ -213,14 +213,14 @@ cpdef run(PyBoltz Object):
                 if (IMBPT > 6):
                     GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
                     IMBPT = 1
-                VGX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
+                GasVelX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
                 IMBPT += 1
-                VGY = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
+                GasVelY = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
                 IMBPT += 1
-                VGZ = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
+                GasVelZ = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
 
                 # CALCULATE ENERGY WITH STATIONARY GAS TARGET,COMEnergy
-                COMEnergy = ((VelXAfter - VGX) ** 2 + (VelYAfter - VGY) ** 2 + (VelZAfter - VGZ) ** 2) / TwoM
+                COMEnergy = ((VelXAfter - GasVelX) ** 2 + (VelYAfter - GasVelY) ** 2 + (VelZAfter - GasVelZ) ** 2) / TwoM
                 IE = int(COMEnergy / Object.ElectronEnergyStep)
                 IE = min(IE, 3999)
 
@@ -258,16 +258,16 @@ cpdef run(PyBoltz Object):
             # CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
             CONST11 = 1 / (Sqrt2M * sqrt(COMEnergy))
             #     VelTotal=1.0D0/CONST11
-            DXCOM = (VelXAfter - VGX) * CONST11
-            DYCOM = (VelYAfter - VGY) * CONST11
-            DZCOM = (VelZAfter - VGZ) * CONST11
+            DXCOM = (VelXAfter - GasVelX) * CONST11
+            DYCOM = (VelYAfter - GasVelY) * CONST11
+            DZCOM = (VelZAfter - GasVelZ) * CONST11
             #  CALCULATE POSITIONS AT INSTANT BEFORE COLLISION
             #    ALSO UPDATE DIFFUSION  AND ENERGY CALCULATIONS.
             T2 = T ** 2
             TDash = 0.0
 
             Object.X += DX
-            Object.Y += EOVBR * T + ((VelYBefore - EOVBR) * SINWT + VelZBefore * (1 - COSWT)) / Object.AngularSpeedOfRotation
+            Object.Y += EOVBR * T + ((VelYBefore - EOVBR) * SinWT + VelZBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
             Object.Z += DZ
             Object.TimeSum += T
             IT = int(T)
@@ -280,21 +280,21 @@ cpdef run(PyBoltz Object):
             if iSample >= 2:
                 CollsToLookBack = 0
                 for J in range(int(Object.Decor_LookBacks)):
-                    NC_LastSampleM = NumCollisions + CollsToLookBack
-                    if NC_LastSampleM > Object.Decor_Colls:
-                        NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
+                    DecorDistance = NumCollisions + CollsToLookBack
+                    if DecorDistance > Object.Decor_Colls:
+                        DecorDistance = DecorDistance - Object.Decor_Colls
                     ST1 += T
-                    TDiff = Object.TimeSum - CollT[NC_LastSampleM-1]
+                    TDiff = Object.TimeSum - CollT[DecorDistance-1]
                     CollsToLookBack += Object.Decor_Step
-                    SumZZ += ((Object.Z - CollZ[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
-                    SumYY += ((Object.Y - CollY[NC_LastSampleM-1] - Object.VelocityY * TDiff) ** 2) * T / TDiff
-                    SumXX += ((Object.X - CollX[NC_LastSampleM-1] - Object.VelocityX * TDiff) ** 2) * T / TDiff
-                    SumYZ += (Object.Z - CollZ[NC_LastSampleM-1] - Object.VelocityZ * TDiff) * (
-                            Object.Y - CollY[NC_LastSampleM-1] - Object.VelocityY * TDiff) * T / TDiff
-                    SumXY += (Object.X - CollX[NC_LastSampleM-1] - Object.VelocityX * TDiff) * (
-                            Object.Y - CollY[NC_LastSampleM-1] - Object.VelocityY * TDiff) * T / TDiff
-                    SumXZ += (Object.X - CollX[NC_LastSampleM-1] - Object.VelocityX * TDiff) * (
-                            Object.Z - CollZ[NC_LastSampleM-1] - Object.VelocityZ * TDiff) * T / TDiff
+                    SumZZ += ((Object.Z - CollZ[DecorDistance-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
+                    SumYY += ((Object.Y - CollY[DecorDistance-1] - Object.VelocityY * TDiff) ** 2) * T / TDiff
+                    SumXX += ((Object.X - CollX[DecorDistance-1] - Object.VelocityX * TDiff) ** 2) * T / TDiff
+                    SumYZ += (Object.Z - CollZ[DecorDistance-1] - Object.VelocityZ * TDiff) * (
+                            Object.Y - CollY[DecorDistance-1] - Object.VelocityY * TDiff) * T / TDiff
+                    SumXY += (Object.X - CollX[DecorDistance-1] - Object.VelocityX * TDiff) * (
+                            Object.Y - CollY[DecorDistance-1] - Object.VelocityY * TDiff) * T / TDiff
+                    SumXZ += (Object.X - CollX[DecorDistance-1] - Object.VelocityX * TDiff) * (
+                            Object.Z - CollZ[DecorDistance-1] - Object.VelocityZ * TDiff) * T / TDiff
             CollX[NumCollisions-1] = Object.X
             CollY[NumCollisions-1] = Object.Y
             CollZ[NumCollisions-1] = Object.Z
@@ -344,52 +344,52 @@ cpdef run(PyBoltz Object):
             RandomNum = random_uniform(RandomSeed)
             if Object.AngularModel[GasIndex][I] == 1:
                 RandomNum1 = random_uniform(RandomSeed)
-                F3 = 1.0 - RandomNum * Object.AngleCut[GasIndex][IE][I]
+                CosTheta = 1.0 - RandomNum * Object.AngleCut[GasIndex][IE][I]
                 if RandomNum1 > Object.ScatteringParameter[GasIndex][IE][I]:
-                    F3 = -1 * F3
+                    CosTheta = -1 * CosTheta
             elif Object.AngularModel[GasIndex][I] == 2:
                 EPSI = Object.ScatteringParameter[GasIndex][IE][I]
-                F3 = 1 - (2 * RandomNum * (1 - EPSI) / (1 + EPSI * (1 - 2 * RandomNum)))
+                CosTheta = 1 - (2 * RandomNum * (1 - EPSI) / (1 + EPSI * (1 - 2 * RandomNum)))
             else:
                 #ISOTROPIC SCATTERING
-                F3 = 1 - 2 * RandomNum
+                CosTheta = 1 - 2 * RandomNum
 
-            Theta = acos(F3)
+            Theta = acos(CosTheta)
             RandomNum = random_uniform(RandomSeed)
             Phi = TwoPi * RandomNum
-            F8 = sin(Phi)
-            F9 = cos(Phi)
+            SinPhi = sin(Phi)
+            CosPhi = cos(Phi)
             ARG1 = 1 - S1 * EI / COMEnergy
             ARG1 = max(ARG1, Object.SmallNumber)
-            D = 1 - F3 * sqrt(ARG1)
+            D = 1 - CosTheta * sqrt(ARG1)
             EBefore = COMEnergy * (1 - EI / (S1 * COMEnergy) - 2 * D / S2)
             EBefore = max(EBefore, Object.SmallNumber)
             Q = sqrt((COMEnergy / EBefore) * ARG1) / S1
             Q = min(Q, 1)
             Object.AngleFromZ = asin(Q * sin(Theta))
-            F6 = cos(Object.AngleFromZ)
+            CosZAngle = cos(Object.AngleFromZ)
             U = (S1 - 1) * (S1 - 1) / ARG1
 
-            CSQD = F3 * F3
-            if F3 < 0 and CSQD > U:
-                F6 = -1 * F6
-            F5 = sin(Object.AngleFromZ)
+            CosSquareTheta = CosTheta * CosTheta
+            if CosTheta < 0 and CosSquareTheta > U:
+                CosZAngle = -1 * CosZAngle
+            SinZAngle = sin(Object.AngleFromZ)
             DZCOM = min(DZCOM, 1)
             ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
             if ARGZ == 0:
-                DirCosineZ1 = F6
-                DirCosineX1 = F9 * F5
-                DirCosineY1 = F8 * F5
+                DirCosineZ1 = CosZAngle
+                DirCosineX1 = CosPhi * SinZAngle
+                DirCosineY1 = SinPhi * SinZAngle
             else:
-                DirCosineZ1 = DZCOM * F6 + ARGZ * F5 * F8
-                DirCosineY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
-                DirCosineX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
+                DirCosineZ1 = DZCOM * CosZAngle + ARGZ * SinZAngle * SinPhi
+                DirCosineY1 = DYCOM * CosZAngle + (SinZAngle / ARGZ) * (DXCOM * CosPhi - DYCOM * DZCOM * SinPhi)
+                DirCosineX1 = DXCOM * CosZAngle - (SinZAngle / ARGZ) * (DYCOM * CosPhi + DXCOM * DZCOM * SinPhi)
 
             #TRANSFORM VELOCITY VECTORS TO LAB FRAME
             VelTotal = Sqrt2M * sqrt(EBefore)
-            VelXBefore = DirCosineX1 * VelTotal + VGX
-            VelYBefore = DirCosineY1 * VelTotal + VGY
-            VelZBefore = DirCosineZ1 * VelTotal + VGZ
+            VelXBefore = DirCosineX1 * VelTotal + GasVelX
+            VelYBefore = DirCosineY1 * VelTotal + GasVelY
+            VelZBefore = DirCosineZ1 * VelTotal + GasVelZ
             # CALCULATE ENERGY AND DIRECTION COSINES IN LAB FRAME
             EBefore = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / TwoM
             CONST11 = 1 / (Sqrt2M * sqrt(EBefore))

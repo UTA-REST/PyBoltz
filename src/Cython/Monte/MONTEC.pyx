@@ -27,11 +27,11 @@ cpdef run(PyBoltz Object):
     
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
-    cdef long long I, NumDecorLengths,  NumCollisions, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr, NC_LastSampleM
+    cdef long long I, NumDecorLengths,  NumCollisions, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr, DecorDistance
     cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumXZ, SumXY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SumYZ_LastSample, SumXY_LastSample, SXZ_LastSample, SME2_LastSample, TDash
     cdef double ABSFAKEI, DirCosineZ1, DirCosineX1, DirCosineY1, VelXBefore, VelYBefore, VelZBefore, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, VelXAfter, VelYAfter, VelZAfter, DZCOM, DYCOM, DXCOM, Theta,
-    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, VGX, VGY, VGZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, CONST11
-    cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, F3, EPSI, Phi, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
+    cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, GasVelX, GasVelY, GasVelZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, CONST11
+    cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, CosTheta, EPSI, Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U, CosSquareTheta, SinZAngle, VXLAB, VYLAB, VZLAB
     cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, TXCollY, TXCollZ, TYCollZ, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, T2XCollY, T2XCollZ, T2YCollZ, Attachment, Ionization, E, SumYZ, SumLS, SumTS
     cdef double SLN_LastSample, STR_LastSample, EBAR_LastSample, EFZ100, EFX100, EBAR, WZR, WYR, WXR, XR, ZR, YR, TDriftVelPerSampleY, TWCollX, T2DriftVelPerSampleY, T2WCollX,TEMP[4000]
     cdef double *CollT, *CollX, *CollY, *CollZ, *DriftVelPerSampleZ, *MeanEnergyPerSample, *DiffZZPerSample, *DiffYYPerSample, *DiffXXPerSample, *DiffYZPerSample, *DFXCollY, *DiffXZPerSample, *DriftVelPerSampleYZ, *WXCollZ
@@ -170,9 +170,9 @@ cpdef run(PyBoltz Object):
                 T = -1 * log(RandomNum) / TLIM + TDash
                 TDash = T
                 WBT = Object.AngularSpeedOfRotation * T
-                COSWT = cos(WBT)
-                SINWT = sin(WBT)
-                DZ = (VelZBefore * SINWT + (EOVBR - VelYBefore) * (1 - COSWT)) / Object.AngularSpeedOfRotation
+                CosWT = cos(WBT)
+                SinWT = sin(WBT)
+                DZ = (VelZBefore * SinWT + (EOVBR - VelYBefore) * (1 - CosWT)) / Object.AngularSpeedOfRotation
                 DX = VelXBefore * T + F1 * T * T
                 E = EBefore + DZ * EFZ100 + DX * EFX100
                 IE = int(E / Object.ElectronEnergyStep)
@@ -213,8 +213,8 @@ cpdef run(PyBoltz Object):
             TDash = 0.0
 
             VelXAfter = VelXBefore + 2 * F1 * T
-            VelYAfter = (VelYBefore - EOVBR) * COSWT + VelZBefore * SINWT + EOVBR
-            VelZAfter = VelZBefore * COSWT - (VelYBefore - EOVBR) * SINWT
+            VelYAfter = (VelYBefore - EOVBR) * CosWT + VelZBefore * SinWT + EOVBR
+            VelZAfter = VelZBefore * CosWT - (VelYBefore - EOVBR) * SinWT
             VelTotal = sqrt(VelXAfter ** 2 + VelYAfter ** 2 + VelZAfter ** 2)
             DirCosineX2 = VelXAfter / VelTotal
             DirCosineY2 = VelYAfter / VelTotal
@@ -222,7 +222,7 @@ cpdef run(PyBoltz Object):
             NumCollisions += 1
 
             Object.X += DX
-            Object.Y += EOVBR * T + ((VelYBefore - EOVBR) * SINWT + VelZBefore * (1 - COSWT)) / Object.AngularSpeedOfRotation
+            Object.Y += EOVBR * T + ((VelYBefore - EOVBR) * SinWT + VelZBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
             Object.Z += DZ
             Object.TimeSum += T
 
@@ -236,21 +236,21 @@ cpdef run(PyBoltz Object):
             if iSample >= 2:
                 CollsToLookBack = 0
                 for J in range(int(Object.Decor_LookBacks)):
-                    NC_LastSampleM = NumCollisions + CollsToLookBack
-                    if NC_LastSampleM > Object.Decor_Colls:
-                        NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
+                    DecorDistance = NumCollisions + CollsToLookBack
+                    if DecorDistance > Object.Decor_Colls:
+                        DecorDistance = DecorDistance - Object.Decor_Colls
                     ST1 += T
-                    TDiff = Object.TimeSum - CollT[NC_LastSampleM-1]
+                    TDiff = Object.TimeSum - CollT[DecorDistance-1]
                     CollsToLookBack += Object.Decor_Step
-                    SumZZ += ((Object.Z - CollZ[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
-                    SumYY += ((Object.Y - CollY[NC_LastSampleM-1] - Object.VelocityY * TDiff) ** 2) * T / TDiff
-                    SumXX += ((Object.X - CollX[NC_LastSampleM-1] - Object.VelocityX * TDiff) ** 2) * T / TDiff
-                    SumYZ += (Object.Z - CollZ[NC_LastSampleM-1] - Object.VelocityZ * TDiff) * (
-                            Object.Y - CollY[NC_LastSampleM-1] - Object.VelocityY * TDiff) * T / TDiff
-                    SumXY += (Object.X - CollX[NC_LastSampleM-1] - Object.VelocityX * TDiff) * (
-                            Object.Y - CollY[NC_LastSampleM-1] - Object.VelocityY * TDiff) * T / TDiff
-                    SumXZ += (Object.X - CollX[NC_LastSampleM-1] - Object.VelocityX * TDiff) * (
-                            Object.Z - CollZ[NC_LastSampleM-1] - Object.VelocityZ * TDiff) * T / TDiff
+                    SumZZ += ((Object.Z - CollZ[DecorDistance-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
+                    SumYY += ((Object.Y - CollY[DecorDistance-1] - Object.VelocityY * TDiff) ** 2) * T / TDiff
+                    SumXX += ((Object.X - CollX[DecorDistance-1] - Object.VelocityX * TDiff) ** 2) * T / TDiff
+                    SumYZ += (Object.Z - CollZ[DecorDistance-1] - Object.VelocityZ * TDiff) * (
+                            Object.Y - CollY[DecorDistance-1] - Object.VelocityY * TDiff) * T / TDiff
+                    SumXY += (Object.X - CollX[DecorDistance-1] - Object.VelocityX * TDiff) * (
+                            Object.Y - CollY[DecorDistance-1] - Object.VelocityY * TDiff) * T / TDiff
+                    SumXZ += (Object.X - CollX[DecorDistance-1] - Object.VelocityX * TDiff) * (
+                            Object.Z - CollZ[DecorDistance-1] - Object.VelocityZ * TDiff) * T / TDiff
             CollX[NumCollisions-1] = Object.X
             CollY[NumCollisions-1] = Object.Y
             CollZ[NumCollisions-1] = Object.Z
@@ -287,44 +287,44 @@ cpdef run(PyBoltz Object):
             RandomNum = random_uniform(RandomSeed)
             if Object.AngularModelNT[I] == 1:
                 RandomNum1 = random_uniform(RandomSeed)
-                F3 = 1.0 - RandomNum * Object.AngleCutNT[IE][I]
+                CosTheta = 1.0 - RandomNum * Object.AngleCutNT[IE][I]
                 if RandomNum1 > Object.ScatteringParameterNT[IE][I]:
-                    F3 = -1 * F3
+                    CosTheta = -1 * CosTheta
             elif Object.AngularModelNT[I] == 2:
                 EPSI = Object.ScatteringParameterNT[IE][I]
-                F3 = 1 - (2 * RandomNum * (1 - EPSI) / (1 + EPSI * (1 - 2 * RandomNum)))
+                CosTheta = 1 - (2 * RandomNum * (1 - EPSI) / (1 + EPSI * (1 - 2 * RandomNum)))
             else:
-                F3 = 1 - 2 * RandomNum
-            Theta = acos(F3)
+                CosTheta = 1 - 2 * RandomNum
+            Theta = acos(CosTheta)
             RandomNum = random_uniform(RandomSeed)
             Phi = TwoPi * RandomNum
-            F8 = sin(Phi)
-            F9 = cos(Phi)
+            SinPhi = sin(Phi)
+            CosPhi = cos(Phi)
             ARG1 = 1 - S1 * EI / E
             ARG1 = max(ARG1, Object.SmallNumber)
-            D = 1 - F3 * sqrt(ARG1)
+            D = 1 - CosTheta * sqrt(ARG1)
             EBefore = E * (1 - EI / (S1 * E) - 2 * D / S2)
             EBefore = max(EBefore, Object.SmallNumber)
             Q = sqrt((E / EBefore) * ARG1) / S1
             Q = min(Q, 1)
             Object.AngleFromZ = asin(Q * sin(Theta))
-            F6 = cos(Object.AngleFromZ)
+            CosZAngle = cos(Object.AngleFromZ)
             U = (S1 - 1) * (S1 - 1) / ARG1
-            CSQD = F3 * F3
-            if F3 < 0 and CSQD > U:
-                F6 = -1 * F6
-            F5 = sin(Object.AngleFromZ)
+            CosSquareTheta = CosTheta * CosTheta
+            if CosTheta < 0 and CosSquareTheta > U:
+                CosZAngle = -1 * CosZAngle
+            SinZAngle = sin(Object.AngleFromZ)
             DirCosineZ2 = min(DirCosineZ2, 1)
             VelTotal = Sqrt2M * sqrt(EBefore)
             ARGZ = sqrt(DirCosineX2 * DirCosineX2 + DirCosineY2 * DirCosineY2)
             if ARGZ == 0:
-                DirCosineZ1 = F6
-                DirCosineX1 = F9 * F5
-                DirCosineY1 = F8 * F5
+                DirCosineZ1 = CosZAngle
+                DirCosineX1 = CosPhi * SinZAngle
+                DirCosineY1 = SinPhi * SinZAngle
             else:
-                DirCosineZ1 = DirCosineZ2 * F6 + ARGZ * F5 * F8
-                DirCosineY1 = DirCosineY2 * F6 + (F5 / ARGZ) * (DirCosineX2 * F9 - DirCosineY2 * DirCosineZ2 * F8)
-                DirCosineX1 = DirCosineX2 * F6 - (F5 / ARGZ) * (DirCosineY2 * F9 + DirCosineX2 * DirCosineZ2 * F8)
+                DirCosineZ1 = DirCosineZ2 * CosZAngle + ARGZ * SinZAngle * SinPhi
+                DirCosineY1 = DirCosineY2 * CosZAngle + (SinZAngle / ARGZ) * (DirCosineX2 * CosPhi - DirCosineY2 * DirCosineZ2 * SinPhi)
+                DirCosineX1 = DirCosineX2 * CosZAngle - (SinZAngle / ARGZ) * (DirCosineY2 * CosPhi + DirCosineX2 * DirCosineZ2 * SinPhi)
             VelXBefore = DirCosineX1 * VelTotal
             VelYBefore = DirCosineY1 * VelTotal
             VelZBefore = DirCosineZ1 * VelTotal

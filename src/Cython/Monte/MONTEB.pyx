@@ -27,52 +27,52 @@ cpdef run(PyBoltz Object):
     
     The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
     """
-    cdef long long I, NumDecorLengths, NCOL, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr,NC_LastSampleM
-    cdef double ST1, RandomSeed,ST2, SumE2, SumXX, SumYY, SumZZ, SumVX, SumVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SZZ_LastSample, SXX_LastSample, SYY_LastSample, SVX_LastSample, SVY_LastSample, SME2_LastSample, TDash
-    cdef double ABSFAKEI, DirCosineZ1, DirCosineX1, DirCosineY1, CX1, CY1, CZ1, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, CX2, CY2, CZ2, DZCOM, DYCOM, DXCOM, THETA0,
+    cdef long long I, NumDecorLengths, NumCollisions, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr,NC_LastSampleM
+    cdef double ST1, RandomSeed,ST2, SumE2, SumXX, SumYY, SumZZ, SumVX, SumVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SVX_LastSample, SVY_LastSample, SME2_LastSample, TDash
+    cdef double ABSFAKEI, DirCosineZ1, DirCosineX1, DirCosineY1, VelXBefore, VelYBefore, VelZBefore, BP, F1, F2, TwoPi, DirCosineX2, DirCosineY2, DirCosineZ2, VelXAfter, VelYAfter, VelZAfter, DZCOM, DYCOM, DXCOM, Theta,
     cdef double  EBefore, Sqrt2M, TwoM, AP, CONST6, RandomNum, VGX, VGY, VGZ, VEX, VEY, VEZ, COMEnergy, Test1, Test2, Test3, CONST11
-    cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, F3, EPSI, PHI0, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
+    cdef double T2, A, B, CONST7, S1, EI, R9, EXTRA, RAN, RandomNum1, F3, EPSI, Phi, F8, F9, ARG1, D, Q, F6, U, CSQD, F5, VXLAB, VYLAB, VZLAB
     cdef double SumV_Samples, SumE_Samples, SumV2_Samples, SumE2_Samples, SumDXX_Samples, SumDYY_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ_Samples, SumDZZ2_Samples, Attachment, Ionization, E,SumYZ,SumLS,SumTS
-    cdef double SYZ_LastSample,SLN_LastSample,STR_LastSample,EBAR_LastSample,EF100, EBAR
-    cdef double *STO, *XST, *YST, *ZST, *WZST, *AVEST, *DFZZST, *DFYYST, *DFXXST,*DFYZST,*DFLNST,*WYZST, *DFTRST,TEMP[4000]
-    STO = <double *> malloc(2000000 * sizeof(double))
-    memset(STO, 0, 2000000 * sizeof(double))
-    XST = <double *> malloc(2000000 * sizeof(double))
-    memset(XST, 0, 2000000 * sizeof(double))
+    cdef double SumYZ_LastSample,SLN_LastSample,STR_LastSample,EBAR_LastSample,EF100, EBAR
+    cdef double *CollT, *CollX, *CollY, *CollZ, *DriftVelPerSampleZ, *MeanEnergyPerSample, *DiffZZPerSample, *DiffYYPerSample, *DiffXXPerSample,*DiffYZPerSample,*DiffLonPerSample,*DriftVelPerSampleYZ, *DiffTranPerSample,TEMP[4000]
+    CollT = <double *> malloc(2000000 * sizeof(double))
+    memset(CollT, 0, 2000000 * sizeof(double))
+    CollX = <double *> malloc(2000000 * sizeof(double))
+    memset(CollX, 0, 2000000 * sizeof(double))
 
-    YST = <double *> malloc(2000000 * sizeof(double))
-    memset(YST, 0, 2000000 * sizeof(double))
+    CollY = <double *> malloc(2000000 * sizeof(double))
+    memset(CollY, 0, 2000000 * sizeof(double))
 
-    ZST = <double *> malloc(2000000 * sizeof(double))
-    memset(ZST, 0, 2000000 * sizeof(double))
+    CollZ = <double *> malloc(2000000 * sizeof(double))
+    memset(CollZ, 0, 2000000 * sizeof(double))
 
-    WZST = <double *> malloc(10 * sizeof(double))
-    memset(WZST, 0, 10 * sizeof(double))
+    DriftVelPerSampleZ = <double *> malloc(10 * sizeof(double))
+    memset(DriftVelPerSampleZ, 0, 10 * sizeof(double))
 
-    WYST = <double *> malloc(10 * sizeof(double))
-    memset(WYST, 0, 10 * sizeof(double))
+    DriftVelPerSampleY = <double *> malloc(10 * sizeof(double))
+    memset(DriftVelPerSampleY, 0, 10 * sizeof(double))
 
-    AVEST = <double *> malloc(10 * sizeof(double))
-    memset(AVEST, 0, 10 * sizeof(double))
+    MeanEnergyPerSample = <double *> malloc(10 * sizeof(double))
+    memset(MeanEnergyPerSample, 0, 10 * sizeof(double))
 
-    DFZZST = <double *> malloc(10 * sizeof(double))
-    memset(DFZZST, 0, 10 * sizeof(double))
+    DiffZZPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DiffZZPerSample, 0, 10 * sizeof(double))
 
-    DFYYST = <double *> malloc(10 * sizeof(double))
-    memset(DFYYST, 0, 10 * sizeof(double))
+    DiffYYPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DiffYYPerSample, 0, 10 * sizeof(double))
 
-    DFXXST = <double *> malloc(10 * sizeof(double))
-    memset(DFXXST, 0, 10 * sizeof(double))
+    DiffXXPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DiffXXPerSample, 0, 10 * sizeof(double))
 
-    DFYZST = <double *> malloc(10 * sizeof(double))
-    memset(DFYZST, 0, 10 * sizeof(double))
+    DiffYZPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DiffYZPerSample, 0, 10 * sizeof(double))
 
-    DFLNST = <double *> malloc(10 * sizeof(double))
-    memset(DFLNST, 0, 10 * sizeof(double))
+    DiffLonPerSample = <double *> malloc(10 * sizeof(double))
+    memset(DiffLonPerSample, 0, 10 * sizeof(double))
 
 
-    DFTRST  = <double *> malloc(10 * sizeof(double))
-    memset(DFTRST, 0, 10 * sizeof(double))
+    DiffTranPerSample  = <double *> malloc(10 * sizeof(double))
+    memset(DiffTranPerSample, 0, 10 * sizeof(double))
 
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
@@ -103,10 +103,10 @@ cpdef run(PyBoltz Object):
     ST_LastSample = 0.0
     ST1_LastSample = 0.0
     ST2_LastSample = 0.0
-    SZZ_LastSample = 0.0
-    SXX_LastSample = 0.0
-    SYY_LastSample = 0.0
-    SYZ_LastSample = 0.0
+    SumZZ_LastSample = 0.0
+    SumXX_LastSample = 0.0
+    SumYY_LastSample = 0.0
+    SumYZ_LastSample = 0.0
     SVX_LastSample = 0.0
     SLN_LastSample = 0.0
     STR_LastSample = 0.0
@@ -117,7 +117,7 @@ cpdef run(PyBoltz Object):
     EBefore = Object.InitialElectronEnergy
     INTEM = 8
     NumDecorLengths = 0
-    NCOL = 0
+    NumCollisions = 0
     IEXTRA = 0
     TDash = 0.0
     Sqrt2M = Object.CONST3 * 0.01
@@ -130,10 +130,10 @@ cpdef run(PyBoltz Object):
     DirCosineX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
     DirCosineY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
-    VTOT = Sqrt2M * sqrt(EBefore)
-    CX1 = DirCosineX1 * VTOT
-    CY1 = DirCosineY1 * VTOT
-    CZ1 = DirCosineZ1 * VTOT
+    VelTotal = Sqrt2M * sqrt(EBefore)
+    VelXBefore = DirCosineX1 * VelTotal
+    VelYBefore = DirCosineY1 * VelTotal
+    VelZBefore = DirCosineZ1 * VelTotal
 
     iCollisionM = <long long>(Object.MaxNumberOfCollisions / Object.NumSamples)
 
@@ -154,7 +154,7 @@ cpdef run(PyBoltz Object):
                 WBT = Object.AngularSpeedOfRotation * T
                 COSWT = cos(WBT)
                 SINWT = sin(WBT)
-                DZ = (CZ1 * SINWT + (Object.EFieldOverBField - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
+                DZ = (VelZBefore * SINWT + (Object.EFieldOverBField - VelYBefore) * (1 - COSWT)) / Object.AngularSpeedOfRotation
                 E = EBefore + DZ * EF100
                 IE = int(E / Object.ElectronEnergyStep)
                 IE = min(IE, 3999)
@@ -190,17 +190,17 @@ cpdef run(PyBoltz Object):
 
             T2 = T ** 2
             TDash = 0.0
-            CX2 = CX1
-            CY2 = (CY1 - Object.EFieldOverBField) * COSWT + CZ1 * SINWT + Object.EFieldOverBField
-            CZ2 = CZ1 * COSWT - (CY1 - Object.EFieldOverBField) * SINWT
-            VTOT = sqrt(CX2 ** 2 + CY2 ** 2 + CZ2 ** 2)
-            DirCosineX2 = CX2 / VTOT
-            DirCosineY2 = CY2 / VTOT
-            DirCosineZ2 = CZ2 / VTOT
-            NCOL += 1
+            VelXAfter = VelXBefore
+            VelYAfter = (VelYBefore - Object.EFieldOverBField) * COSWT + VelZBefore * SINWT + Object.EFieldOverBField
+            VelZAfter = VelZBefore * COSWT - (VelYBefore - Object.EFieldOverBField) * SINWT
+            VelTotal = sqrt(VelXAfter ** 2 + VelYAfter ** 2 + VelZAfter ** 2)
+            DirCosineX2 = VelXAfter / VelTotal
+            DirCosineY2 = VelYAfter / VelTotal
+            DirCosineZ2 = VelZAfter / VelTotal
+            NumCollisions += 1
 
-            Object.X += CX1 * T
-            Object.Y += Object.EFieldOverBField * T + ((CY1 - Object.EFieldOverBField) * SINWT + CZ1 * (1 - COSWT)) / Object.AngularSpeedOfRotation
+            Object.X += VelXBefore * T
+            Object.Y += Object.EFieldOverBField * T + ((VelYBefore - Object.EFieldOverBField) * SINWT + VelZBefore * (1 - COSWT)) / Object.AngularSpeedOfRotation
             Object.Z += DZ
             Object.TimeSum += T
             IT = int(T)
@@ -209,38 +209,38 @@ cpdef run(PyBoltz Object):
             Object.CollisionEnergies[IE] += 1
             Object.VelocityZ = Object.Z / Object.TimeSum
             Object.VelocityY = Object.Y / Object.TimeSum
-            SumVX += (CX1 ** 2) * T2
+            SumVX += (VelXBefore ** 2) * T2
             if NumDecorLengths != 0:
                 CollsToLookBack = 0
                 for J in range(int(Object.Decor_LookBacks)):
                     ST2 = ST2 + T
-                    NC_LastSampleM = NCOL + CollsToLookBack
+                    NC_LastSampleM = NumCollisions + CollsToLookBack
                     if NC_LastSampleM > Object.Decor_Colls:
                         NC_LastSampleM = NC_LastSampleM - Object.Decor_Colls
-                    TDiff = Object.TimeSum - STO[NC_LastSampleM-1]
-                    SumXX += ((Object.X - XST[NC_LastSampleM-1]) ** 2) * T / TDiff
+                    TDiff = Object.TimeSum - CollT[NC_LastSampleM-1]
+                    SumXX += ((Object.X - CollX[NC_LastSampleM-1]) ** 2) * T / TDiff
                     CollsToLookBack += Object.Decor_Step
                     if iSample >= 2:
                         ST1 += T
-                        SumZZ += ((Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
-                        SumYY += ((Object.Y - YST[NC_LastSampleM-1] - Object.VelocityY * TDiff) ** 2) * T / TDiff
-                        SumYZ += (Object.Z - ZST[NC_LastSampleM-1] - Object.VelocityZ * TDiff) * (
-                                Object.Y - YST[NC_LastSampleM-1] - Object.VelocityY * TDiff) * T / TDiff
+                        SumZZ += ((Object.Z - CollZ[NC_LastSampleM-1] - Object.VelocityZ * TDiff) ** 2) * T / TDiff
+                        SumYY += ((Object.Y - CollY[NC_LastSampleM-1] - Object.VelocityY * TDiff) ** 2) * T / TDiff
+                        SumYZ += (Object.Z - CollZ[NC_LastSampleM-1] - Object.VelocityZ * TDiff) * (
+                                Object.Y - CollY[NC_LastSampleM-1] - Object.VelocityY * TDiff) * T / TDiff
                         A2 = (Object.VelocityZ * TDiff) ** 2 + (Object.VelocityY * TDiff) ** 2
-                        B2 = (Object.Z - Object.VelocityZ * TDiff - ZST[NC_LastSampleM-1]) ** 2 + (
-                                Object.Y - Object.VelocityY * TDiff - YST[NC_LastSampleM-1]) ** 2
-                        C2 = (Object.Z - ZST[NC_LastSampleM-1]) ** 2 + (Object.Y - YST[NC_LastSampleM-1]) ** 2
+                        B2 = (Object.Z - Object.VelocityZ * TDiff - CollZ[NC_LastSampleM-1]) ** 2 + (
+                                Object.Y - Object.VelocityY * TDiff - CollY[NC_LastSampleM-1]) ** 2
+                        C2 = (Object.Z - CollZ[NC_LastSampleM-1]) ** 2 + (Object.Y - CollY[NC_LastSampleM-1]) ** 2
                         DL2 = (A2 + B2 - C2) ** 2 / (4 * A2)
                         DT2 = B2 - DL2
                         SumLS += DL2 * T / TDiff
                         SumTS += DT2 * T / TDiff
-            XST[NCOL-1] = Object.X
-            YST[NCOL-1] = Object.Y
-            ZST[NCOL-1] = Object.Z
-            STO[NCOL-1] = Object.TimeSum
-            if NCOL >= Object.Decor_Colls:
+            CollX[NumCollisions-1] = Object.X
+            CollY[NumCollisions-1] = Object.Y
+            CollZ[NumCollisions-1] = Object.Z
+            CollT[NumCollisions-1] = Object.TimeSum
+            if NumCollisions >= Object.Decor_Colls:
                 NumDecorLengths += 1
-                NCOL = 0
+                NumCollisions = 0
 
             RandomNum = random_uniform(RandomSeed)
 
@@ -279,11 +279,11 @@ cpdef run(PyBoltz Object):
                 F3 = 1 - (2 * RandomNum * (1 - EPSI) / (1 + EPSI * (1 - 2 * RandomNum)))
             else:
                 F3 = 1 - 2 * RandomNum
-            THETA0 = acos(F3)
+            Theta = acos(F3)
             RandomNum = random_uniform(RandomSeed)
-            PHI0 = TwoPi * RandomNum
-            F8 = sin(PHI0)
-            F9 = cos(PHI0)
+            Phi = TwoPi * RandomNum
+            F8 = sin(Phi)
+            F9 = cos(Phi)
             ARG1 = 1 - S1 * EI / E
             ARG1 = max(ARG1, Object.SmallNumber)
             D = 1 - F3 * sqrt(ARG1)
@@ -291,7 +291,7 @@ cpdef run(PyBoltz Object):
             EBefore = max(EBefore, Object.SmallNumber)
             Q = sqrt((E / EBefore) * ARG1) / S1
             Q = min(Q, 1)
-            Object.AngleFromZ = asin(Q * sin(THETA0))
+            Object.AngleFromZ = asin(Q * sin(Theta))
             F6 = cos(Object.AngleFromZ)
             U = (S1 - 1) * (S1 - 1) / ARG1
             CSQD = F3 * F3
@@ -299,7 +299,7 @@ cpdef run(PyBoltz Object):
                 F6 = -1 * F6
             F5 = sin(Object.AngleFromZ)
             DirCosineZ2 = min(DirCosineZ2, 1)
-            VTOT = Sqrt2M * sqrt(EBefore)
+            VelTotal = Sqrt2M * sqrt(EBefore)
             ARGZ = sqrt(DirCosineX2 * DirCosineX2 + DirCosineY2 * DirCosineY2)
             if ARGZ == 0:
                 DirCosineZ1 = F6
@@ -309,9 +309,9 @@ cpdef run(PyBoltz Object):
                 DirCosineZ1 = DirCosineZ2 * F6 + ARGZ * F5 * F8
                 DirCosineY1 = DirCosineY2 * F6 + (F5 / ARGZ) * (DirCosineX2 * F9 - DirCosineY2 * DirCosineZ2 * F8)
                 DirCosineX1 = DirCosineX2 * F6 - (F5 / ARGZ) * (DirCosineY2 * F9 + DirCosineX2 * DirCosineZ2 * F8)
-            CX1 = DirCosineX1 * VTOT
-            CY1 = DirCosineY1 * VTOT
-            CZ1 = DirCosineZ1 * VTOT
+            VelXBefore = DirCosineX1 * VelTotal
+            VelYBefore = DirCosineY1 * VelTotal
+            VelZBefore = DirCosineZ1 * VelTotal
         Object.VelocityZ *= 1e9
         Object.VelocityY *= 1e9
         if ST2 != 0.0:
@@ -328,34 +328,34 @@ cpdef run(PyBoltz Object):
         for IK in range(4000):
             EBAR += Object.E[IK] * Object.CollisionEnergies[IK] / Object.TotalCollisionFrequencyNT[IK]
         Object.MeanElectronEnergy = EBAR / Object.TimeSum
-        WZST[iSample] = (Object.Z - Z_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
-        WYST[iSample] = (Object.Y - Y_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
-        AVEST[iSample] = (EBAR - EBAR_LastSample) / (Object.TimeSum - ST_LastSample)
+        DriftVelPerSampleZ[iSample] = (Object.Z - Z_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
+        DriftVelPerSampleY[iSample] = (Object.Y - Y_LastSample) / (Object.TimeSum - ST_LastSample) * 1e9
+        MeanEnergyPerSample[iSample] = (EBAR - EBAR_LastSample) / (Object.TimeSum - ST_LastSample)
         EBAR_LastSample = EBAR
-        DFZZST[iSample] = 0.0
-        DFYYST[iSample] = 0.0
-        DFYZST[iSample] = 0.0
-        DFLNST[iSample] = 0.0
-        DFTRST[iSample] = 0.0
+        DiffZZPerSample[iSample] = 0.0
+        DiffYYPerSample[iSample] = 0.0
+        DiffYZPerSample[iSample] = 0.0
+        DiffLonPerSample[iSample] = 0.0
+        DiffTranPerSample[iSample] = 0.0
         if iSample > 1:
-            DFZZST[iSample] = 5e15 * (SumZZ - SZZ_LastSample) / (ST1 - ST1_LastSample)
-            DFYYST[iSample] = 5e15 * (SumYY - SYY_LastSample) / (ST1 - ST1_LastSample)
-            DFYZST[iSample] = 5e15 * (SumYZ - SYZ_LastSample) / (ST1 - ST1_LastSample)
-            DFLNST[iSample] = 5e15 * (SumLS - SLN_LastSample) / (ST1 - ST1_LastSample)
-            DFTRST[iSample] = 5e15 * (SumTS - STR_LastSample) / (ST1 - ST1_LastSample)
-        DFXXST[iSample] = 5e15 * (SumXX - SXX_LastSample) / (ST2 - ST2_LastSample)
+            DiffZZPerSample[iSample] = 5e15 * (SumZZ - SumZZ_LastSample) / (ST1 - ST1_LastSample)
+            DiffYYPerSample[iSample] = 5e15 * (SumYY - SumYY_LastSample) / (ST1 - ST1_LastSample)
+            DiffYZPerSample[iSample] = 5e15 * (SumYZ - SumYZ_LastSample) / (ST1 - ST1_LastSample)
+            DiffLonPerSample[iSample] = 5e15 * (SumLS - SLN_LastSample) / (ST1 - ST1_LastSample)
+            DiffTranPerSample[iSample] = 5e15 * (SumTS - STR_LastSample) / (ST1 - ST1_LastSample)
+        DiffXXPerSample[iSample] = 5e15 * (SumXX - SumXX_LastSample) / (ST2 - ST2_LastSample)
         if Object.AnisotropicDetected == 0:
-            DFXXST[iSample] = 5e15 * (SumVX - SVX_LastSample) / (Object.TimeSum - ST_LastSample)
+            DiffXXPerSample[iSample] = 5e15 * (SumVX - SVX_LastSample) / (Object.TimeSum - ST_LastSample)
         Z_LastSample = Object.Z
         Y_LastSample = Object.Y
         ST_LastSample = Object.TimeSum
         ST1_LastSample = ST1
         ST2_LastSample = ST2
         SVX_LastSample = SumVX
-        SZZ_LastSample = SumZZ
-        SXX_LastSample = SumXX
-        SYY_LastSample = SumYY
-        SYZ_LastSample = SumYZ
+        SumZZ_LastSample = SumZZ
+        SumXX_LastSample = SumXX
+        SumYY_LastSample = SumYY
+        SumYZ_LastSample = SumYZ
         SLN_LastSample = SumLS
         STR_LastSample = SumTS
         if Object.ConsoleOutputFlag:
@@ -363,51 +363,51 @@ cpdef run(PyBoltz Object):
                                                                                     Object.MeanElectronEnergy, Object.DiffusionX, Object.DiffusionY,
                                                                                     Object.DiffusionZ,Object.DiffusionYZ,Object.LongitudinalDiffusion,Object.TransverseDiffusion))
     SumV_Samples = 0.0
-    TWYST = 0.0
+    TDriftVelPerSampleY = 0.0
     SumE_Samples = 0.0
     SumV2_Samples = 0.0
-    T2WYST = 0.0
+    T2DriftVelPerSampleY = 0.0
     SumE2_Samples = 0.0
     SumDZZ_Samples = 0.0
     SumDYY_Samples = 0.0
     SumDXX_Samples = 0.0
-    TYZST = 0.0
+    TYCollZ = 0.0
     TLNST = 0.0
     TTRST = 0.0
     SumDZZ2_Samples = 0.0
     SumDYY2_Samples = 0.0
     SumDXX2_Samples = 0.0
-    T2YZST = 0.0
+    T2YCollZ = 0.0
     T2LNST = 0.0
     T2TRST = 0.0
 
     for K in range(10):
-        SumV_Samples = SumV_Samples + WZST[K]
-        TWYST = TWYST + WYST[K]
-        SumE_Samples = SumE_Samples + AVEST[K]
-        SumV2_Samples = SumV2_Samples + WZST[K] * WZST[K]
-        T2WYST = T2WYST + WYST[K] * WYST[K]
-        SumE2_Samples = SumE2_Samples + AVEST[K] * AVEST[K]
-        SumDXX_Samples += DFXXST[K]
-        SumDXX2_Samples += DFXXST[K] ** 2
+        SumV_Samples = SumV_Samples + DriftVelPerSampleZ[K]
+        TDriftVelPerSampleY = TDriftVelPerSampleY + DriftVelPerSampleY[K]
+        SumE_Samples = SumE_Samples + MeanEnergyPerSample[K]
+        SumV2_Samples = SumV2_Samples + DriftVelPerSampleZ[K] * DriftVelPerSampleZ[K]
+        T2DriftVelPerSampleY = T2DriftVelPerSampleY + DriftVelPerSampleY[K] * DriftVelPerSampleY[K]
+        SumE2_Samples = SumE2_Samples + MeanEnergyPerSample[K] * MeanEnergyPerSample[K]
+        SumDXX_Samples += DiffXXPerSample[K]
+        SumDXX2_Samples += DiffXXPerSample[K] ** 2
         if K >= 2:
-            SumDZZ_Samples = SumDZZ_Samples + DFZZST[K]
-            SumDYY_Samples = SumDYY_Samples + DFYYST[K]
-            TYZST = TYZST + DFYZST[K]
-            TLNST = TLNST + DFLNST[K]
-            TTRST = TTRST + DFTRST[K]
-            SumDZZ2_Samples += DFZZST[K] ** 2
-            SumDYY2_Samples += DFYYST[K] ** 2
-            T2YZST += DFYZST[K] ** 2
-            T2LNST += DFLNST[K] ** 2
-            T2TRST += DFTRST[K] ** 2
+            SumDZZ_Samples = SumDZZ_Samples + DiffZZPerSample[K]
+            SumDYY_Samples = SumDYY_Samples + DiffYYPerSample[K]
+            TYCollZ = TYCollZ + DiffYZPerSample[K]
+            TLNST = TLNST + DiffLonPerSample[K]
+            TTRST = TTRST + DiffTranPerSample[K]
+            SumDZZ2_Samples += DiffZZPerSample[K] ** 2
+            SumDYY2_Samples += DiffYYPerSample[K] ** 2
+            T2YCollZ += DiffYZPerSample[K] ** 2
+            T2LNST += DiffLonPerSample[K] ** 2
+            T2TRST += DiffTranPerSample[K] ** 2
     Object.VelocityErrorZ = 100 * sqrt((SumV2_Samples - SumV_Samples * SumV_Samples / 10.0) / 9.0) / Object.VelocityZ
-    Object.VelocityErrorY = 100 * sqrt((T2WYST - TWYST * TWYST / 10.0) / 9.0) / abs(Object.VelocityY)
+    Object.VelocityErrorY = 100 * sqrt((T2DriftVelPerSampleY - TDriftVelPerSampleY * TDriftVelPerSampleY / 10.0) / 9.0) / abs(Object.VelocityY)
     Object.MeanElectronEnergyError = 100 * sqrt((SumE2_Samples - SumE_Samples * SumE_Samples / 10.0) / 9.0) / Object.MeanElectronEnergy
     Object.ErrorDiffusionX = 100 * sqrt((SumDXX2_Samples - SumDXX_Samples * SumDXX_Samples / 10.0) / 9.0) / Object.DiffusionX
     Object.ErrorDiffusionY = 100 * sqrt((SumDYY2_Samples - SumDYY_Samples * SumDYY_Samples / 10.0) / 9.0) / Object.DiffusionY
     Object.ErrorDiffusionZ = 100 * sqrt((SumDZZ2_Samples - SumDZZ_Samples * SumDZZ_Samples / 8.0) / 7.0) / Object.DiffusionZ
-    Object.ErrorDiffusionYZ = 100 * sqrt((T2YZST - TYZST * TYZST / 8.0) / 7.0) / abs(Object.DiffusionYZ)
+    Object.ErrorDiffusionYZ = 100 * sqrt((T2YCollZ - TYCollZ * TYCollZ / 8.0) / 7.0) / abs(Object.DiffusionYZ)
     Object.LongitudinalDiffusionError = 100 * sqrt((T2LNST - TLNST * TLNST / 8.0) / 7.0) / Object.LongitudinalDiffusion
     Object.TransverseDiffusionError = 100 * sqrt((T2TRST - TTRST * TTRST / 8.0) / 7.0) / Object.TransverseDiffusion
     Object.VelocityErrorZ = Object.VelocityErrorZ / sqrt(10)

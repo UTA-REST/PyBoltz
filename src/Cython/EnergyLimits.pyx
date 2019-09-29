@@ -56,7 +56,7 @@ cpdef EnergyLimit(PyBoltz Object):
 
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST5, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
+    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, Phi, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
@@ -154,11 +154,11 @@ cpdef EnergyLimit(PyBoltz Object):
             F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
             F3 = 1 - 2 * R3
-        THETA0 = acos(F3)
+        Theta = acos(F3)
         R4 = random_uniform(RandomSeed)
-        PHI0 = F4 * R4
-        F8 = sin(PHI0)
-        F9 = cos(PHI0)
+        Phi = F4 * R4
+        F8 = sin(Phi)
+        F9 = cos(Phi)
         ARG1 = 1 - S1 * EI / E
         ARG1 = max(ARG1, SMALL)
 
@@ -168,7 +168,7 @@ cpdef EnergyLimit(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.AngleFromZ = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(Theta))
 
         F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
@@ -207,7 +207,7 @@ cpdef EnergyLimitB(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
+    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, Phi, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EF100
     TEMP = <double *> malloc(4000 * sizeof(double))
 
@@ -231,10 +231,10 @@ cpdef EnergyLimitB(PyBoltz Object):
     for J in range(4000):
         TEMP[J] = Object.TotalCollisionFrequencyNullNT[J] + Object.TotalCollisionFrequencyNT[J]
 
-    VTOT = CONST9 * sqrt(E1)
-    CX1 = DirCosineX1 * VTOT
-    CY1 = DirCosineY1 * VTOT
-    CZ1 = DirCosineZ1 * VTOT
+    VelTotal = CONST9 * sqrt(E1)
+    VelXBefore = DirCosineX1 * VelTotal
+    VelYBefore = DirCosineY1 * VelTotal
+    VelZBefore = DirCosineZ1 * VelTotal
 
     F4 = 2 * acos(-1)
 
@@ -255,7 +255,7 @@ cpdef EnergyLimitB(PyBoltz Object):
             WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
-            DZ = (CZ1 * SINWT + (Object.EFieldOverBField - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
+            DZ = (VelZBefore * SINWT + (Object.EFieldOverBField - VelYBefore) * (1 - COSWT)) / Object.AngularSpeedOfRotation
             E = E1 + DZ * EF100
             IE = int(E / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
@@ -275,13 +275,13 @@ cpdef EnergyLimitB(PyBoltz Object):
             return 1
 
         TDASH = 0.0
-        CX2 = CX1
-        CY2 = (CY1 - Object.EFieldOverBField) * COSWT + CZ1 * SINWT + Object.EFieldOverBField
-        CZ2 = CZ1 * COSWT - (CY1 - Object.EFieldOverBField) * SINWT
-        VTOT = sqrt(CX2 ** 2 + CY2 ** 2 + CZ2 ** 2)
-        DirCosineX2 = CX2 / VTOT
-        DirCosineY2 = CY2 / VTOT
-        DirCosineZ2 = CZ2 / VTOT
+        VelXAfter = VelXBefore
+        VelYAfter = (VelYBefore - Object.EFieldOverBField) * COSWT + VelZBefore * SINWT + Object.EFieldOverBField
+        VelZAfter = VelZBefore * COSWT - (VelYBefore - Object.EFieldOverBField) * SINWT
+        VelTotal = sqrt(VelXAfter ** 2 + VelYAfter ** 2 + VelZAfter ** 2)
+        DirCosineX2 = VelXAfter / VelTotal
+        DirCosineY2 = VelYAfter / VelTotal
+        DirCosineZ2 = VelZAfter / VelTotal
 
         # DETERMINATION OF REAL COLLISION TYPE
         R2 = random_uniform(RandomSeed)
@@ -316,11 +316,11 @@ cpdef EnergyLimitB(PyBoltz Object):
             F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
         else:
             F3 = 1 - 2 * R3
-        THETA0 = acos(F3)
+        Theta = acos(F3)
         R4 = random_uniform(RandomSeed)
-        PHI0 = F4 * R4
-        F8 = sin(PHI0)
-        F9 = cos(PHI0)
+        Phi = F4 * R4
+        F8 = sin(Phi)
+        F9 = cos(Phi)
         ARG1 = 1 - S1 * EI / E
         ARG1 = max(ARG1, SMALL)
 
@@ -329,7 +329,7 @@ cpdef EnergyLimitB(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.AngleFromZ = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(Theta))
 
         F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
@@ -339,7 +339,7 @@ cpdef EnergyLimitB(PyBoltz Object):
             F6 = -1 * F6
         F5 = sin(Object.AngleFromZ)
         DirCosineZ2 = min(DirCosineZ2, 1)
-        VTOT = CONST9 * sqrt(E1)
+        VelTotal = CONST9 * sqrt(E1)
         ARGZ = sqrt(DirCosineX2 * DirCosineX2 + DirCosineY2 * DirCosineY2)
         if ARGZ == 0:
             DirCosineZ1 = F6
@@ -349,9 +349,9 @@ cpdef EnergyLimitB(PyBoltz Object):
             DirCosineZ1 = DirCosineZ2 * F6 + ARGZ * F5 * F8
             DirCosineY1 = DirCosineY2 * F6 + (F5 / ARGZ) * (DirCosineX2 * F9 - DirCosineY2 * DirCosineZ2 * F8)
             DirCosineX1 = DirCosineX2 * F6 - (F5 / ARGZ) * (DirCosineY2 * F9 + DirCosineX2 * DirCosineZ2 * F8)
-        CX1 = DirCosineX1 * VTOT
-        CY1 = DirCosineY1 * VTOT
-        CZ1 = DirCosineZ1 * VTOT
+        VelXBefore = DirCosineX1 * VelTotal
+        VelYBefore = DirCosineY1 * VelTotal
+        VelZBefore = DirCosineZ1 * VelTotal
 
     return 0
 
@@ -373,8 +373,8 @@ cpdef EnergyLimitBT(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, EF100,TLIM,CX2,CY2,CZ2
+    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, Phi, F8, F9, ARG1
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, EF100,TLIM,VelXAfter,VelYAfter,VelZAfter
 
  
 
@@ -398,10 +398,10 @@ cpdef EnergyLimitBT(PyBoltz Object):
     DirCosineX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
     DirCosineY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
-    VTOT = CONST9 * sqrt(E1)
-    CX1 = DirCosineX1 * VTOT
-    CY1 = DirCosineY1 * VTOT
-    CZ1 = DirCosineZ1 * VTOT
+    VelTotal = CONST9 * sqrt(E1)
+    VelXBefore = DirCosineX1 * VelTotal
+    VelYBefore = DirCosineY1 * VelTotal
+    VelZBefore = DirCosineZ1 * VelTotal
 
     F4 = 2 * acos(-1)
     J2M = Object.MaxNumberOfCollisions / ISAMP
@@ -417,12 +417,12 @@ cpdef EnergyLimitBT(PyBoltz Object):
             COSWT = cos(WBT)
             SINWT = sin(WBT)
 
-            DZ = (CZ1 * SINWT + (Object.EFieldOverBField - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
+            DZ = (VelZBefore * SINWT + (Object.EFieldOverBField - VelYBefore) * (1 - COSWT)) / Object.AngularSpeedOfRotation
             E = E1 + DZ * EF100
             #CALC ELECTRON VELOCITY IN LAB FRAME
-            CX2 = CX1
-            CY2 = (CY1 - Object.EFieldOverBField) * COSWT + CZ1 * SINWT + Object.EFieldOverBField
-            CZ2 = CZ1 * COSWT - (CY1 - Object.EFieldOverBField) * SINWT
+            VelXAfter = VelXBefore
+            VelYAfter = (VelYBefore - Object.EFieldOverBField) * COSWT + VelZBefore * SINWT + Object.EFieldOverBField
+            VelZAfter = VelZBefore * COSWT - (VelYBefore - Object.EFieldOverBField) * SINWT
             #FIND IDENTITY OF GAS FOR COLLISION
             GasIndex = 0
             R2 = random_uniform(RandomSeed)
@@ -440,7 +440,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             VGZ = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
 
             #CALCULATE ENERGY WITH STATIONARY GAS TARGET , EOK
-            EOK = (pow((CX2 - VGX), 2) + pow((CY2 - VGY), 2) + pow((CZ2 - VGZ), 2)) / CONST10
+            EOK = (pow((VelXAfter - VGX), 2) + pow((VelYAfter - VGY), 2) + pow((VelZAfter - VGZ), 2)) / CONST10
             IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
             #Test FOR REAL OR NULL COLLISION
@@ -455,9 +455,9 @@ cpdef EnergyLimitBT(PyBoltz Object):
         TDASH = 0.0
         #CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
         CONST11 = 1.0 / (CONST9 * sqrt(EOK))
-        DXCOM = (CX2 - VGX) * CONST11
-        DYCOM = (CY2 - VGY) * CONST11
-        DZCOM = (CZ2 - VGZ) * CONST11
+        DXCOM = (VelXAfter - VGX) * CONST11
+        DYCOM = (VelYAfter - VGY) * CONST11
+        DZCOM = (VelZAfter - VGZ) * CONST11
 
 
         #FIND LOCATION WITHIN 4 UNITS IN COLLISION ARRAY
@@ -492,11 +492,11 @@ cpdef EnergyLimitBT(PyBoltz Object):
         else:
             F3 = 1 - 2 * R3
 
-        THETA0 = acos(F3)
+        Theta = acos(F3)
         R4 = random_uniform(RandomSeed)
-        PHI0 = F4 * R4
-        F8 = sin(PHI0)
-        F9 = cos(PHI0)
+        Phi = F4 * R4
+        F8 = sin(Phi)
+        F9 = cos(Phi)
         ARG1 = 1 - S1 * EI / EOK
         ARG1 = max(ARG1, SMALL)
 
@@ -505,7 +505,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((EOK / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.AngleFromZ = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(Theta))
 
         F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
@@ -525,16 +525,16 @@ cpdef EnergyLimitBT(PyBoltz Object):
             DirCosineY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
             DirCosineX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
         # TRANSFORM VELOCITY VECTORS TO LAB FRAME
-        VTOT = CONST9 * sqrt(E1)
-        CX1 = DirCosineX1 * VTOT + VGX
-        CY1 = DirCosineY1 * VTOT + VGY
-        CZ1 = DirCosineZ1 * VTOT + VGZ
+        VelTotal = CONST9 * sqrt(E1)
+        VelXBefore = DirCosineX1 * VelTotal + VGX
+        VelYBefore = DirCosineY1 * VelTotal + VGY
+        VelZBefore = DirCosineZ1 * VelTotal + VGZ
         #  CALCULATE ENERGY AND DIRECTION COSINES IN LAB FRAME
-        E1 = (CX1 * CX1 + CY1 * CY1 + CZ1 * CZ1) / CONST10
+        E1 = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / CONST10
         CONST11 = 1.0 / (CONST9 * sqrt(E1))
-        DirCosineX1 = CX1 * CONST11
-        DirCosineY1 = CY1 * CONST11
-        DirCosineZ1 = CZ1 * CONST11
+        DirCosineX1 = VelXBefore * CONST11
+        DirCosineY1 = VelYBefore * CONST11
+        DirCosineZ1 = VelZBefore * CONST11
 
     return 0
 
@@ -556,7 +556,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
+    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, Phi, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB, TEMP[4000],DELTAE,EFX100,EFZ100,RTHETA,
     TEMP = <double *> malloc(4000 * sizeof(double))
     memset(TEMP, 0, 4000 * sizeof(double))
@@ -578,10 +578,10 @@ cpdef EnergyLimitC(PyBoltz Object):
     DirCosineZ1 = cos(Object.AngleFromZ)
     DirCosineX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
     DirCosineY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
-    VTOT = CONST9 * sqrt(E1)
-    CX1 = DirCosineX1 * VTOT
-    CY1 = DirCosineY1 * VTOT
-    CZ1 = DirCosineZ1 * VTOT
+    VelTotal = CONST9 * sqrt(E1)
+    VelXBefore = DirCosineX1 * VelTotal
+    VelYBefore = DirCosineY1 * VelTotal
+    VelZBefore = DirCosineZ1 * VelTotal
 
     F4 = 2 * acos(-1)
     DELTAE = Object.FinalElectronEnergy / float(INTEM)
@@ -601,8 +601,8 @@ cpdef EnergyLimitC(PyBoltz Object):
             WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
-            DZ = (CZ1 * SINWT + (EOVBR - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
-            DX = CX1 * T + F1 * T * T
+            DZ = (VelZBefore * SINWT + (EOVBR - VelYBefore) * (1 - COSWT)) / Object.AngularSpeedOfRotation
+            DX = VelXBefore * T + F1 * T * T
             E = E1 + DZ * EFZ100 + DX * EFX100
             IE = int(E / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
@@ -622,13 +622,13 @@ cpdef EnergyLimitC(PyBoltz Object):
             return 1
 
         TDASH = 0.0
-        CX2 = CX1 + 2 * F1 * T
-        CY2 = (CY1 - EOVBR) * COSWT + CZ1 * SINWT + EOVBR
-        CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
-        VTOT = sqrt(CX2 ** 2 + CY2 ** 2 + CZ2 ** 2)
-        DirCosineX2 = CX2 / VTOT
-        DirCosineY2 = CY2 / VTOT
-        DirCosineZ2 = CZ2 / VTOT
+        VelXAfter = VelXBefore + 2 * F1 * T
+        VelYAfter = (VelYBefore - EOVBR) * COSWT + VelZBefore * SINWT + EOVBR
+        VelZAfter = VelZBefore * COSWT - (VelYBefore - EOVBR) * SINWT
+        VelTotal = sqrt(VelXAfter ** 2 + VelYAfter ** 2 + VelZAfter ** 2)
+        DirCosineX2 = VelXAfter / VelTotal
+        DirCosineY2 = VelYAfter / VelTotal
+        DirCosineZ2 = VelZAfter / VelTotal
         R2 = random_uniform(RandomSeed)
         # DETERMINATION OF REAL COLLISION TYPE
 
@@ -662,11 +662,11 @@ cpdef EnergyLimitC(PyBoltz Object):
             F3 = 1 - (2 * R3 * (1 - EPSI)/ (1 + EPSI * (1 - 2 * R3)))
         else:
             F3 = 1 - 2 * R3
-        THETA0 = acos(F3)
+        Theta = acos(F3)
         R4 = random_uniform(RandomSeed)
-        PHI0 = F4 * R4
-        F8 = sin(PHI0)
-        F9 = cos(PHI0)
+        Phi = F4 * R4
+        F8 = sin(Phi)
+        F9 = cos(Phi)
         ARG1 = 1 - S1 * EI / E
         ARG1 = max(ARG1, SMALL)
 
@@ -675,7 +675,7 @@ cpdef EnergyLimitC(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((E / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.AngleFromZ = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(Theta))
 
         F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
@@ -685,7 +685,7 @@ cpdef EnergyLimitC(PyBoltz Object):
             F6 = -1 * F6
         F5 = sin(Object.AngleFromZ)
         DirCosineZ2 = min(DirCosineZ2, 1)
-        VTOT = CONST9 * sqrt(E1)
+        VelTotal = CONST9 * sqrt(E1)
         ARGZ = sqrt(DirCosineX2 * DirCosineX2 + DirCosineY2 * DirCosineY2)
         if ARGZ == 0:
             DirCosineZ1 = F6
@@ -695,9 +695,9 @@ cpdef EnergyLimitC(PyBoltz Object):
             DirCosineZ1 = DirCosineZ2 * F6 + ARGZ * F5 * F8
             DirCosineY1 = DirCosineY2 * F6 + (F5 / ARGZ) * (DirCosineX2 * F9 - DirCosineY2 * DirCosineZ2 * F8)
             DirCosineX1 = DirCosineX2 * F6 - (F5 / ARGZ) * (DirCosineY2 * F9 + DirCosineX2 * DirCosineZ2 * F8)
-        CX1 = DirCosineX1 * VTOT
-        CY1 = DirCosineY1 * VTOT
-        CZ1 = DirCosineZ1 * VTOT
+        VelXBefore = DirCosineX1 * VelTotal
+        VelYBefore = DirCosineY1 * VelTotal
+        VelZBefore = DirCosineZ1 * VelTotal
 
     return 0
 
@@ -718,8 +718,8 @@ cpdef EnergyLimitCT(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1, BP, F1, F2, F4, J2M, R5, Test1, R1, T, AP, E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1,
-    cdef double D, Q, U, CSQD, F6, F5, ARGZ,RTHETA, CONST12, VXLAB, VYLAB, EFX100,EFZ100,TLIM,CX2,CY2,CZ2,EOVBR
+    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, Phi, F8, F9, ARG1,
+    cdef double D, Q, U, CSQD, F6, F5, ARGZ,RTHETA, CONST12, VXLAB, VYLAB, EFX100,EFZ100,TLIM,VelXAfter,VelYAfter,VelZAfter,EOVBR
 
    
 
@@ -751,10 +751,10 @@ cpdef EnergyLimitCT(PyBoltz Object):
     DirCosineX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
     DirCosineY1 = sin(Object.AngleFromZ) * sin(Object.AngleFromX)
 
-    VTOT = CONST9 * sqrt(E1)
-    CX1 = DirCosineX1 * VTOT
-    CY1 = DirCosineY1 * VTOT
-    CZ1 = DirCosineZ1 * VTOT
+    VelTotal = CONST9 * sqrt(E1)
+    VelXBefore = DirCosineX1 * VelTotal
+    VelYBefore = DirCosineY1 * VelTotal
+    VelZBefore = DirCosineZ1 * VelTotal
 
     J2M = Object.MaxNumberOfCollisions / ISAMP
 
@@ -768,14 +768,14 @@ cpdef EnergyLimitCT(PyBoltz Object):
             WBT = Object.AngularSpeedOfRotation * T
             COSWT = cos(WBT)
             SINWT = sin(WBT)
-            DZ = (CZ1 * SINWT + (Object.EFieldOverBField - CY1) * (1 - COSWT)) / Object.AngularSpeedOfRotation
-            DX = CX1 *T+F1*T*T
+            DZ = (VelZBefore * SINWT + (Object.EFieldOverBField - VelYBefore) * (1 - COSWT)) / Object.AngularSpeedOfRotation
+            DX = VelXBefore *T+F1*T*T
 
             E = E1 + DZ * EFZ100+DX*EFX100
 
-            CX2 = CX1+2*F1*T
-            CY2 = (CY1 - EOVBR) * COSWT + CZ1 * SINWT + EOVBR
-            CZ2 = CZ1 * COSWT - (CY1 - EOVBR) * SINWT
+            VelXAfter = VelXBefore+2*F1*T
+            VelYAfter = (VelYBefore - EOVBR) * COSWT + VelZBefore * SINWT + EOVBR
+            VelZAfter = VelZBefore * COSWT - (VelYBefore - EOVBR) * SINWT
 
             #FIND IDENTITY OF GAS FOR COLLISION
             GasIndex = 0
@@ -793,7 +793,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             IMBPT = IMBPT + 1
             VGZ = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
 
-            EOK = ((CX2 - VGX) ** 2 + (CY2 - VGY) ** 2 + (CZ2 - VGZ) ** 2) / CONST10
+            EOK = ((VelXAfter - VGX) ** 2 + (VelYAfter - VGY) ** 2 + (VelZAfter - VGZ) ** 2) / CONST10
             IE = int(EOK / Object.ElectronEnergyStep)
             IE = min(IE, 3999)
 
@@ -808,9 +808,9 @@ cpdef EnergyLimitCT(PyBoltz Object):
         #CALCULATE DIRECTION COSINES OF ELECTRON IN 0 KELVIN FRAME
         TDASH = 0.0
         CONST11 = 1.0 / (CONST9 * sqrt(EOK))
-        DXCOM = (CX2 - VGX) * CONST11
-        DYCOM = (CY2 - VGY) * CONST11
-        DZCOM = (CZ2 - VGZ) * CONST11
+        DXCOM = (VelXAfter - VGX) * CONST11
+        DYCOM = (VelYAfter - VGY) * CONST11
+        DZCOM = (VelZAfter - VGZ) * CONST11
 
         # ---------------------------------------------------------------------
         #     DETERMINATION OF REAL COLLISION TYPE
@@ -849,11 +849,11 @@ cpdef EnergyLimitCT(PyBoltz Object):
                 F3 = 1 - (2 * R3 * (1 - EPSI) / (1 + EPSI * (1 - 2 * R3)))
             else:
                 F3 = 1 - 2 * R3
-        THETA0 = acos(F3)
+        Theta = acos(F3)
         R4 = random_uniform(RandomSeed)
-        PHI0 = F4 * R4
-        F8 = sin(PHI0)
-        F9 = cos(PHI0)
+        Phi = F4 * R4
+        F8 = sin(Phi)
+        F9 = cos(Phi)
         ARG1 = 1 - S1 * EI / EOK
         ARG1 = max(ARG1, SMALL)
 
@@ -862,7 +862,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((EOK / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.AngleFromZ = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(Theta))
 
         F6 = cos(Object.AngleFromZ)
         U = (S1 - 1) * (S1 - 1) / ARG1
@@ -882,16 +882,16 @@ cpdef EnergyLimitCT(PyBoltz Object):
             DirCosineY1 = DYCOM * F6 + (F5 / ARGZ) * (DXCOM * F9 - DYCOM * DZCOM * F8)
             DirCosineX1 = DXCOM * F6 - (F5 / ARGZ) * (DYCOM * F9 + DXCOM * DZCOM * F8)
         # TRANSFORM VELOCITY VECTORS TO LAB FRAME
-        VTOT = CONST9 * sqrt(E1)
-        CX1 = DirCosineX1 * VTOT + VGX
-        CY1 = DirCosineY1 * VTOT + VGY
-        CZ1 = DirCosineZ1 * VTOT + VGZ
+        VelTotal = CONST9 * sqrt(E1)
+        VelXBefore = DirCosineX1 * VelTotal + VGX
+        VelYBefore = DirCosineY1 * VelTotal + VGY
+        VelZBefore = DirCosineZ1 * VelTotal + VGZ
         #  CALCULATE ENERGY AND DIRECTION COSINES IN LAB FRAME
-        E1 = (CX1 * CX1 + CY1 * CY1 + CZ1 * CZ1) / CONST10
+        E1 = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / CONST10
         CONST11 = 1.0 / (CONST9 * sqrt(E1))
-        DirCosineX1 = CX1 * CONST11
-        DirCosineY1 = CY1 * CONST11
-        DirCosineZ1 = CZ1 * CONST11
+        DirCosineX1 = VelXBefore * CONST11
+        DirCosineY1 = VelYBefore * CONST11
+        DirCosineZ1 = VelZBefore * CONST11
 
     return 0
 
@@ -916,7 +916,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1,AP, BP, F1, F2, F4, J2M, R5, Test1, R1, T,  E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,
-    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, PHI0, F8, F9, ARG1
+    cdef double VGX, VGY, VGZ, VEX, VEY, VEZ, EOK, CONST11, DXCOM, DYCOM, DZCOM, S1, EI, R9, EXTRA, IPT, S2, R3, R31, F3, RAN, EPSI, R4, Phi, F8, F9, ARG1
     cdef double D, Q, U, CSQD, F6, F5, ARGZ, CONST12, VXLAB, VYLAB, VZLAB
 
 
@@ -1022,11 +1022,11 @@ cpdef EnergyLimitT(PyBoltz Object):
             # Isotropic scattering
             F3 = 1.0 - 2.0 * R3
 
-        THETA0 = acos(F3)
+        Theta = acos(F3)
         R4 = random_uniform(RandomSeed)
-        PHI0 = F4 * R4
-        F8 = sin(PHI0)
-        F9 = cos(PHI0)
+        Phi = F4 * R4
+        F8 = sin(Phi)
+        F9 = cos(Phi)
         ARG1 = 1 - S1 * EI / EOK
         ARG1 = max(ARG1, SMALL)
 
@@ -1035,7 +1035,7 @@ cpdef EnergyLimitT(PyBoltz Object):
         E1 = max(E1, SMALL)
         Q = sqrt((EOK / E1) * ARG1) / S1
         Q = min(Q, 1)
-        Object.AngleFromZ = asin(Q * sin(THETA0))
+        Object.AngleFromZ = asin(Q * sin(Theta))
 
         F6 = cos(Object.AngleFromZ)
         U = (S1 - 1.0) * (S1 - 1.0) / ARG1

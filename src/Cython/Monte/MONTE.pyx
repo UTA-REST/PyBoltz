@@ -416,16 +416,16 @@ cpdef run(PyBoltz Object):
             if ST2 != 0.0:
                 Object.DiffusionY = 5e15 * SumYY / ST2
                 Object.DiffusionX = 5e15 * SumXX / ST2
-                DiffXXPerSample[iSample] = 5.0e15 * (SumXX - SXX_LastSample) / (ST2 - ST2_LastSample)
-                DiffYYPerSample[iSample] = 5.0e15 * (SumYY - SYY_LastSample) / (ST2 - ST2_LastSample)
-                print(SumXX, SumYY,  SXX_LastSample, SYY_LastSample, ST2, ST2_LastSample)
+                DiffXXPerSample[iSample] = 5.0e15 * (SumXX - SumXX_LastSample) / (ST2 - ST2_LastSample)
+                DiffYYPerSample[iSample] = 5.0e15 * (SumYY - SumYY_LastSample) / (ST2 - ST2_LastSample)
+                print(SumXX, SumYY,  SumXX_LastSample, SumYY_LastSample, ST2, ST2_LastSample)
             else:
                 DiffXXPerSample[iSample] = 0.0
                 DiffYYPerSample[iSample] = 0.0
 
         if ST1 != 0.0:
             Object.DiffusionZ = 5.0e15 * SumZZ / ST1
-            DiffZZPerSample[iSample] = 5.0e15 * (SumZZ - SZZ_LastSample) / (ST1 - ST1_LastSample)
+            DiffZZPerSample[iSample] = 5.0e15 * (SumZZ - SumZZ_LastSample) / (ST1 - ST1_LastSample)
         else:
             DiffZZPerSample[iSample] = 0.0
         DriftVelPerSample[iSample] = (Object.Z - Z_LastSample) / (Object.TimeSum - ST_LastSample) * 1.0e9
@@ -436,9 +436,9 @@ cpdef run(PyBoltz Object):
         ST2_LastSample = ST2
         SVX_LastSample = SumVX
         SVY_LastSample = SumVY
-        SZZ_LastSample = SumZZ
-        SYY_LastSample = SumYY
-        SXX_LastSample = SumXX
+        SumZZ_LastSample = SumZZ
+        SumYY_LastSample = SumYY
+        SumXX_LastSample = SumXX
         SME2_LastSample = SumE2
         if Object.ConsoleOutputFlag:
             print('{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(Object.VelocityZ, Object.Z, Object.TimeSum,

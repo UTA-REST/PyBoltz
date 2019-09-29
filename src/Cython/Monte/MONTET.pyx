@@ -54,7 +54,7 @@ cpdef run(PyBoltz Object):
     Object.Z = 0.0
     Object.TimeSum = 0.0
     cdef long long I, NumDecorLengths, NumCollisions, IEXTRA, MaxBoltzNumsUsed, K, J, CollisionsPerSample, iSample, iCollision, GasIndex, iEnergyBin, iTimeBin, CollsBackToLook, IPT, iCorr, DecorDistance
-    cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumVX, SumVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SZZ_LastSample, SXX_LastSample, SYY_LastSample, SVX_LastSample, SVY_LastSample, SME2_LastSample, TDash,TDiff
+    cdef double ST1, RandomSeed, ST2, SumE2, SumXX, SumYY, SumZZ, SumVX, SumVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SVX_LastSample, SVY_LastSample, SME2_LastSample, TDash,TDiff
     cdef double AbsFakeIoniz, DirCosineZ1, DirCosineX1, DirCosineY1,  BP, F1, F2, TwoPi, DZCOM, DYCOM, DXCOM, Theta, VelXBefore, VelYBefore, BelZBefore, SinWT, CosWT, WBT
     cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VelXAfter, VelYAfter, VelZAfter, VelAfter, COMEnergy, Test1, Test2, Test3, VelocityInCOM, VelBeforeM1
     cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EpsilonOkhr,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle, VXLab, VYLab, VZLab
@@ -73,9 +73,9 @@ cpdef run(PyBoltz Object):
     ST_LastSample = 0.0
     ST1_LastSample = 0.0
     ST2_LastSample = 0.0
-    SZZ_LastSample = 0.0
-    SXX_LastSample = 0.0
-    SYY_LastSample = 0.0
+    SumZZ_LastSample = 0.0
+    SumXX_LastSample = 0.0
+    SumYY_LastSample = 0.0
     SVX_LastSample = 0.0
     SVY_LastSample = 0.0
     SME2_LastSample = 0.0
@@ -516,8 +516,8 @@ cpdef run(PyBoltz Object):
             if ST2 != 0.0:
                 Object.DiffusionY = 5.0e15 * SumYY / ST2
                 Object.DiffusionX = 5.0e15 * SumXX / ST2
-                DiffXXPerSample[iSample] = 5.0e15 * (SumXX - SXX_LastSample) / (ST2 - ST2_LastSample)
-                DiffYYPerSample[iSample] = 5.0e15 * (SumYY - SYY_LastSample) / (ST2 - ST2_LastSample)
+                DiffXXPerSample[iSample] = 5.0e15 * (SumXX - SumXX_LastSample) / (ST2 - ST2_LastSample)
+                DiffYYPerSample[iSample] = 5.0e15 * (SumYY - SumYY_LastSample) / (ST2 - ST2_LastSample)
 
             else:
                 DiffXXPerSample[iSample] = 0.0
@@ -525,7 +525,7 @@ cpdef run(PyBoltz Object):
 
         if ST1 != 0.0:
             Object.DiffusionZ = 5.0e15 * SumZZ / ST1
-            DiffZZPerSample[iSample] = 5.0e15 * (SumZZ - SZZ_LastSample) / (ST1 - ST1_LastSample)
+            DiffZZPerSample[iSample] = 5.0e15 * (SumZZ - SumZZ_LastSample) / (ST1 - ST1_LastSample)
         else:
             DiffZZPerSample[iSample] = 0.0
         DriftVelPerSample[iSample] = (Object.Z - Z_LastSample) / (Object.TimeSum - ST_LastSample) * 1.0e9
@@ -536,9 +536,9 @@ cpdef run(PyBoltz Object):
         ST2_LastSample = ST2
         SVX_LastSample = SumVX
         SVY_LastSample = SumVY
-        SZZ_LastSample = SumZZ
-        SYY_LastSample = SumYY
-        SXX_LastSample = SumXX
+        SumZZ_LastSample = SumZZ
+        SumYY_LastSample = SumYY
+        SumXX_LastSample = SumXX
         SME2_LastSample = SumE2
         if Object.ConsoleOutputFlag:
             print(

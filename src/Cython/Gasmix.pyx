@@ -62,7 +62,7 @@ cdef void callGASF(Gas* GAS,Params):
 
 cdef class Gasmix:
     def InitWithInfo(self, GasNumber, InelasticCrossSectionPerGas, N_Inelastic, PenningFraction, EG, SqrtEnergy, NumberOfGases, EnergySteps,
-                     WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy,  TemperatureC, Pressure, PIR2):
+                     WhichAngularModel, EnergyStep, FinalEnergy, ThermalEnergy,  TemperatureC, Pressure, PIR2,RhydbergConst):
         '''This functions simply initiates the gas data from the parameters. This functions fills the output arrays to zeros.'''
         cdef int i,j;
         for i in range(6):
@@ -83,6 +83,7 @@ cdef class Gasmix:
             self.Gases[i].TemperatureC = TemperatureC
             self.Gases[i].Pressure = Pressure
             self.Gases[i].PIR2 = PIR2
+            self.Gases[i].RhydbergConst = RhydbergConst
             memset(self.Gases[i].Q, 0, 6*4000 * sizeof(double))
             memset(self.Gases[i].IonizationCrossSection, 0, 30*4000 * sizeof(double))
             memset(self.Gases[i].PEIonizationCrossSection, 0, 30*4000 * sizeof(double))

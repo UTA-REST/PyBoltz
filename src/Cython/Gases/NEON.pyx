@@ -221,7 +221,7 @@ cdef void Gas5(Gas* object):
             ElasticCrossSectionA = 0.161e-16
             QMOM = 0.161e-16
         elif EN <= 1:
-            AK = sqrt(EN / object.ARY)
+            AK = sqrt(EN / object.RhydbergConst)
             AK2 = AK * AK
             AK3 = AK2 * AK
             AK4 = AK3 * AK

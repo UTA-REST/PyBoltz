@@ -40,7 +40,7 @@ t1 =time.time()
 # Set the number of gases
 Object.NumberOfGases =2
 # Set the number of collisons 
-Object.MaxNumberOfCollisions =1*40000000.0
+Object.MaxNumberOfCollisions =10*40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
@@ -56,7 +56,7 @@ Object.TemperatureCentigrade = float(23)
 # Set the pressuref
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField =120
+Object.EField =80
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0

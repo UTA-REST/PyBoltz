@@ -78,7 +78,7 @@ cpdef run(PyBoltz Object):
     SVX_LastSample = 0.0
     SVY_LastSample = 0.0
     SME2_LastSample = 0.0
-        
+
 
     # These arrays store X,Y,Z,T about every real collision
 
@@ -133,6 +133,7 @@ cpdef run(PyBoltz Object):
     for K in range(6):
         for J in range(4000):
             TotalCollFreqIncludingNull[K][J] = Object.TotalCollisionFrequency[K][J] + Object.TotalCollisionFrequencyNull[K][J]
+
 
     AbsFakeIoniz = 0.0
     Object.FakeIonizations = 0
@@ -319,12 +320,22 @@ cpdef run(PyBoltz Object):
                 Object.X = Object.X + DirCosineX1 * A
                 Object.Y = Object.Y + DirCosineY1 * A
                 Object.Z = Object.Z + DirCosineZ1 * A + T2 * F1
+                # Keep running total of Sum(V^2 T^2).
+                VelX = DirCosineX1 * VelocityBefore
+                VelY = DirCosineY1 * VelocityBefore
+
+                SumVX = SumVX + VelX * VelX * T2
+                SumVY = SumVY + VelY * VelY * T2
 
             elif(Object.BFieldMode==2):
                 # B Feild parallel to E (cyclotron motion)
-                Object.X += (VelXBefore * SinWT - VelYBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
-                Object.Y += (VelYBefore * SinWT + VelXBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
+                DX = (VelXBefore * SinWT - VelYBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
+                Object.X += DX
+                DY = (VelYBefore * SinWT + VelXBefore * (1 - CosWT)) / Object.AngularSpeedOfRotation
+                Object.Y += DY
                 Object.Z += DirCosineZ1 * A + T2 * F1
+                SumVX += DX**2
+                SumVY += DY**2
             Object.TimeSum = Object.TimeSum + T
 
 
@@ -341,9 +352,7 @@ cpdef run(PyBoltz Object):
             # Record instantaneous integrated drift velocity
             Object.VelocityZ = Object.Z / Object.TimeSum
 
-            # Keep running total of Sum(V^2 T^2). 
-            SumVX = SumVX + VelXBefore * VelXBefore * T2
-            SumVY = SumVY + VelYBefore * VelYBefore * T2
+
 
             # Decor_Colls specifies how far we must have drifted within this Sample
             #   before we start measuring the ensemble.  We only do anything if

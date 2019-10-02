@@ -1,2 +1,2 @@
 # File structure
-The main PyBoltz code is all stored in the Cython directory. The Examples directory has multiple example of PyBoltz usage examples.
+The main PyBoltz code is stored in the Cython directory. Nonetheless, the Examples directory has multiple example of PyBoltz usage examples.

@@ -1,5 +1,5 @@
 # PyBoltz
-This software package is a translation of the Fortran based Magboltz into Cython. This project was built to allow for more productive work to be done with magboltz.
+This software package is a translation of the Fortran based Magboltz code (Biagi, 2001) into Cython. This project was built to allow for more productive work to be done with magboltz.
 
 ## General information.
 

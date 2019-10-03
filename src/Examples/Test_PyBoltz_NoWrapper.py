@@ -40,12 +40,12 @@ t1 =time.time()
 # Set the number of gases
 Object.NumberOfGases =2
 # Set the number of collisons 
-Object.MaxNumberOfCollisions =10*40000000.0
+Object.MaxNumberOfCollisions =1*40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 0.0
+Object.FinalElectronEnergy = 1.4
 # Set the gas's with there given number
 Object.GasIDs=[2, 8, 0, 0, 0, 0]
 
@@ -88,13 +88,6 @@ print("Drift velocity error [%]             = ", round(Object.VelocityErrorZ,3))
 print("----------------------------------------------------")
 print("Transverse diffusion [cm**2/s]       = ", round(Object.TransverseDiffusion,3))
 print("----------------------------------------------------")
-print("DIFXX [cm**2/s]       = ", round(Object.DiffusionX,3))
-print("DIFYY [cm**2/s]       = ", round(Object.DiffusionY,3))
-print("DIFZZ [cm**2/s]       = ", round(Object.DiffusionZ,3))
-print("DIFYZ [cm**2/s]       = ", round(Object.DiffusionYZ,3))
-print("DIFXY [cm**2/s]       = ", round(Object.DiffusionXY,3))
-print("DIFXZ [cm**2/s]       = ", round(Object.DiffusionXZ,3))
-print("----------------------------------------------------")
 print("Transverse diffusion error [%]       = ", round(Object.TransverseDiffusionError,3))
 print("----------------------------------------------------")
 print("Longitudinal diffusion [cm**2/s]     = ", round(Object.LongitudinalDiffusion,3))
@@ -109,10 +102,36 @@ print("Longitudinal diffusion [mum/cm**0.5] = ", round(Object.LongitudinalDiffus
 print("----------------------------------------------------")
 print("Longitudinal diffusion error [%]     = ", round(Object.LongitudinalDiffusion1Error,3))
 print("----------------------------------------------------")
+print("Diffusion X [cm**2/s]       = ", round(Object.DiffusionX,3))
+print("----------------------------------------------------")
+print("Diffusion X error [%]     = ", round(Object.ErrorDiffusionX,3))
+print("----------------------------------------------------")
+print("Diffusion Y [cm**2/s]       = ", round(Object.DiffusionY,3))
+print("----------------------------------------------------")
+print("Diffusion Y error [%]     = ", round(Object.ErrorDiffusionY,3))
+print("----------------------------------------------------")
+print("Diffusion Z [cm**2/s]       = ", round(Object.DiffusionZ,3))
+print("----------------------------------------------------")
+print("Diffusion Z error [%]     = ", round(Object.ErrorDiffusionZ,3))
+print("----------------------------------------------------")
+print("Diffusion YZ [cm**2/s]       = ", round(Object.DiffusionYZ,3))
+print("----------------------------------------------------")
+print("Diffusion YZ error [%]     = ", round(Object.ErrorDiffusionYZ,3))
+print("----------------------------------------------------")
+print("Diffusion XY [cm**2/s]       = ", round(Object.DiffusionXY,3))
+print("----------------------------------------------------")
+print("Diffusion XY error [%]     = ", round(Object.ErrorDiffusionXY,3))
+print("----------------------------------------------------")
+print("Diffusion XZ [cm**2/s]       = ", round(Object.DiffusionXZ,3))
+print("----------------------------------------------------")
+print("Diffusion XZ error [%]     = ", round(Object.ErrorDiffusionXZ,3))
+print("----------------------------------------------------")
 print("Mean electron energy [eV]            = ", round(Object.MeanElectronEnergy,3))
 print("----------------------------------------------------")
 print("Mean electron energy error [%]       = ", round(Object.MeanElectronEnergyError,3))
 print("----------------------------------------------------")
+print("Mean Collision Time [PicoSeconds]            = ", round(Object.MeanCollisionTime,3))
+print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")
-print(Object.MeanCollisionTime)
+

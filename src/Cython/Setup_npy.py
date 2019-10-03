@@ -1,7 +1,7 @@
 from typing import List, Any, Union
 
 import numpy as np
-
+'''Script used to set up the cross section for each gas in PyBoltz.'''
 gd = {'data': 'file'}
 
 # setting up the data for the first gas (CF4)

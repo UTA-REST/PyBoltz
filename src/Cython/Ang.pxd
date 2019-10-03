@@ -1,4 +1,9 @@
 
 cdef class Ang:
     cdef public:
-        double AngCut,ScatteringParameter1,ScatteringParameter2
+        double AngCut
+        '''Result is stored here.'''
+        double ScatteringParameter1
+        '''Input parameter.'''
+        double ScatteringParameter2
+        '''Input parameter.'''

@@ -4,8 +4,6 @@ import cython
 cimport numpy as np
 import  numpy as np
 
-
-# TODO: figure out PyBoltz.LAST
 cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
     """
     This function selects collision type from collision array by binary step sampling reduces sampling range to within 4 

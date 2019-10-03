@@ -10,6 +10,7 @@ cdef class Ang:
         self.ScatteringParameter2=0.0
 
     def CalcAngCut(self):
+        '''Function used to calculate the Angle cuts on the angular distribution.'''
         self.AngCut=1
         self.ScatteringParameter2=self.ScatteringParameter1
         if self.ScatteringParameter1 <=1:

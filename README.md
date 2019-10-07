@@ -45,12 +45,12 @@ To run the code, you will need to import PyBoltz and instantiate an instance of 
 * **PyBoltz.BFieldMag** - The magnitude of the magentic field \[KiloGauss\].
 * **PyBoltz.BFieldAngle** - The angle between the magentic field and the electric field. 
 * **PyBoltz.WhichAngularModel** - This variable is used to fix the angular distrubtions to one of the following types. 
-  - Okhrimvoskky Type - Magboltz.NANISO = 2 (default value).
-  - Capitelli Longo Type - Magboltz.NANISO = 1.
-  - Isotropic Scattering - Magboltz.NANISO = 0.
+  - Okhrimvoskky Type - PyBoltz.WhichAngularModel = 2 (default value).
+  - Capitelli Longo Type - PyBoltz.WhichAngularModel = 1.
+  - Isotropic Scattering - PyBoltz.WhichAngularModel = 0.
 * **PyBoltz.ConsoleOutputFlag** - This variable is used to tell PyBoltz to print to the console.
-  - Print to the console - Magboltz.OF = 1.
-  - Avoid printing to the console - Magboltz.OF = 0.
+  - Print to the console - PyBoltz.ConsoleOutputFlag = 1.
+  - Avoid printing to the console - PyBoltz.ConsoleOutputFlag = 0.
   
 #### Output parameters.
 Please note that the following are only the main output parameters. One can still get any value from the parameters within the Magboltz class.

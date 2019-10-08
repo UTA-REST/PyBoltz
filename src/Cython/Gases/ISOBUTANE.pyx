@@ -401,16 +401,9 @@ cdef void Gas11(Gas*object):
         for J in range(9):
             object.Q[0][I]+=object.InelasticCrossSectionPerGas[J][I]
 
-    for J in range(6):
-        print(object.E[J])
-    print("HERE")
-    for J in range(object.N_Ionization):
-        print(object.IonizationCrossSection[J][3999])
-    print(object.FinalEnergy)
+
     for J in range(13,object.N_Inelastic):
         if object.FinalEnergy <= object.EnergyLevels[J]:
             object.N_Inelastic = J
             break
-    print(object.N_Inelastic)
-    sys.exit()
     return

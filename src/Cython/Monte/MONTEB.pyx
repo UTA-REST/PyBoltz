@@ -14,7 +14,8 @@ cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
 
-
+# The functionality of MONTEB mirrors MONTE.  The latter is more extensively documented in the code
+#  and we refer developers there for more information.
 
 @cython.cdivision(True)
 @cython.boundscheck(False)

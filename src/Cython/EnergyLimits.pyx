@@ -9,6 +9,9 @@ cimport numpy as np
 
 from MBSorts cimport MBSort, MBSortT
 
+# The implementation of the EnergyCuts functions mirrors the MONTEC functions.
+# The later are more extensively commented and we guide developers there for
+# more information.
 
 @cython.cdivision(True)
 @cython.boundscheck(False)

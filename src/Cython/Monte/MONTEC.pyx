@@ -8,6 +8,9 @@ cimport numpy as np
 from libc.stdlib cimport malloc, free
 import cython
 
+# The functionality of MONTEC mirrors MONTE.  The latter is more extensively documented in the code
+#  and we refer developers there for more information.
+
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)

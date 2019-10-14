@@ -15,12 +15,11 @@ cdef class Ang:
         self.ScatteringParameter2=self.ScatteringParameter1
         if self.ScatteringParameter1 <=1:
             return self.AngCut
-        cdef double API,RADS,CNS,THETAC,FAC
-        API = math.acos(-1)
-        RADS = 2/API
+        cdef double Pi,CNS,ThetaC,FAC
+        Pi = math.acos(-1)
         CNS = self.ScatteringParameter1-0.5
-        THETAC = math.asin(2*math.sqrt(CNS-CNS**2))
-        FAC =(1-math.cos(THETAC)/(math.sin(THETAC)**2))
+        ThetaC = math.asin(2*math.sqrt(CNS-CNS**2))
+        FAC =(1-math.cos(ThetaC)/(math.sin(ThetaC)**2))
         self.ScatteringParameter2 = (CNS*FAC)+0.5
-        self.AngCut = THETAC*RADS
+        self.AngCut = ThetaC*2./Pi
 

@@ -19,6 +19,8 @@ from Gases.DME cimport Gas25
 from Gases.XENONMERT cimport Gas61
 from libc.string cimport memset
 from Gas cimport Gas
+import numpy as np
+cimport numpy as np
 
 cdef void callGASF(Gas*GAS, Params):
     if GAS.GasNumber == 1:

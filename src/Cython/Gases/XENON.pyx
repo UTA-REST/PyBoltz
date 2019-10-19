@@ -187,7 +187,7 @@ cdef void Gas7(Gas*object):
     cdef int NDATA, NEL, NEPSI, N_IonizationG, N_Ionization2, N_Ionization3, N_Ionization4, N_Ionization5, N_Ionization6, N_IonizationK, N_IonizationL1, N_IonizationL2, N_IonizationL3, N_IonizationM1, N_IonizationM2, N_IonizationM3, N_IonizationM4
     cdef int N_IonizationM5, N1S5, N1S4, N1S3, N1S2, N2P10, N2P9, N2P8, N2P7, N2P6, N3D6, N2P5, N3D4P, N3D3, N3D4, N3D1PP, N3D1P, N2S5, N3PSum, N2P4
     cdef int N4DSum, N2P3, N2P2, N2P1
-    NDATA = 182
+    NDATA = int(len(XEN))
     NEL = 153
     NEPSI = 182
     N_IonizationG = 76

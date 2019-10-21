@@ -46,9 +46,9 @@ Object.MaxNumberOfCollisions =40000000.0
 Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=0
-Object.FinalElectronEnergy = 20000.0
+Object.FinalElectronEnergy = 200.0
 # Set the gas's with there given number
-Object.GasIDs=[61, 0, 0, 0, 0, 0]
+Object.GasIDs=[107, 0, 0, 0, 0, 0]
 
 # Set the gas fractions
 Object.GasFractions=[100, 0, 0, 0, 0, 0]

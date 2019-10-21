@@ -60,8 +60,6 @@ cdef void callGASF(Gas*GAS, Params):
         Gas25(GAS)
     elif GAS.GasNumber == 61:
         Gas61(GAS, Params['A'], Params['D'], Params['F'], Params['A1'], Params['Lambda'], Params['EV0'])
-    elif GAS.GasNumber == 107:
-        Gas107(GAS)
 
 cdef class Gasmix:
     """

@@ -17,6 +17,7 @@ from Gases.HYDROGEN cimport Gas21
 from Gases.DEUTERIUM cimport Gas22
 from Gases.DME cimport Gas25
 from Gases.XENONMERT cimport Gas61
+from Gases.XENON_PAC cimport Gas107
 from libc.string cimport memset
 from Gas cimport Gas
 import numpy as np
@@ -61,7 +62,8 @@ cdef void callGASF(Gas*GAS, Params):
         Gas25(GAS)
     elif GAS.GasNumber == 61:
         Gas61(GAS, Params['A'], Params['D'], Params['F'], Params['A1'], Params['Lambda'], Params['EV0'])
-
+    elif GAS.GasNumber == 107:
+        Gas107(GAS)
 cdef class Gasmix:
     """
     The Gasmix object is used to coordinate the calling of different gas functions. It contains an array of six Gas object structs.

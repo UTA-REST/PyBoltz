@@ -1,14 +1,11 @@
 import sys
 import warnings
-from pathlib import Path
 import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 print(sys.path)
 from PyBoltz import PyBoltz
 import numpy as np
-# Setup gases
-exec(Path("../Cython/Setup_npy.py").read_text())
 
 CF4 = 1
 He4 = 3
@@ -37,38 +34,56 @@ Object = PyBoltz()
 import time
 t1 =time.time()
 
+Args = sys.argv
+
+efield     = int(Args[1])
+OUT        = str(Args[2])
+GAS       = int(Args[3])
+
+
+
 # Set the number of gases
-Object.NumberOfGases =2
+Object.NumberOfGases =1
 # Set the number of collisons 
-Object.MaxNumberOfCollisions =1*40000000.0
+Object.MaxNumberOfCollisions =15*40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 1.4
+Object.FinalElectronEnergy = 0.0
 # Set the gas's with there given number
-Object.GasIDs=[2, 8, 0, 0, 0, 0]
+Object.GasIDs=[GAS,0,0,0,0,0]
 
 # Set the gas fractions
-Object.GasFractions=[90, 10, 0, 0, 0, 0]
+Object.GasFractions=[100,0,0,0,0,0]
 # Set the tempature
 Object.TemperatureCentigrade = float(23)
-# Set the pressuref
+# Set the pressure
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField =80
+Object.EField = efield
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0
 Object.ConsoleOutputFlag = 1
-
 Object.WhichAngularModel = 2
 
-#Object.Swarm = 0
+Object.Swarm = 1
 
 Object.Start()
 
-#print(Object.SwarmX)
+INFO = [
+Object.SwarmX,
+Object.SwarmY,
+Object.SwarmZ,
+Object.SwarmT,
+Object.SwarmE]
+
+
+INFO = np.array(INFO)
+np.save(OUT,INFO)
+
+
 t2 =time.time()
 
 print("************************************************")

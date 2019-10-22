@@ -139,6 +139,3 @@ extern void RM48IN(int IJKLIN1, int NTOTIN1, int NTOT2N1){
     NTOT = -1;
     RM48(NVEC);
 }
-int main(){
-return 0;
-}

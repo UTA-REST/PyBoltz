@@ -12,7 +12,6 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.fast_getattr(True)
-
 cdef void Gas1(Gas* object):
     """
     This function is used to calculate the needed momentum cross sections for CF4 gas.

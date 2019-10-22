@@ -1,24 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<iostream>
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <cooperative_groups.h>
 #include<curand_kernel.h>
+#include "MonteGpu.hh"
+#define min(a,b) a<b?a:b
+#define max(a,b) a>b?a:b
 
-#ifndef max
-#define max(a,b) (((a) > (b)) ? (a) : (b))
- #endif
- #ifndef min
-  #define min(a,b) (((a) < (b)) ? (a) : (b))
-  #endif
-
-#define maxx(x, y) (((x) > (y)) ? (x) : (y))
-#define minn(x, y) (((x) < (y)) ? (x) : (y))
-int main()
-{
-    return 0;
-}
 // cudamalloc functions
+
 double * SetupAndCopyDouble(double * data,int s){
   double * pointer;
   cudaMalloc((void **)&pointer,s*sizeof(double));
@@ -37,6 +29,7 @@ double * SetupArrayOneVal(double val,int s){
   free(temp);
   return pointer;
 }
+
 double * LinearizeAndCopy(double** arr,int h,int w){
 
   double * pointer;
@@ -55,164 +48,7 @@ double * LinearizeAndCopy(double** arr,int h,int w){
   free(temp);
   return pointer;
 }
-struct RM48Gen {
-  double RVEC[1001],U[98];
-  int IVEC = 0;
-  int NVEC = 1000;
-  int  I97, J97;
-  double C;
-  int IJKLIN = 54217137,KALLED;
-  double NTOT2N = 0,NTOTIN =0 ,NTOT=-1, NTOT2=0;
-};
 
-// RM48 functions
-__device__ double dmod(double x, double y) {
-    return x - (int)(x/y) * y;
-}
-
-
-
-void SetupRM48Gens(struct RM48Gen* gen,int s,long long * seeds){
-    for(int i=0;i<s;++i){
-      gen[i].IJKLIN = seeds[i];
-      gen[i].NTOTIN = 0;
-      gen[i].NTOT2N = 0;
-      gen[i].KALLED = 1;
-      gen[i].NTOT = -1;
-      gen[i].NVEC = 1000;
-      gen[i].IVEC = 0;
-    }
-}
-
-
-__device__ double MOD(double A,double B){
-  return dmod(A,B);
-}
-
-
-__device__ void RM48(struct RM48Gen *RM48gen,double LENV){
-  long MODCNS = 1000000000;
-  double T,S,HALF,UNI;
-  long long NTOT2N,I,J,K,L,M,NOW,IJ,KL;
-  static double CD, CM, TWOM24,TWOM49 ,ONE, ZERO;
-  static long long IJKL=0;
-  int II,JJ,I24,LOOP2,IDUM;
-
-
-  if(RM48gen->NTOT>=0) goto L50;
-  IJKL = RM48gen->IJKLIN;
-  RM48gen->NTOT = RM48gen->NTOTIN;
-  RM48gen->NTOT2 = RM48gen->NTOT2N;
-
-  IJ = IJKL/30082;
-  KL = IJKL - 30082*IJ;
-  I = MOD(IJ/177, 177) + 2;
-  J = MOD(IJ, 177)     + 2;
-  K = MOD(KL/169, 178) + 1;
-  L = MOD(KL, 169);
-  ONE = 1.;
-  HALF = 0.5;
-  ZERO = 0.;
-  for( II= 1;II<= 97;++II){
-  S = 0.;
-  T = HALF;
-  for(JJ= 1;JJ<= 48;++JJ){
-    M = MOD(MOD(I*J,179)*K, 179);
-    I = J;
-    J = K;
-    K = M;
-    L = MOD(53*L+1, 169);
-     if (MOD(L*M,64) >= 32)  S = S+T;
-     T = HALF*T;
-   }
- RM48gen->U[II] = S;
-}
-TWOM49 = T;
-TWOM24 = ONE;
-for(I24= 1;I24<= 24;++I24){
- TWOM24 = HALF*TWOM24;
-}
-RM48gen->C  =   362436.*TWOM24;
-CD =  7654321.*TWOM24;
-CM = 16777213.*TWOM24;
-RM48gen->I97 = 97;
-RM48gen->J97 = 33;
-
-for(LOOP2 = 1;LOOP2<=RM48gen->NTOT2+1;++LOOP2){
-  NOW = MODCNS;
-  if (LOOP2 == RM48gen->NTOT2+1)  NOW=RM48gen->NTOT;
-  if (NOW > 0)  {
-      for(IDUM = 1;IDUM<= RM48gen->NTOT;++IDUM){
-      UNI = RM48gen->U[RM48gen->I97]-RM48gen->U[RM48gen->J97];
-      if (UNI < ZERO)  UNI=UNI+ONE;
-      RM48gen->U[RM48gen->I97] = UNI;
-      RM48gen->I97 = RM48gen->I97-1;
-      if (RM48gen->I97== 0)  RM48gen->I97=97;
-      RM48gen->J97 = RM48gen->J97-1;
-      if (RM48gen->J97 == 0)  RM48gen->J97=97;
-     RM48gen->C =RM48gen->C - CD;
-      if (RM48gen->C < ZERO) RM48gen->C=RM48gen->C+CM;
-      }
-  }
-}
-
-  if (RM48gen->KALLED == 1) {
-    RM48gen->KALLED = 0;
-  return;
-
-  }
-  L50:
-  for( RM48gen->IVEC= 1;RM48gen->IVEC<=LENV;RM48gen->IVEC+=1){
-  UNI = RM48gen->U[RM48gen->I97]-RM48gen->U[RM48gen->J97];
-  if (UNI < ZERO)  UNI=UNI+ONE;
-  RM48gen->U[RM48gen->I97] = UNI;
-  RM48gen->I97 = RM48gen->I97-1;
-  if (RM48gen->I97 == 0)  RM48gen->I97=97;
-  RM48gen->J97 = RM48gen->J97-1;
-  if (RM48gen->J97== 0)  RM48gen->J97=97;
- RM48gen->C =RM48gen->C - CD;
-  if (RM48gen->C < ZERO) RM48gen->C=RM48gen->C+CM;
-  UNI = UNI-RM48gen->C;
-  if (UNI < ZERO) UNI=UNI+ONE;
-  RM48gen->RVEC[RM48gen->IVEC] = UNI;
-//             Replace exact zeros by 2**-49
-     if (UNI == ZERO){
-        RM48gen->RVEC[RM48gen->IVEC] = TWOM49;
-     }
-  }
-  RM48gen->NTOT = RM48gen->NTOT + LENV;
-     if (RM48gen->NTOT >= MODCNS) {
-     RM48gen->NTOT2 = RM48gen->NTOT2 + 1;
-     RM48gen->NTOT = RM48gen->NTOT - MODCNS;
-   }
-
-   return;
-}
-__device__ double DRAND48(struct RM48Gen *RM48gen,double dummy){
-  if (RM48gen->IVEC ==0 || RM48gen->IVEC>=RM48gen->NVEC){
-    RM48(RM48gen,RM48gen->NVEC);
-    RM48gen->IVEC = 1;
-  }else{
-    RM48gen->IVEC+=1;
-  }
-  return RM48gen->RVEC[RM48gen->IVEC];
-}
-
-
-__device__ void SetupRM48GensCuda(struct RM48Gen * gen,int i){
-  /*gen[i].RVEC =(double*) malloc(1001*sizeof(double));
-  gen[i].U =(double*) malloc(98*sizeof(double));
-*/
-
-  RM48(&(gen[i]),gen[i].NVEC);
-  __syncthreads();
-}
-
-/*__global__ void FreeRM48GensCuda(struct RM48Gen * gen){
-  int i = threadIdx.x+blockDim.x*blockIdx.x;
-  free(gen[i].RVEC);
-  free(gen[i].U);
-}*/
 __device__ int MBSortT(double RandomNum,double iEnergyBin,double * CF,double ISIZE,double NumPoints){
   int ISTEP,INCR,I;
   ISTEP = ISIZE;
@@ -238,6 +74,8 @@ __device__ int MBSortT(double RandomNum,double iEnergyBin,double * CF,double ISI
   }
   return I - 1;
 }
+
+
 __device__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxCollisionFreqTotal,double* BP,double*  F1,
   double*  F2,double* Sqrt2M,double* TwoM,double* TwoPi,double* MaxCollisionFreq,double * VTMB,double * TimeSum,
   double * DirCosineZ1,double * DirCosineX1,double * DirCosineY1,double * EBefore,double * iEnergyBins,
@@ -452,13 +290,14 @@ double * INDEX,double * IPN,double * RGAS,double * TotalCollisionFrequency,long 
       __syncthreads();
   }
 }
+
+void MonteGpu::setPElectronEnergyStep(double EnergyStep){
+PElectronEnergyStep = EnergyStep;
+}
+
 // function that will be called from the PyBoltz_Gpu class
-extern "C" double* MonteTGpu(double PElectronEnergyStep,double PMaxCollisionFreqTotal,double PEField, double PCONST1,double PCONST2,double PCONST3
-, double Ppi,double PISIZE,double PNumMomCrossSectionPoints,double PMaxCollisionFreq, double * PVTMB, double PAngleFromZ, double PAngleFromX,
-double PInitialElectronEnergy, double** PCollisionFrequency, double *PTotalCollisionFrequency, double ** PRGAS, double ** PEnergyLevels,
-double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PIPN,double * output
-){
-  printf("HEREEEE %f\n", PVTMB[0]);
+void MonteGpu::MonteTGpu(){
+  printf("HEREEEE %f\n", PElectronEnergyStep);
 
   double * EIN = LinearizeAndCopy(PEnergyLevels,6,290);
   // Copying constants into device
@@ -574,5 +413,4 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   cudaFree(SCA);
   cudaFree(INDEX);
   cudaFree(IPN);
-  return output;
 }

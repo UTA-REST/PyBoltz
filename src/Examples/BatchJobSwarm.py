@@ -38,14 +38,14 @@ Args = sys.argv
 
 efield     = int(Args[1])
 OUT        = str(Args[2])
-GAS       = int(Args[3])
-
+GAS        = int(Args[3])
+SEED       = int(Args[4])
 
 
 # Set the number of gases
 Object.NumberOfGases =1
 # Set the number of collisons 
-Object.MaxNumberOfCollisions =15*40000000.0
+Object.MaxNumberOfCollisions =10*40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
@@ -68,7 +68,8 @@ Object.BFieldAngle =0
 Object.ConsoleOutputFlag = 1
 Object.WhichAngularModel = 2
 
-Object.Swarm = 1
+Object.RandomSeed = SEED
+Object.Swarm      = 1
 
 Object.Start()
 

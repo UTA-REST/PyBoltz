@@ -101,6 +101,11 @@ cdef class PyBoltz:
         memset(self.NC0, 0, 6 * 290 * sizeof(double))
         memset(self.ElasticCrossSection, 0, 4000 * sizeof(double))
         memset(self.AttachmentSectionSum, 0, 4000 * sizeof(double))
+        memset(self.SwarmX,0, 100 * sizeof(double))
+        memset(self.SwarmY,0, 100 * sizeof(double))
+        memset(self.SwarmZ,0, 100 * sizeof(double))
+        memset(self.SwarmT,0, 100 * sizeof(double))
+        memset(self.SwarmE,0, 100 * sizeof(double))
 
         # Input parameters / settings
         self.EnableThermalMotion = 0.0
@@ -187,6 +192,10 @@ cdef class PyBoltz:
         self.ReducedIonization=0.0
         self.ReducedAttachment=0.0
         self.MixObject = Gasmix()
+
+        # Swarm stuff
+        self.Swarm   = 0
+
 
     def end(self):
         """

@@ -58,6 +58,7 @@ cpdef run(PyBoltz Object):
     cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VelXAfter, VelYAfter, VelZAfter, VelAfter, COMEnergy, Test1, Test2, Test3, VelocityInCOM, VelBeforeM1
     cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EpsilonOkhr,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle, VXLab, VYLab, VZLab
     cdef double SumV2_Samples, SumV_Samples, SumE2_Samples, SumE_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, Attachment, Ionization, EAfter
+    cdef int OutputSampleNum = 0
     I = 0
     ST1 = 0.0
     ST2 = 0.0
@@ -326,6 +327,14 @@ cpdef run(PyBoltz Object):
 
                 SumVX = SumVX + VelX * VelX * T2
                 SumVY = SumVY + VelY * VelY * T2
+
+            if ((iCollision)%(CollisionsPerSample/100))==0 and iSample==2 and  Object.Swarm==1:
+                Object.SwarmX[OutputSampleNum] = Object.X
+                Object.SwarmY[OutputSampleNum] = Object.Y
+                Object.SwarmZ[OutputSampleNum] = Object.Z
+                Object.SwarmT[OutputSampleNum] = Object.TimeSum
+                Object.SwarmE[OutputSampleNum] = EBefore
+                OutputSampleNum +=1
 
             elif(Object.BFieldMode==2):
                 # B Feild parallel to E (cyclotron motion)

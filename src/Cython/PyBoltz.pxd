@@ -234,3 +234,7 @@ cdef class PyBoltz:
         char BFieldMode
         '''Which integration mode to use'''
         Gasmix MixObject
+        int Swarm
+        double SwarmX[100],SwarmY[100],SwarmZ[100],SwarmT[100],SwarmE[100]
+
+

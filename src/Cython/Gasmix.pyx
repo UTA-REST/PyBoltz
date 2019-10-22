@@ -17,7 +17,6 @@ from Gases.HYDROGEN cimport Gas21
 from Gases.DEUTERIUM cimport Gas22
 from Gases.DME cimport Gas25
 from Gases.XENONMERT cimport Gas61
-from Gases.XENON_PAC cimport Gas107
 from libc.string cimport memset
 from Gas cimport Gas
 

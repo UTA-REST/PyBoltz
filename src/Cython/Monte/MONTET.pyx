@@ -14,6 +14,7 @@ import sys
 cdef double random_uniform(double dummy):
     cdef double r = drand48(dummy)
     return r
+
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -156,7 +157,6 @@ cpdef run(PyBoltz Object):
     if Object.ConsoleOutputFlag:
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Velocity", "Position", "Time", "Energy",
                                                                          "DIFXX", "DIFYY", "DIFZZ"))
-
 
     # We run collisions in NumSamples batches,
     # evenly distributed between its MaxNumberOfCollisions collisions.
@@ -475,7 +475,9 @@ cpdef run(PyBoltz Object):
             DirCosineX1 = VXLab / VelocityInCOM
             DirCosineY1 = VYLab / VelocityInCOM
             DirCosineZ1 = VZLab / VelocityInCOM
-
+            if iCollision == 100:
+                print("Z = ",Object.Z)
+                sys.exit()
 
 
             #And go around again to the next collision!

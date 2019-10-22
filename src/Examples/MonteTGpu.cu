@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <cuda.h>
 #include <cuda_runtime.h>
-
+#include <cooperative_groups.h>
+#include<curand_kernel.h>
 
 #ifndef max
 #define max(a,b) (((a) > (b)) ? (a) : (b))
@@ -198,19 +199,19 @@ __device__ double DRAND48(struct RM48Gen *RM48gen,double dummy){
 }
 
 
-__global__ void SetupRM48GensCuda(struct RM48Gen * gen){
-  int i = threadIdx.x+blockDim.x*blockIdx.x;
+__device__ void SetupRM48GensCuda(struct RM48Gen * gen,int i){
   /*gen[i].RVEC =(double*) malloc(1001*sizeof(double));
   gen[i].U =(double*) malloc(98*sizeof(double));
 */
+
   RM48(&(gen[i]),gen[i].NVEC);
+  __syncthreads();
 }
 
 /*__global__ void FreeRM48GensCuda(struct RM48Gen * gen){
   int i = threadIdx.x+blockDim.x*blockIdx.x;
   free(gen[i].RVEC);
   free(gen[i].U);
-
 }*/
 __device__ int MBSortT(double RandomNum,double iEnergyBin,double * CF,double ISIZE,double NumPoints){
   int ISTEP,INCR,I;
@@ -237,23 +238,22 @@ __device__ int MBSortT(double RandomNum,double iEnergyBin,double * CF,double ISI
   }
   return I - 1;
 }
-__global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxCollisionFreqTotal,double* BP,double*  F1,
+__device__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxCollisionFreqTotal,double* BP,double*  F1,
   double*  F2,double* Sqrt2M,double* TwoM,double* TwoPi,double* MaxCollisionFreq,double * VTMB,double * TimeSum,
   double * DirCosineZ1,double * DirCosineX1,double * DirCosineY1,double * EBefore,double * iEnergyBins,
   double * COMEnergy,double * VelocityX,double * VelocityY,double * VelocityZ,double * GasVelX,double * GasVelY,double * GasVelZ,
-  double * T,double * AP,double * TotalCollisionFrequency,struct RM48Gen * gen){
+  double * T,double * AP,double * TotalCollisionFrequency,int i,curandState* globalState){
 
   // function start
-  int i = threadIdx.x+blockDim.x*blockIdx.x;
   int MaxBoltzNumsUsed = 0;
-  DRAND48(&(gen[i]),0.5);
+  curand_uniform(globalState);
   //R = curand_uniform( &state );
   double RNMX[6]={0,0,0,0,0,0};
   double TDash = 0.0,R1,R2,RandomNum,TEST;
 
   for(int j=0;j<5;j+=2){
-    R1 = DRAND48(&(gen[i]),0.5);
-    R2 = DRAND48(&(gen[i]),0.5);
+    R1 = curand_uniform(globalState);
+    R2 = curand_uniform(globalState);
     RNMX[j] = sqrt(-1*log(R1))*cos(R2*((*TwoPi)));
     RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*((*TwoPi)));
   }
@@ -261,7 +261,7 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
   double EAfter = 0.0,VelocityRatio,DCosineZ2,DCosineX2,DCosineY2;
 
   while(1){
-    RandomNum = DRAND48(&(gen[i]),0.5);
+    RandomNum = curand_uniform(globalState);
     T[i] = -1 * log(RandomNum)/(*MaxCollisionFreqTotal)+TDash;
     TDash = T[i];
     AP[i] = DirCosineZ1[i]*(*F2)*sqrt(EBefore[i]);
@@ -275,8 +275,8 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
 
     if(MaxBoltzNumsUsed>6){
       for(int j=0;j<5;j+=2){
-        R1 = DRAND48(&(gen[i]),0.5);
-        R2 = DRAND48(&(gen[i]),0.5);
+        R1 = curand_uniform(globalState);
+        R2 = curand_uniform(globalState);
         RNMX[j] = sqrt(-1*log(R1))*cos(R2*((*TwoPi)));
         RNMX[j+1] = sqrt(-1*log(R1))*sin(R2*((*TwoPi)));
       }
@@ -295,7 +295,7 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
         2)) / (*TwoM);
     iEnergyBins[i] = COMEnergy[i] / (*ElectronEnergyStep);
     iEnergyBins[i] = min(iEnergyBins[i], 3999);
-    RandomNum = DRAND48(&(gen[i]),0.5);
+    RandomNum = curand_uniform(globalState);
 
     TEST = TotalCollisionFrequency[(int)iEnergyBins[i]] / (*MaxCollisionFreq);
     if (RandomNum < TEST){
@@ -305,13 +305,11 @@ __global__ extern void GetCollisions(double *ElectronEnergyStep, double* MaxColl
   }
 }
 
-__global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * VelocityY,double * VelocityZ,double * GasVelX,double * GasVelY,double * GasVelZ,
+__device__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * VelocityY,double * VelocityZ,double * GasVelX,double * GasVelY,double * GasVelZ,
   double * AP, double * X,double * Y,double * Z, double *DirCosineX1,double *DirCosineY1,double *DirCosineZ1,double * iEnergyBin,double * CF,double * RGAS,double * EnergyLevels,
   double * INDEX, double * ANGCT, double * SCA, double * IPN, double * AngleFromZ, double * TwoPi, double * EBefore, double * Sqrt2M,
-  double * TwoM,double *T,double * BP,double * F1,double * ISIZE,double * NumPoints,struct RM48Gen * gen)
+  double * TwoM,double *T,double * BP,double * F1,double * ISIZE,double * NumPoints,int i,curandState* globalState )
   {
-    int i = threadIdx.x+blockDim.x*blockIdx.x;
-
     int I;
     double VelocityInCOM,DXCOM,DYCOM,DZCOM,T2,A,B,VelocityBefore,RandomNum;
     double S1,S2,EI,EXTRA,RandomNum2,CosTheta,EpsilonOkhr,Theta,Phi,SinPhi,CosPhi;
@@ -333,7 +331,7 @@ __global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * 
     X[i] += DirCosineX1[i] * A;
     Y[i] += DirCosineY1[i] * A;
     Z[i] += DirCosineZ1[i] * A + T2 * (*F1);
-    RandomNum = DRAND48(&(gen[i]),0.5);
+    RandomNum = curand_uniform(globalState);
 
     I = MBSortT(RandomNum,iEnergyBin[i], CF,(*ISIZE),(*NumPoints));
     while(CF[(int)iEnergyBin[i]*290+I]<RandomNum) I+=1;
@@ -343,7 +341,7 @@ __global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * 
     EI = EnergyLevels[I];
 
     if(IPN[I]>0){
-      RandomNum = DRAND48(&(gen[i]),0.5);
+      RandomNum = curand_uniform(globalState);
       EXTRA = RandomNum * (COMEnergy[i]-EI);
       EI = EXTRA + EI;
     }
@@ -353,10 +351,10 @@ __global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * 
     }
 
     S2 = (S1*S1)/(S1 - 1.0);
-    RandomNum = DRAND48(&(gen[i]),0.5);
+    RandomNum = curand_uniform(globalState);
 
     if(INDEX[I] == 1){
-      RandomNum2 = DRAND48(&(gen[i]),0.5);
+      RandomNum2 = curand_uniform(globalState);
       CosTheta = 1.0-RandomNum*ANGCT[(int)iEnergyBin[i]*290 + I];
       if(RandomNum2>SCA[(int)iEnergyBin[i]*290 + I]){
         CosTheta = -1.0 * CosTheta;
@@ -369,7 +367,7 @@ __global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * 
     }
 
     Theta = acos(CosTheta);
-    RandomNum = DRAND48(&(gen[i]),0.5);
+    RandomNum = curand_uniform(globalState);
     Phi = (*TwoPi) * RandomNum;
     SinPhi = sin(Phi);
     CosPhi = cos(Phi);
@@ -415,6 +413,45 @@ __global__ void ProcessCollisions(double *COMEnergy,double * VelocityX,double * 
     DirCosineZ1[i] = VZLab / VelocityInCOM;
 }
 
+// Copying constants into device
+//Copying arrays to device
+
+
+__global__ void MonteRun(double * EIN,double * ElectronEnergyStep,double *MaxCollisionFreqTotal,double * BP,double * F1,double * F2,double * Sqrt2M,
+double * TwoM,double * TwoPi,double * ISize,double * NumPoints,double * MaxCollisionFreq,double * VTMB,double * X,double * Y,double * Z,double * TimeSum,
+double * DirCosineZ1,double * DirCosineY1,double * DirCosineX1,double * EBefore,double * iEnergyBins,double * COMEnergy,double * VelocityX,double * VelocityY,
+double * VelocityZ,double * GasVelX,double * GasVelY,double * GasVelZ,double * T,double * AP,double * AngleFromZ,double * CF,double * ANGCT,double * SCA,
+double * INDEX,double * IPN,double * RGAS,double * TotalCollisionFrequency,long long  * seeds, double * output
+){
+  int i = (blockIdx.x * blockDim.x * blockDim.y) + (threadIdx.y * blockDim.x) + threadIdx.x;
+  curandState state;
+  curand_init(seeds[i], i, 0, &state);
+  __syncthreads();
+
+  int f = 0;
+
+  for(int iColl=0;iColl<1000000;++iColl){
+    GetCollisions(ElectronEnergyStep, MaxCollisionFreqTotal, BP,F1,
+      F2,Sqrt2M,TwoM,TwoPi,MaxCollisionFreq, VTMB,TimeSum,
+      DirCosineZ1, DirCosineX1, DirCosineY1, EBefore, iEnergyBins,
+      COMEnergy, VelocityX, VelocityY,VelocityZ, GasVelX, GasVelY, GasVelZ,
+      T, AP, TotalCollisionFrequency,i,&state);
+      __syncthreads();
+
+      ProcessCollisions(COMEnergy,VelocityX,VelocityY, VelocityZ, GasVelX,GasVelY, GasVelZ,
+    AP, X, Y, Z, DirCosineX1,DirCosineY1,DirCosineZ1,iEnergyBins, CF, RGAS,EIN,
+      INDEX,ANGCT, SCA, IPN, AngleFromZ,  TwoPi,  EBefore, Sqrt2M, TwoM,T,BP,F1,ISize,NumPoints,i,&state);
+      if(((iColl)%(1000000/100))==0){
+
+        output[0*100000+f*1000+i]=X[i];
+        output[1*100000+f*1000+i]=Y[i];
+        output[2*100000+f*1000+i]=Z[i];
+        output[3*100000+f*1000+i]=TimeSum[i];
+          f+=1;
+      }
+      __syncthreads();
+  }
+}
 // function that will be called from the PyBoltz_Gpu class
 extern "C" double* MonteTGpu(double PElectronEnergyStep,double PMaxCollisionFreqTotal,double PEField, double PCONST1,double PCONST2,double PCONST3
 , double Ppi,double PISIZE,double PNumMomCrossSectionPoints,double PMaxCollisionFreq, double * PVTMB, double PAngleFromZ, double PAngleFromX,
@@ -470,57 +507,34 @@ double ** PAngleCut,double ** PScatteringParameter, double * PINDEX, double * PI
   double * INDEX = SetupAndCopyDouble((PINDEX),290);
   double * IPN = SetupAndCopyDouble((PIPN),290);
   double * RGAS = LinearizeAndCopy((double **)PRGAS,6,290);
+  double * Output = SetupArrayOneVal(0,400000);
   double * TotalCollisionFrequency = SetupAndCopyDouble(PTotalCollisionFrequency,4000);
   printf("%.20f\n",sqrt2m*PInitialElectronEnergy );
 
-
+  srand(3);
   //RM48 stuff
   //struct RM48Gen* gen =(struct RM48Gen *)malloc(1000*sizeof(struct RM48Gen));
   long long * Seeds = (long long *)malloc(1000*sizeof(long long));
   for (int i=0;i<1000;i++){
-    Seeds[i] = (i*54217137)%100000000;
+    Seeds[i] = (rand()%100000000);
   }
+
   int f = 0;
   //printf("%d\n",gen[0].IJKLIN);
-  struct  RM48Gen* gens = (struct  RM48Gen*)malloc(1000*sizeof(struct  RM48Gen));
-  SetupRM48Gens(gens,1000,Seeds);
 
-  struct  RM48Gen* pointer;
-  cudaMalloc((void **)&pointer,1000*sizeof(struct RM48Gen));
-  cudaMemcpy(pointer,gens,1000*sizeof(struct  RM48Gen),cudaMemcpyHostToDevice);
+  long long * pointer;
+  cudaMalloc((void **)&pointer,1000*sizeof(long long));
+  cudaMemcpy(pointer,Seeds,1000*sizeof(long long),cudaMemcpyHostToDevice);
   double * TT = (double *)malloc(1000*sizeof(double));
-  SetupRM48GensCuda<<<int(1000),1>>>(pointer);
-  char * str;
 
-  printf("Here  %f\n",sqrt2m );
-  printf("Here  %.2f\n",f1 );
-  printf("Here  %f\n",f2 );
-
-  for(int i=0;i<100000;++i){
-    GetCollisions<<<int(1000),1>>>(ElectronEnergyStep, MaxCollisionFreqTotal, BP,F1,
-      F2,Sqrt2M,TwoM,TwoPi,MaxCollisionFreq, VTMB,TimeSum,
-      DirCosineZ1, DirCosineX1, DirCosineY1, EBefore, iEnergyBins,
-      COMEnergy, VelocityX, VelocityY,VelocityZ, GasVelX, GasVelY, GasVelZ,
-      T, AP, TotalCollisionFrequency, pointer);
-
-      ProcessCollisions<<<int(1000),1>>>(COMEnergy,VelocityX,VelocityY, VelocityZ, GasVelX,GasVelY, GasVelZ,
-    AP, X, Y, Z, DirCosineX1,DirCosineY1,DirCosineZ1,iEnergyBins, CF, RGAS,EIN,
-      INDEX,ANGCT, SCA, IPN, AngleFromZ,  TwoPi,  EBefore, Sqrt2M, TwoM,T,BP,F1,ISize,NumPoints,pointer);
-
-      if(((i)%(100000/100))==0){
-        cudaMemcpy(&output[0*100000+f*1000],X,1000*sizeof(double),cudaMemcpyDeviceToHost);
-        cudaMemcpy(&output[1*100000+f*1000],Y,1000*sizeof(double),cudaMemcpyDeviceToHost);
-        cudaMemcpy(&output[2*100000+f*1000],Z,1000*sizeof(double),cudaMemcpyDeviceToHost);
-        cudaMemcpy(&output[3*100000+f*1000],TimeSum,1000*sizeof(double),cudaMemcpyDeviceToHost);
-        f+=1;
-      }
-      if(i!=0&& double(int(log2(i)))==log2(i)){
-        printf("%d analyzed collisions\n", i );
-      }
-  }
-  printf("HERE\n");
-
+  MonteRun<<<25,40>>>(EIN, ElectronEnergyStep,MaxCollisionFreqTotal, BP, F1, F2, Sqrt2M,
+   TwoM,TwoPi, ISize, NumPoints, MaxCollisionFreq, VTMB, X, Y, Z, TimeSum,
+  DirCosineZ1, DirCosineY1, DirCosineX1, EBefore, iEnergyBins, COMEnergy, VelocityX, VelocityY,
+   VelocityZ, GasVelX, GasVelY, GasVelZ, T, AP, AngleFromZ, CF, ANGCT, SCA,
+   INDEX, IPN, RGAS, TotalCollisionFrequency, pointer, Output);
+   cudaMemcpy(output,Output,400000*sizeof(double),cudaMemcpyDeviceToHost);
   //FreeRM48GensCuda<<<int(1000),1>>>(pointer);
+  cudaFree(Output);
   cudaFree(pointer);
   cudaFree(ElectronEnergyStep);
   cudaFree(MaxCollisionFreqTotal);

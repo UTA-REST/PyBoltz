@@ -197,7 +197,7 @@ MonteTGpu(Object.ElectronEnergyStep, Object.MaxCollisionFreqTotal, Object.EField
               Object.AngleCut[0], Object.ScatteringParameter[0], Object.INDEX[0], Object.IPN[0])
 print(Object.VelocityZ)
 t2 = time.time()
-
+print("it took ---->",t2-t1)
 X = np.zeros(shape=(100,1000))
 Y = np.zeros(shape=(100,1000))
 Z = np.zeros(shape=(100,1000))
@@ -232,8 +232,8 @@ for O in range(1000):
 plt.axvline(MaxTime)
 
 plt.grid()
-plt.xlabel("Time [Biagis]", fontsize=24)
-plt.ylabel("Z pos [Bashars]", fontsize=24)
+plt.xlabel("Time [ns]", fontsize=24)
+plt.ylabel("Z Position [um]", fontsize=24)
 
 plt.xticks(fontsize=20)
 plt.yticks(fontsize=20)
@@ -249,8 +249,8 @@ for O in range(1000):
 plt.axvline(MaxTime)
 
 plt.grid()
-plt.xlabel("Time [Biagis]",fontsize=24)
-plt.ylabel("Y pos [Bashars]",fontsize=24)
+plt.xlabel("Time [nS]",fontsize=24)
+plt.ylabel("Y pos [mm]",fontsize=24)
 
 plt.xticks(fontsize=20)
 plt.yticks(fontsize=20)
@@ -276,6 +276,7 @@ plt.yticks(fontsize=20)
 plt.show()
 
 targets = np.linspace(1, MaxTime, 30)
+print(targets)
 N = 1000
 SigmaDlz = []
 SigmaDty = []
@@ -353,7 +354,7 @@ plt.errorbar(targets,SigmaDty**2*1e15,yerr=errorDty*1e15,fmt='s',alpha=0.7,color
 
 plt.grid()
 plt.legend(loc="upper left",fontsize=24)
-plt.xlabel("Time [Biagis]",fontsize=24)
+plt.xlabel("Time [ns]",fontsize=24)
 plt.ylabel("Variance of swarm [1e15]",fontsize=24)
 
 plt.xticks(fontsize=20)

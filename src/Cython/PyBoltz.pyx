@@ -312,7 +312,7 @@ cdef class PyBoltz:
             MixerFunc(self)
         
         if self.ConsoleOutputFlag : print("Calculated the final energy = " + str(self.FinalElectronEnergy))
-
+        setSeed(56178265)
         # Run the simulation
         MonteCarloFunc.run(self)
 

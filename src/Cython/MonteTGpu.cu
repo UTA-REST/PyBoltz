@@ -291,9 +291,6 @@ double * INDEX,double * IPN,double * RGAS,double * TotalCollisionFrequency,long 
   }
 }
 
-void MonteGpu::setPElectronEnergyStep(double EnergyStep){
-PElectronEnergyStep = EnergyStep;
-}
 
 // function that will be called from the PyBoltz_Gpu class
 void MonteGpu::MonteTGpu(){
@@ -315,7 +312,7 @@ void MonteGpu::MonteTGpu(){
   double * TwoM = SetupAndCopyDouble(&(twom),1);
   double twpi = Ppi*2;
   double * TwoPi = SetupAndCopyDouble(&(twpi),1);
-  double * ISize = SetupAndCopyDouble(&(PISIZE),1);
+  double * ISize = SetupAndCopyDouble(&(PISIZE[0]),1);
   double * NumPoints = SetupAndCopyDouble(&(PNumMomCrossSectionPoints),1);
   double * MaxCollisionFreq = SetupAndCopyDouble(&(PMaxCollisionFreq),1);
 

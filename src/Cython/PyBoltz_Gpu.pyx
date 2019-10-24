@@ -5,28 +5,28 @@ cdef extern from "MonteGpu.hh":
     cdef cppclass C_MonteGpu "MonteGpu":
         void MonteTGpu()
         C_MonteGpu()
-        double PElectronEnergyStep
-        double PMaxCollisionFreqTotal
-        double PEField
-        double PCONST1
-        double PCONST2
-        double PCONST3
-        double Ppi
-        double *PISIZE
-        double PNumMomCrossSectionPoints
-        double PMaxCollisionFreq
-        double * PVTMB
-        double PAngleFromZ
-        double PAngleFromX
-        double PInitialElectronEnergy
-        double** PCollisionFrequency
-        double *PTotalCollisionFrequency
-        void ** PRGAS
-        double ** PEnergyLevels
-        double ** PAngleCut
-        double ** PScatteringParameter
-        double * PINDEX
-        double * PIPN
+        double ElectronEnergyStep
+        double MaxCollisionFreqTotal
+        double EField
+        double CONST1
+        double CONST2
+        double CONST3
+        double pi
+        double *ISIZE
+        double *NumMomCrossSectionPoints
+        double *MaxCollisionFreq
+        double * VTMB
+        double AngleFromZ
+        double AngleFromX
+        double InitialElectronEnergy
+        double * CollisionFrequency
+        double * TotalCollisionFrequency
+        double * RGAS
+        double * EnergyLevels
+        double * AngleCut
+        double * ScatteringParameter
+        double * INDEX
+        double * IPN
         double * output
 
 '''MonteTGpu(Object.ElectronEnergyStep, Object.MaxCollisionFreqTotal, Object.EField, Object.CONST1, Object.CONST2, Object.CONST3
@@ -43,27 +43,30 @@ cdef class PyBoltz_Gpu(PyBoltz):
 
     def Run(self):
         self.Start_No_MONTE()
-        self.MonteGpuObject.PElectronEnergyStep = self.ElectronEnergyStep
-        self.MonteGpuObject.PMaxCollisionFreqTotal = self.MaxCollisionFreqTotal
-        self.MonteGpuObject.PEField = self.EField
-        self.MonteGpuObject.PCONST1 = self.CONST1
-        self.MonteGpuObject.PCONST2 = self.CONST2
-        self.MonteGpuObject.PCONST3 = self.CONST3
-        self.MonteGpuObject.Ppi = np.pi
-        self.MonteGpuObject.PISIZE = self.ISIZE #here
-        self.MonteGpuObject.PNumMomCrossSectionPoints = self.NumMomCrossSectionPoints #here
-        self.MonteGpuObject.PMaxCollisionFreq = self.MaxCollisionFreq
-        self.MonteGpuObject.PVTMB = self.VTMB
-        self.MonteGpuObject.PAngleFromZ = self.AngleFromZ
-        self.MonteGpuObject.PAngleFromX = self.AngleFromX
-        self.MonteGpuObject.PInitialElectronEnergy = self.InitialElectronEnergy
-        self.MonteGpuObject.PCollisionFrequency = self.CollisionFrequency
-        self.MonteGpuObject.PTotalCollisionFrequency = self.TotalCollisionFrequency # here
-        self.MonteGpuObject.PRGAS = self.RGAS #here
-        self.MonteGpuObject.PEnergyLevels = self.EnergyLevels #here
-        self.MonteGpuObject.PAngleCut = self.AngleCut # here
-        self.MonteGpuObject.PScatteringParameter = self.ScatteringParameter # here
-        self.MonteGpuObject.PINDEX = self.INDEX # here
-        self.MonteGpuObject.PIPN = self.IPN #here
+        cdef double output[400000]
+        self.MonteGpuObject.ElectronEnergyStep = self.ElectronEnergyStep
+        self.MonteGpuObject.MaxCollisionFreqTotal = self.MaxCollisionFreqTotal
+        self.MonteGpuObject.EField = self.EField
+        self.MonteGpuObject.CONST1 = self.CONST1
+        self.MonteGpuObject.CONST2 = self.CONST2
+        self.MonteGpuObject.CONST3 = self.CONST3
+        self.MonteGpuObject.pi = np.pi
+        self.MonteGpuObject.ISIZE = self.ISIZE #here
+        self.MonteGpuObject.NumMomCrossSectionPoints = self.NumMomCrossSectionPoints #here
+        self.MonteGpuObject.MaxCollisionFreq = self.MaxCollisionFreq
+        self.MonteGpuObject.VTMB = self.VTMB
+        self.MonteGpuObject.AngleFromZ = self.AngleFromZ
+        self.MonteGpuObject.AngleFromX = self.AngleFromX
+        self.MonteGpuObject.InitialElectronEnergy = self.InitialElectronEnergy
+        self.MonteGpuObject.CollisionFrequency = <double *>self.CollisionFrequency
+        self.MonteGpuObject.TotalCollisionFrequency = <double *>self.TotalCollisionFrequency # here
+        self.MonteGpuObject.RGAS = <double *>self.RGAS #here
+        self.RGAS[0][10]=200
+        self.MonteGpuObject.EnergyLevels = <double *>self.EnergyLevels #here
+        self.MonteGpuObject.AngleCut = <double *>self.AngleCut # here
+        self.MonteGpuObject.ScatteringParameter = <double *>self.ScatteringParameter # here
+        self.MonteGpuObject.INDEX = <double *>self.INDEX # here
+        self.MonteGpuObject.IPN = <double *>self.IPN #here
+        self.MonteGpuObject.output = <double *>output
 
         self.MonteGpuObject.MonteTGpu()

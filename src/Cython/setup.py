@@ -107,8 +107,7 @@ ext = Extension('PyBoltz_Gpu',
         extra_compile_args= {
             'gcc': [],
             'nvcc': [
-                '-arch=sm_30', '--ptxas-options=-v', '-c',
-                '--compiler-options', "'-fPIC'"
+                '-Xcompiler', '-fPIC', '-c', '-O2'
                 ]
             },
             include_dirs = [numpy_include, CUDA['include'], 'src']

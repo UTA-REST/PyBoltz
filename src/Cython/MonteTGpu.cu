@@ -30,25 +30,6 @@ double * SetupArrayOneVal(double val,int s){
   return pointer;
 }
 
-double * LinearizeAndCopy(double** arr,int h,int w){
-
-  double * pointer;
-
-  double * temp = (double *)malloc(h*w*sizeof(double));
-
-  for(int i=0;i<h;++i){
-
-    for(int j = 0;j<w;++j){
-      temp[i*w+j] =arr[i][j];
-    }
-  }
-
-  cudaMalloc((void **)&pointer,h*w*sizeof(double));
-  cudaMemcpy(pointer,temp,h*w*sizeof(double),cudaMemcpyHostToDevice);
-  free(temp);
-  return pointer;
-}
-
 __device__ int MBSortT(double RandomNum,double iEnergyBin,double * CF,double ISIZE,double NumPoints){
   int ISTEP,INCR,I;
   ISTEP = ISIZE;
@@ -291,61 +272,79 @@ double * INDEX,double * IPN,double * RGAS,double * TotalCollisionFrequency,long 
   }
 }
 
+__global__ void Test(MonteGpuDevice * M){
+  //printf("THIS IS IT %f\n",M->EnergyLevels[0]);
+  M->Output[0] = 1000;
 
+}
 // function that will be called from the PyBoltz_Gpu class
 void MonteGpu::MonteTGpu(){
-  printf("HEREEEE %f\n", PElectronEnergyStep);
+  printf("HEREEEE %.10f\n", RGAS[10]);
+  MonteGpuDevice * DeviceParameters = new MonteGpuDevice();
 
-  double * EIN = LinearizeAndCopy(PEnergyLevels,6,290);
+
+  MonteGpuDevice * DeviceParametersPointer;
+
+  //DeviceParameters->EnergyLevels = LinearizeAndCopy2D(EnergyLevels,6,290);
+  cudaMemcpy(DeviceParameters->EnergyLevels,EnergyLevels,6*290*sizeof(double),cudaMemcpyHostToDevice);
+
+  printf("HERE\n");
+
   // Copying constants into device
-  double * ElectronEnergyStep = SetupAndCopyDouble(&(PElectronEnergyStep),1);
-  double * MaxCollisionFreqTotal = SetupAndCopyDouble(&(PMaxCollisionFreqTotal),1);
-  double bp = PEField*PEField*PCONST1;
-  double * BP = SetupAndCopyDouble(&(bp),1);
-  double f1 = PEField*PCONST2;
-  double * F1 = SetupAndCopyDouble(&(f1),1);
-  double f2 = PEField*PCONST3;
-  double * F2 = SetupAndCopyDouble(&(f2),1);
-  double sqrt2m = PCONST3*0.01;
-  double * Sqrt2M = SetupAndCopyDouble(&(sqrt2m),1);
+  DeviceParameters->ElectronEnergyStep = SetupAndCopyDouble(&(ElectronEnergyStep),1);
+  DeviceParameters->MaxCollisionFreqTotal = SetupAndCopyDouble(&(MaxCollisionFreqTotal),1);
+  double bp = EField*EField*CONST1;
+  DeviceParameters->BP = SetupAndCopyDouble(&(bp),1);
+  double f1 = EField*CONST2;
+  DeviceParameters->F1 = SetupAndCopyDouble(&(f1),1);
+  double f2 = EField*CONST3;
+  DeviceParameters->F2 = SetupAndCopyDouble(&(f2),1);
+  double sqrt2m = CONST3*0.01;
+  DeviceParameters->Sqrt2M = SetupAndCopyDouble(&(sqrt2m),1);
   double twom = sqrt2m*sqrt2m;
-  double * TwoM = SetupAndCopyDouble(&(twom),1);
-  double twpi = Ppi*2;
-  double * TwoPi = SetupAndCopyDouble(&(twpi),1);
-  double * ISize = SetupAndCopyDouble(&(PISIZE[0]),1);
-  double * NumPoints = SetupAndCopyDouble(&(PNumMomCrossSectionPoints),1);
-  double * MaxCollisionFreq = SetupAndCopyDouble(&(PMaxCollisionFreq),1);
+  DeviceParameters->TwoM = SetupAndCopyDouble(&(twom),1);
+  double twpi = pi*2;
+  printf("HERE\n");
 
+  DeviceParameters->TwoPi = SetupAndCopyDouble(&(twpi),1);
+  DeviceParameters->ISIZE = SetupAndCopyDouble(ISIZE,6);
+  printf("HERE\n");
+  DeviceParameters->NumMomCrossSectionPoints = SetupAndCopyDouble(NumMomCrossSectionPoints,6);
+  DeviceParameters->MaxCollisionFreq = SetupAndCopyDouble(MaxCollisionFreq,6);
   //Copying arrays to device
-  double * VTMB = SetupAndCopyDouble((PVTMB),6);
-  double * X = SetupArrayOneVal(0,1000);
-  double * Y = SetupArrayOneVal(0,1000);
-  double * Z = SetupArrayOneVal(0,1000);
-  double * TimeSum = SetupArrayOneVal(0,1000);
-  double * DirCosineZ1 = SetupArrayOneVal(cos(PAngleFromZ),1000);
-  double * DirCosineX1 = SetupArrayOneVal(sin(PAngleFromZ) * cos(PAngleFromX),1000);
-  double * DirCosineY1 = SetupArrayOneVal(sin(PAngleFromZ) * sin(PAngleFromX),1000);
-  double * EBefore = SetupArrayOneVal(PInitialElectronEnergy,1000);
-  double * iEnergyBins = SetupArrayOneVal(0,1000);
-  double * COMEnergy = SetupArrayOneVal(0,1000);
-  double * VelocityX = SetupArrayOneVal(0,1000);
-  double * VelocityY = SetupArrayOneVal(0,1000);
-  double * VelocityZ = SetupArrayOneVal(0,1000);
-  double * GasVelX = SetupArrayOneVal(0,1000);
-  double * GasVelY = SetupArrayOneVal(0,1000);
-  double * GasVelZ = SetupArrayOneVal(0,1000);
-  double * T = SetupArrayOneVal(0,1000);
-  double * AP = SetupArrayOneVal(0,1000);
-  double * AngleFromZ = SetupArrayOneVal(PAngleFromZ,1000);
-  double * CF = LinearizeAndCopy((double **)PCollisionFrequency,4000,290);
-  double * ANGCT = LinearizeAndCopy((double **)PAngleCut,4000,290);
-  double * SCA = LinearizeAndCopy((double **)PScatteringParameter,4000,290);
-  double * INDEX = SetupAndCopyDouble((PINDEX),290);
-  double * IPN = SetupAndCopyDouble((PIPN),290);
-  double * RGAS = LinearizeAndCopy((double **)PRGAS,6,290);
-  double * Output = SetupArrayOneVal(0,400000);
-  double * TotalCollisionFrequency = SetupAndCopyDouble(PTotalCollisionFrequency,4000);
-  printf("%.20f\n",sqrt2m*PInitialElectronEnergy );
+  DeviceParameters->VTMB = SetupAndCopyDouble((VTMB),6);
+  DeviceParameters->X = SetupArrayOneVal(0,1000);
+  DeviceParameters->Y = SetupArrayOneVal(0,1000);
+  DeviceParameters->Z = SetupArrayOneVal(0,1000);
+  DeviceParameters->TimeSum = SetupArrayOneVal(0,1000);
+  DeviceParameters->DirCosineZ1 = SetupArrayOneVal(cos(AngleFromZ),1000);
+  DeviceParameters->DirCosineX1 = SetupArrayOneVal(sin(AngleFromZ) * cos(AngleFromX),1000);
+  DeviceParameters->DirCosineY1 = SetupArrayOneVal(sin(AngleFromZ) * sin(AngleFromX),1000);
+  DeviceParameters->EBefore = SetupArrayOneVal(InitialElectronEnergy,1000);
+  DeviceParameters->iEnergyBins = SetupArrayOneVal(0,1000);
+  DeviceParameters->COMEnergy = SetupArrayOneVal(0,1000);
+  DeviceParameters->VelocityX = SetupArrayOneVal(0,1000);
+  DeviceParameters->VelocityY = SetupArrayOneVal(0,1000);
+  DeviceParameters->VelocityZ = SetupArrayOneVal(0,1000);
+  DeviceParameters->GasVelX = SetupArrayOneVal(0,1000);
+  DeviceParameters->GasVelY = SetupArrayOneVal(0,1000);
+  DeviceParameters->GasVelZ = SetupArrayOneVal(0,1000);
+  printf("HERE\n");
+
+  DeviceParameters->T = SetupArrayOneVal(0,1000);
+  DeviceParameters->AP = SetupArrayOneVal(0,1000);
+  cudaMemcpy(DeviceParameters->TotalCollisionFrequency,TotalCollisionFrequency,6*4000*sizeof(double),cudaMemcpyHostToDevice);
+
+  DeviceParameters->AngleFromZ = SetupArrayOneVal(AngleFromZ,1000);
+  cudaMemcpy(DeviceParameters->CollisionFrequency,CollisionFrequency,6*4000*290*sizeof(double),cudaMemcpyHostToDevice);
+  cudaMemcpy(DeviceParameters->AngleCut,AngleCut,6*4000*290*sizeof(double),cudaMemcpyHostToDevice);
+  cudaMemcpy(DeviceParameters->ScatteringParameter,ScatteringParameter,6*4000*290*sizeof(double),cudaMemcpyHostToDevice);
+  cudaMemcpy(DeviceParameters->INDEX,INDEX,6*290*sizeof(double),cudaMemcpyHostToDevice);
+  cudaMemcpy(DeviceParameters->IPN,IPN,6*290*sizeof(double),cudaMemcpyHostToDevice);
+  cudaMemcpy(DeviceParameters->RGAS,RGAS,6*290*sizeof(double),cudaMemcpyHostToDevice);
+  cudaMemcpy(DeviceParameters->TotalCollisionFrequency,TotalCollisionFrequency,6*4000*sizeof(double),cudaMemcpyHostToDevice);
+  DeviceParameters->Output = SetupArrayOneVal(0,400000);
+  printf("%.20f\n",sqrt2m*InitialElectronEnergy );
 
   srand(3);
   //RM48 stuff
@@ -363,51 +362,60 @@ void MonteGpu::MonteTGpu(){
   cudaMemcpy(pointer,Seeds,1000*sizeof(long long),cudaMemcpyHostToDevice);
   double * TT = (double *)malloc(1000*sizeof(double));
 
-  MonteRun<<<25,40>>>(EIN, ElectronEnergyStep,MaxCollisionFreqTotal, BP, F1, F2, Sqrt2M,
+  cudaMemcpy(DeviceParametersPointer,DeviceParameters,sizeof(MonteGpuDevice),cudaMemcpyHostToDevice);
+
+/*  MonteRun<<<25,40>>>(EIN, ElectronEnergyStep,MaxCollisionFreqTotal, BP, F1, F2, Sqrt2M,
    TwoM,TwoPi, ISize, NumPoints, MaxCollisionFreq, VTMB, X, Y, Z, TimeSum,
   DirCosineZ1, DirCosineY1, DirCosineX1, EBefore, iEnergyBins, COMEnergy, VelocityX, VelocityY,
    VelocityZ, GasVelX, GasVelY, GasVelZ, T, AP, AngleFromZ, CF, ANGCT, SCA,
-   INDEX, IPN, RGAS, TotalCollisionFrequency, pointer, Output);
-   cudaMemcpy(output,Output,400000*sizeof(double),cudaMemcpyDeviceToHost);
+   INDEX, IPN, RGAS, TotalCollisionFrequency, pointer, Output);*/
+   Test<<<1,1>>>(DeviceParametersPointer);
+   printf("HERE\n");
+cudaDeviceSynchronize();
+   cudaMemcpy(output,DeviceParameters->Output,400000*sizeof(double),cudaMemcpyDeviceToHost);
+
+   printf("THIS IS IT  %f\n",output[0]);
+
   //FreeRM48GensCuda<<<int(1000),1>>>(pointer);
-  cudaFree(Output);
+  cudaFree(DeviceParameters->Output);
   cudaFree(pointer);
-  cudaFree(ElectronEnergyStep);
-  cudaFree(MaxCollisionFreqTotal);
-  cudaFree(BP);
-  cudaFree(F1);
-  cudaFree(F2);
-  cudaFree(Sqrt2M);
-  cudaFree(TwoM);
-  cudaFree(TwoPi);
-  cudaFree(ISize);
-  cudaFree(NumPoints);
-  cudaFree(MaxCollisionFreq);
-  cudaFree(VTMB);
-  cudaFree(X);
-  cudaFree(Y);
-  cudaFree(Z);
-  cudaFree(TimeSum);
-  cudaFree(DirCosineX1);
-  cudaFree(DirCosineY1);
-  cudaFree(DirCosineZ1);
-  cudaFree(EBefore);
-  cudaFree(iEnergyBins);
-  cudaFree(COMEnergy);
-  cudaFree(VelocityZ);
-  cudaFree(VelocityY);
-  cudaFree(VelocityX);
-  cudaFree(T);
-  cudaFree(GasVelX);
-  cudaFree(GasVelY);
-  cudaFree(GasVelZ);
-  cudaFree(AP);
-  cudaFree(AngleFromZ);
-  cudaFree(CF);
-  cudaFree(RGAS);
-  cudaFree(EIN);
-  cudaFree(ANGCT);
-  cudaFree(SCA);
-  cudaFree(INDEX);
-  cudaFree(IPN);
+  cudaFree(DeviceParameters->ElectronEnergyStep);
+  cudaFree(DeviceParameters->MaxCollisionFreqTotal);
+  cudaFree(DeviceParameters->BP);
+  cudaFree(DeviceParameters->F1);
+  cudaFree(DeviceParameters->F2);
+  cudaFree(DeviceParameters->Sqrt2M);
+  cudaFree(DeviceParameters->TwoM);
+  cudaFree(DeviceParameters->TwoPi);
+  cudaFree(DeviceParameters->ISIZE);
+  cudaFree(DeviceParameters->NumMomCrossSectionPoints);
+  cudaFree(DeviceParameters->MaxCollisionFreq);
+  cudaFree(DeviceParameters->VTMB);
+  cudaFree(DeviceParameters->X);
+  cudaFree(DeviceParameters->Y);
+  cudaFree(DeviceParameters->Z);
+  cudaFree(DeviceParameters->TimeSum);
+  cudaFree(DeviceParameters->DirCosineX1);
+  cudaFree(DeviceParameters->DirCosineY1);
+  cudaFree(DeviceParameters->DirCosineZ1);
+  cudaFree(DeviceParameters->EBefore);
+  cudaFree(DeviceParameters->iEnergyBins);
+  cudaFree(DeviceParameters->COMEnergy);
+  cudaFree(DeviceParameters->VelocityZ);
+  cudaFree(DeviceParameters->VelocityY);
+  cudaFree(DeviceParameters->VelocityX);
+  cudaFree(DeviceParameters->T);
+  cudaFree(DeviceParameters->GasVelX);
+  cudaFree(DeviceParameters->GasVelY);
+  cudaFree(DeviceParameters->GasVelZ);
+  cudaFree(DeviceParameters->AP);
+  cudaFree(DeviceParameters->AngleFromZ);
+  cudaFree(DeviceParameters->CollisionFrequency);
+  cudaFree(DeviceParameters->RGAS);
+  cudaFree(DeviceParameters->EnergyLevels);
+  cudaFree(DeviceParameters->AngleCut);
+  cudaFree(DeviceParameters->ScatteringParameter);
+  cudaFree(DeviceParameters->INDEX);
+  cudaFree(DeviceParameters->IPN);
+  cudaFree(DeviceParametersPointer);
 }

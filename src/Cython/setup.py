@@ -95,7 +95,7 @@ except AttributeError:
 
 
 ext = Extension('PyBoltz_Gpu',
-        sources = ['MonteTGpu.cu', 'PyBoltz_Gpu.pyx'],
+        sources = ['MonteTGpu.cu','MonteGpu.cu', 'PyBoltz_Gpu.pyx'],
         library_dirs = [CUDA['lib64']],
         libraries = ['cudart'],
         language = 'c++',

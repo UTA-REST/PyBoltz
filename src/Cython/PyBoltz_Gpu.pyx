@@ -4,6 +4,7 @@ cimport  numpy as np
 cdef extern from "MonteGpu.hh":
     cdef cppclass C_MonteGpu "MonteGpu":
         void MonteTGpu()
+        void Setup()
         C_MonteGpu()
         double ElectronEnergyStep
         double MaxCollisionFreqTotal
@@ -28,11 +29,16 @@ cdef extern from "MonteGpu.hh":
         double * INDEX
         double * IPN
         double * output
+        long long * SeedsGpu
+        long long numElectrons
+        long long NumColls
+        int threads
+        int blocks
 
 cdef class PyBoltz_Gpu(PyBoltz):
 
-    cdef int numElectrons
-    cdef int NumColls
+    cdef public long long numElectrons
+    cdef public long long NumColls
     cdef C_MonteGpu* MonteGpuObject
 
 
@@ -45,6 +51,7 @@ cdef class PyBoltz_Gpu(PyBoltz):
 
         # Current Output array.
         cdef double output[400000]
+        cdef long long seeds[1000]
 
         # Setup variables
         self.MonteGpuObject.ElectronEnergyStep = self.ElectronEnergyStep
@@ -70,6 +77,16 @@ cdef class PyBoltz_Gpu(PyBoltz):
         self.MonteGpuObject.INDEX = <double *>self.INDEX
         self.MonteGpuObject.IPN = <double *>self.IPN
         self.MonteGpuObject.output = <double *>output
+        self.MonteGpuObject.SeedsGpu = <long long*>seeds
+        self.MonteGpuObject.numElectrons = self.numElectrons
+        self.MonteGpuObject.NumColls = self.NumColls
+        self.MonteGpuObject.threads = 25
+        self.MonteGpuObject.blocks = 40
 
+        print ("Setting up...")
+        self.MonteGpuObject.Setup()
+        print ("Running...")
         # Run the Gpu code.
         self.MonteGpuObject.MonteTGpu()
+
+        print("here",self.MonteGpuObject.RGAS[10])

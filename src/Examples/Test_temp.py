@@ -40,6 +40,8 @@ Object.NumberOfGases =1
 Object.MaxNumberOfCollisions =40000000.0
 # Set penning
 Object.EnablePenning = 0
+Object.numElectrons = 1000
+Object.NumColls = 1000
 # Calculate the electron energy
 Object.EnableThermalMotion=0
 Object.FinalElectronEnergy = 10.0
@@ -61,7 +63,7 @@ Object.ConsoleOutputFlag = 1
 Object.RandomSeed = 54217137
 Object.WhichAngularModel = 2
 
-Object.Run()
+Object.RunAndSetup()
 
 t2 =time.time()
 

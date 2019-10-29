@@ -56,9 +56,9 @@ __device__ extern void GetCollisions(MonteGpuDevice * DP,int i,curandState* glob
 
   while(1){
     RandomNum = curand_uniform(globalState);
-    T[i] = -1 * log(RandomNum)/(*DP->MaxCollisionFreqTotal)+TDash;
+    DP->T[i] = -1 * log(RandomNum)/(*DP->MaxCollisionFreqTotal)+TDash;
     TDash = DP->T[i];
-    AP[i] = DP->DirCosineZ1[i]*(*DP->F2)*sqrt(DP->EBefore[i]);
+    DP->AP[i] = DP->DirCosineZ1[i]*(*DP->F2)*sqrt(DP->EBefore[i]);
     EAfter = DP->EBefore[i]+(DP->AP[i]+(*DP->BP)*DP->T[i])*DP->T[i];
     VelocityRatio = sqrt(DP->EBefore[i]/EAfter);
     DCosineZ2 = DP->DirCosineZ1[i] * VelocityRatio + DP->T[i] * (*DP->F2) / (2.0 * sqrt(EAfter));
@@ -92,11 +92,13 @@ __device__ extern void GetCollisions(MonteGpuDevice * DP,int i,curandState* glob
     DP->iEnergyBins[i] = min(DP->iEnergyBins[i], 3999);
     RandomNum = curand_uniform(globalState);
 
-    TEST = DP->TotalCollisionFrequency[(int)DP->iEnergyBins[i]] / (*DP->MaxCollisionFreq);
+    TEST = DP->TotalCollisionFrequency[(int)DP->iEnergyBins[i]] / (DP->MaxCollisionFreq[0]);
+
     if (RandomNum < TEST){
       DP->TimeSum[i]+=DP->T[i];
       return;
     }
+
   }
 }
 
@@ -125,8 +127,8 @@ __device__ void ProcessCollisions(MonteGpuDevice * DP,int i,curandState* globalS
     DP->Z[i] += DP->DirCosineZ1[i] * A + T2 * (*DP->F1);
     RandomNum = curand_uniform(globalState);
 
-    I = MBSortT(RandomNum,DP->iEnergyBin[i], DP->CollisionFrequency,(* DP->ISIZE),(*DP->NumMomCrossSectionPoints));
-    while(DP->CollisionFrequency[(int)DP->iEnergyBin[i]*290+I]<RandomNum) I+=1;
+    I = MBSortT(RandomNum,DP->iEnergyBins[i], DP->CollisionFrequency,(DP->ISIZE[0]),(DP->NumMomCrossSectionPoints[0]));
+    while(DP->CollisionFrequency[(int)DP->iEnergyBins[i]*290+I]<RandomNum) I+=1;
 
 
     S1 = DP->RGAS[I];
@@ -145,14 +147,14 @@ __device__ void ProcessCollisions(MonteGpuDevice * DP,int i,curandState* globalS
     S2 = (S1*S1)/(S1 - 1.0);
     RandomNum = curand_uniform(globalState);
 
-    if(INDEX[I] == 1){
+    if(DP->INDEX[I] == 1){
       RandomNum2 = curand_uniform(globalState);
-      CosTheta = 1.0-RandomNum*DP->AngleCut[(int)iEnergyBin[i]*290 + I];
-      if(RandomNum2>DP->ScatteringParameter[(int)DP->iEnergyBin[i]*290 + I]){
+      CosTheta = 1.0-RandomNum*DP->AngleCut[(int)DP->iEnergyBins[i]*290 + I];
+      if(RandomNum2>DP->ScatteringParameter[(int)DP->iEnergyBins[i]*290 + I]){
         CosTheta = -1.0 * CosTheta;
       }
-    }else if(INDEX[I]==2){
-      EpsilonOkhr = DP->ScatteringParameter[(int)DP->iEnergyBin[i]*290 + I];
+    }else if(DP->INDEX[I]==2){
+      EpsilonOkhr = DP->ScatteringParameter[(int)DP->iEnergyBins[i]*290 + I];
       CosTheta = 1.0 - (2.0 * RandomNum * (1.0 - EpsilonOkhr) / (1.0 + EpsilonOkhr * (1.0 - 2.0 * RandomNum)));
     }else{
       CosTheta = 1.0 - 2.0*RandomNum;
@@ -198,7 +200,7 @@ __device__ void ProcessCollisions(MonteGpuDevice * DP,int i,curandState* globalS
     VYLab = DP->DirCosineY1[i] * CONST12 + DP->GasVelY[i];
     VZLab = DP->DirCosineZ1[i] * CONST12 + DP->GasVelZ[i];
 
-    DP->EBefore[i] = (VXLab * VXLab + VYLab * VYLab + VZLab * VZLab) / (*TwoM);
+    DP->EBefore[i] = (VXLab * VXLab + VYLab * VYLab + VZLab * VZLab) / (*DP->TwoM);
     VelocityInCOM = ((*DP->Sqrt2M) * sqrt(DP->EBefore[i]));
     DP->DirCosineX1[i] = VXLab / VelocityInCOM;
     DP->DirCosineY1[i] = VYLab / VelocityInCOM;
@@ -216,16 +218,17 @@ __global__ void MonteTRun(MonteGpuDevice * DP){
   __syncthreads();
 
   int f = 0;
-  for(int iColl=0;iColl<DP->NumColls;++iColl){
-    GetCollisions(DP,i,&state);
+  for(int iColl=0;iColl<(*DP->NumColls);++iColl){
+
+      GetCollisions(DP,i,&state);
       __syncthreads();
 
       ProcessCollisions(DP,i,&state);
-      if(((iColl)%(DP->NumColls/100))==0){
-        DP->output[0*100000+f*1000+i]=DP->X[i];
-        DP->output[1*100000+f*1000+i]=DP->Y[i];
-        DP->output[2*100000+f*1000+i]=DP->Z[i];
-        DP->output[3*100000+f*1000+i]=DP->TimeSum[i];
+      if(((iColl)%(*DP->NumColls/100))==0){
+        DP->Output[0*100000+f*1000+i]=DP->X[i];
+        DP->Output[1*100000+f*1000+i]=DP->Y[i];
+        DP->Output[2*100000+f*1000+i]=DP->Z[i];
+        DP->Output[3*100000+f*1000+i]=DP->TimeSum[i];
         f+=1;
       }
       __syncthreads();
@@ -245,12 +248,11 @@ void MonteGpu::MonteTGpu(){
 
   cudaMalloc((void **)&DeviceParametersPointer,sizeof(MonteGpuDevice));
   cudaMemcpy(DeviceParametersPointer,DeviceParameters,sizeof(MonteGpuDevice),cudaMemcpyHostToDevice);
-
-  MonteTRun<<<threads,blocks>>>(DeviceParametersPointer);
+  printf("%d %d ....\n",numElectrons,NumColls);
+  MonteTRun<<<blocks,threads>>>(DeviceParametersPointer);
   //Test<<<threads,blocks>>>(DeviceParametersPointer,DeviceParameters->RGAS);
-  printf("HERE\n");
   cudaDeviceSynchronize();
-  cudaMemcpy(DeviceParameters,DeviceParametersPointer,sizeof(MonteGpuDevice),cudaMemcpyDeviceToHost);
+  printf("HERE\n");
   printf("%p\n", DeviceParameters->RGAS);
   cudaMemcpy(output,DeviceParameters->Output,400000*sizeof(double),cudaMemcpyDeviceToHost);
   cudaMemcpy(RGAS,DeviceParameters->RGAS,6*290*sizeof(double),cudaMemcpyDeviceToHost);

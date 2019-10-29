@@ -475,9 +475,6 @@ cpdef run(PyBoltz Object):
             DirCosineX1 = VXLab / VelocityInCOM
             DirCosineY1 = VYLab / VelocityInCOM
             DirCosineZ1 = VZLab / VelocityInCOM
-            if iCollision == 100:
-                print("Z = ",Object.Z)
-                sys.exit()
 
 
             #And go around again to the next collision!

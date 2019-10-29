@@ -1,6 +1,7 @@
 from PyBoltz cimport PyBoltz
 import numpy as np
 cimport  numpy as np
+import sys
 cdef extern from "MonteGpu.hh":
     cdef cppclass C_MonteGpu "MonteGpu":
         void MonteTGpu()
@@ -49,9 +50,13 @@ cdef class PyBoltz_Gpu(PyBoltz):
         # Find collision frequencies and/or final electron energy
         self.Start_No_MONTE()
 
+        print(self.MaxCollisionFreq)
+
         # Current Output array.
         cdef double output[400000]
         cdef long long seeds[1000]
+        for j in range(1000):
+            seeds[j] = 999999
 
         # Setup variables
         self.MonteGpuObject.ElectronEnergyStep = self.ElectronEnergyStep

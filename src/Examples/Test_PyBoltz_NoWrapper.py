@@ -61,8 +61,8 @@ Object.ConsoleOutputFlag = 1
 
 Object.WhichAngularModel = 2
 
-Object.Start()
-
+Object.Start_No_MONTE()
+print (Object.MaxCollisionFreq)
 t2 =time.time()
 
 print("************************************************")

@@ -35,7 +35,7 @@ import time
 t1 =time.time()
 
 Object.numElectrons = 1000
-Object.NumColls = 1000
+Object.NumColls = 1000000
 # Set the number of gases
 Object.NumberOfGases =1
 # Set the number of collisons
@@ -44,7 +44,7 @@ Object.MaxNumberOfCollisions =1*40000000.0
 Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 2.0
+Object.FinalElectronEnergy = 0.0
 # Set the gas's with there given number
 Object.GasIDs=[7, 0, 0, 0, 0, 0]
 
@@ -55,7 +55,7 @@ Object.TemperatureCentigrade = float(23)
 # Set the pressure
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField =25
+Object.EField =50
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0

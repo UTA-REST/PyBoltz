@@ -5,7 +5,7 @@ public:
   double *pi,   *AngleFromZ,  *AngleFromX,*BP,*F1,*F2,*Sqrt2M,*TwoM,*TwoPi;
   double *InitialElectronEnergy;
   double * MaxCollisionFreq,*NumMomCrossSectionPoints,* RGAS,* CollisionFrequency,  *TotalCollisionFrequency,  * EnergyLevels,* VTMB,* ISIZE;
-  double * AngleCut, * ScatteringParameter,  * INDEX,  * IPN, * Output,*X,*Y,*Z,*TimeSum,*DirCosineZ1,*DirCosineX1,*DirCosineY1;
+  double * AngleCut, * ScatteringParameter,  * INDEX,  * IPN, *XOutput,*YOutput,*ZOutput,*TimeSumOutput,*EOutput,*X,*Y,*Z,*TimeSum,*DirCosineZ1,*DirCosineX1,*DirCosineY1;
   double * EBefore,*iEnergyBins,*COMEnergy,*VelocityX,*VelocityY,*VelocityZ,*GasVelX,*GasVelY,*GasVelZ,*T,*AP;
   long long *NumColls;
   long long * SeedsGpu;
@@ -18,7 +18,8 @@ public:
   double pi,   AngleFromZ,  AngleFromX;
   double InitialElectronEnergy;
   double  *MaxCollisionFreq,*NumMomCrossSectionPoints,*RGAS,* CollisionFrequency,  *TotalCollisionFrequency,  * EnergyLevels,* VTMB,* ISIZE;
-  double *AngleCut, * ScatteringParameter,  * INDEX,  * IPN, * output;
+  double *AngleCut, * ScatteringParameter,  * INDEX,  * IPN;
+  double *XOutput,*YOutput,*ZOutput,*TimeSumOutput,*EOutput;
   long long * SeedsGpu;
   long long numElectrons,NumColls;
   int threads,blocks;

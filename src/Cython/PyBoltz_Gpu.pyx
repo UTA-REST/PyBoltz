@@ -1,7 +1,7 @@
 from PyBoltz cimport PyBoltz
-import numpy as np
+from DiffCalculate import CalculateDiffusion
 cimport  numpy as np
-import sys
+import numpy as np
 cdef extern from "MonteGpu.hh":
     cdef cppclass C_MonteGpu "MonteGpu":
         void MonteTGpu()
@@ -29,7 +29,10 @@ cdef extern from "MonteGpu.hh":
         double * ScatteringParameter
         double * INDEX
         double * IPN
-        double * output
+        double * XOutput
+        double * YOutput
+        double * ZOutput
+        double * TimeSumOutput
         long long * SeedsGpu
         long long numElectrons
         long long NumColls
@@ -40,6 +43,11 @@ cdef class PyBoltz_Gpu(PyBoltz):
 
     cdef public long long numElectrons
     cdef public long long NumColls
+    cdef long long seeds[1000]
+
+    # Current Output arraies.
+    cdef double XOutput[1000][100],YOutput[1000][100],ZOutput[1000][100],TimeSumOutput[1000][100]
+
     cdef C_MonteGpu* MonteGpuObject
 
 
@@ -49,14 +57,10 @@ cdef class PyBoltz_Gpu(PyBoltz):
     def RunAndSetup(self):
         # Find collision frequencies and/or final electron energy
         self.Start_No_MONTE()
+        if self.seeds[0] == 0:
+            for j in range(1000):
+                self.seeds[j] = <long long>(np.random.rand()*10000000)
 
-        print(self.MaxCollisionFreq)
-
-        # Current Output array.
-        cdef double output[400000]
-        cdef long long seeds[1000]
-        for j in range(1000):
-            seeds[j] = 999999
 
         # Setup variables
         self.MonteGpuObject.ElectronEnergyStep = self.ElectronEnergyStep
@@ -81,17 +85,18 @@ cdef class PyBoltz_Gpu(PyBoltz):
         self.MonteGpuObject.ScatteringParameter = <double *>self.ScatteringParameter
         self.MonteGpuObject.INDEX = <double *>self.INDEX
         self.MonteGpuObject.IPN = <double *>self.IPN
-        self.MonteGpuObject.output = <double *>output
-        self.MonteGpuObject.SeedsGpu = <long long*>seeds
+        self.MonteGpuObject.SeedsGpu = <long long*>self.seeds
         self.MonteGpuObject.numElectrons = self.numElectrons
         self.MonteGpuObject.NumColls = self.NumColls
         self.MonteGpuObject.threads = 25
         self.MonteGpuObject.blocks = 40
-
-        print ("Setting up...")
+        self.MonteGpuObject.XOutput = <double *>self.XOutput
+        self.MonteGpuObject.YOutput = <double *>self.YOutput
+        self.MonteGpuObject.ZOutput = <double *>self.ZOutput
+        self.MonteGpuObject.TimeSumOutput = <double *>self.TimeSumOutput
         self.MonteGpuObject.Setup()
-        print ("Running...")
+
         # Run the Gpu code.
         self.MonteGpuObject.MonteTGpu()
 
-        print("here",self.MonteGpuObject.RGAS[10])
+        CalculateDiffusion(self.XOutput,self.YOutput,self.ZOutput,self.TimeSumOutput,self.numElectrons)

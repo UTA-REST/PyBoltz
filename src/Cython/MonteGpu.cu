@@ -82,7 +82,10 @@ void MonteGpu::Setup(){
   DeviceParameters->IPN = SetupAndCopyDouble(IPN,6*290);
   DeviceParameters->RGAS = SetupAndCopyDouble(RGAS,6*290);
   DeviceParameters->TotalCollisionFrequency = SetupAndCopyDouble(TotalCollisionFrequency,6*4000);
-  DeviceParameters->Output = SetupArrayOneVal(0,400000);
+  DeviceParameters->XOutput = SetupArrayOneVal(0,100000);
+  DeviceParameters->YOutput = SetupArrayOneVal(0,100000);
+  DeviceParameters->ZOutput = SetupArrayOneVal(0,100000);
+  DeviceParameters->TimeSumOutput = SetupArrayOneVal(0,100000);
 }
 
 MonteGpu::~MonteGpu(){
@@ -126,5 +129,8 @@ MonteGpu::~MonteGpu(){
   cudaFree(DeviceParameters->ScatteringParameter);
   cudaFree(DeviceParameters->INDEX);
   cudaFree(DeviceParameters->IPN);
-  cudaFree(DeviceParameters->Output);
+  cudaFree(DeviceParameters->XOutput);
+  cudaFree(DeviceParameters->YOutput);
+  cudaFree(DeviceParameters->ZOutput);
+  cudaFree(DeviceParameters->TimeSumOutput);
 }

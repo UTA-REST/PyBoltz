@@ -225,23 +225,16 @@ __global__ void MonteTRun(MonteGpuDevice * DP){
 
       ProcessCollisions(DP,i,&state);
       if(((iColl)%(*DP->NumColls/100))==0){
-        DP->Output[0*100000+f*1000+i]=DP->X[i];
-        DP->Output[1*100000+f*1000+i]=DP->Y[i];
-        DP->Output[2*100000+f*1000+i]=DP->Z[i];
-        DP->Output[3*100000+f*1000+i]=DP->TimeSum[i];
+        DP->XOutput[i*100+f]=DP->X[i];
+        DP->YOutput[i*100+f]=DP->Y[i];
+        DP->ZOutput[i*100+f]=DP->Z[i];
+        DP->TimeSumOutput[i*100+f]=DP->TimeSum[i];
         f+=1;
       }
       __syncthreads();
   }
 }
 
-__global__ void Test(MonteGpuDevice * M,double * RGAS){
-
-  M->Output[0] = 100;
-  M->RGAS[10] = 100;
-  __syncthreads();
-
-}
 // function that will be called from the PyBoltz_Gpu classoutput
 void MonteGpu::MonteTGpu(){
   MonteGpuDevice * DeviceParametersPointer;
@@ -252,9 +245,10 @@ void MonteGpu::MonteTGpu(){
   MonteTRun<<<blocks,threads>>>(DeviceParametersPointer);
   //Test<<<threads,blocks>>>(DeviceParametersPointer,DeviceParameters->RGAS);
   cudaDeviceSynchronize();
-  printf("HERE\n");
-  printf("%p\n", DeviceParameters->RGAS);
-  cudaMemcpy(output,DeviceParameters->Output,400000*sizeof(double),cudaMemcpyDeviceToHost);
+  cudaMemcpy(XOutput,DeviceParameters->XOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
+  cudaMemcpy(YOutput,DeviceParameters->YOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
+  cudaMemcpy(ZOutput,DeviceParameters->ZOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
+  cudaMemcpy(TimeSumOutput,DeviceParameters->TimeSumOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
   cudaMemcpy(RGAS,DeviceParameters->RGAS,6*290*sizeof(double),cudaMemcpyDeviceToHost);
   //FreeRM48GensCuda<<<int(1000),1>>>(pointer);
   cudaFree(DeviceParametersPointer);

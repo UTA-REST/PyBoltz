@@ -236,5 +236,6 @@ cdef class PyBoltz:
         Gasmix MixObject
         int Swarm
         double SwarmX[100],SwarmY[100],SwarmZ[100],SwarmT[100],SwarmE[100]
-
+        double xdata[35], ydata[35]
+        int UseMaxwell
 

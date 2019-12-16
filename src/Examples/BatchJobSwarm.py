@@ -44,12 +44,12 @@ SEED       = int(Args[4])
 # Set the number of gases
 Object.NumberOfGases =1
 # Set the number of collisons 
-Object.MaxNumberOfCollisions = 10*40000000.0
+Object.MaxNumberOfCollisions = 0.1*40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
-Object.EnableThermalMotion=0
-Object.FinalElectronEnergy = 0.0
+Object.EnableThermalMotion=1
+Object.FinalElectronEnergy = 3
 # Set the gas's with there given number
 Object.GasIDs=[GAS,0,0,0,0,0]
 
@@ -67,6 +67,9 @@ Object.BFieldAngle =0
 Object.ConsoleOutputFlag = 1
 Object.WhichAngularModel = 2
 
+# UseMaxwell =1 ==> our distribution
+# UseMaxwell =0 ==> steve's
+Object.UseMaxwell = 1
 Object.RandomSeed = SEED
 Object.Swarm      = 1
 

@@ -30,6 +30,45 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
         RandomMaxBoltzArray[J + 1] = sqrt(-1 * log(Ran1)) * sin(Ran2 * TwoPi)
 
 
+cdef double Interpolate(double* xData,double* yData,x):
+   cdef int size = 35 # finds the size you of x array
+   cdef int i = 0;
+   if ( x >= xData[size - 2] ):
+       i = size - 2
+   else :
+       while ( x > xData[i+1] ):
+           i+=1
+   cdef double xL = xData[i], yL = yData[i], xR = xData[i+1], yR = yData[i+1];      # points on either side
+   if ( x < xL ):
+       yR = yL
+   if ( x > xR ):
+       yL = yR
+   cdef double dydx = ( yR - yL ) / ( xR - xL );                                    # gradient
+   return yL + dydx * ( x - xL )                                             # linear interpolation
+
+
+cdef void Maxwell(double RandomSeed, double *RandomMaxBoltzArray, double *xData,double* yData):
+    cdef double Ran
+    cdef double phi = 2*3.1416 * random_uniform(RandomSeed);
+    cdef double ctheta = 2 * random_uniform(RandomSeed) - 1.;
+    cdef double stheta = sqrt(1. - ctheta * ctheta);
+    cdef double x = random_uniform(RandomSeed)
+    cdef double vt =  Interpolate(xData,yData,x)
+    RandomMaxBoltzArray[0] = vt * cos(phi) * stheta;
+    RandomMaxBoltzArray[1] = vt * sin(phi) * stheta;
+    RandomMaxBoltzArray[2] = vt * ctheta;
+
+    phi = 2*3.1416 * random_uniform(RandomSeed);
+    ctheta = 2 * random_uniform(RandomSeed) - 1.;
+    stheta = sqrt(1. - ctheta * ctheta);
+
+    x = random_uniform(RandomSeed)
+    vt =  Interpolate(xData,yData,x)
+
+    RandomMaxBoltzArray[3] = vt * cos(phi) * stheta;
+    RandomMaxBoltzArray[4] = vt * sin(phi) * stheta;
+    RandomMaxBoltzArray[5] = vt * ctheta;
+
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -124,7 +163,10 @@ cpdef run(PyBoltz Object):
     IEXTRA = 0
 
     # Generate initial random maxwell boltzman numbers
-    GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+    if Object.UseMaxwell ==0:
+        GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+    else:
+        Maxwell(Object.RandomSeed, Object.RandomMaxBoltzArray, Object.xdata,Object.ydata)
     MaxBoltzNumsUsed = 0
     TDash = 0.0
     cdef int i = 0
@@ -214,7 +256,11 @@ cpdef run(PyBoltz Object):
                 # Pick random gas molecule velocity for collision
                 MaxBoltzNumsUsed += 1
                 if (MaxBoltzNumsUsed > 6):
-                    GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+                    # Generate initial random maxwell boltzman numbers
+                    if Object.UseMaxwell ==0:
+                        GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+                    else:
+                        Maxwell(Object.RandomSeed, Object.RandomMaxBoltzArray, Object.xdata,Object.ydata)
                     MaxBoltzNumsUsed = 1
                 GasVelX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(MaxBoltzNumsUsed - 1)]
                 MaxBoltzNumsUsed += 1

@@ -64,7 +64,7 @@ Object.ConsoleOutputFlag = 1
 
 Object.WhichAngularModel = 2
 
-#Object.Swarm = 0
+Object.Swarm = 0
 
 Object.Start()
 

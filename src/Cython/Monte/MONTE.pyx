@@ -63,6 +63,8 @@ cpdef run(PyBoltz Object):
     SumVX_LastSample = 0.0
     SumVY_LastSample = 0.0
     SME2_LastSample = 0.0
+    cdef int OutputSampleNum
+    OutputSampleNum = 0
 
     # These arrays store X,Y,Z,T about every real collision
 
@@ -251,7 +253,13 @@ cpdef run(PyBoltz Object):
                  Object.Z += DirCosineZ1 * A + T2 * F1
             Object.TimeSum = Object.TimeSum + T
 
-
+            if ((iCollision)%(CollisionsPerSample/100))==0 and iSample==2 and  Object.Swarm==1:
+                 Object.SwarmX[OutputSampleNum] = Object.X
+                 Object.SwarmY[OutputSampleNum] = Object.Y
+                 Object.SwarmZ[OutputSampleNum] = Object.Z
+                 Object.SwarmT[OutputSampleNum] = Object.TimeSum
+                 Object.SwarmE[OutputSampleNum] = EBefore
+                 OutputSampleNum +=1
 
             # Figure out which time bin we're in, 299 is overflow; record collision
             #  at that time

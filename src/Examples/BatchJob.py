@@ -36,11 +36,9 @@ t1 =time.time()
 
 Args = sys.argv
 
-efield     = int(Args[1])
+efield     = float(Args[1])
 OUT        = str(Args[2])
 GAS       = int(Args[3])
-
-
 
 # Set the number of gases
 Object.NumberOfGases =1
@@ -49,8 +47,8 @@ Object.MaxNumberOfCollisions =15*40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
-Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 0.0
+Object.EnableThermalMotion=0
+Object.FinalElectronEnergy = 2.5#0.0
 # Set the gas's with there given number
 Object.GasIDs=[GAS,0,0,0,0,0]
 

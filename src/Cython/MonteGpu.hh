@@ -6,8 +6,8 @@ public:
   double *InitialElectronEnergy;
   double * MaxCollisionFreq,*NumMomCrossSectionPoints,* RGAS,* CollisionFrequency,  *TotalCollisionFrequency,  * EnergyLevels,* VTMB,* ISIZE;
   double * AngleCut, * ScatteringParameter,  * INDEX,  * IPN, *XOutput,*YOutput,*ZOutput,*TimeSumOutput,*EOutput,*X,*Y,*Z,*TimeSum,*DirCosineZ1,*DirCosineX1,*DirCosineY1;
-  double * EBefore,*iEnergyBins,*COMEnergy,*VelocityX,*VelocityY,*VelocityZ,*GasVelX,*GasVelY,*GasVelZ,*T,*AP;
-  long long *NumColls;
+  double * EBefore,*iEnergyBins,*COMEnergy,*VelocityX,*VelocityY,*VelocityZ,*GasVelX,*GasVelY,*GasVelZ,*T,*AP,*NumberOfGases,*MaxCollisionFreqTotalG;
+  long long *NumColls,*GasIndex;
   long long * SeedsGpu;
 };
 // host Object, this is the object on the cpu.
@@ -19,7 +19,7 @@ public:
   double InitialElectronEnergy;
   double  *MaxCollisionFreq,*NumMomCrossSectionPoints,*RGAS,* CollisionFrequency,  *TotalCollisionFrequency,  * EnergyLevels,* VTMB,* ISIZE;
   double *AngleCut, * ScatteringParameter,  * INDEX,  * IPN;
-  double *XOutput,*YOutput,*ZOutput,*TimeSumOutput,*EOutput;
+  double *XOutput,*YOutput,*ZOutput,*TimeSumOutput,*EOutput,NumberOfGases,*MaxCollisionFreqTotalG;
   long long * SeedsGpu;
   long long numElectrons,NumColls;
   int threads,blocks;
@@ -27,5 +27,5 @@ public:
   MonteGpu(){};
   void Setup();
   ~MonteGpu();
-  void MonteTGpu();
+  void MonteRunGpu();
 };

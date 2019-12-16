@@ -13,9 +13,9 @@ def line(x, a,b):
 
 
 def GetTarget(maxTime):
-    step = (maxTime - 1.0)-1
+    step = ((maxTime - 1.0)-1)/10
     X = np.arange(1.0,maxTime,step)
-    return X
+    return X[4:]
 
 def CalculateDiffusion(XOutput,YOutput,ZOutput,TimeSumOutput,numElectrons):
     MaxTime = 1e9

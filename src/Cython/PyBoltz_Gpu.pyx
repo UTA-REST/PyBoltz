@@ -4,7 +4,7 @@ cimport  numpy as np
 import numpy as np
 cdef extern from "MonteGpu.hh":
     cdef cppclass C_MonteGpu "MonteGpu":
-        void MonteTGpu()
+        void MonteRunGpu()
         void Setup()
         C_MonteGpu()
         double ElectronEnergyStep
@@ -32,10 +32,12 @@ cdef extern from "MonteGpu.hh":
         double * XOutput
         double * YOutput
         double * ZOutput
+        double * MaxCollisionFreqTotalG
         double * TimeSumOutput
         long long * SeedsGpu
         long long numElectrons
         long long NumColls
+        double NumberOfGases
         int threads
         int blocks
 
@@ -88,15 +90,18 @@ cdef class PyBoltz_Gpu(PyBoltz):
         self.MonteGpuObject.SeedsGpu = <long long*>self.seeds
         self.MonteGpuObject.numElectrons = self.numElectrons
         self.MonteGpuObject.NumColls = self.NumColls
+        self.MonteGpuObject.NumberOfGases = self.NumberOfGases
+        # thread * blocks  = Num electrons
         self.MonteGpuObject.threads = 25
         self.MonteGpuObject.blocks = 40
         self.MonteGpuObject.XOutput = <double *>self.XOutput
         self.MonteGpuObject.YOutput = <double *>self.YOutput
         self.MonteGpuObject.ZOutput = <double *>self.ZOutput
         self.MonteGpuObject.TimeSumOutput = <double *>self.TimeSumOutput
+        self.MonteGpuObject.MaxCollisionFreqTotalG = <double *>self.MaxCollisionFreqTotalG
         self.MonteGpuObject.Setup()
 
         # Run the Gpu code.
-        self.MonteGpuObject.MonteTGpu()
+        self.MonteGpuObject.MonteRunGpu()
 
         CalculateDiffusion(self.XOutput,self.YOutput,self.ZOutput,self.TimeSumOutput,self.numElectrons)

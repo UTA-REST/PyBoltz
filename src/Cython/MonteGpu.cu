@@ -1,6 +1,7 @@
 #include "MonteGpu.hh"
 #include <stdio.h>
 
+extern __global__ void MonteTRun(MonteGpuDevice * DP);
 
 // cudamalloc functions
 
@@ -26,6 +27,18 @@ double * SetupArrayOneVal(double val,int s){
     temp[i] = val;
   }
   cudaMemcpy(pointer,temp,s*sizeof(double),cudaMemcpyHostToDevice);
+  free(temp);
+  return pointer;
+}
+
+long long * SetupArrayOneValLL(long long val,int s){
+  long long * pointer;
+  cudaMalloc((void **)&pointer,s*sizeof(long long));
+  long long * temp = (long long *)malloc(s*sizeof(long long));
+  for(int i=0;i<s;++i){
+    temp[i] = val;
+  }
+  cudaMemcpy(pointer,temp,s*sizeof(long long),cudaMemcpyHostToDevice);
   free(temp);
   return pointer;
 }
@@ -86,6 +99,9 @@ void MonteGpu::Setup(){
   DeviceParameters->YOutput = SetupArrayOneVal(0,100000);
   DeviceParameters->ZOutput = SetupArrayOneVal(0,100000);
   DeviceParameters->TimeSumOutput = SetupArrayOneVal(0,100000);
+  DeviceParameters->GasIndex = SetupArrayOneValLL(0,1000);
+  DeviceParameters->MaxCollisionFreqTotalG = SetupAndCopyDouble(MaxCollisionFreqTotalG,6);
+  DeviceParameters->NumberOfGases =  SetupAndCopyDouble(&(NumberOfGases),1);
 }
 
 MonteGpu::~MonteGpu(){
@@ -133,4 +149,26 @@ MonteGpu::~MonteGpu(){
   cudaFree(DeviceParameters->YOutput);
   cudaFree(DeviceParameters->ZOutput);
   cudaFree(DeviceParameters->TimeSumOutput);
+  cudaFree(DeviceParameters->GasIndex);
+  cudaFree(DeviceParameters->NumberOfGases);
+  cudaFree(DeviceParameters->MaxCollisionFreqTotalG);
+}
+
+// function that will be called from the PyBoltz_Gpu classoutput
+void MonteGpu::MonteRunGpu(){
+  MonteGpuDevice * DeviceParametersPointer;
+
+  cudaMalloc((void **)&DeviceParametersPointer,sizeof(MonteGpuDevice));
+  cudaMemcpy(DeviceParametersPointer,DeviceParameters,sizeof(MonteGpuDevice),cudaMemcpyHostToDevice);
+  printf("%d %d ....\n",numElectrons,NumColls);
+  MonteTRun<<<blocks,threads>>>(DeviceParametersPointer);
+  //Test<<<threads,blocks>>>(DeviceParametersPointer,DeviceParameters->RGAS);
+  cudaDeviceSynchronize();
+  cudaMemcpy(XOutput,DeviceParameters->XOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
+  cudaMemcpy(YOutput,DeviceParameters->YOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
+  cudaMemcpy(ZOutput,DeviceParameters->ZOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
+  cudaMemcpy(TimeSumOutput,DeviceParameters->TimeSumOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
+  cudaMemcpy(RGAS,DeviceParameters->RGAS,6*290*sizeof(double),cudaMemcpyDeviceToHost);
+  //FreeRM48GensCuda<<<int(1000),1>>>(pointer);
+  cudaFree(DeviceParametersPointer);
 }

@@ -11,7 +11,7 @@
 
 
 
-__device__ int MBSortT(double RandomNum,double iEnergyBin,double * CF,double ISIZE,double NumPoints){
+__device__ int MBSortT(long long GasIndex,double RandomNum,double iEnergyBin,double * CF,double ISIZE,double NumPoints){
   int ISTEP,INCR,I;
   ISTEP = ISIZE;
   INCR = 0;
@@ -25,7 +25,7 @@ __device__ int MBSortT(double RandomNum,double iEnergyBin,double * CF,double ISI
       }
       I = INCR + ISTEP/2;
       if (I<= NumPoints){
-        if(CF[(int)iEnergyBin*290+I]<RandomNum){
+        if(CF[GasIndex*4000+(int)iEnergyBin*290+I]<RandomNum){
           INCR +=ISTEP;
         }
       }
@@ -38,7 +38,7 @@ __device__ int MBSortT(double RandomNum,double iEnergyBin,double * CF,double ISI
 }
 
 
-__device__ extern void GetCollisions(MonteGpuDevice * DP,int i,curandState* globalState){
+__device__ void GetCollisions(MonteGpuDevice * DP,int i,curandState* globalState){
 
   // function start
   int MaxBoltzNumsUsed = 0;
@@ -64,9 +64,18 @@ __device__ extern void GetCollisions(MonteGpuDevice * DP,int i,curandState* glob
     DCosineZ2 = DP->DirCosineZ1[i] * VelocityRatio + DP->T[i] * (*DP->F2) / (2.0 * sqrt(EAfter));
     DCosineX2 = DP->DirCosineX1[i] * VelocityRatio;
     DCosineY2 = DP->DirCosineY1[i] * VelocityRatio;
-    RandomNum = 0;
     MaxBoltzNumsUsed += 1;
 
+    DP->GasIndex[i] = 0;
+
+    RandomNum = curand_uniform(globalState);
+    if(*DP->NumberOfGases==1){
+      DP->GasIndex[i] = 0;
+    }else{
+      while(DP->MaxCollisionFreqTotalG[DP->GasIndex[i]]<RandomNum){
+        DP->GasIndex[i]+=1;
+      }
+    }
     if(MaxBoltzNumsUsed>6){
       for(int j=0;j<5;j+=2){
 
@@ -77,11 +86,11 @@ __device__ extern void GetCollisions(MonteGpuDevice * DP,int i,curandState* glob
       }
       MaxBoltzNumsUsed = 1;
     }
-    DP->GasVelX[i] = DP->VTMB[0] * RNMX[MaxBoltzNumsUsed - 1];
+    DP->GasVelX[i] = DP->VTMB[DP->GasIndex[i]] * RNMX[MaxBoltzNumsUsed - 1];
     MaxBoltzNumsUsed += 1;
-    DP->GasVelY[i] = DP->VTMB[0] * RNMX[MaxBoltzNumsUsed - 1];
+    DP->GasVelY[i] = DP->VTMB[DP->GasIndex[i]] * RNMX[MaxBoltzNumsUsed - 1];
     MaxBoltzNumsUsed += 1;
-    DP->GasVelZ[i] = DP->VTMB[0] * RNMX[MaxBoltzNumsUsed - 1];
+    DP->GasVelZ[i] = DP->VTMB[DP->GasIndex[i]] * RNMX[MaxBoltzNumsUsed - 1];
     DP->VelocityX[i] = DCosineX2 * (*DP->Sqrt2M) * sqrt(EAfter);
     DP->VelocityY[i] = DCosineY2 * (*DP->Sqrt2M) * sqrt(EAfter);
     DP->VelocityZ[i] = DCosineZ2 * (*DP->Sqrt2M) * sqrt(EAfter);
@@ -92,11 +101,14 @@ __device__ extern void GetCollisions(MonteGpuDevice * DP,int i,curandState* glob
     DP->iEnergyBins[i] = min(DP->iEnergyBins[i], 3999);
     RandomNum = curand_uniform(globalState);
 
-    TEST = DP->TotalCollisionFrequency[(int)DP->iEnergyBins[i]] / (DP->MaxCollisionFreq[0]);
+    TEST = DP->TotalCollisionFrequency[DP->GasIndex[i]*4000+(int)DP->iEnergyBins[i]] / (DP->MaxCollisionFreq[DP->GasIndex[i]]);
 
     if (RandomNum < TEST){
       DP->TimeSum[i]+=DP->T[i];
       return;
+    }else{
+      // if here this is a null collision try again
+      //Skipping null collision counters
     }
 
   }
@@ -127,14 +139,14 @@ __device__ void ProcessCollisions(MonteGpuDevice * DP,int i,curandState* globalS
     DP->Z[i] += DP->DirCosineZ1[i] * A + T2 * (*DP->F1);
     RandomNum = curand_uniform(globalState);
 
-    I = MBSortT(RandomNum,DP->iEnergyBins[i], DP->CollisionFrequency,(DP->ISIZE[0]),(DP->NumMomCrossSectionPoints[0]));
-    while(DP->CollisionFrequency[(int)DP->iEnergyBins[i]*290+I]<RandomNum) I+=1;
+    I = MBSortT(DP->GasIndex[i],RandomNum,DP->iEnergyBins[i], DP->CollisionFrequency,(DP->ISIZE[0]),(DP->NumMomCrossSectionPoints[0]));
+    while(DP->CollisionFrequency[DP->GasIndex[i]*4000+(int)DP->iEnergyBins[i]*290+I]<RandomNum) I+=1;
 
 
-    S1 = DP->RGAS[I];
-    EI = DP->EnergyLevels[I];
+    S1 = DP->RGAS[DP->GasIndex[i]*290+I];
+    EI = DP->EnergyLevels[DP->GasIndex[i]*290+I];
 
-    if(DP->IPN[I]>0){
+    if(DP->IPN[DP->GasIndex[i]*290+I]>0){
       RandomNum = curand_uniform(globalState);
       EXTRA = RandomNum * (DP->COMEnergy[i]-EI);
       EI = EXTRA + EI;
@@ -147,14 +159,14 @@ __device__ void ProcessCollisions(MonteGpuDevice * DP,int i,curandState* globalS
     S2 = (S1*S1)/(S1 - 1.0);
     RandomNum = curand_uniform(globalState);
 
-    if(DP->INDEX[I] == 1){
+    if(DP->INDEX[DP->GasIndex[i]*290+I] == 1){
       RandomNum2 = curand_uniform(globalState);
-      CosTheta = 1.0-RandomNum*DP->AngleCut[(int)DP->iEnergyBins[i]*290 + I];
-      if(RandomNum2>DP->ScatteringParameter[(int)DP->iEnergyBins[i]*290 + I]){
+      CosTheta = 1.0-RandomNum*DP->AngleCut[DP->GasIndex[i]*4000+(int)DP->iEnergyBins[i]*290 + I];
+      if(RandomNum2>DP->ScatteringParameter[(DP->GasIndex[i]*4000+(int)DP->iEnergyBins[i]*290 + I)]){
         CosTheta = -1.0 * CosTheta;
       }
-    }else if(DP->INDEX[I]==2){
-      EpsilonOkhr = DP->ScatteringParameter[(int)DP->iEnergyBins[i]*290 + I];
+    }else if(DP->INDEX[DP->GasIndex[i]*290+I]==2){
+      EpsilonOkhr = DP->ScatteringParameter[DP->GasIndex[i]*4000+(int)DP->iEnergyBins[i]*290 + I];
       CosTheta = 1.0 - (2.0 * RandomNum * (1.0 - EpsilonOkhr) / (1.0 + EpsilonOkhr * (1.0 - 2.0 * RandomNum)));
     }else{
       CosTheta = 1.0 - 2.0*RandomNum;
@@ -235,21 +247,3 @@ __global__ void MonteTRun(MonteGpuDevice * DP){
   }
 }
 
-// function that will be called from the PyBoltz_Gpu classoutput
-void MonteGpu::MonteTGpu(){
-  MonteGpuDevice * DeviceParametersPointer;
-
-  cudaMalloc((void **)&DeviceParametersPointer,sizeof(MonteGpuDevice));
-  cudaMemcpy(DeviceParametersPointer,DeviceParameters,sizeof(MonteGpuDevice),cudaMemcpyHostToDevice);
-  printf("%d %d ....\n",numElectrons,NumColls);
-  MonteTRun<<<blocks,threads>>>(DeviceParametersPointer);
-  //Test<<<threads,blocks>>>(DeviceParametersPointer,DeviceParameters->RGAS);
-  cudaDeviceSynchronize();
-  cudaMemcpy(XOutput,DeviceParameters->XOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
-  cudaMemcpy(YOutput,DeviceParameters->YOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
-  cudaMemcpy(ZOutput,DeviceParameters->ZOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
-  cudaMemcpy(TimeSumOutput,DeviceParameters->TimeSumOutput,100000*sizeof(double),cudaMemcpyDeviceToHost);
-  cudaMemcpy(RGAS,DeviceParameters->RGAS,6*290*sizeof(double),cudaMemcpyDeviceToHost);
-  //FreeRM48GensCuda<<<int(1000),1>>>(pointer);
-  cudaFree(DeviceParametersPointer);
-}

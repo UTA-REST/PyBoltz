@@ -234,3 +234,15 @@ cdef class PyBoltz:
         char BFieldMode
         '''Which integration mode to use'''
         Gasmix MixObject
+        '''Gas mixer object'''
+        double SteadyStateThreshold
+        '''If this threshold is crossed by the difference of the reduced attachment and ionisation rate, the steady state simulation is done.'''
+        double FakeIonisationsEstimate
+        double TimeStep
+        double MaxTime
+        double NumberOfTimeSteps
+        double TotalTimePrimary
+        double TotalTimeSecondary
+        double TotalSpaceZPrimary
+        double TotalSpaceZSecondary
+        double SpaceStepZ

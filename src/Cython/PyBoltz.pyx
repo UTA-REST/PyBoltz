@@ -6,6 +6,7 @@ import Setups
 import Mixers
 import EnergyLimits
 import Monte
+import SteadyState
 from Monte import *
 from Gasmix cimport Gasmix
 
@@ -186,12 +187,42 @@ cdef class PyBoltz:
         self.MeanCollisionTime = 0.0
         self.ReducedIonization=0.0
         self.ReducedAttachment=0.0
+        self.SteadyStateThreshold = 40.0
         self.MixObject = Gasmix()
+
+    def reset(self):
+        cdef int I,J
+
+        self.TimeSum = 0.0
+        self.X = 0.0
+        self.Y = 0.0
+        self.Z = 0.0
+
+        self.TotalTimePrimary = 0.0
+        self.TotalTimeSecondary = 0.0
+        self.TotalSpaceZPrimary = 0.0
+        self.TotalSpaceZSecondary = 0.0
+
+        for I in range(6):
+            for J in range(5):
+                self.CollisionsPerGasPerType[I][J] = 0.0
+            for J in range(290):
+                self.ICOLN[I][J] = 0.0
+            for J in range(10):
+                self.ICOLNN[I][J] = 0.0
+
+        for I in range(4000):
+            self.CollisionEnergies[I] = 0.0
+
 
     def end(self):
         """
         This function is used to convert some of the output values into different units.
         """
+
+        # Calculate temprature in kelvin
+        self.TemperatureKelvin = self.TemperatureCentigrade + 273.15
+
         cdef double DUM[6]
         if self.VelocityZ != 0:
             self.TransverseDiffusion1 = sqrt(2.0 * self.TransverseDiffusion / self.VelocityZ) * 10000.0
@@ -215,6 +246,7 @@ cdef class PyBoltz:
         """
         ELimFunc       = EnergyLimits.EnergyLimit
         MonteCarloFunc = Monte.MONTE
+        SteadyStateFunc = SteadyState.ALPCALCT
         if(self.EnableThermalMotion!=0):
             MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
@@ -272,7 +304,7 @@ cdef class PyBoltz:
         cdef int i = 0
 
         # Get the appropriate set of simulation functions given configuration keys
-        MixerFunc, ELimFunc, MonteCarloFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
+        MixerFunc, ELimFunc, MonteCarloFunc, SteadyStateFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
 
         # Set up the simulation
         Setups.Setup(self)
@@ -303,5 +335,10 @@ cdef class PyBoltz:
 
         # Closeout and end
         self.end()
+
+        # Steady state simulation
+        if abs(self.ReducedIonization-self.ReducedAttachment)>self.SteadyStateThreshold:
+            SteadyStateFunc.run(self)
+
         return
              

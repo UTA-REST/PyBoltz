@@ -124,6 +124,8 @@ cpdef run(PyBoltz Object):
 
     # Generate initial random maxwell boltzman numbers
     GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+
+
     MaxBoltzNumsUsed = 0
     TDash = 0.0
     cdef int i = 0

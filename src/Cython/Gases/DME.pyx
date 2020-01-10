@@ -73,12 +73,11 @@ cdef void Gas25(Gas*object):
     NEXC1=35
 
     cdef double ElectronMass = 9.10938291e-31
-    cdef double AMU = 1.660538921e-27,EOBY
-
+    cdef double AMU = 1.660538921e-27
     object.E = [0.0, 1.0, <float>(10.04), 0.0, 0.0, 0.0]
     object.E[1] = <float>(2.0) * ElectronMass / (<float>(46.06904) * AMU)
 
-    EOBY = <float>(10.04)
+    object.EOBY= <float>(10.04)
 
     cdef double APOP, EN,EFAC
     APOP = exp(object.EnergyLevels[0]/object.ThermalEnergy)

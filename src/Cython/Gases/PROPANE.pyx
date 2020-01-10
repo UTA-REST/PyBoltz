@@ -205,8 +205,8 @@ cdef void Gas10(Gas*object):
     # OPAL BEATY
     SCLOBY = <float> (0.8)
     for J in range(object.N_Ionization):
-        EOBY[J] = object.IonizationEnergy[J] * SCLOBY
-    EOBY[object.N_Ionization - 1] *= <float> (0.63)
+        object.EOBY[J] = object.IonizationEnergy[J] * SCLOBY
+    object.EOBY[object.N_Ionization - 1] *= <float> (0.63)
 
     for i in range(23):
         object.NC0[i] = 0

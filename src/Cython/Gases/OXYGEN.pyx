@@ -257,7 +257,7 @@ cdef void Gas15(Gas*object):
     object.IonizationEnergy[0:8] = [<float> (12.071), <float> (16.104), <float> (18.171), <float> (20.701), <float> (38.46), 68.0,
                         90.0, 532.0]
     for J in range(object.N_Ionization):
-        EOBY[J] = 12.9
+        object.EOBY[J] = 12.9
 
     for J in range(object.N_Ionization):
         object.NC0[J] = 0.0

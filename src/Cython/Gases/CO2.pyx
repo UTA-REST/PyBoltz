@@ -173,7 +173,7 @@ cdef void Gas12(Gas*object):
     NKSHC = 83
     NKSHO = 81
     cdef double ElectronMass = 9.10938291e-31, PENSum
-    cdef double AMU = 1.660538921e-27, EOBY[11]
+    cdef double AMU = 1.660538921e-27
 
     object.E = [0.0, 1.0, <float> (13.776), 0.0, 0.0, 0.0]
     object.E[1] = <float> (2.0) * ElectronMass / (<float> (44.0095) * AMU)
@@ -184,7 +184,7 @@ cdef void Gas12(Gas*object):
 
     # OPAL AND BEATY
     for J in range(11):
-        EOBY[J] = <float> (13.8)
+        object.EOBY[J] = <float> (13.8)
 
     for J in range(9):
         object.NC0[J] = 0

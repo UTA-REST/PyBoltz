@@ -224,7 +224,7 @@ cdef class PyBoltz:
         '''Total collision frequency at each energy step. This is used for when EnableThermalMotion = 0'''
         double InteractionTypeNT[960],RGasNT[960],ElectronNumChangeNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
         double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNullNT[4000],ScaleNullNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],AngularModelNT[960],NC0NT[960],EC0NT[960]
-        double CollisionsPerGasPerTypeNT[30],ICOLNNT[960]
+        double CollisionsPerGasPerTypeNT[30],ICOLNNT[960],WPLNT[960],WPL[6][290]
         double ICOLNNNT[60]
         '''Null scatter sum for each gas at each sample. This is used for when EnableThermalMotion = 0'''
         double NumMomCrossSectionPointsNullNT

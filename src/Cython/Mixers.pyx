@@ -124,6 +124,7 @@ cpdef Mixer(PyBoltz object):
                         object.RGasNT[iProcess] = RGas
                         object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].E[2] / RGas
                         object.NC0NT[iProcess] = object.MixObject.Gases[GasIndex].NC0[0]
+                        object.WPLNT[iProcess] = object.MixObject.Gases[GasIndex].EOBY[0]
                         object.ElectronNumChangeNT[iProcess] = 1
                         L = 2
                         object.InteractionTypeNT[iProcess] = L
@@ -139,6 +140,7 @@ cpdef Mixer(PyBoltz object):
                             object.EnergyLevelsNT[iProcess] = object.MixObject.Gases[GasIndex].IonizationEnergy[
                                                                   iIonizaton] / RGas
                             object.NC0NT[iProcess] = object.MixObject.Gases[GasIndex].NC0[iIonizaton]
+                            object.WPLNT[iProcess ] = object.MixObject.Gases[GasIndex].EOBY[iIonizaton]
                             object.ElectronNumChangeNT[iProcess] = 1
                             L = 2
                             object.InteractionTypeNT[iProcess] = L
@@ -491,6 +493,7 @@ cpdef MixerT(PyBoltz object):
                         object.RGas[GasIndex][iProcess - 1] = RGas
                         object.EnergyLevels[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].E[2] / RGas
                         object.NC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NC0[0]
+                        object.WPL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EOBY[0]
                         object.ElectronNumChange[GasIndex][iProcess - 1] = 1
                         L = 2
                         object.InteractionType[GasIndex][iProcess - 1] = L
@@ -506,6 +509,7 @@ cpdef MixerT(PyBoltz object):
                             object.EnergyLevels[GasIndex][iProcess - 1] = \
                             object.MixObject.Gases[GasIndex].IonizationEnergy[iIonizaton] / RGas
                             object.NC0[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].NC0[iIonizaton]
+                            object.WPL[GasIndex][iProcess - 1] = object.MixObject.Gases[GasIndex].EOBY[iIonizaton]
                             object.ElectronNumChange[GasIndex][iProcess - 1] = 1
                             L = 2
                             object.InteractionType[GasIndex][iProcess - 1] = L

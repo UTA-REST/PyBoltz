@@ -108,12 +108,12 @@ cdef void Gas22(Gas*object):
     N_Attachment1=18
 
     cdef double ElectronMass = 9.10938291e-31
-    cdef double AMU = 1.660538921e-27,EOBY
+    cdef double AMU = 1.660538921e-27
 
     object.E = [0.0, 1.0, <float>(15.427), 0.0, 0.0, 0.0]
     object.E[1] = 2.0 * ElectronMass / (<float>(4.028204) * AMU)
 
-    EOBY = 8.3
+    object.EOBY[0] = 8.3
 
     object.EnergyLevels = gd['gas22/EnergyLevels']
 

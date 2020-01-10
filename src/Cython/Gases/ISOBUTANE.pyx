@@ -111,7 +111,7 @@ cdef void Gas11(Gas*object):
 
     #OPAL BEATY IONISATION  AT LOW ENERGY 0
     #OPAL BEATY FOR DISSOCIATION AND K-SHELL 1,2
-    EOBY[0:3] = [6.8, 6.8, 180.0]
+    object.EOBY[0:3] = [6.8, 6.8, 180.0]
 
     object.NC0[0:3] = [0, 0, 2]
     object.EC0[0:3] = [0.0, 0.0, 253.0]

@@ -135,8 +135,8 @@ cdef void Gas21(Gas*object):
 
     # OPAL BEATY FOR LOW ENERGY
     ESCOBY = 0.5
-    EOBY[0] = object.IonizationEnergy[0] * ESCOBY
-    EOBY[1] = object.IonizationEnergy[1] * ESCOBY
+    object.EOBY[0] = object.IonizationEnergy[0] * ESCOBY
+    object.EOBY[1] = object.IonizationEnergy[1] * ESCOBY
 
     #FLUORESENCE DATA
     for J in range(2):

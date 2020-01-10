@@ -174,8 +174,8 @@ cdef void Gas9(Gas*object):
     SCLOBY = 1.0
 
     for J in range(object.N_Ionization):
-        EOBY[J] = object.IonizationEnergy[J] * SCLOBY
-    EOBY[object.N_Ionization - 1] = object.IonizationEnergy[object.N_Ionization - 1] * <float> (0.63)
+        object.EOBY[J] = object.IonizationEnergy[J] * SCLOBY
+    object.EOBY[object.N_Ionization - 1] = object.IonizationEnergy[object.N_Ionization - 1] * <float> (0.63)
 
     for J in range(15):
         object.NC0[J] = 0

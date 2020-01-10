@@ -159,7 +159,7 @@ cdef void Gas14(Gas*object):
     # SCALING OF NULL COLLISIONS
     object.ScaleNull[0:4] = [1.0, 1.0, 1.0, 1.0]
     cdef double ElectronMass = 9.10938291e-31
-    cdef double AMU = 1.660538921e-27, GPARA, GORTHO, DBA, DRAT, DBK, RSum, EOBY[9], ENRT, AL
+    cdef double AMU = 1.660538921e-27, GPARA, GORTHO, DBA, DRAT, DBK, RSum, ENRT, AL
     cdef int L2,
 
     object.E = [0.0, 1.0, <float> (12.617), 0.0, 0.0, 0.0]
@@ -202,7 +202,7 @@ cdef void Gas14(Gas*object):
                            <float> (17.117), <float> (18.117), <float> (19.117), <float> (20.117), <float> (21.117)]
 
     for J in range(object.N_Ionization):
-        EOBY[J] = object.IonizationEnergy[0] * <float> (0.93)
+        object.EOBY[J] = object.IonizationEnergy[0] * <float> (0.93)
 
     for J in range(object.N_Ionization):
         object.NC0[J] = 0

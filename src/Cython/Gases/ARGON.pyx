@@ -89,8 +89,8 @@ cdef void Gas2(Gas *object):
     AMU = 1.660538921e-27
     object.E = [0.0, 1.0, <float>(15.75961), 0.0, 0.0, <float>(15.0)]
     object.E[1] = <float>(2.0) * ElectronMass / (<float>(39.948) * AMU)
-    cdef double EOBY[30], ISHELL[30], LEGAS[30], WKLM[30]
-    EOBY[0:7] = [<float>(9.5), <float>(18.0), <float>(34.0), <float>(110.0), <float>(110.0), <float>(150.0), <float>(1800)]
+    cdef double ISHELL[30], LEGAS[30], WKLM[30]
+    object.EOBY[0:7] = [<float>(9.5), <float>(18.0), <float>(34.0), <float>(110.0), <float>(110.0), <float>(150.0), <float>(1800)]
 
     object.IonizationEnergy[0:7] = [<float>(15.75961), <float>(43.38928), <float>(84.124), <float>(248.4), <float>(250.6), <float>(326.3), <float>(3205.9)]
     LEGAS[0:7] = [0, 0, 0, 1, 1, 1, 1]

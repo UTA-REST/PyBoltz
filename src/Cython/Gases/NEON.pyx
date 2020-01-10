@@ -170,7 +170,7 @@ cdef void Gas5(Gas* object):
     object.E = [0.0, 1.0, <float>(21.56454), 0.0, 0.0, <float>(19.5)]
     object.E[1] = <float>(2.0) * ElectronMass / (<float>(20.1797) * AMU)
 
-    EOBY[0:4] = [17.4, 36, 73, 500]
+    object.EOBY[0:4] = [17.4, 36, 73, 500]
     object.IonizationEnergy[0:4] = [<float>(21.56454), <float>(62.5275), <float>(125.9508), <float>(870.2)]
     object.NC0[0:4] = [0, 1, 2, 2]
     object.EC0[0:4] = [0.0, 5.0, 10.0, <float>(806.6)]

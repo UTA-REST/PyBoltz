@@ -99,10 +99,10 @@ cdef void Gas1(Gas* object):
     cdef int J = 0
     # OPAL BEATY IONISATION ENERGY SPLITTING
     for i in range(0, 10):
-        EOBY[i] = <float>(0.58) * object.IonizationEnergy[i]
+        object.EOBY[i] = <float>(0.58) * object.IonizationEnergy[i]
 
-    EOBY[10] = 210.0
-    EOBY[11] = 510.0
+    object.EOBY[10] = 210.0
+    object.EOBY[11] = 510.0
 
     # skipped ISHELL and LEGAS, as they are not used in any calculation
     cdef int j = 0

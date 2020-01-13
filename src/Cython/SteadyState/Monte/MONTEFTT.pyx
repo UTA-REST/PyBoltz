@@ -2,9 +2,9 @@ from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from libc.string cimport memset
 from PyBoltz cimport drand48
-from MBSorts cimport MBSort
+from MBSorts cimport MBSortT
 from libc.stdlib cimport malloc, free
-import MonteVars
+from MonteVars cimport MonteVars
 import cython
 import numpy as np
 cimport numpy as np
@@ -105,15 +105,37 @@ cdef void TimePlanesUpdate(PyBoltz Object, MonteVars*MV):
 cpdef run(PyBoltz Object, int ConsoleOuput):
     # All the simulation variables are put into the MonteVars struct
     cdef MonteVars MV
-    cdef double VelBefore, VelXBefore, VelYBefore, VelZBefore, VelBeforeM1
+    cdef double VelBefore, VelXBefore, VelYBefore, VelZBefore, VelBeforeM1, DZCOM, DYCOM, DXCOM
     cdef double PenningTransferTime, TempTime, S2, RandomNum2, ARG1, D, U, ARGZ, TempSinZ, TempCosZ, TempPhi, TempSinPhi, TempCosPhi
     cdef double RandomSeed = 0.3, RandomNum, S1, EI, ESEC, EISTR, CosTheta, SinTheta, Phi, SinPhi, CosPhi, Sign, RandomNum1
     cdef double XS[2001], YS[2001], ZS[2001], TS[2001], ES[2001], DirCosineX[2001], DirCosineY[2001], DirCosineZ[2001], EAuger
     cdef double GasVelX, GasVelY, GasVelZ, VelocityRatio, VelXAfter, VelYAfter, VelZAfter, COMEnergy, Test1, A, VelocityInCOM, T2
-    cdef int IPlaneS[2001], Flag, GasIndex, MaxBoltzNumsUsed, NumCollisions = 0, I, IPT, NCLTMP, IAuger, J, DZCOM, DYCOM, DXCOM
+    cdef int IPlaneS[2001], Flag, GasIndex, MaxBoltzNumsUsed, NumCollisions = 0, I, IPT, NCLTMP, IAuger, J,NAuger
     cdef int TempPlane, JPrint, J1 = 1
+    MV.NumberOfMaxColli = 80000000
+    MV.ID = 0
+    MV.I100 = 0
+    MV.NumberOfCollision = 0
+    MV.NumberOfNullCollision = 0
+    MV.NumberOfElectron = 0
+    MV.NumberOfElectronIon = 0
+    MV.NTPMFlag = 0
+    MV.NMXADD = 0
+    MV.NPONT = 0
+    MV.NCLUS = 0
+    MV.J1=1
+    MV.SpaceZStart = 0.0
+    MV.TimeSumStart = 0.0
+    MV.AbsFakeIoniz = 0.0
+    MV.TimeStop = 0.0
+    MV.TDash  =0.0
+    MV.T = 0.0
+    MV.AP = 0.0
+    MV.BP = 0.0
+
+
     if ConsoleOuput != 0:
-        MV.NumberOfMaxColli = Object.MaxNumberOfCollisions
+        MV.NumberOfMaxColli = <int>Object.MaxNumberOfCollisions
 
     MV.StartingEnergy = Object.InitialElectronEnergy
 
@@ -124,7 +146,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     Object.reset()
 
     JPrint = MV.NumberOfMaxColli / 10
-    cdef int i = 0, K, J
+    cdef int i = 0, K
     cdef double ** TotalCollFreqIncludingNull = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
         TotalCollFreqIncludingNull[i] = <double *> malloc(4000 * sizeof(double))
@@ -134,7 +156,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                                                Object.TotalCollisionFrequencyNull[K][J]
     AbsFakeIoniz = Object.FakeIonisationsEstimate
 
-    for J in range(8):
+    for J in range(9):
         MV.FakeIonisationsTime[J] = 0.0
         MV.FakeIonisationsSpace[J] = 0.0
 
@@ -260,7 +282,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         # Now the Skullerud null collision method
         RandomNum = random_uniform(RandomSeed)
-        MV.iEnergyBin = COMEnergy / Object.ElectronEnergyStep
+        MV.iEnergyBin = <int>(COMEnergy / Object.ElectronEnergyStep)
         MV.iEnergyBin = min(3999, MV.iEnergyBin)
 
         # If we draw below this number, we will null-scatter (no mom xfer)
@@ -341,7 +363,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         NumCollisions += 1
 
         #  sqrt(2m E_com) = |v_com|
-        VelocityInCOM = (Sqrt2M * sqrt(COMEnergy))
+        VelocityInCOM = (MV.Sqrt2M * sqrt(COMEnergy))
 
         # Calculate direction cosines of electron in 0 kelvin frame
         DXCOM = (VelXAfter - GasVelX) / VelocityInCOM
@@ -375,8 +397,8 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         RandomNum = random_uniform(RandomSeed)
 
         # Find location within 4 units in collision array
-        I = MBSortT(GasIndex, I, RandomNum, iEnergyBin, Object)
-        while Object.CollisionFrequency[GasIndex][iEnergyBin][I] < RandomNum:
+        I = MBSortT(GasIndex, I, RandomNum, MV.iEnergyBin, Object)
+        while Object.CollisionFrequency[GasIndex][MV.iEnergyBin][I] < RandomNum:
             I += 1
 
         S1 = Object.RGas[GasIndex][I]
@@ -392,7 +414,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             MV.ID += 1
             MV.Iterator += 1
             MV.IPrint += 1
-            Object.CollisionsPerGasPerType[GasIndex][IPT] += 1
+            Object.CollisionsPerGasPerType[GasIndex][ <int> IPT - 1] += 1
             Object.ICOLN[GasIndex][I] += 1
             Object.CollisionTimes[min(299, int(MV.T + 1))] += 1
 
@@ -452,7 +474,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             # Store possible shell emissions auger or fluorescence, update the angles and cosines
             if EISTR > 30.0:
                 # Auger Emission without fluorescence
-                NAuger = Object.NC0[GasIndex][I]
+                NAuger = <int >Object.NC0[GasIndex][I]
                 EAuger = Object.EC0[GasIndex][I] / NAuger
                 for J in range(NAuger):
                     MV.NCLUS += 1
@@ -550,12 +572,12 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         if Object.AngularModel[GasIndex][I] == 1:
             # Use method of Capitelli et al
             RandomNum2 = random_uniform(RandomSeed)
-            CosTheta = 1.0 - RandomNum * Object.AngleCut[GasIndex][iEnergyBin][I]
-            if RandomNum2 > Object.ScatteringParameter[GasIndex][iEnergyBin][I]:
+            CosTheta = 1.0 - RandomNum * Object.AngleCut[GasIndex][MV.iEnergyBin][I]
+            if RandomNum2 > Object.ScatteringParameter[GasIndex][MV.iEnergyBin][I]:
                 CosTheta = -1.0 * CosTheta
         elif Object.AngularModel[GasIndex][I] == 2:
             # Use method of Okhrimovskyy et al
-            EpsilonOkhr = Object.ScatteringParameter[GasIndex][iEnergyBin][I]
+            EpsilonOkhr = Object.ScatteringParameter[GasIndex][MV.iEnergyBin][I]
             CosTheta = 1.0 - (2.0 * RandomNum * (1.0 - EpsilonOkhr) / (1.0 + EpsilonOkhr * (1.0 - 2.0 * RandomNum)))
         else:
             # Isotropic scattering
@@ -565,7 +587,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         # Pick a random Phi - must be uniform by symmetry of the gas
         RandomNum = random_uniform(RandomSeed)
-        Phi = TwoPi * RandomNum
+        Phi = MV.TwoPi * RandomNum
         SinPhi = sin(Phi)
         CosPhi = cos(Phi)
 
@@ -618,9 +640,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 TempSinPhi = sin(TempPhi)
                 TempCosPhi = cos(TempPhi)
 
-                MV.DirCosineZ1[NCLTMP] = TempCosZ
-                MV.DirCosineX1[NCLTMP] = TempCosPhi * TempSinZ
-                MV.DirCosineY1[NCLTMP] = TempSinPhi * TempSinZ
+                DirCosineZ[NCLTMP] = TempCosZ
+                DirCosineX[NCLTMP] = TempCosPhi * TempSinZ
+                DirCosineY[NCLTMP] = TempSinPhi * TempSinZ
                 MV.NTPMFlag = 0
         else:
             # Otherwise do this.
@@ -646,10 +668,10 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 TempSinPhi = sin(TempPhi)
                 TempCosPhi = cos(TempPhi)
 
-                MV.DirCosineZ1[NCLTMP] = DZCOM * TempCosZ + ARGZ * TempSinZ * TempSinPhi
-                MV.DirCosineX1[NCLTMP] = DYCOM * TempCosZ + (TempSinZ / ARGZ) * (
+                DirCosineZ[NCLTMP] = DZCOM * TempCosZ + ARGZ * TempSinZ * TempSinPhi
+                DirCosineX[NCLTMP] = DYCOM * TempCosZ + (TempSinZ / ARGZ) * (
                         DXCOM * TempCosPhi - DYCOM * DZCOM * TempSinPhi)
-                MV.DirCosineY1[NCLTMP] = DXCOM * TempCosZ - (TempSinZ / ARGZ) * (
+                DirCosineY[NCLTMP] = DXCOM * TempCosZ - (TempSinZ / ARGZ) * (
                         DYCOM * TempCosPhi + DXCOM * DZCOM * TempSinPhi)
                 MV.NTPMFlag = 0
 

@@ -152,7 +152,6 @@ cdef class PyBoltz:
         '''Number of electron samples'''
         long long FakeIonizations
         '''Fake ionisation counter.'''
-        double NESST[9]
         double CollisionEnergies[4000]
         '''Number of collisions in the Ith energy step.'''
         double CollisionTimes[300]
@@ -240,10 +239,10 @@ cdef class PyBoltz:
         double FakeIonisationsEstimate
         double TimeStep
         double MaxTime
-        double NumberOfTimeSteps
+        int NumberOfTimeSteps
         double TotalTimePrimary
         double TotalTimeSecondary
-        int IPrimary=0
+        int IPrimary
         double TotalSpaceZPrimary
         double TotalSpaceZSecondary
         double SpaceStepZ
@@ -259,5 +258,8 @@ cdef class PyBoltz:
         double TX2Planes[9],TY2Planes[9],TZ2Planes[9],TVZPlanes[9],TTSPlanes[9],TTS2Planes[9],NETPL[9]
         double ATTOINT,ATTERT,AIOERT
 
-        # Time of flight and Pulsed Townsend
+        # Pulsed Townsend
         double RI[9],EPT[9],VZPT[9],TTEST[9]
+
+        # Time of flight
+        double RALPHA,RALPEr,TOFENE,TOFENER,TOFWV,TOFWVER,TOFDL,TOFDLER,TOFDT,TOFDTER,TOFWR,TOFWRER,RATTOF,RATOFER

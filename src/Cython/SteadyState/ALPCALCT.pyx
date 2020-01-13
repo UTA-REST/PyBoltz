@@ -1,10 +1,13 @@
 from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 from libc.string cimport memset
-from PT import PT
+import PulsedTownsend
+import TimeOfFlight
 from PyBoltz cimport drand48
 from MBSorts cimport MBSort
 import Monte
+import PulsedTownsend
+import TimeOfFlight
 from libc.stdlib cimport malloc, free
 import cython
 import numpy as np
@@ -87,8 +90,6 @@ cpdef run(PyBoltz Object):
 
         # Calculate good starting values for ionisation and attachment rates
         Monte.MONTEFTT.run(Object,0)
-        PT(Object)
-        '''
-        Call TOF
-        '''
+        PulsedTownsend.PT.PT(Object,0)
+        TimeOfFlight.TOF.TOF(Object,0)
 

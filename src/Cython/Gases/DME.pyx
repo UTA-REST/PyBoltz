@@ -77,7 +77,7 @@ cdef void Gas25(Gas*object):
     object.E = [0.0, 1.0, <float>(10.04), 0.0, 0.0, 0.0]
     object.E[1] = <float>(2.0) * ElectronMass / (<float>(46.06904) * AMU)
 
-    object.EOBY= <float>(10.04)
+    object.EOBY[0]= <float>(10.04)
 
     cdef double APOP, EN,EFAC
     APOP = exp(object.EnergyLevels[0]/object.ThermalEnergy)

@@ -25,7 +25,7 @@ cdef void PT(PyBoltz Object, int ConsoleOuput):
         print("Pulsed Towensend results at" + str(Object.NumberOfTimeSteps) + "sequential time planes")
         print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Plane #", "(Ion-Att) Freq", "Energy", "Velocity",
                                                                          "# of Elec."))
-        for J in range(8):
+        for J in range(Object.NumberOfTimeSteps):
             print(
                 '{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(J+1, Object.RI[J], Object.EPT[J],
                                                                                          Object.VZPT[J], Object.NETPL[J]))

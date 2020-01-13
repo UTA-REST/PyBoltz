@@ -243,6 +243,18 @@ cdef class PyBoltz:
         double NumberOfTimeSteps
         double TotalTimePrimary
         double TotalTimeSecondary
+
         double TotalSpaceZPrimary
         double TotalSpaceZSecondary
         double SpaceStepZ
+
+        # Space planes output
+        double SXPlanes[9],SYPlanes[9],SZPlanes[9],STPlanes[9],SEPlanes[9]
+        double SX2Planes[9],SY2Planes[9],SZ2Planes[9],SVZPlanes[9],STSPlanes[9],STS2Planes[9]
+        double ATTOION,ATTIOER,ATTATER,NESST[10]
+        double TMSPL[9],TTMSPL[9],RSPL[9],RRSPL[9],RRSPM[9]
+
+        #Time planes output
+        double TXPlanes[9],TYPlanes[9],TZPlanes[9],TTPlanes[9],TEPlanes[9]
+        double TX2Planes[9],TY2Planes[9],TZ2Planes[9],TVZPlanes[9],TTSPlanes[9],TTS2Planes[9],NETPL[9]
+        double ATTOINT,ATTERT,AIOERT

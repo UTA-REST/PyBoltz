@@ -61,17 +61,57 @@ cdef void NewElectron(PyBoltz Object, MonteVars*MV):
     MV.NumberOfElectron += 1
     MV.TimeStop = MV.IPlane * Object.TimeStep
 
+cdef void TimePlanesUpdate(PyBoltz Object, MonteVars*MV):
+    cdef double CurrentTime, TimeLeft, A, B, EPlane, VelocityRatio, TimeLeft2, DirCosineZ2
+    cdef double XPlane, YPlane, ZPlane, VZPlane
+    CurrentTime = MV.IPlane * Object.TimeStep
+    # Time left to reach IPlane
+    TimeLeft = CurrentTime - Object.TimeSum
+    TimeLeft2 = TimeLeft * TimeLeft
+
+    A = MV.AP * TimeLeft
+    B = MV.BP * TimeLeft2
+
+    EPlane = MV.StartingEnergy + A + B
+    VelocityRatio = sqrt(MV.StartingEnergy / EPlane)
+    DirCosineZ2 = MV.DirCosineZ1
+
+    XPlane = Object.X + MV.DirCosineX1 * TimeLeft * sqrt(MV.StartingEnergy) * Object.CONST3 * 0.01
+    YPlane = Object.Y + MV.DirCosineY1 * TimeLeft * sqrt(MV.StartingEnergy) * Object.CONST3 * 0.01
+    ZPlane = Object.Z + MV.DirCosineZ1 * TimeLeft * sqrt(
+        MV.StartingEnergy) * Object.CONST3 * 0.01 + TimeLeft2 * Object.EField * Object.CONST2
+
+    Object.TXPlanes[MV.IPlane] += XPlane
+    Object.TYPlanes[MV.IPlane] += YPlane
+    Object.TZPlanes[MV.IPlane] += ZPlane
+
+    VZPlane = DirCosineZ2*sqrt(EPlane)*Object.CONST3*0.01
+
+    Object.TX2Planes[MV.IPlane] += XPlane*XPlane
+    Object.TY2Planes[MV.IPlane] += YPlane*YPlane
+    Object.TZ2Planes[MV.IPlane] += ZPlane*ZPlane
+
+    Object.TEPlanes[MV.IPlane] +=EPlane
+    Object.TTPlanes[MV.IPlane] += Object.TimeSum+TimeLeft
+    Object.TVZPlanes[MV.IPlane] += VZPlane
+
+    Object.NETPL[MV.IPlane] +=1
+
+    return
+
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef run(PyBoltz Object, int ConsoleOuput):
     # All the simulation variables are put into the MonteVars struct
     cdef MonteVars MV
-    cdef double RandomSeed = 0.3, RandomNum, S1, EI, ESEC, EISTR, F3
+    cdef double VelBefore, VelXBefore, VelYBefore, VelZBefore, VelBeforeM1
+    cdef double PenningTransferTime, TempTime, S2, RandomNum2, ARG1, D, U, ARGZ, TempSinZ, TempCosZ, TempPhi, TempSinPhi, TempCosPhi
+    cdef double RandomSeed = 0.3, RandomNum, S1, EI, ESEC, EISTR, CosTheta, SinTheta, Phi, SinPhi, CosPhi, Sign, RandomNum1
     cdef double XS[2001], YS[2001], ZS[2001], TS[2001], ES[2001], DirCosineX[2001], DirCosineY[2001], DirCosineZ[2001], EAuger
     cdef double GasVelX, GasVelY, GasVelZ, VelocityRatio, VelXAfter, VelYAfter, VelZAfter, COMEnergy, Test1, A, VelocityInCOM, T2
-    cdef int IPlaneS[2001], Flag, GasIndex, MaxBoltzNumsUsed, NumCollisions = 0, I, IPT, NCLTMP, IAuger, J
-
+    cdef int IPlaneS[2001], Flag, GasIndex, MaxBoltzNumsUsed, NumCollisions = 0, I, IPT, NCLTMP, IAuger, J, DZCOM, DYCOM, DXCOM
+    cdef int TempPlane,JPrint,J1
     if ConsoleOuput != 0:
         MV.NumberOfMaxColli = Object.MaxNumberOfCollisions
 
@@ -83,6 +123,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
     Object.reset()
 
+    JPrint = MV.NumberOfMaxColli/10
     cdef int i = 0, K, J
     cdef double ** TotalCollFreqIncludingNull = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
@@ -131,10 +172,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         MV.TDash = MV.T
         MV.AP = MV.DirCosineZ1 * MV.F2 * sqrt(MV.StartingEnergy)
 
-        '''
-        call TPLANET
-        '''
-
+        TimePlanesUpdate(Object, &MV)
         # check if the total time is bigger than the time for the current plane(TimeStop)
         if MV.T + Object.TimeSum >= MV.TimeStop:
 
@@ -144,7 +182,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 # move to the next plane and update the time for the current plane
                 MV.IPlane += 1
                 MV.TimeStop += Object.TimeStep
-                #TPLANET(object,T, E1, DCX1, DCY1, DCZ1, AP, BP, IPLANE - 1)
+                TimePlanesUpdate(Object, &MV)
 
                 if MV.T + Object.TimeSum >= MV.TimeStop and MV.TimeStop <= Object.MaxTime:
                     continue
@@ -426,4 +464,225 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     ES[MV.NPONT] = EAuger
                     RandomNum = random_uniform(RandomSeed)
 
-                    F3 = 1.0 - 2 * RandomNum
+                    # Angular distribution (isotropic scattering)
+                    CosTheta = 1.0 - 2 * RandomNum
+                    Object.AngleFromZ = acos(CosTheta)
+                    CosTheta = cos(Theta)
+                    SinTheta = sin(Theta)
+
+                    RandomNum = random_uniform(RandomSeed)
+                    Phi = MV.TwoPi * RandomNum
+                    SinPhi = sin(Phi)
+                    CosPhi = cos(Phi)
+                    DirCosineZ[MV.NPONT] = CosTheta
+                    DirCosineX[MV.NPONT] = CosPhi * SinTheta
+                    DirCosineY[MV.NPONT] = SinPhi * SinTheta
+                    IPlaneS[MV.NPONT] = MV.IPlane
+        IPT = <long long> Object.InteractionType[GasIndex][I]
+        Object.CollisionsPerGasPerType[GasIndex][<int> IPT - 1] += 1
+        MV.ID += 1
+        MV.Iterator += 1
+        MV.IPrint += 1
+
+        # If it is an excitation then add the probability
+        # of transfer to give ionisation of the other gases in the mixture
+        if Object.EnablePenning != 0:
+            if Object.PenningFraction[GasIndex][0][I] != 0:
+                RandomNum = random_uniform(RandomSeed)
+                if RandomNum <= Object.PenningFraction[GasIndex][0][I]:
+                    MV.NCLUS += 1
+                    MV.NPONT += 1
+                    if MV.NPONT > 2000:
+                        raise ValueError("More than 2000 stored electrons")
+                    if Object.PenningFraction[GasIndex][1][I] == 0.0:
+                        XS[MV.NPONT] = Object.X
+                        YS[MV.NPONT] = Object.Y
+                        ZS[MV.NPONT] = Object.Z
+                    else:
+                        Sign = 1.0
+                        RandomNum = random_uniform(RandomSeed)
+                        if RandomNum < 0.5:
+                            Sign = -1
+                        RandomNum = random_uniform(RandomSeed)
+                        XS[MV.NPONT] = Object.X - log(RandomNum) * Object.PenningFraction[GasIndex][1][I] * Sign
+
+                        RandomNum = random_uniform(RandomSeed)
+                        if RandomNum < 0.5:
+                            Sign = -1
+                        RandomNum = random_uniform(RandomSeed)
+                        YS[MV.NPONT] = Object.Y - log(RandomNum) * Object.PenningFraction[GasIndex][1][I] * Sign
+
+                        RandomNum = random_uniform(RandomSeed)
+                        if RandomNum < 0.5:
+                            Sign = -1
+                        RandomNum = random_uniform(RandomSeed)
+                        ZS[MV.NPONT] = Object.Z - log(RandomNum) * Object.PenningFraction[GasIndex][1][I] * Sign
+
+                    # Possible penning transfer time
+                    PenningTransferTime = Object.TimeSum
+                    if Object.PenningFraction[GasIndex][2][I] != 0.0:
+                        RandomNum = random_uniform(RandomSeed)
+                        PenningTransferTime = Object.TimeSum - log(RandomNum) * Object.PenningFraction[GasIndex][2][I]
+                    TS[MV.NPONT] = PenningTransferTime
+                    ES[MV.NPONT] = 1.0
+                    DirCosineX[MV.NPONT] = MV.DirCosineX1
+                    DirCosineY[MV.NPONT] = MV.DirCosineY1
+                    DirCosineZ[MV.NPONT] = MV.DirCosineZ1
+
+                    # Last time before the penning transfer time
+                    for J in range(Object.NumberOfTimeSteps):
+                        TempTime += Object.TimeStep
+                        if PenningTransferTime < TempTime:
+                            break
+                        TempPlane += 1
+
+                    if PenningTransferTime > Object.MaxTime:
+                        # Penning happens after final time plane, dont store the electron
+                        MV.NPONT -= 1
+                        MV.NCLUS -= 1
+                    else:
+                        # Store the electron
+                        IPlaneS[MV.NPONT] = TempPlane
+        S2 = (S1 * S1) / (S1 - 1.0)
+
+        # Anisotropic scattering - pick the scattering angle theta depending on scatter type
+        RandomNum = random_uniform(RandomSeed)
+        if Object.AngularModel[GasIndex][I] == 1:
+            # Use method of Capitelli et al
+            RandomNum2 = random_uniform(RandomSeed)
+            CosTheta = 1.0 - RandomNum * Object.AngleCut[GasIndex][iEnergyBin][I]
+            if RandomNum2 > Object.ScatteringParameter[GasIndex][iEnergyBin][I]:
+                CosTheta = -1.0 * CosTheta
+        elif Object.AngularModel[GasIndex][I] == 2:
+            # Use method of Okhrimovskyy et al
+            EpsilonOkhr = Object.ScatteringParameter[GasIndex][iEnergyBin][I]
+            CosTheta = 1.0 - (2.0 * RandomNum * (1.0 - EpsilonOkhr) / (1.0 + EpsilonOkhr * (1.0 - 2.0 * RandomNum)))
+        else:
+            # Isotropic scattering
+            CosTheta = 1.0 - 2.0 * RandomNum
+
+        Theta = acos(CosTheta)
+
+        # Pick a random Phi - must be uniform by symmetry of the gas
+        RandomNum = random_uniform(RandomSeed)
+        Phi = TwoPi * RandomNum
+        SinPhi = sin(Phi)
+        CosPhi = cos(Phi)
+
+        if COMEnergy < EI:
+            EI = COMEnergy - 0.0001
+
+        ARG1 = max(1.0 - S1 * EI / COMEnergy, Object.SmallNumber)
+
+        D = 1.0 - CosTheta * sqrt(ARG1)
+        U = (S1 - 1) * (S1 - 1) / ARG1
+
+        # Update the energy to start drifing for the next round.
+        #  If its zero, make it small but nonzero.
+        MV.StartingEnergy = max(COMEnergy * (1.0 - EI / (S1 * COMEnergy) - 2.0 * D / S2), Object.SmallNumber)
+
+        Q = min(sqrt((COMEnergy / MV.StartingEnergy) * ARG1) / S1, 1.0)
+
+        # Calculate angle of scattering from Z direction
+        Object.AngleFromZ = asin(Q * sin(Theta))
+        CosZAngle = cos(Object.AngleFromZ)
+
+        # Find new directons after scatter
+        if CosTheta < 0 and CosTheta * CosTheta > U:
+            CosZAngle = -1 * CosZAngle
+        SinZAngle = sin(Object.AngleFromZ)
+        DZCOM = min(DZCOM, 1.0)
+        ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
+
+        if ARGZ < 1e-6:
+            # If scattering frame is same as lab frame, do this;
+            DirCosineZ1 = CosZAngle
+            DirCosineX1 = CosPhi * SinZAngle
+            DirCosineY1 = SinPhi * SinZAngle
+            if MV.NTPMFlag == 1:
+                TempSinZ = SinZAngle * sqrt(MV.StartingEnergy / ES[NCLTMP])
+                if TempSinZ > 1:
+                    TempSinZ = 1.0
+
+                TempSinZ = sin(asin(TempSinZ))
+                TempCosZ = cos(asin(TempSinZ))
+
+                if TempCosZ < 0.0:
+                    TempCosZ = -1 * TempCosZ
+
+                TempPhi = Phi + np.pi
+
+                if TempPhi > MV.TwoPi:
+                    TempPhi = Phi - MV.TwoPi
+
+                TempSinPhi = sin(TempPhi)
+                TempCosPhi = cos(TempPhi)
+
+                MV.DirCosineZ1[NCLTMP] = TempCosZ
+                MV.DirCosineX1[NCLTMP] = TempCosPhi * TempSinZ
+                MV.DirCosineY1[NCLTMP] = TempSinPhi * TempSinZ
+                MV.NTPMFlag = 0
+        else:
+            # Otherwise do this.
+            DirCosineZ1 = DZCOM * CosZAngle + ARGZ * SinZAngle * SinPhi
+            DirCosineY1 = DYCOM * CosZAngle + (SinZAngle / ARGZ) * (DXCOM * CosPhi - DYCOM * DZCOM * SinPhi)
+            DirCosineX1 = DXCOM * CosZAngle - (SinZAngle / ARGZ) * (DYCOM * CosPhi + DXCOM * DZCOM * SinPhi)
+            if MV.NTPMFlag == 1:
+                TempSinZ = SinZAngle * sqrt(MV.StartingEnergy / ES[NCLTMP])
+                if TempSinZ > 1:
+                    TempSinZ = 1.0
+
+                TempSinZ = sin(asin(TempSinZ))
+                TempCosZ = cos(asin(TempSinZ))
+
+                if TempCosZ < 0.0:
+                    TempCosZ = -1 * TempCosZ
+
+                TempPhi = Phi + np.pi
+
+                if TempPhi > MV.TwoPi:
+                    TempPhi = Phi - MV.TwoPi
+
+                TempSinPhi = sin(TempPhi)
+                TempCosPhi = cos(TempPhi)
+
+                MV.DirCosineZ1[NCLTMP] = DZCOM * TempCosZ + ARGZ * TempSinZ * TempSinPhi
+                MV.DirCosineX1[NCLTMP] = DYCOM * TempCosZ + (TempSinZ / ARGZ) * (
+                            DXCOM * TempCosPhi - DYCOM * DZCOM * TempSinPhi)
+                MV.DirCosineY1[NCLTMP] = DXCOM * TempCosZ - (TempSinZ / ARGZ) * (
+                            DYCOM * TempCosPhi + DXCOM * DZCOM * TempSinPhi)
+                MV.NTPMFlag = 0
+
+        # Transform velocity vectors to lab frame
+        VelBefore = MV.Sqrt2M * sqrt(MV.StartingEnergy)
+        VelXBefore = MV.DirCosineX1 * VelBefore + GasVelX
+        VelYBefore = MV.DirCosineY1 * VelBefore + GasVelY
+        VelZBefore = MV.DirCosineZ1 * VelBefore + GasVelZ
+
+        # Calculate energy and direction cosines in lab frame
+        MV.StartingEnergy = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / MV.TwoM
+        VelBeforeM1 = 1 / (MV.Sqrt2M * sqrt(MV.StartingEnergy))
+        MV.DirCosineX1 = VelXBefore * VelBeforeM1
+        MV.DirCosineY1 = VelYBefore * VelBeforeM1
+        MV.DirCosineZ1 = VelZBefore * VelBeforeM1
+
+        #And go around again to the next collision!
+
+        MV.I100 += 1
+        if MV.I100 == 200:
+            MV.DirCosineZ100 = MV.DirCosineZ1
+            MV.DirCosineX100 = MV.DirCosineX1
+            MV.DirCosineY100 = MV.DirCosineY1
+            MV.Energy100 = MV.StartingEnergy
+            MV.I100 = 0
+
+        if MV.IPrint> JPrint:
+            JPrint = 0
+            J1+=1
+
+    
+    #TODO: EPRM, Printouts, Ionisaition & attachment calculation
+
+    for i in range(6):
+        free(TotalCollFreqIncludingNull[i])
+    free(TotalCollFreqIncludingNull)

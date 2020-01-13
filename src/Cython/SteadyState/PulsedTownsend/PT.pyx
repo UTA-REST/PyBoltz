@@ -1,7 +1,7 @@
 from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 
-cdef void PT(PyBoltz Object, int ConsoleOuput):
+cpdef void PT(PyBoltz Object, int ConsoleOuput):
     cdef double ANTPL[9]
     ANTPL[0] = Object.NETPL[1]
     Object.RI[0] = ((log(ANTPL[0]))-log(float(Object.IPrimary)))/ Object.TimeStep
@@ -23,9 +23,9 @@ cdef void PT(PyBoltz Object, int ConsoleOuput):
 
     if ConsoleOuput:
         print("Pulsed Towensend results at" + str(Object.NumberOfTimeSteps) + "sequential time planes")
-        print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Plane #", "(Ion-Att) Freq", "Energy", "Velocity",
+        print('{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}'.format("Plane #", "(Ion-Att) Freq", "Energy", "Velocity",
                                                                          "# of Elec."))
         for J in range(Object.NumberOfTimeSteps):
             print(
-                '{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(J+1, Object.RI[J], Object.EPT[J],
+                '{:^15.5f}{:^15.5f}{:^15.5f}{:^15.5f}{:^15.5f}'.format(J+1, Object.RI[J], Object.EPT[J],
                                                                                          Object.VZPT[J], Object.NETPL[J]))

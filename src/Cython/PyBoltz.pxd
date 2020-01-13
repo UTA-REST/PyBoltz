@@ -162,6 +162,7 @@ cdef class PyBoltz:
         '''Null scatter sum for the Ith gas and the Jth location.'''
         double ICOLN[6][290]
         double AMGAS[6]
+        double EC0[6][290]
         double VTMB[6]
         '''Maxwell Boltzman velocity factor for each gas component.'''
         double MaxCollisionFreqTotalG[6]
@@ -262,4 +263,4 @@ cdef class PyBoltz:
         double RI[9],EPT[9],VZPT[9],TTEST[9]
 
         # Time of flight
-        double RALPHA,RALPEr,TOFENE,TOFENER,TOFWV,TOFWVER,TOFDL,TOFDLER,TOFDT,TOFDTER,TOFWR,TOFWRER,RATTOF,RATOFER
+        double RALPHA,RALPER,TOFENE,TOFENER,TOFWV,TOFWVER,TOFDL,TOFDLER,TOFDT,TOFDTER,TOFWR,TOFWRER,RATTOF,RATOFER

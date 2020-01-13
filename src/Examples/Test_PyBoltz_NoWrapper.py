@@ -45,18 +45,18 @@ Object.MaxNumberOfCollisions =1*40000000.0
 Object.EnablePenning = 0
 # Calculate the electron energy
 Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 1.4
+Object.FinalElectronEnergy = 0.0
 # Set the gas's with there given number
-Object.GasIDs=[2, 8, 0, 0, 0, 0]
+Object.GasIDs=[2, 1, 0, 0, 0, 0]
 
 # Set the gas fractions
 Object.GasFractions=[90, 10, 0, 0, 0, 0]
 # Set the tempature
 Object.TemperatureCentigrade = float(23)
 # Set the pressuref
-Object.PressureTorr = 750.062
+Object.PressureTorr = 760.1
 # Set the eletric field
-Object.EField =80
+Object.EField =100000
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0

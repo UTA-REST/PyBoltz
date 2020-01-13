@@ -7,6 +7,7 @@ import Mixers
 import EnergyLimits
 import Monte
 import SteadyState
+from SteadyState import *
 from Monte import *
 from Gasmix cimport Gasmix
 
@@ -102,7 +103,6 @@ cdef class PyBoltz:
         memset(self.NC0, 0, 6 * 290 * sizeof(double))
         memset(self.ElasticCrossSection, 0, 4000 * sizeof(double))
         memset(self.AttachmentSectionSum, 0, 4000 * sizeof(double))
-
         # Input parameters / settings
         self.EnableThermalMotion = 0.0
         self.MaxNumberOfCollisions = 0.0
@@ -279,7 +279,7 @@ cdef class PyBoltz:
             else:
                 ELimFunc       = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = Monte.MONTEC
-        return [MixerFunc,ELimFunc,MonteCarloFunc]
+        return [MixerFunc,ELimFunc,MonteCarloFunc,SteadyStateFunc]
 
     def SetExtraParameters(self,params):
         self.MixObject.ExtraParameters = params
@@ -335,9 +335,9 @@ cdef class PyBoltz:
 
         # Closeout and end
         self.end()
-
         # Steady state simulation
         if abs(self.ReducedIonization-self.ReducedAttachment)>self.SteadyStateThreshold:
+            print(self.ReducedAttachment,self.ReducedIonization)
             SteadyStateFunc.run(self)
 
         return

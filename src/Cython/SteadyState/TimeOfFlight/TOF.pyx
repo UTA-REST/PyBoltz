@@ -3,7 +3,7 @@ from COLFT cimport COLFT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from PyBoltz cimport PyBoltz
 
-cdef void TOF(PyBoltz Object, int ConsoleOuput):
+cpdef void TOF(PyBoltz Object, int ConsoleOuput):
     cdef double FREQ, FREEL, FRION, FRATT, FREIN, NTOTAL, CORERR, ANTPL[8], WR[8],ANST[8]
     cdef double DLTF[8], DXTF[8], DYTF[8],DT2,DT3,ATER
     cdef int J,I1,I2
@@ -46,11 +46,11 @@ cdef void TOF(PyBoltz Object, int ConsoleOuput):
 
     if ConsoleOuput:
         print("Time of flight results at" + str(Object.NumberOfTimeSteps) + "sequential time planes")
-        print('{:^10s}{:^10s}{:^10s}{:^10s}{:^10s}'.format("Plane #", "DL", "DX", "DY",
+        print('{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}'.format("Plane #", "DL", "DX", "DY",
                                                                          "WR"))
         for J in range(Object.NumberOfTimeSteps):
             print(
-                '{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}{:^10.1f}'.format(J+1, DLTF[J], DXTF[J],
+                '{:^15.5f}{:^15.5f}{:^15.5f}{:^15.5f}{:^15.5f}'.format(J+1, DLTF[J], DXTF[J],
                                                                                          DYTF[J],WR[J]))
 
     if Object.NETPL[1] > Object.NETPL[Object.NumberOfTimeSteps]:
@@ -120,6 +120,6 @@ cdef void TOF(PyBoltz Object, int ConsoleOuput):
 
         Object.RATTOF = Object.ATTOINT * Object.RI[I1-1]/(1.0-Object.ATTOINT)
         if Object.ATTOINT!=0.0:
-            Object.RATTOFER = 100*sqrt(ATER**2+Object.ATTERT**2)
+            Object.RATOFER = 100*sqrt(ATER**2+Object.ATTERT**2)
         else:
-            Object.RATTOFER = 0.0
+            Object.RATOFER = 0.0

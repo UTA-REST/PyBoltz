@@ -1,6 +1,7 @@
 from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 from libc.string cimport memset
+from PT import PT
 from PyBoltz cimport drand48
 from MBSorts cimport MBSort
 import Monte
@@ -86,9 +87,8 @@ cpdef run(PyBoltz Object):
 
         # Calculate good starting values for ionisation and attachment rates
         Monte.MONTEFTT.run(Object,0)
+        PT(Object)
         '''
-        Call MONTEFTT
-        Call PT
         Call TOF
         '''
 

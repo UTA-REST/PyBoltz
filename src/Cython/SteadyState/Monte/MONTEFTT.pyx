@@ -32,10 +32,10 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
         RandomMaxBoltzArray[J + 1] = sqrt(-1 * log(Ran1)) * sin(Ran2 * TwoPi)
 
 cdef int NewPrimary(PyBoltz Object, MonteVars*MV):
-    MV.IPrimary += 1
-    if MV.IPrimary > 1:
+    Object.IPrimary += 1
+    if Object.IPrimary > 1:
         if MV.Iterator > MV.NumberOfMaxColli:
-            MV.IPrimary -= 1
+            Object.IPrimary -= 1
             return 0
         else:
             Object.X = 0.0
@@ -50,7 +50,7 @@ cdef int NewPrimary(PyBoltz Object, MonteVars*MV):
             MV.TimeSumStart = 0.0
             MV.SpaceZStart = 0.0
             MV.IPlane = 0
-    if MV.IPrimary > 10000000:
+    if Object.IPrimary > 10000000:
         print("Too many primaries program stopped!")
         return 0
 
@@ -85,17 +85,17 @@ cdef void TimePlanesUpdate(PyBoltz Object, MonteVars*MV):
     Object.TYPlanes[MV.IPlane] += YPlane
     Object.TZPlanes[MV.IPlane] += ZPlane
 
-    VZPlane = DirCosineZ2*sqrt(EPlane)*Object.CONST3*0.01
+    VZPlane = DirCosineZ2 * sqrt(EPlane) * Object.CONST3 * 0.01
 
-    Object.TX2Planes[MV.IPlane] += XPlane*XPlane
-    Object.TY2Planes[MV.IPlane] += YPlane*YPlane
-    Object.TZ2Planes[MV.IPlane] += ZPlane*ZPlane
+    Object.TX2Planes[MV.IPlane] += XPlane * XPlane
+    Object.TY2Planes[MV.IPlane] += YPlane * YPlane
+    Object.TZ2Planes[MV.IPlane] += ZPlane * ZPlane
 
-    Object.TEPlanes[MV.IPlane] +=EPlane
-    Object.TTPlanes[MV.IPlane] += Object.TimeSum+TimeLeft
+    Object.TEPlanes[MV.IPlane] += EPlane
+    Object.TTPlanes[MV.IPlane] += Object.TimeSum + TimeLeft
     Object.TVZPlanes[MV.IPlane] += VZPlane
 
-    Object.NETPL[MV.IPlane] +=1
+    Object.NETPL[MV.IPlane] += 1
 
     return
 
@@ -111,7 +111,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     cdef double XS[2001], YS[2001], ZS[2001], TS[2001], ES[2001], DirCosineX[2001], DirCosineY[2001], DirCosineZ[2001], EAuger
     cdef double GasVelX, GasVelY, GasVelZ, VelocityRatio, VelXAfter, VelYAfter, VelZAfter, COMEnergy, Test1, A, VelocityInCOM, T2
     cdef int IPlaneS[2001], Flag, GasIndex, MaxBoltzNumsUsed, NumCollisions = 0, I, IPT, NCLTMP, IAuger, J, DZCOM, DYCOM, DXCOM
-    cdef int TempPlane,JPrint,J1
+    cdef int TempPlane, JPrint, J1 = 1
     if ConsoleOuput != 0:
         MV.NumberOfMaxColli = Object.MaxNumberOfCollisions
 
@@ -123,7 +123,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
     Object.reset()
 
-    JPrint = MV.NumberOfMaxColli/10
+    JPrint = MV.NumberOfMaxColli / 10
     cdef int i = 0, K, J
     cdef double ** TotalCollFreqIncludingNull = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
@@ -648,9 +648,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
                 MV.DirCosineZ1[NCLTMP] = DZCOM * TempCosZ + ARGZ * TempSinZ * TempSinPhi
                 MV.DirCosineX1[NCLTMP] = DYCOM * TempCosZ + (TempSinZ / ARGZ) * (
-                            DXCOM * TempCosPhi - DYCOM * DZCOM * TempSinPhi)
+                        DXCOM * TempCosPhi - DYCOM * DZCOM * TempSinPhi)
                 MV.DirCosineY1[NCLTMP] = DXCOM * TempCosZ - (TempSinZ / ARGZ) * (
-                            DYCOM * TempCosPhi + DXCOM * DZCOM * TempSinPhi)
+                        DYCOM * TempCosPhi + DXCOM * DZCOM * TempSinPhi)
                 MV.NTPMFlag = 0
 
         # Transform velocity vectors to lab frame
@@ -676,12 +676,30 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             MV.Energy100 = MV.StartingEnergy
             MV.I100 = 0
 
-        if MV.IPrint> JPrint:
+        if MV.IPrint > JPrint:
             JPrint = 0
-            J1+=1
+            J1 += 1
+    # ATTOINT,ATTERT,AIOERT
+    if MV.NumberOfElectron > Object.IPrimary:
+        Object.ATTOINT = MV.NumberOfElectronIon / (MV.NumberOfElectron - Object.IPrimary)
+        Object.ATTERT = sqrt(MV.NumberOfElectronIon) / MV.NumberOfElectronIon
+        Object.AIOERT = sqrt(MV.NumberOfElectron - Object.IPrimary) / (MV.NumberOfElectron - Object.IPrimary)
+    else:
+        Object.ATTOINT = -1
+        Object.ATTERT = sqrt(MV.NumberOfElectronIon) / MV.NumberOfElectronIon
 
-    
-    #TODO: EPRM, Printouts, Ionisaition & attachment calculation
+    if J1 == 1:
+        print("Too few collisions")
+
+    if ConsoleOuput:
+        print(
+            'Total number of Electrons: {:10.1f}\n Number of Negative Ions: {:10.1f}\nNumber of primaries: {:10.1f}\n'.format(
+                MV.NumberOfElectron,
+                MV.NumberOfElectronIon, Object.IPrimary))
+
+
+    #TODO: EPRM
+
 
     for i in range(6):
         free(TotalCollFreqIncludingNull[i])

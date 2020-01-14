@@ -27,7 +27,7 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz Object):
+cpdef run(PyBoltz   Object):
     cdef double NetReducedRate, NetRate, TimeCutHigh, TimeCutLow, SpaceCutHighZ, SpaceCutLowZ, Alpha, NewAlpha
 
     # Ensure enough collisions are simulated
@@ -85,6 +85,8 @@ cpdef run(PyBoltz Object):
             Object.MaxCollisionFreq[J] = Object.MaxCollisionFreq[J] + abs(
                 Object.FakeIonisationsEstimate) / Object.NumberOfGases
 
+        # Print the alphas
+        print("NewAlpha = ",NewAlpha," NetReducedRate = ", NetReducedRate,"Alpha = ",Alpha,"TimeStep = ",Object.TimeStep)
         # Convert to picoseconds
         Object.TimeStep *= 1e12
         Object.MaxTime = 7 * Object.TimeStep
@@ -92,6 +94,9 @@ cpdef run(PyBoltz Object):
 
         # Calculate good starting values for ionisation and attachment rates
         Monte.MONTEFTT.run(Object, 1)
+        print("MONTE DOne")
         PulsedTownsend.PT.PT(Object, 1)
+        print("PT DOne")
+
         TimeOfFlight.TOF.TOF(Object, 1)
 

@@ -337,7 +337,6 @@ cdef class PyBoltz:
         self.end()
         # Steady state simulation
         if abs(self.ReducedIonization-self.ReducedAttachment)>self.SteadyStateThreshold:
-            print(self.ReducedAttachment,self.ReducedIonization)
             SteadyStateFunc.run(self)
 
         return

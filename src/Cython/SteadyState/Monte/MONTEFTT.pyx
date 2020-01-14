@@ -75,7 +75,7 @@ cdef void TimePlanesUpdate(PyBoltz Object, MonteVars*MV):
 
     EPlane = MV.StartingEnergy + A + B
     VelocityRatio = sqrt(MV.StartingEnergy / EPlane)
-    DirCosineZ2 = MV.DirCosineZ1
+    DirCosineZ2 = (MV.DirCosineZ1 * VelocityRatio + TimeLeft * MV.F2 / (2.0 * sqrt(EPlane)))
 
     XPlane = Object.X + MV.DirCosineX1 * TimeLeft * sqrt(MV.StartingEnergy) * Object.CONST3 * 0.01
     YPlane = Object.Y + MV.DirCosineY1 * TimeLeft * sqrt(MV.StartingEnergy) * Object.CONST3 * 0.01
@@ -543,6 +543,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     MV.NPONT += 1
                     if MV.NPONT > 2000:
                         raise ValueError("More than 2000 stored electrons")
+                    # Possible delocalisation length for penning transfer
                     if Object.PenningFraction[GasIndex][1][I] == 0.0:
                         XS[MV.NPONT] = Object.X
                         YS[MV.NPONT] = Object.Y
@@ -719,9 +720,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         MV.DirCosineX1 = VelXBefore * VelBeforeM1
         MV.DirCosineY1 = VelYBefore * VelBeforeM1
         MV.DirCosineZ1 = VelZBefore * VelBeforeM1
-        print(MV.StartingEnergy)
-        print(VelYBefore)
-        print(VelBeforeM1)
         #And go around again to the next collision!
 
         MV.I100 += 1

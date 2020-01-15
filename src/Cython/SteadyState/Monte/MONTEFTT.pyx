@@ -135,6 +135,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     MV.IPlane = 1
     MV.J1 = 1
     MV.SpaceZStart = 0.0
+    Object.TimeSum = 0.0
     MV.TimeSumStart = 0.0
     MV.AbsFakeIoniz = 0.0
     MV.TimeStop = 0.0
@@ -220,6 +221,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         MV.AP = MV.DirCosineZ1 * MV.F2 * sqrt(MV.StartingEnergy)
         print("P: ",Object.IPrimary," NP: ",MV.NPONT)
         print("NE: ",MV.NumberOfElectron," Cs: ",MV.NCLUS)
+
         # check if the total time is bigger than the time for the current plane(TimeStop)
         if MV.T + Object.TimeSum >= MV.TimeStop:
             # move to the next plane and update the time for the current plane
@@ -253,6 +255,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     if Flag == 0:
                         break
                     continue
+                # Take an electron from the store
                 Object.X = XS[MV.NPONT]
                 Object.Y = YS[MV.NPONT]
                 Object.Z = ZS[MV.NPONT]
@@ -266,9 +269,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 MV.SpaceZStart = Object.Z
                 MV.TimeSumStart = Object.TimeSum
 
-            # register this electron
-            NewElectron(Object, &MV)
-            continue
+                # register this electron
+                NewElectron(Object, &MV)
+                continue
         # similar to MONTET, calculate the energy of the electron after the collision
         MV.Energy = MV.StartingEnergy + (MV.AP + MV.BP * MV.T) * MV.T
         if MV.Energy < 0.0:
@@ -334,7 +337,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     # Increment fake ionization counter
                     Object.FakeIonizations += 1
                     MV.FakeIonisationsTime[MV.IPlane + 1] += 1
-                    if Object.FakeIonizations < 0.0:
+                    if Object.FakeIonisationsEstimate < 0.0:
                         MV.NumberOfElectronIon += 1
 
                         # Fake attachment start a new electron
@@ -346,7 +349,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                                 break
                             continue
 
-                        # get a new electron
+                        # get a new electron from store
                         Object.X = XS[MV.NPONT]
                         Object.Y = YS[MV.NPONT]
                         Object.Z = ZS[MV.NPONT]
@@ -382,7 +385,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     DirCosineX[MV.NPONT] = MV.DirCosineX1 * VelocityRatio
                     DirCosineY[MV.NPONT] = MV.DirCosineY1 * VelocityRatio
                     DirCosineZ[MV.NPONT] = (MV.DirCosineZ1 * VelocityRatio + MV.T * MV.F2 / (2.0 * sqrt(MV.Energy)))
-
+                    continue
                 continue
             continue
 
@@ -472,7 +475,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             # register this electron
             NewElectron(Object, &MV)
             continue
-        elif Object.ElectronNumChange[GasIndex][I] == 1:
+        elif Object.ElectronNumChange[GasIndex][I] != 0:
             # An ionisation happened
             EISTR = EI
             RandomNum = random_uniform(RandomSeed)

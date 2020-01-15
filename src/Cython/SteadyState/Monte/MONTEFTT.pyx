@@ -219,8 +219,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         MV.T = -log(RandomNum) / Object.MaxCollisionFreqTotal + MV.TDash
         MV.TDash = MV.T
         MV.AP = MV.DirCosineZ1 * MV.F2 * sqrt(MV.StartingEnergy)
-        print("P: ",Object.IPrimary," NP: ",MV.NPONT)
-        print("NE: ",MV.NumberOfElectron," Cs: ",MV.NCLUS)
 
         # check if the total time is bigger than the time for the current plane(TimeStop)
         if MV.T + Object.TimeSum >= MV.TimeStop:
@@ -518,9 +516,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
                     # Angular distribution (isotropic scattering)
                     CosTheta = 1.0 - 2 * RandomNum
-                    Object.AngleFromZ = acos(CosTheta)
-                    CosTheta = cos(Object.AngleFromZ)
-                    SinTheta = sin(Object.AngleFromZ)
+                    Theta = acos(CosTheta)
+                    CosTheta = cos(Theta)
+                    SinTheta = sin(Theta)
 
                     RandomNum = random_uniform(RandomSeed)
                     Phi = MV.TwoPi * RandomNum
@@ -735,7 +733,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         if MV.IPrint > JPrint:
             JPrint = 0
-            J1 += 1
+            MV.J1 += 1
 
     # ATTOINT,ATTERT,AIOERT
     if MV.NumberOfElectron > Object.IPrimary:
@@ -746,7 +744,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         Object.ATTOINT = -1
         Object.ATTERT = sqrt(MV.NumberOfElectronIon) / MV.NumberOfElectronIon
 
-    if J1 == 1:
+    if MV.J1 == 1:
         print("Too few collisions")
 
     if ConsoleOuput:

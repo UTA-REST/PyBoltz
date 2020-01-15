@@ -55,6 +55,7 @@ Object.GasFractions=[90, 10, 0, 0, 0, 0]
 Object.TemperatureCentigrade = float(23)
 # Set the pressuref
 Object.PressureTorr = 760.1
+aa = b'1010101'
 # Set the eletric field
 Object.EField =100000
 # Set the magnetic field and angle

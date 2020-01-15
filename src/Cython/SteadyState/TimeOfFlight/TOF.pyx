@@ -45,7 +45,7 @@ cpdef void TOF(PyBoltz Object, int ConsoleOuput):
         DYTF[J] *=1e16
 
     if ConsoleOuput:
-        print("Time of flight results at" + str(Object.NumberOfTimeSteps) + "sequential time planes")
+        print("Time of flight results at " + str(Object.NumberOfTimeSteps) + " sequential time planes")
         print('{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}'.format("Plane #", "DL", "DX", "DY",
                                                                          "WR"))
         for J in range(Object.NumberOfTimeSteps):

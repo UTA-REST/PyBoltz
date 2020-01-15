@@ -28,8 +28,8 @@ cdef double random_uniform(double dummy):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef run(PyBoltz   Object):
+    Object.VelocityZ*=1e5
     cdef double NetReducedRate, NetRate, TimeCutHigh, TimeCutLow, SpaceCutHighZ, SpaceCutLowZ, Alpha, NewAlpha
-
     # Ensure enough collisions are simulated
     if Object.MaxNumberOfCollisions < 5e7:
         Object.MaxNumberOfCollisions = 5e7
@@ -62,7 +62,7 @@ cpdef run(PyBoltz   Object):
             Alpha = abs(NetReducedRate) * 0.6
         elif abs(NetReducedRate) >= 10000 and abs(NetReducedRate) < 100000:
             Alpha = abs(NetReducedRate) * 0.5
-        elif abs(NetReducedRate) >= 100000 and abs(NetReducedRate) < 1000000:
+        elif abs(NetReducedRate) >= 100000 and abs(NetReducedRate) < 2000000:
             Alpha = abs(NetReducedRate) * 0.2
         else:
             raise ValueError("Attachment is too large")
@@ -70,9 +70,9 @@ cpdef run(PyBoltz   Object):
         # Calculate time and space step values
         Object.FakeIonisationsEstimate = Alpha * Object.VelocityZ * 1e-12
         NewAlpha = 0.85 * abs(Alpha + NetReducedRate)
-
+        print( Object.FakeIonisationsEstimate)
         # Use the new alpha to estimate the time step
-        Object.TimeStep = log(3) / (NewAlpha * Object.VelocityZ * 1e5)
+        Object.TimeStep = log(3) / (NewAlpha * Object.VelocityZ)
 
         # Limit the estimation to the cut values
         if Object.TimeStep > TimeCutHigh:
@@ -90,13 +90,13 @@ cpdef run(PyBoltz   Object):
         # Convert to picoseconds
         Object.TimeStep *= 1e12
         Object.MaxTime = 7 * Object.TimeStep
+        print (Object.MaxTime)
         Object.NumberOfTimeSteps = 7
 
         # Calculate good starting values for ionisation and attachment rates
         Monte.MONTEFTT.run(Object, 1)
-        print("MONTE DOne")
         PulsedTownsend.PT.PT(Object, 1)
-        print("PT DOne")
-
         TimeOfFlight.TOF.TOF(Object, 1)
+
+        print(Object.RALPHA/Object.TOFWR)
 

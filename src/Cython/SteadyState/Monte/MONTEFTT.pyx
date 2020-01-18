@@ -113,10 +113,10 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     cdef double GasVelX, GasVelY, GasVelZ, VelocityRatio, VelXAfter, VelYAfter, VelZAfter, COMEnergy, Test1, A, VelocityInCOM, T2
     cdef int IPlaneS[2001], Flag, GasIndex, MaxBoltzNumsUsed, NumCollisions = 0, I, IPT, NCLTMP, IAuger, J, NAuger
     cdef int TempPlane, JPrint, J1 = 1
-    if ConsoleOuput ==0 and Object.MaxNumberOfCollisions>80000000:
+    if ConsoleOuput == 0 and Object.MaxNumberOfCollisions > 80000000:
         MV.NumberOfMaxColli = 80000000
     else:
-        MV.NumberOfMaxColli = <int>Object.MaxNumberOfCollisions
+        MV.NumberOfMaxColli = <int> Object.MaxNumberOfCollisions
     MV.ID = 0
     MV.I100 = 0
     MV.NumberOfCollision = 0
@@ -646,7 +646,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         DZCOM = min(DZCOM, 1.0)
         ARGZ = sqrt(DXCOM * DXCOM + DYCOM * DYCOM)
 
-        if ARGZ ==0.0:
+        if ARGZ == 0.0:
             # If scattering frame is same as lab frame, do this;
             MV.DirCosineZ1 = CosZAngle
             MV.DirCosineX1 = CosPhi * SinZAngle
@@ -749,7 +749,8 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
     if ConsoleOuput:
         print(
-            'Total number of Electrons: {:10.1f}\n Number of Negative Ions: {:10.1f}\nNumber of primaries: {:10.1f}\n'.format(
+            '\nSimulation through {} time planes:\n Total number of Electrons: {:10.1f}\n Number of Negative Ions: {:10.1f}\n Number of primaries: {:10.1f}\n'.format(
+                Object.NumberOfTimeSteps,
                 MV.NumberOfElectron,
                 MV.NumberOfElectronIon, Object.IPrimary))
 

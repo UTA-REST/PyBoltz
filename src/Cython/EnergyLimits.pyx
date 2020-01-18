@@ -1,9 +1,12 @@
+from __future__ import print_function
+
 from PyBoltz cimport PyBoltz
 import cython
 from PyBoltz cimport drand48
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
+
 import numpy as np
 cimport numpy as np
 
@@ -90,7 +93,7 @@ cpdef EnergyLimit(PyBoltz Object):
     J2M = Object.MaxNumberOfCollisions / ISAMP
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+            print('* Num analyzed collisions: {}'.format(J1),end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             I = int(E1 / DELTAE) + 1
@@ -247,7 +250,7 @@ cpdef EnergyLimitB(PyBoltz Object):
 
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+            print('* Num analyzed collisions: {}'.format(J1),end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             I = int(E1 / DELTAE)+1
@@ -411,7 +414,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
 
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+            print('* Num analyzed collisions: {}'.format(J1),end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
@@ -593,7 +596,7 @@ cpdef EnergyLimitC(PyBoltz Object):
 
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+            print('* Num analyzed collisions: {}'.format(J1),end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             I = int(E1 / DELTAE) + 1
@@ -763,7 +766,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
 
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+            print('* Num analyzed collisions: {}'.format(J1),end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
@@ -945,7 +948,7 @@ cpdef EnergyLimitT(PyBoltz Object):
     J2M = Object.MaxNumberOfCollisions / ISAMP
     for J1 in range(int(J2M)):
         if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+            print('* Num analyzed collisions: {}'.format(J1),end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH

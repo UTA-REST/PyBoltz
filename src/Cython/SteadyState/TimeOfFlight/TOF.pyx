@@ -45,7 +45,7 @@ cpdef void TOF(PyBoltz Object, int ConsoleOuput):
         DYTF[J] *=1e16
 
     if ConsoleOuput:
-        print("Time of flight results at " + str(Object.NumberOfTimeSteps) + " sequential time planes")
+        print("\nTime of flight results at " + str(Object.NumberOfTimeSteps) + " sequential time planes")
         print('{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}'.format("Plane #", "DL", "DX", "DY",
                                                                          "WR"))
         for J in range(Object.NumberOfTimeSteps):
@@ -84,12 +84,12 @@ cpdef void TOF(PyBoltz Object, int ConsoleOuput):
             Object.RALPHA = 0.0
             Object.RALPER = 0.0
             Object.RATTOF = -1 * Object.RI[1]
-            Object.RATTOFER = 100 *sqrt(ANST[7]**2+Object.ATTERT**2)
+            Object.RATOFER = 100 *sqrt(ANST[7]**2+Object.ATTERT**2)
         else:
             Object.RALPHA = Object.RI[1]/(1-Object.ATTOINT)
             Object.RALPER = 100* sqrt(ANST[7]**2+Object.AIOERT**2)
             Object.RATTOF = Object.ATTOINT*Object.RI[1]/(1.0-Object.ATTOINT)
-            Object.RATTOFER = 100*sqrt(ANST[7]**2+Object.ATTERT**2)
+            Object.RATOFER = 100*sqrt(ANST[7]**2+Object.ATTERT**2)
 
     else:
         # For net ionisation take results from final plane
@@ -113,7 +113,7 @@ cpdef void TOF(PyBoltz Object, int ConsoleOuput):
         Object.TOFWR = WR[I1 - 1]
         Object.TOFWRER = 100 * abs((WR[I1 - 1]-WR[I1 - 2])/(2*WR[I1 - 1]))
 
-        ATER = abs(Object.RI[I1-1]-Object.RI[I1-2])/(Object.RI[I1-1])
+        ATER = abs((Object.RI[I1-1]-Object.RI[I1-2])/(Object.RI[I1-1]))
 
         Object.RALPHA = Object.RI[I1-1]/(1.0-Object.ATTOINT)
         Object.RALPER = 100*sqrt(ATER**2+Object.AIOERT**2)

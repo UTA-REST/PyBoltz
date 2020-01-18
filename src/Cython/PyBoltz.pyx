@@ -335,6 +335,7 @@ cdef class PyBoltz:
 
         # Closeout and end
         self.end()
+        if self.ConsoleOutputFlag : print("\n**Crossed the set Steady state simulation threshold = {}\n".format(self.SteadyStateThreshold))
         # Steady state simulation
         if abs(self.ReducedIonization-self.ReducedAttachment)>self.SteadyStateThreshold:
             SteadyStateFunc.run(self)

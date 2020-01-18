@@ -4,7 +4,7 @@ from pathlib import Path
 import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
-print(sys.path)
+#print(sys.path)
 from PyBoltz import PyBoltz
 import numpy as np
 # Setup gases

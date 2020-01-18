@@ -12,13 +12,13 @@ cdef void COLF(double *FREQ, double *FREEL, double *FREION, double *FREATT, doub
             Object.CollisionsPerGasPerTypeNT[28] + Object.CollisionsPerGasPerTypeNT[29])
     # Elastic
     NELA = <int>(Object.CollisionsPerGasPerTypeNT[0] + Object.CollisionsPerGasPerTypeNT[5] + Object.CollisionsPerGasPerTypeNT[10] + Object.CollisionsPerGasPerTypeNT[
-        15] + Object.CollisionsPerGasPerTypeNT[20] + Object.InteractionTypeNT[25])
+        15] + Object.CollisionsPerGasPerTypeNT[20] + Object.CollisionsPerGasPerTypeNT[25])
     # Attachment
-    NATT = <int>(Object.InteractionTypeNT[2] + Object.InteractionTypeNT[7] + Object.InteractionTypeNT[12] + Object.InteractionTypeNT[
-        17] + Object.InteractionTypeNT[22] + Object.InteractionTypeNT[27])
+    NATT = <int>(Object.CollisionsPerGasPerTypeNT[2] + Object.CollisionsPerGasPerTypeNT[7] + Object.CollisionsPerGasPerTypeNT[12] + Object.CollisionsPerGasPerTypeNT[
+        17] + Object.CollisionsPerGasPerTypeNT[22] + Object.CollisionsPerGasPerTypeNT[27])
     # Ionisation
-    NION = <int>(Object.InteractionTypeNT[1] + Object.InteractionTypeNT[6] + Object.InteractionTypeNT[11] + Object.InteractionTypeNT[
-        16] + Object.InteractionTypeNT[21] + Object.InteractionTypeNT[26])
+    NION = <int>(Object.CollisionsPerGasPerTypeNT[1] + Object.CollisionsPerGasPerTypeNT[6] + Object.CollisionsPerGasPerTypeNT[11] + Object.CollisionsPerGasPerTypeNT[
+        16] + Object.CollisionsPerGasPerTypeNT[21] + Object.CollisionsPerGasPerTypeNT[26])
 
     NTOTAL[0] = NELA+NINEL+NATT+NION
 

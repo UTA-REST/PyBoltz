@@ -30,6 +30,7 @@ cdef double random_uniform(double dummy):
 cpdef run(PyBoltz   Object):
     Object.VelocityZ*=1e5
     cdef double NetReducedRate, NetRate, TimeCutHigh, TimeCutLow, SpaceCutHighZ, SpaceCutLowZ, Alpha, NewAlpha
+    cdef double StartingAlpha,ErrStartingAlpha,StartingNetAttachment,ErrStartingNetAttachment
     # Ensure enough collisions are simulated
     if Object.MaxNumberOfCollisions < 5e7:
         Object.MaxNumberOfCollisions = 5e7
@@ -70,7 +71,6 @@ cpdef run(PyBoltz   Object):
         # Calculate time and space step values
         Object.FakeIonisationsEstimate = Alpha * Object.VelocityZ * 1e-12
         NewAlpha = 0.85 * abs(Alpha + NetReducedRate)
-        print( Object.FakeIonisationsEstimate)
         # Use the new alpha to estimate the time step
         Object.TimeStep = log(3) / (NewAlpha * Object.VelocityZ)
 
@@ -86,18 +86,27 @@ cpdef run(PyBoltz   Object):
                 Object.FakeIonisationsEstimate) / Object.NumberOfGases
 
         # Print the alphas
-        print("NewAlpha = ",NewAlpha," NetReducedRate = ", NetReducedRate,"Alpha = ",Alpha,"TimeStep = ",Object.TimeStep)
+        if Object.ConsoleOutputFlag:
+            print("NewAlpha = ",NewAlpha," NetReducedRate = ", NetReducedRate,"Alpha = ",Alpha,"TimeStep = ",Object.TimeStep)
         # Convert to picoseconds
         Object.TimeStep *= 1e12
         Object.MaxTime = 7 * Object.TimeStep
-        print (Object.MaxTime)
         Object.NumberOfTimeSteps = 7
 
         # Calculate good starting values for ionisation and attachment rates
         Monte.MONTEFTT.run(Object, 1)
         PulsedTownsend.PT.PT(Object, 1)
         TimeOfFlight.TOF.TOF(Object, 1)
-        print (Object.ATTOINT)
-        print (Object.RI[6])
-        print(Object.RALPHA/Object.TOFWR)
+
+        StartingAlpha = (Object.RALPHA/Object.TOFWR)*1e7
+        ErrStartingAlpha = (Object.RALPER * StartingAlpha/100)
+        StartingNetAttachment = (Object.RATTOF/Object.TOFWR)*1e7
+        ErrStartingNetAttachment = Object.RATOFER*StartingNetAttachment/100
+
+        if Object.ConsoleOutputFlag:
+            print("\nGood starting values for calculation:")
+            print("Alpha = {} Error: {}".format(StartingAlpha,ErrStartingAlpha))
+            print("NetAttachment = {} Error: {}".format(StartingNetAttachment,ErrStartingNetAttachment))
+
+
 

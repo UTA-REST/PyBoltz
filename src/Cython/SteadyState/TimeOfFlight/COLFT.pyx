@@ -12,9 +12,9 @@ cdef void COLFT(double *FREQ, double *FREEL, double *FREION, double *FREATT, dou
         # Elastic
         NELA += <int>Object.CollisionsPerGasPerType[J][0]
         # Attachment
-        NATT += <int>Object.CollisionsPerGasPerType[2]
+        NATT += <int>Object.CollisionsPerGasPerType[J][2]
         # Ionisation
-        NION += <int>Object.CollisionsPerGasPerType[1]
+        NION += <int>Object.CollisionsPerGasPerType[J][1]
 
     NTOTAL[0] = NELA+NINEL+NATT+NION
 

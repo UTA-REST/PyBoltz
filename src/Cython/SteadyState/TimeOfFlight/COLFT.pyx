@@ -8,13 +8,13 @@ cdef void COLFT(double *FREQ, double *FREEL, double *FREION, double *FREATT, dou
     NTOTAL[0]  = 0
 
     for J in range(Object.NumberOfGases):
-        NINEL += <int>(Object.InteractionType[J][3]+ Object.InteractionType[J][4])
+        NINEL += <int>(Object.CollisionsPerGasPerType[J][3]+ Object.CollisionsPerGasPerType[J][4])
         # Elastic
-        NELA += <int>Object.InteractionType[J][0]
+        NELA += <int>Object.CollisionsPerGasPerType[J][0]
         # Attachment
-        NATT = <int>Object.InteractionType[2]
+        NATT += <int>Object.CollisionsPerGasPerType[2]
         # Ionisation
-        NION = <int>Object.InteractionType[1]
+        NION += <int>Object.CollisionsPerGasPerType[1]
 
     NTOTAL[0] = NELA+NINEL+NATT+NION
 

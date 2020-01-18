@@ -97,6 +97,7 @@ cpdef run(PyBoltz   Object):
         Monte.MONTEFTT.run(Object, 1)
         PulsedTownsend.PT.PT(Object, 1)
         TimeOfFlight.TOF.TOF(Object, 1)
-
+        print (Object.ATTOINT)
+        print (Object.RI[6])
         print(Object.RALPHA/Object.TOFWR)
 

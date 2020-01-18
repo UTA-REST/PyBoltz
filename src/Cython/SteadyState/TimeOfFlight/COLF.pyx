@@ -6,13 +6,13 @@ cdef void COLF(double *FREQ, double *FREEL, double *FREION, double *FREATT, doub
     # Calculate the frequency for the different types of collisions
     cdef int NINEL, NELA, NATT, NION,NREAL
 
-    NINEL = <int>(Object.InteractionTypeNT[3] + Object.InteractionTypeNT[4] + Object.InteractionTypeNT[8] + Object.InteractionTypeNT[
-        9] + Object.InteractionTypeNT[13] + Object.InteractionTypeNT[14] + Object.InteractionTypeNT[18] + \
-            Object.InteractionTypeNT[19] + Object.InteractionTypeNT[23] + Object.InteractionTypeNT[24] + \
-            Object.InteractionTypeNT[28] + Object.InteractionTypeNT[29])
+    NINEL = <int>(Object.CollisionsPerGasPerTypeNT[3] + Object.CollisionsPerGasPerTypeNT[4] + Object.CollisionsPerGasPerTypeNT[8] + Object.CollisionsPerGasPerTypeNT[
+        9] + Object.CollisionsPerGasPerTypeNT[13] + Object.CollisionsPerGasPerTypeNT[14] + Object.CollisionsPerGasPerTypeNT[18] + \
+            Object.CollisionsPerGasPerTypeNT[19] + Object.CollisionsPerGasPerTypeNT[23] + Object.CollisionsPerGasPerTypeNT[24] + \
+            Object.CollisionsPerGasPerTypeNT[28] + Object.CollisionsPerGasPerTypeNT[29])
     # Elastic
-    NELA = <int>(Object.InteractionTypeNT[0] + Object.InteractionTypeNT[5] + Object.InteractionTypeNT[10] + Object.InteractionTypeNT[
-        15] + Object.InteractionTypeNT[20] + Object.InteractionTypeNT[25])
+    NELA = <int>(Object.CollisionsPerGasPerTypeNT[0] + Object.CollisionsPerGasPerTypeNT[5] + Object.CollisionsPerGasPerTypeNT[10] + Object.CollisionsPerGasPerTypeNT[
+        15] + Object.CollisionsPerGasPerTypeNT[20] + Object.InteractionTypeNT[25])
     # Attachment
     NATT = <int>(Object.InteractionTypeNT[2] + Object.InteractionTypeNT[7] + Object.InteractionTypeNT[12] + Object.InteractionTypeNT[
         17] + Object.InteractionTypeNT[22] + Object.InteractionTypeNT[27])

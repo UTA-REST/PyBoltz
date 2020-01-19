@@ -41,7 +41,7 @@ cdef class PyBoltz:
         double EField
         '''Electric field [V/cm].'''
         double MaxNumberOfCollisions
-        '''Number of the simulated collisions * N.'''
+        '''Number of the simulated collisions.'''
         double IonisationRate
         '''Ionisation rate.'''
         double VelocityX
@@ -241,13 +241,14 @@ cdef class PyBoltz:
         double TimeStep
         double MaxTime
         int NumberOfTimeSteps
+        int NumberOfSpaceSteps
         double TotalTimePrimary
         double TotalTimeSecondary
         int IPrimary
         double TotalSpaceZPrimary
         double TotalSpaceZSecondary
         double SpaceStepZ
-
+        double MaxSpaceZ
         # Space planes output
         double SXPlanes[9],SYPlanes[9],SZPlanes[9],STPlanes[9],SEPlanes[9]
         double SX2Planes[9],SY2Planes[9],SZ2Planes[9],SVZPlanes[9],STSPlanes[9],STS2Planes[9]

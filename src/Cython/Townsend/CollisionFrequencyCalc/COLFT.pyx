@@ -1,11 +1,12 @@
 from PyBoltz cimport PyBoltz
 
-cdef void COLFT(double *FREQ, double *FREEL, double *FREION, double *FREATT, double *FREIN, double *NTOTAL,
-               PyBoltz Object):
+cpdef run(PyBoltz Object):
 
     # Calculate the frequency for the different types of collisions
     cdef int NINEL=0, NELA=0, NATT=0, NION=0,NREAL=0,J
-    NTOTAL[0]  = 0
+    cdef double FREQ,  FREEL,  FREION,  FREATT,  FREIN,  NTOTAL
+
+    NTOTAL  = 0
 
     for J in range(Object.NumberOfGases):
         NINEL += <int>(Object.CollisionsPerGasPerType[J][3]+ Object.CollisionsPerGasPerType[J][4])
@@ -16,18 +17,19 @@ cdef void COLFT(double *FREQ, double *FREEL, double *FREION, double *FREATT, dou
         # Ionisation
         NION += <int>Object.CollisionsPerGasPerType[J][1]
 
-    NTOTAL[0] = NELA+NINEL+NATT+NION
+    NTOTAL = NELA+NINEL+NATT+NION
 
     if Object.TotalTimeSecondary== 0.0:
-        NREAL = <int>NTOTAL[0]
+        NREAL = <int>NTOTAL
         Object.TotalTimeSecondary = Object.TimeSum
     else:
-        NREAL = <int>NTOTAL[0]
+        NREAL = <int>NTOTAL
 
-    FREQ[0] = NREAL/Object.TotalTimeSecondary
-    FREIN[0] = NINEL/Object.TotalTimeSecondary
-    FREEL[0] = NELA/Object.TotalTimeSecondary
-    FREION[0] = NION/Object.TotalTimeSecondary
-    FREATT[0] = NATT/Object.TotalTimeSecondary
+    FREQ = NREAL/Object.TotalTimeSecondary
+    FREIN = NINEL/Object.TotalTimeSecondary
+    FREEL = NELA/Object.TotalTimeSecondary
+    FREION = NION/Object.TotalTimeSecondary
+    FREATT = NATT/Object.TotalTimeSecondary
 
-    return
+    return FREQ, FREEL, FREION, FREATT, FREIN, NTOTAL
+

@@ -1,5 +1,5 @@
-from COLF cimport COLF
-from COLFT cimport COLFT
+from CollisionFrequencyCalc import COLF
+from CollisionFrequencyCalc import COLFT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from PyBoltz cimport PyBoltz
 
@@ -10,9 +10,9 @@ cpdef void TOF(PyBoltz Object, int ConsoleOuput):
 
     # Get ionisation and attachment frequencies
     if Object.EnableThermalMotion:
-        COLFT(&FREQ, &FREEL, &FRION, &FRATT, &FREIN, &NTOTAL, Object)
+        FREQ, FREEL, FRION, FRATT, FREIN, NTOTAL = COLFT.run(Object)
     else:
-        COLF(&FREQ, &FREEL, &FRION, &FRATT, &FREIN, &NTOTAL, Object)
+        FREQ, FREEL, FRION, FRATT, FREIN, NTOTAL = COLF.run(Object)
 
     Object.ATTOINT = FRATT / FRION
     CORERR = abs((Object.FakeIonisationsEstimate + FRION - FRATT) / (FRION - FRATT))

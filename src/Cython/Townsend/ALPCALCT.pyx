@@ -6,11 +6,12 @@ import TimeOfFlight
 from PyBoltz cimport drand48
 from MBSorts cimport MBSort
 import Monte
+import SteadyStateTownsend
 import PulsedTownsend
 import TimeOfFlight
 from Monte import *
-from PulsedTownsend import *
-from TimeOfFlight import *
+#from PulsedTownsend import *
+#from TimeOfFlight import *
 from libc.stdlib cimport malloc, free
 import cython
 import numpy as np
@@ -166,6 +167,6 @@ cpdef run(PyBoltz   Object):
     print("Solution for Steady State Townsend parameters")
     print("Space step between sampling planes = {} Microns".format(Object.SpaceStepZ*1e6))
 
-    # call MONTEFDT
-    # call SST
+    Monte.MONTEFDT.run(Object, 1)
+    SteadyStateTownsend.SST.run(Object, 1)
 

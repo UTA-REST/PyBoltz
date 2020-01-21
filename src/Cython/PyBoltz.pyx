@@ -6,8 +6,8 @@ import Setups
 import Mixers
 import EnergyLimits
 import Monte
-import SteadyState
-from SteadyState import *
+import Townsend
+from Townsend import *
 from Monte import *
 from Gasmix cimport Gasmix
 
@@ -23,7 +23,7 @@ cdef double drand48(double dummy):
     return DRAND48(dummy)
 
 cdef void setSeed(int seed):
-    RM48IN(seed,0,0)
+    RM48IN(seed, 0, 0)
     return
 cdef class PyBoltz:
     """
@@ -39,7 +39,6 @@ cdef class PyBoltz:
 
     """
 
-
     def __init__(self):
         '''
         Fill all the variables needed with zeros.This function uses memset as it is fast.
@@ -50,13 +49,13 @@ cdef class PyBoltz:
         memset(self.InteractionTypeNT, 0, 960 * sizeof(double))
         memset(self.RGasNT, 0, 960 * sizeof(double))
         memset(self.ElectronNumChangeNT, 0, 960 * sizeof(double))
-        memset(self.PenningFractionNT, 0, 3*960 * sizeof(double))
+        memset(self.PenningFractionNT, 0, 3 * 960 * sizeof(double))
         memset(self.MaxCollisionFreqNT, 0, 8 * sizeof(double))
-        memset(self.NullCollisionFreqNT, 0, 4000*60 * sizeof(double))
+        memset(self.NullCollisionFreqNT, 0, 4000 * 60 * sizeof(double))
         memset(self.TotalCollisionFrequencyNullNT, 0, 4000 * sizeof(double))
         memset(self.ScaleNullNT, 0, 60 * sizeof(double))
-        memset(self.ScatteringParameterNT, 0, 4000* 960 * sizeof(double))
-        memset(self.AngleCutNT, 0, 4000* 960 * sizeof(double))
+        memset(self.ScatteringParameterNT, 0, 4000 * 960 * sizeof(double))
+        memset(self.AngleCutNT, 0, 4000 * 960 * sizeof(double))
         memset(self.AngularModelNT, 0, 960 * sizeof(double))
         memset(self.NC0NT, 0, 960 * sizeof(double))
         memset(self.CollisionEnergies, 0, 4000 * sizeof(double))
@@ -65,7 +64,7 @@ cdef class PyBoltz:
         memset(self.CollisionsPerGasPerTypeNT, 0, 30 * sizeof(double))
         memset(self.ICOLNN, 0, 6 * 10 * sizeof(double))
         memset(self.ICOLN, 0, 6 * 290 * sizeof(double))
-        memset(self.ICOLNNNT, 0, 60  * sizeof(double))
+        memset(self.ICOLNNNT, 0, 60 * sizeof(double))
         memset(self.ICOLNNT, 0, 960 * sizeof(double))
         memset(self.AMGAS, 0, 6 * sizeof(double))
         memset(self.VTMB, 0, 6 * sizeof(double))
@@ -133,7 +132,6 @@ cdef class PyBoltz:
         self.AngleFromX = 0.0
         self.PresTempCor = 0.0
 
-
         # Dynamically set
         self.X = 0.0
         self.Y = 0.0
@@ -147,7 +145,6 @@ cdef class PyBoltz:
         self.TimeSum = 0.0
         self.MaxCollisionFreqTotal = 0.0
 
-        
         # Outputs
         self.MeanElectronEnergyError = 0.0
         self.MeanElectronEnergy = 0.0
@@ -185,13 +182,13 @@ cdef class PyBoltz:
         self.RandomSeed = 54217137
         self.ConsoleOutputFlag = 1
         self.MeanCollisionTime = 0.0
-        self.ReducedIonization=0.0
-        self.ReducedAttachment=0.0
+        self.ReducedIonization = 0.0
+        self.ReducedAttachment = 0.0
         self.SteadyStateThreshold = 40.0
         self.MixObject = Gasmix()
 
     def reset(self):
-        cdef int I,J
+        cdef int I, J
 
         self.TimeSum = 0.0
         self.X = 0.0
@@ -214,7 +211,6 @@ cdef class PyBoltz:
         for I in range(4000):
             self.CollisionEnergies[I] = 0.0
 
-
     def end(self):
         """
         This function is used to convert some of the output values into different units.
@@ -226,62 +222,62 @@ cdef class PyBoltz:
         cdef double DUM[6]
         if self.VelocityZ != 0:
             self.TransverseDiffusion1 = sqrt(2.0 * self.TransverseDiffusion / self.VelocityZ) * 10000.0
-            self.TransverseDiffusion1Error = math.sqrt(self.TransverseDiffusionError ** 2 + self.VelocityErrorZ ** 2)/2.0
+            self.TransverseDiffusion1Error = math.sqrt(
+                self.TransverseDiffusionError ** 2 + self.VelocityErrorZ ** 2) / 2.0
 
             self.LongitudinalDiffusion1 = sqrt(2.0 * self.LongitudinalDiffusion / self.VelocityZ) * 10000.0
-            self.LongitudinalDiffusion1Error = math.sqrt(self.LongitudinalDiffusionError ** 2 + self.VelocityErrorZ ** 2)/2.0
+            self.LongitudinalDiffusion1Error = math.sqrt(
+                self.LongitudinalDiffusionError ** 2 + self.VelocityErrorZ ** 2) / 2.0
 
-            self.VelocityZ *=1e-5
-            self.VelocityY *=1e-5
-            self.VelocityX *=1e-5
+            self.VelocityZ *= 1e-5
+            self.VelocityY *= 1e-5
+            self.VelocityX *= 1e-5
 
             self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
             self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
 
-
-   
-    def GetSimFunctions(self,BFieldMag,BFieldAngle,EnableThermalMotion):
+    def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
         """
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """
-        ELimFunc       = EnergyLimits.EnergyLimit
+        ELimFunc = EnergyLimits.EnergyLimit
         MonteCarloFunc = Monte.MONTE
-        SteadyStateFunc = SteadyState.ALPCALCT
-        if(self.EnableThermalMotion!=0):
+        TownsendFunc = Townsend.ALPCALCT
+        if (self.EnableThermalMotion != 0):
             MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
-                self.BFieldMode=1
-                ELimFunc       = EnergyLimits.EnergyLimitT
+                self.BFieldMode = 1
+                ELimFunc = EnergyLimits.EnergyLimitT
                 MonteCarloFunc = Monte.MONTET
             elif BFieldAngle == 0 or BFieldAngle == 180:
-                self.BFieldMode=2
-                ELimFunc       = EnergyLimits.EnergyLimitT
+                self.BFieldMode = 2
+                ELimFunc = EnergyLimits.EnergyLimitT
                 MonteCarloFunc = Monte.MONTET
-            elif BFieldAngle == 90:         
-                ELimFunc       = EnergyLimits.EnergyLimitBT
+            elif BFieldAngle == 90:
+                ELimFunc = EnergyLimits.EnergyLimitBT
                 MonteCarloFunc = Monte.MONTEBT
             else:
-                ELimFunc       = EnergyLimits.EnergyLimitCT
+                ELimFunc = EnergyLimits.EnergyLimitCT
                 MonteCarloFunc = Monte.MONTECT
         else:
             MixerFunc = Mixers.Mixer
             if BFieldMag == 0:
-                self.BFieldMode=1
-                ELimFunc       = EnergyLimits.EnergyLimit
+                self.BFieldMode = 1
+                ELimFunc = EnergyLimits.EnergyLimit
                 MonteCarloFunc = Monte.MONTE
             elif BFieldAngle == 0 or BFieldAngle == 180:
-                self.BFieldMode=2
-                ELimFunc       = EnergyLimits.EnergyLimit
+                self.BFieldMode = 2
+                ELimFunc = EnergyLimits.EnergyLimit
                 MonteCarloFunc = Monte.MONTE
             elif BFieldAngle == 90:
-                ELimFunc       = EnergyLimits.EnergyLimitB
+                ELimFunc = EnergyLimits.EnergyLimitB
                 MonteCarloFunc = Monte.MONTEB
             else:
-                ELimFunc       = EnergyLimits.EnergyLimitC
+                ELimFunc = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = Monte.MONTEC
-        return [MixerFunc,ELimFunc,MonteCarloFunc,SteadyStateFunc]
+        return [MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc]
 
-    def SetExtraParameters(self,params):
+    def SetExtraParameters(self, params):
         self.MixObject.ExtraParameters = params
     def Start(self):
         """
@@ -298,13 +294,14 @@ cdef class PyBoltz:
         `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
         """
         setSeed(self.RandomSeed)
-        ELimNotYetFixed=1
+        ELimNotYetFixed = 1
 
         cdef double ReducedField
         cdef int i = 0
 
         # Get the appropriate set of simulation functions given configuration keys
-        MixerFunc, ELimFunc, MonteCarloFunc, SteadyStateFunc = self.GetSimFunctions(self.BFieldMag,self.BFieldAngle,self.EnableThermalMotion)
+        MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc = self.GetSimFunctions(self.BFieldMag, self.BFieldAngle,
+                                                                                 self.EnableThermalMotion)
 
         # Set up the simulation
         Setups.Setup(self)
@@ -327,18 +324,18 @@ cdef class PyBoltz:
         else:
             # Given a specified upper energy limit, use it
             MixerFunc(self)
-        
-        if self.ConsoleOutputFlag : print("Calculated the final energy = " + str(self.FinalElectronEnergy))
+
+        if self.ConsoleOutputFlag: print("Calculated the final energy = " + str(self.FinalElectronEnergy))
 
         # Run the simulation
         MonteCarloFunc.run(self)
 
         # Closeout and end
         self.end()
-        if self.ConsoleOutputFlag : print("\n**Crossed the set Steady state simulation threshold = {}\n".format(self.SteadyStateThreshold))
+        if self.ConsoleOutputFlag: print(
+            "\n**Crossed the set Steady state simulation threshold = {}\n".format(self.SteadyStateThreshold))
         # Steady state simulation
-        if abs(self.ReducedIonization-self.ReducedAttachment)>self.SteadyStateThreshold:
-            SteadyStateFunc.run(self)
+        if abs(self.ReducedIonization - self.ReducedAttachment) > self.SteadyStateThreshold:
+            TownsendFunc.run(self)
 
         return
-             

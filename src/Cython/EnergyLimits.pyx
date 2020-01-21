@@ -13,6 +13,8 @@ from MBSorts cimport MBSort, MBSortT
 # The later are more extensively commented and we guide developers there for
 # more information.
 
+#This is a comment to test GitHub merging function
+
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)

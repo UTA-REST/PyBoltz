@@ -40,7 +40,7 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
         MV.IPlane = 1
         C1 = Object.Z - MV.ZPlanes[1]
     else:
-        for J in range(2, Object.NumberOfSpaceSteps):
+        for J in range(2, Object.NumberOfSpaceSteps+1):
             if Object.Z < MV.ZPlanes[J]:
                 MV.IPlane = J
                 C1 = Object.Z - MV.ZPlanes[J]
@@ -184,9 +184,8 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
     cdef double EPOT
     while (1):
         #TODO: change to NumberOfSpaceSteps-1 for anode termination
-        if MV.IPlane >= Object.NumberOfSpaceSteps + 1 or Object.Z > Object.MaxSpaceZ or MV.TimeStop == -99:
-            if MV.TimeStop == -99:
-                MV.TimeStop = 0
+        if MV.IPlane >= Object.NumberOfSpaceSteps + 1 or Object.Z > Object.MaxSpaceZ or MV.TimeStop == -99 or MV.FFlag ==1:
+            MV.FFlag = 0
             Object.TotalSpaceZPrimary += Object.Z
             Object.TotalTimePrimary += Object.TimeSum
             Object.TotalTimeSecondary += Object.TimeSum - MV.TimeSumStart
@@ -230,6 +229,8 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
             if MV.T >= MV.TimeStop and MV.TOld < MV.TimeStop:
                 SpacePlaneUpdate(Object, MV)
                 continue
+            else:
+                return 2
         else:
             return 2
 
@@ -248,7 +249,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
     for J in range(Object.NumberOfSpaceSteps):
         MV.ZPlanes[J + 1] = J + 1 * Object.SpaceStepZ
-
+    MV.FFlag = 0
     Object.TimeSum = 0.0
     Object.X = 0.0
     Object.Y = 0.0
@@ -296,12 +297,14 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     MV.NumberOfElectronIon = 0
     MV.NumberOfElectron = 0
     MV.NumberOfCollision = 0
+    MV.NCLUS = 0
     MV.NumberOfNullCollision = 0
     Object.TotalSpaceZPrimary = 0
     Object.TotalTimePrimary = 0
     Object.TotalSpaceZSecondary = 0
     Object.TotalTimeSecondary = 0
-
+    MV.TimeSumStart = 0
+    MV.SpaceZStart = 0
     cdef int i = 0, K
     cdef double ** TotalCollFreqIncludingNull = <double **> malloc(6 * sizeof(double *))
     for i in range(6):
@@ -342,22 +345,27 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     # register this electron
     NewElectron(Object, &MV)
     while (1):
-        # Sample random time to next collision. T is global total time.
-        RandomNum = random_uniform(RandomSeed)
-        # This is the formula from Skullerud
-        MV.T = -log(RandomNum) / Object.MaxCollisionFreqTotal + MV.TDash
-        MV.TOld = MV.TDash
-        MV.TDash = MV.T
-        MV.AP = MV.DirCosineZ1 * MV.F2 * sqrt(MV.StartingEnergy)
+        if Object.IPrimary ==2:
+            print (MV.DirCosineZ1,MV.DirCosineY1,MV.DirCosineX1)
+            print (MV.NumberOfElectron)
+            sys.exit()
+        if FFlag ==0:
+            # Sample random time to next collision. T is global total time.
+            RandomNum = random_uniform(RandomSeed)
+            # This is the formula from Skullerud
+            MV.T = -log(RandomNum) / Object.MaxCollisionFreqTotal + MV.TDash
+            MV.TOld = MV.TDash
+            MV.TDash = MV.T
+            MV.AP = MV.DirCosineZ1 * MV.F2 * sqrt(MV.StartingEnergy)
 
-        if MV.T >= MV.TimeStop and MV.TOld < MV.TimeStop:
-            SpacePlaneUpdate(Object, &MV)
-            Flag = TimeCalculations(Object, &MV)
-            if Flag == 1:
-                continue
-            elif Flag == 0:
-                break
-
+            if MV.T >= MV.TimeStop and MV.TOld < MV.TimeStop:
+                SpacePlaneUpdate(Object, &MV)
+                Flag = TimeCalculations(Object, &MV)
+                if Flag == 1:
+                    continue
+                elif Flag == 0:
+                    break
+        FFlag = 0
         # similar to MONTET, calculate the energy of the electron after the collision
         MV.Energy = MV.StartingEnergy + (MV.AP + MV.BP * MV.T) * MV.T
 
@@ -441,7 +449,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                             if Flag == 0:
                                 break
                             continue
-                        MV.TimeStop = -99
+                        MV.FFlag = 1
                         Object.TotalSpaceZPrimary -= Object.Z
                         Object.TotalTimePrimary -= Object.TimeSum
                         Object.TotalTimeSecondary -= Object.TimeSum - MV.TimeSumStart
@@ -451,6 +459,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                             continue
                         elif Flag == 0:
                             break
+                        elif Flag ==2:
+                            FFlag = 1
+                            continue
                     # fake Ionisation add electron to the store (S)
 
                     MV.NCLUS += 1
@@ -553,7 +564,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 if Flag == 0:
                     break
                 continue
-            MV.TimeStop = -99
+            MV.FFlag = 1
             Object.TotalSpaceZPrimary -= Object.Z
             Object.TotalTimePrimary -= Object.TimeSum
             Object.TotalTimeSecondary -= Object.TimeSum - MV.TimeSumStart
@@ -563,6 +574,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 continue
             elif Flag == 0:
                 break
+            elif Flag ==2:
+                FFlag = 1
+                continue
         elif Object.ElectronNumChange[GasIndex][I] != 0:
             # An ionisation happened
             EISTR = EI
@@ -585,8 +599,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             MV.ZS[MV.NPONT] = Object.Z
             MV.TS[MV.NPONT] = Object.TimeSum
             MV.ES[MV.NPONT] = ESEC
-            MV.IPlaneS[MV.NPONT] = MV.IPlane
-
             MV.NTPMFlag = 1
             NCLTMP = MV.NPONT
             IDM1 = 1 + int(MV.ZS[MV.NPONT] / Object.SpaceStepZ)
@@ -629,7 +641,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     Object.NESST[MV.IPlaneS[MV.NPONT]] += 1
         # Generate scattering angles and update laboratory cosines after collision also update energy of electron
         IPT = <long long> Object.InteractionType[GasIndex][I]
-        Object.CollisionsPerGasPerType[GasIndex][<int> IPT - 1] += 1
         MV.ID += 1
         MV.Iterator += 1
         MV.IPrint += 1
@@ -718,7 +729,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         CosPhi = cos(Phi)
 
         if COMEnergy < EI:
-            EI = COMEnergy - 0.0001
+            EI = 0.0
 
         ARG1 = max(1.0 - S1 * EI / COMEnergy, Object.SmallNumber)
 
@@ -835,6 +846,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     continue
                 elif Flag == 0:
                     break
+                elif Flag ==2:
+                    FFlag = 1
+                    continue
 
         TCALCT(Object, &MV)
 
@@ -844,6 +858,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 continue
             elif Flag == 0:
                 break
+            elif Flag ==2:
+                FFlag = 1
+                continue
 
     # ATTOINT,ATTERT,AIOERT
     if MV.NumberOfElectron > Object.IPrimary:

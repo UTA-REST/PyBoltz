@@ -15,7 +15,7 @@ import sys
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz Object):
+cpdef run(PyBoltz Object, int ConsoleOuput):
     cdef int JPrint, K = 0
     cdef double ESST[9], VDSST[9], WSSST[9], DXSST[9], DYSST[9], WTEMP[9], DRSST[9], ALFNE[9], ALFNJ[9], ALFN[9], ZSST[9], DLSST[9], DRSS1[9], DRSS2[9], DRSS3[9], ALFEX1[9], NEPL[9]
     cdef double FREQ, FREEL, FRION, FRATT, FREIN, NTOTAL, CORF, CORERR, DXFIN, DYFIN, DLFIN, ALNGTH, ALFIN

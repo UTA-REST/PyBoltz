@@ -1,17 +1,20 @@
 from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
-import PulsedTownsend
-import TimeOfFlight
+
 from PyBoltz cimport drand48
 from MBSorts cimport MBSort
+
 import Monte
 import SteadyStateTownsend
 import PulsedTownsend
 import TimeOfFlight
+
 from Monte import *
 #from PulsedTownsend import *
 #from TimeOfFlight import *
+#from SteadyStateTownsend import *
+
 from libc.stdlib cimport malloc, free
 import cython
 import numpy as np

@@ -224,12 +224,9 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
                 MV.NumberOfElectron += 1
                 MV.ISolution = 1
                 continue
-            if MV.ISolution == 1:
-                NewElectron(Object, MV)
-                return 1
-            else:
-                continue
-        elif MV.ISolution == 2:
+            NewElectron(Object, MV)
+            return 1
+        if MV.ISolution == 2:
             MV.TimeStop = MV.TimeStop1
             MV.ISolution = 1
             if MV.T >= MV.TimeStop and MV.TOld < MV.TimeStop:
@@ -372,6 +369,8 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         MV.Energy = MV.StartingEnergy + (MV.AP + MV.BP * MV.T) * MV.T
 
         if MV.Energy < 0.0:
+            print (MV.T, MV.StartingEnergy,MV.AP,MV.BP)
+            sys.exit()
             MV.Energy = 0.001
 
         # Randomly choose gas to scatter from, based on expected collision freqs.
@@ -538,7 +537,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         if COMEnergy < EI:
             EI = COMEnergy - 0.0001
-        print (MV.T, MV.TimeStop, Object.Z)
+        print (MV.T, MV.TimeStop, MV.StartingEnergy)
         print (MV.NumberOfElectron)
 
         if Object.ElectronNumChange[GasIndex][I] == -1:

@@ -30,8 +30,7 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
     Calculate elapsed time, timestop1, until arrival at next plane, IPlane. 
     If two positive solutions exist, set ISolution to 2, and calculate the second solution, TimeStop2.   
     '''
-    cdef double A, B, B2, C1 = 0, C2 = 0, FAC, TimeStop1, TimeStop2
-
+    cdef double A, B, B2, C1 = 0, C2 = 0, FAC, TimeStop1, TimeStop2,Flag = 0
     MV.ISolution = 1
     A = Object.EField * Object.CONST2
     B = sqrt(MV.StartingEnergy) * Object.CONST3 * 0.01 * MV.DirCosineZ1
@@ -45,11 +44,13 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
                 MV.IPlane = J
                 C1 = Object.Z - MV.ZPlanes[J]
                 C2 = Object.Z - MV.ZPlanes[J - 1]
+                Flag = 1
                 break
-        if C1 == 0 and C2 == 0:
+        if Flag:
             MV.IPlane = 9
             C1 = Object.Z - MV.ZPlanes[8] - 10 * Object.SpaceStepZ
             C2 = Object.Z - MV.ZPlanes[8]
+            Flag = 0
 
     # check plane in drift direction( only one positive solution)
     FAC = B2 - 4 * A * C1
@@ -58,23 +59,23 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
     #sys.exit()
     if FAC < 0.0:
         # passed final plane (runaway electron)
-        MV.TimeStop1 = -99
+        MV.TimeStop = -99
         return
     TimeStop1 = (-1 * B + sqrt(B2 - 4 * A * C1)) / (2 * A)
     TimeStop2 = (-1 * B - sqrt(B2 - 4 * A * C1)) / (2 * A)
 
     if TimeStop1 < TimeStop2:
         if TimeStop1 < 0.0:
-            MV.TimeStop1 = TimeStop2
+            MV.TimeStop = TimeStop2
         else:
-            MV.TimeStop1 = TimeStop1
+            MV.TimeStop = TimeStop1
         if MV.IPlane == 1:
             return
     else:
         if TimeStop2 >= 0.0:
-            MV.TimeStop1 = TimeStop2
+            MV.TimeStop = TimeStop2
         else:
-            MV.TimeStop1 = TimeStop1
+            MV.TimeStop = TimeStop1
 
         if MV.IPlane == 1:
             return
@@ -92,9 +93,11 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
     MV.ISolution = 2
     MV.IPlane -= 1
     if TimeStop1 >= TimeStop2:
-        MV.TimeStop1 = TimeStop2
-    else:
+        MV.TimeStop = TimeStop2
         MV.TimeStop1 = TimeStop1
+    else:
+        MV.TimeStop = TimeStop1
+        MV.TimeStop1 = TimeStop2
     return
 
 #Sample Maxwell Boltzman distribution for gas velocities
@@ -227,7 +230,7 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
             NewElectron(Object, MV)
             return 1
         if MV.ISolution == 2:
-            MV.TimeStop = MV.TimeStop1
+            MV.TimeStop = MV.TimeStop2
             MV.ISolution = 1
             if MV.T >= MV.TimeStop and MV.TOld < MV.TimeStop:
                 SpacePlaneUpdate(Object, MV)
@@ -348,6 +351,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     # register this electron
     NewElectron(Object, &MV)
     while (1):
+
+        if MV.NumberOfElectron ==20:
+            sys.exit()
         if FFlag == 0:
             # Sample random time to next collision. T is global total time.
             RandomNum = random_uniform(RandomSeed)
@@ -369,8 +375,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         MV.Energy = MV.StartingEnergy + (MV.AP + MV.BP * MV.T) * MV.T
 
         if MV.Energy < 0.0:
-            print (MV.T, MV.StartingEnergy,MV.AP,MV.BP)
-            sys.exit()
             MV.Energy = 0.001
 
         # Randomly choose gas to scatter from, based on expected collision freqs.
@@ -558,7 +562,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             IDM1 = 1 + int(MV.ZS[MV.NPONT] / Object.SpaceStepZ)
             if IDM1 < 1: IDM1 = 1
             if IDM1 > 9: IDM1 = 9
-            Object.NESST[IDM1] += 1
+            Object.NESST[IDM1] -= 1
             if MV.NumberOfElectron == MV.NCLUS + 1:
                 # Electron captured start a new primary
                 Flag = NewPrimary(Object, &MV)
@@ -684,26 +688,27 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                             Sign = -1 * Sign
                         RandomNum = random_uniform(RandomSeed)
                         MV.ZS[MV.NPONT] = Object.Z - log(RandomNum) * Object.PenningFraction[GasIndex][1][I] * Sign
-
-                    # Possible penning transfer time
-                    PenningTransferTime = Object.TimeSum
-                    if Object.PenningFraction[GasIndex][2][I] != 0.0:
-                        RandomNum = random_uniform(RandomSeed)
-                        PenningTransferTime = Object.TimeSum - log(RandomNum) * Object.PenningFraction[GasIndex][2][I]
-                    MV.TS[MV.NPONT] = PenningTransferTime
-                    MV.ES[MV.NPONT] = 1.0
-                    MV.DirCosineX[MV.NPONT] = MV.DirCosineX1
-                    MV.DirCosineY[MV.NPONT] = MV.DirCosineY1
-                    MV.DirCosineZ[MV.NPONT] = MV.DirCosineZ1
-                    IDM1 = 1 + int(MV.ZS[MV.NPONT] / Object.SpaceStepZ)
-                    if IDM1 < 1: IDM1 = 1
-                    if IDM1 > 9: IDM1 = 9
-                    MV.IPlaneS[MV.NPONT] = IDM1
-                    Object.NESST[MV.IPlaneS[MV.NPONT]] += 1
                     if MV.ZS[MV.NPONT] < 0.0 or MV.ZS[MV.NPONT] > Object.MaxSpaceZ:
                         # Penning happens after final time plane, dont store the electron
                         MV.NPONT -= 1
                         MV.NCLUS -= 1
+                    else:
+                        # Possible penning transfer time
+                        PenningTransferTime = Object.TimeSum
+                        if Object.PenningFraction[GasIndex][2][I] != 0.0:
+                            RandomNum = random_uniform(RandomSeed)
+                            PenningTransferTime = Object.TimeSum - log(RandomNum) * Object.PenningFraction[GasIndex][2][I]
+                        MV.TS[MV.NPONT] = PenningTransferTime
+                        MV.ES[MV.NPONT] = 1.0
+                        MV.DirCosineX[MV.NPONT] = MV.DirCosineX1
+                        MV.DirCosineY[MV.NPONT] = MV.DirCosineY1
+                        MV.DirCosineZ[MV.NPONT] = MV.DirCosineZ1
+                        IDM1 = 1 + int(MV.ZS[MV.NPONT] / Object.SpaceStepZ)
+                        if IDM1 < 1: IDM1 = 1
+                        if IDM1 > 9: IDM1 = 9
+                        MV.IPlaneS[MV.NPONT] = IDM1
+                        Object.NESST[MV.IPlaneS[MV.NPONT]] += 1
+
         S2 = (S1 * S1) / (S1 - 1.0)
 
         # Anisotropic scattering - pick the scattering angle theta depending on scatter type
@@ -857,8 +862,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         TCALCT(Object, &MV)
 
         if MV.TimeStop == -99:
-            MV.NumberOfElectron += 1
-            MV.ISolution = 1
             Flag = TimeCalculations(Object, &MV)
             if Flag == 1:
                 continue

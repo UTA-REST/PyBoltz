@@ -324,7 +324,7 @@ cdef class PyBoltz:
         else:
             # Given a specified upper energy limit, use it
             MixerFunc(self)
-
+        print("")
         if self.ConsoleOutputFlag: print("Calculated the final energy = " + str(self.FinalElectronEnergy))
 
         # Run the simulation

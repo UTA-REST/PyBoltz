@@ -35,9 +35,11 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
     A = Object.EField * Object.CONST2
     B = sqrt(MV.StartingEnergy) * Object.CONST3 * 0.01 * MV.DirCosineZ1
     B2 = B * B
+    Flag = 0
     if Object.Z < MV.ZPlanes[1]:
         MV.IPlane = 1
         C1 = Object.Z - MV.ZPlanes[1]
+        C2 = 0
     else:
         for J in range(2, Object.NumberOfSpaceSteps + 1):
             if Object.Z < MV.ZPlanes[J]:
@@ -46,12 +48,11 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
                 C2 = Object.Z - MV.ZPlanes[J - 1]
                 Flag = 1
                 break
-        if Flag:
+        if Flag==0:
             MV.IPlane = 9
             C1 = Object.Z - MV.ZPlanes[8] - 10 * Object.SpaceStepZ
             C2 = Object.Z - MV.ZPlanes[8]
-            Flag = 0
-
+    Flag = 0
     # check plane in drift direction( only one positive solution)
     FAC = B2 - 4 * A * C1
 
@@ -69,9 +70,6 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
             MV.TimeStop = TimeStop2
         else:
             MV.TimeStop = TimeStop1
-        if MV.TimeStop <0:
-            print (A,B,B2,"HEREE")
-            sys.exit()
 
         if MV.IPlane == 1:
             return
@@ -80,10 +78,6 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
             MV.TimeStop = TimeStop2
         else:
             MV.TimeStop = TimeStop1
-        if MV.TimeStop <0:
-            print (A,B,B2,"HEREEE")
-
-            sys.exit()
 
         if MV.IPlane == 1:
             return
@@ -94,7 +88,6 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
 
     TimeStop1 = (-1 * B + sqrt(FAC)) / (2 * A)
     TimeStop2 = (-1 * B - sqrt(FAC)) / (2 * A)
-
     if TimeStop1 < 0.0:
         return
     # Found backward solution
@@ -106,10 +99,7 @@ cdef void TCALCT(PyBoltz Object, MonteVars*MV):
     else:
         MV.TimeStop = TimeStop1
         MV.TimeStop1 = TimeStop2
-    print (A,B,B2,MV.DirCosineZ1,MV.StartingEnergy,"HEREEEE")
-    if MV.TimeStop <0:
-        print (A,B,B2,"HERE")
-        sys.exit()
+
     return
 
 #Sample Maxwell Boltzman distribution for gas velocities
@@ -203,12 +193,11 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
     while (1):
         #TODO: change to NumberOfSpaceSteps-1 for anode termination
         if MV.IPlane >= Object.NumberOfSpaceSteps + 1 or Object.Z > Object.MaxSpaceZ or MV.TimeStop == -99 or MV.FFlag == 1:
-            MV.FFlag = 0
             Object.TotalSpaceZPrimary += Object.Z
             Object.TotalTimePrimary += Object.TimeSum
             Object.TotalTimeSecondary += Object.TimeSum - MV.TimeSumStart
             Object.TotalSpaceZSecondary += Object.Z - MV.SpaceZStart
-            if MV.NumberOfElectron == MV.NCLUS + 1:
+            if MV.NumberOfElectron == MV.NCLUS + 1 and MV.FFlag !=1:
                 # Create primary electron
                 Flag = NewPrimary(Object, MV)
                 NewElectron(Object, MV)
@@ -216,6 +205,7 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
                     return 0
                 MV.FFFlag = 0
                 return 1
+            MV.FFlag = 0
             # Take an electron from the store
             Object.X = MV.XS[MV.NPONT]
             Object.Y = MV.YS[MV.NPONT]
@@ -236,8 +226,7 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
                     MV.ISolution = 1
                     continue
             TCALCT(Object, MV)
-            print(MV.TimeStop1,MV.TimeStop)
-            sys.exit()
+
             if MV.TimeStop == -99:
                 MV.NumberOfElectron += 1
                 MV.ISolution = 1
@@ -246,7 +235,7 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
             MV.FFFlag = 0
             return 1
         if MV.ISolution == 2:
-            MV.TimeStop = MV.TimeStop2
+            MV.TimeStop = MV.TimeStop1
             MV.ISolution = 1
             if MV.T >= MV.TimeStop and MV.TOld < MV.TimeStop:
                 SpacePlaneUpdate(Object, MV)
@@ -269,8 +258,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     cdef int Flag = 1, GasIndex, MaxBoltzNumsUsed, NumCollisions = 0, I, IPT, NCLTMP, IAuger, J, NAuger
     cdef int TempPlane, JPrint, J1 = 1, FFlag = 0, IDM1
 
-    for J in range(Object.NumberOfSpaceSteps):
-        MV.ZPlanes[J + 1] = J + 1 * Object.SpaceStepZ
     MV.FFlag = 0
     MV.FFFlag = 0
     Object.TimeSum = 0.0
@@ -368,9 +355,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     # register this electron
     NewElectron(Object, &MV)
     while (1):
-
-        if MV.NumberOfElectron ==20:
-            sys.exit()
         if MV.FFFlag == 0:
             # Sample random time to next collision. T is global total time.
             RandomNum = random_uniform(RandomSeed)
@@ -480,7 +464,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                         elif Flag == 0:
                             break
                         elif Flag == 2:
-                            FFlag = 1
+                            MV.FFFlag = 1
                             continue
                     # fake Ionisation add electron to the store (S)
 
@@ -557,8 +541,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         if COMEnergy < EI:
             EI = COMEnergy - 0.0001
-        print (MV.T, MV.TimeStop, MV.StartingEnergy,MV.DirCosineZ1)
-        print (MV.NumberOfElectron)
 
         if Object.ElectronNumChange[GasIndex][I] == -1:
             # An attachment happened
@@ -575,7 +557,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             Object.TotalTimePrimary += Object.TimeSum
             Object.TotalSpaceZSecondary += Object.Z - MV.SpaceZStart
             Object.TotalTimeSecondary += Object.TimeSum - MV.TimeSumStart
-            IDM1 = 1 + int(MV.ZS[MV.NPONT] / Object.SpaceStepZ)
+            IDM1 = 1 + int(Object.Z / Object.SpaceStepZ)
             if IDM1 < 1: IDM1 = 1
             if IDM1 > 9: IDM1 = 9
             Object.NESST[IDM1] -= 1
@@ -623,7 +605,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             MV.ES[MV.NPONT] = ESEC
             MV.NTPMFlag = 1
             NCLTMP = MV.NPONT
-            IDM1 = 1 + int(MV.ZS[MV.NPONT] / Object.SpaceStepZ)
+            IDM1 = 1 + int(Object.Z / Object.SpaceStepZ)
             if IDM1 < 1: IDM1 = 1
             if IDM1 > 9: IDM1 = 9
             MV.IPlaneS[MV.NPONT] = IDM1
@@ -852,8 +834,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         MV.DirCosineY1 = VelYBefore * VelBeforeM1
         MV.DirCosineZ1 = VelZBefore * VelBeforeM1
         #And go around again to the next collision!
-        if Object.IPrimary == 2:
+        if MV.NumberOfElectron == 6828:
             print(MV.NumberOfElectron)
+            print (MV.T, MV.TimeStop, MV.StartingEnergy,MV.DirCosineZ1)
             sys.exit()
         MV.I100 += 1
         if MV.I100 == 200:
@@ -868,17 +851,18 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             if MV.StartingEnergy < EPOT:
                 Flag = TimeCalculations(Object, &MV)
                 if Flag == 1:
+                    MV.FFFlag = 0
                     continue
                 elif Flag == 0:
                     break
                 elif Flag == 2:
                     MV.FFFlag = 1
                     continue
-
         TCALCT(Object, &MV)
         if MV.TimeStop == -99:
             Flag = TimeCalculations(Object, &MV)
             if Flag == 1:
+                MV.FFFlag = 0
                 continue
             elif Flag == 0:
                 break

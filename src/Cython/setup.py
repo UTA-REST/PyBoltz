@@ -3,6 +3,10 @@ from distutils.extension import Extension
 from Cython.Build import cythonize
 import os
 import  numpy
+from Cython.Distutils import build_ext
+
+
+# https://stackoverflow.com/questions/11013851/speeding-up-build-process-with-distutils
 ext_modules=[
     Extension("*",["Gases/*.pyx"],include_dirs=[numpy.get_include(),'.']),
     Extension("*", ["Townsend/CollisionFrequencyCalc/*.pyx"], include_dirs=[numpy.get_include(), '.']),
@@ -13,6 +17,12 @@ ext_modules=[
     Extension("*", ["Townsend/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*", ["Townsend/Monte/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*",["Monte/*.pyx"],include_dirs=[numpy.get_include(),'.']),
-Extension("*",["*.pyx"],include_dirs=[numpy.get_include(),'.',os.path.join(os.path.dirname(os.path.abspath(__file__)), "Townsend/TimeOfFlight")])
+Extension("*",["*.pyx"],include_dirs=[numpy.get_include(),'.'])
 ]
+'''setup(name = 'PyBoltz',
+      ext_modules = ext_modules,
+      # Inject our custom trigger
+      cmdclass={'build_ext': build_ext}
+      )
+'''
 setup(ext_modules=cythonize(ext_modules))

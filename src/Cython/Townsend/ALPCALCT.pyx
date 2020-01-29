@@ -219,4 +219,4 @@ cpdef run(PyBoltz   Object):
     Object.ALPTEST = FC1-sqrt(FC1**2-FC2)
 
     print("Townsend coeficient (Alpha-Att) calculated from Time of flight results:")
-    print("ALPHA-ATT / Cm = {:^5.5} N.B approximate formula not accurate".format(ALPTEST))
+    print("ALPHA-ATT / Cm = {:^5.5} N.B approximate formula not accurate".format(Object.ALPTEST))

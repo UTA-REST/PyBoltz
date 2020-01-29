@@ -361,7 +361,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     # register this electron
     NewElectron(Object, &MV)
     while (1):
-        print("HERE")
         if MV.FFFlag == 0:
             # Sample random time to next collision. T is global total time.
             RandomNum = random_uniform(RandomSeed)
@@ -379,13 +378,12 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     continue
                 elif Flag == 0:
                     break
-        print("HEREE")
-
         MV.FFFlag = 0
         # similar to MONTET, calculate the energy of the electron after the collision
         MV.Energy = MV.StartingEnergy + (MV.AP + MV.BP * MV.T) * MV.T
 
-        if MV.Energy < 0.0:
+        if MV.Energy <= 0.0:
+            print("Energy is negative")
             MV.Energy = 0.001
 
         # Randomly choose gas to scatter from, based on expected collision freqs.
@@ -415,10 +413,10 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         DirCosineY2 = MV.DirCosineY1 * VelocityRatio
         if DirCosineZ2 < 0.0:
             AIS = -1.0
-        DirCosineZ2 = AIS * sqrt(1.0 - (DirCosineX2 ** 2) - (DirCosineY2 ** 2))
+        DirCosineZ2 = AIS * sqrt((1.0+2e-15) - (DirCosineX2 ** 2) - (DirCosineY2 ** 2))
         # Calculate electron velocity after
         VelXAfter = DirCosineX2 * MV.Sqrt2M * sqrt(MV.Energy)
-        VelYAfter = DirCosineY2 * MV.Sqrt2M * sqrt(MV.Energy)
+        VelYAfter = DirCosineY2 * MV.Sqrt2M * sqrt(MV.Energy)k
         VelZAfter = DirCosineZ2 * MV.Sqrt2M * sqrt(MV.Energy)
 
         # Calculate energy in center of mass frame
@@ -427,9 +425,17 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         COMEnergy = (pow((VelXAfter - GasVelX), 2) + pow((VelYAfter - GasVelY), 2) + pow((VelZAfter - GasVelZ),
                                                                                          2)) / MV.TwoM
         # Now the Skullerud null collision method
+
         RandomNum = random_uniform(RandomSeed)
         MV.iEnergyBin = <int> (COMEnergy / Object.ElectronEnergyStep)
         MV.iEnergyBin = min(3999, MV.iEnergyBin)
+
+        if MV.iEnergyBin<0.0:
+            print (1.0 - (DirCosineX2 ** 2) - (DirCosineY2 ** 2))
+            print (MV.DirCosineZ1,MV.T,MV.F2)
+            print (MV.StartingEnergy,MV.Energy,MV.Energy100,VelocityRatio,DirCosineZ2)
+            print (VelXAfter,GasVelX,VelYAfter,GasVelY,VelZAfter)
+            print("HERE2",MV.iEnergyBin,COMEnergy)
         # If we draw below this number, we will null-scatter (no mom xfer)
         Test1 = Object.TotalCollisionFrequency[GasIndex][MV.iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
         if RandomNum > Test1:
@@ -442,7 +448,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 while Object.NullCollisionFreq[GasIndex][MV.iEnergyBin][I] < RandomNum:
                     # Add a null scatter
                     I += 1
-
                 Object.ICOLNN[GasIndex][I] += 1
                 continue
             else:
@@ -509,7 +514,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         # If we got this far, we have a collision.
         NumCollisions += 1
-        print("HEREEE")
 
         #  sqrt(2m E_com) = |v_com|
         VelocityInCOM = (MV.Sqrt2M * sqrt(COMEnergy))
@@ -551,7 +555,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         S1 = Object.RGas[GasIndex][I]
         EI = Object.EnergyLevels[GasIndex][I]
-        print("HEREEEE")
 
         if COMEnergy < EI:
             EI = COMEnergy - 0.0001
@@ -669,7 +672,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         Object.ICOLN[GasIndex][I] += 1
         # If it is an excitation then add the probability
         # of transfer to give ionisation of the other gases in the mixture
-        print("HEREEEEE")
 
         if Object.EnablePenning != 0:
             if Object.PenningFraction[GasIndex][0][I] != 0:
@@ -843,7 +845,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         VelXBefore = MV.DirCosineX1 * VelBefore + GasVelX
         VelYBefore = MV.DirCosineY1 * VelBefore + GasVelY
         VelZBefore = MV.DirCosineZ1 * VelBefore + GasVelZ
-        print("HEREEEEEEEE")
 
         # Calculate energy and direction cosines in lab frame
         MV.StartingEnergy = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / MV.TwoM
@@ -892,7 +893,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             elif Flag == 2:
                 MV.FFFlag = 1
                 continue
-        print("HEREEEEEEE")
 
     # ATTOINT,ATTERT,AIOERT
     if MV.NumberOfElectron > Object.IPrimary:

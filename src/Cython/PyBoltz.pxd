@@ -252,7 +252,7 @@ cdef class PyBoltz:
         # Space planes output
         double SXPlanes[9],SYPlanes[9],SZPlanes[9],STPlanes[9],SEPlanes[9]
         double SX2Planes[9],SY2Planes[9],SZ2Planes[9],SVZPlanes[9],STSPlanes[9],STS2Planes[9]
-        double ATTOION,ATTIOER,ATTATER,NESST[10]
+        double ATTOION,ATTIOER,ATTATER,NESST[11]
         double TMSPL[9],TTMSPL[9],RSPL[9],RRSPL[9],RRSPM[9]
         # Steady State output
         double VDOUT,VDERR,WSOUT,WSERR,DLOUT,DLERR,DTOUT,DTERR,ALPHSST,ALPHERR,ATTSST,ATTERR

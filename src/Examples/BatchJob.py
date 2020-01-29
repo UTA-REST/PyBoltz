@@ -93,7 +93,15 @@ Object.TransverseDiffusion1Error,
 Object.LongitudinalDiffusion1,
 Object.LongitudinalDiffusion1Error,
 Object.MeanElectronEnergy,
-Object.MeanElectronEnergyError]
+Object.MeanElectronEnergyError,
+# steady state outputs
+Object.ALPHA,
+Object.ALPER,
+Object.ATT,
+Object.ATTER,
+# Pulsed townsend
+Object.ALPTEST
+]
 
 
 INFO = np.array(INFO)

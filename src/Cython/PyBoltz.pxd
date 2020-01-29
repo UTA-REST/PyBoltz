@@ -239,23 +239,75 @@ cdef class PyBoltz:
         '''If this threshold is crossed by the difference of the reduced attachment and ionisation rate, the steady state simulation is done.'''
         double FakeIonisationsEstimate
         double TimeStep
+        '''Time step between the planes in the pulsed townsend simulation that is used in the alpha calculation function'''
         double MaxTime
+        '''Maximum amount of time for the alpha calculation function (time at the final plane), it is equal to the number of steps * Time step'''
         int NumberOfTimeSteps
+        '''Number of time planes in the pulsed townsend  simulation'''
         int NumberOfSpaceSteps
+        '''Number of space planes in the steady state simulation'''
         double TotalTimePrimary
+        '''Total time of collisions for all the primaries in a simulation'''
         double TotalTimeSecondary
+        '''Total time of collisions for all the secondaries in a simulation'''
         int IPrimary
+        '''Number of primaries simulated in each alpha calculation simulation.'''
         double TotalSpaceZPrimary
+        '''Total amount of space travelled by all the primaries in the simulation. In the Z direction'''
         double TotalSpaceZSecondary
+        '''Total amount of space travelled by all the secondary in the simulation. In the Z direction'''
         double SpaceStepZ
+        '''Space step between the space planes in the steady state simulation. In the Z direction'''
         double MaxSpaceZ
+        '''Maximum amount of space for the alpha calculation function (space at the final plane), it is equal to the number of steps * space step. In the Z direction'''
         # Space planes output
-        double SXPlanes[9],SYPlanes[9],SZPlanes[9],STPlanes[9],SEPlanes[9]
-        double SX2Planes[9],SY2Planes[9],SZ2Planes[9],SVZPlanes[9],STSPlanes[9],STS2Planes[9]
-        double ATTOION,ATTIOER,ATTATER,NESST[11]
-        double TMSPL[9],TTMSPL[9],RSPL[9],RRSPL[9],RRSPM[9]
+        double SXPlanes[9]
+        '''Sum of time in x movement at space plane I. This value is equal to the sum of the x values over the velocity in the z direction at space plane I.'''
+        double SYPlanes[9]
+        '''Sum of time in y movement at space plane I. This value is equal to the sum of the y values over the velocity in the z direction at space plane I.'''
+        double SZPlanes[9]
+        '''Sum of time in z movement at space plane I. This value is equal to the sum of the z values over the velocity in the z direction at space plane I.'''
+        double STPlanes[9]
+        '''Sum of the recipical of distances at space plane I.'''
+        double SEPlanes[9]
+        '''Sum of energy normalised over time at space plane I.'''
+        double SX2Planes[9]
+        '''Sum of time in x^2 movement at space plane I. This value is equal to the sum of the x^2 values over the velocity in the z direction at space plane I.'''
+        double SY2Planes[9]
+        '''Sum of time in y^2 movement at space plane I. This value is equal to the sum of the x^2 values over the velocity in the z direction at space plane I.'''
+        double SZ2Planes[9]
+        '''Sum of time in z^2 movement at space plane I. This value is equal to the sum of the x^2 values over the velocity in the z direction at space plane I.'''
+        double SVZPlanes[9]
+        '''Sum sign of velocity in the z direction at space plane I.'''
+        double STSPlanes[9]
+        '''Sum of the recipocal of the velocity in the z direction at space plane I.'''
+        double STS2Planes[9]
+        '''Sum of the square of the recipocal of the velocity in the z direction at space plane I. '''
+        double AttachmentOverIonisation
+        '''Number of attached electrons over the number of ionised electrons.'''
+        double AttachmentOverIonisationErr
+        '''Error of the ratio of attached electrons over the nubmer of ionised electrons.'''
+        double AttachmentErr
+        '''Error of the number of attached electrons.'''
+        double NESST[11]
+        double TMSPL[9]
+        double TTMSPL[9]
+        double RSPL[9]
+        double RRSPL[9]
+        double RRSPM[9]
         # Steady State output
-        double VDOUT,VDERR,WSOUT,WSERR,DLOUT,DLERR,DTOUT,DTERR,ALPHSST,ALPHERR,ATTSST,ATTERR
+        double VDOUT
+        double VDERR
+        double WSOUT
+        double WSERR
+        double DLOUT
+        double DLERR
+        double DTOUT
+        double DTERR
+        double ALPHSST
+        double ALPHERR
+        double ATTSST
+        double ATTERR
         #Time planes output
         double TXPlanes[9],TYPlanes[9],TZPlanes[9],TTPlanes[9],TEPlanes[9]
         double TX2Planes[9],TY2Planes[9],TZ2Planes[9],TVZPlanes[9],TTSPlanes[9],TTS2Planes[9],NETPL[9]

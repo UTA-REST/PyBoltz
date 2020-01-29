@@ -2,7 +2,7 @@ ctypedef struct MonteVars:
     # Number of collisions used to estimate starting values, else use number specified by user
     int NumberOfMaxColli
     int ID, I100,NumberOfCollision,NumberOfNullCollision,NumberOfElectron
-    int NumberOfElectronIon,NTPMFlag,NMXADD, NPONT,NCLUS,J1
+    int NumberOfElectronAtt,NTPMFlag,NMXADD, NPONT,NCLUS,J1
     int PrintN,IPrint,Iterator,IPlane, iEnergyBin,FFFlag
     double StartingEnergy,SpaceZStart,TimeSumStart, AbsFakeIoniz,TimeStop,TimeStop1,TimeStop2,ZPlanes[10]
     double FakeIonisationsTime[9],FakeIonisationsSpace[11], TDash,T,AP,BP

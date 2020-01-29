@@ -56,9 +56,9 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     else:
         FREQ, FREEL, FRION, FRATT, FREIN, NTOTAL = COLF.run(Object)
 
-    # Correct for fake ionisation
+    # Correction for fake ionisation
     CORF = (FRION - FRATT) / (Object.FakeIonisationsEstimate + FRION - FRATT)
-    Object.ATTOION = FRATT / FRION
+    Object.AttachmentOverIonisation = FRATT / FRION
     CORERR = abs((Object.FakeIonisationsEstimate + FRION - FRATT) / (FRION - FRATT))
 
     if Object.NESST[1] != 0:
@@ -144,7 +144,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         Object.DLERR = 100.0 * abs((DLSST[2]-DLSST[3])/(2*DLSST[2]))
         Object.DTOUT = DRSST[2]
         Object.DTERR = 100.0 * abs((DRSST[2]-DRSST[3])/(2*DRSST[2]))
-        if Object.ATTOION==-1:
+        if Object.AttachmentOverIonisation==-1:
             # No Ionisation
             Object.ALPHSST = 0.0
             Object.ALPHERR = 0.0
@@ -156,7 +156,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             ANST[7] = ANST[6]/ANST[5]
             ANST[8] = ANST[7]-1.0
             Object.ATTSST = -1*(Object.ALFN[2]+Object.ALFNJ[2]+Object.ALFNE[2])/3.0
-            Object.ATTERR = 100.0 * sqrt(ANST[8]**2+Object.ATTATER**2)
+            Object.ATTERR = 100.0 * sqrt(ANST[8]**2+Object.AttachmentErr**2)
         else:
             ANST[2] = Object.NESST[2]
             ANST[3] = Object.NESST[3]
@@ -166,10 +166,10 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             ANST[7] = ANST[6]/ANST[5]
             ANST[8] = ANST[7]-1.0
             ATMP = (ALFN[2]+ALFNJ[2]+ALFNE[2])/3.0
-            Object.ALPHSST = ATMP/(1-Object.ATTOION)
-            Object.ALPHERR = 100*sqrt(ANST[8]**2+Object.ATTIOER**2)
-            Object.ATTSST = Object.ATTOION*ATMP/(1-Object.ATTOION)
-            Object.ATTERR = 100* sqrt(ANST[8]**2+Object.ATTATER**2)
+            Object.ALPHSST = ATMP/(1-Object.AttachmentOverIonisation)
+            Object.ALPHERR = 100*sqrt(ANST[8]**2+Object.AttachmentOverIonisationErr**2)
+            Object.ATTSST = Object.AttachmentOverIonisation*ATMP/(1-Object.AttachmentOverIonisation)
+            Object.ATTERR = 100* sqrt(ANST[8]**2+Object.AttachmentErr**2)
     # Net Ionisation therefore take results from plane 8
     Object.VDOUT = VDSST[8]
     Object.VDERR = 100*abs((VDSST[8]-VDSST[7])/VDSST[8])
@@ -182,10 +182,10 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     ATMP = (ALFN[8]+ALFNJ[8]+ALFNE[8])/3
     ATMP2 = (ALFN[7]+ALFNJ[7]+ALFNE[7])/3.0
     ATER = abs((ATMP-ATMP2)/ATMP)
-    Object.ALPHSST = ATMP/(1-Object.ATTOION)
-    Object.ALPHERR=100* sqrt(ATER**2+Object.ATTIOER**2)
-    Object.ATTSST = Object.ATTOION * ATMP/(1-Object.ATTOION)
-    if Object.ATTOION != 0.0:
-        Object.ATTERR = 100 * sqrt(ATER**2 +Object.ATTATER**2)
+    Object.ALPHSST = ATMP/(1-Object.AttachmentOverIonisation)
+    Object.ALPHERR=100* sqrt(ATER**2+Object.AttachmentOverIonisationErr**2)
+    Object.ATTSST = Object.AttachmentOverIonisation * ATMP/(1-Object.AttachmentOverIonisation)
+    if Object.AttachmentOverIonisation != 0.0:
+        Object.ATTERR = 100 * sqrt(ATER**2 +Object.AttachmentErr**2)
     else:
         Object.ATTERR = 0.0

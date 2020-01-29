@@ -309,7 +309,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     MV.NPONT = 0
     MV.NMXADD = 0
     MV.NTPMFlag = 0
-    MV.NumberOfElectronIon = 0
+    MV.NumberOfElectronAtt = 0
     MV.Iterator = 0
     MV.NumberOfElectron = 0
     MV.NumberOfCollision = 0
@@ -453,7 +453,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     Object.FakeIonizations += 1
                     MV.FakeIonisationsSpace[MV.IPlane] += 1
                     if Object.FakeIonisationsEstimate < 0.0:
-                        MV.NumberOfElectronIon += 1
+                        MV.NumberOfElectronAtt += 1
 
                         # Fake attachment start a new electron
                         if MV.NumberOfElectron == MV.NCLUS + 1:
@@ -556,7 +556,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         if Object.ElectronNumChange[GasIndex][I] == -1:
             # An attachment happened
-            MV.NumberOfElectronIon += 1
+            MV.NumberOfElectronAtt += 1
             IPT = <long long> Object.InteractionType[GasIndex][I]
             MV.ID += 1
             MV.Iterator += 1
@@ -891,19 +891,19 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
     # ATTOINT,ATTERT,AIOERT
     if MV.NumberOfElectron > Object.IPrimary:
-        Object.ATTOION = MV.NumberOfElectronIon / (MV.NumberOfElectron - Object.IPrimary)
-        Object.ATTATER = sqrt(MV.NumberOfElectronIon) / MV.NumberOfElectronIon
-        Object.ATTIOER = sqrt(MV.NumberOfElectron - Object.IPrimary) / (MV.NumberOfElectron - Object.IPrimary)
+        Object.AttachmentOverIonisation = MV.NumberOfElectronAtt / (MV.NumberOfElectron - Object.IPrimary)
+        Object.AttachmentErr = sqrt(MV.NumberOfElectronAtt) / MV.NumberOfElectronAtt
+        Object.AttachmentOverIonisationErr = sqrt(MV.NumberOfElectron - Object.IPrimary) / (MV.NumberOfElectron - Object.IPrimary)
     else:
-        Object.ATTOIN = -1
-        Object.ATTATER = sqrt(MV.NumberOfElectronIon) / MV.NumberOfElectronIon
+        Object.AttachmentOverIonisation = -1
+        Object.AttachmentErr = sqrt(MV.NumberOfElectronAtt) / MV.NumberOfElectronAtt
 
     if ConsoleOuput:
         print(
             '\nSimulation through {} Space planes:\n Total number of Electrons: {:10.1f}\n Number of Negative Ions: {:10.1f}\n Number of primaries: {:10.1f}\n'.format(
                 Object.NumberOfSpaceSteps,
                 MV.NumberOfElectron,
-                MV.NumberOfElectronIon, Object.IPrimary))
+                MV.NumberOfElectronAtt, Object.IPrimary))
 
     #TODO: EPRM
 

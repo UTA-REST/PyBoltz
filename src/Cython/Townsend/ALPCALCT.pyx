@@ -31,11 +31,11 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz   Object):
+cpdef run(PyBoltz Object):
     Object.VelocityZ *= 1e5
     cdef double NetReducedRate, NetRate, TimeCutHigh, TimeCutLow, SpaceCutHighZ, SpaceCutLowZ, Alpha, NewAlpha
     cdef double StartingAlpha, ErrStartingAlpha, StartingNetAttachment, ErrStartingNetAttachment, StartingNetReducedRate
-    cdef double FC1,FC2,WRZN,ALPTEST
+    cdef double FC1,FC2,WRZN
     # Ensure enough collisions are simulated
     if Object.MaxNumberOfCollisions < 5e7:
         Object.MaxNumberOfCollisions = 5e7

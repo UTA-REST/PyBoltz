@@ -413,10 +413,12 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         DirCosineY2 = MV.DirCosineY1 * VelocityRatio
         if DirCosineZ2 < 0.0:
             AIS = -1.0
+
+        #TODO: fix 2e-15
         DirCosineZ2 = AIS * sqrt((1.0+2e-15) - (DirCosineX2 ** 2) - (DirCosineY2 ** 2))
         # Calculate electron velocity after
         VelXAfter = DirCosineX2 * MV.Sqrt2M * sqrt(MV.Energy)
-        VelYAfter = DirCosineY2 * MV.Sqrt2M * sqrt(MV.Energy)k
+        VelYAfter = DirCosineY2 * MV.Sqrt2M * sqrt(MV.Energy)
         VelZAfter = DirCosineZ2 * MV.Sqrt2M * sqrt(MV.Energy)
 
         # Calculate energy in center of mass frame
@@ -429,13 +431,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         RandomNum = random_uniform(RandomSeed)
         MV.iEnergyBin = <int> (COMEnergy / Object.ElectronEnergyStep)
         MV.iEnergyBin = min(3999, MV.iEnergyBin)
-
-        if MV.iEnergyBin<0.0:
-            print (1.0 - (DirCosineX2 ** 2) - (DirCosineY2 ** 2))
-            print (MV.DirCosineZ1,MV.T,MV.F2)
-            print (MV.StartingEnergy,MV.Energy,MV.Energy100,VelocityRatio,DirCosineZ2)
-            print (VelXAfter,GasVelX,VelYAfter,GasVelY,VelZAfter)
-            print("HERE2",MV.iEnergyBin,COMEnergy)
         # If we draw below this number, we will null-scatter (no mom xfer)
         Test1 = Object.TotalCollisionFrequency[GasIndex][MV.iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
         if RandomNum > Test1:

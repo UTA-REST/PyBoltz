@@ -1,9 +1,9 @@
-from CollisionFrequencyCalc import COLF
-from CollisionFrequencyCalc import COLFT
+from Townsend.CollisionFrequencyCalc import COLF
+from Townsend.CollisionFrequencyCalc import COLFT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from PyBoltz cimport PyBoltz
 
-cpdef void TOF(PyBoltz Object, int ConsoleOuput):
+cpdef run(PyBoltz Object, int ConsoleOuput):
     cdef double FREQ, FREEL, FRION, FRATT, FREIN, NTOTAL, CORERR, ANTPL[8], WR[8],ANST[8]
     cdef double DLTF[8], DXTF[8], DYTF[8],DT2,DT3,ATER
     cdef int J,I1,I2

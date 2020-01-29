@@ -5,8 +5,8 @@ from PyBoltz cimport drand48
 from MBSorts cimport MBSortT
 from libc.stdlib cimport malloc, free
 import cython
-from CollisionFrequencyCalc import COLF
-from CollisionFrequencyCalc import COLFT
+from Townsend.CollisionFrequencyCalc import COLF
+from Townsend.CollisionFrequencyCalc import COLFT
 import numpy as np
 cimport numpy as np
 import sys
@@ -127,12 +127,12 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         ALFNE[J] *=0.01
 
     print ('Steady state Townsend results for {} sequential space planes'.format(JPrint))
-    print('{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}'.format("Plane #", "NEL", "VD", "WS",
+    print('{:^10s}{:^10s}{:^7s}{:^7s}{:^7s}{:^7s}{:^7s}{:^12s}{:^12s}{:^12s}'.format("Plane #", "NEL", "VD", "WS",
                                                                          "DL","DT","EBAR","ALFN","ALFNJ","ALFNE"))
 
     for J in range(1,JPrint+1):
         DRSST[J] = (DXSST[J]+DYSST[J])/2.0
-        print('{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}{:^15s}'.format(J, Object.NESST[J], VDSST[J], WSSST[J],
+        print('{:^10.1f}{:^10.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^12.1f}{:^12.1f}{:^12.1f}'.format(J, Object.NESST[J], VDSST[J], WSSST[J],
                                                                          DLSST[J],DRSST[J],ESST[J],ALFN[J],ALFNJ[J],ALFNE[J]))
     if Object.NESST[1]> Object.NESST[5]:
         # Net attachment therefore take results from plane 2
@@ -186,6 +186,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     Object.ALPHERR=100* sqrt(ATER**2+Object.ATTIOER**2)
     Object.ATTSST = Object.ATTOION * ATMP/(1-Object.ATTOION)
     if Object.ATTOION != 0.0:
-        Object.ATTERR = 100 * sqrt(ATER**2 +Object.ATTATER)
+        Object.ATTERR = 100 * sqrt(ATER**2 +Object.ATTATER**2)
     else:
         Object.ATTERR = 0.0

@@ -266,3 +266,9 @@ cdef class PyBoltz:
 
         # Time of flight
         double RALPHA,RALPER,TOFENE,TOFENER,TOFWV,TOFWVER,TOFDL,TOFDLER,TOFDT,TOFDTER,TOFWR,TOFWRER,RATTOF,RATOFER
+
+        # Alpha, and ATt
+        double ALPHA,ATT,ALPER,ATTER,ALPTEST
+
+        # FCION and FCATT
+        double FCION[4000],FCATT[4000]

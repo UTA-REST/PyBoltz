@@ -9,12 +9,12 @@ import Monte
 import SteadyStateTownsend
 import PulsedTownsend
 import TimeOfFlight
-
+import Friedland
 from Monte import *
-#from PulsedTownsend import *
-#from TimeOfFlight import *
-#from SteadyStateTownsend import *
-
+from Townsend.PulsedTownsend import *
+from Townsend.TimeOfFlight import *
+from Townsend.SteadyStateTownsend import *
+from Townsend.Friedland import *
 from libc.stdlib cimport malloc, free
 import cython
 import numpy as np
@@ -34,7 +34,8 @@ cdef double random_uniform(double dummy):
 cpdef run(PyBoltz   Object):
     Object.VelocityZ *= 1e5
     cdef double NetReducedRate, NetRate, TimeCutHigh, TimeCutLow, SpaceCutHighZ, SpaceCutLowZ, Alpha, NewAlpha
-    cdef double StartingAlpha, ErrStartingAlpha, StartingNetAttachment, ErrStartingNetAttachment,StartingNetReducedRate
+    cdef double StartingAlpha, ErrStartingAlpha, StartingNetAttachment, ErrStartingNetAttachment, StartingNetReducedRate
+    cdef double FC1,FC2,WRZN,ALPTEST
     # Ensure enough collisions are simulated
     if Object.MaxNumberOfCollisions < 5e7:
         Object.MaxNumberOfCollisions = 5e7
@@ -100,8 +101,8 @@ cpdef run(PyBoltz   Object):
 
         # Calculate good starting values for ionisation and attachment rates
         Monte.MONTEFTT.run(Object, 0)
-        PulsedTownsend.PT.PT(Object, 0)
-        TimeOfFlight.TOF.TOF(Object, 0)
+        PulsedTownsend.PT.run(Object, 0)
+        TimeOfFlight.TOF.run(Object, 0)
 
         StartingAlpha = (Object.RALPHA / Object.TOFWR) * 1e7
         ErrStartingAlpha = (Object.RALPER * StartingAlpha / 100)
@@ -156,20 +157,66 @@ cpdef run(PyBoltz   Object):
 
     StartingNetReducedRate = StartingAlpha - StartingNetAttachment
 
-            # Print the alphas
+    # Print the alphas
     if Object.ConsoleOutputFlag:
         print("NewAlpha = ", NewAlpha, " NetReducedRate = ", StartingNetReducedRate, "Alpha = ", Alpha, "TimeStep = ",
-                  Object.TimeStep," SpaceStepZ = ", Object.SpaceStepZ)
+              Object.TimeStep, " SpaceStepZ = ", Object.SpaceStepZ)
 
-    Object.TimeStep*= 1e12
-    Object.SpaceStepZ *=0.01
-    Object.MaxTime = 7* Object.TimeStep
+    Object.TimeStep *= 1e12
+    Object.SpaceStepZ *= 0.01
+    Object.MaxTime = 7 * Object.TimeStep
     Object.NumberOfTimeSteps = 7
-    Object.MaxSpaceZ = 8 *  Object.SpaceStepZ
+    Object.MaxSpaceZ = 8 * Object.SpaceStepZ
     Object.NumberOfSpaceSteps = 8
     print("Solution for Steady State Townsend parameters")
-    print("Space step between sampling planes = {} Microns".format(Object.SpaceStepZ*1e6))
+    print("Space step between sampling planes = {} Microns".format(Object.SpaceStepZ * 1e6))
 
     Monte.MONTEFDT.run(Object, 1)
     SteadyStateTownsend.SST.run(Object, 1)
 
+    Object.ALPHA = Object.ALPHSST
+    Object.ALPER = Object.ALPHERR
+    Object.ATT = Object.ATTSST
+    Object.ATTER = Object.ATTERR
+
+    print("Steady State Townsend Velocities:")
+    print("VD = {:^5.1f} +- {:^2.1f} %     WS = {:^5.1f} +- {:^2.1f}%".format(Object.VDOUT, Object.VDERR, Object.WSOUT,
+                                                                              Object.WSERR))
+
+    print("Steady State Townsend Diffusion:")
+    print("Longitudinal diffusion = {:^5.1f} +- {:^2.1f} %    Transverse diffusion = {:^5.1f} +- {:^2.1f} %".format(
+        Object.DLOUT, Object.DLERR,
+        Object.DTOUT, Object.DTERR))
+
+    print("Steady State Townsend Coefficients:")
+    print(
+        "Alpha = {:^5.1f} +- {:^2.1f} %    Att = {:^5.1f} +- {:^2.1f} %".format(Object.ALPHA, Object.ALPER, Object.ATT,
+                                                                                Object.ATTER))
+
+    print("\n\nSolution for Pulsed Townsend and Time of flight parameters")
+    print("Time step between sampling planes = {} picoseconds".format(Object.TimeStep))
+
+    Monte.MONTEFTT.run(Object, 1)
+    Friedland.FRIEDLANDT.run(Object)
+    PulsedTownsend.PT.run(Object, 1)
+    TimeOfFlight.TOF.run(Object, 1)
+
+    print("\nPulsedTownsend ionisation and attachment rates *10**12/sec:")
+    print("Alpha = {:^5.4f} +- {:^2.1f} %   ATT = {:^5.4f} +- {:^2.1f} %".format(Object.RALPHA, Object.RALPER,
+                                                                                 Object.RATTOF, Object.RATOFER))
+
+    print("\nTime of flight diffusion:")
+    print("Longitudinal diffusion = {:^5.1f} +- {:^2.1f} %    Transverse diffusion = {:^5.1f} +- {:^2.1f} %".format(
+        Object.TOFDL, Object.TOFDLER, Object.TOFDT, Object.TOFDTER))
+
+    print("\nTime of flight drift velocity:")
+    print("WR = {:^5.1f} +- {:^2.1f} %".format(Object.TOFWR,Object.TOFWRER))
+
+    # Calculate townsend Steady state coeficients directly from time of flight results
+    WRZN = Object.TOFWR * 1e5
+    FC1 = WRZN/(2*Object.TOFDL)
+    FC2 = ((Object.RALPHA-Object.RATTOF)*1e12)/Object.TOFDL
+    Object.ALPTEST = FC1-sqrt(FC1**2-FC2)
+
+    print("Townsend coeficient (Alpha-Att) calculated from Time of flight results:")
+    print("ALPHA-ATT / Cm = {:^5.5} N.B approximate formula not accurate".format(ALPTEST))

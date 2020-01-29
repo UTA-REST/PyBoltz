@@ -1,7 +1,7 @@
 from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 
-cpdef void PT(PyBoltz Object, int ConsoleOuput):
+cpdef run(PyBoltz Object, int ConsoleOuput):
     cdef double ANTPL[9]
     ANTPL[0] = Object.NETPL[1]
     Object.RI[0] = ((log(ANTPL[0]))-log(float(Object.IPrimary)))/ Object.TimeStep

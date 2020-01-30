@@ -96,6 +96,7 @@ Object.MeanElectronEnergy,
 Object.MeanElectronEnergyError,
 # steady state outputs
 Object.ALPHA,
+Object.IonisationRate,
 Object.ALPER,
 Object.ATT,
 Object.ATTER,

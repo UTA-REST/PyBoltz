@@ -290,6 +290,7 @@ cdef class PyBoltz:
         double AttachmentErr
         '''Error of the number of attached electrons.'''
         double NESST[11]
+        '''Number of electrons at plane I. This doesn't include attached electrons.'''
         double TMSPL[9]
         double TTMSPL[9]
         double RSPL[9]

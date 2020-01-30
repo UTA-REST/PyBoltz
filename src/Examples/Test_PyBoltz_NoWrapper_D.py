@@ -1,14 +1,43 @@
+# NOTE: restarting the kernel might be needed after recompilation
+# FIXME (weird): stored variables need to be deleted in console (tools), in order to get 
+# a proper seed reinitialized to the value given here. Although simulations only 
+# give the exact same result after 2nd iterations
+# FIXME: with thermal motion I don't get determinism with Magboltz number
+# NOTE: Include a proper option in EnergyLimits so that seed is only set the first time
+
 import sys
 import warnings
 from pathlib import Path
 import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
+
+# Avoid loading conflicting modules from other repositories
+n1 = sys.path.count('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-MasterForked/src/Cython')
+n2 = sys.path.count('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-MasterForked/src/Examples')
+n3 = sys.path.count('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM/src/Cython')
+n4 = sys.path.count('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM/src/Examples')
+n5 = sys.path.count('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM_DEV/src/Cython')
+n6 = sys.path.count('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM_DEV/src/Examples')
+ 
+for i in range(n1): sys.path.remove('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-MasterForked/src/Cython')
+for i in range(n2): sys.path.remove('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-MasterForked/src/Examples')
+for i in range(n3): sys.path.remove('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM/src/Cython')
+for i in range(n4): sys.path.remove('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM/src/Examples')
+for i in range(n5): sys.path.remove('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM_DEV/src/Cython')
+for i in range(n6): sys.path.remove('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM_DEV/src/Examples')
+
+sys.path.append('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM_DEV/src/Cython')
+sys.path.append('/home/shadowfax/SOFTWARE/Pyboltz/PyBoltz-OPTIM_DEV/src/Examples')
+
 print(sys.path)
+# -----------------------------------------------------------------------------
+
 from PyBoltz import PyBoltz
 import numpy as np
 
 exec(Path("../Cython/Setup_npy.py").read_text())                                # Setup gases
+
 
 CF4       = 1
 Ar        = 2
@@ -38,10 +67,9 @@ Object = PyBoltz()
 t1 = time.time()
 
 Object.NumberOfGases         = 2                                                # Set the number of gases
-Object.MaxNumberOfCollisions = 1*40000000.0                                     # Set the number of collisions 
-Object.EnablePenning         = 0                                                # Set Penning effect
-Object.EnableThermalMotion   = 1                                                # Enabling thermal motion
-Object.FinalElectronEnergy   = 1.4                                              # Calculate the electron energy
+Object.MaxNumberOfCollisions = 1*40000000.0                                     # Set the number of collisions Object.EnablePenning         = 0                                                # Set Penning effect
+Object.EnableThermalMotion   = 0                                                # Enabling thermal motion
+Object.FinalElectronEnergy   = 0                                                # Calculate the electron energy
 Object.GasIDs                = [2, 8, 0, 0, 0, 0]                               # Set the gases with their given number
 Object.GasFractions          = [90, 10, 0, 0, 0, 0]                             # Set the gas fractions
 Object.TemperatureCentigrade = float(23)                                        # Set the temperature
@@ -51,6 +79,9 @@ Object.BFieldMag             = 0                                                
 Object.BFieldAngle           = 0                                                # Set angle between magnetic and electric field
 Object.WhichAngularModel     = 2                                                # Set angular model
 Object.ConsoleOutputFlag     = 1
+Object.WhichRandom           = 1                                                # Set random number generator
+
+Object.NcollSuppressionInElimits = 10                                           # Suppression factor inside Elims
 
 Object.Start()
 

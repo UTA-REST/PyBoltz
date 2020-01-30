@@ -148,6 +148,10 @@ cdef class PyBoltz:
         '''Decorrelation steps.'''
         long long Decor_LookBacks
         '''Number of decorrelation lookbacks.'''
+        long long WhichRandom
+        '''Choose random number (0==Magboltz), (1==Python), (2==Python+seed from clock)'''
+        long long NcollSuppressionInElimits
+        '''Suppresion factor in Elims calculation (default Magboltz-inherited) is 10'''
         long long NumSamples
         '''Number of electron samples'''
         long long FakeIonizations

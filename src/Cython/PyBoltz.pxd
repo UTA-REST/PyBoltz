@@ -284,7 +284,7 @@ cdef class PyBoltz:
         double STS2Planes[9]
         '''Sum of the square of the recipocal of the velocity in the z direction at space plane I. '''
         double AttachmentOverIonisation
-        '''Number of attached electrons over the number of ionised electrons.'''
+        '''Number of attached electrons over the number of ionising electrons.'''
         double AttachmentOverIonisationErr
         '''Error of the ratio of attached electrons over the nubmer of ionised electrons.'''
         double AttachmentErr
@@ -312,8 +312,12 @@ cdef class PyBoltz:
         #Time planes output
         double TXPlanes[9],TYPlanes[9],TZPlanes[9],TTPlanes[9],TEPlanes[9]
         double TX2Planes[9],TY2Planes[9],TZ2Planes[9],TVZPlanes[9],TTSPlanes[9],TTS2Planes[9],NETPL[9]
-        double ATTOINT,ATTERT,AIOERT
-
+        double AttachmentOverIonisationPT
+        '''Number of attached electrons over the number of ionising electrons.'''
+        double AttachmentErrPT
+        '''Error of the number of attached electrons.'''
+        double AttachmentOverIonisationErrPT
+        '''Error of the ratio of attached electrons over the nubmer of ionised electrons.'''
         # Pulsed Townsend
         double RI[9],EPT[9],VZPT[9],TTEST[9]
 

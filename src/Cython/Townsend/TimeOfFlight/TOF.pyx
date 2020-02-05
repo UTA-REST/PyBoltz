@@ -14,7 +14,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     else:
         FREQ, FREEL, FRION, FRATT, FREIN, NTOTAL = COLF.run(Object)
 
-    Object.ATTOINT = FRATT / FRION
+    Object.AttachmentOverIonisationPT = FRATT / FRION
     CORERR = abs((Object.FakeIonisationsEstimate + FRION - FRATT) / (FRION - FRATT))
     ANTPL[0] = Object.NETPL[1]
     WR[0] = Object.TZPlanes[1] / (ANTPL[0] * Object.TimeStep)
@@ -80,16 +80,16 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         ANST[5] = log(ANST[1]/ANST[3])
         ANST[6] = ANST[5]/ANST[4]
         ANST[7] = ANST[6]-1
-        if Object.ATTOINT==-1:
+        if Object.AttachmentOverIonisationPT==-1:
             Object.RALPHA = 0.0
             Object.RALPER = 0.0
             Object.RATTOF = -1 * Object.RI[1]
-            Object.RATOFER = 100 *sqrt(ANST[7]**2+Object.ATTERT**2)
+            Object.RATOFER = 100 *sqrt(ANST[7] ** 2 + Object.AttachmentErrPT ** 2)
         else:
-            Object.RALPHA = Object.RI[1]/(1-Object.ATTOINT)
-            Object.RALPER = 100* sqrt(ANST[7]**2+Object.AIOERT**2)
-            Object.RATTOF = Object.ATTOINT*Object.RI[1]/(1.0-Object.ATTOINT)
-            Object.RATOFER = 100*sqrt(ANST[7]**2+Object.ATTERT**2)
+            Object.RALPHA = Object.RI[1]/(1 - Object.AttachmentOverIonisationPT)
+            Object.RALPER = 100* sqrt(ANST[7] ** 2 + Object.AttachmentOverIonisationErrPT ** 2)
+            Object.RATTOF = Object.AttachmentOverIonisationPT * Object.RI[1] / (1.0 - Object.AttachmentOverIonisationPT)
+            Object.RATOFER = 100*sqrt(ANST[7] ** 2 + Object.AttachmentErrPT ** 2)
 
     else:
         # For net ionisation take results from final plane
@@ -115,11 +115,11 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         ATER = abs((Object.RI[I1-1]-Object.RI[I1-2])/(Object.RI[I1-1]))
 
-        Object.RALPHA = Object.RI[I1-1]/(1.0-Object.ATTOINT)
-        Object.RALPER = 100*sqrt(ATER**2+Object.AIOERT**2)
+        Object.RALPHA = Object.RI[I1-1]/(1.0 - Object.AttachmentOverIonisationPT)
+        Object.RALPER = 100*sqrt(ATER ** 2 + Object.AttachmentOverIonisationErrPT ** 2)
 
-        Object.RATTOF = Object.ATTOINT * Object.RI[I1-1]/(1.0-Object.ATTOINT)
-        if Object.ATTOINT!=0.0:
-            Object.RATOFER = 100*sqrt(ATER**2+Object.ATTERT**2)
+        Object.RATTOF = Object.AttachmentOverIonisationPT * Object.RI[I1 - 1] / (1.0 - Object.AttachmentOverIonisationPT)
+        if Object.AttachmentOverIonisationPT!=0.0:
+            Object.RATOFER = 100*sqrt(ATER ** 2 + Object.AttachmentErrPT ** 2)
         else:
             Object.RATOFER = 0.0

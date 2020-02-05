@@ -737,12 +737,12 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
     # ATTOINT,ATTERT,AIOERT
     if MV.NumberOfElectron > Object.IPrimary:
-        Object.ATTOINT = MV.NumberOfElectronAtt / (MV.NumberOfElectron - Object.IPrimary)
-        Object.ATTERT = sqrt(MV.NumberOfElectronAtt) / MV.NumberOfElectronAtt
-        Object.AIOERT = sqrt(MV.NumberOfElectron - Object.IPrimary) / (MV.NumberOfElectron - Object.IPrimary)
+        Object.AttachmentOverIonisationPT = MV.NumberOfElectronAtt / (MV.NumberOfElectron - Object.IPrimary)
+        Object.AttachmentErrPT = sqrt(MV.NumberOfElectronAtt) / MV.NumberOfElectronAtt
+        Object.AttachmentOverIonisationErrPT = sqrt(MV.NumberOfElectron - Object.IPrimary) / (MV.NumberOfElectron - Object.IPrimary)
     else:
-        Object.ATTOINT = -1
-        Object.ATTERT = sqrt(MV.NumberOfElectronAtt) / MV.NumberOfElectronAtt
+        Object.AttachmentOverIonisationPT = -1
+        Object.AttachmentErrPT = sqrt(MV.NumberOfElectronAtt) / MV.NumberOfElectronAtt
 
     if MV.J1 == 1:
         print("Too few collisions")

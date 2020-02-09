@@ -174,19 +174,19 @@ cpdef run(PyBoltz Object):
     Monte.MONTEFDT.run(Object, 1)
     SteadyStateTownsend.SST.run(Object, 1)
 
-    Object.ALPHA = Object.ALPHSST
-    Object.ALPER = Object.ALPHERR
-    Object.ATT = Object.ATTSST
-    Object.ATTER = Object.ATTERR
+    Object.ALPHA = Object.AlphaSST
+    Object.ALPER = Object.AlphaSSTErr
+    Object.ATT = Object.AttachmentSST
+    Object.ATTER = Object.AttachmentSSTErr
 
     print("Steady State Townsend Velocities:")
-    print("VD = {:^5.1f} +- {:^2.1f} %     WS = {:^5.1f} +- {:^2.1f}%".format(Object.VDOUT, Object.VDERR, Object.WSOUT,
+    print("VD = {:^5.1f} +- {:^2.1f} %     WS = {:^5.1f} +- {:^2.1f}%".format(Object.VelocitySvzSST, Object.VelocitySvzSSTErr, Object.WSOUT,
                                                                               Object.WSERR))
 
     print("Steady State Townsend Diffusion:")
     print("Longitudinal diffusion = {:^5.1f} +- {:^2.1f} %    Transverse diffusion = {:^5.1f} +- {:^2.1f} %".format(
-        Object.DLOUT, Object.DLERR,
-        Object.DTOUT, Object.DTERR))
+        Object.LongitudinalDiffSST, Object.LongitudinalDiffSSTErr,
+        Object.TransverseDiffSST, Object.TransverseDiffSSTErr))
 
     print("Steady State Townsend Coefficients:")
     print(

@@ -278,7 +278,7 @@ cdef class PyBoltz:
         double SZ2Planes[9]
         '''Sum of time in z^2 movement at space plane I. This value is equal to the sum of the x^2 values over the velocity in the z direction at space plane I.'''
         double SVZPlanes[9]
-        '''Sum sign of velocity in the z direction at space plane I.'''
+        '''Number of electrons with a velocity bigger than 0 in the z direction at space plane I.'''
         double STSPlanes[9]
         '''Sum of the recipocal of the velocity in the z direction at space plane I.'''
         double STS2Planes[9]
@@ -289,26 +289,37 @@ cdef class PyBoltz:
         '''Error of the ratio of attached electrons over the nubmer of ionised electrons.'''
         double AttachmentErr
         '''Error of the number of attached electrons.'''
-        double NESST[11]
+        double NumberOfElectronSST[11]
         '''Number of electrons at plane I. This doesn't include attached electrons.'''
         double TMSPL[9]
         double TTMSPL[9]
-        double RSPL[9]
-        double RRSPL[9]
-        double RRSPM[9]
+        double SRPlanes[9]
+        '''The radial distance in the x,y plane at space plane I.'''
+        double SR2Planes[9]
+        '''The radial distance squared in the x,y plane at space plane I.'''
         # Steady State output
-        double VDOUT
-        double VDERR
+        double VelocitySvzSST
+        '''Velocity output in the Z direction. This is calculated by multiplying SVZPlanes by STSPlanes at space plane I.'''
+        double VelocitySvzSSTErr
+        '''Velocity output error in the Z direction.'''
         double WSOUT
         double WSERR
-        double DLOUT
-        double DLERR
-        double DTOUT
-        double DTERR
-        double ALPHSST
-        double ALPHERR
-        double ATTSST
-        double ATTERR
+        double LongitudinalDiffSST
+        '''Longitudinal diffusion output for the Steady State simulation.'''
+        double LongitudinalDiffSSTErr
+        '''Error for the Longitudinal diffusion output of the Steady State simulation.'''
+        double TransverseDiffSST
+        '''Transverse diffusion output for the Steady State simulation'''
+        double TransverseDiffSSTErr
+        '''Error for the Transverse diffusion output for the Steady State simulation.'''
+        double AlphaSST
+        '''Alpha output from the Steady State simulation.'''
+        double AlphaSSTErr
+        '''Error for the Alpha output from the Steady State simulation.'''
+        double AttachmentSST
+        '''Attachment output from the Steady State simulation.'''
+        double AttachmentSSTErr
+        '''Error for the Sttachment output from the Steady State simulation.'''
         #Time planes output
         double TXPlanes[9],TYPlanes[9],TZPlanes[9],TTPlanes[9],TEPlanes[9]
         double TX2Planes[9],TY2Planes[9],TZ2Planes[9],TVZPlanes[9],TTSPlanes[9],TTS2Planes[9],NETPL[9]

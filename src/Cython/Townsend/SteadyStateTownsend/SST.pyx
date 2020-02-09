@@ -23,14 +23,14 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     # Calculate total attachment and ionisation rates
     JPrint = Object.NumberOfSpaceSteps
     # calculate number of electrons at each plane
-    NEPL[1] = Object.IPrimary + Object.NESST[1]
+    NEPL[1] = Object.IPrimary + Object.NumberOfElectronSST[1]
     for K in range(2, JPrint + 1):
-        NEPL[K] = NEPL[K - 1] + Object.NESST[K]
-    # Substitute NEPL for NESST
+        NEPL[K] = NEPL[K - 1] + Object.NumberOfElectronSST[K]
+    # Substitute NEPL for NumberOfElectronSST
     for K in range(1, JPrint + 1):
-        Object.NESST[K] = NEPL[K]
+        Object.NumberOfElectronSST[K] = NEPL[K]
     for K in range(1, JPrint + 1):
-        if Object.NESST[K] == 0:
+        if Object.NumberOfElectronSST[K] == 0:
             JPrint = K - 1
             break
 
@@ -61,8 +61,8 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     Object.AttachmentOverIonisation = FRATT / FRION
     CORERR = abs((Object.FakeIonisationsEstimate + FRION - FRATT) / (FRION - FRATT))
 
-    if Object.NESST[1] != 0:
-        ALFNE[1] = CORF * (log(float(Object.NESST[1])) - log(Object.IPrimary)) / Object.SpaceStepZ
+    if Object.NumberOfElectronSST[1] != 0:
+        ALFNE[1] = CORF * (log(float(Object.NumberOfElectronSST[1])) - log(Object.IPrimary)) / Object.SpaceStepZ
     ALFNJ[1] = 0.0
     ALFN[1] = 0.0
     for J in range(2, JPrint + 1):
@@ -91,8 +91,8 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         ALFNJ[J] = (log(Object.STSPlanes[J] * VDSST[J]) - log(Object.STSPlanes[J - 1] * VDSST[J-1])) / Object.SpaceStepZ
         ALFNE[J] = 0.0
 
-        if Object.NESST[J] != 0 or Object.NESST[J - 1] != 0:
-            ALFNE[J] = (log(Object.NESST[J]) - log(Object.NESST[J - 1])) / Object.SpaceStepZ
+        if Object.NumberOfElectronSST[J] != 0 or Object.NumberOfElectronSST[J - 1] != 0:
+            ALFNE[J] = (log(Object.NumberOfElectronSST[J]) - log(Object.NumberOfElectronSST[J - 1])) / Object.SpaceStepZ
         ALFN[J] = CORF * ALFN[J]
         ALFNE[J] = CORF * ALFNE[J]
         ALFNJ[J] = CORF * ALFNJ[J]
@@ -114,7 +114,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     DLFIN*=1e16
 
     ALNGTH = Object.SpaceStepZ* JPrint
-    ALFIN = log(Object.NESST[JPrint]/Object.IPrimary)/ALNGTH
+    ALFIN = log(Object.NumberOfElectronSST[JPrint] / Object.IPrimary) / ALNGTH
     ALFIN *= 0.01
     for J in range(1,JPrint+1):
         VDSST[J] *=1e9
@@ -132,60 +132,60 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
     for J in range(1,JPrint+1):
         DRSST[J] = (DXSST[J]+DYSST[J])/2.0
-        print('{:^10.1f}{:^10.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^12.1f}{:^12.1f}{:^12.1f}'.format(J, Object.NESST[J], VDSST[J], WSSST[J],
-                                                                         DLSST[J],DRSST[J],ESST[J],ALFN[J],ALFNJ[J],ALFNE[J]))
-    if Object.NESST[1]> Object.NESST[5]:
+        print('{:^10.1f}{:^10.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^7.1f}{:^12.1f}{:^12.1f}{:^12.1f}'.format(J, Object.NumberOfElectronSST[J], VDSST[J], WSSST[J],
+                                                                                                             DLSST[J], DRSST[J], ESST[J], ALFN[J], ALFNJ[J], ALFNE[J]))
+    if Object.NumberOfElectronSST[1]> Object.NumberOfElectronSST[5]:
         # Net attachment therefore take results from plane 2
-        Object.VDOUT = VDSST[2]
-        Object.VDERR = 100.0 * abs((VDSST[2]-VDSST[3])/(2*VDSST[2]))
+        Object.VelocitySvzSST = VDSST[2]
+        Object.VelocitySvzSSTErr = 100.0 * abs((VDSST[2] - VDSST[3]) / (2 * VDSST[2]))
         Object.WSOUT = WSSST[2]
         Object.WSERR = 100.0 * abs((WSSST[2]-WSSST[3])/(2* WSSST[2]))
-        Object.DLOUT = DLSST[2]
-        Object.DLERR = 100.0 * abs((DLSST[2]-DLSST[3])/(2*DLSST[2]))
-        Object.DTOUT = DRSST[2]
-        Object.DTERR = 100.0 * abs((DRSST[2]-DRSST[3])/(2*DRSST[2]))
+        Object.LongitudinalDiffSST = DLSST[2]
+        Object.LongitudinalDiffSSTErr = 100.0 * abs((DLSST[2] - DLSST[3]) / (2 * DLSST[2]))
+        Object.TransverseDiffSST = DRSST[2]
+        Object.TransverseDiffSSTErr = 100.0 * abs((DRSST[2] - DRSST[3]) / (2 * DRSST[2]))
         if Object.AttachmentOverIonisation==-1:
             # No Ionisation
-            Object.ALPHSST = 0.0
-            Object.ALPHERR = 0.0
-            ANST[2] = Object.NESST[2]
-            ANST[3] = Object.NESST[3]
+            Object.AlphaSST = 0.0
+            Object.AlphaSSTErr = 0.0
+            ANST[2] = Object.NumberOfElectronSST[2]
+            ANST[3] = Object.NumberOfElectronSST[3]
             ANST[4] = ANST[3] - sqrt(ANST[3])
             ANST[5] = log(ANST[2]/ANST[3])
             ANST[6] =  log(ANST[2]/ANST[4])
             ANST[7] = ANST[6]/ANST[5]
             ANST[8] = ANST[7]-1.0
-            Object.ATTSST = -1*(Object.ALFN[2]+Object.ALFNJ[2]+Object.ALFNE[2])/3.0
-            Object.ATTERR = 100.0 * sqrt(ANST[8]**2+Object.AttachmentErr**2)
+            Object.AttachmentSST = -1 * (Object.ALFN[2] + Object.ALFNJ[2] + Object.ALFNE[2]) / 3.0
+            Object.AttachmentSSTErr = 100.0 * sqrt(ANST[8] ** 2 + Object.AttachmentErr ** 2)
         else:
-            ANST[2] = Object.NESST[2]
-            ANST[3] = Object.NESST[3]
+            ANST[2] = Object.NumberOfElectronSST[2]
+            ANST[3] = Object.NumberOfElectronSST[3]
             ANST[4] = ANST[3] - sqrt(ANST[3])
             ANST[5] = log(ANST[2]/ANST[3])
             ANST[6] =  log(ANST[2]/ANST[4])
             ANST[7] = ANST[6]/ANST[5]
             ANST[8] = ANST[7]-1.0
             ATMP = (ALFN[2]+ALFNJ[2]+ALFNE[2])/3.0
-            Object.ALPHSST = ATMP/(1-Object.AttachmentOverIonisation)
-            Object.ALPHERR = 100*sqrt(ANST[8]**2+Object.AttachmentOverIonisationErr**2)
-            Object.ATTSST = Object.AttachmentOverIonisation*ATMP/(1-Object.AttachmentOverIonisation)
-            Object.ATTERR = 100* sqrt(ANST[8]**2+Object.AttachmentErr**2)
+            Object.AlphaSST = ATMP / (1 - Object.AttachmentOverIonisation)
+            Object.AlphaSSTErr = 100 * sqrt(ANST[8] ** 2 + Object.AttachmentOverIonisationErr ** 2)
+            Object.AttachmentSST = Object.AttachmentOverIonisation * ATMP / (1 - Object.AttachmentOverIonisation)
+            Object.AttachmentSSTErr = 100 * sqrt(ANST[8] ** 2 + Object.AttachmentErr ** 2)
     # Net Ionisation therefore take results from plane 8
-    Object.VDOUT = VDSST[8]
-    Object.VDERR = 100*abs((VDSST[8]-VDSST[7])/VDSST[8])
+    Object.VelocitySvzSST = VDSST[8]
+    Object.VelocitySvzSSTErr = 100 * abs((VDSST[8] - VDSST[7]) / VDSST[8])
     Object.WSOUT= WSSST[8]
     Object.WSERR = 100*abs((WSSST[8]-WSSST[7])/WSSST[8])
-    Object.DLOUT = DLFIN
-    Object.DLERR = 100*abs((Object.DLOUT-DLSST[8])/Object.DLOUT)
-    Object.DTOUT = (DXFIN+DYFIN)/2
-    Object.DTERR = 100*abs((Object.DTOUT-DRSST[8])/Object.DTOUT)
+    Object.LongitudinalDiffSST = DLFIN
+    Object.LongitudinalDiffSSTErr = 100 * abs((Object.LongitudinalDiffSST - DLSST[8]) / Object.LongitudinalDiffSST)
+    Object.TransverseDiffSST = (DXFIN + DYFIN) / 2
+    Object.TransverseDiffSSTErr = 100 * abs((Object.TransverseDiffSST - DRSST[8]) / Object.TransverseDiffSST)
     ATMP = (ALFN[8]+ALFNJ[8]+ALFNE[8])/3
     ATMP2 = (ALFN[7]+ALFNJ[7]+ALFNE[7])/3.0
     ATER = abs((ATMP-ATMP2)/ATMP)
-    Object.ALPHSST = ATMP/(1-Object.AttachmentOverIonisation)
-    Object.ALPHERR=100* sqrt(ATER**2+Object.AttachmentOverIonisationErr**2)
-    Object.ATTSST = Object.AttachmentOverIonisation * ATMP/(1-Object.AttachmentOverIonisation)
+    Object.AlphaSST = ATMP / (1 - Object.AttachmentOverIonisation)
+    Object.AlphaSSTErr= 100 * sqrt(ATER ** 2 + Object.AttachmentOverIonisationErr ** 2)
+    Object.AttachmentSST = Object.AttachmentOverIonisation * ATMP / (1 - Object.AttachmentOverIonisation)
     if Object.AttachmentOverIonisation != 0.0:
-        Object.ATTERR = 100 * sqrt(ATER**2 +Object.AttachmentErr**2)
+        Object.AttachmentSSTErr = 100 * sqrt(ATER ** 2 + Object.AttachmentErr ** 2)
     else:
-        Object.ATTERR = 0.0
+        Object.AttachmentSSTErr = 0.0

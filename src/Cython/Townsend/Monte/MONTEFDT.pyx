@@ -409,6 +409,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         Object.SR2Planes[J] = 0.0
         Object.NumberOfElectronSST[J] = 0.0
 
+
     # Zero out the simulation variables to be able to start. (check MonteVars.pxd and PyBoltz.pxd or the documentation
     # for explanation of each variable here).
     Object.NumberOfElectronSST[9] = 0.0
@@ -431,6 +432,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     MV.SpaceZStart = 0
 
     # Sum up the collision frequencies into a single array
+
 
     cdef int i = 0, K
     cdef double ** TotalCollFreqIncludingNull = <double **> malloc(6 * sizeof(double *))
@@ -471,6 +473,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     NewPrimary(Object, &MV)
     # register this electron
     NewElectron(Object, &MV)
+
 
     while (1):
         # Check if there is a need to calculate a new time for the current electron
@@ -643,6 +646,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     continue
                 continue
             continue
+
 
         # If we got this far, we have a collision.
         NumCollisions += 1

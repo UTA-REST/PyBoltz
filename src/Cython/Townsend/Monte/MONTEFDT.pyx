@@ -364,6 +364,8 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     cdef double GasVelX, GasVelY, GasVelZ, VelocityRatio, VelXAfter, VelYAfter, VelZAfter, COMEnergy, Test1, A, VelocityInCOM, T2
     cdef int Flag = 1, GasIndex, MaxBoltzNumsUsed, NumCollisions = 0, I, IPT, SecondaryElectronIndex, IAuger, J, NAuger
     cdef int TempPlane, JPrint, IDM1
+
+    # Set up for the simulation variables
     MV.TimeCalculationFlag = 0
     MV.NewTimeFlag = 0
     Object.TimeSum = 0.0
@@ -428,6 +430,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     MV.TimeSumStart = 0
     MV.SpaceZStart = 0
 
+    # Sum up the collision frequencies into a single array
 
     cdef int i = 0, K
     cdef double ** TotalCollFreqIncludingNull = <double **> malloc(6 * sizeof(double *))
@@ -1053,7 +1056,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                 MV.NewTimeFlag = 1
                 continue
 
-    #
+    # Get the ratios of attachment and ionisation into the desired forms for the later functions
     if MV.NumberOfElectron > Object.IPrimary:
         Object.AttachmentOverIonisation = MV.NumberOfElectronAtt / (MV.NumberOfElectron - Object.IPrimary)
         Object.AttachmentErr = sqrt(MV.NumberOfElectronAtt) / MV.NumberOfElectronAtt

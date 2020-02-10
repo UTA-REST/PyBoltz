@@ -104,10 +104,10 @@ cpdef run(PyBoltz Object):
         PulsedTownsend.PT.run(Object, 0)
         TimeOfFlight.TOF.run(Object, 0)
 
-        StartingAlpha = (Object.RALPHA / Object.TOFWR) * 1e7
-        ErrStartingAlpha = (Object.RALPER * StartingAlpha / 100)
-        StartingNetAttachment = (Object.RATTOF / Object.TOFWR) * 1e7
-        ErrStartingNetAttachment = Object.RATOFER * StartingNetAttachment / 100
+        StartingAlpha = (Object.ReducedAlphaTOF / Object.VelocityTOF) * 1e7
+        ErrStartingAlpha = (Object.ReducedAlphaTOFErr * StartingAlpha / 100)
+        StartingNetAttachment = (Object.ReducedAttachmentTOF / Object.VelocityTOF) * 1e7
+        ErrStartingNetAttachment = Object.ReducedAttachmentTOFErr * StartingNetAttachment / 100
 
         if Object.ConsoleOutputFlag:
             print("\nGood starting values for calculation:")
@@ -129,7 +129,7 @@ cpdef run(PyBoltz Object):
 
         if (StartingAlpha - StartingNetAttachment) > 100 * Object.PresTempCor:
             Alpha = 0.0
-        Object.VelocityZ = Object.TOFWR * 1e5
+        Object.VelocityZ = Object.VelocityTOF * 1e5
     else:
         Alpha = 0.0
         StartingAlpha = Object.IonisationRate
@@ -202,20 +202,20 @@ cpdef run(PyBoltz Object):
     TimeOfFlight.TOF.run(Object, 1)
 
     print("\nPulsedTownsend ionisation and attachment rates *10**12/sec:")
-    print("Alpha = {:^5.4f} +- {:^2.1f} %   ATT = {:^5.4f} +- {:^2.1f} %".format(Object.RALPHA, Object.RALPER,
-                                                                                 Object.RATTOF, Object.RATOFER))
+    print("Alpha = {:^5.4f} +- {:^2.1f} %   ATT = {:^5.4f} +- {:^2.1f} %".format(Object.ReducedAlphaTOF, Object.ReducedAlphaTOFErr,
+                                                                                 Object.ReducedAttachmentTOF, Object.ReducedAttachmentTOFErr))
 
     print("\nTime of flight diffusion:")
     print("Longitudinal diffusion = {:^5.1f} +- {:^2.1f} %    Transverse diffusion = {:^5.1f} +- {:^2.1f} %".format(
-        Object.TOFDL, Object.TOFDLER, Object.TOFDT, Object.TOFDTER))
+        Object.LongitudinalDiffusionTOF, Object.LongitudinalDiffusionTOFErr, Object.TransverseDiffusionTOF, Object.TransverseDiffusionTOFErr))
 
     print("\nTime of flight drift velocity:")
-    print("WR = {:^5.1f} +- {:^2.1f} %".format(Object.TOFWR,Object.TOFWRER))
+    print("WR = {:^5.1f} +- {:^2.1f} %".format(Object.VelocityTOF, Object.VelocityTOFErr))
 
     # Calculate townsend Steady state coeficients directly from time of flight results
-    WRZN = Object.TOFWR * 1e5
-    FC1 = WRZN/(2*Object.TOFDL)
-    FC2 = ((Object.RALPHA-Object.RATTOF)*1e12)/Object.TOFDL
+    WRZN = Object.VelocityTOF * 1e5
+    FC1 = WRZN/(2 * Object.LongitudinalDiffusionTOF)
+    FC2 = ((Object.ReducedAlphaTOF - Object.ReducedAttachmentTOF) * 1e12) / Object.LongitudinalDiffusionTOF
     Object.ALPTEST = FC1-sqrt(FC1**2-FC2)
 
     print("Townsend coeficient (Alpha-Att) calculated from Time of flight results:")

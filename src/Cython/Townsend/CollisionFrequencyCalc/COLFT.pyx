@@ -1,35 +1,34 @@
 from PyBoltz cimport PyBoltz
 
 cpdef run(PyBoltz Object):
-
     # Calculate the frequency for the different types of collisions
-    cdef int NINEL=0, NELA=0, NATT=0, NION=0,NREAL=0,J
-    cdef double FREQ,  FREEL,  FREION,  FREATT,  FREIN,  NTOTAL
+    cdef int NumberOfInelastic=0, NumberOfElastic=0, NumberOfAttachment=0, NumberOfIon=0,NumberOfReal=0,J
+    cdef double FrequencyOfRealColli,  FrequencyOfElasticColli,  FrequencyOfIonisationColli,  FrequencyOfAttachmentColli,  FrequencyOfInelasticColli
+    cdef int TotalSumOfColli
 
-    NTOTAL  = 0
+    TotalSumOfColli  = 0
 
     for J in range(Object.NumberOfGases):
-        NINEL += <int>(Object.CollisionsPerGasPerType[J][3]+ Object.CollisionsPerGasPerType[J][4])
+        # Inelastic
+        NumberOfInelastic += <int>(Object.CollisionsPerGasPerType[J][3]+ Object.CollisionsPerGasPerType[J][4])
         # Elastic
-        NELA += <int>Object.CollisionsPerGasPerType[J][0]
+        NumberOfElastic += <int>Object.CollisionsPerGasPerType[J][0]
         # Attachment
-        NATT += <int>Object.CollisionsPerGasPerType[J][2]
+        NumberOfAttachment += <int>Object.CollisionsPerGasPerType[J][2]
         # Ionisation
-        NION += <int>Object.CollisionsPerGasPerType[J][1]
+        NumberOfIon += <int>Object.CollisionsPerGasPerType[J][1]
 
-    NTOTAL = NELA+NINEL+NATT+NION
+    TotalSumOfColli = NumberOfElastic+NumberOfInelastic+NumberOfAttachment+NumberOfIon
+    NumberOfReal = TotalSumOfColli
 
     if Object.TotalTimeSecondary== 0.0:
-        NREAL = <int>NTOTAL
         Object.TotalTimeSecondary = Object.TimeSum
-    else:
-        NREAL = <int>NTOTAL
 
-    FREQ = NREAL/Object.TotalTimeSecondary
-    FREIN = NINEL/Object.TotalTimeSecondary
-    FREEL = NELA/Object.TotalTimeSecondary
-    FREION = NION/Object.TotalTimeSecondary
-    FREATT = NATT/Object.TotalTimeSecondary
+    FrequencyOfRealColli = NumberOfReal / Object.TotalTimeSecondary
+    FrequencyOfInelasticColli = NumberOfInelastic / Object.TotalTimeSecondary
+    FrequencyOfElasticColli = NumberOfElastic / Object.TotalTimeSecondary
+    FrequencyOfIonisationColli = NumberOfIon / Object.TotalTimeSecondary
+    FrequencyOfAttachmentColli = NumberOfAttachment / Object.TotalTimeSecondary
 
-    return FREQ, FREEL, FREION, FREATT, FREIN, NTOTAL
+    return FrequencyOfRealColli, FrequencyOfElasticColli, FrequencyOfIonisationColli, FrequencyOfAttachmentColli, FrequencyOfInelasticColli, TotalSumOfColli
 

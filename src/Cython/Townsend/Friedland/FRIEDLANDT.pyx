@@ -17,8 +17,8 @@ cpdef run(PyBoltz Object):
             TCFSUM+=Object.TotalCollisionFrequency[GasIndex][I]
         FR[I] = Object.CollisionEnergies[I]/TCFSUM
         EBAR +=  Object.E[I]*  FR[I]
-        ALFBAR += Object.FCION[I] * FR[I]
-        ATTBAR += Object.FCATT[I] * FR[I]
+        ALFBAR += Object.IonCollisionFreq[I] * FR[I]
+        ATTBAR += Object.AttCollisionFreq[I] * FR[I]
         FSUM+=FR[I]
 
     for I in range(4000):

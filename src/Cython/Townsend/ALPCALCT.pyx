@@ -39,7 +39,6 @@ cpdef run(PyBoltz Object):
     # Ensure enough collisions are simulated
     if Object.MaxNumberOfCollisions < 5e7:
         Object.MaxNumberOfCollisions = 5e7
-
     # Recalculate the reduced ionisation and attachment rates
     Object.PresTempCor = 760.0 * (Object.TemperatureKelvin) / (293.15 * Object.PressureTorr)
     Object.ReducedIonization = Object.IonisationRate / Object.PresTempCor

@@ -490,13 +490,12 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                     break
         # Zero out the flag
         MV.NewTimeFlag = 0
-
         # similar to MONTET, calculate the energy of the electron after the collision
         MV.Energy = MV.StartingEnergy + (MV.AP + MV.BP * MV.T) * MV.T
-
         if MV.Energy <= 0.0:
             print("Energy is negative!")
             MV.Energy = 0.001
+
 
         # Randomly choose gas to scatter from, based on expected collision freqs.
         GasIndex = 0
@@ -530,7 +529,10 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         # There is some percision error around 1e-16, that could cause the simulation to crash.
         # Thus the + 2e-15. This willl ensure that whatever in the square root is always positive.
-        DirCosineZ2 = AIS * sqrt((1.0 + 2e-15) - (DirCosineX2 ** 2) - (DirCosineY2 ** 2))
+        if 1.0 - (DirCosineX2 ** 2) - (DirCosineY2 ** 2) < 0:
+            DirCosineZ2 = 0
+        else:
+            DirCosineZ2 = AIS * sqrt(1.0 - (DirCosineX2 ** 2) - (DirCosineY2 ** 2))
 
         # Calculate electron velocity after
         VelXAfter = DirCosineX2 * MV.Sqrt2M * sqrt(MV.Energy)
@@ -542,14 +544,15 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         #   works if TwoM = 2m
         COMEnergy = (pow((VelXAfter - GasVelX), 2) + pow((VelYAfter - GasVelY), 2) + pow((VelZAfter - GasVelZ),
                                                                                          2)) / MV.TwoM
-        # Now the Skullerud null collision method
 
+        # Now the Skullerud null collision method
         RandomNum = random_uniform(RandomSeed)
         MV.iEnergyBin = <int> (COMEnergy / Object.ElectronEnergyStep)
         MV.iEnergyBin = min(3999, MV.iEnergyBin)
         # If we draw below this number, we will null-scatter (no mom xfer)
         Test1 = Object.TotalCollisionFrequency[GasIndex][MV.iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
         if RandomNum > Test1:
+
             Test2 = TotalCollFreqIncludingNull[GasIndex][MV.iEnergyBin] / Object.MaxCollisionFreq[GasIndex]
             if RandomNum < Test2:
                 if Object.NumMomCrossSectionPointsNull[GasIndex] == 0:
@@ -582,7 +585,6 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                             # flag to 0.
                             MV.NewTimeFlag = 0
                             continue
-
                         # There is no need to create a primary electron if the simulation reached this point.
                         # Take an electron from the storage stack. This means that we need to calculate the TimeStop value.
                         MV.TimeCalculationFlag = 1
@@ -762,7 +764,8 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
             ESEC = Object.WPL[GasIndex][I] * (ESEC / Object.WPL[GasIndex][I]) ** 0.9524
 
             EI = ESEC + EI
-
+            if EI!=EI:
+                sys.exit()
             # Store position, energy, direction, and time of generation of ionisation electron
             MV.TotalNumberOfElectrons += 1
             MV.ElectronStorageTop += 1

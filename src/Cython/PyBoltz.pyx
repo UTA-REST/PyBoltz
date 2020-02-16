@@ -317,7 +317,6 @@ cdef class PyBoltz:
             while ELimNotYetFixed == 1:
                 MixerFunc(self)
                 ELimNotYetFixed = ELimFunc(self)
-
                 if ELimNotYetFixed == 1:
                     self.FinalElectronEnergy = self.FinalElectronEnergy * math.sqrt(2)
                     self.InitialElectronEnergy = self.FinalElectronEnergy / 50

@@ -170,7 +170,8 @@ cdef void Gas8(Gas*object):
     #OPAL BEATY
     cdef double SCLOBY = <float> (0.475)
     for j in range(9):
-        object.EOBY[J] = object.IonizationEnergy[J] * SCLOBY
+        object.EOBY[j] = object.IonizationEnergy[j] * SCLOBY
+
     object.EOBY[8] = object.IonizationEnergy[8] * <float> (0.63)
     for J in range(8):
         object.NC0[J] = 0.0
@@ -484,6 +485,8 @@ cdef void Gas8(Gas*object):
                 object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
                         log(BETA2 * GAMMA2 * ElectronMass2 / (<float>(4.0) * object.EnergyLevels[J])) - BETA2 - object.DEN[
                     I] / <float>(2.0)) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2]) * CON[CONI]
+                if object.InelasticCrossSectionPerGas[J][I]<0:
+                    object.InelasticCrossSectionPerGas[J][I] = 0.0
                 if EN > 3 * object.EnergyLevels[J]:
                     object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
@@ -505,6 +508,8 @@ cdef void Gas8(Gas*object):
                 object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
                         log(BETA2 * GAMMA2 * ElectronMass2 / (<float>(4.0) * object.EnergyLevels[J])) - BETA2 - object.DEN[
                     I] / <float>(2.0)) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2]) * CON[CONI]
+                if object.InelasticCrossSectionPerGas[J][I]<0:
+                    object.InelasticCrossSectionPerGas[J][I] = 0.0
                 if EN > 3 * object.EnergyLevels[J]:
                     object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
@@ -534,6 +539,8 @@ cdef void Gas8(Gas*object):
                 object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
                         log(BETA2 * GAMMA2 * ElectronMass2 / (<float>(4.0) * object.EnergyLevels[J])) - BETA2 - object.DEN[
                     I] / <float>(2.0)) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2]) * CON[CONI]
+                if object.InelasticCrossSectionPerGas[J][I]<0:
+                    object.InelasticCrossSectionPerGas[J][I] = 0.0
                 if EN > 3 * object.EnergyLevels[J]:
                     object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1
@@ -563,6 +570,8 @@ cdef void Gas8(Gas*object):
                 object.InelasticCrossSectionPerGas[J][I] = F[FI] / (object.EnergyLevels[J] * BETA2) * (
                         log(BETA2 * GAMMA2 * ElectronMass2 / (<float>(4.0) * object.EnergyLevels[J])) - BETA2 - object.DEN[
                     I] / <float>(2.0)) * BBCONST * EN / (EN + object.EnergyLevels[J] + object.E[2]) * CON[CONI]
+                if object.InelasticCrossSectionPerGas[J][I]<0:
+                    object.InelasticCrossSectionPerGas[J][I] = 0.0
                 if EN > 3 * object.EnergyLevels[J]:
                     object.PEInelasticCrossSectionPerGas[J][I] = object.PEElasticCrossSection[1][I - IOFFN[J]]
             FI += 1

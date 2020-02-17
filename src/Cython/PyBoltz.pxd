@@ -321,22 +321,79 @@ cdef class PyBoltz:
         double AttachmentSSTErr
         '''Error for the Sttachment output from the Steady State simulation.'''
         #Time planes output
-        double TXPlanes[9],TYPlanes[9],TZPlanes[9],TTPlanes[9],TEPlanes[9]
-        double TX2Planes[9],TY2Planes[9],TZ2Planes[9],TVZPlanes[9],TTSPlanes[9],TTS2Planes[9],NETPL[9]
+        double TXPlanes[9]
+        '''Sum of the X position of each electron in the pulsed townsend simulation.'''
+        double TYPlanes[9]
+        '''Sum of the Y position of each electron in the pulsed townsend simulation.'''
+        double TZPlanes[9]
+        '''Sum of the Z position of each electron in the pulsed townsend simulation.'''
+        double TTPlanes[9]
+        '''Sum of the total time of each electron in the pulsed townsend simulation.'''
+        double TEPlanes[9]
+        '''Sum of the Z position of each electron in the pulsed townsend simulation.'''
+        double TX2Planes[9]
+        '''Sum of the X^2 position of each electron in the pulsed townsend simulation.'''
+        double TY2Planes[9]
+        '''Sum of the Y^2 position of each electron in the pulsed townsend simulation.'''
+        double TZ2Planes[9]
+        '''Sum of the Z^2 position of each electron in the pulsed townsend simulation.'''
+        double TVZPlanes[9]
+        '''Sum of the Vz position of each electron in the pulsed townsend simulation.'''
+        double NumberOfElectronsPlanes[9]
+        '''Number of electrons accounted for in each time planes.'''
         double AttachmentOverIonisationPT
         '''Number of attached electrons over the number of ionising electrons.'''
         double AttachmentErrPT
         '''Error of the number of attached electrons.'''
         double AttachmentOverIonisationErrPT
         '''Error of the ratio of attached electrons over the nubmer of ionised electrons.'''
+
+
         # Pulsed Townsend
-        double RI[9],EPT[9],VZPT[9],TTEST[9]
+        double RealIonisation[9]
+        '''Average number of real Ionisations at time plane I.'''
+        double EnergyPT[9]
+        '''Average energy at time plane I.'''
+        double VelocityZPT[9]
+        '''Average velocity at time plane I.'''
+        double AverageTimePT[9]
+        '''Average Time at time plane I.'''
 
         # Time of flight
-        double RALPHA,RALPER,TOFENE,TOFENER,TOFWV,TOFWVER,TOFDL,TOFDLER,TOFDT,TOFDTER,TOFWR,TOFWRER,RATTOF,RATOFER
+        double ReducedAlphaTOF
+        '''Time of flight reduced alpha calculation.'''
+        double ReducedAlphaTOFErr
+        '''Time of flight reduced alpha calculation err.'''
+        double TOFEnergy
+        '''Time of flight energy. '''
+        double TOFEnergyErr
+        '''Time of flight energy error.'''
+        double VelocityTOFPT
+        '''Time of flight velocity from the pulsed townsend calculation.'''
+        double VelocityTOFPTErr
+        '''Time of flight velocity from the pulsed townsend calculation error.'''
+        double LongitudinalDiffusionTOF
+        '''Time of flight longitudinal diffusion.'''
+        double LongitudinalDiffusionTOFErr
+        '''Time of flight longitudinal diffusion err.'''
+        double TransverseDiffusionTOF
+        '''Time of flight transverse diffusion.'''
+        double TransverseDiffusionTOFErr
+        '''Time of flight transverse diffusion err.'''
+        double VelocityTOF
+        '''Time of flight velocity taken from the Time of flight calculation.'''
+        double VelocityTOFErr
+        '''Time of flight velocity taken from the Time of flight calculation err.'''
+        double ReducedAttachmentTOF
+        '''Time of flight reduced attachment coeffiecent.'''
+        double ReducedAttachmentTOFErr
+        '''Time of flight reduced attachment coeffiecent err.'''
 
         # Alpha, and ATt
         double ALPHA,ATT,ALPER,ATTER,ALPTEST
 
         # FCION and FCATT
-        double FCION[4000],FCATT[4000]
+        double IonCollisionFreq[4000]
+        '''Array that adds the ionisation collision frequencies at energy step I. Used in the Friedland estimation of Alpha.'''
+        double AttCollisionFreq[4000]
+        '''Array that adds the attachment collision frequencies at energy step I. Used in the Friedland estimation of Alpha.'''

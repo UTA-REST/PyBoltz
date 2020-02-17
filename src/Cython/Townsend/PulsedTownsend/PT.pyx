@@ -2,24 +2,28 @@ from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 
 cpdef run(PyBoltz Object, int ConsoleOuput):
-    cdef double ANTPL[9]
-    ANTPL[0] = Object.NETPL[1]
-    Object.RI[0] = ((log(ANTPL[0]))-log(float(Object.IPrimary)))/ Object.TimeStep
-    Object.RI[0] -= Object.FakeIonisationsEstimate
-    Object.EPT[0] = Object.TEPlanes[1]/ANTPL[0]
-    Object.TTEST[0] = Object.TTPlanes[1]/ANTPL[0]
-    Object.VZPT[0] = 1e9*Object.TVZPlanes[1]/ANTPL[0]
+    # Pulsed Townsend calculations
+    cdef double NumberOfElecPlanes[9]
+    # At plane 0 the # of Ionisations is equal to the number of primaries.
+    NumberOfElecPlanes[0] = Object.NumberOfElectronsPlanes[1]
+    Object.RealIonisation[0] = ((log(NumberOfElecPlanes[0])) - log(float(Object.IPrimary))) / Object.TimeStep
+    Object.RealIonisation[0] -= Object.FakeIonisationsEstimate
+    Object.EnergyPT[0] = Object.TEPlanes[1] / NumberOfElecPlanes[0]
+    Object.AverageTimePT[0] = Object.TTPlanes[1] / NumberOfElecPlanes[0]
+    Object.VelocityZPT[0] = 1e9 * Object.TVZPlanes[1] / NumberOfElecPlanes[0]
+
+
     for I in range(2,Object.NumberOfTimeSteps+1):
-        if Object.NETPL[I]==0:
+        if Object.NumberOfElectronsPlanes[I]==0:
             Object.NumberOfTimeSteps-=1
             break
-
-        ANTPL[I-1] = Object.NETPL[I]
-        Object.RI[I-1] = ((log(ANTPL[I-1]))-log(float(ANTPL[I-2])))/ Object.TimeStep
-        Object.RI[I-1] -= Object.FakeIonisationsEstimate
-        Object.EPT[I-1] = Object.TEPlanes[I]/ANTPL[I-1]
-        Object.TTEST[I-1] = Object.TTPlanes[I]/ANTPL[I-1]
-        Object.VZPT[I-1] = 1e9*Object.TVZPlanes[I]/ANTPL[I-1]
+        # For each other plane, the number of ionisations is equal to the number of electrons at each plane.
+        NumberOfElecPlanes[I - 1] = Object.NumberOfElectronsPlanes[I]
+        Object.RealIonisation[I - 1] = ((log(NumberOfElecPlanes[I - 1])) - log(float(NumberOfElecPlanes[I - 2]))) / Object.TimeStep
+        Object.RealIonisation[I - 1] -= Object.FakeIonisationsEstimate
+        Object.EnergyPT[I - 1] = Object.TEPlanes[I] / NumberOfElecPlanes[I - 1]
+        Object.AverageTimePT[I - 1] = Object.TTPlanes[I] / NumberOfElecPlanes[I - 1]
+        Object.VelocityZPT[I - 1] = 1e9 * Object.TVZPlanes[I] / NumberOfElecPlanes[I - 1]
 
     if ConsoleOuput:
         print("Pulsed Towensend results at " + str(Object.NumberOfTimeSteps) + " sequential time planes")
@@ -27,5 +31,5 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
                                                                          "# of Elec."))
         for J in range(Object.NumberOfTimeSteps):
             print(
-                '{:^15.5f}{:^15.5f}{:^15.5f}{:^15.5f}{:^15.5f}'.format(J+1, Object.RI[J], Object.EPT[J],
-                                                                                         Object.VZPT[J], Object.NETPL[J+1]))
+                '{:^15.5f}{:^15.5f}{:^15.5f}{:^15.5f}{:^15.5f}'.format(J + 1, Object.RealIonisation[J], Object.EnergyPT[J],
+                                                                       Object.VelocityZPT[J], Object.NumberOfElectronsPlanes[J + 1]))

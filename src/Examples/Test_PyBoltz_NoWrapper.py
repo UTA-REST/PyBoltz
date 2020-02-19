@@ -38,8 +38,8 @@ import time
 t1 =time.time()
 
 # Set the number of gases
-Object.NumberOfGases =2
-# Set the number of collisons 
+Object.NumberOfGases =1
+# Set the number of collisons
 Object.MaxNumberOfCollisions =1*40000000.0
 # Set penning
 Object.EnablePenning = 0
@@ -47,28 +47,27 @@ Object.EnablePenning = 0
 Object.EnableThermalMotion=1
 Object.FinalElectronEnergy = 0.0
 # Set the gas's with there given number
-<<<<<<< HEAD
-Object.GasIDs=[2, 8, 0, 0, 0, 0]
-=======
-Object.GasIDs=[2, 16, 0, 0, 0, 0]
->>>>>>> d56695f83bb1bcd8961e310403f248df4acf7f5c
-
+Object.GasIDs=[15,0,0,0,0,0]
 # Set the gas fractions
-Object.GasFractions=[90, 10, 0, 0, 0, 0]
+Object.GasFractions=[100,0,0,0,0,0]
 # Set the tempature
 Object.TemperatureCentigrade = float(23)
-# Set the pressuref
-Object.PressureTorr = 760.1
+# Set the pressure
+Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField =200000
+Object.EField = 4000
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0
 Object.ConsoleOutputFlag = 1
-
+Object.SteadyStateThreshold = 40e20
 Object.WhichAngularModel = 2
 
+
 Object.Start()
+print(Object.AttachmentRate)
+print()
+
 t2 =time.time()
 
 print("************************************************")

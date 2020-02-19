@@ -333,6 +333,8 @@ cdef class PyBoltz:
         self.end()
         # Steady state
         if abs(self.ReducedIonization - self.ReducedAttachment) >= self.SteadyStateThreshold:
+            if self.ReducedIonization ==0:
+                print("*** Simulation might fail as the ionisation rate is zero ***")
             if self.ConsoleOutputFlag: print("\n**Crossed the set Steady state simulation threshold = {}\n".format(self.SteadyStateThreshold))
             TownsendFunc.run(self)
 

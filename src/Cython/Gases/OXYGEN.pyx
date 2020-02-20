@@ -435,8 +435,6 @@ cdef void Gas15(Gas*object):
         THREEB = 0.0
         if EN >= X3ATT[0]:
             THREEB = GasUtil.CALIonizationCrossSection(EN, N3ATT, Y3ATT, X3ATT) * FAC * T3B
-        if I ==99:
-            print(SINGLE,THREEB,T3B,EN,XATT[0],"<--- attachment")
         object.Q[3][I] = SINGLE + THREEB
         object.AttachmentCrossSection[0][I] = object.Q[3][I]
 
@@ -1320,7 +1318,7 @@ cdef void Gas15(Gas*object):
             object.N_Inelastic = J
     if object.N_Inelastic < 52:
         object.N_Inelastic = 52
-
+    '''
     print(object.PEElasticCrossSection[1][0])
     print("************")
     print(object.PEElasticCrossSection[1][9])
@@ -1332,4 +1330,6 @@ cdef void Gas15(Gas*object):
         for J in range(48, object.N_Inelastic):
             print(object.InelasticCrossSectionPerGas[J][99], J)
         sys.exit()
+    '''
+    '''5000-6000'''
     return

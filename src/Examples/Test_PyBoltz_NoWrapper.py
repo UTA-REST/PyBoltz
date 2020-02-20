@@ -55,7 +55,7 @@ Object.TemperatureCentigrade = float(23)
 # Set the pressure
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField = 10000
+Object.EField = 5000
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0

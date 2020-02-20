@@ -86,7 +86,7 @@ Object.VelocityZ,
 Object.VelocityErrorZ,
 Object.TransverseDiffusion,
 Object.TransverseDiffusionError,
-Object.LongitudinalDiffusion, 
+Object.LongitudinalDiffusion,
 Object.LongitudinalDiffusionError,
 Object.TransverseDiffusion1,
 Object.TransverseDiffusion1Error,
@@ -94,13 +94,16 @@ Object.LongitudinalDiffusion1,
 Object.LongitudinalDiffusion1Error,
 Object.MeanElectronEnergy,
 Object.MeanElectronEnergyError,
-# steady state outputs
-Object.ALPHA,
+# Ionzitation rate                                                                                                                                                                  
 Object.IonisationRate,
+# Attachment rate                                                                                                                                                                   
+Object.AttachmentRate,
+# steady state outputs                                                                                                                                                              
+Object.ALPHA,
 Object.ALPER,
 Object.ATT,
 Object.ATTER,
-# Pulsed townsend
+# Pulsed townsend                                                                                                                                                                   
 Object.ALPTEST
 ]
 

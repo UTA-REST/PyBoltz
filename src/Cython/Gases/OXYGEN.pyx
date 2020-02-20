@@ -1317,15 +1317,15 @@ cdef void Gas15(Gas*object):
             object.N_Inelastic = J
     if object.N_Inelastic < 52:
         object.N_Inelastic = 52
-    '''print(object.PEElasticCrossSection[1][0])
+    print(object.PEElasticCrossSection[1][0])
     print("************")
     print(object.PEElasticCrossSection[1][3998])
     if object.FinalEnergy >= 11.3:
         for J in range(6):
-            print(object.Q[J][0], J)
+            print(object.Q[J][19], J)
 
         print("I = 4000")
         for J in range(6):
-            print(object.Q[J][3999], J)
-        sys.exit()'''
+            print(object.Q[J][29], J)
+        sys.exit()
     return

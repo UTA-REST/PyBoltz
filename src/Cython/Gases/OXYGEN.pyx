@@ -320,7 +320,7 @@ cdef void Gas15(Gas*object):
         object.PenningFraction[0][J] = 0.0
         object.PenningFraction[1][J] = 1.0
         object.PenningFraction[2][J] = 1.0
-    cdef double EN, QMOM, ElasticCrossSectionA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE, T3B, THREEB, SFAC, QRES1, ETEMP
+    cdef double EN, QMOM, ElasticCrossSectionA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE, T3B =0 , THREEB, SFAC, QRES1, ETEMP
     # CALCULATE DENSITY CORRECTION FOR THREE BODY ATTACHMENT CROSS-SECTION
     FAC = 273.15 * object.Pressure / ((object.TemperatureC + 273.15) * 760.0)
 
@@ -418,21 +418,21 @@ cdef void Gas15(Gas*object):
         # TWO BODY ATTACHMENT
         SINGLE = 0.0
         # OFFSET FOR ENERGY SCALE
-        if EN > XATT[0]:
+        if EN >= XATT[0]:
             SINGLE = GasUtil.CALInelasticCrossSectionPerGasP(EN, N_Attachment1, YATT, XATT, 3) * 100
 
-        #  THREE BODY ATTACHMENT
-        # ***************************************************************
-        #  ENTER HERE SCALING FACTOR FOR THREE BODY ATTACHMENT IN MIXTURES:
-        #  FOR NORMAL SCALING T3B=1.0
-        T3B = 1.0
-        #    SCALING FACTOR NORMALLY PROPORTIONAL TO OXYGEN FRACTION
-        #    IN RARE GAS MIXTURES
-        #
-        #***********************************************************
+            #  THREE BODY ATTACHMENT
+            # ***************************************************************
+            #  ENTER HERE SCALING FACTOR FOR THREE BODY ATTACHMENT IN MIXTURES:
+            #  FOR NORMAL SCALING T3B=1.0
+            T3B = 1.0
+            #    SCALING FACTOR NORMALLY PROPORTIONAL TO OXYGEN FRACTION
+            #    IN RARE GAS MIXTURES
+            #
+            #***********************************************************
 
         THREEB = 0.0
-        if EN > X3ATT[0]:
+        if EN >= X3ATT[0]:
             THREEB = GasUtil.CALIonizationCrossSection(EN, N3ATT, Y3ATT, X3ATT) * FAC * T3B
 
         object.Q[3][I] = SINGLE + THREEB
@@ -1317,15 +1317,4 @@ cdef void Gas15(Gas*object):
             object.N_Inelastic = J
     if object.N_Inelastic < 52:
         object.N_Inelastic = 52
-    print(object.PEElasticCrossSection[1][0])
-    print("************")
-    print(object.PEElasticCrossSection[1][3998])
-    if object.FinalEnergy >= 11.3:
-        for J in range(6):
-            print(object.Q[J][19], J)
-
-        print("I = 4000")
-        for J in range(6):
-            print(object.Q[J][29], J)
-        sys.exit()
     return

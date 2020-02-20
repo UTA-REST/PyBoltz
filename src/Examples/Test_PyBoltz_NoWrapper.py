@@ -40,7 +40,7 @@ t1 =time.time()
 # Set the number of gases
 Object.NumberOfGases =1
 # Set the number of collisons
-Object.MaxNumberOfCollisions =3*40000000.0
+Object.MaxNumberOfCollisions =1*40000000.0
 # Set penning
 Object.EnablePenning = 0
 # Calculate the electron energy
@@ -55,7 +55,7 @@ Object.TemperatureCentigrade = float(23)
 # Set the pressure
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField = 2500
+Object.EField = 4000
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0
@@ -65,8 +65,6 @@ Object.WhichAngularModel = 2
 
 
 Object.Start()
-print(Object.AttachmentRate)
-print()
 
 t2 =time.time()
 

@@ -328,7 +328,7 @@ cdef class PyBoltz:
 
         # Run the simulation
         MonteCarloFunc.run(self)
-
+        print(self.AttachmentRate,self.IonisationRate," Rates")
         # Closeout and end
         self.end()
         # Steady state

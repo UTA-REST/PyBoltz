@@ -55,12 +55,12 @@ Object.TemperatureCentigrade = float(23)
 # Set the pressure
 Object.PressureTorr = 750.062
 # Set the eletric field
-Object.EField = 4000
+Object.EField = 10000
 # Set the magnetic field and angle
 Object.BFieldMag =0
 Object.BFieldAngle =0
 Object.ConsoleOutputFlag = 1
-Object.SteadyStateThreshold = 40e20
+Object.SteadyStateThreshold = 40
 Object.WhichAngularModel = 2
 
 

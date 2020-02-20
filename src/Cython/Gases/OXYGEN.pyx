@@ -320,10 +320,10 @@ cdef void Gas15(Gas*object):
         object.PenningFraction[0][J] = 0.0
         object.PenningFraction[1][J] = 1.0
         object.PenningFraction[2][J] = 1.0
-    cdef double EN, QMOM, ElasticCrossSectionA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE, T3B =0 , THREEB, SFAC, QRES1, ETEMP
+    cdef double EN, QMOM, ElasticCrossSectionA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE , THREEB, SFAC, QRES1, ETEMP
     # CALCULATE DENSITY CORRECTION FOR THREE BODY ATTACHMENT CROSS-SECTION
     FAC = 273.15 * object.Pressure / ((object.TemperatureC + 273.15) * 760.0)
-
+    T3B =0
     # FIRST VIBRATIONAL LEVEL POPULATION
     APOP2 = exp(object.EnergyLevels[48] / object.ThermalEnergy)
     for J in range(NBREM):
@@ -425,7 +425,8 @@ cdef void Gas15(Gas*object):
             # ***************************************************************
             #  ENTER HERE SCALING FACTOR FOR THREE BODY ATTACHMENT IN MIXTURES:
             #  FOR NORMAL SCALING T3B=1.0
-            T3B = 1.0
+            if EN>XATT[N_Attachment1-1]:
+                T3B = 1.0
             #    SCALING FACTOR NORMALLY PROPORTIONAL TO OXYGEN FRACTION
             #    IN RARE GAS MIXTURES
             #
@@ -434,7 +435,8 @@ cdef void Gas15(Gas*object):
         THREEB = 0.0
         if EN >= X3ATT[0]:
             THREEB = GasUtil.CALIonizationCrossSection(EN, N3ATT, Y3ATT, X3ATT) * FAC * T3B
-
+        if I ==99:
+            print(SINGLE,THREEB,T3B,EN,XATT[0],"<--- attachment")
         object.Q[3][I] = SINGLE + THREEB
         object.AttachmentCrossSection[0][I] = object.Q[3][I]
 
@@ -1180,7 +1182,7 @@ cdef void Gas15(Gas*object):
             object.InelasticCrossSectionPerGas[71][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NVIB, YVIB21, XVIB,
                                                                                                 1) * 100
             # TODO: ERROR maybe matching magboltz
-            if EN > YVIB21[NVIB - 1]:
+            if EN > XVIB[NVIB - 1]:
                 object.InelasticCrossSectionPerGas[71][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, NVIB, YVIB20,
                                                                                                     XVIB, 1) * 100
             if EN > 6.0:
@@ -1311,10 +1313,23 @@ cdef void Gas15(Gas*object):
 
         object.Q[0][I] = object.Q[1][I] + SumION + SumEXC
 
+
     for I in range(1, 149):
         J = 149 - I - 1
         if object.FinalEnergy <= object.EnergyLevels[J]:
             object.N_Inelastic = J
     if object.N_Inelastic < 52:
         object.N_Inelastic = 52
+
+    print(object.PEElasticCrossSection[1][0])
+    print("************")
+    print(object.PEElasticCrossSection[1][9])
+    if object.FinalEnergy >= 22.62:
+        for J in range(6):
+            print(object.Q[J][99], J)
+
+        print("I = 4000")
+        for J in range(48, object.N_Inelastic):
+            print(object.InelasticCrossSectionPerGas[J][99], J)
+        sys.exit()
     return

@@ -53,7 +53,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         1] ** 3 / (2 * Object.SpaceStepZ)
 
     # Get ionisation and attachment frequencies
-    if Object.EnableThermalMotion:
+    if Object.Enable_Thermal_Motion:
         FrequencyOfRealColli, FrequencyOfElasticColli, FrequencyOfIonisationColli, FrequencyOfAttachmentColli, FrequencyOfInelasticColli, TotalSumOfColli = COLFT.run(Object)
     else:
         FrequencyOfRealColli, FrequencyOfElasticColli, FrequencyOfIonisationColli, FrequencyOfAttachmentColli, FrequencyOfInelasticColli, TotalSumOfColli = COLF.run(Object)

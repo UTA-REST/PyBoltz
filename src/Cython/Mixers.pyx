@@ -23,7 +23,7 @@ cpdef Mixer(PyBoltz object):
     ElectronCharge = 1.602176565e-19
     ElectronMass = 9.10938291e-31
 
-    object.ElectronEnergyStep = object.FinalElectronEnergy / object.EnergySteps
+    object.ElectronEnergyStep = object.Max_Electron_Energy / object.EnergySteps
 
     EnergyHalf = object.ElectronEnergyStep / 2
     object.E[0] = EnergyHalf
@@ -36,10 +36,10 @@ cpdef Mixer(PyBoltz object):
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic,
                                   object.PenningFraction,
                                   object.E, object.SqrtEnergy,
-                                  object.NumberOfGases, object.EnergySteps, object.WhichAngularModel,
+                                  object.NumberOfGases, object.EnergySteps, object.Which_Angular_Model,
                                   object.ElectronEnergyStep,
-                                  object.FinalElectronEnergy, object.ThermalEnergy, object.TemperatureCentigrade,
-                                  object.PressureTorr, object.PIR2, object.RhydbergConst)
+                                  object.Max_Electron_Energy, object.ThermalEnergy, object.TemperatureCentigrade,
+                                  object.Pressure_Torr, object.PIR2, object.RhydbergConst)
     object.MixObject.Run()
 
     for iEnergy in range(4000):
@@ -79,7 +79,7 @@ cpdef Mixer(PyBoltz object):
                 object.PenningFractionNT[2][iProcess] = 0.0
                 # IONISATION
 
-            if object.FinalElectronEnergy >= object.MixObject.Gases[GasIndex].E[2]:
+            if object.Max_Electron_Energy >= object.MixObject.Gases[GasIndex].E[2]:
                 if object.MixObject.Gases[GasIndex].N_Ionization <= 1:
                     iProcess += 1
                     object.CollisionFrequencyNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].Q[2][iEnergy] * \
@@ -155,7 +155,7 @@ cpdef Mixer(PyBoltz object):
                             object.PenningFractionNT[1][iProcess] = 0.0
                             object.PenningFractionNT[2][iProcess] = 0.0
 
-            if object.FinalElectronEnergy >= object.MixObject.Gases[GasIndex].E[3]:
+            if object.Max_Electron_Energy >= object.MixObject.Gases[GasIndex].E[3]:
                 if object.MixObject.Gases[GasIndex].N_Attachment <= 1:
                     iProcess += 1
                     object.CollisionFrequencyNT[iEnergy][iProcess] = object.MixObject.Gases[GasIndex].Q[3][iEnergy] * \
@@ -315,10 +315,10 @@ cpdef Mixer(PyBoltz object):
     BP = object.EField ** 2 * object.CONST1
     F2 = object.EField * object.CONST3
     EnergyLow = object.MaxCollisionTime * (object.MaxCollisionTime * BP - F2 * sqrt(
-        0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep - 1
+        0.5 * object.Max_Electron_Energy)) / object.ElectronEnergyStep - 1
     EnergyLow = min(EnergyLow, object.SmallNumber)
     EnergyHigh = object.MaxCollisionTime * (object.MaxCollisionTime * BP + F2 * sqrt(
-        0.5 * object.FinalElectronEnergy)) / object.ElectronEnergyStep + 1
+        0.5 * object.Max_Electron_Energy)) / object.ElectronEnergyStep + 1
     if EnergyHigh > 10000:
         EnergyHigh = 10000
     for l in range(8):
@@ -388,7 +388,7 @@ cpdef MixerT(PyBoltz object):
     cdef int  iEnergy, GasIndex, iProcess, p, sum, J, i, j, iIonizaton, JJ, IL, I
     ElectronCharge = 1.602176565e-19
 
-    object.ElectronEnergyStep = object.FinalElectronEnergy / float(object.EnergySteps)
+    object.ElectronEnergyStep = object.Max_Electron_Energy / float(object.EnergySteps)
 
     EnergyHalf = object.ElectronEnergyStep / 2
 
@@ -402,10 +402,10 @@ cpdef MixerT(PyBoltz object):
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic,
                                   object.PenningFraction,
                                   object.E, object.SqrtEnergy,
-                                  object.NumberOfGases, object.EnergySteps, object.WhichAngularModel,
+                                  object.NumberOfGases, object.EnergySteps, object.Which_Angular_Model,
                                   object.ElectronEnergyStep,
-                                  object.FinalElectronEnergy, object.ThermalEnergy, object.TemperatureCentigrade,
-                                  object.PressureTorr, object.PIR2,object.RhydbergConst)
+                                  object.Max_Electron_Energy, object.ThermalEnergy, object.TemperatureCentigrade,
+                                  object.Pressure_Torr, object.PIR2, object.RhydbergConst)
     object.MixObject.Run()
 
     #-----------------------------------------------------------------
@@ -460,7 +460,7 @@ cpdef MixerT(PyBoltz object):
                 object.PenningFraction[GasIndex][2][iProcess - 1] = 0.0
 
             # IONISATION
-            if object.FinalElectronEnergy >= object.MixObject.Gases[GasIndex].E[2]:
+            if object.Max_Electron_Energy >= object.MixObject.Gases[GasIndex].E[2]:
                 if object.MixObject.Gases[GasIndex].N_Ionization <= 1:
                     iProcess += 1
                     object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].Q[2][
@@ -535,7 +535,7 @@ cpdef MixerT(PyBoltz object):
                             object.PenningFraction[GasIndex][1][iProcess - 1] = 0.0
                             object.PenningFraction[GasIndex][2][iProcess - 1] = 0.0
             # ATTACHMENT
-            if object.FinalElectronEnergy >= object.MixObject.Gases[GasIndex].E[3]:
+            if object.Max_Electron_Energy >= object.MixObject.Gases[GasIndex].E[3]:
                 if object.MixObject.Gases[GasIndex].N_Attachment <= 1:
                     iProcess += 1
                     object.CollisionFrequency[GasIndex][iEnergy][iProcess - 1] = object.MixObject.Gases[GasIndex].Q[3][

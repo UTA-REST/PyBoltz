@@ -12,11 +12,11 @@ cdef class PyBoltz:
         '''This is a constant that is equal to the electric field / magentic field * 1e-9.'''
         double AngularSpeedOfRotation
         '''This is the angular speed of rotation see cycltron frequency.'''
-        double BFieldAngle
+        double BField_Angle
         '''This is the angle between the magnetic field and the electric field.'''
-        double BFieldMag
+        double BField_Mag
         '''This is the magnitude of the magentic field.'''
-        double FinalElectronEnergy
+        double Max_Electron_Energy
         '''This is the upper limit for the electron energy integration.'''
         double ElectronEnergyStep
         '''PyBoltz does the electron energy integration in 4000 steps this variable has the difference in energy between each step.'''
@@ -26,7 +26,7 @@ cdef class PyBoltz:
         '''This is Rydberg constant times hc in eV.'''
         double TemperatureCentigrade
         '''This is the tempreture in degrees Centigrade.'''
-        double PressureTorr
+        double Pressure_Torr
         '''This is the pressure in Torr.'''
         double MaxCollisionTime
         '''Maximum collision time. Default is set to 100.'''
@@ -120,7 +120,7 @@ cdef class PyBoltz:
         '''Constant that is equal to sqrt(0.2 * (electron mass charge ratio)) * 1e-9.'''
         double MaxCollisionFreqTotal
         '''Sum of the maximum collision frequency of each gas.'''
-        double EnableThermalMotion
+        double Enable_Thermal_Motion
         '''Variable used to indicate wethier to include thermal motion or not.'''
         double PresTempCor
         '''Variable used to calculate the correlation constant between the pressure and tempreture. PresTempCor=ABZERO*Pressure/(ATMOS*(ABZERO+TemperatureC)*100.0D0).'''
@@ -130,15 +130,15 @@ cdef class PyBoltz:
         '''Variable that is equal to 100 * PresTempCor * CONST4 * 1e15'''
         double TimeSum
         '''Variable used to calculate the sum of the collision times in the simulation.'''
-        long long RandomSeed
+        long long Random_Seed
         '''Random number generator seed. Not used at the moment.'''
         long long NumberOfGases
         '''Number of gases in the mixture.'''
         long long EnergySteps
         '''Steps for the electron energy integration.'''
-        long long WhichAngularModel
+        long long Which_Angular_Model
         '''Variable used to indicate the type of the elastic angular distribtions.'''
-        long long EnablePenning
+        long long Enable_Penning
         '''Variable used to indicate the inclusion of penning effects. '''
         long long AnisotropicDetected
         '''Anisotropic flag used if anisotropic scattering data is detected.'''
@@ -146,9 +146,9 @@ cdef class PyBoltz:
         '''Number of collisions for decorrelation - (Decorrelation length).'''
         long long Decor_Step
         '''Decorrelation steps.'''
-        long long Decor_LookBacks
+        long long Decor_Lookbacks
         '''Number of decorrelation lookbacks.'''
-        long long NumSamples
+        long long Num_Samples
         '''Number of electron samples'''
         long long FakeIonizations
         '''Fake ionisation counter.'''
@@ -212,7 +212,7 @@ cdef class PyBoltz:
         '''Percentage error for DL1'''
         double NumMomCrossSectionPointsNT,ISIZENT
         double PIR2
-        int ConsoleOutputFlag
+        int Console_Output_Flag
         '''Flag used to stop console printouts'''
         double MeanCollisionTime
         '''Mean collision time. Calculated using a moving average filter where it is equal to 0.9 * MeanCollisionTime + 0.1 * NewTime'''
@@ -235,7 +235,7 @@ cdef class PyBoltz:
         '''Which integration mode to use'''
         Gasmix MixObject
         '''Gas mixer object'''
-        double SteadyStateThreshold
+        double Steady_State_Threshold
         '''If this threshold is crossed by the difference of the reduced attachment and ionisation rate, the steady state simulation is done.'''
         double FakeIonisationsEstimate
         double TimeStep

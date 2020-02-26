@@ -40,7 +40,7 @@ cpdef run(PyBoltz Object):
     if Object.MaxNumberOfCollisions < 5e7:
         Object.MaxNumberOfCollisions = 5e7
     # Recalculate the reduced ionisation and attachment rates
-    Object.PresTempCor = 760.0 * (Object.TemperatureKelvin) / (293.15 * Object.PressureTorr)
+    Object.PresTempCor = 760.0 * (Object.TemperatureKelvin) / (293.15 * Object.Pressure_Torr)
     Object.ReducedIonization = Object.IonisationRate / Object.PresTempCor
     Object.ReducedAttachment = Object.AttachmentRate / Object.PresTempCor
 
@@ -90,7 +90,7 @@ cpdef run(PyBoltz Object):
                 Object.FakeIonisationsEstimate) / Object.NumberOfGases
 
         # Print the alphas
-        if Object.ConsoleOutputFlag:
+        if Object.Console_Output_Flag:
             print("NewAlpha = ", NewAlpha, " NetReducedRate = ", NetReducedRate, "Alpha = ", Alpha, "TimeStep = ",
                   Object.TimeStep)
         # Convert to picoseconds
@@ -108,7 +108,7 @@ cpdef run(PyBoltz Object):
         StartingNetAttachment = (Object.ReducedAttachmentTOF / Object.VelocityTOF) * 1e7
         ErrStartingNetAttachment = Object.ReducedAttachmentTOFErr * StartingNetAttachment / 100
 
-        if Object.ConsoleOutputFlag:
+        if Object.Console_Output_Flag:
             print("\nGood starting values for calculation:")
             print("Alpha = {} Error: {}".format(StartingAlpha, ErrStartingAlpha))
             print("NetAttachment = {} Error: {}".format(StartingNetAttachment, ErrStartingNetAttachment))
@@ -157,7 +157,7 @@ cpdef run(PyBoltz Object):
     StartingNetReducedRate = StartingAlpha - StartingNetAttachment
 
     # Print the alphas
-    if Object.ConsoleOutputFlag:
+    if Object.Console_Output_Flag:
         print("NewAlpha = ", NewAlpha, " NetReducedRate = ", StartingNetReducedRate, "Alpha = ", Alpha, "TimeStep = ",
               Object.TimeStep, " SpaceStepZ = ", Object.SpaceStepZ)
 

@@ -103,20 +103,20 @@ cdef class PyBoltz:
         memset(self.ElasticCrossSection, 0, 4000 * sizeof(double))
         memset(self.AttachmentSectionSum, 0, 4000 * sizeof(double))
         # Input parameters / settings
-        self.EnableThermalMotion = 0.0
+        self.Enable_Thermal_Motion = 0.0
         self.MaxNumberOfCollisions = 0.0
-        self.BFieldAngle = 0.0
-        self.BFieldMag = 0.0
+        self.BField_Angle = 0.0
+        self.BField_Mag = 0.0
         self.NumberOfGases = 0
-        self.WhichAngularModel = 2
+        self.Which_Angular_Model = 2
         self.TemperatureCentigrade = 0.0
-        self.PressureTorr = 0.0
-        self.EnablePenning = 0
+        self.Pressure_Torr = 0.0
+        self.Enable_Penning = 0
         self.EField = 0.0
-        self.NumSamples = 10
+        self.Num_Samples = 10
         self.Decor_Colls = 0
         self.Decor_Step = 0
-        self.Decor_LookBacks = 0
+        self.Decor_Lookbacks = 0
 
         # Calculated Constants 
         self.CONST1 = 0.0
@@ -138,7 +138,7 @@ cdef class PyBoltz:
         self.Z = 0.0
         self.EnergySteps = 0
         self.AnisotropicDetected = 0
-        self.FinalElectronEnergy = 0.0
+        self.Max_Electron_Energy = 0.0
         self.ElectronEnergyStep = 0
         self.InitialElectronEnergy = 0.0
         self.AngleFromZ = 0.0
@@ -179,12 +179,12 @@ cdef class PyBoltz:
         self.ErrorDiffusionXY = 0.0
         self.ErrorDiffusionXZ = 0.0
         self.FakeIonizations = 0
-        self.RandomSeed = 54217137
-        self.ConsoleOutputFlag = 1
+        self.Random_Seed = 54217137
+        self.Console_Output_Flag = 1
         self.MeanCollisionTime = 0.0
         self.ReducedIonization = 0.0
         self.ReducedAttachment = 0.0
-        self.SteadyStateThreshold = 40.0
+        self.Steady_State_Threshold = 40.0
         self.MixObject = Gasmix()
 
     def reset(self):
@@ -233,8 +233,8 @@ cdef class PyBoltz:
             self.VelocityY *= 1e-5
             self.VelocityX *= 1e-5
 
-            self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
-            self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.PressureTorr * 293.15)
+            self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
+            self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
 
     def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
         """
@@ -243,7 +243,7 @@ cdef class PyBoltz:
         ELimFunc = EnergyLimits.EnergyLimit
         MonteCarloFunc = Monte.MONTE
         TownsendFunc = Townsend.ALPCALCT
-        if (self.EnableThermalMotion != 0):
+        if (self.Enable_Thermal_Motion != 0):
             MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
                 self.BFieldMode = 1
@@ -293,49 +293,49 @@ cdef class PyBoltz:
         For more info on the main output variables check the git repository readme:
         `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
         """
-        setSeed(self.RandomSeed)
+        setSeed(self.Random_Seed)
         ELimNotYetFixed = 1
 
         cdef double ReducedField
         cdef int i = 0
 
         # Get the appropriate set of simulation functions given configuration keys
-        MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc = self.GetSimFunctions(self.BFieldMag, self.BFieldAngle,
-                                                                                 self.EnableThermalMotion)
+        MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc = self.GetSimFunctions(self.BField_Mag, self.BField_Angle,
+                                                                                 self.Enable_Thermal_Motion)
 
         # Set up the simulation
         Setups.Setup(self)
 
         # Find the electron upper energy limit
-        if self.FinalElectronEnergy == 0.0:
+        if self.Max_Electron_Energy == 0.0:
             # Given no specified upper energy limit, find it iteratively
-            self.FinalElectronEnergy = 0.5
-            ReducedField = self.EField * (self.TemperatureCentigrade + 273.15) / (self.PressureTorr * 293.15)
+            self.Max_Electron_Energy = 0.5
+            ReducedField = self.EField * (self.TemperatureCentigrade + 273.15) / (self.Pressure_Torr * 293.15)
             if ReducedField > 15:
-                self.FinalElectronEnergy = 8.0
-            self.InitialElectronEnergy = self.FinalElectronEnergy / 50.0
+                self.Max_Electron_Energy = 8.0
+            self.InitialElectronEnergy = self.Max_Electron_Energy / 50.0
             while ELimNotYetFixed == 1:
                 MixerFunc(self)
                 ELimNotYetFixed = ELimFunc(self)
                 if ELimNotYetFixed == 1:
-                    self.FinalElectronEnergy = self.FinalElectronEnergy * math.sqrt(2)
-                    self.InitialElectronEnergy = self.FinalElectronEnergy / 50
+                    self.Max_Electron_Energy = self.Max_Electron_Energy * math.sqrt(2)
+                    self.InitialElectronEnergy = self.Max_Electron_Energy / 50
         else:
             # Given a specified upper energy limit, use it
             MixerFunc(self)
         print("")
-        if self.ConsoleOutputFlag: print("Calculated the final energy = " + str(self.FinalElectronEnergy))
+        if self.Console_Output_Flag: print("Calculated the final energy = " + str(self.Max_Electron_Energy))
 
         # Run the simulation
         MonteCarloFunc.run(self)
         # Closeout and end
         self.end()
         # Steady state
-        if abs(self.ReducedIonization - self.ReducedAttachment) >= self.SteadyStateThreshold:
+        if abs(self.ReducedIonization - self.ReducedAttachment) >= self.Steady_State_Threshold:
             if self.ReducedIonization ==0:
                 print("Steady State Threshold has been crossed. Will not run the SST simulation as the ionisation rate is zero.")
                 return
-            if self.ConsoleOutputFlag: print("\n**Crossed the set Steady state simulation threshold = {}\n".format(self.SteadyStateThreshold))
+            if self.Console_Output_Flag: print("\n**Crossed the set Steady state simulation threshold = {}\n".format(self.Steady_State_Threshold))
             TownsendFunc.run(self)
 
         return

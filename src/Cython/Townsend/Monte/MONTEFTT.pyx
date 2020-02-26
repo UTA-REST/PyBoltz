@@ -248,7 +248,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     MV.DirCosineY100 = MV.DirCosineY1
 
     # Generate initial random maxwell boltzman numbers
-    GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
+    GenerateMaxBoltz(Object.Random_Seed, Object.RandomMaxBoltzArray)
     MaxBoltzNumsUsed = 0
 
     # Here are some constants we will use
@@ -336,7 +336,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         # Pick random gas molecule velocity for collision
         MaxBoltzNumsUsed += 1
         if (MaxBoltzNumsUsed > 6):
-            GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
+            GenerateMaxBoltz(Object.Random_Seed, Object.RandomMaxBoltzArray)
             MaxBoltzNumsUsed = 1
         GasVelX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(MaxBoltzNumsUsed - 1)]
         MaxBoltzNumsUsed += 1
@@ -594,7 +594,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
 
         # If it is an excitation then add the probability
         # of transfer to give ionisation of the other gases in the mixture
-        if Object.EnablePenning != 0:
+        if Object.Enable_Penning != 0:
             if Object.PenningFraction[GasIndex][0][I] != 0:
                 RandomNum = random_uniform(RandomSeed)
                 if RandomNum <= Object.PenningFraction[GasIndex][0][I]:

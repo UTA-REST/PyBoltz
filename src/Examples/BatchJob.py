@@ -54,10 +54,10 @@ Object.NumberOfGases =2
 # Set the number of collisons 
 Object.MaxNumberOfCollisions =10*40000000.0
 # Set penning
-Object.EnablePenning = 0
+Object.Enable_Penning = 0
 # Calculate the electron energy
-Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 0.0
+Object.Enable_Thermal_Motion=1
+Object.Max_Electron_Energy = 0.0
 # Set the gas's with there given number
 Object.GasIDs=[this_Gas,that_Gas,0,0,0,0]
 
@@ -66,21 +66,21 @@ Object.GasFractions=[this_Gas_frac,that_Gas_frac,0,0,0,0]
 # Set the tempature
 Object.TemperatureCentigrade = float(23)
 # Set the pressure
-Object.PressureTorr = 750.062
+Object.Pressure_Torr = 750.062
 # Set the eletric field
 Object.EField = efield
 # Set the magnetic field and angle
-Object.BFieldMag =0
-Object.BFieldAngle =0
-Object.ConsoleOutputFlag = 1
+Object.BField_Mag =0
+Object.BField_Angle =0
+Object.Console_Output_Flag = 1
 
-Object.WhichAngularModel = 2
+Object.Which_Angular_Model = 2
 
 Object.Start()
 
 INFO = [
 Object.GasFractions[1],
-Object.PressureTorr,
+Object.Pressure_Torr,
 Object.EField,
 Object.VelocityZ,
 Object.VelocityErrorZ,
@@ -125,7 +125,7 @@ for I in range(Object.NumberOfGases):
         print("Percentage of "+GASES[int(Object.GasIDs[I])]+" = "+  str(Object.GasFractions[I]))
 
 print("Tempature [C]         = ", Object.TemperatureCentigrade)
-print("Pressure [torr]       = ", Object.PressureTorr)
+print("Pressure [torr]       = ", Object.Pressure_Torr)
 print("Eletric field [V/cm]  = ", Object.EField)
 print("----------------------------------------------------")
 print("Drift velocity [mm/mus]              = ", round(Object.VelocityZ,3))

@@ -34,24 +34,25 @@ To run the code, you will need to import PyBoltz and instantiate an instance of 
 #### Input parameters.
 * **PyBoltz.NumberOfGases** - The number of gases in the mixture (goes up to 6).
 * **PyBoltz.MaxNumberOfCollisions** - The number of simulated events / 2*10E7.
-* **PyBoltz.EnablePenning** - Penning effects included (0 or 1).
-* **PyBoltz.EnableThermalMotion** - Thermal motion included (0 or 1).
-* **PyBoltz.FinalElectronEnergy** - Upper limit of electron energy integration (0.0 to automatically calculate this value).
+* **PyBoltz.Enable_Penning** - Penning effects included (0 or 1).
+* **PyBoltz.Enable_Thermal_Motion** - Thermal motion included (0 or 1).
+* **PyBoltz.Max_Electron_Energy** - Upper limit of electron energy integration (0.0 to automatically calculate this value).
 * **PyBoltz.GasIDs** - Array of six elements that has the number of each gas in the mixture.
 * **PyBoltz.GasFractions** - Array of six elements that has the percentage of each gas in the mixture.
 * **PyBoltz.TemperatureCentigrade** - The tempreture in degrees centigrade.
-* **PyBoltz.PressureTorr** - The pressure \[torr\].
+* **PyBoltz.Pressure_Torr** - The pressure \[torr\].
 * **PyBoltz.EField** - The electric field in the chamber \[Volts/Cm\].
-* **PyBoltz.BFieldMag** - The magnitude of the magentic field \[KiloGauss\].
-* **PyBoltz.BFieldAngle** - The angle between the magentic field and the electric field. 
-* **PyBoltz.WhichAngularModel** - This variable is used to fix the angular distrubtions to one of the following types. 
+* **PyBoltz.BField_Mag** - The magnitude of the magentic field \[KiloGauss\].
+* **PyBoltz.BField_Angle** - The angle between the magentic field and the electric field. 
+* **PyBoltz.Which_Angular_Model** - This variable is used to fix the angular distrubtions to one of the following types. 
   - Okhrimvoskky Type - PyBoltz.WhichAngularModel = 2 (default value).
   - Capitelli Longo Type - PyBoltz.WhichAngularModel = 1.
   - Isotropic Scattering - PyBoltz.WhichAngularModel = 0.
-* **PyBoltz.ConsoleOutputFlag** - This variable is used to tell PyBoltz to print to the console.
+* **PyBoltz.Console_Output_Flag** - This variable is used to tell PyBoltz to print to the console.
   - Print to the console - PyBoltz.ConsoleOutputFlag = 1.
   - Avoid printing to the console - PyBoltz.ConsoleOutputFlag = 0.
-  
+* **PyBoltz.Random_Seed** - This variable is used to set the seed for the random number geenerator used by the simulation. 
+
 #### Output parameters.
 Please note that the following are only the main output parameters. One can still get any value from the parameters within the Magboltz class.
 
@@ -84,6 +85,9 @@ Please note that the following are only the main output parameters. One can stil
 * **PyBoltz.DiffusionXZ** - Diffusion in the XZ plane \[cm^2/s\].
 * **PyBoltz.ErrorDiffusionXZ** - Error for the Magboltz.DIFXZ value (+- Magboltz.DIFXZ * Magboltz.DXZER).
 * **PyBoltz.MeanCollisionTime** - Mean Collision Time.
+* **TOF Outputs** - Those outputs include townsend coeffiecents, diffusion and energy values. Those outputs are calculated from the time of flight simulation. Check the PyBoltz object documentation for more details.
+* **SST Outputs** - Those outputs include townsend coeffiecents, diffusion and energy values. Those outputs are calculated from the steady state simulation. Check the PyBoltz object documentation for more details.
+
 #### Compilation issues.
 This sections is written here to help troubleshoot compilation issues. The following are links to the two main issues:
 

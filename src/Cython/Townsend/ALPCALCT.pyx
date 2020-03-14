@@ -156,11 +156,6 @@ cpdef run(PyBoltz Object):
 
     StartingNetReducedRate = StartingAlpha - StartingNetAttachment
 
-    # Print the alphas
-    if Object.Console_Output_Flag:
-        print("NewAlpha = ", NewAlpha, " NetReducedRate = ", StartingNetReducedRate, "Alpha = ", Alpha, "TimeStep = ",
-              Object.TimeStep, " SpaceStepZ = ", Object.SpaceStepZ)
-
     Object.TimeStep *= 1e12
     Object.SpaceStepZ *= 0.01
     Object.MaxTime = 7 * Object.TimeStep

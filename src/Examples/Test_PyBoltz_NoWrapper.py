@@ -4,7 +4,7 @@ from pathlib import Path
 import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
-print(sys.path)
+#print(sys.path)
 from PyBoltz import PyBoltz
 import numpy as np
 # Setup gases
@@ -38,31 +38,31 @@ import time
 t1 =time.time()
 
 # Set the number of gases
-Object.NumberOfGases =2
-# Set the number of collisons 
+Object.NumberOfGases =1
+# Set the number of collisons
 Object.MaxNumberOfCollisions =1*40000000.0
 # Set penning
-Object.EnablePenning = 0
+Object.Enable_Penning = 0
 # Calculate the electron energy
-Object.EnableThermalMotion=1
-Object.FinalElectronEnergy = 1.4
+Object.Enable_Thermal_Motion=1
+Object.Max_Electron_Energy = 0.0
 # Set the gas's with there given number
-Object.GasIDs=[2, 8, 0, 0, 0, 0]
-
+Object.GasIDs=[15,0,0,0,0,0]
 # Set the gas fractions
-Object.GasFractions=[90, 10, 0, 0, 0, 0]
+Object.GasFractions=[100,0,0,0,0,0]
 # Set the tempature
 Object.TemperatureCentigrade = float(23)
-# Set the pressuref
-Object.PressureTorr = 750.062
+# Set the pressure
+Object.Pressure_Torr = 750.062
 # Set the eletric field
-Object.EField =80
+Object.EField = 100000
 # Set the magnetic field and angle
-Object.BFieldMag =0
-Object.BFieldAngle =0
-Object.ConsoleOutputFlag = 1
+Object.BField_Mag =0
+Object.BField_Angle =0
+Object.Console_Output_Flag = 1
+Object.Steady_State_Threshold = 40
+Object.Which_Angular_Model = 2
 
-Object.WhichAngularModel = 2
 
 Object.Start()
 
@@ -79,7 +79,7 @@ for I in range(Object.NumberOfGases):
         print("Percentage of "+GASES[int(Object.GasIDs[I])]+" = "+  str(Object.GasFractions[I]))
 
 print("Tempature [C]         = ", Object.TemperatureCentigrade)
-print("Pressure [torr]       = ", Object.PressureTorr)
+print("Pressure [torr]       = ", Object.Pressure_Torr)
 print("Eletric field [V/cm]  = ", Object.EField)
 print("----------------------------------------------------")
 print("Drift velocity [mm/mus]              = ", round(Object.VelocityZ,3))
@@ -130,7 +130,11 @@ print("Mean electron energy [eV]            = ", round(Object.MeanElectronEnergy
 print("----------------------------------------------------")
 print("Mean electron energy error [%]       = ", round(Object.MeanElectronEnergyError,3))
 print("----------------------------------------------------")
-print("Mean Collision Time [PicoSeconds]            = ", round(Object.MeanCollisionTime,3))
+print("Mean Collision Time [PicoSeconds]    = ", round(Object.MeanCollisionTime,3))
+print("----------------------------------------------------")
+print("Ionisation Rate [1/cm]               = ", round(Object.IonisationRate,3))
+print("----------------------------------------------------")
+print("Attachment Rate [1/cm]               = ", round(Object.AttachmentRate,3))
 print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")

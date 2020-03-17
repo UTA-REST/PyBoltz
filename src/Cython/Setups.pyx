@@ -34,15 +34,15 @@ cpdef Setup(PyBoltz object):
     object.CONST1 = MassOverChargeDivTen / 2.0 * 1.0e-19
     object.CONST2 = object.CONST1 * 1.0e-02
     object.CONST3 = sqrt(0.2 * MassOverChargeDivTen) * 1.0e-9
-    object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
+    object.PresTempCor = ZeroCelcius * object.Pressure_Torr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
     # If unspecified, set long decorrelation length and step
     if(object.Decor_Colls==0):
         object.Decor_Colls = 2000000
     if(object.Decor_Step==0):
         object.Decor_Step = 500000
-    if(object.Decor_LookBacks==0):
-        object.Decor_LookBacks = 2
+    if(object.Decor_Lookbacks==0):
+        object.Decor_Lookbacks = 2
 
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     for IH in range(object.NumberOfGases):
@@ -57,8 +57,8 @@ cpdef Setup(PyBoltz object):
             object.Decor_Colls = 400000
         if(object.Decor_Step==0 or object.Decor_Step == 500000):
             object.Decor_Step = 50000
-        if(object.Decor_LookBacks==0 or object.Decor_LookBacks == 2):
-            object.Decor_LookBacks = 4
+        if(object.Decor_Lookbacks==0 or object.Decor_Lookbacks == 2):
+            object.Decor_Lookbacks = 4
     TotFrac = 0.0
 
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:
@@ -76,8 +76,8 @@ cpdef Setup(PyBoltz object):
     object.EnergySteps = 4000
     object.AngleFromZ = 0.785
     object.AngleFromX = 0.1
-    object.InitialElectronEnergy = object.FinalElectronEnergy / 50.0
-    object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
+    object.InitialElectronEnergy = object.Max_Electron_Energy / 50.0
+    object.PresTempCor = ZeroCelcius * object.Pressure_Torr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
     object.ThermalEnergy = (ZeroCelcius + object.TemperatureCentigrade) * BoltzmannConst_eV
     for i in range(6):
@@ -88,11 +88,11 @@ cpdef Setup(PyBoltz object):
     object.VAN = 100.0 * object.PresTempCor * object.CONST3 * ALOSCH
 
     # Radians per picosecond
-    object.AngularSpeedOfRotation = MassOverChargeDivTen * object.BFieldMag * 1e-12
+    object.AngularSpeedOfRotation = MassOverChargeDivTen * object.BField_Mag * 1e-12
 
 
-    if object.BFieldMag == 0:
+    if object.BField_Mag == 0:
         return
     # Metres per picosecond
-    object.EFieldOverBField = object.EField * 1e-9 / object.BFieldMag
+    object.EFieldOverBField = object.EField * 1e-9 / object.BField_Mag
     return

@@ -1,9 +1,12 @@
+from __future__ import print_function
+
 from PyBoltz cimport PyBoltz
 import cython
 from PyBoltz cimport drand48
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
+
 import numpy as np
 cimport numpy as np
 
@@ -68,7 +71,7 @@ cpdef EnergyLimit(PyBoltz Object):
     ISAMP = 10
     SMALL = 1.0e-20
     I = 0
-    RandomSeed = Object.RandomSeed
+    RandomSeed = Object.Random_Seed
     E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
@@ -85,12 +88,12 @@ cpdef EnergyLimit(PyBoltz Object):
     F1 = Object.EField * Object.CONST2
     F2 = Object.EField * Object.CONST3
     F4 = 2 * acos(-1)
-    DELTAE = Object.FinalElectronEnergy / float(INTEM)
+    DELTAE = Object.Max_Electron_Energy / float(INTEM)
     E1 = Object.InitialElectronEnergy
     J2M = Object.MaxNumberOfCollisions / ISAMP
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.Console_Output_Flag:
+            print('Trying {:^4.4f} Ev for final electron energy - Num analyzed collisions: {}'.format(Object.Max_Electron_Energy, J1), end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             I = int(E1 / DELTAE) + 1
@@ -219,7 +222,7 @@ cpdef EnergyLimitB(PyBoltz Object):
     Object.SmallNumber =  1.0e-20
     ISAMP = 20
     EFieldTimes100 = Object.EField * 100
-    RandomSeed = Object.RandomSeed
+    RandomSeed = Object.Random_Seed
     E1 = Object.InitialElectronEnergy
 
     INTEM = 8
@@ -241,13 +244,13 @@ cpdef EnergyLimitB(PyBoltz Object):
 
     F4 = 2 * acos(-1)
 
-    DELTAE = Object.FinalElectronEnergy / float(INTEM)
+    DELTAE = Object.Max_Electron_Energy / float(INTEM)
 
     J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.Console_Output_Flag:
+            print('Trying {:^4.4f} Ev for final electron energy - Num analyzed collisions: {}'.format(Object.Max_Electron_Energy, J1), end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             I = int(E1 / DELTAE)+1
@@ -384,13 +387,13 @@ cpdef EnergyLimitBT(PyBoltz Object):
     ISAMP = 20
     SMALL = 1.0e-20
     EFieldTimes100 = Object.EField * 100
-    RandomSeed = Object.RandomSeed
+    RandomSeed = Object.Random_Seed
     E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
 
     # GENRATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GenerateMaxBoltz(Object.RandomSeed, Object.RandomMaxBoltzArray)
+    GenerateMaxBoltz(Object.Random_Seed, Object.RandomMaxBoltzArray)
     IMBPT = 0
 
 
@@ -410,8 +413,8 @@ cpdef EnergyLimitBT(PyBoltz Object):
     J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.Console_Output_Flag:
+            print('Trying {:^4.4f} Ev for final electron energy - Num analyzed collisions: {}'.format(Object.Max_Electron_Energy, J1), end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
@@ -434,7 +437,7 @@ cpdef EnergyLimitBT(PyBoltz Object):
             #CALCULATE GAS VELOCITY VECTORS GasVelX,GasVelY,GasVelZ
             IMBPT += 1
             if IMBPT > 6:
-                GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+                GenerateMaxBoltz(Object.Random_Seed, Object.RandomMaxBoltzArray)
                 IMBPT = 1
             GasVelX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -565,7 +568,7 @@ cpdef EnergyLimitC(PyBoltz Object):
     memset(TEMP, 0, 4000 * sizeof(double))
     ISAMP = 20
     SMALL = 1.0e-20
-    RTHETA = Object.BFieldAngle * acos(-1) / 180
+    RTHETA = Object.BField_Angle * acos(-1) / 180
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
     F1 = Object.EField * Object.CONST2 * cos(RTHETA)
@@ -587,13 +590,13 @@ cpdef EnergyLimitC(PyBoltz Object):
     VelZBefore = DirCosineZ1 * VelTotal
 
     F4 = 2 * acos(-1)
-    DELTAE = Object.FinalElectronEnergy / float(INTEM)
+    DELTAE = Object.Max_Electron_Energy / float(INTEM)
     J2M = Object.MaxNumberOfCollisions / ISAMP
-    RandomSeed = Object.RandomSeed
+    RandomSeed = Object.Random_Seed
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.Console_Output_Flag:
+            print('Trying {:^4.4f} Ev for final electron energy - Num analyzed collisions: {}'.format(Object.Max_Electron_Energy, J1), end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             I = int(E1 / DELTAE) + 1
@@ -732,13 +735,13 @@ cpdef EnergyLimitCT(PyBoltz Object):
     I = 0
 
 
-    RTHETA = Object.BFieldAngle*np.pi/180.0
+    RTHETA = Object.BField_Angle * np.pi / 180.0
     EFZ100 = Object.EField * 100 * sin(RTHETA)
     EFX100 = Object.EField * 100 * cos(RTHETA)
     F1 = Object.EField * Object.CONST2 * cos(RTHETA)
     F4 =2*np.pi
     EOVBR = Object.EFieldOverBField * sin(RTHETA)
-    RandomSeed = Object.RandomSeed
+    RandomSeed = Object.Random_Seed
     E1 = Object.InitialElectronEnergy
     TDASH =0.0
 
@@ -746,7 +749,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
     CONST10 = CONST9**2
 
     #GENERATE RANDOM NUMBER FOR MAXWELL BOLTZMAN
-    GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+    GenerateMaxBoltz(Object.Random_Seed, Object.RandomMaxBoltzArray)
     IMBPT = 0
 
     #INITIAL DIRECTION COSINES
@@ -762,8 +765,8 @@ cpdef EnergyLimitCT(PyBoltz Object):
     J2M = Object.MaxNumberOfCollisions / ISAMP
 
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.Console_Output_Flag:
+            print('Trying {:^4.4f} Ev for final electron energy - Num analyzed collisions: {}'.format(Object.Max_Electron_Energy, J1), end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
@@ -788,7 +791,7 @@ cpdef EnergyLimitCT(PyBoltz Object):
             #CALCULATE GAS VELOCITY VECTORS GasVelX,GasVelY,GasVelZ
             IMBPT += 1
             if IMBPT > 6:
-                GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+                GenerateMaxBoltz(Object.Random_Seed, Object.RandomMaxBoltzArray)
                 IMBPT = 1
             GasVelX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1) % 6]
             IMBPT = IMBPT + 1
@@ -925,14 +928,14 @@ cpdef EnergyLimitT(PyBoltz Object):
 
     ISAMP = 10
     SMALL = 1.0e-20
-    RandomSeed = Object.RandomSeed
+    RandomSeed = Object.Random_Seed
     E1 = Object.InitialElectronEnergy
     N4000 = 4000
     TDASH = 0.0
     CONST5 = Object.CONST3 / 2.0
     CONST9 = Object.CONST3 * 0.01
     CONST10 = CONST9 * CONST9
-    GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+    GenerateMaxBoltz(Object.Random_Seed, Object.RandomMaxBoltzArray)
     IMBPT = 0
     DirCosineZ1 = cos(Object.AngleFromZ)
     DirCosineX1 = sin(Object.AngleFromZ) * cos(Object.AngleFromX)
@@ -944,8 +947,8 @@ cpdef EnergyLimitT(PyBoltz Object):
     F4 = 2 * acos(-1)
     J2M = Object.MaxNumberOfCollisions / ISAMP
     for J1 in range(int(J2M)):
-        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.ConsoleOutputFlag:
-            print('* Num analyzed collisions: {}'.format(J1))
+        if J1 != 0  and not int(str(J1)[-int(log10(J1)):]) and Object.Console_Output_Flag:
+            print('Trying {:^4.4f} Ev for final electron energy - Num analyzed collisions: {}'.format(Object.Max_Electron_Energy, J1), end='\r')
         while True:
             R1 = random_uniform(RandomSeed)
             T = -1 * log(R1) / Object.MaxCollisionFreqTotal + TDASH
@@ -963,7 +966,7 @@ cpdef EnergyLimitT(PyBoltz Object):
                     break
             IMBPT += 1
             if (IMBPT > 6):
-                GenerateMaxBoltz(Object.RandomSeed,  Object.RandomMaxBoltzArray)
+                GenerateMaxBoltz(Object.Random_Seed, Object.RandomMaxBoltzArray)
                 IMBPT = 1
             GasVelX = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(IMBPT - 1)]
             IMBPT += 1

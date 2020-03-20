@@ -86,19 +86,19 @@ class PyBoltzRun:
         MBObject.GasIDs  = GasIDs
         MBObject.GasFractions   = GasFractions
         MBObject.MaxNumberOfCollisions   = Inputs['Max_collisions']
-        MBObject.EnablePenning   = Inputs['Enable_penning']
-        MBObject.EnableThermalMotion  = Inputs['Enable_thermal_motion']
-        MBObject.FinalElectronEnergy = Inputs['Max_electron_energy']
+        MBObject.Enable_Penning   = Inputs['Enable_penning']
+        MBObject.Enable_Thermal_Motion  = Inputs['Enable_thermal_motion']
+        MBObject.Max_Electron_Energy = Inputs['Max_electron_energy']
         MBObject.TemperatureCentigrade  = Inputs['Temperature_C']
-        MBObject.PressureTorr   = Inputs['Pressure_Torr']
-        MBObject.BFieldMag   = Inputs['BField_Tesla']
-        MBObject.BFieldAngle = Inputs['BField_angle']
-        MBObject.ConsoleOutputFlag     = Inputs['ConsoleOutputFlag']
-        MBObject.WhichAngularModel = Inputs['Angular_dist_model']
+        MBObject.Pressure_Torr   = Inputs['Pressure_Torr']
+        MBObject.BField_Mag   = Inputs['BField_Tesla']
+        MBObject.BField_Angle = Inputs['BField_angle']
+        MBObject.Console_Output_Flag     = Inputs['ConsoleOutputFlag']
+        MBObject.Which_Angular_Model = Inputs['Angular_dist_model']
         MBObject.Decor_Colls = Inputs['Decor_Colls']
-        MBObject.Decor_LookBacks = Inputs['Decor_LookBacks']
+        MBObject.Decor_Lookbacks = Inputs['Decor_LookBacks']
         MBObject.Decor_Step = Inputs['Decor_Step']
-        MBObject.NumSamples = Inputs['NumSamples']
+        MBObject.Num_Samples = Inputs['NumSamples']
 
         return True
 

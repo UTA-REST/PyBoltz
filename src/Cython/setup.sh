@@ -2,6 +2,7 @@
 # setup the enviorment
 export PYTHONPATH=$PYTHONPATH:$PWD
 export PATH=$PATH:$PWD
+echo $PYTHONPATH
 # setup the cross sections database (gases.npy)
 python3 Setup_npy.py
 

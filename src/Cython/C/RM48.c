@@ -26,7 +26,7 @@ double NTOT2N = 0,NTOTIN =0 ,NTOT=-1, NTOT2=0;
 extern void RM48(double LENV){
   long MODCNS = 1000000000;
   double T,S,HALF,UNI;
-  long long NTOT2N,I,J,K,L,M,NOW,IJ,KL;
+  long long I,J,K,L,M,NOW,IJ,KL;
   static double CD, CM, TWOM24,TWOM49 ,ONE, ZERO;
   static long long IJKL=0;
   int II,JJ,I24,LOOP2,IDUM;
@@ -139,3 +139,8 @@ extern void RM48IN(int IJKLIN1, int NTOTIN1, int NTOT2N1){
     NTOT = -1;
     RM48(NVEC);
 }
+
+int main(){
+return 0;
+}
+

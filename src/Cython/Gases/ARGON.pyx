@@ -15,7 +15,6 @@ cdef void Gas2(Gas *object):
     '''
     This function is used to calculate the needed momentum cross sections for Argon gas.
     '''
-    print("ARGON")
     gd = np.load('gases.npy').item()
     cdef double APOL, AA, DD, FF, A1, ElectronMass2, API, A0, RY, BBCONST, CONST, AM2, C, PSCALE, AUGL3, AUGL2, AUGL1, AUGK
     cdef int N_Ionization, N_Attachment, N_Inelastic, N_Null, NBREM, NDATA, NEPSI, NIDATA, N_Ionization2, N_Ionization3, NKSH, NL1S, NL2S, NL3S, N1S5, NIS4, NIS3, NIS2,N1S4=79,N1S3=70,N1S2=70
@@ -48,7 +47,7 @@ cdef void Gas2(Gas *object):
     cdef int i = 0, j = 0
 
     for i in range(0, 6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(0, object.N_Inelastic):
         object.KIN[i] = object.WhichAngularModel
     NDATA = 117
@@ -90,8 +89,8 @@ cdef void Gas2(Gas *object):
     AMU = 1.660538921e-27
     object.E = [0.0, 1.0, <float>(15.75961), 0.0, 0.0, <float>(15.0)]
     object.E[1] = <float>(2.0) * ElectronMass / (<float>(39.948) * AMU)
-    cdef double EOBY[30], ISHELL[30], LEGAS[30], WKLM[30]
-    EOBY[0:7] = [<float>(9.5), <float>(18.0), <float>(34.0), <float>(110.0), <float>(110.0), <float>(150.0), <float>(1800)]
+    cdef double ISHELL[30], LEGAS[30], WKLM[30]
+    object.EOBY[0:7] = [<float>(9.5), <float>(18.0), <float>(34.0), <float>(110.0), <float>(110.0), <float>(150.0), <float>(1800)]
 
     object.IonizationEnergy[0:7] = [<float>(15.75961), <float>(43.38928), <float>(84.124), <float>(248.4), <float>(250.6), <float>(326.3), <float>(3205.9)]
     LEGAS[0:7] = [0, 0, 0, 1, 1, 1, 1]
@@ -254,7 +253,7 @@ cdef void Gas2(Gas *object):
                 ElasticCrossSectionA = 7.491e-16
                 QMOM = 7.491e-16
             if EN != 0:
-                AK = sqrt(EN / object.ARY)
+                AK = sqrt(EN / object.RhydbergConst)
                 AK2 = AK * AK
                 AK3 = AK2 * AK
                 AK4 = AK3 * AK

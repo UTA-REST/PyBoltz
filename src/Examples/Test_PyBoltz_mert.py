@@ -1,11 +1,15 @@
 import sys
 import warnings
+from pathlib import Path
 import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 print(sys.path)
-from PyBoltz_mert import PyBoltz_mert
+from PyBoltz import PyBoltz
 import numpy as np
+# Setup gases
+exec(Path("../Cython/Setup_npy.py").read_text())
+
 
 CF4 = 1
 He4 = 3
@@ -29,7 +33,7 @@ GASES = [np.nan, 'CF4', 'ARGON', 'HELIUM4', 'HELIUM3', 'NEON', 'KRYPTON', 'XENON
          , 'ISOBUTANE', 'CO2', np.nan, 'H2O', 'OXYGEN', 'NITROGEN', np.nan, np.nan, np.nan, np.nan
          , 'HYDROGEN', 'DEUTERIUM', np.nan, np.nan, 'DME']
 
-Object = PyBoltz_mert()
+Object = PyBoltz()
 
 import time
 t1 =time.time()
@@ -39,27 +43,27 @@ Object.NumberOfGases =1
 # Set the number of collisons
 Object.MaxNumberOfCollisions =40000000.0
 # Set penning
-Object.EnablePenning = 0
+Object.Enable_Penning = 0
 # Calculate the electron energy
-Object.EnableThermalMotion=0
-Object.FinalElectronEnergy = 20000.0
+Object.Enable_Thermal_Motion=0
+Object.Max_Electron_Energy = 200.0
 # Set the gas's with there given number
-Object.GasIDs=[61, 0, 0, 0, 0, 0]
+Object.GasIDs=[7, 0, 0, 0, 0, 0]
 
 # Set the gas fractions
 Object.GasFractions=[100, 0, 0, 0, 0, 0]
 # Set the tempature
 Object.TemperatureCentigrade = float(23)
 # Set the pressure
-Object.PressureTorr = 750.062
+Object.Pressure_Torr = 750.062
 # Set the eletric field
 Object.EField =1000
 # Set the magnetic field and angle
-Object.BFieldMag =10
-Object.BFieldAngle =45
-Object.ConsoleOutputFlag = 1
-Object.RandomSeed = 54217137
-Object.WhichAngularModel = 2
+Object.BField_Mag =10
+Object.BField_Angle =45
+Object.Console_Output_Flag = 1
+Object.Random_Seed = 54217137
+Object.Which_Angular_Model = 2
 ExtraParameters = {}
 ExtraParameters['A'] = 2
 ExtraParameters['D'] = 490
@@ -83,7 +87,7 @@ for I in range(Object.NumberOfGases):
         print("Percentage of "+GASES[int(Object.GasIDs[I])]+" = "+  str(Object.GasFractions[I]))
 
 print("Tempature [C]         = ", Object.TemperatureCentigrade)
-print("Pressure [torr]       = ", Object.PressureTorr)
+print("Pressure [torr]       = ", Object.Pressure_Torr)
 print("Eletric field [V/cm]  = ", Object.EField)
 print("----------------------------------------------------")
 print("Drift velocity [mm/mus]              = ", round(Object.VelocityZ,3))
@@ -91,13 +95,6 @@ print("----------------------------------------------------")
 print("Drift velocity error [%]             = ", round(Object.VelocityErrorZ,3))
 print("----------------------------------------------------")
 print("Transverse diffusion [cm**2/s]       = ", round(Object.TransverseDiffusion,3))
-print("DIFXX [cm**2/s]       = ", round(Object.DiffusionX,3))
-print("DIFYY [cm**2/s]       = ", round(Object.DiffusionY,3))
-print("DIFZZ [cm**2/s]       = ", round(Object.DiffusionZ,3))
-print("DIFYZ [cm**2/s]       = ", round(Object.DiffusionYZ,3))
-print("DIFXY [cm**2/s]       = ", round(Object.DiffusionXY,3))
-print("DIFXZ [cm**2/s]       = ", round(Object.DiffusionXZ,3))
-
 print("----------------------------------------------------")
 print("Transverse diffusion error [%]       = ", round(Object.TransverseDiffusionError,3))
 print("----------------------------------------------------")
@@ -113,10 +110,35 @@ print("Longitudinal diffusion [mum/cm**0.5] = ", round(Object.LongitudinalDiffus
 print("----------------------------------------------------")
 print("Longitudinal diffusion error [%]     = ", round(Object.LongitudinalDiffusion1Error,3))
 print("----------------------------------------------------")
+print("Diffusion X [cm**2/s]       = ", round(Object.DiffusionX,3))
+print("----------------------------------------------------")
+print("Diffusion X error [%]     = ", round(Object.ErrorDiffusionX,3))
+print("----------------------------------------------------")
+print("Diffusion Y [cm**2/s]       = ", round(Object.DiffusionY,3))
+print("----------------------------------------------------")
+print("Diffusion Y error [%]     = ", round(Object.ErrorDiffusionY,3))
+print("----------------------------------------------------")
+print("Diffusion Z [cm**2/s]       = ", round(Object.DiffusionZ,3))
+print("----------------------------------------------------")
+print("Diffusion Z error [%]     = ", round(Object.ErrorDiffusionZ,3))
+print("----------------------------------------------------")
+print("Diffusion YZ [cm**2/s]       = ", round(Object.DiffusionYZ,3))
+print("----------------------------------------------------")
+print("Diffusion YZ error [%]     = ", round(Object.ErrorDiffusionYZ,3))
+print("----------------------------------------------------")
+print("Diffusion XY [cm**2/s]       = ", round(Object.DiffusionXY,3))
+print("----------------------------------------------------")
+print("Diffusion XY error [%]     = ", round(Object.ErrorDiffusionXY,3))
+print("----------------------------------------------------")
+print("Diffusion XZ [cm**2/s]       = ", round(Object.DiffusionXZ,3))
+print("----------------------------------------------------")
+print("Diffusion XZ error [%]     = ", round(Object.ErrorDiffusionXZ,3))
+print("----------------------------------------------------")
 print("Mean electron energy [eV]            = ", round(Object.MeanElectronEnergy,3))
 print("----------------------------------------------------")
 print("Mean electron energy error [%]       = ", round(Object.MeanElectronEnergyError,3))
 print("----------------------------------------------------")
+print("Mean Collision Time [PicoSeconds]            = ", round(Object.MeanCollisionTime,3))
+print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")
-print(Object.MeanCollisionTime)

@@ -93,8 +93,8 @@ cdef void Gas3(Gas*object):
     object.IonizationEnergy[0] = <float> (24.58739)
     object.IonizationEnergy[1] = <float> (79.00515)
     # EOBY AT LOW ENERGY
-    EOBY[0] = 12.0
-    EOBY[1] = 65.0
+    object.EOBY[0] = 12.0
+    object.EOBY[1] = 65.0
     cdef double WKLM[2]
     WKLM[0] = 0.0
     WKLM[1] = 0.0
@@ -115,7 +115,7 @@ cdef void Gas3(Gas*object):
     object.EG2[1] = 0.0
     cdef int I, j, i
     for i in range(6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(object.N_Inelastic):
         object.KIN[i] = object.WhichAngularModel
     for j in range(0, object.N_Ionization):

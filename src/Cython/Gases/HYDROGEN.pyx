@@ -94,7 +94,7 @@ cdef void Gas21(Gas*object):
     object.N_Null = 0
 
     for i in range(6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(4, object.N_Inelastic):
         object.KIN[i] = object.WhichAngularModel
 
@@ -135,8 +135,8 @@ cdef void Gas21(Gas*object):
 
     # OPAL BEATY FOR LOW ENERGY
     ESCOBY = 0.5
-    EOBY[0] = object.IonizationEnergy[0] * ESCOBY
-    EOBY[1] = object.IonizationEnergy[1] * ESCOBY
+    object.EOBY[0] = object.IonizationEnergy[0] * ESCOBY
+    object.EOBY[1] = object.IonizationEnergy[1] * ESCOBY
 
     #FLUORESENCE DATA
     for J in range(2):

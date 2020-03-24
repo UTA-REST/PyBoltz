@@ -12,11 +12,11 @@ cdef class PyBoltz:
         '''This is a constant that is equal to the electric field / magentic field * 1e-9.'''
         double AngularSpeedOfRotation
         '''This is the angular speed of rotation see cycltron frequency.'''
-        double BFieldAngle
+        double BField_Angle
         '''This is the angle between the magnetic field and the electric field.'''
-        double BFieldMag
+        double BField_Mag
         '''This is the magnitude of the magentic field.'''
-        double FinalElectronEnergy
+        double Max_Electron_Energy
         '''This is the upper limit for the electron energy integration.'''
         double ElectronEnergyStep
         '''PyBoltz does the electron energy integration in 4000 steps this variable has the difference in energy between each step.'''
@@ -26,7 +26,7 @@ cdef class PyBoltz:
         '''This is Rydberg constant times hc in eV.'''
         double TemperatureCentigrade
         '''This is the tempreture in degrees Centigrade.'''
-        double PressureTorr
+        double Pressure_Torr
         '''This is the pressure in Torr.'''
         double MaxCollisionTime
         '''Maximum collision time. Default is set to 100.'''
@@ -41,7 +41,7 @@ cdef class PyBoltz:
         double EField
         '''Electric field [V/cm].'''
         double MaxNumberOfCollisions
-        '''Number of the simulated collisions * N.'''
+        '''Number of the simulated collisions.'''
         double IonisationRate
         '''Ionisation rate.'''
         double VelocityX
@@ -120,7 +120,7 @@ cdef class PyBoltz:
         '''Constant that is equal to sqrt(0.2 * (electron mass charge ratio)) * 1e-9.'''
         double MaxCollisionFreqTotal
         '''Sum of the maximum collision frequency of each gas.'''
-        double EnableThermalMotion
+        double Enable_Thermal_Motion
         '''Variable used to indicate wethier to include thermal motion or not.'''
         double PresTempCor
         '''Variable used to calculate the correlation constant between the pressure and tempreture. PresTempCor=ABZERO*Pressure/(ATMOS*(ABZERO+TemperatureC)*100.0D0).'''
@@ -130,15 +130,15 @@ cdef class PyBoltz:
         '''Variable that is equal to 100 * PresTempCor * CONST4 * 1e15'''
         double TimeSum
         '''Variable used to calculate the sum of the collision times in the simulation.'''
-        long long RandomSeed
+        long long Random_Seed
         '''Random number generator seed. Not used at the moment.'''
         long long NumberOfGases
         '''Number of gases in the mixture.'''
         long long EnergySteps
         '''Steps for the electron energy integration.'''
-        long long WhichAngularModel
+        long long Which_Angular_Model
         '''Variable used to indicate the type of the elastic angular distribtions.'''
-        long long EnablePenning
+        long long Enable_Penning
         '''Variable used to indicate the inclusion of penning effects. '''
         long long AnisotropicDetected
         '''Anisotropic flag used if anisotropic scattering data is detected.'''
@@ -146,12 +146,12 @@ cdef class PyBoltz:
         '''Number of collisions for decorrelation - (Decorrelation length).'''
         long long Decor_Step
         '''Decorrelation steps.'''
-        long long Decor_LookBacks
+        long long Decor_Lookbacks
         '''Number of decorrelation lookbacks.'''
+        long long Num_Samples
+        '''Number of electron samples'''
         long long FakeIonizations
         '''Fake ionisation counter.'''
-        double NESST[9]
-        double DENSY[4000]
         double CollisionEnergies[4000]
         '''Number of collisions in the Ith energy step.'''
         double CollisionTimes[300]
@@ -162,6 +162,7 @@ cdef class PyBoltz:
         '''Null scatter sum for the Ith gas and the Jth location.'''
         double ICOLN[6][290]
         double AMGAS[6]
+        double EC0[6][290]
         double VTMB[6]
         '''Maxwell Boltzman velocity factor for each gas component.'''
         double MaxCollisionFreqTotalG[6]
@@ -174,12 +175,12 @@ cdef class PyBoltz:
         '''Array used to calculate the number of molecules/cm^3 for each gas.'''
         double VMoleculesPerCm3PerGas[6]
         '''Array used to calculate the VAN for each gas.'''
-        double CrossSectionSum[4000], ElasticCrossSection[4000], AttachmentSectionSum[4000], ES[4000]
+        double CrossSectionSum[4000], ElasticCrossSection[4000], AttachmentSectionSum[4000]
         double E[4000]
         '''Energy ar each energy step.'''
         double SqrtEnergy[4000]
         '''The square root of each energy step.'''
-        double TotalCrossSection[4000], RelativeIonMinusAttachCrossSection[4000], InelasticCrossSection[4000], FCION[4000], FCATT[4000], FakeIonizationsT[8], FakeIonizationsD[9], LAST[6]
+        double TotalCrossSection[4000], RelativeIonMinusAttachCrossSection[4000], InelasticCrossSection[4000], FakeIonizationsT[8], FakeIonizationsD[9], LAST[6]
         double N_Inelastic[6]
         '''Number of momentum cross section data points for types other than attachment and ionisation.'''
         double NumMomCrossSectionPoints[6]
@@ -189,7 +190,7 @@ cdef class PyBoltz:
         '''Maximum value of collision frequency for each gas.'''
         double NumMomCrossSectionPointsNull[6]
         '''Number of momentum cross section data points for null collisions.'''
-        double INDEX[6][290], NC0[6][290], EC0[6][290], NG1[6][290], EG1[6][290], NG2[6][290], EG2[6][290], WKLM[6][290], EFL[6][290], EnergyLevels[6][290], IARRY[6][290], RGAS[6][290], IPN[6][290], WPL[6][290], IonizationCrossSection[6][4000], InelasticCrossSectionPerGas[6][250][4000], LIN[6][250], ALIN[6][250]
+        double AngularModel[6][290], NC0[6][290], EnergyLevels[6][290], InteractionType[6][290], RGas[6][290], ElectronNumChange[6][290],  IonizationCrossSection[6][4000], InelasticCrossSectionPerGas[6][250][4000], LIN[6][250], ALIN[6][250]
         double CollisionFrequency[6][4000][290]
         '''Collision frequency for each gas at every energy step for every data point.'''
         double TotalCollisionFrequency[6][4000]
@@ -200,7 +201,7 @@ cdef class PyBoltz:
         '''Null collision frequency for each gas at every energy step for every data point.'''
         double TotalCollisionFrequencyNull[6][4000]
         '''Total null collision frequency for each gas at every energy step.'''
-        double SCLENUL[6][10], ScatteringParameter[6][4000][290], AngleCut[6][4000][290]
+        double ScaleNull[6][10], ScatteringParameter[6][4000][290], AngleCut[6][4000][290]
         double TransverseDiffusion1
         '''Transverse diffusion in microns/cm^0.5.'''
         double TransverseDiffusion1Error
@@ -211,7 +212,7 @@ cdef class PyBoltz:
         '''Percentage error for DL1'''
         double NumMomCrossSectionPointsNT,ISIZENT
         double PIR2
-        int ConsoleOutputFlag
+        int Console_Output_Flag
         '''Flag used to stop console printouts'''
         double MeanCollisionTime
         '''Mean collision time. Calculated using a moving average filter where it is equal to 0.9 * MeanCollisionTime + 0.1 * NewTime'''
@@ -221,13 +222,178 @@ cdef class PyBoltz:
         double EnergyLevelsNT[960]
         double TotalCollisionFrequencyNT[4000]
         '''Total collision frequency at each energy step. This is used for when EnableThermalMotion = 0'''
-        double IARRYNT[960],RGASNT[960],IPNNT[960],WPLNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
-        double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNullNT[4000],SCLENULNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],INDEXNT[960],NC0NT[960],EC0NT[960]
-        double NG1NT[960],EG1NT[960],NG2NT[960],EG2NT[960],WKLMNT[960],EFLNT[960]
-        double CollisionsPerGasPerTypeNT[30],ICOLNNT[960]
+        double InteractionTypeNT[960],RGasNT[960],ElectronNumChangeNT[960],PenningFractionNT[3][960],MaxCollisionFreqNT[8]
+        double NullCollisionFreqNT[4000][60],TotalCollisionFrequencyNullNT[4000],ScaleNullNT[60],ScatteringParameterNT[4000][960],AngleCutNT[4000][960],AngularModelNT[960],NC0NT[960],EC0NT[960]
+        double CollisionsPerGasPerTypeNT[30],ICOLNNT[960],WPLNT[960],WPL[6][290]
         double ICOLNNNT[60]
         '''Null scatter sum for each gas at each sample. This is used for when EnableThermalMotion = 0'''
         double NumMomCrossSectionPointsNullNT
         '''Used to store the number of cross section points for null cross section points. This is used for when EnableThermalMotion = 0'''
         double RandomMaxBoltzArray[9]
+        '''Stores randomly drawn max boltz numbers'''
+        char BFieldMode
+        '''Which integration mode to use'''
         Gasmix MixObject
+        '''Gas mixer object'''
+        double Steady_State_Threshold
+        '''If this threshold is crossed by the difference of the reduced attachment and ionisation rate, the steady state simulation is done.'''
+        double FakeIonisationsEstimate
+        double TimeStep
+        '''Time step between the planes in the pulsed townsend simulation that is used in the alpha calculation function'''
+        double MaxTime
+        '''Maximum amount of time for the alpha calculation function (time at the final plane), it is equal to the number of steps * Time step'''
+        int NumberOfTimeSteps
+        '''Number of time planes in the pulsed townsend  simulation'''
+        int NumberOfSpaceSteps
+        '''Number of space planes in the steady state simulation'''
+        double TotalTimePrimary
+        '''Total time of collisions for all the primaries in a simulation'''
+        double TotalTimeSecondary
+        '''Total time of collisions for all the secondaries in a simulation'''
+        int IPrimary
+        '''Number of primaries simulated in each alpha calculation simulation.'''
+        double TotalSpaceZPrimary
+        '''Total amount of space travelled by all the primaries in the simulation. In the Z direction'''
+        double TotalSpaceZSecondary
+        '''Total amount of space travelled by all the secondary in the simulation. In the Z direction'''
+        double SpaceStepZ
+        '''Space step between the space planes in the steady state simulation. In the Z direction'''
+        double MaxSpaceZ
+        '''Maximum amount of space for the alpha calculation function (space at the final plane), it is equal to the number of steps * space step. In the Z direction'''
+        # Space planes output
+        double SXPlanes[9]
+        '''Sum of time in x movement at space plane I. This value is equal to the sum of the x values over the velocity in the z direction at space plane I.'''
+        double SYPlanes[9]
+        '''Sum of time in y movement at space plane I. This value is equal to the sum of the y values over the velocity in the z direction at space plane I.'''
+        double SZPlanes[9]
+        '''Sum of time in z movement at space plane I. This value is equal to the sum of the z values over the velocity in the z direction at space plane I.'''
+        double STPlanes[9]
+        '''Sum of the recipical of distances at space plane I.'''
+        double SEPlanes[9]
+        '''Sum of energy normalised over time at space plane I.'''
+        double SX2Planes[9]
+        '''Sum of time in x^2 movement at space plane I. This value is equal to the sum of the x^2 values over the velocity in the z direction at space plane I.'''
+        double SY2Planes[9]
+        '''Sum of time in y^2 movement at space plane I. This value is equal to the sum of the x^2 values over the velocity in the z direction at space plane I.'''
+        double SZ2Planes[9]
+        '''Sum of time in z^2 movement at space plane I. This value is equal to the sum of the x^2 values over the velocity in the z direction at space plane I.'''
+        double SVZPlanes[9]
+        '''Number of electrons with a velocity bigger than 0 in the z direction at space plane I.'''
+        double STSPlanes[9]
+        '''Sum of the recipocal of the velocity in the z direction at space plane I.'''
+        double STS2Planes[9]
+        '''Sum of the square of the recipocal of the velocity in the z direction at space plane I. '''
+        double AttachmentOverIonisation
+        '''Number of attached electrons over the number of ionising electrons.'''
+        double AttachmentOverIonisationErr
+        '''Error of the ratio of attached electrons over the nubmer of ionised electrons.'''
+        double AttachmentErr
+        '''Error of the number of attached electrons.'''
+        double NumberOfElectronSST[11]
+        '''Number of electrons at plane I. This doesn't include attached electrons.'''
+        double TMSPL[9]
+        double TTMSPL[9]
+        double SRPlanes[9]
+        '''The radial distance in the x,y plane at space plane I.'''
+        double SR2Planes[9]
+        '''The radial distance squared in the x,y plane at space plane I.'''
+        # Steady State output
+        double VelocitySvzSST
+        '''Velocity output in the Z direction. This is calculated by multiplying SVZPlanes by STSPlanes at space plane I.'''
+        double VelocitySvzSSTErr
+        '''Velocity output error in the Z direction.'''
+        double WSOUT
+        double WSERR
+        double LongitudinalDiffSST
+        '''Longitudinal diffusion output for the Steady State simulation.'''
+        double LongitudinalDiffSSTErr
+        '''Error for the Longitudinal diffusion output of the Steady State simulation.'''
+        double TransverseDiffSST
+        '''Transverse diffusion output for the Steady State simulation'''
+        double TransverseDiffSSTErr
+        '''Error for the Transverse diffusion output for the Steady State simulation.'''
+        double AlphaSST
+        '''Alpha output from the Steady State simulation.'''
+        double AlphaSSTErr
+        '''Error for the Alpha output from the Steady State simulation.'''
+        double AttachmentSST
+        '''Attachment output from the Steady State simulation.'''
+        double AttachmentSSTErr
+        '''Error for the Sttachment output from the Steady State simulation.'''
+        #Time planes output
+        double TXPlanes[9]
+        '''Sum of the X position of each electron in the pulsed townsend simulation.'''
+        double TYPlanes[9]
+        '''Sum of the Y position of each electron in the pulsed townsend simulation.'''
+        double TZPlanes[9]
+        '''Sum of the Z position of each electron in the pulsed townsend simulation.'''
+        double TTPlanes[9]
+        '''Sum of the total time of each electron in the pulsed townsend simulation.'''
+        double TEPlanes[9]
+        '''Sum of the Z position of each electron in the pulsed townsend simulation.'''
+        double TX2Planes[9]
+        '''Sum of the X^2 position of each electron in the pulsed townsend simulation.'''
+        double TY2Planes[9]
+        '''Sum of the Y^2 position of each electron in the pulsed townsend simulation.'''
+        double TZ2Planes[9]
+        '''Sum of the Z^2 position of each electron in the pulsed townsend simulation.'''
+        double TVZPlanes[9]
+        '''Sum of the Vz position of each electron in the pulsed townsend simulation.'''
+        double NumberOfElectronsPlanes[9]
+        '''Number of electrons accounted for in each time planes.'''
+        double AttachmentOverIonisationPT
+        '''Number of attached electrons over the number of ionising electrons.'''
+        double AttachmentErrPT
+        '''Error of the number of attached electrons.'''
+        double AttachmentOverIonisationErrPT
+        '''Error of the ratio of attached electrons over the nubmer of ionised electrons.'''
+
+
+        # Pulsed Townsend
+        double RealIonisation[9]
+        '''Average number of real Ionisations at time plane I.'''
+        double EnergyPT[9]
+        '''Average energy at time plane I.'''
+        double VelocityZPT[9]
+        '''Average velocity at time plane I.'''
+        double AverageTimePT[9]
+        '''Average Time at time plane I.'''
+
+        # Time of flight
+        double ReducedAlphaTOF
+        '''Time of flight reduced alpha calculation.'''
+        double ReducedAlphaTOFErr
+        '''Time of flight reduced alpha calculation err.'''
+        double TOFEnergy
+        '''Time of flight energy. '''
+        double TOFEnergyErr
+        '''Time of flight energy error.'''
+        double VelocityTOFPT
+        '''Time of flight velocity from the pulsed townsend calculation.'''
+        double VelocityTOFPTErr
+        '''Time of flight velocity from the pulsed townsend calculation error.'''
+        double LongitudinalDiffusionTOF
+        '''Time of flight longitudinal diffusion.'''
+        double LongitudinalDiffusionTOFErr
+        '''Time of flight longitudinal diffusion err.'''
+        double TransverseDiffusionTOF
+        '''Time of flight transverse diffusion.'''
+        double TransverseDiffusionTOFErr
+        '''Time of flight transverse diffusion err.'''
+        double VelocityTOF
+        '''Time of flight velocity taken from the Time of flight calculation.'''
+        double VelocityTOFErr
+        '''Time of flight velocity taken from the Time of flight calculation err.'''
+        double ReducedAttachmentTOF
+        '''Time of flight reduced attachment coeffiecent.'''
+        double ReducedAttachmentTOFErr
+        '''Time of flight reduced attachment coeffiecent err.'''
+
+        # Alpha, and ATt
+        double ALPHA,ATT,ALPER,ATTER,ALPTEST
+
+        # FCION and FCATT
+        double IonCollisionFreq[4000]
+        '''Array that adds the ionisation collision frequencies at energy step I. Used in the Friedland estimation of Alpha.'''
+        double AttCollisionFreq[4000]
+        '''Array that adds the attachment collision frequencies at energy step I. Used in the Friedland estimation of Alpha.'''

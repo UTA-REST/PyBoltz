@@ -17,6 +17,7 @@ cpdef Setup(PyBoltz object):
     """
     cdef double TwoPi,  ElectronCharge, ElectronMass, AMU, BoltzmannConst_eV, BoltzmannConst_eVJ, MassOverChargeDivTen, ALOSCH,  ZeroCelcius, OneAtmosphere, TotFrac
     cdef long long IH,  i
+    cdef double FracMol = 0.0
 
     TwoPi = 2.0 * np.pi
     object.RhydbergConst = <float>(13.60569253)
@@ -33,15 +34,17 @@ cpdef Setup(PyBoltz object):
     object.CONST1 = MassOverChargeDivTen / 2.0 * 1.0e-19
     object.CONST2 = object.CONST1 * 1.0e-02
     object.CONST3 = sqrt(0.2 * MassOverChargeDivTen) * 1.0e-9
-    object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
+    object.PresTempCor = ZeroCelcius * object.Pressure_Torr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
-    # Set long decorrelation length and step
-    object.Decor_Colls = 2000000
-    object.Decor_Step = 500000
-    object.Decor_LookBacks = 2
+    # If unspecified, set long decorrelation length and step
+    if(object.Decor_Colls==0):
+        object.Decor_Colls = 2000000
+    if(object.Decor_Step==0):
+        object.Decor_Step = 500000
+    if(object.Decor_Lookbacks==0):
+        object.Decor_Lookbacks = 2
 
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
-    cdef double FracMol = 0.0
     for IH in range(object.NumberOfGases):
         if object.GasIDs[IH] != 2 and object.GasIDs[IH] != 6 and object.GasIDs[IH] != 7 and object.GasIDs[IH] != 3 and \
                 object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5:
@@ -49,9 +52,13 @@ cpdef Setup(PyBoltz object):
             FracMol += object.GasFractions[IH]
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.
     if (object.EField > (10.0 / object.PresTempCor)) or (FracMol > 3):
+
+        if(object.Decor_Colls==0 or object.Decor_Colls == 2000000 ):
             object.Decor_Colls = 400000
+        if(object.Decor_Step==0 or object.Decor_Step == 500000):
             object.Decor_Step = 50000
-            object.Decor_LookBacks = 4
+        if(object.Decor_Lookbacks==0 or object.Decor_Lookbacks == 2):
+            object.Decor_Lookbacks = 4
     TotFrac = 0.0
 
     if object.NumberOfGases == 0 or object.NumberOfGases > 6:
@@ -69,8 +76,8 @@ cpdef Setup(PyBoltz object):
     object.EnergySteps = 4000
     object.AngleFromZ = 0.785
     object.AngleFromX = 0.1
-    object.InitialElectronEnergy = object.FinalElectronEnergy / 50.0
-    object.PresTempCor = ZeroCelcius * object.PressureTorr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
+    object.InitialElectronEnergy = object.Max_Electron_Energy / 50.0
+    object.PresTempCor = ZeroCelcius * object.Pressure_Torr / (OneAtmosphere * (ZeroCelcius + object.TemperatureCentigrade) * 100.0)
 
     object.ThermalEnergy = (ZeroCelcius + object.TemperatureCentigrade) * BoltzmannConst_eV
     for i in range(6):
@@ -81,11 +88,11 @@ cpdef Setup(PyBoltz object):
     object.VAN = 100.0 * object.PresTempCor * object.CONST3 * ALOSCH
 
     # Radians per picosecond
-    object.AngularSpeedOfRotation = MassOverChargeDivTen * object.BFieldMag * 1e-12
+    object.AngularSpeedOfRotation = MassOverChargeDivTen * object.BField_Mag * 1e-12
 
 
-    if object.BFieldMag == 0:
+    if object.BField_Mag == 0:
         return
     # Metres per picosecond
-    object.EFieldOverBField = object.EField * 1e-9 / object.BFieldMag
+    object.EFieldOverBField = object.EField * 1e-9 / object.BField_Mag
     return

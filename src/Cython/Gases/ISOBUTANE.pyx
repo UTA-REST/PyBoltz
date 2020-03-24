@@ -82,7 +82,7 @@ cdef void Gas11(Gas*object):
 
     # USE WhichAngularModel=2 ONLY (OKHRIMOVSKY)
     for i in range(6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(object.N_Inelastic):
         object.KIN[i] = 2
 
@@ -111,7 +111,7 @@ cdef void Gas11(Gas*object):
 
     #OPAL BEATY IONISATION  AT LOW ENERGY 0
     #OPAL BEATY FOR DISSOCIATION AND K-SHELL 1,2
-    EOBY[0:3] = [6.8, 6.8, 180.0]
+    object.EOBY[0:3] = [6.8, 6.8, 180.0]
 
     object.NC0[0:3] = [0, 0, 2]
     object.EC0[0:3] = [0.0, 0.0, 253.0]
@@ -401,16 +401,9 @@ cdef void Gas11(Gas*object):
         for J in range(9):
             object.Q[0][I]+=object.InelasticCrossSectionPerGas[J][I]
 
-    for J in range(6):
-        print(object.E[J])
-    print("HERE")
-    for J in range(object.N_Ionization):
-        print(object.IonizationCrossSection[J][3999])
-    print(object.FinalEnergy)
+
     for J in range(13,object.N_Inelastic):
         if object.FinalEnergy <= object.EnergyLevels[J]:
             object.N_Inelastic = J
             break
-    print(object.N_Inelastic)
-    sys.exit()
     return

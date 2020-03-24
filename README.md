@@ -1,5 +1,5 @@
 # PyBoltz
-This software package is a translation of the Fortran based Magboltz into Cython. This project was built to allow for more productive work to be done with magboltz.
+This software package is a translation of the Fortran based Magboltz code (Biagi, 2001) into Cython. This project was built to allow for more productive work to be done with magboltz.
 
 ## General information.
 
@@ -29,66 +29,70 @@ $ source setup.sh
 Please note that you might need to change the commands inside the setup.sh file to match your python version.
 
 ### Running PyBoltz.
-To run the code, you will need to import Magboltz and instantiate an instance of the Magboltz object, fill in the input parameters and call the Magboltz.Start() function. There are examples in the Examples directory on to how to use PyBoltz. The main example is the Test_Magboltz.py code. This example also has a list of the gases in PyBoltz.
+To run the code, you will need to import PyBoltz and instantiate an instance of the PyBoltz object, fill in the input parameters and call the PyBoltz.Start() function. There are examples in the Examples directory on to how to use PyBoltz. The main example is the Test_PyBoltz_NoWrapper.py code. This example also has a list of the gases in PyBoltz.
 
 #### Input parameters.
-* **Magboltz.NGAS** - The number of gases in the mixture (goes up to 6).
-* **Magboltz.NMAX** - The number of simulated events / 2*10E7.
-* **Magboltz.IPEN** - Penning effects included (0 or 1).
-* **Magboltz.ITHRM** - Thermal motion included (0 or 1).
-* **Magboltz.EFINAL** - Upper limit of electron energy integration (0.0 to automatically calculate this value).
-* **Magboltz.NGASN** - Array of six elements that has the number of each gas in the mixture.
-* **Magboltz.FRAC** - Array of six elements that has the percentage of each gas in the mixture.
-* **Magboltz.TEMPC** - The tempreture in degrees centigrade.
-* **Magboltz.TORR** - The pressure \[torr\].
-* **Magboltz.EFIELD** - The electric field in the chamber \[Volts/Cm\].
-* **Magboltz.BMAG** - The magnitude of the magentic field \[Tesla\].
-* **Magboltz.BTHETA** - The angle between the magentic field and the electric field. 
-* **Magboltz.NANISO** - This variable is used to fix the angular distrubtions to one of the following types. 
-  - Okhrimvoskky Type - Magboltz.NANISO = 2 (default value).
-  - Capitelli Longo Type - Magboltz.NANISO = 1.
-  - Isotropic Scattering - Magboltz.NANISO = 0.
-* **Magboltz.OF** - This variable is used to tell PyBoltz to print to the console.
-  - Print to the console - Magboltz.OF = 1.
-  - Avoid printing to the console - Magboltz.OF = 0.
-  
+* **PyBoltz.NumberOfGases** - The number of gases in the mixture (goes up to 6).
+* **PyBoltz.MaxNumberOfCollisions** - The number of simulated events / 2*10E7.
+* **PyBoltz.Enable_Penning** - Penning effects included (0 or 1).
+* **PyBoltz.Enable_Thermal_Motion** - Thermal motion included (0 or 1).
+* **PyBoltz.Max_Electron_Energy** - Upper limit of electron energy integration (0.0 to automatically calculate this value).
+* **PyBoltz.GasIDs** - Array of six elements that has the number of each gas in the mixture.
+* **PyBoltz.GasFractions** - Array of six elements that has the percentage of each gas in the mixture.
+* **PyBoltz.TemperatureCentigrade** - The tempreture in degrees centigrade.
+* **PyBoltz.Pressure_Torr** - The pressure \[torr\].
+* **PyBoltz.EField** - The electric field in the chamber \[Volts/Cm\].
+* **PyBoltz.BField_Mag** - The magnitude of the magentic field \[KiloGauss\].
+* **PyBoltz.BField_Angle** - The angle between the magentic field and the electric field. 
+* **PyBoltz.Which_Angular_Model** - This variable is used to fix the angular distrubtions to one of the following types. 
+  - Okhrimvoskky Type - PyBoltz.WhichAngularModel = 2 (default value).
+  - Capitelli Longo Type - PyBoltz.WhichAngularModel = 1.
+  - Isotropic Scattering - PyBoltz.WhichAngularModel = 0.
+* **PyBoltz.Console_Output_Flag** - This variable is used to tell PyBoltz to print to the console.
+  - Print to the console - PyBoltz.ConsoleOutputFlag = 1.
+  - Avoid printing to the console - PyBoltz.ConsoleOutputFlag = 0.
+* **PyBoltz.Random_Seed** - This variable is used to set the seed for the random number geenerator used by the simulation. 
+
 #### Output parameters.
 Please note that the following are only the main output parameters. One can still get any value from the parameters within the Magboltz class.
 
-* **Magboltz.WZ** - Drift velocity in the Z direction \[mm/mus\].
-* **Magboltz.WY** - Drift velocity in the Y direction \[mm/mus\].
-* **Magboltz.WX** - Drift velocity in the X direction \[mm/mus\].
-* **Magboltz.DWZ** - Error for the Magboltz.WZ value (+- Magboltz.DWZ * Magboltz.WZ).
-* **Magboltz.DWY** - Error for the Magboltz.WY value (+- Magboltz.DWY * Magboltz.WY).
-* **Magboltz.DWX** - Error for the Magboltz.WX value (+- Magboltz.DWX * Magboltz.WX).
-* **Magboltz.DIFTR** - Transverse diffusion \[cm^2/s\].
-* **Magboltz.DFTER** - Error for the Magboltz.DIFTR value (+- Magboltz.DFTER * Magboltz.DIFTR).
-* **Magboltz.DIFLN** - Longitudinal diffusion \[cm^2/s\]..
-* **Magboltz.DFLER** - Error for the Magboltz.DIFLN value (+- Magboltz.DFLER * Magboltz.DIFLN).
-* **Magboltz.DTMN** - Transverse diffusion \[mum/cm^0.5\].
-* **Magboltz.DFTER1** - Error for the Magboltz.DTMN value (+- Magboltz.DTMN * Magboltz.DFTER1).
-* **Magboltz.DLMN** - Longitudinal diffusion \[mum/cm^0.5\].
-* **Magboltz.DFLER1** - Error for the Magboltz.DLMN vlaue (+- Magboltz.DLMN * Magboltz.DFLER1).
-* **Magboltz.AVE** - Mean electron energy \[eV\].
-* **Magboltz.DEN** - Error for the Magboltz.AVE value (+- Magboltz.AVE * Magboltz.DEN).
-* **Magboltz.DIFXX** - Diffusion in the X plane \[cm^2/s\].
-* **Magboltz.DXXER** - Error for the Magboltz.DIFXX value (+- Magboltz.DIFXX * Magboltz.DXXER).
-* **Magboltz.DIFYY** - Diffusion in the Y plane \[cm^2/s\].
-* **Magboltz.DYYER** - Error for the Magboltz.DIFYY value (+- Magboltz.DIFYY * Magboltz.DYYER).
-* **Magboltz.DIFZZ** - Diffusion in the Z plane \[cm^2/s\].
-* **Magboltz.DZZER** - Error for the Magboltz.DIFZZ value (+- Magboltz.DIFZZ * Magboltz.DZZER).
-* **Magboltz.DIFYZ** - Diffusion in the YZ plane \[cm^2/s\].
-* **Magboltz.DYZER** - Error for the Magboltz.DIFYZ value (+- Magboltz.DIFYZ * Magboltz.DYZER).
-* **Magboltz.DIFXY** - Diffusion in the XY plane \[cm^2/s\].
-* **Magboltz.DXYER** - Error for the Magboltz.DIFXY value (+- Magboltz.DIFXY * Magboltz.DXYER).
-* **Magboltz.DIFXZ** - Diffusion in the XZ plane \[cm^2/s\].
-* **Magboltz.DXZER** - Error for the Magboltz.DIFXZ value (+- Magboltz.DIFXZ * Magboltz.DXZER).
-* **Magboltz.MCT** - Mean Collision Time.
-#### Main issues.
+* **PyBoltz.VelocityZ** - Drift velocity in the Z direction \[mm/mus\].
+* **PyBoltz.VelocityY** - Drift velocity in the Y direction \[mm/mus\].
+* **PyBoltz.VelocityX** - Drift velocity in the X direction \[mm/mus\].
+* **PyBoltz.VelocityErrorZ** - Error for the Magboltz.WZ value (+- Magboltz.DWZ * Magboltz.WZ).
+* **PyBoltz.VelocityErrorY** - Error for the Magboltz.WY value (+- Magboltz.DWY * Magboltz.WY).
+* **PyBoltz.VelocityErrorX** - Error for the Magboltz.WX value (+- Magboltz.DWX * Magboltz.WX).
+* **PyBoltz.TransverseDiffusion** - Transverse diffusion \[cm^2/s\].
+* **PyBoltz.TransverseDiffusionError** - Error for the Magboltz.DIFTR value (+- Magboltz.DFTER * Magboltz.DIFTR).
+* **PyBoltz.LongitudinalDiffusion** - Longitudinal diffusion \[cm^2/s\]..
+* **PyBoltz.LongitudinalDiffusionError** - Error for the Magboltz.DIFLN value (+- Magboltz.DFLER * Magboltz.DIFLN).
+* **PyBoltz.TransverseDiffusion1** - Transverse diffusion \[mum/cm^0.5\].
+* **PyBoltz.TransverseDiffusion1Error** - Error for the Magboltz.DTMN value (+- Magboltz.DTMN * Magboltz.DFTER1).
+* **PyBoltz.LongitudinalDiffusion1** - Longitudinal diffusion \[mum/cm^0.5\].
+* **PyBoltz.LongitudinalDiffusion1Error** - Error for the Magboltz.DLMN vlaue (+- Magboltz.DLMN * Magboltz.DFLER1).
+* **PyBoltz.MeanElectronEnergy** - Mean electron energy \[eV\].
+* **PyBoltz.MeanElectronEnergyError** - Error for the Magboltz.AVE value (+- Magboltz.AVE * Magboltz.DEN).
+* **PyBoltz.DiffusionX** - Diffusion in the X plane \[cm^2/s\].
+* **PyBoltz.ErrorDiffusionX** - Error for the Magboltz.DIFXX value (+- Magboltz.DIFXX * Magboltz.DXXER).
+* **PyBoltz.DiffusionY** - Diffusion in the Y plane \[cm^2/s\].
+* **PyBoltz.ErrorDiffusionY** - Error for the Magboltz.DIFYY value (+- Magboltz.DIFYY * Magboltz.DYYER).
+* **PyBoltz.DiffusionZ** - Diffusion in the Z plane \[cm^2/s\].
+* **PyBoltz.ErrorDiffusionZ** - Error for the Magboltz.DIFZZ value (+- Magboltz.DIFZZ * Magboltz.DZZER).
+* **PyBoltz.DiffusionYZ** - Diffusion in the YZ plane \[cm^2/s\].
+* **PyBoltz.ErrorDiffusionYZ** - Error for the Magboltz.DIFYZ value (+- Magboltz.DIFYZ * Magboltz.DYZER).
+* **PyBoltz.DiffusionXY** - Diffusion in the XY plane \[cm^2/s\].
+* **PyBoltz.ErrorDiffusionXY** - Error for the Magboltz.DIFXY value (+- Magboltz.DIFXY * Magboltz.DXYER).
+* **PyBoltz.DiffusionXZ** - Diffusion in the XZ plane \[cm^2/s\].
+* **PyBoltz.ErrorDiffusionXZ** - Error for the Magboltz.DIFXZ value (+- Magboltz.DIFXZ * Magboltz.DXZER).
+* **PyBoltz.MeanCollisionTime** - Mean Collision Time.
+* **TOF Outputs** - Those outputs include townsend coeffiecents, diffusion and energy values. Those outputs are calculated from the time of flight simulation. Check the PyBoltz object documentation for more details.
+* **SST Outputs** - Those outputs include townsend coeffiecents, diffusion and energy values. Those outputs are calculated from the steady state simulation. Check the PyBoltz object documentation for more details.
+
+#### Compilation issues.
 This sections is written here to help troubleshoot compilation issues. The following are links to the two main issues:
 
-* [First Issue](https://github.com/UTA-REST/MAGBOLTZ-py/issues/1).
-* [Second Issue](https://github.com/UTA-REST/MAGBOLTZ-py/issues/2).
+* [First Issue](https://github.com/UTA-REST/PyBoltz/issues/1).
+* [Second Issue](https://github.com/UTA-REST/PyBoltz/issues/2).
 
 ## Gas list.
 The current PyBoltz version has the following gases. Please note that the number of the gas is used as an indicator to that gas in the code. 
@@ -111,6 +115,7 @@ The current PyBoltz version has the following gases. Please note that the number
 * **Hydrogen** Gas # 21.
 * **Deuterium** Gas # 22.
 * **DME** Gas # 25.
+* **XenonMert** Gas # 61 (This gas requires extra parameters, check /Examples/Test_PyBoltz_mert.py).
 
 
 [Documentaion...](https://uta-rest.github.io/PyBoltz-Documentation/html/).

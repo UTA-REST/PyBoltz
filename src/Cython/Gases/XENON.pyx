@@ -181,7 +181,7 @@ cdef void Gas7(Gas*object):
     cdef int J, I
 
     for J in range(6):
-        object.KEL[J] = object.WhichAngularModel
+        object.AngularModel[J] = object.WhichAngularModel
     for J in range(object.N_Inelastic):
         object.KIN[J] = object.WhichAngularModel
     cdef int NDATA, NEL, NEPSI, N_IonizationG, N_Ionization2, N_Ionization3, N_Ionization4, N_Ionization5, N_Ionization6, N_IonizationK, N_IonizationL1, N_IonizationL2, N_IonizationL3, N_IonizationM1, N_IonizationM2, N_IonizationM3, N_IonizationM4
@@ -234,7 +234,7 @@ cdef void Gas7(Gas*object):
     object.E[1] = 2.0 * ElectronMass / (<float> (131.30) * AMU)
     cdef double EOBY[12]
 
-    EOBY[0:12] = [8.7, 20.0, 38.0, 400., 410., 750.0, 800.0, 920.0, 3850., 4100., 4400., 34561.]
+    object.EOBY[0:12] = [8.7, 20.0, 38.0, 400., 410., 750.0, 800.0, 920.0, 3850., 4100., 4400., 34561.]
     object.IonizationEnergy[0:12] = [<float> (12.129843), <float> (33.105), <float> (64.155), <float> (676.4), <float> (689.0),
                          <float> (940.6), <float> (1002.1), <float> (1148.7), <float> (4786.), <float> (5107.), 5453.,
                          34561.]

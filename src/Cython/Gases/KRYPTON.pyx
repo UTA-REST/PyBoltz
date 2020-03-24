@@ -233,7 +233,7 @@ cdef void Gas6(Gas*object):
     object.N_Null = 0
 
     for i in range(6):
-        object.KEL[i] = object.WhichAngularModel
+        object.AngularModel[i] = object.WhichAngularModel
     for i in range(object.N_Inelastic):
         object.KIN[i] = object.WhichAngularModel
     NEL = 151
@@ -299,7 +299,7 @@ cdef void Gas6(Gas*object):
     object.E = [0.0, 1.0, <float> (13.9996), 0.0, 0.0, 23.0]
     object.E[1] = 2.0 * ElectronMass / (<float> (83.798) * AMU)
     # EOBY at low energy 0-3, EOBY for shells 4-10
-    EOBY[0:11] = [10.0, 30.0, 60.0, 100., 175.0, 180.0, 250.0, <float> (1678.4), <float> (1730.9), 1921.0,
+    object.EOBY[0:11] = [10.0, 30.0, 60.0, 100., 175.0, 180.0, 250.0, <float> (1678.4), <float> (1730.9), 1921.0,
                   <float> (14327.26)]
 
     # AUGER AND FLUORESCENCE DATA

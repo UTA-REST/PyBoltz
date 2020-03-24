@@ -1,3 +1,5 @@
+![]https://github.com/UTA-REST/PyBoltz/.github/workflows/pythonapp.yml/badge.svg)
+
 # PyBoltz
 This software package is a translation of the Fortran based Magboltz code (Biagi, 2001) into Cython. This project was built to allow for more productive work to be done with magboltz.
 

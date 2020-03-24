@@ -25,6 +25,8 @@ jobs:
         python -m pip install --upgrade pip numpy==1.16.1 cython 
     - name: Run PyBoltz
       run: |
-        python ./src/Cython/Setup_npy.py
-        source ./src/Cython/setup.sh
-        python ./src/Examples/Test_PyBoltz_NoWrapper.py
+        cd src/Cython/
+        python Setup_npy.py
+        source setup.sh
+        cd ../Examples/
+        python Test_PyBoltz_NoWrapper.py

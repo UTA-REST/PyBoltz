@@ -6,6 +6,7 @@ import sys
 cimport GasUtil
 from Gas cimport Gas
 from cython.parallel import prange
+import os
 
 sys.path.append('../hdf5_python')
 import cython
@@ -18,7 +19,7 @@ cdef void Gas3(Gas*object):
     """
     This function is used to calculate the needed momentum cross sections for Helium4 gas.
     """
-    gd = np.load('gases.npy').item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy")).item()
     cdef double XEN[144], YEM[144], YEL[144], YEPS[144], XION[90], YION[90], YINC[90], X23S[139], Y23S[139], X21S[128], Y21S[128], X23P[128], Y23P[128]
     cdef double X21P[125], Y21P[125], X33S[106], Y33S[106], X31S[87], Y31S[87], X33P[91], Y33P[91], X33D[108], Y33D[108], X31D[94], Y31D[94]
     cdef double X31P[114], Y31P[114], X43S[59], Y43S[59], X41S[55], Y41S[55], X43P[76], Y43P[76], X43D[65], Y43D[65], X41D[53], Y41D[53]

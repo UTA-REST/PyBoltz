@@ -8,7 +8,6 @@ print(sys.path)
 from PyBoltz import PyBoltz
 import numpy as np
 # Setup gases
-exec(Path("../Cython/Setup_npy.py").read_text())
 
 
 CF4 = 1

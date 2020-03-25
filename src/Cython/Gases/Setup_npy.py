@@ -1,5 +1,5 @@
 from typing import List, Any, Union
-
+import os
 import numpy as np
 '''Script used to set up the cross section for each gas in PyBoltz.'''
 gd = {'data': 'file'}
@@ -17760,4 +17760,4 @@ gd['gas25/XEXC1'] = XEXC1G25
 gd['gas25/YEXC1'] = YEXC1G25
 gd['gas25/EnergyLevels'] = EnergyLevelsG25
 
-np.save("gases", gd)
+np.save(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases"), gd)

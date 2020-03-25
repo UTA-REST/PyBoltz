@@ -6,7 +6,7 @@ import sys
 from Gas cimport Gas
 from cython.parallel import prange
 cimport GasUtil
-
+import os
 sys.path.append('../hdf5_python')
 import cython
 
@@ -18,7 +18,7 @@ cdef void Gas14(Gas*object):
     """
     This function is used to calculate the needed momentum cross sections for H2O gas.
     """
-    gd = np.load('gases.npy').item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy")).item()
 
     cdef double XEL[159], YEL[159], XMT[156], YMT[156], XEPS[156], YEPS[156], XVIB1[17], YVIB1[17], XVIB2[18], YVIB2[18], XVIB3[12], YVIB3[12],
     cdef double XION[55], YIONC[55], YIONG[55], XION1[31], YION1[31], XION2[28], YION2[28], XION3[28], YION3[28], XION4[26], YION4[26], XION5[25],

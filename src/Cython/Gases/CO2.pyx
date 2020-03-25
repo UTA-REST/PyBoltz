@@ -6,6 +6,7 @@ import sys
 from Gas cimport Gas
 from cython.parallel import prange
 cimport GasUtil
+import os
 
 sys.path.append('../hdf5_python')
 import cython
@@ -18,7 +19,7 @@ cdef void Gas12(Gas*object):
     """
     This function is used to calculate the needed momentum cross sections for CO2 gas.
     """
-    gd = np.load('gases.npy').item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy")).item()
     cdef double XEN[158], YMOM[158], YEL[158], YVBMOM[158], YVBEL[158], YEPS[158], XION1[63], YION1[63], XION2[66], YION2[66], XION3[66],
     cdef double YION3[66], XION4[41], YION4[41], XION5[41], YION5[41], XION6[40], YION6[40], XION7[37], YION7[37], XION8[30], YION8[30], XION9[27],
     cdef double YION9[27], XATT[68], YATT[68], XV2[17], YV2[17], X2V2[19], Y2V2[19], XV1[26], YV1[26], X3V2[11], Y3V2[11], XV3[11]

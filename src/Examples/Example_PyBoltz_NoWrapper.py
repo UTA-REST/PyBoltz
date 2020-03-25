@@ -8,7 +8,6 @@ warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 from PyBoltz import PyBoltz
 import numpy as np
 # Setup gases
-exec(Path("../Cython/Setup_npy.py").read_text())
 
 CF4 = 1
 He4 = 3

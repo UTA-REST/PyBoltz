@@ -4,7 +4,7 @@ import sys
 from Gas cimport Gas
 import numpy as np
 cimport numpy as np
-
+import os
 sys.path.append('../hdf5_python')
 import cython
 
@@ -15,7 +15,7 @@ cdef void Gas2(Gas *object):
     '''
     This function is used to calculate the needed momentum cross sections for Argon gas.
     '''
-    gd = np.load('gases.npy').item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy")).item()
     cdef double APOL, AA, DD, FF, A1, ElectronMass2, API, A0, RY, BBCONST, CONST, AM2, C, PSCALE, AUGL3, AUGL2, AUGL1, AUGK
     cdef int N_Ionization, N_Attachment, N_Inelastic, N_Null, NBREM, NDATA, NEPSI, NIDATA, N_Ionization2, N_Ionization3, NKSH, NL1S, NL2S, NL3S, N1S5, NIS4, NIS3, NIS2,N1S4=79,N1S3=70,N1S2=70
     cdef int N2P10, N2P9, N2P8, N2P7, N2P6, N2P5, N2P4, N2P3, N2P2, N2P1, N3D6, N3D5, N3D3, N3D4P, N3D4, N3D1PP, N2S5, N3D1P

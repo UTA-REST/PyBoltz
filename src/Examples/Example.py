@@ -4,9 +4,6 @@ import time
 from pathlib import Path
 from PyBoltzRun import *
 
-# Setup gases 
-exec(Path("../Cython/Setup_npy.py").read_text())
-
 # Set up helper object
 PBRun=PyBoltzRun()
 

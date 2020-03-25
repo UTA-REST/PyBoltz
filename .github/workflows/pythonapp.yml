@@ -23,14 +23,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip numpy==1.16.1 cython git+https://github.com/UTA-REST/ArXe_plus_anything
-    - name: Test Build
+    - name: Run Pytest
       run: |
         cd src/Cython/
         source setup.sh
-        cd ../Examples/
-        python Example_PyBoltz_NoWrapper.py
-    - name: Run Pytest
-      run: |
+        cd ../../test
         pip install pytest
-        cd test/
         pytest

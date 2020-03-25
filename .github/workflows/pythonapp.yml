@@ -22,7 +22,7 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip numpy==1.16.1 cython 
+        python -m pip install --upgrade pip numpy==1.16.1 cython git+https://github.com/UTA-REST/ArXe_plus_anything
     - name: Test Build
       run: |
         cd src/Cython/

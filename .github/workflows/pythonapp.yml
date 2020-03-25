@@ -31,5 +31,6 @@ jobs:
         python Example_PyBoltz_NoWrapper.py
     - name: Run Pytest
       run: |
+        pip install pytest
         cd test/
         pytest

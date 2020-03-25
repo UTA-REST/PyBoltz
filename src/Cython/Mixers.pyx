@@ -1,6 +1,6 @@
 from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt
-from Gasmix cimport Gasmix
+from PyGasMix.Gasmix cimport Gasmix
 from Ang cimport Ang
 import sys
 import cython

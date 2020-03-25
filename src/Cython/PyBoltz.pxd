@@ -2,7 +2,7 @@ cimport numpy as np
 import math
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
-from Gasmix cimport Gasmix
+from PyGasMix.Gasmix cimport Gasmix
 
 cdef double drand48(double dummy)
 

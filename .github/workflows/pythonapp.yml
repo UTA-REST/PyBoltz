@@ -22,8 +22,8 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip numpy==1.16.1 cython git+https://github.com/UTA-REST/ArXe_plus_anything setuptools
-        python -m pip install --upgrade  git+https://github.com/UTA-REST/GasMix --user
+        python -m pip install --upgrade pip numpy==1.16.1 cython git+https://github.com/UTA-REST/ArXe_plus_anything 
+        python -m pip install --upgrade setuptools git+https://github.com/UTA-REST/GasMix --user
 
     - name: Test Build
       run: |

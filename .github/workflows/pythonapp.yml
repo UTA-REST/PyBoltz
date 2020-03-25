@@ -26,7 +26,10 @@ jobs:
     - name: Test Build
       run: |
         cd src/Cython/
-        python Setup_npy.py
         source setup.sh
         cd ../Examples/
-        python Test_PyBoltz_NoWrapper.py
+        python Example_PyBoltz_NoWrapper.py
+    - name: Run Pytest
+      run: |
+        cd test/
+        pytest

@@ -9,7 +9,7 @@ import Monte
 import Townsend
 from Townsend import *
 from Monte import *
-from Gasmix cimport Gasmix
+from PyGasMix.Gasmix cimport Gasmix
 
 
 

@@ -15,14 +15,15 @@ Cython's static typing improves the speed of python code by about a hundred time
 ### Setting up.
 To be able to run this project you will need python3+, cython, and numpy installed. Our setup has python 3.6.7, Cython 0.29.3, and numpy 1.16.1. 
 
-### Gases cross section database.
-Before building the code make sure to run the following command in the Cython directory to get the gases.npy file made, as this file has all the cross section values.
+### Gasmix module.
+Before building the code make sure to run the following command to install the PyGasMix module.
+
 ```
-$ python3 Setup_npy.py
+$ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/GasMix --user
 ```
 
 ### Building.
-To build the code clone this project and run the following command in the Cython directory. This should compile all of the Cython and add the path to your PYTHONPATH so you can access the libraries for anywhere. This will take a few minutes the first time.
+To build the code clone this project and run the following command in the Cython directory. This should compile all of the Cython and add the path to your PYTHONPATH so you can access the libraries from anywhere. This will take a few minutes the first time.
 ```
 $ source setup.sh
 ```
@@ -117,6 +118,19 @@ The current PyBoltz version has the following gases. Please note that the number
 * **Deuterium** Gas # 22.
 * **DME** Gas # 25.
 * **XenonMert** Gas # 61 (This gas requires extra parameters, check /Examples/Test_PyBoltz_mert.py).
+
+## Testing
+To be able to run the tests for this module, you will need to have pytest installed on your machine. Also, you need to run the following to install the Testing Data package. 
+```
+$ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/PyBoltz_Test_Data --user
+```
+
+
+After doing so, go to the test directory and run the following. 
+```
+$ pytest
+```
+This will run all the tests. If you are intrested in a single test, add the name of the testing python file to the end of the above command. 
 
 
 [Documentaion...](https://uta-rest.github.io/PyBoltz-Documentation/html/).

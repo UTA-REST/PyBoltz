@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  Testing:
 
     runs-on: ubuntu-latest
 
@@ -22,11 +22,20 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip numpy==1.16.1 cython 
+        python -m pip install --upgrade pip numpy==1.16.1 cython git+https://github.com/UTA-REST/ArXe_plus_anything 
+        python -m pip install --upgrade setuptools git+https://github.com/UTA-REST/GasMix --user
+        python -m pip install --upgrade  git+https://github.com/UTA-REST/PyBoltz_Test_Data --user
+
     - name: Test Build
       run: |
         cd src/Cython/
-        python Setup_npy.py
         source setup.sh
         cd ../Examples/
-        python Test_PyBoltz_NoWrapper.py
+        python Example_PyBoltz_NoWrapper.py
+    - name: Run Pytest
+      run: |
+        cd src/Cython/
+        source setup.sh
+        cd ../../test
+        pip install pytest
+        pytest

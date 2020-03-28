@@ -182,6 +182,10 @@ cdef class PyBoltz:
         self.Random_Seed = 54217137
         self.Console_Output_Flag = 1
         self.MeanCollisionTime = 0.0
+        self.AlphaSST = 0.0
+        self.AlphaSSTErr = 0.0
+        self.AttachmentSST = 0.0
+        self.AttachmentSSTErr = 0.0
         self.ReducedIonization = 0.0
         self.ReducedAttachment = 0.0
         self.Steady_State_Threshold = 40.0

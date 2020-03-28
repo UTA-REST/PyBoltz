@@ -21,6 +21,8 @@ Before building the code make sure to run the following command to install the P
 ```
 $ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/GasMix --user
 ```
+For more information about the PyGasMix module check the following repository.
+[PyGasMix](https://github.com/UTA-REST/GasMix).
 
 ### Building.
 To build the code clone this project and run the following command in the Cython directory. This should compile all of the Cython and add the path to your PYTHONPATH so you can access the libraries from anywhere. This will take a few minutes the first time.
@@ -120,7 +122,7 @@ The current PyBoltz version has the following gases. Please note that the number
 * **XenonMert** Gas # 61 (This gas requires extra parameters, check /Examples/Test_PyBoltz_mert.py).
 
 ## Testing
-To be able to run the tests for this module, you will need to have pytest installed on your machine. Also, you need to run the following to install the Testing Data package. 
+To be able to run the tests for this module, you will need to have pytest installed on your machine. Also, you need to run the following to install the testing data package. 
 ```
 $ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/PyBoltz_Test_Data --user
 ```
@@ -132,5 +134,9 @@ $ pytest
 ```
 This will run all the tests. If you are intrested in a single test, add the name of the testing python file to the end of the above command. 
 
+For more information on the testing data package, check the following repository. 
+[Testing Data Package](https://github.com/UTA-REST/PyBoltz_Test_Data).
 
+
+## Documentaion link
 [Documentaion...](https://uta-rest.github.io/PyBoltz-Documentation/html/).

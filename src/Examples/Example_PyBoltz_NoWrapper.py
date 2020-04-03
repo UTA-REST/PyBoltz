@@ -46,7 +46,7 @@ Object.Enable_Penning = 0
 Object.Enable_Thermal_Motion=1
 Object.Max_Electron_Energy = 0.0
 # Set the gas's with there given number
-Object.GasIDs=[15,0,0,0,0,0]
+Object.GasIDs=[107,0,0,0,0,0]
 # Set the gas fractions
 Object.GasFractions=[100,0,0,0,0,0]
 # Set the tempature

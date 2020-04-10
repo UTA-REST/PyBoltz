@@ -430,7 +430,6 @@ cpdef run(PyBoltz Object):
                 Object.DiffusionX = 5e15 * SumXX / ST2
                 DiffXXPerSample[iSample] = 5.0e15 * (SumXX - SumXX_LastSample) / (ST2 - ST2_LastSample)
                 DiffYYPerSample[iSample] = 5.0e15 * (SumYY - SumYY_LastSample) / (ST2 - ST2_LastSample)
-                print(SumXX, SumYY,  SumXX_LastSample, SumYY_LastSample, ST2, ST2_LastSample)
             else:
                 DiffXXPerSample[iSample] = 0.0
                 DiffYYPerSample[iSample] = 0.0

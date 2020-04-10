@@ -79,7 +79,6 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
     cdef double X2P1[15], Y2P1[15], YP2P1[15],
     cdef int IOFFN[50], IOFFION[12]
     cdef double Z54T[25], EBRM[25],temp[183]
-
     XEN = gd['gas7/XEN']
     YMOM = gd['gas7/YMOM']
     XEL = gd['gas7/XEL']

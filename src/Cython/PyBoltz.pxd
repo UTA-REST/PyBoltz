@@ -397,3 +397,7 @@ cdef class PyBoltz:
         '''Array that adds the ionisation collision frequencies at energy step I. Used in the Friedland estimation of Alpha.'''
         double AttCollisionFreq[4000]
         '''Array that adds the attachment collision frequencies at energy step I. Used in the Friedland estimation of Alpha.'''
+
+        # For the swarm
+        int Swarm
+        double SwarmX[100],SwarmY[100],SwarmZ[100],SwarmT[100],SwarmE[100]

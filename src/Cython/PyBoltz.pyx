@@ -102,6 +102,15 @@ cdef class PyBoltz:
         memset(self.NC0, 0, 6 * 290 * sizeof(double))
         memset(self.ElasticCrossSection, 0, 4000 * sizeof(double))
         memset(self.AttachmentSectionSum, 0, 4000 * sizeof(double))
+        
+        # adding for swarm arrays
+        memset(self.SwarmX,0, 100 * sizeof(double))
+        memset(self.SwarmY,0, 100 * sizeof(double))
+        memset(self.SwarmZ,0, 100 * sizeof(double))
+        memset(self.SwarmT,0, 100 * sizeof(double))
+        memset(self.SwarmE,0, 100 * sizeof(double))
+        self.Swarm   = 0
+
         # Input parameters / settings
         self.Enable_Thermal_Motion = 0.0
         self.MaxNumberOfCollisions = 0.0

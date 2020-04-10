@@ -1,13 +1,11 @@
 import sys
 import warnings
-from pathlib import Path
 import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
-#print(sys.path)
+print(sys.path)
 from PyBoltz import PyBoltz
 import numpy as np
-# Setup gases
 
 CF4 = 1
 He4 = 3
@@ -36,36 +34,63 @@ Object = PyBoltz()
 import time
 t1 =time.time()
 
-# Set the number of gases
+Args = sys.argv
+
+Scattering = int(Args[1])
+efield     = float(Args[2])
+SEED       = int(Args[3])
+
+a = str(Scattering)+"-"
+b = str(efield)+"-"
+c = str(SEED)+".npy"
+
+F_NAME = a+b+c
+F_PATH = "/n/holystore01/LABS/guenette_lab/Users/amcdonald/Xenon_Dev/Outputs_MERT/"
+
+
+# Set the number of gases                                                                                                                                                           
 Object.NumberOfGases =1
-# Set the number of collisons
-Object.MaxNumberOfCollisions =1*40000000.0
-# Set penning
+# Set the number of collisons                                                                                                                                                       
+Object.MaxNumberOfCollisions = 1e10
+# Set penning                                                                                                                                                                       
 Object.Enable_Penning = 0
-# Calculate the electron energy
-Object.Enable_Thermal_Motion=0
+# Calculate the electron energy                                                                                                                                                     
+Object.Enable_Thermal_Motion=1
 Object.Max_Electron_Energy = 0.0
-# Set the gas's with there given number
-Object.GasIDs=[7,0,0,0,0,0]
-# Set the gas fractions
+# Set the gas's with there given number                                                                                                                                             
+Object.GasIDs=[107,0,0,0,0,0]
+# Set the gas fractions                                                                                                                                                             
 Object.GasFractions=[100,0,0,0,0,0]
-# Set the tempature
+# Set the tempature                                                                                                                                                                 
 Object.TemperatureCentigrade = float(23)
-# Set the pressure
+# Set the pressure                                                                                                                                                                  
 Object.Pressure_Torr = 750.062
-# Set the eletric field
-Object.EField = 50
-# Set the magnetic field and angle
+# Set the eletric field                                                                                                                                                             
+Object.EField = efield
+# Set the magnetic field and angle                                                                                                                                                  
 Object.BField_Mag =0
 Object.BField_Angle =0
 Object.Console_Output_Flag = 1
-Object.Steady_State_Threshold = 40
-Object.Which_Angular_Model = 2
-Object.Swarm = 1
+Object.Which_Angular_Model = Scattering
+
+Object.RandomSeed = SEED
+Object.Swarm      = 1
+
 
 Object.Start()
 
-print(Object.SwarmZ)
+INFO = [
+Object.SwarmX,
+Object.SwarmY,
+Object.SwarmZ,
+Object.SwarmT,
+Object.SwarmE]
+
+
+INFO = np.array(INFO)
+np.save(F_PATH+F_NAME,INFO)
+
+
 t2 =time.time()
 
 print("************************************************")
@@ -102,39 +127,11 @@ print("Longitudinal diffusion [mum/cm**0.5] = ", round(Object.LongitudinalDiffus
 print("----------------------------------------------------")
 print("Longitudinal diffusion error [%]     = ", round(Object.LongitudinalDiffusion1Error,3))
 print("----------------------------------------------------")
-print("Diffusion X [cm**2/s]       = ", round(Object.DiffusionX,3))
-print("----------------------------------------------------")
-print("Diffusion X error [%]     = ", round(Object.ErrorDiffusionX,3))
-print("----------------------------------------------------")
-print("Diffusion Y [cm**2/s]       = ", round(Object.DiffusionY,3))
-print("----------------------------------------------------")
-print("Diffusion Y error [%]     = ", round(Object.ErrorDiffusionY,3))
-print("----------------------------------------------------")
-print("Diffusion Z [cm**2/s]       = ", round(Object.DiffusionZ,3))
-print("----------------------------------------------------")
-print("Diffusion Z error [%]     = ", round(Object.ErrorDiffusionZ,3))
-print("----------------------------------------------------")
-print("Diffusion YZ [cm**2/s]       = ", round(Object.DiffusionYZ,3))
-print("----------------------------------------------------")
-print("Diffusion YZ error [%]     = ", round(Object.ErrorDiffusionYZ,3))
-print("----------------------------------------------------")
-print("Diffusion XY [cm**2/s]       = ", round(Object.DiffusionXY,3))
-print("----------------------------------------------------")
-print("Diffusion XY error [%]     = ", round(Object.ErrorDiffusionXY,3))
-print("----------------------------------------------------")
-print("Diffusion XZ [cm**2/s]       = ", round(Object.DiffusionXZ,3))
-print("----------------------------------------------------")
-print("Diffusion XZ error [%]     = ", round(Object.ErrorDiffusionXZ,3))
-print("----------------------------------------------------")
 print("Mean electron energy [eV]            = ", round(Object.MeanElectronEnergy,3))
 print("----------------------------------------------------")
 print("Mean electron energy error [%]       = ", round(Object.MeanElectronEnergyError,3))
 print("----------------------------------------------------")
-print("Mean Collision Time [PicoSeconds]    = ", round(Object.MeanCollisionTime,3))
-print("----------------------------------------------------")
-print("Ionisation Rate [1/cm]               = ", round(Object.IonisationRate,3))
-print("----------------------------------------------------")
-print("Attachment Rate [1/cm]               = ", round(Object.AttachmentRate,3))
+print("Mean Collision Time [PicoSeconds]            = ", round(Object.MeanCollisionTime,3))
 print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")

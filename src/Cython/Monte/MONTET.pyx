@@ -58,6 +58,8 @@ cpdef run(PyBoltz Object):
     cdef double  EBefore, Sqrt2M, TwoM, AP,  GasVelX, GasVelY, GasVelZ, VelXAfter, VelYAfter, VelZAfter, VelAfter, COMEnergy, Test1, Test2, Test3, VelocityInCOM, VelBeforeM1
     cdef double T2, A, B, VelocityBefore,  S1, EI,  EXTRA, RandomNum, RandomNum2, CosTheta, EpsilonOkhr,  Phi, SinPhi, CosPhi, ARG1, D, Q, CosZAngle, U,  SinZAngle, VXLab, VYLab, VZLab
     cdef double SumV2_Samples, SumV_Samples, SumE2_Samples, SumE_Samples, SumDXX_Samples, SumDYY_Samples, SumDZZ_Samples, SumDXX2_Samples, SumDYY2_Samples, SumDZZ2_Samples, Attachment, Ionization, EAfter
+    cdef int Swarm_Index = 0
+    cdef double Total_Coll = 0.0
     I = 0
     ST1 = 0.0
     ST2 = 0.0
@@ -170,6 +172,7 @@ cpdef run(PyBoltz Object):
     # We run collisions in NumSamples batches,
     # evenly distributed between its MaxNumberOfCollisions collisions.
     CollisionsPerSample = <long long> (Object.MaxNumberOfCollisions / Object.Num_Samples)
+    SwarmCollision = <long long> CollisionsPerSample*6/100
     for iSample in range(int(Object.Num_Samples)):
         for iCollision in range(int(CollisionsPerSample)):
             while True:
@@ -340,7 +343,14 @@ cpdef run(PyBoltz Object):
                 SumVY += DY**2
             Object.TimeSum = Object.TimeSum + T
 
-
+            Total_Coll += 1
+            if ((Total_Coll)%(SwarmCollision))==0 and iSample>3 and  Object.Swarm==1:
+                Object.SwarmX[Swarm_Index] = Object.X
+                Object.SwarmY[Swarm_Index] = Object.Y
+                Object.SwarmZ[Swarm_Index] = Object.Z
+                Object.SwarmT[Swarm_Index] = Object.TimeSum
+                Object.SwarmE[Swarm_Index] = EBefore
+                Swarm_Index +=1
 
             # Figure out which time bin we're in, 299 is overflow; record collision
             #  at that time

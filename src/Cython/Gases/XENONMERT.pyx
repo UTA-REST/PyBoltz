@@ -12,11 +12,8 @@ import os
 sys.path.append('../hdf5_python')
 import cython
 
-@cython.cdivision(True)
-@cython.boundscheck(False)
-@cython.wraparound(False)
-@cython.fast_getattr(True)
-def MERT( epsilon, A, D, F, A1):
+
+def MERT(epsilon, A, D, F, A1):
     a0 = 1  # 5.29e-11  # in m
     hbar = 1  # 197.32697*1e-9 # in eV m
     m = 1  # 511e3     # eV/c**2
@@ -34,7 +31,7 @@ def MERT( epsilon, A, D, F, A1):
 
     return Qm * (5.29e-11) ** 2 * 1e20, Qt * (5.29e-11) ** 2 * 1e20
 
-def WEIGHT_Q( eV, Qm, BashBoltzQm, Lamda, eV0):
+def WEIGHT_Q(eV, Qm, BashBoltzQm, Lamda, eV0):
     WeightQm = (1 - np.tanh(Lamda * (eV - eV0))) / 2
     WeightBB = (1 + np.tanh(Lamda * (eV - eV0))) / 2
 
@@ -43,20 +40,22 @@ def WEIGHT_Q( eV, Qm, BashBoltzQm, Lamda, eV0):
     NewQm = NewBashQm + NewMERTQm
     return NewQm
 
-def HYBRID_X_SECTIONS( MB_EMTx, MB_EMTy, MB_ETx, MB_ETy, A, D, F, A1, Lambda, eV0):
+def HYBRID_X_SECTIONS(MB_EMTx, MB_EMTy, MB_ETx, MB_ETy, A, D, F, A1, Lambda, eV0):
     Qm_MERT, Qt_MERT = MERT(MB_EMTx, A, D, F, A1)
     New_Qm = WEIGHT_Q(MB_EMTx, Qm_MERT, MB_EMTy, Lambda, eV0)
     Qm_MERT, Qt_MERT = MERT(MB_ETx, A, D, F, A1)
     New_Qt = WEIGHT_Q(MB_ETx, Qt_MERT, MB_ETy, Lambda, eV0)
 
     return MB_EMTx, New_Qm, MB_ETx, New_Qt
-
-
-cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambda,double EV0):
+@cython.cdivision(True)
+@cython.boundscheck(False)
+@cython.wraparound(False)
+@cython.fast_getattr(True)
+cdef void Gas61(Gas*object, double AA, double D, double F, double A1, double Lambda, double EV0):
     """
     This function is used to calculate the needed momentum cross sections for Xenon gas.
     """
-    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy")).item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)), "gases.npy")).item()
     cdef double EN, GAMMA1, GAMMA2, BETA, BETA2, ElasticCrossSectionA, QMOM, A, B, X1, X2, C, PQ[3], TEMP, Q456, QCORR, QTEMP, QEXC
     cdef double XEN[182], YMOM[182], XEL[153], YEL[153], XEPS[182], YEPS[182]
     cdef double XION[76], YION[76], YINC[76], YIN1[76], XIN2[54], YIN2[54],
@@ -78,7 +77,7 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
     cdef double X2P3[14], Y2P3[14], YP2P3[14], X2P2[14], Y2P2[14], YP2P2[14],
     cdef double X2P1[15], Y2P1[15], YP2P1[15],
     cdef int IOFFN[50], IOFFION[12]
-    cdef double Z54T[25], EBRM[25],temp[183]
+    cdef double Z54T[25], EBRM[25], temp[183]
     XEN = gd['gas7/XEN']
     YMOM = gd['gas7/YMOM']
     XEL = gd['gas7/XEL']
@@ -188,32 +187,35 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
     YP2P1 = gd['gas7/YP2P1']
     Z54T = gd['gas7/Z54T']
     EBRM = gd['gas7/EBRM']
+    XENp = np.zeros(182)
+    YMOMp = np.zeros(182)
+    XELp = np.zeros(153)
+    YELp = np.zeros(153)
+    for i in range(182):
+        XENp[i] = XEN[i]
+        YMOMp[i] = YMOM[i]
+    for i in range(153):
+        XELp[i]=XEL[i]
+        YELp[i]=YEL[i]
 
 
-    XEN[0] = 1e-9
-    XEL[0] = 1e-9
+    XENp[0] = 1e-9
+    XELp[0] = 1e-9
     if AA != 0 and F != 0 and D != 0 and A1 != 0 and Lambda != 0 and EV0 != 0:
-        for i in range(182):
-            XEN[i], YMOM[i], temp[i], temp[i] = HYBRID_X_SECTIONS(XEN[i],
-                                                                YMOM[i],
-                                                                temp[i],
-                                                                temp[i], AA,
-                                                                D, F, A1,
-                                                                Lambda, EV0)
-            if YMOM[i]!=YMOM[i]:
-                YMOM[i] = 0
-        YMOM[0] = YMOM[1]*abs((YMOM[1]-YMOM[2])/(XEN[1]-XEN[2]))
+        XENp, YMOMp, XELp, YELp = HYBRID_X_SECTIONS(XENp,
+                          YMOMp,
+                          XELp,
+                          YELp, AA,
+                          D, F, A1,
+                          Lambda, EV0)
 
-        for i in range(153):
-            XEN[i], temp[i], XEL[i], YEL[i] = HYBRID_X_SECTIONS(temp[i],
-                                                                temp[i],
-                                                                XEL[i],
-                                                                YEL[i], AA,
-                                                                D, F, A1,
-                                                                Lambda, EV0)
-            if YEL[i]!=YEL[i]:
-                YEL[i] = 0
 
+    for i in range(153):
+        XEL[i] = XELp[i]
+        YEL[i] = YELp[i]
+    for i in range(182):
+        XEN[i] = XENp[i]
+        YMOM[i] = YMOMp[i]
 
     #   BORN BETHE VALUES FOR IONISATION
     CONST = 1.873884e-20
@@ -298,9 +300,11 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
     object.E = [0.0, 1.0, <float> (12.129843), 0.0, 0.0, <float> (23.7)]
     object.E[1] = 2.0 * ElectronMass / (<float> (131.30) * AMU)
     object.EOBY[0:12] = [8.7, 20.0, 38.0, 400., 410., 750.0, 800.0, 920.0, 3850., 4100., 4400., 34561.]
-    object.IonizationEnergy[0:12] = [<float> (12.129843), <float> (33.105), <float> (64.155), <float> (676.4), <float> (689.0),
-                         <float> (940.6), <float> (1002.1), <float> (1148.7), <float> (4786.), <float> (5107.), 5453.,
-                         34561.]
+    object.IonizationEnergy[0:12] = [<float> (12.129843), <float> (33.105), <float> (64.155), <float> (676.4),
+                                     <float> (689.0),
+                                     <float> (940.6), <float> (1002.1), <float> (1148.7), <float> (4786.),
+                                     <float> (5107.), 5453.,
+                                     34561.]
     # FLUORESCENCE DATA
     object.NC0[0:12] = [0, 1, 2, 4, 4, 7, 7, 8, 9, 9, 10, 17]
     object.EC0[0:12] = [0.0, 5.0, 10.0, 593.7, 604.0, 782.2, 839.7, 911.4, 4494.3, 4774.8, 5015.2, 33900]
@@ -320,18 +324,18 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
                 break
 
     object.EnergyLevels[0:51] = [np.float32(8.3153), np.float32(8.4365), np.float32(9.4472), np.float32(9.5697),
-                        np.float32(9.5802), np.float32(9.6856), np.float32(9.7207), np.float32(9.7893),
-                        np.float32(9.8211), np.float32(9.8904), np.float32(9.9171), np.float32(9.9335),
-                        np.float32(9.9431), np.float32(9.9588), np.float32(10.0391), np.float32(10.1575),
-                        np.float32(10.2200), np.float32(10.4010), np.float32(10.5621), np.float32(10.5932),
-                        np.float32(10.9016), np.float32(10.9576), np.float32(10.9715), np.float32(10.9788),
-                        np.float32(11.0547), np.float32(11.0691), np.float32(11.1412), np.float32(11.1626),
-                        np.float32(11.2742), np.float32(11.4225), np.float32(11.4951), np.float32(11.5829),
-                        np.float32(11.6072), np.float32(11.6828), np.float32(11.7395), np.float32(11.7521),
-                        np.float32(11.8068), np.float32(11.8403), np.float32(11.8518), np.float32(11.8778),
-                        np.float32(11.8917), np.float32(11.9082), np.float32(11.9177), np.float32(11.9416),
-                        np.float32(11.9550), np.float32(11.9621), np.float32(11.9789), np.float32(11.9886),
-                        np.float32(11.9939), np.float32(12.0), np.float32(0.0)]
+                                 np.float32(9.5802), np.float32(9.6856), np.float32(9.7207), np.float32(9.7893),
+                                 np.float32(9.8211), np.float32(9.8904), np.float32(9.9171), np.float32(9.9335),
+                                 np.float32(9.9431), np.float32(9.9588), np.float32(10.0391), np.float32(10.1575),
+                                 np.float32(10.2200), np.float32(10.4010), np.float32(10.5621), np.float32(10.5932),
+                                 np.float32(10.9016), np.float32(10.9576), np.float32(10.9715), np.float32(10.9788),
+                                 np.float32(11.0547), np.float32(11.0691), np.float32(11.1412), np.float32(11.1626),
+                                 np.float32(11.2742), np.float32(11.4225), np.float32(11.4951), np.float32(11.5829),
+                                 np.float32(11.6072), np.float32(11.6828), np.float32(11.7395), np.float32(11.7521),
+                                 np.float32(11.8068), np.float32(11.8403), np.float32(11.8518), np.float32(11.8778),
+                                 np.float32(11.8917), np.float32(11.9082), np.float32(11.9177), np.float32(11.9416),
+                                 np.float32(11.9550), np.float32(11.9621), np.float32(11.9789), np.float32(11.9886),
+                                 np.float32(11.9939), np.float32(12.0), np.float32(0.0)]
     for I in range(51, 250):
         object.EnergyLevels[I] = 0.0
 
@@ -349,8 +353,6 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
                 IOFFN[NL] = I
                 break
     object.EnergySteps = 4000
-
-
 
     for I in range(object.EnergySteps):
         EN = object.EG[I]
@@ -384,8 +386,10 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
         if object.WhichAngularModel == 2:
             object.PEIonizationCrossSection[0][I] = 0
         if EN >= object.IonizationEnergy[0]:
-            object.IonizationCrossSection[0][I] = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationG, YIN1, XION, BETA2, <float> (0.8061), CONST, object.DEN[I],
-                                                 C, AM2)
+            object.IonizationCrossSection[0][I] = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationG, YIN1, XION,
+                                                                                     BETA2, <float> (0.8061), CONST,
+                                                                                     object.DEN[I],
+                                                                                     C, AM2)
 
             # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
             # ENERGIES ABOVE 2 * IONISATION ENERGY
@@ -400,8 +404,10 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
         if object.WhichAngularModel == 2:
             object.PEIonizationCrossSection[1][I] = 0
         if EN >= object.IonizationEnergy[1]:
-            object.IonizationCrossSection[1][I] = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization2, YIN2, XIN2, BETA2, <float> (0.1133), CONST, object.DEN[I],
-                                                 C, AM2)
+            object.IonizationCrossSection[1][I] = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization2, YIN2, XIN2,
+                                                                                     BETA2, <float> (0.1133), CONST,
+                                                                                     object.DEN[I],
+                                                                                     C, AM2)
 
             # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
             # ENERGIES ABOVE 2 * IONISATION ENERGY
@@ -416,8 +422,10 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
         if object.WhichAngularModel == 2:
             object.PEIonizationCrossSection[2][I] = 0
         if EN >= object.IonizationEnergy[2]:
-            object.IonizationCrossSection[2][I] = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization3, YIN3, XIN3, BETA2, <float> (0.05496), CONST, object.DEN[I],
-                                                 C, AM2)
+            object.IonizationCrossSection[2][I] = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization3, YIN3, XIN3,
+                                                                                     BETA2, <float> (0.05496), CONST,
+                                                                                     object.DEN[I],
+                                                                                     C, AM2)
             # USE ANISOTROPIC SCATTERING FOR PRIMARY IONISATION ELECTRON FOR
             # ENERGIES ABOVE 2 * IONISATION ENERGY
             # ANISOTROPIC ANGULAR DISTRIBUTION SAME AS ELASTIC AT ENERGY OFF SET BY
@@ -426,25 +434,27 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
                 object.PEIonizationCrossSection[2][I] = object.PEElasticCrossSection[2][I - IOFFION[2]]
 
         Q456 = 0.0
-        if EN > <float>(106.35) :
-            TEMP = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization4, YIN4, XIN4, BETA2, <float>(0.03629), CONST, object.DEN[I], C, AM2)
+        if EN > <float> (106.35):
+            TEMP = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization4, YIN4, XIN4, BETA2, <float> (0.03629), CONST,
+                                                      object.DEN[I], C, AM2)
             if EN <= XIN4[N_Ionization4 - 1]:
                 Q456 = TEMP * 4.0 / 3.0
             else:
                 Q456 = TEMP
-        if EN > <float>(160.45) and EN <= XIN4[N_Ionization4 - 1] :
-            TEMP = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization5, YIN5, XIN5, BETA2, <float>(0.03629), CONST, object.DEN[I], C, AM2)
+        if EN > <float> (160.45) and EN <= XIN4[N_Ionization4 - 1]:
+            TEMP = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization5, YIN5, XIN5, BETA2, <float> (0.03629), CONST,
+                                                      object.DEN[I], C, AM2)
             if EN <= XIN5[N_Ionization5 - 1]:
                 Q456 += (TEMP * 5.0 / 3.0)
             else:
                 Q456 = TEMP
-        if EN > <float>(227.2) and EN <= XIN5[N_Ionization5 - 1] and EN <= XIN4[N_Ionization4 - 1]:
-            TEMP = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization6, YIN6, XIN6, BETA2, <float>(0.03629), CONST, object.DEN[I], C, AM2)
+        if EN > <float> (227.2) and EN <= XIN5[N_Ionization5 - 1] and EN <= XIN4[N_Ionization4 - 1]:
+            TEMP = GasUtil.CALIonizationCrossSectionX(EN, N_Ionization6, YIN6, XIN6, BETA2, <float> (0.03629), CONST,
+                                                      object.DEN[I], C, AM2)
             if EN <= XIN6[N_Ionization6 - 1]:
                 Q456 += (TEMP * 6.0 / 3.0)
             else:
                 Q456 = TEMP
-
 
         object.IonizationCrossSection[2][I] += Q456
 
@@ -539,7 +549,8 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
         if object.WhichAngularModel == 2:
             object.PEElasticCrossSection[4][I] = 0.0
         if EN > object.IonizationEnergy[0]:
-            object.Q[4][I] = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationG, YINC, XION, BETA2, 1.0, CONST, object.DEN[I], C, AM2)
+            object.Q[4][I] = GasUtil.CALIonizationCrossSectionX(EN, N_IonizationG, YINC, XION, BETA2, 1.0, CONST,
+                                                                object.DEN[I], C, AM2)
 
         # CORRECTION TO CHARGE STATE 1 2 3+4+5+6 X-SECTION FOR K L AND M SHELLS
         # CORRECTION GIVES TOTAL IONISATION EQUAL TO OSCILLATOR Sum
@@ -571,7 +582,7 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
 
         #1S4 F=0.260
         if EN > object.EnergyLevels[1]:
-            if EN <= X1S4[N1S4-1]:
+            if EN <= X1S4[N1S4 - 1]:
                 object.InelasticCrossSectionPerGas[1][I] = GasUtil.CALInelasticCrossSectionPerGas(EN, N1S4, Y1S4, X1S4)
             else:
                 object.InelasticCrossSectionPerGas[1][I] = <float> (0.260) / (object.EnergyLevels[1] * BETA2) * (
@@ -588,7 +599,7 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
 
         #1S2 F=0.183
         if EN > object.EnergyLevels[3]:
-            if EN <= X1S2[N1S2-1]:
+            if EN <= X1S2[N1S2 - 1]:
                 object.InelasticCrossSectionPerGas[3][I] = GasUtil.CALInelasticCrossSectionPerGas(EN, N1S2, Y1S2, X1S2)
             else:
                 object.InelasticCrossSectionPerGas[3][I] = <float> (0.183) / (object.EnergyLevels[3] * BETA2) * (
@@ -600,7 +611,8 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
         #P STATES
         #2P10
         if EN > object.EnergyLevels[4]:
-            object.InelasticCrossSectionPerGas[4][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P10, Y2P10, X2P10, 3)
+            object.InelasticCrossSectionPerGas[4][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N2P10, Y2P10, X2P10,
+                                                                                               3)
             if EN > (2 * object.EnergyLevels[4]):
                 object.PEInelasticCrossSectionPerGas[4][I] = object.PEElasticCrossSection[1][I - IOFFN[4]]
 
@@ -630,7 +642,8 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
 
         #3D6
         if EN > object.EnergyLevels[9]:
-            object.InelasticCrossSectionPerGas[9][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D6, Y3D6, X3D6, 1.5)
+            object.InelasticCrossSectionPerGas[9][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D6, Y3D6, X3D6,
+                                                                                               1.5)
             if EN > (2 * object.EnergyLevels[9]):
                 object.PEInelasticCrossSectionPerGas[9][I] = object.PEElasticCrossSection[1][I - IOFFN[9]]
 
@@ -649,13 +662,15 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
 
         #3D4!
         if EN > object.EnergyLevels[12]:
-            object.InelasticCrossSectionPerGas[12][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D4P, Y3D4P, X3D4P, 1.5)
+            object.InelasticCrossSectionPerGas[12][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D4P, Y3D4P, X3D4P,
+                                                                                                1.5)
             if EN > (2 * object.EnergyLevels[12]):
                 object.PEInelasticCrossSectionPerGas[12][I] = object.PEElasticCrossSection[1][I - IOFFN[12]]
 
         #3D3
         if EN > object.EnergyLevels[13]:
-            object.InelasticCrossSectionPerGas[13][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D3, Y3D3, X3D3, 1.5)
+            object.InelasticCrossSectionPerGas[13][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D3, Y3D3, X3D3,
+                                                                                                1.5)
             if EN > (2 * object.EnergyLevels[13]):
                 object.PEInelasticCrossSectionPerGas[13][I] = object.PEElasticCrossSection[1][I - IOFFN[13]]
 
@@ -667,13 +682,15 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
 
         #3D1!!
         if EN > object.EnergyLevels[15]:
-            object.InelasticCrossSectionPerGas[15][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D1PP, Y3D1PP, X3D1PP, 3)
+            object.InelasticCrossSectionPerGas[15][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D1PP, Y3D1PP,
+                                                                                                X3D1PP, 3)
             if EN > (2 * object.EnergyLevels[15]):
                 object.PEInelasticCrossSectionPerGas[15][I] = object.PEElasticCrossSection[1][I - IOFFN[15]]
 
         #3D1!
         if EN > object.EnergyLevels[16]:
-            object.InelasticCrossSectionPerGas[16][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D1P, Y3D1P, X3D1P, 1)
+            object.InelasticCrossSectionPerGas[16][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3D1P, Y3D1P, X3D1P,
+                                                                                                1)
             if EN > (2 * object.EnergyLevels[16]):
                 object.PEInelasticCrossSectionPerGas[16][I] = object.PEElasticCrossSection[1][I - IOFFN[16]]
 
@@ -701,7 +718,8 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
 
         #Sum 3P10+3P9+3P8+3P7+3P6+3P5
         if EN > object.EnergyLevels[20]:
-            object.InelasticCrossSectionPerGas[20][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3PSum, Y3P105, X3P105, 1)
+            object.InelasticCrossSectionPerGas[20][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N3PSum, Y3P105,
+                                                                                                X3P105, 1)
             if EN > (2 * object.EnergyLevels[20]):
                 object.PEInelasticCrossSectionPerGas[20][I] = object.PEElasticCrossSection[1][I - IOFFN[20]]
 
@@ -713,7 +731,8 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
 
         #Sum 4D6+4D3+4D4P+4D4+4D1PP+4D1P
         if EN > object.EnergyLevels[22]:
-            object.InelasticCrossSectionPerGas[22][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4DSum, Y4DSum, X4DSum, 3)
+            object.InelasticCrossSectionPerGas[22][I] = GasUtil.CALInelasticCrossSectionPerGasP(EN, N4DSum, Y4DSum,
+                                                                                                X4DSum, 3)
             if EN > (2 * object.EnergyLevels[22]):
                 object.PEInelasticCrossSectionPerGas[22][I] = object.PEElasticCrossSection[1][I - IOFFN[22]]
 

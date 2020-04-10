@@ -189,6 +189,9 @@ cdef void Gas61(Gas*object,double AA,double D, double F, double A1, double Lambd
     Z54T = gd['gas7/Z54T']
     EBRM = gd['gas7/EBRM']
 
+
+    XEN[0] = 1e-9
+    XEL[0] = 1e-9
     if AA != 0 and F != 0 and D != 0 and A1 != 0 and Lambda != 0 and EV0 != 0:
         for i in range(182):
             XEN[i], YMOM[i], temp[i], temp[i] = HYBRID_X_SECTIONS(XEN[i],

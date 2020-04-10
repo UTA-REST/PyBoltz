@@ -40,7 +40,7 @@ t1 =time.time()
 # Set the number of gases
 Object.NumberOfGases =1
 # Set the number of collisons
-Object.MaxNumberOfCollisions =40000000.0
+Object.MaxNumberOfCollisions =4*40000000.0
 # Set penning
 Object.Enable_Penning = 0
 # Calculate the electron energy

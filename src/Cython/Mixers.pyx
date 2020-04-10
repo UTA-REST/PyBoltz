@@ -398,7 +398,6 @@ cpdef MixerT(PyBoltz object):
         object.SqrtEnergy[i] = sqrt(object.E[i])
     object.SqrtEnergy[0] = sqrt(EnergyHalf)
 
-    object.MixObject = Gasmix()
     object.MixObject.InitWithInfo(object.GasIDs, object.InelasticCrossSectionPerGas, object.N_Inelastic,
                                   object.PenningFraction,
                                   object.E, object.SqrtEnergy,

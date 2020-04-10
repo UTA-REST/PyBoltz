@@ -69,8 +69,19 @@ Object.EField = efield
 Object.BField_Mag =0
 Object.BField_Angle =0
 Object.Console_Output_Flag = 1
+
 Object.Which_Angular_Model = Scattering
 
+
+# These paramaters are so the MERT resembles the pack cross section
+ExtraParameters = {}
+ExtraParameters['A'] = -6.741379310344827
+ExtraParameters['D'] = 496.8965517241379
+ExtraParameters['F'] = -534.4827586206897
+ExtraParameters['A1'] = 16
+ExtraParameters['Lambda'] = 3
+ExtraParameters['EV0'] = 0.75
+Object.SetExtraParameters(ExtraParameters)
 
 
 Object.Start()

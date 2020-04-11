@@ -245,7 +245,7 @@ cdef class PyBoltz:
             self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
             self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
 
-    def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
+    def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion, Swarm):
         """
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """
@@ -268,6 +268,9 @@ cdef class PyBoltz:
             else:
                 ELimFunc = EnergyLimits.EnergyLimitCT
                 MonteCarloFunc = Monte.MONTECT
+            if self.Swarm == 1:
+                ELimFunc = EnergyLimits.EnergyLimitT
+                MonteCarloFunc = Monte.SWARMT
         else:
             MixerFunc = Mixers.Mixer
             if BFieldMag == 0:
@@ -284,6 +287,11 @@ cdef class PyBoltz:
             else:
                 ELimFunc = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = Monte.MONTEC
+
+            if self.Swarm == 1:
+                ELimFunc = EnergyLimits.EnergyLimit
+                MonteCarloFunc = Monte.SWARM
+
         return [MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc]
 
     def SetExtraParameters(self, params):
@@ -310,7 +318,7 @@ cdef class PyBoltz:
 
         # Get the appropriate set of simulation functions given configuration keys
         MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc = self.GetSimFunctions(self.BField_Mag, self.BField_Angle,
-                                                                                 self.Enable_Thermal_Motion)
+                                                                                 self.Enable_Thermal_Motion, self.Swarm)
 
         # Set up the simulation
         Setups.Setup(self)

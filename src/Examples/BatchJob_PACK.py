@@ -21,14 +21,12 @@ Args = sys.argv
 
 Scattering = int(Args[1])
 efield     = float(Args[2])
-SEED       = int(Args[3])
 
 a = str(Scattering)+"-"
-b = str(efield)+"-"
-c = str(SEED)+".npy"
+b = str(efield)+".npy"
 
-F_NAME = a+b+c
-F_PATH = "/n/holystore01/LABS/guenette_lab/Users/amcdonald/Xenon_Dev/Outputs_SWARM/"
+F_NAME = a+b
+F_PATH = "/n/holystore01/LABS/guenette_lab/Users/amcdonald/Xenon_Dev/Outputs_PACK/"
 
 # Pack     = 107
 # mert     = 61
@@ -58,27 +56,49 @@ Object.BField_Mag =0
 Object.BField_Angle =0
 Object.Console_Output_Flag = 1
 Object.Steady_State_Threshold = 40
-Object.Which_Angular_Model = Scattering
+Object.Random_Seed = 54217137
+Object.Swarm = 0
 
-Object.RandomSeed = SEED
-Object.Swarm      = 1
+Object.Which_Angular_Model = Scattering
 
 
 Object.Start()
 
 INFO = [
-Object.SwarmX,
-Object.SwarmY,
-Object.SwarmZ,
-Object.SwarmT,
-Object.SwarmE]
+Object.GasFractions[1],
+Object.Pressure_Torr,
+Object.EField,
+Object.VelocityZ,
+Object.VelocityErrorZ,
+Object.TransverseDiffusion,
+Object.TransverseDiffusionError,
+Object.LongitudinalDiffusion,
+Object.LongitudinalDiffusionError,
+Object.TransverseDiffusion1,
+Object.TransverseDiffusion1Error,
+Object.LongitudinalDiffusion1,
+Object.LongitudinalDiffusion1Error,
+Object.MeanElectronEnergy,
+Object.MeanElectronEnergyError,
+# Ionzitation rate                                                                                                                                                                  
+#Object.IonisationRate,
+# Attachment rate                                                                                                                                                                   
+#Object.AttachmentRate,
+# steady state outputs                                                                                                                                                              
+#Object.ALPHA,
+#Object.ALPER,
+#Object.ATT,
+#Object.ATTER,
+# Pulsed townsend                                                                                                                                                                   
+#Object.ALPTEST
+]
 
 
 INFO = np.array(INFO)
 np.save(F_PATH+F_NAME,INFO)
 
-
 t2 =time.time()
+
 
 print("************************************************")
 print("************************************************")

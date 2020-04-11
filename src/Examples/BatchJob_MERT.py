@@ -44,6 +44,9 @@ b = str(efield)+".npy"
 
 F_NAME = a+b
 F_PATH = "/n/holystore01/LABS/guenette_lab/Users/amcdonald/Xenon_Dev/Outputs_MERT/"
+# Pack     = 107
+# mert     = 61
+# pressure = 95
 
 
 # Set the number of gases                                                                                                                                                           
@@ -56,7 +59,7 @@ Object.Enable_Penning = 0
 Object.Enable_Thermal_Motion=1
 Object.Max_Electron_Energy = 0.0
 # Set the gas's with there given number                                                                                                                                             
-Object.GasIDs=[107,0,0,0,0,0]
+Object.GasIDs=[61,0,0,0,0,0]
 # Set the gas fractions                                                                                                                                                             
 Object.GasFractions=[100,0,0,0,0,0]
 # Set the tempature                                                                                                                                                                 
@@ -69,6 +72,9 @@ Object.EField = efield
 Object.BField_Mag =0
 Object.BField_Angle =0
 Object.Console_Output_Flag = 1
+Object.Steady_State_Threshold = 40
+Object.Random_Seed = 54217137
+Object.Swarm = 0
 
 Object.Which_Angular_Model = Scattering
 

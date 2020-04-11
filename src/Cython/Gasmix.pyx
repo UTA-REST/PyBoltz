@@ -16,8 +16,10 @@ from Gases.NITROGEN cimport Gas16
 from Gases.HYDROGEN cimport Gas21
 from Gases.DEUTERIUM cimport Gas22
 from Gases.DME cimport Gas25
+
 from Gases.XENONMERT cimport Gas61
 from Gases.XENON_PAC cimport Gas107
+from Gases.XENON_PRESSURE cimport Gas95
 from libc.string cimport memset
 from Gas cimport Gas
 import sys
@@ -60,6 +62,8 @@ cdef void callGASF(Gas*GAS, Params):
         Gas25(GAS)
     elif GAS.GasNumber == 61:
         Gas61(GAS, Params['A'], Params['D'], Params['F'], Params['A1'], Params['Lambda'], Params['EV0'])
+    elif GAS.GasNumber == 95:
+        Gas95(GAS, Params['Press_Fact'])
     elif GAS.GasNumber == 107:
         Gas107(GAS)
 

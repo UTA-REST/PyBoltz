@@ -47,7 +47,7 @@ cpdef Setup(PyBoltz object):
     # Set short decorrelation length and step for mixtures with more than 3% inelastic/molecular component
     for IH in range(object.NumberOfGases):
         if object.GasIDs[IH] != 2 and object.GasIDs[IH] != 6 and object.GasIDs[IH] != 7 and object.GasIDs[IH] != 3 and \
-                object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5:
+                object.GasIDs[IH] != 4 and object.GasIDs[IH] != 5 and object.GasIDs[IH] != 95 and object.GasIDs[IH] != 107 and object.GasIDs[IH] != 61:
             # Molecular gas sum total fraction
             FracMol += object.GasFractions[IH]
     # If greater than 3% molecular/inelastic fraction, or large electric field use short decorrelation length.

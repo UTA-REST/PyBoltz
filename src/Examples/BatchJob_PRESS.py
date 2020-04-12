@@ -19,15 +19,13 @@ t1 =time.time()
 
 Args = sys.argv
 
-Scattering = int(Args[1])
 efield     = float(Args[2])
-fact       = float(Args[3])
+fact       = float(Args[1])
 
-a = str(Scattering)+"-"
-b = str(efield)+"-"
-c = str(fact)+".npy"
+a = str(fact)+"-"
+b = str(efield)+".npy"
 
-F_NAME = a+b+c
+F_NAME = a+b
 F_PATH = "/n/holystore01/LABS/guenette_lab/Users/amcdonald/Xenon_Dev/Outputs_PRESS/"
 
 # Pack     = 107
@@ -61,7 +59,7 @@ Object.Steady_State_Threshold = 40
 Object.Random_Seed = 54217137
 Object.Swarm = 0
 
-Object.Which_Angular_Model = Scattering
+Object.Which_Angular_Model = 2
 
 
 ExtraParameters = {}
@@ -87,6 +85,7 @@ Object.LongitudinalDiffusion1,
 Object.LongitudinalDiffusion1Error,
 Object.MeanElectronEnergy,
 Object.MeanElectronEnergyError,
+fact
 # Ionzitation rate                                                                                                                                                                  
 #Object.IonisationRate,
 # Attachment rate                                                                                                                                                                   

@@ -37,14 +37,14 @@ F_PATH = "/n/holystore01/LABS/guenette_lab/Users/amcdonald/Xenon_Dev/Outputs_SWA
 # Set the number of gases                                                                                                                                                           
 Object.NumberOfGases =1
 # Set the number of collisons                                                                                                                                                       
-Object.MaxNumberOfCollisions = 1e10
+Object.MaxNumberOfCollisions = 1e8
 # Set penning                                                                                                                                                                       
 Object.Enable_Penning = 0
 # Calculate the electron energy                                                                                                                                                     
-Object.Enable_Thermal_Motion=1
+Object.Enable_Thermal_Motion=Scattering
 Object.Max_Electron_Energy = 0.0
 # Set the gas's with there given number                                                                                                                                             
-Object.GasIDs=[107,0,0,0,0,0]
+Object.GasIDs=[7,0,0,0,0,0]
 # Set the gas fractions                                                                                                                                                             
 Object.GasFractions=[100,0,0,0,0,0]
 # Set the tempature                                                                                                                                                                 
@@ -58,7 +58,7 @@ Object.BField_Mag =0
 Object.BField_Angle =0
 Object.Console_Output_Flag = 1
 Object.Steady_State_Threshold = 40
-Object.Which_Angular_Model = Scattering
+Object.Which_Angular_Model = 2#Scattering
 
 Object.RandomSeed = SEED
 Object.Swarm      = 1

@@ -44,9 +44,9 @@ Object.MaxNumberOfCollisions =1*40000000.0
 Object.Enable_Penning = 0
 # Calculate the electron energy
 Object.Enable_Thermal_Motion=1
-Object.Max_Electron_Energy = 0.0
+Object.Max_Electron_Energy = 2.8
 # Set the gas's with there given number
-Object.GasIDs=[95,0,0,0,0,0]
+Object.GasIDs=[7,0,0,0,0,0]
 # Set the gas fractions
 Object.GasFractions=[100,0,0,0,0,0]
 # Set the tempature
@@ -62,9 +62,8 @@ Object.Console_Output_Flag = 1
 Object.Steady_State_Threshold = 40
 Object.Which_Angular_Model = 2
 
-ExtraParameters = {}
-ExtraParameters['Press_Fact'] = 1.1
-Object.SetExtraParameters(ExtraParameters)
+Object.Gas_Vel_Sigma = 1.1111
+
 
 
 Object.Start()

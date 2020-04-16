@@ -196,6 +196,8 @@ cdef class PyBoltz:
         self.Steady_State_Threshold = 40.0
         self.MixObject = Gasmix()
 
+        self.Gas_Vel_Sigma = 0.0
+
     def reset(self):
         cdef int I, J
 

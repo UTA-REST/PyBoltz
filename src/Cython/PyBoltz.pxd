@@ -401,3 +401,5 @@ cdef class PyBoltz:
         # For the swarm
         int Swarm
         double SwarmX[100],SwarmY[100],SwarmZ[100],SwarmT[100],SwarmE[100]
+
+        double Gas_Vel_Sigma

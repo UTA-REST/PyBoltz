@@ -29,6 +29,44 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
         RandomMaxBoltzArray[J] = sqrt(-1 * log(Ran1)) * cos(Ran2 * TwoPi)
         RandomMaxBoltzArray[J + 1] = sqrt(-1 * log(Ran1)) * sin(Ran2 * TwoPi)
 
+# Austins version of a viaiable MB distrobution
+cdef RandomDirection(double length, double RandomSeed):
+    cdef double TwoPi, phi, ctheta, stheta
+    cdef double dx, dy, dz
+
+    TwoPi = 2.0 * np.pi
+    phi = TwoPi * random_uniform(RandomSeed)
+    ctheta  = 2 * random_uniform(RandomSeed) - 1.
+    stheta = sqrt(1. - ctheta * ctheta)
+    dx = length * cos(phi) * stheta
+    dy = length * sin(phi) * stheta
+    dz = length * ctheta
+    return dx,dy,dz
+
+
+cdef GausianBoxMuller(double mu, double sigma, double RandomSeed):
+    cdef double r_1, r_2, x, y
+    
+    r_1 = random_uniform(RandomSeed)
+    r_2 = random_uniform(RandomSeed)
+    
+    x = sigma * sqrt(-2 * log(r_1)) \
+      * cos(2 * np.pi * r_2) + mu
+    y = sigma * sqrt(-2 * log(r_1)) \
+      * sin(2 * np.pi * r_2) + mu
+    return [x, y]
+
+cdef AustinGasVel(double mu, double sigma, double RandomSeed):
+    cdef double GasVel, GasVel1
+    cdef GasX, GasY, GasZ 
+
+    while True:
+        GasVel, GasVel1 = GausianBoxMuller(mu, sigma, RandomSeed)
+        if GasVel>0.01:
+            break
+            
+    GasX,GasY,GasZ = RandomDirection(GasVel * 1e-10, RandomSeed)
+    return GasX,GasY,GasZ
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -80,7 +118,23 @@ cpdef run(PyBoltz Object):
     SVX_LastSample = 0.0
     SVY_LastSample = 0.0
     SME2_LastSample = 0.0
-
+    
+    print("AUSTIN")
+    print(PyBoltz.Gas_Vel_Sigma)
+    print("AUSTIN")
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
+    print(AustinGasVel(2, 0.1, Object.Random_Seed))
 
     # These arrays store X,Y,Z,T about every real collision
 
@@ -225,6 +279,12 @@ cpdef run(PyBoltz Object):
                 GasVelY = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(MaxBoltzNumsUsed - 1)]
                 MaxBoltzNumsUsed += 1
                 GasVelZ = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(MaxBoltzNumsUsed - 1)]
+
+                if PyBoltz.Gas_Vel_Sigma != 0:
+                    #print("it works")
+                    GasVelX, GasVelY, GasVelZ = AustinGasVel(2, 0.1, RandomSeed)
+
+                #print(np.sqrt(pow(GasVelX,2)+pow(GasVelY,2)+pow(GasVelZ,2)))
 
                 #Update velocity vectors following field acceleration
                 if(Object.BFieldMode==1):

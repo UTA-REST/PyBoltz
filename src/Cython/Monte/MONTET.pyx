@@ -264,9 +264,9 @@ cpdef run(PyBoltz Object):
                 MaxBoltzNumsUsed += 1
                 GasVelZ = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(MaxBoltzNumsUsed - 1)]
 
-                if PyBoltz.Gas_Vel_Sigma != 0:
+                if Object.Gas_Vel_Sigma != 0:
                     #print("it works")
-                    GasVelX, GasVelY, GasVelZ = AustinGasVel(2, PyBoltz.Gas_Vel_Sigma, RandomSeed)
+                    GasVelX, GasVelY, GasVelZ = AustinGasVel(2, Object.Gas_Vel_Sigma, RandomSeed)
 
                 #print(np.sqrt(pow(GasVelX,2)+pow(GasVelY,2)+pow(GasVelZ,2)))
 

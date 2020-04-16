@@ -119,22 +119,6 @@ cpdef run(PyBoltz Object):
     SVY_LastSample = 0.0
     SME2_LastSample = 0.0
     
-    print("AUSTIN")
-    print(PyBoltz.Gas_Vel_Sigma)
-    print("AUSTIN")
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
-    print(AustinGasVel(2, 0.1, Object.Random_Seed))
 
     # These arrays store X,Y,Z,T about every real collision
 
@@ -282,7 +266,7 @@ cpdef run(PyBoltz Object):
 
                 if PyBoltz.Gas_Vel_Sigma != 0:
                     #print("it works")
-                    GasVelX, GasVelY, GasVelZ = AustinGasVel(2, 0.1, RandomSeed)
+                    GasVelX, GasVelY, GasVelZ = AustinGasVel(2, PyBoltz.Gas_Vel_Sigma, RandomSeed)
 
                 #print(np.sqrt(pow(GasVelX,2)+pow(GasVelY,2)+pow(GasVelZ,2)))
 

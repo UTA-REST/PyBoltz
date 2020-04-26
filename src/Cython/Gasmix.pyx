@@ -20,6 +20,7 @@ from Gases.DME cimport Gas25
 from Gases.XENONMERT cimport Gas61
 from Gases.XENON_PAC cimport Gas107
 from Gases.XENON_PRESSURE cimport Gas95
+from Gases.XENON_DIMER cimport Gas77
 from libc.string cimport memset
 from Gas cimport Gas
 import sys
@@ -66,6 +67,8 @@ cdef void callGASF(Gas*GAS, Params):
         Gas95(GAS, Params['Press_Fact'])
     elif GAS.GasNumber == 107:
         Gas107(GAS)
+    elif GAS.GasNumber == 77:
+        Gas77(GAS)
 
 cdef class Gasmix:
     """

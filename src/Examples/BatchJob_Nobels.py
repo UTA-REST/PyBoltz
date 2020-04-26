@@ -1,13 +1,11 @@
 import sys
 import warnings
-from pathlib import Path
 import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
-#print(sys.path)
+print(sys.path)
 from PyBoltz import PyBoltz
 import numpy as np
-# Setup gases
 
 CF4 = 1
 He4 = 3
@@ -36,39 +34,71 @@ Object = PyBoltz()
 import time
 t1 =time.time()
 
-# Set the number of gases
-Object.NumberOfGases =2
-# Set the number of collisons
-Object.MaxNumberOfCollisions =1e8
-# Set penning
+Args = sys.argv
+
+GasNum = int(Args[1])
+efield     = float(Args[2])
+
+a = str(GasNum)+"-"
+b = str(efield)+".npy"
+
+F_NAME = a+b
+F_PATH = "/n/holystore01/LABS/guenette_lab/Users/amcdonald/Xenon_Dev/Outputs_NOBEL/"
+
+
+# Set the number of gases                                                                                                                                                           
+Object.NumberOfGases =1
+# Set the number of collisons                                                                                                                                                       
+Object.MaxNumberOfCollisions = 1e10
+# Set penning                                                                                                                                                                       
 Object.Enable_Penning = 0
-# Calculate the electron energy
+# Calculate the electron energy                                                                                                                                                     
 Object.Enable_Thermal_Motion=1
-Object.Max_Electron_Energy = 2.0
-# Set the gas's with there given number
-Object.GasIDs=[7,77,0,0,0,0]
-# Set the gas fractions
-Object.GasFractions=[90,10,0,0,0,0]
-# Set the tempature
+Object.Max_Electron_Energy = 0.0
+# Set the gas's with there given number                                                                                                                                             
+Object.GasIDs=[GasNum,0,0,0,0,0]
+# Set the gas fractions                                                                                                                                                             
+Object.GasFractions=[100,0,0,0,0,0]
+# Set the tempature                                                                                                                                                                 
 Object.TemperatureCentigrade = float(23)
-# Set the pressure
+# Set the pressure                                                                                                                                                                  
 Object.Pressure_Torr = 750.062
-# Set the eletric field
-Object.EField = 12
-# Set the magnetic field and angle
+# Set the eletric field                                                                                                                                                             
+Object.EField = efield
+# Set the magnetic field and angle                                                                                                                                                  
 Object.BField_Mag =0
 Object.BField_Angle =0
 Object.Console_Output_Flag = 1
-Object.Steady_State_Threshold = 40
 Object.Which_Angular_Model = 0
-
-Object.Gas_Vel_Sigma = 0 #1.1111
 
 
 
 Object.Start()
 
-#print(Object.SwarmZ)
+INFO = [
+Object.GasFractions[1],
+Object.Pressure_Torr,
+Object.EField,
+Object.VelocityZ,
+Object.VelocityErrorZ,
+Object.TransverseDiffusion,
+Object.TransverseDiffusionError,
+Object.LongitudinalDiffusion,
+Object.LongitudinalDiffusionError,
+Object.TransverseDiffusion1,
+Object.TransverseDiffusion1Error,
+Object.LongitudinalDiffusion1,
+Object.LongitudinalDiffusion1Error,
+Object.MeanElectronEnergy,
+Object.MeanElectronEnergyError,
+Object.Max_Electron_Energy,
+Object.CollisionEnergies
+]
+
+
+INFO = np.array(INFO)
+np.save(F_PATH+F_NAME,INFO)
+
 t2 =time.time()
 
 print("************************************************")
@@ -109,11 +139,7 @@ print("Mean electron energy [eV]            = ", round(Object.MeanElectronEnergy
 print("----------------------------------------------------")
 print("Mean electron energy error [%]       = ", round(Object.MeanElectronEnergyError,3))
 print("----------------------------------------------------")
-print("Mean Collision Time [PicoSeconds]    = ", round(Object.MeanCollisionTime,3))
-print("----------------------------------------------------")
-print("Ionisation Rate [1/cm]               = ", round(Object.IonisationRate,3))
-print("----------------------------------------------------")
-print("Attachment Rate [1/cm]               = ", round(Object.AttachmentRate,3))
+print("Mean Collision Time [PicoSeconds]            = ", round(Object.MeanCollisionTime,3))
 print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")

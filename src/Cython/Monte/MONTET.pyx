@@ -180,7 +180,6 @@ cpdef run(PyBoltz Object):
     AbsFakeIoniz = 0.0
     Object.FakeIonizations = 0
 
-
     # Here are some constants we will use
     BP = pow(Object.EField, 2) * Object.CONST1  # This should be: 1/2 m e^2 EField^2
     F1 = Object.EField * Object.CONST2
@@ -200,6 +199,18 @@ cpdef run(PyBoltz Object):
     VelYBefore = DirCosineY1 * VelBefore
     VelZBefore = DirCosineZ1 * VelBefore
 
+    #bins = np.arange(-1e-7,1e-7,1e-10)
+    #bins2 = np.arange(0,2,0.0001)
+    #binc = (bins[:-1] + bins[1:]) / 2
+    #electron_X   = np.zeros(len(bins)-1, dtype='int32')
+    #electron_Y   = np.zeros(len(bins)-1, dtype='int32')
+    #electron_Z   = np.zeros(len(bins)-1, dtype='int32')
+    #gas_X        = np.zeros(len(bins)-1, dtype='int32')
+    #gas_Y        = np.zeros(len(bins2)-1, dtype='int32')
+    #gas_Z        = np.zeros(len(bins2)-1, dtype='int32')
+            
+    #VELS = []
+
 
     #Optionally write some output header to screen
     if Object.Console_Output_Flag:
@@ -210,7 +221,7 @@ cpdef run(PyBoltz Object):
     # We run collisions in NumSamples batches,
     # evenly distributed between its MaxNumberOfCollisions collisions.
     CollisionsPerSample = <long long> (Object.MaxNumberOfCollisions / Object.Num_Samples)
-    SwarmCollision = <long long> CollisionsPerSample*6/100
+    SwarmCollision = <long long> Object.MaxNumberOfCollisions/100
     for iSample in range(int(Object.Num_Samples)):
         for iCollision in range(int(CollisionsPerSample)):
             while True:
@@ -264,9 +275,9 @@ cpdef run(PyBoltz Object):
                 MaxBoltzNumsUsed += 1
                 GasVelZ = Object.VTMB[GasIndex] * Object.RandomMaxBoltzArray[(MaxBoltzNumsUsed - 1)]
 
-                if Object.Gas_Vel_Sigma != 0:
+                #if Object.Gas_Vel_Sigma != 0:
                     #print("it works")
-                    GasVelX, GasVelY, GasVelZ = AustinGasVel(2, Object.Gas_Vel_Sigma, RandomSeed)
+                    #GasVelX, GasVelY, GasVelZ = AustinGasVel(2, Object.Gas_Vel_Sigma, RandomSeed)
 
                 #print(np.sqrt(pow(GasVelX,2)+pow(GasVelY,2)+pow(GasVelZ,2)))
 
@@ -294,6 +305,19 @@ cpdef run(PyBoltz Object):
                 #   E = 1/2 m dx^2 + dvy^2 + dvz^2
                 #   works if TwoM = 2m
                 COMEnergy = (pow((VelXAfter - GasVelX), 2) + pow((VelYAfter - GasVelY), 2) + pow((VelZAfter - GasVelZ), 2)) / TwoM
+                #print(VelZAfter)
+                #if (iCollision%100)==0 and EAfter < Object.ThermalEnergy/2:
+                #    GasVelX *= 1.414
+                #    GasVelY *= 1.414
+                #    GasVelZ *= 1.414
+                #    COMEnergy = (pow((VelXAfter - GasVelX), 2) + pow((VelYAfter - GasVelY), 2) + pow((VelZAfter - GasVelZ), 2)) / TwoM
+
+                #if (iCollision%100)==0 and EAfter > Object.ThermalEnergy/2:
+                #    GasVelX, GasVelY, GasVelZ = AustinGasVel(4, 3, RandomSeed)
+                #    COMEnergy = (pow((VelXAfter - GasVelX), 2) + pow((VelYAfter - GasVelY), 2) + pow((VelZAfter - GasVelZ), 2)) / TwoM
+                
+                #if (iCollision%100)==0 :
+                #    RandomDirection(GasVel * 1e-10, RandomSeed)
 
                 # Which collision energy bin are we in? If we are too high, pin to 3999 (4000 is top)
 
@@ -330,6 +354,21 @@ cpdef run(PyBoltz Object):
                 else:
                     break
             # [end of while(True)]
+            #print(COMEnergy)
+            #VELS.append([VelXAfter, VelYAfter, VelZAfter, GasVelX, EAfter, COMEnergy])
+            #Total_Coll += 1
+            #if ((Total_Coll)%(SwarmCollision))==0 :
+            #    VELS=np.array(VELS)
+            #    electron_X += np.histogram(VELS[:,0], bins)[0]
+            #    electron_Y += np.histogram(VELS[:,1], bins)[0]
+            #    electron_Z += np.histogram(VELS[:,2], bins)[0]
+            #    gas_X      += np.histogram(VELS[:,3], bins)[0]
+            #    gas_Y      += np.histogram(VELS[:,4], bins2)[0]
+            #    gas_Z      += np.histogram(VELS[:,5], bins2)[0]
+            #    VELS = []
+            #    ddaattaa = [electron_X, electron_Y, electron_Z, gas_X, gas_Y, gas_Z]
+            #    if Total_Coll > 1e7:
+            #        np.save('/Users/austinmcdonald/projects/PyBoltz_Dev/vels.npy',ddaattaa)
             
             # If we got this far, we have a collision.
             NumCollisions += 1
@@ -387,14 +426,6 @@ cpdef run(PyBoltz Object):
                 SumVY += DY**2
             Object.TimeSum = Object.TimeSum + T
 
-            Total_Coll += 1
-            if ((Total_Coll)%(SwarmCollision))==0 and iSample>3 and  Object.Swarm==1:
-                Object.SwarmX[Swarm_Index] = Object.X
-                Object.SwarmY[Swarm_Index] = Object.Y
-                Object.SwarmZ[Swarm_Index] = Object.Z
-                Object.SwarmT[Swarm_Index] = Object.TimeSum
-                Object.SwarmE[Swarm_Index] = EBefore
-                Swarm_Index +=1
 
             # Figure out which time bin we're in, 299 is overflow; record collision
             #  at that time
@@ -525,7 +556,14 @@ cpdef run(PyBoltz Object):
             # Update the energy to start drifing for the next round.
             #  If its zero, make it small but nonzero.
             EBefore = max(COMEnergy * (1.0 - EI / (S1 * COMEnergy) - 2.0 * D / S2), Object.SmallNumber)
-                       
+            #if (iCollision%100)==0 and EAfter > Object.ThermalEnergy:
+            #if (iCollision%100)==0 and EAfter < 0.5:
+                #EBefore *=1.01
+            #if (iCollision%100000)==0 and EBefore>0.5:
+                #print(iCollision)
+                #EBefore = EBefore - 0.025
+                #EBefore = max(EBefore, 0.025)  
+
             Q = min(sqrt((COMEnergy / EBefore) * ARG1) / S1,1.0)
 
             # Calculate angle of scattering from Z direction
@@ -556,6 +594,9 @@ cpdef run(PyBoltz Object):
             VelXBefore = DirCosineX1 * VelBefore + GasVelX
             VelYBefore = DirCosineY1 * VelBefore + GasVelY
             VelZBefore = DirCosineZ1 * VelBefore + GasVelZ
+
+            #if (iCollision%100)==0:
+            #    VelXBefore, VelYBefore, VelZBefore = RandomDirection(VelBefore ,RandomSeed)
 
             # Calculate energy and direction cosines in lab frame
             EBefore = (VelXBefore * VelXBefore + VelYBefore * VelYBefore + VelZBefore * VelZBefore) / TwoM

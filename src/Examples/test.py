@@ -37,24 +37,24 @@ import time
 t1 =time.time()
 
 # Set the number of gases
-Object.NumberOfGases =2
+Object.NumberOfGases =1
 # Set the number of collisons
 Object.MaxNumberOfCollisions =1e8
 # Set penning
 Object.Enable_Penning = 0
 # Calculate the electron energy
 Object.Enable_Thermal_Motion=1
-Object.Max_Electron_Energy = 2.0
+Object.Max_Electron_Energy = 0.0
 # Set the gas's with there given number
-Object.GasIDs=[7,77,0,0,0,0]
+Object.GasIDs=[7,0,0,0,0,0]
 # Set the gas fractions
-Object.GasFractions=[90,10,0,0,0,0]
+Object.GasFractions=[100,0,0,0,0,0]
 # Set the tempature
 Object.TemperatureCentigrade = float(23)
 # Set the pressure
 Object.Pressure_Torr = 750.062
 # Set the eletric field
-Object.EField = 12
+Object.EField = 50
 # Set the magnetic field and angle
 Object.BField_Mag =0
 Object.BField_Angle =0
@@ -117,4 +117,4 @@ print("Attachment Rate [1/cm]               = ", round(Object.AttachmentRate,3))
 print("----------------------------------------------------")
 print("************************************************")
 print("************************************************")
-
+print(Object.AttachmentRate)

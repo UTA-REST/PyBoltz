@@ -324,7 +324,7 @@ cdef void Gas15(Gas*object):
     cdef double EN, QMOM, ElasticCrossSectionA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE , THREEB, SFAC, QRES1, ETEMP
     # CALCULATE DENSITY CORRECTION FOR THREE BODY ATTACHMENT CROSS-SECTION
     FAC = 273.15 * object.Pressure / ((object.TemperatureC + 273.15) * 760.0)
-    T3B = 0
+    T3B = 1
     # FIRST VIBRATIONAL LEVEL POPULATION
     APOP2 = exp(object.EnergyLevels[48] / object.ThermalEnergy)
     for J in range(NBREM):

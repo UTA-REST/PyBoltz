@@ -1,0 +1,15 @@
+{
+    "Gases": ["ARGON", "CH4"],
+    "Fractions": [90.0, 10.0],
+    "Max_collisions": 4e6,
+    "EField_Vcm": 100,
+    "Max_electron_energy": 0,
+    "Temperature_C" : 23.0,
+    "Pressure_Torr": 750.62,
+    "BField_Tesla": 1,
+    "BField_angle": 0,
+    "Angular_dist_model": 2,
+    "Enable_penning": 0,
+    "Enable_thermal_motion": 1,
+    "ConsoleOutputFlag": 1
+}

@@ -91,7 +91,7 @@ Please note that the following are only the main output parameters. One can stil
 * **PyBoltz.MeanCollisionTime** - Mean Collision Time.
 * **TOF Outputs** - Those outputs include townsend coeffiecents, diffusion and energy values. Those outputs are calculated from the time of flight simulation. Check the PyBoltz object documentation for more details.
 * **SST Outputs** - Those outputs include townsend coeffiecents, diffusion and energy values. Those outputs are calculated from the steady state simulation. Check the PyBoltz object documentation for more details.
-* **Collision type counters** Thos outputs are an array of six elements, it houses the number of collisions of each gas for each types. The types are elastic, inelastic, super-elastic, ionisation, and attachment. Check the PyBoltz object documentaion for more details.
+* **Collision type counters** - Six elements arraies that houses the number of collisions of each gas for each types. The types are elastic, inelastic, super-elastic, ionisation, and attachment. Check the PyBoltz object documentaion for more details.
 
 #### Compilation issues.
 This sections is written here to help troubleshoot compilation issues. The following are links to the two main issues:

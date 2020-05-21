@@ -102,6 +102,12 @@ cdef class PyBoltz:
         memset(self.NC0, 0, 6 * 290 * sizeof(double))
         memset(self.ElasticCrossSection, 0, 4000 * sizeof(double))
         memset(self.AttachmentSectionSum, 0, 4000 * sizeof(double))
+        memset(self.ElasticColli, 0, 6 * sizeof(int))
+        memset(self.InelasticColli, 0, 6 * sizeof(int))
+        memset(self.AttachmentColli, 0, 6 * sizeof(int))
+        memset(self.IonisationColli, 0, 6 * sizeof(int))
+        memset(self.SuperElasticColli, 0, 6 * sizeof(int))
+
         # Input parameters / settings
         self.Enable_Thermal_Motion = 0.0
         self.MaxNumberOfCollisions = 0.0
@@ -239,8 +245,24 @@ cdef class PyBoltz:
 
             self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
             self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
+        # Calculate the different number of collisions.
 
-    def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
+        if self.Enable_Thermal_Motion ==1:
+            for I in range(6):
+                self.ElasticColli[I] = self.CollisionsPerGasPerType[I][0]
+                self.InelasticColli[I] = self.CollisionsPerGasPerType[I][3]
+                self.AttachmentColli[I] = self.CollisionsPerGasPerType[I][2]
+                self.IonisationColli[I] = self.CollisionsPerGasPerType[I][1]
+                self.SuperElasticColli[I] = self.CollisionsPerGasPerType[I][4]
+        else:
+            for I in range(6):
+                self.ElasticColli[I] = self.CollisionsPerGasPerTypeNT[I][0]
+                self.InelasticColli[I] = self.CollisionsPerGasPerTypeNT[I][3]
+                self.AttachmentColli[I] = self.CollisionsPerGasPerTypeNT[I][2]
+                self.IonisationColli[I] = self.CollisionsPerGasPerTypeNT[I][1]
+                self.SuperElasticColli[I] = self.CollisionsPerGasPerTypeNT[I][4]
+
+        def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
         """
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """

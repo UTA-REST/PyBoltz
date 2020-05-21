@@ -392,6 +392,17 @@ cdef class PyBoltz:
         # Alpha, and ATt
         double ALPHA,ATT,ALPER,ATTER,ALPTEST
 
+        int ElasticColli[6]
+        '''Number of elastic collisions that occured in the simulation.'''
+        int InelasticColli[6]
+        '''Number of inelastic collisions that occured in the simulation.'''
+        int AttachmentColli[6]
+        '''Number of attachment collisions that occured in the simulation.'''
+        int IonisationColli[6]
+        '''Number of ionisation collisions that occured in the simulation.'''
+        int SuperElasticColli[6]
+        '''Number of super elastic collisions that occured in the simulation.'''
+
         # FCION and FCATT
         double IonCollisionFreq[4000]
         '''Array that adds the ionisation collision frequencies at energy step I. Used in the Friedland estimation of Alpha.'''

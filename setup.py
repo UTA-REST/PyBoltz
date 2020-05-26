@@ -38,7 +38,7 @@ setup(
     install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.1.0'],  # Optional
     include_package_data = True,
     package_data={  # Optional 
-        'PyBoltz': ['./PyBoltz/*.pxd'],
+        'PyBoltz': ['./PyBoltz/*.pxd','./PyBoltz/C/*'],
     },
     ext_modules = extensions,
     cmdclass={'build_ext': build_ext},

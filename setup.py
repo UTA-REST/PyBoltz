@@ -47,7 +47,11 @@ setup(
 
     install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.1.0'],  # Optional
     include_package_data = True,
-    package_data={  # Optional 
+    ext_modules = extensions,
+    cmdclass={'build_ext': build_ext},
+)
+
+'''package_data={  # Optional 
         'PyBoltz': returnPxdFiles("PyBoltz/"),
         'PyBoltz/Monte': returnPxdFiles("PyBoltz/Monte/"),
         'PyBoltz/Townsend/Monte': returnPxdFiles("PyBoltz/Townsend/Monte/"),
@@ -58,6 +62,4 @@ setup(
         'PyBoltz/Townsend/CollisionFrequencyCalc': returnPxdFiles("PyBoltz/Townsend/CollisionFrequencyCalc/"),
 
     },
-    ext_modules = extensions,
-    cmdclass={'build_ext': build_ext},
-)
+    '''

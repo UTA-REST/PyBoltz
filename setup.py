@@ -1,13 +1,12 @@
 from setuptools import setup, Extension
 from Cython.Distutils import build_ext
-import glob
 import os
 import Cython
 import numpy
 from io import open
 
 extensions = [
-    Extension("PyBoltz.Townsend.CollisionFrequencyCalc", [glob.glob("PyBoltz/Townsend/CollisionFrequencyCalc/*.pyx"),"PyBoltz/Townsend/CollisionFrequencyCalc/*.pxd"], include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.CollisionFrequencyCalc", [os.listdir("PyBoltz/Townsend/CollisionFrequencyCalc/*.pyx"),"PyBoltz/Townsend/CollisionFrequencyCalc/*.pxd"], include_dirs=[numpy.get_include(), '.']),
     Extension("PyBoltz.Townsend.PulsedTownsend", ["PyBoltz/Townsend/PulsedTownsend/*.pyx","PyBoltz/Townsend/PulsedTownsend/*.pxd"], include_dirs=[numpy.get_include(), '.']),
     Extension("PyBoltz.Townsend.TimeOfFlight", ["PyBoltz/Townsend/TimeOfFlight/*.pyx","PyBoltz/Townsend/TimeOfFlight/*.pxd"], include_dirs=[numpy.get_include(), '.']),
     Extension("PyBoltz.Townsend.SteadyStateTownsend", ["PyBoltz/Townsend/SteadyStateTownsend/*.pyx","PyBoltz/Townsend/SteadyStateTownsend/*.pxd"], include_dirs=[numpy.get_include(), '.']),

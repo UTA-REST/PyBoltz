@@ -45,8 +45,10 @@ setup(
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyBoltz': 'PyBoltz'},
 
-    install_requires=['numpy','cython','PyGasMix @ https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.1.0'],  # Optional
-
+    install_requires=['numpy','cython','PyGasMix'],  # Optional
+    dependency_links = [
+    'git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.1.0'
+        ]
     #include_package_data = True,
     #'''package_data={  # Optional 
     #    'PyGasMix': ['./PyGasMix/*.pxd','./PyGasMix/*.pxd'],

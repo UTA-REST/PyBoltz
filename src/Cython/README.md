@@ -18,10 +18,6 @@ This module has the energy limits functions for the different input parameters.
 
 This module has a single function that is used to setup the constants needed for the simulation.
 
-## Setup_npy module
-
-This module has all the cross sections of all the gases. After running this file it will generate a `gases.npy` file which is used by the gas functions to get their respective cross sections.
-
 ## Mixers module 
 This module has the Mixing functions. In those functions the Gasmix object is used to run the gas functions. After doing so the Mixing functions use the output to calculate the collision frequencies that are needed for the simulation.
 
@@ -30,10 +26,6 @@ This module is a wrapper build to ease the use of PyBoltz. Check the Examples/Ex
 
 ## OdieRun
 This module provides functionality to run PyBoltz similar to PyBoltzRun and includes the ability to output gas files in the Garfield++ format. It should be able to be used as a drop-in replacement where PyBoltzRun is used. Check Examples/Example_Odie.py for an example on how to use it.
-
-## Gases module
-
-This module contains all gas functions in PyBoltz.
 
 ## Monte module 
 This module has all the Monte carlo functions used in PyBoltz.

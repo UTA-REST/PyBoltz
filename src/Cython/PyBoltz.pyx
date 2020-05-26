@@ -245,24 +245,25 @@ cdef class PyBoltz:
 
             self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
             self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
-        # Calculate the different number of collisions.
 
+
+        # The different counters for collision types.
         if self.Enable_Thermal_Motion ==1:
             for I in range(6):
-                self.ElasticColli[I] = self.CollisionsPerGasPerType[I][0]
-                self.InelasticColli[I] = self.CollisionsPerGasPerType[I][3]
-                self.AttachmentColli[I] = self.CollisionsPerGasPerType[I][2]
-                self.IonisationColli[I] = self.CollisionsPerGasPerType[I][1]
-                self.SuperElasticColli[I] = self.CollisionsPerGasPerType[I][4]
+                self.ElasticColli[I] = <int>self.CollisionsPerGasPerType[I][0]
+                self.InelasticColli[I] = <int>self.CollisionsPerGasPerType[I][3]
+                self.AttachmentColli[I] = <int>self.CollisionsPerGasPerType[I][2]
+                self.IonisationColli[I] = <int>self.CollisionsPerGasPerType[I][1]
+                self.SuperElasticColli[I] = <int>self.CollisionsPerGasPerType[I][4]
         else:
             for I in range(6):
-                self.ElasticColli[I] = self.CollisionsPerGasPerTypeNT[I][0]
-                self.InelasticColli[I] = self.CollisionsPerGasPerTypeNT[I][3]
-                self.AttachmentColli[I] = self.CollisionsPerGasPerTypeNT[I][2]
-                self.IonisationColli[I] = self.CollisionsPerGasPerTypeNT[I][1]
-                self.SuperElasticColli[I] = self.CollisionsPerGasPerTypeNT[I][4]
+                self.ElasticColli[I] = <int>self.CollisionsPerGasPerTypeNT[0]
+                self.InelasticColli[I] = <int>self.CollisionsPerGasPerTypeNT[3]
+                self.AttachmentColli[I] = <int>self.CollisionsPerGasPerTypeNT[2]
+                self.IonisationColli[I] = <int>self.CollisionsPerGasPerTypeNT[1]
+                self.SuperElasticColli[I] = <int>self.CollisionsPerGasPerTypeNT[4]
 
-        def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
+    def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
         """
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """

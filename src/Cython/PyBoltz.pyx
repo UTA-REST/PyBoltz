@@ -9,7 +9,7 @@ import Monte
 import Townsend
 from Townsend import *
 from Monte import *
-from Gasmix cimport Gasmix
+from PyGasMix.Gasmix cimport Gasmix
 
 
 
@@ -102,6 +102,12 @@ cdef class PyBoltz:
         memset(self.NC0, 0, 6 * 290 * sizeof(double))
         memset(self.ElasticCrossSection, 0, 4000 * sizeof(double))
         memset(self.AttachmentSectionSum, 0, 4000 * sizeof(double))
+        memset(self.ElasticColli, 0, 6 * sizeof(int))
+        memset(self.InelasticColli, 0, 6 * sizeof(int))
+        memset(self.AttachmentColli, 0, 6 * sizeof(int))
+        memset(self.IonisationColli, 0, 6 * sizeof(int))
+        memset(self.SuperElasticColli, 0, 6 * sizeof(int))
+
         # Input parameters / settings
         self.Enable_Thermal_Motion = 0.0
         self.MaxNumberOfCollisions = 0.0
@@ -182,6 +188,10 @@ cdef class PyBoltz:
         self.Random_Seed = 54217137
         self.Console_Output_Flag = 1
         self.MeanCollisionTime = 0.0
+        self.AlphaSST = 0.0
+        self.AlphaSSTErr = 0.0
+        self.AttachmentSST = 0.0
+        self.AttachmentSSTErr = 0.0
         self.ReducedIonization = 0.0
         self.ReducedAttachment = 0.0
         self.Steady_State_Threshold = 40.0
@@ -235,6 +245,23 @@ cdef class PyBoltz:
 
             self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
             self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
+
+
+        # The different counters for collision types.
+        if self.Enable_Thermal_Motion ==1:
+            for I in range(6):
+                self.ElasticColli[I] = <int>self.CollisionsPerGasPerType[I][0]
+                self.InelasticColli[I] = <int>self.CollisionsPerGasPerType[I][3]
+                self.AttachmentColli[I] = <int>self.CollisionsPerGasPerType[I][2]
+                self.IonisationColli[I] = <int>self.CollisionsPerGasPerType[I][1]
+                self.SuperElasticColli[I] = <int>self.CollisionsPerGasPerType[I][4]
+        else:
+            for I in range(6):
+                self.ElasticColli[I] = <int>self.CollisionsPerGasPerTypeNT[0]
+                self.InelasticColli[I] = <int>self.CollisionsPerGasPerTypeNT[3]
+                self.AttachmentColli[I] = <int>self.CollisionsPerGasPerTypeNT[2]
+                self.IonisationColli[I] = <int>self.CollisionsPerGasPerTypeNT[1]
+                self.SuperElasticColli[I] = <int>self.CollisionsPerGasPerTypeNT[4]
 
     def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
         """

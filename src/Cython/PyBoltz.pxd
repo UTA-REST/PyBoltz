@@ -2,7 +2,7 @@ cimport numpy as np
 import math
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
-from Gasmix cimport Gasmix
+from PyGasMix.Gasmix cimport Gasmix
 
 cdef double drand48(double dummy)
 
@@ -391,6 +391,17 @@ cdef class PyBoltz:
 
         # Alpha, and ATt
         double ALPHA,ATT,ALPER,ATTER,ALPTEST
+
+        int ElasticColli[6]
+        '''Number of elastic collisions that occured in the simulation.'''
+        int InelasticColli[6]
+        '''Number of inelastic collisions that occured in the simulation.'''
+        int AttachmentColli[6]
+        '''Number of attachment collisions that occured in the simulation.'''
+        int IonisationColli[6]
+        '''Number of ionisation collisions that occured in the simulation.'''
+        int SuperElasticColli[6]
+        '''Number of super elastic collisions that occured in the simulation.'''
 
         # FCION and FCATT
         double IonCollisionFreq[4000]

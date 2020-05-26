@@ -8,7 +8,6 @@ from Cython.Distutils import build_ext
 
 # https://stackoverflow.com/questions/11013851/speeding-up-build-process-with-distutils
 ext_modules=[
-    Extension("*",["Gases/*.pyx"],include_dirs=[numpy.get_include(),'.']),
     Extension("*", ["Townsend/CollisionFrequencyCalc/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*", ["Townsend/PulsedTownsend/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*", ["Townsend/TimeOfFlight/*.pyx"], include_dirs=[numpy.get_include(), '.']),

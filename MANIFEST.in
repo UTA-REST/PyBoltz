@@ -1,1 +1,1 @@
-recursive-include PyBoltz/ *.pxd *.pyx *.py
+recursive-include PyBoltz/ *.pxd *.pyx *.py *.c *.h

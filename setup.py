@@ -44,9 +44,10 @@ setup(
     version='1.0.0',  # Required
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyBoltz': 'PyBoltz'},
-    dependency_links = ['https://github.com/UTA-REST/PyGasMix/tarball/master#egg=PyGasMix-1.0.0'],
 
     install_requires=['numpy','cython','PyGasMix'],  # Optional
+    dependency_links = ['https://github.com/UTA-REST/PyGasMix/tarball/master#egg=PyGasMix-1.0.0'],
+
     #include_package_data = True,
     #'''package_data={  # Optional
     #    'PyGasMix': ['./PyGasMix/*.pxd','./PyGasMix/*.pxd'],

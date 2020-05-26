@@ -16,7 +16,7 @@ def returnPxdFiles(path):
     l = []
     for i in os.listdir(path):
         if i.endswith(".pxd"):
-            l.append(path+i)
+            l.append('./'+path+i)
     return l
 extensions = [
     Extension("PyBoltz.Townsend.CollisionFrequencyCalc", returnPyxFiles("PyBoltz/Townsend/CollisionFrequencyCalc/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/']),

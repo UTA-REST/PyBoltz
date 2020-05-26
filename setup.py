@@ -7,7 +7,7 @@ import numpy
 from io import open
 
 extensions = [
-        Extension("PyBoltz.src.PyBoltz",["PyBoltz/src/PyBoltz.pyx","PyBoltz/src/PyBoltz.pxd"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/']),
+        Extension("PyBoltz.src.PyBoltz",["PyBoltz/src/*.pyx","PyBoltz/src/*.pxd"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/']),
 
 '''
     Extension("PyGasMix.Gases.GasUtil",["PyGasMix/Gases/GasUtil.pyx","PyGasMix/Gases/GasUtil.pxd"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
@@ -46,11 +46,10 @@ setup(
     package_dir={'PyBoltz': 'PyBoltz'},
 
     install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.1.0'],  # Optional
-    #include_package_data = True,
-    #'''package_data={  # Optional 
-    #    'PyGasMix': ['./PyGasMix/*.pxd','./PyGasMix/*.pxd'],
-    #    'PyGasMix/Gases': ['./PyGasMix/Gases/*.pxd','./PyGasMix/Gases/gases.npy'],
-    #},
-    #ext_modules = extensions,
-    #cmdclass={'build_ext': build_ext},
+    include_package_data = True,
+    package_data={  # Optional 
+        'PyBoltz': ['./PyBoltz/src/*.pxd'],
+    },
+    ext_modules = extensions,
+    cmdclass={'build_ext': build_ext},
 )

@@ -41,7 +41,7 @@ setup(
     name='PyBoltz',  # Required
     packages=['PyBoltz'],
 
-    version='1.0.0',  # Required
+    version='1.1.0',  # Required
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyBoltz': 'PyBoltz'},
 

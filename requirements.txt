@@ -1,4 +1,0 @@
-numpy
-cython
-PyGasMix==1.0.0
-https://github.com/UTA-REST/PyGasMix/tarball/master#egg=PyGasMix-1.0.0

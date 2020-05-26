@@ -1,3 +1,1 @@
-recursive-include PyBoltz/src *.pxd *.pyx *.py
-recursive-include PyBoltz/examples *.pxd *.pyx *.py *.ipynb *
-recursive-include PyBoltz/test *.pxd *.pyx *.py
+recursive-include PyBoltz/ *.pxd *.pyx *.py

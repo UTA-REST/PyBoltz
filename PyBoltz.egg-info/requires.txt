@@ -1,0 +1,3 @@
+numpy
+cython
+PyGasMix@ git+https://github.com/UTA-REST/GasMix#egg=GasMix

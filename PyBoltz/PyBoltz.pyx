@@ -5,10 +5,10 @@ from libc.string cimport memset
 import Setups
 import Mixers
 import EnergyLimits
-import Monte
-import Townsend
-from Townsend import *
-from Monte import *
+import PyBoltz.Monte
+import PyBoltz.Townsend
+from PyBoltz.Townsend import *
+from PyBoltz.Monte import *
 from PyGasMix.Gasmix cimport Gasmix
 
 

@@ -2,9 +2,9 @@ from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from libc.string cimport memset
 from PyBoltz cimport drand48
-from MBSorts cimport MBSortT
+from PyBoltz cimport MBSortT
 from libc.stdlib cimport malloc, free
-cimport MonteVars
+from PyBoltz.Townsend.Monte cimport MonteVars
 import cython
 import numpy as np
 cimport numpy as np

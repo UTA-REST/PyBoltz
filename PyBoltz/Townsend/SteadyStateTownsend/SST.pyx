@@ -2,11 +2,11 @@ from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from libc.string cimport memset
 from PyBoltz cimport drand48
-from MBSorts cimport MBSortT
+from PyBoltz cimport MBSortT
 from libc.stdlib cimport malloc, free
 import cython
-from Townsend.CollisionFrequencyCalc import COLF
-from Townsend.CollisionFrequencyCalc import COLFT
+from PyBoltz.Townsend.CollisionFrequencyCalc import COLF
+from PyBoltz.Townsend.CollisionFrequencyCalc import COLFT
 import numpy as np
 cimport numpy as np
 import sys

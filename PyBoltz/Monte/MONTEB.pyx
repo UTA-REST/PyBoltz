@@ -2,7 +2,7 @@ from PyBoltz cimport PyBoltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 from libc.string cimport memset
 from PyBoltz cimport drand48
-from MBSorts cimport MBSort
+from PyBoltz cimport MBSort
 from libc.stdlib cimport malloc, free
 import cython
 

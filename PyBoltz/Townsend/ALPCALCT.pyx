@@ -3,18 +3,18 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
 
 from PyBoltz cimport drand48
-from MBSorts cimport MBSort
+from PyBoltz cimport MBSort
 
-import Monte
-import SteadyStateTownsend
-import PulsedTownsend
-import TimeOfFlight
-import Friedland
-from Monte import *
-from Townsend.PulsedTownsend import *
-from Townsend.TimeOfFlight import *
-from Townsend.SteadyStateTownsend import *
-from Townsend.Friedland import *
+import PyBoltz.Townsend.Monte
+import PyBoltz.Townsend.SteadyStateTownsend
+import PyBoltz.Townsend.PulsedTownsend
+import PyBoltz.Townsend.TimeOfFlight
+import PyBoltz.Townsend.Friedland
+from PyBoltz.Townsend.Monte import *
+from PyBoltz.Townsend.PulsedTownsend import *
+from PyBoltz.Townsend.TimeOfFlight import *
+from PyBoltz.Townsend.SteadyStateTownsend import *
+from PyBoltz.Townsend.Friedland import *
 from libc.stdlib cimport malloc, free
 import cython
 import numpy as np

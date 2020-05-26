@@ -5,11 +5,7 @@ from libc.string cimport memset
 from PyBoltz cimport drand48
 from MBSorts cimport MBSort
 
-import PyBoltz.Townsend.Monte
-import PyBoltz.Townsend.SteadyStateTownsend
-import PyBoltz.Townsend.PulsedTownsend
-import PyBoltz.Townsend.TimeOfFlight
-import PyBoltz.Townsend.Friedland
+
 from PyBoltz.Townsend.Monte import *
 from PyBoltz.Townsend.PulsedTownsend import *
 from PyBoltz.Townsend.TimeOfFlight import *
@@ -99,9 +95,9 @@ cpdef run(PyBoltz Object):
         Object.NumberOfTimeSteps = 7
 
         # Calculate good starting values for ionisation and attachment rates
-        Monte.MONTEFTT.run(Object, 0)
-        PulsedTownsend.PT.run(Object, 0)
-        TimeOfFlight.TOF.run(Object, 0)
+        MONTEFTT.run(Object, 0)
+        PT.run(Object, 0)
+        TOF.run(Object, 0)
 
         StartingAlpha = (Object.ReducedAlphaTOF / Object.VelocityTOF) * 1e7
         ErrStartingAlpha = (Object.ReducedAlphaTOFErr * StartingAlpha / 100)
@@ -165,8 +161,8 @@ cpdef run(PyBoltz Object):
     print("Solution for Steady State Townsend parameters")
     print("Space step between sampling planes = {} Microns".format(Object.SpaceStepZ * 1e6))
 
-    Monte.MONTEFDT.run(Object, 1)
-    SteadyStateTownsend.SST.run(Object, 1)
+    MONTEFDT.run(Object, 1)
+    SST.run(Object, 1)
 
     Object.ALPHA = Object.AlphaSST
     Object.ALPER = Object.AlphaSSTErr
@@ -190,10 +186,10 @@ cpdef run(PyBoltz Object):
     print("\n\nSolution for Pulsed Townsend and Time of flight parameters")
     print("Time step between sampling planes = {} picoseconds".format(Object.TimeStep))
 
-    Monte.MONTEFTT.run(Object, 1)
-    Friedland.FRIEDLANDT.run(Object)
-    PulsedTownsend.PT.run(Object, 1)
-    TimeOfFlight.TOF.run(Object, 1)
+    MONTEFTT.run(Object, 1)
+    FRIEDLANDT.run(Object)
+    PT.run(Object, 1)
+    TOF.run(Object, 1)
 
     print("\nPulsedTownsend ionisation and attachment rates *10**12/sec:")
     print("Alpha = {:^5.4f} +- {:^2.1f} %   ATT = {:^5.4f} +- {:^2.1f} %".format(Object.ReducedAlphaTOF, Object.ReducedAlphaTOFErr,

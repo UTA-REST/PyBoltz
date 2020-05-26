@@ -7,31 +7,15 @@ import numpy
 from io import open
 
 extensions = [
-        Extension("PyBoltz.src.PyBoltz",["PyBoltz/src/*.pyx","PyBoltz/src/*.pxd"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/']),
-
-'''
-    Extension("PyGasMix.Gases.GasUtil",["PyGasMix/Gases/GasUtil.pyx","PyGasMix/Gases/GasUtil.pxd"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gasmix",["PyGasMix/Gasmix.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.ARGON",["PyGasMix/Gases/ARGON.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.CF4",["PyGasMix/Gases/CF4.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.CH4",["PyGasMix/Gases/CH4.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.CO2",["PyGasMix/Gases/CO2.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.DEUTERIUM",["PyGasMix/Gases/DEUTERIUM.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.DME",["PyGasMix/Gases/DME.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.ETHANE",["PyGasMix/Gases/ETHANE.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.H2O",["PyGasMix/Gases/H2O.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.HELIUM3",["PyGasMix/Gases/HELIUM3.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.HELIUM4",["PyGasMix/Gases/HELIUM4.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.HYDROGEN",["PyGasMix/Gases/HYDROGEN.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.ISOBUTANE",["PyGasMix/Gases/ISOBUTANE.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.KRYPTON",["PyGasMix/Gases/KRYPTON.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.NEON",["PyGasMix/Gases/NEON.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.NITROGEN",["PyGasMix/Gases/NITROGEN.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.OXYGEN",["PyGasMix/Gases/OXYGEN.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.PROPANE",["PyGasMix/Gases/PROPANE.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.XENON",["PyGasMix/Gases/XENON.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-    Extension("PyGasMix.Gases.XENONMERT",["PyGasMix/Gases/XENONMERT.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/PyGasMix/']),
-'''
+    Extension("PyBoltz.Townsend.CollisionFrequencyCalc", ["PyBoltz/Townsend/CollisionFrequencyCalc/*.pyx","PyBoltz/Townsend/CollisionFrequencyCalc/*.pxd"], include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.PulsedTownsend", ["PyBoltz/Townsend/PulsedTownsend/*.pyx","PyBoltz/Townsend/PulsedTownsend/*.pxd"], include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.TimeOfFlight", ["PyBoltz/Townsend/TimeOfFlight/*.pyx","PyBoltz/Townsend/TimeOfFlight/*.pxd"], include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.SteadyStateTownsend", ["PyBoltz/Townsend/SteadyStateTownsend/*.pyx","PyBoltz/Townsend/SteadyStateTownsend/*.pxd"], include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.Friedland", ["PyBoltz/Townsend/Friedland/*.pyx","PyBoltz/Townsend/Friedland/*.pxd"], include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend", ["PyBoltz/Townsend/*.pyx","PyBoltz/Townsend/*.pxd"], include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.Monte", ["PyBoltz/Townsend/Monte/*.pyx","PyBoltz/Townsend/Monte/*.pxd"], include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Monte",["PyBoltz/Monte/*.pyx","PyBoltz/Monte/*.pxd"],include_dirs=[numpy.get_include(),'.']),
+    Extension("PyBoltz",["PyBoltz/*.pyx","PyBoltz/*.pxd"],include_dirs=[numpy.get_include(),'.'])
 ]
 setup(
     setup_requires=[
@@ -48,7 +32,7 @@ setup(
     install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.1.0'],  # Optional
     include_package_data = True,
     package_data={  # Optional 
-        'PyBoltz': ['./PyBoltz/src/*.pxd'],
+        'PyBoltz': ['./PyBoltz/*.pxd'],
     },
     ext_modules = extensions,
     cmdclass={'build_ext': build_ext},

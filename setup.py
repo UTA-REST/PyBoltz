@@ -14,14 +14,14 @@ def returnPyxFiles(path):
     return l
 extensions = [
     Extension("PyBoltz.Townsend.CollisionFrequencyCalc", returnPyxFiles("PyBoltz/Townsend/CollisionFrequencyCalc/"), include_dirs=[numpy.get_include(), '.']),
-    Extension("PyBoltz.Townsend.PulsedTownsend", ["PyBoltz/Townsend/PulsedTownsend/*.pyx","PyBoltz/Townsend/PulsedTownsend/*.pxd"], include_dirs=[numpy.get_include(), '.']),
-    Extension("PyBoltz.Townsend.TimeOfFlight", ["PyBoltz/Townsend/TimeOfFlight/*.pyx","PyBoltz/Townsend/TimeOfFlight/*.pxd"], include_dirs=[numpy.get_include(), '.']),
-    Extension("PyBoltz.Townsend.SteadyStateTownsend", ["PyBoltz/Townsend/SteadyStateTownsend/*.pyx","PyBoltz/Townsend/SteadyStateTownsend/*.pxd"], include_dirs=[numpy.get_include(), '.']),
-    Extension("PyBoltz.Townsend.Friedland", ["PyBoltz/Townsend/Friedland/*.pyx","PyBoltz/Townsend/Friedland/*.pxd"], include_dirs=[numpy.get_include(), '.']),
-    Extension("PyBoltz.Townsend", ["PyBoltz/Townsend/*.pyx","PyBoltz/Townsend/*.pxd"], include_dirs=[numpy.get_include(), '.']),
-    Extension("PyBoltz.Townsend.Monte", ["PyBoltz/Townsend/Monte/*.pyx","PyBoltz/Townsend/Monte/*.pxd"], include_dirs=[numpy.get_include(), '.']),
-    Extension("PyBoltz.Monte",["PyBoltz/Monte/*.pyx","PyBoltz/Monte/*.pxd"],include_dirs=[numpy.get_include(),'.']),
-    Extension("PyBoltz",["PyBoltz/*.pyx","PyBoltz/*.pxd"],include_dirs=[numpy.get_include(),'.'])
+    Extension("PyBoltz.Townsend.PulsedTownsend", returnPyxFiles("PyBoltz/Townsend/PulsedTownsend/"), include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.TimeOfFlight", returnPyxFiles("PyBoltz/Townsend/TimeOfFlight/"), include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.SteadyStateTownsend", returnPyxFiles("PyBoltz/Townsend/SteadyStateTownsend/"), include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.Friedland", returnPyxFiles("PyBoltz/Townsend/Friedland/"), include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend", returnPyxFiles("PyBoltz/Townsend/"), include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Townsend.Monte", returnPyxFiles("PyBoltz/Townsend/Monte/"), include_dirs=[numpy.get_include(), '.']),
+    Extension("PyBoltz.Monte",returnPyxFiles("PyBoltz/Monte/"),include_dirs=[numpy.get_include(),'.']),
+    Extension("PyBoltz",returnPyxFiles("PyBoltz/"),include_dirs=[numpy.get_include(),'.'])
 ]
 setup(
     setup_requires=[

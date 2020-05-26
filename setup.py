@@ -9,7 +9,7 @@ from io import open
 def returnPyxFiles(path):
     l = []
     for i in os.listdir(path):
-        if i.endswith(".pyx") or i.endswith(".c") or i.endswith(".h" or i.endswith(".pxd")):
+        if i.endswith(".pyx") or i.endswith(".c") or i.endswith(".h") or i.endswith(".pxd")):
             l.append(path+i)
     return l
 

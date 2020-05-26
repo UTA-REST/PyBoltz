@@ -3,7 +3,7 @@ from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
 
 from PyBoltz cimport drand48
-from PyBoltz cimport MBSort
+from MBSorts cimport MBSort
 
 import PyBoltz.Townsend.Monte
 import PyBoltz.Townsend.SteadyStateTownsend

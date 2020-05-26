@@ -19,7 +19,6 @@ def returnPxdFiles(path):
     for i in os.listdir(path):
         if i.endswith(".pxd"):
             l.append(path+i)
-    print(path,'    ',l)
     return l
 
 extensions = [
@@ -33,6 +32,7 @@ extensions = [
     Extension("PyBoltz.Townsend.Friedland", returnPyxFiles("PyBoltz/Townsend/Friedland/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/']),
     Extension("PyBoltz.Monte",returnPyxFiles("PyBoltz/Monte/"),include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/']),
 ]
+print(returnPyxFiles("PyBoltz/Townsend/Monte/")+returnPxdFiles("PyBoltz/Townsend/Monte/"))
 setup(
     setup_requires=[
         'cython>=0.2',
@@ -44,14 +44,7 @@ setup(
     version='1.1.0',  # Required
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyBoltz': 'PyBoltz'},
-
-    install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.1.0'],  # Optional
-    include_package_data = True,
-    ext_modules = extensions,
-    cmdclass={'build_ext': build_ext},
-)
-
-'''package_data={  # Optional 
+    package_data={  # Optional
         'PyBoltz': returnPxdFiles("PyBoltz/"),
         'PyBoltz/Monte': returnPxdFiles("PyBoltz/Monte/"),
         'PyBoltz/Townsend/Monte': returnPxdFiles("PyBoltz/Townsend/Monte/"),
@@ -62,4 +55,10 @@ setup(
         'PyBoltz/Townsend/CollisionFrequencyCalc': returnPxdFiles("PyBoltz/Townsend/CollisionFrequencyCalc/"),
 
     },
-    '''
+
+    install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.1.0'],  # Optional
+    include_package_data = True,
+    ext_modules = extensions,
+    cmdclass={'build_ext': build_ext},
+)
+

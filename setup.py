@@ -18,7 +18,7 @@ def returnPxdFiles(path):
     l = []
     for i in os.listdir(path):
         if i.endswith(".pxd"):
-            l.append('./'+path+i)
+            l.append(path+i)
     return l
 
 extensions = [

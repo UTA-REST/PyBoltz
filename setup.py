@@ -9,12 +9,9 @@ from io import open
 def returnPyxFiles(path):
     l = []
     for i in os.listdir(path):
-        if i.endswith(".pyx") or i.endswith(".pxd"):
+        if i.endswith(".pyx"):
             l.append(path+i)
-        elif i.endswith("C"):
-            l.append(path+i+"/RM48.c")
-            l.append(path+i+"/RM48.h")
-    print(l)
+
     return l
 extensions = [
     Extension("PyBoltz.Townsend.CollisionFrequencyCalc", returnPyxFiles("PyBoltz/Townsend/CollisionFrequencyCalc/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/']),

@@ -59,7 +59,7 @@ setup(
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyBoltz': 'PyBoltz'},
     package_data={  # Optional
-        'PyBoltz': returnPxdFiles("./PyBoltz/") +returnPxdFiles("./PyBoltz/Townsend/Monte/"),
+        'PyBoltz': returnPxdFiles("./PyBoltz/"),
         'PyBoltz/Monte': returnPxdFiles("PyBoltz/Monte/"),
         'PyBoltz/Townsend/Monte': returnPxdFiles("PyBoltz/Townsend/Monte/"),
         'PyBoltz/Townsend/Friedland': returnPxdFiles("PyBoltz/Townsend/Friedland/"),

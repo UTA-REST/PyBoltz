@@ -1,3 +1,3 @@
-from PyBoltz.Townsend.PulsedTownsend import SST
+from PyBoltz.Townsend.SteadyStateTownsend import SST
 
 __all__=['SST']

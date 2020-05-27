@@ -7,6 +7,8 @@ from PyGasMix.Gasmix cimport Gasmix
 cdef double drand48(double dummy)
 
 cdef class Boltz:
+    cpdef GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion)
+    
     cdef public:
         double EFieldOverBField
         '''This is a constant that is equal to the electric field / magentic field * 1e-9.'''

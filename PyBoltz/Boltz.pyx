@@ -5,8 +5,8 @@ from libc.string cimport memset
 import Setups
 import Mixers
 import EnergyLimits
-from MonteFuncs import *
-from Townsend import *
+from PyBoltz.MonteFuncs import *
+from PyBoltz.Townsend import *
 from PyGasMix.Gasmix cimport Gasmix
 
 
@@ -296,7 +296,7 @@ cdef class Boltz:
             else:
                 ELimFunc = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = MONTEC
-        return [MixerFunc, ELimFunc, MonteCarlosFunc, TownsendFunc]
+        return [MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc]
 
     def SetExtraParameters(self, params):
         self.MixObject.ExtraParameters = params

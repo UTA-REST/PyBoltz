@@ -1,2 +1,2 @@
-from PyBoltz import PyBoltz
 from PyBoltz cimport PyBoltz
+cimport PyBoltz

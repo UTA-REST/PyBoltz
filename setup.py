@@ -32,10 +32,6 @@ def makeExtensions(path):
                     moduleFiles.append(root+'/'+(file.split('.')[0]+'.pxd'))
                 pathWithFile = root+'/'+file.split('.')[0]
                 moduleName = pathWithFile.replace('/','.')
-                moduleName = moduleName.replace('PyBoltz.','')
-                moduleName = moduleName.replace('PyBoltz','')
-                if moduleName =='':
-                    moduleName = 'PyBoltz'
                 extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/']))
     return extensions
 extensions = makeExtensions('PyBoltz')

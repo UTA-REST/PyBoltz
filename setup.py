@@ -60,13 +60,13 @@ setup(
     package_dir={'PyBoltz': 'PyBoltz'},
     package_data={  # Optional
         'PyBoltz': returnPxdFiles("./PyBoltz/"),
-        'PyBoltz/MonteFuncs': returnPxdFiles("PyBoltz/MonteFuncs/"),
-        'PyBoltz/Townsend/Monte': returnPxdFiles("PyBoltz/Townsend/Monte/"),
-        'PyBoltz/Townsend/Friedland': returnPxdFiles("PyBoltz/Townsend/Friedland/"),
-        'PyBoltz/Townsend/SteadyStateTownsend': returnPxdFiles("PyBoltz/Townsend/SteadyStateTownsend/"),
-        'PyBoltz/Townsend/TimeOfFlight': returnPxdFiles("PyBoltz/Townsend/TimeOfFlight/"),
-        'PyBoltz/Townsend/PulsedTownsend': returnPxdFiles("PyBoltz/Townsend/PulsedTownsend/"),
-        'PyBoltz/Townsend/CollisionFrequencyCalc': returnPxdFiles("PyBoltz/Townsend/CollisionFrequencyCalc/"),
+        'PyBoltz/MonteFuncs': returnPxdFiles("./PyBoltz/MonteFuncs/"),
+        'PyBoltz/Townsend/Monte': returnPxdFiles("./PyBoltz/Townsend/Monte/"),
+        'PyBoltz/Townsend/Friedland': returnPxdFiles("./PyBoltz/Townsend/Friedland/"),
+        'PyBoltz/Townsend/SteadyStateTownsend': returnPxdFiles("./PyBoltz/Townsend/SteadyStateTownsend/"),
+        'PyBoltz/Townsend/TimeOfFlight': returnPxdFiles("./PyBoltz/Townsend/TimeOfFlight/"),
+        'PyBoltz/Townsend/PulsedTownsend': returnPxdFiles("./PyBoltz/Townsend/PulsedTownsend/"),
+        'PyBoltz/Townsend/CollisionFrequencyCalc': returnPxdFiles("./PyBoltz/Townsend/CollisionFrequencyCalc/"),
 
     },
 

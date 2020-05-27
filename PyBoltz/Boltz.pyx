@@ -257,7 +257,7 @@ cdef class Boltz:
                 self.IonisationColli[I] = <int>self.CollisionsPerGasPerTypeNT[1]
                 self.SuperElasticColli[I] = <int>self.CollisionsPerGasPerTypeNT[4]
 
-    def GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
+    cpdef GetSimFunctions(self, BFieldMag, BFieldAngle, EnableThermalMotion):
         """
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """

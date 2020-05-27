@@ -4,7 +4,7 @@ import os
 import Cython
 import numpy
 from io import open
-
+import glob
 
 def returnPyxFiles(path):
     l = []
@@ -21,7 +21,21 @@ def returnPxdFiles(path):
             l.append(path+i)
     return l
 
-extensions = [
+def makeExtensions(path):
+    extensions = []
+    for root,dirs,files in os.walk(path):
+        for file in files:
+            if file.endswith(".pyx"):
+                moduleFiles = [] 
+                moduleFiles.append(root+'/'+file)
+                if root+'/'+(file.split('.')[0]+'.pxd') in glob.glob(root+"/*.pxd"):
+                    moduleFiles.append(root+'/'+(file.split('.')[0]+'.pxd'))
+                pathWithFile = root+'/'+file.split('.')[0]
+                moduleName = pathWithFile.replace('/','.')
+                extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/']))
+    return extensions
+extensions = makeExtensions('PyBoltz')
+'''[
     Extension("PyBoltz",returnPyxFiles("PyBoltz/"),include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/',os.getcwd()+'/PyBoltz/C/']),
     Extension("PyBoltz.Townsend.Monte", returnPyxFiles("PyBoltz/Townsend/Monte/")+returnPxdFiles("PyBoltz/Townsend/Monte/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/',os.getcwd()+'/PyBoltz/Townsend/Monte/']),
     Extension("PyBoltz.Townsend", returnPyxFiles("PyBoltz/Townsend/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/']),
@@ -31,8 +45,8 @@ extensions = [
     Extension("PyBoltz.Townsend.SteadyStateTownsend", returnPyxFiles("PyBoltz/Townsend/SteadyStateTownsend/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/']),
     Extension("PyBoltz.Townsend.Friedland", returnPyxFiles("PyBoltz/Townsend/Friedland/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/']),
     Extension("PyBoltz.Monte",returnPyxFiles("PyBoltz/Monte/"),include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/']),
-]
-print(returnPyxFiles("PyBoltz/Townsend/Monte/")+returnPxdFiles("PyBoltz/Townsend/Monte/"))
+]'''
+#print(returnPyxFiles("PyBoltz/Townsend/Monte/")+returnPxdFiles("PyBoltz/Townsend/Monte/"))
 setup(
     setup_requires=[
         'cython>=0.2',

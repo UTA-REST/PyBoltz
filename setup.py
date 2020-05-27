@@ -34,7 +34,7 @@ def makeExtensions(path):
                 moduleName = pathWithFile.replace('/','.')
                 extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/',os.getcwd()+'/PyBoltz/C/']))
     return extensions
-extensions = makeExtensions('PyBoltz_P')
+extensions = makeExtensions('PyBoltz')
 '''[
     Extension("PyBoltz",returnPyxFiles("PyBoltz/"),include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/',os.getcwd()+'/PyBoltz/C/']),
     Extension("PyBoltz.Townsend.Monte", returnPyxFiles("PyBoltz/Townsend/Monte/")+returnPxdFiles("PyBoltz/Townsend/Monte/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/',os.getcwd()+'/PyBoltz/Townsend/Monte/']),
@@ -52,21 +52,21 @@ setup(
         'cython>=0.2',
     ],
     zip_safe=False,
-    name='PyBoltz_P',  # Required
-    packages=['PyBoltz_P'],
+    name='PyBoltz',  # Required
+    packages=['PyBoltz'],
 
     version='1.1.0',  # Required
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
-    package_dir={'PyBoltz_P': 'PyBoltz_P'},
+    package_dir={'PyBoltz': 'PyBoltz'},
     package_data={  # Optional
-        'PyBoltz_P': returnPxdFiles("./PyBoltz_P/"),
-        'PyBoltz_P/Monte': returnPxdFiles("PyBoltz_P/Monte/"),
-        'PyBoltz_P/Townsend/Monte': returnPxdFiles("PyBoltz_P/Townsend/Monte/"),
-        'PyBoltz_P/Townsend/Friedland': returnPxdFiles("PyBoltz_P/Townsend/Friedland/"),
-        'PyBoltz_P/Townsend/SteadyStateTownsend': returnPxdFiles("PyBoltz_P/Townsend/SteadyStateTownsend/"),
-        'PyBoltz_P/Townsend/TimeOfFlight': returnPxdFiles("PyBoltz_P/Townsend/TimeOfFlight/"),
-        'PyBoltz_P/Townsend/PulsedTownsend': returnPxdFiles("PyBoltz_P/Townsend/PulsedTownsend/"),
-        'PyBoltz_P/Townsend/CollisionFrequencyCalc': returnPxdFiles("PyBoltz_P/Townsend/CollisionFrequencyCalc/"),
+        'PyBoltz': returnPxdFiles("./PyBoltz/"),
+        'PyBoltz/Monte': returnPxdFiles("PyBoltz/Monte/"),
+        'PyBoltz/Townsend/Monte': returnPxdFiles("PyBoltz/Townsend/Monte/"),
+        'PyBoltz/Townsend/Friedland': returnPxdFiles("PyBoltz/Townsend/Friedland/"),
+        'PyBoltz/Townsend/SteadyStateTownsend': returnPxdFiles("PyBoltz/Townsend/SteadyStateTownsend/"),
+        'PyBoltz/Townsend/TimeOfFlight': returnPxdFiles("PyBoltz/Townsend/TimeOfFlight/"),
+        'PyBoltz/Townsend/PulsedTownsend': returnPxdFiles("PyBoltz/Townsend/PulsedTownsend/"),
+        'PyBoltz/Townsend/CollisionFrequencyCalc': returnPxdFiles("PyBoltz/Townsend/CollisionFrequencyCalc/"),
 
     },
 

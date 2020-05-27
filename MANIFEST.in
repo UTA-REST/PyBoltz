@@ -1,5 +1,5 @@
-recursive-include PyBoltz_P/ *.pxd *.pyx *.py *.c *.h
-recursive-include PyBoltz_P/Monte *.pxd *.pyx *.py *.c *.h
-recursive-include PyBoltz_P/C *.pxd *.pyx *.py *.c *.h
-recursive-include PyBoltz_P/Townsend *.pxd *.pyx *.py *.c *.h
-recursive-include PyBoltz_P/Townsend/Monte *.pxd *.pyx *.py *.c *.h
+recursive-include PyBoltz/ *.pxd *.pyx *.py *.c *.h
+recursive-include PyBoltz/Monte *.pxd *.pyx *.py *.c *.h
+recursive-include PyBoltz/C *.pxd *.pyx *.py *.c *.h
+recursive-include PyBoltz/Townsend *.pxd *.pyx *.py *.c *.h
+recursive-include PyBoltz/Townsend/Monte *.pxd *.pyx *.py *.c *.h

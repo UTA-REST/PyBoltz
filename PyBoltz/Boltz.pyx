@@ -300,7 +300,7 @@ cdef class Boltz:
 
     def SetExtraParameters(self, params):
         self.MixObject.ExtraParameters = params
-    def Start(self):
+    cpdef Start(self):
         """
         This is the main function that starts the magboltz simulation/calculation.
         The simulation starts by calculating the momentum cross section values for the requested gas mixture. If FinalElectronEnergy

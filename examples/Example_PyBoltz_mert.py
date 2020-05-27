@@ -5,7 +5,7 @@ import time
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 print(sys.path)
-from PyBoltz.PyBoltz import PyBoltz
+from PyBoltz.Boltz import Boltz
 import numpy as np
 # Setup gases
 
@@ -32,7 +32,7 @@ GASES = [np.nan, 'CF4', 'ARGON', 'HELIUM4', 'HELIUM3', 'NEON', 'KRYPTON', 'XENON
          , 'ISOBUTANE', 'CO2', np.nan, 'H2O', 'OXYGEN', 'NITROGEN', np.nan, np.nan, np.nan, np.nan
          , 'HYDROGEN', 'DEUTERIUM', np.nan, np.nan, 'DME']
 
-Object = PyBoltz()
+Object = Boltz()
 
 import time
 t1 =time.time()

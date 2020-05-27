@@ -58,7 +58,7 @@ extensions = [
     Extension("*", ["Townsend/Friedland/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*", ["Townsend/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*", ["Townsend/Monte/*.pyx"], include_dirs=[numpy.get_include(), '.']),
-    Extension("*",["Monte/*.pyx"],include_dirs=[numpy.get_include(),'.']),
+    Extension("*",["MonteFuncs/*.pyx"],include_dirs=[numpy.get_include(),'.']),
     Extension("*",["*.pyx"],include_dirs=[numpy.get_include(),'.'])
 ]
 setup(ext_modules=cythonize(extensions))

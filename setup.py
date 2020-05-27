@@ -60,7 +60,7 @@ setup(
     package_dir={'PyBoltz': 'PyBoltz'},
     package_data={  # Optional
         'PyBoltz': returnPxdFiles("./PyBoltz/"),
-        'PyBoltz/Monte': returnPxdFiles("PyBoltz/Monte/"),
+        'PyBoltz/MonteFuncs': returnPxdFiles("PyBoltz/MonteFuncs/"),
         'PyBoltz/Townsend/Monte': returnPxdFiles("PyBoltz/Townsend/Monte/"),
         'PyBoltz/Townsend/Friedland': returnPxdFiles("PyBoltz/Townsend/Friedland/"),
         'PyBoltz/Townsend/SteadyStateTownsend': returnPxdFiles("PyBoltz/Townsend/SteadyStateTownsend/"),

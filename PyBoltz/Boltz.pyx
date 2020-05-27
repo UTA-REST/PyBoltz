@@ -5,8 +5,8 @@ from libc.string cimport memset
 import Setups
 import Mixers
 import EnergyLimits
-import MonteFuncs
-import Townsend
+from MonteFuncs import *
+from Townsend import *
 from PyGasMix.Gasmix cimport Gasmix
 
 
@@ -262,41 +262,41 @@ cdef class Boltz:
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """
         ELimFunc = EnergyLimits.EnergyLimit
-        MonteCarloFunc = MonteFuncs.MONTE
-        TownsendFunc = Townsend.ALPCALCT
+        MonteCarloFunc = MONTE
+        TownsendFunc = ALPCALCT
         if (self.Enable_Thermal_Motion != 0):
             MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
                 self.BFieldMode = 1
                 ELimFunc = EnergyLimits.EnergyLimitT
-                MonteCarloFunc = MonteFuncs.MONTET
+                MonteCarloFunc = MONTET
             elif BFieldAngle == 0 or BFieldAngle == 180:
                 self.BFieldMode = 2
                 ELimFunc = EnergyLimits.EnergyLimitT
-                MonteCarloFunc = MonteFuncs.MONTET
+                MonteCarloFunc = MONTET
             elif BFieldAngle == 90:
                 ELimFunc = EnergyLimits.EnergyLimitBT
-                MonteCarloFunc = MonteFuncs.MONTEBT
+                MonteCarloFunc = MONTEBT
             else:
                 ELimFunc = EnergyLimits.EnergyLimitCT
-                MonteCarloFunc = MonteFuncs.MONTECT
+                MonteCarloFunc = MONTECT
         else:
             MixerFunc = Mixers.Mixer
             if BFieldMag == 0:
                 self.BFieldMode = 1
                 ELimFunc = EnergyLimits.EnergyLimit
-                MonteCarloFunc = MonteFuncs.MONTE
+                MonteCarloFunc = MONTE
             elif BFieldAngle == 0 or BFieldAngle == 180:
                 self.BFieldMode = 2
                 ELimFunc = EnergyLimits.EnergyLimit
-                MonteCarloFunc = MonteFuncs.MONTE
+                MonteCarloFunc = MONTE
             elif BFieldAngle == 90:
                 ELimFunc = EnergyLimits.EnergyLimitB
-                MonteCarloFunc = MonteFuncs.MONTEB
+                MonteCarloFunc = MONTEB
             else:
                 ELimFunc = EnergyLimits.EnergyLimitC
-                MonteCarloFunc = MonteFuncs.MONTEC
-        return [MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc]
+                MonteCarloFunc = MONTEC
+        return [MixerFunc, ELimFunc, MonteCarlosFunc, TownsendFunc]
 
     def SetExtraParameters(self, params):
         self.MixObject.ExtraParameters = params

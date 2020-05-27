@@ -1,10 +1,10 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 import sys
 import cython
 cimport numpy as np
 import  numpy as np
 
-cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
+cdef long long MBSort(int I, double R2, int IE,Boltz Object):
     """
     This function selects collision type from collision array by binary step sampling reduces sampling range to within 4 
     positions in array output =  i ( position within 4 of correct value).
@@ -36,7 +36,7 @@ cdef long long MBSort(int I, double R2, int IE,PyBoltz Object):
     return I - 1
 
 
-cdef long long MBSortT(int GasIndex, int I, double R2, int IE,PyBoltz Object):
+cdef long long MBSortT(int GasIndex, int I, double R2, int IE,Boltz Object):
     """
     This function selects collision type from collision array by binary step sampling reduces sampling range to within 4 
     positions in array output =  i ( position within 4 of correct value).

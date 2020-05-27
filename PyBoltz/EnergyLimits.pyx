@@ -1,8 +1,8 @@
 from __future__ import print_function
 
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 import cython
-from PyBoltz cimport drand48
+from Boltz cimport drand48
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset
@@ -47,17 +47,17 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimit(PyBoltz Object):
+cpdef EnergyLimit(Boltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.FinalEnergy value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher FinalEnergy value.
+    Object.FinalEnergy value it will set self.IELOW to 1 which would get the Boltz object to try a higher FinalEnergy value.
     This function is used when there is no magnetic field. 
 
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     
     Electric field in z direction.
 
-    The object parameter is the PyBoltz object to be setup and used in the simulation.
+    The object parameter is the Boltz object to be setup and used in the simulation.
     """
 
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE, INTEM
@@ -203,13 +203,13 @@ cpdef EnergyLimit(PyBoltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitB(PyBoltz Object):
+cpdef EnergyLimitB(Boltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.FinalEnergy value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher FinalEnergy value.
+    Object.FinalEnergy value it will set self.IELOW to 1 which would get the Boltz object to try a higher FinalEnergy value.
     This function is used when the magnetic field angle is 90 degrees to the electric field. 
 
-    The object parameter is the PyBoltz object to be setup and used in the simulation.
+    The object parameter is the Boltz object to be setup and used in the simulation.
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
@@ -373,13 +373,13 @@ cpdef EnergyLimitB(PyBoltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitBT(PyBoltz Object):
+cpdef EnergyLimitBT(Boltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.FinalEnergy value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher FinalEnergy value.
+    Object.FinalEnergy value it will set self.IELOW to 1 which would get the Boltz object to try a higher FinalEnergy value.
     This function is used when the magnetic field angle is 90 degrees to the electric field. 
 
-    The object parameter is the PyBoltz object to be setup and used in the simulation.
+    The object parameter is the Boltz object to be setup and used in the simulation.
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
@@ -560,12 +560,12 @@ cpdef EnergyLimitBT(PyBoltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitC(PyBoltz Object):
+cpdef EnergyLimitC(Boltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.FinalEnergy value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher FinalEnergy value.
+    Object.FinalEnergy value it will set self.IELOW to 1 which would get the Boltz object to try a higher FinalEnergy value.
     
-    The object parameter is the PyBoltz object to be setup and used in the simulation.
+    The object parameter is the Boltz object to be setup and used in the simulation.
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
@@ -724,12 +724,12 @@ cpdef EnergyLimitC(PyBoltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitCT(PyBoltz Object):
+cpdef EnergyLimitCT(Boltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.FinalEnergy value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher FinalEnergy value. 
+    Object.FinalEnergy value it will set self.IELOW to 1 which would get the Boltz object to try a higher FinalEnergy value. 
     
-    The object parameter is the PyBoltz object to be setup and used in the simulation.
+    The object parameter is the Boltz object to be setup and used in the simulation.
     
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     """
@@ -921,17 +921,17 @@ cpdef EnergyLimitCT(PyBoltz Object):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef EnergyLimitT(PyBoltz Object):
+cpdef EnergyLimitT(Boltz Object):
     """
     This function is used to calculate the upper electron energy limit by simulating the collisions. If it crosses the 
-    Object.FinalEnergy value it will set self.IELOW to 1 which would get the PyBoltz object to try a higher FinalEnergy value.
+    Object.FinalEnergy value it will set self.IELOW to 1 which would get the Boltz object to try a higher FinalEnergy value.
     This function is used when there is no magnetic field. 
 
     The test is carried out for a sample of collisions that are smaller than the full sample by a factor of 1/isamp
     
     Electric field in z direction.
 
-    The object parameter is the PyBoltz object to be setup and used in the simulation.
+    The object parameter is the Boltz object to be setup and used in the simulation.
     """
     cdef long long I, ISAMP, N4000, IMBPT, J1, GasIndex, IE
     cdef double SMALL, RandomSeed, E1, TDASH, CONST9, CONST10, DirCosineZ1, DirCosineX1, DirCosineY1,AP, BP, F1, F2, F4, J2M, R5, Test1, R1, T,  E, CONST6, DirCosineX2, DirCosineY2, DirCosineZ2, R2,

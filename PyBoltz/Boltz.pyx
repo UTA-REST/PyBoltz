@@ -25,7 +25,7 @@ cdef double drand48(double dummy):
 cdef void setSeed(int seed):
     RM48IN(seed, 0, 0)
     return
-cdef class PyBoltz:
+cdef class Boltz:
     """
     This is the main object used to start the simulation, as well as store the information of the simulation.
     It has most of the needed arrays, and variables.
@@ -308,10 +308,10 @@ cdef class PyBoltz:
         The simulation starts by calculating the momentum cross section values for the requested gas mixture. If FinalElectronEnergy
         is equal to 0.0 it will then keep calling the EnergyLimit functions and the Mixer functions to find the electron
         Integration limit.
-        Finally PyBoltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
+        Finally Boltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
         in the the parent object of this function.
         For more info on the main output variables check the git repository readme:
-        `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
+        `Boltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
         """
         setSeed(self.Random_Seed)
         ELimNotYetFixed = 1

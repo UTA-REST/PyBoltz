@@ -1,5 +1,5 @@
 import numpy as np
-from PyBoltz import PyBoltz
+from Boltz import Boltz
 
 #Data type to store results with uncertainties
 # Initialized with val and % error
@@ -128,7 +128,7 @@ class PyBoltzRun:
     # Run PyBoltz with chosen settings
     def Run(self,MySettings):
         '''Function used to run the PyBoltz simulation. Note that the PBSettings dictionary needs to be set up.'''
-        MBObject = PyBoltz()
+        MBObject = Boltz()
         Status=self.ProcessInputs(MBObject,MySettings)
         if(Status):
             MBObject.Start()

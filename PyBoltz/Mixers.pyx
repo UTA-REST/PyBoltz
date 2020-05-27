@@ -1,4 +1,4 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt
 from PyGasMix.Gasmix cimport Gasmix
 from Ang cimport Ang
@@ -9,12 +9,12 @@ import cython
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cpdef Mixer(PyBoltz object):
+cpdef Mixer(Boltz object):
     """
-    This function sets up the given PyBoltz object with the right values for the requested gas mixture. It uses the Gasmix object
+    This function sets up the given Boltz object with the right values for the requested gas mixture. It uses the Gasmix object
     to get the momentum cross sections and all the needed values.
 
-    The object parameter is the PyBoltz object to be setup.
+    The object parameter is the Boltz object to be setup.
     """
     cdef double AttachmentCrossSection[6][4000], ElectronCharge, JHI, JLOW, EnergyHigh, F2, BP, EnergyLow
     cdef int  iEnergy, GasIndex, iProcess, p, sum, J, i, j, iIonizaton, JJ, IL, I
@@ -377,12 +377,12 @@ cpdef Mixer(PyBoltz object):
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.nonecheck(False)
-cpdef MixerT(PyBoltz object):
+cpdef MixerT(Boltz object):
     """
-    This function sets up the given PyBoltz object with the right values for the requested gas mixture. It uses the Gasmix object
+    This function sets up the given Boltz object with the right values for the requested gas mixture. It uses the Gasmix object
     to get the momentum cross sections and all the needed values.
 
-    The object parameter is the PyBoltz object to be setup.
+    The object parameter is the Boltz object to be setup.
     """
     cdef double AttachmentCrossSection[6][4000]
     cdef int  iEnergy, GasIndex, iProcess, p, sum, J, i, j, iIonizaton, JJ, IL, I

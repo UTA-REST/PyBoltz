@@ -1,7 +1,7 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from libc.string cimport memset
-from PyBoltz cimport drand48
+from Boltz cimport drand48
 from MBSorts cimport MBSortT
 from libc.stdlib cimport malloc, free
 from MonteVars cimport MonteVars
@@ -32,7 +32,7 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
         RandomMaxBoltzArray[J] = sqrt(-1 * log(Ran1)) * cos(Ran2 * TwoPi)
         RandomMaxBoltzArray[J + 1] = sqrt(-1 * log(Ran1)) * sin(Ran2 * TwoPi)
 # Function used to start a new primary electron
-cdef int NewPrimary(PyBoltz Object, MonteVars*MV):
+cdef int NewPrimary(Boltz Object, MonteVars*MV):
     '''
     :param Object: 
     :param MV: 
@@ -72,7 +72,7 @@ cdef int NewPrimary(PyBoltz Object, MonteVars*MV):
 
     return 1
 
-cdef void NewElectron(PyBoltz Object, MonteVars*MV):
+cdef void NewElectron(Boltz Object, MonteVars*MV):
     '''
     Simple function used to zero out the TDash value for the new electron, and to add one to the counter of 
     simulated electrons. This is where the TimeStop is calculated (much simpler than the steady state simulation since
@@ -86,7 +86,7 @@ cdef void NewElectron(PyBoltz Object, MonteVars*MV):
     MV.TimeStop = Object.TimeStep + MV.IPlane * Object.TimeStep
 
 # Function used to bin the simulation results for each plane.
-cdef void TimePlanesUpdate(PyBoltz Object, MonteVars*MV):
+cdef void TimePlanesUpdate(Boltz Object, MonteVars*MV):
     cdef double CurrentTime, TimeLeft, A, B, EPlane, VelocityRatio, TimeLeft2, DirCosineZ2
     cdef double XPlane, YPlane, ZPlane, VZPlane
     # Get the time the electron needs to get to this plane
@@ -137,7 +137,7 @@ cdef void TimePlanesUpdate(PyBoltz Object, MonteVars*MV):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz Object, int ConsoleOuput):
+cpdef run(Boltz Object, int ConsoleOuput):
     '''
     Main function to simulate the primary and secondary electrons going through the 7 sequential time planes.
     :param Object: 
@@ -162,7 +162,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
     else:
         MV.NumberOfMaxColli = <int> Object.MaxNumberOfCollisions
 
-    # Zero out the variables used check out PyBoltz.pxd and MonteVars.pxd for more details.
+    # Zero out the variables used check out Boltz.pxd and MonteVars.pxd for more details.
     MV.ID = 0
     MV.I100 = 0
     MV.NumberOfCollision = 0

@@ -1,7 +1,7 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from libc.string cimport memset
-from PyBoltz cimport drand48
+from Boltz cimport drand48
 from MBSorts cimport MBSortT
 from libc.stdlib cimport malloc, free
 from MonteVars cimport MonteVars
@@ -21,7 +21,7 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef void TCALCT(PyBoltz Object, MonteVars*MV):
+cdef void TCALCT(Boltz Object, MonteVars*MV):
     '''
     :param Object: 
     :param MV: 
@@ -123,7 +123,7 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
         RandomMaxBoltzArray[J + 1] = sqrt(-1 * log(Ran1)) * sin(Ran2 * TwoPi)
 
 # Function used to start a new primary electron
-cdef int NewPrimary(PyBoltz Object, MonteVars*MV):
+cdef int NewPrimary(Boltz Object, MonteVars*MV):
     '''
     
     :param Object: 
@@ -169,7 +169,7 @@ cdef int NewPrimary(PyBoltz Object, MonteVars*MV):
     return 1
 
 
-cdef void NewElectron(PyBoltz Object, MonteVars*MV):
+cdef void NewElectron(Boltz Object, MonteVars*MV):
     '''
     Simple function used to zero out the TDash value for the new electron, and to add one to the counter of 
     simulated electrons.
@@ -181,7 +181,7 @@ cdef void NewElectron(PyBoltz Object, MonteVars*MV):
     MV.NumberOfElectron += 1
 
 # Function used to bin the simulation results for each plane.
-cdef void SpacePlaneUpdate(PyBoltz Object, MonteVars*MV):
+cdef void SpacePlaneUpdate(Boltz Object, MonteVars*MV):
     cdef double CurrentTime, TimeLeft, A, B, EPlane, VelocityRatio, TimeLeft2, DirCosineZ2
     cdef double XPlane, YPlane, ZPlane, VZPlane, WGHT, RPlane
 
@@ -251,7 +251,7 @@ cdef void SpacePlaneUpdate(PyBoltz Object, MonteVars*MV):
     Object.STS2Planes[MV.IPlane] += WGHT * WGHT
 
 
-cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
+cdef int TimeCalculations(Boltz Object, MonteVars*MV):
     '''
     Function used to try to find the right TimeStop values for the elctrons, and control whether a new electron is 
     needed. This happens if the electron crossed the final plane, or if it is a run-away electron.
@@ -349,7 +349,7 @@ cdef int TimeCalculations(PyBoltz Object, MonteVars*MV):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz Object, int ConsoleOuput):
+cpdef run(Boltz Object, int ConsoleOuput):
     '''
     Main function to simulate the primary and secondary electrons going through the 8 sequential space planes.
     :param Object: 
@@ -410,7 +410,7 @@ cpdef run(PyBoltz Object, int ConsoleOuput):
         Object.NumberOfElectronSST[J] = 0.0
 
 
-    # Zero out the simulation variables to be able to start. (check MonteVars.pxd and PyBoltz.pxd or the documentation
+    # Zero out the simulation variables to be able to start. (check MonteVars.pxd and Boltz.pxd or the documentation
     # for explanation of each variable here).
     Object.NumberOfElectronSST[9] = 0.0
     MV.ID = 0

@@ -1,4 +1,4 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport acos, sqrt
 cimport numpy as np
 import  numpy as np
@@ -9,11 +9,11 @@ import cython
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef Setup(PyBoltz object):
+cpdef Setup(Boltz object):
     """
-    This function sets up the given PyBoltz object. It fills the values of the main constants. 
+    This function sets up the given Boltz object. It fills the values of the main constants. 
     
-    The object parameter is the PyBoltz object to be setup.
+    The object parameter is the Boltz object to be setup.
     """
     cdef double TwoPi,  ElectronCharge, ElectronMass, AMU, BoltzmannConst_eV, BoltzmannConst_eVJ, MassOverChargeDivTen, ALOSCH,  ZeroCelcius, OneAtmosphere, TotFrac
     cdef long long IH,  i

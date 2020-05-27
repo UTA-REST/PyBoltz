@@ -1,7 +1,7 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
-from PyBoltz cimport drand48
+from Boltz cimport drand48
 from MBSorts cimport MBSortT
 from libc.stdlib cimport malloc, free
 import numpy as np
@@ -33,7 +33,7 @@ cdef void GenerateMaxBoltz(double RandomSeed, double *RandomMaxBoltzArray):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz Object):
+cpdef run(Boltz Object):
     """
     This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at TotalCollFreqIncludingNull =  TotalCollFreqIncludingNulleratureCentigrade.
 
@@ -41,7 +41,7 @@ cpdef run(PyBoltz Object):
     
     Electric field in z direction.
 
-    The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
+    The object parameter is the Boltz object to have the output results and to be used in the simulation.
     """
 
     Object.VelocityX = 0.0

@@ -1,8 +1,8 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
 
-from PyBoltz cimport drand48
+from Boltz cimport drand48
 from MBSorts cimport MBSort
 
 import Monte
@@ -31,7 +31,7 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz Object):
+cpdef run(Boltz Object):
     Object.VelocityZ *= 1e5
     cdef double NetReducedRate, NetRate, TimeCutHigh, TimeCutLow, SpaceCutHighZ, SpaceCutLowZ, Alpha, NewAlpha
     cdef double StartingAlpha, ErrStartingAlpha, StartingNetAttachment, ErrStartingNetAttachment, StartingNetReducedRate

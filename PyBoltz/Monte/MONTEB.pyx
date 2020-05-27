@@ -1,7 +1,7 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt,pow
 from libc.string cimport memset
-from PyBoltz cimport drand48
+from Boltz cimport drand48
 from MBSorts cimport MBSort
 from libc.stdlib cimport malloc, free
 import cython
@@ -20,13 +20,13 @@ cdef double random_uniform(double dummy):
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz Object):
+cpdef run(Boltz Object):
     """
     This function is used to calculates collision events and updates diffusion and velocity.Background gas motion included at temp =  TemperatureCentigrade.
 
     This function is used when the magnetic field is perpendicular to the electric field in the z direction.    
     
-    The object parameter is the PyBoltz object to have the output results and to be used in the simulation.
+    The object parameter is the Boltz object to have the output results and to be used in the simulation.
     """
     cdef long long I, NumDecorLengths, NumCollisions, IEXTRA, IMBPT, K, J, iCollisionM, iSample, iCollision, GasIndex, IE, IT, CollsToLookBack, IPT, iCorr,DecorDistance
     cdef double ST1, RandomSeed,ST2, SumE2, SumXX, SumYY, SumZZ, SumVX, SumVY, Z_LastSample, ST_LastSample, ST1_LastSample, ST2_LastSample, SumZZ_LastSample, SumXX_LastSample, SumYY_LastSample, SVX_LastSample, SVY_LastSample, SME2_LastSample, TDash

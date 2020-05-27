@@ -1,8 +1,8 @@
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 
 
-cpdef run(PyBoltz Object):
+cpdef run(Boltz Object):
     '''
     Calculate the distribution function using Friedland technique, J.Friedland Physics of Fluids 20(1461)1977
     Use distribution function to calculate average energy ionisation rate and attachment rate

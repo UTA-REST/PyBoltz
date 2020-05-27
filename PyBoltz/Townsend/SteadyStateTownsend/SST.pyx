@@ -1,7 +1,7 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from libc.string cimport memset
-from PyBoltz cimport drand48
+from Boltz cimport drand48
 from libc.stdlib cimport malloc, free
 import cython
 from Townsend.CollisionFrequencyCalc import COLF
@@ -14,7 +14,7 @@ import sys
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cpdef run(PyBoltz Object, int ConsoleOuput):
+cpdef run(Boltz Object, int ConsoleOuput):
     cdef int JPrint, K = 0
     cdef double Energy[9], VelocitySvz[9], WSSST[9], DiffusionX[9], DiffusionY[9], WTEMP[9], DiffusionRadialXY[9]
     cdef double ALFNE[9], ALFNJ[9], ALFN[9], ZSST[9], DLSST[9], DRSS1[9], DRSS2[9], DRSS3[9], ALFEX1[9], NEPL[9]

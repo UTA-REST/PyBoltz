@@ -1,1 +1,1 @@
-__all__=['PyBoltz','Ang','EnergyLimits','MBSorts','OdieRun','PyBoltzRun','Setups']
+__all__=['Boltz','Ang','EnergyLimits','MBSorts','OdieRun','PyBoltzRun','Setups']

@@ -1,7 +1,7 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 
-cpdef run(PyBoltz Object, int ConsoleOuput):
+cpdef run(Boltz Object, int ConsoleOuput):
     # Pulsed Townsend calculations
     cdef double NumberOfElecPlanes[9]
     # At plane 0 the # of Ionisations is equal to the number of primaries.

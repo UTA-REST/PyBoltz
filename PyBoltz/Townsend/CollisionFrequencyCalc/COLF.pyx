@@ -1,6 +1,6 @@
-from PyBoltz cimport PyBoltz
+from Boltz cimport Boltz
 
-cpdef run(PyBoltz Object):
+cpdef run(Boltz Object):
     # Calculate the frequency for the different types of collisions
     cdef int NumberOfInelasticColli, NumberOfElasticColli, NumberOfAttachmentColli, NumberOfIonisationColli,NumberOfRealColli
     cdef double FrequencyOfRealColli,  FrequencyOfElasticColli,  FrequencyOfIonisationColli,  FrequencyOfAttachmentColli,  FrequencyOfInelasticColli

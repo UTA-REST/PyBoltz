@@ -5,7 +5,7 @@ from libc.string cimport memset
 import Setups
 import Mixers
 import EnergyLimits
-from MonteFuncs cimport *
+from MonteFuncs import *
 from PyBoltz.Townsend import *
 from PyGasMix.Gasmix cimport Gasmix
 

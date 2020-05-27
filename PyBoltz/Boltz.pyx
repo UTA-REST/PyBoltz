@@ -5,8 +5,8 @@ from libc.string cimport memset
 import Setups
 import Mixers
 import EnergyLimits
-import PyBoltz.MonteFuncs
-import PyBoltz.Townsend
+import MonteFuncs
+import Townsend
 cimport MonteFuncs
 cimport Townsend
 from MonteFuncs cimport MONTE,MONTET,MONTEB,MONTEBT,MONTEC,MONTECT

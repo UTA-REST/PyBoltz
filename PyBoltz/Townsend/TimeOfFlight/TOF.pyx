@@ -1,7 +1,8 @@
-from Townsend.CollisionFrequencyCalc import COLF
-from Townsend.CollisionFrequencyCalc import COLFT
+from PyBoltz.Townsend.CollisionFrequencyCalc import COLF
+from PyBoltz.Townsend.CollisionFrequencyCalc import COLFT
+
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
-from Boltz cimport Boltz
+from PyBoltz.Boltz cimport Boltz
 
 cpdef run(Boltz Object, int ConsoleOuput):
     cdef double FrequencyOfRealColli, FrequencyOfElasticColli, FrequencyOfIonisationColli, FrequencyOfAttachmentColli, FrequencyOfInelasticColli, TotalSumOfColli

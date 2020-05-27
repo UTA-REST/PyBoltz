@@ -1,4 +1,4 @@
-from Boltz cimport Boltz
+from PyBoltz.Boltz cimport Boltz
 
 cpdef run(Boltz Object):
     # Calculate the frequency for the different types of collisions

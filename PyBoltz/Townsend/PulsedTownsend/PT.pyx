@@ -1,4 +1,4 @@
-from Boltz cimport Boltz
+from PyBoltz.Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 
 cpdef run(Boltz Object, int ConsoleOuput):

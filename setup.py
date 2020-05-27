@@ -17,7 +17,7 @@ def returnPyxFiles(path):
 def returnPxdFiles(path):
     l = []
     for i in os.listdir(path):
-        if i.endswith(".pxd"):
+        if i.endswith(".pxd") or i.endswith(".c"):
             l.append(path+i)
     return l
 
@@ -32,7 +32,7 @@ def makeExtensions(path):
                     moduleFiles.append(root+'/'+(file.split('.')[0]+'.pxd'))
                 pathWithFile = root+'/'+file.split('.')[0]
                 moduleName = pathWithFile.replace('/','.')
-                extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/',os.getcwd()+'/PyBoltz/C/']))
+                extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),'./PyBoltz/','./PyBoltz/C/']))
     return extensions
 extensions = makeExtensions('PyBoltz')
 '''[
@@ -46,6 +46,7 @@ extensions = makeExtensions('PyBoltz')
     Extension("PyBoltz.Townsend.Friedland", returnPyxFiles("PyBoltz/Townsend/Friedland/"), include_dirs=[numpy.get_include(), os.getcwd()+'/PyBoltz/']),
     Extension("PyBoltz.Monte",returnPyxFiles("PyBoltz/Monte/"),include_dirs=[numpy.get_include(),os.getcwd()+'/PyBoltz/']),
 ]'''
+
 #print(returnPyxFiles("PyBoltz/Townsend/Monte/")+returnPxdFiles("PyBoltz/Townsend/Monte/"))
 setup(
     setup_requires=[

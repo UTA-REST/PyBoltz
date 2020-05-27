@@ -1,8 +1,8 @@
-from Boltz cimport Boltz
+from PyBoltz.Boltz cimport Boltz
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
-from Boltz cimport drand48
-from MBSorts cimport MBSortT
+from PyBoltz.Boltz cimport drand48
+from PyBoltz.MBSorts cimport MBSortT
 import numpy as np
 cimport numpy as np
 from libc.stdlib cimport malloc, free

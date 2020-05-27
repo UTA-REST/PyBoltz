@@ -7,8 +7,6 @@ import Mixers
 import EnergyLimits
 import Monte
 import Townsend
-from Townsend import *
-from Monte import *
 from PyGasMix.Gasmix cimport Gasmix
 
 

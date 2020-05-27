@@ -6,7 +6,7 @@ import Setups
 import Mixers
 import EnergyLimits
 from MonteFuncs cimport *
-from PyBoltz.Townsend import *
+from Townsend cimport *
 from PyGasMix.Gasmix cimport Gasmix
 
 

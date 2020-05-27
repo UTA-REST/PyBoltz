@@ -5,8 +5,10 @@ from libc.string cimport memset
 import Setups
 import Mixers
 import EnergyLimits
-from PyBoltz.Townsend import *
-from PyBoltz.Monte import *
+import Monte
+import Townsend
+from Townsend import *
+from Monte import *
 from PyGasMix.Gasmix cimport Gasmix
 
 
@@ -27,14 +29,10 @@ cdef class PyBoltz:
     """
     This is the main object used to start the simulation, as well as store the information of the simulation.
     It has most of the needed arrays, and variables.
-
     More about Magboltz:
-
     `Magboltz_Documentation <http://cyclo.mit.edu/drift/www/aboutMagboltz.html/>`_
-
     .. note::
         If the variable has a "NT" at the end, that variable has the same function as its counterpart without a "NT" at the end.
-
     """
 
     def __init__(self):
@@ -122,7 +120,7 @@ cdef class PyBoltz:
         self.Decor_Step = 0
         self.Decor_Lookbacks = 0
 
-        # Calculated Constants 
+        # Calculated Constants
         self.CONST1 = 0.0
         self.CONST2 = 0.0
         self.CONST3 = 0.0
@@ -266,40 +264,40 @@ cdef class PyBoltz:
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """
         ELimFunc = EnergyLimits.EnergyLimit
-        MonteCarloFunc = MONTE
-        TownsendFunc = ALPCALCT
+        MonteCarloFunc = Monte.MONTE
+        TownsendFunc = Townsend.ALPCALCT
         if (self.Enable_Thermal_Motion != 0):
             MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
                 self.BFieldMode = 1
                 ELimFunc = EnergyLimits.EnergyLimitT
-                MonteCarloFunc = MONTET
+                MonteCarloFunc = Monte.MONTET
             elif BFieldAngle == 0 or BFieldAngle == 180:
                 self.BFieldMode = 2
                 ELimFunc = EnergyLimits.EnergyLimitT
-                MonteCarloFunc = MONTET
+                MonteCarloFunc = Monte.MONTET
             elif BFieldAngle == 90:
                 ELimFunc = EnergyLimits.EnergyLimitBT
-                MonteCarloFunc = MONTEBT
+                MonteCarloFunc = Monte.MONTEBT
             else:
                 ELimFunc = EnergyLimits.EnergyLimitCT
-                MonteCarloFunc = MONTECT
+                MonteCarloFunc = Monte.MONTECT
         else:
             MixerFunc = Mixers.Mixer
             if BFieldMag == 0:
                 self.BFieldMode = 1
                 ELimFunc = EnergyLimits.EnergyLimit
-                MonteCarloFunc = MONTE
+                MonteCarloFunc = Monte.MONTE
             elif BFieldAngle == 0 or BFieldAngle == 180:
                 self.BFieldMode = 2
                 ELimFunc = EnergyLimits.EnergyLimit
-                MonteCarloFunc = MONTE
+                MonteCarloFunc = Monte.MONTE
             elif BFieldAngle == 90:
                 ELimFunc = EnergyLimits.EnergyLimitB
-                MonteCarloFunc = MONTEB
+                MonteCarloFunc = Monte.MONTEB
             else:
                 ELimFunc = EnergyLimits.EnergyLimitC
-                MonteCarloFunc = MONTEC
+                MonteCarloFunc = Monte.MONTEC
         return [MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc]
 
     def SetExtraParameters(self, params):
@@ -307,14 +305,11 @@ cdef class PyBoltz:
     def Start(self):
         """
         This is the main function that starts the magboltz simulation/calculation.
-
         The simulation starts by calculating the momentum cross section values for the requested gas mixture. If FinalElectronEnergy
         is equal to 0.0 it will then keep calling the EnergyLimit functions and the Mixer functions to find the electron
         Integration limit.
-
         Finally PyBoltz calls the Monte carlo functions, which is where the main simulation happens. The outputs are stored
         in the the parent object of this function.
-
         For more info on the main output variables check the git repository readme:
         `PyBoltz repository <https://github.com/UTA-REST/MAGBOLTZ-py/>`_
         """

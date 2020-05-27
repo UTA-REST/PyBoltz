@@ -5,12 +5,16 @@ from libc.string cimport memset
 from PyBoltz cimport drand48
 from MBSorts cimport MBSort
 
-
-from PyBoltz.Townsend.Monte import *
-from PyBoltz.Townsend.PulsedTownsend import *
-from PyBoltz.Townsend.TimeOfFlight import *
-from PyBoltz.Townsend.SteadyStateTownsend import *
-from PyBoltz.Townsend.Friedland import *
+import Monte
+import SteadyStateTownsend
+import PulsedTownsend
+import TimeOfFlight
+import Friedland
+from Monte import *
+from Townsend.PulsedTownsend import *
+from Townsend.TimeOfFlight import *
+from Townsend.SteadyStateTownsend import *
+from Townsend.Friedland import *
 from libc.stdlib cimport malloc, free
 import cython
 import numpy as np
@@ -95,9 +99,9 @@ cpdef run(PyBoltz Object):
         Object.NumberOfTimeSteps = 7
 
         # Calculate good starting values for ionisation and attachment rates
-        MONTEFTT.run(Object, 0)
-        PT.run(Object, 0)
-        TOF.run(Object, 0)
+        Monte.MONTEFTT.run(Object, 0)
+        PulsedTownsend.PT.run(Object, 0)
+        TimeOfFlight.TOF.run(Object, 0)
 
         StartingAlpha = (Object.ReducedAlphaTOF / Object.VelocityTOF) * 1e7
         ErrStartingAlpha = (Object.ReducedAlphaTOFErr * StartingAlpha / 100)
@@ -161,8 +165,8 @@ cpdef run(PyBoltz Object):
     print("Solution for Steady State Townsend parameters")
     print("Space step between sampling planes = {} Microns".format(Object.SpaceStepZ * 1e6))
 
-    MONTEFDT.run(Object, 1)
-    SST.run(Object, 1)
+    Monte.MONTEFDT.run(Object, 1)
+    SteadyStateTownsend.SST.run(Object, 1)
 
     Object.ALPHA = Object.AlphaSST
     Object.ALPER = Object.AlphaSSTErr
@@ -186,10 +190,10 @@ cpdef run(PyBoltz Object):
     print("\n\nSolution for Pulsed Townsend and Time of flight parameters")
     print("Time step between sampling planes = {} picoseconds".format(Object.TimeStep))
 
-    MONTEFTT.run(Object, 1)
-    FRIEDLANDT.run(Object)
-    PT.run(Object, 1)
-    TOF.run(Object, 1)
+    Monte.MONTEFTT.run(Object, 1)
+    Friedland.FRIEDLANDT.run(Object)
+    PulsedTownsend.PT.run(Object, 1)
+    TimeOfFlight.TOF.run(Object, 1)
 
     print("\nPulsedTownsend ionisation and attachment rates *10**12/sec:")
     print("Alpha = {:^5.4f} +- {:^2.1f} %   ATT = {:^5.4f} +- {:^2.1f} %".format(Object.ReducedAlphaTOF, Object.ReducedAlphaTOFErr,

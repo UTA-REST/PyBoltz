@@ -4,8 +4,8 @@ from libc.string cimport memset
 from PyBoltz cimport drand48
 from libc.stdlib cimport malloc, free
 import cython
-from PyBoltz.Townsend.CollisionFrequencyCalc import COLF
-from PyBoltz.Townsend.CollisionFrequencyCalc import COLFT
+from Townsend.CollisionFrequencyCalc import COLF
+from Townsend.CollisionFrequencyCalc import COLFT
 import numpy as np
 cimport numpy as np
 import sys

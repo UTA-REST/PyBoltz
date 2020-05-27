@@ -1,5 +1,5 @@
-from PyBoltz.Townsend.CollisionFrequencyCalc import COLF
-from PyBoltz.Townsend.CollisionFrequencyCalc import COLFT
+from Townsend.CollisionFrequencyCalc import COLF
+from Townsend.CollisionFrequencyCalc import COLFT
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow, tan, atan
 from PyBoltz cimport PyBoltz
 

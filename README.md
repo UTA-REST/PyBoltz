@@ -19,7 +19,7 @@ To be able to run this project you will need python3+, cython, and numpy install
 For simple running purposes, one can simply install PyBoltz using the following command. **Note: This method needs a new version of PIP.**
 
 ```
-python -m pip install --upgrade  git+https://github.com/UTA-REST/PyBoltz.git --user
+python3 -m pip install --upgrade  git+https://github.com/UTA-REST/PyBoltz.git --user
 ```
 
 ### Second method.
@@ -32,7 +32,7 @@ Start off by simply cloning this repository.
 Before building the code make sure to run the following command to install the PyGasMix module.
 
 ```
-$ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/GasMix --user
+$ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/PyGasMix --user
 ```
 
 **Notice** If you are planning to develop upon the Gasmix module as well, you should be installing the PyGasMix module by following the steps in the repository link below. (steps detailed in the readme).

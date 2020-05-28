@@ -57,11 +57,10 @@ def makeExtensions(path):
             if file.endswith(".pyx"):
                 moduleFiles = []
                 moduleFiles.append(root+'/'+file)
-                pathWithFile = root + '/' +file.split('.')[0]
+                pathWithFile = root+'/'+file.split('.')[0]
                 moduleName = pathWithFile.replace('/','.')
-                extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),'./','./C/']))
+                extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),'./PyBoltz/','./PyBoltz/C/']))
     return extensions
-
 extensions = makeExtensions('PyBoltz')
 print(extensions)
 '''extensions = [

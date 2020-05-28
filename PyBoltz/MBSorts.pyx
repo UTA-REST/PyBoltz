@@ -1,4 +1,4 @@
-from PyBoltz.Boltz cimport Boltz
+from Boltz cimport Boltz
 import sys
 import cython
 cimport numpy as np

@@ -1,5 +1,5 @@
 import numpy as np
-from PyBoltz.Boltz import Boltz
+from Boltz import Boltz
 
 #Data type to store results with uncertainties
 # Initialized with val and % error

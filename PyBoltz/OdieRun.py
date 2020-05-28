@@ -1,8 +1,8 @@
 import json
 import time
 import numpy as np
-from PyBoltz.Boltz import Boltz
-from PyBoltz.PyBoltzRun import PBRes
+from Boltz import Boltz
+from PyBoltzRun import PBRes
 
 
 class OdieRun:

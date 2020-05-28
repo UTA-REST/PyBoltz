@@ -2,9 +2,9 @@ import math
 
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow
 from libc.string cimport memset
-import PyBoltz.Setups
-import PyBoltz.Mixers
-import PyBoltz.EnergyLimits
+import Setups
+import Mixers
+import EnergyLimits
 import PyBoltz.MonteFuncs
 import PyBoltz.Townsend
 cimport PyBoltz.MonteFuncs
@@ -265,40 +265,40 @@ cdef class Boltz:
         """
         This function picks which sim functions to use, depending on applied fields and thermal motion.
         """
-        ELimFunc = PyBoltz.EnergyLimits.EnergyLimit
+        ELimFunc = EnergyLimits.EnergyLimit
         MonteCarloFunc = PyBoltz.MonteFuncs.MONTE
         TownsendFunc = PyBoltz.Townsend.ALPCALCT
         if (self.Enable_Thermal_Motion != 0):
-            MixerFunc = PyBoltz.Mixers.MixerT
+            MixerFunc = Mixers.MixerT
             if BFieldMag == 0:
                 self.BFieldMode = 1
-                ELimFunc = PyBoltz.EnergyLimits.EnergyLimitT
+                ELimFunc = EnergyLimits.EnergyLimitT
                 MonteCarloFunc = PyBoltz.MonteFuncs.MONTET
             elif BFieldAngle == 0 or BFieldAngle == 180:
                 self.BFieldMode = 2
-                ELimFunc = PyBoltz.EnergyLimits.EnergyLimitT
+                ELimFunc = EnergyLimits.EnergyLimitT
                 MonteCarloFunc = PyBoltz.MonteFuncs.MONTET
             elif BFieldAngle == 90:
-                ELimFunc = PyBoltz.EnergyLimits.EnergyLimitBT
+                ELimFunc = EnergyLimits.EnergyLimitBT
                 MonteCarloFunc = PyBoltz.MonteFuncs.MONTEBT
             else:
-                ELimFunc = PyBoltz.EnergyLimits.EnergyLimitCT
+                ELimFunc = EnergyLimits.EnergyLimitCT
                 MonteCarloFunc = PyBoltz.MonteFuncs.MONTECT
         else:
-            MixerFunc = PyBoltz.Mixers.Mixer
+            MixerFunc = Mixers.Mixer
             if BFieldMag == 0:
                 self.BFieldMode = 1
-                ELimFunc = PyBoltz.EnergyLimits.EnergyLimit
+                ELimFunc = EnergyLimits.EnergyLimit
                 MonteCarloFunc = PyBoltz.MonteFuncs.MONTE
             elif BFieldAngle == 0 or BFieldAngle == 180:
                 self.BFieldMode = 2
-                ELimFunc = PyBoltz.EnergyLimits.EnergyLimit
+                ELimFunc = EnergyLimits.EnergyLimit
                 MonteCarloFunc = PyBoltz.MonteFuncs.MONTE
             elif BFieldAngle == 90:
-                ELimFunc = PyBoltz.EnergyLimits.EnergyLimitB
+                ELimFunc = EnergyLimits.EnergyLimitB
                 MonteCarloFunc = PyBoltz.MonteFuncs.MONTEB
             else:
-                ELimFunc = PyBoltz.EnergyLimits.EnergyLimitC
+                ELimFunc = EnergyLimits.EnergyLimitC
                 MonteCarloFunc = PyBoltz.MonteFuncs.MONTEC
         return [MixerFunc, ELimFunc, MonteCarloFunc, TownsendFunc]
 
@@ -326,7 +326,7 @@ cdef class Boltz:
                                                                                  self.Enable_Thermal_Motion)
 
         # Set up the simulation
-        PyBoltz.Setups.Setup(self)
+        Setups.Setup(self)
 
         # Find the electron upper energy limit
         if self.Max_Electron_Energy == 0.0:

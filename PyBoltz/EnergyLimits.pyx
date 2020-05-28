@@ -1,8 +1,8 @@
 from __future__ import print_function
 
-from PyBoltz.Boltz cimport Boltz
+from Boltz cimport Boltz
 import cython
-from PyBoltz.Boltz cimport drand48
+from Boltz cimport drand48
 from libc.math cimport sin, cos, acos, asin, log, sqrt, pow,log10
 from libc.stdlib cimport malloc, free
 from libc.string cimport memset

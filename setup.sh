@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # setup the enviorment
 temp="/PyBoltz/"
-export PYTHONPATH=$PYTHONPATH:$PWD$temp
-export PATH=$PATH:$PWD$temp
+export PYTHONPATH=$PYTHONPATH:$PWD
+export PATH=$PATH:$PWD
 echo $PYTHONPATH
 
 # build the code

@@ -16,7 +16,7 @@ Cython's static typing improves the speed of python code by about a hundred time
 To be able to run this project you will need python3+, cython, and numpy installed. Our setup has python 3.6.7, Cython 0.29.3, and numpy 1.16.1. 
 
 ### First method.
-For simple running purposes, one can simple run the following command. 
+For simple running purposes, one can simply install PyBoltz using the following command. 
 ```
 python -m pip install --upgrade  git+https://github.com/UTA-REST/PyBoltz.git --user
 ```
@@ -34,8 +34,9 @@ Before building the code make sure to run the following command to install the P
 $ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/GasMix --user
 ```
 
-**Notice** If you are planning to develop upon the Gasmix module as well, you should be installing the PyGasMix module by following the steps in the following repository link (steps detailed in the readme).
+**Notice** If you are planning to develop upon the Gasmix module as well, you should be installing the PyGasMix module by following the steps in the repository link below. (steps detailed in the readme).
 [PyGasMix](https://github.com/UTA-REST/GasMix).
+
 
 #### Building.
 Finally, to build the code, run the following command. This should compile all of the Cython files and add the path of the repository directory to your PYTHONPATH so you can access the libraries from anywhere. This will take a few minutes the first time.

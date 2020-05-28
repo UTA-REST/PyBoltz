@@ -16,7 +16,7 @@ Cython's static typing improves the speed of python code by about a hundred time
 To be able to run this project you will need python3+, cython, and numpy installed. Our setup has python 3.6.7, Cython 0.29.3, and numpy 1.16.1. 
 
 ### First method.
-For simple running purposes, one can simply install PyBoltz using the following command. **Needs a new version of PIP**
+For simple running purposes, one can simply install PyBoltz using the following command. **Note: This method needs a new version of PIP.**
 
 ```
 python -m pip install --upgrade  git+https://github.com/UTA-REST/PyBoltz.git --user

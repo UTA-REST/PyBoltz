@@ -1,4 +1,4 @@
-from Boltz cimport Boltz
+from PyBoltz.Boltz cimport Boltz
 from libc.math cimport acos, sqrt
 cimport numpy as np
 import  numpy as np

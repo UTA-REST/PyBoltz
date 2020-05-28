@@ -31,6 +31,7 @@ import os
 from Cython.Build import cythonize
 
 import Cython
+import glob
 import numpy
 from io import open
 
@@ -49,8 +50,21 @@ def returnPxdFiles(path):
         if i.endswith(".pxd"):
             l.append(path+i)
     return l
+def makeExtensions(path):
+    extensions = []
+    for root,dirs,files in os.walk(path):
+        for file in files:
+            if file.endswith(".pyx"):
+                moduleFiles = []
+                moduleFiles.append(root+'/'+file)
+                pathWithFile = root + '/' +file.split('.')[0]
+                moduleName = pathWithFile.replace('/','.')
+                extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),'./','./C/']))
+    return extensions
 
-extensions = [
+extensions = makeExtensions('PyBoltz')
+print(extensions)
+'''extensions = [
     Extension("*", ["Townsend/CollisionFrequencyCalc/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*", ["Townsend/PulsedTownsend/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*", ["Townsend/TimeOfFlight/*.pyx"], include_dirs=[numpy.get_include(), '.']),
@@ -60,5 +74,5 @@ extensions = [
     Extension("*", ["Townsend/Monte/*.pyx"], include_dirs=[numpy.get_include(), '.']),
     Extension("*",["MonteFuncs/*.pyx"],include_dirs=[numpy.get_include(),'.']),
     Extension("*",["*.pyx"],include_dirs=[numpy.get_include(),'.'])
-]
+]'''
 setup(ext_modules=cythonize(extensions))

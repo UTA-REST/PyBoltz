@@ -1,7 +1,7 @@
 import json
 import time
 import numpy as np
-from Boltz import Boltz
+from PyBoltz.Boltz import Boltz
 from PyBoltzRun import PBRes
 
 

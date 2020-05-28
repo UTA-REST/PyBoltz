@@ -170,7 +170,7 @@ class OdieRun:
         return (lor_angle, lor_error)
 
     def Run(self, InputSettings=None, JSONFileName=None, PrintSettings=False):
-        MBObject = PyBoltz()
+        MBObject = Boltz()
 
         if JSONFileName:
             with open(JSONFileName, 'r') as File:

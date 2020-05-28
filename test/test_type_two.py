@@ -6,7 +6,7 @@ from PyBoltzTestData import TestData
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 # print(sys.path)
-from PyBoltz import PyBoltz
+from PyBoltz.Boltz import Boltz
 import numpy as np
 from tables import *
 
@@ -18,7 +18,7 @@ def test_type_two():
         TN = 'T'+str(ITest)
         if D[TN + '/type'] == 2:
 
-            Object = PyBoltz()
+            Object = Boltz()
             # Set the number of gases
             Object.NumberOfGases = D[TN +'/Input/NumberOfGases']
             # Set the number of collisons
@@ -48,7 +48,7 @@ def test_type_two():
 
             Trans1 = Object.TransverseDiffusion
 
-            Object = PyBoltz()
+            Object = Boltz()
             # Set the number of gases
             Object.NumberOfGases = D[TN + '/Input/NumberOfGases']
             # Set the number of collisons

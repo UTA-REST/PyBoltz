@@ -15,17 +15,33 @@ Cython's static typing improves the speed of python code by about a hundred time
 ### Setting up.
 To be able to run this project you will need python3+, cython, and numpy installed. Our setup has python 3.6.7, Cython 0.29.3, and numpy 1.16.1. 
 
-### Gasmix module.
+### First method.
+For simple running purposes, one can simply install PyBoltz using the following command. **Note: This method needs a new version of PIP.**
+
+```
+python3 -m pip install --upgrade  git+https://github.com/UTA-REST/PyBoltz.git --user
+```
+
+### Second method.
+For developing purposes, follow the steps below.
+
+#### Cloning.
+Start off by simply cloning this repository. 
+
+#### Gasmix module.
 Before building the code make sure to run the following command to install the PyGasMix module.
 
 ```
-$ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/GasMix --user
+$ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/PyGasMix --user
 ```
-For more information about the PyGasMix module check the following repository.
+
+**Notice** If you are planning to develop upon the Gasmix module as well, you should be installing the PyGasMix module by following the steps in the repository link below. (steps detailed in the readme).
 [PyGasMix](https://github.com/UTA-REST/GasMix).
 
-### Building.
-To build the code clone this project and run the following command in the Cython directory. This should compile all of the Cython and add the path to your PYTHONPATH so you can access the libraries from anywhere. This will take a few minutes the first time.
+
+#### Building.
+Finally, to build the code, run the following command. This should compile all of the Cython files and add the path of the repository directory to your PYTHONPATH so you can access the libraries from anywhere. This will take a few minutes the first time.
+
 ```
 $ source setup.sh
 ```

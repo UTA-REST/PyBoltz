@@ -6,7 +6,7 @@ from ArXePlusAnything import *
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 # print(sys.path)
-from PyBoltz import PyBoltz
+from PyBoltz.Boltz import Boltz
 import numpy as np
 from tables import *
 
@@ -23,7 +23,7 @@ def test_ArCH4_90_10():
 
     Trans = ap.root.CH4["10.0"].Trans[5]
     TransE = ap.root.CH4["10.0"].TransE[5] * Trans
-    Object = PyBoltz()
+    Object = Boltz()
     # Set the number of gases
     Object.NumberOfGases = 2
     # Set the number of collisons

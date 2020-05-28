@@ -2,7 +2,7 @@ import numpy as np
 import pylab
 import time
 from pathlib import Path
-from PyBoltzRun import *
+from PyBoltz.PyBoltzRun import *
 
 # Set up helper object
 PBRun=PyBoltzRun()

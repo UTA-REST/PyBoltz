@@ -1,5 +1,5 @@
 import time
-from OdieRun import *
+from PyBoltz.OdieRun import *
 
 print("")
 print("PyBoltz, adapted by B. Al. Atoum, A.D. McDonald, and B.J.P. Jones")

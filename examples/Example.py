@@ -7,6 +7,12 @@ from PyBoltz.PyBoltzRun import *
 # Set up helper object
 PBRun=PyBoltzRun()
 
+# Need more outputs than in the original PyBoltzRun class
+def OutputsAddition(Boltz,Output):
+    # find different variables in the PyBoltz doccumentation site.
+    Output['ElasticCollisionCount'] = Boltz.ElasticColli
+    return  Output
+
 # Show list of available gases
 print("")
 print("PyBoltz, adapted by B. Al. Atoum, A.D. McDonald, and B.J.P. Jones")
@@ -56,8 +62,9 @@ for E in EFields:
     print("Running with E Field " +str(E))
 
     MySettings['EField_Vcm']=E
-    
-    Output=PBRun.Run(MySettings)
+
+    # Can also use PBRun.Run(MySettings)
+    Output=PBRun.Run(MySettings,OutputsAddition)
 
     DriftVels.append(Output['Drift_vel'].val[2])
     DriftVels_err.append(Output['Drift_vel'].err[2])
@@ -73,6 +80,9 @@ for E in EFields:
 
     DL1s.append(Output['DL'].val)
     DL1s_err.append(Output['DL'].err)
+    # This line won't work with PBRun.Run(MySettings)
+    print(Output['ElasticCollisionCount'])
+    print(Output['GasFractions'])
 t2=time.time()
 
 print('time taken' +str(t2-t1))

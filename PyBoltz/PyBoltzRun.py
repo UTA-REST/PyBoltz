@@ -122,6 +122,17 @@ class PyBoltzRun:
                        [MBObject.ErrorDiffusionXY, MBObject.ErrorDiffusionY, MBObject.ErrorDiffusionYZ],
                        [MBObject.ErrorDiffusionXZ, MBObject.ErrorDiffusionYZ, MBObject.ErrorDiffusionZ]]
         Outputs['DTensor']       = PBRes(np.array(DTensor), np.array(DTensorErr))
+        Outputs['GasFractions'] = MBObject.GasFractions
+        Outputs['PressureTorr'] = MBObject.Pressure_Torr
+        Outputs['EField'] = MBObject.EField
+
+        Outputs['IonisationRate'] = MBObject.IonisationRate
+
+        Outputs['AttachmentRate'] = MBObject.AttachmentRate
+
+        Outputs['IonisationRateSST'] = PBRes(MBObject.ALPHA,MBObject.ALPER)
+        Outputs['AttachmentRateSST'] = PBRes(MBObject.ATT,MBObject.ATTER)
+        Outputs['IonisationRatePT'] = MBObject.ALPTEST
 
         return Outputs
 
@@ -133,4 +144,16 @@ class PyBoltzRun:
         if(Status):
             MBObject.Start()
         Outputs = self.ProcessOutputs(MBObject)
+        return Outputs
+
+    # Run PyBoltz with chosen settings and a function for adding more outputs than the standerd ones
+    def Run(self,MySettings, Func):
+        '''Function used to run the PyBoltz simulation. Note that the PBSettings dictionary needs to be set up.'''
+        MBObject = Boltz()
+        Status=self.ProcessInputs(MBObject,MySettings)
+        if(Status):
+            MBObject.Start()
+        Outputs = self.ProcessOutputs(MBObject)
+
+        Outputs = Func(MBObject,Outputs)
         return Outputs

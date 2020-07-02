@@ -138,8 +138,12 @@ class OdieRun:
             [MBObject.ErrorDiffusionXZ, MBObject.ErrorDiffusionYZ, MBObject.ErrorDiffusionZ]
         ]
         Outputs['DTensor'] = PBRes(np.array(DTensor), np.array(DTensorErr))
+
         Outputs['AttachmentRate'] = PBRes(MBObject.AttachmentRate, MBObject.AttachmentRateError)
         Outputs['IonisationRate'] = PBRes(MBObject.IonisationRate, MBObject.IonisationRateError)
+        Outputs['AttachmentSST'] = PBRes(MBObject.AttachmentSST, MBObject.AttachmentSSTErr)
+        Outputs['IonisationSST'] = PBRes(MBObject.AlphaSST, MBObject.AlphaSSTErr)
+        Outputs['Crossed_SST'] = MBObject.Crossed_SST
 
         lor_angle, lor_error = self.CalcLorentzAngle(MBObject)
         Outputs['LorentzAngle'] = PBRes(lor_angle, lor_error)
@@ -427,9 +431,16 @@ class OdieRun:
                     dt = Output['DT1'].val * SQRTP * 1E-4
 
                     #Yes, alpha and alpha0 are supposed to be the same value.
-                    alpha = Output['IonisationRate'].val
+                    alpha  = Output['IonisationRate'].val
                     alpha0 = Output['IonisationRate'].val
-                    eta = Output['AttachmentRate'].val
+                    eta    = Output['AttachmentRate'].val
+
+                    #If the steady state threshold was crossed, use the SST calculation of the ionisation
+                    #and attachment coefficients as the default values.
+                    if Output['Crossed_SST'] is True:
+                        alpha  = Output['IonisationSST'].val
+                        alpha0 = Output['IonisationSST'].val
+                        eta    = Output['AttachmentSST'].val
 
                     #If the coefficients are zero, set to -30 as a sufficiently small power; log(-30) is basically zero.
                     #Otherwise store the logarithm of the reduced coefficients.

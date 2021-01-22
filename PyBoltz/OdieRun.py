@@ -4,7 +4,6 @@ import numpy as np
 from PyBoltz.Boltz import Boltz
 from PyBoltz.PyBoltzRun import PBRes
 
-
 class OdieRun:
     '''Class to run PyBoltz and provide output for the Garfield++ package'''
 
@@ -29,9 +28,10 @@ class OdieRun:
     }
 
     Gases = [
-        np.nan, 'CF4', 'ARGON', 'HELIUM4', 'HELIUM3', 'NEON', 'KRYPTON', 'XENON', 'CH4', 'ETHANE',
-        'PROPANE', 'ISOBUTANE', 'CO2', np.nan, 'H2O', 'OXYGEN', 'NITROGEN', np.nan, np.nan, np.nan,
-        np.nan, 'HYDROGEN', 'DEUTERIUM', np.nan, np.nan, 'DME'
+        [], ['CF4'], ['ARGON', 'AR'], ['HELIUM4', 'HE4'], ['HELIUM3', 'HE3'], ['NEON', 'NE'],
+        ['KRYPTON', 'KR'], ['XENON', 'XE'], ['METHANE', 'CH4'], ['ETHANE', 'C2H6'], ['PROPANE', 'C3H8'],
+        ['ISOBUTANE', 'C4H10'], ['CO2'], [], ['WATER', 'H2O'], ['OXYGEN', 'O2'], ['NITROGEN', 'N2'],
+        [], [], [], [], ['HYDROGEN', 'H2'], ['DEUTERIUM', 'D2'], [], [], ['DME']
     ]
 
     GridSettings = {
@@ -51,11 +51,13 @@ class OdieRun:
 
     def ListGases(self):
         for idx, gas in enumerate(self.Gases):
-            if type(gas) is str:
+            if gas:
                 print("{} {}".format(idx, gas))
 
     def GasCode(self, GasName):
-        return self.Gases.index(GasName)
+        for idx, names in enumerate(self.Gases):
+            if GasName.upper() in names:
+                return idx
 
     def GasName(self, Code):
         return Gases[Code]
@@ -109,7 +111,8 @@ class OdieRun:
         MBObject.Num_Samples = Inputs['NumSamples']
 
         if PrintSettings:
-            print(Inputs)
+            print("Simulation settings...")
+            print(json.dumps(Inputs, indent=4))
 
         return True
 

@@ -13,7 +13,7 @@ To cite PyBoltz, and for more information:
 ```
 Electron transport in gaseous detectors with a Python-based Monte Carlo simulation code
 B. Al Atoum et al, Comp Phys Comm 254 (2020) 107357
-[link](https://www.sciencedirect.com/science/article/abs/pii/S0010465520301533)
+https://www.sciencedirect.com/science/article/abs/pii/S0010465520301533
 ```
 
 ### About Magboltz.

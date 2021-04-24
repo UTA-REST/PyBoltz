@@ -246,11 +246,11 @@ cdef class Boltz:
             self.VelocityY *= 1e-5
             self.VelocityX *= 1e-5
 
-            self.ReducedIonization = self.IonisationRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
-            self.ReducedIonizationErr = self.IonisationRateError * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
+            self.ReducedIonization = self.IonisationRate /( 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15))
+            self.ReducedIonizationErr = self.IonisationRateError /( 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15))
 
-            self.ReducedAttachment = self.AttachmentRate * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
-            self.ReducedAttachmentErr = self.AttachmentRateError * 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15)
+            self.ReducedAttachment = self.AttachmentRate /( 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15))
+            self.ReducedAttachmentErr = self.AttachmentRateError /( 760 * self.TemperatureKelvin / (self.Pressure_Torr * 293.15))
 
 
         # The different counters for collision types.

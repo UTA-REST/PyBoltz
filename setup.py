@@ -50,13 +50,13 @@ extensions = makeExtensions('PyBoltz')
 #print(returnPyxFiles("PyBoltz/Townsend/Monte/")+returnPxdFiles("PyBoltz/Townsend/Monte/"))
 setup(
     setup_requires=[
-        'cython>=0.2',
+        'cython>=3.0',
     ],
     zip_safe=False,
     name='PyBoltz',  # Required
     packages=['PyBoltz'],
 
-    version='1.1.0',  # Required
+    version='1.1.1',  # Required
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyBoltz': 'PyBoltz'},
     package_data={  # Optional
@@ -71,7 +71,7 @@ setup(
 
     },
 
-    install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.2.0'],  # Optional
+    install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.2.1'],  # Optional
     include_package_data = True,
     ext_modules = extensions,
     cmdclass={'build_ext': build_ext},

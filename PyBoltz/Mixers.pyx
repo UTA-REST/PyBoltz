@@ -669,7 +669,7 @@ cpdef MixerT(Boltz object):
                                                                             iEnergy] + \
                                                                         object.NullCollisionFreq[GasIndex][iEnergy][IL]
                 if object.NullCollisionFreq[GasIndex][iEnergy][IL] < 0:
-                    print "WARNING NEGATIVE NULL COLLISION FREQUENCY"
+                    print ("WARNING NEGATIVE NULL COLLISION FREQUENCY")
             for IL in range(int(object.NumMomCrossSectionPointsNull[GasIndex])):
                 if object.TotalCollisionFrequencyNull[GasIndex][iEnergy] == 0:
                     object.NullCollisionFreq[GasIndex][iEnergy][IL] = 0.0

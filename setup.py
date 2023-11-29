@@ -1,6 +1,8 @@
 from setuptools import setup, Extension
 from setuptools import find_namespace_packages
 from Cython.Distutils import build_ext
+from Cython.Build import cythonize
+
 import os
 import Cython
 import numpy
@@ -52,6 +54,9 @@ extensions = makeExtensions('PyBoltz')
 setup(
     setup_requires=[
         'cython>=3.0',
+        'numpy',
+        'wheel',
+        'setuptools',
     ],
     zip_safe=False,
     name='PyBoltz',  # Required
@@ -74,7 +79,7 @@ setup(
 
     install_requires=['numpy','cython','PyGasMix @ git+https://github.com/ilkerparmaksiz/PyGasMix.git@develop#egg=PyGasMix-1.2.1'],  # Optional
     include_package_data = True,
-    ext_modules = extensions,
+    ext_modules = cythonize(extensions),
     cmdclass={'build_ext': build_ext},
 )
 

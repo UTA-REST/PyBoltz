@@ -1,7 +1,6 @@
 from setuptools import setup, Extension
 from setuptools import find_namespace_packages
 from Cython.Distutils import build_ext
-from Cython.Build import cythonize
 
 import os
 import Cython
@@ -31,8 +30,8 @@ def makeExtensions(path):
             if file.endswith(".pyx"):
                 moduleFiles = [] 
                 moduleFiles.append(root+'/'+file)
-                if root+'/'+(file.split('.')[0]+'.pxd') in glob.glob(root+"/*.pxd"):
-                    moduleFiles.append(root+'/'+(file.split('.')[0]+'.pxd'))
+                #if root+'/'+(file.split('.')[0]+'.pxd') in glob.glob(root+"/*.pxd"):
+                    #moduleFiles.append(root+'/'+(file.split('.')[0]+'.pxd'))
                 pathWithFile = root+'/'+file.split('.')[0]
                 moduleName = pathWithFile.replace('/','.')
                 extensions.append(Extension(moduleName,moduleFiles,include_dirs=[numpy.get_include(),'./PyBoltz/','./PyBoltz/C/']))
@@ -55,8 +54,6 @@ setup(
     setup_requires=[
         'cython>=3.0',
         'numpy',
-        'wheel',
-        'setuptools',
     ],
     zip_safe=False,
     name='PyBoltz',  # Required
@@ -79,7 +76,7 @@ setup(
 
     install_requires=['numpy','cython','PyGasMix @ git+https://github.com/ilkerparmaksiz/PyGasMix.git@develop#egg=PyGasMix-1.2.1'],  # Optional
     include_package_data = True,
-    ext_modules = cythonize(extensions),
+    ext_modules = extensions,
     cmdclass={'build_ext': build_ext},
 )
 

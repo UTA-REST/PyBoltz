@@ -74,7 +74,7 @@ setup(
 
     },
 
-    install_requires=['numpy','cython','PyGasMix @ git+https://github.com/ilkerparmaksiz/PyGasMix.git@develop#egg=PyGasMix-1.2.1'],  # Optional
+    install_requires=['numpy','cython','PyGasMix @ git+https://github.com/UTA-REST/PyGasMix.git#egg=PyGasMix-1.2.1'],  # Optional
     include_package_data = True,
     ext_modules = extensions,
     cmdclass={'build_ext': build_ext},

@@ -1,6 +1,15 @@
 #include <stdio.h>
-
 #include <stdlib.h>
+/* Undefine complex number macros that conflict with variable names I, J, K */
+#ifdef I
+#undef I
+#endif
+#ifdef J
+#undef J
+#endif
+#ifdef K
+#undef K
+#endif
 double dmod(double x, double y) {
     return x - (int)(x/y) * y;
 }
